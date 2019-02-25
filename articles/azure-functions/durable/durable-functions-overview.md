@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 origin.date: 12/22/2018
-ms.date: 01/16/2019
+ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: e75d6742ef19cf1202ed7c039771eeaf04c6fe8e
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 280ee39829c966238a49c3564c069e98b78552c1
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334220"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665410"
 ---
-# <a name="what-is-durable-functions"></a>什么是 Durable Functions？
+# <a name="what-are-durable-functions"></a>什么是 Durable Functions？
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 的一个扩展，可用于在无服务器环境中编写有状态函数。 该扩展可用于管理状态、检查点和重启。
 

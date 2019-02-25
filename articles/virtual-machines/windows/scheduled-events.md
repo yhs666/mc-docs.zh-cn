@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 486ca612bd31fef4127c22a4d3230b31dcb8ef06
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: d0c888a10a7b9bfa2d1d7692281a4786f09d7a10
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736157"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666277"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
@@ -65,7 +65,7 @@ Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚�
 
 | 版本 | 发布类型 | 区域 | 发行说明 | 
 | - | - | - | - |
-| 2017-08-01 | 正式版 | 全部 | <li> 已从 Iaas VM 的资源名称中删除下划线<br><li>针对所有请求强制执行元数据标头要求 | 
+| 2017-08-01 | 正式版 | 全部 | <li> 已从 IaaS VM 的资源名称中删除前置下划线<br><li>针对所有请求强制执行元数据标头要求 | 
 | 2017-03-01 | 预览 | 全部 |<li>初始版本
 
 > [!NOTE] 
@@ -225,6 +225,7 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>后续步骤 
 
 <!-- Not Available on https://channel9.msdn.com/-->
+
 - 在 [Azure 实例元数据计划事件 GitHub 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看计划事件代码示例
 - 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
 - 了解 [Azure 中 Windows 虚拟机的计划内维护](planned-maintenance.md)。

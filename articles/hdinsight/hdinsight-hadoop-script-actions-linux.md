@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 04/10/2018
-ms.date: 11/19/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: dc32cd95174a5655a97d8c439358eda1494a7a6c
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 814df18e815242c195c8e71c6133c27c80cff411
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569321"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665578"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -44,7 +44,7 @@ ms.locfileid: "53569321"
 
 在针对 HDInsight 群集开发自定义脚本时，有些最佳做法要铭记于心：
 
-* [选择目标 Hadoop 版本](#bPS1)
+* [选择目标 Apache Hadoop 版本](#bPS1)
 * [选择目标 OS 版本](#bps10)
 * [提供指向脚本资源的可靠链接](#bPS2)
 * [使用预编译的资源](#bPS4)
@@ -58,7 +58,7 @@ ms.locfileid: "53569321"
 > [!IMPORTANT]
 > 脚本操作必须在 60 分钟内完成，否则进程将失败。 在节点预配期间，脚本将与其他安装和配置进程一同运行。 争用 CPU 时间和网络带宽等资源可能导致完成脚本所需的时间要长于在开发环境中所需的时间。
 
-### <a name="bPS1"></a>选择目标 Hadoop 版本
+### <a name="bPS1"></a>选择目标 Apache Hadoop 版本
 
 不同版本的 HDInsight 有不同版本的 Hadoop 服务和已安装的组件。 如果脚本需要特定版本的服务或组件，你应该只在包含所需组件的 HDInsight 版本中使用该脚本。 可以使用 [HDInsight 组件版本控制](hdinsight-component-versioning.md)文档来查找 HDInsight 随附组件版本的相关信息。
 
@@ -73,10 +73,10 @@ HDInsight 3.4 和 3.5 的另一个重要区别在于 `JAVA_HOME` 现在能够指
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -135,7 +135,7 @@ fi
 
 ### <a name="bPS6"></a>配置自定义组件以使用 Azure Blob 存储
 
-在群集上安装的组件可能具有使用 Hadoop 分布式文件系统 (HDFS) 存储的默认配置。 HDInsight 使用 Azure 存储作为默认存储。 两者可以提供与 HDFS 兼容的文件系统，即使删除了群集，也能保存数据。 可能需要将安装的组件配置为使用 WASB 或 ADL，而不是 HDFS。
+在群集上安装的组件可能具有使用 Apache Hadoop 分布式文件系统 (HDFS) 存储的默认配置。 HDInsight 使用 Azure 存储作为默认存储。 两者可以提供与 HDFS 兼容的文件系统，即使删除了群集，也能保存数据。 可能需要将安装的组件配置为使用 WASB 或 ADL，而不是 HDFS。
 
 对于大多数操作，不需要指定文件系统。 例如，以下脚本将 giraph-examples.jar 文件从本地文件系统复制到群集存储：
 
@@ -149,8 +149,8 @@ hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
 HDInsight 会记录已写入 STDOUT 和 STDERR 的脚本输出。 可以使用 Ambari Web UI 查看这些信息。
 
-> [!NOTE]
-> 只有在成功创建群集之后，才能使用 Ambari。 如果在群集创建期间使用脚本操作但创建失败，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)的故障排除部分，了解访问已记录信息的其他方式。
+> [!NOTE]  
+> 只有在成功创建群集之后，才能使用 Apache Ambari。 如果在群集创建期间使用脚本操作但创建失败，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)的故障排除部分，了解访问已记录信息的其他方式。
 
 大多数实用工具和安装包已将信息写入 STDOUT 和 STDERR，不过你可能需要添加更多日志记录。 若要将文本发送到 STDOUT，请使用 `echo`。 例如：
 
@@ -164,7 +164,7 @@ echo "Getting ready to install Foo"
 >&2 echo "An error occurred installing Foo"
 ```
 
-这会将写入 STDOUT 的信息改为重定向到 STDERR (2)。 有关 IO 重定向的详细信息，请参阅 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
+这会将写入 STDOUT 的信息改为重定向到 STDERR (2)。 有关 IO 重定向的详细信息，请参阅 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)。
 
 若要详细了解如何查看脚本操作记录的信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -295,10 +295,10 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```
@@ -328,8 +328,8 @@ fi
 Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅以下链接，了解更多示例脚本操作。
 
 * [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)
-* [在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)
-* [在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [在 HDInsight 群集上安装并使用 Apache Solr](hdinsight-hadoop-solr-install-linux.md)
+* [在 HDInsight 群集上安装并使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [在 HDInsight 群集上安装或升级 Mono](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>故障排除

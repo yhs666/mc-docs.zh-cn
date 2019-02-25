@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/17/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5cb5fe450f39b01222c304180e1e4e7540222e87
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5251432d38538a9cf66ab95e694466ecb0dc0ed1
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675168"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665933"
 ---
-# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>详细步骤：创建和管理用于 Azure 中 Linux VM 的身份验证的 SSH 密钥 
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>详细步骤：创建和管理 Azure 中的 Linux VM 用于身份验证的 SSH 密钥 
 使用安全外壳 (SSH) 密钥对，可在 Azure 上创建默认使用 SSH 密钥进行身份验证的 Linux 虚拟机，从而无需密码即可登录。 使用 Azure 门户、Azure CLI、资源管理器模板或其他工具创建的 VM 可在部署中包含 SSH 公钥，为 SSH 连接设置 SSH 密钥身份验证。 
 
 本文提供创建和管理用于 SSH 客户端连接的 SSH RSA 公钥/私钥文件对的详细背景和步骤。 如果想要快捷命令，请参阅[如何创建适用于 Azure 中 Linux VM 的 SSH 公钥/私钥对](mac-create-ssh-keys.md)。
@@ -39,7 +39,7 @@ SSH 私钥应使用非常安全的密码来保护它。 此密码只用于访问
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 密钥的使用和优势
 
-通过指定公钥创建 Azure VM 时，Azure 将公钥（以 `.pub` 格式）复制到 VM 上的 `~/.ssh/authorized_keys` 文件夹。 `~/.ssh/authorized_keys` 中的 SSH 密钥用于在 SSH 登录连接时质询客户端以匹配相应的私钥。 在使用 SSH 密钥进行身份验证的 Azure Linux VM 中，Azure 会将 SSHD 服务器配置为不允许密码登录，仅允许 SSH 密钥登录。 因此，使用 SSH 密钥创建 Azure Linux VM 可确保 VM 部署的安全，不必进行通常在部署完后需要进行的配置步骤（即在 `sshd_config` 文件中禁用密码）。
+通过指定公钥创建 Azure VM 时，Azure 将公钥（以 `.pub` 格式）复制到 VM 上的 `~/.ssh/authorized_keys` 文件夹。 `~/.ssh/authorized_keys` 中的 SSH 密钥用于在 SSH 连接时质询客户端以匹配相应的私钥。 在使用 SSH 密钥进行身份验证的 Azure Linux VM 中，Azure 会将 SSHD 服务器配置为不允许密码登录，仅允许 SSH 密钥登录。 因此，使用 SSH 密钥创建 Azure Linux VM 可确保 VM 部署的安全，不必进行通常在部署完后需要进行的配置步骤（即在 `sshd_config` 文件中禁用密码）。
 
 如果不希望使用 SSH 密钥，可以将 Linux VM 设置为使用密码身份验证。 如果 VM 未向 Internet 公开，使用密码可能已足够。 但是，仍需要管理每台 Linux VM 的密码和维护正常密码策略和做法（如最小密码长度）并定期进行更新。 使用 SSH 密钥可降低跨多台 VM 管理单个凭据的复杂性。
 
@@ -151,7 +151,7 @@ cat ~/.ssh/id_rsa.pub
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-如果将公钥文件的内容复制粘贴到 Azure 门户或资源管理器模板，请确保不会复制额外的空格或添加额外的换行符。 例如，如果使用 macOS，则可将公钥文件（默认为 `~/.ssh/id_rsa.pub`）通过管道传送到 pbcopy，以便复制内容（也可通过其他 Linux 程序执行此类操作，例如 xclip）。
+如果将公钥文件的内容复制粘贴到 Azure 门户或资源管理器模板，请确保不会复制额外的空格或添加额外的换行符。 例如，如果使用 macOS，则可将公钥文件（默认为 `~/.ssh/id_rsa.pub`）通过管道传送到 **pbcopy**，以便复制内容（也可通过其他 Linux 程序执行此类操作，例如 `xclip`）。
 
 如果更愿意使用多行格式的公钥，则可基于之前创建的公钥在 pem 容器中生成 RFC4716 格式的密钥。
 
@@ -172,6 +172,10 @@ ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 如果在创建密钥对时提供的是通行短语，则在登录过程中遇到提示时，请输入该通行短语。 （服务器添加到 `~/.ssh/known_hosts` 文件夹。系统不会要求再次进行连接，除非更改了 Azure VM 上的公钥，或者从 `~/.ssh/known_hosts` 中删除了服务器名称。）
+
+如果 VM 使用的是实时访问策略，则需要先请求访问权限，然后才能连接到 VM。
+
+<!--Not Available on  [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md)-->
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>使用 ssh-agent 来存储私钥密码
 
@@ -230,7 +234,7 @@ Host myvm
 
 可为其他主机添加配置，让每台主机使用其自己的专用密钥对。 查看 [SSH 配置文件](https://www.ssh.com/ssh/config/)获取更多高级配置选项。
 
-创建 SSH 密钥对并配置 SSH 配置文件后，便可以快速安全地登录到 Linux VM。 运行以下命令时，SSH 从 SSH 配置文件的 `Host myvm` 块中找到所有设置并加载它们。
+获得 SSH 密钥对并配置 SSH 配置文件后，便可以快速安全地登录到 Linux VM 了。 运行以下命令时，SSH 从 SSH 配置文件的 `Host myvm` 块中找到所有设置并加载它们。
 
 ```bash
 ssh myvm
@@ -240,11 +244,10 @@ ssh myvm
 
 ## <a name="next-steps"></a>后续步骤
 
-下一步是使用新 SSH 公钥创建 Azure Linux VM。 使用 SSH 公钥作为登录名创建的 Azure VM 可以比使用默认登录方法（即密码）创建的 VM 享受更好的保护。
+下一步是使用新 SSH 公钥创建 Azure Linux VM。 使用 SSH 公钥作为登录名创建的 Azure VM 受到的保护优于使用默认登录方法（即密码）创建的 VM。
 
 * [使用 Azure 门户创建 Linux 虚拟机](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用 Azure CLI 创建 Linux 虚拟机](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用 Azure 模板创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update -->
-

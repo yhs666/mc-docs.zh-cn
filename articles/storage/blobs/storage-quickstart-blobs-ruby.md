@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 11/14/2018
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d6f5c16eb1914685e3d0c9d17ad76dfe0d5e2385
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2837e9f2fe97b1340e1038416985dd9f22e3fd22
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028930"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665426"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入门：使用 Ruby 上传、下载和列出 Blob
 
@@ -27,7 +27,7 @@ ms.locfileid: "53028930"
 请确保已安装下述额外的必备组件：
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* 使用 rubygem 包安装[用于 Ruby 的 Azure 存储库](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)： 
+* 使用 rubygem 包安装[用于 Ruby 的 Azure 存储库](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage)： 
 
     ```
     gem install azure-storage-blob
@@ -193,7 +193,7 @@ File.delete(full_path_to_file2)
 本快速入门介绍了如何使用 Ruby 在本地磁盘和 Azure Blob 存储之间传输文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
-> [Blob 存储操作说明](storage-quickstart-blobs-ruby.md)
+> [Blob 存储操作说明](./storage-ruby-how-to-use-blob-storage.md)
 
 
 若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fstorage%2fblobs%2ftoc.json)。

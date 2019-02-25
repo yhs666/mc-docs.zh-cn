@@ -3,20 +3,20 @@ title: Azure 多重身份验证常见问题解答 | Microsoft Docs
 description: 与 Azure 多重身份验证相关的常见问题与解答。
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 01/21/2019
+ms.date: 02/19/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 7e36a135604f462401f23ae1f5c60ed15518da0c
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: 673fc291181a8551ecef8cef64594c76bc7cd04b
+ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440365"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409408"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 

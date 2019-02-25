@@ -1,26 +1,21 @@
 ---
-title: 使用 Azure 存储分析收集日志和指标数据 | Azure
+title: 使用 Azure 存储分析收集日志和指标数据 | Microsoft Docs
 description: 使用存储分析，可以跟踪所有存储服务的度量值数据，并收集 Blob、队列和表存储的日志。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/03/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: 9effb08b1b37134bedb849b82ed205bfda7fb700
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 4d8c82891c1b27467144868b5c50f8a72cecd279
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657487"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665688"
 ---
 # <a name="storage-analytics"></a>存储分析
 
@@ -49,7 +44,7 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 * 使用共享访问签名 (SAS) 的请求，包括失败和成功的请求。
 * 分析数据的请求。
 
-不会记录存储分析本身发出的请求，如创建或删除日志。 [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/hh343260.aspx)及[存储分析日志格式](https://msdn.microsoft.com/library/hh343259.aspx)主题中提供了所记录数据的完整列表。
+不会记录存储分析本身发出的请求，如创建或删除日志。 [存储分析记录的操作和状态消息](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)及[存储分析日志格式](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)主题中提供了所记录数据的完整列表。
 
 ### <a name="logging-anonymous-requests"></a>记录匿名请求
 记录以下类型的匿名请求：
@@ -59,7 +54,7 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 * 客户端和服务器的超时错误。
 * 失败的 GET 请求，错误代码为 304（未修改）。
 
-不会记录所有其他失败的匿名请求。 [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/hh343260.aspx)及[存储分析日志格式](https://msdn.microsoft.com/library/hh343259.aspx)主题中提供了所记录数据的完整列表。
+不会记录所有其他失败的匿名请求。 [存储分析记录的操作和状态消息](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)及[存储分析日志格式](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)主题中提供了所记录数据的完整列表。
 
 ### <a name="how-logs-are-stored"></a>如何存储日志
 所有日志以块 Blob 的形式存储在一个名为 $logs 的容器中，为存储帐户启用存储分析时自动创建该容器。 $logs 容器位于存储帐户的 Blob 命名空间中，例如： `http://<accountname>.blob.core.chinacloudapi.cn/$logs`。 启用存储分析后无法删除该容器，但可以删除其内容。
@@ -67,8 +62,8 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 > [!NOTE]
 > 执行容器列出操作（例如 [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) 方法）时，不会显示 $logs 容器。 必须直接访问该容器。 例如，可以使用 [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) 方法访问 `$logs` 容器中的 Blob。
 > 记录请求时，存储分析以块形式上传中间结果。 存储分析会定期提交这些块，并将其作为 Blob 提供。
-> 
-> 
+>
+>
 
 在同一小时内创建的日志中可能存在重复的记录。 可以通过检查 RequestId 和操作编号确定记录是否为重复记录。
 
@@ -82,10 +77,10 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 | 属性 | 说明 |
 | --- | --- |
 | <service-name> |存储服务的名称。 例如：blob、table 或 queue。 |
-| YYYY |用四位数表示的日志年份。 例如：2011。 |
+| YYYY |用四位数表示的日志年份。 例如：2011. |
 | MM |用两位数表示的日志月份。 例如：07。 |
 | DD |用两位数表示的日志月份。 例如：07。 |
-| hh |用两位数表示的日志起始小时，采用 24 小时 UTC 格式。 例如：18。 |
+| hh |用两位数表示的日志起始小时，采用 24 小时 UTC 格式。 例如：18. |
 | MM |用两位数表示的日志起始分钟。 存储分析最新版中不支持此值，其值始终为 00。 |
 | <counter> |从零开始的计数器，用六位数字表示 1 小时内为存储服务生成的日志 Blob 数。 此计数器从 000000 开始。 例如：000001。 |
 
@@ -135,17 +130,17 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 
 ### <a name="capacity-metrics"></a>容量度量值
 > [!NOTE]
-> 目前，容量指标仅适用于 Blob 服务。 以后版本的存储分析将提供表服务和队列服务的容量度量值。
-> 
-> 
+> 目前，容量指标仅适用于 Blob 服务。
+>
+>
 
 每天记录存储帐户的 Blob 服务的容量数据，并写入两个表实体。 一个实体提供用户数据的统计信息，另一个实体提供有关存储分析所使用的 `$logs` Blob 容器的统计信息。 `$MetricsCapacityBlob` 表包含以下统计信息：
 
-* **Capacity**：存储帐户的 Blob 服务使用的存储量（字节）。
+* **容量**：存储帐户的 Blob 服务使用的存储量（以字节为单位）。
 * **ContainerCount**：存储帐户的 Blob 服务中的 blob 容器数。
-* **ObjectCount**：存储帐户的 Blob 服务中的提交和未提交的块或页 blob 数量。
+* **ObjectCount**：存储帐户的 Blob 服务中已提交和未提交的块 blob 或页 blob 数量。
 
-有关容量指标的详细信息，请参阅 [存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)。
+有关容量指标的详细信息，请参阅 [存储分析指标表架构](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-metrics-table-schema)。
 
 ### <a name="how-metrics-are-stored"></a>如何存储指标
 每个存储服务的所有度量数据都存储在为该服务保留的三个表中：一个表存储事务信息，一个表存储分钟事务信息，还有一个表存储容量信息。 事务和分钟事务信息由请求和响应数据组成，而容量信息由存储使用情况数据组成。 存储帐户的 Blob 服务的小时度量值、分钟度量值和容量可在按下表所述命名的表中访问。
@@ -169,29 +164,17 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 
 存储分析执行的以下操作都是计费的：
 
-* 为日志记录创建 Blob 的请求。 
+* 为日志记录创建 Blob 的请求。
 * 为度量创建表中条目的请求。
 
 如果配置了数据保留策略，则存储分析删除以前的日志记录和度量数据时，不会对删除事务收取费用。 不过，从客户端中删除事务是计费的。 有关保留策略的详细信息，请参阅 [设置存储分析数据保留策略](https://msdn.microsoft.com/library/azure/hh343263.aspx)。
 
 ### <a name="understanding-billable-requests"></a>了解计费请求
-向帐户的存储服务发出的每个请求是应计费或不计费的。 存储分析记录向服务发出的每个请求，包括指示如何处理请求的状态消息。 同样，存储分析存储服务及其 API 操作的度量数据，包括某些状态消息的百分比和计数。 总之，这些功能可以帮助分析计费请求、对应用程序进行改进，以及诊断服务请求相关问题。 有关计费的详细信息，请参阅 [Understanding Azure Storage Billing - Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)（了解 Azure 存储计费 - 带宽、事务和容量）。
+向帐户的存储服务发出的每个请求是应计费或不计费的。 存储分析记录向服务发出的每个请求，包括指示如何处理请求的状态消息。 同样，存储分析存储服务及其 API 操作的度量数据，包括某些状态消息的百分比和计数。 总之，这些功能可以帮助分析计费请求、对应用程序进行改进，以及诊断服务请求相关问题。 有关计费的详细信息，请参阅 [Understanding Azure Storage Billing - Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)（了解 Azure 存储计费 - 带宽、事务和容量）。
 
-查看存储分析数据时，可以使用 [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/azure/hh343260.aspx) 主题中的表来确定计费的请求。 然后，可以将日志和指标数据与状态消息进行比较，查看是否对特定请求收取了费用。 也可以使用前述主题中的表来调查存储服务或各个 API 操作的可用性。
+查看存储分析数据时，可以使用 [存储分析记录的操作和状态消息](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 主题中的表来确定计费的请求。 然后，可以将日志和指标数据与状态消息进行比较，查看是否对特定请求收取了费用。 也可以使用前述主题中的表来调查存储服务或各个 API 操作的可用性。
 
 ## <a name="next-steps"></a>后续步骤
-### <a name="setting-up-storage-analytics"></a>设置存储分析
 * [在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)
-* [启用和配置存储分析](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>存储分析日志记录
-* [关于存储分析日志记录](https://msdn.microsoft.com/library/hh343262.aspx)
-* [存储分析日志格式](https://msdn.microsoft.com/library/hh343259.aspx)
-* [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>存储分析指标
-* [关于存储分析指标](https://msdn.microsoft.com/library/hh343258.aspx)
-* [存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)
-* [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-<!--Update_Description: wording update-->
+* [存储分析日志记录](https://msdn.microsoft.com/library/hh343262.aspx)
+* [存储分析度量值](https://msdn.microsoft.com/library/hh343258.aspx)

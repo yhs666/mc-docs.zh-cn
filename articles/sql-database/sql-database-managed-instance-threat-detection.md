@@ -1,6 +1,6 @@
 ---
 title: 配置威胁检测 - Azure SQL 数据库托管实例 | Microsoft Docs
-description: 威胁检测会检测异常的数据库活动，指出存在对托管实例中数据库的潜在安全威胁。
+description: 威胁检测会检测异常的数据库活动，这些活动指示托管实例中存在对数据库的潜在安全威胁。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,22 +11,22 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 12/06/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 3d26b9de7fd72e7923038024f2bf86adffa346c1
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 02/04/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: fbea10f70206eececcb79b9524c652913eeb52b3
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363749"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663503"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>在 Azure SQL 数据库托管实例中配置威胁检测（预览版）
 
-[SQL 数据库托管实例](sql-database-managed-instance-index.yml)的 Azure SQL [威胁检测](sql-database-threat-detection-overview.md)可检测异常活动，这些活动指示对数据库的异常和可能有害的访问或利用企图。 威胁检测可以识别“潜在的 SQL 注入”、“来自异常位置或数据中心的访问”、“来自陌生主体或可能有害的应用程序的访问”以及“暴力攻击 SQL 凭据”- 请在[威胁检测警报](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts)中查看详细信息。
+[托管实例](sql-database-managed-instance-index.yml)的[威胁检测](sql-database-threat-detection-overview.md)可检测异常活动，这些活动指示对数据库的异常和可能有害的访问或利用企图。 威胁检测可以识别**潜在的 SQL 注入**、**来自异常位置或数据中心的访问**、**来自陌生主体或可能有害的应用程序的访问**以及**暴力攻击 SQL 凭据** - 请在[威胁检测警报](sql-database-threat-detection-overview.md#threat-detection-alerts)中查看更多详细信息。
 
 可以通过 [Azure 门户](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)接收有关检测到的威胁的通知
 
-[威胁检测](sql-database-threat-detection-overview.md)是 [SQL 高级威胁防护](sql-advanced-threat-protection.md) (ATP) 产品/服务（它是高级 SQL 安全功能的一个统一包）的一部分。 可通过中心 SQL ATP 门户访问和管理威胁检测。
+[威胁检测](sql-database-threat-detection-overview.md)是[高级数据安全](sql-database-advanced-data-security.md) (ADS) 产品/服务（它是高级 SQL 安全功能的一个统一包）的一部分。 可通过中心 SQL ADS 门户访问和管理威胁检测。
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>在 Azure 门户中为托管实例设置威胁检测
 
@@ -43,7 +43,7 @@ ms.locfileid: "54363749"
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[威胁检测](sql-database-threat-detection-overview.md)。
-- 了解有关托管实例的信息，请参阅[什么是托管实例](sql-database-managed-instance.md)。
+- 如需了解有关托管实例的信息，请参阅[什么是托管实例](sql-database-managed-instance.md)。
 - 详细了解[单一数据库中的威胁检测](sql-database-threat-detection.md)。
 - 详细了解[托管实例审核](https://go.microsoft.com/fwlink/?linkid=869430)。
-- 了解有关 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)的详细信息。
+- 详细了解 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)。

@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/17/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc,seodec18
-ms.openlocfilehash: fbcf643778dce1f089109efb57b159026d5c5151
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 6a684d89ae9fe645bcc6a831f430f326b028b65d
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736097"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665829"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 将托管磁盘导出/复制到存储帐户
 
@@ -85,7 +85,6 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
 
-可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!-- Update_Description: new articles on virtual machines linux cli samplecopy managed disks vhd -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: update link -->

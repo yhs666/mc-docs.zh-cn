@@ -6,18 +6,18 @@ keywords: ''
 author: ggailey777
 ms.author: v-junlch
 origin.date: 08/29/2018
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: d1b8b7766521dd2df69ade10700616e07912d58a
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: a02b0d691c52cd3cd39e874fe6be396b03ecda16
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334199"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665679"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>在 Azure 中创建你的第一个 Python 函数（预览版）
 
@@ -31,9 +31,9 @@ ms.locfileid: "54334199"
 
 若要在本地进行构建和测试，你需要：
 
-+ 安装 [Python 3.6](https://www.python.org/downloads/)
++ 安装 [Python 3.6](https://www.python.org/downloads/)。
 
-+ 安装 [Azure Functions Core Tools](functions-run-local.md#v2) 版本 2.2.70 或更高版本
++ 安装 [Azure Functions Core Tools](functions-run-local.md#v2) 2.2.70 或更高版本（需要 .NET Core 2.x SDK）。
 
 若要在 Azure 中发布和运行：
 
@@ -179,7 +179,7 @@ Http Functions:
 
 ## <a name="create-a-linux-function-app-in-azure"></a>在 Azure 中创建 Linux 函数应用
 
-函数应用提供了用于执行函数代码的环境。 可以使用它将函数分组为一个逻辑单元，以便更轻松地管理、部署和共享资源。 使用 [az functionapp create](/cli/functionapp#az_functionapp_create) 命令创建**在 Linux 上运行的 Python 函数应用**。
+函数应用提供了用于执行函数代码的环境。 可以使用它将函数分组为一个逻辑单元，以便更轻松地管理、部署和共享资源。 使用 [az functionapp create](/cli/functionapp) 命令创建**在 Linux 上运行的 Python 函数应用**。
 
 运行以下命令，并使用唯一的函数应用名称替换 `<app_name>` 占位符，使用存储帐户名称替换 `<storage_name>`。 `<app_name>` 也是函数应用的默认 DNS 域。 此名称在 Azure 的所有应用中必须独一无二。
 

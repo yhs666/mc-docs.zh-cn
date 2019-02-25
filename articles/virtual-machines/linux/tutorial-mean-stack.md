@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d41bf1a9563354f9e6dfb1ecec3a49de45940b5b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7f57a70567dc5826477b4eb0a3f96c08b576e265
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674154"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665864"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
@@ -200,6 +200,7 @@ sudo apt-get install -y nodejs
     ```
     
     <!--Notice: Correct for author:req.body.author-->
+    
 3. 在 *apps* 文件夹中，创建名为 *models* 的文件夹，并添加包含所定义的书籍模型配置的、名为 *book.js* 的文件。  
 
     ```node.js
@@ -219,6 +220,7 @@ sudo apt-get install -y nodejs
     ```
     
     <!--Notice: Correct for author: String-->
+    
 ## <a name="access-the-routes-with-angularjs"></a>使用 AngularJS 访问路由
 
 [AngularJS](https://angularjs.org) 提供一个 Web 框架用于在 Web 应用程序中创建动态视图。 本教程使用 AngularJS 将网页与 Express 相连接，并针对书籍数据库执行操作。

@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 08/27/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.component: disks
-ms.openlocfilehash: 99dffa3ec6054fd87f55fad2dd882f7ff8a7ba90
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: disks
+ms.openlocfilehash: f34b0cc4fbcdad2418d06a0a964a26173e8aca4e
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646881"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665955"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
 

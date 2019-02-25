@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: c23df087cbb808e2001626c44db6238b943ea1e5
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 293624e935454037a94262f046b1c6a60f34cbc5
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363797"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663664"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>使用弹性数据库工具进行多分片查询
 
@@ -60,7 +60,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-主要区别在于多分片连接的构建。 其中 SqlConnection 在单一数据库上进行操作，而 MultiShardConnection  将分片集合用作其输入。 填充分片映射中的分片集合。 然后，使用 **UNION ALL** 语义组成一个总体结果，在分片集合上执行查询。 或者，也可以在命令上使用 **ExecutionOptions** 属性，将行所源自的分片的名称添加到输出。
+主要区别在于多分片连接的构建。 其中，SqlConnection 对单一数据库执行操作，而 MultiShardConnection 则将分片集合用作输入。 填充分片映射中的分片集合。 然后，使用 **UNION ALL** 语义组成一个总体结果，在分片集合上执行查询。 或者，也可以在命令上使用 **ExecutionOptions** 属性，将行所源自的分片的名称添加到输出。
 
 请注意对 myShardMap.GetShards() 的调用。 此方法可从分片映射中检索所有分片，并提供一种轻松方式在所有相关数据库上运行查询。 对通过调用 myShardMap.GetShards() 返回的集合执行 LINQ 查询，进一步优化用于多分片查询的分片集合。 多分片查询中的当前功能已随部分结果策略一起被设计为供数十至数百种分片使用。
 

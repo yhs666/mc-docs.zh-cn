@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 10/15/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 0a744ef62d3a252bf4579e77357e31a4ed9bf27a
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 05e6a9416ff98ee53a4c71ff1932d4517909af04
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673045"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663499"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL 数据库数据发现和分类
+# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL 数据库数据发现和分类
 
 数据发现和分类（当前为预览版）提供了内置于 Azure SQL 数据库的高级功能，可用于发现、分类、标记和保护数据库中的敏感数据。 & 
 发现最敏感的数据（业务、财务、医疗保健、个人身份数据 (PII)，等等）并进行分类可在组织的信息保护方面发挥关键作用。 它可以作为基础结构，用于：
@@ -29,7 +29,7 @@ ms.locfileid: "52673045"
 - 各种安全方案，如监视（审核）并在敏感数据存在异常访问时发出警报。
 - 控制对包含高度敏感数据的数据库的访问并强化其安全性。
 
-数据发现和分类包含在 [SQL 高级威胁防护](sql-advanced-threat-protection.md) (ATP) 产品中，该产品是高级 SQL 安全功能统一软件包。 可通过中心 SQL ATP 门户访问和管理数据发现和分类。
+数据发现和分类包含在[高级数据安全](sql-database-advanced-data-security.md) (ADS) 产品/服务中，该产品是高级 SQL 安全功能统一软件包。 可通过中心 SQL ADS 门户访问和管理数据发现和分类。
 
 > [!NOTE]
 > 本文档仅与 Azure SQL 数据库相关。 对于 SQL Server（本地），请参阅 [SQL 数据发现和分类](https://go.microsoft.com/fwlink/?linkid=866999)。
@@ -67,7 +67,7 @@ ms.locfileid: "52673045"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 
-2. 导航到 Azure SQL 数据库窗格“安全”标题下的“高级威胁防护”。 单击以启用“高级威胁防护”，然后单击“数据发现和分类（预览）”卡。
+2. 导航到 Azure SQL 数据库窗格“安全”标题下的“高级数据安全”。 单击以启用“高级数据安全”，然后单击“数据发现和分类(预览)”卡。
 
    ![扫描数据库](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "52673045"
 
 ## <a id="subheading-3"></a>审核对敏感数据的访问
 
-信息保护范例的一个重要方面是能够监视对敏感数据的访问。 [Azure SQL 数据库审核](/sql-database/sql-database-auditing) 已经过增强，在审核日志中加入了名为 data_sensitivity_information 的新字段，该字段会记录查询返回的实际数据的敏感度分类（标签）。
+信息保护范例的一个重要方面是能够监视对敏感数据的访问。 [Azure SQL 数据库审核](sql-database-auditing.md) 已经过增强，在审核日志中加入了名为 data_sensitivity_information 的新字段，该字段会记录查询返回的实际数据的敏感度分类（标签）。
 
 ![审核日志](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -133,12 +133,13 @@ ms.locfileid: "52673045"
 - [创建或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 创建或更新给定列的敏感度标签
 - [删除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 删除给定列的敏感度标签
 - [获取](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 获取给定列的敏感度标签
-- [按数据库列出](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 获取给定数据库的敏感度标签
+- [按数据库列出当前项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 获取给定数据库的当前敏感度标签
+- [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的当前敏感度标签
 
 ## <a id="subheading-5"></a>后续步骤
 
-- 详细了解 [SQL 高级威胁防护](sql-advanced-threat-protection.md)。
-- 请考虑配置 [Azure SQL 数据库审核](/sql-database/sql-database-auditing) 来监视和审核对已分类敏感数据的访问。
+- 详细了解[高级数据安全](sql-database-advanced-data-security.md)。
+- 请考虑配置 [Azure SQL 数据库审核](sql-database-auditing.md) 来监视和审核对已分类敏感数据的访问。
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

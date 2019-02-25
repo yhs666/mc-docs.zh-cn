@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.component: disks
-ms.openlocfilehash: b4b62f33c90e153a76bb44b223aa93123591f648
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.subservice: disks
+ms.openlocfilehash: 105afa7d0c832d3a76af4b1a871539bc97e8991b
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736122"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666126"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>关于用于 Azure Linux VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Linux 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。
@@ -34,7 +34,7 @@ ms.locfileid: "53736122"
 
 ## <a name="temporary-disk"></a>临时磁盘
 
-每个 VM 包含一个临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](../windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../windows/redeploy-to-new-node.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 标准重启期间，临时驱动器上的数据应会保留。 但是，有些情况下数据可能不会持久保留，例如移到新主机。 因此，临时驱动器上的任何数据都不应该是对系统至关重要的数据。
+每个 VM 包含一个临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](../windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../windows/redeploy-to-new-node.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 标准重启期间，临时驱动器上的数据应会保留。 但是，有些情况下数据可能不会持久保留，例如移到新主机。 因此，临时驱动器上的任何数据都不应该是对系统至关重要的数据。 在设计使用临时驱动器作为数据缓存来提高应用程序性能的应用程序时，应在设计中假定临时驱动器上的数据缓存会在重启期间丢失，且应用程序需要时间来重新生成数据缓存，然后才能达到类似的性能。
 
 在 Linux 虚拟机上，此磁盘通常为 **/dev/sdb**，并且由 Azure Linux 代理格式化和装入到 **/mnt**。 临时磁盘的大小因虚拟机的大小而异。 有关详细信息，请参阅 [Linux 虚拟机的大小](../windows/sizes.md)。
 
@@ -62,4 +62,4 @@ ms.locfileid: "53736122"
 * [创建快照](snapshot-copy-managed-disk.md)。
 * [转换为托管磁盘](convert-unmanaged-to-managed-disks.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

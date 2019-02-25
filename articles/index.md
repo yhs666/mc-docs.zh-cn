@@ -1,17 +1,11 @@
----
+--- 
 layout: HubPage
 hide_bc: true
 title: Azure 文档
 description: 了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、示例代码、教程等等。
 ms.topic: hub-page
 featureFlags:
-- clicktale
-ms.openlocfilehash: a32bd1e7136765267a8438b693b7ce3e7a80668c
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985630"
+  - clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -23,7 +17,7 @@ ms.locfileid: "55985630"
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                        <img data-hoverimage="media/index/azure-operations-guide.svg" src="media/index/azure-operations-guide.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -41,7 +35,7 @@ ms.locfileid: "55985630"
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/developer-guide.svg" src="media/index/developer-guide.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -59,7 +53,7 @@ ms.locfileid: "55985630"
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
+                                        <img data-hoverimage="media/index/toolapi.svg" src="media/index/toolapi.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -110,7 +104,7 @@ ms.locfileid: "55985630"
                                                     <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/backup/">Azure 备份</a></li>
                                                     <li><a class="barLink" href="/site-recovery/">Azure Site Recovery</a></li>
-                                                    <li><a class="barLink" href="/azure-policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/governance/policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -331,9 +325,9 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis 缓存</p>
+                                                <p>用于 Redis 的 Azure 缓存</p>
                                             </a>
                                         </li>
                                         <li>
@@ -473,6 +467,12 @@ Azure PowerShell </a>
                                     <h3>网络</h3>
                                     <ul>
                                         <li>
+                                            <a href="/networking/networking-overview">
+                                                <img src="media/index/networking-overview.svg" alt="" />
+                                                <p>网络概述</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>内容分发网络</p>
@@ -542,7 +542,13 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/emotion/home">
+                                            <a href="/cognitive-services/content-moderator/overview">
+                                                <img src="media/index/API_Content_Moderator.svg" alt="" />
+                                                <p>内容审查器</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cognitive-services/emotion/home">
                                                 <img src="media/index/API_Emotion.svg" alt="" />
                                                 <p>情感 API</p>
                                             </a>
@@ -551,6 +557,12 @@ Azure PowerShell </a>
                                             <a href="/cognitive-services/face/">
                                                 <img src="media/index/API_Face.svg" alt="" />
                                                 <p>人脸 API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cognitive-services/text-analytics/">
+                                                <img src="media/index/API_TextAnalytics.svg" alt="" />
+                                                <p>文本分析 API</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -576,7 +588,7 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/storage/data-lake-storage/introduction">
+                                            <a href="/storage/blobs/data-lake-storage-introduction">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen2</p>
                                             </a>
@@ -588,7 +600,7 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/virtual-machines/windows/about-disks-and-vhds">
+                                            <a href="/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>磁盘存储</p>
                                             </a>
@@ -639,7 +651,7 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics/">
+                                            <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>流分析</p>
                                             </a>
@@ -674,6 +686,12 @@ Azure PowerShell </a>
                                                 <p>Apache Storm for HDInsight</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/storage/blobs/data-lake-storage-introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                            <li>
                                     </ul>
                                     <h3>开发人员工具</h3>
                                     <ul>
@@ -816,6 +834,7 @@ Azure PowerShell </a>
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory</p>
                                             </a>
+                                        </li>
                                         <li>
                                             <a href="/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
@@ -938,7 +957,7 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure-policy/">
+                                            <a href="/governance/policy/">
                                                 <img src="media/index/governance.svg" alt="" />
                                                 <p>Azure Policy</p>
                                             </a>
@@ -1132,6 +1151,25 @@ Azure PowerShell </a>
                     <li>
                         <a href="#network">网络</a>
                         <ul id="network" class="cardsA">
+                            <li>
+                                <a href="/networking/networking-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/networking-overview.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>网络概述</h3>
+                                                    <p>Azure 中网络服务的集成视图</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="/cdn/">
                                     <div class="cardSize">
@@ -1328,7 +1366,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/storage/data-lake-storage/introduction">
+                                <a href="/storage/blobs/data-lake-storage-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1339,7 +1377,7 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>与 Blob 存储集成的、高度可缩放的安全 Data Lake 存储</p>
+                                                    <p>基于 Blob 存储构建的高度可缩放的安全 Data Lake 存储</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1366,7 +1404,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/virtual-machines/windows/about-disks-and-vhds">
+                                <a href="/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1585,7 +1623,7 @@ Azure PowerShell </a>
                         <a href="#mobile">移动</a>
                         <ul id="mobile" class="cardsA">
                             <li>
-                                <a href="/azure/app-service-mobile">
+                                <a href="/app-service-mobile">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1785,7 +1823,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/redis-cache/">
+                                <a href="/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1795,7 +1833,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis 缓存</h3>
+                                                    <h3>用于 Redis 的 Azure 缓存</h3>
                                                     <p>具有高吞吐量、低延迟的数据访问的强大应用程序</p>
                                                 </div>
                                             </div>
@@ -1880,7 +1918,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/mysql/">
+                                <a href="/mysql/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2055,10 +2093,29 @@ Azure PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/storage/blobs/data-lake-storage-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>基于 Blob 存储构建的高度可缩放的安全 Data Lake 存储</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#ai">AI + 机器学习</a>
+                        <a href="#ai">AI</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>人工智能</h2>
@@ -2082,24 +2139,24 @@ Azure PowerShell </a>
                                     </div>
                                 </a>
                             </li>
-                            <li class="fullSpan">
-                                <h2 style="margin-top:24px;margin-bottom:18px;">认知服务 API</h2>
+                            <!--li class="fullSpan">
+                                <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
                                         <div class="cardSize">
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>影像</h3>
+                                                        <h3>Vision</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />计算机视觉 API</a>
+                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision API</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>情感 API&nbsp;<sup style="font-size:70%">预览</sup></span></a>
+                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />人脸 API</a>
+                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2108,7 +2165,7 @@ Azure PowerShell </a>
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
                         </ul>
                     </li>
                     <li>
@@ -2786,7 +2843,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure-resource-manager/resource-group-overview">
+                                <a href="/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2805,7 +2862,7 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure-policy/">
+                                <a href="/governance/policy/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3220,10 +3277,255 @@ Azure CLI </h3>
                                                     <a target="_blank" href="https://docs.microsoft.com/powershell/azure/get-started-azureps">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/install-azurerm-ps">下载 PowerShell</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">参考</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container">
+                                    <h2>工具 &amp; 扩展</h2>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a target="_blank" href="https://docs.microsoft.com/visualstudio/azure/">Visual Studio</a>
+                                                </h3>
+                                                <p>
+                                                    <a target="_blank" href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">适用于 Windows 的下载项</a>
+                                                </p>
+                                                 <p>
+                                                    <a target="_blank" href="https://visualstudio.microsoft.com/vs/mac/">适用于 Mac 的下载项</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
+                                                </h3>
+                                                <p>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">应用服务</a>
+                                                </p>
+                                                 <p>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">参考</a>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">存储</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-10.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Docker </h3>
+                                                <p>
+                                                    <a target="_blank" href="https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">适用于 Visual Studio 的下载项</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780681">适用于 Visual Studio Code 的下载项</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780682">Azure DevOps 的下载</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Java 工具 </h3>
+                                                <p>
+                                                    <a href="/java/api/overview/maven/readme">Maven 插件</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/java/java-azure-tools">IntelliJ 和 Eclipse</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://code.visualstudio.com/docs/languages/java">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a target="_blank" href="https://www.visualstudio.com/vs/python">Python 工具</a>
+                                                </h3>
+                                                <p>
+                                                    <a target="_blank" href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Azure 资源管理器 </h3>
+                                                <p>
+                                                    <a href="/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-11.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a target="_blank" href="https://storageexplorer.com">存储资源管理器</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer">入门</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=708342">适用于 Mac 的下载项</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=708343">适用于 Windows 的下载项</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/Fabric.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Service Fabric SDK and Tools 3.0.467 </h3>
+                                                <p>
+                                                    <a href="/service-fabric/service-fabric-get-started">适用于 Windows 的下载项</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/service-fabric/service-fabric-get-started-linux">适用于 Linux 的下载项</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/service-fabric/service-fabric-get-started-mac">下载 Mac OS X</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/service-fabric/service-fabric-cli">下载 Azure Service Fabric CLI</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+SQL 工具 </h3>
+                                                <p>
+                                                    <a target="_blank" href="https://docs.microsoft.com/sql/azure-data-studio/download">Azure Data Studio <sup>预览</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a target="_blank" href="https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a target="_blank" href="https://docs.microsoft.com/sql/tools/overview-sql-tools">查看所有 SQL 工具</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -1,27 +1,30 @@
 ---
-title: SQL 数据库的 XEvent 环形缓冲区代码 | Azure
+title: SQL 数据库的 XEvent 环形缓冲区代码 | Microsoft 文档
 description: 提供一个 Transact-SQL 代码示例，以帮助你快速轻松地在 Azure SQL 数据库中使用环形缓存区目标。
 services: sql-database
-author: Hayley244
-manager: digimobile
 ms.service: sql-database
-ms.custom: monitor and tune
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-haiqya
-ms.openlocfilehash: ebb1ddc017836ce73e850edc6dd7e997e4db711b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: monitor
+ms.custom: ''
+ms.devlang: PowerShell
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: jrasnik
+manager: digimobile
+origin.date: 12/19/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 076c9a26f0505db7f7488adbeda5b2460e6adb62
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655859"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663603"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-需要完整的代码示例以最简单快速的方式在测试期间捕获和报告扩展事件的信息。 扩展事件数据最简单的目标是[环形缓冲区目标](http://msdn.microsoft.com/library/ff878182.aspx)。
+需要完整的代码示例以最简单快速的方式在测试期间捕获和报告扩展事件的信息。 扩展事件数据最简单的目标是[环形缓冲区目标](https://msdn.microsoft.com/library/ff878182.aspx)。
 
 本主题演示一个 Transact-SQL 代码示例：
 
@@ -48,8 +51,8 @@ ms.locfileid: "52655859"
 * SQL Server Management Studio (ssms.exe)，最好是每月最新更新版。 
   可从以下位置下载最新的 ssms.exe：
   
-  * 标题为[下载 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 的主题。
-  * [直接指向下载位置的链接。](http://go.microsoft.com/fwlink/?linkid=616025)
+  * 标题为[下载 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 的主题。
+  * [直接指向下载位置的链接。](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>代码示例
 
@@ -346,11 +349,11 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 可通过以下链接访问有关扩展事件的其他代码示例主题。 不过，必须定期检查所有示例，以确定这些示例是针对 Microsoft SQL Server 还是 Azure SQL 数据库。 然后，用户可以在运行示例时确定是否要做出细微的更改。
 
-* Azure SQL 数据库的代码示例： [SQL 数据库中扩展事件的事件文件目标代码](sql-database-xevent-code-event-file.md)
+* Azure SQL 数据库的代码示例：[SQL 数据库中扩展事件的事件文件目标代码](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

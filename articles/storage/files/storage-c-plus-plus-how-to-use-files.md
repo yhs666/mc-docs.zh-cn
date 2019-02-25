@@ -1,26 +1,20 @@
 ---
-title: 使用 C++ 针对 Azure 文件进行开发 | Azure
+title: 使用 C++ 针对 Azure 文件进行开发 | Microsoft Docs
 description: 了解如何开发使用 Azure 文件来存储文件数据的 C++ 应用程序和服务。
 services: storage
-documentationcenter: .net
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: 80a7857d963a74574116573bfa1120b04404689c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.subservice: files
+ms.openlocfilehash: 466edcbde7fc29ca703f7f95b061ff5e4c822d58
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654509"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665418"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -46,7 +40,7 @@ ms.locfileid: "52654509"
 若要安装用于 C++ 的 Azure 存储客户端 2.4.0，可以使用以下方法之一：
 
 * **Linux：** 按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。
-* **Windows：** 在 Visual Studio 中，单击“工具”&gt;“NuGet 包管理器”&gt;“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
+* **Windows:** 在 Visual Studio 中，单击“工具”&gt;“NuGet 包管理器”&gt;“包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
   
 ```
 Install-Package wastorage
@@ -166,7 +160,7 @@ azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
 // Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
+azure::storage::list_file_and_directory_result_iterator end_of_results;
 
 for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
 {
@@ -357,6 +351,6 @@ if (share.exists())
 若要了解有关 Azure 存储的详细信息，请参阅以下资源：
 
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
-* [C++ 的 Azure 存储文件服务示例] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure 存储资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [使用 C++ 编写的 Azure 存储文件服务示例](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Azure 存储资源管理器](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 存储文档](/storage/)

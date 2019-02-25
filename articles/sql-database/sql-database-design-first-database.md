@@ -1,5 +1,5 @@
 ---
-title: 教程：使用 SSMS 设计第一个 Azure SQL 数据库 | Microsoft Docs
+title: 教程：使用 SSMS 在 Azure SQL 数据库中设计第一个单一数据库 | Microsoft Docs
 description: 了解如何使用 SQL Server Management Studio 设计第一个 Azure SQL 数据库。
 services: sql-database
 ms.service: sql-database
@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
 manager: digimobile
-origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 04ce092aefee4a6db9554a2050eab73c30434927
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 863d7fd2affa228979343e7ae21a5b665086b0c8
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397026"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663510"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -48,7 +48,7 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
 
 ## <a name="create-a-blank-database"></a>创建空数据库
 
-创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers-dtu.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。
+创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers-dtu.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库服务器](sql-database-features.md)中创建。
 
 按照以下步骤创建空的 SQL 数据库。
 
@@ -60,16 +60,16 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
 
    1. 如上图所示，在“SQL 数据库”表单中填写以下信息：
 
-      | 设置       | 建议的值 | 说明 |
+      | 设置       | 建议的值 | 说明 |
       | ------------ | ------------------ | ------------------------------------------------- |
       | **数据库名称** | yourDatabase | 如需有效的数据库名称，请参阅[数据库标识符](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
       | **订阅** | yourSubscription  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
-      | **资源组** | yourResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://account.windowsazure.cn/Subscriptions/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+      | **资源组** | yourResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
       | **选择源** | 空白数据库 | 指定应创建空白数据库。 |
 
    1. 单击“服务器”，使用现有服务器或为数据库创建和配置新服务器。 选择服务器或单击“创建新服务器”，在“新服务器”表单中填写以下信息：
 
-      | 设置       | 建议的值 | 说明 |
+      | 设置       | 建议的值 | 说明 |
       | ------------ | ------------------ | ------------------------------------------------- |
    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
    | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅[Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
@@ -111,7 +111,7 @@ SQL 数据库服务会在服务器级别创建防火墙。 防火墙会阻止外
 
    1. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
-   1. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
+   1. 单击“保存” 。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在 SQL 数据库服务器上打开端口 1433。
 
    1. 单击“确定”，并关闭“防火墙设置”页。
 
@@ -128,7 +128,7 @@ SQL 数据库服务会在服务器级别创建防火墙。 防火墙会阻止外
 
 1. 在“连接到服务器”对话框中，输入以下信息：
 
-   | 设置       | 建议的值 | 说明 |
+   | 设置       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **服务器类型** | 数据库引擎 | 此值是必需的。 |
    | **服务器名称** | 完全限定的服务器名称 | 例如，yourserver.database.chinacloudapi.cn。 |

@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 12/27/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fb8a8d7a76e764b63eb1e19b1491734f82836576
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 6d897a57afbbdae40241f18db01144f08f90d283
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806545"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665585"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>创建由 Azure Blob 存储触发的函数
 
@@ -111,10 +111,8 @@ ms.locfileid: "53806545"
 
 ## <a name="next-steps"></a>后续步骤
 
-已创建在 Blob 存储中添加或更新 blob 时运行的函数。 
+已创建在 Blob 存储中添加或更新 blob 时运行的函数。 有关 Blob 存储触发器的详细信息，请参阅 [Azure Functions Blob 存储绑定](functions-bindings-storage-blob.md)。
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-有关 Blob 存储触发器的详细信息，请参阅 [Azure Functions Blob 存储绑定](functions-bindings-storage-blob.md)。
-
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

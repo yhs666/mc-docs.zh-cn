@@ -13,28 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/21/2017
-ms.date: 01/21/2019
+origin.date: 01/24/2019
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 960fe3525bec4e32679c1af417fb3d822766ff46
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 686d5a30762957ce5267168868e9b75e998c13c7
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216203"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665637"
 ---
 # <a name="os-patching-for-hdinsight"></a>针对 HDInsight 的 OS 修补 
-作为托管的 Apache Hadoop 服务，HDInsight 负责修补 HDInsight 群集使用的基础 VM 的 OS。 自 2016 年 8 月 1 日起，我们已经为基于 Linux 的 HDInsight 群集（版本 3.4 或更高版本）更改了来宾 OS 修补策略。 新策略的目标是显著减少由于修补导致的重启次数。 新策略会继续在 Linux 群集上修补虚拟机 (VM)，每周一或周四从 12AM UTC 开始以交错的方式在任意给定群集的节点上进行。 但是由于来宾 OS 修补，任何给定 VM 每 30 天最多重启一次。 此外，自新创建群集的创建日期起 30 天内，该群集不会发生第一次重启。 重启 VM 后，修补程序即可生效。
+
+> [!IMPORTANT]
+> Ubuntu 映像可在发布后的 3 个月内用于创建新的 HDInsight 群集。 自 2019 年 1 月起，系统**不**会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 新创建的群集将始终包含最新的可用更新，其中包括最新的安全修补程序。
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>如何为基于 Linux 的 HDInsight 群集配置 OS 修补计划
-需不定期重启 HDInsight 群集中的虚拟机，以便安装重要的安全修补程序。 自 2016 年 8 月 1 日起，已使用以下计划重启新的基于 Linux 的 HDInsight 群集（版本 3.4 或更高版本）：
+需不定期重启 HDInsight 群集中的虚拟机，以便安装重要的安全修补程序。 
 
-1. 群集中的虚拟机最多只能在 30 天内重启一次以进行修补。
-2. 重新启动在 UTC 时间晚上 12 点开始。
-3. 重新启动过程在群集中各个虚拟机之间交错进行，因此群集在重新启动过程中仍然可用。
-4. 对于新创建的群集，第一次重新启动的时间不会早于群集创建日期之后的 30 天。
-
-使用本文中描述的脚本操作，可以按如下所示修改 OS 修补计划：
+可以使用本文中介绍的脚本操作将 OS 修补计划修改如下：
 1. 启用或禁用自动重启
 2. 设置重新启动的频率（两次重新启动相隔的天数）
 3. 设置在星期几重新启动
@@ -60,8 +57,7 @@ ms.locfileid: "54216203"
     | 持久性 |向现有群集应用脚本操作时，可将脚本标记为持久性脚本。 通过缩放操作将新的辅助角色节点添加到群集时，会应用持久性脚本。 |
 
 > [!NOTE]
-> 在应用到现有群集时，必须将该脚本标记为持久性脚本。 否则，通过缩放操作创建的任何新节点都会使用默认修补计划。
-如果在群集创建过程中应用该脚本，则其会自动持久化。
+> 在应用到现有群集时，必须将该脚本标记为持久性脚本。 否则，任何通过缩放操作创建的新节点都会使用默认的修补计划。  如果在群集创建过程中应用该脚本，则其会自动持久化。
 >
 
 ## <a name="next-steps"></a>后续步骤

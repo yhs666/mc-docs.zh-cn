@@ -1,5 +1,5 @@
 ---
-title: 适用于 Windows 的 Azure 自定义脚本扩展 | Azure
+title: 适用于 Windows 的自定义脚本扩展
 description: 使用自定义脚本扩展自动化 Windows VM 配置任务
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 015e35b77ab7d62d9d35f5933778bc9e459b06c0
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: bc7a18f892397771bc3c9a28e9f38ca9e32f9844
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736173"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666409"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -32,7 +32,7 @@ ms.locfileid: "53736173"
 ## <a name="prerequisites"></a>先决条件
 
 > [!NOTE]  
-> 不要在将同一 VM 作为参数的情况下使用自定义脚本扩展运行 Update-AzureRmVM，因为它将等待它本身响应。  
+> 不要在将同一 VM 作为参数的情况下使用自定义脚本扩展运行 Update-AzVM，因为它将等待它本身响应。  
 >   
 > 
 
@@ -144,18 +144,16 @@ ms.locfileid: "53736173"
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-可以使用 `Set-AzureRmVMCustomScriptExtension` 命令将自定义脚本扩展添加到现有的虚拟机。 有关详细信息，请参阅 [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension)。
+可以使用 `Set-AzVMCustomScriptExtension` 命令将自定义脚本扩展添加到现有的虚拟机。 有关详细信息，请参阅 [Set-AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension)。
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
-    -VMName "myVM" `
-    -Location "<myLocation>" `
-    -FileUri "myURL" `
-    -Run "myScript.ps1" `
-    -Name "DemoScriptExtension"
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+    -VMName myVM `
+    -Location <myLocation> `
+    -FileUri myURL `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
 ```
-
-<!--IMPORTANT: Powershell value must container "XXX"-->
 ## <a name="further-examples"></a>更多示例
 
 ### <a name="using-multiple-script"></a>使用多个脚本
@@ -174,27 +172,26 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName "myRG" `
-    -Location "<myLocation>" ` 
-    -VMName "myVM" ` 
-    -Name "buildserver1" ` 
-    -Publisher "Microsoft.Compute" ` 
-    -ExtensionType "CustomScriptExtension" ` 
-    -TypeHandlerVersion "1.9" ` 
-    -Settings $Settings ` 
-    -ProtectedSettings $ProtectedSettings `
+Set-AzVMExtension -ResourceGroupName myRG `
+    -Location <myLocation> `
+    -VMName myVM `
+    -Name "buildserver1" `
+    -Publisher "Microsoft.Compute" `
+    -ExtensionType "CustomScriptExtension" `
+    -TypeHandlerVersion "1.9" `
+    -Settings $Settings `
+    -ProtectedSettings $ProtectedSettings
 ```
 
-<!--IMPORTANT: Powershell value must container "XXX"-->
 ### <a name="running-scripts-from-a-local-share"></a>从本地共享运行脚本
 在此示例中，你可能希望使用本地 SMB 服务器作为脚本位置，请注意，除 commandToExecute 之外，不需要传入任何其他设置。
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
 
-Set-AzureRmVMExtension -ResourceGroupName "myRG" `
-    -Location "<myLocation>" `
-    -VMName "myVM" `
+Set-AzVMExtension -ResourceGroupName myRG `
+    -Location myLocation ` 
+    -VMName myVM ` 
     -Name "serverUpdate" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
@@ -203,7 +200,6 @@ Set-AzureRmVMExtension -ResourceGroupName "myRG" `
 
 ```
 
-<!--IMPORTANT: Powershell value must container "XXX"-->
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>如何使用 CLI 多次运行自定义脚本
 如果想要多次运行自定义脚本扩展，则只能在以下条件下执行此操作：
 1. 扩展的“Name”参数与之前部署的扩展相同。
@@ -216,10 +212,10 @@ Set-AzureRmVMExtension -ResourceGroupName "myRG" `
 有关扩展部署状态的数据可以从 Azure 门户和使用 Azure PowerShell 模块进行检索。 若要查看给定 VM 的扩展部署状态，请运行以下命令：
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-<!--IMPORTANT: Powershell value must container "XXX"--> 扩展执行输出将记录到可在目标虚拟机上的以下目录中找到的文件中。
+扩展执行输出将记录到可在目标虚拟机上的以下目录中找到的文件中。
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
@@ -250,6 +246,6 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 还可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 还可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

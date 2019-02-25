@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/08/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 12c241883f220c0efd72a51f6acb54463f5c7556
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 9d2ebcfbf1c23900fdcd8a0111234f10a7e1ccce
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736245"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666462"
 ---
 # <a name="enable-write-accelerator"></a>启用写入加速器
 
@@ -26,7 +26,7 @@ ms.locfileid: "53736245"
 
 应该对包含事务日志或 DBMS 重做日志的卷使用写入加速器。 建议不要对 DBMS 数据卷使用写入加速器，因为此功能已针对日志磁盘进行了优化。
 
-只能配合 [Azure 托管磁盘](https://www.azure.cn/home/features/managed-disks/)使用写入加速器。
+只能配合 [Azure 托管磁盘](https://www.azure.cn/home/features/storage/managed-disks/)使用写入加速器。
 
 > [!IMPORTANT]
 > 对 VM 的操作系统磁盘启用写入加速器会重新启动该 VM。
@@ -42,7 +42,7 @@ ms.locfileid: "53736245"
 对 Azure 磁盘/VHD 使用写入加速器时，需遵循以下限制：
 
 - 必须将高级磁盘缓存设置为“无”或“只读”。 不支持其他所有缓存模式。
-- 尚不支持已启用写入加速器的磁盘上的快照。 此限制会导致 Azure 备份服务无法对虚拟机的所有磁盘执行应用程序一致的快照。
+- 启用了写入加速器的磁盘当前不支持快照。 在备份期间，Azure 备份服务会自动排除连接到 VM 且启用了写入加速器的磁盘。
 - 仅较小的 I/O (<=32 KiB) 大小会采用加速路径。 在以下工作负荷情形下，I/O 写入到磁盘的更改不会采用加速路径：数据大容量加载或者数据在持久保存到存储之前，不同 DBMS 的事务日志缓冲区已较大程度上填满。
 
 写入加速器在每个 VM 中支持的 Azure 高级存储 VHD 数目有限制。 当前限制为：
@@ -65,7 +65,7 @@ IOPS 限制是针对每个 VM 而不是每个磁盘。 对于每个 VM，所有�
 
 目前，使用写入加速器必须满足以下先决条件：
 
-- 要向其应用 Azure 写入加速器的磁盘需是高级存储上的 [Azure 托管磁盘](https://www.azure.cn/home/features/managed-disks/)。
+- 要向其应用 Azure 写入加速器的磁盘需是高级存储上的 [Azure 托管磁盘](https://www.azure.cn/home/features/storage/managed-disks/)。
 - 必须使用 M 系列 VM
 
 ## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>使用 Azure PowerShell 启用 Azure 写入加速器
@@ -75,16 +75,16 @@ Azure PowerShell 模块 5.5.0 和更高版本对相关的 cmdlet 做了更改，
 
 已将新的开关参数 **-WriteAccelerator** 添加到以下 cmdlet：
 
-- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
-- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 不指定该参数会将属性设置为 false，并且会部署不受写入加速器支持的磁盘。
 
 已将新的开关参数 **-OsDiskWriteAccelerator** 添加到以下 cmdlet：
 
-- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
+- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 默认情况下，不指定该参数会将属性设置为 false，并且会返回不利用写入加速器的磁盘。
 
@@ -98,13 +98,13 @@ Azure PowerShell 模块 5.5.0 和更高版本对相关的 cmdlet 做了更改，
 示例命令如下所示：
 
 ```PowerShell
-New-AzureRmVMConfig | Set-AzureRmVMOsDisk | Add-AzureRmVMDataDisk -Name "datadisk1" | Add-AzureRmVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVM
+New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
-Get-AzureRmVM | Update-AzureRmVM -OsDiskWriteAccelerator $true
+Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
 
-New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | Add-AzureRmVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzureRmVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVmss
+New-AzVmssConfig | Set-AzVmssStorageProfile -OsDiskWriteAccelerator | Add-AzVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVmss
 
-Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
+Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 ```
 
 以下部分了演示了两个主要场景的脚本编写方式。
@@ -129,9 +129,9 @@ $size=1023
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
+Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 ### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>使用 PowerShell 在现有 Azure 磁盘上启用写入加速器
@@ -150,9 +150,9 @@ $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
+Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 > [!Note]
@@ -379,5 +379,4 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 进行这项更改后，写入加速器应会支持该驱动器。
 
-<!-- Update_Description: new articles on virtual machines how to enable write accelerator -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update -->

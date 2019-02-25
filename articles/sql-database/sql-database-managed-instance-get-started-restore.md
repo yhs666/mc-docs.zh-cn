@@ -12,32 +12,32 @@ ms.author: v-jay
 ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 12/14/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: abf8d93c696d0ede0ff69ec18b3ca746c390e86a
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.date: 02/25/2019
+ms.openlocfilehash: 750a2259b47f46dae0dfe2dafbf0f7a3ef4fa008
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996150"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663642"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入门：将数据库还原到托管实例 
 
-本快速入门介绍如何使用 SQL Server Management Studio (SSMS) 将某个数据库（Wide World Importers - Standard 备份文件）从 Azure Blob 存储还原到 Azure SQL 数据库[托管实例](/sql-database/sql-database-managed-instance)。 
+本快速入门介绍如何使用 SQL Server Management Studio (SSMS) 将某个数据库（Wide World Importers - Standard 备份文件）从 Azure Blob 存储还原到 Azure SQL 数据库[托管实例](sql-database-managed-instance.md)。 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> * 有关各种迁移方法的详细信息，请参阅[将 SQL Server 实例迁移到 Azure SQL 数据库托管实例](sql-database-managed-instance-migrate.md)。
+>  有关各种迁移方法的详细信息，请参阅[将 SQL Server 实例迁移到 Azure SQL 数据库托管实例](sql-database-managed-instance-migrate.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 本快速入门：
+
 - 使用[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中的资源。
 - 要求计算机上已安装最新的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)。
 - 要求使用 SSMS 连接到托管实例。 有关连接方法，请参阅以下快速入门：
-  * [从 Azure VM 连接到 Azure SQL 数据库托管实例](sql-database-managed-instance-configure-vm.md)
-  * [配置从本地到 Azure SQL 数据库托管实例的点到站点连接](sql-database-managed-instance-configure-p2s.md)。
-
+  - [从 Azure VM 连接到 Azure SQL 数据库托管实例](sql-database-managed-instance-configure-vm.md)
+  - [配置从本地到 Azure SQL 数据库托管实例的点到站点连接](sql-database-managed-instance-configure-p2s.md)。
 
 > [!NOTE]
 > 有关使用 Azure Blob 存储与[共享访问签名 (SAS) 密钥](/storage/common/storage-dotnet-shared-access-signature-part-1)备份和还原 SQL Server 数据库的详细信息，请参阅[将 SQL Server 备份到 URL](sql-database-managed-instance-get-started-restore.md)。
@@ -47,9 +47,7 @@ ms.locfileid: "53996150"
 在 SSMS 中，遵循以下步骤将 Wide World Importers 数据库还原到托管实例。 数据库备份文件存储在预配置的 Azure Blob 存储帐户中。
 
 1. 打开 SMSS 并连接到托管实例。
-
 2. 在左侧菜单中右键单击托管实例，然后选择“新建查询”，打开新的查询窗口。
-
 3. 运行以下 SQL 脚本。该脚本使用预配置的存储帐户和 SAS 密钥在托管实例中[创建凭据](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017)。
 
    ```sql
@@ -60,8 +58,7 @@ ms.locfileid: "53996150"
 
     ![创建凭据](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-  
-3. 若要检查凭据，请运行以下脚本。该脚本使用容器 URL 获取备份文件列表。
+4. 若要检查凭据，请运行以下脚本。该脚本使用容器 URL 获取备份文件列表。
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -70,7 +67,7 @@ ms.locfileid: "53996150"
 
     ![文件列表](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. 运行以下脚本，还原 Wide World Importers 数据库。
+5. 运行以下脚本，还原 Wide World Importers 数据库。
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -79,7 +76,7 @@ ms.locfileid: "53996150"
 
     ![还原](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. 运行以下脚本，跟踪还原的状态。
+6. 运行以下脚本，跟踪还原的状态。
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -89,7 +86,7 @@ ms.locfileid: "53996150"
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-6. 还原完成后，请在对象资源管理器中查看它。 
+7. 还原完成后，请在对象资源管理器中查看它。 
 
 ## <a name="next-steps"></a>后续步骤
 

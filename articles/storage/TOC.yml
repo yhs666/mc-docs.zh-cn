@@ -10,6 +10,8 @@ items:
   expanded: true
 - name: Blob
   href: ./blobs/storage-blobs-overview.md
+- name: Data Lake Storage Gen2
+  href: ./blobs/data-lake-storage-introduction.md
 - name: 文件
   href: ./files/storage-files-introduction.md
 - name: 队列
@@ -22,9 +24,9 @@ items:
     href: ../virtual-machines/windows/about-disks-and-vhds.md
   - name: Linux
     href: ../virtual-machines/linux/about-disks-and-vhds.md
-ms.openlocfilehash: 2e26e01d2ad1862c59ec9b8ac26e907d559ffb8c
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 4cd45703e57d39d5679d6d87f610b60ba1a8f6bb
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192849"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665484"

@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 06/28/2017
-ms.date: 12/03/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 90d5dbc1f21727bf03fdd9fa331d25c15c933aae
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 77226b2f6d915b5a352790bb39dfd7299bd126af
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675294"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665666"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -70,7 +70,7 @@ ms.locfileid: "52675294"
 
 1. 在 **SimulatedDevice.js** 文件的开头添加以下 ```require``` 语句：
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -80,7 +80,7 @@ ms.locfileid: "52675294"
 
 1. 添加 ```deviceconnectionstring``` 变量，并使用它创建一个客户端实例。  将 ```{deviceconnectionstring}``` 替换为在“创建 IoT 中心”部分中创建的设备的名称。
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -90,14 +90,14 @@ ms.locfileid: "52675294"
 
 1. 添加以下代码用于连接客户端：
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. 创建一个回调，并使用 **uploadToBlob** 函数上传文件。
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -137,7 +137,7 @@ ms.locfileid: "52675294"
 
 1. 在 **FileUploadNotification.js** 文件的开头添加以下 ```require``` 语句：
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -145,7 +145,7 @@ ms.locfileid: "52675294"
 
 1. 添加 ```iothubconnectionstring``` 变量，并使用它创建一个客户端实例。  将 ```{iothubconnectionstring}``` 替换为在“创建 IoT 中心”部分中创建的 IoT 中心的连接字符串：
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -154,13 +154,13 @@ ms.locfileid: "52675294"
 
 1. 添加以下代码用于连接客户端：
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. 打开客户端，并使用 **getFileNotificationReceiver** 函数接收状态更新。
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 07/31/2018
-ms.date: 09/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: f4637c8387231b50e49c1494cc9b6fda2af85f14
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 989f2739fcfc7fd417c48f77c300c80983795919
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653663"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665524"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -47,7 +47,7 @@ ms.locfileid: "52653663"
 
 1. 完成监视配置后，选择“保存”。
 
-随后，一组默认的指标将显示在存储帐户边栏选项卡上的图表中，以及各个服务边栏选项卡（Blob、队列、表和文件）中。 启用服务的指标后，最长可能需要一小时，数据才会显示在其图表中。 可以在任一指标图表中选择“编辑”，[配置](#how-to-customize-metrics-charts)要在图表中显示哪些指标。
+随后，一组默认的指标将显示在存储帐户边栏选项卡上的图表中，以及各个服务边栏选项卡（Blob、队列、表和文件）中。 启用服务的指标后，最长可能需要一小时，数据才会显示在其图表中。 可以在任何指标图表中选择“编辑”，配置要在图表中显示的指标。
 
 将“状态”设置为“关闭”可以禁用指标收集和日志记录。
 
@@ -99,7 +99,7 @@ ms.locfileid: "52653663"
 3. 为新的警报规则输入“名称”和“描述”。
 4. 选择要为其添加警报的指标，以及警报条件和阈值。 阈值单位类型根据所选的指标而异。 例如，“计数”是 ContainerCount 的单位类型，而 PercentNetworkError 指标的单位是百分比。
 5. 选择“时间段”。 在该时间段内达到或超过阈值的指标将触发警报。
-6. （可选）配置电子邮件和 Webhook 通知。 有关 Webhook 的详细信息，请参阅[针对 Azure 指标警报配置 Webhook](../../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 如果未配置电子邮件或 Webhook 通知，警报只会显示在 Azure 门户中。
+6. （可选）配置电子邮件和 Webhook 通知。 有关 Webhook 的详细信息，请参阅[针对 Azure 指标警报配置 Webhook](../../azure-monitor/platform/alerts-webhooks.md)。 如果未配置电子邮件或 Webhook 通知，警报只会显示在 Azure 门户中。
 
 ![Azure 门户中的“添加警报规则”边栏选项卡](./media/storage-monitor-storage-account/add-alert-rule.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "52653663"
    ![在 Azure 门户中的磁贴库](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. 添加完图表后，请选择仪表板顶部附近的“完成自定义”。
 
-将图表添加到仪表板后，可以根据[自定义指标图表](#how-to-customize-metrics-charts)中所述进一步自定义这些图表。
+将图表添加到仪表板后，可以根据“自定义指标图表”所述进一步自定义这些图表。
 
 ## <a name="configure-logging"></a>配置日志记录
 

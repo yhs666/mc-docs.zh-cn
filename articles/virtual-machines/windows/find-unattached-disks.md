@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 06/25/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 26fc4ec2e4c4c530ded7757b7ccdf4d67517d8af
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: disks
+ms.openlocfilehash: e89b32bb695fc837db373e1749d50e3550c8e752
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650813"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666078"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>查找并删除未连接的 Azure 托管和非托管磁盘
 删除 Azure 中的虚拟机 (VM) 时，默认不删除附加到 VM 的任何磁盘。 此功能可帮助防止意外删除 VM 而导致的数据丢失。 删除 VM 后，可继续支付未附加的磁盘。 本文演示了如何查找并删除任何未附加的磁盘，以及如何减少不必要的成本。 
@@ -42,7 +43,7 @@ ms.locfileid: "52650813"
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
 
-$managedDisks = Get-AzureRmDisk
+$managedDisks = Get-AzDisk
 
 foreach ($md in $managedDisks) {
 
@@ -54,7 +55,7 @@ foreach ($md in $managedDisks) {
 
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
 
-            $md | Remove-AzureRmDisk -Force
+            $md | Remove-AzDisk -Force
 
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
 
@@ -85,11 +86,12 @@ foreach ($md in $managedDisks) {
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
 $deleteUnattachedVHDs=0
 
-$storageAccounts = Get-AzureRmStorageAccount
+Connect-AzAccount -Environment AzureChinaCloud
+$storageAccounts = Get-AzStorageAccount
 
 foreach($storageAccount in $storageAccounts){
 
-    $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
+    $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
     $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 
@@ -130,5 +132,6 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>后续步骤
 
-有关详细信息，请参阅[删除存储帐户](../../storage/common/storage-create-storage-account.md)和 [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
-<!-- Update_Description: update meta properties, wording update -->（使用 PowerShell 标识孤立磁盘）
+有关详细信息，请参阅[删除存储帐户](../../storage/common/storage-create-storage-account.md)和[使用 PowerShell 标识孤立磁盘](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+
+<!-- Update_Description: update meta properties, wording update -->

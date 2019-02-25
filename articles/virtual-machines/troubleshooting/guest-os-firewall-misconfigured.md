@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2dc0b85341b26b09bfb61a24ea322983855103cf
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 8da05ef2ca9e96295b5ca7f58c90e1b06f0165fc
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736256"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666106"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 来宾 OS 防火墙配置不正确
 
@@ -43,11 +43,7 @@ ms.locfileid: "53736256"
 若要排查此问题，可通过将 VM 的系统磁盘附加到恢复 VM 来[修复 VM 脱机](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)。
 
 <!-- Not Available on use the Serial Console -->
-## <a name="online-mitigations"></a>联机缓解措施
-
-如果 VM 上未启用串行控制台，请转到以下 Azure 文章的“脱机修复 VM”部分：
-
-[尝试通过远程桌面连接到 Azure VM 时发生内部错误](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
+<!--Not Available on ## Online mitigations-->
 
 ### <a name="offline-mitigations"></a>脱机缓解措施
 
@@ -57,5 +53,4 @@ ms.locfileid: "53736256"
 
 3.  如果仍怀疑防火墙是否正在阻止你的访问，请参阅[在 Azure VM 中禁用来宾 OS 防火墙](disable-guest-os-firewall-windows.md)，然后通过使用正确的规则来重新启用来宾系统防火墙。
 
-<!-- Update_Description: new articles on VM guest os firewall misconfigured -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update -->

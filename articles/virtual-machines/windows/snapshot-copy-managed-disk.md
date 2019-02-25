@@ -13,14 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4240a176be178e2f640277569dcf005780627062
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.subservice: disks
+ms.openlocfilehash: 96f89d89218128430ffa9ce983a1b244a1439249
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785171"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666416"
 ---
 # <a name="create-a-snapshot"></a>创建快照
 
@@ -42,13 +43,13 @@ ms.locfileid: "53785171"
 
 ## <a name="use-powershell"></a>使用 PowerShell
 
-以下步骤演示如何使用 [New-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet 复制 VHD 磁盘、创建快照配置以及创建磁盘的快照。 
+以下步骤演示如何使用 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet 复制 VHD 磁盘、创建快照配置以及创建磁盘的快照。 
 
-开始前，请确保具有最新版本的 AzureRM.Compute PowerShell 模块（必须是 5.7.0 版本或更高版本）。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则需运行 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 以创建与 Azure 的连接。
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 1. 设置一些参数： 
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = 'myResourceGroup' 
     $location = 'chinaeast' 
     $vmName = 'myVM'
@@ -57,16 +58,16 @@ ms.locfileid: "53785171"
 
 2. 获取 VM：
 
-    ```PowerShell
-    $vm = get-azurermvm `
+    ```powershell
+    $vm = get-azvm `
        -ResourceGroupName $resourceGroupName 
        -Name $vmName
     ```
 
 3. 创建快照配置。 该示例中，此快照是 OS 磁盘的快照：
 
-    ```PowerShell
-    $snapshot =  New-AzureRmSnapshotConfig 
+    ```powershell
+    $snapshot =  New-AzSnapshotConfig 
        -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
        -Location $location 
        -CreateOption copy
@@ -76,8 +77,8 @@ ms.locfileid: "53785171"
 
 4. 拍摄快照：
 
-    ```PowerShell
-    New-AzureRmSnapshot 
+    ```powershell
+    New-AzSnapshot 
        -Snapshot $snapshot 
        -SnapshotName $snapshotName 
        -ResourceGroupName $resourceGroupName 

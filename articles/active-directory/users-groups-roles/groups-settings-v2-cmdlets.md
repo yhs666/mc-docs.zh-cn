@@ -1,31 +1,30 @@
 ---
-title: 在 Azure Active Directory 中管理组的 PowerShell 示例 | Microsoft Docs
+title: 管理组的 PowerShell 示例 - Azure Active Directory | Microsoft Docs
 description: 本页提供的 PowerShell 示例适用于在 Azure Active Directory 中管理组
 keywords: Azure AD, Azure Active Directory, PowerShell, 组, 组管理
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 06/07/2018
-ms.date: 11/13/2018
+origin.date: 01/31/2019
+ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 32605308b9bddc3519557f1ed07842b027fc425a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4f751f476aba39cd0b95f1874cccbf5ca216e262
+ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649858"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409410"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
+
 > [!div class="op_single_selector"]
-> * [Azure 门户](../fundamentals/active-directory-groups-create-azure-portal.md)
+> * [Azure 门户](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > * [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -219,15 +218,15 @@ ObjectId 参数是要将成员添加到的组的 ObjectID，-RefObjectId 是要�
 
 1. 验证是否允许非管理员用户创建组：
    
-    ````
+    ```
     PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-    ````
+    ```
     
 2. 如果它返回 `UsersPermissionToCreateGroupsEnabled : True`，则非管理员用户可以创建组。 若要禁用此功能，请执行以下操作：
   
-    ```` 
+    ```
     Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-    ````
+    ```
   
 ## <a name="manage-owners-of-groups"></a>管理组的所有者
 若要向组添加所有者，请使用 Add-AzureADGroupOwner cmdlet：
@@ -268,6 +267,7 @@ ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是�
 ## <a name="next-steps"></a>后续步骤
 如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)。
 
-- [使用 Azure Active Directory 组管理对资源的访问](../fundamentals/active-directory-manage-groups.md)
-- [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)
+- [使用 Azure Active Directory 组管理对资源的访问](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 
+<!-- Update_Description: link update -->

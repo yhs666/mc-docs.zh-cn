@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 09/19/2017
-ms.date: 12/27/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0940e25ea85fbe792ec9cf915b43841f4ecddef3
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: e2a90561492e3bed3e4550f90ceb60428fe92210
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806554"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665434"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 将消息添加到 Azure 存储队列
 
@@ -163,8 +163,8 @@ ms.locfileid: "53806554"
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何将输出绑定添加到现有函数。 有关队列存储绑定的详细信息，请参阅 [Azure Functions 存储队列绑定](functions-bindings-storage-queue.md)。 
+本快速入门介绍了如何将输出绑定添加到现有函数。 有关队列存储绑定的详细信息，请参阅 [Azure Functions 存储队列绑定](functions-bindings-storage-queue.md)。
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

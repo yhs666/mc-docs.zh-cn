@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 12/31/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 92a9daa62b72888c0803436e91584cd2edd5d710
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: cab6dc1d3c89fb0fab3b4088e57877a409674ad3
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736677"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665497"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>使用 Node.js 后端和 Node.js 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -202,7 +202,7 @@ ms.locfileid: "53736677"
 * [IoT Edge 入门][lnk-iot-edge]
 
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/

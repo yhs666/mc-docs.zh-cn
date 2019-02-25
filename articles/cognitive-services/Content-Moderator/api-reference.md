@@ -1,22 +1,22 @@
 ---
 title: API 参考 - 内容审查器
 titlesuffix: Azure Cognitive Services
-description: 了解内容审查器的内容审核和评审 API。
+description: 了解多种内容审查器的内容审核和评审 API。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: reference
 origin.date: 06/25/2017
-ms.date: 01/22/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: d0cef736a01abcb7a30eaba0f50447fd548866d9
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: a91ef344b11f00f94106f78a1f1cc1ca818ba3c7
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858087"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582760"
 ---
 # <a name="content-moderator-api-reference"></a>内容审查器 API 参考
 

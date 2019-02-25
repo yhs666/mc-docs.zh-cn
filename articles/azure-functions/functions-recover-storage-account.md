@@ -11,14 +11,14 @@ ms.workload: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: fd4b94f19fe8a8e008f3186853c290cadeb3afcd
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: adf44e0cc3ae44cf6846eac281e1c2c3a4224379
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334206"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665620"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何排查“Azure Functions 运行时无法访问”的问题
 
@@ -69,14 +69,14 @@ ms.locfileid: "54334206"
 
 ## <a name="storage-account-credentials-invalid"></a>存储帐户凭据无效
 
-如果重新生成存储密钥，则必须更新上面的“存储帐户”连接字符串。 [在此处阅读有关存储密钥管理的详细信息](/storage/common/storage-create-storage-account#manage-your-storage-account)
+如果重新生成存储密钥，则必须更新上面的“存储帐户”连接字符串。 [在此处阅读有关存储密钥管理的详细信息](/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>无法访问存储帐户
 
 Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐户的常见问题是：
 
 - Function App 在部署到应用服务环境时，没有正确的网络规则来允许在存储帐户中传入和传出流量
-- 存储帐户防火墙已启用，但未配置为允许在 Functions 中传入和传出流量。 [在此处阅读有关存储帐户防火墙配置的详细信息](/storage/common/storage-network-security?toc=%2fstorage%2ffiles%2ftoc.json)
+- 存储帐户防火墙已启用，但未配置为允许在 Functions 中传入和传出流量。 [在此处阅读有关存储帐户防火墙配置的详细信息](/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 ## <a name="daily-execution-quota-full"></a>每日执行配额已满
 
@@ -101,4 +101,4 @@ Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐�
 - [详细了解 Azure 应用服务](../app-service/app-service-web-overview.md)  
   Azure Functions 利用 Azure 应用服务执行核心功能，例如部署、环境变量和诊断。 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

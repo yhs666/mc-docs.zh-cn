@@ -1,22 +1,19 @@
 ---
 title: 如何在 Azure Database for MySQL 中备份和还原服务器
 description: 了解如何使用 Azure CLI 在 Azure Database for MySQL 中备份和还原服务器。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 81959ca03711c117794f13f923e6427a31674b33
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 02/25/2019
+ms.openlocfilehash: 55ecd477638911461db0f4b7246efb8a6a34fb03
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672635"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663733"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for MySQL 中备份和还原服务器
 
@@ -71,6 +68,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` 命令需要以下参数：
+
 | 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  源服务器所在的资源组。  |
@@ -108,6 +106,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 `az mysql server georestore` 命令需要以下参数：
+
 | 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新服务器将属于的资源组的名称。|

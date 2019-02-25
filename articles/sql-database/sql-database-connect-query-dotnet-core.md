@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/10/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 072d369f33cf9d887965975394c1ac5f13de147f
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 12/21/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: aa8021a2e7a81186f305544c46c6096e7b390517
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996376"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663420"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库
 
@@ -29,8 +29,6 @@ ms.locfileid: "53996376"
 对于本教程的内容，你需要：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- 针对计算机的公共 IP 地址制定的[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已安装[适用于操作系统的 .NET Core](https://www.microsoft.com/net/core)。 
 

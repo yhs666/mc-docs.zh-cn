@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 04/01/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: becc14b12e2ab025b6b46e67c8b79d4a01c0a95c
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 12/18/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: d2ced3ed38cabfb5fd00ff3c2b000a43042b727f
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806240"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663482"
 ---
 # <a name="performing-disaster-recovery-drill"></a>执行灾难恢复演练
 

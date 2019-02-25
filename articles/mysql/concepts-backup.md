@@ -1,21 +1,18 @@
 ---
 title: 在 Azure Database for MySQL 中进行备份和还原
 description: 了解如何自动备份和还原 Azure Database for MySQL 服务器。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/28/2018
-ms.date: 10/22/2018
-ms.openlocfilehash: e35b9695d1364bf5ea575b7fe55850946348f6ae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.openlocfilehash: da91cb5147acaf4447ae112459513832eabdc4ba
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654317"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663599"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -57,7 +54,7 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
 > [!IMPORTANT]
-> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 
+> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 为了防止服务器资源在部署后遭意外删除或意外更改，管理员可以利用[管理锁](/azure-resource-manager/resource-group-lock-resources)。
 
 ### <a name="point-in-time-restore"></a>时间点还原
 

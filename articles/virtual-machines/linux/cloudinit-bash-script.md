@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 90ae57827e0f93785777852d21e09f7d0e8a5e7d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dffe6da7d830f41d5121bc9afa8cbb783e9a428e
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653284"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665917"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>在 Azure 上的 Linux VM 中使用 cloud-init 运行 bash 脚本
 本文介绍如何在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时在 Linux 虚拟机 (VM) 或虚拟机规模集 (VMSS) 中运行现有的 bash 脚本。 Azure 预配资源后首次启动时，会运行这些 cloud-init 脚本。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -30,7 +30,8 @@ ms.locfileid: "52653284"
 
 如果已在使用 Linux 自定义脚本 Azure 扩展运行脚本，则可以迁移它们以使用 cloud-init。 但是，Azure 扩展已集成报告功能，当脚本失败时会发出警报，因此如果脚本失败，cloud-init 映像部署不会失败。
 
-若要了解此功能的工作原理，请创建一个简单的 bash 脚本用于测试。 与 cloud-init `#cloud-config` 文件一样，此脚本必须位于预配虚拟机时运行 AzureCLI 命令的本地位置。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor simple_bash.sh` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+若要了解此功能的工作原理，请创建一个简单的 bash 脚本用于测试。 与 cloud-init `#cloud-config` 文件一样，此脚本必须位于预配虚拟机时运行 AzureCLI 命令的本地位置。  对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor simple_bash.sh` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+
 <!-- Not Available on Cloud Shell -->
 
 ```bash
@@ -75,4 +76,4 @@ Running config-scripts-user using lock Running command ['/var/lib/cloud/instance
 - [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
 
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update link, wording update, update cmdlet -->

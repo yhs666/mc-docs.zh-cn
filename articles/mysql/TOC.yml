@@ -44,12 +44,8 @@ items:
       href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - 创建 Web 应用
     items:
-    - name: Wordpress - 门户
-      href: https://portal.azure.cn/#create/WordPress.WordPress
     - name: 将 PHP 与 MySQL 配合使用
       href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json
-    - name: 将 Java 与 MySQL 配合使用
-      href: /app-service/app-service-web-tutorial-java-mysql?toc=%2fmysql%2ftoc.json
 - name: 示例
   items:
   - name: Azure CLI
@@ -98,6 +94,12 @@ items:
       href: concepts-database-application-development.md
     - name: 连接复原
       href: concepts-connectivity.md
+    - name: Java
+      items:
+      - name: 配置 Spring Data JDBC
+        href: /java/spring-framework/configure-spring-data-jdbc-with-azure-mysql
+      - name: 配置 Spring Data JPA
+        href: /java/spring-framework/configure-spring-data-jpa-with-azure-mysql
   - name: 复制
     items:
     - name: 复制中数据
@@ -198,9 +200,9 @@ items:
       href: videos.md
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: 8fd930895a702d1da5ef464bc0e64ded02a38700
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 3bdac97c65552a36115bf8b60761dc455e30ba20
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333880"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663660"

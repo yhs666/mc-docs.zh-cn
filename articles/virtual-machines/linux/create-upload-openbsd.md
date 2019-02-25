@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/24/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7bec251b02e410a1e2522a3689d07b15b2768a9e
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 738fbee83b4d19b08eab27fe6e11debf39837b05
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736128"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666063"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>创建 OpenBSD 磁盘映像并将其上传到 Azure
 本文介绍如何创建和上传包含 OpenBSD 操作系统的虚拟硬盘 (VHD)。 上传后，可将其用作自己的映像，通过 Azure CLI 在 Azure 中创建虚拟机 (VM)。
@@ -160,7 +160,7 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-请使用 [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#list-ip-addresses) 获取 OpenBSD VM 的 IP 地址，如下所示：
+请使用 [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses) 获取 OpenBSD VM 的 IP 地址，如下所示：
 
 ```azurecli
 az vm list-ip-addresses --resource-group myResourceGroup --name myOpenBSD61
@@ -177,4 +177,4 @@ ssh azureuser@<ip address>
 
 若要从托管磁盘创建 VM，请阅读 [az disk](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest)。
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties， wording update, update link -->

@@ -1,23 +1,27 @@
 ---
-title: 跨扩展云数据库（横向分区）进行报告 | Azure
+title: 跨扩展云数据库（横向分区）进行报告 | Microsoft 文档
 description: 使用跨数据库数据库查询跨多个数据库进行报告。
 services: sql-database
-manager: digimobile
-author: forester123
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: c1e9b33f074903b746762fa1ed5f67ad912c38ea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: sstein
+manager: digimobile
+origin.date: 12/18/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 4ac546acf2c4feb39a2e02bc00b608491c65ec95
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647253"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663728"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨扩展云数据库进行报告（预览）
+
 可以使用[弹性查询](sql-database-elastic-query-overview.md)从单个连接点中的多个 Azure SQL 数据库中创建报告。 数据库必须进行横向分区（也称为“分片”）。
 
 如果有现有的数据库，请参阅[将现有数据库迁移到扩展数据库](sql-database-elastic-convert-to-use-elastic-tools.md)。
@@ -25,6 +29,7 @@ ms.locfileid: "52647253"
 若要了解需要查询的 SQL 对象，请参阅[跨横向分区的数据库进行查询](sql-database-elastic-query-horizontal-partitioning.md)。
 
 ## <a name="prerequisites"></a>先决条件
+
 下载并运行[弹性数据库工具示例入门](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用示例应用程序创建分片映射管理器

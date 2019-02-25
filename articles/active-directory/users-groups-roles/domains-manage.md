@@ -1,25 +1,25 @@
 ---
-title: 管理 Azure Active Directory 中的自定义域名 | Microsoft Docs
+title: 添加和验证自定义域名 - Azure Active Directory | Microsoft Docs
 description: 用于管理 Azure Active Directory 中域名的管理概念和操作指南
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 10/05/2018
-ms.date: 11/13/2018
+origin.date: 01/31/2019
+ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 92760e7a0baf22b77cbd10ca897373dd0fea91c2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: it-pro
+ms.openlocfilehash: 80a07ccdede020d04e8305e6bc1f1f9ab4690122
+ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643973"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409409"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 
@@ -67,7 +67,7 @@ ms.locfileid: "52643973"
 
 ### <a name="frequently-asked-questions"></a>常见问题
 
-**问：为何域删除操作失败，同时有一条错误指出，此域名包含 Exchange 主控的组？** <br>
+**问：为何域删除操作失败，并显示错误“此域名包含 Exchange 主控的组”？** <br>
 **答：** 目前，某些组（例如，支持邮件的安全组和分发列表）由 Exchange 预配，需要手动在 [Exchange 管理中心 (EAC)](https://outlook.office365.com/ecp/) 清理这些组。 可能有遗留的 ProxyAddresses 依赖于自定义域名，需要手动将其更新为另一个域名。 
 
 **问：我以 admin@contoso.com 身份登录，但无法删除域名“contoso.com”，为什么？**<br>
@@ -93,6 +93,6 @@ ms.locfileid: "52643973"
 
 - [添加自定义域名](/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [在 Exchange 管理中心删除 Azure AD 的自定义域名中支持 Exchange 邮件的安全组](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-- [将应用程序引用更新为 Azure AD 中的另一个域](/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application)
 - [使用 Microsoft 图形 API 强制删除自定义域名](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
 
+<!-- Update_Description: wording update -->

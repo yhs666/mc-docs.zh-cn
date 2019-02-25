@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: 介绍一款使用 Azure 认知服务中的计算机视觉 API 的基本 Java Swing 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 ms.author: v-junlch
 ms.custom: seodec18
 origin.date: 09/21/2017
-ms.date: 01/16/2019
-ms.openlocfilehash: b166d7400899a4e3abbe6c77b7eed0c670e88d6b
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.date: 02/20/2019
+ms.openlocfilehash: 4eaab57d2ffa50065d50b2758fd9e413a482dc88
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396453"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582777"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教程：计算机视觉 API Java
 
@@ -150,9 +150,9 @@ AnalyzeImage 方法包装进行图像分析的 REST API 调用。 该方法返�
 
 ```java
     /**
-     - Encapsulates the Microsoft Cognitive Services REST API call to analyze an image.
-     - @param imageUrl: The string URL of the image to analyze.
-     - @return: A JSONObject describing the image, or null if a runtime error occurs.
+     * Encapsulates the Microsoft Cognitive Services REST API call to analyze an image.
+     * @param imageUrl: The string URL of the image to analyze.
+     * @return: A JSONObject describing the image, or null if a runtime error occurs.
      */
     private JSONObject AnalyzeImage(String imageUrl) {
         try (CloseableHttpClient httpclient = HttpClientBuilder.create().build())
@@ -274,9 +274,9 @@ LandmarkImage 方法包装进行图像分析的 REST API 调用。 该方法返�
 
 ```java
      /**
-     - Encapsulates the Microsoft Cognitive Services REST API call to identify a landmark in an image.
-     - @param imageUrl: The string URL of the image to process.
-     - @return: A JSONObject describing the image, or null if a runtime error occurs.
+     * Encapsulates the Microsoft Cognitive Services REST API call to identify a landmark in an image.
+     * @param imageUrl: The string URL of the image to process.
+     * @return: A JSONObject describing the image, or null if a runtime error occurs.
      */
     private JSONObject LandmarkImage(String imageUrl) {
         try (CloseableHttpClient httpclient = HttpClientBuilder.create().build())
@@ -398,9 +398,9 @@ CelebritiesImage 方法包装进行图像分析的 REST API 调用。 该方法�
 
 ```java
      /**
-     - Encapsulates the Microsoft Cognitive Services REST API call to identify celebrities in an image.
-     - @param imageUrl: The string URL of the image to process.
-     - @return: A JSONObject describing the image, or null if a runtime error occurs.
+     * Encapsulates the Microsoft Cognitive Services REST API call to identify celebrities in an image.
+     * @param imageUrl: The string URL of the image to process.
+     * @return: A JSONObject describing the image, or null if a runtime error occurs.
      */
     private JSONObject CelebritiesImage(String imageUrl) {
         try (CloseableHttpClient httpclient = HttpClientBuilder.create().build())

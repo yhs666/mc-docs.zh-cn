@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 12/16/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 5161d9db962532145f5eadab5a1f941b45b5edaa
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 99785d264259d2df60a4024ebf1dd6b34f933604
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806223"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663606"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -29,12 +29,15 @@ SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来�
 例如，呼叫中心服务代表可以根据呼叫者的信用卡号的多个数字来识别其身份，但这些数据项不应完全透露给服务代表。 可以定义掩码规则，对任意查询的结果集中任何信用卡号除最后四位数以外的其他所有数字进行掩码。 另举一例，通过定义适当的数据掩码来保护个人身份信息 (PII) 数据，开发人员一方面可以查询生产环境以进行故障排除，同时又不违反法规遵从性要求。
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>SQL 数据库动态数据掩码基础知识
+
 通过在 SQL 数据库配置边栏选项卡或设置边栏选项卡中选择“动态数据掩码”操作，在 Azure 门户中设置动态数据掩码策略。
 
 ### <a name="dynamic-data-masking-permissions"></a>动态数据掩码权限
-Azure 数据库管理员、服务器管理员或 [SQL 安全管理员](/role-based-access-control/built-in-roles#sql-security-manager)角色可以配置动态数据掩码。
+
+Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](/role-based-access-control/built-in-roles#sql-security-manager)角色可以配置动态数据掩码。
 
 ### <a name="dynamic-data-masking-policy"></a>动态数据掩码策略
+
 * **不对其进行掩码的 SQL 用户** - 一组可以在 SQL 查询结果中获取非掩码数据的 SQL 用户或 AAD 标识。 始终不会对拥有管理员权限的用户进行掩码，这些用户可以看到没有任何掩码的原始数据。
 * **掩码规则** - 一组规则，定义要掩码的指定字段，以及使用的掩码函数。 可以使用数据库架构名称、表名称和列名称定义指定的字段。
 * **掩码函数** - 一组方法，用于控制不同情况下的数据透露。
@@ -50,11 +53,13 @@ Azure 数据库管理员、服务器管理员或 [SQL 安全管理员](/role-bas
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>建议进行掩码的字段
+
 DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段，可以考虑对这些字段进行掩码。 在门户的“动态数据掩码”边栏选项卡中，会看到针对数据库建议的列。 用户只需针对一个或多个列单击“添加掩码”，单击“保存”，即可对这些字段应用掩码。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>使用 Powershell cmdlet 为数据库设置动态数据屏蔽
+
 请参阅 [Azure SQL 数据库 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql)。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
-请参阅[对 Azure SQL 数据库的操作](https://msdn.microsoft.com/library/dn505719.aspx)。
 
+请参阅[对 Azure SQL 数据库的操作](https://msdn.microsoft.com/library/dn505719.aspx)。

@@ -2,20 +2,23 @@
 title: Azure SQL 数据库的表审核、TDS 重定向和 IP 终结点 | Microsoft Docs
 description: 了解在 Azure SQL 数据库中实现表审核时，审核、TDS 重定向和 IP 终结点的变化。
 services: sql-database
-author: Hayley244
-manager: digimobile
 ms.service: sql-database
-ms.custom: security
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 240bdbf72a9d1d0cbd5947a58cea7d8e9053af4c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: vanto
+manager: digimobile
+origin.date: 01/14/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: f402b3f881c3573cf732d89fc60b6681688b258b
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663658"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663700"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL 数据库 - 针对表审核的下层客户端支持和 IP 终结点更改
 
@@ -41,7 +44,7 @@ ms.locfileid: "52663658"
 * JDBC（JDBC 虽然支持 TDS 7.4，但不完全支持 TDS 重定向功能）
 * Tedious（适用于 Node.JS）
 
-注释：上面的服务器 FDQN 修改可能还可用于应用 SQL Server 级别的审核策略，而无需在每个数据库中进行配置（临时缓解）。
+**注释：** 上面的服务器 FQDN 修改可能还可用于应用 SQL Server 级别的审核策略，而无需在每个数据库中进行配置（临时缓解）。
 
 ## <a id="subheading-2"></a>IP 终结点在启用审核时更改
 请注意，启用表审核时，数据库的 IP 终结点将发生更改。 如果具有严格的防火墙设置，请相应地更新这些防火墙设置。

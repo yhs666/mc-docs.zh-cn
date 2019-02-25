@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 9ebe553bc5f1ff6123871f9853583e01c1413706
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 02/25/2019
+ms.openlocfilehash: 3690dec40d7769c68a9e71c6840e94eaebacbed6
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363787"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663769"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 类解决分片映射问题
 
@@ -53,7 +53,7 @@ GSM 和 LSM 可能会因为以下原因而出现不同步的情况：
 第一个步骤是创建 RecoveryManager 实例。 [GetRecoveryManager 方法](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager)返回当前 [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) 实例的恢复管理器。 若要解决分片映射中的任何不一致性，必须先检索特定分片映射的 RecoveryManager。
 
    ```java
-    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
+    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager();
    ```

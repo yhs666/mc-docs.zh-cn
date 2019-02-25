@@ -22,7 +22,7 @@
 
 1. 在“设备”页上的设备列表中选择已预配的设备：
 
-    ![选择物理设备](media/iot-suite-visualize-connecting/devicesselect.png)
+    ![选择真实设备](media/iot-suite-visualize-connecting/devicesselect.png)
 
 1. 若要显示可在设备上调用的方法列表，请选择“作业”，然后选择“运行方法”。 若要计划在多个设备上运行的作业，可以在列表中选择多个设备。 “作业”面板会显示普遍适用于所有选定设备的方法类型。
 

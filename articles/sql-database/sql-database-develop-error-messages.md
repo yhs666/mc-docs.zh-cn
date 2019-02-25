@@ -12,23 +12,25 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/31/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 6be0f9d4909a5cfb0e3481a07e8b6652792212b7
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 5bffecf0ab54a17f4ac1049b15ed3f8d82c8c72b
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806338"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663680"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
 本文列出了 SQL 数据库客户端应用程序的 SQL 错误代码，包括数据库连接错误、暂时性错误（也称为暂时性故障）、资源调控错误、数据库复制问题、弹性池和其他错误。 大多数类别特定于 Azure SQL 数据库，并不适用于 Microsoft SQL Server。 另请参阅[系统错误消息](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)。
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>数据库连接错误、暂时性错误和其他临时错误
+
 下表涵盖了应用程序尝试访问 SQL 数据库时，可能遇到的连接丢失错误和其他暂时性错误的 SQL 错误代码。 有关如何连接到 Azure SQL 数据库的入门教程，请参阅[连接到 Azure SQL 数据库](sql-database-libraries.md)。
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>最常见的数据库连接错误和暂时性故障错误
+
 Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动态地重新配置服务器。  此动态行为可能会导致客户端程序失去其与 SQL 数据库的连接。 此类错误情况称为 *暂时性故障*。
 
 强烈建议客户端程序包含重试逻辑，以便它可以提供一段时间来让暂时性故障纠正自身，并尝试重建连接。  我们建议在第一次重试前延迟 5 秒钟。 如果在少于 5 秒的延迟后重试，云服务有超载的风险。 对于后续的每次重试，延迟应以指数级增大，最大值为 60 秒。
@@ -49,6 +51,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 [SQL Server 连接池 (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx) 中提供了有关使用 ADO.NET 的客户端的*阻塞期*的说明。
 
 ### <a name="transient-fault-error-codes"></a>暂时性故障错误代码
+
 以下错误为暂时性错误，并且应在应用程序逻辑中重试： 
 
 | 错误代码 | 严重性 | 说明 |
@@ -63,6 +66,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 4221 |16 |由于等待“HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING”的时间过长，登录以读取次要副本失败。 副本不可用于登录，因为回收副本时缺少正在进行中的事务的行版本。 可以通过回滚或提交主要副本上的活动事务来解决此问题。 通过避免在主要副本上长时间写入事务，可以将此状况的发生次数降到最低。 |
 
 ## <a name="database-copy-errors"></a>数据库复制错误
+
 在 Azure SQL 数据库中复制数据库时，可能会发生以下错误。 有关详细信息，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
 
 | 错误代码 | 严重性 | 说明 |
@@ -82,6 +86,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40571 |16 |数据库复制由于内部错误而失败。 请删除目标数据库，并重试。 |
 
 ## <a name="resource-governance-errors"></a>资源调控错误
+
 使用 Azure SQL 数据库时过度使用资源会造成以下错误。 例如：
 
 * 事务打开的时间过长。
@@ -95,8 +100,8 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 
 | 错误代码 | 严重性 | 说明 |
 | ---:| ---:|:--- |
-| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅[单一数据库和入池数据库的 SQL 数据库资源限制](/sql-database/sql-database-resource-limits-logical-server)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
-| 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅[单一数据库和入池数据库的 SQL 数据库资源限制](/sql-database/sql-database-resource-limits-logical-server)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
+| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅[独立数据库和入池数据库的 SQL 数据库资源限制](sql-database-resource-limits-database-server.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
+| 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅[独立数据库和入池数据库的 SQL 数据库资源限制](sql-database-resource-limits-database-server.md)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
 | 40544 |20 个 |数据库已达到大小配额。 请将数据分区或删除、删除索引或查阅文档以找到可能的解决方案。 |
 | 40549 |16 |由于有长时间运行的事务，已终止会话。 请尝试缩短事务运行时间。 |
 | 40550 |16 |由于会话获取的锁过多，已终止该会话。 请尝试在单个事务中读取或修改更少的行。 |
@@ -105,15 +110,16 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40553 |16 |由于过度使用内存，已终止该会话。 请尝试修改查询以处理更少的行。<br/><br/>在 Transact-SQL 代码中减少 `ORDER BY` 和 `GROUP BY` 操作的数目可以降低查询的内存需求。 |
 
 ## <a name="elastic-pool-errors"></a>弹性池错误
+
 以下错误与创建和使用弹性池有关：
 
 | 错误代码 | 严重性 | 说明 | 纠正措施 |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |弹性池已达到其存储限制。 弹性池的存储使用不能超过 (%d) MB。 到达弹性池的存储限制时，尝试向数据库写入数据。 |在可能的情况下，考虑增加弹性池的 DTU 数并/或将存储添加到弹性池，以便提高其存储限制、减少弹性池中各数据库使用的存储，或者从弹性池中删除数据库。 |
-| 10929 | 16 |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 如需帮助，请参阅[单一数据库和入池数据库的 SQL 数据库资源限制](/sql-database/sql-database-resource-limits-logical-server)。 否则，请稍后再试。 每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值。 弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
+| 10929 | 16 |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 如需帮助，请参阅[单一数据库和入池数据库的 SQL 数据库资源限制](sql-database-resource-limits-database-server.md)。 否则，请稍后再试。 每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值。 弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
 | 40844 | 16 |弹性池中数据库“%ls”（位于服务器“%ls”上）是“%ls”版本的数据库，不能有连续的复制关系。  |不适用 |
 | 40857 | 16 |找不到服务器“%ls”的弹性池，弹性池名称:“%ls”。 指定的弹性池在指定的服务器中不存在。 | 提供有效的弹性池名称。 |
-| 40858 | 16 |弹性池“%ls”已存在于服务器“%ls”中。 指定的弹性池已存在于指定的逻辑服务器中。 | 提供新弹性池名称。 |
+| 40858 | 16 |弹性池“%ls”已存在于服务器“%ls”中。 指定的弹性池已存在于指定的 SQL 数据库服务器中。 | 提供新弹性池名称。 |
 | 40859 | 16 |弹性池不支持服务层“%ls”。 进行弹性池预配时，不支持指定服务层。 |提供正确的版本，或者将服务层留空以使用默认服务层。 |
 | 40860 | 16 |弹性池“%ls”和服务目标“%ls”的组合无效。 仅当资源类型指定为“ElasticPool”时，才能一起指定弹性池和服务层。 |指定正确的弹性池和服务层组合。 |
 | 40861 | 16 |数据库版本“%.*ls”必须与弹性池服务层“%.* ls”相同。 数据库版本不同于弹性池服务层。 |请勿指定不同于弹性池服务层的数据库版本。  请注意，数据库版本不需要指定。 |
@@ -138,6 +144,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 * [监视和管理弹性池 (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>常规错误
+
 以下错误不属于前面的任何类别。
 
 | 错误代码 | 严重性 | 说明 |
@@ -205,10 +212,11 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40671 |17 |网关与管理服务之间的通信失败。 请稍后重试。 |
 | 40852 |16 |无法在服务器“%.\*ls”中打开登录请求的数据库“%.\*ls”。 仅允许使用已启用安全性的连接字符串访问数据库。 若要访问此数据库，请将连接字符串修改为在服务器 FQDN 中包含“secure”。也就是说，'server name'.database.chinacloudapi.cn 应修改为 'server name'.database.`secure`.chinacloudapi.cn。 |
 | 40914 | 16 | 无法打开登录时请求的服务器‘[服务器-名称]’。 不允许客户端访问服务器。<br /><br />若要修复，请考虑添加[虚拟网络规则](sql-database-vnet-service-endpoint-rule-overview.md)。 |
-| 45168 |16 |SQL Azure 系统负载过小，正在设置单个服务器的并发数据库 CRUD 操作（例如创建数据库）数的上限。 在错误消息中指定的服务器已超过最大并发连接数。 请稍后重试。 |
+| 45168 |16 |SQL Azure 系统负载过小，正在设置单个 SQL 数据库服务器的并发数据库 CRUD 操作（例如创建数据库）数的上限。 在错误消息中指定的服务器已超过最大并发连接数。 请稍后重试。 |
 | 45169 |16 |SQL Azure 系统负载过小，正在设置单个订阅的并发服务器 CRUD 操作（例如创建服务器）数的上限。 在错误消息中指定的订阅已超过最大并发连接数，已拒绝请求。 请稍后重试。 |
 
 ## <a name="next-steps"></a>后续步骤
+
 * 阅读关于 [Azure SQL 数据库功能](sql-database-features.md)的信息。
 * 阅读关于[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)的信息。
 * 阅读关于[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)的信息。

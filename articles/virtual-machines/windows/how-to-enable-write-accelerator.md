@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/09/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4504410ffeae3e93367821aed08bb1f1ac1651a
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.subservice: disks
+ms.openlocfilehash: 0aa71e3fb73c2b6f5cd34a73446be985f7b996de
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736238"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666224"
 ---
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]
 
-<!-- Update_Description: new articles on virtual machines how to enable write accelerator -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: update meta properties -->

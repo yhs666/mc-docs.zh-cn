@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/25/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 8e36fae5ac76b90a72d47cbeac9e9648e77e0854
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: common
+ms.openlocfilehash: bcf3d17abb204f43cdfa4ec420552a5776ea48fe
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192819"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665643"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>为 Azure 存储客户端启用安全 TLS
 
@@ -57,7 +57,7 @@ Azure 存储自 2015 年以来已停止使用 SSL 3.0，并在公共 HTTPs 终�
 # Enable TLS 1.2 before connecting to Azure Storage
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 
-$resourceGroup = "{YourResourceGropuName}"
+$resourceGroup = "{YourResourceGroupName}"
 $storageAccountName = "{YourStorageAccountNme}"
 $prefix = "foo"
 

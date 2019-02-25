@@ -1,23 +1,22 @@
 ---
-title: Azure 队列存储简介 | Microsoft Docs
-description: Azure 队列存储简介
+title: Azure 队列简介 | Microsoft Docs
+description: Azure 队列简介
 services: storage
 author: WenJason
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 08/07/2017
-ms.date: 12/10/2018
+origin.date: 02/06/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: queues
-ms.openlocfilehash: 26a1dbc474d5e58f9a2c022c3e0c26ac304407e1
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.subservice: queues
+ms.openlocfilehash: 1b40587234fd78fab40a84ac8fd400c263529ae9
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028530"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665635"
 ---
-# <a name="introduction-to-queues"></a>队列简介
+# <a name="what-are-azure-queues"></a>什么是 Azure 队列？
 
 Azure 队列存储是一项可存储大量消息的服务，用户可以通过经验证的呼叫，使用 HTTP 或 HTTPS 从世界任何地方访问这些消息。 一条队列消息的大小最多可为 64 KB，一个队列中可以包含数百万条消息，直至达到存储帐户的总容量限值。
 

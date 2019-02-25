@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2017
-ms.date: 12/03/2018
+ms.date: 03/04/2019
 ms.author: yiso
-ms.openlocfilehash: 805ea3a3a8140b90a844534a773d0d61123881cc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f692d6f836e203807d01ad4880be4746beb17aa6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674563"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665645"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 

@@ -1,22 +1,24 @@
 ---
-title: Azure SQL 数据库的 DNS 别名 | Azure
+title: Azure SQL 数据库的 DNS 别名 | Microsoft Docs
 description: 应用程序可以连接到 Azure SQL 数据库服务器的别名。 另外，随时都可以更改别名所指向的 SQL 数据库，以方便执行测试和其他操作。
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
-ms.custom: DNS alias
-ms.topic: article
-origin.date: 02/05/2018
-ms.date: 02/28/2018
-ms.reviewer: genemi;ayolubek
-ms.author: v-nany
-ms.openlocfilehash: 55c7dc146733a745162f9d7927214b9a8e9092d0
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: genemi,ayolubek, jrasnick
+manager: digimobile
+origin.date: 12/19/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 8cfa296d3ca07d896ebe15d217b98c6e2f4b38a6
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672951"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663488"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL 数据库的 DNS 别名
 
@@ -54,7 +56,7 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 
 以下属性适用于 SQL 数据库服务器的每个 DNS 别名：
 
-- 唯一名称：像服务器名称一样，创建的每个别名在所有 Azure SQL 数据库服务器之间保持唯一。
+- 唯一的名称：像服务器名称一样，创建的每个别名在所有 Azure SQL 数据库服务器上保持唯一。
 - 需要服务器：除非 DNS 别名恰好引用一个服务器，并且该服务器存在，否则无法创建该别名。 更新的别名必须始终恰好引用一个现有服务器。
   - 删除某个 SQL 数据库服务器时，Azure 系统也会删除引用该服务器的所有 DNS 别名。
 - 不受限于任一区域：DNS 别名不受限于某一区域。 可以更新任何 DNS 别名，以引用位于任何地理区域中的 Azure SQL 数据库服务器。
@@ -96,8 +98,8 @@ Comment as of:  2018-01-26
 
 - [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：在 Azure SQL 数据库服务系统中创建新的 DNS 别名。 该别名引用 Azure SQL 数据库服务器 1。
 - [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：获取并列出分配给 SQL 数据库服务器 1 的所有 DNS 别名。
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：修改别名配置为引用的服务器名称，从服务器1 到 SQL 数据库服务器 2。
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：使用别名删除 SQL 数据库服务器 2 的 DNS 别名。
+- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：从服务器1 到 SQL 数据库服务器 2 修改别名配置为引用的服务器名称。
+- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1)：使用别名从 SQL 数据库服务器 2 删除 DNS 别名。
 
 **AzureRM.Sql** 模块 5.1.1 和更高版本中添加了上述 cmdlet。
 
@@ -105,10 +107,10 @@ Comment as of:  2018-01-26
 
 目前，DNS 别名存在以下限制：
 
-- 最长 2 分钟的延迟：最长需要 2 分钟才能更新或删除 DNS 别名。
+- 延迟最长为 2 分钟：最长需要 2 分钟才能更新或删除 DNS 别名。
   - 不管延迟时间有多短，别名都会使客户端连接立即停止引用旧服务器。
 - DNS 查找：目前，检查给定 DNS 别名引用哪台服务器的唯一权威方法是执行 [DNS 查找](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
-- [不支持表审核](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)：在已对数据库启用表审核的 Azure SQL 数据库服务器上，无法使用 DNS 别名。
+- [不支持表审核](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)：在已对数据库上启用表审核的 Azure SQL 数据库服务器上，无法使用 DNS 别名。
   - 表审核已弃用。
   - 我们建议改用 [Blob 审核](sql-database-auditing.md)。
 

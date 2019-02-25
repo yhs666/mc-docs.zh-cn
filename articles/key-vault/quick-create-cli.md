@@ -9,18 +9,17 @@ ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/10/2018
-ms.date: 09/17/2018
+ms.date: 03/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: bc07ad737d2ba5d81b7d3f5315cf3e9d80370a30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 54b98ae747309673cbdab0bfcdf7e2794a9cde3e
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646412"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409071"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 
@@ -30,7 +29,7 @@ Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全
 
 如果选择在本地安装并使用 CLI，本快速入门要求 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
 
-若要使用 CLI 登录到 Azure，可键入：
+若要使用 CLI 登录到 Azure，可以键入：
 
 ```azurecli
 az cloud set -n AzureChinaCloud
@@ -56,12 +55,12 @@ az group create --name 'ContosoResourceGroup' --location chinanorth
 - 位置：**中国北部**。
 
 ```azurecli
-az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location chinanorth
+az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location chinanorth
 ```
 
-此 cmdlet 的输出显示新创建的 Key Vault 的属性。 记下下面列出的两项属性：
+此 cmdlet 的输出显示新创建的 Key Vault 的属性。 请记下下面列出的两个属性：
 
-- **保管库名称**：在本示例中为 **Contoso-Vault2**。 会在其他 Key Vault 命令中使用此名称。
+- **保管库名称**：在本示例中，此项为 **Contoso-Vault2**。 会在其他 Key Vault 命令中使用此名称。
 - **保管库 URI**：在本示例中，此项为 https://contoso-vault2.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 目前，只有你的 Azure 帐户才有权对这个新保管库执行任何操作。
@@ -73,7 +72,7 @@ az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGrou
 键入以下命令，在 Key Vault 中创建名为 **ExamplePassword** 的机密，用于存储的值将为 **Pa$$w0rd**：
 
 ```azurecli
-az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
 ```
 
 现在，可以通过使用密码的 URI，引用已添加到 Azure Key Vault 的此密码。 使用 **https://ContosoVault.vault.azure.cn/secrets/ExamplePassword** 获取当前版本。 
@@ -81,7 +80,7 @@ az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --
 若要查看机密中包含的纯文本形式的值，请执行以下命令：
 
 ```azurecli
-az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
+az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 ```
 
 现在，你已创建 Key Vault 并存储和检索了机密。
@@ -100,5 +99,4 @@ az group delete --name ContosoResourceGroup
 在本快速入门中，你已创建 Key Vault 并在其中存储了一个机密。 若要详细了解 Key Vault 以及如何将它与应用程序配合使用，请继续学习有关如何将 Web 应用程序与 Key Vault 配合使用的教程。
 
 > [!div class="nextstepaction"]
-> 若要了解如何使用 Web 应用程序通过托管服务标识从 Key Vault 读取机密，请继续学习以下教程：[将 Azure Web 应用程序配置为从 Key Vault 读取机密](quick-create-net.md)
-
+> 若要了解如何使用 Web 应用程序通过 Azure 资源的托管标识从 Key Vault 读取机密，请继续学习以下教程：[将 Azure Web 应用程序配置为从 Key Vault 读取机密](quick-create-net.md)

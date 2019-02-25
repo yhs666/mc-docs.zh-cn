@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
-origin.date: 08/16/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 167dce0e63aff214c2ac144900cf3734a7bf96b5
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+origin.date: 12/10/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: a4b2f30e594e70d6987c2556f95868bbf48461d5
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397032"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663527"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL 数据库托管实例连接体系结构
 
@@ -109,9 +109,12 @@ Azure SQL 数据库托管实例虚拟群集包含一个管理终结点，可供 
 
 | Name       |端口          |协议|源           |目标|操作|
 |------------|--------------|--------|-----------------|-----------|------|
-|管理  |80、443、12000|TCP     |任意              |任意        |允许 |
+|管理  |80、443、12000|TCP     |任意              |Internet   |允许 |
 |mi_subnet   |任意           |任意     |任意              |MI SUBNET  |允许 |
 
+  > [!Note]
+  > MI 子网是指子网 10.x.x.x/y 格式的 IP 地址范围。 此信息可在 Azure 门户中找到（通过子网属性）。
+  
   > [!Note]
   > 虽然强制入站安全规则允许来自端口 9000、9003、1438、1440、1452 上的任意资源的流量，但这些端口受内置防火墙的保护。 此[文章](sql-database-managed-instance-find-management-endpoint-ip-address.md)介绍如何发现管理终结点 IP 地址并验证防火墙规则。 
   
@@ -120,7 +123,7 @@ Azure SQL 数据库托管实例虚拟群集包含一个管理终结点，可供 
   
 ## <a name="next-steps"></a>后续步骤
 
-- 有关概述，请参阅[什么是托管实例](sql-database-managed-instance.md)
+- 相关概述，请参阅 [什么是托管实例](sql-database-managed-instance.md)
 - 了解如何[配置新的 VNet](sql-database-managed-instance-create-vnet-subnet.md) 或[配置现有的 VNet](sql-database-managed-instance-configure-vnet-subnet.md)，以便在其中部署托管实例。
 - [计算子网的大小](sql-database-managed-instance-determine-size-vnet-subnet.md)，以便在其中部署托管实例。 
 - 查看快速入门，了解如何使用以下项创建托管实例：

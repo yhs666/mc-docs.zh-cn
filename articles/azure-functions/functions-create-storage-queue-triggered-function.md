@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 12/27/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 1ca102c439f7630bd6a7a463fb8a559d5175ec6e
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: e592ae6cfdbd295ce304803aeb430a1d5a19fb49
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806544"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665606"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>创建由 Azure 队列存储触发的函数
 
@@ -114,10 +114,11 @@ ms.locfileid: "53806544"
 
 ## <a name="next-steps"></a>后续步骤
 
-已创建将消息添加到存储队列时运行的函数。
+已创建将消息添加到存储队列时运行的函数。 有关队列存储触发器的详细信息，请参阅 [Azure Functions 存储队列绑定](functions-bindings-storage-queue.md)。
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+创建第一个函数以后，即可向这个可以将消息写回另一队列的函数添加输出绑定。
 
-有关队列存储触发器的详细信息，请参阅 [Azure Functions 存储队列绑定](functions-bindings-storage-queue.md)。
+> [!div class="nextstepaction"]
+> [使用 Functions 将消息添加到 Azure 存储队列](functions-integrate-storage-queue-output-binding.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

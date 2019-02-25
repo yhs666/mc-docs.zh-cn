@@ -1,23 +1,23 @@
 ---
-title: 教程：使应用程序数据在 Azure 中高度可用 | Microsoft Docs
+title: 教程：使用 Blob 存储构建高度可用的应用程序 - Azure 存储
 description: 使用读取访问异地冗余存储实现应用程序数据的高可用性
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 01/03/2019
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 022f66b7a0147fa66c5f2f0a11097941788e7868
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.subservice: blobs
+ms.openlocfilehash: 9dfc53ff3e6465a5bfe40d7a3611c5f26ff88348
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334494"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665607"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>教程：使应用程序数据在 Azure 存储中高度可用
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教程：使用 Blob 存储构建高度可用的应用程序
 
 本教程是一个系列中的第一部分。 本教程介绍如何在 Azure 中实现应用程序数据的高可用性。
 

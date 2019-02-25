@@ -6,14 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: get-started-article
 origin.date: 09/19/2017
-ms.date: 09/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: a2998857d4f8e29295143693445a315b18c0c469
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: files
+ms.openlocfilehash: 40ad1aab7ab0ab3bf795125d3b74de63e7e77619
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643889"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665413"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>在 macOS 中通过 SMB 装载 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 Azure 文件共享可以通过 macOS El Capitan 10.11+ 使用标准的 SMB 3 协议进行装载。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。
@@ -28,32 +29,32 @@ ms.locfileid: "52643889"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>在 macOS 中装载 Azure 文件共享的先决条件
-* **存储帐户名**：若要装载 Azure 文件共享，需要存储帐户的名称。
+* **存储帐户名称**：若要装载 Azure 文件共享，需要存储帐户的名称。
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 已打开**：SMB 通过 TCP 端口 445 通信。 在客户端计算机 (Mac) 上检查，确保防火墙未阻止 TCP 端口 445。
+* **确保端口 445 处于打开状态**：SMB 通过 TCP 端口 445 通信。 在客户端计算机 (Mac) 上检查，确保防火墙未阻止 TCP 端口 445。
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>通过 Finder 装载 Azure 文件共享
-1. **打开 Finder**：默认情况下，Finder 在 macOS 中处于打开状态，但可以通过单击 Dock 中的“macOS 笑脸图标”来确保它是当前选定的应用程序：  
+1. **打开 Finder**：默认情况下，Finder 在 macOS 中处于打开状态，但你可以通过单击 Dock 中的“macOS 笑脸图标”来确保它是当前选定的应用程序：  
     ![macOS 笑脸图标](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **在“前往”菜单中选择“连接到服务器”**：使用[先决条件](#preq)中的 UNC 路径，将开头的双反斜杠 (`\\`) 转换为 `smb://`，将所有其他的反斜杠 (`\`) 转换为斜杠 (`/`)。 链接应如下所示：![“连接到服务器”对话框](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **在“前往”菜单中选择“连接到服务器”**：使用先决条件中的 UNC 路径，将开头的双反斜杠 (`\\`) 转换为 `smb://`，将所有其他的反斜杠 (`\`) 转换为斜杠 (`/`)。 链接应如下所示：![“连接到服务器”对话框](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **当系统提示你输入用户名和密码时，使用存储帐户名称和存储帐户密钥**：单击“连接到服务器”对话框中的“连接”时，系统会提示你输入用户名和密码（系统会使用你的 macOS 用户名自动填充此用户名字段）。 可以选择将存储帐户名称/存储帐户密钥置于 macOS 密钥链中。
 
-4. **根据需要使用 Azure 文件共享**：使用共享名称和存储帐户密钥替换用户名和密码后，系统就会装载共享。 可以像通常情况下使用本地文件夹/文件共享一样使用此功能，例如，可以将文件拖放到文件共享中：
+4. **根据需要使用 Azure 文件共享**：使用共享名称和存储帐户密钥替换用户名和密码以后，系统就会装载共享。 可以像通常情况下使用本地文件夹/文件共享一样使用此功能，例如，可以将文件拖放到文件共享中：
 
     ![装载的 Azure 文件共享的快照](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>通过 Terminal 装载 Azure 文件共享
-1. 将  `<storage-account-name>`  替换为存储帐户的名称。 在系统提示时提供存储帐户密钥作为密码。 
+1. 将 `<storage-account-name>` 替换为存储帐户的名称。 在系统提示时提供存储帐户密钥作为密码。 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <desired-mount-point>
     ```
 
-2. **根据需要使用 Azure 文件共享**：Azure 文件共享会装载到上一命令指定的装载点。  
+2. **根据需要使用 Azure 文件共享**：Azure 文件共享将装载到上一命令指定的装载点。  
 
     ![装载的 Azure 文件共享的快照](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 

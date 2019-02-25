@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: f4630b2793bc20c8aa55b63e603d3720a96d1078
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/30/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 98d738c5171641427343647b2487a65758e1d785
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806424"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663653"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
 
-本文介绍如何使用 [Azure 门户](http://portal.azure.cn)在 SQL 数据库中的逻辑服务器 (sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) 上 [为单一数据库与入池数据库配置活动异地复制]，以及如何启动故障转移。
+本文说明如何使用 [Azure 门户](http://portal.azure.cn)为 Azure SQL 数据库中的[单一和入池数据库配置活动异地复制](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)，以及如何启动故障转移。
 
 有关自动故障转移组与单一数据库和入池数据库的信息，请参阅[将故障转移组与单一数据库和入池数据库配合使用的最佳做法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)。
 
@@ -33,7 +33,7 @@ ms.locfileid: "53806424"
 * Azure SQL 数据库：要复制到其他地理区域的主数据库。
 
 > [!Note]
-活动异地复制必须在同一订阅中的数据库之间进行。
+如果使用 Azure 门户，仅可在与主要数据库相同的订阅内创建辅助数据库。 如果辅助数据库需要位于其他订阅中，请使用 [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 或 [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)。
 
 ## <a name="add-a-secondary-database"></a>添加辅助数据库
 
@@ -41,7 +41,7 @@ ms.locfileid: "53806424"
 
 只有订阅所有者或共有者才能添加辅助数据库。
 
-辅助数据库具有与主数据库相同的名称，并默认使用相同的服务层和计算大小。 辅助数据库可以是单一数据库，也可以是弹性池中的数据库。 有关详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
+辅助数据库具有与主数据库相同的名称，并默认使用相同的服务层和计算大小。 辅助数据库可以是单一数据库，也可以是入池数据库。 有关详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
 创建辅助数据库并设定种子后，会开始将数据从主数据库复制到新的辅助数据库。
 
 > [!NOTE]

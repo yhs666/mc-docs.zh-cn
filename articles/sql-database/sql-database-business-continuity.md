@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 12/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 6b1a0085018aa6b729a969f12e9e5fbd5b6ad48c
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 1b79d4a93d6f3e1c96aca1c9936c6aebe3314320
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806336"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663601"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL 数据库确保业务连续性的相关概述
 
@@ -47,7 +47,7 @@ SQL 数据库提供多种可以缓解此类情况的业务连续性功能，包�
 
 - 使用[时态表](sql-database-temporal-tables.md)可以从任意时间点还原行版本。
 - 使用[内置自动备份](sql-database-automated-backups.md)和[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)可将整个数据库还原到过去 35 天内的某个时间点。
-- 如果**逻辑服务器尚未删除**，可[将已删除的数据库还原](sql-database-recovery-using-backups.md#deleted-database-restore)到删除时的时间点。
+- 如果 **SQL 数据库服务器尚未删除**，可将[已删除的数据库还原](sql-database-recovery-using-backups.md#deleted-database-restore)到删除时的时间点。
 - 使用[长期备份保留](sql-database-long-term-retention.md)可将备份保留长达 10 年之久。
 - 使用[活动异地复制](sql-database-active-geo-replication.md)，可以创建可读取的副本，并且在发生数据中心中断或应用程序升级期间手动故障转移到任何副本。
 - 发生数据中心中断时，应用程序可以通过[自动故障转移组](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities)自动恢复。
@@ -64,7 +64,7 @@ SQL 数据库提供多种可以缓解此类情况的业务连续性功能，包�
 
 ## <a name="recover-a-database-to-the-existing-server"></a>将数据库恢复到现有服务器
 
-SQL 数据库每周自动执行完整数据库备份，每隔 12 小时通常自动执行差异数据库备份，每隔 5 - 10 分钟自动执行事务日志备份，以防止企业丢失数据。 所有服务层的备份在 RA-GRS 存储中存储 35 天；但基本 DTU 服务层除外，其中的备份将存储 7 天。 有关更多详细信息，请参阅[自动数据库备份](sql-database-automated-backups.md)。 可以使用 Azure 门户、PowerShell 或 REST API，将自动备份中的现有数据库还原到早期的时间点，作为同一逻辑服务器上的新数据库。 有关详细信息，请参阅[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)。
+SQL 数据库每周自动执行完整数据库备份，每隔 12 小时通常自动执行差异数据库备份，每隔 5 - 10 分钟自动执行事务日志备份，以防止企业丢失数据。 所有服务层的备份在 RA-GRS 存储中存储 35 天；但基本 DTU 服务层除外，其中的备份将存储 7 天。 有关更多详细信息，请参阅[自动数据库备份](sql-database-automated-backups.md)。 可以使用 Azure 门户、PowerShell 或 REST API，基于自动备份将现有数据库还原到早期的时间点，作为同一 SQL 数据库服务器上的新数据库。 有关详细信息，请参阅[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)。
 
 如果支持的最长时间点还原 (PITR) 保留期对你的应用程序而言不足，可以通过为数据库配置长期保留 (LTR) 策略来延长保留期。 有关详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
 
@@ -102,13 +102,14 @@ Azure 数据中心会罕见地发生中断。 发生中断时，业务可能仅�
 
 执行操作时，恢复所需的时间以及数据丢失量会有所不同，这具体取决于用户要在应用程序中使用哪些业务连续性功能。 事实上，可以根据应用程序需求，选择结合使用数据库备份与活动异地复制。 若要探讨使用这些业务连续性功能为独立数据库和弹性池设计应用程序时的注意事项，请参阅[设计用于云灾难恢复的应用程序](sql-database-designing-cloud-solutions-for-disaster-recovery.md)和[弹性池灾难恢复策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
 
+
 以下各节概述使用数据库备份或活动异地复制进行恢复的步骤。 若要了解包括计划需求在内的详细步骤、恢复后步骤，以及如何模拟中断以执行灾难恢复演练，请参阅[在中断时恢复 SQL 数据库](sql-database-disaster-recovery.md)。
 
 ### <a name="prepare-for-an-outage"></a>为中断做好准备
 
 无论使用哪种业务连续性功能，都必须：
 
-- 识别并准备目标服务器，包括服务器级防火墙规则、登录名和 master 数据库级权限。
+- 识别并准备目标服务器，包括服务器级 IP 防火墙规则、登录名和 master 数据库级权限。
 - 确定如何将客户端和客户端应用程序重定向到新服务器
 - 记录其他依赖项，例如审核设置和警报
 
@@ -133,7 +134,7 @@ Azure 数据中心会罕见地发生中断。 发生中断时，业务可能仅�
 从任一恢复机制恢复后，都必须执行以下附加任务，用户和应用程序才能重新运行：
 
 - 将客户端和客户端应用程序重定向到新服务器和还原的数据库
-- 确保设置适当的服务器级防火墙规则，供用户连接（或使用[数据库级防火墙](sql-database-firewall-configure.md#creating-and-managing-firewall-rules)）
+- 确保设置适当的服务器级 IP 防火墙规则，以便用户能够连接或使用[数据库级防火墙](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)，启用合适的规则。
 - 确保设置适当的登录名和 master 数据库级权限（或使用[包含用户](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)）
 - 视情况配置审核
 - 视情况配置警报

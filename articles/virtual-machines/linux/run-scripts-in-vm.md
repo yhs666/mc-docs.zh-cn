@@ -6,15 +6,15 @@ ms.service: automation
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 05/02/2018
-ms.date: 06/25/2018
+ms.date: 02/18/2019
 ms.topic: article
 manager: digimobile
-ms.openlocfilehash: c5f12e20e9b670a87864a9a8216205384a33dc49
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 229d4d47a090d2ddeef660945255d382270be8de
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029139"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666030"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>在 Linux VM 中运行脚本
 

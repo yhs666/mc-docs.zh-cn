@@ -13,14 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 132610a861d117fada8f10b6e048b2a14b7528b6
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.subservice: disks
+ms.openlocfilehash: d2c974eca63cf61f2fda10f2a1f9bfd5c69dcc78
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736152"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666095"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
 

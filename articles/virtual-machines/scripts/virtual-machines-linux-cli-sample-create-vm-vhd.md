@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/09/2017
-ms.date: 09/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1e27720c05c35b28138e0f72c333e94ead968cf6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c943905c78c8bafba2f03fd1f6b359ccec2332c5
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655073"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666347"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
 
@@ -93,8 +93,7 @@ az group delete -n az-cli-vhd
 | [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) | 通过上传 VHD，在容器中创建一个 Blob。 |
 | [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list) | 与 `--query` 一起使用，用于检查 VM 名称是否已使用。 | 
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) | 创建虚拟机。 |
-| [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
-<!-- URL is Correct on [az vm user reset-ssh](https://docs.microsoft.com/zh-cn/cli/azure/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh) -->
+| [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -102,4 +101,4 @@ az group delete -n az-cli-vhd
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update link, wording update, update cmdlet -->

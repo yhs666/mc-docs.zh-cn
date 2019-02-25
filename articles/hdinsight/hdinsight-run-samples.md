@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: ca036d08d6e2707e308a6e3d7fb4a020c93f4a52
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: fb7b3b7318dbe683c66c094c42a33cbf3d5499e6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216242"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665714"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 MapReduce 示例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -53,9 +53,9 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
     > 请按照[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 中的步骤安装最新版本的 Azure PowerShell。 如果脚本需要修改后才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到基于 Azure Resource Manager 的面向 HDInsight 群集的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
 ## <a name="hdinsight-sample-wordcount"></a>字数统计 - Java
-若要提交 MapReduce 项目，请先创建 MapReduce 作业定义。 在作业定义中，指定 MapReduce 程序 jar 文件和 jar 文件的位置（即 wasbs:///example/jars/hadoop-mapreduce-examples.jar）、类名和参数。  Wordcount MapReduce 程序采用两个参数：输出位置以及用于计算字数的源文件。
+若要提交 MapReduce 项目，请先创建 MapReduce 作业定义。 在作业定义中，指定 MapReduce 程序 jar 文件和 jar 文件的位置（即 wasbs:///example/jars/hadoop-mapreduce-examples.jar）、类名和参数。  Wordcount MapReduce 程序采用两个参数：用于计算字数的源文件以及输出位置。
 
-可以在 [附录 A](#apendix-a---the-word-count-MapReduce-program-in-java)中找到源代码。
+可以在附录 A 中找到源代码。
 
 有关开发 Java MapReduce 程序的过程，请参阅[开发适用于 HDInsight 中的 Apache Hadoop 的 Java MapReduce 程序](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -136,7 +136,7 @@ Hadoop 向 MapReduce 提供了一个流式处理 API，利用它，可以采用 
 
 提交 C# 流式处理字数统计作业
 
-* 请按照[字数统计 - Java](#word-count-java) 中的步骤操作，并将作业定义替换为以下内容：
+* 请按照字数统计 - Java 中的步骤操作，并将作业定义替换为以下行：
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -158,7 +158,7 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
 
 **提交 pi 估计器作业**
 
-* 请按照[字数统计 - Java](#word-count-java) 中的步骤操作，并将作业定义替换为以下内容：
+* 请按照字数统计 - Java 中的步骤操作，并将作业定义替换为以下行：
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -186,7 +186,7 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
 
 **提交作业**
 
-* 按照 [字数统计 - Java](#word-count-java)中的过程操作，并使用以下作业定义：
+* 按照字数统计 - Java 中的步骤操作，并使用以下作业定义：
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

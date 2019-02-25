@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: python
 ms.topic: article
 origin.date: 12/14/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: a436d09bb4508c73d5571a12dec1c65662324cb5
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: files
+ms.openlocfilehash: d8476fbd897be34d269f68bf1572b679ba185d4d
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192836"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665480"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -127,7 +127,7 @@ file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## <a name="create-share-snapshot-preview"></a>创建共享快照（预览版）
+## <a name="create-share-snapshot"></a>创建共享快照
 可以创建整个文件共享的时点副本。
 
 ```python

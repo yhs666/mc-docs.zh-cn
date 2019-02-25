@@ -1,22 +1,22 @@
 ---
-title: 快速入门：适用于 .NET 的内容审查器 SDK 帮助程序方法
+title: 快速入门：创建适用于 .NET 的审查客户端 - 内容审查器
 titlesuffix: Azure Cognitive Services
 description: 如何使用适用于 .NET 的 Azure 内容审查器 SDK 返回内容审查器客户端
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-origin.date: 01/04/2018
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 466665f4e214c852bf7fb02a9d6a0efd1b3d5d93
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 80810276eafd0d554061349425d702b2395cdf6e
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858075"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582756"
 ---
 # <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>快速入门：帮助程序代码返回内容审查器客户端
 

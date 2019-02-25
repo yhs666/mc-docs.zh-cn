@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 脚本示例 - 计算 Blob 容器大小 | Azure
+title: Azure CLI 脚本示例 - 计算 blob 容器大小 | Microsoft Docs
 description: 通过计算容器中 blob 的总大小来计算 Azure Blob 存储中容器的大小。
 services: storage
 documentationcenter: na
-author: forester123
+author: WenJason
 manager: digimobile
 editor: tysonn
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/28/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 5d9611779b2cf503cb497c1feb2386c679d1cf98
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.openlocfilehash: db3968c00bfe883d23c61707d5cab27ab42f2fa1
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649445"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665383"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
@@ -89,9 +89,9 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az storage blob upload](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 将本地文件上传到 Azure Blob 存储容器。 |
-| [az storage blob list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) | 列出 Azure Blob 存储容器中的 blob。 |
+| [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az storage blob upload](https://docs.azure.cn/cli/storage/account) | 将本地文件上传到 Azure Blob 存储容器。 |
+| [az storage blob list](https://docs.azure.cn/cli/storage/account/keys) | 列出 Azure Blob 存储容器中的 blob。 |
 
 ## <a name="next-steps"></a>后续步骤
 

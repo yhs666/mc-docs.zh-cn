@@ -11,15 +11,15 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5971f0ad70820b017ff24e219d0b5096b01e96d
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: cc88ede3d0f58d0d5d346aa2ee846330e51e9f2b
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216259"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665682"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>使用 HDInsight 中的 Apache Hive 分析航班延误数据
 [Apache Hive](https://hive.apache.org/) 提供了通过类似于 SQL 的脚本语言（称为 *[HiveQL][hadoop-hiveql]*）运行 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
@@ -71,13 +71,13 @@ PowerShell 脚本的一部分将数据从公共 blob 容器复制到群集的默
 
 下表列出了本教程中使用的文件：
 
-<table border="1">
-<tr><th>文件</th><th>说明</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Hive 作业所用的 HiveQL 脚本文件。 此脚本已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-b">附录 B</a> 提供了有关准备此文件以及将其上传到用户的 Azure Blob 存储帐户的说明。</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Hive 作业的输入数据。 这些数据已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-a">附录 A</a> 提供了有关获取数据以及将数据上传到用户的 Azure Blob 存储帐户的说明。</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Hive 作业的输出路径。 默认容器用于存储输出数据。</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>默认容器上的 Hive 作业状态文件夹。</td></tr>
-</table>
+|文件|说明|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|Hive 作业所用的 HiveQL 脚本文件。 此脚本已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-b">附录 B</a> 提供了有关准备此文件以及将其上传到用户的 Azure Blob 存储帐户的说明。|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Hive 作业的输入数据。 这些数据已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-a">附录 A</a> 提供了有关获取数据以及将数据上传到用户的 Azure Blob 存储帐户的说明。|
+|\tutorials\flightdelays\output|Hive 作业的输出路径。 默认容器用于存储输出数据。|
+|\tutorials\flightdelays\jobstatus|默认容器上的 Hive 作业状态文件夹。|
+
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>创建群集并运行 Hive/Sqoop 作业
 Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益的方法是为作业创建群集，并在作业完成之后删除作业。 以下脚本覆盖了整个过程。
@@ -245,7 +245,7 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 上传数据文件和 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 脚本文件（请参阅[附录 B](#appendix-b)）需要进行规划。 思路是在创建 HDInsight 群集和运行 Hive 作业之前存储数据文件和 HiveQL 文件。 可以使用两个选项：
 
 * **使用由 HDInsight 群集用作默认文件系统的同一 Azure 存储帐户。** 由于 HDInsight 群集将具有存储帐户访问密钥，因此你无需进行任何其他更改。
-* **使用与 HDInsight 群集默认文件系统不同的 Azure 存储帐户。** 如果选择了此项，则必须修改[创建 HDInsight 群集和运行 Apache Hive/Sqoop 作业](#runjob)中的 Windows PowerShell 脚本的创建部分，以链接该存储帐户作为额外的存储帐户。 有关说明，请参阅[在 HDInsight 中创建 Apache Hadoop 群集][hdinsight-provision]。 这样，HDInsight 群集就会知道存储帐户的访问密钥。
+* **使用与 HDInsight 群集默认文件系统不同的 Azure 存储帐户。** 如果选择了此项，则必须修改创建 HDInsight 群集和运行 Apache Hive/Sqoop 作业中的 Windows PowerShell 脚本的创建部分，以链接该存储帐户作为额外的存储帐户。 有关说明，请参阅[在 HDInsight 中创建 Apache Hadoop 群集][hdinsight-provision]。 这样，HDInsight 群集就会知道存储帐户的访问密钥。
 
 > [!NOTE]
 > 数据文件的 WASB 路径会在 HiveQL 脚本文件中进行硬编码。 必须相应地进行更新。
@@ -255,13 +255,13 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 1. 浏览到 [美国研究与技术创新管理部门 - 运输统计局][rita-website]。
 2. 在该页面上，选择以下值：
 
-    <table border="1">
-    <tr><th>名称</th><th>值</th></tr>
-    <tr><td>筛选年份</td><td>2013 </td></tr>
-    <tr><td>筛选期间</td><td>1 月</td></tr>
-    <tr><td>字段</td><td>Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay 、LateAircraftDelay（清除其他所有字段）</td></tr>
-    </table>
-3.单击“下载”****。
+    |名称|值|
+    |---|---|
+    |筛选年份|2013|
+    |筛选期间|1 月|
+    |字段|*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay* 、*LateAircraftDelay*（清除其他所有字段）|
+
+3. 单击“下载”。
 4. 将文件解压缩到 C:\Tutorials\FlightDelay\2013Data 文件夹。 每个文件均为 CSV 文件且大小约为 60GB。
 5. 将文件重命名为其包含的数据所对应的月份的名称。 例如，将包含 1 月份数据的文件命名为 *January.csv*。
 6. 重复步骤 2 和步骤 5 为 2013 年中的 12 个月分别下载一个对应的文件。 完成本教程至少需要一个文件。
@@ -270,11 +270,11 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 
 1. 准备参数：
 
-    <table border="1">
-    <tr><th>变量名</th><th>注释</th></tr>
-    <tr><td>$storageAccountName</td><td>数据上传的目标 Azure 存储帐户。</td></tr>
-    <tr><td>$blobContainerName</td><td>数据上传的目标 Blob 容器。</td></tr>
-    </table>
+    |变量名|注释|
+    |---|---|
+    |$storageAccountName|数据上传的目标 Azure 存储帐户。|
+    |$blobContainerName|数据上传的目标 Blob 容器。|
+    
 2. 打开 Azure PowerShell ISE。
 3. 将以下脚本粘贴到脚本窗格中：
 
@@ -378,13 +378,14 @@ HiveQL 脚本执行以下操作：
 
 1. 准备参数：
 
-    <table border="1">
-    <tr><th>变量名</th><th>注释</th></tr>
-    <tr><td>$storageAccountName</td><td>HiveQL 脚本上传的目标 Azure 存储帐户。</td></tr>
-    <tr><td>$blobContainerName</td><td>HiveQL 脚本上传的目标 Blob 容器。</td></tr>
-    </table>
-2. 打开 Azure PowerShell ISE。
-3. 将以下脚本复制并粘贴到脚本窗格中：
+    |变量名|注释|
+    |---|---|
+    |$storageAccountName|HiveQL 脚本上传的目标 Azure 存储帐户。|
+    |$blobContainerName|HiveQL 脚本上传的目标 Blob 容器。|
+    
+2. 打开 Azure PowerShell ISE。  
+
+3. 将以下脚本复制并粘贴到脚本窗格中：  
 
     ```powershell
     [CmdletBinding()]
@@ -565,14 +566,15 @@ HiveQL 脚本执行以下操作：
 
 1. 准备参数：
 
-    <table border="1">
-    <tr><th>变量名</th><th>注释</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>Azure SQL 数据库服务器的名称。 不输入任何值会创建新的服务器。</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>Azure SQL 数据库服务器登录名。 如果 $sqlDatabaseServerName 是现有的服务器，登录名和登录密码将用来向服务器进行身份验证。 否则将其用于创建新的服务器。</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Azure SQL 数据库服务器登录密码。</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>只有在创建新的 Azure 数据库服务器时才会使用此值。</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>Sqoop 作业的 AvgDelays 表的 SQL 数据库。 保留空白会创建名为 HDISqoop 的数据库。 Sqooop 作业输出的表名称为 AvgDelays。 </td></tr>
-    </table>
+    |变量名|注释|
+    |---|---|
+    |$sqlDatabaseServerName|Azure SQL 数据库服务器的名称。 不输入任何值会创建新的服务器。|
+    |$sqlDatabaseUsername|Azure SQL 数据库服务器登录名。 如果 $sqlDatabaseServerName 是现有的服务器，登录名和登录密码将用来向服务器进行身份验证。 否则将其用于创建新的服务器。|
+    |$sqlDatabasePassword|Azure SQL 数据库服务器登录密码。|
+    |$sqlDatabaseLocation|只有在创建新的 Azure 数据库服务器时才会使用此值。|
+    |$sqlDatabaseName|Sqoop 作业的 AvgDelays 表的 SQL 数据库。 保留空白会创建名为 HDISqoop 的数据库。 Sqooop 作业输出的表名称为 AvgDelays。|
+
+    
 2. 打开 Azure PowerShell ISE。
 3. 将以下脚本复制并粘贴到脚本窗格中：
 
@@ -614,7 +616,7 @@ HiveQL 脚本执行以下操作：
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -724,7 +726,7 @@ HiveQL 脚本执行以下操作：
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -738,9 +740,9 @@ HiveQL 脚本执行以下操作：
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

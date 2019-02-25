@@ -6,18 +6,35 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/11/2018
-ms.date: 09/24/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 86c656e131c1d2e1791cbaa8f911475136d010d4
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: fa037e9f89f508ce4d9484da41030c816a5d0ec4
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397073"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665394"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>在 Azure 门户中管理存储帐户设置
 
 [Azure 门户](https://portal.azure.cn)中提供了存储帐户的各种设置。 本文介绍其中的一些设置及其用法。
+
+## <a name="access-control"></a>访问控制
+
+Azure 存储支持通过基于角色的访问控制 (RBAC)，针对 Blob 存储和队列存储（预览版）使用 Azure Active Directory 进行身份验证。 有关使用 Azure AD 进行身份验证的详细信息，请参阅[使用 Azure Active Directory验证对 Azure blob 和队列的访问权限（预览版）](storage-auth-aad.md)。
+
+Azure 门户中的“访问控制”设置提供了一种将 RBAC 角色分配给用户、组、服务主体和托管标识的简单方法。 有关分配 RBAC 角色的详细信息，请参阅[使用 RBAC 管理 blob 和队列数据的访问权限（预览版）](storage-auth-aad-rbac.md)。
+
+> [!NOTE]
+> 与其他授权方式相比，使用 Azure AD 凭据对用户或应用程序进行身份验证可以提供优越的安全性和易用性。 虽然可以继续为应用程序使用共享密钥授权，但是，使用 Azure AD 不需要将帐户访问密钥与代码存储在一起。 也可以继续使用共享访问签名 (SAS) 授予对存储帐户中的资源的精细访问权限，但 Azure AD 提供了类似的功能，并且不需要管理 SAS 令牌，也不需要担心吊销已泄露的 SAS。 
+
+## <a name="tags"></a>标记
+
+Azure 存储支持 Azure 资源管理器标记，以使用自定义分类组织 Azure 资源。 可将标记应用于存储帐户，以便以逻辑方式在订阅中对其进行分组。 
+
+对于存储帐户，标记名称不能超过 128 个字符，标记值不能超过 256 个字符。
+
+有关详细信息，请参阅[使用标记来组织 Azure 资源](../../azure-resource-manager/resource-group-using-tags.md)。
 
 ## <a name="access-keys"></a>访问密钥
 
@@ -64,7 +81,7 @@ ms.locfileid: "54397073"
 > 无法恢复已删除的存储帐户，也无法检索删除之前该存储帐户包含的任何内容。 删除帐户前请务必备份要保存的任何内容。 对于帐户中的任务资源也是如此，一旦你删除了一个 Blob、表、队列或文件，则它会被永久删除。
 > 
 
-如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关如何排查此错误的帮助，请参阅[排查删除存储帐户时的错误](../blobs/storage-troubleshoot-vhds.md)。
+如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关如何排查此错误的帮助，请参阅[排查删除存储帐户时的错误](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

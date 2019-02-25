@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 08/13/2018
-ms.date: 10/29/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: ed9f74a26ae47e1847c3c3368b9dca8f97bdc058
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2018212d7c13cf5379c8b330a28e5dc11f07c9f4
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028446"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665564"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用消息路由将设备到云的消息发送到不同的终结点
 
@@ -28,7 +28,7 @@ ms.locfileid: "53028446"
 
 IoT 中心需要这些服务终结点的写入权限，以便使用消息路由。 如果通过 Azure 门户配置终结点，则为你添加必要权限。 请确保将服务配置为支持预期吞吐量。 在首次配置 IoT 解决方案时，可能需要监视附加终结点，并针对实际负载进行任意的必要调整。
 
-IoT 中心为所有设备到云消息传递定义[通用格式](iot-hub-devguide-messages-construct.md)，以实现跨协议的互操作性。 如果某条消息与多个路由匹配，而这些路由指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此无需在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。 使用本教程了解如何[配置消息路由] (tutorial-routing.md)。
+IoT 中心为所有“设备到云”消息传递定义[通用格式](iot-hub-devguide-messages-construct.md)，以实现跨协议的互操作性。 如果某条消息与多个路由匹配，而这些路由指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此无需在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。 使用本教程了解如何[配置消息路由](tutorial-routing.md)。
 
 ## <a name="routing-endpoints"></a>路由终结点
 
@@ -36,7 +36,7 @@ IoT 中心有一个默认的内置终结点（消息/事件），此终结点与
 
 ### <a name="built-in-endpoint"></a>内置终结点
 
-可以使用标准[事件中心集成和 SDK](iot-hub-devguide-messages-read-builtin.md) 接收来自内置终结点（消息/事件）的设备到云的消息。 请注意，在创建一个路由后，数据将停止流向内置终结点，除非已向该终结点创建了一个路由。
+可以使用标准[事件中心集成和 SDK](iot-hub-devguide-messages-read-builtin.md) 接收来自内置终结点（消息/事件）的设备到云的消息。 请注意，在创建一个路由后，数据将停止流向内置终结点，除非创建了到该终结点的路由。
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 
@@ -52,7 +52,7 @@ IoT 中心默认为以下文件命名约定：
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>服务总线队列和服务总线主题
 
-用作 IoT 中心终结点的服务总线队列和主题不得启用**会话**或**重复检测**选项。 如果启用了其中任一选项，该终结点会在 Azure 门户中显示为**无法访问**。
+用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
 
 ### <a name="event-hubs"></a>事件中心
 
@@ -90,7 +90,7 @@ IoT 中心默认为以下文件命名约定：
 
 在创建新路由或编辑现有路由时，应通过示例消息来测试路由查询。 可以测试单个路由或一次测试所有路由，并且在测试期间，不会有消息被路由到终结点。 可以使用 Azure 门户、Azure 资源管理器、Azure PowerShell 和 Azure CLI 来进行测试。 测试结果有助于确定示例消息是否与查询相匹配，或者测试是否因为示例消息或查询语法错误而无法运行。 若要了解详细信息，请参阅[测试路由](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/testroute)和[测试所有路由](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/testallroutes)。
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>延迟
 
 使用内置终结点路由设备到云遥测消息时，在创建第一个路由后，端到端延迟略微增大。
 

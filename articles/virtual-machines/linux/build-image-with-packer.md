@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/03/2018
-ms.date: 07/30/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: dce64e363521450a170faa41938bace885de96a8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 83e8593086a9e42156a1c32222249411ce00bbf5
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658509"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665849"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 从定义 Linux 分发版和操作系统版本的映像创建 Azure 中的每个虚拟机 (VM)。 映像可包括预安装的应用程序和配置。 Azure 市场为最常见的分发和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -40,7 +40,7 @@ az group create -n myResourceGroup -l chinaeast
 ## <a name="create-azure-credentials"></a>创建 Azure 凭据
 使用服务主体通过 Azure 对 Packer 进行身份验证。 Azure 服务主体是可与应用、服务和自动化工具（如 Packer）结合使用的安全性标识。 用户控制和定义服务主体可在 Azure 中执行的操作的权限。
 
-通过 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) 创建服务主体并输出 Packer 需要的凭据：
+通过 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 创建服务主体并输出 Packer 需要的凭据：
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -77,6 +77,8 @@ az account show --query "{ subscription_id: id }"
 | subscription_id                   | `az account show` 命令的输出 |
 | *managed_image_resource_group_name* | 在第一步中创建的资源组的名称 |
 | *managed_image_name*                | 创建的托管磁盘映像的名称 |
+
+<!--MOONCAKE CUSTOMIZE "cloud_environment_name": "AzureChinaCloud" -->
 
 ```json
 {
@@ -119,7 +121,8 @@ az account show --query "{ subscription_id: id }"
   }]
 }
 ```
-<!-- Notice: SHOULD ADD "cloud_environment_name": "AzureChinaCloud" in json file -->
+
+<!--MOONCAKE CUSTOMIZE "cloud_environment_name": "AzureChinaCloud" -->
 
 此模板生成 Ubuntu 16.04 LTS 映像，请安装 NGINX，然后取消设置 VM。
 
@@ -215,7 +218,7 @@ az vm create \
 
 创建 VM 需要几分钟时间。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于通过 Web 浏览器访问 NGINX 站点。
 
-若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 从 Internet 打开端口 80：
+若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 从 Internet 打开端口 80：
 
 ```azurecli
 az vm open-port \
@@ -233,4 +236,5 @@ az vm open-port \
 在此示例中，使用 Packer 创建已安装 NGINX 的 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，执行例如将应用部署到在使用 Ansible、Chef 或 Puppet 通过映像创建的 VM 中的操作。
 
 有关适用于其他 Linux 发行版本的额外 Packer 模板示例，请参阅此 [GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, update link -->

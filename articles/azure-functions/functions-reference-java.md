@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 43ac894ef979e30bfa1b48eaaafab82ad87233b2
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 4efe98925641235dcc9e733ade54cf0d97ec63f0
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334216"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665665"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -273,7 +273,7 @@ public class Function {
 
 ## <a name="metadata"></a>Metadata
 
-少量的触发器会连同输入数据一起发送[触发器元数据](/azure-functions/functions-triggers-bindings#trigger-metadata-properties)。 可以使用注释 `@BindingName` 绑定到触发器元数据
+少量的触发器会连同输入数据一起发送[触发器元数据](/azure-functions/functions-triggers-bindings)。 可以使用注释 `@BindingName` 绑定到触发器元数据
 
 
 ```Java
@@ -391,4 +391,5 @@ public class Function {
 - 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 的本地开发和调试。 
 - [使用 Visual Studio Code 远程调试 Java Azure Functions](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 - [适用于 Azure Functions 的 Maven 插件](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - 通过 `azure-functions:add` 目标简化函数创建并准备临时目录以用于 [ZIP 文件部署](deployment-zip-push.md)。
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: link update -->

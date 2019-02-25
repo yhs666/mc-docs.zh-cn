@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: 介绍一款使用 Azure 认知服务计算机视觉 API 的基本 JavaScript 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 origin.date: 09/19/2017
-ms.date: 01/04/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 0d3294f453cba2aa9eb9dafff2543f402095123e
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8e75d98e9880259d33da3074defc8bfeb9925e2f
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083652"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582774"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教程：计算机视觉 API JavaScript
 
@@ -415,15 +415,15 @@ getThumbnail 函数包装进行图像分析的 REST API 调用。 成功返回�
 
 ```javascript
 /* Get a thumbnail of the image at the specified URL by using Microsoft Cognitive Services
- - Thumbnail API.
- - @param {string} sourceImageUrl URL to image.
- - @param {boolean} smartCropping Set to true to use the smart cropping feature which crops to the
- -                                more interesting area of an image; false to crop for the center
- -                                of the image.
- - @param {<img> element} imageElement The img element in the DOM which will display the thumnail image.
- - @param {<textarea> element} responseTextArea - The text area to display the Response Headers returned
- -                             from the REST API call, or to display the error message if there was 
- -                             an error.
+ * Thumbnail API.
+ * @param {string} sourceImageUrl URL to image.
+ * @param {boolean} smartCropping Set to true to use the smart cropping feature which crops to the
+ *                                more interesting area of an image; false to crop for the center
+ *                                of the image.
+ * @param {<img> element} imageElement The img element in the DOM which will display the thumbnail image.
+ * @param {<textarea> element} responseTextArea - The text area to display the Response Headers returned
+ *                             from the REST API call, or to display the error message if there was 
+ *                             an error.
  */
 function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseTextArea) {
     // Create the HTTP Request object.
@@ -636,7 +636,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
         "handwriting": "true",
     };
 
-    // This operation requrires two REST API calls. One to submit the image for processing,
+    // This operation requires two REST API calls. One to submit the image for processing,
     // the other to retrieve the text found in the image. 
     //
     // Perform the first REST API call to submit the image for processing.
@@ -748,4 +748,4 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

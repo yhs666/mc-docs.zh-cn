@@ -3,7 +3,7 @@ title: 扩大 Azure SQL 数据库 | Microsoft Docs
 description: 如何使用弹性数据库客户端库 ShardMapManager
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 03/16/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: ffce708f7df5212e7b1db3dc77e71d195cfc957c
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 044b4b30a5c612bbe0535080f73f30d8cded9af9
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363796"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663611"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分片映射管理器扩大数据库
 
@@ -26,7 +26,7 @@ ms.locfileid: "54363796"
 
 ![分片映射管理](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-了解如何构建这些映射对于分片映射管理至关重要。 使用[弹性数据库客户端库](sql-database-elastic-database-client-library.md)中的 ShardMapManager 类（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）来完成此操作。  
+了解如何构建这些映射对于分片映射管理至关重要。 使用[弹性数据库客户端库](sql-database-elastic-database-client-library.md)中的 ShardMapManager 类（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）来完成此操作。  
 
 ## <a name="shard-maps-and-shard-mappings"></a>分片映射
 
@@ -41,11 +41,11 @@ ms.locfileid: "54363796"
 
 ![列表映射][1]
 
-多租户模型将数个租户分配给单一数据库（可以跨多个数据库分布租户组）。 如果希望每个租户具有较小的数据需求，请使用此模型。 在此模型中，使用范围映射将一系列用户分配到数据库。
+多租户模型将数个租户分配给单个数据库（可跨多个数据库分布租户组）。 如果希望每个租户具有较小的数据需求，请使用此模型。 在此模型中，使用范围映射将一系列用户分配到数据库。
 
 ![范围映射][2]
 
-或者可以使用“列表映射”  实现多租户数据库模型，以将多个租户分配给单一数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。
+或可以使用列表映射来实现多租户数据库模型，以将多个租户分配给单个数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。
 
 ![单一数据库上的多个租户][3]
 

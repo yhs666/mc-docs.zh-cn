@@ -2,31 +2,38 @@
 title: 弹性数据库工具入门 - Azure | Microsoft Docs
 description: 大致介绍 Azure SQL 数据库的弹性数据库工具功能，包括易于使用的示例应用。
 services: sql-database
-manager: digimobile
-author: WenJason
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 08/27/2018
-ms.date: 10/29/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 3196f7e021ce8d2223e28ee0f058f9eee811dfa4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: sstein
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 53f61ff8b4f378a3b3a921e1dade60663fe6e008
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660964"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663745"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
+
 本文档通过帮助你运行示例应用来介绍[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的开发人员体验。 此示例应用将创建一个简单的分片应用程序，并探讨 Azure SQL 数据库的弹性数据库工具特性的主要功能。 它重点介绍[分片映射管理](sql-database-elastic-scale-shard-map-management.md)、[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分片查询](sql-database-elastic-scale-multishard-querying.md)的用例。 该客户端库可用于 Java 和 .NET。 
 
 ## <a name="elastic-database-tools-for-java"></a>适用于 Java 的弹性数据库工具
+
 ### <a name="prerequisites"></a>先决条件
+
 * Java 开发人员工具包 (JDK) 1.8 或更高版本
 * [Maven](http://maven.apache.org/download.cgi)
-* Azure 或本地 SQL Server 实例中的逻辑服务器
+* Azure 或本地 SQL Server 实例中的 SQL 数据库服务器
 
 ### <a name="download-and-run-the-sample-app"></a>下载并运行示例应用
+
 若要生成 JAR 文件并开始使用示例项目，请执行以下操作： 
 1. 克隆包含客户端库以及示例应用的 [GitHub 存储库](https://github.com/Microsoft/elastic-db-tools-for-java)。 
 
@@ -63,12 +70,15 @@ ms.locfileid: "52660964"
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>适用于 .NET 的弹性数据库工具 
+## <a name="elastic-database-tools-for-net"></a>适用于 .NET 的弹性数据库工具
+
 ### <a name="prerequisites"></a>先决条件
-* 使用 C# 的 Visual Studio 2012 或更高版本。 可以从 [Visual Studio 下载页面](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)下载免费版本。
+
+* 使用 C# 的 Visual Studio 2012 或更高版本。 可以从 [Visual Studio 下载页面](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)下载免费版本。
 * NuGet 2.7 或更高版本。 若要获取最新版本，请参阅[安装 NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)。
 
 ### <a name="download-and-run-the-sample-app"></a>下载并运行示例应用
+
 若要安装该库，请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 该库和以下部分中描述的示例应用一起安装。
 
 若要下载并运行该示例，请遵循以下步骤： 
@@ -89,24 +99,25 @@ ms.locfileid: "52660964"
 
 > [!IMPORTANT]
 > 建议始终使用最新版本的 Management Studio，以便与 Azure 和 SQL 数据库的更新保持同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>重要的代码示例片段
-* 管理分片和分片映射：该代码演示如何在 ShardManagementUtils.cs 文件中处理分片、范围和映射。 有关详细信息，请参阅[使用分片映射管理器扩大数据库](sql-database-elastic-scale-shard-map-management.md)。  
 
-* 数据依赖型路由：DataDependentRoutingSample.cs 文件演示了如何向正确的分片路由事务。 有关详细信息，请参阅[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。 
+* **管理分片和分片映射**：该代码演示如何在“ShardManagementUtils.cs”文件中处理分片、范围和映射。 有关详细信息，请参阅[使用分片映射管理器扩大数据库](sql-database-elastic-scale-shard-map-management.md)。  
 
-* 查询多个分片：MultiShardQuerySample.cs 文件演示了如何跨多个分片进行查询。 有关详细信息，请参阅[多分片查询](sql-database-elastic-scale-multishard-querying.md)。
+* **数据依赖型路由**：“DataDependentRoutingSample.cs”文件演示了如何向正确的分片路由事务。 有关详细信息，请参阅[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。 
 
-* 添加空分片：CreateShardSample.cs 文件中的代码以迭代方式添加新的空分片。 有关详细信息，请参阅[使用分片映射管理器扩大数据库](sql-database-elastic-scale-shard-map-management.md)。
+* **跨多个分片进行查询**：“MultiShardQuerySample.cs”文件演示了如何跨多个分片进行查询。 有关详细信息，请参阅[多分片查询](sql-database-elastic-scale-multishard-querying.md)。
+
+* **添加空分片**：“CreateShardSample.cs”文件中的代码以迭代方式添加新的空分片。 有关详细信息，请参阅[使用分片映射管理器扩大数据库](sql-database-elastic-scale-shard-map-management.md)。
 
 ## <a name="other-elastic-scale-operations"></a>其他弹性缩放操作
+
 * **拆分现有分片**：拆分分片的功能由拆分/合并工具提供。 有关详细信息，请参阅[在横向扩展的云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)。
 
 * **合并现有分片**：分片合并也是使用拆分/合并工具执行的。 有关详细信息，请参阅[在横向扩展的云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)。   
 
 ## <a name="cost"></a>成本
+
 弹性数据库工具库免费。 使用弹性数据库工具时，除 Azure 使用费用外，不需支付任何额外费用。 
 
 例如，示例应用程序会创建新的数据库。 此功能的费用取决于所选的 SQL 数据库版本以及应用程序的 Azure 使用情况。
@@ -114,16 +125,17 @@ ms.locfileid: "52660964"
 有关定价信息，请参阅 [SQL 数据库定价详细信息](https://www.azure.cn/pricing/details/sql-database/)。
 
 ## <a name="next-steps"></a>后续步骤
+
 有关弹性数据库工具的详细信息，请参阅以下文章：
 
 * 代码示例： 
-  * 弹性数据库工具（[.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)）
-  * [Elastic Database Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)（Azure SQL 的弹性数据库工具 - 实体框架集成）
+  * 弹性数据库工具（[.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)）
+  * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)（Azure SQL 的弹性数据库工具 - 实体框架集成）
   * [脚本中心上的分片弹性](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* 博客：[弹性缩放通告](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+* 博客：[弹性缩放公告](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * 第 9 频道：[弹性缩放概述视频](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* 论坛：[Azure SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)
-* 要测量性能：[分片映射管理器的性能计数器](sql-database-elastic-database-client-library.md)
+* 讨论论坛：[Azure SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)
+* 衡量性能：[分片映射管理器的性能计数器](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

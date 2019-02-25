@@ -1,20 +1,21 @@
 ---
-title: 使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Microsoft Docs
+title: 使用读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Microsoft Docs
 description: 如何使用 Azure RA-GRS 存储构建足以灵活处理中断的高度可用的应用程序。
 services: storage
 author: WenJason
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 03/21/2018
-ms.date: 09/10/2018
+origin.date: 01/17/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 46ca2a3d6935ff7c8058ef59c26f3e857784342b
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.subservice: common
+ms.openlocfilehash: d508a24433e67019b39766f094b95dc1bd4ab21d
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397046"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665718"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -39,9 +40,7 @@ ms.locfileid: "54397046"
 
 * 可以使用存储客户端库与主要或次要区域中的数据进行交互。 如果到主要区域的读取请求超时，还可将读取请求自动重定向到次要区域。
 
-* 如果存在影响主要区域中的数据可访问性的主要问题，Azure 团队可能会触发异地故障转移，此时指向主要区域的 DNS 条目将更改为指向次要区域。
-
-* 如果发生异地故障转移，Azure 将选择新的次要位置并将数据复制到该位置，并将次要 DNS 条目指向该位置。 存储帐户复制完成之前，辅助终结点都不可用。 有关详细信息，请参阅 [What to do if an Azure Storage outage occurs](https://docs.azure.cn/storage/storage-disaster-recovery-guidance)（Azure 存储中断时应采取什么操作）。
+* 如果主要区域变得不可用，则可发起帐户故障转移。 故障转移到次要区域时，指向主要区域的 DNS 条目更改为指向次要区域。 故障转移完成后，GRS 和 RA-GRS 帐户的写入访问会恢复。 有关详细信息，请参阅 [Azure 存储中的灾难恢复和存储帐户故障转移（预览版）](storage-disaster-recovery-guidance.md)。
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>使用 RA-GRS 时的应用程序设计注意事项
 
@@ -145,7 +144,7 @@ ms.locfileid: "54397046"
 
 可使用三个主要选项监视主要区域中的重试频率，以便确定何时切换到次要区域并将应用程序更改为在只读模式下运行。
 
-*   为传递到存储请求的 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 对象上的[**重试**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都会触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
+*   为传递到存储请求的 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 对象上的[**重试**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都会触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -156,7 +155,7 @@ ms.locfileid: "54397046"
     };
     ```
 
-*   在自定义重试策略的 [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，每次重试时均可运行自定义代码。 除了在重试时进行记录外，还可利用此操作修改重试行为。
+*   在自定义重试策略的 [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，每次重试时均可运行自定义代码。 除了在重试时进行记录外，还可利用此操作修改重试行为。
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

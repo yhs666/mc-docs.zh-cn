@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/06/2017
-ms.date: 10/30/2017
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: fb055bd7abeff4e7ad19fea38c5462b6628bc51e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 86d727869ae8aa78aad45e87476490eea84dbbdc
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657921"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666048"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>在相同或不同订阅中通过 PowerShell 复制托管磁盘
 
@@ -30,6 +30,8 @@ ms.locfileid: "52657921"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -44,10 +46,10 @@ $sourceResourceGroupName='mySourceResourceGroupName'
 $managedDiskName='myDiskName'
 
 #Set the context to the subscription Id where Managed Disk exists
-Select-AzureRmSubscription -SubscriptionId $sourceSubscriptionId
+Select-AzSubscription -SubscriptionId $sourceSubscriptionId
 
 #Get the source managed disk
-$managedDisk= Get-AzureRMDisk -ResourceGroupName $sourceResourceGroupName -DiskName $managedDiskName
+$managedDisk= Get-AzDisk -ResourceGroupName $sourceResourceGroupName -DiskName $managedDiskName
 
 #Provide the subscription Id of the subscription where managed disk will be copied to
 #If managed disk is copied to the same subscription then you can skip this step
@@ -58,12 +60,12 @@ $targetResourceGroupName='myTargetResourceGroupName'
 
 #Set the context to the subscription Id where managed disk will be copied to
 #If snapshot is copied to the same subscription then you can skip this step
-Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
+Select-AzSubscription -SubscriptionId $targetSubscriptionId
 
-$diskConfig = New-AzureRmDiskConfig -SourceResourceId $managedDisk.Id -Location $managedDisk.Location -CreateOption Copy 
+$diskConfig = New-AzDiskConfig -SourceResourceId $managedDisk.Id -Location $managedDisk.Location -CreateOption Copy 
 
 #Create a new managed disk in the target subscription and resource group
-New-AzureRmDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName $targetResourceGroupName
+New-AzDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName $targetResourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -72,15 +74,15 @@ New-AzureRmDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName 
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | 创建用于磁盘创建的磁盘配置。 包括父磁盘的资源 ID 以及与父磁盘位置相同的位置。  |
-| [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDisk) | 使用磁盘配置、磁盘名称和作为参数传递的资源组名称创建磁盘。 |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 创建用于磁盘创建的磁盘配置。 包括父磁盘的资源 ID 以及与父磁盘位置相同的位置。  |
+| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 使用磁盘配置、磁盘名称和作为参数传递的资源组名称创建磁盘。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-[从托管磁盘创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[从托管磁盘创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md)
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
-可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
 <!--Update_Description: update meta properties, update link-->

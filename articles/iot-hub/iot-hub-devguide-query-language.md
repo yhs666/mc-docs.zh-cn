@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 02/26/2018
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: 5e94f1f6caa87c85d7b9107b12ad17800bc15d1d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 03/04/2019
+ms.openlocfilehash: 01625b7a8451cd5bbf2e54be40a7257ea27ad3ff
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674585"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665584"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -207,7 +207,7 @@ while (query.HasMoreResults)
 
 下面是一个简单的查询示例：
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
@@ -320,7 +320,7 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>FROM 子句
-**FROM <from_specification>** 子句只能采用两个值：**FROM devices** 用来查询设备孪生；**FROM devices.jobs** 用来查询每个设备上的作业详细信息。
+FROM <from_specification> 子句只能假定两个值：用于查询设备孪生的“FROM devices”，或用于根据设备详情查询作业“FROM devices.jobs”。
 
 ## <a name="where-clause"></a>WHERE 子句
 **WHERE <filter_condition>** 子句是可选的。 它指定要将 FROM 集合中的 JSON 文档内含在结果中时需满足的一项或多项条件。 任何 JSON 文档必须将指定的条件求值为“true”才能包含在结果中。

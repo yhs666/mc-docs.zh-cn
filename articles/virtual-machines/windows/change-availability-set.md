@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7ebddd7597e68bbb6f728724de3c5ad9ba71be7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: cdd1eebc42b0ee5894e0478067184cb9891024ef
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675553"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665872"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>更改 Windows VM 的可用性集
 以下步骤说明如何使用 Azure PowerShell 来更改 VM 的可用性集。 只能在创建 VM 时将 VM 添加到可用性集。 若要更改可用性集，必须将虚拟机删除，然后重新创建虚拟机。 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="change-the-availability-set"></a>更改可用性集 
 
@@ -36,18 +38,18 @@ ms.locfileid: "52675553"
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get the details of the VM to be moved to the Availablity Set
-    $originalVM = Get-AzureRmVM `
+# Get the details of the VM to be moved to the Availability Set
+    $originalVM = Get-AzVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName
 
 # Create new availability set if it does not exist
-    $availSet = Get-AzureRmAvailabilitySet `
+    $availSet = Get-AzAvailabilitySet `
        -ResourceGroupName $resourceGroup `
        -Name $newAvailSetName `
        -ErrorAction Ignore
     if (-Not $availSet) {
-    $availSet = New-AzureRmAvailabilitySet `
+    $availSet = New-AzAvailabilitySet `
        -Location $originalVM.Location `
        -Name $newAvailSetName `
        -ResourceGroupName $resourceGroup `
@@ -57,15 +59,15 @@ ms.locfileid: "52675553"
     }
 
 # Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
+    Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
 # Create the basic configuration for the replacement VM
-    $newVM = New-AzureRmVMConfig `
+    $newVM = New-AzVMConfig `
        -VMName $originalVM.Name `
        -VMSize $originalVM.HardwareProfile.VmSize `
        -AvailabilitySetId $availSet.Id
 
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
        -VM $newVM -CreateOption Attach `
        -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `
        -Name $originalVM.StorageProfile.OsDisk.Name `
@@ -73,7 +75,7 @@ ms.locfileid: "52675553"
 
 # Add Data Disks
     foreach ($disk in $originalVM.StorageProfile.DataDisks) { 
-    Add-AzureRmVMDataDisk -VM $newVM `
+    Add-AzVMDataDisk -VM $newVM `
        -Name $disk.Name `
        -ManagedDiskId $disk.ManagedDisk.Id `
        -Caching $disk.Caching `
@@ -84,13 +86,13 @@ ms.locfileid: "52675553"
 
 # Add NIC(s)
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {
-        Add-AzureRmVMNetworkInterface `
+        Add-AzVMNetworkInterface `
            -VM $newVM `
            -Id $nic.Id
     }
 
 # Recreate the VM
-    New-AzureRmVM `
+    New-AzVM `
        -ResourceGroupName $resourceGroup `
        -Location $originalVM.Location `
        -VM $newVM `
@@ -101,4 +103,4 @@ ms.locfileid: "52675553"
 
 通过添加附加[数据磁盘](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，向 VM 添加附加存储。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update cmdlet -->

@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 04/01/2017
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 27206020a0e5132443c0f530cdb3a9b967370865
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: d4a0143c8b43643f8153cf92fa913349f96b891a
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141688"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665667"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -356,7 +356,7 @@ Functions 运行时以 [PeekLock 模式](../service-bus-messaging/service-bus-pe
 - [C# 脚本 (.csx)](#output---c-script-example)
 - [F#](#output---f-example)
 - [JavaScript](#output---javascript-example)
-- [Java](#output--java-example)
+- Java
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -630,7 +630,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 |属性  |默认 | 说明 |
 |---------|---------|---------| 
 |maxAutoRenewDuration|00:05:00|自动续订消息锁的最长持续时间。| 
-|autoComplete|false|触发器应立即标记为已完成（自动完成），还是等待调用完成的处理。| 
+|autoComplete|是|触发器应立即标记为已完成（自动完成），还是等待调用完成的处理。| 
 |maxConcurrentCalls|16|消息泵应该对回调发起的最大并发调用数。 默认情况下，Functions 运行时同时处理多条消息。 若要指示运行时一次只处理单个队列或主题消息，请将 `maxConcurrentCalls` 设置为 1。 | 
 |prefetchCount|不适用|基础 MessageReceiver 将要使用的默认 PrefetchCount。| 
 

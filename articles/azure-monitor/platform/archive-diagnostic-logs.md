@@ -1,19 +1,19 @@
 ---
 title: 存档 Azure 诊断日志
 description: 了解如何存档 Azure 诊断日志，将其长期保留在存储帐户中。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 9ec47572047a0482fb4b9dc3d8c2fa848b5b256e
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 01/21/19
+ms.author: v-lingwu
+ms.subservice: logs
+ms.openlocfilehash: 84085f098682ef73e004cb8e70183adfdb132563
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141714"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440034"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>存档 Azure 诊断日志
 
@@ -101,7 +101,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 可以通过将字典添加到以 `--logs` 参数传递的 JSON 数组来将其他类别添加到诊断日志。
 
-仅当 `--storage-account` 不是对象 ID 时，才需要 `--resource-group` 参数。 有关将诊断日志存档到存储的完整文档，请参阅 [CLI 命令参考](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create)。
+仅当 `--storage-account` 不是对象 ID 时，才需要 `--resource-group` 参数。 有关将诊断日志存档到存储的完整文档，请参阅 [CLI 命令参考](https://docs.azure.cn/zh-cn/cli/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create)。
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>通过 REST API 存档诊断日志
 
@@ -163,5 +163,9 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234
 
 * [下载 blob 进行分析](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [将诊断日志流式传输到事件中心命名空间](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
-* [使用 Azure Monitor 存档 Azure Active Directory 日志](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [详细了解诊断日志](../../azure-monitor/platform/diagnostic-logs-overview.md)
+
+
+
+
+

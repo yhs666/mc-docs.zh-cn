@@ -5,16 +5,16 @@ author: kgremban
 manager: ''
 ms.author: v-yiso
 origin.date: 12/17/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb8f8f49a1ac367a1a64382d4ed554dcb7ce7015
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 80618ee403d961b622e1f539974c5636b673c1bb
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216234"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665581"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>将 IoT Edge 设备配置为通过代理服务器进行通信
 
@@ -89,7 +89,7 @@ sudo systemctl edit iotedge
 
 输入以下文本，将 **\<代理 URL>** 替换为代理服务器地址和端口。 然后，保存并退出。 
 
-```text
+```ini
 [Service]
 Environment="https_proxy=<proxy URL>"
 ```

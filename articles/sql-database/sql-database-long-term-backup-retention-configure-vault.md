@@ -3,22 +3,22 @@ title: 配置长期备份保留 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何会自动备份存储在 Azure 恢复服务保管库中以及从 Azure 恢复服务保管库中还原
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: mathoma,carlrab
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: c36ba00a75f02633200721c205eb843e11c44cad
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 069aafb6358733857162079b8a932fbc9f0d2666
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662116"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663448"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>使用 Azure 恢复服务保管库配置长期备份保留
 
@@ -72,7 +72,7 @@ ms.locfileid: "52662116"
    ![创建保管库](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > 保管库必须与 Azure SQL 逻辑服务器位于同一区域，必须使用与逻辑服务器相同的资源组。
+   > 保管库必须位于与 SQL 数据库服务器相同的区域，并且必须使用与 SQL 数据库服务器相同的资源组。
 
 10. 创建新保管库后，执行必要的步骤以返回到“恢复服务保管库”页面。
 
@@ -155,7 +155,7 @@ ms.locfileid: "52662116"
 使用 [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) 创建恢复服务保管库。
 
 > [!IMPORTANT]
-> 保管库必须位于与 Azure SQL 逻辑服务器相同的区域，并且必须使用与逻辑服务器相同的资源组。
+> 保管库必须位于与 SQL 数据库服务器相同的区域，并且必须使用与 SQL 数据库服务器相同的资源组。
 
 ```PowerShell
 # Create a recovery services vault

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 manager: digimobile
-origin.date: 09/14/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 9741c4a98e51b64d36e1141934678d0bbca48b2a
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/19/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 40feab6b2a109d5cc374fb9b625555fe3c257b8f
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363794"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663516"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL 数据库弹性查询概述（预览版）
 

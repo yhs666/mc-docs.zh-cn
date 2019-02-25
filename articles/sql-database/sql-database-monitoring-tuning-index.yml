@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f79b362a59e80a4b04de19d15fa51dceb8d135b0
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.openlocfilehash: dbf23a69c580b0aa6a31fbd31e9ef71140f27fd3
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363756"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663486"
 documentType: LandingData
 title: Azure SQL 数据库：监视和优化
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  origin.date: 12/12/2018
-  ms.date: 01/21/2019
+  origin.date: 01/25/2019
+  ms.date: 02/25/2019
   ms.author: v-jay
 sections:
 - items:
@@ -32,7 +32,7 @@ sections:
     items:
     - title: 查询性能见解
       href: /sql-database/sql-database-query-performance
-      html: <p>使用 Azure 门户中的内置监视功能轻松监视 Azure SQL 数据库（单一数据库）中的资源使用情况。</p>
+      html: <p>使用 Azure 门户中的内置监视功能轻松监视 Azure SQL 数据库（独立数据库或入池数据库）中的资源使用情况。</p>
     - title: 自动优化
       href: /sql-database/sql-database-automatic-tuning
       html: <p>自动优化可以自动提供建议并修复查询计划问题，创建和删除索引以提高性能。</p>

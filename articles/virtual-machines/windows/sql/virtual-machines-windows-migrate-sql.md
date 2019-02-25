@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
 origin.date: 08/18/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 17c474d6eb60c00996b307ebdd23a8bc3ccf7440
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.reviewer: jroth
+ms.openlocfilehash: ffcac0e82573626a5ad00acce065e558e9664b17
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736163"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665828"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>将 SQL Server 数据库迁移到 Azure VM 中的 SQL Server
 
@@ -104,4 +105,4 @@ ms.locfileid: "53736163"
 
 有关从捕获的映像创建 Azure SQL Server 虚拟机的说明，请参阅 CSS SQL Server 工程师博客上的 [Tips & Tricks on 'cloning' Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/)（有关从捕获的映像“克隆”Azure SQL 虚拟机的提示和技巧）。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

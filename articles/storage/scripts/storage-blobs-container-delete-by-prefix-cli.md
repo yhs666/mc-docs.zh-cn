@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 脚本示例 - 根据前缀删除容器 | Azure
+title: Azure CLI 脚本示例 - 根据前缀删除容器 | Microsoft Docs
 description: 根据容器名称前缀删除 Azure 存储 blob 容器。
 services: storage
 documentationcenter: na
-author: forester123
+author: WenJason
 manager: digimobile
 editor: tysonn
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/22/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: a26d3906fdf7bae0b1ef11f37ebd26307c91ea82
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.openlocfilehash: ee6ccd09d155b877b84fce4b46f075f747d7ce3c
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663816"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665657"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 
@@ -74,11 +74,11 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 在指定资源组中创建 Azure 存储帐户。 |
-| [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) | 在 Azure Blob 存储中创建容器。 |
-| [az storage container list](https://docs.azure.cn/cli/storage/container#az_storage_container_list) | 列出 Azure 存储帐户中的容器。 |
-| [az storage container delete](https://docs.azure.cn/cli/storage/container#az_storage_container_delete) | 删除 Azure 存储帐户中的容器。 |
+| [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az storage account create](https://docs.azure.cn/cli/storage/account) | 在指定资源组中创建 Azure 存储帐户。 |
+| [az storage container create](https://docs.azure.cn/cli/storage/container) | 在 Azure Blob 存储中创建容器。 |
+| [az storage container list](https://docs.azure.cn/cli/storage/container) | 列出 Azure 存储帐户中的容器。 |
+| [az storage container delete](https://docs.azure.cn/cli/storage/container) | 删除 Azure 存储帐户中的容器。 |
 
 ## <a name="next-steps"></a>后续步骤
 

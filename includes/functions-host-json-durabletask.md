@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: functions
 ms.topic: include
 origin.date: 10/19/2018
-ms.date: 11/08/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: e3b556964cf6ae1b66f8ec6a12e3403d347b6865
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5f0bdecc084d5fe3f7f98e68e9a1b440da1d1001
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655682"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666725"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的配置设置。
 
@@ -31,11 +31,6 @@ ms.locfileid: "52655682"
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
-    "LogReplayEvents": false,
-    "EventGridTopicEndpoint": "https://topic_name.chinanorth-1.eventgrid.chinacloudapi.cn/api/events",
-    "EventGridKeySettingName":  "EventGridKey",
-    "EventGridPublishRetryCount": 3,
-    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
@@ -53,11 +48,7 @@ ms.locfileid: "52655682"
 |MaxConcurrentOrchestratorFunctions |10 倍于当前计算机上的处理器数|可以在单个主机实例上并发处理的业务流程协调程序函数的最大数目。|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|应用设置的名称，其中的 Azure 存储连接字符串用于管理基础的 Azure 存储资源。|
 |TraceInputsAndOutputs |false|一个指示是否跟踪函数调用的输入和输出的值。 跟踪函数执行事件时的默认行为是在函数调用的序列化输入和输出中包括字节数。 这样提供的有关输入和输出情况的信息是最少的，不会导致日志膨胀，也不会无意中将敏感信息公开给日志。 将此属性设置为 true 会导致默认函数日志记录将函数输入和输出的整个内容都记录下来。|
-|LogReplayEvents|false|一个值，该值指示是否将业务流程重播事件写入到 Application Insights。 Azure 中国目前不支持 Application Insights 服务。|
-|EventGridTopicEndpoint ||Azure 事件网格自定义主题终结点的 URL。 设置此属性后，业务流程生命周期通知事件就会发布到此终结点。 此属性支持应用设置解析。|
-|EventGridKeySettingName ||应用设置的名称，该设置包含的密钥用于在 `EventGridTopicEndpoint` 上通过 Azure 事件网格自定义主题进行身份验证。|
-|EventGridPublishRetryCount|0|发布到事件网格主题失败时要重试的次数。|
-|EventGridPublishRetryInterval|5 分钟|事件网格发布重试间隔（采用 *hh:mm:ss* 格式）。|
 
 许多这样的项用于优化性能。 有关详细信息，请参阅[性能和缩放](../articles/azure-functions/durable-functions-perf-and-scale.md)。
 
+<!-- ms.date: 02/22/2019 -->

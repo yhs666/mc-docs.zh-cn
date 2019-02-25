@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: a2e29d2231368cc2e850c94568004f31c730ff96
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 04277d99a02958bc781c0415249a9c2365f7e6d2
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363765"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663626"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>弹性数据库工具常见问题解答 (FAQ)
 
@@ -50,7 +50,7 @@ ms.locfileid: "54363765"
 
 弹性缩放 API 使用户能够连接到分片键的正确数据库，但不提供分片键筛选。  如果需要，请在查询中添加 **WHERE** 子句，以将范围限制到提供的分片键。
 
-## <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>我是否可为分片集中的每个分片使用不同的 Azure 数据库版本
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>是否可对分片集中的每个分片使用不同的 SQL 数据库版本？
 
 是的，每个分片是单独的数据库，因此，一个分片可以是高级版，而另一个可以是标准版。 此外，在分片的生命周期内，该分片的版本可以进行多次上调或下调。
 

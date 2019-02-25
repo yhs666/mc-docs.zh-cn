@@ -3,7 +3,7 @@ title: Azure SQL 数据库服务层 - DTU | Microsoft Docs
 description: 了解单一数据库和入池数据库的服务层以提供计算大小和存储大小。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/22/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 00de2d72d7fcc8abae887feb795aa578b7870551
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 98d3ea2bb5d1f43325631fc41174d90d213c380b
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672539"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663532"
 ---
 # <a name="dtu-based-service-tiers"></a>基于 DTU 的服务层
 
@@ -32,6 +32,7 @@ ms.locfileid: "52672539"
 ## <a name="compare-the-dtu-based-service-tiers"></a>比较基于 DTU 的服务层
 
 选择服务层首要考虑的是业务连续性、存储和性能需求。
+
 ||基本|标准|高级|
 | :-- | --: |--:| --:| --:|
 |目标工作负荷|开发和生产|开发和生产|开发和生产||

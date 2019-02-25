@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 11/14/2018
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d031e5e503aa19e24e8c77971ef3eaa15e4da114
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.openlocfilehash: 95bf3b033b5b20fd0363338503ee6dd4fad261cb
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858180"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665633"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入门：使用 Azure CLI 上传、下载和列出 Blob
 
@@ -45,7 +45,7 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 存储在 Blob 存储中�
 首先，创建要上传到 Blob 的文件。
 可以使用以下方法来创建文件：`vi helloworld` 当文件打开时，按“插入”，键入“Hello world”，按 **Esc** 并输入 `:x`，然后按 **Enter**。
 
-此示例使用 [az storage blob upload](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload) 命令将 Blob 上传到在上一个步骤中创建的容器中。
+此示例使用 [az storage blob upload](/cli/storage/blob) 命令将 Blob 上传到在上一个步骤中创建的容器中。
 
 ```azurecli
 az storage blob upload \
@@ -65,11 +65,11 @@ az storage blob upload \
 
 此操作将创建 Blob（如果该 Blob 尚不存在），或者覆盖 Blob（如果该 Blob 已存在）。 上传尽可能多的文件，然后继续操作。
 
-若要同时上传多个文件，则可使用 [az storage blob upload-batch](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload_batch) 命令。
+若要同时上传多个文件，则可使用 [az storage blob upload-batch](/cli/storage/blob) 命令。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#az_storage_blob_list) 命令列出容器中的 blob。
+使用 [az storage blob list](/cli/storage/blob) 命令列出容器中的 blob。
 
 ```azurecli
 az storage blob list \
@@ -79,7 +79,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>下载 Blob
 
-使用 [az storage blob download](https://docs.azure.cn/cli/storage/blob#az_storage_blob_download) 命令下载之前上传的 Blob。
+使用 [az storage blob download](/cli/storage/blob) 命令下载之前上传的 Blob。
 
 ```azurecli
 az storage blob download \
@@ -104,7 +104,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令删除该资源组。
+如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](/cli/group) 命令删除该资源组。
 
 ```azurecli
 az group delete --name myResourceGroup

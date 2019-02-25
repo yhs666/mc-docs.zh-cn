@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5b0c002d3a5d3d4d83bf104ac1e967e71a196b27
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 294f23586ea287ac70e20de89c4cc9deab071a8c
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996250"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409079"
 ---
 # <a name="understand-policy-effects"></a>了解 Policy 效果
 
@@ -344,6 +344,6 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
 - 在 [Azure Policy 示例](../samples/index.md)中查看示例
 - 查看[策略定义结构](definition-structure.md)
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)
-- 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)
+- 了解如何[获取符合性数据](../how-to/get-compliance-data.md)
 
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组

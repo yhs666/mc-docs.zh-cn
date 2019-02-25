@@ -14,15 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 754297f1a181e1763309a1d01ef84d5573c21260
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.subservice: disks
+ms.openlocfilehash: e71f096afbc71c7376a50e70cbbb7191cac47f57
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675526"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666183"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教程 - 使用 Azure CLI 管理 Azure 磁盘
 
@@ -47,7 +48,7 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
-若要安装应用程序和存储数据，可添加额外的数据磁盘。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
+若要安装应用程序和存储数据，可添加额外的数据磁盘。 在任何需要持久和响应性数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -122,7 +123,7 @@ az vm disk attach \
 创建与虚拟机的 SSH 连接。 将示例 IP 地址替换为虚拟机的公共 IP 地址。
 
 ```azurecli
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 使用 `fdisk` 对磁盘进行分区。
@@ -184,19 +185,23 @@ exit
 
 ## <a name="snapshot-a-disk"></a>拍摄磁盘快照
 
-创建磁盘快照时，Azure 会创建磁盘的只读时间点副本。 Azure VM 快照可用于快速保存配置更改前 VM 所处的状态。 如果出现问题或错误，则可使用快照还原 VM。 VM 具有多个磁盘时，则拍摄的每个磁盘快照都与其他磁盘快照无关。 若要执行应用程序一致性备份，请考虑在创建磁盘快照之前停止 VM。 或者使用 [Azure 备份服务](/backup/)，以便在 VM 运行时执行自动备份。
+创建磁盘快照时，Azure 会创建磁盘的只读时间点副本。 Azure VM 快照可用于快速保存配置更改前 VM 所处的状态。 如果出现问题或错误，则可使用快照还原 VM。 VM 具有多个磁盘时，将分别对每个磁盘进行快照。 若要执行应用程序一致性备份，请考虑在创建磁盘快照之前停止 VM。 或者使用 [Azure 备份服务](/backup/)，以便在 VM 运行时执行自动备份。
 
 ### <a name="create-snapshot"></a>创建快照
 
 创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) 命令返回磁盘 ID。 在此示例中，磁盘 ID 存储在变量中，以便能够在稍后的步骤中使用。
 
 ```azurecli
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 获取虚拟机磁盘 ID 后，使用以下命令可创建磁盘快照。
 
-```azurcli
+```azurecli
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -208,7 +213,10 @@ az snapshot create \
 然后，可将此快照转换为可用于重新创建虚拟机的磁盘。
 
 ```azurecli
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>从快照还原虚拟机
@@ -216,7 +224,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 若要演示如何还原虚拟机，请删除现有虚拟机。
 
 ```azurecli
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 从快照磁盘创建新虚拟机。
@@ -236,13 +246,19 @@ az vm create \
 先使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list) 命令找到数据磁盘名称。 此示例将磁盘名称放在名为“datadisk”的变量中，将在下一步中使用该变量。
 
 ```azurecli
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 使用 [ az vm disk attach ](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令附加磁盘。
 
 ```azurecli
-az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
+az vm disk attach \
+   -g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>后续步骤

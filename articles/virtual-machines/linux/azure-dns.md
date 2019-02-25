@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/19/2016
-ms.date: 08/27/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5158326e51e74d72aa0f2113c830da8e7795c6a7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c53aff52022b855bdb29a6d26ce7669df9f8c8be
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654956"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666270"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的 DNS 名称解析选项
 Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。 在 Azure 托管的虚拟机上配置自己的 DNS 服务，即可实现自己的 DNS 名称解析解决方案。 以下方案可帮助你选择适合你情况的解决方案。
@@ -34,13 +34,12 @@ Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。
 
 | **方案** | **解决方案** | **后缀** |
 | --- | --- | --- |
-| 同一虚拟网络中的角色实例或虚拟机之间的名称解析 |[Azure 提供的名称解析](#azure-provided-name-resolution) |主机名或完全限定域名 (FQDN) |
+| 同一虚拟网络中的角色实例或虚拟机之间的名称解析 |Azure 提供的名称解析 |主机名或完全限定域名 (FQDN) |
 | 不同虚拟网络中的角色实例或虚拟机之间的名称解析 |客户托管的 DNS 服务器，在虚拟网络之间转发可供 Azure（DNS 代理）解析的查询。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
 | 通过 Azure 中的角色实例或虚拟机解析本地计算机和服务的名称 |客户托管的 DNS 服务器（例如，本地域控制器、本地只读域控制器或使用区域传送同步的 DNS 辅助服务器）。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
 | 解析本地计算机中的 Azure 主机名 |将查询转发到相应虚拟网络中客户托管的 DNS 代理服务器。 代理服务器将查询转发到 Azure 进行解析。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
 | 针对内部 IP 的反向 DNS |[使用自己的 DNS 服务器的名称解析](#name-resolution-using-your-own-dns-server) |不适用 |
 
-<a name="azure-provided-name-resolution"></a>
 ## <a name="name-resolution-that-azure-provides"></a>Azure 提供的名称解析
 除公共 DNS 名称解析之外，Azure 还为位于相同虚拟网络中的虚拟机和角色实例提供内部名称解析。 在基于 Azure Resource Manager 的虚拟网络中，DNS 后缀在整个虚拟网络中都是一致的；不需要 FQDN。 可以将 DNS 名称分配给网络接口卡 (NIC) 和虚拟机。 虽然 Azure 提供的名称解析不需要任何配置，但并不适合所有部署方案，如上表所示。
 
@@ -89,7 +88,7 @@ Rogue Wave Software 的 CentOS（之前为 OpenLogic；使用 NetworkManager）
 5. 重启网络服务（“service network restart”），将缓存设置为本地 DNS 解析程序
 
 > [!NOTE]
-> ：该“dnsmasq”包只是适用于 Linux 的众多 DNS 缓存中的一个。 在使用之前，请检查其是否适合需求，并且确认没有安装其他缓存。
+> :“dnsmasq”包只是适用于 Linux 的众多 DNS 缓存中的一个。 在使用之前，请检查其是否适合需求，并且确认没有安装其他缓存。
 >
 >
 

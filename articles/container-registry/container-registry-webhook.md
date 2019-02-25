@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 08/20/2017
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 996e58a2fdcf9ff1c96f49df567ae60dc930bf0b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2f795a3bf95acc6774b1ad8ba7b9f841be472553
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645123"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440031"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure 容器注册表 webhook
 
@@ -75,7 +75,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-若要查看结果，请使用 [az acr webhook list-events](https://docs.azure.cn/zh-cn/cli/acr/webhook?view=azure-cli-latest#list-events) 命令。
+若要查看结果，请使用 [az acr webhook list-events](https://docs.azure.cn/zh-cn/cli/acr/webhook?view=azure-cli-latest#az-acr-webhook-list-events) 命令。
 
 ```azurecli
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -102,4 +102,4 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 [Azure 容器注册表 Webhook 架构参考](container-registry-webhook-reference.md)
 
 <!--Not Available on  ### Event Grid events-->
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

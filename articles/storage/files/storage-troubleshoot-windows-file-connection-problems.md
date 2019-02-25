@@ -6,16 +6,16 @@ author: WenJason
 tags: storage
 ms.service: storage
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 01/14/2019
+origin.date: 01/02/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: f3b353b0f346d1e5498f11b8b4ddc83d5d2eaddd
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.subservice: files
+ms.openlocfilehash: 8c50334893727632d5ffa700fdeffc7a4c927b22
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397027"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665692"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -62,7 +62,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 若要检查防火墙或 ISP 是否阻止端口 445，请使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` cmdlet。 
 
-若要使用 `Test-NetConnection` cmdlet，则必须安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
+若要使用 `Test-NetConnection` cmdlet，则必须安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -70,10 +70,10 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
     # This command requires you to be logged into your Azure account, run Login-AzureRmAccount -EnvironmentName AzureChinaCloud if you haven't
     # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
     # The ComputerName, or host, is <storage-account>.file.core.chinacloudapi.cn for Azure China Regions.
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
   
     
 如果连接成功，应会看到以下输出：

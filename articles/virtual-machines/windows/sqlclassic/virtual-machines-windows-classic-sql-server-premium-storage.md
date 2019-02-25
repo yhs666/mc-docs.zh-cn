@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 59902eaccb91a751ba34f407a7a1f82e43bb1516
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.reviewer: jroth
+ms.openlocfilehash: e89522cec317a32eba8b38d2fc8855c22645775c
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736181"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666285"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
@@ -307,6 +308,7 @@ New-AzureService $destcloudsvc -Location $location
 可以使用现有映像， 也可以[创建现有虚拟机的映像](../classic/capture-image-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 请注意，执行映像的计算器不一定要是 DS* 计算机。 获得映像后，以下步骤演示如何使用 **Start-AzureStorageBlobCopy** PowerShell commandlet 将其复制到高级存储帐户。
 
 ```powershell
+Add-AzureAccount -Environment AzureChinaCloud
 #Get storage account keys:
 #Standard Storage account
 $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
@@ -314,11 +316,12 @@ $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountn
 $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
 #Set up contexts for the storage accounts:
-$origContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
-$destContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
+$origContext = New-AzureStorageContext -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
+$destContext = New-AzureStorageContext -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 ```
 
 #### <a name="step-4-copy-blob-between-storage-accounts"></a>步骤 4：在存储帐户之间复制 Blob
+
 ```powershell
 #Get Image VHD
 $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
@@ -1184,7 +1187,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoi
 
 启动已迁移的辅助节点并在故障转移现有的主节点之前将其添加到新云服务的新 IP 地址资源中后，应在群集故障转移管理器执行以下步骤：
 
-若要添加 IP 地址，请参阅 [附录](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)步骤 14。
+若要添加 IP 地址，请参阅“附录”步骤 14。
 
 1. 对于当前 IP 地址资源，将可能的所有者更改为“现有主 SQL Server”（在本例中为“dansqlams4”）：
 

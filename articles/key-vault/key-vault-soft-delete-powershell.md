@@ -1,22 +1,19 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - 如何将软删除与 PowerShell 配合使用
 description: 使用 PowerShell 代码段进行软删除的用例示例
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
 origin.date: 08/21/2017
-ms.date: 12/10/2017
+ms.date: 03/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: 9bf86e40e9859388cf62731522da6815d79020e3
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: fb613a8e406e342ba76f89702689a4ee93dad373
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676920"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409072"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何将 Key Vault 软删除与 PowerShell 配合使用
 
@@ -75,13 +72,13 @@ New-AzureRmKeyVault -VaultName "ContosoVault" -ResourceGroupName "ContosoRG" -Lo
 
 ### <a name="verify-soft-delete-enablement"></a>验证软删除支持
 
-若要验证 Key Vault 是否已启用软删除，请运行 *get* 命令，并查找“Soft Delete Enabled?” 属性及其设置（true 或 false）。
+若要验证 Key Vault 是否启用了软删除，请运行 show 命令，并查找“Soft Delete Enabled?” 属性：
 
 ```powershell
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>删除由软删除保护的 Key Vault
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>删除由软删除保护的密钥保管库
 
 删除密钥保管库的命令会改变行为，具体取决于是否启用了软删除。
 
@@ -120,7 +117,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 恢复密钥保管库后，将使用密钥保管库的原始资源 ID 创建新资源。 如果删除了原始资源组，则在尝试恢复之前必须创建一个具有相同名称的资源组。
 
-## <a name="key-vault-objects-and-soft-delete"></a>Key Vault 对象和软删除
+## <a name="deleting-and-purging-key-vault-objects"></a>删除和清除密钥保管库对象
 
 以下命令将删除已启用软删除的名为“ContosoVault”的密钥保管库中的“ContosoFirstKey”密钥：
 
@@ -179,19 +176,19 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@
 像密钥一样，可以使用自己的命令管理机密：
 
 - 删除名为 SQLPassword 的机密： 
-  ```powershell
-  Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-  ```
+```powershell
+Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+```
 
 - 列出 Key Vault 中所有已删除的机密： 
-  ```powershell
-  Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
-  ```
+```powershell
+Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+```
 
 - 恢复处于已删除状态的机密： 
-  ```powershell
-  Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-  ```
+```powershell
+Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+```
 
 - 清除处于已删除状态的机密： 
 
@@ -202,17 +199,22 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>清除和 Key Vault
+## <a name="purging-a-soft-delete-protected-key-vault"></a>清除由软删除保护的密钥保管库
 
-### <a name="key-vault-objects"></a>Key Vault 对象
+> [!IMPORTANT]
+> 清除密钥保管库或其包含的对象之一将永久删除它，这意味着无法恢复！
 
-清除密钥、机密或证书会导致永久删除，且无法恢复。 然而，包含已删除对象的 Key Vault 会保持不变，Key Vault 中的所有其他对象也会保持不变。 
+清除功能用于永久删除以前已软删除的密钥保管库对象或整个密钥保管库。 如前一部分中所示，启用了软删除功能的密钥保管库中存储的对象可能会经历多个状态：
 
-### <a name="key-vaults-as-containers"></a>Key Vault 作为容器
-清除密钥保管库时，将永久删除其全部内容，包括密钥、机密和证书。 若要清除 Key Vault，请使用具有 `-InRemovedState` 选项的命令 `Remove-AzureRmKeyVault`，并通过使用 `-Location location` 参数指定已删除的 Key Vault 的位置。 可以使用命令 `Get-AzureRmKeyVault -InRemovedState` 查找已删除的保管库的位置。
+- **活动**：删除之前。
+- **已软删除**：删除之后，能够列出和恢复为活动状态。
+- **已永久删除**：清除之后，不能恢复。
 
->[!IMPORTANT]
->清除密钥保管库将永久删除，这意味着无法恢复！
+对于密钥保管库同样如此。 若要永久删除已软删除的密钥保管库及其内容，必须清除密钥保管库本身。
+
+### <a name="purging-a-key-vault"></a>清除密钥保管库
+
+清除密钥保管库时，将永久删除其全部内容，包括密钥、机密和证书。 若要清除已软删除的密钥保管库，请使用具有 `-InRemovedState` 选项的命令 `Remove-AzureRmKeyVault`，并通过使用 `-Location location` 参数指定已删除的密钥保管库的位置。 可以使用命令 `Get-AzureRmKeyVault -InRemovedState` 查找已删除的保管库的位置。
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location ChinaNorth
@@ -235,5 +237,3 @@ Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location ChinaNo
 - 有关 Key Vault 软删除功能的概述，请参阅 [Azure Key Vault 软删除概述](key-vault-ovw-soft-delete.md)。
 - 有关 Azure Key Vault 使用情况的综述，请参阅 [Azure Key Vault 入门](key-vault-get-started.md)。
 
-
-<!--Update_Description: wording update-->

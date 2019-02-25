@@ -13,19 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/16/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: d1b7ce941a0acc7fb422ce063ab09870acaed1ce
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f29f33e1dd1cff07f0c20278313b30130dbd6077
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675267"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666123"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
 
 若要完成此任务，需要在使用 Resource Manager 运行的 Azure 虚拟机上部署一个 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 
+
 <!-- Not Available on [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
 如果需要，可以 [手动配置可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
@@ -68,7 +69,7 @@ ms.locfileid: "52675267"
    | 设置 | 值 |
    | --- | --- |
    | **名称** |表示负载均衡器的文本名称。 例如 **sqlLB**。 |
-   | **类型** |**内部**：大多数实现使用内部负载均衡器，它允许同一虚拟网络中的应用程序连接到可用性组。  </br> **外部**：允许应用程序通过公共 Internet 连接连接到可用性组。 |
+   | **类型** |**内部**：大多数实施方案使用内部负载均衡器，它可让同一虚拟网络中的应用程序连接到可用性组。  </br> **外部**：可让应用程序通过公共 Internet 连接连接到可用性组。 |
    | **虚拟网络** |选择 SQL Server 实例所在的虚拟网络。 |
    | **子网** |选择 SQL Server 实例所在的子网。 |
    | **IP 地址分配** |**静态** |
@@ -81,7 +82,7 @@ ms.locfileid: "52675267"
 
 Azure 创建负载均衡器。 该负载均衡器属于特定的网络、子网、资源组和位置。 在 Azure 完成任务后，请在 Azure 中验证负载均衡器设置。 
 
-### <a name="step-2-configure-the-back-end-pool"></a>步骤 2：配置后端池。
+### <a name="step-2-configure-the-back-end-pool"></a>步骤 2：配置后端池
 Azure 将后端地址池称作“后端池”。 在本例中，后端池是可用性组中两个 SQL Server 实例的地址。 
 
 1. 在资源组中，单击已创建的负载均衡器。 

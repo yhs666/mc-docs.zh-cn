@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: article
-origin.date: 02/28/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 27eb8a2eaf00d4395be1a8efd53123d97e55eb72
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/01/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: ec48e30b8ed4b41f108ce073f8a72ed50bc24ec4
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806167"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663679"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>有关使用 Azure Database for MySQL 确保业务连续性的概述
 > [!NOTE]
@@ -53,6 +53,6 @@ Azure 数据中心会罕见地发生中断。 发生中断时，可能仅导致�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解自动备份，请参阅 [Azure Database for MySQL 中的备份](concepts-backup.md)。
-- 若要使用 Azure 门户还原到某个时间点，请参阅 [使用 Azure 门户将数据库还原到某个时间点](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 还原到某个时间点，请参阅 [使用 CLI 将数据库还原到某个时间点](howto-restore-server-cli.md)。
+- 详细了解 [Azure Database for MySQL 中的自动备份](concepts-backup.md)。
+- 了解如何使用 [Azure 门户](howto-restore-server-portal.md)或 [Azure CLI](howto-restore-server-cli.md) 进行还原。
+- 了解 [Azure Database for MySQL 中的只读副本](concepts-read-replicas.md)。

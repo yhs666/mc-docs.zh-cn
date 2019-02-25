@@ -1,23 +1,23 @@
 ---
-title: 快速入门：使用 Azure 存储资源管理器在启用了 Azure Data Lake Storage Gen2 的对象存储中创建 blob
+title: '快速入门：使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 中管理数据 '
 description: 本快速入门介绍如何使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中创建文件系统，以及目录和文件。 接下来，介绍如何将文件下载到本地计算机，以及如何查看目录中的所有文件。
 services: storage
 author: WenJason
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 12/05/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: bb559c205db38666faf98a2b0118a5e015f2be71
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 6e80463bbf0d25d55dbba449efe3f5f42b5909e3
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192950"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665449"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入门：使用 Azure 存储资源管理器在对象存储中创建 blob
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>快速入门：使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中管理数据
 
 本快速入门介绍如何使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)创建目录和 blob。 接下来，介绍如何将 blob 下载到本地计算机，以及如何在目录中查看所有 blob。 此外，还将了解如何创建 blob 快照、管理目录访问策略以及创建共享访问签名。
 
@@ -57,9 +57,7 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 
 
 在目录功能区中，选择“上传”。 此操作提供上传文件夹或文件的选项。
 
-选择要上传的文件或文件夹。 选择“Blob 类型”。 可接受的选项包括“追加”、“页 Blob”或“块 Blob”。
-
-若要上传 .vhd 或 .vhdx 文件，请选择“以页 Blob 形式上传 .vhd/.vhdx 文件(推荐)”。
+选择要上传的文件或文件夹。
 
 在“上传到文件夹(可选)”字段中输入一个文件夹名称，用于在目录下的文件夹中存储文件或文件夹。 如果没有选择任何文件夹，文件会直接上传到目录。
 

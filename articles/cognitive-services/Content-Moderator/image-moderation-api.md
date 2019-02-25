@@ -1,24 +1,24 @@
 ---
 title: 图像审查 - 内容审查器
 titlesuffix: Azure Cognitive Services
-description: 使用图像审查来调整不适当的图像
+description: 使用内容审查器的机器辅助图像审查来审查图像中是否存在成人和猥亵内容。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-origin.date: 01/20/2018
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: b03261ef4fd30985305715f299fad8bb46531b99
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 7098f97ea520fba641140854fe7fd55a4de784e1
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858091"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582765"
 ---
-# <a name="image-moderation"></a>图像审查
+# <a name="learn-image-moderation-concepts"></a>了解图像审查概念
 
 使用内容审查器的机器辅助图像审查来审查图像中是否存在成人和猥亵内容。 扫描图像以查找文本内容并提取该文本，以及检测人脸。 可以将图像与自定义列表进行匹配，并执行进一步操作。
 
@@ -145,3 +145,4 @@ ms.locfileid: "54858091"
 
 试用[图像审查 API 控制台](try-image-api.md)并使用 REST API 代码示例。 如果熟悉 Visual Studio 和 C#，还请参阅[图像审查 .NET 快速入门](image-moderation-quickstart-dotnet.md)。
 
+<!-- Update_Description: wording update -->

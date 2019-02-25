@@ -1,21 +1,18 @@
 ---
 title: Azure Database for MySQL 中的高可用性概念
 description: 本主题介绍了使用 Azure Database for MySQL 时的高可用性概念
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-origin.date: 02/28/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: e9f0c1d90f5e4f2bdc1f10e3dd95478e50b78ca9
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.topic: conceptual
+origin.date: 02/01/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 8b8b6e726306ea1e1410692871f671ce284e52bc
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672931"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663507"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的高可用性概念
 
@@ -40,5 +37,5 @@ Azure Database for MySQL 服务提供有保证的高级别可用性。 有资金
 执行缩放操作期间，数据库连接会中断。 客户端应用程序的连接中断，未提交的未结事务也会遭取消。 在客户端应用程序重试连接或建立新连接后，网关便会将连接定向到新设置大小的实例。 
 
 ## <a name="next-steps"></a>后续步骤
-- 有关该服务的概述，请参阅  [Azure Database for MySQL 概述](overview.md)
-- 有关重试逻辑的概述，请参阅[处理 Azure Database for MySQL 的暂时性连接错误](concepts-connectivity.md)
+- 了解如何[处理暂时性连接错误](concepts-connectivity.md)
+- 了解如何[使用只读副本复制数据](howto-read-replicas-portal.md)

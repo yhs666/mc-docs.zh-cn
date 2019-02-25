@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 了解如何使用内容审查器跟踪、标记、评估和筛选用户生成的内容中不适合的材料。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: overview
-origin.date: 10/22/2018
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1f5a2a3ce331103404c577146962a0b77627c28a
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: f2b9b19d4ec6f7121f26ae46d8e6a6fe78b2fc33
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858069"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582763"
 ---
 # <a name="what-is-azure-content-moderator"></a>什么是 Azure 内容审查器？
 
@@ -51,3 +51,4 @@ Azure 内容审查器 API 是一项认知服务，用于检查文本、图像和
 与所有认知服务一样，使用内容审查器服务的开发人员应该了解 Microsoft 针对客户数据的政策。 请参阅 Microsoft 信任中心上的[“认知服务”页面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)来了解详细信息。
 
 
+<!-- Update_Description: update metedata properties -->

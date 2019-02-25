@@ -3,7 +3,7 @@ title: Azure SQL 数据库基于 vCore 的资源限制 - 单一数据库| Micros
 description: 本页介绍 Azure SQL 数据库的单一数据库中一些常见的基于 vCore 的资源限制。
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,25 +11,25 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/09/2019
-ms.date: 01/28/2019
-ms.openlocfilehash: b6c6473acc051dabb5d7006872e590ba466c412e
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 6c75b2835160783425cd6d2491685cdcabaf09e7
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906122"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663573"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制
 
 本文提供针对使用基于 vCore 的购买模型的 Azure SQL 数据库的单一数据库的详细资源限制。
 
-有关逻辑服务器上单个数据库的 DTU 购买模型限制，请参阅[逻辑服务器上的资源限制概述](sql-database-resource-limits-logical-server.md)。
+有关 SQL 数据库服务器上单一数据库的 DTU 购买模型限制，请参阅 [SQL 数据库服务器上的资源限制概述](sql-database-resource-limits-database-server.md)。
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
-可通过 [Azure 门户](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 为单一数据库设置服务层、计算大小和存储量。
+可通过 [Azure 门户](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 为单一数据库设置服务层、计算大小和存储量。
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>常规用途服务层：存储大小和计算大小
 
@@ -173,7 +173,7 @@ ms.locfileid: "54906122"
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |硬件代次|5|5|5|5|5|5|5|
 |vCore 数|2|4|6|8|10 个|12|14|
-|内存 (GB)|11|22|33|44|55|66|77|
+|内存 (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |列存储支持|是|是|是|是|是|是|是|
 |内存中 OLTP 存储 (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |最大数据大小 (GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -195,7 +195,7 @@ ms.locfileid: "54906122"
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |硬件代次|5|5|5|5|5|5|5|
 |vCore 数|16|18|20 个|24|32|40|80|
-|内存 (GB)|88|99|110|132|176|220|440|
+|内存 (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |列存储支持|是|是|是|是|是|是|是|
 |内存中 OLTP 存储 (GB)|15.768|18.139|20.51|25.252|37.936|52.22|131.64|
 |最大数据大小 (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -261,5 +261,8 @@ ms.locfileid: "54906122"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
+- 有关单个数据库的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的单个数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 有关弹性池的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的弹性池的资源限制](sql-database-vcore-resource-limits-elastic-pools.md)
+- 有关弹性池的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的弹性池的资源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
+- 有关数据库服务器上的资源限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)了解有关服务器级别和订阅级别限制的信息。

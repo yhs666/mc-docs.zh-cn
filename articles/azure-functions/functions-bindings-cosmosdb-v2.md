@@ -10,14 +10,14 @@ ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 01/15/2019
+ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 022449757fb52938ece8acb1942222ca6d741046
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 8b49694fee7b0249c31c5618cb20cf2525919789
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334228"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665491"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>适用于 Azure Functions 2.x 的 Azure Cosmos DB 绑定
 
@@ -58,7 +58,7 @@ Azure Cosmos DB 触发器使用 [Azure Cosmos DB 更改源](../cosmos-db/change-
 - [JavaScript](#trigger---javascript-example)
 - [Python](#trigger---python-example)
 
-[跳过触发器示例](#trigger---attributes)
+跳过触发器示例
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -94,7 +94,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[跳过触发器示例](#trigger---attributes)
+跳过触发器示例
 
 ### <a name="trigger---c-script-example"></a>触发器 - C# 脚本示例
 
@@ -132,7 +132,7 @@ C# 脚本代码如下所示：
     }
 ```
 
-[跳过触发器示例](#trigger---attributes)
+跳过触发器示例
 
 ### <a name="trigger---javascript-example"></a>触发器 - JavaScript 示例
 
@@ -200,7 +200,7 @@ JavaScript 代码如下所示：
 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将来自 Cosmos DB 的参数使用 `@CosmosDBTrigger` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。
 
 
-[跳过触发器示例](#trigger---attributes)
+跳过触发器示例
 
 ### <a name="trigger---python-example"></a>触发器 - Python 示例
 
@@ -1728,7 +1728,7 @@ public class DocsFromRouteSqlQuery {
 
 在 C# 函数和 F# 函数中，函数成功退出后，通过命名输入参数对输入文档所做的任何更改都会自动保存。
 
-在 JavaScript 函数中，函数退出时不会自动进行更新。 请改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 进行更新。 请参阅 [JavaScript 示例](#input---javascript-example)。
+在 JavaScript 函数中，函数退出时不会自动进行更新。 请改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 进行更新。 请参阅 JavaScript 示例。
 
 ## <a name="output"></a>输出
 
@@ -2289,7 +2289,7 @@ public String cosmosDbQueryById(
     }
 ```
 
-有关完整示例，请参阅[输出 - C# 示例](#output---c-example)。
+有关完整示例，请参阅“输出 - C# 示例”。
 
 ## <a name="output---configuration"></a>输出 - 配置
 
@@ -2358,4 +2358,4 @@ public String cosmosDbQueryById(
 > [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
 --->
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

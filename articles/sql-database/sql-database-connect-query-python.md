@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 575c1a50cd848907af7f187eae61604412f99a8b
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/28/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 1eae1ff6b5780932ef0ccac172683c2f3a8750f1
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806157"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663673"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入门：使用 Python 查询 Azure SQL 数据库
 
@@ -29,8 +29,6 @@ ms.locfileid: "53806157"
 若要完成本快速入门，请确保符合以下条件：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
   
 - 适用于你的操作系统的 Python 和相关软件：
   

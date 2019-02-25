@@ -2,20 +2,23 @@
 title: 扩大 Azure SQL 数据库 | Microsoft 文档
 description: 软件即服务 (SaaS) 开发人员可以使用这些工具轻松地在云中创建可缩放的弹性数据库
 services: sql-database
-manager: digimobile
-author: WenJason
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: e0564b4f6880e7416619646a819fab74e09dc86d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: ''
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 9f07a876dfa3738c82519b55bb393aeb981f69a3
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651403"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663472"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database（使用 Azure SQL 数据库进行扩展）
 可以使用 **弹性数据库** 工具轻松地扩展 Azure SQL 数据库。 借助这些工具和功能，可以使用 Azure SQL 数据库中的数据库资源来为事务工作负荷，尤其是服务型软件 (SaaS) 应用程序创建解决方案。 弹性数据库包括：
@@ -64,8 +67,8 @@ VM 和 blob 存储可以轻松实现云应用程序的弹性和缩放需求 - �
 ## <a name="sharding"></a>分片
 *分片* 是一项可跨许多独立的数据库分发大量相同结构数据的技术。 这项技术尤其受到最终客户或企业创建软件即服务 (SAAS) 产品的云开发人员的欢迎。 这些最终客户通常称为“租户”。 需要分片的原因有很多：  
 
-* 数据总量过大而超出单个数据库的限制范围
-* 整个工作负载的事务吞吐量超出单个数据库的容量
+* 数据总量过大，超出单一数据库的约束范围
+* 整个工作负载的事务吞吐量超出单一数据库的容量
 * 租户可能需要与其他租户物理隔离，因此每个租户都需要单独的数据库
 * 由于符合性、性能或地理政治的原因，不同的数据库部分可能需要驻留在不同的地域中。
 
@@ -78,7 +81,7 @@ VM 和 blob 存储可以轻松实现云应用程序的弹性和缩放需求 - �
 
 ![单租户与多租户][4]
 
-其他方案是将多个租户一同打包到数据库中，而非将其隔离到单独的数据库中。 此模式是典型的多租户分片模式，该模式可能取决于应用程序可管理大量极小型租户这一情况。 在多租户分片中，数据库表中的行全都被设计为带有可标识租户 ID 的键或分片键。 同样，应用程序层负责将租户的请求路由到相应的数据库，而弹性数据库客户端库可以支持这种操作。 另外，可以使用低级别安全性来筛选每个租户可以访问的行。 多租户分片模式可能需要在数据库之间重新分配数据，而弹性数据库拆分/合并工具正好可以帮助实现此目的。 
+其他方案是将多个租户一同打包到数据库中，而非将其隔离到单独的数据库中。 此模式是典型的多租户分片模式，该模式可能取决于应用程序可管理大量极小型租户这一情况。 在多租户分片中，数据库表中的行全都被设计为带有可标识租户 ID 的键或分片键。 同样，应用程序层负责将租户的请求路由到相应的数据库，而弹性数据库客户端库可以支持这种操作。 另外，可以使用低级别安全性来筛选每个租户可以访问的行。 多租户分片模式可能需要在数据库之间重新分配数据，而弹性数据库拆分/合并工具可帮助实现此目的。 
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>将数据从多租户数据库移到单租户数据库
 在创建 SaaS 应用程序时，通常会给潜在客户提供试用版本。 在此情况下，使用多租户数据库来处理数据较符合成本效益。 不过，当潜在客户成为真正客户后，单租户数据库就更好，因为它提供更好的性能。 如果客户在试用期间创建了数据，可以使用[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)将数据从多租户数据库移到新的单租户数据库。

@@ -14,18 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2018
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6479111b4e52d9ccad0e19987924c100b4384af1
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: d31c0d6e3d8a56b28ddcc8cdb1f3f664bae297c9
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785180"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666182"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
-可通过在存储帐户中存储为托管/非托管磁盘的通用虚拟机 (VM) 创建托管的映像资源。 然后可以使用该映像创建多个 VM。 
+可通过在存储帐户中存储为托管/非托管磁盘的通用虚拟机 (VM) 创建托管的映像资源。 然后可以使用该映像创建多个 VM。 有关托管映像如何计费的信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/)。 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 通用化 Windows VM
 
@@ -72,6 +74,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 6. 如果想要在创建映像后删除源 VM，选择“创建映像后自动删除此虚拟机”。
 
+    <!--Not Available on [availability zone](../../availability-zones/az-overview.md)-->
     
 8. 选择“创建”以创建映像。
 
@@ -81,13 +84,15 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 直接从 VM 创建映像，可确保映像包含所有与该 VM 关联的磁盘，包括 OS 磁盘和任何数据磁盘。 本示例演示如何从使用托管磁盘的 VM 创建托管映像。
 
-开始前，请确保具有最新版本的 AzureRM.Compute PowerShell 模块（必须是 5.7.0 版本或更高版本）。 若要查找版本，请在 PowerShell 中运行 `Get-Module -ListAvailable AzureRM.Compute`。 如需升级，请参阅[使用 PowerShellGet 在 Windows 上安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+开始前，请确保具有最新版本的 AzureRM.Compute PowerShell 模块（必须是 5.7.0 版本或更高版本）。 若要查找版本，请在 PowerShell 中运行 `Get-Module -ListAvailable AzureRM.Compute`。 如需升级，请参阅[使用 PowerShellGet 在 Windows 上安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-az-ps)。 如果在本地运行 PowerShell，则运行 `Connect-AzAccount` 以创建与 Azure 的连接。
 
 <!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
 
+若要创建 VM 映像，请遵循下列步骤：
+
 1. 创建一些变量。
 
-    ```PowerShell
+    ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
@@ -95,31 +100,31 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
     ```
 2. 确保 VM 已解除分配。
 
-    ```PowerShell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```powershell
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
 
 3. 将虚拟机的状态设置为“通用化”。 
 
-    ```PowerShell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+    ```powershell
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
 
 4. 获取虚拟机。 
 
-    ```PowerShell
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    ```powershell
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. 创建映像配置。
 
-    ```PowerShell
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    ```powershell
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. 创建映像。
 
-    ```PowerShell
-    New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+    ```powershell
+    New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>使用 PowerShell 从托管磁盘创建映像
@@ -128,7 +133,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 1. 创建一些变量。 
 
-    ```PowerShell
+    ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
@@ -138,27 +143,27 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 2. 获取 VM。
 
-   ```PowerShell
-   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   ```powershell
+   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. 获取托管磁盘的 ID。
 
-    ```PowerShell
+    ```powershell
     $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
     ```
 
 3. 创建映像配置。
 
-    ```PowerShell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    ```powershell
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
 
 4. 创建映像。
 
-    ```PowerShell
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ```powershell
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 ## <a name="create-an-image-from-a-snapshot-using-powershell"></a>使用 PowerShell 从快照创建映像
@@ -167,7 +172,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 1. 创建一些变量。 
 
-    ```PowerShell
+    ```powershell
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
     $snapshotName = "mySnapshot"
@@ -176,20 +181,20 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 2. 获取快照。
 
-   ```PowerShell
-   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   ```powershell
+   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
 
 3. 创建映像配置。
 
-    ```PowerShell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    ```powershell
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. 创建映像。
 
-    ```PowerShell
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ```powershell
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 ## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>从存储帐户中的 VHD 创建映像
@@ -198,7 +203,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 1.  创建一些变量。
 
-    ```PowerShell
+    ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
@@ -207,21 +212,21 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
     ```
 2. 停止/解除分配 VM。
 
-    ```PowerShell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```powershell
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
 
 3. 将 VM 标记为通用。
 
-    ```PowerShell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    ```powershell
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
 4.  使用通用化的 OS VHD 创建映像。
 
-    ```PowerShell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ```powershell
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
 ## <a name="next-steps"></a>后续步骤

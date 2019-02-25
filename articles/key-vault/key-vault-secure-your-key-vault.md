@@ -10,38 +10,41 @@ ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/10/2017
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: 344fab43425edc9009e1951db780572912c259db
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 3953578b84e484b1b0a1f18d4fd4f18f0eeaf4a8
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996283"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409080"
 ---
 # <a name="secure-your-key-vault"></a>保护密钥保管库
+
 Azure Key Vault 是一种云服务，用于保护加密密钥和机密（例如证书、连接字符串和密码）。 因为此数据是敏感数据和业务关键数据，所以必须保护对 Key Vault 的访问，只允许得到授权的应用程序和用户进行访问。 本文简要介绍了 Key Vault 访问模型。 介绍了身份验证和授权，并说明了如何保护访问。
 
 ## <a name="overview"></a>概述
+
 可通过以下两个独立接口来控制对密钥保管库的访问：管理平面和数据平面。 
 **管理平面**处理管理保管库，例如，创建保管库、更新保管库和删除保管库。 
-**数据平面**处理保管库内的机密，即创建、更新、删除和读取保管库内的机密。 对于这两个平面，在调用方（用户或应用程序）可以访问 Key Vault 前，需要适当的身份验证和授权。 身份验证建立调用方的标识，授权确定允许调用方执行的操作。
+**数据平面**处理保管库内的机密，即创建、更新、删除和读取保管库内的机密。 对于这两个平面，在调用方（用户或应用程序）可以访问 Key Vault 前，需要适当的身份验证和授权。 身份验证可确认调用方的身份，授权确定允许调用方执行的操作。
 
 管理平面和数据平面都使用 Azure Active Directory 进行身份验证。 对于授权，管理平面使用基于角色的访问控制 (RBAC)，而数据平面使用密钥保管库访问策略。
 
 下面是相关主题的简要概述：
 
-[使用 Azure Active Directory 进行身份验证](#authentication-using-azure-active-directory) - 此部分介绍调用方如何通过管理平面和数据平面使用 Azure Active Directory 进行身份验证，以便访问密钥保管库。 
+使用 Azure Active Directory 进行身份验证 - 此部分介绍调用方如何通过管理平面和数据平面使用 Azure Active Directory 进行身份验证，以便访问密钥保管库。 
 
 对于身份验证，这两个平面都使用 Azure Active Directory (Azure AD)。 对于授权，管理平面使用基于角色的访问控制 (RBAC)，而数据平面使用 Key Vault 访问策略。
 
 ## <a name="authenticate-by-using-azure-active-directory"></a>使用 Azure Active Directory 进行身份验证
+
 在 Azure 订阅中创建 Key Vault 时，该 Key Vault 自动与订阅的 Azure AD 租户关联。 所有调用方都必须在此租户中注册并通过身份验证，才能访问该 Key Vault。 此项要求适用于管理平面访问和数据平面访问。 在这两种情况下，应用程序可以以两种方式访问 Key Vault：
 
-* **用户+应用访问**：适用于代表已登录用户访问 Key Vault 的应用程序。 此类访问的示例有 Azure PowerShell 和 Azure 门户。 可通过两种方法向用户授予访问权限： 
+* **用户+应用访问**：适用于代表已登录用户访问 Key Vault 的应用程序。 此类访问的示例有 Azure PowerShell 和 Azure 门户。 可通过两种方法向用户授予访问权限：
+
   - 从任何应用程序访问 Key Vault。
   - 仅在他们使用特定应用程序时才访问 Key Vault（称为复合标识）。
 
@@ -58,6 +61,7 @@ Azure Key Vault 是一种云服务，用于保护加密密钥和机密（例如�
 * 组织可以通过 Azure AD 中的选项自定义身份验证（例如，启用多重身份验证以提高安全性）。
 
 ## <a name="the-management-plane-and-the-data-plane"></a>管理平面和数据平面
+
 使用管理平面来管理 Key Vault 本身。 这包括管理属性以及设置数据平面访问策略等操作。 使用数据平面添加、删除、修改和使用存储在 Key Vault 中的密钥、机密和证书。
 
 通过下表中列出的不同终结点来访问管理平面和数据平面接口。 表中的第二列描述了不同 Azure 环境中这些终结点的 DNS 名称。 第三列描述可在每个访问平面中执行的操作。 每个访问平面还有自身的访问控制机制。 管理平面访问控制是使用 Azure 资源管理器基于角色的访问控制 (RBAC) 设置的。 数据平面访问控制是使用 Key Vault 访问策略设置的。
@@ -70,6 +74,7 @@ Azure Key Vault 是一种云服务，用于保护加密密钥和机密（例如�
 管理平面访问控制与数据平面访问控制相互独立。 例如，若要授权应用程序使用 Key Vault 中的密钥，只需授予数据平面访问权限。 通过密钥保管库访问策略授予访问权限。 相反，若用户需要读取 Key Vault 属性和标记而不需要访问数据（密钥、机密或证书），则只需管理平面访问权限。 通过使用 RBAC 向用户授予读取权限来授予权限。
 
 ## <a name="management-plane-access-control"></a>管理平面访问控制
+
 管理平面由影响 Key Vault 本身的操作构成，例如：
 
 - 创建或删除 Key Vault。
@@ -105,6 +110,7 @@ Key Vault 数据平面操作应用于存储的对象，例如密钥、机密和�
 > 
 
 ## <a name="example"></a>示例
+
 假设正在开发一个应用程序，该应用程序使用 SSL 证书，使用 Azure 存储进行数据存储，且使用 RSA 2048 位密钥进行签名操作。 假设此应用程序在 Azure 虚拟机（或虚拟机规模集）中运行。 可以使用 Key Vault 存储所有应用程序机密，并存储供应用程序用来通过 Azure AD 进行身份验证的启动证书。
 
 下面总结了存储的密钥和机密类型：
@@ -168,14 +174,14 @@ Key Vault 数据平面操作应用于存储的对象，例如密钥、机密和�
 
 首先，订阅管理员向安全团队分配 `key vault Contributor` 和 `User Access Administrator` 角色。 这些角色使安全团队可管理对其他资源的访问权限以及资源组 ContosoAppRG 中的 Key Vault。
 
-```
+```PowerShell
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 以下脚本演示安全团队如何创建 Key Vault 并设置日志记录和访问权限。 有关 Key Vault 访问策略权限的详细信息，请参阅[关于 Azure Key Vault 密钥、机密和证书](about-keys-secrets-and-certificates.md)。
 
-```
+```PowerShell
 # Create key vault and enable logging
 $sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzureRmKeyVault -VaultName ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'chinanorth' -EnabledForDeployment
@@ -210,11 +216,12 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 此示例展示了一个简单的场景。 现实场景可能更复杂，可以根据需求调整针对 Key Vault 的权限。 在本示例中，假设安全团队将提供开发人员和操作员需要在其应用程序中引用的密钥和机密（URI 和指纹）。 开发人员和操作员不需要任何数据平面访问权限。 本示例重点介绍对密钥保管库的保护。 对于保护 [VM](https://www.azure.cn/home/features/virtual-machines/)、[存储帐户](../storage/common/storage-security-guide.md)和其他 Azure 资源，应进行类似的考虑。
 
 > [!NOTE]
-> 此示例介绍如何在生产中锁定密钥保管库访问。 开发人员应该获取自己的、拥有完全权限的订阅或资源组，以便能够管理用于开发应用程序的保管库、VM 和存储帐户。
-> 
-> 
+> 此示例介绍如何在生产中锁定 Key Vault 访问。 开发人员应具有其自己的订阅或资源组，他们具有这些资源组的完整权限，以管理其用来开发应用程序的保管库、VM 和存储帐户。
+
+我们强烈建议[配置 Key Vault 防火墙和虚拟网络](key-vault-network-security.md)，以进一步保护对 Key Vault 的访问。
 
 ## <a name="resources"></a>资源
+
 * [Azure Active Directory 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)
   
 * [RBAC：内置角色](../role-based-access-control/built-in-roles.md)
@@ -242,11 +249,12 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * 使用 PowerShell [设置](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy)和[删除](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) Key Vault 访问策略
   
 ## <a name="next-steps"></a>后续步骤
+
+[配置密钥保管库防火墙和虚拟网络](key-vault-network-security.md)
+
 有关面向管理员的入门教程，请参阅 [Azure Key Vault 入门](key-vault-get-started.md)。
 
 有关将密钥和机密与 Azure Key Vault 配合使用的详细信息，请参阅[关于密钥和机密](https://msdn.microsoft.com/library/azure/dn903623.aspx)。
 
 如果对 Key Vault 有任何疑问，请访问[论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)。
 
-
-<!-- Update_Description: link update -->

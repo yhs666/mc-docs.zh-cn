@@ -9,12 +9,12 @@ ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: f87ad42bfc2d6727adca20eba789694637e52895
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 33f70389d9063424170a3917f15521700953b83c
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906061"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440051"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 
@@ -32,7 +32,7 @@ ms.locfileid: "54906061"
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
-登录到 [Azure 门户](https://portal.azure.com/)。
+登录到 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>创建 Web 应用和应用服务计划
 1. 在左侧导航窗格中单击“创建资源”选项。

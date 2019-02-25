@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 06/13/2018
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: queues
-ms.openlocfilehash: 23702cd1e21f22d736b61d0459e913d4baf649c5
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: queues
+ms.openlocfilehash: 29fc8c8d6ec860cf63cff2fa1733ac3f4bb5a194
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192846"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665687"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -35,7 +35,7 @@ Azure 队列存储用于在应用程序组件之间进行云消息传送。 在�
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* 一个 [Azure 存储帐户](../common/storage-quickstart-create-account.md)
+* 一个 [Azure 存储帐户](../common/storage-quickstart-create-account.md?toc=%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

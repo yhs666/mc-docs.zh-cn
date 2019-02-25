@@ -3,14 +3,14 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 09/04/2018
-ms.date: 11/21/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 75a8418f1a42f9fd5c0bb2e395bd3bcd396151d0
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 650085b9de723235346e83919eaab9da006969bd
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673204"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665744"
 ---
 下表显示了 Azure Functions 运行时的两个主要版本支持的绑定。
 
@@ -19,7 +19,6 @@ ms.locfileid: "52673204"
 | [Blob 存储](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  
 | [事件中心](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
-| [外部文件](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
 | [HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
 | [Microsoft Graph<br/>Excel 表](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>OneDrive 文件](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
@@ -39,4 +38,4 @@ ms.locfileid: "52673204"
 
 <sup>2</sup> 试验性 &mdash; 不受支持，将来可能被弃用。
 
-<!-- ms.date: 11/21/2018 -->
+<!-- ms.date: 02/22/2018 -->

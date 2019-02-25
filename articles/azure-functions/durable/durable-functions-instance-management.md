@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/16/2019
+ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 941fb1e599a8eb2d1dc87751d44a4cb5d38d6299
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 5bf0f55a98352053e07e1d2d3b104c3896f5e250
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334225"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665683"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>在 Azure 中管理 Durable Functions 中的实例
 
@@ -191,7 +191,7 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     ILogger log)
 {
-    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
+    IList<DurableOrchestrationStatus> instances = await client.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
@@ -719,4 +719,4 @@ func durable delete-task-hub --task-hub-name UserTest
 > [!div class="nextstepaction"]
 > [了解如何使用 HTTP API 进行实例管理](durable-functions-http-api.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

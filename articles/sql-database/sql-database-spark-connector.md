@@ -1,21 +1,24 @@
 ---
-title: 具有 Azure SQL 数据库和 SQL Server 的 Spark 连接器| Azure
+title: 具有 Azure SQL 数据库和 SQL Server 的 Spark 连接器| Microsoft Docs
 description: 了解如何使用适用于 Azure SQL 数据库和 SQL Server 的 Spark 连接器
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
+ms.subservice: development
 ms.custom: ''
-ms.topic: article
-origin.date: 04/23/2018
-ms.date: 06/18/2018
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: dc816326ec2f61f52984b8a74bf9c82a3f792836
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 09/25/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 424ac68ded99d6c9755aa322b3683e77823c8513
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645634"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663620"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>通过适用于 Azure SQL 数据库和 SQL Server 的 Spark 连接器，加速实时大数据分析
 
@@ -159,7 +162,7 @@ collection.show()
 #### <a name="setup-requirement"></a>安装程序要求
 如果使用基于访问令牌的身份验证模式，则需要下载 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) 及其依赖项，并将他它们包含在 Java 生成路径中。
 
-请参阅[通过 SQL 数据库使用 Azure Active Directory 身份验证进行身份验证](https://docs.azure.cn/sql-database/sql-database-aad-authentication)，了解如何获取到 Azure SQL 数据库的访问令牌。
+请参阅[通过 SQL 数据库使用 Azure Active Directory 身份验证进行身份验证](sql-database-aad-authentication.md)，了解如何获取到 Azure SQL 数据库的访问令牌。
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

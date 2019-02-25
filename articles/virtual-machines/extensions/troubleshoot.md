@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/29/2016
-ms.date: 06/04/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 963e48c66670058128f2c7f6658228a0d0b1a0b6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a721d8774d81d96ea17bbfbb4ab15e822e60e6e5
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645245"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665843"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 扩展故障排除
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "52645245"
 
 Azure PowerShell：
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 下面是示例输出：
 
@@ -63,12 +63,11 @@ Azure PowerShell：
 ## <a name="troubleshooting-extension-failures"></a>扩展故障排除
 ### <a name="rerun-the-extension-on-the-vm"></a>在 VM 上重新运行扩展
 如果使用自定义脚本扩展在 VM 上运行脚本，有时可能会遇到错误：VM 已成功创建但脚本却运行失败。 在这些情况下，从此错误中恢复的建议方法是删除该扩展并再次重新运行该模板。
-注意：未来此功能会得到增强，不再需要卸载该扩展。
+注意：未来此功能将得到增强，不再需要卸载该扩展。
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>从 Azure PowerShell 删除扩展
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 删除该扩展后，可以重新执行模板以在 VM 上运行脚本。
 
-<!-- Update_Description: new articles on troubleshoot on CustomScript extension -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties, wording update, update az cmdlet -->

@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 11/27/2017
-ms.date: 10/22/2018
+origin.date: 01/30/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e848994be7ae4980c1e901169078827fe291c447
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fb62f049b33829d8ae9ca007f6c9cf07e6fd2330
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656798"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666157"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LEMP Web 服务器
 
@@ -47,16 +47,14 @@ ms.locfileid: "52656798"
 运行以下命令更新 Ubuntu 包源并安装 NGINX、MySQL 和 PHP。 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-系统会提示安装包和其他依赖项。 出现提示时，请为 MySQL 设置 root 密码，并按 [Enter] 继续。 遵照剩余的提示操作。 此股从会安装最低要求的 PHP 扩展，这些扩展是通过 MySQL 使用 PHP 所必需的。 
-
-![MySQL root 密码页][1]
+系统会提示安装包和其他依赖项。 此股从会安装最低要求的 PHP 扩展，这些扩展是通过 MySQL 使用 PHP 所必需的。  
 
 ## <a name="verify-installation-and-configuration"></a>验证安装和配置
 
-### <a name="nginx"></a>NGINX
+### <a name="verify-nginx"></a>验证 NGINX
 
 使用以下命令检查 NGINX 版本：
 ```bash
@@ -67,7 +65,7 @@ nginx -v
 
 ![NGINX 默认页][3]
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>验证并保护 MySQL
 
 使用以下命令检查 MySQL 版本（请注意大写的 `V` 参数）：
 
@@ -75,23 +73,23 @@ nginx -v
 mysql -V
 ```
 
-若要帮助保护 MySQL 的安装，请运行 `mysql_secure_installation` 脚本。 如果只是设置临时服务器，则可以跳过此步骤。 
+若要帮助保护 MySQL 安装，包括设置 root 密码，请运行 `mysql_secure_installation` 脚本。 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-输入 MySQL 的 root 密码，并配置环境的安全设置。
+还可以选择设置“验证密码”插件（推荐）。 然后，为 MySQL root 用户设置一个密码，并为您的环境配置剩余的安全设置。 建议对所有问题都回答“Y”（是）。
 
 如果想要试用 MySQL 功能（创建 MySQL 数据库、添加用户或更改配置设置），请登录到 MySQL。 此步骤非本教程必需步骤。 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 完成后，键入 `\q` 退出 mysql 提示符。
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>验证 PHP
 
 使用以下命令检查 PHP 版本：
 
@@ -107,7 +105,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-在编辑器中，将 `/etc/nginx/sites-available/default` 的内容替换为以下内容。 请参阅注释了解设置说明。 用自己 VM 的公共 IP 地址替换 *yourPublicIPAddress*，并保留其余设置。 然后保存文件。
+在编辑器中，将 `/etc/nginx/sites-available/default` 的内容替换为以下内容。 请参阅注释了解设置说明。 用你的 VM 的公共 IP 地址替换 *yourPublicIPAddress*，确认 `fastcgi_pass` 中的 PHP 版本，并保留其余设置。 然后保存文件。
 
 ```
 server {
@@ -127,7 +125,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -172,8 +170,7 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 > [!div class="nextstepaction"]
 > [使用 SSL 保护 Web 服务器](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

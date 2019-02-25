@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, jovanpop
 manager: digimobile
-origin.date: 08/09/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: c300af9094dc1ae2053fd0874c997467bf5ef4ce
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+origin.date: 01/17/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 960c143de178233b32c74feeb3444b9f5ed9140d
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397070"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663471"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 数据库托管实例
 
@@ -38,7 +38,7 @@ ms.locfileid: "54397070"
 
 - 已在本地服务器上，或者有权访问导出为文件的证书的计算机上，安装了 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 命令行工具。 Pvk2Pfx 工具是[企业 Windows 驱动程序工具包](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)（一个独立的自包含性命令行环境）的一部分。
 - 已安装 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 5.0 或更高版本。
-- [已安装并更新](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) AzureRM PowerShell 模块。
+- [已安装并更新](https://docs.microsoft.com/powershell/azure/install-az-ps) AzureRM PowerShell 模块。
 - [AzureRM.Sql 模块](https://www.powershellgallery.com/packages/AzureRM.Sql) 4.10.0 版或更高版本。
   在 PowerShell 中运行以下命令，以安装/更新 PowerShell 模块：
 

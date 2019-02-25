@@ -1,21 +1,24 @@
 ---
-title: Azure 分析的公共数据集 | Azure
+title: Azure 分析的公共数据集 | Microsoft Docs
 description: 了解可用于设计 Azure 分析服务和解决方案原型并进行测试的公共数据集。
 services: sql-database
-author: Hayley244
-manager: digimobile
-ms.custom: reference
 ms.service: sql-database
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 8ff8f96aaea948a564645dec505749e461935a76
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: reference
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: craigg
+origin.date: 04/17/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: d204e8b6d36995762a598c230e5408a7e399194d
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648630"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663587"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用于测试和原型设计的公共数据集
 
@@ -38,11 +41,11 @@ ms.locfileid: "52648630"
 
 | 数据源 | 关于数据 | 关于文件 |
 |---|---|---|
-| [纽约市出租车数据](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | “出租车行程记录包括捕获出租车接客和下客的日期/时间、地点、行程距离、各项费用、费率类型、付款方式和驾驶员报告的乘客数量的字段。” | 数据集文件以 CSV 格式按月提供。 |
+| [纽约市出租车数据](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | “出租车行程记录包括捕获以下信息的字段：上车和下车日期/时间、上车和下车位置、行程距离、逐条列记的车费、费率类型、付款类型和司机报告的乘客数。” | 数据集文件以 CSV 格式按月提供。 |
 | [Microsoft Research 数据集 -“研究型数据科学”](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 多个数据集，涵盖了人机交互、音频/视频、数据挖掘/信息检索、地理空间/位置、自然语言处理和机器人/计算机视觉。 | 数据集有各种格式，可压缩后下载。 |
 | [公共基因组数据](http://www.completegenomics.com/public-data/) | “公众可使用全人类基因组的不同数据集，加强基因组学研究……”提供商 Complete Genomics 是一家营利性私有公司。 | 经提取的数据集为 UNIX 文本格式。 还可使用分析工具。 |
 | [Open Science Data Cloud 数据](https://www.opensciencedatacloud.org/) | “Open Science Data Cloud 为科学界提供了可存储、共享和分析 TB 级和 PB 级科学数据集的资源。”| 数据集采用各种格式。 |
-| [全球气候数据 - WorldcLIM](http://worldclim.org/) | “WorldClim 是一组全球气候层（网格气候数据），空间分辨率约为 1 平方千米。 这些数据可用于映射和空间建模。” | 这些文件包含地理空间数据。 有关详细信息，请参阅[数据格式](http://worldclim.org/formats1)。 |
+| [全球气候数据 - WorldClim](http://worldclim.org/) | “WorldClim 是一组全球气候层（网格气候数据），空间分辨率约为 1 平方千米。 这些数据可用于映射和空间建模。” | 这些文件包含地理空间数据。 有关详细信息，请参阅[数据格式](http://worldclim.org/formats1)。 |
 | [关于人类社会的数据 - GDELT 项目](http://www.gdeltproject.org/data.html) | “GDELT 项目是目前为止创建的有关人类社会的最大、最全面、分辨率最高的开放数据库。” | 原始数据文件为 CSV 格式。 |
 | [来自 Criteo 的机器学习广告点击预测数据](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | “公开发布的最大的 ML 数据集。” 有关详细信息，请参阅 [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/)（Criteo 的 1 TB 点击预测数据集）。 | |
 | [来自 The Lemur Project 的 ClueWeb09 文本挖掘数据集](http://www.lemurproject.org/clueweb09.php/) | “创建 ClueWeb09 数据集是为了支持与信息检索和相关人类语言技术相关的研究。 由 2009 年 1 月和 2 月收集的约 10 亿个 10 种语言的网页组成。” | 请参阅 [Dataset Information](http://www.lemurproject.org/clueweb09/datasetInformation.php)（数据集信息）。|
@@ -52,5 +55,5 @@ ms.locfileid: "52648630"
 | 数据源 | 关于数据 | 关于文件 |
 |---|---|---|
 | [GitHub Archive](https://www.githubarchive.org/) | “GitHub Archive 是一个用于记录事件公共 GitHub 时间轴，将其存档，并使其易于进行进一步分析的项目。” | 从 Web 客户端下载 .gz (Gzip) 格式的以 JSON 编码的事件存档。 |
-| [来自 GHTorrent 项目的 GitHub 活动数据](http://ghtorrent.org/) | “GHTorrent 项目正努力创建一种通过 GitHub REST API 提供的、可缩放的、可查询的脱机镜像数据。 GHTorrent 可监视 GitHub 公共事件时间轴。 它会彻底检索每个事件的内容及其依赖项。” | MySQL 数据库转储采用 CSV 格式。 |
+| [来自 GHTorrent 项目的 GitHub 活动数据](http://ghtorrent.org/) | “GHTorrent 项目正努力创建一种通过 GitHub REST API 提供的、可缩放、可查询的脱机镜像数据。 GHTorrent 可监视 GitHub 公共事件时间轴。 它会彻底检索每个事件的内容及其依赖项。” | MySQL 数据库转储采用 CSV 格式。 |
 | [Stack Overflow 数据转储](https://archive.org/details/stackexchange) | “这是指将用户贡献的所有内容匿名转储在 Stack Exchange 网络（包括 Stack Overflow）上。” | “每个站点（例如 Stack Overflow）都被格式化为一个单独的存档，其中包含通过 7-zip 使用 bzip2 压缩的 XML 文件。 每个站点存档都包括帖子、用户、投票、评论、发布历史和发布链接。” |

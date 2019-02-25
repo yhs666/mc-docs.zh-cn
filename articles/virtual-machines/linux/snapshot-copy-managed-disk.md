@@ -12,14 +12,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2d9fbe138f85267234c6c5bef2978e460c4761d8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: disks
+ms.openlocfilehash: 77361745def48d4bb272d9b1e49782bc73fe244a
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659184"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666059"
 ---
 # <a name="create-a-snapshot"></a>创建快照 
 

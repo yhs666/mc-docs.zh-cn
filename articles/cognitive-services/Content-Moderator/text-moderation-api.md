@@ -3,21 +3,21 @@ title: 文本审查 - 内容审查器
 description: 对可能不需要的文本、PII 和自定义字词列表使用文本审查。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-origin.date: 01/30/2018
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6e83f836b6fab9ed4e87a9cb9261ac672cf4788c
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: c2462b7d5c2947edc7cf82c3278d36db61525a25
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858062"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582764"
 ---
-# <a name="text-moderation"></a>文本审查
+# <a name="learn-text-moderation-concepts"></a>了解文本审查概念
 
 使用内容审查器的计算机辅助文本审查来审核文本内容。
 
@@ -169,3 +169,4 @@ PII 功能检测可能存在以下信息：
 
 体验[文本审查 API 控制台](try-text-api.md)并使用 REST API 代码示例。 如果你熟悉 Visual Studio 和 C#，另请参阅[文本审查 .NET 快速入门](text-moderation-quickstart-dotnet.md)。
 
+<!-- Update_Description: wording update -->

@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: 与使用计算机视觉 API 检测对象相关的概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 12/03/2018
-ms.date: 01/08/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 5774efbc032dfa0670d6bdc5ec88388937d132b5
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: a7f5887d7ed322128511a59aaee0531dbf08921b
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083900"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582754"
 ---
 # <a name="object-detection"></a>对象检测
 
@@ -88,7 +88,14 @@ ms.locfileid: "54083900"
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="limitations"></a>限制
 
-了解[对图像进行分类](concept-categorizing-images.md)和[描述图像](concept-describing-images.md)的概念。
+请务必注意对象检测功能的限制，以便可以避免或缓解误报（缺少对象）和有限详细信息的影响。
+- 如果对象非常小（小于图像的 5%），则通常不删除对象。
+- 如果对象非常紧密地排列在一起（例如一摞盘子），则通常不会检测到对象。
 
+## <a name="use-the-api"></a>使用 API
+对象检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 获取完整 JSON 响应时，只需分析 `"objects"` 部分内容的字符串。
+
+
+<!-- Update_Description: wording update -->

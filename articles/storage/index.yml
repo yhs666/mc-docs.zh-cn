@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c0c365b6cd61ac4a14a3846487bf832ffaed5c71
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 72cf8993419ae49565243a1127b9473c519b5bc9
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643894"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665721"
 documentType: LandingData
 title: Azure 存储文档
 metadata:
   title: Azure 存储文档 - 教程和 API 参考 | Microsoft 文档
-  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Azure Blob、Azure 文件、Azure 队列和 Azure 表。
+  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Azure Blob、Azure Data Lake Storage Gen2、Azure 文件、Azure 队列和 Azure 表。
   services: storage
   author: WenJason
   manager: digimobile
@@ -18,10 +18,10 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 06/27/2018
-  ms.date: 09/10/2018
+  ms.date: 02/25/2019
   ms.author: v-jay
 abstract:
-  description: Azure 存储是一项 Microsoft 托管服务，其提供的云存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Azure Blob（对象）、Azure 文件、Azure 队列和 Azure 表。 使用快速入门和教程了解如何在应用程序中利用 Azure 存储。
+  description: Azure 存储是一项 Microsoft 托管服务，其提供的云存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Azure Blob（对象）、Azure Data Lake Storage Gen2、Azure 文件、Azure 队列和 Azure 表。 使用快速入门和教程了解如何在应用程序中利用 Azure 存储。
 sections:
 - title: 5 分钟快速入门
   items:
@@ -66,6 +66,15 @@ sections:
       - href: /storage/blobs/storage-quickstart-blobs-java
       - href: /storage/blobs/storage-quickstart-blobs-python
       - href: /storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Data Lake Storage Gen2
+      values:
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: 分步教程
   items:
   - type: list

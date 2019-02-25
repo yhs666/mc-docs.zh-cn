@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: dns
 ms.topic: overview
 origin.date: 9/24/2018
-ms.date: 12/11/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 005299b78750e05997d4fe3271219f59c1b4e51b
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: a3f9ac500bd230c6e559921d184ca1f5756e4f71
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234099"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663584"
 ---
 # <a name="what-is-azure-dns"></a>什么是 Azure DNS？
 
@@ -27,22 +27,22 @@ Azure DNS 附带了以下功能。
 
 Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上。 Azure DNS 使用任意广播网络。 每个 DNS 查询由最近的可用 DNS 服务器来应答，为你的域提供快速性能和高可用性。
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 
  Azure DNS 基于 Azure 资源管理器，后者提供以下功能：
 
-* [基于角色的访问控制](https://docs.azure.cn/azure-resource-manager/resource-group-overview#access-control) - 控制谁有权访问针对组织的特定操作。
+* [基于角色的访问控制](https://docs.azure.cn/azure-resource-manager/resource-group-overview)：控制谁有权访问针对组织的特定操作。
 
-* [活动日志](https://docs.azure.cn/azure-resource-manager/resource-group-overview#activity-logs) - 监视组织中的用户对资源进行了怎样的修改，或者在进行故障排除时查找错误。
+* [活动日志](https://docs.azure.cn/azure-resource-manager/resource-group-overview)：监视你的组织中的用户对资源进行了怎样的修改，或者在进行故障排除时查找错误。
 
-* [资源锁定](https://docs.azure.cn/azure-resource-manager/resource-group-lock-resources) - 锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。
+* [资源锁定](https://docs.azure.cn/azure-resource-manager/resource-group-lock-resources)：锁定订阅、资源组或资源。 锁定可以防止组织中的其他用户意外删除或修改重要资源。
 
 有关详细信息，请参阅[如何保护 DNS 区域和记录](dns-protect-zones-recordsets.md)。 
 
 
 ## <a name="ease-of-use"></a>易于使用
 
- Azure DNS 可以管理 Azure 服务的 DNS 记录，还可以为外部资源提供 DNS。 Azure DNS 集成在 Azure 门户中，与其他 Azure 服务使用相同的凭据、支持合同和计费功能。 
+ Azure DNS 可以管理 Azure 服务的 DNS 记录，还可以为外部资源提供 DNS。 Azure DNS 在 Azure 门户中集成，与其他 Azure 服务使用相同的凭据、支持合同和计费。 
 
 DNS 基于在 Azure 中托管的 DNS 区域数和接收的 DNS 查询数进行计费。 若要深入了解定价，请参阅 [Azure DNS 定价](https://azure.cn/pricing/details/dns/)。
 

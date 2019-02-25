@@ -8,13 +8,13 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: f69324f2ec9ce3b1d59b0040ef10f52711ae7801
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: common
+ms.openlocfilehash: 2e0e864fd9a75dd474b961eb0c4e3d63e81e64a0
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192901"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665723"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -102,7 +102,7 @@ Azure VM 支持附加多个高级存储磁盘，使应用程序可以具有每�
 >
 > 若要在带宽有限的情况下复制大量数据，可以考虑[使用 Azure 导入/导出服务将数据传输到 Blob 存储中](../storage-import-export-service.md)；这样一来，可以通过将硬盘驱动器运送到 Azure 数据中心来传输数据。 使用 Azure 导入/导出服务可以仅将数据复制到标准存储帐户。 当数据传入标准存储帐户后，可以使用[复制 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) 或 AzCopy 将数据传输到高级存储帐户。
 >
-> 请注意，Azure 仅支持固定大小的 VHD 文件。 不支持 VHDX 文件或动态 VHD。 如果有动态 VHD，可以使用 [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet 将其转换为固定大小。
+> 请注意，Azure 仅支持固定大小的 VHD 文件。 不支持 VHDX 文件或动态 VHD。 如果有动态 VHD，可以使用 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet 将其转换为固定大小。
 >
 >
 
@@ -315,7 +315,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 让应用程序做好停机准备。 为了执行干净的迁移，必须停止当前系统中的所有处理。 只有这样才能使其处于一致状态，可以将该状态迁移到新的平台。 停机持续时间将取决于要迁移的磁盘中的数据量。
 
 > [!NOTE]
-> 如果要通过专用 VHD 磁盘创建 Azure Resource Manager VM，请参阅 [此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) ，了解如何使用现有磁盘部署 Resource Manager VM。
+> 如果要通过专用 VHD 磁盘创建 Azure Resource Manager VM，请参阅 [此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) ，了解如何使用现有磁盘部署 Resource Manager VM。
 >
 >
 
@@ -443,7 +443,7 @@ Update-AzureVM  -VM $vm
 >
 >
 
-```
+```powershell
     <#
     .Synopsis
     This script is provided as an EXAMPLE to show how to migrate a VM from a standard storage account to a premium storage account. You can customize it according to your specific requirements.
@@ -507,7 +507,7 @@ Update-AzureVM  -VM $vm
     [Parameter(Mandatory = $false)]
     [Bool] $DataDiskOnly = $true,
 
-    # how frequently to report the copy status in sceconds
+    # how frequently to report the copy status in seconds
     [Parameter(Mandatory = $false)]
     [Int32] $CopyStatusReportInterval = 15,
 
@@ -538,7 +538,7 @@ Update-AzureVM  -VM $vm
 
 
     #Check the Azure PowerShell module version
-    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module verion" -ForegroundColor Yellow
+    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module version" -ForegroundColor Yellow
     If ($azureModule.Version -ge (New-Object System.Version -ArgumentList "0.8.14"))
     {
         Write-Host "`tSuccess" -ForegroundColor Green
@@ -594,7 +594,7 @@ Update-AzureVM  -VM $vm
         }
     }
 
-    # exporting the sourve vm to a configuration file, you can restore the original VM by importing this config file
+    # exporting the source vm to a configuration file, you can restore the original VM by importing this config file
     # see more information for Import-AzureVM
     $workingDir = (Get-Location).Path
     $vmConfigurationPath = $env:HOMEPATH + "\VM-" + $SourceVMName + ".xml"
@@ -642,7 +642,7 @@ Update-AzureVM  -VM $vm
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
-        Write-Host "`n[WORKITEM] - Waiting utill the OS disk is released by source VM. This may take up to several minutes."
+        Write-Host "`n[WORKITEM] - Waiting until the OS disk is released by source VM. This may take up to several minutes."
         $diskAttachedTo = (Get-AzureDisk -DiskName $sourceOSDisk.DiskName).AttachedTo
         while ($diskAttachedTo -ne $null)
         {
@@ -729,7 +729,7 @@ Update-AzureVM  -VM $vm
         $vm | Add-AzureDataDisk -ImportFrom -DiskLabel $diskLabel -LUN $dataDisk.Lun -MediaLocation $dataDisk.MediaLink
     }
 
-    # Edit this if you want to add more custimization to the new VM
+    # Edit this if you want to add more customization to the new VM
     # $vm | Add-AzureEndpoint -Protocol tcp -LocalPort 443 -PublicPort 443 -Name 'HTTPs'
     # $vm | Set-AzureSubnet "PubSubnet","PrivSubnet"
 

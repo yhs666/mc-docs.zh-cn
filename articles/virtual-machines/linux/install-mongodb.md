@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7d664b259787fc66eccb5914b3a442c4967e0081
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8e4285928b466e9896c142c6869db9778780ac4e
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675320"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666403"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安装和配置 MongoDB
 
@@ -34,6 +34,7 @@ ms.locfileid: "52675320"
 MongoDB 为 CentOS、SUSE、Ubuntu 和 Debian 等 Linux 发行版[提供安装说明](https://docs.mongodb.com/manual/administration/install-on-linux/)。 以下示例创建 *CentOS* VM。 若要创建此环境，需要安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 <!-- Not Avaiable on Red Hat -->
+
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
@@ -148,7 +149,9 @@ az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
 ```
 
-<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct --> 如下所示，通过使用本地 `mongo` 客户端进行连接来验证 MongoDB 安装：
+<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
+
+如下所示，通过使用本地 `mongo` 客户端进行连接来验证 MongoDB 安装：
 
 ```bash
 mongo

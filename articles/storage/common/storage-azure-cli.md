@@ -7,21 +7,21 @@ ms.service: storage
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 06/02/2017
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 4fd64d25c2a439a2629c4c327ee05bc53aa9d223
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.subservice: common
+ms.openlocfilehash: 4b3e5fc344e26904a7ddbeb8cb6a0fc4180f06d6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858187"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665641"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>将 Azure CLI 用于 Azure 存储
 
 开源且跨平台的 Azure CLI 提供了一组可在 Azure 平台上运行的命令。 它提供 [Azure 门户](https://portal.azure.cn)所提供的很多相同功能，包括各种数据访问功能。
 
-本指南介绍如何使用 [Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到最新版 CLI。
+本指南介绍如何使用 [Azure CLI](/cli/get-started-with-az-cli2) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到最新版 CLI。
 
 指南中的示例假设在 Ubuntu 上使用 Bash shell，但其他平台的执行情况应与此类似。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "54858187"
 按照[安装 Azure CLI](/cli/install-az-cli2) 中的概要说明，下载和安装 Azure CLI。
 
 > [!TIP]
-> 如果在安装时遇到问题，请查看本文的[安装故障排除](/cli/install-az-cli2#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
+> 如果在安装时遇到问题，请查看本文的[安装故障排除](/cli/install-az-cli2)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
 >
 
 ## <a name="working-with-the-cli"></a>使用 CLI
@@ -174,7 +174,7 @@ Done
 ## <a name="manage-storage-accounts"></a>管理存储帐户
 
 ### <a name="create-a-new-storage-account"></a>新建存储帐户
-若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后创建新的 Azure 存储帐户。
+若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为连接到订阅之后，创建新的 Azure 存储帐户。
 
 ```azurecli
 az storage account create \
@@ -198,7 +198,7 @@ az storage account create \
 
 可以在 Azure 订阅中设置多个存储帐户。 若要选择其中一个帐户用于所有后续存储命令，可以设置这些环境变量：
 
-首先，使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令显示存储帐户密钥：
+首先，使用 [az storage account keys list](/cli/storage/account/keys) 命令显示存储帐户密钥：
 
 ```azurecli
 az storage account keys list \
@@ -278,7 +278,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#az_storage_blob_list) 命令列出容器中的 blob。
+使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob) 命令列出容器中的 blob。
 
 ```azurecli
 az storage blob list \

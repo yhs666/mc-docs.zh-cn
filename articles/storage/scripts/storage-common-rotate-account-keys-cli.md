@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 脚本示例 - 轮换存储帐户访问密钥 | Azure
+title: Azure CLI 脚本示例 - 轮换存储帐户访问密钥 | Microsoft Docs
 description: 创建 Azure 存储帐户，然后检索并轮换其帐户访问密钥。
 services: storage
 documentationcenter: na
-author: forester123
+author: WenJason
 manager: digimobile
 editor: tysonn
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/22/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 698c6f1deb7f0f7fb2b82881395d8c57cd6c8780
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.openlocfilehash: c189519258fa7ce43de20cf325302978328e61e2
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644678"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665550"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>创建存储帐户并轮换其帐户访问密钥
 
@@ -79,10 +79,10 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 在指定资源组中创建 Azure 存储帐户。 |
-| [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) | 显示指定帐户的存储帐户访问密钥。 |
-| [az storage account keys renew](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_renew) | 重新生成主或辅助存储帐户访问密钥。 |
+| [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
+| [az storage account create](https://docs.azure.cn/cli/storage/account) | 在指定资源组中创建 Azure 存储帐户。 |
+| [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys) | 显示指定帐户的存储帐户访问密钥。 |
+| [az storage account keys renew](https://docs.azure.cn/cli/storage/account/keys) | 重新生成主或辅助存储帐户访问密钥。 |
 
 ## <a name="next-steps"></a>后续步骤
 

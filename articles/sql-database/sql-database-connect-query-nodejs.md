@@ -11,13 +11,13 @@ ms.author: v-jay
 ms.reviewer: v-masebo
 manager: digimobile
 origin.date: 11/26/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: bedfcb965f3e9087e4b2414a081f7d1b5bcec5f2
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 02/25/2019
+ms.openlocfilehash: 966d149314ae96d93d6bf6a2adee3c309b880d3f
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806307"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663721"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入门：使用 Node.js 查询 Azure SQL 数据库
 
@@ -28,8 +28,6 @@ ms.locfileid: "53806307"
 若要完成此示例，请确保具备以下先决条件：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- 针对所用计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)
 
 - 适用于操作系统的 Node.js 相关软件：
 
@@ -44,7 +42,7 @@ ms.locfileid: "53806307"
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
+> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-server-level-firewall-rule.md)。
 
 ## <a name="create-the-project"></a>创建项目
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: 使用计算机视觉 API，开发人员可以访问用于处理图像并返回信息的高级算法。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: overview
 origin.date: 08/10/2017
-ms.date: 01/08/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 9cf063c1c3813550297539fe624ae1d2847cf643
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: d5863d4a6959719a961c1259e825969a82032a78
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083700"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582776"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>什么是计算机视觉 API 版本 1.0？
 
@@ -26,17 +26,17 @@ ms.locfileid: "54083700"
 >- [概述](/cognitive-services/computer-vision/home)
 
 开发人员可以使用基于云的计算机视觉 API 来访问高级算法，以便处理图像并返回信息。 上传图像或指定图像 URL 后，Microsoft 计算机视觉算法可以根据输入和用户选择以不同的方式分析视觉内容。 使用计算机视觉 API，用户可以根据以下目的来分析图像：
-- [根据内容标记图像。](#Tagging)
-- [对图像分类。](#Categorizing)
-- [确定图像的类型和质量。](#Identifying)
+- 基于内容标记图像。
+- 对图像进行分类。
+- 标识图像的类型和质量。
 - [检测人脸并返回其坐标。](#Faces)
-- [识别特定领域的内容。](#Domain-Specific)
-- [生成内容说明。](#Descriptions)
-- [使用光学字符识别技术标识在图像中发现的印刷体文本。](#OCR)
-- [识别手写体文本。](#RecognizeText)
-- [区分配色方案。](#Color)
-- [标记成人内容。](#Adult)
-- [裁剪将用作缩略图的照片。](#Thumbnails)
+- 识别特定于域的内容。
+- 生成内容说明。
+- 使用光学字符识别标识图像中找到的打印文本。
+- 识别手写的文本。
+- 区分配色方案。
+- 标志成人内容。
+- 裁剪要用作缩略图的照片。
 
 ## <a name="requirements"></a>要求
 - 支持的输入方法：原始图像二进制，采用应用程序/业务流程流或图像 URL 的形式。
@@ -278,4 +278,4 @@ OCR 可以根据需要，围绕图像的水平轴将识别的文本旋转相应�
 
 ![缩略图](./Images/thumbnail-demo.png)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

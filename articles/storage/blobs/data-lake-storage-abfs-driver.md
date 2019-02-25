@@ -1,24 +1,24 @@
 ---
-title: Azure Data Lake Storage Gen2 预览版的 Azure Blob Filesystem 驱动程序
+title: 适用于 Azure Data Lake Storage Gen2 的 Azure Blob 文件系统驱动程序
 description: ABFS Hadoop Filesystem 驱动程序
 services: storage
 author: WenJason
 ms.topic: conceptual
 ms.author: v-jay
 origin.date: 12/06/2018
-ms.date: 01/07/2019
+ms.date: 02/25/2019
 ms.service: storage
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0fe2222228e2424f469fa3440a14381bc14382c8
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 9152bc95d711f47ba2e9b701df016216cdde419f
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192978"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665680"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob FileSystem 驱动程序 (ABFS)：用于 Hadoop 的专用 Azure 存储驱动程序
 
-要访问 Azure Data Lake Storage Gen2 预览版中的数据，一种主要方式是通过 [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)。 Data Lake Storage Gen2 允许 Azure Blob 存储的用户访问新驱动程序、Azure Blob 文件系统驱动程序或 `ABFS`。 ABFS 是 Apache Hadoop 的一部分，Hadoop 的许多商业分发均带有此程序。 借助此驱动程序，许多应用程序和框架无需显式引用 Data Lake Storage Gen2 的任何代码，即可访问 Azure Blob 存储中的数据。
+要访问 Azure Data Lake Storage Gen2 中的数据，一种主要方式是通过 [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)。 Data Lake Storage Gen2 允许 Azure Blob 存储的用户访问新驱动程序、Azure Blob 文件系统驱动程序或 `ABFS`。 ABFS 是 Apache Hadoop 的一部分，Hadoop 的许多商业分发均带有此程序。 借助此驱动程序，许多应用程序和框架无需显式引用 Data Lake Storage Gen2 的任何代码，即可访问 Azure Blob 存储中的数据。
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>以前的功能：Windows Azure 存储 Blob 驱动程序
 
@@ -63,5 +63,4 @@ ABFS 驱动程序的所有配置均存储在 <code>core-site.xml</code> 配置�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [设置 HDInsight 群集](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 - [使用 Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)

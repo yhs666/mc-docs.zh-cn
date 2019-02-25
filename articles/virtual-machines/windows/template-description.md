@@ -13,21 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 10/22/2018
+origin.date: 01/03/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 339cc5ff945bf335b8085772f220ddc801b9aea1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f2fc93b95ab3ee3e29a08b29e44431183dc59f4c
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655348"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666377"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
 本文介绍 Azure Resource Manager 模板中与虚拟机相关的方面。 本文不会介绍用于创建虚拟机的完整模板；在完整的模板中，需要提供存储帐户、网络接口、公共 IP 地址和虚拟网络的资源定义。 有关如何统一定义这些资源的详细信息，请参阅 [Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
 [在库中](https://github.com/Azure/azure-quickstart-templates/?term=VM) 有许多包含 VM 资源的模板。 本文并未介绍可在模板中包含的所有元素。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 本示例演示了模板中用于创建指定数量的 VM 的典型资源节：
 
@@ -163,8 +165,8 @@ ms.locfileid: "52655348"
 
 可通过以下方式获取最新的 API 版本：
 
-- REST API - [列出所有资源提供程序](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- REST API - [列出所有资源提供程序](https://docs.microsoft.com/rest/api/resources/providers)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - Azure CLI - [az provider show](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az-provider-show)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -263,7 +265,7 @@ ms.locfileid: "52655348"
 ],
 ```
 
-Resource Manager 将同时部署所有不依赖于其他所要部署的资源的资源。 请谨慎设置依赖关系，因为可能会无意中指定不必要的依赖关系，导致部署速度变慢。 多个资源的依赖关系可能会串联在一起。 例如，网络接口依赖于公共 IP 地址和虚拟网络资源。
+资源管理器将并行部署所有不依赖于其他所要部署的资源的资源。 请谨慎设置依赖关系，因为可能会无意中指定不必要的依赖关系，导致部署速度变慢。 多个资源的依赖关系可能会串联在一起。 例如，网络接口依赖于公共 IP 地址和虚拟网络资源。
 
 如何知道是否需要指定依赖关系？ 查看模板中设置的值即可。 如果虚拟机资源定义中的某个元素指向同一模板中部署的另一个资源，则需要指定依赖关系。 例如，示例虚拟机定义了一个网络配置文件：
 
@@ -276,7 +278,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 },
 ```
 
-若要设置此属性，网络接口必须存在。 因此，需要指定依赖关系。 如果在一个资源（父级）内部定义了另一个资源（子级），则也需要设置依赖关系。 例如，诊断设置和自定义脚本扩展都定义为虚拟机的子资源。 只有存在该虚拟机，才能创建这些子资源。 因此，这两个资源都标记为依赖于该虚拟机。
+若要设置此属性，网络接口必须存在。 因此，需要指定依赖关系。 如果在一个资源（父级）内部定义了另一个资源（子级），则也需要设置依赖关系。 例如，诊断设置和自定义脚本扩展都定义为虚拟机的子资源。 只有存在该虚拟机时，才能创建这些子资源。 因此，这两个资源都标记为依赖于该虚拟机。
 
 ## <a name="profiles"></a>配置文件
 
@@ -290,7 +292,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 
 ## <a name="disks-and-images"></a>磁盘和映像
 
-在 Azure 中，vhd 文件可以表示[磁盘或映像](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定的 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建许多 VM，则该文件称为映像。   
+在 Azure 中，vhd 文件可以表示[磁盘或映像](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建多个 VM，则该文件称为映像。   
 
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>从平台映像创建新虚拟机和新磁盘
 
@@ -439,23 +441,23 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 }
 ```
 
-start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添加到 VM 的数据磁盘并未初始化；可以使用自定义脚本将它们初始化。 如果要执行多个启动任务，可在 Azure 存储中使用 start.ps1 文件调用其他 PowerShell 脚本。 本示例使用 PowerShell，但可以使用自己的操作系统支持的任何脚本方法。
+start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添加到 VM 的数据磁盘并未初始化；这些数据磁盘可以使用自定义脚本进行初始化。 如果要执行多个启动任务，可在 Azure 存储中使用 start.ps1 文件调用其他 PowerShell 脚本。 本示例使用 PowerShell，但你可以使用目前所用的操作系统支持的任何脚本方法。
 
 可在门户中通过“扩展”设置查看已安装的扩展的状态：
 
 ![获取扩展状态](./media/template-description/virtual-machines-show-extensions.png)
 
-此外，也可以使用 Get-AzureRmVMExtension PowerShell 命令、vm extension get Azure CLI 命令或“获取扩展信息”REST API 来获取扩展信息。
+此外，也可以使用 Get-AzVMExtension PowerShell 命令、vm extension get Azure CLI 命令或“获取扩展信息”REST API 来获取扩展信息。
 
 ## <a name="deployments"></a>部署
 
 部署模板时，Azure 会跟踪以组的形式部署的资源，并自动为这个部署的组分配一个名称。 部署名称与模板名称相同。
 
-如果想知道部署中的资源状态，可以使用 Azure 门户中的“资源组”边栏选项卡：
+如果很想知道部署中的资源状态，则可在 Azure 门户中查看资源组：
 
 ![获取部署信息](./media/template-description/virtual-machines-deployment-info.png)
 
-完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../resource-group-template-deploy.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。 默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 将模式设置为“完整”时，Resource Manager 会删除资源组中不包含在模板内的所有资源。
+完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../resource-group-template-deploy.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。 默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 在模式设置为“完整”时，资源管理器会删除资源组中不包含在模板内的所有资源。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -463,4 +465,5 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 - 参考[使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md)部署创建的模板。
 - 请参阅[使用 Azure PowerShell 模块创建并管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的 VM。
 
+<!--Not Available on  [Azure Resource Manager template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
 <!--Update_Description: update meta properties -->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5560e93341b80403ab3fbeaac2a67abc32851cf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ae6bce39918aeed64673cf478b201e67016e8e9b
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654645"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666072"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建完整的 Linux 虚拟机
 若要在 Azure 中快速创建虚拟机 (VM)，可使用单个使用默认值的 Azure CLI 命令创建任何所需的支持资源。 虚拟网络、公共 IP 地址和网络安全组规则等资源均会自动创建。 为了在生产使用中更好地控制环境，可提前创建这些资源，并将 VM 添加到其中。 本文逐步介绍如何创建 VM 和每个支持资源。
@@ -141,6 +141,7 @@ az network public-ip create \
   }
 }
 ```
+
 <!-- cloud.azure.com to cloudapp.chinacloudapi.cn is Correct -->
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
@@ -212,7 +213,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
       "destinationPortRange": "*",
       "direction": "Inbound",
       "etag": "W/\"3371b313-ea9f-4687-a336-a8ebdfd80523\"",
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou",
       "name": "AllowAzureLoadBalancerInBound",
       "priority": 65001,
       "protocol": "*",
@@ -347,7 +348,10 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-输出：<!-- internalDomainNameSuffix cloudapp.net to chinacloudapp.cn is correct -->
+输出：
+
+<!-- internalDomainNameSuffix cloudapp.net to chinacloudapp.cn is correct -->
+
 ```json
 {
   "NewNIC": {
@@ -509,7 +513,9 @@ az vm create \
   "resourceGroup": "myResourceGroup"
 }
 ```
+
 <!-- fqdns cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
+
 ```bash
 ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
 ```

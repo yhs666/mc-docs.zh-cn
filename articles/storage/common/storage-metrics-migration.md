@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 69b8408024daec27e4985bc345788763e9cbbf31
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.subservice: common
+ms.openlocfilehash: 7aa1c9ae90a4eb5c9d229af6bcff4dbd72b15da6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028651"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665511"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 存储指标迁移
 
@@ -66,14 +66,14 @@ Azure 存储收集旧指标值，将其聚合并存储在同一存储帐户内�
 
 | 旧指标 | 新指标 |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | 事务（维度 ResponseType 等于 AuthorizationError） |
-| **AnonymousClientOtherError** | 事务（维度 ResponseType 等于 ClientOtherError） |
-| **AnonymousClientTimeoutError** | 事务（维度 ResponseType 等于 ClientTimeoutError） |
-| **AnonymousNetworkError** | 事务（维度 ResponseType 等于 NetworkError） |
-| **AnonymousServerOtherError** | 事务（维度 ResponseType 等于 ServerOtherError） |
-| **AnonymousServerTimeoutError** | 事务（维度 ResponseType 等于 ServerTimeoutError） |
-| **AnonymousSuccess** | 事务（维度 ResponseType 等于 Success） |
-| **AnonymousThrottlingError** | 事务（维度 ResponseType 等于 ClientThrottlingError 或 ServerBusyError） |
+| **AnonymousAuthorizationError** | 维度 **ResponseType** 等于 **AuthorizationError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousClientOtherError** | 维度 **ResponseType** 等于 **ClientOtherError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousClientTimeoutError** | 维度 **ResponseType** 等于 **ClientTimeoutError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousNetworkError** | 维度 **ResponseType** 等于 **NetworkError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousServerOtherError** | 维度 **ResponseType** 等于 **ServerOtherError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousServerTimeoutError** | 维度 **ResponseType** 等于 **ServerTimeoutError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousSuccess** | 维度 **ResponseType** 等于 **Success** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
+| **AnonymousThrottlingError** | 维度 **ResponseType** 等于 **ClientThrottlingError** 或 **ServerBusyError** 且维度 **Authentication** 等于 **Anonymous** 的事务 |
 | **AuthorizationError** | 事务（维度 ResponseType 等于 AuthorizationError） |
 | **可用性** | **可用性** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |

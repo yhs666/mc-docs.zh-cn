@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 5e06ae05eb57f61bd7858cf2b33c84d529c6126a
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/10/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: af5af43cc8395f6c5261c9921cd0b193184e1118
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363771"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663708"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教程：实现地理分散的数据库
 
@@ -37,7 +37,7 @@ ms.locfileid: "54363771"
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 - Azure SQL 数据库。 若要创建一个，请使用：
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -49,7 +49,7 @@ ms.locfileid: "54363771"
 > [!IMPORTANT]
 > 请务必设置防火墙规则，以便使用要在其上执行本教程中步骤的计算机的公共 IP 地址。 数据库级防火墙规则会自动复制到辅助服务器。
 >
-> 有关信息，请参阅[创建数据库级防火墙规则](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)；若要确定计算机的用于服务器级防火墙规则的 IP 地址，请参阅[创建服务器级防火墙](sql-database-get-started-portal-firewall.md)。  
+> 有关信息，请参阅[创建数据库级防火墙规则](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)；若要确定计算机的用于服务器级防火墙规则的 IP 地址，请参阅[创建服务器级防火墙](sql-database-server-level-firewall-rule.md)。  
 
 ## <a name="create-a-failover-group"></a>创建故障转移组
 

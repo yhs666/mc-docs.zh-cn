@@ -1,24 +1,19 @@
 ---
-title: 将 Azure DNS 与 Azure 资源集成 | Microsoft Docs
+title: 将 Azure DNS 与 Azure 资源集成
 description: 了解如何使用 Azure DNS 来为 Azure 资源提供 DNS。
 services: dns
-documentationcenter: na
 author: WenJason
-manager: digimobile
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 1/19/2018
-ms.date: 12/11/2018
+origin.date: 1/18/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d01cd997d0b4317dd6912f837dba64b366309f51
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: 44b456443c0f47c783aac513255a42a01409460a
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234105"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663442"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 
@@ -34,7 +29,7 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 
 若要为 Azure 函数应用配置自定义域，需要创建一条 CNAME 记录，并在该函数应用本身上进行配置。
  
-导航到“其他” > “函数应用”并选择自己的函数应用。 单击“平台功能”，在“网络”下面单击“自定义域”。
+导航到“函数应用”并选择自己的函数应用。 单击“平台功能”，并在“网络”下面单击“自定义域”。
 
 ![函数应用边栏选项卡](./media/dns-custom-domain/functionapp.png)
 
@@ -52,9 +47,9 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 |TTL 单位     | 小时        | 小时用作时间计量单位         |
 |别名     | adatumfunction.chinacloudsites.cn        | 为其创建别名的 DNS 名称，在本示例中，为默认提供给函数应用的 adatumfunction.chinacloudsites.cn DNS 名称。        |
 
-导航回到函数应用，单击“平台功能”，在“网络”下面单击“自定义域”，在“主机名”下面单击“+ 添加主机名”。
+导航回到函数应用，单击“平台功能”，在“网络”下面单击“自定义域”，在“自定义主机名”下面单击“+ 添加主机名”。
 
-在“添加主机名”边栏选项卡上的“主机名”文本字段中输入 CNAME 记录，单击“验证”。 如果可以找到该记录，则会出现“添加主机名”按钮。 单击“添加主机名”以添加该别名。
+在“添加主机名”边栏选项卡上的“主机名”文本字段中输入 CNAME 记录，单击“验证”。 如果找到该记录，则会出现“添加主机名”按钮。 单击“添加主机名”以添加该别名。
 
 ![函数应用添加主机名边栏选项卡](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -87,7 +82,7 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 
 下面逐步介绍如何配置应用服务 Web 应用的自定义域。
 
-导航到“Web 和移动” > “应用服务”，选择要配置自定义域名的资源，单击“自定义域”。
+导航到“应用服务”，选择要配置自定义域名的资源，单击“自定义域”。
 
 记下“自定义域”边栏选项卡上的当前 URL，此地址用作创建的 DNS 记录的别名。
 

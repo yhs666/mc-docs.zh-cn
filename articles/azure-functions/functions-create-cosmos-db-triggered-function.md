@@ -10,15 +10,15 @@ ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/02/2018
-ms.date: 11/22/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9a8ec62c9d328af965ec32b8e3bb0e3dc7586b7d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 26bf0282d68ff48619236cde4533d5be9ef8a9e7
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672847"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665530"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>创建由 Azure Cosmos DB 触发的函数
 
@@ -141,10 +141,10 @@ ms.locfileid: "52672847"
 
 ## <a name="next-steps"></a>后续步骤
 
-你已经创建一个函数，当在 Azure Cosmos DB 中添加或修改文档时会运行此函数。
+你已经创建一个函数，当在 Azure Cosmos DB 中添加或修改文档时会运行此函数。 有关 Azure Cosmos DB 触发器的详细信息，请参阅[适用于 Azure Functions 的 Azure Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-有关 Azure Cosmos DB 触发器的详细信息，请参阅[适用于 Azure Functions 的 Azure Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
+

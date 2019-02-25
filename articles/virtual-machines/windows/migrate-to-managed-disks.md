@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 06/04/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 681d9c6c4ae617fbe054f78c9aa5c9a81fbbddd8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: disks
+ms.openlocfilehash: 860080384a5a9f84d917b914e9f4f6bad83c6de8
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659102"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666401"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>将 Azure VM 迁移到 Azure 中的托管磁盘
 
@@ -37,8 +38,8 @@ Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理�
 | 迁移...                                            | 文档链接                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 将可用性集中的独立 VM 和多个 VM 转换为托管磁盘   | [转换 VM 以使用托管磁盘](convert-unmanaged-to-managed-disks.md) |
-| 单个 VM 从经典迁移到托管磁盘上的 Resource Manager     | [迁移单个 VM](migrate-single-classic-to-resource-manager.md)  | 
-| vNet 中的所有 VM 从经典迁移到托管磁盘上的 Resource Manager     | [将 IaaS 资源从经典迁移到 Resource Manager](migration-classic-resource-manager-ps.md)，然后[将 VM 从非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md) | 
+| 将托管磁盘上的单个 VM 从经典部署模型迁移到 Resource Manager 部署模型     | [从经典 VHD 创建 VM](create-vm-specialized-portal.md)  | 
+| 将托管磁盘上的所有 VM 从经典部署模型迁移到 Resource Manager 部署模型     | [将 IaaS 资源从经典迁移到 Resource Manager](migration-classic-resource-manager-ps.md)，然后[将 VM 从非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md) | 
 
 ## <a name="plan-for-the-conversion-to-managed-disks"></a>转换为托管磁盘的计划
 
@@ -88,4 +89,5 @@ Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理�
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[托管磁盘](managed-disks-overview.md)
+
 <!-- Update_Description: update meta properties， update link -->

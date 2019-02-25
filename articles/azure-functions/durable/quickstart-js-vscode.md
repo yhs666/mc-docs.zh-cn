@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 01/16/2019
+ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2faf9794823b87bd12210f2388fd6eff8e773a84
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 5472422371ef1c93b167b5c014ae6e25347af04c
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334192"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665398"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
@@ -149,7 +149,7 @@ ms.locfileid: "54334192"
 
 ## <a name="create-an-activity-function"></a>创建一个活动函数
 
-1. 使用 HTTP 触发器模板重复上一部分中的步骤来创建第三个函数。 但这次将函数命名为 `SayHello`。
+1. 使用 HTTP 触发器模板重复上一部分中的步骤来创建第三个函数。 但这次将函数命名为 `E1_SayHello`。
 
 2. 打开新函数的 index.js 文件并将其内容替换为以下代码：
 
@@ -188,9 +188,11 @@ ms.locfileid: "54334192"
 
     ![Azure 本地输出](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. 将 HTTP 请求的 URL 粘贴到浏览器的地址栏中，查看你的业务流程的状态。
+4. 将 `{functionName}` 替换为 `OrchestratorFunction`。
 
-5. 若要停止调试，请按 Shift + F1。
+5. 使用 [Postman](https://www.getpostman.com/) 或 [cURL](https://curl.haxx.se/) 之类的工具向 URL 终结点发送一个 HTTP POST 请求。
+
+6. 若要停止调试，请在 VS Code 中按 Shift + F1。
 
 确认该函数可以在本地计算机上正确运行以后，即可将项目发布到 Azure。
 
@@ -213,4 +215,4 @@ ms.locfileid: "54334192"
 > [!div class="nextstepaction"]
 > [了解常见的持久函数模式](durable-functions-concepts.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

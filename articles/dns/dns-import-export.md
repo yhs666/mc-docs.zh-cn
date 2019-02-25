@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/30/2018
-ms.date: 12/11/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: e1230f358e7c10892747cf4d1d4740c6dd362c8e
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: 103ce5dba36a9f25ef862e7b3ab9102ce203a027
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234097"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663555"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 导入和导出 DNS 区域文件 
 
@@ -69,7 +69,7 @@ Azure CLI 是用于管理 Azure 服务的跨平台命令行工具。 它适用�
 * `$TTL` 指令是可选的并受支持。 如未提供 `$TTL` 指令，会导入没有显式 TTL 的记录，且其默认 TTL 设置为 3600 秒。 当同一个记录集的两个记录指定不同的 TTL 时，会使用较低的值。
 * `$ORIGIN` 指令是可选的并受支持。 如果未设置 `$ORIGIN`，则使用的默认值是在命令行上指定的区域名称（加上结尾 "."）。
 * `$INCLUDE` 和 `$GENERATE` 指令不受支持。
-* 支持以下记录类型：A、AAAA、CNAME、MX、NS、SOA、SRV 和 TXT。
+* 支持以下记录类型：A、AAAA、CAA、CNAME、MX、NS、SOA、SRV 和 TXT。
 * Azure DNS 会在创建区域时，自动创建 SOA 记录。 导入区域文件时，*除了* `host` 参数，所有的 SOA 参数都取自区域文件。 此参数会使用 Azure DNS 提供的值。 这是因为此参数必须引用 Azure DNS 提供的主名称服务器。
 * Azure DNS 在创建区域时，也会在区域顶点处自动创建名称服务器记录集。 仅导入此记录集的 TTL。 这些记录包含由 Azure DNS 提供的名称服务器名称。 导入的区域文件中包含的值不会覆盖记录数据。
 * 在公开预览版期间，Azure DNS 仅支持单字符串的 TXT 记录。 多字符串 TXT 记录会被连接在一起并截断为 255 个字符。

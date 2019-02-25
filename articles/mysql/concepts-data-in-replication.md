@@ -1,34 +1,31 @@
 ---
 title: 将数据复制到 Azure Database for MySQL。
 description: 本文介绍 Azure Database for MySQL 的复制中数据。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-origin.date: 08/31/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 2375e0c0c6af4908773cdf0c7e23a84ced466c84
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 02/01/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: c527fddc892e2cce63dfcf139e21603d9f2fef1f
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656425"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663773"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>将数据复制到 Azure Database for MySQL
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-借助数据复制，可以将本地运行的 MySQL 服务器、虚拟机或其他云提供程序托管的数据库服务中的数据同步到 Azure Database for MySQL 服务。 复制中数据以基于二进制日志 (binlog) 文件位置的从本机到 MySQL 的复制为基础。 若要了解有关 binlog 复制的详细信息，请参阅 [MySQL binlog 复制概述](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)。 
+通过数据传入复制可以将数据从外部 MySQL 服务器同步到 Azure Database for MySQL 服务中。 外部服务器可以处于本地、虚拟机中或是其他云提供商托管的数据库服务。 复制中数据以基于二进制日志 (binlog) 文件位置的从本机到 MySQL 的复制为基础。 若要了解有关 binlog 复制的详细信息，请参阅 [MySQL binlog 复制概述](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)。 
 
 ## <a name="when-to-use-data-in-replication"></a>何时使用配置复制中数据
 可以考虑使用复制中数据的主要场景有：
 
-- 混合数据同步：借助复制中数据，可以在本地服务器和 Azure Database for MySQL 之间同步数据。 此同步可用于创建混合应用程序。 如果有现有的本地数据库服务器，但想要将数据移到更靠近最终用户的区域，那么此方法很有吸引力。
-- 多云同步：对于复杂的云解决方案，使用复制中数据在 Azure Database for MySQL 和不同云提供程序之间同步数据，包括虚拟机和托管在这些云中的数据库服务。
+- **混合数据同步：** 借助数据传入复制，可以在本地服务器和 Azure Database for MySQL 之间同步数据。 此同步可用于创建混合应用程序。 如果有现有的本地数据库服务器，但想要将数据移到更靠近最终用户的区域，那么此方法很有吸引力。
+- **多云同步：** 对于复杂的云解决方案，使用数据传入复制在 Azure Database for MySQL 和不同的云服务提供商之间同步数据，包括虚拟机和托管在这些云中的数据库服务。
 
 ## <a name="limitations-and-considerations"></a>限制和注意事项
 
@@ -43,8 +40,9 @@ ms.locfileid: "52656425"
 - 用户必须具有权限才能在主服务器上配置二进制日志记录和创建新用户。
 
 ### <a name="other"></a>其他
-- “数据传入复制”仅在常规用途和优化内存定价层中受支持。
+- 仅可在常规用途和优化内存定价层中使用数据传入复制功能。
 - 不支持全局事务标识符 (GTID)。
 
 ## <a name="next-steps"></a>后续步骤
 - 了解如何[设置复制中数据](howto-data-in-replication.md)
+- 了解[使用只读副本在 Azure 中进行复制](concepts-read-replicas.md)

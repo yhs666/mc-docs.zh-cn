@@ -1,33 +1,27 @@
 ---
-title: 导入/导出作业的诊断和错误恢复 | Azure
+title: Azure 导入/导出作业的诊断和错误恢复 | Microsoft Docs
 description: 了解如何为 Azure 导入/导出服务作业启用详细日志记录。
-author: hayley244
-manager: digimobile
-editor: tysonn
+author: WenJason
 services: storage
-documentationcenter: ''
-ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e72ff6574c431deccd7483a4115cbc3e352ad5db
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 0c994a583ffe5cbe01429f2274ab9d993c309e14
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660984"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665715"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>导入/导出作业的诊断和错误恢复
-对于每个已处理的驱动器，Azure 导入/导出服务在关联的存储帐户中创建错误日志。 也可以通过在调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)或[更新作业属性](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Update)操作时将 `LogLevel` 属性设置为 `Verbose` 来启用详细日志记录。
+对于每个已处理的驱动器，Azure 导入/导出服务在关联的存储帐户中创建错误日志。 也可以通过在调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs)或[更新作业属性](https://docs.microsoft.com/rest/api/storageimportexport/jobs)操作时将 `LogLevel` 属性设置为 `Verbose` 来启用详细日志记录。
 
  默认情况下，日志会写入一个名为 `waimportexport` 的容器中。 可以通过在调用“`Put Job`”或“`Update Job Properties`”操作时设置“`DiagnosticsPath`”属性来指定其他名称。 使用以下命名约定将日志存储为块 Blob： `waies/jobname_driveid_timestamp_logtype.xml`。
 
- 可以调用 [获取作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Get) 操作来检索作业的日志 URI。 每个驱动器的详细日志 URI 在 `VerboseLogUri` 属性中返回，错误日志的 URI 在 `ErrorLogUri` 属性中返回。
+ 可以调用 [获取作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs) 操作来检索作业的日志 URI。 每个驱动器的详细日志 URI 在 `VerboseLogUri` 属性中返回，错误日志的 URI 在 `ErrorLogUri` 属性中返回。
 
 可以使用日志记录数据来识别以下问题。
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 08/14/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: bb9bcf7805c98c6455ec95dff403c80764fac10b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 58b408686e777634bcde18b30399592236dbd605
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675649"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666473"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Azure 虚拟机工作负荷的标准 SSD 托管磁盘
 
@@ -36,8 +36,12 @@ Azure 标准固态硬盘 (SSD) 托管磁盘是经济高效的存储选项，已�
 下表包含标准 SSD 目前提供的磁盘大小。
 
 <!--Not Available on E60,E70,E80-->
+<!--Not Available on Sizes denoted with an asterisk are currently in preview.-->
+
 |标准 SSD 磁盘类型  |磁盘大小  |每个磁盘的 IOPS  |每个磁盘的吞吐量  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |最多 120         |最高每秒 25 MiB         |
+|E6     |64 GiB         |最多 240         |最高每秒 50 MiB         |
 |E10     |128 GiB         |最大 500         |最高每秒 60 MiB         |
 |E15     |256 GiB         |最大 500         |最高每秒 60 MiB         |
 |E20     |512 GiB         |最大 500         |最高每秒 60 MiB         |
@@ -64,7 +68,7 @@ Azure 标准固态硬盘 (SSD) 托管磁盘是经济高效的存储选项，已�
 
 **快照**：托管磁盘的快照根据快照在目标和源端使用的容量（如果有）计费。 有关快照的详细信息，请参阅[托管磁盘快照](/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots)。
 
-**出站数据传输**：[出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（Azure 数据中心送出的数据）会产生带宽使用费。
+**出站数据传输**：[出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（传出 Azure 数据中心的数据）会产生带宽使用费。
 
 **事务**：类似于标准 HDD，标准 SSD 上的事务会产生费用。 事务包括磁盘上的读取和写入操作。 用于标准 SSD 事务计费的 I/O 单位大小为 256 KiB。 更大的 I/O 大小被视为多个 256 KiB 大小的 I/O。
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 649daa87a269c8434b5264f922c0b87991219f0a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9290e1a40f17c200d3fa1c36e56963abb7fae179
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646765"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666330"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -34,6 +34,8 @@ ms.locfileid: "52646765"
 `provider` 部分告知 Terraform 使用 Azure 提供程序。 若要获取 subscription_id、client_id、client_secret 和 *tenant_id* 的值，请参阅[安装和配置 Terraform](terraform-install-configure.md)。 
 
 <!-- Not Available on [Azure Cloud Shell Bash experience](/cloud-shell/overview) -->
+<!--MOONCAKE CUSTOMIZE  environment     = "china" -->
+
 ```tf
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -43,7 +45,8 @@ provider "azurerm" {
     environment     = "china"
 }
 ```
-<!--Notice: Add environment = "china"  # environment = "china" is Correct -->
+
+<!--MOONCAKE CUSTOMIZE  environment     = "china" -->
 
 以下部分在 `chinaeast` 位置创建名为 `myResourceGroup` 的资源组：
 
@@ -182,6 +185,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     }
 }
 ```
+
 <!--Notice: # account_replication_type = "LRS" is Correct-->
 
 
@@ -242,6 +246,8 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
 若要将所有这些部分组合在一起，并在操作中看到 Terraform，请创建名为 terraform_azure.tf 的文件并粘贴以下内容：
 
+<!--MOONCAKE CUSTOMIZE: environment     = "china" is correct-->
+
 ```tf
 # Configure the Azure Provider
 provider "azurerm" {
@@ -251,7 +257,8 @@ provider "azurerm" {
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     environment     = "china"
 }
-<！-- Notice: # environment     = "china" is correct-->
+
+<!--MOONCAKE CUSTOMIZE: environment     = "china" is correct-->
 
 # Create a resource group if it doesn't exist
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -352,16 +359,13 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                        = "diag${random_id.randomId.hex}"
     resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
     location                    = "chinaeast"
-    account_tier                = "Standard"        # account_tier = "Standard" is Correct
-    account_replication_type    = "LRS"             # account_replication_type = "LRS" is Correct  
+    account_tier                = "Standard"
+    account_replication_type    = "LRS"
 
     tags {
         environment = "Terraform Demo"
     }
 }
-
-<!-- Notice: account_tier                = "Standard"        is Correct-->
-<!-- Notice: account_replication_type    = "LRS"             is Correct-->
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {

@@ -4,19 +4,14 @@ title: Azure 认知服务文档
 description: 了解如何将智能算法构建到应用、网站和机器人中，使它们通过自然的沟通方式观察、倾听、说出、理解和解释用户需求。 教程、快速入门、API 参考和示例演示了如何使用这些 API。
 services: cognitive-services
 author: nitinme
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.author: v-junlch
 origin.date: 10/23/2018
-ms.date: 11/26/2018
+ms.date: 02/21/2019
 ms.topic: hub-page
-ms.openlocfilehash: 525288ab9843eda13c7c15d360ce2448d7e0a52e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672981"
 ---
+
 <h1>Azure 认知服务文档</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何将智能算法构建到应用、网站和机器人中，从而使它们通过自然的沟通方式观察、倾听、说出和理解用户需求。 教程、快速入门、API 参考和示例演示了操作方法。</p>
 
@@ -58,7 +53,7 @@ ms.locfileid: "52672981"
                     </div>
                 </div>
             </a>
-        </li>        
+        </li>
 </ul>
 <h2>5 分钟快速入门</h2>
 <ul class="cardsF panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -80,9 +75,46 @@ ms.locfileid: "52672981"
                 </div>
             </div>
         </div>
-    </li>    
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>使用文本分析检测语言和分析情绪</h3>
+                        <p><a href="/cognitive-services/Text-Analytics/quickstarts/csharp">使用 C#</a></p>
+                        <p><a href="/cognitive-services/Text-Analytics/quickstarts/java">使用 Java</a></p>
+                        <p><a href="/cognitive-services/Text-Analytics/quickstarts/nodejs">使用 Node.js</a></p>
+                        <p><a href="/cognitive-services/Text-Analytics/quickstarts/python">使用 Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
+<h2>分步教程</h2>
+<ul class="cardsM panelContent singlePanelContent cols cols3" style="display:flex!important;">
+    <li>
+        <a class="card" href="/cognitive-services/Computer-vision/tutorials/java-tutorial" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>使用计算机视觉 API 创建应用</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a class="card" href="/cognitive-services/Text-Analytics/tutorials/tutorial-power-bi-key-phrases" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>将文本分析与 Power BI 配合使用</h3>
+            </div>
+        </a>
+    </li>
+</ul>
 
 <h2>认知服务 API</h2>
 <ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
@@ -93,11 +125,25 @@ ms.locfileid: "52672981"
                     <div class="cardText">
                         <h3>视觉 API</h3>
                         <p><a href="/cognitive-services/computer-vision/">计算机视觉</a></p>
+                        <p><a href="/cognitive-services/content-moderator/">内容审查器</a></p>
                         <p><a href="/cognitive-services/face/">人脸 API</a></p>
+                        <p><a href="/cognitive-services/emotion/home"><span>情感 API&nbsp;<sup style="font-size:70%">即将停用</sup></span></a></p>
                     </div>
                 </div>
             </div>
         </div>
-    </li>        
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言 API</h3>
+                        <p><a href="/cognitive-services/text-analytics/">文本分析</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 

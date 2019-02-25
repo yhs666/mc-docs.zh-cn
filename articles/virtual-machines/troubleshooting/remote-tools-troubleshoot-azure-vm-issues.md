@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 01/11/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3acfa4ea4926900406b69f4026c1f251601ecd88
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: bacefec30ba48d3f5c3eb26693323c0724bfd907
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480158"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666175"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -92,6 +92,8 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### <a name="for-v2-vms"></a>对于 V2 VM
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ```powershell
 #Setup the basic variables
 $subscriptionID = "<<SUBSCRIPTION ID>>"
@@ -104,22 +106,44 @@ $vmResourceGroup = "<<RESOURCE GROUP>>"
 $vmLocation = "<<DATACENTER>>" 
 
 #Setup the Azure Powershell module and ensure the access to the subscription
-Import-Module AzureRM
-Login-AzureRmAccount -Environment AzureChinaCloud #Ensure Login with account associated with subscription ID
-Get-AzureRmSubscription -SubscriptionId $subscriptionID | Select-AzureRmSubscription
+Import-Module Az
+Login-AzAccount -Environment AzureChinaCloud #Ensure Login with account associated with subscription ID
+Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
 #Setup the access to the storage account and upload the script 
-$storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageRG -Name $storageAccount).Value[0]
-$context = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccount -StorageAccountKey $storageKey
+$storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageRG -Name $storageAccount).Value[0]
+$context = New-AzStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccount -StorageAccountKey $storageKey
 $container = "cse" + (Get-Date -Format yyyyMMddhhmmss)
-New-AzureStorageContainer -Name $container -Permission Off -Context $context
-Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blobName  -Context $context
+New-AzStorageContainer -Name $container -Permission Off -Context $context
+Set-AzStorageBlobContent -File $localScript -Container $container -Blob $blobName  -Context $context
 
 #Push the script into the VM
-Set-AzureRmVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
+Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
 ```
 
 <!--Not Available on ## Remote PowerShell-->
+## <a name="remote-registry"></a>远程注册表
+
+>[!Note]
+>必须打开 TCP 端口 135 或 445 才能使用此选项。
+>
+>对于 ARM VM，必须在 NSG 中打开端口 5986。 有关详细信息，请参阅“安全组”。 
+>
+>对于 RDFE VM，必须有一个配备专用端口 5986 和公共端口的终结点。 还必须在 NSG 中打开该公共端口。
+
+1. 在同一 VNET 中的另一个 VM 上，打开注册表编辑器 (regedit.exe)。
+
+2. 选择“文件” >“连接网络注册表”。
+
+   ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
+
+3. 在“输入要选择的对象名称”框中输入目标 VM 的**主机名**或**动态 IP**（首选），以找到该 VM。
+
+   ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
+
+4. 输入目标 VM 的凭据。
+
+5. 进行任何必要的注册表更改。
 
 ## <a name="remote-services-console"></a>远程服务控制台
 
@@ -154,5 +178,4 @@ PsExec 包含在 [PSTools Suite](https://download.sysinternals.com/files/PSTools
 
 有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](/sysinternals/downloads/pstools)。
 
-<!-- Update_Description: new articles on troubleshoot -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: wording update  -->

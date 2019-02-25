@@ -1,23 +1,23 @@
 ---
 title: 代码示例 - 内容审查器、.NET
-description: 在应用程序中使用内容审查器
+description: 通过 SDK 在 .NET 应用程序中使用内容审查器。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: sample
-origin.date: 01/10/2018
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0c5d864779955de485e6057e932fee4524f58524
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 2a407b20e9f22a25b6d9626c4a8faee12f41b159
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858065"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582761"
 ---
-# <a name="net-sdk-samples"></a>.NET SDK 示例
+# <a name="content-moderator-net-sdk-samples"></a>内容审查器 .NET SDK 示例
 
 下面列出了使用用于 .NET 的 Azure 内容审查器 SDK 生成的代码示例的链接。
 
@@ -43,3 +43,4 @@ ms.locfileid: "54858065"
 
 请参阅 [GitHub 上内容审查器 .NET 示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)中的所有 .NET 示例。
 
+<!-- Update_Description: wording update -->

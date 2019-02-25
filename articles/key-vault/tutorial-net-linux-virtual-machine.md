@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: b0f767b14faca9ab4195737e5a4bb7afd2b4c736
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 835e8195b940399c994babd8fe1bba070be1dec9
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996399"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409070"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>教程：如何将 Azure Key Vault 与通过 .NET 编写的 Azure Linux 虚拟机配合使用
 
@@ -46,6 +46,7 @@ Azure Key Vault 用于保护机密，例如访问应用程序、服务和 IT 资
 本教程使用托管服务标识
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>什么是托管服务标识？其工作原理是什么？
+
 在进一步讨论之前，让我们了解 MSI。 Azure Key Vault 可以安全地存储凭据，因此不需将凭据置于代码中，但若要检索这些凭据，需向 Azure Key Vault 进行身份验证。 若要向 Key Vault 进行身份验证，需提供凭据！ 经典的启动问题。 通过 Azure 和 Azure AD，MSI 提供一个“启动标识”，可以大为简化启动过程。
 
 工作方式如下！ 为 Azure 服务（例如虚拟机、应用服务或 Functions）启用 MSI 时，Azure 会为 Azure Active Directory 中的服务实例创建一个[服务主体](key-vault-whatis.md#basic-concepts)，并将服务主体的凭据注入服务实例中。 
@@ -55,7 +56,7 @@ Azure Key Vault 用于保护机密，例如访问应用程序、服务和 IT 资
 接下来，代码会调用 Azure 资源上提供的本地元数据服务，以便获取访问令牌。
 代码使用从本地 MSI_ENDPOINT 获取的访问令牌，以便向 Azure Key Vault 服务进行身份验证。 
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
 若要使用 Azure CLI 登录到 Azure，请输入：
 
@@ -134,6 +135,7 @@ az vm create \
 记下 VM 输出中自己的 `publicIpAddress`。 在后续步骤中，将使用此地址访问 VM。
 
 ## <a name="assign-identity-to-virtual-machine"></a>为虚拟机分配标识
+
 在此步骤中，我们将为虚拟机创建一个系统分配标识，方法是运行以下命令
 
 ```
@@ -150,13 +152,14 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 ```
 
 ## <a name="give-vm-identity-permission-to-key-vault"></a>为 VM 标识提供 Key Vault 访问权限
+
 现在，我们可以运行以下命令，为上面创建的标识授予 Key Vault 访问权限
 
 ```
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>登录到虚拟机
+## <a name="sign-in-to-the-virtual-machine"></a>登录到虚拟机
 
 现在，使用终端登录到虚拟机
 
@@ -165,6 +168,7 @@ ssh azureuser@<PublicIpAddress>
 ```
 
 ## <a name="install-dot-net-core-on-linux"></a>在 Linux 上安装 Dot Net Core
+
 ### <a name="register-the-microsoft-product-key-as-trusted-run-the-following-two-commands"></a>将 Microsoft 产品密钥注册为受信任的密钥。 运行以下两个命令
 
 ```
@@ -173,6 +177,7 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 ```
 
 ### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>根据操作系统设置所需版本主机包源
+
 ```
 # Ubuntu 17.10
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -211,6 +216,7 @@ dotnet run
 ```
 
 ## <a name="edit-console-app"></a>编辑控制台应用
+
 打开 Program.cs 文件，添加以下包
 ```
 using System;
@@ -220,7 +226,9 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-然后，更改类文件，使之包含以下代码。 这是一个 2 步过程。 
+
+然后，更改类文件，使之包含以下代码。 此过程由两个步骤组成。
+
 1. 从 VM 上的本地 MSI 终结点获取一个令牌，该终结点会转而从 Azure Active Directory 获取令牌
 2. 将令牌传递到 Key Vault，获取机密 
 
@@ -270,7 +278,6 @@ using Newtonsoft.Json.Linq;
 ```
 
 以上代码演示了如何在 Azure Linux 虚拟机中通过 Azure Key Vault 执行操作。 
-
 
 ## <a name="next-steps"></a>后续步骤
 

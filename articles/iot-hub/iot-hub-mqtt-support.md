@@ -6,15 +6,15 @@ manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 10/15/2018
-ms.date: 01/28/2019
+origin.date: 10/12/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 93a470023dd230a1c49da785aa03c9a6c55f8ffb
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 93dd0755aa5b7a4755991dac4f9e9036322b7367
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396814"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665433"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -60,16 +60,17 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 * AMQP 针对许多条件返回错误，而 MQTT 会终止连接。 因此异常处理逻辑可能需要进行一些更改。
 * MQTT 在接收 *云到设备消息* 时不支持 [拒绝][lnk-messaging]操作。 如果后端应用需要接收来自设备应用的响应，请考虑使用 [直接方法][lnk-methods]。
 
-## <a name="using-the-mqtt-protocol-directly"></a>直接使用 MQTT 协议
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>直接使用 MQTT 协议（作为设备）
+
 如果设备无法使用设备 SDK，仍可使用端口 8883 上的 MQTT 协议连接到公共设备终结点。 在 **CONNECT** 数据包中，设备应使用以下值：
 
 * **ClientId** 字段使用 **deviceId**。
 
-* “用户名”字段使用 `{iothubhostname}/{device_id}/api-version=2018-06-30`，其中 `{iothubhostname}` 是 IoT 中心的完整 CName。
+* “用户名”字段使用 `{iothubhostname}/{device_id}/?api-version=2018-06-30`，其中 `{iothubhostname}` 是 IoT 中心的完整 CName。
 
     例如，如果 IoT 中心的名称为 **contoso.azure-devices.cn**，且设备的名称为 **MyDevice01**，则完整“用户名”字段应包含：
 
-    `contoso.azure-devices.cn/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.cn/MyDevice01/?api-version=2018-06-30`
 
 * “密码”  字段使用 SAS 令牌。 对于 HTTPS 和 AMQP 协议，SAS 令牌的格式是相同的：
 
@@ -103,6 +104,16 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 对于 MQTT 连接和断开连接数据包，IoT 中心会在**操作监视**通道上发出事件。 此事件包含的其他信息有助于排查连接问题。
 
 设备应用可以在 CONNECT 数据包中指定 Will 消息。 设备应用应该使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作为 Will 主题名称，用于定义要作为遥测消息转发的 Will 消息。 在此情况下，如果关闭网络连接，但之前未从设备中接收到 DISCONNECT 数据包，则 IoT 中心将 CONNECT 数据包中提供的 Will 消息发送到遥测通道。 遥测通道可以是默认事件终结点或由 IoT 中心路由定义的自定义终结点。 消息具有 iothub-MessageType 属性，其中包含分配给它的 Will 的值。
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>直接使用 MQTT 协议（作为模块）
+
+通过 MQTT 并使用模块标识连接到 IoT 中心的操作与设备类似（如[上面](#using-the-mqtt-protocol-directly-as-a-device)所述），但需要：
+* 将客户端 ID 设置为 `{device_id}/{module_id}`。
+* 如果使用用户名和密码进行身份验证，请将用户名设置为 `<hubname>.azure-devices.cn/{device_id}/{module_id}/?api-version=2018-06-30`，并使用与模块标识关联的 SAS 令牌作为密码。
+* 使用 `devices/{device_id}/modules/{module_id}/messages/events/` 作为主题，用于发布遥测。
+* 使用 `devices/{device_id}/modules/{module_id}/messages/events/` 作为 WILL 主题。
+* 模块和设备的孪生 GET 和 PATCH 主题是相同的。
+* 模块和设备的孪生状态主题是相同的。
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 配置
 
@@ -196,20 +207,18 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 请求 ID 可以是消息属性值的任何有效值（如 [IoT 中心消息传送开发人员指南][lnk-messaging]中所述），且需要验证确保状态是整数。
 
-响应正文包含设备孪生的 properties 节。 以下代码片段表明，标识注册表项的正文限制为“properties”成员，例如：
+响应正文包含设备孪生的 properties 节，如以下响应示例所示：
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -218,7 +227,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 |状态 | 说明 |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | 成功（不返回任何内容） |
 | 429 | 请求过多（受限），如 [IoT 中心限制][lnk-quotas]中所述 |
 | 5** | 服务器错误 |
 

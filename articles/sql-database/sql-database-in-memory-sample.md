@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/18/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 92755fdebfc875179ec3e96d0acf62af327914cb
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.date: 02/25/2019
+ms.openlocfilehash: 25a650717b0d5c7364d8160644ec49b25192d781
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996408"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663741"
 ---
 # <a name="in-memory-sample"></a>内存中示例
 
@@ -56,7 +56,7 @@ ms.locfileid: "53996408"
 4. 将 T-SQL 脚本粘贴到 SSMS，并执行该脚本。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 语句至关重要。 例如：
 
 
-```
+```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
     ...
@@ -70,7 +70,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 如果运行 T-SQL 脚本时收到错误 40536，请运行以下 T-SQL 脚本来验证数据库是否支持内存中功能：
 
 
-```
+```sql
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
@@ -95,7 +95,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 或者可以查询目录视图，例如：
 
 
-```
+```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
     FROM sys.tables
     WHERE is_memory_optimized = 1;
@@ -105,7 +105,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 **本机编译的存储过程**：可以通过目录视图查询来检查 SalesLT.usp_InsertSalesOrder_inmem：
 
 
-```
+```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
@@ -146,7 +146,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 - SalesLT.SalesOrderDetail_inmem
 
 
-```
+```sql
 DECLARE
     @i int = 0,
     @od SalesLT.SalesOrderDetailType_inmem,
@@ -231,7 +231,7 @@ ostress.exe -n100 -r50 -S<servername>.database.chinacloudapi.cn -U<login> -P<pas
 
 
 1. 在 SSMS 中运行以下命令重置数据库，删除前面运行的命令所插入的所有数据：
-```
+```sql
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -302,7 +302,7 @@ EXECUTE Demo.usp_DemoReset;
 以下 T-SQL 脚本摘录列出了每个表查询的 IO 和 TIME 统计信息。
 
 
-```
+```sql
 /*********************************************************************
 Step 2 -- Overview
 -- Page Compressed BTree table v/s Columnstore table performance differences

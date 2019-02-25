@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 723aceefb771d77cdb9d893163057457ed305975
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 641c1efdf454f4b280ad406c8b6bee61f99bfa26
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363804"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663522"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -42,9 +42,9 @@ ms.locfileid: "54363804"
 - **分析** 报告。 可以查找可疑事件、异常活动和趋势。
 
 > [!IMPORTANT]
-> 审核日志会写入 Azure 订阅的 Azure Blob 存储中的追加 Blob。
+> 审核日志会写入 Azure 订阅的 Azure Blob 存储中的**追加 Blob**。
 >
-> - 追加 Blob 目前不支持高级存储。
+> - 追加 Blob 目前**不支持****高级存储**。
 > - 目前不支持 VNet 中的存储。
 
 ## <a id="subheading-8"></a>定义服务器级和数据库级审核策略
@@ -125,7 +125,7 @@ ms.locfileid: "54363804"
 
     4. 合并的文件会在 SSMS 中打开，可在其中进行查看和分析，以及将其作为 XEL 或 CSV 文件导出或导出到表中。
 
-- 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 如需详细信息并访问可下载的模板，请参阅[在 Power BI 中分析审核日志](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
+- 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 如需详细信息并访问可下载的模板，请参阅[在 Power BI 中分析审核日志数据](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
 - 通过门户或使用 [Azure 存储资源管理器](http://storageexplorer.com/)等工具从 Azure 存储 blob 容器下载日志文件。
   - 在本地下载日志文件后，可双击打开文件，然后在 SSMS 中查看和分析日志。
   - 也可通过 Azure 存储资源管理器同时下载多个文件。 为此，请右键单击特定子文件夹，然后选择“另存为”，以便在本地文件夹中进行保存。
@@ -217,7 +217,7 @@ ms.locfileid: "54363804"
 
 可以使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)模板管理 Azure SQL 数据库审核，如以下示例中所示：
 
-- [在启用审核的情况下部署 Azure SQL Server 以将审核日志写入到 Azure blob 存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [部署启用了审核的 Azure SQL Server，以将审核日志写入 Azure Blob 存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

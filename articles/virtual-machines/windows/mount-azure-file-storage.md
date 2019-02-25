@@ -12,14 +12,15 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 02/05/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e1606422d3afb127f08b1dfbc48264d778f79054
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: files
+ms.openlocfilehash: 361a8900f3a95ca0eae57f30fc98fa0beeb0ab76
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660841"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666129"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>将 Azure 文件共享用于 Windows VM 
 

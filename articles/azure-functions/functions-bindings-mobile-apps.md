@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 12/26/2018
+ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 13ac48193b8b641a78f1b464e57026126fa7f4a4
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: fb08727f8c21ca16505d431061e89aecdef4f898
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806603"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665538"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -45,7 +45,7 @@ ms.locfileid: "53806603"
 参阅语言特定的示例：
 
 - [C# 脚本 (.csx)](#input---c-script-example)
-- [JavaScript](#input---javascript-example)
+- Javascript
 
 ### <a name="input---c-script-example"></a>输入 - C# 脚本示例
 

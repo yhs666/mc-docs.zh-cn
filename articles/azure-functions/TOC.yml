@@ -168,8 +168,6 @@ items:
         href: functions-bindings-cosmosdb-v2.md
     - name: 事件中心
       href: functions-bindings-event-hubs.md
-    - name: 外部文件
-      href: functions-bindings-external-file.md
     - name: HTTP 和 webhook
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph
@@ -217,9 +215,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 服务更新
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 9c5860b39a49bcd17200e46a87cc0dd3dd9bb1e6
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 11b49ecedc66af0ea4f6a520e9ae63109cc26877
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806621"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665605"

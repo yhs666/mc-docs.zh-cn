@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 术语表解释了使用人脸 API 服务时可能会遇到的术语。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 03/01/2018
-ms.date: 10/24/2018
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: fdda6bcca0b66354bd196cf03eeb42ec302d000e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: af2685023314378893c5f1ac839e5c2a3457e7b1
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664274"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582778"
 ---
 # <a name="glossary"></a>术语表
 
@@ -24,14 +24,14 @@ ms.locfileid: "52664274"
 
 #### <a name="Attributes"></a>属性
 
-在[检测](#Detection-Face-Detection)结果中，属性是可选的，例如：[年龄](#Age-Attribute)、[性别](#Gender-Attribute)、[头部姿势](#Head-Pose-Attribute)、[面部毛发](#Facial-Hair-Attribute)、[笑容](#Smile-Attribute)。
-这些属性可以从[检测](#Detection-Face-Detection) API 获取，只需指定查询参数 returnFaceAttributes 即可。 属性提供所选[人脸](#Face)的额外信息；[人脸 ID](#Face-ID) 和[矩形](#Face-Rectangle)除外。
+检测结果中的属性是可选的，例如[年龄](#Age-Attribute)、[性别](#Gender-Attribute)、[头部姿势](#Head-Pose-Attribute)、[面部毛发](#Facial-Hair-Attribute)和[微笑](#Smile-Attribute)。
+可指定查询参数 returnFaceAttributes，从检测 API 获取这些属性。 属性提供所选[人脸](#Face)的额外信息；[人脸 ID](#Face-ID) 和[矩形](#Face-Rectangle)除外。
 
 如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
 
 #### <a name="Age-Attribute"></a>年龄（属性）
 
-年龄是[属性](#Attributes)之一，描述特定人脸的年龄。 年龄属性在[检测](#Detection-Face-Detection)结果中是可选的，可以使用[检测](#Detection-Face-Detection)请求进行控制，只需指定 returnFaceAttributes 参数即可。
+年龄是[属性](#Attributes)之一，描述特定人脸的年龄。 检测结果中的年龄属性为可选，且可指定 returnFaceAttributes 参数通过检测请求来控制该属性。
 
 有关更多详细信息，请参阅指南：[Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)（人脸 - 检测）。
 
@@ -49,7 +49,7 @@ ms.locfileid: "52664274"
 
 置信度是一种度量，以数值表明[人脸](#Face)或[人员](#Person)的相似度，用于[识别](#Identification)和[验证](#Verification)过程，指明搜索、识别和验证结果的相似度。
 
-如需更多详细信息，请参阅以下指南：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
+有关更多详细信息，请参阅以下指南：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
 
 ## <a name="d"></a>D
 
@@ -65,15 +65,15 @@ ms.locfileid: "52664274"
 
 #### <a name="face"></a>人脸
 
-人脸是一个统一的术语，适用于从人脸 API 中派生的与受检人脸相关的结果。 总之，在表示人脸时，可以使用统一的标识（[人脸 ID](#Face-ID)）、图像中的指定区域（[人脸矩形](#Face-Rectangle)），以及额外的与人脸相关的[属性](#Face-Attributes-Facial-Attributes)，例如[年龄](#Age-Attribute)、[性别](#Gender-Attribute)、[特征点](#Face-Landmarks-Facial-Landmarks)、[头部姿势](#Head-Pose-Attribute)。 另外，可以从[检测](#Detection-Face-Detection)返回人脸。
+人脸是一个统一的术语，适用于从人脸 API 中派生的与受检人脸相关的结果。 总的来说，人脸由统一标识（[人脸 ID](#Face-ID)）、图像中的指定区域（[人脸矩形](#Face-Rectangle)）和与人脸相关的其他属性表示，例如[年龄](#Age-Attribute)、[性别](#Gender-Attribute)、特征点和[头部姿势](#Head-Pose-Attribute)。 此外，检测操作也可返回人脸。
 
 有关更多详细信息，请参阅指南：[Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)（人脸 - 检测）。
 
 #### <a name="face-api"></a>人脸 API
 
-人脸 API 是基于云的 API，为人脸检测和识别提供高级算法。 人脸 API 的主要功能可分为两类：通过[属性](#Face-Attributes-Facial-Attributes)实现的人脸[检测](#Detection-Face-Detection)和人脸[识别](#Recognition)。
+人脸 API 是基于云的 API，为人脸检测和识别提供高级算法。 人脸 API 的主要功能可分为两类：通过属性实现的人脸检测和人脸[识别](#Recognition)。
 
-如需更多详细信息，请参阅以下指南：[人脸 API 概述](./Overview.md)、[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
+有关更多详细信息，请参阅以下指南：[人脸 API 概述](./Overview.md)、[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
 
 #### <a name="face-attributesfacial-attributes"></a>人脸属性/面部属性
 
@@ -81,13 +81,13 @@ ms.locfileid: "52664274"
 
 #### <a name="Face-ID"></a>人脸 ID
 
-人脸 ID 派生自[检测](#Detection-Face-Detection)结果，其中的字符串表示[人脸 API](#Face-API) 中的[人脸](#Face)。
+人脸 ID 派生自检测结果，其中的字符串表示[人脸 API](#Face-API) 中的[人脸](#Face)。
 
-如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
+有关更多详细信息，请参阅指南：[Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)（人脸 - 检测）。
 
 #### <a name="Face-Landmarks-Facial-Landmarks"></a>人脸特征点/面部特征点
 
-特征点在[检测](#Detection-Face-Detection)结果中是可选的，是指语义上的面部特征点，例如眼睛、鼻子和嘴巴（如下图所示）。 特征点可以通过[检测](#Detection-Face-Detection)请求来控制，只需指定布尔数 returnFaceLandmarks 即可。 如果将 returnFaceLandmarks 设置为 true，返回的人脸就会具有特征点属性。
+检测结果中的特征点为可选；它们是语义化的面部点，例如眼睛、鼻子和嘴巴（如下图所示）。 可使用布尔值 returnFaceLandmarks 通过检测请求来控制特征点。 如果将 returnFaceLandmarks 设置为 true，返回的人脸就会具有特征点属性。
 
 如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
 
@@ -95,39 +95,39 @@ ms.locfileid: "52664274"
 
 #### <a name="Face-Rectangle"></a>人脸矩形
 
-人脸矩形派生自[检测](#Detection-Face-Detection)结果，在图像中为正立矩形（左侧、顶部、宽度、高度），以像素表示。 除了宽度和高度，还可以使用[人脸](#Face)的左上角（左侧、顶部）来表示人脸大小（分为 x 轴和 y 轴）。
+人脸矩形派生自检测结果，它是图像中以像素为单位的竖向矩形（左侧，顶部，宽度，高度）。 除了宽度和高度，还可以使用[人脸](#Face)的左上角（左侧、顶部）来表示人脸大小（分为 x 轴和 y 轴）。
 
 如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
 
 #### <a name="Facial-Hair-Attribute"></a>面部毛发（属性）
 
-面部毛发是[属性](#Attributes)之一，用于描述提供的人脸的面部毛发长度。 [检测](#Detection-Face-Detection)结果中的面部毛发属性为可选，且可使用 returnFaceAttributes 通过[检测](#Detection-Face-Detection)请求来控制该属性。 如果 returnFaceAttributes 中包含“facialHair”，则返回的人脸具有面部毛发属性。
+面部毛发是[属性](#Attributes)之一，用于描述提供的人脸的面部毛发长度。 检测结果中的面部毛发属性为可选，且可使用 returnFaceAttributes 通过检测请求来控制该属性。 如果 returnFaceAttributes 中包含“facialHair”，则返回的人脸具有面部毛发属性。
 
 有关更多详细信息，请参阅指南：[Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)（人脸 - 检测）。
 
 #### <a name="facelist"></a>FaceList
 
-FaceList 是 [PersistedFace](#PersistedFace) 的集合，是[查找相似](#Find-Similar)的单位。 FaceList 包含 [FaceList ID](#FaceList-ID) 和其他属性，例如[姓名](#Name)和[用户数据](#UserData-User-Data)。
+FaceList 是 [PersistedFace](#PersistedFace) 的集合，是[查找相似](#Find-Similar)的单位。 FaceList 包含 [FaceList ID](#FaceList-ID) 和其他属性（例如，姓名和用户数据）。
 
-如需更多详细信息，请参阅以下指南：[FaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)、[FaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)。
+有关更多详细信息，请参阅以下指南：[FaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)、[FaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)。
 
 #### <a name="facelist-id"></a>FaceList ID
 
 FaceList ID 是用户提供的字符串，用作 [FaceList](#FaceList) 的标识符。 FaceList ID 在订阅中必须是唯一的。
 
-如需更多详细信息，请参阅以下指南：[FaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)、[FaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)。
+有关更多详细信息，请参阅以下指南：[FaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)、[FaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)。
 
 #### <a name="Find-Similar"></a> 查找相似
 
-此 API 用于根据人脸集合搜索/查询类似的人脸。 在请求中查询人脸和人脸集合表示为 [人脸 ID](#Face-ID) 或 [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID)。 返回的结果是搜索到的相似人脸，由[人脸 ID](#Face-ID) 或 [PersistedFace ID](#PersistedFace-ID) 表示。
+此 API 用于根据人脸集合搜索/查询类似的人脸。 在请求中查询人脸和人脸集合表示为 [人脸 ID](#Face-ID) 或 [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID)。 返回的结果是搜索到的相似人脸，由[人脸 ID](#Face-ID) 或 PersistedFace ID 表示。
 
-如需更多详细信息，请参阅以下指南：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[LargeFaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)、[FaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)。
+有关更多详细信息，请参阅以下指南：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[LargeFaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)、[FaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)。
 
 ## <a name="g"></a>G
 
 #### <a name="Gender-Attribute"></a>性别（属性）
 
-性别是[属性](#Attributes)之一，用于描述提供的人脸的性别。 性别属性在[检测](#Detection-Face-Detection)结果中是可选的，可以使用[检测](#Detection-Face-Detection)请求进行控制，只需指定 returnFaceAttributes 即可。 如果 returnfaceAttributes 包含“gender”，返回的人脸就会具有性别属性。
+性别是[属性](#Attributes)之一，用于描述提供的人脸的性别。 检测结果中的性别属性为可选，且可使用 returnFaceAttributes 通过检测请求来控制该属性。 如果 returnfaceAttributes 包含“gender”，返回的人脸就会具有性别属性。
 
 如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
 
@@ -147,7 +147,7 @@ FaceList ID 是用户提供的字符串，用作 [FaceList](#FaceList) 的标识
 
 #### <a name="Head-Pose-Attribute"></a>头部姿势（属性）
 
-头部姿势是[属性](#Attributes)之一，根据滚动、俯仰和偏转三个旋转角来表示人脸在 3D 空间的朝向，如下图所示。 滚动和偏转值的范围为 [-180, 180] 和 [-90, 90]（以度为单位）。 在当前版本中，从检测返回的俯仰值始终为 0。 头部姿势属性在[检测](#Detection-Face-Detection)结果中是可选的，可以使用[检测](#Detection-Face-Detection)请求进行控制，只需指定 returnFaceAttributes 参数即可。 如果 returnFaceAttributes 参数包含“headPose”，返回的人脸就会有头部姿势属性。
+头部姿势是[属性](#Attributes)之一，根据滚动、俯仰和偏转三个旋转角来表示人脸在 3D 空间的朝向，如下图所示。 滚动和偏转值的范围为 [-180, 180] 和 [-90, 90]（以度为单位）。 在当前版本中，从检测返回的俯仰值始终为 0。 检测结果中的头部姿势属性为可选，且可使用 returnFaceAttributes 参数通过检测请求来控制该属性。 如果 returnFaceAttributes 参数包含“headPose”，返回的人脸就会有头部姿势属性。
 
 如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
 
@@ -167,7 +167,7 @@ FaceList ID 是用户提供的字符串，用作 [FaceList](#FaceList) 的标识
 > 在识别前，应成功训练 LargePersonGroup/PersonGroup。 如果未训练 LargePersonGroup/PersonGroup，或者训练[状态](#Status-Train)未显示为“成功”（即“正在运行”、“失败”或“超时”），则请求响应为 400。
 > 
 
-如需更多详细信息，请参阅以下指南：[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)。
+有关更多详细信息，请参阅以下指南：[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)。
 
 #### <a name="Is-Identical"></a>IsIdentical
 
@@ -183,31 +183,31 @@ IsIdentical 是[验证](#Verification)结果的布尔字段，指示两个人脸
 
 #### <a name="landmarks"></a>特征点
 
-请参阅[人脸特征点](#Face-Landmarks-Facial-Landmarks)。
+请参阅人脸特征点。
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList 是 [PersistedFace](#PersistedFace) 的集合，是[查找相似](#Find-Similar)的单位。 LargeFaceList 包含 [LargeFaceList ID](#LargeFaceList-ID) 和其他属性，例如[姓名](#Name)和[用户数据](#UserData-User-Data)。
+LargeFaceList 是 [PersistedFace](#PersistedFace) 的集合，是[查找相似](#Find-Similar)的单位。 LargeFaceList 包含 [LargeFaceList ID](#LargeFaceList-ID) 和其他属性（例如，姓名和用户数据）。
 
-如需更多详细信息，请参阅以下指南：[LargeFaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)、[LargeFaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce)[LargeFaceList - 列出人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6)。
+有关更多详细信息，请参阅以下指南：[LargeFaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)、[LargeFaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce)、[LargeFaceList - 列出人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6)。
 
 #### <a name="largefacelist-id"></a>LargeFaceList ID
 
 LargeFaceList ID 是用户提供的字符串，用作 [LargeFaceList](#LargeFaceList) 的标识符。 LargeFaceList ID 在订阅中必须是唯一的。
 
-如需更多详细信息，请参阅以下指南：[LargeFaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)、[LargeFaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce)。
+有关更多详细信息，请参阅以下指南：[LargeFaceList - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)、[LargeFaceList - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce)。
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup 是[人员](#Person)的集合，是[识别](#Identification)的单位。 LargePersonGroup 包含 [LargePersonGroup ID](#LargePersonGroup-ID) 和其他属性，例如[姓名](#Name)和[用户数据](#UserData-User-Data)。
+LargePersonGroup 是[人员](#Person)的集合，是[识别](#Identification)的单位。 LargePersonGroup 包含 [LargePersonGroup ID](#LargePersonGroup-ID) 和其他属性（例如，姓名和用户数据）。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)、[LargePersonGroup 人员 - 列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)、[LargePersonGroup 人员 - 列出](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1)。
 
 #### <a name="largepersongroup-id"></a>LargePersonGroup ID
 
 LargePersonGroup ID 是用户提供的字符串，用作 [LargePersonGroup](#LargePersonGroup) 的标识符。 LargePersonGroup ID 在订阅中必须是唯一的。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)。
 
 ## <a name="m"></a>M
 
@@ -221,15 +221,15 @@ LargePersonGroup ID 是用户提供的字符串，用作 [LargePersonGroup](#Lar
 
 #### <a name="name-person"></a>名称（人员）
 
-名称是用于[人员](#Person)的描述性字符串，便于用户记忆。 与[人员 ID](#Person-ID) 不同，组中可存在重复人员姓名。
+名称是用于[人员](#Person)的描述性字符串，便于用户记忆。 与[人员 ID](#Person-ID) 不同，人员名称在组中可以重复。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)[LargePersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)[PersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup Person - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)。
 
 #### <a name="name-largepersongrouppersongroup"></a>名称 (LargePersonGroup/PersonGroup)
 
 名称也是 [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup)的描述性用户友好字符串。 与 [LargePersonGroup ID](#LargePersonGroup-ID)/[PersonGroup ID](#PersonGroup-ID) 不同，订阅中可存在重复 LargePersonGroups/PersonGroups 名称。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)、[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)、[LargePersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)、[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)。
 
 ## <a name="o"></a>O
 
@@ -237,39 +237,39 @@ LargePersonGroup ID 是用户提供的字符串，用作 [LargePersonGroup](#Lar
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace 是 Face API 中的数据结构。 PersistedFace 包含 [PersistedFace ID](#PersistedFace-ID) 和其他属性，例如[姓名](#Name)和[用户数据](#UserData-User-Data)。
+PersistedFace 是 Face API 中的数据结构。 PersistedFace 包含 PersistedFace ID 和其他属性（例如，姓名和用户数据）。
 
-如需更多详细信息，请参阅以下指南：[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargePersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)、[PersonGroup 人人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)。
+有关更多详细信息，请参阅以下指南：[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargePersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)、[PersonGroup 人人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)。
 
 #### <a name="person-id"></a>人员 ID
 
 成功创建 [PersistedFace](#PersistedFace)时会生成人员 ID。 会创建一个字符串来表示 [人脸 API](#Face-API) 中的此人脸。
 
-如需更多详细信息，请参阅以下指南：[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargePersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)、[PersonGroup 人人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)。
+有关更多详细信息，请参阅以下指南：[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargePersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)、[PersonGroup 人人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)。
 
 #### <a name="person"></a>人员
 
-人员是在人脸 API 中托管的数据结构。 人员包含[人员 ID](#Person-ID) 和其他属性，例如[姓名](#Name)、[PersistedFace](#PersistedFace)集合以及[用户数据](#UserData-User-Data)。
+人员是在人脸 API 中托管的数据结构。 人员包含[人员 ID](#Person-ID) 和其他属性（例如，姓名、[PersistedFace](#PersistedFace)集合以及用户数据）。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)[LargePersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)[PersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup Person - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)。
 
 #### <a name="person-id"></a>人员 ID
 
-成功创建[人员](#Person)时会生成人员 ID。 会创建一个字符串来表示[人员](#Face-API)中的此人脸。
+成功创建[人员](#Person)时会生成人员 ID。 可在[人脸 API](#Face-API) 中创建一个字符串来表示该人。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)[LargePersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)[PersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup Person - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup 人员 - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)。
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup 是[人员](#Person)的集合，是[识别](#Identification)的单位。 PersonGroup 包含 [PersonGroup ID](#PersonGroup-ID) 和其他属性，例如[姓名](#Name)和[用户数据](#UserData-User-Data)。
+PersonGroup 是[人员](#Person)的集合，是[识别](#Identification)的单位。 PersonGroup 包含 [PersonGroup ID](#PersonGroup-ID) 和其他属性（例如，姓名和用户数据）。
 
-如需更多详细信息，请参阅以下指南：[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)、[PersonGroup 人员 - 列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241)。
+有关更多详细信息，请参阅以下指南：[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)、[PersonGroup 人员 - 列出](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241)。
 
 #### <a name="persongroup-id"></a>PersonGroup ID
 
-PersonGroup ID 是用户提供的字符串，用作 [PersonGroup](#PersonGroup) 的标识符。 该组 ID 在订阅中必须是唯一的。
+PersonGroup ID 是用户提供的字符串，用作 [PersonGroup](#PersonGroup) 的标识符。 组 ID 必须在订阅中唯一。
 
-如需更多详细信息，请参阅以下指南：[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)。
+有关更多详细信息，请参阅以下指南：[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 获取](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)。
 
 #### <a name="pose-attribute"></a>姿势（属性）
 
@@ -283,7 +283,7 @@ PersonGroup ID 是用户提供的字符串，用作 [PersonGroup](#PersonGroup) 
 
 识别是人脸技术的一个热门应用领域，例如[查找相似](#Find-Similar)、[分组](#Grouping)、[识别](#Identification)、[验证两个人脸是否相同](#Verification)。
 
-如需更多详细信息，请参阅以下指南：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
+有关更多详细信息，请参阅以下指南：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
 
 #### <a name="rectangle-face"></a>矩形（人脸）
 
@@ -291,19 +291,19 @@ PersonGroup ID 是用户提供的字符串，用作 [PersonGroup](#PersonGroup) 
 
 ## <a name="s"></a>S
 
-#### <a name="Smile-Attribute"></a>笑容（属性）
-
-笑容是[属性](#Attributes)之一，用于描述提供的人脸如何表达笑意。 [检测](#Detection-Face-Detection)结果中的笑容属性为可选，且可使用 returnFaceAttributes 通过[检测](#Detection-Face-Detection)请求来控制该属性。 如果 returnFaceAttributes 中包含“smile”，则返回的人脸具有笑容属性。
-
-如需更多详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)指南。
-
 #### <a name="similar-face-searching"></a>相似人脸搜索
 
 请参阅[查找相似](#Find-Similar)。
 
+#### <a name="Smile-Attribute"></a>笑容（属性）
+
+笑容是[属性](#Attributes)之一，用于描述提供的人脸如何表达笑意。 检测结果中的笑容属性为可选，且可使用 returnFaceAttributes 通过检测请求来控制该属性。 如果 returnFaceAttributes 中包含“smile”，则返回的人脸具有笑容属性。
+
+有关更多详细信息，请参阅指南：[Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)（人脸 - 检测）。
+
 #### <a name="status-train"></a>状态（训练）
 
-状态是一个字符串，用于描述[训练 LargeFaceList/LargePersonGroups/PersonGroups ](#Train) 的过程，包括“未开始”、“正在运行”、“成功”、“失败”。
+状态是一个字符串，用于描述训练 LargeFaceList/LargePersonGroups/PersonGroups 的过程，包括“未开始”、“正在运行”、“成功”、“失败”。
 
 如需更多详细信息，请参阅以下指南：[LargeFaceList - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1)、[LargePersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)、[PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)。
 
@@ -317,23 +317,23 @@ PersonGroup ID 是用户提供的字符串，用作 [PersonGroup](#PersonGroup) 
 
 此 API 可用于预处理 [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup)，以确保[查找相似](#Find-Similar)/[识别](#Identification)的性能。 如果未进行训练，或[训练状态](#Status-Train)未显示为成功，则此 PersonGroup 的识别会失败。
 
-如需更多详细信息，请参阅以下指南：[LargeFaceList - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1)、[LargePersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)、[PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
+有关更多详细信息，请参阅以下指南：[LargeFaceList - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1)、[LargePersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)、[PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
 
 ## <a name="u"></a>U
 
 #### <a name="UserData-User-Data"></a>UserData/用户数据
 
-用户数据是与[人员](#Person)和 [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup)相关联的额外信息。 用户数据由用户设置，可使系统能更轻易地使用、理解和记忆数据。
+用户数据是与[人员](#Person)和 [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup)相关联的额外信息。 用户数据由用户设置，目的是使数据更易于使用、理解和记忆。
 
-如需更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)[LargePersonGroup - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f)、[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup 人员 - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41)、[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup 人员 - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242)。
+有关更多详细信息，请参阅以下指南：[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)[LargePersonGroup - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f)、[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)、[LargePersonGroup 人员 - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41)、[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)、[PersonGroup - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a)、[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)、[PersonGroup 人员 - 更新](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242)。
 
 ## <a name="v"></a>V
 
 #### <a name="Verification"></a>验证
 
-此 API 用于验证两个人脸是否相同。 在请求中，两个人脸均表示为人脸 ID。 验证的结果包含一个布尔字段 ([isIdentical](#Is-Identical))，如果为 true 则表示两个人脸相同；此外还包含一个数字字段 ([confidence](#Confidence))，指示置信水平。
+此 API 用于验证两个人脸是否相同。 两个人脸在请求中均由人脸 ID 表示。 验证结果包含一个布尔字段 (isIdentical)（如果为 true，则表示相同相同）和一个表示置信度的数值（[置信度](#Confidence)）。
 
-有关更多详细信息，请参阅指南：[Face - Verify](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)（人脸 - 验证）。
+如需更多详细信息，请参阅[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)指南。
 
 ## <a name="w"></a>W
 
@@ -343,3 +343,4 @@ PersonGroup ID 是用户提供的字符串，用作 [PersonGroup](#PersonGroup) 
 
 ## <a name="z"></a>Z
 
+<!-- Update_Description: link update -->

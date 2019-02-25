@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: MightyPen
 manager: digimobile
-origin.date: 12/07/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 87734902bf821e6cf3ba5f330945d466825ea944
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 12/21/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 22c540cdc988f7950de986a61a0e0fcb8859b58e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996252"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663775"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>快速入门：使用 Golang 查询 Azure SQL 数据库
 
@@ -29,8 +29,6 @@ ms.locfileid: "53996252"
 要完成本教程，需要：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- 针对计算机的公共 IP 地址配置的[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已经为操作系统安装了 Golang 和相关软件：
 

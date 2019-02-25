@@ -8,15 +8,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: get-started-article
 ms.devlang: na
-origin.date: 01/04/2019
-ms.date: 02/04/2019
+origin.date: 01/28/2019
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0d175b4f40b9ba8a1254b4c649bbd165cd78807e
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: b132fe21dcdc760cef42dc5db8dcf0a70acd0ea9
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906165"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665446"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -38,7 +38,7 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
 | 常规用途 V1   | Blob               | 标准                    | 不适用                    |
 | Blob 存储         | Blob               | 标准                    | 热、冷、存档*    |
 
-建议不要使用默认 Blob 容器来存储业务数据。 最佳做法是每次使用之后删除默认 Blob 容器以降低存储成本。 请注意，默认容器包含应用程序日志和系统日志。 请确保在删除该容器之前检索日志。
+建议不要使用默认 Blob 容器来存储业务数据。 最佳做法是每次使用之后删除默认 Blob 容器以降低存储成本。 默认容器包含应用程序日志和系统日志。 请确保在删除该容器之前检索日志。
 
 不支持将单个 blob 容器共享为多个群集的默认文件系统。
  
@@ -68,7 +68,8 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
   > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/blobs/storage-manage-access-to-resources">管理对容器和 Blob 的访问</a>。
   > 
   > 
-* **没有连接到群集的存储帐户中的专用容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
+  
+* **没有连接到群集的存储帐户中的专用容器：** 你无法访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义了存储帐户。 本文后面对此做了解释。
 
 创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP/_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 可以使用 [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) 修改此设置。
 
@@ -106,7 +107,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 ### <a name="use-the-azure-portal"></a>使用 Azure 门户
 从门户创建 HDInsight 群集时，可通过以下选项提供存储帐户详细信息。 还可以指定是否要将附加存储帐户与该群集相关联，如果需要，请选择另一个 Azure 存储 Blob 作为附加存储。
 
-![HDInsight Hadoop - 创建数据源](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![HDInsight Hadoop - 创建数据源](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他位置使用别的存储帐户。
@@ -350,7 +351,7 @@ azure storage blob list <containername> <blobname|prefix> --account-name <storag
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

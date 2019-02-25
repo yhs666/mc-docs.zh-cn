@@ -3,29 +3,27 @@ author: rockboyfor
 ms.service: virtual-machines-sql
 ms.topic: include
 origin.date: 11/25/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 693606da1b1fdd614388c60ed709db2449c9dfba
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: c81c6740d6c85adedfa4a31d195f853008659c58
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736212"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666485"
 ---
 ## <a name="start-your-powershell-session"></a>启动 PowerShell 会话
-首先，需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx)。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
-> [!NOTE]
-> 由于本主题中的示例使用的是 [Azure Resource Manager 部署模型](../articles/azure-resource-manager/resource-group-overview.md)，因此示例将使用 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx)。 
-> 
-> 
+运行 [**Connect-Az Account**](https://docs.microsoft.com/powershell/module/az.accounts/connect-azmaccount) cmdlet，然后便会看到可输入凭据的登录屏幕。 使用与登录 Azure 门户相同的凭据。
 
-运行 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet，然后便会看到可输入凭据的登录屏幕。 使用与登录 Azure 门户相同的凭据。
+```powershell
+Connect-AzAccount -Environment AzureChinaCloud
+```
 
-    Connect-AzureRmAccount -Environment AzureChinaCloud
+如果有多个订阅，请使用 [**Set-AzContext**](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet 选择 PowerShell 会话应使用的订阅。 若要查看当前 PowerShell 会话正在使用哪个订阅，请运行 [**Get-AzContext**](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext)。 若要查看所有订阅，请运行 [**Get-AzSubscription**](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)。
 
-如果有多个订阅，请使用 [**Set-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext) cmdlet 选择 PowerShell 会话应使用的订阅。 若要查看当前 PowerShell 会话正在使用哪个订阅，请运行 [**Get-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermcontext)。 若要查看所有订阅，请运行 [**Get-AzureRmSubscription**](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/get-azurermsubscription)。
-
-    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```powershell
+Set-AzContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```
 
 <!-- Update_Description: wording update, update link -->

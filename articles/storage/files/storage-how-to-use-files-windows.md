@@ -8,13 +8,13 @@ ms.topic: get-started-article
 origin.date: 06/07/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: 91536197b05c51a2836201649a28df7e49007c7f
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: files
+ms.openlocfilehash: 6b73d827aaadee532862221a735bab2042e2e8f9
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192930"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665650"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -41,14 +41,12 @@ ms.locfileid: "54192930"
 > [!Note]  
 > 我们始终建议使用相对于 Windows 版本来说最新的 KB。
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>先决条件 
 * **存储帐户名**：若要装载 Azure 文件共享，需要存储帐户的名称。
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已被阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 以下 PowerShell 代码假设已安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
+* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已被阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 以下 PowerShell 代码假设已安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resource-group-name>` 替换为存储帐户的相关名称。
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -56,10 +54,10 @@ ms.locfileid: "54192930"
 
     # This command requires you to be logged into your Azure account, run Login-AzureRmAccount -EnvironmentName AzureChinaCloud if you haven't
     # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
     # The ComputerName, or host, is <storage-account>.file.core.chinacloudapi.cn for Azure China Regions.
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
     ```
 
     如果连接成功，应会看到以下输出：
@@ -84,7 +82,7 @@ ms.locfileid: "54192930"
 将预期需要 SMB 文件共享的业务线 (LOB) 应用程序直接迁移到 Azure 的常见模式是使用 Azure 文件共享，而不是在 Azure VM 中运行专用的 Windows 文件服务器。 成功迁移业务线应用程序以使用 Azure 文件共享的一个重要注意事项是，许多业务线应用程序在具有有限系统权限的专用服务帐户的上下文中运行，而不是在 VM 的管理帐户下运行。 因此，必须确保装载/保存服务帐户上下文（而不是管理帐户）中 Azure 文件共享的凭据。
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>在 Windows 中保存 Azure 文件共享凭据  
-使用 [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 实用工具可在 Windows 中存储存储帐户凭据。 这意味着，在尝试通过 Azure 文件共享的 UNC 路径访问该文件共享或装载 Azure 文件共享时，不需要指定凭据。 若要保存存储帐户的凭据，请运行以下 PowerShell 命令（适当替换 `<your-storage-account-name>` 和 `<your-resoure-group-name>`）。
+使用 [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 实用工具可在 Windows 中存储存储帐户凭据。 这意味着，在尝试通过 Azure 文件共享的 UNC 路径访问该文件共享或装载 Azure 文件共享时，不需要指定凭据。 若要保存存储帐户的凭据，请运行以下 PowerShell 命令（适当替换 `<your-storage-account-name>` 和 `<your-resource-group-name>`）。
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"
@@ -99,8 +97,8 @@ $storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupN
 # consume the appropriate values from the storage account variables. The value given to the add parameter of the
 # cmdkey utility is the host address for the storage account, <storage-account>.file.core.chinacloudapi.cn for Azure 
 # China Regions.
-Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
+Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
+    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
 ```
 
 可以使用 list 参数来验证 cmdkey 实用工具是否已存储存储帐户的凭据：

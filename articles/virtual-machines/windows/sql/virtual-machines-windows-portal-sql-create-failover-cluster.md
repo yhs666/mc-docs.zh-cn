@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/11/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 59ee00a007379064333ac8042d6e0aa59f851174
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 0042b7b96bbbbc25c8f28b1e49b422592aea36ca
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786741"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666426"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -55,7 +55,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 使用 PAYG 许可，Azure 虚拟机上的 SQL Server 的故障转移群集实例 (FCI) 会对 FCI 的所有节点（包括被动节点）收取费用。 有关详细信息，请参阅 [SQL Server Enterprise 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/sql-server-enterprise/)。 
 
-与软件保障达成企业协议的客户有权为每个活动节点使用一个免费的被动 FCI 节点。 要在 Azure 中利用此优势，请使用 BYOL VM 映像，然后在 FCI 的主动节点和被动节点上使用相同的许可证。 有关详细信息，请参阅[企业协议](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)。
+与软件保障达成企业协议的客户有权为每个活动节点使用一个免费的被动 FCI 节点。 要在 Azure 中利用此优势，请使用 BYOL VM 映像，然后在 FCI 的主动节点和被动节点上使用相同的许可证。 有关详细信息，请参阅[企业协议](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)。
 
 如需比较 Azure 虚拟机中 SQL Server 的 PAYG 和 BYOL 许可，请参阅 [SQL VM 入门](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
 
@@ -72,8 +72,10 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 ### <a name="what-to-know"></a>要了解的事项
 应该对以下技术有实际的了解：
 
-- [Windows 群集技术](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server 故障转移群集实例](https://msdn.microsoft.com/library/ms189134.aspx)
+- [Windows 群集技术](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server 故障转移群集实例](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+
+一个重要的差别在于，在 Azure IaaS VM 来宾故障转移群集上，我们建议每个服务器（群集节点）使用一个 NIC 和一个子网。 Azure 网络具有物理冗余，这使得在 Azure IaaS VM 来宾群集上不需要额外的 NIC 和子网。 虽然群集验证报告将发出警告，指出节点只能在单个网络上访问，但在 Azure IaaS VM 来宾故障转移群集上可以安全地忽略此警告。 
 
 另外，应该对以下技术有大致的了解：
 
@@ -149,6 +151,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
       - **{BYOL} Windows Server 2016 上的 SQL Server 2016 SP1 Enterprise**
       - **{BYOL} Windows Server 2016 上的 SQL Server 2016 SP1 Standard**
+      
       <!-- Notice: SHOUD be SP1 and Windows Sever 2016 -->      
 
    >[!IMPORTANT]
@@ -249,13 +252,13 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 1. 单击“下一步”。
 1. 在“确认”中，单击“下一步”。
 
-    “验证配置向导”将运行验证测试。
+“验证配置向导”将运行验证测试。
 
-    若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
+若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
 
-    ```PowerShell
-    Test-Cluster -Node ("<node1>","<node2>") -Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
-    ```
+   ```PowerShell
+   Test-Cluster -Node ("<node1>","<node2>") -Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   ```
 
 验证群集后，创建故障转移群集。
 
@@ -484,7 +487,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 ## <a name="limitations"></a>限制
 
-Azure 虚拟机支持 Windows Server 2019 上的 Azure 分布式事务处理协调器 (MSDTC)，其中存储位于群集共享卷 (CSV) 和[标准负载均衡器](../../../load-balancer/load-balancer-standard-overview.md)上。
+Azure 虚拟机支持 Windows Server 2019 上的 Microsoft 分布式事务处理协调器 (MSDTC)，其中存储位于群集共享卷 (CSV) 和[标准负载均衡器](../../../load-balancer/load-balancer-standard-overview.md)上。
 
 在 Azure 虚拟机上，Windows Server 2016 及更早版本不支持 MSDTC，因为：
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/13/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0cb4fec18edf0342b8e53969cbf9905d42ed9066
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e7845416f706dd2a19b9ac52e44e5437cc7add00
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675136"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666091"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server AlwaysOn 可用性组简介 #
 
@@ -37,9 +37,7 @@ Azure 虚拟机中可用性组的主要区别是 Azure 虚拟机需要[负载均
 
 准备好在 Azure 虚拟机上生成 SQL Server 可用性组时，请参阅这些教程。
 
-## <a name="automatically-create-an-availability-group-from-a-template"></a>从模板自动创建可用性组
-
-在 Azure VM 中自动配置 Always On 可用性组 - 资源管理器。
+<!--Not Available on ## Automatically create an availability group from a template-->
 <!-- Not Available on [Configure Always On availability group in Azure VM automatically - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
 ## <a name="manually-create-an-availability-group-in-azure-portal"></a>在 Azure 门户中手动创建可用性组

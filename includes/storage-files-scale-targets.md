@@ -3,14 +3,14 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 12/10/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 2d9182a97534e095a29ebb87feb83f3f7351776e
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: e1a73d4693f14e60cce242ed8152e5bd7873328b
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53070268"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666724"
 ---
 | 资源 | 标准文件共享 |
 |----------|---------------|
@@ -23,3 +23,5 @@ ms.locfileid: "53070268"
 | 单个文件共享的目标吞吐量 | 最多 60 MiB/秒 |
 | 每个文件打开图柄的最大数目 | 2,000 个打开句柄 |
 | 共享快照的最大数目 | 200 个共享快照 |
+| 最大对象（目录和文件）名称长度 | 2048 个字符 |
+| 最大路径名组成部分（在路径 \A\B\C\D 中，每个字母是一个组成部分） | 255 个字符 |

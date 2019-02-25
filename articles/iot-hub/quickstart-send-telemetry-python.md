@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 09/07/2018
-ms.date: 01/28/2019
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: e46555ed357e8d1dfa92dc68815fa4be7dc4d228
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: ab289b12f96e9ec9303eb7d42e63859187382fc2
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396795"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665548"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Python)
 
@@ -114,7 +114,7 @@ IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端**事件**终结�
 运行以下命令，并将 `YourIoTHubName` 替换为 IoT 中心的名称：
 
 ```azurecli
-az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
+az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
 ```
 
 以下屏幕截图显示了扩展接收到模拟设备发送到中心的遥测数据时的输出：

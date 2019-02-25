@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/08/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4b6fa27df5d15011ef49214a032f2cc2a62a5b93
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 7ddf1a742274e130f42a77d088647866883eee2e
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736197"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666132"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>启动 Azure VM 时 Windows 在蓝色屏幕上显示“关键服务失败”
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能会遇到的“关键服务失败”错误， 并提供用于解决问题的故障排除步骤。 
@@ -63,7 +63,7 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 会以安全模式启动。 如果仍然遇到错误，请转到[可选步骤](#optional-analysis-the-dump-logs-in-boot-debug-mode)。
+2. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 会以安全模式启动。 如果仍然遇到错误，请转到可选步骤。
 3. 打开“运行”框，运行 **verifier** 来启动驱动程序验证程序管理器工具。
 4. 选择“自动选择未经签名的驱动程序”，然后单击“下一步”。
 5. 此时会显示未经签名的驱动程序文件的列表。 请记住这些文件名。
@@ -143,5 +143,6 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
     bcddit /store <OS DISK LETTER>:\boot\bcd /set {default} recoveryenabled no
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} integrityservicesenable
     ```
-<!-- Update_Description: new articles on troubleshooting critical service failed boot error  -->
-<!--ms.date: 12/24/2018-->
+    
+<!-- Update_Description: wording update -->
+

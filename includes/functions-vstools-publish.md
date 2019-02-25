@@ -6,15 +6,15 @@ author: ggailey777
 ms.service: functions
 ms.topic: include
 origin.date: 11/02/2018
-ms.date: 11/21/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 4c957a3a8f97ffb190c403e53bc641b27aaeaa15
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 1f92bdf5c0d7e7c3f13fee0d67d07640bbe99c50
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673202"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666716"
 ---
 1. **在“解决方案资源管理器”** 中，右键单击该项目并选择“发布”。
 
@@ -22,7 +22,7 @@ ms.locfileid: "52673202"
 
     ![选取发布目标](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    启用“从 Zip 运行”后，Azure 中的函数应用会直接从部署包运行。 有关详细信息，请参阅[从包文件运行 Azure Functions](../articles/azure-functions/run-functions-from-deployment-package.md)。
+    启用“从 Zip 运行”后，Azure 中的函数应用将进入只读模式，并且会直接从部署包运行。 有关详细信息，请参阅[从包文件运行 Azure Functions](../articles/azure-functions/run-functions-from-deployment-package.md)。
      
     >[!CAUTION]
     >选择“选择现有”时，Azure 中现有函数应用中的所有文件都将被本地项目中的文件覆盖。 仅在将更新重新发布到现有函数应用时才使用此选项。
@@ -47,4 +47,4 @@ ms.locfileid: "52673202"
 
     ![发布成功消息](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)
 
-<!-- ms.date: 11/21/2018 -->
+<!-- ms.date: 02/22/2019 -->

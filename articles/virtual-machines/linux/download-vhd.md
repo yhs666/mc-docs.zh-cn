@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0c7cfaaebd6f29652137db342f9c0e6675bf9a6c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d5cff57341957126d214976f4bd723dda1e5a28a
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660959"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666136"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
@@ -91,4 +91,5 @@ ms.locfileid: "52660959"
 
 - 了解如何[通过 Azure CLI 从自定义磁盘上传并创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 - [使用 Azure CLI 管理 Azure 磁盘](tutorial-manage-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
 <!-- Update_Description: update meta properties， wording update -->

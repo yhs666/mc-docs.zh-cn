@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-registry
 ms.topic: article
-origin.date: 11/29/2017
-ms.date: 12/24/2018
+origin.date: 01/23/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 0bc79cf16896d80f6bbc1c0a682a432aee29acfa
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 3f090009cb2c235f29e3268fd58dd11a87295e93
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569204"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440045"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -26,7 +26,7 @@ Azure 容器注册表存储和管理专用 [Docker](http://hub.docker.com) 容�
 ## <a name="prerequisites"></a>先决条件
 
 * **Azure 容器注册表** - 在 Azure 订阅中创建容器注册表。 例如，使用 [Azure 门户](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI** - 要将本地计算机设置为 Docker 主机并访问 Docker CLI 命令，请安装 [Docker](https://docs.docker.com/engine/installation/)。
+* **Docker CLI** - 还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
 ## <a name="log-in-to-a-registry"></a>登录到注册表
 
@@ -36,13 +36,13 @@ Azure 容器注册表存储和管理专用 [Docker](http://hub.docker.com) 容�
 az acr login --name myregistry
 ```
 
-也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 登录。 以下示例传递了 Azure Active Directory [服务主体](../active-directory/develop/app-objects-and-service-principals.md)的 ID 和密码。 例如，你可能在自动化方案中向注册表[分配了服务主体](container-registry-authentication.md#service-principal)。
+也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 登录。 例如，你可能在自动化方案中向注册表[分配了服务主体](container-registry-authentication.md#service-principal)。 运行以下命令时，收到提示后，请以交互方式提供服务主体 appID（用户名）和密码。 有关管理登录凭据的最佳做法，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考：
 
-```Bash
-docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```
+docker login myregistry.azurecr.cn
 ```
 
-完成后，这两个命令将返回 `Login Succeeded`。 如果使用 `docker login`，可能会看见建议使用 `--password-stdin` 参数的安全警告。 虽然本文中未介绍它的用法，但我们建议按照此最佳做法进行操作。 有关详细信息，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
+完成后，这两个命令将返回 `Login Succeeded`。
 
 > [!TIP]
 > 使用 `docker login` 以及标记要推送到注册表的映像时，请始终指定完全限定的注册表名称（全部小写）。 在本文的示例中，完全限定的名称为 *myregistry.azurecr.cn*。
@@ -51,7 +51,7 @@ docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 首次将公共 Nginx 映像提取到本地计算机。
 
-```Bash
+```
 docker pull nginx
 ```
 
@@ -59,7 +59,7 @@ docker pull nginx
 
 执行以下 [docker run](https://docs.docker.com/engine/reference/run/) 命令，在端口 8080 上以交互方式启动 Nginx 容器的本地实例 (`-it`)。 `--rm` 参数指定在停止容器时应将其删除。
 
-```Bash
+```
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -75,7 +75,7 @@ docker run -it --rm -p 8080:80 nginx
 
 运行 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)，使用注册表的完全限定路径创建映像的别名。 此示例指定了 `samples` 命名空间，以免注册表根目录中出现混乱。
 
-```Bash
+```
 docker tag nginx myregistry.azurecr.cn/samples/nginx
 ```
 
@@ -85,7 +85,7 @@ docker tag nginx myregistry.azurecr.cn/samples/nginx
 
 使用专用注册表的完全限定路径标记映像后，可以使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 将其推送到注册表：
 
-```Bash
+```
 docker push myregistry.azurecr.cn/samples/nginx
 ```
 
@@ -93,7 +93,7 @@ docker push myregistry.azurecr.cn/samples/nginx
 
 使用 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 命令从注册表提取映像：
 
-```Bash
+```
 docker pull myregistry.azurecr.cn/samples/nginx
 ```
 
@@ -101,7 +101,7 @@ docker pull myregistry.azurecr.cn/samples/nginx
 
 使用 [docker run](https://docs.docker.com/engine/reference/run/) 命令运行已从注册表提取的映像：
 
-```Bash
+```
 docker run -it --rm -p 8080:80 myregistry.azurecr.cn/samples/nginx
 ```
 
@@ -113,7 +113,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.cn/samples/nginx
 
 如果不再需要 Nginx 映像，可以使用 [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) 命令在本地将其删除。
 
-```Bash
+```
 docker rmi myregistry.azurecr.cn/samples/nginx
 ```
 

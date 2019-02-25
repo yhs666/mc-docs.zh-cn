@@ -4,22 +4,22 @@ description: 了解如何通过使用 SQL Server Management Studio (SSMS) 连接
 keywords: 连接到 sql 数据库, sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: craigg
-origin.date: 12/04/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 5f9526af91e583d09d9b4c63f80b058ed9837622
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: df76f438720181481532f7ff4d1889599e1ae88d
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396927"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663720"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -31,9 +31,9 @@ ms.locfileid: "54396927"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* 配置态服务器级防火墙规则。 有关详细信息，请参阅[创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
+* 配置态服务器级防火墙规则。 有关详细信息，请参阅[创建服务器级防火墙规则](sql-database-server-level-firewall-rule.md)。
 
-#### <a name="install-the-latest-ssms"></a>安装最新的 SSMS
+## <a name="install-the-latest-ssms"></a>安装最新的 SSMS
 
 在开始之前，请确保已安装最新的 [SSMS][ssms-install-latest-84g]。 
 
@@ -46,14 +46,14 @@ ms.locfileid: "54396927"
 在 SMSS 中，连接到 Azure SQL 数据库服务器。 
 
 > [!IMPORTANT]
-> Azure SQL 数据库逻辑服务器在端口 1433 上进行侦听。 要从公司防火墙后连接到逻辑服务器，该防火墙必须打开此端口。
+> Azure SQL 数据库服务器在端口 1433 上进行侦听。 若要从公司防火墙后连接到 SQL 数据库服务器，该防火墙必须打开此端口。
 >
 
 1. 打开 SSMS。 此时会显示“连接到服务器”对话框。
 
 2. 输入以下信息：
 
-   | 设置      | 建议的值    | 说明 | 
+   | 设置      | 建议的值    | 说明 | 
    | ------------ | ------------------ | ----------- | 
    | **服务器类型** | 数据库引擎 | 所需的值。 |
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |

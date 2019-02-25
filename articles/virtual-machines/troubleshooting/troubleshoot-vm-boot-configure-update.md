@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/18/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 91f44b7a16a203fce06e65b41aa4f5248c8f937f
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 86b88425a092868168ba7d39325050224a78c871
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736094"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666419"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 启动时停滞，并在 Azure 中显示“正在准备 Windows。 请不要关闭计算机”
 
 本文可帮助解决虚拟机 (VM) 在启动时停滞，并显示“正在准备 Windows。 请不要关闭计算机”的问题。
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="symptoms"></a>症状
 
@@ -61,7 +63,7 @@ ms.locfileid: "53736094"
 4. 运行以下 cmdlet，获取机密名称。
 
     ```Powershell
-    Login-AzureRmAccount -Environment AzureChinaCloud
+    Login-AzAccount -Environment AzureChinaCloud
 
     $vmName = "VirtualMachineName"
     $vault = "AzureKeyVaultName"
@@ -122,7 +124,7 @@ ms.locfileid: "53736094"
 
 ## <a name="contact-azure-support"></a>联系 Azure 支持部门
 
-收集转储文件后，请联系 [Azure 支持部门](https://support.windowsazure.cn/support/support-azure)来分析根本原因。
+收集转储文件后，请联系 [Azure 支持部门](https://support.azure.cn/zh-cn/support/support-azure/)来分析根本原因。
 
 ## <a name="rebuild-the-vm-by-using-powershell"></a>使用 PowerShell 重新生成 VM
 
@@ -132,44 +134,44 @@ ms.locfileid: "53736094"
 
 ```PowerShell
 # To log in to Azure Resource Manager
-Login-AzureRmAccount -Environment AzureChinaCloud
+Login-AzAccount -Environment AzureChinaCloud
 
 # To view all subscriptions for your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # To select a default subscription for your current session
-Get-AzureRmSubscription -SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
+Get-AzSubscription -SubscriptionID "SubscriptionID" | Select-AzSubscription
 
 $rgname = "RGname"
 $loc = "Location"
 $vmsize = "VmSize"
 $vmname = "VmName"
-$vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize;
+$vm = New-AzVMConfig -VMName $vmname -VMSize $vmsize;
 
-$nic = Get-AzureRmNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
+$nic = Get-AzNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
 $nicId = $nic.Id;
 
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId;
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nicId;
 
 $osDiskName = "OSdiskName"
 $osDiskVhdUri = "OSdiskURI"
 
-$vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
+$vm = Set-AzVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
 
-New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
+New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 ```
 
 **对于托管磁盘**
 
 ```PowerShell
-# To login to Azure Resource Manager
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# To log in to Azure Resource Manager
+Login-AzAccount -EnvironmentName AzureChinaCloud
 
 # To view all subscriptions for your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # To select a default subscription for your current session
-Get-AzureRmSubscription -SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
+Get-AzSubscription -SubscriptionID "SubscriptionID" | Select-AzSubscription
 
 #Fill in all variables
 $subid = "SubscriptionID"
@@ -187,30 +189,30 @@ $DataDiskName = "DataDiskName"
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
+$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize;
 
 #Uncomment to add Availability Set
-#$avSet = Get-AzureRmAvailabilitySet -Name $avName -ResourceGroupName $rgName;
-#$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
+#$avSet = Get-AzAvailabilitySet -Name $avName -ResourceGroupName $rgName;
+#$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
 
 #Get NIC Resource Id and add
-$nic1 = Get-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
+$nic1 = Get-AzNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
 
 #Uncomment to add a secondary NIC
-#$nic2 = Get-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
-#$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
+#$nic2 = Get-AzNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
+#$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic2.Id;
 
 #Windows VM
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
 
 #Linux VM
-#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
+#$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
 
 #Uncomment to add additional Data Disk
-#Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
+#Add-AzVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
 
-New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
+New-AzVM -ResourceGroupName $rgName -Location $loc -VM $vm;
 ```
 
 <!-- Update_Description: update meta properties, wording update -->

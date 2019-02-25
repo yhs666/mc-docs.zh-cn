@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 09/24/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d7df7d6b61116057ee0dadc2a22710a6b642a205
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: b42dd68c3423efeb51d72f206c88a4764a01fd94
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786752"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666480"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
 
@@ -51,13 +51,16 @@ IOPS 是指应用程序在一秒内发送到存储磁盘的请求数。 可以�
 将高级存储磁盘连接到大型 VM 时，Azure 会根据磁盘规格预配保障数目的 IOPS。 例如，P50 磁盘预配 7500 IOPS。 每个大型 VM 还存在一个其所能承受的特定 IOPS 限制。
 
 <!-- Not Available on For example, a Standard GS5 VM has 80,000 IOPS limit.-->
+
 ## <a name="throughput"></a>吞吐量
 
 吞吐量或带宽是指应用程序在指定时间间隔内发送到存储磁盘的数据量。 如果应用程序执行的输入/输出操作使用的 IO 单位很大，则需要高吞吐量。 数据仓库应用程序往往会发出扫描密集型操作（这些操作一次就会访问大量的数据），并且通常会执行批处理操作。 换而言之，此类应用程序需要更高的吞吐量。 如果拥有这样的应用程序，则设计其基础结构时必须针对吞吐量进行优化。 在下一部分，我们会详细讨论那些为了实现此目标而必须进行调整的因素。
 
 将高级存储磁盘连接到大型 VM 时，Azure 会根据磁盘规格预配吞吐量。 例如，P50 磁盘预配 250 MB/秒的磁盘吞吐量。 每个高规格 VM 还存在一个其所能承受的特定吞吐量限制。
 
-<!-- Not Available on For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second. --> 吞吐量和 IOPS 之间存在一个关系，如以下公式所示。
+<!-- Not Available on For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second. -->
+
+吞吐量和 IOPS 之间存在一个关系，如以下公式所示。
 
 ![](media/premium-storage-performance/image1.png)
 
@@ -196,7 +199,9 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 
 开始设计应用程序时，首要操作之一是选择用于承载应用程序的 VM。 高级存储提供高规格 VM 大小，可以运行需要更高计算能力和高的本地磁盘 I/O 性能的应用程序。 这些 VM 为本地磁盘提供更快的处理器、更高的内存内核比和固态驱动器 (SSD)。 DS 和 DSv2 VM 都是支持高级存储的高规格 VM 的例子。
 
-<!-- Not Available on and GS series --> 高规格 VM 提供不同的大小、不同数目的 CPU 内核、内存、OS 和临时磁盘大小。 每种 VM 大小还设置了可以连接到 VM 的最大数目的数据磁盘。 因此，所选 VM 大小会影响提供给应用程序的处理能力、内存大小和存储容量。 它还会影响计算和存储成本。 例如，以下是 DS 系列和 DSv2 系列中最大 VM 大小的规格：
+<!-- Not Available on and GS series -->
+
+高规格 VM 提供不同的大小、不同数目的 CPU 内核、内存、OS 和临时磁盘大小。 每种 VM 大小还设置了可以连接到 VM 的最大数目的数据磁盘。 因此，所选 VM 大小会影响提供给应用程序的处理能力、内存大小和存储容量。 它还会影响计算和存储成本。 例如，以下是 DS 系列和 DSv2 系列中最大 VM 大小的规格：
 
 <!-- Not Available on and GS series -->
 
@@ -216,20 +221,23 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 *运行成本*  
 在许多情况下，使用高级存储的总体运行成本可能会低于使用标准存储。
 
-<!--IMPORTANT: NO UPDATE ON Price change to CNY--> 例如，以需要 16,000 IOPS 的应用程序为考虑对象。 若要达到此性能，需要使用 Standard\_D14 Azure IaaS VM，该 VM 可以使用 32 个标准存储 1TB 磁盘来实现 16,000 的最大 IOPS。 每个 1 TB 标准存储磁盘最多可以实现 500 IOPS。 此 VM 每月的估计成本将是 CNY10,171。 32 个标准存储磁盘每月的成本将是 CNY8,847。 每月估计的总成本将是 CNY19,018。
+<!--MOONCAKE CUSTOMIZE: NO UPDATE ON Price change to CNY--> 例如，以需要 16,000 IOPS 的应用程序为考虑对象。 若要达到此性能，需要使用 Standard\_D14 Azure IaaS VM，该 VM 可以使用 32 个标准存储 1TB 磁盘来实现 16,000 的最大 IOPS。 每个 1 TB 标准存储磁盘最多可以实现 500 IOPS。 此 VM 每月的估计成本将是 CNY10,171。 32 个标准存储磁盘每月的成本将是 CNY8,847。 每月估计的总成本将是 CNY19,018。
 
 但是，如果将同一应用程序置于高级存储上，则所需 VM 大小和高级存储磁盘数都会减少，从而降低总体成本。 Standard\_DS13 VM 可以使用 4 个 P30 磁盘来满足 16,000 IOPS 的要求。 DS13 VM 的最大 IOPS 为 25,600，每个 P30 磁盘的最大 IOPS 为 5,000。 总起来说，此配置可以达到 5,000 x 4 = 20,000 的 IOPS。 此 VM 每月的估计成本将是 CNY5,081。 4 个 P30 高级存储磁盘每月的成本是 CNY3,625。 每月估计的总成本将是 CNY8,706。
 
-<!--IMPORTANT: NO UPDATE ON Price change to CNY--> 下表汇总了这种情况下标准存储和高级存储的成本明细。
+<!--IMPORTANT: NO UPDATE ON Price change to CNY-->
+
+下表总结了这种情况下标准存储和高级存储的成本明细。
 
 <!--IMPORTANT: NO UPDATE ON Price change to CNY-->
+
 | &nbsp; | **标准** | **高级** |
 | --- | --- | --- |
 | **VM 每月的成本** |CNY10,171.48（标准\_D14） |CNY5,081.52（标准\_DS13） |
 | **磁盘每月的成本** |CNY8847.36（32 个 1 TB 磁盘） |CNY3625.16（4 个 P30 磁盘） |
 | **每月成本总计** |CNY19,018.84 |CNY8706.68 |
 
-<!--IMPORTANT: NO UPDATE ON Price change to CNY-->
+<!--MOONCAKE CUSTOMIZE: NO UPDATE ON Price change to CNY-->
 *Linux 发行版*  
 
 使用 Azure 高级存储，可以让运行 Windows 和 Linux 的 VM 获得相同的性能级别。 支持多种 Linux 发行版，可在[此处](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)查看完整列表。 请务必注意，不同的发行版适用于不同类型的工作负荷。 根据运行工作负荷的发行版，所见性能级别会有所不同。 使用应用程序测试各种 Linux 发行版，选择最适合的。
@@ -244,13 +252,16 @@ Azure 高级存储目前提供了八种 GA 磁盘大小。 每种磁盘大小对
 <!--Not Available 11 disk size, actually is 8 disk size-->
 <!--Correct on offers eight GA disk, Not Available on preview P60,P70,P80-->
 <!--Not Available on preview P60,P70,P80-->
+
 | 高级磁盘类型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
 | 磁盘大小           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GiB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    |
 | 每个磁盘的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              |
 | 每个磁盘的吞吐量 | 25 MiB/秒  | 50 MiB/秒  | 100 MiB/秒 |125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 |
 
-<!--Not Available on preview P60,P70,P80--> 选择多少磁盘取决于所选磁盘大小。 可以使用单个 P50 磁盘或多个 P10 磁盘来满足应用程序要求。 进行选择时，可考虑下面列出的注意事项。
+<!--Not Available on preview P60,P70,P80-->
+
+选择多少磁盘取决于所选磁盘大小。 可以使用单个 P50 磁盘或多个 P10 磁盘来满足应用程序要求。 进行选择时，可考虑下面列出的注意事项。
 
 *规模限制（IOPS 和吞吐量）*  
 每种高级磁盘大小的 IOPS 和吞吐量限制都是不同的，与 VM 规模限制无关。 请确保磁盘的总 IOPS 和吞吐量处于所选 VM 大小的规模限制范围内。
@@ -477,7 +488,7 @@ apt-get install fio
 *最大写入 IOPS*  
 使用以下规范创建作业文件，以便获得最大写入 IOPS。 将其命名为“fiowrite.ini”。
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -517,7 +528,7 @@ sudo fio --runtime 30 fiowrite.ini
 *最大读取 IOPS*  
 使用以下规范创建作业文件，以便获得最大读取 IOPS。 将其命名为“fioread.ini”。
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -557,7 +568,7 @@ sudo fio --runtime 30 fioread.ini
 *最大读取和写入 IOPS*  
 使用以下规范创建作业文件，以便获得最大组合型读取和写入 IOPS。 将其命名为“fioreadwrite.ini”。
 
-```
+```ini
 [global]
 size=30g
 direct=1

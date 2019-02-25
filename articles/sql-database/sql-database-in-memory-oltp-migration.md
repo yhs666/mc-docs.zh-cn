@@ -1,24 +1,27 @@
 ---
-title: 内存中 OLTP 改善 SQL 事务性能 | Azure
-description: 利用 In-Memory OLTP 改善现有 SQL 数据库中的事务性能。
+title: 内存中 OLTP 改善了 SQL 事务性能 | Microsoft 文档
+description: 利用内存中 OLTP 改善现有 SQL 数据库中的事务性能。
 services: sql-database
-author: Hayley244
-manager: digimobile
-ms.reviewer: MightyPen
 ms.service: sql-database
-ms.custom: develop databases
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 088ab99bfc90fc69d5e512d5ddf1c741b52d07d4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: MightyPen
+manager: digimobile
+origin.date: 11/07/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 3e5de3aa8cffb3231c8055e4eaaa95d209e0e00b
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645684"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663691"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用内存中 OLTP 改善 SQL 数据库中应用程序的性能
+
 [内存中 OLTP](sql-database-in-memory.md) 可以用来改善[高级和业务关键层](sql-database-service-tiers-vcore.md)数据库中事务处理、数据引入和暂时性数据方案的性能，而不需要提高定价层。 
 
 > [!NOTE] 
@@ -28,6 +31,7 @@ ms.locfileid: "52645684"
 请按照以下步骤在现有数据库中采用内存中 OLTP。
 
 ## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>步骤 1：确保使用的是高级和业务关键层数据库
+
 只有高级和业务关键层数据库才支持内存中 OLTP。 如果返回的结果为 1（不是 0），则支持内存中 OLTP：
 
 ```
@@ -46,7 +50,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 * 在“对象资源管理器”中，右键单击数据库节点。
 * 单击“报表” > “标准报表” > “事务性能分析概述”。
 
-有关详细信息，请参阅[确定表或存储过程是否应移植到内存中 OLTP](http://msdn.microsoft.com/library/dn205133.aspx)。
+有关详细信息，请参阅[确定是否应将某个表或存储过程移植到 In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx)。
 
 ## <a name="step-3-create-a-comparable-test-database"></a>步骤 3：创建可比较的测试数据库
 假设报告指出数据库的某个表在转换成内存优化的表后会带来好处。 我们建议先进行测试，以确认这项指示。
@@ -79,9 +83,9 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
    * 此时将显示“表内存优化顾问”向导。
 3. 在向导中，单击“迁移验证”（或“下一步”按钮），查看该表是否包含任何在内存优化表中不受支持的功能。 有关详细信息，请参阅：
    
-   * [内存优化顾问中的](http://msdn.microsoft.com/library/dn284308.aspx)内存优化清单。
-   * [内存中 OLTP 不支持的 Transact-SQL 构造](http://msdn.microsoft.com/library/dn246937.aspx)。
-   * [迁移到内存中 OLTP](http://msdn.microsoft.com/library/dn247639.aspx)。
+   * [内存优化顾问中的](https://msdn.microsoft.com/library/dn284308.aspx)内存优化清单。
+   * [内存中 OLTP 不支持的 Transact-SQL 构造](https://msdn.microsoft.com/library/dn246937.aspx)。
+   * [迁移到内存中 OLTP](https://msdn.microsoft.com/library/dn247639.aspx)。
 4. 如果该表没有不受支持的功能，顾问可执行实际的架构和数据迁移。
 
 #### <a name="manual-t-sql"></a>手动 T-SQL
@@ -113,7 +117,7 @@ In-Memory 功能还可以修改存储过程，以改善性能。
 * NATIVE_COMPILATION
 * SCHEMABINDING：表示除非丢弃存储过程，否则无法由存储过程以任何影响到存储过程的方式更改其列定义的表。
 
-本机模块必须使用一个大型 [ATOMIC 块](http://msdn.microsoft.com/library/dn452281.aspx)进行事务管理。 显式 BEGIN TRANSACTION 或 ROLLBACK TRANSACTION 没有角色。 如果你的代码检测到违反业务规则，它可以使用 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 语句终止 ATOMIC 块。
+本机模块必须使用一个大型 [ATOMIC 块](https://msdn.microsoft.com/library/dn452281.aspx)进行事务管理。 显式 BEGIN TRANSACTION 或 ROLLBACK TRANSACTION 没有角色。 如果你的代码检测到违反业务规则，它可以使用 [THROW](https://msdn.microsoft.com/library/ee677615.aspx) 语句终止 ATOMIC 块。
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>本机编译存储过程的典型 CREATE PROCEDURE
 创建本机编译存储过程的 T-SQL 通常类似于以下模板：
@@ -144,7 +148,7 @@ CREATE PROCEDURE schemaname.procedurename
 2. 重写其标头以符合前面的模板。
 3. 确认存储过程 T-SQL 代码是否使用了任何不支持本机编译存储过程的功能。 根据需要实施应对措施。
    
-   * 有关详细信息，请参阅[本机编译存储过程的迁移问题](http://msdn.microsoft.com/library/dn296678.aspx)。
+   * 有关详细信息，请参阅[本机编译存储过程的迁移问题](https://msdn.microsoft.com/library/dn296678.aspx)。
 4. 使用 SP_RENAME 重命名旧存储过程。 或直接将它删除。
 5. 运行已编辑的 CREATE PROCEDURE T-SQL 脚本。
 
@@ -167,7 +171,7 @@ CREATE PROCEDURE schemaname.procedurename
 * [使用动态管理视图监视 Azure SQL 数据库](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>相关链接
-* [内存中 OLTP（内存中优化）](http://msdn.microsoft.com/library/dn133186.aspx)
-* [本机编译的存储过程简介](http://msdn.microsoft.com/library/dn133184.aspx)
-* [内存优化顾问](http://msdn.microsoft.com/library/dn284308.aspx)
+* [内存中 OLTP（内存中优化）](https://msdn.microsoft.com/library/dn133186.aspx)
+* [本机编译的存储过程简介](https://msdn.microsoft.com/library/dn133184.aspx)
+* [内存优化顾问](https://msdn.microsoft.com/library/dn284308.aspx)
 

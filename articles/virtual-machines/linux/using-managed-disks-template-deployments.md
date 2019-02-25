@@ -10,14 +10,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage
 origin.date: 06/01/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b05c50ba0add7fd22906af393017928e328f3a3c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.subservice: disks
+ms.openlocfilehash: b93f6b933e6f691476aa79b62447d8caa71d03c7
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675159"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665991"
 ---
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]
 

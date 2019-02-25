@@ -3,7 +3,7 @@ title: Azure SQL 数据库服务 - vCore | Microsoft 文档
 description: 使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake
 manager: digimobile
-origin.date: 01/08/2019
-ms.date: 01/28/2019
-ms.openlocfilehash: f7172a8d699fd5024cfba4e1319301afa16c3cd4
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: ebe4308340f9d2b54932b9f0beca1679352e6d1a
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906181"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663538"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
 
@@ -27,7 +27,7 @@ ms.locfileid: "54906181"
 - 第 4 代 - 最多 24 个基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器的逻辑 CPU，vCore = 1 PP（物理核心），每核心 7 GB，附加了 SSD
 - 第 5 代 - 最多 80 个基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器的逻辑 CPU，vCore=1 LP（超线程），每个核心 5.1 GB，快速 eNVM SSD
 
-vCore 模式还允许使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)来节省成本。
+第 4 代为每个 vCore 提供的内存要大得多。 但是，第 5 代硬件允许以高得多的力度纵向扩展计算资源。
 
 > [!NOTE]
 > 有关基于 DTU 的服务层的信息，请参阅[基于 DTU 的服务层](sql-database-service-tiers-dtu.md)。 若要了解如何区分基于 DTU 的服务层和基于 vCore 的服务层，请参阅 [Azure SQL 数据库购买模型](sql-database-service-tiers.md)。
@@ -56,8 +56,6 @@ vCore 模型提供了三个服务层：常规用途、超大规模和业务关�
 
 > [!IMPORTANT]
 > 如果所需的计算容量 vCore 数不超过一个，请使用基于 DTU 的购买模型。
-
-有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
 
 ## <a name="azure-hybrid-benefit"></a>Azure 混合权益
 

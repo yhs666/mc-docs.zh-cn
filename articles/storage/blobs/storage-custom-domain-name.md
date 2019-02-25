@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/26/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: blobs
-ms.openlocfilehash: 0d6791d8c64486e961bfe64b5ab4564ac8d82f6b
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: blobs
+ms.openlocfilehash: 08e68f20a059010312aec725cd01fd125d08d30a
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192882"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665673"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>为 Azure 存储帐户配置自定义域名
 
@@ -30,7 +30,7 @@ ms.locfileid: "54192882"
 下表显示了 *mystorageaccount* 存储帐户中的 Blob 数据的一些示例 URL。 为存储帐户注册的自定义域是 *www.contoso.com*：
 
 | 资源类型 | 默认 URL | 自定义域 URL |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | 存储帐户 | http://mystorageaccount.blob.core.chinacloudapi.cn | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | 根容器 | http://mystorageaccount.blob.core.chinacloudapi.cn/myblob 或 http://mystorageaccount.blob.core.chinacloudapi.cn/$root/myblob| http://www.contoso.com/myblob 或 http://www.contoso.com/$root/myblob |
@@ -155,7 +155,7 @@ ms.locfileid: "54192882"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要删除自定义域注册，请使用 [az storage account update](/cli/storage/account#az_storage_account_update) CLI 命令，并为 `--custom-domain` 参数值指定空字符串 (`""`)。
+若要删除自定义域注册，请使用 [az storage account update](/cli/storage/account) CLI 命令，并为 `--custom-domain` 参数值指定空字符串 (`""`)。
 
 * 命令格式：
 

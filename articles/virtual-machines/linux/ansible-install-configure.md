@@ -8,18 +8,19 @@ manager: digimobile
 ms.author: v-yeche
 ms.topic: quickstart
 origin.date: 08/21/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 536aa2ff049710c02fa94304f91277e23cdcb309
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/18/2019
+ms.openlocfilehash: 36b9207e3090b9f4a481d7c666590caa66650954
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675396"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666278"
 ---
 <!-- Verify successfully-->
 # <a name="install-ansible-on-azure-virtual-machines"></a>在 Azure 虚拟机上安装 Ansible
 
 使用 Ansible 可以在环境中自动部署和配置资源。 可以在 Azure 中使用 Ansible 管理虚拟机 (VM)，管理其他任意资源也一样。 本文详细介绍如何为某些最常见的 Linux 发行版安装 Ansible 和所需的 Azure Python SDK 模块。 通过调整安装的程序包以适应特定的平台，在其他发行版上安装 Ansible。 若要安全地创建 Azure 资源，还需了解如何创建和定义用于 Ansible 的凭据。
+
 <!-- Not Avaialbe on [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools)-->
 
 ## <a name="prerequisites"></a>先决条件
@@ -28,7 +29,7 @@ ms.locfileid: "52675396"
 
 - **对 Linux 或 Linux 虚拟机的访问权限** - 如果没有 Linux 计算机，请创建 [Linux 虚拟机](/virtual-network/quick-create-cli)。
 
-- **Azure 服务主体**：遵循[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal)一文的“创建服务主体”部分中的指导。 记下 **appId**、**displayName**、**password** 和 **tenant** 的值。
+- **Azure 服务主体**：遵循[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)一文的“创建服务主体”部分中的指导。 记下 **appId**、**displayName**、**password** 和 **tenant** 的值。
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虚拟机上安装 Ansible
 
@@ -109,6 +110,8 @@ vi ~/.azure/credentials
 
 将以下行插入到凭据文件中 - 将占位符替换为创建服务主体过程中获得的信息。
 
+<!--MOONCAKE CUSTOMIZE ON cloud_environment=AzureChinaCloud -->
+
 ```bash
 [default]
 subscription_id=<your-subscription_id>
@@ -118,7 +121,7 @@ tenant=<security-principal-tenant>
 cloud_environment=AzureChinaCloud
 ```
 
-<!-- Notice: Add cloud_environment=AzureChinaCloud to set the correct environment-->
+<!--MOONCAKE CUSTOMIZE ON cloud_environment=AzureChinaCloud -->
 
 保存并关闭该文件。
 
@@ -126,6 +129,8 @@ cloud_environment=AzureChinaCloud
 ### <a name="span-idenv-credentialsuse-ansible-environment-variables"></a><span id="env-credentials"/>使用 Ansible 环境变量
 
 本部分介绍了如何通过将 Ansible 凭据导出为环境变量来配置它们。
+
+<!--MOONCAKE CUSTOMIZE ON export AZURE_CLOUD_ENVIRONMENT=AzureChinaCloud-->
 
 在终端或 Bash 窗口中，输入以下命令：
 
@@ -137,7 +142,7 @@ export AZURE_TENANT=<security-principal-tenant>
 export AZURE_CLOUD_ENVIRONMENT=AzureChinaCloud
 ```
 
-<!-- Notice: export AZURE_CLOUD_ENVIRONMENT=AzureChinaCloud-->
+<!--MOONCAKE CUSTOMIZE ON export AZURE_CLOUD_ENVIRONMENT=AzureChinaCloud-->
 
 ## <a name="verify-the-configuration"></a>验证配置
 若要验证配置是否成功，可以现在就使用 Ansible 创建资源组。
@@ -149,5 +154,4 @@ export AZURE_CLOUD_ENVIRONMENT=AzureChinaCloud
 > [!div class="nextstepaction"] 
 > [使用 Ansible 在 Azure 中创建 Linux 虚拟机](./ansible-create-vm.md)
 
-<!-- Update_Description: new articles on ansible install configure -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: wording update -->

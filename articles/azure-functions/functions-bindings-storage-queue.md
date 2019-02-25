@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 12/26/2018
+ms.date: 02/21/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: f4b529206bc8d0e45fab613b4e092f2e13dcef36
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 5b0dce3a1f6c345ba4765560259bed8240a9df5b
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806573"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665438"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -39,6 +39,9 @@ ms.locfileid: "53806573"
 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 包 3.x 版中提供了队列存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="encoding"></a>编码
+函数需要 base64 编码字符串。 对编码类型进行的任何调整（若要将数据作为 base64 编码字符串进行准备）需要在调用服务中实现。
 
 ## <a name="trigger"></a>触发器
 
@@ -497,7 +500,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 有关完整示例，请参阅[输出 - C# 示例](#output---c-example)。
 
-可以使用 `StorageAccount` 特性在类、方法或参数级别指定存储帐户。 有关详细信息，请参阅[触发器 - 特性](#trigger---attribute)。
+可以使用 `StorageAccount` 特性在类、方法或参数级别指定存储帐户。 有关详细信息，请参阅“触发器 - 特性”。
 
 ## <a name="output---configuration"></a>输出 - 配置
 
@@ -589,4 +592,4 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 [CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

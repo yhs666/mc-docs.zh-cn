@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8a6fe01420074e2911f03d5b92e7c7f32a64cb27
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: bbeb9e1399bef71b754f39deb8aff5f4876cb160
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674811"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666064"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 创建和管理 Windows VM
 
@@ -54,9 +54,8 @@ ms.locfileid: "52674811"
 
 ## <a name="create-credentials"></a>创建凭据
 
-在开始此步骤之前，请确保拥有 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
+在开始此步骤之前，请确保拥有 [Active Directory 服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
 
-<!--URL is correct on [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md)-->
 1. 打开创建的 myPythonProject.py 文件，然后添加此代码，使应用程序运行：
 
     ```python
@@ -98,7 +97,9 @@ ms.locfileid: "52674811"
         return credentials
     ```
     
-    <!-- Notice: Add China = True --> 将 **application-id**、**authentication-key** 和 **tenant-id** 替换为前面在创建 Azure Active Directory 服务主体时收集的值。
+    <!-- Notice: Add China = True -->
+    
+    将 application-id、authentication-key 和 tenant-id 替换为前面在创建 Azure Active Directory 服务主体时收集的值。
 
 5. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
 

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
-origin.date: 09/14/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 0a0210c76b644d265a03feda9bc199381c210ab5
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 11/09/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: b57f24ed5f357eb973ead8045220ca83ca3af61b
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996338"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663480"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>将应用程序连接到 Azure SQL 数据库托管实例
 

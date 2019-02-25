@@ -1,22 +1,22 @@
 ---
-title: 快速入门：使用 Python 分析文本内容中是否存在令人反感的材料
+title: 快速入门：使用 Python 分析文本内容 - 内容审查器
 titlesuffix: Azure Cognitive Services
 description: 如何使用适用于 Python 的内容审查器 SDK 分析文本内容中是否存在各种令人反感的材料
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-origin.date: 11/19/2018
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: f5759edcba2848983601ce0c8bb09ed82f1a4a0b
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 5a0a1944e66560656eceae621369c14b2b0f93d1
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858068"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582757"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>快速入门：使用 Python 分析文本内容中是否存在令人反感的材料
 
@@ -85,7 +85,7 @@ Crap is the profanity here. Is this information PII? phone 3144444444
 
 ## <a name="query-the-moderator-service"></a>查询审查器服务
 
-使用订阅密钥和终结点 URL 创建 ContentModeratorClient 实例。 然后，使用其成员 TextModerationOperations 实例调用审查 API。 有关如何调用的详细信息，请参阅 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** 参考文档。
+使用订阅密钥和终结点 URL 创建 ContentModeratorClient 实例。 然后，使用其成员 TextModerationOperations 实例调用审查 API。 有关如何调用的详细信息，请参阅 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** 参考文档。
 
 ```python
 # Create the Content Moderator client
@@ -155,3 +155,4 @@ pprint(screen.as_dict())
 > [!div class="nextstepaction"]
 > [文本审查指南](text-moderation-api.md)
 
+<!-- Update_Description: link update -->

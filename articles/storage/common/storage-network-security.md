@@ -9,16 +9,18 @@ origin.date: 10/30/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: c838029b938752b05792d89a824cb4be197b5578
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 4f5ded12a88ac9ed9a57b9b41628f075dd830e9c
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192927"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665701"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 
 Azure 存储提供分层安全模型。 借助此模型，可保护存储帐户，使其仅可供受支持的一组特定网络访问。 配置网络规则后，仅通过指定网络组请求数据的应用程序才能访问存储帐户。
+
+在网络规则生效后访问存储帐户的应用程序需要在请求中提供适当的授权。 支持通过 Azure Active Directory (AD) 凭据（适用于 Blob 和队列）（预览版）、有效帐户访问密钥或 SAS 令牌提供授权。
 
 > [!IMPORTANT]
 > 默认情况下，除非请求来自在 Azure 虚拟网络 (VNet) 内运行的服务，否则开启存储帐户的防火墙规则会阻止数据传入请求。 被阻止的请求包括来自其他 Azure 服务、来自 Azure 门户、来自日志记录和指标服务等的请求。
@@ -240,7 +242,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。 IP 规则不允许�
 
 若要使用 IP 网络规则授予本地网络访问存储帐户的权限，则必须标识网络所用的面向 Internet 的 IP 地址。 若要获得帮助，请联系网络管理员。
 
-可以使用 [ExpressRoute](/expressroute/expressroute-introduction) 将网络连接到 Azure 网络。 此时，每条线路都配有两个公共 IP 地址。 可在 Microsoft Edge 中找到它们并使用 [Azure 公共对等互连](/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)连接到 Azure 存储等 Azure 服务。 若要允许与 Azure 存储通信，请为线路的公共 IP 地址创建 IP 网络规则。 若要查找 ExpressRoute 线路的公共 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+可以使用 [ExpressRoute](/expressroute/expressroute-introduction) 将网络连接到 Azure 网络。 此时，每条线路都配有两个公共 IP 地址。 可在 Microsoft Edge 中找到它们并使用 [Azure 公共对等互连](/expressroute/expressroute-circuit-peerings)连接到 Azure 存储等 Azure 服务。 若要允许与 Azure 存储通信，请为线路的公共 IP 地址创建 IP 网络规则。 若要查找 ExpressRoute 线路的公共 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 网络规则
 
@@ -352,7 +354,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。 IP 规则不允许�
 |Azure Site Recovery|Microsoft.SiteRecovery |通过启用 Azure IaaS 虚拟机的复制来配置灾难恢复。 如果使用启用了防火墙的缓存存储帐户、源存储帐户或目标存储帐户，则这是必需的。  [了解详细信息](/site-recovery/azure-to-azure-tutorial-enable-replication)。|
 |Azure 事件中心|Microsoft.EventHub|使用事件中心捕获功能存档数据。  [了解详细信息](/event-hubs/event-hubs-capture-overview)。|
 |Azure 网络|Microsoft.Networking|存储和分析网络流量日志。 [了解详细信息](/network-watcher/network-watcher-packet-capture-overview)。|
-|Azure Monitor|Microsoft.Insights|允许将监视数据写入受保护存储帐户[了解详细信息](/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks)。|
+|Azure Monitor|Microsoft.Insights|允许将监视数据写入受保护存储帐户[了解详细信息](/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|
 |Azure SQL 数据仓库|Microsoft.Sql|允许使用 PolyBase 的导入和导出方案。 [了解详细信息](/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
 
 ### <a name="storage-analytics-data-access"></a>存储分析数据访问

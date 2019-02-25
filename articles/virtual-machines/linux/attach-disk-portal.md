@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 07/30/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f97a737fc51fc69a9c6ca8c558700ad1d3f856db
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: disks
+ms.openlocfilehash: 37f74d984bb66d49e340883bddb07bb9b8b9d538
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644469"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666428"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用门户将数据磁盘附加到 Linux VM 
 本文介绍如何通过 Azure 门户将新磁盘和现有磁盘附加到 Linux 虚拟机。 也可以[在 Azure 门户中将数据磁盘附加到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -29,8 +30,10 @@ ms.locfileid: "52644469"
 将磁盘附加到 VM 之前，请查看以下提示：
 
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要使用高级存储，需要一个 DS 系列虚拟机。 可以将高级磁盘和标准磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅 [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../windows/premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+* 若要使用高级存储，需要一个 DS 系列虚拟机。 可以将高级磁盘和标准磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../windows/premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
 <!-- Not Available on DG-series in Azure China -->
+
 * 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请参阅[关于虚拟机的磁盘和 VHD](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 附加磁盘后，需要[连接到 Linux VM 以装载新磁盘](#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
@@ -74,6 +77,7 @@ ms.locfileid: "52644469"
 4. 在 Azure 将磁盘附加到虚拟机之后，磁盘出现在“数据磁盘” 下的虚拟机磁盘设置中。
 
 <!-- Verify successfully on  The Connect to the Linux VM to mount the new disk-->
+
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>连接到 Linux VM 以装入新磁盘
 若要对新磁盘进行分区、格式化和装载，以便 Linux VM 可以使用它，请通过 SSH 登录到 VM。 有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](mac-create-ssh-keys.md)。 以下示例使用公共 DNS 条目 *mypublicdns.chinanorth.cloudapp.chinacloudapi.cn* 和用户名 *azureuser* 连接到一个 VM： 
 
@@ -97,7 +101,12 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-此处，*sdc* 是我们需要的磁盘。 使用 `fdisk` 对磁盘进行分区，将其设置为分区 1 中的主磁盘，并接受其他默认值。 以下示例在 */dev/sdc* 上启动 `fdisk` 进程：
+此处，*sdc* 是我们需要的磁盘。 
+
+### <a name="partition-a-new-disk"></a>对新磁盘进行分区
+如果使用包含数据的现有磁盘，请跳到装载磁盘。 如果附加新磁盘，需要对磁盘进行分区。
+
+使用 `fdisk` 对磁盘进行分区。 如果磁盘大小为 2 太字节 (TiB) 或更大，则必须使用 GPT 分区；可以使用 `parted` 来执行 GPT 分区。 如果磁盘大小在 2 TiB 以下，则可以使用 MBR 或 GPT 分区。 将其设置为分区 1 中的主磁盘，并接受其他默认值。 以下示例在 */dev/sdc* 上启动 `fdisk` 进程：
 
 ```bash
 sudo fdisk /dev/sdc
@@ -178,7 +187,8 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-现在，使用 `mkdir` 创建一个目录来装载文件系统。 以下示例在 */datadrive* 处创建一个目录：
+### <a name="mount-the-disk"></a>装载磁盘
+使用 `mkdir` 创建一个目录来装载文件系统。 以下示例在 */datadrive* 处创建一个目录：
 
 ```bash
 sudo mkdir /datadrive
@@ -252,4 +262,5 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 ## <a name="next-steps"></a>后续步骤
 还可使用 Azure CLI [附加数据磁盘](add-disk.md)。
-<!--Update_Description: update meta properties, add content of Connect to the Linux VM to mount the new disk-->
+
+<!--Update_Description: update meta properties, wording update -->

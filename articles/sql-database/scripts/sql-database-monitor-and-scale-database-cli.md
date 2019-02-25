@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/02/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: dc42c3a9da98bde1ae97884f1a10fa74c176b454
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 312f71e13fe6dbaa9f39ae8688f48a64501b89e5
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666473"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663553"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 
@@ -26,7 +26,7 @@ ms.locfileid: "52666473"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -91,8 +91,8 @@ az group delete --name myResourceGroup
 | 命令 | 注释 |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建用于托管数据库的逻辑服务器。 |
-| [az sql db show-usage](/cli/sql/db#az-sql-db-show-usage) | 显示数据库的大小使用情况信息。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [az sql db show-usage](/cli/sql/db) | 显示单一数据库或入池数据库的大小使用情况信息。 |
 | [az sql db update](/cli/sql/db#az-sql-db-update) | 更新数据库属性（如服务层或计算大小），或者将数据库移入、移出弹性池或在弹性池之间移动。 |
 | [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 |||

@@ -8,15 +8,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2c8ba22af00c0a53ca85eed67bd15d1d8420c71b
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 0948c3a38130ade54afdf319acbca62aa482f702
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334222"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665505"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 创建无服务器 API
 
@@ -54,7 +54,7 @@ ms.locfileid: "54334222"
 
 1. 单击“保存” 。
 
-可以在 [Azure Functions HTTP 绑定](/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint)中详细了解如何自定义 HTTP 函数。
+可以在 [Azure Functions HTTP 绑定](/azure-functions/functions-bindings-http-webhook)中详细了解如何自定义 HTTP 函数。
 
 ### <a name="test-your-api"></a>测试 API
 
@@ -176,7 +176,7 @@ ms.locfileid: "54334222"
 }
 ```
 
-这会添加一个不带 backendUri 属性的新代理“GetUserByName”。 此代理不会调用另一个资源，而是使用响应重写来修改代理的默认响应。 也可以将请求和响应重写与后端 URL 结合使用。 在代理需要修改标头、查询参数等元素的旧式系统时，这种做法特别有效。若要详细了解请求和响应重写，请参阅[修改代理中的请求和响应](/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses)。
+这会添加一个不带 backendUri 属性的新代理“GetUserByName”。 此代理不会调用另一个资源，而是使用响应重写来修改代理的默认响应。 也可以将请求和响应重写与后端 URL 结合使用。 在代理需要修改标头、查询参数等元素的旧式系统时，这种做法特别有效。若要详细了解请求和响应重写，请参阅[修改代理中的请求和响应](/azure-functions/functions-proxies)。
 
 通过使用浏览器或偏好的 REST 客户端调用 `<YourProxyApp>.chinacloudsites.cn/api/users/{username}` 终结点来测试模拟 API。 请务必将 _{username}_ 替换为表示用户名的字符串值。
 
@@ -194,3 +194,4 @@ ms.locfileid: "54334222"
 [Create your first function]: /azure-functions/functions-create-first-azure-function
 [使用 Azure Functions 代理]: /azure-functions/functions-proxies
 
+<!-- Update_Description: link update -->

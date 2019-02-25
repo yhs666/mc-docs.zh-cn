@@ -3,20 +3,20 @@ title: Azure Active Directory 自助密码重置深入探讨
 description: 自助密码重置的工作原理
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 07/11/2018
-ms.date: 09/05/2018
+origin.date: 01/30/2019
+ms.date: 02/19/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: afa4c3ca566eb5de6c2c32a2a13a65c81df96e58
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a503899609c6ca4e095081f724cbc3209a478397
+ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650307"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409407"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>工作原理：Azure AD 自助密码重置
 
@@ -52,7 +52,7 @@ ms.locfileid: "52650307"
      - 如果策略仅要求两种方法，则确保用户具有针对由管理员策略启用的至少两种身份验证方法定义的适当数据。
        - 如果未配置身份验证方法，则建议用户联系其管理员重置其密码。
      - 如果为用户分配了 Azure 管理员角色，则会强制实施强双门密码策略。 可以在[管理员重置策略差异](concept-sspr-policy.md#administrator-reset-policy-differences)部分中找到有关此策略的详细信息。
-   - 检查是否在本地管理用户密码（联合、直通身份验证或密码哈希同步）。
+   - 检查是否在本地管理用户密码（联合或密码哈希同步）。
      - 如果已部署写回且在本地管理用户密码，则允许用户继续进行身份验证并重置其密码。
      - 如果未部署写回且在本地管理用户密码，则要求用户联系其管理员重置其密码。
 4. 如果确定用户能够成功重置其密码，则将指导用户完成重置过程。
@@ -85,7 +85,7 @@ ms.locfileid: "52650307"
 
 #### <a name="mobile-app-and-sspr-preview"></a>移动应用和 SSPR（预览版）
 
-使用移动应用（例如 Microsoft Authenticator 应用）作为密码重置方法时，应注意以下问题：
+使用移动应用（例如 Microsoft Authenticator 应用）作为密码重置方法时，应注意以下几个注意事项：
 
 - 当管理员要求使用一种方法来重置密码时，验证码是唯一可用的选项。
 - 当管理员要求使用两种方法来重置密码时，用户可以使用通知或验证码进行重置，此外还能使用其他任何已启用的方法。
@@ -117,7 +117,7 @@ ms.locfileid: "52650307"
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>要求用户在登录时注册
 
-启用此选项需要用户在使用 Azure AD 登录到任何应用程序时完成密码重置注册。 这包括以下应用程序：
+启用此选项需要用户在使用 Azure AD 登录到任何应用程序时完成密码重置注册。 此工作流包括以下应用程序：
 
 - Office 365
 - Azure 门户
@@ -130,7 +130,7 @@ ms.locfileid: "52650307"
 > [!NOTE]
 > 用户可以通过选择“取消”或关闭窗口来隐藏密码重置注册门户。 但是，在完成注册之前，每当他们登录时，系统都会提示他们注册。
 >
-> 如果用户已登录，此行为不会中断用户的连接。
+> 如果用户已登录，此中断不会中断用户的连接。
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>设置用户必须在几天后重新确认其身份验证信息
 
@@ -161,5 +161,5 @@ ms.locfileid: "52650307"
 - [SSPR 中的所有选项有哪些？它们有哪些含义？](concept-sspr-howitworks.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "可用的 Azure AD 身份验证方法和所需数量"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "本地集成密码写回配置和故障排除信息"
 
+<!-- Update_Description: wording update -->

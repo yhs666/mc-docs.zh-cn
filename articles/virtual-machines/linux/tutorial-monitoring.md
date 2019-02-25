@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/06/2018
-ms.date: 12/24/2018
+origin.date: 01/26/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 519fc1a5d62beb6fb3c919dd0438c3dbb9c615f7
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: b1cea681f9853989cbae6654435df0181dcd64b6
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736123"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666384"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -115,6 +115,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 ```
 
 <!--Notice: View host metrics verify successfully-->
+
 ## <a name="view-host-metrics"></a>查看主机指标
 
 Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收集该主机的指标，可以在 Azure 门户中查看这些指标，如下所示：
@@ -173,4 +174,4 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 <!-- Not Available on Set up advanced monitoring-->
 <!-- Not Available on [Manage VM security](./tutorial-azure-security.md)-->
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, wording update -->

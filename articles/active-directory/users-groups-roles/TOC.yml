@@ -9,10 +9,8 @@ items:
   items:
   - name: 比较默认用户权限
     href: /active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure 和 Azure AD 管理员角色
+  - name: 比较 Azure 和 Azure AD 角色
     href: /role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: 服务限制和局限性
-    href: directory-service-limits-restrictions.md
   expanded: true
 - name: 操作指南
   items:
@@ -60,16 +58,22 @@ items:
       href: directory-assign-admin-roles.md
     - name: 查看和分配角色
       href: directory-manage-roles-portal.md
+    - name: 委托应用管理角色
+      href: roles-delegate-app-roles.md
     - name: 按任务分配的最低权限角色
       href: roles-delegate-by-task.md
+    - name: Microsoft 365 角色
+      href: roles-m365-workload-docs.md
   expanded: true
 - name: 参考
   items:
   - name: Azure AD CLI
     href: /cli/ad
-ms.openlocfilehash: 82fd0f73b36f74ea15bb373ea85e19ca11b1a5ac
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+  - name: Azure AD 服务限制
+    href: directory-service-limits-restrictions.md
+ms.openlocfilehash: 446ff23efc897bedba4cc8db644e0290940f9225
+ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029259"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409403"

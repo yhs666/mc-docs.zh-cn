@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ddc05a13d435ca173657bff7e68bd1ba994584e8
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.openlocfilehash: 225cdc065e81fbad6e7df7fb77d94d6dd4da4b05
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363793"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663709"
 documentType: LandingData
 title: Azure SQL 数据库：单一数据库
 metadata:
@@ -14,12 +14,13 @@ metadata:
   services: sql-database
   author: WenJason
   manager: digimobile
+  requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  origin.date: 12/01/2018
-  ms.date: 01/21/2019
+  origin.date: 01/25/2019
+  ms.date: 02/25/2019
   ms.author: v-jay
 abstract:
   description: Azure SQL 数据库是基于最新稳定版 Microsoft SQL Server 数据库引擎的关系数据库即服务 (DBaaS)。 SQL 数据库是一种高性能、易于使用、可靠且安全的数据库，可以用来以所选编程语言构建新的应用程序、网站和微服务，且无需管理基础结构。 使用我们的快速入门、教程和示例了解如何使用 SQL 数据库。
@@ -35,9 +36,9 @@ sections:
       html: <p>SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管理和缩放具有不断变化且不可预测的使用需求的多个数据库。</p>
       image:
         src: media/index/i_elasticpool.svg
-    - title: 逻辑服务器
-      href: /sql-database/sql-database-logical-servers
-      html: <p>逻辑服务器是一个集中管理点，可用于在服务器中的一组数据库上配置安全性、优化、备份策略和其他配置属性。</p>
+    - title: SQL 数据库服务器
+      href: /sql-database/sql-database-servers
+      html: <p>SQL 数据库服务器是集中管理点，可用于在服务器中的一组单一数据库或入池数据库上配置安全性、优化、备份策略和其他配置属性。</p>
       image:
         src: media/index/i_mi.svg
     - title: 价格和服务层
@@ -92,13 +93,12 @@ sections:
     rows:
     - title: 创建数据库
       values:
-      - href: /sql-database/sql-database-get-started-portal
+      - href: /sql-database/sql-database-single-database-get-started
       - href: /sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: 
     - title: 创建弹性池
       values:
-      - href: 
+      - href: /sql-database/sql-database-elastic-pool-manage
       - href: /sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create

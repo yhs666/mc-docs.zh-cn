@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c563511bd445d995332f312b35c966650964d0de
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3c513364fa560a5098b20bded1d01e312aeca9ed
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647404"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666406"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>在 Linux VM 上使用 cloud-init 配置交换文件
 本文介绍如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各种 Linux 分发版中配置交换文件。 在传统上，交换文件由 Linux 代理 (WALA) 根据分发版的需要进行配置。  本文档概述在预配期间，使用 cloud-init 按需生成交换文件的过程。  有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -31,7 +31,8 @@ ms.locfileid: "52647404"
 ## <a name="create-swapfile-for-centos-based-images"></a>为基于 CentOS 的映像创建交换文件
 <!-- Not Available on RedHat -->
 
-在当前 shell 中，创建名为 *cloud_init_swapfile.txt* 的文件并粘贴以下配置。 对于此示例，请在本地计算机中创建文件。可以使用任何想用的编辑器。 输入 `sensible-editor cloud_init_swapfile.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+在当前 shell 中，创建名为 *cloud_init_swapfile.txt* 的文件并粘贴以下配置。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud_init_swapfile.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+
 <!-- Not Available on Cloud Shell -->
 
 ```yaml

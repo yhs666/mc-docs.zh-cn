@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 08/28/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 36fe89dc15344df90f9431c0a10191f8a0a2dd94
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: f11bec51963b2f95ed1ca4fa1c6ea1ddeb5506b2
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569337"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440030"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
@@ -74,12 +74,13 @@ az acr update --name myclassicregistry --sku Premium
 
 迁移完成后，会看到如下所示的输出。 请注意，`sku` 为“高级”，`storageAccount` 为“null”，表明 Azure 现在为此注册表管理映像存储。
 
+
 ```JSON
 {
   "adminUserEnabled": false,
   "creationDate": "2017-12-12T21:23:29.300547+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
-  "location": "chinaeast",
+  "location": "chinanorth",
   "loginServer": "myregistry.azurecr.cn",
   "name": "myregistry",
   "provisioningState": "Succeeded",

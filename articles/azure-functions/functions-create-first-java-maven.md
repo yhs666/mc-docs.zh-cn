@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/10/2018
-ms.date: 12/27/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a1f3c4cff2b37919319beade570aa97dda50167d
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: c5457813d5a0ebf1f6a3033665dc43834162cf5a
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806581"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665471"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
 
@@ -55,11 +55,11 @@ ms.locfileid: "53806581"
 若要继续进行基于 npm 的安装，请运行：
 
 ```
-npm install -g azure-functions-core-tools@core
+npm install -g azure-functions-core-tools
 ```
 
 > [!NOTE]
-> 如果在安装 Azure Functions 核心工具版本 2.0 时遇到问题，请参阅[版本 2.x 运行时](/azure-functions/functions-run-local#version-2x-runtime)。
+> 如果在安装 Azure Functions 核心工具版本 2.0 时遇到问题，请参阅[版本 2.x 运行时](/azure-functions/functions-run-local)。
 
 ## <a name="generate-a-new-functions-project"></a>生成新的 Functions 项目
 

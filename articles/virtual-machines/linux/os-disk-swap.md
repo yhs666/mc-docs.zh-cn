@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/24/2018
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: fdf66c5248d7f8596693ad56840222a86a9e039c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 74b875c02c9ae349e24573630696d5857391c663
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659039"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666329"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>使用 CLI 更改由 Azure VM 使用的 OS 磁盘
 
@@ -33,7 +33,7 @@ ms.locfileid: "52659039"
 
 本文需要 Azure CLI 2.0.25 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
-使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#list) 获取资源组中的磁盘列表。
+使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list) 获取资源组中的磁盘列表。
 
 ```azurecli
 az disk list \
@@ -42,7 +42,7 @@ az disk list \
    --output table
 ```
 
-在交换磁盘之前，使用 [az vm stop](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#stop) 停止\取消分配 VM。
+在交换磁盘之前，使用 [az vm stop](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-stop) 停止\取消分配 VM。
 
 ```azurecli
 az vm stop \
@@ -59,7 +59,7 @@ az vm update \
    --os-disk /subscriptions/<subscription ID>/resourceGroups/swap/providers/Microsoft.Compute/disks/myDisk 
    ```
 
-使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#start) 重启 VM：
+使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start) 重启 VM：
 
 ```azurecli
 az vm start \

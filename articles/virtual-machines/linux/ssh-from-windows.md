@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 10/22/2018
+origin.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: fa10cd5db3d37035d345e19f5030cababd399998
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f93bb5924218500d647d599c76468dcc27d7c12d
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662442"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666316"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上将 SSH 密钥与 Windows 配合使用
 
@@ -51,6 +51,7 @@ Windows 计算机并不总是装有类似的 SSH 命令。 最新版本的 Windo
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>使用 ssh-keygen 创建 SSH 密钥
 
 如果在 Windows 上运行支持 SSH 客户端工具的命令外壳，请使用 `ssh-keygen` 命令创建 SSH 密钥对。 键入以下命令，并回答提示。 如果所选的位置中存在 SSH 密钥对，则这些文件将被覆盖。 
+
 <!-- Not Available on (or Bash in Azure Cloud Shell) -->
 
 ```bash
@@ -71,7 +72,7 @@ ssh-keygen -t rsa -b 2048
 
 4. 在空白区域中四处移动鼠标指针来为密钥提供随机性。
 
-5. 生成公钥后，可选择输入并确认通行短语。 使用 SSH 私钥面向 VM 进行身份验证时，系统会提示输入通行短语。 如果有人获取了私钥但没有通行短语，他们可以登录到使用该密钥的任何 VM 或服务。 我们建议创建一个通行短语。 但是，如果你忘记了通行短语，将没有办法恢复它。
+5. 生成公钥后，可选择输入并确认通行短语。 使用 SSH 私钥面向 VM 进行身份验证时，系统会提示输入通行短语。 没有通行短语，如果有人获取了私钥，他们可以登录到使用该密钥的任何 VM 或服务。 我们建议创建一个通行短语。 但是，如果你忘记了通行短语，将没有办法恢复它。
 
 6. 公钥会显示在窗口的顶部。 创建 Linux VM 时，可以复制此完整公钥并将其粘贴到 Azure 门户或 Azure 资源管理器模板中。 也可以选择“保存公钥”将副本保存到计算机中：
 
@@ -94,6 +95,7 @@ ssh-keygen -t rsa -b 2048
 ## <a name="connect-to-your-vm"></a>连接到 VM
 
 在 Windows 中建立 SSH 以连接 Linux VM 的方法之一是使用 SSH 客户端。 如果 Windows 系统上安装了 SSH 客户端，这是首选方法。 如果更喜欢基于 GUI 的工具，可使用 PuTTY 进行连接。  
+
 <!-- Not Available on or you use SSH tools in Bash in Azure Cloud Shell-->
 
 ### <a name="use-an-ssh-client"></a>使用 SSH 客户端
@@ -104,6 +106,8 @@ ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 如果创建密钥对时配置了通行短语，则在登录过程中遇到提示时，请输入该通行短语。
+
+<!--Not Available on [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md)-->
 
 ### <a name="connect-with-putty"></a>通过 PuTTY 连接
 

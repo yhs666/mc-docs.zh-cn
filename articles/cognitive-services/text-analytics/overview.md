@@ -3,20 +3,20 @@ title: 什么是文本分析？
 titleSuffix: Azure Cognitive Services
 description: Azure 认知服务中用于情绪分析、关键短语提取、语言检测和实体链接的文本分析。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: ashmaka
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: overview
 origin.date: 10/01/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: 26f8640cafb57076371623e5fb8445f14ca5f49d
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.date: 02/21/2019
+ms.author: v-junlch
+ms.openlocfilehash: 133a98e1dcdab01559a1229c8514d59a697e3d4c
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858083"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582767"
 ---
 # <a name="what-is-text-analytics"></a>什么是文本分析？
 
@@ -81,7 +81,7 @@ ms.locfileid: "54858083"
 
 ## <a name="next-steps"></a>后续步骤
 
-首先请尝试[交互式演示](https://www.azure.cn/home/features/cognitive-services/text-analytics/)。 可以粘贴一段文本输入（最多 5,000 个字符）来检测语言（最多 120 种）、计算情绪评分，或提取关键短语。
+首先请尝试[交互式演示](https://www.azure.cn/home/features/cognitive-services/text-analytics/)。 可以粘贴一段文本输入（最多 5,000 个字符）来检测语言（最多 120 种）、计算情绪评分，或提取关键短语。 不需要注册。
 
 准备好直接调用 API 时：
 
@@ -94,3 +94,4 @@ ms.locfileid: "54858083"
 ## <a name="see-also"></a>另请参阅
 
  [认知服务文档页](/cognitive-services/)
+

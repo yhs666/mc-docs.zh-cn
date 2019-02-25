@@ -1,6 +1,6 @@
 ---
 title: 使用 Ambari REST API 监视和管理 Hadoop - Azure HDInsight | Azure
-description: 了解如何使用 Ambari 监视和管理 Azure HDInsight 中的 Hadoop 群集。 在本文档中，学习如何使用 HDInsight 群集随附的 Ambari REST API。
+description: 了解如何使用 Ambari 监视和管理 Azure HDInsight 中的 Hadoop 群集。 本文档介绍如何使用 HDInsight 群集随附的 Ambari REST API。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,25 +15,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 09/24/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: a08b1a649e1c5f4fed23e03ba65285f67d29bc54
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 900c5e0141e0ee1004833cb1c50eb3cc6f3a3173
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028996"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665565"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>使用 Ambari REST API 管理 HDInsight 群集
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 管理 HDInsight 群集
 
+[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-了解如何使用 Ambari REST API 监视和管理 Azure HDInsight 中的 Hadoop 群集。
+了解如何使用 Apache Ambari REST API 管理和监视 Azure HDInsight 中的 Apache Hadoop 群集。
 
 Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集的管理和监视。 Ambari 包含在使用 Linux 操作系统的 HDInsight 群集中。 可以使用 Ambari 监视群集和进行配置更改。
 
-## <a id="whatis"></a>什么是 Ambari
+## <a id="whatis"></a>什么是 Apache Ambari
 
-[Apache Ambari](http://ambari.apache.org) 提供可用于管理和监视 Hadoop 群集的 Web UI。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
+[Apache Ambari](https://ambari.apache.org) 提供可用于管理和监视 Hadoop 群集的 Web UI。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
 
 基于 Linux 的 HDInsight 群集已按默认提供 Ambari。
 
@@ -46,7 +47,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 如果使用 __Bourne 外壳__ (Bash)，则必须安装以下各项：
 
-* [cURL](http://curl.haxx.se/)：cURL 是一个可用于从命令行使用 REST API 的实用工具。 在本文档中，它用于与 Ambari REST API 通信。
+* [cURL](https://curl.haxx.se/)：cURL 是一个可用于从命令行使用 REST API 的实用工具。 在本文档中，它用于与 Ambari REST API 通信。
 
 不论使用 Bash 还是 PowerShell，还必须安装 [jq](https://stedolan.github.io/jq/) 。 Jq 是用于处理 JSON 文档的实用工具。 **所有** Bash 示例都使用了该实用工具，PowerShell 示例中有**一个**使用了该实用工具。
 
@@ -138,10 +139,10 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-> [!NOTE]
-> 虽然本文档中的大多数示例使用 `ConvertFrom-Json` 来显示响应文档中的元素，但[更新 Ambari 配置](#example-update-ambari-configuration)示例使用了 jq。 Jq 在此示例中用来基于 JSON 响应文档构造一个新模板。
+> [!NOTE]  
+> 虽然本文档中的大多数示例使用 `ConvertFrom-Json` 来显示响应文档中的元素，但“更新 Ambari 配置”示例使用了 jq。 本示例中使用 Jq 从 JSON 响应文档构造一个新模板。
 
-有关 REST API 的完整参考，请参阅 [Ambari API 参考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
+有关 REST API 的完整参考，请参阅 [Apache Ambari API 参考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
 ## <a name="example-get-the-fqdn-of-cluster-nodes"></a>示例：获取群集节点的 FQDN
 
@@ -544,5 +545,5 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 REST API 的完整参考，请参阅 [Ambari API 参考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
-<!--Update_Description: update code-->
+有关 REST API 的完整参考，请参阅 [Apache Ambari API 参考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
+

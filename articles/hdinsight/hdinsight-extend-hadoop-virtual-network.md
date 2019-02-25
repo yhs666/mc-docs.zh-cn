@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/06/2018
-ms.date: 12/24/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: adbd7b3bf1bb73503a0af4cf210e0b5980c4366d
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 302c99bcb3906f1cbc27830d5cd5f31418894f47
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569346"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665694"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -30,7 +30,7 @@ ms.locfileid: "53569346"
 
 * 在 Azure 虚拟网络中将 HDInsight 连接到数据存储。
 
-* 直接访问无法通过 Internet 公开访问的 Apache Hadoop 服务。 例如，Kafka API 或 HBase Java API。
+* 直接访问无法通过 Internet 公开访问的 [Apache Hadoop](https://hadoop.apache.org/) 服务。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
 > [!WARNING]
 > 本文档中的信息要求你了解 TCP/IP 网络。 如果不熟悉 TCP/IP 网络，则应在修改生产网络之前，与熟悉 TCP/IP 网络的人合作。
@@ -77,7 +77,7 @@ ms.locfileid: "53569346"
 
     作为托管服务，HDInsight 要求对 Azure 数据中心的多个 IP 地址进行不受限制的访问。 请更新任何现有的网络安全组或用户定义路由，以便与这些 IP 地址通信。
 
-    HDInsight 托管多个服务，这些服务使用不同的端口。 不要阻止流向这些端口的流量。 请参阅[安全性](#security)部分，了解一系列允许通过虚拟设备防火墙的端口。
+    HDInsight 托管多个服务，这些服务使用不同的端口。 不要阻止流向这些端口的流量。 有关虚拟设备防火墙的允许端口列表，请参阅“安全”一节。
 
     若要查找现有的安全配置，请使用以下 Azure PowerShell 或 Azure 经典 CLI 命令：
 
@@ -128,7 +128,7 @@ ms.locfileid: "53569346"
 
 Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置的名称解析功能允许 HDInsight 使用完全限定的域名 (FQDN) 连接到以下资源：
 
-* 在 Internet 上提供的任何资源。 例如，microsoft.com、google.com。
+* 在 Internet 上提供的任何资源。 例如，microsoft.com、windowsupdate.com。
 
 * 同一 Azure 虚拟网络中能够使用资源的内部 DNS 名称连接的的任何资源。 例如，在使用默认的名称解析时，下面是分配给 HDInsight 工作节点的内部 DNS 名称示例：
 
@@ -178,11 +178,11 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。
 
-## <a name="directly-connect-to-hadoop-services"></a>直接连接到 Hadoop 服务
+## <a name="directly-connect-to-apache-hadoop-services"></a>直接连接到 Apache Hadoop 服务
 
 可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共 IP，如果已使用 NSG 来限制来自 Internet 的传入流量，则可能无法访问此地址。 此外，在 VNet 中部署群集时，可以使用专用终结点 https://CLUSTERNAME-int.azurehdinsight.cn 访问它。 此终结点可解析为 VNet 中的专用 IP，以进行群集访问。
 
-若要通过虚拟网络连接到 Ambari 以及其他网页，请使用以下步骤：
+若要通过虚拟网络连接到 Apache Ambari 以及其他网页，请使用以下步骤：
 
 1. 若要发现 HDInsight 群集节点的内部完全限定的域名 (FQDN)，请使用以下方法之一：
 
@@ -315,7 +315,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 ## <a id="hdinsight-ports"></a> 所需端口
 
-如果计划使用网络虚拟设备防火墙来保护虚拟网络，则必须允许以下端口的出站流量：
+如果计划使用**防火墙**来保护虚拟网络并通过某些端口访问群集，则应允许你的方案所需的端口上的流量。 默认情况下，不需要将这些端口加入允许列表：
 
 * 53
 * 443
@@ -323,7 +323,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 * 11000-11999
 * 14000-14999
 
-如需特定服务的端口列表，请参阅[由 HDInsight 上的 Hadoop 服务使用的端口](hdinsight-hadoop-port-settings-for-services.md)文档。
+对于特定服务的端口列表，请参阅 [HDInsight 上的 Apache Hadoop 服务所用的端口](hdinsight-hadoop-port-settings-for-services.md)文档。
 
 有关虚拟设备防火墙规则的详细信息，请参阅[虚拟设备方案](../virtual-network/virtual-network-scenario-udr-gw-nva.md)文档。
 
@@ -667,8 +667,8 @@ $vnet | Set-AzureRmVirtual Network
 ## <a name="next-steps"></a>后续步骤
 
 * 如需通过端到端示例来了解如何将 HDInsight 配置为连接到本地网络，请参阅[将 HDInsight 连接到本地网络](./connect-on-premises-network.md)。
-* 要了解如何在 Azure 虚拟网络中配置 Hbase 群集，请参阅[在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集](hbase/apache-hbase-provision-vnet.md)。
-* 要了解如何配置 HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 HBase 群集复制](hbase/apache-hbase-replication.md)。
+* 要了解如何在 Azure 虚拟网络中配置 Apache Hbase 群集，请参阅[在 Azure 虚拟网络中的 HDInsight 上创建 Apache HBase 群集](hbase/apache-hbase-provision-vnet.md)。
+* 要了解如何配置 Apache HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 Apache HBase 群集复制](hbase/apache-hbase-replication.md)。
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
 * 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。

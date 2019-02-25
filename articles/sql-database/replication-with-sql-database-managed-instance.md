@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure SQL 数据库托管实例进行复制 | Microsoft Docs
-description: 了解如何对 Azure SQL 数据库托管实例使用 SQL Server 复制
+title: 在 Azure SQL 数据库托管实例数据库中配置复制 | Microsoft Docs
+description: 了解如何在 Azure SQL 数据库托管实例数据库中配置事务复制
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,55 +11,29 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
-origin.date: 01/11/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: e03d0403b45a2a5c071f2df08c338a91eadd3d5c
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: e008002987947c312f12cb2e69a36ef547f8dd83
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363780"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663534"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>使用 SQL 数据库托管实例进行复制
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL 数据库托管实例数据库中配置复制
 
-[Azure SQL 数据库托管实例](sql-database-managed-instance.md)上的公共预览版可以使用复制。 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。
-
-## <a name="common-configurations"></a>常用配置
-
-通常情况下，发布服务器和分发服务器必须都在云中，或者都在本地。 支持以下配置：
-
-- **带本地分发服务器的发布服务器位于托管实例上**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   在单个托管实例上配置发布服务器和分发服务器数据库。
-
-- **带远程分发服务器的发布服务器位于托管实例上**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   在两个托管实例上配置发布服务器和分发服务器。 在此配置中：
-
-  - 两个托管实例都位于同一 vNet 中。
-
-  - 两个托管实例都位于同一位置。
-
-- **发布服务器和分发服务器位于本地，订阅服务器位于托管实例上**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   在此配置中，Azure SQL 数据库是订阅服务器。 此配置支持从本地迁移到 Azure。 在订阅服务器角色中，SQL 数据库不需要托管实例，但是你可以在从本地迁移到 Azure 的步骤中使用 SQL 数据库托管实例。 有关 SQL 数据库订阅服务器的详细信息，请参阅[复制到 SQL 数据库](replication-to-sql-database.md)。
+使用事务复制，可将数据从 SQL Server 数据库或其他实例数据库复制到 Azure SQL 数据库托管实例数据库中。 还可以使用事务复制将在 Azure SQL 数据库托管实例中的实例数据库中所做的更改推送到 SQL Server 数据库，推送到 Azure SQL 数据库中的单一数据库或推送到 Azure SQL 数据库弹性池中的入池数据库。 事务复制在 [Azure SQL 数据库托管实例](sql-database-managed-instance.md)上以公共预览版提供。 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。 有关可用配置，请参阅[事务复制配置](sql-database-managed-instance-transactional-replication.md#common-configurations)。
 
 ## <a name="requirements"></a>要求
 
-Azure SQL 数据库上的发布服务器和分发服务器需要：
+配置充当发布服务器或分发服务器的托管实例需要满足以下要求：
 
-- Azure SQL 数据库托管实例。
+- 该托管实例当前未加入异地复制关系。
 
    >[!NOTE]
-   >尚未使用托管实例进行配置的 Azure SQL 数据库只能是订阅服务器。
+   >Azure SQL 数据库中的单一数据库和入池数据库只能用作订阅服务器。
 
-- SQL Server 的所有实例需要在同一 vNet 上。
+- 所有托管实例必须位于同一 vNet 中。
 
 - 连接时，在复制参与者之间使用 SQL 身份验证。
 
@@ -71,11 +45,14 @@ Azure SQL 数据库上的发布服务器和分发服务器需要：
 
 支持：
 
-- 事务和快照复制混合，混合了本地和 Azure SQL 数据库托管实例。
+- 对本地实例和 Azure SQL 数据库中的托管实例混合使用事务复制和快照复制。
+- 订阅服务器可以位于本地 SQL Server 数据库中、Azure SQL 数据库中的单一数据库中，也可以位于 Azure SQL 数据库弹性池中的入池数据库中。
+- 单向或双向复制。
 
-- 订阅服务器可以是本地的，可以是 Azure SQL 数据库中的单一数据库，还可以是 Azure SQL 数据库弹性池中的池化数据库。
+Azure SQL 数据库中的托管实例不支持以下功能：
 
-- 单向或双向复制
+- 可更新的订阅。
+- 活动异地复制。
 
 ## <a name="configure-publishing-and-distribution-example"></a>配置发布和分发示例
 
@@ -84,15 +61,15 @@ Azure SQL 数据库上的发布服务器和分发服务器需要：
 
    确保复制存储密钥。 请参阅[查看和复制存储访问密钥](../storage/common/storage-account-manage.md#access-keys
 )。
-3. 为发布服务器创建数据库。
+3. 为发布服务器创建实例数据库。
 
-   在下面的示例脚本中，请将 `<Publishing_DB>` 替换为此数据库的名称。
+   在下面的示例脚本中，请将 `<Publishing_DB>` 替换为实例数据库的名称。
 
 4. 使用适用于发布服务器的 SQL 身份验证创建数据库用户。 使用安全密码。
 
    在下面的示例脚本中，将 `<SQL_USER>` 和 `<PASSWORD>` 与此 SQL Server 帐户数据库用户和密码配合使用。
 
-5. [连接到 SQL 数据库托管实例](/sql-database/sql-database-connect-query-ssms)。
+5. [连接到 SQL 数据库托管实例](sql-database-connect-query-ssms.md)。
 
 6. 运行以下查询，以便添加分发服务器和分发数据库。
 
@@ -189,15 +166,8 @@ Azure SQL 数据库上的发布服务器和分发服务器需要：
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>限制
-
-不支持以下功能：
-
-- 可更新的订阅
-
-- 活动异地复制
-
+   
 ## <a name="see-also"></a>另请参阅
 
-- [什么是托管实例？](/sql-database/sql-database-managed-instance)
+- [事务复制](sql-database-managed-instance-transactional-replication.md)
+- [什么是托管实例？](sql-database-managed-instance.md)

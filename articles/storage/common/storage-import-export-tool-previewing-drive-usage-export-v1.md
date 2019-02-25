@@ -1,26 +1,20 @@
 ---
-title: 预览 Azure 导入/导出的导出作业的驱动器使用情况 - v1 | Azure
+title: 预览 Azure 导入/导出的导出作业的驱动器使用情况 - v1 | Microsoft Docs
 description: 了解如何预览针对 Azure 导入/导出服务中的导出作业选择的 blob 列表。
-author: hayley244
-manager: digimobile
-editor: tysonn
+author: WenJason
 services: storage
-documentationcenter: ''
-ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 108453d1b9a1a544f520765b754c62c52449580a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 70e40f9b09adae99b713949c85ae8a0f3481febf
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651662"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665536"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>预览导出作业的驱动器使用情况
 在创建导出作业之前，需要选择一组要导出的 blob。 Azure 导入/导出服务允许使用一系列 Blob 路径或 Blob 前缀来表示选定的 Blob。  
@@ -37,7 +31,7 @@ ms.locfileid: "52651662"
 |/sn:<StorageAccountName\>|必需。 导出作业的存储帐户的名称。|  
 |/sk:<StorageAccountKey\>|当且仅当未指定容器 SAS 时才是必需的。 导出作业的存储帐户的帐户密钥。|  
 |**/csas:**<ContainerSas\>|当且仅当未指定存储帐户密钥时才是必需的。 用于列出要在导出作业中导出的 Blob 的容器 SAS。|  
-|/ExportBlobListFile:<ExportBlobListFile\>|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作的 `BlobListBlobPath` 元素中使用的文件格式。|  
+|/ExportBlobListFile:<ExportBlobListFile\>|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs)操作的 `BlobListBlobPath` 元素中使用的文件格式。|  
 |/DriveSize:<DriveSize\>|必需。 用于导出作业的驱动器大小，例如 500GB、1.5TB。|  
 
 ## <a name="command-line-example"></a>命令行示例

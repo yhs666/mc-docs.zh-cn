@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 10/31/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: c4a17734099b8f69bf820220fc36fc3911a9752b
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: common
+ms.openlocfilehash: ba7352e62e55db20d3560c91839587ceffe44de3
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192870"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665486"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 
@@ -273,7 +273,7 @@ AzCopy 安装在什么位置？
 
 **对于复制的存储帐户（如区域冗余存储、异地冗余存储或读取访问异地冗余存储），如何访问存储在次要区域中的数据？**
 
--   如果使用的是区域冗余存储空间或异地冗余存储，除非发生故障转移，否则无法从次要区域访问数据。 有关故障转移过程的详细信息，请参阅[进行存储空间故障转移时会发生什么情况](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)。
+-   如果使用的是区域冗余存储空间或异地冗余存储，除非发生故障转移，否则无法从次要区域访问数据。 有关故障转移过程的详细信息，请参阅[进行存储空间故障转移时会发生什么情况](storage-disaster-recovery-guidance.md)。
 
 -   如果使用的是读取访问异地冗余存储，可以随时从次要区域访问数据。 使用以下方法之一：  
       

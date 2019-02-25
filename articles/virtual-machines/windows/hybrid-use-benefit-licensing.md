@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 04/22/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1733916d41988a3900cbf285cce219d2f65123ae
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 0825afd7f59d0498b95e7ddfa43164a7c66981d7
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569205"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666176"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server 的 Azure 混合权益
 对于有软件保障的客户，Windows Server 的 Azure 混合权益可让你使用本地 Windows Server 许可证，并以较低成本在 Azure 中运行 Windows 虚拟机。 可以使用 Windows Server 的 Azure 混合权益部署 Windows OS 的新虚拟机。 本文介绍如何使用 Windows Server 的 Azure 混合权益部署新的 VM 的步骤，以及如何更新现有正在运行的 VM 的步骤。 有关 Windows Server 的 Azure 混合权益许可和成本节约方面的更多信息，请参阅[“Windows Server 的 Azure 混合权益许可”页](https://www.azure.cn/pricing/hybrid-use-benefit/)。
@@ -53,7 +53,7 @@ Windows Server 的 Azure 混合权益支持所有基于 Windows Server OS 的映
 
 ### <a name="powershell"></a>Powershell
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
     -Location "China North" `
@@ -96,17 +96,17 @@ az vm create \
 - 将现有 Windows Server VM 转换为 Windows Server 的 Azure 混合权益
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
 
 - 将具有权益的 Windows Server VM 转换回预付款
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
     <!-- Verify successfully--> <!-- pay-in-advance with None, hybrid benefit with Windows_Server-->
@@ -127,7 +127,7 @@ az vm create \
 ### <a name="powershell"></a>Powershell
 以下示例显示单个 VM 的许可证类型
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 输出：
@@ -163,7 +163,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query licenseType -o table
 
 ### <a name="powershell"></a>Powershell
 ```powershell
-$vms = Get-AzureRMVM 
+$vms = Get-AzVM 
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 

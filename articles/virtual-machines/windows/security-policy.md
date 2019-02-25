@@ -11,18 +11,18 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-origin.date: 08/14/2017
-ms.date: 10/16/2017
+origin.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 396f3d0e41f4695fe6597c9f40112b54cf3d2603
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5f2e90db1d95bfce1928222e6adc9f270e7e8271
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644120"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665806"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>在 Azure 中保护和使用虚拟机上的策略
 
 [!INCLUDE [virtual-machines-security-policy](../../../includes/virtual-machines-security-policy.md)]
 
-<!--Update_Description: new articles on security policy in Windows VM-->
+<!--Update_Description: update meta properties -->

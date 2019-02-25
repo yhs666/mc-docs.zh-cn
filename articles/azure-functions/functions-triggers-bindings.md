@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/24/2018
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7575b5ce8ee324868b0adc51e1949e104f15bad9
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 439a6f44836efb71d2969e6d89e8778e4c39f770
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334223"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665640"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -702,6 +702,5 @@ public class BlobName
 - [SendGrid](functions-bindings-sendgrid.md)
 - [通知中心](functions-bindings-notification-hubs.md)
 - [移动应用](functions-bindings-mobile-apps.md)
-- [外部文件](functions-bindings-external-file.md)
 
 <!-- Update_Description: wording update -->

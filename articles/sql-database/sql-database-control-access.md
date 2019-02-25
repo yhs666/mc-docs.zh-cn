@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 4c1155499c72b4034a281ff63d31553fe1f849b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/04/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 4f2029e99aec00557dea7a86b584557f7f73027e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645122"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663447"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL 数据库和 SQL 数据仓库访问控制
 
@@ -41,7 +41,7 @@ SQL 数据库支持两种类型的身份验证：
 
 - **SQL 身份验证**：
 
-  此身份验证方法使用用户名和密码。 在为数据库创建逻辑服务器时，已指定了一个包含用户名和密码的“服务器管理员”登录名。 通过这些凭据，可以使用数据库所有者（即“dbo”）的身份通过服务器上任何数据库的身份验证。 
+  此身份验证方法使用用户名和密码。 在为数据库创建 SQL 数据库服务器时，已指定一个包含用户名和密码的“服务器管理员”登录名。 通过这些凭据，可以使用数据库所有者（即“dbo”）的身份通过服务器上任何数据库的身份验证。 
 - **Azure Active Directory 身份验证**：
 
   此身份验证方法使用由 Azure Active Directory 托管的标识，并且受托管域和集成域支持。 请[尽可能](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)使用 Active Directory 身份验证（集成安全性）。 如果想要使用 Azure Active Directory 身份验证，则必须创建名为“Azure AD 管理员”的另一个服务器管理员，用于管理 Azure AD 用户和组。 此管理员还能执行普通服务器管理员可以执行的所有操作。 有关如何创建 Azure AD 管理员以启用 Azure Active Directory 身份验证的演练，请参阅[通过使用 Azure Active Directory 身份验证连接到 SQL 数据库](sql-database-aad-authentication.md)。
@@ -70,6 +70,6 @@ SQL 数据库支持两种类型的身份验证：
 - 有关 SQL 数据库安全功能的概述，请参阅 [SQL 安全概述](sql-database-security-overview.md)。
 - 有关防火墙规则的详细信息，请参阅[防火墙规则](sql-database-firewall-configure.md)。
 - 若要了解用户和登录名，请参阅[管理登录名](sql-database-manage-logins.md)。 
-- 有关主动监视的介绍，请参阅 [数据库审核](sql-database-auditing.md)和 [SQL 数据库威胁检测](sql-database-threat-detection.md)。
+- 有关主动监视的介绍，请参阅[数据库审核](sql-database-auditing.md)和 [SQL 数据库威胁检测](sql-database-threat-detection.md)。
 - 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
 <!--Update_Description: update word & link-->

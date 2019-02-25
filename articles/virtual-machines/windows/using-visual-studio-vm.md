@@ -15,19 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
 origin.date: 09/12/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 0b41d2fe9e4a6c2fb056bc20d109357f51f8e7c2
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: e98bbcf449422724f6e2c15651e4e27404fe0231
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736120"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665826"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1)。
+
 <!-- Notice: URL is correct on https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1-->
 
 不熟悉 Azure？ [创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
@@ -37,7 +38,7 @@ ms.locfileid: "53736120"
 
 | 发行版本                                              | 版本                     |     产品版本      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019：预览版（预览版 1）                   |           Enterprise         | 版本 16.0.0 预览版 1 |
+|    Visual Studio 2019：预览版 (Preview 2)                   |           Enterprise         | 版本 16.0.0 Preview 2 |
 | Visual Studio 2017：最新（版本 15.9）                    |    Enterprise、Community     |      版本 15.9.4      |
 |         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.20     |
 |   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01   |
@@ -114,6 +115,7 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 <!-- Notice: Change dollers to CNY-->
 
 此外，开发任务或技术可能需要更大的规模，如各种开发配置和多种计算机配置。 可使用 Azure 开发测试实验室，创建可自动构造“黄金映像”的配方。 还可以使用开发测试实验室管理团队正在运行的 VM 策略。 
+
 <!-- Not Available on [Using Azure DevTest Labs for developers](/devtest-lab/devtest-lab-developer-lab) -->
 
 ## <a name="next-steps"></a>后续步骤

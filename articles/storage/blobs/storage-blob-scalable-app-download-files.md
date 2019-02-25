@@ -2,23 +2,21 @@
 title: 从 Azure 存储下载大量随机数据 | Microsoft Docs
 description: 了解如何使用 Azure SDK 从 Azure 存储帐户下载大量随机数据
 services: storage
-documentationcenter: ''
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 05/07/2018
-ms.author: v-johch
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 38867bb89f467402fa939678181fa735a25ae1ee
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.subservice: blobs
+ms.openlocfilehash: 5c2f7d4f4ca9eb67bfa094d6525b8803fff9782e
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028489"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665400"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>从 Azure 存储下载大量随机数据
 
@@ -107,7 +105,7 @@ dotnet run
 |属性|值|说明|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| 是| 该属性禁用对上传内容的 MD5 哈希检查。 禁用 MD5 验证可加快传输速度。 但是不能确认传输文件的有效性或完整性。 |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 该属性确定是否计算和存储 MD5 哈希。   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 该属性确定是否计算和存储 MD5 哈希。   |
 
 下例显示了 `DownloadFilesAsync` 任务：
 

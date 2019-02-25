@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中的自助服务或试用注册 | Microsoft Docs
+title: 通过自助服务或试用注册添加用户 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory (Azure AD) 租户中使用自助服务注册
 services: active-directory
 documentationcenter: ''
@@ -7,20 +7,20 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-origin.date: 10/16/2018
-ms.date: 12/07/2018
+origin.date: 01/31/2019
+ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: d2e5e7f934a018ef2440515db41d5e6a04192221
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: e04bd75798351a87e6f9bb283bc44f12ac3d3916
+ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028217"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409406"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助服务注册？
 此文章介绍自助服务注册及如何在 Azure Active Directory (Azure AD) 中支持自助服务注册的相关内容。 
@@ -63,9 +63,9 @@ Flow 和 PowerApps 试用注册不由 **AllowAdHocSubscriptions** 设置控制�
 ### <a name="how-do-the-controls-work-together"></a>这些控制方式如何配合工作？
 可以结合使用这两个参数，从而实现对自助服务注册更精确的控制。 例如，以下命令允许用户执行自助服务注册，但前提是这些用户已在 Azure AD 中拥有一个帐户（换言之，需要先创建电子邮件验证帐户的用户无法执行自助服务注册）：
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 以下流程图解释了这些参数的不同组合，以及目录和自助注册的最终状态。
 

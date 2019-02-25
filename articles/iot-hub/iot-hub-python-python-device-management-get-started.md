@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/02/2018
-ms.date: 12/03/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: be8c3bda1c900ba62e526da05faec39973fa110f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fde68726262e7b77ac2e7ad786d04ef8b3808813
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675219"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665660"
 ---
 # <a name="get-started-with-device-management-python"></a>设备管理入门 (Python)
 
@@ -71,7 +71,7 @@ ms.locfileid: "52675219"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. 添加变量（包括 **CONNECTION_STRING** 变量）和客户端初始化。  将连接字符串替换为设备连接字符串。  
+1. 添加变量（包括 CONNECTION_STRING 变量）和客户端初始化。  将连接字符串替换为设备连接字符串。  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

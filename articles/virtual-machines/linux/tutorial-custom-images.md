@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ce103c3ba87185ffe950366c666af03f2325c57a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7e37fa4fc2a4b9b04e4429528c68b4a11c0c8f3a
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659191"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666036"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教程：使用 Azure CLI 创建 Azure VM 的自定义映像
 
@@ -76,15 +76,11 @@ exit
 
 若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 
 
-<!-- URL is correct on az-vm-deallocate -->
-
 ```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 最后，使用 [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-generalize) 将 VM 的状态设置为“通用化”，以便 Azure 平台知道 VM 已通用化。 只能从通用化 VM 创建映像。
-
-<!-- URL is correct on az-vm-generalize -->
 
 ```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -93,8 +89,6 @@ az vm generalize --resource-group myResourceGroup --name myVM
 ### <a name="create-the-image"></a>创建映像
 
 现在，可使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-create) 创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
-
-<!-- URL is correct az-image-create -->
 
 ```azurecli 
 az image create \

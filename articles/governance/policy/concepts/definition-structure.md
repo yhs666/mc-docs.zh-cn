@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a9b3d32a23e1e00587c85f9fea4cb2c32c858176
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: e9e8c25335e000235da467ded11e0511fb2fc54a
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906069"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409078"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -496,5 +496,5 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 - 在 [Azure Policy 示例](../samples/index.md)中查看示例
 - 查看[了解策略效果](effects.md)
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)
-- 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)
+- 了解如何[获取符合性数据](../how-to/get-compliance-data.md)
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组

@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/13/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: bbc7e137dbe9fb5a43f716aed69c1d3cc6634b39
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 80af08954e9ebd88be6aa368e198495532500fe4
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785149"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666150"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机
 
@@ -93,5 +93,4 @@ DHCP 客户端服务未在 VM 上运行。
 如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
 
 
-<!-- Update_Description: new articles on troubleshoot rdp dhcp disabled-->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update-->

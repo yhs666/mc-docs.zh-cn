@@ -1,4 +1,4 @@
-若要继续了解 Azure IoT 中心入门知识并浏览其他 IoT 方案，请参阅以下文章：
+若要继续了解 Azure IoT 中心入门知识并浏览所有扩展的 IoT 方案，请参阅：
 
 - [使用用于 Visual Studio Code 的 Azure IoT 中心工具包扩展管理云设备消息传送](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 

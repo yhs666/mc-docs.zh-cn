@@ -7,17 +7,17 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 10/09/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: ad637ba535289fa7a8b1809a6f9bbe2775173430
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: a9f61d01381ffd5451a8693c6afc1a6e45246941
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736141"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666140"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
 
@@ -34,6 +34,7 @@ ms.locfileid: "53736141"
 可以在[此处](https://www.azure.cn/zh-cn/home/features/products-by-region)查看 Dv3 或 Ev3 系列虚拟机的区域可用性。
 
 <!--Notice: URL is correct on [here](https://www.azure.cn/zh-cn/home/features/products-by-region)-->
+
 >[!NOTE]
 >
 >有关创建新虚拟机的详细说明，请参阅[使用 Azure PowerShell 模块创建和管理 Windows VM](/virtual-machines/windows/tutorial-manage-vm)
@@ -181,5 +182,9 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 在来宾虚拟机中，打开浏览器并导航到网页。
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+
+## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>设置来宾虚拟机的 Intranet 连接
+
+有关如何在来宾 VM 和 Azure VM 之间启用透明连接的说明，请参阅[此文档](https://docs.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network)。
 
 <!-- Update_Description: Update meta properties, wording update -->

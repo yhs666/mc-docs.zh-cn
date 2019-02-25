@@ -1,25 +1,26 @@
 ---
 title: 在 Azure Database for MySQL 中创建和管理只读副本
 description: 本文介绍如何使用门户在 Azure Database for MySQL 中设置和管理只读副本。
-services: mysql
 author: WenJason
 ms.author: v-jay
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 8f740f2dc54e3002e6e9867b8a76b9afa4bd09ac
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 01/23/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 5932d79c31e23984ccfcf351a0b718dc3179f17c
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673252"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663661"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中创建和管理只读副本
 
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
+
+> [!IMPORTANT]
+> 只读副本功能目前以公共预览版提供。
 
 在本文中，将了解如何使用 Azure 门户在与 Azure Database for MySQL 服务中的主服务器相同的 Azure 区域内创建和管理只读副本。 此功能目前处于公开预览状态。
 
@@ -114,6 +115,24 @@ ms.locfileid: "52673252"
 3. 键入主服务器的名称，然后单击“删除”以确认删除主服务器。  
 
    ![Azure Database for MySQL - 删除主服务器 ](./media/howto-read-replica-portal/delete-master-confirm.png)
+
+## <a name="monitor-replication"></a>监视复制
+
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择要监视的副本 Azure Database for MySQL 服务器。
+
+2. 在边栏的“监视”部分，选择“指标”：
+
+3. 从可用指标的下拉列表中选择“复制延迟(秒)”。 
+
+   ![选择复制延迟时间 ](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+
+4. 选择要查看的时间范围。 下图选择 30 分钟的时间范围。
+
+   ![选择时间范围 ](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+
+5. 查看所选时间范围的复制延迟时间。 下图显示过去的 30 分钟。
+
+   ![选择时间范围 ](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>后续步骤
 

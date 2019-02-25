@@ -1,26 +1,20 @@
 ---
-title: 为 Azure 导入/导出的导入作业准备硬盘驱动器 | Azure
+title: 为 Azure 导入/导出的导入作业准备硬盘驱动器 | Microsoft 文档
 description: 了解如何使用 WAImportExport 工具准备硬盘驱动器，以便为 Azure 导入/导出服务创建导入作业。
-author: hayley244
-manager: digimobile
-editor: tysonn
+author: WenJason
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 79c9eb4cd18c5023267ad6f897cbca0bb412c119
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 5a968c752978f2fc4079e160ba66c658e8d1bfb6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656815"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665485"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 
@@ -85,10 +79,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | 字段 | 说明 |
 | --- | --- |
-| BasePath | [必需]<br/>此参数的值表示要导入的数据的源。 此工具将以递归方式复制此路径下的所有数据。<br><br/>允许的值：这必须是本地计算机上的有效路径或者是有效的共享路径，并且应可以供用户访问。 目录路径必须是绝对路径（而非相对路径）。 如果路径以“\\”结尾，表示的是目录；如果路径不以“\\”结尾，表示的是文件。<br/>不允许在此字段中指定正则表达式。 如果路径包含空格，请将其输入到 "" 中。<br><br/>示例："c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| BasePath | [必需]<br/>此参数的值表示要导入的数据的源。 此工具将以递归方式复制此路径下的所有数据。<br><br/>允许的值：这必须是本地计算机上的有效路径或者是有效的共享路径，并且应当可以供用户访问。 目录路径必须是绝对路径（而非相对路径）。 如果路径以“\\”结尾，表示的是目录；如果路径不以“\\”结尾，表示的是文件。<br/>不允许在此字段中指定正则表达式。 如果路径包含空格，请将其输入到 "" 中。<br><br/>示例："c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | [必需]<br/> Microsoft Azure 存储帐户中目标虚拟目录的路径。 虚拟目录可能存在，也可能不存在。 如果不存在，则导入/导出服务会创建一个。<br/><br/>在指定目标虚拟目录或 Blob 时，请确保使用有效的容器名称。 请记住，容器名称必须是小写的。 有关容器命名规则，请参阅[命名和引用容器、Blob 与元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。 如果仅指定根，则在目标 Blob 容器中复制源的目录结构。 如果需要不同于源的目录结构，请在 CSV 中添加多行映射<br/><br/>可指定容器，或类似于 music/70s/ 的 blob 前缀。 目标目录必须以容器名称开头，后接正斜杠“/”，并且可以选择包含以“/”结尾的虚拟 blob 目录。<br/><br/>当目标容器为根容器时，必须显式指定包含正斜杠的根容器，例如 $root/。 由于根容器下的 blob 名称中不能包含“/”，因此当目标目录为根容器时，不会复制源目录中的任何子目录。<br/><br/>**示例**<br/>如果目标 Blob 路径是 https://mystorageaccount.blob.core.chinacloudapi.cn/video，则此字段的值可以为 video/  |
 | /BlobType | [可选] block &#124; page<br/>导入/导出服务当前支持 2 种 blob。 页 blob 和块 blob。默认情况下，所有文件以块 blob 的形式导入。 \*.vhd 和 \*.vhdx 将以页 blob 的形式导入。块 blob 和页 blob 允许的大小有一定限制。 有关详细信息，请参阅[存储可伸缩目标](storage-scalability-targets.md)。  |
-| Disposition | [可选] rename &#124; no-overwrite &#124; overwrite <br/> 此字段指定导入期间 （即在将数据从磁盘上传到存储帐户时）发生复制行为。 可用选项包括：rename&#124;overwite&#124;no-overwrite。如果未指定任何选项，则使用默认选项“rename”。 <br/><br/>Rename：若有同名对象，则在目标中创建副本。<br/>Overwrite：使用更新的文件来覆盖该文件。 最后修改的文件优先。<br/>No-overwrite：如果文件已存在，则跳过写入该文件。|
+| Disposition | [可选] rename &#124; no-overwrite &#124; overwrite <br/> 此字段指定导入期间 （即在将数据从磁盘上传到存储帐户时）发生复制行为。 可用选项包括：rename&#124;overwrite&#124;no-overwrite。如果未指定任何选项，使用默认选项“rename”。 <br/><br/>Rename：若有同名对象，则在目标中创建副本。<br/>Overwrite：使用更新的文件来覆盖该文件。 最后修改的文件优先。<br/>No-overwrite：如果文件已存在，则跳过写入该文件。|
 | MetadataFile | **[可选]** <br/>此字段的值是用户需要保留对象的元数据或者提供自定义元数据时可提供的元数据文件。 目标 Blob 的元数据文件的路径。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md) |
 | PropertiesFile | [可选] <br/>目标 Blob 的属性文件的路径。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md)。 |
 
@@ -116,11 +110,11 @@ H,Format,SilentMode,Encrypt,
 
 | 字段 | 值 |
 | --- | --- |
-| DriveLetter | [必需]<br/> 作为目标提供给工具的每个驱动器上需有一个简单的 NTFS 卷，并分配有一个驱动器号。<br/> <br/>示例：R 或 r |
-| FormatOption | [必需] Format &#124; AlreadyFormatted<br/><br/> **Format**：如指定此值，将格式化磁盘上的所有数据。 <br/>**AlreadyFormatted**：如果指定此值，工具会跳过格式化。 |
-| SilentOrPromptOnFormat | [必需] SilentMode &#124; PromptOnFormat<br/><br/>SilentMode：提供此值可让用户以无提示模式运行该工具。 <br/>PromptOnFormat：该工具在每次格式化时都会提示用户确认是否确实希望执行此操作。<br/><br/>如果未设置，命令将中止并显示错误消息：“SilentOrPromptOnFormat 的值 none 不正确” |
-| Encryption | [必需] Encrypt &#124; AlreadyEncrypted<br/> 此字段的值确定要加密哪个磁盘，不加密哪个磁盘。 <br/><br/>Encrypt：工具将格式化驱动器。 如果“FormatOption”字段的值为“Format”，则此字段的值必须是“Encrypt”。 如果在此情况下指定了“AlreadyEncrypted”，则会导致错误“指定 Format 时，也必须指定 Encrypt”。<br/>AlreadyEncrypted：工具将使用“ExistingBitLockerKey”字段中提供的 BitLockerKey 来加密驱动器。 如果“FormatOption”字段的值为“AlreadyFormatted”，则此字段的值可以是“Encrypt”或“AlreadyEncrypted” |
-| ExistingBitLockerKey | [必需] 如果“Encryption”字段的值为“AlreadyEncrypted”<br/> 此字段的值是与特定磁盘关联的 BitLocker 密钥。 <br/><br/>如果“Encryption”字段的值为“Encrypt”，应将此字段留空。  如果在这种情况下指定 BitLocker 密钥，将导致错误“不应指定 Bitlocker 密钥”。<br/>  示例：060456-014509-132033-080300-252615-584177-672089-411631|
+| DriveLetter | [必需]<br/> 作为目标提供给工具的每个驱动器上需有一个简单的 NTFS 卷，并分配有一个驱动器号。<br/> <br/>**示例**：R 或 r |
+| FormatOption | [必需] Format &#124; AlreadyFormatted<br/><br/> Format：指定将格式化磁盘上的所有数据。 <br/>AlreadyFormatted：如果指定此值，该工具将跳过格式化。 |
+| SilentOrPromptOnFormat | [必需] SilentMode &#124; PromptOnFormat<br/><br/>SilentMode：提供此值可让用户以无提示模式运行该工具。 <br/>PromptOnFormat：该工具在每次格式化时都会提示用户确认是否确实希望执行此操作。<br/><br/>如果未设置，命令将中止并显示错误消息：“SilentOrPromptOnFormat 的错误值：无” |
+| Encryption | [必需] Encrypt &#124; AlreadyEncrypted<br/> 此字段的值确定加密和不加密的磁盘。 <br/><br/>Encrypt：该工具将格式化驱动器。 如果“FormatOption”字段的值为“Format”，则此字段的值必须是“Encrypt”。 如果在此情况下指定了“AlreadyEncrypted”，则会导致错误“指定 Format 时，也必须指定 Encrypt”。<br/>AlreadyEncrypted：此工具将使用“ExistingBitLockerKey”字段中提供的 BitLockerKey 来加密驱动器。 如果“FormatOption”字段的值为“AlreadyFormatted”，则此字段的值可以是“Encrypt”或“AlreadyEncrypted” |
+| ExistingBitLockerKey | [必需] 如果“Encryption”字段的值为“AlreadyEncrypted”<br/> 此字段的值是与特定磁盘关联的 BitLocker 密钥。 <br/><br/>如果“Encryption”字段的值为“Encrypt”，应将此字段留空。  如果在这种情况下指定 BitLocker 密钥，将导致错误“不应指定 Bitlocker 密钥”。<br/>  **示例**：060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>为导入作业准备磁盘
 
@@ -316,7 +310,7 @@ WAImportExport 工具是可与 Azure 导入/导出服务一起使用的驱动器
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>在哪里可以找到上一个版本的 WAImportExport 工具？
 
-WAImportExport 工具包含 WAImportExport V1 工具所提供的全部功能。 使用 WAImportExport 工具，用户可以指定多个源，并写入多个驱动器。 此外，用户可以在单个 CSV 文件中轻松管理要复制的数据的多个源位置。 但是，如果需要 SAS 支持或者要将单个源复制到单个磁盘，可以[下载 WAImportExport V1 工具] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)并查看 [WAImportExport V1 参考](storage-import-export-tool-how-to-v1.md)，获取 WAImportExport V1 用法的帮助。
+WAImportExport 工具包含 WAImportExport V1 工具所提供的全部功能。 使用 WAImportExport 工具，用户可以指定多个源，并写入多个驱动器。 此外，用户可以在单个 CSV 文件中轻松管理要复制的数据的多个源位置。 但是，如果需要 SAS 支持或者要将单个源复制到单个磁盘，可以[下载 WAImportExport V1 工具](https://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)并参阅 [WAImportExport V1 参考](storage-import-export-tool-how-to-v1.md)，获取 WAImportExport V1 用法的帮助。
 
 #### <a name="what-is-a-session-id"></a>会话 ID 是什么？
 
@@ -395,7 +389,7 @@ SessionId 可以包含字母、0~9、下划线 (\_)、短划线 (-) 或井号 (#
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>复制正在进行时，有多少个输入磁盘会并行发生活动 IO？
 
-WAImportExport 工具根据输入文件的大小在输入磁盘之间分配数据。 然而，并行的活动磁盘数完全取决于输入数据的性质。 根据输入数据集中各个文件的大小，可能有一个或多个磁盘出现并行活动 IO。 有关详细信息，请参阅下一个问题。
+WAImportExport 工具根据输入文件的大小在输入磁盘之间分配数据。 也就是说，并行的活动磁盘数完全取决于输入数据的性质。 根据输入数据集中各个文件的大小，可能有一个或多个磁盘出现并行活动 IO。 有关详细信息，请参阅下一个问题。
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>工具如何在磁盘之间分发文件？
 

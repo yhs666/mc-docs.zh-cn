@@ -5,17 +5,17 @@ services: virtual-machines-linux,storage
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 11/15/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
-ms.component: disks
-ms.openlocfilehash: ab33b10080540c26598111de8d8a4152acfccc89
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.subservice: disks
+ms.openlocfilehash: 374c7763d3e0c9cc07324e25cda98561e658f486
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736204"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666376"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 上的 VM 磁盘的可伸缩性和性能目标
 
@@ -27,6 +27,7 @@ ms.locfileid: "53736204"
 
 <!-- Not Available on [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged)-->
 <!-- Size preview include P,E,S 70/80/90 series-->
+
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
 ## <a name="unmanaged-virtual-machine-disks"></a>非托管虚拟机磁盘

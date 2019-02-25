@@ -11,19 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/21/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 4232adcb799be6e36215ff749b2bc7b5322232d3
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 09/25/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 3b9b6e5cabc7d5c45dab3946dd6e9251dc5604dd
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996256"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663744"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
+
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
 
 ## <a name="temporal-scenario"></a>临时表方案
+
 本文演示了在应用程序方案中使用临时表的步骤。 假设要跟踪从头开始开发的新网站上的用户活动，或要通过用户活动分析扩展的现有网站上的用户活动。 在这个简化的示例中，我们假设一段时间内浏览过的网页数是需要在托管于 Azure SQL 数据库上的网站数据库中捕获和监视的指标。 用户活动历史分析的目标是获取有关重新设计网站的意见，并为访客提供更好的体验。
 
 此方案的数据库模型非常简单 - 用户活动指标以一个整数字段 **PageVisited** 表示，并与用户配置文件中的基本信息一起捕获。 此外，对于基于时间的分析，需要为每个用户保留一系列的行，其中每行代表特定时间段内特定用户访问过的网页数。
@@ -51,7 +53,7 @@ ms.locfileid: "53996256"
 
 也可以通过直接指定 Transact-SQL 语句来创建时态表，如以下示例中所示。 请注意，每个临时表的必需元素为 PERIOD 定义以及引用将存储历史行版本的另一个用户表的 SYSTEM_VERSIONING 子句：
 
-````
+```
 CREATE TABLE WebsiteUserInfo 
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED 
@@ -62,7 +64,7 @@ CREATE TABLE WebsiteUserInfo
   , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
  )  
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
-````
+```
 
 创建版本由系统控制的临时表时，会自动创建随附默认配置的历史记录表。 默认历史记录表包含期限列（结束、开始）上启用页压缩的聚集 B 树索引。 此配置非常适合使用临时表的大部分方案，特别是用于[数据审核](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0)。 
 
@@ -74,11 +76,11 @@ CREATE TABLE WebsiteUserInfo
 
 以下脚本演示如何将历史记录表的默认索引更改为聚集列存储：
 
-````
+```
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 临时表在对象资源管理器中以特定图标表示以便于识别，其历史记录表显示为子节点。
 
@@ -87,7 +89,7 @@ WITH (DROP_EXISTING = ON);
 ### <a name="alter-existing-table-to-temporal"></a>将现有表更改为临时表
 下面探讨替代方案，其中 WebsiteUserInfo 表已存在，但不是针对保留更改历史记录而设计的。 在这种情况下，只需将现有表扩展为临时表即可，如以下示例中所示：
 
-````
+```
 ALTER TABLE WebsiteUserInfo 
 ADD 
     ValidFrom datetime2 (0) GENERATED ALWAYS AS ROW START HIDDEN  
@@ -103,17 +105,17 @@ GO
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 ## <a name="step-2-run-your-workload-regularly"></a>步骤 2：定期运行工作负荷
 临时表的主要优点是，不需要以任何方式更改或调整网站就可以执行更改跟踪。 创建临时表后，每当对数据进行修改时，以前的行版本都会自动保存。 
 
 若要利用此特定方案的自动更改跟踪功能，只需在每次用户结束网站上的会话时更新列 **PagesVisited** ：
 
-````
+```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
-````
+```
 
 请务必注意，更新查询不需要知道实际操作进行的具体时间，也不需要知道如何保留历史数据以供将来分析使用。 Azure SQL 数据库会自动处理这两个方面。 下图演示了如何在每次更新时生成历史记录数据。
 
@@ -124,17 +126,17 @@ WHERE [UserID] = 1;
 
 若要查看按访问网页次数排序的前 10 个用户，请运行以下查询：
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
-````
+```
 
 可轻松修改此查询，以分析一天前、一个月前或所需的任何过去时间点的站点访问记录。
 
 若要执行前一天的基本统计分析，请使用以下示例：
 
-````
+```
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
 DECLARE @aDayAgo datetime2 = DATEADD(DAY, -1, SYSUTCDATETIME());
 
@@ -144,17 +146,17 @@ STDEV (PagesVisited) as StDevViistedPages
 FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
-````
+```
 
 若要搜索特定用户在某个时间段的活动，请使用 CONTAINED IN 子句：
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 DECLARE @twoHoursAgo datetime2 = DATEADD(HOUR, -2, SYSUTCDATETIME());
 SELECT * FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME CONTAINED IN (@twoHoursAgo, @hourAgo)
 WHERE [UserID] = 1;
-````
+```
 
 图形可视化对于临时查询特别方便，因为可以轻松、直观地显示趋势和使用模式：
 
@@ -163,27 +165,27 @@ WHERE [UserID] = 1;
 ## <a name="evolving-table-schema"></a>不断演变的表架构
 通常，开发应用时需要更改临时表架构。 为此，只需运行常规 ALTER TABLE 语句，Azure SQL 数据库就会正确传播历史记录表的更改。 以下脚本演示如何添加要跟踪的其他属性：
 
-````
+```
 /*Add new column for tracking source IP address*/
 ALTER TABLE dbo.WebsiteUserInfo 
 ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
-````
+```
 
 同样，可在工作负荷处于活动状态时更改列定义：
 
-````
+```
 /*Increase the length of name column*/
 ALTER TABLE dbo.WebsiteUserInfo 
     ALTER COLUMN  UserName nvarchar(256) NOT NULL;
-````
+```
 
 最后，可删除不再需要的列。
 
-````
+```
 /*Drop unnecessary column */
 ALTER TABLE dbo.WebsiteUserInfo 
     DROP COLUMN TemporaryColumn; 
-````
+```
 
 或者，在已连接到数据库（联机模式）或正在开发数据库项目（脱机模式）时，使用最新的 [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) 来更改临时表架构。
 

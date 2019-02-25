@@ -3,22 +3,22 @@ title: CLI 示例 - 创建 Azure SQL 数据库 | Microsoft Docs
 description: 使用此 Azure CLI 示例脚本创建 SQL 数据库。
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
 author: WenJason
+manager: digimobile
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
-origin.date: 09/20/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 5e59cf4a9c73e0e8996065515dd6b84a181de57a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 5172d5c6f938a54e057dea832435bc83c0f3233e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666854"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663618"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
@@ -26,7 +26,7 @@ ms.locfileid: "52666854"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -87,9 +87,9 @@ az group delete --name myResourceGroup
 | 命令 | 注释 |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建用于托管 SQL 数据库的逻辑服务器。 |
-| [az sql server firewall create](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
-| [az sql db create](/cli/sql/db#az-sql-db-create) | 在逻辑服务器中创建 SQL 数据库。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
+| [az sql server firewall create](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 创建一个防火墙规则，允许从输入的 IP 地址范围访问 SQL 数据库服务器上的所有单一数据库和弹性池。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建单一数据库或弹性池。 |
 | [az group delete](/cli/resource#az-resource-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤

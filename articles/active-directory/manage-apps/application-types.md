@@ -3,24 +3,24 @@ title: 应用程序列表中意料之外的应用程序 | Microsoft Docs
 description: 如何查看租户中的全部应用程序，并了解应用程序如何显示在“企业应用程序”下的“所有应用程序”列表中
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 01/03/2019
+ms.date: 02/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 08d34a6c40722cd059fea67b2efd60f9fecb688d
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 78cda5e8a6610ffc9e599a51e937a81f376eafbf
+ms.sourcegitcommit: 791c712e00a5ee97aa71b20c3b94c92ce181dc16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029213"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334260"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -56,9 +56,9 @@ ms.locfileid: "54029213"
 
 6.  使用 [Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)创建服务主体对象时
 
-7.  以管理员身份[同意某应用程序](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)使用租户中的数据时
+8.  以管理员身份[同意某应用程序](/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用租户中的数据时
 
-8.  [用户同意某应用程序](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)使用租户中的数据时
+9.  [用户同意某应用程序](/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用租户中的数据时
 
 9. 启用某些在租户中存储数据的服务时。 相应的一个示例是密码重置，密码重置是作为服务主体进行建模的，以便安全存储密码重置策略。
 

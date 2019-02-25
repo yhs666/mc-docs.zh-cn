@@ -1,28 +1,23 @@
 ---
-title: 创建共享访问签名 (SAS) 并将其用于 Azure Blob 存储 | Azure
+title: 在 Azure Blob 存储中创建和使用共享访问签名 (SAS) | Microsoft Docs
 description: 本教程演示如何创建共享访问签名并用于 Blob 存储，以及如何在客户端应用程序中使用这些签名。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 origin.date: 05/15/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: f4e09095bdb1545d0bca693d5f253de13290841b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/25/2019
+ms.author: v-jay
+ms.subservice: blobs
+ms.openlocfilehash: bedb88c3f0f0f5da49089bd6ebf74cddbd437f5f
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652387"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665525"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共享访问签名，第 2 部分：创建 SAS 并将其用于 Blob 存储
 
 本教程的[第 1 部分](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2fblobs%2ftoc.json)介绍了共享访问签名 (SAS) 并说明了使用共享访问签名的最佳做法。 第 2 部分演示如何生成共享访问签名以及如何将共享访问签名用于 Blob 存储。 示例是用 C# 编写的并使用了 Azure .NET 存储客户端库。 本教程中的示例：
 
@@ -34,11 +29,11 @@ ms.locfileid: "52652387"
 ## <a name="about-this-tutorial"></a>关于本教程
 本教程中将创建两个控制台应用程序，用于演示如何创建共享访问签名并将其用于容器和 Blob：
 
-应用程序 1：管理应用程序。 为容器和 Blob 生成共享访问签名。 在源代码中含入存储帐户访问密钥。
+**应用程序 1**：管理应用程序。 为容器和 Blob 生成共享访问签名。 在源代码中含入存储帐户访问密钥。
 
-应用程序 2：客户端应用程序。 使用第一个应用程序创建的共享访问签名访问容器和 Blob 资源。 仅使用共享访问签名访问容器和 Blob 资源--它不包括存储帐户访问密钥。
+**应用程序 2**：客户端应用程序。 使用第一个应用程序创建的共享访问签名访问容器和 Blob 资源。 仅使用共享访问签名访问容器和 Blob 资源--它不包括存储帐户访问密钥。
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>第 1 部分：创建控制台应用程序，生成共享访问签名
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>第 1 部分：创建控制台应用程序以便生成共享访问签名
 首先，确保安装了 Azure .NET 存储客户端库。 可以安装 [NuGet 包](https://www.nuget.org/packages/WindowsAzure.Storage/)，其中包含客户端库的最新程序集。 这是确保具有最新修补程序的建议方法。 还可以通过下载包含该客户端库的最新 [Azure SDK for .NET](/downloads/)版本来下载该客户端库。
 
 在 Visual Studio 中，创建一个新的 Windows 控制台应用程序并将其命名为 **GenerateSharedAccessSignatures**。 使用以下方法之一添加对 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 和 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 的引用：
@@ -597,5 +592,5 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 * [共享访问签名，第 1 部分：了解 SAS 模型](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2fblobs%2ftoc.json)
 * [管理对容器和 blob 的匿名读取访问](storage-manage-access-to-resources.md)
-* [使用共享访问签名委托访问 (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [介绍表和队列 SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [使用共享访问签名委托访问 (REST API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [介绍表和队列 SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

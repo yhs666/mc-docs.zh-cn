@@ -1,21 +1,21 @@
 ---
-title: 如何在 Linux 上安装 Azure IoT Edge | Microsoft Docs
-description: Linux 上的 Azure IoT Edge 安装说明
+title: 在 Linux 上安装 Azure IoT Edge | Microsoft Docs
+description: 在运行 Ubuntu 的 Linux AMD64 设备上安装 Azure IoT Edge 的相关说明
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 08/27/2018
-ms.date: 12/10/2018
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: a5035a0244bb15f7fe0efaeb52a8cfb5edc94b22
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 17856922c694374da8c8bef6929b265a21804cf6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674122"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665531"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux 上安装 Azure IoT Edge 运行时 (x64)
 
@@ -30,25 +30,11 @@ ms.locfileid: "52674122"
 
 ## <a name="register-microsoft-key-and-software-repository-feed"></a>注册 Microsoft 密钥和软件存储库源
 
-根据操作系统，选择适当的脚本来为 IoT Edge 运行时安装准备设备。 
-
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
+准备设备以进行IoT Edge运行时安装，将 ```<release>``` 替换为适用于 Ubuntu 版本的 **16.04** 或 **18.04**。
 
 ```bash
 # Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-# Install Microsoft GPG public key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-### <a name="ubuntu-1804"></a>Ubuntu 18.04
-
-```bash
-# Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 
 # Install Microsoft GPG public key
@@ -206,12 +192,39 @@ sudo iotedge list
 
 如果网络具有代理服务器，请按照[配置 IoT Edge 设备以通过代理服务器进行通信](how-to-configure-proxy-support.md)中的步骤进行操作。
 
+## <a name="uninstall-iot-edge"></a>卸载 IoT Edge
+
+如果要从 Linux 设备中删除 IoT Edge 安装，请从命令行使用以下命令。
+
+删除 IoT Edge 运行时。
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+删除 IoT Edge 运行时以后，已创建的容器会被停止，但仍存在于设备上。 查看所有容器以了解哪些容器仍然存在。
+
+```bash
+sudo docker ps -a
+```
+
+从设备中删除容器，包括两个运行时容器。
+
+```bash
+sudo docker rm -f <container name>
+```
+
+最后，从设备中删除容器运行时。
+
+```bash
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>后续步骤
+
+预配了安装运行时的 IoT Edge 设备后，现在可以[部署 IoT Edge 模块](how-to-deploy-modules-portal.md)。
 
 如果无法正确安装 Edge 运行时，请参阅[故障排除](troubleshoot.md)页。
 
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
+若要将现有安装更新到最新版本的 IoT Edge，请参阅[更新 IoT Edge 安全守护程序和运行时](how-to-update-iot-edge.md)。

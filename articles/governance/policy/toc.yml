@@ -23,6 +23,9 @@ items:
   - name: 创建和管理 Azure Policy
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: 创建自定义策略定义
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
 - name: 示例
   items:
   - name: 索引
@@ -108,6 +111,11 @@ items:
     - name: 强制执行 Data Lake Store 加密
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: 密钥保管库
+    items:
+    - name: 审核保管库是否没有虚拟网络终结点
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: 监视
     items:
     - name: 审核诊断设置
@@ -248,7 +256,8 @@ items:
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
   - name: 获取符合性数据
-    href: ./how-to/getting-compliance-data.md
+    displayName: evaluation, scan, summarize, query, events, log analytics
+    href: ./how-to/get-compliance-data.md
 - name: 参考
   items:
   - name: Azure CLI
@@ -277,9 +286,9 @@ items:
     href: https://channel9.msdn.com/events/Build/2018/THR2030
   - name: 定价计算器
     href: https://azure.cn/pricing/calculator/
-ms.openlocfilehash: 70e39a4165b898a42778b94000ebb1f72725f6d5
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 4e4269f690d1710f3d5255d00e2ffd6513ba1963
+ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996367"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409068"

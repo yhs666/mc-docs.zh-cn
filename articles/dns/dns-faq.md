@@ -5,15 +5,15 @@ services: dns
 author: WenJason
 ms.service: dns
 ms.topic: article
-origin.date: 12/4/2018
-ms.date: 12/24/2018
+origin.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 56da37edd9026d524eb2ef59485ddc10a47aa626
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: 0c590014b090a57f424939ba4e56217471446048
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615178"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663693"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -35,7 +35,7 @@ Azure DNS 计费模型基于 Azure DNS 中托管的 DNS 区域数。 此外，�
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>什么是 SLA for Azure DNS？
 
-Azure 保证在至少 99.99% 的时间内，有效的 DNS 请求将从至少一个 Azure DNS 名称服务器中收到响应。
+Azure 保证在任何情况下，有效的 DNS 请求将从至少一个 Azure DNS 名称服务器中收到响应。
 
 有关详细详细，请参阅 [Azure DNS SLA 页](https://www.azure.cn/support/sla/dns)。
 
@@ -95,7 +95,7 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 
 是的。 Azure DNS 支持适用于 TXT 记录集的扩展 ASCII 编码集。 但是，必须使用最新版本的 Azure REST API、SDK、PowerShell 和 CLI。 低于 2017 年 10 月 1 日版的版本或 SDK 2.1 不支持扩展的 ASCII 集。 
 
-例如，用户可能会提供一个字符串作为 TXT 记录的值，其中包含扩展的 ASCII 字符 \128。 例如“abcd\128efgh”。 Azure DNS 会在内部表示形式中使用此字符的字节值（即 128）。 在进行 DNS 解析时，此字节值会在响应中返回。 另请注意，在考虑到解析的情况下，“abc”和“\097\098\099”是可以互换的。 
+例如，你可能会提供一个字符串作为 TXT 记录的值，其中包含扩展的 ASCII 字符 \128。 例如“abcd\128efgh”。 Azure DNS 会在内部表示形式中使用此字符的字节值（即 128）。 在进行 DNS 解析时，此字节值会在响应中返回。 另请注意，在考虑到解析的情况下，“abc”和“\097\098\099”是可以互换的。 
 
 我们遵循适用于 TXT 记录的 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 区域文件母版格式转义规则。 例如，按照 RFC 规则，`\` 现在实际上可以对所有内容进行转义操作。 如果指定 `A\B` 作为 TXT 记录值，则会在呈现时，仅将其解析为 `AB`。 如果确实需要让 TXT 记录在解析时呈现为 `A\B`，则需对 `\` 再次执行转义操作。 例如，指定 `A\\B`。
 

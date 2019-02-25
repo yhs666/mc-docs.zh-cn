@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/16/2018
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 17358885fa70c9382d19facf8a364cfc4a4ad547
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 9a2601bf6ac54616bc5979ea69793cc7e1d22a32
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334215"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665618"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -295,7 +295,7 @@ The terminal process terminated with exit code: 1
 若要自动生成并配置所需二进制文件，请在本地计算机上[安装 Docker](https://docs.docker.com/install/)并运行以下命令以使用 [Azure Functions Core Tools](functions-run-local.md#v2) (func) 进行发布。 请记住将 `<app name>` 替换为 Azure 中的函数应用名称。 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 实际上，Core Tools 会使用 docker 将 [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) 映像作为本地计算机上的容器来运行。 它随后会使用此环境从源分发版生成并安装所需模块，然后再打包它们以便最终部署到 Azure。
@@ -352,4 +352,4 @@ script:
 - [存储绑定](functions-bindings-storage-queue.md)
 - [计时器触发器](functions-bindings-timer.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

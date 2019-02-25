@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/20/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 171f9530483ae81c2d1384818731e415e26fc80a
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 02/25/2019
+ms.openlocfilehash: 85f976c5df1ba6af139fa49c55b660831b4e4c5b
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363748"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663466"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>快速入门：使用 Ruby 查询 Azure SQL 数据库
 
@@ -29,8 +29,6 @@ ms.locfileid: "54363748"
 若要完成本快速入门，需要具备以下先决条件：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
   
 - 适用于你的操作系统的 Ruby 和相关软件：
   

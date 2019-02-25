@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 11/15/2018
-ms.date: 12/24/2018
+origin.date: 01/09/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: be2d0b38fdf1b247845571e7ee6222ca2d092735
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 18c19da8f4fb9ca3babd14f1790d3e88d7efec6d
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736161"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666184"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>适用于 Linux 的 NVIDIA GPU 驱动程序扩展
 
@@ -39,7 +39,7 @@ ms.locfileid: "53736161"
 | 分发 | 版本 |
 |---|---|
 | Linux：Ubuntu | 16.04 LTS、18.04 LTS |
-| Linux：CentOS | 7.3、7.4、7.5 |
+| Linux：CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 <!--Not Available on  Linux: Red Hat Enterprise Linux -->
 
@@ -123,7 +123,7 @@ ms.locfileid: "53736161"
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "chinaeast2" `
@@ -159,7 +159,7 @@ az vm extension set `
 有关扩展部署状态的数据可以从 Azure 门户以及使用 Azure PowerShell 和 Azure CLI 进行检索。 若要查看给定 VM 的扩展部署状态，请运行以下命令。
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

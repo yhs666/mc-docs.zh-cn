@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 11/20/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: blobs
-ms.openlocfilehash: 93d5d6cee9f49749abe35df284c421b36a9b16dd
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: blobs
+ms.openlocfilehash: be850b91517129af08f1b40090e9c1c15dc16121
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192859"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665623"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
 
@@ -163,7 +163,7 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>将 Blob 上传到容器中
-如 [Blob 服务概念](#blob-service-concepts) 部分中所述，Blob 存储提供了三种不同类型的 blob：块 blob、追加 blob 和页 blob。 Azure 存储 iOS 库支持所有三种 blob。 大多数情况下，推荐使用块 Blob 类型。
+如“Blob 服务概念”部分中所述，Blob 存储提供了三种不同类型的 blob：块 blob、追加 blob 和页 blob。 Azure 存储 iOS 库支持所有三种 blob。 大多数情况下，推荐使用块 Blob 类型。
 
 以下示例演示如何从 NSString 上传块 Blob。 如果此容器中已存在同名的 Blob，则覆盖该 Blob 的内容。
 

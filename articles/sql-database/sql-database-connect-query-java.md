@@ -10,14 +10,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 11/20/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: f3e18235cb2790722a579281c933ec6de41f0fa3
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 12/01/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 116e6548e5be597b7e1f14c4b33cb9f6d2f294b5
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806131"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663756"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入门：使用 Java 查询 Azure SQL 数据库
 
@@ -28,8 +28,6 @@ ms.locfileid: "53806131"
 若要完成此示例，请确保具备以下先决条件：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- 针对所用计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)
 
 - 已为操作系统安装与 Java 相关的软件：
 

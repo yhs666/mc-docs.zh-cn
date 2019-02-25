@@ -11,19 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 04/01/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 4393c2e5c7121e4908fe11e74d9b5bfc997f9438
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 12/12/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 815895d43ff181fd6b45925b41a806329daf053e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806233"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663552"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
+
 本文面向尝试连接到 Azure SQL DB 的 C 和 C++ 开发人员， 它分为多个部分，方便大家选择最感兴趣的部分进行查看。
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>C/C++ 教程的先决条件
+
 确保具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -39,7 +41,7 @@ Azure 目前有两个选项可用于托管 SQL Server 工作负载：Azure SQL �
 连接到 Azure SQL DB 没有任何差别，目前有两种方法可以连接到数据库：ODBC（开放式数据库连接）和 OLE DB（对象链接与嵌入数据库）。 最近几年，Microsoft 已在使用 [ODBC 进行本地关系数据访问](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相对简单，并且比 OLE DB 快得多。 唯一需要说明的是，ODBC 使用的是旧的 C 样式 API。
 
 ## <a id="Create"></a>步骤 1：创建 Azure SQL 数据库
-请参阅[入门页](sql-database-get-started-portal.md)，以了解如何创建示例数据库。
+请参阅[入门页](sql-database-single-database-get-started.md)，以了解如何创建示例数据库。
 
 ## <a id="ConnectionString"></a>步骤 2：获取连接字符串
 预配 Azure SQL 数据库后，需要执行以下步骤，确定连接信息及添加用于防火墙访问的客户端 IP。

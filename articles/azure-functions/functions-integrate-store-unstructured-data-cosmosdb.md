@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 01/09/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 7db39059cd9c4211aa35ba4e36993b5dcc502b5a
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: dce07b93d6766e5c81c57b5e126cf80c1c150a30
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141680"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665589"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 存储非结构化数据
 
@@ -170,8 +170,8 @@ module.exports = async function (context, req) {
 
 ## <a name="next-steps"></a>后续步骤
 
-[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
-
 若要详细了解如何绑定到 Cosmos DB 数据库，请参阅 [Azure Functions Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
+
+[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps-2.md)]
 
 <!-- Update_Description: wording update -->

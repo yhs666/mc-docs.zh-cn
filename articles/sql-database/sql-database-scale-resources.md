@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 10/05/2018
 ms.date: 01/28/2019
-ms.openlocfilehash: 8780467d9ee41d58f73446dd7607b232415ac128
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 90c2cf05b3f0943e44768badcfcd4da27ac2e87d
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906083"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663581"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>以最短的停机时间动态缩放数据库资源
 
@@ -55,8 +55,8 @@ Azure SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers
 
 所有三种 Azure SQL 数据库都提供一些动态缩放数据库的功能：
 
-- 在 [Azure SQL 单一数据库](sql-database-single-database-scale.md)中，可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型来定义将分配给每个数据库的最大资源量。
-- [Azure SQL 弹性池](sql-database-elastic-pool-scale.md)允许定义池中每组数据库的最大资源限制。
+- 在[单一数据库](sql-database-single-database-scale.md)中，可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型来定义将分配给每个数据库的最大资源量。
+- [弹性池](sql-database-elastic-pool-scale.md)允许定义池中每组数据库的最大资源限制。
 
 ## <a name="alternative-scale-methods"></a>替代缩放方法
 

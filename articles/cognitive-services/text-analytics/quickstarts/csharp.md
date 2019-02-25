@@ -3,20 +3,20 @@ title: 快速入门：使用 C# 调用文本分析 API
 titleSuffix: Azure Cognitive Services
 description: 获取信息和代码示例，以帮助你快速开始使用文本分析 API。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: ashmaka
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 01/02/2019
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: e1ada5b5c96b4153be0fe6e14b74a843698cca7c
-ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
+ms.date: 02/21/2019
+ms.author: v-junlch
+ms.openlocfilehash: 01f3cbe8855085c61a63c3cfafa98212e51f8237
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668441"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582766"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 C# 调用文本分析认知服务
 <a name="HOLTop"></a>
@@ -184,6 +184,40 @@ namespace ConsoleApp1
 }
 ```
 
+## <a name="application-output"></a>应用程序输出
+
+此应用程序显示以下信息：
+
+```console
+===== LANGUAGE EXTRACTION ======
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
+
+
+===== KEY-PHRASE EXTRACTION ======
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+Document ID: 3
+         Key phrases:
+                cat
+                rock
+Document ID: 4
+         Key phrases:
+                fútbol
+
+===== SENTIMENT ANALYSIS ======
+Document ID: 0 , Sentiment Score: 0.87
+Document ID: 1 , Sentiment Score: 0.11
+Document ID: 2 , Sentiment Score: 0.44
+Document ID: 3 , Sentiment Score: 1.00
+```
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
@@ -193,3 +227,4 @@ namespace ConsoleApp1
 
  [文本分析概述](../overview.md)[常见问题解答 (FAQ)](../text-analytics-resource-faq.md)
 
+<!-- Update_Description: wording update -->

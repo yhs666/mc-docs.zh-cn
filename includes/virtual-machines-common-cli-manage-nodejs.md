@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0af50c43943e3b925991d2a12c00c63e49538d44
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c1986937ad1775f427f8714d26d6b981059d4a4d
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676398"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666481"
 ---
 通过 Resource Manager 命令和模板使用 Azure CLI 以利用资源组部署 Azure 资源和工作负荷之前，需要一个 Azure 帐户。 如果没有帐户，可以[在此处获取免费 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -45,7 +45,7 @@ ms.locfileid: "52676398"
 | 删除 VM |`azure vm delete [options] <resource_group> <name>` |
 | 捕获 VM |`azure vm capture [options] <resource_group> <name>` |
 | 从用户映像创建 VM |`azure  vm create [options] -q <image-name> <resource-group> <name> <location> <os-type>` |
-| 从专用磁盘创建 VM |`azue  vm create [options] -d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| 从专用磁盘创建 VM |`azure  vm create [options] -d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | 将数据磁盘添加到 VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | 从 VM 中删除数据磁盘 |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | 将泛型扩展添加到 VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

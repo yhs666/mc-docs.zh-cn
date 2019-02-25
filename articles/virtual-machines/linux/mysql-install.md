@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2016
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2a3643d1d0798814c55043a54510422f79ccf196
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ae29ead3bb633f804c4ef520587523a7f787b627
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674821"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666221"
 ---
 <!-- Remove the Red Hat family in meta properties-->
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安装 MySQL
@@ -44,7 +44,7 @@ ms.locfileid: "52674821"
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>如何在 Ubuntu 上安装 MySQL5.6
 此处将使用 Azure 中的 Linux VM（Ubuntu）。
 
-* 步骤 1：安装 MySQL Server 5.6   切换到 `root` 用户：
+* 步骤 1：安装 MySQL Server 5.6（切换到 `root` 用户）：
 
             #[azureuser@mysqlnode:~]sudo su -
 
@@ -87,9 +87,11 @@ ms.locfileid: "52674821"
 
 ### <a name="how-to-install-mysql-on-centos"></a>如何在 CentOS 上安装 MySQL
 
-<!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） --> 此处会将 Linux VM 与 CentOS 一起使用。
+<!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） -->
 
-* 步骤 1：添加 MySQL Yum 存储库   切换到 `root` 用户：
+此处会将 CentOS 与 Linux VM 一起使用。
+
+* 步骤 1：添加 MySQL Yum 存储库（切换到 `root` 用户）：
 
             #[azureuser@mysqlnode:~]sudo su -
 
@@ -97,7 +99,7 @@ ms.locfileid: "52674821"
 
             #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* 步骤 2：编辑以下文件，允许 MySQL 存储库下载 MySQL5.6 程序包。
+* 步骤 2：编辑以下文件，以便允许 MySQL 存储库下载 MySQL5.6 程序包。
 
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
 
@@ -115,7 +117,7 @@ ms.locfileid: "52674821"
         gpgcheck=1
 
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* 第 3 步：从 MySQL 存储库“安装 MySQL”   安装 MySQL：
+* 步骤 3：从 MySQL 存储库的“安装 MySQL”安装 MySQL：
 
            #[root@mysqlnode ~]#yum install mysql-community-server
 

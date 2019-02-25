@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/15/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a80813c80d7a13fe017bc117e6d06fd823d550ca
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 726b5427931ca96afcac467d742de93c5fb6f29e
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785166"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666400"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -35,6 +35,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 * Azure US Gov 国家云区域：kms.core.usgovcloudapi.net:1688
 
 <!--Notice on Line 28: Azure public cloud regions is correct on  core.windows.net -->
+
 ## <a name="symptom"></a>症状
 
 尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
@@ -135,4 +136,4 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

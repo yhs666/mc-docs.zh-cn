@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/11/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 1f84f26fa42ab1a3664529fba4df56bd0b04da1f
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 02/25/2019
+ms.openlocfilehash: be4a5434ff37e56c0f0026437317149833ed435a
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806339"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663726"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>快速入门：使用 Visual Studio 中的 .NET 和 C# 来连接和查询 Azure SQL 数据库
 
@@ -29,8 +29,6 @@ ms.locfileid: "53806339"
 若要完成本快速入门，需要以下项：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- [服务器级防火墙规则](sql-database-get-started-portal-firewall.md)，允许使用的计算机的公共 IP 地址。
   
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community、Professional 或 Enterprise 版本。
 

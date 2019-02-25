@@ -3,18 +3,18 @@ title: Azure Data Lake Storage Gen2 中的访问控制概述 | Microsoft Docs
 description: 了解 Azure Data Lake Storage Gen2 中访问控制的工作原理
 services: storage
 author: WenJason
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/14/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 0404e5424cb6ea675b3d655c5df0e990377e0bd6
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 4e8fa878318f79df02c12387d9a785428e0a7c24
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397003"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665527"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -274,7 +274,7 @@ def set_default_acls_for_new_child(parent, child):
 
 拥有组是从创建新文件或目录的父目录的拥有组复制而来的。
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>我是文件的拥有用户，但没有所需的 RWX 权限， 我该怎么办？
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>文件的拥有用户没有所需的 RWX 权限， 我该怎么办？
 
 拥有用户只需更改文件的权限，即可自动获得所需的任何 RWX 权限。
 

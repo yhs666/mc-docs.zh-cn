@@ -3,7 +3,7 @@ title: 排查 Azure SQL 数据库的常见连接问题
 description: 识别和解决 Azure SQL 数据库常见连接错误的步骤。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,22 +11,24 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 04/01/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: fdd0b366f77fe4a94fadf12ce9a3b65b99740815
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 9e650e9a70f4ac6e068ea17649a19072a8b9ea7e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672915"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663757"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>排查 Azure SQL 数据库的连接问题
+
 与 Azure SQL 数据库连接失败时，会收到[错误消息](sql-database-develop-error-messages.md)。 本文是一个集中介绍对 Azure SQL 数据库连接问题进行故障排除的主题。 本文介绍连接问题的[常见原因](#cause)，推荐可帮助确定问题的[故障排除工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，还提供解决[暂时性错误](#troubleshoot-transient-errors)和[持久或非暂时性错误](#troubleshoot-persistent-errors)的故障排除步骤。 
 
 如果遇到连接问题，请尝试本文中介绍的故障排除步骤。
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="cause"></a>原因
+
 连接问题可能由以下任何原因引起：
 
 * 在应用程序设计过程中无法应用最佳实践和设计准则。  请参阅 [SQL 数据库开发概述](sql-database-develop-overview.md)了解入门信息。
@@ -42,6 +44,7 @@ ms.locfileid: "52672915"
 * [持久或非暂时性错误（定期重复发生的错误）](#troubleshoot-persistent-errors)
 
 ## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>尝试使用 Azure SQL 数据库连接问题的故障排除工具
+
 如果遇到特定的连接错误，请尝试使用 [此工具](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)，以帮助快速识别并解决问题。
 
 ## <a name="troubleshoot-transient-errors"></a>对暂时性错误进行故障排除
@@ -57,13 +60,13 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 > 
 > 
 
-移动（或重新配置）Azure 数据库时发生此错误，应用程序失去与 SQL 数据库的连接。 之所以会发生 SQL 数据库重新配置事件是因为有计划内事件（例如，软件升级）或计划外事件（例如，进程故障或负载均衡）。 大多数重新配置事件的生存期通常较短，应在最多 60 秒内完成。 但是，这些事件偶尔可能需要更长时间才能完成，例如当大型事务导致长时间运行的恢复时。
+当数据库正在移动（或重新配置），且应用程序与数据库断开连接时，会出现此错误。 之所以会发生数据库重新配置事件是因为，有计划内事件（例如，软件升级）或计划外事件（例如，进程故障或负载均衡）。 大多数重新配置事件的生存期通常较短，应在最多 60 秒内完成。 但是，这些事件偶尔可能需要更长时间才能完成，例如当大型事务导致长时间运行的恢复时。
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>解决暂时性连接问题的步骤
 
 1. 检查 [Azure 服务仪表板](https://www.azure.cn/support/service-dashboard/)在由应用程序报告错误期间是否发生任何已知的服务中断。
 2. 连接到云服务的应用程序（如 Azure SQL 数据库）应期望定期重新配置事件并实施重试逻辑来处理这些错误，而不是将它们作为应用程序错误展现给用户。 查看[暂时性错误](sql-database-connectivity-issues.md)部分和 [SQL 数据库开发概述](sql-database-develop-overview.md)中的最佳实践和设计准则以了解更多信息和常规重试策略。 然后，请参阅 [SQL 数据库和 SQL Server 的连接库](sql-database-libraries.md) 中的代码示例，了解具体细节。
-3. 由于数据库即将达到其资源限制，因此错误看起来像是暂时性连接问题。 请参阅[资源限制](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)。
+3. 由于数据库即将达到其资源限制，因此错误看起来像是暂时性连接问题。 请参阅[资源限制](sql-database-resource-limits-database-server.md#what-happens-when-database-resource-limits-are-reached)。
 4. 如果连接问题继续存在，或者应用程序发生错误的持续时间超过 60 秒或在特定的一天中看到错误多次发生，请通过在 [Azure 支持](https://www.azure.cn/support/contact/)网站上选择“**获取支持**”提出 Azure 支持请求。
 
 ## <a name="troubleshoot-persistent-errors"></a>排查一再出现的错误

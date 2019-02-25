@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 01/22/2018
-ms.date: 01/15/2019
+ms.date: 02/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: ec70e6ed396d96298e83070cdec9f4ce94fdab80
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 5cfef77265463b5370ee2cfc6e6927ee37f64e59
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334214"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665642"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions 代理
 
@@ -95,7 +95,7 @@ ms.locfileid: "54334214"
 
 ### <a name="use-appsettings"></a>引用应用程序设置
 
-还可以通过将设置名称括在百分号 (%) 之间来引用[针对 Function App 定义的应用程序设置](/azure-functions/functions-how-to-use-azure-function-app-settings#develop)。
+还可以通过将设置名称括在百分号 (%) 之间来引用[针对 Function App 定义的应用程序设置](/azure-functions/functions-how-to-use-azure-function-app-settings)。
 
 例如，后端 URL *https://%ORDER_PROCESSING_HOST%/api/orders* 会将“%ORDER_PROCESSING_HOST%”替换为 ORDER_PROCESSING_HOST 设置的值。
 
@@ -250,7 +250,7 @@ requestOverrides 对象定义对传回客户端的响应所做的更改。 该�
 > 在此示例中，响应正文是直接设置的，因此不需要 `backendUri` 属性。 此示例演示如何使用 Azure Functions 代理来模拟 API。
 
 [Azure 门户]: https://portal.azure.cn
-[HTTP 触发器]: /azure-functions/functions-bindings-http-webhook#http-trigger
+[HTTP 触发器]: /azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [定义 requestOverrides 对象]: #requestOverrides
@@ -260,4 +260,4 @@ requestOverrides 对象定义对传回客户端的响应所做的更改。 该�
 [原始客户端请求中的参数]: #request-parameters
 [后端响应中的参数]: #response-parameters
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

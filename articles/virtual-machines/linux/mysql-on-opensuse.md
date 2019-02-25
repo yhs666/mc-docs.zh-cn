@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29f6b420df50cfbdf3a035af41fb086a7f8ad5a9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ac260a17e04f788feb662926edbf756534bd22ec
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674323"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666077"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL
 
@@ -125,7 +125,7 @@ mysql -u root -p
 
 现在，新建 MySQL 用户。
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
 
@@ -135,7 +135,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 创建数据库，并授予 `mysqluser` 用户权限。
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -144,7 +144,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 允许从另一台计算机登录。 在此示例中，允许从其登录的计算机的 IP 地址是 *10.112.113.114*。
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
 
@@ -155,6 +155,6 @@ quit
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关 MySQL 的详细信息，请参阅 [MySQL 文档](http://dev.mysql.com/doc/index-topic.html)。
+有关 MySQL 的详细信息，请参阅 [MySQL 文档](http://dev.mysql.com/doc)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

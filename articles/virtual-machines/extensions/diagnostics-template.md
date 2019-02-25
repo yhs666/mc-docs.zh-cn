@@ -1,5 +1,5 @@
 ---
-title: 向 Azure 虚拟机添加监视和诊断 | Azure
+title: 将监视和诊断与 Windows VM 和 Azure Resource Manager 模板配合使用
 description: 使用 Azure 资源管理器模板新建具有 Azure 诊断扩展的 Windows 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 06/04/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e77aa0a4ef18974c5d20796706e5e90840da2960
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c27c5f808cf355f1fffa90cefa102b5c730a09c0
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662739"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666283"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>将监视和诊断与 Windows VM 和 Azure Resource Manager 模板配合使用
 Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊断功能。 通过将该扩展纳入为 Azure 资源管理器模板的一部分，可以在虚拟机上启用这些功能。 有关将任何扩展纳入为虚拟机模板一部分的详细信息，请参阅[使用 VM 扩展创作 Azure Resource Manager 模板](../windows/template-description.md#extensions)。 本文介绍了如何将 Azure 诊断扩展添加到 Windows 虚拟机模板中。  
@@ -93,13 +93,13 @@ Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊�
     "type": "string",
     "metadata": {
 "description": "The name of an existing storage account to which diagnostics data is transfered."
-    }        
+    }
 },
 "existingdiagnosticsStorageResourceGroup": {
     "type": "string",
     "metadata": {
 "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      }
+    }
 }
 ```
 
@@ -160,8 +160,8 @@ MetricAggregation 值 *PT1M* 和 *PT1H* 分别表示一分钟的聚合和一小�
 上述指标配置会在诊断存储帐户中生成具有以下命名约定的表：
 
 * **WADMetrics**：所有 WADMetrics 表的标准前缀
-* **PT1H** 或 **PT1M**：表示表中包含超过 1 小时或 1 分钟的聚合数据
-* **P10D**：表示表中包含其开始收集数据起 10 天内的数据
+* **PT1H** 或 **PT1M**：表示表中包含 1 小时或 1 分钟内的聚合数据
+* **P10D**：表示表中包含它开始收集数据起 10 天内的数据
 * **V2S**：字符串常数
 * **yyyymmdd**：表开始收集数据的日期
 
@@ -169,18 +169,18 @@ MetricAggregation 值 *PT1M* 和 *PT1H* 分别表示一分钟的聚合和一小�
 
 每个 WADMetrics 表都包含以下列：
 
-* **PartitionKey**：分区键基于 resourceID 值构建，用于唯一地标识 VM 资源。 例如：002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **PartitionKey**：分区键基于 resourceID 值构造，用于唯一地标识 VM 资源。 例如： `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**：采用 `<Descending time tick>:<Performance Counter Name>` 格式。 递减时间刻度计算公式为最大时间刻度减去聚合期的开始时间。 例如，如果取样期间从 2015 年 11 月 10 日 00:00 (UTC) 开始，则计算公式为 `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`。 对于内存可用字节性能计数器，行键如下所示：`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**：性能计数器的名称。 它与 xml 配置中定义的 *counterSpecifier* 相匹配。
 * **Maximum**：聚合期间性能计数器的最大值。
-* **Minimum**：聚合期间性能计数器的最小值。
+* **最低**：聚合期间性能计数器的最小值。
 * **Total**：聚合期间报告的性能计数器的所有值的总和。
-* **Count**：针对性能计数器报告的值总数。
+* **计数**：针对性能计数器报告的值总数。
 * **Average**：聚合期间性能计数器的平均（总计/计数）值。
 
 ## <a name="next-steps"></a>后续步骤
 * 有关具有诊断扩展的 Windows 虚拟机的完整示例模板，请参阅 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * 使用 [Azure PowerShell](../windows/ps-template.md) 或 [Azure 命令行](../linux/create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)部署资源管理器模板
-* 详细了解如何[创作 Azure 资源管理器模板](../../resource-group-authoring-templates.md)
-<!-- Update_Description: new articles on diagnostics template -->
-<!--ms.date: 06/04/2018-->
+* 了解有关[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)的详细信息
+
+<!-- Update_Description: wording update -->

@@ -11,15 +11,15 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviwer: ''
-manager: craigg
-origin.date: 10/05/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 716ac18e3e3e7ff318431c0ef02e25ba599837bf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+manager: digimobile
+origin.date: 11/07/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 786c05c1781ea2087155dc11afafa8170f018ffa
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645017"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663614"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted：保护敏感数据并将加密密钥存储在 Windows 证书存储中
 
@@ -48,7 +48,7 @@ ms.locfileid: "52645017"
 ## <a name="create-a-blank-sql-database"></a>创建空的 SQL 数据库
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 单击“创建资源” > “数据 + 存储” > “SQL 数据库”。
-3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 如需在 Azure 门户中创建数据库的详细说明，请参阅[第一个 Azure SQL 数据库](sql-database-get-started-portal.md)。
+3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 如需在 Azure 门户中创建数据库的详细说明，请参阅[第一个 Azure SQL 数据库](sql-database-single-database-get-started.md)。
    
     ![创建空数据库](./media/sql-database-always-encrypted/create-database.png)
 
@@ -99,7 +99,7 @@ SSMS 提供了一个向导，通过设置 CMK、CEK 和已加密列即可轻松�
    
     ![加密列](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-始终加密向导包括以下部分：**列选择**、**主密钥配置** (CMK)、**验证**和**摘要**。
+Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置** (CMK)、**验证**和**摘要**。
 
 ### <a name="column-selection"></a>列选择
 单击“简介”页上的“下一步”，可以打开“列选择”页。 在此页上，选择想要加密的列，[加密类型和要使用的列加密密钥 (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2)。
@@ -515,5 +515,5 @@ SSMS 提供了一个向导，通过设置 CMK、CEK 和已加密列即可轻松�
 * [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [始终加密向导](https://msdn.microsoft.com/library/mt459280.aspx)
-* [始终加密博客](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [始终加密博客](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

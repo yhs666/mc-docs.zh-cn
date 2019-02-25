@@ -3,7 +3,7 @@ title: Azure SQL 超大规模数据库 FAQ | Microsoft Docs
 description: 对客户关于超大规模服务层中的 Azure SQL 数据库（通常称为超大规模数据库）提出的常见问题的回答。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/17/2018
-ms.date: 01/28/2019
-ms.openlocfilehash: abcd6e739400e1f2be46188c570a7ee04f31299a
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+origin.date: 02/06/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: f8544504f89e7ee4abce7d260afe20554adef26e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906263"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663530"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>关于 Azure SQL 超大规模数据库的 FAQ
 
@@ -76,9 +76,9 @@ ms.locfileid: "54906263"
 
 超大规模当前可用于以下区域中的单一数据库：中国东部、中国东部 2、中国北部和中国北部 2。
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>能否为每个逻辑服务器创建多个超大规模数据库
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>能否为每个 SQL 数据库服务器创建多个超大规模数据库
 
-是的。 有关每个逻辑服务器的超大规模数据库数量的详细信息和限制，请参阅[逻辑服务器上单一和共用数据库的 SQL 数据库资源限制](sql-database-resource-limits-logical-server.md)。
+是的。 有关每个 SQL 数据库服务器的超大规模数据库数量的详细信息和限制，请参阅 [SQL 数据库服务器上单一数据库和入池数据库的 SQL 数据库资源限制](sql-database-resource-limits-database-server.md)。
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>超大规模数据库的性能特征有哪些
 
@@ -99,7 +99,7 @@ SQL 超大规模数据库根据工作负荷需求，提供快速的可伸缩性�
 
 ## <a name="deep-dive-questions"></a>深入的问题
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>可以将超大规模数据库和单一数据库混合作为逻辑服务器吗
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>能否将超大规模数据库和单一数据库混合作为 My SQL 数据库服务器
 
 可以。
 
@@ -223,7 +223,7 @@ SQL 超大规模数据库支持所有 SQL Server 工作负荷，但它主要针�
 
 是的。 可以利用现有的所有迁移技术（包括 BACPAC、事务复制和逻辑数据加载）迁移到超大规模服务层。 
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>从本地或虚拟机环境迁移到超大规模服务层期间，我的故障时间有多长，如何尽量减少故障时间
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>从本地或虚拟机环境迁移到超大规模服务层期间，我的停机时间有多长，如何尽量减少停机时间
 
 故障时间与将数据库迁移到 Azure SQL 数据库中的单一数据库相同。 可以使用[事务复制](replication-to-sql-database.md#data-migration-scenario
 )尽量减少大小最多几 TB 的数据库的故障时间迁移。 对于非常大的数据库（10 TB 以上），可以考虑使用 ADF、Spark 或其他数据移动技术迁移数据。
@@ -236,7 +236,7 @@ SQL 超大规模数据库支持所有 SQL Server 工作负荷，但它主要针�
 
 可以从 Azure 存储中读取数据并将数据加载到超大规模数据库（就像对常规的单一数据库执行的操作一样）。 Azure SQL 数据库当前不支持 Polybase。
 
-超大规模数据库中不支持简单恢复或批量日志记录模式。 提供高可用性需要完整恢复模式。 但是，相比于单个 Azure SQL 数据库而言，超大规模数据库由于具有新的日志体系结构，可提供更快的数据引入速率。
+超大规模数据库中不支持简单恢复或批量日志记录模式。 提供高可用性需要完整恢复模式。 但是，相比于单个数据库而言，超大规模数据库由于具有新的日志体系结构，可提供更快的数据引入速率。
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL 超大规模数据库是否允许预配多个节点，用于引入大量数据
 

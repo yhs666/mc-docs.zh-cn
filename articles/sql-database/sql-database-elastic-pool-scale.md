@@ -3,7 +3,7 @@ title: 缩放弹性池资源 - Azure SQL 数据库 | Microsoft Docs
 description: 本页描述如何在 Azure SQL 数据库中缩放弹性池资源。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/15/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 32bc5b18ecdf1c0bf7a3d308a989437cac774b10
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 0ba32d315acd705c8c3c25ed25f2496116ce36bc
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672978"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663467"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放弹性池资源
 
@@ -28,8 +28,8 @@ ms.locfileid: "52672978"
 
 - 可将存储预配到最大大小限制。
 
-  - 对于标准存储，可以按 10 GB 的增量增大或减小大小
-  - 对于高级存储，可以按 250 GB 的增量增大或减小大小
+  - 对于标准或常规用途服务层中的存储，按 10 GB 增量增减大小
+  - 对于高级或业务关键服务层中的存储，按 250 GB 增量增减大小
 - 可以通过增大或减小其最大大小来预配弹性池的存储空间。
 - 弹性池的存储价格等于存储量乘以服务层的存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
 

@@ -3,7 +3,7 @@ title: Azure SQL 数据超大规模库概述 | Microsoft Docs
 description: 本文介绍 Azure SQL 数据库中基于 vCore 的采购模型中的超大规模服务层，并说明它与常规用途服务层和业务关键服务层的不同之处。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,18 +11,19 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/17/2018
-ms.date: 01/28/2019
-ms.openlocfilehash: be0bcdc656474f5828ed341ac0b4422b882e5837
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 04148d25d7850cfb0afaecdbf75fb994ea48ce5e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906262"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663687"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>支持高达 100 TB 的超大规模服务层（预览版）
 
 Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结构已根据云环境做出调整，以确保即使在发生基础结构故障时，也仍能提供 99.99% 的可用性。 Azure SQL 数据库中使用了三种体系结构模型：
+
 - 常规用途/标准 
 - 业务关键/高级
 - 超大规模
@@ -41,7 +42,7 @@ Azure SQL 数据库中的超大规模服务层是基于 vCore 的采购模型中
 Azure SQL 数据库中的超大规模服务层提供了以下附加功能：
 
 - 支持高达 100 TB 的数据库大小
-- 几乎瞬时完成数据库备份（基于存储在 Azure Blob 存储中的快照），无论数据库大小，也不会对计算造成 IO 影响
+- 几乎瞬时完成数据库备份（基于存储在 Azure Blob 存储中的快照），无论数据库大小，也不会对计算造成 IO 影响   
 - 在几分钟内快速完成数据库还原（基于文件快照），无需数小时或数天（不基于数据操作的大小）
 - 无论数据卷如何，由于更高的日志吞吐量和更快的事务提交速度，整体性能更高
 - 快速横向扩展 - 可预配一个或多个只读节点，以卸载读取工作负载并用作热备用服务器
@@ -151,17 +152,17 @@ Server=tcp:<myserver>.database.chinacloudapi.cn;Database=<mydatabase>;Applicatio
 
 | 问题 | 说明 |
 | :---- | :--------- |
-| 逻辑服务器的“管理备份”窗格不显示将从 SQL Server 筛选的超大规模数据库  | 超大规模具有用于管理备份的单独方法，因此长期保留和备份保留设置中的时间点不适用/将失效。 相应地，超大规模数据库不会显示在“管理备份”窗格中。 |
+| SQL 数据库服务器的“管理备份”窗格不显示将从 SQL Server 筛选的超大规模数据库->  | 超大规模具有用于管理备份的单独方法，因此长期保留和备份保留设置中的时间点不适用/将失效。 相应地，超大规模数据库不会显示在“管理备份”窗格中。 |
 | 时间点还原 | 将数据库迁移到超大规模服务层后，不支持还原到迁移之前的某个时间点。|
 | 迁移期间，如果数据库文件由于活动的工作负荷而增大，并且超过每个文件的边界 (1 TB)，迁移将失败 | 缓解措施： <br> - 如果可能，请在没有运行任何更新工作负荷时迁移数据库。<br> - 重试迁移，只要在迁移期间文件大小不超过 1 TB 边界，迁移就会成功。|
 | 当前不支持托管实例 | 目前不支持 |
 | 迁移到超大规模层目前是单向操作 | 将数据库迁移到超大规模层后，它不能直接迁移到非超大规模服务层。 目前，将数据库从超大规模层迁移到非超大规模层的唯一方法是使用 BACPAC 文件进行导出/导入。|
-| 当前不支持含有内存中对象的数据库迁移 | 将数据库迁移到超大规模服务层之前，必须删除内存中文件并重新创建为非内存中对象。
+| 当前不支持含有内存中对象的数据库迁移 | 将数据库迁移到超大规模服务层之前，必须删除内存中文件并重新创建为非内存中对象。|
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关超大规模层的常见问题，请参阅[超大规模层常见问题解答](sql-database-service-tier-hyperscale-faq.md)。
 - 有关服务层的信息，请参阅[服务层](sql-database-service-tiers.md)
-- 有关服务器和订阅级别限制的信息，请参阅[逻辑服务器上的资源限制概述](sql-database-resource-limits-logical-server.md)。
+- 有关服务器和订阅级别限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)。
 - 有关单一数据库的购买模型限制的信息，请参阅 [适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。

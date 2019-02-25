@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2018
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c3fbc0ff8678c9e7c7da4d9bf75be9144eb78bd9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4920d2ddc905277de835223f560afc346a7fa24e
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663400"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665852"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>使用 REST API 创建使用 SSH 身份验证的 Linux 虚拟机
 
@@ -36,7 +36,7 @@ Azure 中的 Linux 虚拟机 (VM) 包含各种资源（例如磁盘和网络接�
 在创建并提交请求之前，你需要具有以下项：
 
 * 你的订阅的 `{subscription-id}`
-  * 如果你有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * 如果你有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * 提前创建的 `{resourceGroupName}`
 * 位于同一资源组中的[虚拟网络接口](../../virtual-network/virtual-network-network-interface.md)
 * SSH 密钥对（如果还没有，可以[生成一个新的](mac-create-ssh-keys.md)）
@@ -128,15 +128,11 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 }
 ```
 
-有关请求正文中的变量定义的完整列表，请参阅[虚拟机创建或更新请求正文定义](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_createorupdate#definitions)。
-
-<!-- Notice: QueryPath is correct on virtualmachines_createorupdate-->
+有关请求正文中的变量定义的完整列表，请参阅[虚拟机创建或更新请求正文定义](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#definitions)。
 
 ## <a name="sending-the-request"></a>发送请求
 
-可以使用你喜欢使用的客户端发送此 HTTP 请求。 还可以通过单击“试用”按钮使用某个[浏览器中工具](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_createorupdate)。
-
-<!-- Notice: QueryPath is correct on virtualmachines_createorupdate-->
+可以使用你喜欢使用的客户端发送此 HTTP 请求。 还可以通过单击“试用”按钮使用某个[浏览器中工具](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)。
 
 ### <a name="responses"></a>响应
 

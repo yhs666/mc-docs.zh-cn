@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 07/30/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: bec405446c428703ae702ec30982650bdb287787
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: db090504d626891db1a84d18e17fa3f995245cfa
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664365"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665995"
 ---
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 加密 Windows 虚拟机
 
@@ -31,52 +31,74 @@ ms.locfileid: "52664365"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
 # Edit these global variables with you unique Key Vault name, resource group name and location
-$keyVaultName = "myKeyVault"
+#Name of the Key Vault
+$keyVaultName = "myKeyVault00"
+
+#Resource Group Name
 $rgName = "myResourceGroup"
+
+#Region
 $location = "China East"
 
+#Password to place w/in the KeyVault
+$securePassword = ConvertTo-SecureString -String "P@ssword!" -AsPlainText -Force
+
+#Name for the Azure AD Application
+$appName = "My App"
+
+#Name for the VM to be encrypt
+$vmName = "myEncryptedVM"
+
+#user name for the admin account in the vm being created and then encrypted
+$vmAdminName = "encryptedUser"
+
 # Register the Key Vault provider and create a resource group
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
-New-AzureRmResourceGroup -Location $location -Name $rgName
+New-AzResourceGroup -Location $location -Name $rgName
 
 # Create a Key Vault and enable it for disk encryption
-New-AzureRmKeyVault `
+New-AzKeyVault `
     -Location $location `
     -ResourceGroupName $rgName `
     -VaultName $keyVaultName `
     -EnabledForDiskEncryption
 
 # Create a key in your Key Vault
-Add-AzureKeyVaultKey `
+Add-AzKeyVaultKey `
     -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
 
+# Put the password in the Key Vault as a Key Vault Secret so we can use it later
+# We should never put passwords in scripts.
+Set-AzKeyVaultSecret -VaultName $keyVaultName -Name adminCreds -SecretValue $securePassword
+Set-AzKeyVaultSecret -VaultName $keyVaultName -Name protectValue -SecretValue $password
+
 # Create Azure Active Directory app and service principal
-$appName = "My App"
-$securePassword = "P@ssword!"
-$app = New-AzureRmADApplication -DisplayName $appName `
-    -HomePage "https://myapp.contoso.com" `
-    -IdentifierUris "https://contoso.com/myapp" `
-    -Password $securePassword
-New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+$app = New-AzADApplication -DisplayName $appName `
+    -HomePage "https://myapp0.contoso.com" `
+    -IdentifierUris "https://contoso.com/myapp0" `
+    -Password (Get-AzKeyVaultSecret -VaultName $keyVaultName -Name adminCreds).SecretValue
+
+New-AzADServicePrincipal -ApplicationId $app.ApplicationId
 
 # Set permissions to allow your AAD service principal to read keys from Key Vault
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
+Set-AzKeyVaultAccessPolicy -VaultName $keyvaultName `
     -ServicePrincipalName $app.ApplicationId  `
-    -PermissionsToKeys "all" `
-    -PermissionsToSecrets "all"
+    -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update `
+    -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
 
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+# Create PSCredential object for VM
+$cred = New-Object System.Management.Automation.PSCredential($vmAdminName, (Get-AzKeyVaultSecret -VaultName $keyVaultName -Name adminCreds).SecretValue)
 
 # Create a virtual machine
-New-AzureRmVM `
-  -ResourceGroupName $resourceGroup `
+New-AzVM `
+  -ResourceGroupName $rgName `
   -Name $vmName `
   -Location $location `
   -ImageName "Win2016Datacenter" `
@@ -88,24 +110,30 @@ New-AzureRmVM `
   -OpenPorts 3389
 
 # Define required information for our Key Vault and keys
-$keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name "myKey").Key.kid;
 
 # Encrypt our virtual machine
-Set-AzureRmVMDiskEncryptionExtension `
+Set-AzVMDiskEncryptionExtension `
     -ResourceGroupName $rgName `
     -VMName $vmName `
     -AadClientID $app.ApplicationId `
-    -AadClientSecret $securePassword `
+    -AadClientSecret (Get-AzKeyVaultSecret -VaultName $keyVaultName -Name adminCreds).SecretValueText `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
     -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 
 # View encryption status
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
+Get-AzVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
+<#
+#clean up
+Remove-AzResourceGroup -Name $rgName
+#removes all of the Azure AD Applications you created w/ the same name
+Remove-AzADApplication -ObjectId $app.ObjectId -Force
+#>
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
@@ -113,7 +141,7 @@ Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -122,20 +150,21 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/new-azurermkeyvault) | 创建 Azure Key Vault 来存储安全的数据，例如加密密钥。 |
-| [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) | 在 Key Vault 中创建加密密钥。 |
-| [New-AzureRmADServicePrincipal](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | 创建 Azure Active Directory 服务主体，安全地进行身份验证并控制对加密密钥的访问。 |
-| [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | 设置对 Key Vault 的权限，授予服务主体访问加密密钥的权限。 |
-| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和网络安全组。 此命令还将打开端口 80 并设置管理凭据。 |
-| [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault) | 获取有关 Key Vault 的所需信息 |
-| [Set-AzureRmVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) | 使用服务主体凭据和加密密钥对 VM 进行加密。 |
-| [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) | 显示 VM 加密过程的状态。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组及其中包含的所有资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) | 创建 Azure Key Vault，存储加密密钥等安全数据。 |
+| [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) | 在 Key Vault 中创建加密密钥。 |
+| [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) | 创建 Azure Active Directory 服务主体，安全地进行身份验证并控制对加密密钥的访问。 |
+| [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | 设置对 Key Vault 的权限，授予服务主体访问加密密钥的权限。 |
+| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和网络安全组。 此命令还将打开端口 80 并设置管理凭据。 |
+| [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault) | 获取有关 Key Vault 的所需信息 |
+| [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) | 使用服务主体凭据和加密密钥对 VM 进行加密。 |
+| [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus) | 显示 VM 加密过程的状态。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+
 <!-- Update_Description: update meta properties, update cmdlet content -->

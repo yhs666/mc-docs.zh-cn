@@ -4,25 +4,21 @@ description: 通过门户在 Azure 应用服务中创建新的 Function App。
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 04/11/2017
-ms.date: 04/11/2018
+ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1df4ad2957fa15cbc8b6837e608709a10e292e6a
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.openlocfilehash: 8f438b1688855d6780b897c147af7e04db4b5a25
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131773"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665437"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 
@@ -53,12 +49,10 @@ Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如�
 >[!NOTE]
 >使用消耗托管计划时，函数代码和绑定配置文件存储在主存储帐户的 Azure 文件存储中。 删除主存储帐户时，此内容将随之删除且无法恢复。
 
-若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md)。 
+若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md#azure-storage-services)。 
 
 ## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-
-
-
+<!-- Update_Description: link update -->

@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviwer: sstein
 manager: digimobile
-origin.date: 06/14/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 6a43d31ed40cbcbeb939270f44f9e304a5a0e79c
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/03/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 0e1269ee7b7b226f36d1f74d639b2cc041e941e3
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363795"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663570"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
-使用[弹性作业](elastic-jobs-overview.md)，可以跨多个数据库并行运行一个或多个 Transact-SQL (T-SQL) 脚本。
+使用[弹性作业](sql-database-job-automation-overview.md#elastic-database-jobs)，可以跨多个数据库并行运行一个或多个 Transact-SQL (T-SQL) 脚本。
 
 本教程介绍跨多个数据库运行查询所需的步骤：
 
@@ -66,7 +66,7 @@ ms.locfileid: "54363795"
 
 ## <a name="create-required-resources"></a>创建所需资源
 
-创建弹性作业代理需要一个用作[作业数据库](elastic-jobs-overview.md#job-database)的数据库（S0 或更高级别）。 
+创建弹性作业代理需要一个用作[作业数据库](sql-database-job-automation-overview.md#job-database)的数据库（S0 或更高级别）。 
 
 *下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
 
@@ -211,7 +211,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>定义需对其运行作业的目标数据库
 
-[目标组](elastic-jobs-overview.md#target-group)定义可以在其上执行作业步骤的数据库集（包含一个或多个数据库）。 
+[目标组](sql-database-job-automation-overview.md#target-group)定义可以在其上执行作业步骤的数据库集（包含一个或多个数据库）。 
 
 以下代码片段将创建两个目标组：*ServerGroup* 和 *ServerGroupExcludingDb2*。 *ServerGroup* 的目标是执行时在服务器上存在的所有数据库，*ServerGroupExcludingDb2* 的目标是服务器上的所有数据库，*TargetDb2* 除外：
 

@@ -1,21 +1,24 @@
 ---
-title: 跨数据库查询（纵向分区）入门 | Azure
+title: 跨数据库查询（垂直分区）入门 | Microsoft 文档
 description: 如何在垂直分区数据库中使用弹性数据库查询
 services: sql-database
-manager: digimobile
-author: Hayley244
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 07/03/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: 0fa332b1b457b5246651f2e0f1f4a53e0a4349bc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 35c047a42ff1bbf36bc0e12236875a44b27bad6e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645105"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663731"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
 
@@ -31,7 +34,7 @@ Azure SQL 数据库弹性数据库查询（预览版）可让你使用单一连�
 
 ## <a name="create-the-sample-databases"></a>创建示例数据库
 
-首先，我们在相同或不同逻辑服务器中创建两个数据库 **Customers** 和 **Orders**。
+首先，我们在相同或不同 SQL 数据库服务器中创建两个数据库：Customers 和 Orders。
 
 在 **Orders** 数据库中执行以下查询以创建 **OrderInformation** 表并输入示例数据。
 

@@ -24,7 +24,7 @@
 
 ## <a name="before-you-start"></a>开始之前
 
-在为设备编写任何代码之前，部署远程监视解决方案加速器，并向该解决方案添加一个新的物理设备。
+在为设备编写任何代码之前，部署远程监视解决方案加速器，并向该解决方案添加一个真实的新设备。
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>部署远程监视解决方案加速器
 
@@ -37,7 +37,7 @@
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>将设备添加到远程监视解决方案
 
 > [!NOTE]
-> 如果已在解决方案中添加了设备，则可以跳过此步骤。 不过，下一步骤需要设备连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)或使用 [az iot](/cli/azure/iot?view=azure-cli-latest) CLI 工具检索设备的连接字符串。
+> 如果已在解决方案中添加了设备，则可以跳过此步骤。 不过，下一步骤需要设备连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)或使用 [az iot](/cli/iot?view=azure-cli-latest) CLI 工具检索设备的连接字符串。
 
 对于连接到解决方案加速器的设备，该设备必须使用有效的凭据将自身标识到 IoT 中心。 将设备添加到解决方案时，有机会保存包含这些凭据的设备连接字符串。 在本教程中，稍后会在客户端应用程序中添加设备连接字符串。
 
@@ -45,7 +45,7 @@
 
 1. 选择“+ 新建设备”，并选择“物理”作为设备类型：
 
-    ![添加物理设备](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![添加真实设备](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. 输入 Physical-chiller 作为设备 ID。 选择“对称密钥”和“自动生成密钥”选项：
 
@@ -55,7 +55,7 @@
 
     ![检索凭据](media/iot-suite-selector-connecting/credentials.png)
 
-现在，你已向远程监视解决方案加速器添加了物理设备，并记下了其设备连接字符串。 在以下各部分中，你将实现使用设备连接字符串连接到解决方案的客户端应用程序。
+现在，你已向远程监视解决方案加速器添加了一个真实设备，并记下了其设备连接字符串。 在以下各部分中，你将实现使用设备连接字符串连接到解决方案的客户端应用程序。
 
 客户端应用程序实现内置的冷却器设备模型。 解决方案加速器设备模型指定有关设备的以下信息：
 

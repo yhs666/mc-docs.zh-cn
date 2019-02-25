@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a7d9a5733ebf3485497da1831a1ea57bc8638a11
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: effabbbf39b0f7daae2aa2bbd65795b924efc110
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664092"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666034"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -318,7 +318,7 @@ zypper info python-azure-agent
 
 #### <a name="check-available-updates"></a>检查可用的更新
 
-在上面的输出中，这将显示程序包是否为最新版。
+上面的输出将显示程序包是否为最新版。
 
 #### <a name="install-the-latest-package-version"></a>安装最新版本的程序包
 

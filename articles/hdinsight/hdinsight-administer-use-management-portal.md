@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 01/21/2019
+ms.date: 03/03/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: f1bf4ef3592a1ba8d9ba716fd6a241413e212b64
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 0482f31eb0838d354cb040093a994f55c45cbf04
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216252"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665482"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Apache Hadoop 群集
 
@@ -91,6 +91,9 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
      >
    * **标记**：标记用于设置键/值对，以定义云服务的自定义分类。 例如，用户可以创建名为 **project**的键，并对与特定项目关联的所有服务使用一个公用值。
    * **Ambari 视图**：Ambari Web 的链接。
+
+     > [!IMPORTANT]  
+     > 若要管理 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。 有关如何使用 Ambari 的详细信息，请参阅[使用 Apache Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
      **使用情况**：
 
@@ -296,6 +299,8 @@ HDInsight 查询控制台包括下列功能：
 ## <a name="monitor-cluster-usage"></a>监视群集使用情况
 HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息，方便了解订阅中可以用于 HDInsight 的核心数、分配给此群集的核心数，以及这些核心是如何分配给此群集中的节点的。 请参阅[列出和显示群集](#list-and-show-clusters)。
 
+> [!IMPORTANT]  
+> 若要监视 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。 有关如何使用 Ambari 的详细信息，请参阅[使用 Apache Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="open-hadoop-ui"></a>打开 Hadoop UI
 若要监视群集、浏览文件系统和查看日志，请单击 HDInsight 查询控制台中的“Hadoop UI”。 请参阅[打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
@@ -318,7 +323,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
     “到期日期”的默认值为“一周”。
 
    > [!NOTE]
-   > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。 按以下方式使用 HDInsight 客户端对象上的 EnableRdp方法：client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))。 同样，若要在群集上禁用远程桌面，可以使用 client.DisableRdp(clustername, location)。 有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](http://go.microsoft.com/fwlink/?LinkId=529017)。 这仅适用于在 Windows 上运行的 HDInsight 群集。
+   > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。 按以下方式使用 HDInsight 客户端对象上的 EnableRdp方法：client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))。 同样，若要在群集上禁用远程桌面，可以使用 client.DisableRdp(clustername, location)。 有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](https://go.microsoft.com/fwlink/?LinkId=529017)。 这仅适用于在 Windows 上运行的 HDInsight 群集。
    >
    >
 

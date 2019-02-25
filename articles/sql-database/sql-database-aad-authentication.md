@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 12/03/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: c5663387639e78019aef9da19859342263690005
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+origin.date: 01/18/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: dc023d4ebafebe32df34282e12c7d9842ffe5351
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397043"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663558"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -36,8 +36,8 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 - 它可以通过启用集成的 Windows 身份验证和 Azure Active Directory 支持的其他形式的身份验证来消除存储密码。
 - Azure AD 身份验证使用包含的数据库用户以数据库级别对标识进行身份验证。
 - Azure AD 支持对连接到 SQL 数据库的应用程序进行基于令牌的身份验证。
-- Azure AD 身份验证支持对本地 Azure Active Directory 进行 ADFS（域联合）或本机用户/密码身份验证，而无需进行域同步。  
-- Azure AD 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括多重身份验证 (MFA)。  MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。  
+- Azure AD 身份验证支持对本地 Azure Active Directory 进行 ADFS（域联合）或本机用户/密码身份验证，而无需进行域同步。
+- Azure AD 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括多重身份验证 (MFA)。  MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。
 
 > [!NOTE]  
 > 不支持使用 Azure Active Directory 帐户连接到 Azure VM 上运行的 SQL Server。 请改用域 Active Directory 帐户。  
@@ -78,20 +78,26 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD 功能和限制
 
-可以在 Azure SQL Server 或 SQL 数据仓库中预配以下 Azure AD 成员：
+- 可以在 Azure SQL Server 或 SQL 数据仓库中预配以下 Azure AD 成员：
 
-- 本机成员：在托管域或客户域中的 Azure AD 中创建的成员。 有关详细信息，请参阅[将自己的域名添加到 Azure AD](../active-directory/fundamentals/add-custom-domain.md)。
-- 联合域成员：在联合域的 Azure AD 中创建的成员。 有关详细信息，请参阅 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
-- 作为本机或联合域成员从其他 Azure AD 导入的成员。
-- 以安全组形式创建的 Active Directory 组。
+  - 本机成员：在托管域或客户域中的 Azure AD 中创建的成员。 有关详细信息，请参阅[将自己的域名添加到 Azure AD](../active-directory/fundamentals/add-custom-domain.md)。
+  - 联合域成员：在联合域的 Azure AD 中创建的成员。 有关详细信息，请参阅 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
+  - 作为本机或联合域成员从其他 Azure AD 导入的成员。
+  - 以安全组形式创建的 Active Directory 组。
 
-这些系统函数在 Azure AD 主体下执行时，返回 NULL 值：
+- 属于具有 `db_owner` 服务器角色的组的 Azure AD 用户无法对 Azure SQL 数据库和 Azure SQL 数据仓库使用 **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** 语法。 将出现以下错误：
 
-- `SUSER_ID()`
-- `SUSER_NAME(<admin ID>)`
-- `SUSER_SNAME(<admin SID>)`
-- `SUSER_ID(<admin name>)`
-- `SUSER_SID(<admin name>)`
+    `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
+
+    请直接将 `db_owner` 角色授予个体 Azure AD 用户以缓解 **CREATE DATABASE SCOPED CREDENTIAL** 问题。
+
+- 这些系统函数在 Azure AD 主体下执行时，返回 NULL 值：
+
+  - `SUSER_ID()`
+  - `SUSER_NAME(<admin ID>)`
+  - `SUSER_SNAME(<admin SID>)`
+  - `SUSER_ID(<admin name>)`
+  - `SUSER_SID(<admin name>)`
 
 ## <a name="connecting-using-azure-ad-identities"></a>使用 Azure AD 标识进行连接
 
@@ -101,6 +107,12 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 - 使用 Azure AD 主体名称和密码
 - 使用应用程序令牌身份验证
 
+Azure AD 登录名支持以下身份验证方法（**公共预览版**）：
+
+- Azure Active Directory 密码
+- 集成式 Azure Active Directory
+- 采用了 MFA 的通用 Azure Active Directory
+
 ### <a name="additional-considerations"></a>其他注意事项
 
 - 为了增强可管理性，建议将一个专用 Azure AD 组预配为管理员。   
@@ -108,8 +120,6 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 - 只有 SQL Server 的 Azure AD 管理员最初可以使用 Azure Active Directory 帐户连接到 Azure SQL 数据库服务器或 Azure SQL 数据仓库。 Active Directory 管理员可以配置后续的 Azure AD 数据库用户。   
 - 我们建议将连接超时值设置为 30 秒。   
 - SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015（版本 14.0.60311.1（2016 年 4 月）或更高版本）支持 Azure Active Directory 身份验证。 （**用于 SqlServer 的 .NET Framework 数据提供程序**（.NET Framework 4.6 或更高版本）支持 Azure AD 身份验证）。 因此，这些工具和数据层应用程序（DAC 和 .BACPAC）的最新版本可以使用 Azure AD 身份验证。   
-- 虽然 [ODBC 版本 13.1](https://www.microsoft.com/download/details.aspx?id=53339) 支持 Azure Active Directory 身份验证，但是 `bcp.exe` 无法使用 Azure Active Directory 身份验证进行连接，因为使用的是旧式 ODBC 提供程序。   
-- `sqlcmd` 从版本 13.1 开始就支持 Azure Active Directory 身份验证，该版本可从 [下载中心](https://go.microsoft.com/fwlink/?LinkID=825643)下载。
 - SQL Server Data Tools for Visual Studio 2015 至少需要 2016 年 4 月版的 Data Tools（版本 14.0.60311.1）。 目前，Azure AD 用户不会显示在 SSDT 对象资源管理器中。 解决方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中查看这些用户。   
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支持 Azure AD 身份验证。 另外，请参阅[设置连接属性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 - PolyBase 无法使用 Azure AD 身份验证进行身份验证。   

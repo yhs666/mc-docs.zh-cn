@@ -4,36 +4,30 @@ titlesuffix: Azure Cognitive Services
 description: 使用计算机视觉服务，开发人员可以访问用于处理图像并返回信息的高级算法。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: overview
 origin.date: 08/22/2018
-ms.date: 01/17/2019
+ms.date: 02/20/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: b6ff71de967591a666db1b5dfa7fb9f2820f3953
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: 071e65eba73867948e94c5578b4d2d73b716a62c
+ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396445"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56582770"
 ---
 # <a name="what-is-computer-vision"></a>什么是计算机视觉？
 
-使用基于云的计算机视觉服务，开发人员可以访问用于处理图像并返回信息的高级算法。 计算机视觉适用于常用图像格式，例如 JPEG 和 PNG。 若要分析图像，可以上传图像，也可以指定图像 URL。 计算机视觉算法可以通过不同方式分析图像的内容，具体取决于你感兴趣的视觉功能。 例如，计算机视觉可以确定图像是否包含成人内容或不雅内容，或者查找图像中的所有人脸。
+使用 Azure 的计算机视觉服务，开发人员可以访问用于处理图像并返回信息的高级算法。 若要分析图像，可以上传图像，也可以指定图像 URL。 图像处理算法可以通过多种不同的方式分析内容，具体取决于你感兴趣的视觉功能。 例如，计算机视觉可以确定图像是否包含成人内容或不雅内容，或者查找图像中的所有人脸。
 
-可以通过直接调用 [REST API](vision-api-how-to-topics/howtocallvisionapi.md) 在应用程序中使用计算机视觉，以便：
+可以在应用程序中使用计算机视觉，方法是：使用本机 SDK，或者直接调用 REST API。 此页广泛地介绍了计算机视觉的功能。
 
-- [通过分析图像来获取见解](#analyzing-images-for-insight)
-- [从图像中提取文本](#extracting-text-from-images)
-- [管理图像中的内容](#moderating-content-in-images)
+## <a name="analyze-images-for-insight"></a>通过分析图像来获取见解
 
-## <a name="analyzing-images-for-insight"></a>通过分析图像来获取见解
-
-可以使用计算机视觉来分析图像，以便检测并提供有关图像视觉特性和特征的见解。 可以通过上传图像内容来分析本地图像，也可以通过指定图像 URL 来分析远程图像。
-
-计算机视觉在分析图像时，可执行以下操作：
+可以分析图像，以便检测并提供有关视觉特性和特征的见解。 下表中的所有特性由[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API 提供。
 
 | 操作 | 说明 |
 | ------ | ----------- |
@@ -48,13 +42,14 @@ ms.locfileid: "54396445"
 |**[生成缩略图](concept-generating-thumbnails.md)**|分析图像的内容，生成该图像的相应缩略图。 计算机视觉首先生成高质量缩略图，然后通过分析图像中的对象来确定“感兴趣区域”。 然后，计算机视觉会裁剪图像以满足感兴趣区域的要求。 可以用户需求使用与原始图像的纵横比不同的纵横比显示生成的缩略图。|
 |**[获取感兴趣区域](concept-generating-thumbnails.md#area-of-interest)**|分析图像内容，以返回“感兴趣区域”的坐标。 这是用于生成缩略图的相同函数，但是计算机视觉并没有裁剪图像，而是返回该区域的边框坐标，因此调用的应用程序可以根据需要修改原始图像。|
 
-## <a name="extracting-text-from-images"></a>从图像中提取文本
+
+## <a name="extract-text-from-images"></a>从图像中提取文本
 
 可以使用计算机视觉[通过 OCR 来提取文本](concept-extracting-text-ocr.md)，将文本从图像提取到计算机可读的字符流中。 如果需要，OCR 会围绕图像水平轴更正所识别文本的方向（以度为单位），并提供每个词的帧坐标。 OCR 支持 25 种语言，并会自动检测已提取文本的语言。
 
 也可在图像中[识别印刷文本和手写文本](concept-recognizing-text.md)。 计算机视觉可以在图像中检测并提取印刷文本和手写文本，这些图像包含各种具有不同表面和背景的对象（例如收据、海报、名片、信函、白板）。 目前，识别印刷文本和手写文本功能为预览版，并且仅支持英语。  
 
-## <a name="moderating-content-in-images"></a>管理图像中的内容
+## <a name="moderate-content-in-images"></a>管理图像中的内容
 
 可以使用计算机视觉在图像中[检测成人内容和不雅内容](concept-detecting-adult-content.md)，对图像包含成人内容或不雅内容的可能性进行评分，并为二者生成一个置信度分数。 可以根据自己的偏好在滑尺上设置成人和不雅内容检测的筛选器。
 
@@ -64,8 +59,8 @@ ms.locfileid: "54396445"
 
 - 图像必须以 JPEG、PNG、GIF 或 BMP 格式显示
 - 图像的文件大小必须不到 4 兆字节 (MB)
-- 图像的尺寸必须大于 50 x 50 像素  
-  对于 OCR，图像的尺寸必须介于 50 x 50 和 4200 x 4200 像素之间
+- 图像的尺寸必须大于 50 x 50 像素
+  - 对于 OCR，图像的尺寸必须介于 50 x 50 和 4200 x 4200 像素之间
 
 ## <a name="data-privacy-and-security"></a>数据隐私和安全性
 

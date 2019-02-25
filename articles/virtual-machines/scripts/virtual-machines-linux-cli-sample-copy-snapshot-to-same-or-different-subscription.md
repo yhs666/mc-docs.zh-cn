@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 04/16/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 630eda7b75379d7e83522dffdc94bcb9df76c203
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 29fec77d2f6bf98649377379b4fa25898ce1d6f5
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645328"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666367"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘的快照复制到相同或不同的订阅
 
@@ -36,7 +36,7 @@ ms.locfileid: "52645328"
 
 ```azurecli
 #Provide the subscription Id of the subscription where snapshot exists
-sourceSubscriptionId=<your_subscription_id>
+sourceSubscriptionId=dd80b94e-0463-4a65-8d04-c94f403879dc
 
 #Provide the name of your resource group where snapshot exists
 sourceResourceGroupName=mySourceResourceGroupName
@@ -55,7 +55,7 @@ echo 'source snapshot Id is: ' $snapshotId
 
 #Provide the subscription Id of the subscription where snapshot will be copied to
 #If snapshot is copied to the same subscription then you can skip this step
-targetSubscriptionId=<target_subscription_id>
+targetSubscriptionId=6492b1f7-f219-446b-b509-314e17e1efb0
 
 #Name of the resource group where snapshot will be copied to
 targetResourceGroupName=mytargetResourceGroupName
@@ -67,7 +67,6 @@ az account set --subscription $targetSubscriptionId
 #Copy snapshot to different subscription using the snapshot Id
 az snapshot create --resource-group $targetResourceGroupName --name $snapshotName --source $snapshotId
 
-
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -76,15 +75,15 @@ az snapshot create --resource-group $targetResourceGroupName --name $snapshotNam
 
 | 命令 | 注释 |
 |---|---|
-| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性将快照复制到其他订阅。  |
-| [az snapshot create](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_create) | 通过使用父快照的 ID 和名称在不同订阅中创建快照来复制快照。  |
+| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性将快照复制到其他订阅。  |
+| [az snapshot create](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-create) | 通过使用父快照的 ID 和名称在不同订阅中创建快照来复制快照。  |
 
 ## <a name="next-steps"></a>后续步骤
 
-[基于快照创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[基于快照创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
 
-可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->
