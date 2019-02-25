@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/09/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: bde4a12db04f094d985a262c5cfe779abcf5e078
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.reviewer: jroth
+ms.openlocfilehash: 1198cb7d94928b67dce6618399e7661a6cbcdc24
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736171"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665950"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -94,6 +95,7 @@ ms.locfileid: "53736171"
 >而不包括 Web、Standard 和 Enterprise 版本的其他 SQL Server 许可成本。 若要获取最准确的估算定价，请在适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的定价页上选择操作系统和 SQL Server 版本。
 
 <!-- Not Available on NOTE [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
+
 <a name="byol"></a>
 ## <a name="bring-your-own-license-byol"></a>自带许可证 (BYOL)
 
@@ -104,6 +106,7 @@ ms.locfileid: "53736171"
 
 > [!NOTE]
 > BYOL 映像目前仅适用于 Windows 虚拟机。 但是，可以在仅限 Linux 的 VM 上手动安装 SQL Server。 
+
 <!-- Not Availabe on [Linux SQL VM FAQ](../../linux/sql/sql-server-linux-faq.md)-->
 
 建议在以下情况采用“通过许可移动性使用自己的 SQL Server 许可”：
@@ -112,7 +115,7 @@ ms.locfileid: "53736171"
 
 - **生存期和规模已知的工作负荷**。 例如，全年需要且已预测其需求的应用。
 
-若要对 SQL Server VM 使用 BYOL，必须拥有 SQL Server Standard 或 Enterprise 的许可证以及软件保障，这是某些批量许可计划的必需选项，而对其他计划而言为可选购买。 根据协议类型以及 SQL Server 的数量和/或对其的承诺，批量许可计划提供的定价级别各不相同。 但一般而言，针对连续生产工作负荷自带许可证具有以下优点： <!-- Not Available on [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)-->
+若要对 SQL Server VM 使用 BYOL，必须拥有 SQL Server Standard 或 Enterprise 的许可证以及[软件保障](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)，这是通过某些批量许可计划的必需选项，而对其他计划而言为可选购买项。 根据协议类型以及 SQL Server 的数量和/或对其的承诺，批量许可计划提供的定价级别各不相同。 但一般而言，针对连续生产工作负荷自带许可证具有以下优点：
 
 | BYOL 权益 | 说明 |
 |-----|-----|
@@ -120,7 +123,9 @@ ms.locfileid: "53736171"
 | 长期节省 | 通常，若购买或续订 SQL Server 许可证，前 3 年每年要便宜 30%。 此外，3 年之后，无需再续订许可证，只需支付软件保障费用。 此时，它将便宜两倍。 |
 | 免费的被动辅助副本 | 自带许可证的另一项好处是每个 SQL Server 免费许可 1 个被动辅助副本以实现高可用性。 这会高度可用的 SQL Server 部署（例如使用 Always On 可用性组）的许可成本减少了一半。 通过故障转移服务器软件保障权益，可享用被动辅助副本的运行权限。 |
 
-<!-- URL is invalid on [free licensing for one passive secondary replica](https://www.azure.cn/pricing/licensing-faq/)--> 若要使用上述某个自带许可映像创建 SQL Server 2017 Azure VM，请参阅前缀为“{BYOL}”的 VM：
+<!-- URL is invalid on [free licensing for one passive secondary replica](https://www.azure.cn/pricing/licensing-faq/)-->
+
+若要使用上述某个自带许可证映像创建 SQL Server 2017 Azure VM，请参阅前缀为“{BYOL}”的 VM：
 
 - [SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016)
 - [SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016)

@@ -6,15 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 01/29/2018
+origin.date: 01/15/2019
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 9f2a745c2fda591c20fd0489651e459cbdc955c2
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.date: 03/04/2019
+ms.openlocfilehash: 945ee6391fa019f1bee23de75f71c6a932d9461c
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396816"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665539"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -115,9 +115,6 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 ## <a name="device-identity"></a>设备标识
 设备标识是分配给在 [标识注册表](#identity-registry)中注册的每个设备的唯一标识符。
 
-## <a name="module-identity"></a>模块标识
-模块标识是分配给设备所属的每个模块的唯一标识符。 模块标识也注册到[标识注册表](#identity-registry)中。
-
 ## <a name="device-management"></a>设备管理
 设备管理包含在 IoT 解决方案中管理设备的完整生命周期，包括规划、预配、配置、监视和停用设备。
 
@@ -132,15 +129,6 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 
 ## <a name="device-twin"></a>设备孪生
 [设备孪生](./iot-hub-devguide-device-twins.md)是存储设备状态信息（如元数据、配置和条件）的 JSON 文档。 [IoT 中心](#iot-hub) 为在 IoT 中心预配的每台设备保留一个设备孪生。 借助设备孪生可以在设备和解决方案后端之间同步 [设备条件](#device-condition) 和配置。 可以通过查询设备孪生来定位特定设备和查询长时间运行的操作状态。
-
-## <a name="module-twin"></a>模块孪生
-与设备孪生类似，模块孪生是存储模块状态信息（如元数据、配置和条件）的 JSON 文档。 IoT 中心为在 IoT 中心的设备标识下预配的每个模块实体保留一个模块孪生。 可以借助模块孪生在模块和解决方案后端之间同步模块条件和配置。 可以通过查询模块孪生来定位特定模块和查询长时间运行的操作状态。
-
-## <a name="twin-queries"></a>孪生查询
-[设备和模块孪生查询](iot-hub-devguide-query-language.md)使用类似于 SQL 的 IoT 中心查询语言从设备孪生或模块孪生中检索信息。 可以使用相同的 IoT 中心查询语言，检索在 IoT 中心内运行的 [](#job) 的相关信息。
-
-## <a name="twin-synchronization"></a>孪生同步
-孪生同步使用设备孪生或模块孪生中的[所需属性](#desired-properties)配置设备或模块，并检索其中的[报告属性](#reported-properties)，以将这些属性存储在孪生中。
 
 ## <a name="direct-method"></a>直接方法
 [直接方法](./iot-hub-devguide-direct-methods.md)可让你通过在 IoT 中心上调用 API来触发在设备上执行的方法。
@@ -226,7 +214,7 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 需要在 IoT 中心配置[路由规则](./iot-hub-devguide-messages-read-custom.md)，将设备到云消息路由到[内置终结点](#built-in-endpoints)或[自定义终结点](#custom-endpoints)，以供解决方案后端处理。
 
 ## <a name="sasl-plain"></a>SASL PLAIN
-SASL PLAIN 是一种协议， [AMQP](#advanced-message-queue-protocol) 协议使用它传输安全令牌。
+SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 
 ## <a name="service-rest-api"></a>服务 REST API
 可以从解决方案后端使用[服务 REST API](https://docs.microsoft.com/rest/api/iothub/service) 来管理设备。 使用 API，不仅可以检索和更新[设备孪生](#device-twin)属性，还能调用[直接方法](#direct-method)并安排[作业](#job)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
@@ -253,10 +241,16 @@ Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使
 在与[设备孪生](./iot-hub-devguide-device-twins.md)相关的语境中，标记是指由解决方案后端以 JSON 文档形式存储和检索的设备元数据。 标记对设备上的应用不可见。
 
 ## <a name="telemetry"></a>遥测
-设备收集遥测数据，如风速或温度，并使用[数据点消息](#data-point-messages)将遥测数据发送到 IoT 中心。
+设备收集遥测数据，如风速或温度，并使用数据点消息将遥测数据发送到 IoT 中心。
 
 ## <a name="token-service"></a>令牌服务
 可以使用令牌服务对设备实施身份验证机制。 它使用包含 [DeviceConnect](#shared-access-policy) 权限的 IoT 中心 **共享访问策略** 创建 *设备范围的* 令牌。 这些令牌可让设备连接到 IoT 中心。 设备通过令牌服务使用自定义的身份验证机制进行身份验证。 如果设备成功通过身份验证，那么令牌服务向设备颁发 SAS 令牌用于访问 IoT 中心。
+
+## <a name="twin-queries"></a>孪生查询
+[设备和模块孪生查询](iot-hub-devguide-query-language.md)使用类似于 SQL 的 IoT 中心查询语言从设备孪生或模块孪生中检索信息。 可以使用相同的 IoT 中心查询语言，检索在 IoT 中心内运行的 [](#job) 的相关信息。
+
+## <a name="twin-synchronization"></a>孪生同步
+孪生同步使用设备孪生或模块孪生中的[所需属性](#desired-properties)配置设备或模块，并检索其中的[报告属性](#reported-properties)，以将这些属性存储在孪生中。
 
 ## <a name="x509-client-certificate"></a>X.509 客户端证书
 设备可以使用 X.509 证书在 [IoT 中心](#iot-hub)进行身份验证。 使用 X.509 证书是使用 [SAS 令牌](#shared-access-signature)的替代方案。

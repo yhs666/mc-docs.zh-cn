@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/05/2016
-ms.date: 06/25/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcfe42371f56e95cb211c659db3faabdf465ecf6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e0efe70f0354a07c762058a7f5933483d0c11c05
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645573"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665502"
 ---
-# <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Giraph
+# <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Apache Giraph
 
-了解如何使用 Giraph 通过脚本操作来自定义基于 Windows 的 HDInsight 群集，以及如何使用 Giraph 来处理大型关系图。 有关在基于 Linux 的群集中使用 Giraph 的信息，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。
+了解如何使用 Apache Giraph 通过脚本操作来自定义基于 Windows 的 HDInsight 群集，以及如何使用 Giraph 来处理大型关系图。 有关在基于 Linux 的群集中使用 Giraph 的信息，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。
 
-> [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 若要了解如何在基于 Linux 的 HDInsight 群集上安装 Giraph，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。
+> [!IMPORTANT]  
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关如何在基于 Linux 的 HDInsight 群集上安装 Giraph 的信息，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。
 
 可以使用脚本操作，在 Azure HDInsight 的任何一种群集（Hadoop、Storm、HBase、Spark）上安装 Giraph。 用于在 HDInsight 群集上安装 Giraph 的示例脚本可从只读 Azure 存储 Blob ([https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)) 获得。 示例脚本仅适用于 HDInsight 群集版本 3.1。 有关 HDInsight 群集版本的详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
 
 **相关文章**
 
-* [在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [在 HDInsight 中创建 Hadoop 群集](hdinsight-provision-clusters.md)：有关如何创建 HDInsight 群集的一般信息。
+* [在 HDInsight Hadoop 群集 (Linux) 上安装 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-provision-clusters.md)：有关如何创建 HDInsight 群集的一般信息。
 * [使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]：有关使用脚本操作自定义 HDInsight 群集的一般信息。
 * [为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions.md)。
 
 ## <a name="what-is-giraph"></a>什么是 Giraph？
-<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> 允许使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。 图形可为对象之间的关系建模，例如，为 Internet 之类的大型网络上的路由器之间的连接建模，或者为社交网络上的人物之间的关系建模（有时称为社交图形）。 通过图形处理，可以推理图形中对象之间的关系，例如：
+<a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> 允许使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。 图形可为对象之间的关系建模，例如，为 Internet 之类的大型网络上的路由器之间的连接建模，或者为社交网络上的人物之间的关系建模（有时称为社交图形）。 通过图形处理，可以推理图形中对象之间的关系，例如：
 
 * 根据当前的关系识别潜在的朋友。
 * 识别网络中两台计算机之间的最短路由。
@@ -53,22 +53,17 @@ ms.locfileid: "52645573"
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Use Script Action to customize a cluster")
 
-    <table border='1'>
-        <tr><th>属性</th><th>值</th></tr>
-        <tr><td>Name</td>
-            <td>指定脚本操作的名称。 例如，Install Giraph<b></b>。</td></tr>
-        <tr><td>脚本 URI</td>
-            <td>指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>节点类型</td>
-            <td>指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”<b></b><b></b><b></b>。
-        <tr><td>parameters</td>
-            <td>根据脚本的需要，请指定参数。 用于安装 Giraph 的脚本不需要任何参数，因此可以将此字段留空。</td></tr>
-    </table>
+    |属性|值|  
+    |---|---|  
+    |Name|指定脚本操作的名称。 例如，安装 Giraph|
+    |脚本 URI|指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |节点类型|指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”。
+    |parameters|根据脚本的需要，请指定参数。 用于安装 Giraph 的脚本不需要任何参数，因此可以将此字段留空。|  
 
     可以添加多个脚本操作，以在群集上安装多个组件。 在添加了脚本后，单击复选标记以开始创建群集。
 
 ## <a name="use-giraph"></a>使用 Giraph
-我们将使用 SimpleShortestPathsComputation 示例演示有关查找图形中对象之间最短路径的基本 <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 实现。 请执行以下步骤，以上传示例数据和示例 jar，使用 SimpleShortestPathsComputation 示例运行作业，然后查看结果。
+我们将使用 SimpleShortestPathsComputation 示例演示有关查找图形中对象之间最短路径的基本 <a href = "https://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 实现。 请执行以下步骤，以上传示例数据和示例 jar，使用 SimpleShortestPathsComputation 示例运行作业，然后查看结果。
 
 1. 将示例数据文件上传到 Azure Blob 存储。 在本地工作站上，创建名为 tiny_graph.txt 的新文件。 该文件应该包含以下几行：
 
@@ -78,9 +73,9 @@ ms.locfileid: "52645573"
         [3,0,[[0,3],[1,1],[4,4]]]
         [4,0,[[3,4],[2,4]]]
 
-    将 tiny_graph.txt 文件上传到 HDInsight 群集的主存储。 有关如何上传数据的说明，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
+    将 tiny_graph.txt 文件上传到 HDInsight 群集的主存储。 有关如何上传数据的说明，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](hdinsight-upload-data.md)。
 
-    此数据使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述有向图中对象之间的关系。每一行代表 sourceid 对象与一个或多个 dest\_id 对象之间的关系**。 edge\_value（或权重）可被视为 source_id 和 dest\_id 之间的连接强度或距离。
+    此数据使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述有向图中对象之间的关系。每一行代表 source\_id 对象与一个或多个 dest\_id 对象之间的关系。 edge\_value（或权重）可被视为 source_id 和 dest\_id 之间的连接强度或距离。
 
     使用表示对象间距离的值（或权重）绘制图形后，上述数据可能与下面类似。
 
@@ -160,19 +155,19 @@ ms.locfileid: "52645573"
 
     ![将对象绘制为圆圈，并绘制对象之间的最短路径](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
-## <a name="install-giraph-using-aure-powershell"></a>使用 Azure PowerShell 安装 Giraph
-请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此示例演示如何使用 Azure PowerShell 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
+## <a name="install-giraph-using-azure-powershell"></a>使用 Azure PowerShell 安装 Giraph
+请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此示例演示如何使用 Azure PowerShell 安装 Apache Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
 
 ## <a name="install-giraph-using-net-sdk"></a>使用 .NET SDK 安装 Giraph
 请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此示例演示如何使用 .NET SDK 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
 
 ## <a name="see-also"></a>另请参阅
-* [在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [在 HDInsight 中创建 Hadoop 群集](hdinsight-provision-clusters.md)：有关如何创建 HDInsight 群集的一般信息。
+* [在 HDInsight Hadoop 群集 (Linux) 上安装 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-provision-clusters.md)：有关如何创建 HDInsight 群集的一般信息。
 * [使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]：有关使用脚本操作自定义 HDInsight 群集的一般信息。
 * [为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions.md)。
-* [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]：有关安装 Spark 的脚本操作示例。
-* [在 HDInsight 群集上安装 Solr](hdinsight-hadoop-solr-install.md)：有关安装 Solr 的脚本操作示例。
+* [在 HDInsight 群集上安装并使用 Apache Spark][hdinsight-install-spark]：有关如何安装 Spark 的脚本操作示例。
+* [在 HDInsight 群集上安装并使用 Apache Spark](hdinsight-hadoop-solr-install.md)：有关如何安装 Solr 的脚本操作示例。
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: /powershell-install-configure/

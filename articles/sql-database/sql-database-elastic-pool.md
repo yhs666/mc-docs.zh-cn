@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ninarn, carlrab
 manager: digimobile
-origin.date: 10/15/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 72421445df4a1918dfaeb08ee5d5986b4447e3c2
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/07/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: fc119bf1c5df983deff3ebedbf6e46c7eda8b67e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806311"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663521"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -31,7 +31,8 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 - 基于高峰使用情况和付款情况过度预配资源或
 - 采用低配节省成本，但这样会牺牲高峰期的性能和客户满意度。
 
-弹性池通过确保数据库获取需要时所需的性能资源来解决这个问题。 它们在可预测的预算内提供简单的资源分配机制。
+> [!IMPORTANT]
+> 弹性池没有按照数据库收取的费用。 对于池存在的每个小时，需要支付最高的 eDTU 或 vCore 费用，无论使用量是多少，也不管池处于活动状态的时间是否小于一小时。
 
 弹性池可让开发人员为由多个数据库共享的池购买资源，以适应单一数据库使用时段不可预测的情况。 可以根据[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)为池配置资源。 池的资源要求取决于其数据库的聚合使用量。 池可用的资源数量由开发者预算控制。 开发者只需将数据库添加到池，为数据库设置最小和最大资源（最小和最大 DTU 数，或者最小或最大 vCore 数，具体取决于所选的资源模型），然后基于预算设置池的资源。 开发人员可以使用池顺畅地扩大其服务，以渐增的规模从精简的新创公司发展到成熟的企业。
 
@@ -116,7 +117,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
    <并发高峰数据库的数目 X 每一数据库的高峰 DTU 使用率)
 
    对于基于 vCore 的购买模型：MAX（<*数据库的总数目* X *每一数据库的平均 vCore 使用率*>、<br>  
-   <并发高峰数据库的数目 X 每一数据库的高峰 vCore 使用率)
+   <*并发高峰数据库的数目* X *每一数据库的高峰 vCore 使用率*)
 
 2. 通过将池内所有的数据库所需的字节数相加来估算池所需要的存储空间。 然后，确定提供此存储量的 eDTU 池的大小。
 3. 对于基于 DTU 的购买模型，请取步骤 1 和步骤 2 中 eDTU 估算值中较大的那个。 对于基于 vCore 的购买模型，请取步骤 1 中的 vCore 估算值。

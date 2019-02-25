@@ -2,20 +2,23 @@
 title: 迁移要扩展的现有数据库 | Microsoft Docs
 description: 通过创建分片映射管理器来转换分片数据库，以使用弹性数据库工具
 services: sql-database
-author: Hayley244
-manager: digimobile
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: ba5fa1afd44631b18644d597fb070dc35d700618
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: d61b40eac08ec01e2ab58c8afc8262042d833287
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651042"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663759"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>迁移要扩展的现有数据库
 使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 先转换现有数据库集，再使用[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 
@@ -67,11 +70,11 @@ ms.locfileid: "52651042"
 
 ![列表映射][1]
 
-多租户模型将数个租户分配给单一数据库（可以跨多个数据库分布租户组）。 如果希望每个租户具有较小的数据需求，请使用此模型。 在此模型中，使用范围映射将一系列用户分配到数据库。 
+多租户模型将数个租户分配给单个数据库（可跨多个数据库分布租户组）。 如果希望每个租户具有较小的数据需求，请使用此模型。 在此模型中，使用范围映射将一系列用户分配到数据库。 
 
 ![范围映射][2]
 
-或者可以使用“列表映射”  实现多租户数据库模型，以将多个租户分配给单一数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。 
+或可以使用列表映射来实现多租户数据库模型，以将多个租户分配给单个数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。 
 
 ![单一 DB 上的多个租户][3] 
 
@@ -96,7 +99,7 @@ ms.locfileid: "52651042"
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>选项 3：单一数据库上的列表映射
+### <a name="option-3-list-mappings-on-an-individual-database"></a>选项 3：单个数据库的列表映射
 设置此模式也要求创建列表映射，如步骤 2，选项 1 中所示。
 
 ## <a name="step-3-prepare-individual-shards"></a>步骤 3：准备各个分片
@@ -136,7 +139,7 @@ ms.locfileid: "52651042"
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>步骤 4，选项 3：映射单一数据库上多个租户的数据
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>步骤 4，选项 3：映射单个数据库上多个租户的数据
 对于每个租户，运行 Add-ListMapping（选项 1）。 
 
 ## <a name="checking-the-mappings"></a>检查映射
@@ -152,7 +155,7 @@ ms.locfileid: "52651042"
 ## <a name="next-steps"></a>后续步骤
 从 [Azure SQL DB - 弹性数据库工具脚本](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)获取 PowerShell 脚本。
 
-GitHub 上也提供了这些工具： [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)。
+GitHub 上也提供了这些工具：[Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)。
 
 使用拆分/合并工具在多租户模型与单租户模型之间来回移动数据。 请参阅[拆分合并工具](sql-database-elastic-scale-get-started.md)。
 

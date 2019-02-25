@@ -3,25 +3,25 @@ title: 登录 Microsoft 应用程序时出现的问题 | Microsoft Docs
 description: 对使用 Azure AD 登录到第一方 Microsoft 应用程序（如 Office 365）时面临的常见问题进行故障排除
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/10/2018
-ms.date: 10/08/2018
+ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: e430ea0cc7f0a2f95b5c4220231d541b6a71f800
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 47565c75012d57fd60301dbccdda39ce1afc34b2
+ms.sourcegitcommit: 791c712e00a5ee97aa71b20c3b94c92ce181dc16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653795"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334262"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登录 Microsoft 应用程序时出现的问题
 
@@ -35,11 +35,11 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 -   对于 Microsoft 或第三方发布的可供任何人免费使用的应用程序，还可以通过**管理员许可**授予用户访问权限。 这意味着管理员已确定组织中的所有人都可以使用此应用程序，因此他们使用全局管理员帐户可以登录到应用程序并向组织中所有人授予访问权限。
 
-要解决问题，请从[对于应用程序访问要考虑的常规问题区域](#general-problem-areas-with-application-access-to-consider)开始，并阅读[演练：对 Microsoft 应用程序访问进行故障排除的步骤](#walkthrough-steps-to-troubleshoot-microsoft-application-access)了解详细信息。
+若要解决问题，请从[对于应用程序访问要考虑的常规问题领域](#general-problem-areas-with-application-access-to-consider)开始，并阅读“演练：对 Microsoft 应用程序访问进行故障排除的步骤”了解详细信息。
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>对于应用程序访问要考虑的常规问题区域
 
-如果知道从何处着手，以下列表提供了需要深入了解的常规问题区域，但我们建议阅读以下演练以便快速开始操作：[演练：对 Microsoft 应用程序访问进行故障排除的步骤](#walkthrough-steps-to-troubleshoot-microsoft-application-access)。
+如果知道从何处着手，以下列表提供了需要深入了解的常规问题领域，但我们建议阅读以下演练以便快速开始操作：演练：对 Microsoft 应用程序访问进行故障排除的步骤。
 
 -   [用户帐户问题](#problems-with-the-users-account)
 
@@ -93,7 +93,6 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 -   [重置用户的密码](#reset-a-users-password)
 
--   [启用自助服务密码重置](#enable-self-service-password-reset)
 
 -   [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)
 
@@ -187,9 +186,9 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 8.  通过搜索、筛选或排序在用户列表中找到用户。
 
-9.  从用户列表中选择用户，根据需要**启用**、**禁用**或**强制执行**多重身份验证。
+9.  从用户列表中选择用户，并根据需要**启用**、**禁用**或**强制实施**多重身份验证。
 
-  - **注意**：如果用户处于**已强制执行**状态，可暂时将其设置为**已禁用**以允许用户重新登录到其帐户。 一旦他们重新登录到帐户，便可以再次将其状态更改为**已启用**来要求他们在下次登录期间重新注册联系信息。 此外，也可以按照[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)中的步骤为其验证或设置此数据。
+  - **注意**：如果用户处于**已强制实施**状态，可暂时将其设置为**已禁用**以允许用户重新登录到其帐户。 一旦他们重新登录到其帐户，便可以再次将其状态更改为**已启用**来要求他们在下次登录期间重新注册其联系信息。 此外，也可以按照[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)中的步骤为其验证或设置此数据。
 
 ### <a name="check-a-users-authentication-contact-info"></a>检查用户的身份验证联系信息
 
