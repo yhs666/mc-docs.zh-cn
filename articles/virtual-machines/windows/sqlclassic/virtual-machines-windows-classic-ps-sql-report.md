@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2b7df62e28aea5ce9b14d3ae032be2c3302e25af
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 862e5b803e643fa70d5ca9c986af07274207884c
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675003"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666145"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
 本主题说明并指导完成 SQL Server Reporting Services 本机模式报表服务器在 Azure 虚拟机中的部署和配置。 本文档中的步骤使用一系列手动步骤来创建虚拟机以及用于在 VM 上配置 Reporting Services 的 Windows PowerShell 脚本。 配置脚本包括为 HTTP 或 HTTPs 打开防火墙端口。
 
@@ -35,11 +35,11 @@ ms.locfileid: "52675003"
 > 在步骤 1 中创建 VM 后，转到使用脚本部分配置报表服务器和 HTTP。 在运行该脚本后，报表服务器便可以使用。
 
 ## <a name="prerequisites-and-assumptions"></a>前提条件和假设
-* **Azure 订阅**：验证 Azure 订阅中可用的核心数。 如果创建的建议 VM 大小为 **A3**，则需要 **4** 个可用内核。 如果使用的 VM 大小为 **A2**，则需要 **2** 个可用内核。
+* **Azure 订阅**：验证 Azure 订阅中可用的内核数。 如果创建的建议 VM 大小为 **A3**，则需要 **4** 个可用内核。 如果使用的 VM 大小为 **A2**，则需要 **2** 个可用内核。
 
   * 若要验证订阅的内核限制，请在 Azure 门户中单击左侧窗格中的“设置”，然后单击顶部菜单中的“使用情况”。
   * 若要增加核心配额，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。 有关 VM 大小信息，请参阅 [Azure 的虚拟机大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* **Windows PowerShell 脚本编写**：本主题假定你具备 Windows PowerShell 的基础应用知识。 有关使用 Windows PowerShell 的详细信息，请参阅以下部分：
+* **Windows PowerShell 脚本**：本主题假定你具有有关 Windows PowerShell 的基础知识。 有关使用 Windows PowerShell 的详细信息，请参阅以下部分：
 
   * [在 Windows Server 上启动 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell 入门](https://technet.microsoft.com/library/hh857337.aspx)
@@ -78,8 +78,8 @@ ms.locfileid: "52675003"
    * **可用性集**：无。
    * **终结点**：保留**远程桌面**和 **PowerShell** 终结点，然后添加一个 HTTP 或 HTTPS 终结点，具体取决于你的环境。
 
-     * **HTTP**：默认公共和专用端口均为 **80**。 请注意，如果使用 80 之外的专用端口，请修改 http 脚本中的 **$HTTPport = 80**。
-     * **HTTPS**：默认公共和专用端口均为 **443**。 最佳安全方案是更改私有端口并配置防火墙和报表服务器以使用私有端口。 有关终结点的详细信息，请参阅[如何设置与虚拟机的通信](../classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 请注意，如果使用非 443 的端口，请更改 HTTPS 脚本中的参数 **$HTTPsport = 443**。
+     * **HTTP**：默认公共和专用端口均为 80。 请注意，如果使用非 80 的专用端口，请修改 http 脚本中的 **$HTTPport = 80**。
+     * **HTTPS**：默认公共和专用端口均为 443。 最佳安全方案是更改私有端口并配置防火墙和报表服务器以使用私有端口。 有关终结点的详细信息，请参阅[如何设置与虚拟机的通信](../classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 请注意，如果使用非 443 的端口，请更改 HTTPS 脚本中的参数 **$HTTPsport = 443**。
    * 单击“下一步”。 ![下一步](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 在向导的最后一页上，保持选中默认的“安装 VM 代理”。 本主题中的步骤不使用 VM 代理，但如果你计划保留此 VM，VM 代理和扩展将允许增强 CM。  有关 VM 代理的详细信息，请参阅 [VM Agent and Extensions - Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)（VM 代理和扩展 – 第 1 部分）。 安装并运行的一个默认扩展是“BGINFO”扩展，它在 VM 桌面上显示系统信息，如内部 IP 和可用驱动器空间。
 9. 单击“完成”。 ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -91,7 +91,7 @@ ms.locfileid: "52675003"
 
 为了在 VM 上使用 HTTPS，需要受信任的 SSL 证书。 具体取决于方案，可以使用以下两种方法之一：
 
-* 由证书颁发机构 (CA) 颁发并受 Microsoft 信任的有效 SSL 证书。 CA 根证书都需要通过 Microsoft 根证书计划分发。 有关此计划的详细信息，请参阅 [Windows 和 Windows Phone 8 SSL 根证书计划（成员 CA）](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx)和 [Microsoft 根证书计划简介](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)。
+* 由证书颁发机构 (CA) 颁发并受 Microsoft 信任的有效 SSL 证书。 CA 根证书都需要通过 Microsoft 根证书计划分发。 有关此计划的详细信息，请参阅 [Windows 和 Windows Phone 8 SSL 根证书计划（成员 CA）](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx)和 [Microsoft 根证书计划简介](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)。
 * 自签名证书。 不建议将自签名证书用于生产环境。
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>使用由受信任证书颁发机构 (CA) 创建的证书
@@ -126,7 +126,7 @@ ms.locfileid: "52675003"
        例如，在下图中，VM 名称是 **ssrsnativecloud**，用户名是 **testuser**。
 
        ![登录名包含 VM 名称](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. 运行 mmc.exe。 有关详细信息，请参阅[如何：使用 MMC 管理单元查看证书](https://msdn.microsoft.com/library/ms788967.aspx)。
+   2. 运行 mmc.exe。 有关更多信息，请参阅[如何：使用 MMC 管理单元查看证书](https://msdn.microsoft.com/library/ms788967.aspx)。
    3. 在控制台应用程序“文件”菜单中，添加“证书”管理单元，在系统提示时选择“计算机帐户”，然后单击“下一步”。
    4. 选择要管理的“本地计算机”，然后单击“完成”。
    5. 单击“确定”，然后展开“证书 – 个人”节点，最后单击“证书”。 证书以 VM 的 DNS 名称命名，并以 **chinacloudapp.cn**.结尾。 右键单击证书名称，然后单击“复制”。
@@ -142,7 +142,7 @@ ms.locfileid: "52675003"
 
 如果使用自签名的 SSL 证书，证书上的名称已经与 VM 的主机名匹配。 因此，计算机的 DNS 已全局注册并且可以从任何客户端访问。
 
-## <a name="step-3-configure-the-report-server"></a>步骤 3： 配置报表服务器
+## <a name="step-3-configure-the-report-server"></a>步骤 3：配置报表服务器
 本部分指导完成将 VM 配置为 Reporting Services 本机模式报表服务器。 可以使用以下方法之一来配置报表服务器：
 
 * 使用脚本来配置报表服务器
@@ -284,7 +284,7 @@ ms.locfileid: "52675003"
 6. 该脚本当前是为 Reporting Services 配置的。 如果要为 Reporting Services 运行该脚本，请在 Get-WmiObject 语句上将命名空间的路径版本部分修改为“v11”。
 7. 运行该脚本。
 
-**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。
+**验证**：若要验证基本报表服务器功能是否工作，请参阅本主题后面的[验证配置](#verify-the-configuration)部分。
 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>使用脚本来配置报表服务器和 HTTPS
 若要使用 Windows PowerShell 来配置报表服务器，请完成以下步骤。 该配置包括 HTTPS 而不是 HTTP。
@@ -484,9 +484,9 @@ ms.locfileid: "52675003"
 9. 该脚本当前是为 Reporting Services 配置的。 如果要为 Reporting Services 运行该脚本，请在 Get-WmiObject 语句上将命名空间的路径版本部分修改为“v11”。
 10. 运行该脚本。
 
-**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。 如果要验证证书绑定，请使用具有管理权限的身份打开命令提示符，并运行以下命令：
+**验证**：若要验证基本报表服务器功能是否工作，请参阅本主题后面的“验证配置”部分。 如果要验证证书绑定，请使用具有管理权限的身份打开命令提示符，并运行以下命令：
 
-<!-- URL is CORRECT ON [Verify the configuration](#verify-the-configuration) --> netsh http show sslcert
+    netsh http show sslcert
 
 结果将包括以下内容：
 
@@ -506,7 +506,7 @@ ms.locfileid: "52675003"
 5. 在左窗格中，单击“Web 服务 URL”。
 6. HTTP 端口 80 默认配置为 RS 且 IP 为“全部分配”。 若要添加 HTTPS：
 
-   1. 在“SSL 证书”中：选择要使用的证书，例如，[VM 名称].chinacloudapp.cn。 **第 2 步：创建服务器证书** 部分，以了解如何在 VM 上安装和信任证书的信息。
+   1. 在“SSL 证书”中：选择要使用的证书，例如，[VM 名称].chinacloudapp.cn。 如果未列出证书，请参阅“步骤 2：创建服务器证书”部分，了解如何在 VM 上安装和信任证书的信息。
    2. 在“SSL 端口”下：选择 443。 如果使用不同的专用端口配置了 VM 中的 HTTPS 私有终结点，此处使用该值。
    3. 单击“应用”并等待操作完成。
 7. 在左窗格中，单击“数据库”。
@@ -574,7 +574,7 @@ ms.locfileid: "52675003"
 ## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>创建报表并将其发布到 Azure 虚拟机
 下表汇总一些选项，可用于将现有报表从本地计算机发布到 Azure 虚拟机上托管的报表服务器：
 
-* **RS.exe 脚本**：使用 RS.exe 脚本将报表项从现有报表服务器复制到 Azure 虚拟机。 有关详细信息，请参阅[使用 Reporting Services rs.exe 脚本在报表服务器之间迁移内容的示例](https://msdn.microsoft.com/library/dn531017.aspx)中的“本机模式到本机模式 – Azure 虚拟机”部分。
+* **RS.exe script**：使用 RS.exe 脚本将报表项从现有报表服务器复制到 Azure 虚拟机。 有关详细信息，请参阅[使用 Reporting Services rs.exe 脚本在报表服务器之间迁移内容的示例](https://msdn.microsoft.com/library/dn531017.aspx)中的“本机模式到本机模式 – Azure 虚拟机”部分。
 * **报表生成器**：虚拟机包括 Microsoft SQL Server 报表生成器的单击一次版本。 若要首次在虚拟机上启动报表生成器：
 
   1. 使用管理权限启动浏览器。
@@ -591,7 +591,7 @@ ms.locfileid: "52675003"
 * **SQL Server Data Tools：远程**：在本地计算机上，在 SQL Server Data Tools 中创建一个包含 Reporting Services 报表的 Reporting Services 项目。 将项目配置为连接到 Web 服务 URL。
 
     ![SSRS 项目的 ssdt 项目属性](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
-* **使用脚本**：使用脚本来复制报表服务器内容。 有关详细信息，请参阅[使用示例 Reporting Services rs.exe 脚本在报表服务器之间迁移内容](https://msdn.microsoft.com/library/dn531017.aspx)。
+* **使用脚本**：使用脚本复制报表服务器内容。 有关详细信息，请参阅[使用示例 Reporting Services rs.exe 脚本在报表服务器之间迁移内容](https://msdn.microsoft.com/library/dn531017.aspx)。
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>如果使用的不是 VM，将成本降到最低
 > [!NOTE]
@@ -609,4 +609,4 @@ ms.locfileid: "52675003"
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>指向 Azure VM 中 SQL Server 的其他资源的链接
 [Azure 虚拟机上的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!-- Update_Description: update meta properties, wording update， update link -->
+<!-- Update_Description: update meta properties, wording update -->

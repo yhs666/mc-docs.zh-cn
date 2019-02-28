@@ -15,20 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/29/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b62aa1af197a5673521eb67255169a5e7bcf2223
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6c495ee3bdf9d87e7abc9ad2d8feee4012ba6bda
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675399"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666071"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虚拟机中创建 Alwayson 可用性组的先决条件
 
 本教程演示如何完成[在 Azure 虚拟机 (VM) 中创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)的先决条件。 完成先决条件后，将在单个资源组中拥有一台域控制器、两台 SQL Server VM 和一台见证服务器。
 
-预估时间：可能需要几个小时才能完成先决条件。 大部分时间花费在创建虚拟机上。
+**时间估计**：可能需要几个小时才能完成必备组件配置。 大部分时间花费在创建虚拟机上。
 
 下图演示了在本教程中构建的内容。
 
@@ -41,10 +41,11 @@ ms.locfileid: "52675399"
 ## <a name="create-an-azure-account"></a>创建 Azure 帐户
 需要一个 Azure 帐户。 可以[建立一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)或[激活 Visual Studio 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。
 
-<!-- Notice: MSDN or Visual Studio Subscription is https://www.azure.cn/offers/ms-mc-arz-msdn/-->
+<!--MOONCAKE CUSTOMIZE: MSDN or Visual Studio Subscription is https://www.azure.cn/offers/ms-mc-arz-msdn/-->
+
 ## <a name="create-a-resource-group"></a>创建资源组
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
-2. 在门户中单击 **+** 创建一个新对象。
+2. 在门户中单击“+ 创建资源”，创建一个新对象。
 
    ![新建对象](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -109,7 +110,7 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 
     如果看不到 **SQL-HA-RG**，请单击“资源组”并根据资源组名称筛选进行查找。
 2. 单击资源列表中的 **autoHAVNET**。 
-3. 在“autoHAVNET”虚拟网络中的“设置”下，单击“子网”。
+3. 在“autoHAVNET”虚拟网络中的“设置”下，选择“子网”。
 
     请记下已创建的子网。
 
@@ -136,7 +137,7 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 
 ## <a name="create-availability-sets"></a>创建可用性集
 
-创建虚拟机前，需创建可用性集。 可用性集可减少计划内或计划外维护事件的停机时间。 Azure 可用性集是 Azure 置于物理容错域和更新域上的逻辑资源组。 容错域可确保可用性集的成员具有单独的电源和网络资源。 更新域确保可用性集的成员不会同时停机进行维护。 有关其他信息，请参阅[管理虚拟机的可用性](../manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+创建虚拟机前，需创建可用性集。 可用性集可减少计划内或计划外维护事件的停机时间。 Azure 可用性集是 Azure 置于物理容错域和更新域上的逻辑资源组。 容错域可确保可用性集的成员具有单独的电源和网络资源。 更新域确保可用性集的成员不会同时停机进行维护。 有关详细信息，请参阅[管理虚拟机的可用性](../manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 需要两个可用性集。 一个用于域控制器。 另一个用于 SQL Server VM。
 
@@ -190,7 +191,7 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 | **子网** |管理员 |
 | **公共 IP 地址** |*与 VM 同名* |
 | **网络安全组** |*与 VM 同名* |
-| **可用性集** |adavailabilityset </br>**容错域**:2</br>**更新域**:2|
+| **可用性集** |adavailabilityset </br>**容错域**:2 </br>**更新域**:2|
 | **诊断** |已启用 |
 | **诊断存储帐户** |*自动创建* |
 
@@ -301,7 +302,7 @@ Azure 会创建虚拟机。
 
    >[!NOTE]
    >“DNS 选项”页可能会警告你无法创建此 DNS 服务器的委托。 在非生产环境中可以忽略此警告。
-22. 单击“下一步”，直到出现“必备项检查”对话框。  然后单击“安装” 。
+22. 单击“下一步”，直到出现“必备项检查”对话框。 然后单击“安装” 。
 
 在服务器完成配置更改后，重启服务器。
 
@@ -416,7 +417,7 @@ Azure 会创建虚拟机。
 <a name="setServiceAccount"></a>
 ### <a name="set-the-sql-server-service-accounts"></a>设置 SQL Server 服务帐户
 
-在每个 SQL Server VM 上设置 SQL Server 服务帐户。 使用[配置域帐户](#DomainAccounts)时创建的帐户。
+在每个 SQL Server VM 上设置 SQL Server 服务帐户。 使用配置域帐户时创建的帐户。
 
 1. 打开“SQL Server 配置管理器”。
 2. 右键单击 SQL Server 服务，然后单击“属性”。
@@ -465,6 +466,8 @@ Azure 会创建虚拟机。
 6. 单击“安装”以添加功能。
 
 在另一个 SQL Server VM 上重复上述步骤。
+
+<!--Not Available on [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart template](virtual-machines-windows-sql-availability-group-quickstart-template.md)-->
 
 <a name="endpoint-firewall"></a>
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a>在每个 SQL Server VM 上配置防火墙

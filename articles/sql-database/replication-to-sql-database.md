@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
-origin.date: 11/09/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 59424da9deb4d686cbcd1b6fea024d64e38c75dd
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 797c67483e104f18c629795686b17086a63edc43
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672461"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663717"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>复制到 SQL 数据库的单个数据库和池化数据库
 
-可以对 SQL Server 复制进行配置，以便复制到 Azure SQL 数据库中[逻辑服务器](sql-database-logical-servers.md)上的单个数据库和池化数据库。  
+可以对 SQL Server 复制进行配置，以便复制到 Azure SQL 数据库中 [SQL 数据库服务器](sql-database-servers.md)上的单一数据库和入池数据库。  
 
 ## <a name="supported-configurations"></a>**支持的配置：**
   
@@ -107,7 +107,7 @@ Azure SQL 数据库订阅不支持以下选项：
 创建发布和推送订阅。 有关详细信息，请参阅：
   
 - [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是将 Azure SQL 数据库逻辑服务器名称用作订阅服务器（例如 **N'azuresqldbdns.database.chinacloudapi.cn'**），将 Azure SQL 数据库名称用作目标数据库（例如 **AdventureWorks**）。  
+- [创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是将 Azure SQL 数据库服务器名称用作订阅服务器（例如 **N'azuresqldbdns.database.chinacloudapi.cn'**），将 Azure SQL 数据库名称用作目标数据库（例如 **AdventureWorks**）。  
 
 ## <a name="see-also"></a>另请参阅  
 

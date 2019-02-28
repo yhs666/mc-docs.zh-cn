@@ -4,16 +4,16 @@ description: 查看有关 Azure 文件的常见问题解答。
 services: storage
 author: WenJason
 ms.service: storage
-origin.date: 10/04/2018
-ms.date: 01/14/2019
+origin.date: 01/02/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: d7d7101ff6b9c3cd074830388c3a963619065057
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: files
+ms.openlocfilehash: a7c31861f7b7407091790085e25205a00ea6d38a
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192918"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665451"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -102,7 +102,7 @@ ms.locfileid: "54192918"
 * <a id="data-compliance-policies"></a>
 **Azure 文件支持哪些数据符合性策略？**  
 
-   Azure 文件所依据的存储体系结构与 Azure 存储中的其他存储服务使用的相同。 Azure 文件实施的数据符合性策略也与其他 Azure 存储服务使用的相同。 有关 Azure 存储数据符合性的详细信息，可以访问 [Azure 信任中心](https://www.azure.cn/support/trust-center/)。
+   Azure 文件所依据的存储体系结构与 Azure 存储中的其他存储服务使用的相同。 Azure 文件实施的数据符合性策略也与其他 Azure 存储服务使用的相同。 有关 Azure 存储数据符合性的详细信息，可以参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/)。
 
 ## <a name="on-premises-access"></a>本地访问
 * <a id="expressroute-not-required"></a>
@@ -147,12 +147,16 @@ ms.locfileid: "54192918"
 **共享快照的费用是多少？**  
     快照按标准事务和标准存储收费。 快照在本质上是递增的。 基本快照即是共享本身。 所有的后续快照均是递增的，并且只会存储与之前快照的不同之处。 这意味着，如果工作负荷改动极小，则帐单上显示的增量更改也很小。 有关标准 Azure 文件的定价信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/storage/files/)。 目前，查看共享快照已用大小的方法是比较计费的容量与使用的容量。 我们致力于开发改进报告的工具。
 
+* <a id="ntfs-acls-snaphsots"></a>
+**目录和文件上的 NTFS ACL 是否保留在共享快照中？**
+    目录和文件上的 NTFS ACL 会保留在共享快照中。
+
 ### <a name="create-share-snapshots"></a>创建共享快照
 * <a id="file-snaphsots"></a>
 **是否可以创建单个文件的共享快照？**  
     可在文件共享级别上创建共享快照。 你可以从文件共享快照还原单个文件，但是不能创建文件级别的共享快照。 但是，如果你已执行共享级别的共享快照，并且想要列出已更改特定文件的共享快照，则可以在已装载 Windows 的共享上的“以前的版本”下执行此操作。 
     
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **是否可以创建加密文件共享的共享快照？**  
     可以对已启用静态加密的 Azure 文件共享执行共享快照。 可以从共享快照中将文件还原到加密文件共享中。 如果共享已加密，则共享快照也会加密。
 

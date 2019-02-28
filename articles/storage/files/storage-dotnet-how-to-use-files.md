@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 11/22/2017
-ms.date: 11/05/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: b2c903a9645d791427a0062d7940697f62f7d6d5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: files
+ms.openlocfilehash: ea70eda577a5bf7d3b4c17a26e383c2a63f7f202
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654523"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665580"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -60,7 +60,7 @@ API | 何时使用 | 注释
 为完成此教程，需要在项目中引用两个包：
 
 * [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)：此包提供以编程方式访问存储帐户中数据资源的权限。
-* [适用于 .NET 的 Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
+* [适用于 .NET 的 Azure 配置管理器库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
 
 可以使用 NuGet 获取这两个包。 执行以下步骤：
 
@@ -325,8 +325,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 可以用相同的方式将一个 Blob 复制到一个文件。 如果源对象是一个 Blob，则创建一个 SAS 以复制操作期间授权对该 Blob 的访问。
 
-## <a name="share-snapshots-preview"></a>共享快照（预览版）
-从 Azure 存储客户端库的 8.5 版开始，可以创建共享快照（预览版）。 还可以列出或浏览共享快照，以及删除共享快照。 共享快照的状态为只读，因此不允许对共享快照执行写入操作。
+## <a name="share-snapshots"></a>共享快照
+从 Azure 存储客户端库的 8.5 版开始，可以创建共享快照。 还可以列出或浏览共享快照，以及删除共享快照。 共享快照的状态为只读，因此不允许对共享快照执行写入操作。
 
 **创建共享快照**
 
@@ -402,7 +402,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>使用指标对 Azure 文件进行故障排除
 Azure 存储分析现在支持用于 Azure 文件的指标。 使用指标数据，可以跟踪请求和诊断问题。
 
-可以通过 [Azure 门户](https://portal.azure.cn)为 Azure 文件存储启用指标。 还可以通过 REST API 或存储客户端库中的类似物之一调用“设置文件服务属性”操作，以编程方式启用指标。
+可以通过 [Azure 门户](https://portal.azure.cn)为 Azure 文件启用指标。 还可以通过 REST API 或存储客户端库中的类似物之一调用“设置文件服务属性”操作，以编程方式启用指标。
 
 以下代码示例演示如何使用适用于 .NET 的存储客户端库启用 Azure 文件的指标。
 
@@ -472,11 +472,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ### <a name="reference"></a>参考
 * [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+* [文件服务 REST API 参考](https://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>博客文章
 * [Azure 文件现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Azure 文件内部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Azure 文件的持久连接](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Introducing Azure File Service（Azure 文件服务简介）](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Azure 文件的持久连接](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 <!--Update_Description:wording update-->

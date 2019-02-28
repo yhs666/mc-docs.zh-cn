@@ -1,9 +1,9 @@
 ---
-title: 如何配置 Azure SQL 数据库 - 单一实例 | Microsoft Docs
-description: 了解如何配置和管理“Azure SQL 数据库 - 单一数据库”。
+title: 如何配置 Azure SQL 数据库 - 独立 | Microsoft Docs
+description: 了解如何配置和管理“Azure SQL 数据库 - 独立数据库”
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: howto
@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
-origin.date: 12/14/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 6f39abd20255044bce73c6fb5a1cf0cdc1bad62d
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 5f03d06427e3eb1cc1c134a81025c9b1a218b366
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806390"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663749"
 ---
-# <a name="how-to-use-single-database"></a>如何使用单一数据库
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>如何在 Azure SQL 数据库中使用单一数据库
 
-在本部分中，你可以找到可帮助你管理和配置“Azure SQL 数据库 - 单一数据库”的各种指南、脚本和说明。
+本部分提供可帮助你在 Azure SQL 数据库中管理和配置单一数据库的各种指南、脚本和说明
 
 ## <a name="migrate"></a>迁移
 

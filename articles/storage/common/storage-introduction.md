@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: get-started-article
 origin.date: 01/02/2019
-ms.date: 01/21/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: eaa453bf0b4dfa115dd5ee32b8b8bf33fa780445
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.subservice: common
+ms.openlocfilehash: 58845101d6be40b5c2b893f716628cfae7d7ab21
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334497"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665526"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -131,13 +131,13 @@ SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azur
 
 有关客户端加密的详细信息，请参阅 [Microsoft Azure 存储的使用 .NET 的客户端加密](storage-client-side-encryption.md)。
 
-## <a name="replication"></a>复制
+## <a name="redundancy"></a>冗余
 
-为了确保数据的持久性，Azure 存储会复制多个数据副本。 设置存储帐户时，可选择复制类型。 大多数情况下，可以在创建存储帐户后修改此设置。 
+为了确保数据的持久性，Azure 存储会复制多个数据副本。 设置存储帐户时，可选择冗余选项。 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-有关灾难恢复信息，请参阅[在 Azure 存储中断时该怎么办](storage-disaster-recovery-guidance.md)。
+有关灾难恢复的详细信息，请参阅[在 Azure 存储中断时该怎么办](storage-disaster-recovery-guidance.md)。
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>将数据传输到和移出 Azure 存储
 

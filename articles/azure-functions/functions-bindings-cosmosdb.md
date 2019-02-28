@@ -9,14 +9,14 @@ keywords: Azure Functions，函数，事件处理，动态计算，无服务体�
 ms.service: azure-functions; cosmos-db
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 01/15/2019
+ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 422cd01d79e6adbf77e674ee6b89fa17671a7cc1
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 9a8462909d96b0582342a1337ef0221c2ba55389
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334227"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665668"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>适用于 Azure Functions 1.x 的 Azure Cosmos DB 绑定
 
@@ -34,7 +34,7 @@ ms.locfileid: "54334227"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB 绑定只能与 SQL API 配合使用。 对于所有其他 Azure Cosmos DB API，应使用适用于 API 的静态客户端通过函数来访问数据库，这些 API 包括 [Azure Cosmos DB for MongoDB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md)。
+> Azure Cosmos DB 绑定只能与 SQL API 配合使用。 对于所有其他的 Azure Cosmos DB API，应使用适用于 API 的静态客户端通过函数来访问数据库。API 包括 [Azure Cosmos DB 的 API for MongoDB](../cosmos-db/mongodb-introduction.md)。
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 

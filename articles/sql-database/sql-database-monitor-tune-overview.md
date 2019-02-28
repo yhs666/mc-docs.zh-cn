@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 12/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 8c3e925c78badf5bff3291b7beff005699a584e0
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 5bf6f18834375c0283bfa989b0c2f0722a01a10a
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806238"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663525"
 ---
 # <a name="monitoring-and-performance-tuning"></a>监视和性能优化
 
-Azure SQL 数据库由系统自动管理，它是一个灵活的数据服务，可在其中轻松监视使用情况、添加或删除资源（CPU、内存、I/O）、查找可以提高数据库性能的建议，或者让数据库适应你的工作负荷并自动优化性能。
+Azure SQL 数据库由系统自动管理，它是一个灵活的数据服务，可在其中轻松监视使用情况、添加或删除资源（CPU、内存、I/O）、查找可以提高数据库性能的建议，或者让数据库适应你的工作负载并自动优化性能。
 
 ## <a name="monitoring-database-performance"></a>监视数据库性能
 
@@ -34,14 +34,14 @@ Azure SQL 数据库由系统自动管理，它是一个灵活的数据服务，�
 - 使用 [Query Performance Insight](sql-database-query-performance.md) 可找出占用资源最多的查询。
 - 使用 [SQL 数据库顾问](sql-database-advisor-portal.md)查看有关创建和删除索引、参数化查询，以及解决架构问题的建议。
 - [启用自动优化](sql-database-automatic-tuning-enable.md)并让 Azure SQL 数据库自动修复查明的性能问题。
-- 使用[动态管理视图 (DMV)](sql-database-monitoring-with-dmvs.md)、[扩展事件](/sql-database/sql-database-xevent-db-diff-from-svr)和[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)更细致地排查性能问题。
+- 使用[动态管理视图 (DMV)](sql-database-monitoring-with-dmvs.md)、[扩展事件](sql-database-xevent-db-diff-from-svr.md)和[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)更细致地排查性能问题。
 
 > [!TIP]
 > 请参阅[性能指南](sql-database-performance-guidance.md)，了解在使用上述一种或多种方法识别性能问题后，可以利用哪些技术来提高 Azure SQL 数据库的性能。
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 门户监视数据库
 
-在 [Azure 门户](https://portal.azure.cn/)中，可以通过选择数据库并单击“监视”图表来监视单一数据库的利用率。 这将显示“指标”窗口，可通过单击“编辑图表”按钮来对其进行更改。 添加以下指标：
+在 [Azure 门户](https://portal.azure.cn/)中，可以通过选择数据库并单击“监视”图表来监视各个数据库的利用率。 这将显示“指标”窗口，可通过单击“编辑图表”按钮来对其进行更改。 添加以下指标：
 
 - CPU 百分比
 - DTU 百分比
@@ -204,7 +204,7 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 
 最后，如果没有可操作项可以改进数据库性能，你可以更改 Azure SQL 数据库中提供的资源数量。 随时可以通过更改单一数据库的 [DTU 服务层](sql-database-service-tiers-dtu.md)或者增加弹性池的 eDTU 数目，来分配更多资源。 或者，如果使用[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则可更改服务层或增加分配给数据库的资源。
 
-1. 对于单一数据库，可以根据需要[更改服务层](sql-database-service-tiers-dtu.md)或[计算资源](sql-database-service-tiers-vcore.md)以提高数据库性能。
+1. 对于单一数据库，可以根据需要[更改服务层](sql-database-single-database-scale.md)或[计算资源](sql-database-single-database-scale.md)以提高数据库性能。
 2. 对于多个数据库，请考虑使用[弹性池](sql-database-elastic-pool-guidance.md)自动调整资源规模。
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>优化和重构应用程序或数据库代码

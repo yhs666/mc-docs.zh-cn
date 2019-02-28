@@ -2,22 +2,24 @@
 author: WenJason
 ms.service: sql-database
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 12/31/2018
+origin.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d5f02abeb0db0800df2e5de855d24b993c95c55d
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: a2acd714bf299ad14bbaca9c9c2843dcb32a1876
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806349"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663792"
 ---
 <!-- sql-database-connect-query-prerequisites-create-db-includes.md -->
 
-- Azure SQL 数据库。 可以使用以下方法之一来创建数据库：
+- 置于[逻辑服务器](/sql-database/sql-database-single-index)上的 Azure SQL 数据库。 可以使用以下方法之一来创建数据库：
 
-  - [Portal](../articles/sql-database/sql-database-get-started-portal.md)
+| 逻辑服务器 |
+| --- |
+| [Portal](../articles/sql-database/sql-database-get-started-portal.md) |
+| [CLI](../articles/sql-database/sql-database-get-started-cli.md) |
+| [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md) |
 
-  - [CLI](../articles/sql-database/sql-database-get-started-cli.md)
-
-  - [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md)
+- **仅逻辑服务器** - 一项已配置的服务器级别防火墙规则，可以通过它连接到逻辑服务器。 有关详细信息，请参阅[创建服务器级防火墙规则](../articles/sql-database/sql-database-get-started-portal-firewall.md)。

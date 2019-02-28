@@ -8,13 +8,13 @@ manager: digimobile
 ms.author: v-yeche
 ms.topic: quickstart
 origin.date: 08/22/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 75a1c2bc7ea1d5ae4d5f60b0bead9fe43b8e6b20
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 02/18/2019
+ms.openlocfilehash: ba3ae9d25af68783788192ca11f5867c595d2156
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674482"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666443"
 ---
 <!-- Verify successfully-->
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中创建 Linux 虚拟机
@@ -111,9 +111,10 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 最后一步是创建虚拟机，该虚拟机使用在本文的前述部分创建的所有资源。 
 
-在此部分提供的示例 Ansible playbook 部分创建名为 `myVM` 的虚拟机，并附加名为 `myNIC` 的虚拟网络接口卡。 将 &lt;your-ssh-public-key-data> 占位符替换为你自己的完整公钥数据。
+在此部分提供的示例 Ansible playbook 部分创建名为 `myVM` 的虚拟机，并附加名为 `myNIC` 的虚拟网络接口卡。 将 \<your-ssh-public-key-data\> 占位符替换为你自己的完整公钥数据。
 
 <!--Notice: clear for <your-ssh-public-key-data> -->
+
 ```yaml
 - name: Create VM
   azure_rm_virtualmachine:
@@ -213,11 +214,13 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
 <!-- Not Available on [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)-->
 <!-- Not Available on [Cloud Shell](/cloud-shell/overview)-->
+
 1. 使用 SSH 命令访问已安装的 Linux VM，并在[先决条件](#prerequisites)部分成功配置 Ansible。 将 &lt;ip-address> 占位符替换为 Linux VM 中的 IP 地址。
     
     ```bash
     ssh azureuser@<ip-address>
     ```
+    
 1. 创建名为 `azure_create_complete_vm.yml` 的文件（用于包含 playbook）并在 VI 编辑器中将其打开，如下所示：
 
     ```azurecli

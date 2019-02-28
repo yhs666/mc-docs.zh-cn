@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 06/03/2018
-ms.date: 12/24/2018
+origin.date: 01/30/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 55914caac34cd383275e9afc55c9127fc652f021
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 029de5d849f4f6fc83d2b340bf5a1280c7f1211a
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786751"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666459"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -102,6 +102,10 @@ ms.locfileid: "53786751"
 
 是的，非托管磁盘和托管磁盘均受支持。 建议对新的工作负荷使用托管磁盘，并将当前的工作负荷迁移到托管磁盘。
 
+是否可以在同一 VM 上归置非托管和托管磁盘？
+
+否。
+
 **如果创建 128 GB 磁盘，然后将该大小增加到 130 GiB，是否会针对下一磁盘大小 (256 GiB) 进行收费？**
 
 是的。
@@ -125,10 +129,6 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)（使用托管磁盘的模板列表）
 * https://github.com/chagarw/MDPP
-
-是否可以在同一 VM 上归置非托管和托管磁盘？
-
-否。
 
 **基于 blob 创建磁盘时，与该源 blob 之间是否会一直保持任何现有关系？**
 
@@ -243,7 +243,9 @@ Azure 标准 SSD 盘是什么？
 
 存储服务加密是否仅适用于特定区域？
 
-不可以。 它适用于托管磁盘可用的所有区域。 托管磁盘适用于所有公共区域和德国。 这也适用于中国，但仅适用于 21Vianet 托管密钥，不适用于客户托管密钥。
+不可以。 它适用于托管磁盘可用的所有区域。 托管磁盘适用于所有公共区域。 这也适用于中国，但仅适用于 21Vianet 托管密钥，不适用于客户托管密钥。
+
+<!--Not Available on And German-->
 
 如何确定托管磁盘是否已加密？
 
@@ -276,7 +278,9 @@ Azure 标准 SSD 盘是什么？
 
 **是否可以同时将高级和标准数据磁盘附加到不支持高级 SSD 盘的大小系列，例如 D、Dv2 或 F 系列？**
 
-<!-- Not Available on G-series-->否。 只可以将标准数据磁盘附加到不使用支持高级 SSD 盘的大小系列的 VM。
+<!-- Not Available on G-series-->
+
+否。 只可以将标准数据磁盘附加到不使用支持高级 SSD 盘的大小系列的 VM。
 
 如果从现有的 VHD (80 GB) 创建高级数据磁盘，需要多少费用？
 
@@ -289,6 +293,7 @@ Azure 标准 SSD 盘是什么？
 可从磁盘缓存获取的 IOPS 和吞吐量限制是多少？
 
 DS 系列的缓存和本地 SSD 合并限制是每个核心 4,000 IOPS，以及每个核心每秒 33 MiB。 
+
 <!-- Not Available on G-series-->
 
 托管磁盘 VM 是否支持本地 SSD？
@@ -307,6 +312,7 @@ Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 
 
 <!--Not Available on Managed Disk sizes larger than 4 TiB are in preview.-->
 <!--Not Available on [blog post](http://aka.ms/azure-large-disk-32TB-preview-blog)-->
+
 **操作系统和数据磁盘支持的最大非托管磁盘大小是多少？**
 
 Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统非托管磁盘的最大大小为 2 TiB。 Azure 支持的非托管数据磁盘最大大小为 4 TiB。
@@ -357,7 +363,9 @@ Azure 备份和 Azure Site Recovery 服务支持的最大磁盘大小为 4 TiB�
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 
-如果未在此处找到相关问题，请联系我们获取帮助。 可以在本文末尾的评论中发布问题。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 MSDN [Azure 存储论坛](https://www.azure.cn/support/contact/)。
+如果未在此处找到相关问题，请联系我们获取帮助。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 MSDN [Azure 存储论坛](https://www.azure.cn/support/contact/)。
+
+<!--Not Available on You can post a question at the end of this article in the comments.-->
 
 若要提出功能请求，请将请求和想法提交到 [Azure 存储反馈论坛](https://support.azure.cn/zh-cn/support/support-azure/)。
 

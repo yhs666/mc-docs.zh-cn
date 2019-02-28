@@ -3,19 +3,20 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 12/24/2019
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc04559a8f43861b9a095dda3e50975ceaeee283
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: 9a57f3f2cff33b4922a091e615a873e118fa09e7
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985656"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666477"
 ---
-<!--Verify sucessfully--> 使用[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)时，可以轻松自动缩放[虚拟机 (VM)](../articles/virtual-machines/windows/overview.md)。 VM 需要成为规模集的成员才能自动缩放。 本文提供了用于更好地了解如何使用自动和手动方法以纵向方式和横向方式缩放 VM 的信息。
+<!--Verify sucessfully--> 使用[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure Monitor 的自动缩放功能](../articles/azure-monitor/platform/autoscale-overview.md)时，可以轻松[自动缩放](../articles/azure-monitor/platform/autoscale-best-practices.md)[虚拟机 (VM)](../articles/virtual-machines/windows/overview.md)。 VM 需要成为规模集的成员才能自动缩放。 本文提供了用于更好地了解如何使用自动和手动方法以纵向方式和横向方式缩放 VM 的信息。
 
-<!-- Not Available on [automatically scale](../articles/azure-monitor/platform/autoscale-best-practices.md)-->
-<!-- Not Available on [autoscaling feature of Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md)-->
+<!-- Pending on [automatically scale](../articles/azure-monitor/platform/autoscale-best-practices.md)-->
+<!-- Pending on [autoscaling feature of Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md)-->
+
 ## <a name="horizontal-or-vertical-scaling"></a>横向缩放或纵向缩放
 
 Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即增加（“放”）或减少（“缩”）VM 的数量。 横向缩放在使用云服务的情况下更为灵活，因为这样可以运行数千个 VM 来处理负载。 可通过自动或手动更改规模集容量（或实例计数）进行横向缩放。 
@@ -32,10 +33,10 @@ Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即
 
 自动缩放提供适当数量的 VM 来处理应用程序上的负载。 使用它，可以添加 VM 来处理增加的负载，并可以删除处于空闲状态的 VM 来节省资金。 需要基于一组规则来指定要运行的最小 VM 数目和最大 VM 数目。 设置最小数目可确保应用程序在没有负载的情况下也会运行。 设置最大值是为了限制每小时可能会产生的总成本。
 
-可以在使用 [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md) 或[Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor/autoscale-settings?view=azure-cli-latest) 创建规模集时启用自动缩放。 也可以在创建规模集后启用自动缩放。 可以使用 [Azure 资源管理器模板](../articles/virtual-machine-scale-sets/tutorial-autoscale-powershell.md)创建规模集、安装扩展以及配置自动缩放。 在 Azure 门户中，可以从 Azure Monitor 启用自动缩放，也可以从规模集设置启用自动缩放。
+可以在使用 [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) 或[Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor/autoscale-settings?view=azure-cli-latest) 创建规模集时启用自动缩放。 也可以在创建规模集后启用自动缩放。 可以使用 [Azure 资源管理器模板](../articles/virtual-machine-scale-sets/tutorial-autoscale-powershell.md)创建规模集、安装扩展以及配置自动缩放。 在 Azure 门户中，可以从 Azure Monitor 启用自动缩放，也可以从规模集设置启用自动缩放。
 
 <!--Notice: Anchor create-and-manage-autoscale-settings is missing on en-us repository-->
-<!--URL direct to Correct on tutorial-autoscale-powershell-->
+<!--URL direct to Correct on tutorial-autoscale-powershell.md-->
 
 ![启用自动缩放](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
 
@@ -43,7 +44,8 @@ Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即
 
 使用 Azure Monitor 的自动缩放功能，可以基于指标增加或减少正在运行的 VM 数量。 默认情况下，VM 针对磁盘、网络和 CPU 使用情况提供基本的主机级别指标。 使用诊断扩展配置诊断数据收集时，额外的来宾 OS 性能计数器将可用于磁盘、CPU 和内存。
 
-<!--Not Available on [metrics](../articles/azure-monitor/platform/autoscale-common-metrics.md)-->
+<!--Pending on [metrics](../articles/azure-monitor/platform/autoscale-common-metrics.md)-->
+
 ![指标条件](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
 如果应用程序需要基于无法通过主机获得的指标进行缩放，则规模集中的 VM 需要安装 [Linux 诊断扩展](../articles/virtual-machines/linux/diagnostic-extension.md)或 [Windows 诊断扩展](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)。 如果使用 Azure 门户创建规模集，则还需要使用 Azure PowerShell 或 Azure CLI 安装带有所需诊断配置的扩展。
@@ -53,28 +55,30 @@ Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即
 规则将某个指标与要执行的操作结合起来。 当满足规则条件时，将触发一个或多个自动缩放操作。 例如，可能会有一个规则，它定义了如果平均 CPU 使用率高于 85%，则将 VM 数量加 1。
 
 <!--Not Available on [Rules](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)-->
+
 ![自动缩放操作](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
 
 ### <a name="notifications"></a>通知
 
 可以设置触发器，以便基于你创建的自动缩放规则调用特定 Web URL 或发送电子邮件。 通过 webhook 可以将 Azure 警报通知路由到其他系统以便用于后处理或自定义通知。
 
-<!--Not Available on [set up triggers](../articles/azure-monitor/platform/autoscale-webhook-email.md)-->
+<!--Pending on [set up triggers](../articles/azure-monitor/platform/autoscale-webhook-email.md)-->
+
 ## <a name="manually-scale-vms-in-a-scale-set"></a>手动缩放规模集中的 VM
 
 ### <a name="horizontal"></a>横向
 
 可以通过更改规模集的容量添加或删除 VM。 在 Azure 门户中，可以通过在“缩放”屏幕上向左或向右滑动“替代条件”块来减小或增大规模集中 VM 的数量（显示为**实例计数**）。
 
-如果使用 Azure PowerShell，则需要使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) 获取规模集对象。 然后将 **sku.capacity** 属性设置为所需 VM 的数量，并使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 更新规模集。 如果使用 Azure CLI，则使用 [az vmss scale](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-scale) 命令的 **--new-capacity** 参数更改容量。
+如果使用 Azure PowerShell，则需要使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 获取规模集对象。 然后将 **sku.capacity** 属性设置为所需的 VM 数量，并使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 更新规模集。 如果使用 Azure CLI，则使用 [az vmss scale](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-scale) 命令的 **--new-capacity** 参数更改容量。
 
 ### <a name="vertical"></a>垂直
 
-可以在 Azure 门户中的“大小”屏幕上手动更改规模集的 VM 大小。 可以在 Azure PowerShell 中使用 Get-AzureRmVmss，设置映像引用 sku 属性，然后使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 和 [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance)。
+可以在 Azure 门户中的“大小”屏幕上手动更改规模集的 VM 大小。 可以将 Azure PowerShell 与 Get-AzVmss 配合使用，设置映像引用 sku 属性，然后使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 和 [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance)。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 在[规模集的设计注意事项](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md)中了解有关规模集的详细信息。
 
-<!-- Update_Description: new articles on virtual machine autoscale  -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update  -->
+

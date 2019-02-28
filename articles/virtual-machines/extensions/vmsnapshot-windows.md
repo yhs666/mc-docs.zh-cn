@@ -5,33 +5,26 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
 ms.service: backup, virtual-machines-windows
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-origin.date: 03/26/2018
-ms.date: 06/04/2018
+origin.date: 12/17/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd2411e2b1057b67c0b8da5f3fa17552ebe7949e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2966494cd3ae871e670b10327c4368d0a67c4f43
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649986"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666102"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Windows 扩展
 
-## <a name="overview"></a>概述
-
-Azure 备份支持从本地将工作负载备份到云以及将云资源备份到恢复服务保管库。 Azure 备份使用 VM 快照扩展即可获取 Azure 虚拟机的应用程序一致性备份，而无需关闭 VM。 Microsoft 将 VM 快照扩展作为 Azure 备份服务的一部分发布并提供支持。 Azure 备份将安装该扩展，使其作为启用备份后触发的首个计划备份的一部分。 本文档详细介绍适用于 VM 快照扩展的受支持平台、配置和部署选项。
+Azure 备份支持从本地将工作负荷备份到云以及将云资源备份到恢复服务保管库。 Azure 备份使用 VM 快照扩展即可获取 Azure 虚拟机的应用程序一致性备份，而无需关闭 VM。 Azure 将 VM 快照扩展作为 Azure 备份服务的一部分发布并提供支持。 Azure 备份将安装该扩展，使其作为启用备份后触发的首个计划备份的一部分。 本文档详细介绍适用于 VM 快照扩展的受支持平台、配置和部署选项。
 
 ## <a name="prerequisites"></a>先决条件
 
 ### <a name="operating-system"></a>操作系统
-有关支持的操作系统的列表，请参阅 [Azure 备份支持的操作系统](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)
+有关支持的操作系统的列表，请参阅 [Azure 备份支持的操作系统](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
@@ -59,7 +52,7 @@ VM 快照扩展要求在我们获取虚拟机的备份时，目标虚拟机已�
       "vmType": "microsoft.compute/virtualmachines"
     },
     "protectedSettings": {
-      "objectStr": "<blob SAS uri represenattion of VM sent by Azure Backup service to extension>",
+      "objectStr": "<blob SAS uri representation of VM sent by Azure Backup service to extension>",
       "logsBlobUri": "<blob uri where logs of command execution by extension are written to>",
       "statusBlobUri": "<blob uri where status of the command executed by extension is written>"
     }
@@ -119,6 +112,4 @@ C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-
-<!-- Update_Description: new articles on windows VM snapshot -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties, wording update, update az cmdlet -->

@@ -3,7 +3,7 @@ title: 使用 SCP 将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文
 description: 使用 SCP 和 SSH 密钥对安全地将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文件。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d090628ece7fe6952df2a220c6aefbc74692b57c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 02/18/2019
+ms.author: v-yeche
+ms.subservice: disks
+ms.openlocfilehash: 400179aea97624721bb8443b0e7d9f295ed7bb96
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660963"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665848"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>使用 SCP 将文件移到 Linux VM 和从 Linux VM 移动文件
 
@@ -57,7 +58,7 @@ SCP 将 SSH 用于传输层。 SSH 处理目标主机上的身份验证，同时
 
 在第一个示例中，我们将 Azure 配置文件向上复制到用于部署自动化的 Linux VM。 由于此文件包含 Azure API 凭据，其中包括机密，因此安全性非常重要。 SSH 提供的加密隧道可保护文件的内容。
 
-以下命令通过 FQDN *myserver.chinaeast.chinacloudapp.cn* 将本地 *.azure/config* 文件复制到 Azure VM。 Azure VM 上的管理员用户名为 *azureuser*。 该文件指向 */home/azureuser/* 目录。 在此命令中替换自己的值。
+以下命令通过 FQDN *myserver.chinaeast.cloudapp.chinacloudapi.cn* 将本地 *.azure/config* 文件复制到 Azure VM。 Azure VM 上的管理员用户名为 *azureuser*。 该文件指向 */home/azureuser/* 目录。 在此命令中替换自己的值。
 
 ```bash
 scp ~/.azure/config azureuser@myserver.chinaeast.chinacloudapp.cn:/home/azureuser/config
@@ -79,4 +80,4 @@ scp -r azureuser@myserver.chinaeast.chinacloudapp.cn:/home/azureuser/logs/. /tmp
 
 * [管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: remove one link-->
+<!--Update_Description: remove one link, wording update -->

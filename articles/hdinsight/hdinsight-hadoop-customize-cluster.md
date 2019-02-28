@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/05/2016
-ms.date: 08/27/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 08dc32b1f1cdf16b6b44798bd9c284b1a92fe6e9
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: 9cc649d36da0bde70e26c9f1a562d330e87ab2a6
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985626"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665448"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Windows 的 HDInsight 群集
 在创建群集的过程中，可以使用脚本操作来调用[自定义脚本](hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
@@ -44,7 +44,7 @@ ms.locfileid: "55985626"
 当脚本运行时，群集进入 **ClusterCustomization** 阶段。 在此阶段，脚本在系统管理员帐户下，以并行方式在群集中所有指定的节点上运行，而在节点上提供完全的系统管理员权限。
 
 > [!NOTE]
-> 你在 **ClusterCustomization** 阶段中于群集节点上拥有系统管理员权限，所以可以使用脚本来运行作业，例如停止和启动服务，包括 Hadoop 相关服务。 因此，在脚本中，必须在脚本完成运行之前，确定 Ambari 服务及其他 Hadoop 相关服务已启动并且正在运行。 这些服务必须在群集创建时，成功地确定群集的运行状况和状态。 如果更改群集上的任何影响这些服务的配置，必须使用所提供的帮助器函数。 有关帮助器函数的详细信息，请参阅 [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]。
+> 你在 **ClusterCustomization** 阶段中于群集节点上拥有系统管理员权限，所以可以使用脚本来运行作业，例如停止和启动服务，包括 Hadoop 相关服务。 因此，在脚本中，必须在脚本完成运行之前，确定 Ambari 服务及其他 Hadoop 相关服务已启动并且正在运行。 这些服务必须在群集创建时，成功地确定群集的运行状况和状态。 如果更改群集上的任何影响这些服务的配置，必须使用所提供的帮助器函数。 有关帮助器函数的详细信息，请参阅[为 HDInsight 开发脚本操作脚本][hdinsight-write-script]。
 >
 >
 
@@ -69,17 +69,12 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用脚本操作自定义群集")
 
-    <table border='1'>
-        <tr><th>属性</th><th>值</th></tr>
-        <tr><td>Name</td>
-            <td>指定脚本操作的名称。</td></tr>
-        <tr><td>脚本 URI</td>
-            <td>指定要调用来自定义群集的脚本的 URI。 s</td></tr>
-        <tr><td>头节点/辅助节点</td>
-            <td>指定在其上运行自定义脚本的节点（头节点或辅助角色节点）</b>。
-        <tr><td>parameters</td>
-            <td>根据脚本的需要，请指定参数。</td></tr>
-    </table>
+      |属性|值|  
+      |---|---|
+      |Name|指定脚本操作的名称。|
+      |脚本 URI|指定要调用以自定义群集的脚本的 URI。|
+      |头节点/辅助节点|指定在其上运行自定义脚本的节点（“头节点”或“辅助角色节点”）。|
+      |parameters|根据脚本的需要，请指定参数。|
 
     按 ENTER 可添加多个脚本操作，以在群集上安装多个组件。
 3. 单击“选择”可保存脚本操作配置并继续执行群集创建。
@@ -87,8 +82,9 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 ## <a name="call-scripts-using-azure-powershell"></a>使用 Azure PowerShell 调用脚本
 以下 PowerShell 脚本演示如何在基于 Windows 的 HDInsight 群集上安装 Spark。  
 
+```powershell  
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount -EnvironmentName AzureChinaCloud", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount -EnvironmentName AzureChinaCloud", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -165,23 +161,27 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
 
-若要安装其他软件，需要替换脚本中的脚本文件：
+To install other software, you will need to replace the script file in the script:
 
-出现提示时，请输入群集的凭据。 创建群集可能需要几分钟时间。
+When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
 
-## <a name="call-scripts-using-net-sdk"></a>使用 .NET SDK 调用脚本
-以下示例演示如何在基于 Windows 的 HDInsight 群集上安装 Apache Spark。 若要安装其他软件，需要替换代码中的脚本文件。
+## Call scripts using .NET SDK
+The following sample demonstrates how to install Apache Spark on Windows based HDInsight cluster. To install other software, you will need to replace the script file in the code.
 
-**创建具有 Spark 的 HDInsight 群集**
+**To create an HDInsight cluster with Spark**
 
-1. 在 Visual Studio 中创建 C# 控制台应用程序。
-2. 通过 Nuget 包管理器控制台运行以下命令。
+1. Create a C# console application in Visual Studio.
+2. From the Nuget Package Manager Console, run the following command.
 
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
-3. 在 Program.cs 文件中使用以下 using 语句：
+    ```
 
+1. Use the following using statements in the Program.cs file:
+
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -191,8 +191,10 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-4. 将类中的代码替换为以下内容：
+    ```
+4. Place the code in the class with the following:
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -282,44 +284,46 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
-5. 按 **F5** 运行应用程序。
+    ```
 
-## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>支持 HDInsight 群集上使用的开源软件
-Azure HDInsight 服务是一个弹性平台，可让你使用围绕着 Hadoop 形成的开放源代码技术生态系统，在云中生成大数据应用程序。 Azure 为开放源代码技术提供一般级别的支持，如 **Azure Support FAQ**（Azure 支持常见问题）网站上的 <a href="https://www.azure.cn/support/faq/" target="_blank">Support Scope</a>（支持范围）部分中所述。 HDInsight 服务为如下所述的某些组件提供附加的支持级别。
+5. Press **F5** to run the application.
 
-HDInsight 服务中有两种类型的开放源代码组件：
+## Support for open-source software used on HDInsight clusters
+The Azure HDInsight service is a flexible platform that enables you to build big-data applications in the cloud by using an ecosystem of open-source technologies formed around Hadoop. Azure provides a general level of support for open-source technologies, as discussed in the **Support Scope** section of the <a href="https://www.azure.cn/support/faq/" target="_blank">Azure Support FAQ website</a>. The HDInsight service provides an additional level of support for some of the components, as described below.
 
-* **内置组件** - 这些组件预先安装在 HDInsight 群集上，并提供在群集的核心功能。 例如，Yarn ResourceManager、Hive 查询语言 (HiveQL) 及 Mahout 库均属于此类别。 [HDInsight 提供的 Hadoop 群集版本有哪些新功能？](hdinsight-component-versioning.md)</a>中提供了群集组件的完整列表。
-* **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供的或自己创建的任何组件。
+There are two types of open-source components that are available in the HDInsight service:
 
-完全支持内置组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
+* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, Apache Hadoop YARN ResourceManager, the Hive query language (HiveQL), and the Apache Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md)</a>.
+* **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
+
+Built-in components are fully supported, and Azure Support will help to isolate and resolve issues related to these components.
 
 > [!WARNING]
-> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
+> Components provided with the HDInsight cluster are fully supported and Azure Support will help to isolate and resolve issues related to these components.
 >
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 >
 >
 
-HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上使用组件或安装组件的方式为何，均适用相同级别的支持。 以下是可以在 HDInsight 群集上使用的自定义组件最常见方式的列表：
+The HDInsight service provides several ways to use custom components. Regardless of how a component is used or installed on the cluster, the same level of support applies. Below is a list of the most common ways that custom components can be used on HDInsight clusters:
 
-1. 作业提交 - Hadoop 或其他类型的作业可以提交到执行或使用自定义组件的群集。
-2. 群集自定义 - 在群集创建期间，可以指定要安装在群集节点的其他设置和自定义组件。
-3. 示例 - 对于常见的自定义组件，Microsoft 和其他人可能会提供演示如何在 HDInsight 群集上使用这些组件的示例。 我们不针对这些示例提供支持。
+1. Job submission - Hadoop or other types of jobs that execute or use custom components can be submitted to the cluster.
+2. Cluster customization - During cluster creation, you can specify additional settings and custom components that will be installed on the cluster nodes.
+3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
 
-## <a name="develop-script-action-scripts"></a>开发脚本操作脚本
-请参阅 [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]。
+## Develop Script Action scripts
+See [Develop Script Action scripts for HDInsight][hdinsight-write-script].
 
-## <a name="see-also"></a>另请参阅
-* [在 HDInsight 中创建 Apache Hadoop 群集][hdinsight-provision-cluster]提供了有关如何使用其他自定义选项创建 HDInsight 群集的说明。
-* [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]
-* [在 HDInsight 群集上安装并使用 Apache Spark][hdinsight-install-spark]
-* [在 HDInsight 群集上安装并使用 Apache Solr](hdinsight-hadoop-solr-install.md)。
-* [在 HDInsight 群集上安装并使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
+## See also
+* [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
+* [Develop Script Action scripts for HDInsight][hdinsight-write-script]
+* [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
+* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
+* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "群集创建期间的阶段"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"

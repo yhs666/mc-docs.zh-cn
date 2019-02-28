@@ -6,15 +6,15 @@ author: craigshoemaker
 ms.service: storage
 ms.topic: article
 origin.date: 05/31/2018
-ms.date: 09/24/2018
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 3d94ca37494d23cf4a99d208e02cdc4b8a5144dc
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.subservice: common
+ms.openlocfilehash: 5af6300418e9535b5d71ca6d322d6cb7bce43388
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397030"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665519"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -155,7 +155,8 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 
 Azure 存储中数据对象的访问授权有三个选项，包括：
 
-- 使用存储帐户密钥通过共享密钥进行访问授权。 通过共享密钥进行授权需要将存储帐户密钥存储在应用程序中。
+- 使用 Azure AD 进行容器和队列（预览）的访问授权。 进行身份验证时，Azure AD 相对于其他方法具有很多优势，包括不需要将机密存储在代码中。 有关详细信息，请参阅[使用 Azure Active Directory（预览）进行 Azure 存储访问权限身份验证](storage-auth-aad.md)。 
+- 使用存储帐户密钥通过共享密钥进行访问授权。 通过共享密钥进行授权需要将存储帐户密钥存储在应用程序中，因此 Azure 建议尽可能改用 Azure AD。 如果使用生产型应用程序，或者要进行 Azure 表和文件的访问授权，请在 Azure AD 集成仍为预览版的情况下继续使用共享密钥。
 - 使用共享访问签名授予特定时间段对特定数据对象的受控权限。
 
 此外，对于 Blob 存储，可以通过对保存 Blob 的容器的访问级别进行相应设置，来允许对 Blob 进行公共访问。 如果将容器的访问权限设置为“Blob”或“容器”，则允许该容器中 Blob 的公共读取访问权限。 这意味着 URL 指向该容器中 Blob 的任何人都可以在浏览器中打开它，而不需要使用共享访问签名或拥有存储帐户密钥。
@@ -478,7 +479,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)（MSDN 上对 Azure 存储服务的跨域资源共享 (CORS) 支持）
 
   这是有关对 Azure 存储服务的 CORS 支持的参考文档。 其中提供了适用于每个存储服务的文章链接，并提供示例演示，解释 CORS 文件中的每个元素。
-* [Azure 存储：CORS 简介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Azure 存储：CORS 简介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   这是宣布推出 CORS 并演示其用法的第一篇博客文章的链接。
 
@@ -489,7 +490,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 
    如果可以使用提供传输级安全的 HTTPS，则使用 MD5 检查就很多余且不必要。
 
-   有关详细信息，请查看 [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)（Azure Blob MD5 概述）。
+   有关详细信息，请查看 [Azure Blob MD5 Overview](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)（Azure Blob MD5 概述）。
 2. **美国政府实施的 FIPS 合规性要求是怎样的？**
 
    美国联邦信息处理标准 (FIPS) 定义了美国联邦政府计算机系统批准使用的加密算法，以保护敏感数据。 如果在 Windows 服务器或桌面上启用 FIPS 模式，将告知 OS 仅应使用经 FIPS 验证的加密算法。 如果某个应用程序使用不合规的算法，即表示该应用程序违规。 使用 .NET Framework 4.5.2 或更高版本，应用程序可在计算机处于 FIPS 模式时自动切换加密算法来使用符合 FIPS 的算法。

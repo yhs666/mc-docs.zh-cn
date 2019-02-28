@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 37aa5d3afde8532fa761a4010210c675e8a94765
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: common
+ms.openlocfilehash: 56f1cd87f8246c7ef4fb4c0b34a71de640b4d764
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192880"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665408"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -134,7 +134,7 @@ SKU 名称指示用于存储帐户的复制类型，如 LRS（本地冗余存储
 
 * SKU 是存储帐户的复制设置，例如 LRS（对于本地冗余存储）。 例如，可能会从标准\_LRS 更改为标准\_GRS 或标准\_RAGRS。 请注意，无法将 Standard\_ZRS 或 Premium\_LRS 更改为其他 SKU，反之亦然。
 
-* Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热、冷](../blobs/storage-blob-storage-tiers.md)。
+* Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热存储层和冷存储层](../blobs/storage-blob-storage-tiers.md)。
 
 * 仅允许 HTTPS 流量。 
 
@@ -202,7 +202,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 * 若要了解如何使用 PowerShell 启用和查看存储度量值数据，请参阅[启用 Azure 存储度量值和查看度量值数据](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell)。
 
-* 若要了解如何使用 PowerShell 启用和检索存储日志记录数据，请参阅[如何使用 PowerShell 启用存储日志记录](https://docs.microsoft.com/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell)和[查找存储日志记录的日志数据](https://docs.microsoft.com/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data)。
+* 若要了解如何使用 PowerShell 启用和检索存储日志记录数据，请参阅[如何使用 PowerShell 启用存储日志记录](https://docs.microsoft.com/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)和[查找存储日志记录的日志数据](https://docs.microsoft.com/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)。
 
 * 有关使用“存储指标”和“存储日志记录”排查存储问题的详细信息，请参阅[对 Azure 存储进行监视、诊断和故障排除](storage-monitoring-diagnosing-troubleshooting.md)。
 
@@ -210,7 +210,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 了解如何使用 PowerShell 管理存储帐户后，请参阅以下文章了解如何访问存储帐户中的数据对象。
 
-* [如何使用 PowerShell 管理 blob](../blobs/storage-quickstart-blobs-powershell.md)
+* [如何使用 PowerShell 管理 blob](../blobs/storage-how-to-use-blobs-powershell.md)
 * [如何使用 PowerShell 管理文件](../files/storage-how-to-use-files-powershell.md)
 * [如何使用 PowerShell 管理队列](../queues/storage-powershell-how-to-use-queues.md)
 * [使用 PowerShell 执行 Azure 表存储操作](../../storage/tables/table-storage-how-to-use-powershell.md)

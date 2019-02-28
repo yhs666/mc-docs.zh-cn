@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ea6c95144907d95ef638243f26462707374e518
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e736bf249331f932461f9f7458bc099b17dbcda0
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674808"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666307"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>脱机重置 Azure VM 的本地 Windows 密码
 如果已安装 Azure 来宾代理，可以使用 [Azure 门户或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上传自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 本文所述的步骤不适用于 Windows 域控制器。 
@@ -38,6 +38,19 @@ ms.locfileid: "52674808"
 * 从故障排除 VM 中分离源 VM 的 OS 磁盘。
 * 在 Resource Manager 模板中使用原始虚拟磁盘创建一个 VM。
 * 新 VM 启动时，创建的配置文件会更新所需用户的密码。
+
+> [!NOTE]
+> 可自动执行以下过程：
+>
+> - 创建故障排除 VM
+> - 附加 OS 磁盘
+> - 重新创建原始 VM
+> 
+> 若要执行此操作，请使用 [Azure VM 恢复脚本](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md)。 如果选择使用 Azure VM 恢复脚本，可使用“详细步骤”部分中的以下过程：
+> 1. 使用脚本将受影响 VM 的 OS 磁盘附加到恢复 VM，则可跳过步骤 1 和步骤 2。
+> 2. 请按照步骤 3-6 应用补救措施。
+> 3. 使用脚本重新生成 VM，则可跳过步骤 7-9。
+> 4. 请按照步骤 10 和 11 进行操作。
 
 ## <a name="detailed-steps"></a>详细步骤
 
@@ -152,4 +165,4 @@ ms.locfileid: "52674808"
 ## <a name="next-steps"></a>后续步骤
 如果仍然无法使用远程桌面建立连接，请参阅 [RDP 故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 [详细的 RDP 故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)探讨的是故障排除方法而不是具体的步骤。 也可以通过[提出 Azure 支持请求](https://www.azure.cn/support/contact/)来获得人工协助。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, add notes content -->

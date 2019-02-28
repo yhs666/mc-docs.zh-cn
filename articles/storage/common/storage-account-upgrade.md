@@ -6,14 +6,14 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 10/18/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 6b407a15918b2885065a55b1700036ff074ddcca
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: f446ff93abd3659d7a2adf8ac6d437249a2f1b6d
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192871"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665440"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
@@ -22,7 +22,8 @@ ms.locfileid: "54192871"
 从常规用途 v1 帐户或 Blob 存储帐户升级到常规用途 v2 存储帐户的过程很简单。 可以使用 Azure 门户、PowerShell 或 Azure CLI 升级。 
 
 > [!NOTE]
-> 更改存储层可能会产生额外费用。 有关详细信息，请参阅[定价和计费](#pricing-and-billing)部分。
+> 将存储帐户升级到常规用途 v2 帐户是免费的。
+> 更改存储访问层可能会导致帐单更改。 有关详细信息，请参阅[定价和计费](#pricing-and-billing)部分。
 
 ## <a name="upgrade-using-the-azure-portal"></a>使用 Azure 门户升级
 
@@ -59,12 +60,12 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 常规用途 v2 帐户支持所有 Azure 存储服务和数据对象，但访问层仅适用于 Blob 存储中的块 Blob。 升级到常规用途 v2 存储帐户时，可以指定 Blob 数据的访问层。 
 
-使用访问层可以根据预期使用模式选择最具经济效益的存储。 块 Blob 可以存储在热层或冷层中。 有关访问层的详细信息，请参阅 [Azure Blob 存储：热存储层、冷存储层和存档存储层](../blobs/storage-blob-storage-tiers.md)。
+使用访问层可以根据预期使用模式选择最具经济效益的存储。 块 Blob 可以存储在热层、冷层或存档层中。 有关访问层的详细信息，请参阅 [Azure Blob 存储：热、冷、存档存储层](../blobs/storage-blob-storage-tiers.md)。
 
 默认情况下，新的存储帐户在热访问层中创建，常规用途 v1 存储帐户将升级到热访问层。 如果你正在探讨要将哪个访问层用于升级后的数据，请考虑具体的场景。 有两种典型的用户场景适合迁移到常规用途 v2 帐户：
 
-* 你已有一个常规用途 v1 存储帐户，并想要使用 Blob 数据的适当存储层来评估对常规用途 v2 存储帐户所做的更改。
-* 已经决定使用常规用途 v2 存储帐户，或者已经有了一个这种帐户，想要评估一下是应使用热存储层还是冷存储层来存储 Blob 数据。
+* 已经有了一个常规用途 v1 存储帐户，想要使用适合 Blob 数据的存储访问层来评估对常规用途 v2 存储帐户所做的升级。
+* 已经决定使用常规用途 v2 存储帐户，或者已经有了一个这种帐户，想要评估一下是应使用热存储访问层还是冷存储访问层来存储 Blob 数据。
 
 在这两种情况下，首要任务都是估算对存储在常规用途 v2 存储帐户中的数据进行存储、访问和操作所需的成本，并将该成本与当前成本进行比较。
 
@@ -72,17 +73,17 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 ## <a name="pricing-and-billing"></a>定价和计费
 所有存储帐户使用的定价模型都适用于 Blob 存储，具体取决于每个 Blob 的层。 使用存储帐户时，需要考虑到以下计费因素：
 
-* **存储成本**：除了存储的数据量，存储数据的成本因存储层而异。 层越冷，单 GB 成本越低。
+* **存储成本**：除了存储的数据量，存储数据的成本将因存储访问层而异。 层越冷，单 GB 成本越低。
 
-* **数据访问成本**：层越冷，数据访问费用越高。 对于冷存储层中的数据，需要按 GB 支付读取方面的数据访问费用。
+* **数据访问成本**：层越冷，数据访问费用越高。 对于冷存储访问层和存档存储访问层中的数据，需要按 GB 支付读取方面的数据访问费用。
 
-* **事务成本**：层越冷，两个层的按事务收费越高。
+* **事务成本**：层越冷，每个层的按事务收费越高。
 
 * **异地复制数据传输成本**：此费用仅适用于配置了异地复制的帐户，包括 GRS 和 RA-GRS。 异地复制数据传输会产生每 GB 费用。
 
 * **出站数据传输成本**：出站数据传输（传出 Azure 区域的数据）会按每 GB 产生带宽使用费，与通用存储帐户一致。
 
-* **更改存储层**：将帐户存储层从“冷”更改为“热”会产生费用，费用等于读取存储帐户中存在的所有数据的费用。 但是，将帐户存储层从热更改为冷产生的费用则相当于将所有数据写入冷层（仅限 GPv2 帐户）。
+* **更改存储访问层**：将帐户存储访问层从“冷”更改为“热”会产生费用，费用等于读取存储帐户中存在的所有数据的费用。 但是，将帐户访问层从“热”更改为“冷”产生的费用则相当于将所有数据写入冷层（仅限 GPv2 帐户）。
 
 > [!NOTE]
 > 有关存储帐户的定价模型的详细信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/)页。 有关出站数据传输收费的详细信息，请参阅[数据传输定价详细信息](https://azure.cn/pricing/details/data-transfer/)页。
@@ -157,7 +158,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 在使用 GRS 或 RA-GRS 存储帐户时，也可以通过所写入数据量的估算值来计算 Blob 存储帐户的异地复制数据传输费用。
 
 > [!NOTE]
-> 有关计算使用热或冷存储层的成本的更详细示例，请查看 [Azure 存储定价页](https://azure.cn/pricing/details/storage/)。
+> 有关计算使用热或冷存储访问层的成本的更详细示例，请查看 [Azure 存储定价页](https://azure.cn/pricing/details/storage/)。
 
 ## <a name="next-steps"></a>后续步骤
 

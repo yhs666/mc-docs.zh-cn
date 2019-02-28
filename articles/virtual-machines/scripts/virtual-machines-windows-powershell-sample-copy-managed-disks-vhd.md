@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/17/2018
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4ab5ee1344ad71b33534664cb00d926ac2e32e64
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b078fb7b66c7d6dc0656f60c3bc3ddb443bb045b
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644716"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666104"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户
 
@@ -30,6 +30,8 @@ ms.locfileid: "52644716"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -60,10 +62,10 @@ $storageAccountKey = 'yourStorageAccountKey'
 $destinationVHDFileName = "yourvhdfilename"
 
 # Set the context to the subscription Id where managed disk is created
-Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+Select-AzSubscription -SubscriptionId $SubscriptionId
 
 #Generate the SAS for the managed disk 
-$sas = Grant-AzureRmDiskAccess -ResourceGroupName $ResourceGroupName -DiskName $diskName -DurationInSecond $sasExpiryDuration -Access Read 
+$sas = Grant-AzDiskAccess -ResourceGroupName $ResourceGroupName -DiskName $diskName -DurationInSecond $sasExpiryDuration -Access Read 
 
 #Create the context of the storage account where the underlying VHD of the managed disk will be copied
 $destinationContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
@@ -78,9 +80,9 @@ Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageCo
 
 | 命令 | 注释 |
 |---|---|
-| [Grant-AzureRmDiskAccess](https://docs.microsoft.com/powershell/module/azurerm.compute/grant-azurermdiskaccess) | 为托管磁盘生成 SAS URI，该 SAS URI 用于将基础 VHD 复制到存储帐户。 |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 使用帐户名和密钥创建存储帐户上下文。 此上下文可用于对存储帐户执行读/写操作。 |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 将快照的基础 VHD 复制到存储帐户 |
+| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | 为托管磁盘生成 SAS URI，该 SAS URI 用于将基础 VHD 复制到存储帐户。 |
+| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | 使用帐户名和密钥创建存储帐户上下文。 此上下文可用于对存储帐户执行读/写操作。 |
+| [Start-AzStorageBlobCopy](https://docs.microsoft.com/zh-cn/powershell/module/az.storage/start-azstorageblobcopy) | 将快照的基础 VHD 复制到存储帐户 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -90,7 +92,6 @@ Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageCo
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
-<!-- Update_Description: new articles on virtual machines windows powershell sample copy managed disks vhd -->
-<!--ms.date: 10/22/2018-->
-
 可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+
+<!-- Update_Description: update link -->

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova, jovanpop
 manager: digimobile
-origin.date: 12/14/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 82bd2cf96e2f0064b9ec9b6e4c4453d4ea1e86b2
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 01/17/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: be6cbf03f751fea80de0172aaf42eafe3c577029
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806254"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663758"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 数据库托管实例的点到站点连接
 
@@ -29,7 +29,7 @@ ms.locfileid: "53806254"
 本快速入门：
 
 - 从[创建托管实例](sql-database-managed-instance-get-started.md)中创建的资源着手。
-- 本地客户端计算机需要 PowerShell 5.1 和 Azure PowerShell 5.4.2 或更高版本。 必要时，请根据说明来[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module)。
+- 本地客户端计算机需要 PowerShell 5.1 和 Azure PowerShell 5.4.2 或更高版本。 必要时，请根据说明来[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module)。
 - 需要本地客户端计算机上的最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)。
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>将 VPN 网关附加到托管实例虚拟网络

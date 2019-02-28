@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e394ca295b9d12f2f5612008a3e54bd8da395bd
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: 210576d77cfcd87ba83140744173bd73f30e5b29
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786724"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665910"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 
@@ -76,6 +76,17 @@ Content-Type: application/json; charset=utf-8
 剩余调用计数为 0 时，将根据相关策略返回限制错误。 在此示例中，该策略为 `HighCostGet30Min`。 响应正文的总体格式是 Azure 资源管理器 API 的常规错误格式（与 OData 相符）。 主要错误代码 `OperationNotAllowed` 是计算资源提供程序用来报告限制错误（以及其他类型的客户端错误）的代码。 内部错误的 `message` 属性包含一个具有限制冲突详细信息的序列化 JSON 结构。
 
 如上所述，每个限制错误都包含 `Retry-After` 标头，其提供的最小秒数是客户端在重试请求之前应该等待的时间。 
+
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 调用速率和限制错误分析器
+针对计算资源提供程序的 API 提供了故障排除功能的一个预览版版本。 这些 PowerShell cmdlet 按时间间隔按操作提供有关 API 请求速率的统计信息并且按操作组（策略）提供限制违规统计信息：
+-   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+
+使用此 API 调用统计信息可以很好地洞察订阅的客户端的行为，并轻松识别导致限制的调用模式。
+
+目前，分析器的限制是它不会将针对磁盘和快照资源类型的请求计算在内（支持托管磁盘）。 因为它从 CRP 的遥测数据收集数据，所以它也不能帮助识别来自 ARM 的限制错误。 但是，如上文所述，可以根据独特的 ARM 响应标头轻松识别这些错误。
+
+PowerShell cmdlet 使用 REST 服务 API，客户端可以轻松直接调用该 API（但是尚未提供正式支持）。 若要查看 HTTP 请求格式，请在使用 -Debug 开关的情况下运行 cmdlet 或者使用 Fiddler 探查其执行。
 
 ## <a name="best-practices"></a>最佳实践 
 

@@ -14,20 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5d7829b781b026c097aa74d351498639f0ee4c8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f4903de8d2e29afca0043dde5f3d69aa1afd46ad
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675350"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666281"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
-
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
 本文逐步讲述如何构建示例应用程序基础结构。 我们详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署你的虚拟机 (VM)。
 
 ## <a name="example-workload"></a>示例工作负荷
@@ -76,14 +73,14 @@ Adventure Works Cycles 确定其应使用 Azure 托管磁盘。 创建 VM 时，
 
 他们通过 Azure 门户使用以下设置创建了仅限云的虚拟网络：
 
-* 名称：AZOS-CHE-VN01
+* 姓名：AZOS-CHE-VN01
 * 位置：中国东部
 * 虚拟网络地址空间：10.0.0.0/8
 * 第一个子网：
-  * 名称：FrontEnd
+  * 姓名：FrontEnd
   * 地址空间：10.0.1.0/24
 * 第二个子网：
-  * 名称：BackEnd
+  * 姓名：BackEnd
   * 地址空间：10.0.2.0/24
 
 ## <a name="availability-sets"></a>可用性集

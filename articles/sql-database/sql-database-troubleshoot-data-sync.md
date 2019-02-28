@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-origin.date: 07/16/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: b96551d11799a8def797255091531f41c1e4db8f
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 12/20/2018
+ms.date: 02/25/2019
+ms.openlocfilehash: 1248749a7c1a8b2d3419c0eae049a32b9727aae0
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806241"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663772"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>排查 SQL 数据同步的问题
 
@@ -65,16 +65,19 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 - **解决方法**。 客户端代理是否已卸载或缺失：
 
     1. 将代理 XML 文件（如果存在）从 SQL 数据同步安装文件夹中删除。
-    2. 在某台本地计算机（可以是相同或不同的计算机）上安装代理。 然后，提交门户中针对显示为脱机的代理生成的代理密钥。
+    1. 在某台本地计算机（可以是相同或不同的计算机）上安装代理。 然后，提交门户中针对显示为脱机的代理生成的代理密钥。
 
 - **原因**。 SQL 数据同步服务已停止。
 
 - **解决方法**。 重启 SQL 数据同步服务。
 
     1. 在“开始”菜单中，搜索“服务”。
-    2. 在搜索结果中，选择“服务”。
-    3. 找到“SQL 数据同步”服务。
-    4. 如果服务状态为“已停止”，请右键单击服务名称，选择“启动”。
+    1. 在搜索结果中，选择“服务”。
+    1. 找到“SQL 数据同步”服务。
+    1. 如果服务状态为“已停止”，请右键单击服务名称，选择“启动”。
+
+> [!NOTE]
+> 如果上述信息无法使同步组摆脱“正在处理”状态，可让 Azure 支持部门重置该同步组的状态。 若要重置同步组状态，请在 [Azure SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home)中发帖。 在贴子中，请包含自己的订阅 ID，以及需要重置的组的同步组 ID。 Azure 支持工程师将会回复帖子，并在重置状态后予以通知。
 
 ### <a name="sync-baddata"></a>在表中发现错误数据
 
@@ -110,7 +113,7 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 
 ## <a name="client-agent-issues"></a>客户端代理问题
 
-若要排查客户端代理问题，请参阅[排查数据同步代理问题](sql-database-data-sync-agent.md#agent-tshoot)。
+若要排查客户端代理问题，请参阅[排查 Data Sync Agent 问题](sql-database-data-sync-agent.md#agent-tshoot)。
 
 ## <a name="setup-and-maintenance-issues"></a>设置和维护问题
 
@@ -177,9 +180,9 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
     e. 如果该服务正在运行，请将其停止。  
     f. 右键单击该服务，并选择“启动”。  
     g. 检查数据库是否仍已注册。 如果已不再注册数据库，则操作完成。 否则，请继续执行下一步。
-  2. 打开客户端代理应用 (SqlAzureDataSyncAgent)。
-  3. 选择“编辑凭据”，输入数据库的凭据。
-  4. 继续执行注销。
+  1. 打开客户端代理应用 (SqlAzureDataSyncAgent)。
+  1. 选择“编辑凭据”，输入数据库的凭据。
+  1. 继续执行注销。
 
 ### <a name="setup-perms"></a>没有足够的特权启动系统服务
 
@@ -190,10 +193,10 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 - **解决方法**。 向用户帐户授予“作为服务登录”凭据：
 
   1. 转到“开始” > “控制面板” > “管理工具” > “本地安全策略” > “本地策略” > “用户权限管理”。
-  2. 选择“作为服务登录”。
-  3. 在“属性”对话框中添加用户帐户。
-  4. 依次选择“应用”、“确定”。
-  5. 关闭所有窗口。
+  1. 选择“作为服务登录”。
+  1. 在“属性”对话框中添加用户帐户。
+  1. 依次选择“应用”、“确定”。
+  1. 关闭所有窗口。
 
 ### <a name="setup-date"></a>数据库具有“过期”状态
 
@@ -204,7 +207,7 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
   如果数据库的状态为“过期”：
 
   1. 从同步组中删除处于“过期”状态的数据库。
-  2. 将数据库添加回同步组。
+  1. 将数据库添加回同步组。
 
   > [!WARNING]
   > 在数据库脱机时，将丢失对该数据库所做的所有更改。
@@ -224,8 +227,8 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 - **解决方法**。
 
   1. 在关联的同步代理处于联机状态时删除同步组（推荐）。
-  2. 如果代理处于脱机状态但已安装，请在本地计算机上将其联机。 等待代理状态在 SQL 数据同步门户中显示为“联机”。 然后删除同步组。
-  3. 如果代理因为被卸载而处于脱机状态：  
+  1. 如果代理处于脱机状态但已安装，请在本地计算机上将其联机。 等待代理状态在 SQL 数据同步门户中显示为“联机”。 然后删除同步组。
+  1. 如果代理因为被卸载而处于脱机状态：  
     a.  将代理 XML 文件（如果存在）从 SQL 数据同步安装文件夹中删除。  
     b.  在某台本地计算机（可以是相同或不同的计算机）上安装代理。 然后，提交门户中针对显示为脱机的代理生成的代理密钥。  
     c. 尝试删除同步组。
@@ -243,7 +246,7 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
     - 使用 PowerShell
         -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)
--   数据同步代理 - [Azure SQL 数据同步的数据同步代理](sql-database-data-sync-agent.md)
+-   Data Sync Agent - [Azure SQL 数据同步的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 数据同步最佳做法](sql-database-best-practices-data-sync.md)
 -   更新同步架构
     -   使用 Transact-SQL - [在 Azure SQL 数据同步中自动复制架构更改](sql-database-update-sync-schema.md)

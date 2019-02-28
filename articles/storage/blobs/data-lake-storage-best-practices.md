@@ -3,18 +3,18 @@ title: 使用 Azure Data Lake Storage Gen2 的最佳做法 | Microsoft Docs
 description: 了解与使用 Azure Data Lake Storage Gen2（以前称为 Azure Data Lake Store）相关的数据引入、日期安全和性能的最佳做法
 services: storage
 author: WenJason
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 origin.date: 12/06/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 801af404b368c683e34b28b46cd11259773b5eae
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: b4d5f9067b1f4bb3dc46d46e2383177e3c47db05
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397017"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665533"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -22,11 +22,11 @@ ms.locfileid: "54397017"
 
 ## <a name="security-considerations"></a>安全注意事项
 
-Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组和服务主体提供 POSIX 访问控制。 可以对现有文件和目录设置这些访问控制。 也可使用访问控制来创建可自动应用于新文件或目录的默认权限。 有关 Data Lake Storage Gen2 ACL 的更多详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](data-lake-storage-access-control.md)。
+Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组和服务主体提供 POSIX 访问控制。 可以对现有文件和目录设置这些访问控制。 也可使用访问控制来创建可自动应用于新文件或目录的默认权限。 有关 Data Lake Storage Gen2 ACL 的更多详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](storage-data-lake-storage-access-control.md)。
 
 ### <a name="use-security-groups-versus-individual-users"></a>安全组和单个用户的使用比较
 
-在 Data Lake Storage Gen2 中处理大数据时，可能会使用服务主体，以便使用 Azure HDInsight 之类的服务来处理数据。 但是，在某些情况下，单个用户也需要访问数据。
+在 Data Lake Storage Gen2 中处理大数据时，可能会使用服务主体，以便使用 Azure HDInsight 之类的服务来处理数据。 但是，在某些情况下，单个用户也需要访问数据。 无论在什么情况下，都务必考虑使用 Azure Active Directory [安全组](../common/storage-auth-aad.md)，而不是将单个用户分配给目录和文件。
 
 为安全组分配权限以后，在组中添加或删除用户就不需要对 Data Lake Storage Gen2 进行任何更新。 这也有助于确保不超出每个访问控制列表 (ACL) 的最大访问控制条目数。 目前，该数目为 32（包括始终与每个文件和目录关联的四个 POSIX 样式的 ACL）：拥有用户、拥有组、掩码和其他。 每个目录可以有两种类型的 ACL（访问 ACL 和默认 ACL），总共 64 个访问控制条目。 有关这些 ACL 的详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](data-lake-storage-access-control.md)。
 
@@ -36,13 +36,11 @@ Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组�
 
 ### <a name="security-for-service-principals"></a>服务主体的安全性
 
-Azure Active Directory 服务主体通常可供 Azure Databricks 之类的服务用来访问 Data Lake Storage Gen2 中的数据。 对许多客户来说，单个 Azure Active Directory 服务主体可能已经足够，该主体可以拥有 Data Lake Storage Gen2 文件系统根目录的完全权限。 其他客户可能需要多个包含不同服务主体的群集，让一个群集拥有数据的完全访问权限，另一个群集拥有只读访问权限。 
+Azure Active Directory 服务主体通常可供服务用来访问 Data Lake Storage Gen2 中的数据。 对许多客户来说，单个 Azure Active Directory 服务主体可能已经足够，该主体可以拥有 Data Lake Storage Gen2 文件系统根目录的完全权限。 其他客户可能需要多个包含不同服务主体的群集，让一个群集拥有数据的完全访问权限，另一个群集拥有只读访问权限。 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>启用 Data Lake Storage Gen2 防火墙，允许 Azure 服务访问
 
-Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问的选项。如果需要限制外部攻击途径，建议使用这一选项。 可以通过“防火墙” > “启用防火墙(启用)” > “允许 Azure 服务访问”选项在 Azure 门户的存储帐户上启用防火墙。
-
-将 Azure Databricks 群集添加到可能允许通过存储防火墙访问的虚拟网络时，需要使用 Databricks 的预览功能。 若要启用此功能，请提出支持请求。
+Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问的选项。如果需要限制外部攻击途径，建议使用这一选项。 可以在 Azure 门户的存储帐户上启用防火墙，方法是单击“防火墙和虚拟网络”>“允许来自所有网络的访问”。
 
 ## <a name="resiliency-considerations"></a>复原注意事项
 
@@ -50,21 +48,15 @@ Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问�
 
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
 
-高可用性 (HA) 和灾难恢复 (DR) 有时可以组合在一起，虽然每个的策略稍有不同，尤其是在涉及到数据的时候。 Data Lake Storage Gen2 已经可以在后台处理 3 个副本形式的复制，来应对局部硬件故障。 在制定计划以确保 HA 时，应考虑到在发生服务中断的情况下，工作负荷需尽快切换到在本地或新区域中单独复制的实例，以便访问最新数据。
+高可用性 (HA) 和灾难恢复 (DR) 有时可以组合在一起，虽然每个的策略稍有不同，尤其是在涉及到数据的时候。 Data Lake Storage Gen2 已经可以在后台处理 3 个副本形式的复制，来应对局部硬件故障。 此外，也可使用其他复制选项，例如，使用 GRS 和 RA-GRS 来改善 DR。 在制定计划以确保 HA 时，应考虑到在发生服务中断的情况下，工作负荷需尽快切换到在本地或新区域中单独复制的实例，以便访问最新数据。
 
 在 DR 策略中，为了应对某个区域发生灾难性故障这种不太可能的事件，必须使用 GRS 或 RA-GRS 复制选项将数据复制到其他区域，这也很重要。 此外，还必须考虑到在出现数据损坏这样的极端例子时的要求，因此需要创建可供回退的定期快照。 根据数据的重要性和大小，可以考虑每隔 1 小时、6 小时、24 小时创建滚动性的增量快照，具体取决于风险承受能力。
 
 考虑到 Data Lake Storage Gen2 的数据复原能力，建议通过符合 HA/DR 要求的 GRS 或 RA-GRS 异地复制数据。 另外，还应考虑通过各种方式让使用 Data Lake Storage Gen2 的应用程序能够自动故障转移到次要区域：可以监视触发器或失败尝试的时长，或者至少应向管理员发送通知，让其进行人工干预。 请注意，是进行故障转移，还是等待服务重新联机？这需要进行慎重的权衡。
 
-### <a name="use-distcp-for-data-movement-between-two-locations"></a>使用 Distcp 在两个位置之间进行数据移动
-
-DistCp 是 distributed copy（分布式复制）的简称，是 Hadoop 随附的一个 Linux 命令行工具，适用于在两个位置之间进行分布式数据移动。 这两个位置可以是 Data Lake Storage Gen2、HDFS 或 S3。 此工具使用 Hadoop 群集（例如 HDInsight）上的 MapReduce 作业在所有节点上进行横向扩展。 Distcp 被认为是在没有特殊网络压缩设备的情况下移动大数据的最快方式。 Distcp 还提供了在两个位置之间仅更新增量数据的选项，可以处理自动重试，并且可以对计算进行动态缩放。 如果需要复制 Hive/Spark 表之类的内容（在单个目录中有许多大型文件），而且只需要对修改的数据进行复制，则此方法相当有效。 由于这些原因，在大数据存储之间复制数据时，最建议使用的工具是 Distcp。
-
-复制作业可以通过使用频率或数据触发器的 Apache Oozie 工作流触发，也可以通过 Linux cron 作业触发。 对于密集型复制作业，建议启动一个单独的 HDInsight Hadoop 群集，该群集可以专门针对复制作业进行调整和缩放。 这样可确保复制作业不会干扰关键作业。 如果运行复制的频率足够宽，甚至可以在每次作业之间关闭群集。 如果故障转移到次要区域，请确保在次要区域也启动另一群集，以便在主要的 Data Lake Storage Gen2 帐户恢复后将新数据复制回该帐户。 有关如何使用 Distcp 的示例，请参阅[使用 Distcp 在 Azure 存储 Blob 和 Data Lake Storage Gen2 之间复制数据](../blobs/data-lake-storage-use-distcp.md)。
-
 ## <a name="monitoring-considerations"></a>监视注意事项
 
-Data Lake Storage Gen2 提供了一些指标。这些指标可以在 Azure 门户的 Data Lake Storage Gen2 帐户中使用。 Data Lake Storage Gen2 的可用性显示在 Azure 门户中。 若要获取 Data Lake Storage Gen2 帐户的最新可用性，必须运行你自己的综合性测试来验证可用性。 其他指标（例如总存储使用率、读/写请求数、入口/出口）可供监视应用程序使用，还可以在超出阈值（例如平均延迟时间或每分钟错误数）时触发警报。
+Data Lake Storage Gen2 提供了一些指标。这些指标可以在 Azure 门户的 Data Lake Storage Gen2 帐户中使用，也可以在 Azure Monitor 中使用。 Data Lake Storage Gen2 的可用性显示在 Azure 门户中。 若要获取 Data Lake Storage Gen2 帐户的最新可用性，必须运行你自己的综合性测试来验证可用性。 其他指标（例如总存储使用率、读/写请求数、入口/出口）可供监视应用程序使用，还可以在超出阈值（例如平均延迟时间或每分钟错误数）时触发警报。
 
 ## <a name="directory-layout-considerations"></a>目录布局注意事项
 
@@ -97,4 +89,4 @@ Data Lake Storage Gen2 提供了一些指标。这些指标可以在 Azure 门�
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
 
-在最常见的情况下，批量数据在处理后会直接进入 Hive 之类的数据库或传统的 SQL 数据库，不需要 **/in** 或 **/out** 文件夹，因为输出已经进入一个适用于 Hive 表或外部数据库的单独文件夹中。 例如，每日从客户处提取的数据会置于各自的文件夹中。在经过 Azure 数据工厂、Apache Oozie 或 Apache Airflow 之类工具的协调后，会触发一个每日 Hive 作业或 Spark 作业来处理数据，然后将数据写入 Hive 表中。
+在最常见的情况下，批量数据在处理后会直接进入 Hive 之类的数据库或传统的 SQL 数据库，不需要 **/in** 或 **/out** 文件夹，因为输出已经进入一个适用于 Hive 表或外部数据库的单独文件夹中。 例如，每日从客户处提取的数据会置于各自的文件夹中。在经过 Apache Oozie 或 Apache Airflow 之类工具的协调后，会触发一个每日 Hive 作业或 Spark 作业来处理数据，然后将数据写入 Hive 表中。

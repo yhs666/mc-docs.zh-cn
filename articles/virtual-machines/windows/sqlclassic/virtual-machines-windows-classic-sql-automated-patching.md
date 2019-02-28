@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/07/2018
-ms.date: 07/30/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad9d443fd6204cb02013afff57da3d6cd3790813
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: jroth
+ms.openlocfilehash: 018bd963a9e96e142d540e1bfa462e46cccab94c
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650250"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666032"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补
 > [!div class="op_single_selector"]
@@ -38,7 +39,7 @@ ms.locfileid: "52650250"
 自动修补依赖于 [SQL Server IaaS 代理扩展](../classic/sql-server-agent-extension.md)。
 
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 若要查看本文的 Resource Manager 版本，请参阅[在 Azure 虚拟机 Resource Manager 中自动修补 SQL Server](../sql/virtual-machines-windows-sql-automated-patching.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 若要查看本文的 Resource Manager 版本，请参阅[在 Azure 虚拟机 Resource Manager 中自动修补 SQL Server](../sql/virtual-machines-windows-sql-automated-patching.md)。
 
 ## <a name="prerequisites"></a>先决条件
 若要使用自动修补，请考虑以下先决条件：
@@ -69,7 +70,7 @@ ms.locfileid: "52650250"
 | 设置 | 可能的值 | 说明 |
 | --- | --- | --- |
 | **自动修补** |启用/禁用（已禁用） |为 Azure 虚拟机启用或禁用自动修补。 |
-| **维护计划** |每天、星期一、星期二、星期三、星期四、星期五、星期六、星期日 |为虚拟机下载和安装 Windows、SQL Server 和 Microsoft 更新的计划。 |
+| **维护计划** |每天、星期一、星期二、星期三、星期四、星期五、星期六、星期日 |为虚拟机下载和安装 Windows、SQL Server 和 Azure 更新的计划。 |
 | **维护开始时间** |0-24 |更新虚拟机的本地开始时间。 |
 | **维护时段持续时间** |30-180 |允许完成更新下载和安装的分钟数。 |
 | **修补程序类别** |重要 |要下载并安装的更新类别。 |
@@ -99,4 +100,4 @@ ms.locfileid: "52650250"
 
 有关在 Azure VM 中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

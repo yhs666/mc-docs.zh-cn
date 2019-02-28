@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab596c3de2841d3b8fd28cf1df684619ed6fb61a
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 24a576e92921d359e8c7bb21251918a143127f73
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736199"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665856"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序 
 
@@ -42,6 +42,7 @@ ms.locfileid: "53736199"
 安装 CUDA 驱动程序后，不需要重启。
 
 <!-- Not Available on After GRID driver installation on a VM, a restart is required.-->
+
 ## <a name="verify-driver-installation"></a>验证驱动程序安装
 
 可以在设备管理器中验证驱动程序安装。 以下示例展示了如何在 Azure NC VM 上成功配置 Tesla K80 卡。
@@ -60,13 +61,15 @@ ms.locfileid: "53736199"
 
 可以在同一可用性集或虚拟机规模集的单个放置组中部署的支持 RDMA 的 N 系列 VM（例如 NC24r）上启用 RDMA 网络连接。 必须添加 HpcVmDrivers 扩展才能安装用来启用 RDMA 连接的 Windows 网络设备驱动程序。 若要向支持 RDMA 的 N 系列 VM 添加 VM 扩展，请使用 Azure 资源管理器的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) cmdlet。
 
-<!--Notice: NCV3 is valid on chinaeast2 and chinanorth2--> 若要在“中国北部 2”区域中名为 myVM 且支持 RDMA 的现有 VM 上安装最新版本 1.1 HpcVMDrivers 扩展，请执行以下命令：
+<!--Notice: NCV3 is valid on chinaeast2 and chinanorth2-->
+
+若要在“中国北部 2”区域中名为 myVM 且支持 RDMA 的现有 VM 上安装最新版本 1.1 HpcVMDrivers 扩展，请执行以下命令：
   ```PowerShell
-  Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "chinanorth2" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "chinanorth2" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   有关详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-对于使用 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 或 Intel MPI 5.x 运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 
+对于使用 [Microsoft MPI](https://docs.microsoft.com/zh-cn/message-passing-interface/microsoft-mpi) 或 Intel MPI 5.x 运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 
 
 ## <a name="next-steps"></a>后续步骤
 

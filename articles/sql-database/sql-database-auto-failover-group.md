@@ -1,6 +1,6 @@
 ---
 title: 故障转移组 - Azure SQL 数据库 | Microsoft Docs
-description: 自动故障转移组是一项 SQL 数据库功能，可用于管理逻辑服务器中一组数据库或托管实例中所有数据库的复制和自动/协调式故障转移。
+description: 自动故障转移组是一项 SQL 数据库功能，可便于管理 SQL 数据库服务器中一组数据库或托管实例中所有数据库的复制和自动/协调式故障转移。
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,25 +11,25 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 12/10/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 69d0cc3495edeb71140b2cf756d866c697db0aad
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: ebfb6a706465761d53675692056893c78ae2aa51
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363800"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663729"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
-自动故障转移组是一项 SQL 数据库功能，可用于管理逻辑服务器中的一组数据库到另一区域的复制和故障转移。 它使用的底层技术与相同[活动异地复制](sql-database-active-geo-replication.md)相同。 可以手动启动故障转移，或者，可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
+自动故障转移组是一项 SQL 数据库功能，可用于管理 SQL 数据库服务器中的一组数据库到另一区域的复制和故障转移。 它使用的底层技术与相同[活动异地复制](sql-database-active-geo-replication.md)相同。 可以手动启动故障转移，或者，可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
 
 > [!NOTE]
-> 如果在逻辑服务器上使用单个数据库或入池数据库，并想要在相同或不同的区域中使用多个辅助节点，请使用[活动异地复制](sql-database-active-geo-replication.md)。
+> 如果在 SQL 数据库服务器上使用独立数据库或入池数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。
 
 将自动故障转移组与自动故障转移策略配合使用时，任何影响组中一个或多个数据库的服务中断都会导致自动故障转移。 此外，自动故障转移组提供在故障转移期间保持不变的读写和只读侦听器终结点。 无论使用手动故障转移激活还是自动故障转移激活，故障转移都会将组中所有的辅助数据库切换到主数据库。 数据库故障转移完成后，会自动更新 DNS 记录，以便将终结点重定向到新的区域。 有关具体的 RPO 和 RTO 数据，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 
-将自动故障转移组与自动故障转移策略配合使用时，任何影响逻辑服务器中的数据库的服务中断都会导致自动故障转移。 可使用以下方式管理自动故障转移组：
+将自动故障转移组与自动故障转移策略配合使用时，任何影响 SQL 数据库服务器中的数据库的服务中断都会导致自动故障转移。 可使用以下方式管理自动故障转移组：
 
 - [Azure 门户](sql-database-implement-geo-distributed-database.md)
 - [PowerShell：故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -43,39 +43,39 @@ ms.locfileid: "54363800"
 
 - **故障转移组**
 
-  故障转移组是由单个逻辑服务器管理的一组数据库，当主要区域的服务中断导致所有或部分主要数据库不可用时，该组数据库可作为一个单元故障转移到另一区域。
+  故障转移组是由单个 SQL 数据库服务器管理的一组数据库，当主要区域的服务中断导致所有或部分主要数据库不可用时，该组数据库可作为一个单元故障转移到另一区域。
 
-  - **逻辑服务器**
+  - **SQL 数据库服务器**
 
-     使用逻辑服务器可将单个服务器上的部分或所有用户数据库放入故障转移组。 此外，逻辑服务器支持单个服务器上的多个故障转移组。
+     使用 SQL 数据库服务器，可以将一个 SQL 数据库服务器上的部分或所有用户数据库放入故障转移组。 此外，SQL 数据库服务器支持一个 SQL 数据库服务器上有多个故障转移组。
 
 - **主要节点**
 
-  托管着故障转移组中的主要数据库的逻辑服务器。
+  托管着故障转移组中的主要数据库的 SQL 数据库服务器。
 
 - **辅助节点**
 
-  托管着故障转移组中的辅助数据库的逻辑服务器。 辅助节点不能与主要节点位于相同的区域。
+  托管着故障转移组中的辅助数据库的 SQL 数据库服务器。 辅助节点不能与主要节点位于相同的区域。
 
-- **将数据库添加到逻辑服务器上的故障转移组**
+- **将数据库添加到 SQL 数据库服务器上的故障转移组**
 
-  可将同一逻辑服务器上弹性池中的单个或多个数据库放入同一个故障转移组。 如果将单个数据库添加到故障转移组，则它会自动使用相同的版本和计算大小创建辅助数据库。 如果主数据库在弹性池中，将使用相同的名称在弹性池中自动创建辅助数据库。 如果在辅助服务器中添加已具有辅助数据库的数据库，则异地复制将由组继承。 在不属于故障转移组的服务器中添加已有辅助数据库的数据库时，会在辅助服务器中创建新的辅助节点。
+  可以将同一 SQL 数据库服务器上弹性池中的多个单一数据库或数据库放入同一个故障转移组。 如果将单个数据库添加到故障转移组，则它会自动使用相同的版本和计算大小创建辅助数据库。 如果主数据库在弹性池中，将使用相同的名称在弹性池中自动创建辅助数据库。 如果在辅助服务器中添加已具有辅助数据库的数据库，则异地复制将由组继承。 在不属于故障转移组的服务器中添加已有辅助数据库的数据库时，会在辅助服务器中创建新的辅助节点。
   
 - **故障转移组读写侦听器**
 
   构成的 DNS CNAME 记录，指向当前主要节点的 URL。 它允许读写 SQL 应用程序在故障转移发生后主服务器发生更改时，以透明方式重新连接到主数据库。
 
-  - **读写侦听器的逻辑服务器 DNS CNAME 记录**
+  - **读写侦听器的 SQL 数据库服务器 DNS CNAME 记录**
 
-     在逻辑服务器上，指向当前主要节点 URL 的故障转移组 DNS CNAME 记录格式为 `failover-group-name.database.chinasloudapi.cn`。
+     在 SQL 数据库服务器上，指向当前主要数据库 URL 的故障转移组 DNS CNAME 记录格式为 `failover-group-name.database.chinasloudapi.cn`。
 
 - **故障转移组只读侦听器**
 
   构成的 DNS CNAME 记录，指向只读侦听器，后者指向辅助节点的 URL。 它可让只读 SQL 应用程序以透明方式使用指定的负载均衡规则连接到辅助节点。
 
-  - **只读侦听器的逻辑服务器 DNS CNAME 记录**
+  - **只读侦听器的 SQL 数据库服务器 DNS CNAME 记录**
 
-     在逻辑服务器上，指向辅助节点 URL 的只读侦听器 DNS CNAME 记录格式为 `failover-group-name.secondary.database.chinasloudapi.cn`。
+     在 SQL 数据库服务器上，指向辅助数据库 URL 的只读侦听器 DNS CNAME 记录格式为 `failover-group-name.secondary.database.chinasloudapi.cn`。
 
 - **自动故障转移策略**
 
@@ -111,7 +111,7 @@ ms.locfileid: "54363800"
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>有关将故障转移组与单一数据库和弹性池配合使用的最佳做法
 
-自动故障转移组必须在主要逻辑服务器上进行配置，需将其连接到不同 Azure 区域中的辅助逻辑服务器。  组可以包含这些服务器中的所有或部分数据库。 下图演示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。
+自动故障转移组必须在主要 SQL 数据库服务器上进行配置，并会将它连接到不同 Azure 区域中的辅助 SQL 数据库服务器。  组可以包含这些服务器中的所有或部分数据库。 下图演示了使用多个数据库和自动故障转移组的异地冗余云应用程序的典型配置。
 
 ![自动故障转移](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -215,7 +215,7 @@ ms.locfileid: "54363800"
 > 有关示例脚本，请参阅[为单一数据库配置并故障转移一个故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 >
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用单个数据库和入池数据库管理 SQL 数据库故障转移组
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST API：管理包含独立数据库和入池数据库的 SQL 数据库故障转移组
 
 | API | 说明 |
 | --- | --- |

@@ -11,31 +11,31 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 60ee17f62dd26e1d0e5844367e843326fb025141
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 02/04/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: babe47b4833e7f71c92b2812faffb57154466576
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363752"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663493"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL 数据库威胁检测
 
-针对 [Azure SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的 Azure SQL 威胁检测可检测异常活动，这些活动指示对数据库的异常和可能有害的访问或利用企图。
+针对 [Azure SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的威胁检测可检测异常活动，这些活动指示对数据库的异常和可能有害的访问或利用企图。
 
-威胁检测包含在 [SQL 高级威胁防护](sql-advanced-threat-protection.md) (ATP) 产品中，该产品是高级 SQL 安全功能统一软件包。 可通过中心 SQL ATP 门户访问和管理威胁检测。
+威胁检测是[高级数据安全](sql-database-advanced-data-security.md) (ADS) 产品/服务（它是高级 SQL 安全功能的一个统一包）的一部分。 可通过中心 SQL ADS 门户访问和管理威胁检测。
 
 > [!NOTE]
 > 本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
 
 ## <a name="what-is-threat-detection"></a>什么是威胁检测？
 
-SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。 出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问和查询模式时，用户将收到警报。 SQL 威胁检测将警报与 Azure 安全中心集成，其中包含可疑活动的详细信息以及如何调查和缓解威胁的建议操作。 不必是安全专家，也不需要管理先进的安全监视系统，就能使用 SQL 威胁检测轻松解决数据库的潜在威胁。 
+威胁检测提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。 出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问和查询模式时，用户将收到警报。 威胁检测将警报与 Azure 安全中心集成，其中包含可疑活动的详细信息以及如何调查和缓解威胁的建议操作。 不必是安全专家，也不需要管理高级的安全监视系统，就能使用威胁检测轻松解决数据库的潜在威胁。 
 
 为了提供完整的调查体验，建议启用 [SQL 数据库审核](sql-database-auditing.md)，它会将数据库事件写入到 Azure 存储帐户中的审核日志。  
 
-## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL 数据库威胁检测警报
+## <a name="threat-detection-alerts"></a>威胁检测警报
 
 Azure SQL 数据库威胁检测可检测异常活动（指示异常和可能有害的数据库访问或使用企图），并可触发以下警报：
 
@@ -52,15 +52,17 @@ Azure SQL 数据库威胁检测可检测异常活动（指示异常和可能有�
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库检测威胁检测警报
 
-SQL 数据库威胁检测功能将其警报与 Azure 安全中心集成。 Azure 门户中“数据库和 SQL ATP”边栏选项卡内的“实时 SQL 威胁检测”磁贴会跟踪活动威胁的状态。
+威胁检测功能将其警报与 Azure 安全中心集成。 Azure 门户中“数据库和 SQL ADS”边栏选项卡内的“实时 SQL 威胁检测”磁贴会跟踪活动威胁的状态。
 
-单击“高级威胁防护”可获取在数据库或数据仓库中检测到的活动 SQL 威胁的概述。
-   
+单击“威胁检测警报”以启动“Azure 安全中心警报”页，并获取在数据库或数据仓库中检测到的活动 SQL 威胁的概述。
+
+   ![威胁检测警报](./media/sql-database-threat-detection/threat_detection_alert.png)
+
    ![威胁检测警报 2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解[单一数据库中的威胁检测](sql-database-threat-detection.md)。 
-* 详细了解 [SQL 高级威胁防护](sql-advanced-threat-protection.md)。 
-* 了解有关 [Azure SQL 数据库审核](sql-database-auditing.md)的详细信息
-* 有关定价的更多详细信息，请参阅 [SQL 数据库定价页](https://azure.cn/pricing/details/sql-database/)  
+- 详细了解[独立和入池数据库中的威胁检测](sql-database-threat-detection.md)。
+- 详细了解[高级数据安全](sql-database-advanced-data-security.md)。
+- 详细了解 [Azure SQL 数据库审核](sql-database-auditing.md)
+- 有关定价的详细信息，请参阅 [SQL 数据库定价页](https://azure.cn/pricing/details/sql-database/)  

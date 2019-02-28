@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/04/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8785d678da2bc828bffa3779ea71716e93a343ad
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.reviewer: jroth
+ms.openlocfilehash: 1e0865c8bc373be32a06d5fc73cd24a65b6297bb
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674146"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666178"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -41,22 +42,26 @@ ms.locfileid: "52674146"
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在 Azure 门户中，单击“创建资源”。 该门户会打开“新建”窗口。
-
-1. 在“新建”窗口中，单击“计算”，然后单击“全部查看”。
-
+    
+    <!--MOONCAKE CUSTOMZIE: Virtual Machines-->
+    
+1. 在“新建”窗口中，单击“虚拟机”，然后单击“全部查看”。
+    
    ![“新建计算”窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 1. 在搜索字段中，键入“SQL Server 2017”，然后按 Enter。
 
-1. 然后单击“筛选器”图标。
+    <!--Not Available on 1. Then click the **Filter** icon.-->
 
-1. 在“筛选器”窗口针对发布者勾选“基于 Windows”子类别和“Microsoft”。 然后单击“完成”，将结果筛选为 Microsoft 发布的 Windows SQL Server 映像。
+1. 勾选“Microsoft”作为发布者。
 
    ![Azure 虚拟机窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
+    <!--MOONCAKE CUSTOMZIE: Virtual Machines-->
+    
 1. 查看可用的 SQL Server 映像。 每个映像均可标识 SQL Server 版本和操作系统。
 
-1. 选择名为“免费 SQL Server 许可证: 基于 Windows Server 2016 的 SQL Server 2017 Developer”的映像。
+1. 选择名为“免费 SQL Server 许可证：Windows Server 2016 上的 SQL Server 2017 Developer”的映像。
 
    > [!TIP]
    > 本演示使用 Developer（开发人员）版，因为该版本是 SQL Server 的完整功能版本，并且可免费用于开发测试。 只需支付运行 VM 的成本。 但是，本教程中使用的映像可随意选择。 有关可用映像的说明，请参阅 [SQL Server Microsoft 虚拟机概述](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)。
@@ -300,4 +305,4 @@ ms.locfileid: "52674146"
 
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [Azure 虚拟机上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 和[常见问题](virtual-machines-windows-sql-server-iaas-faq.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

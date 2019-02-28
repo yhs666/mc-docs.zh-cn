@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 10/17/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe899676035de2493f3654c29233415fc0d70fea
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: af077a1dcdb22f10a20e8b9095eb3070ac2e4638
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786725"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666394"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
 
@@ -32,8 +32,8 @@ ms.locfileid: "53786725"
 若要从自定义磁盘创建多个 VM，请先从 VM 或 VHD 创建映像。 有关详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
 可使用两个选项创建自定义磁盘：
-* [上传 VHD](#option-1-upload-a-specialized-vhd)
-* [复制现有的 Azure VM](#option-2-copy-an-existing-azure-vm)
+* 上传 VHD
+* 复制现有的 Azure VM
 
 ## <a name="quick-commands"></a>快速命令
 
@@ -60,7 +60,8 @@ az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
 > 
 
 * 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
-<!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
+
+!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
 
 在以下示例中，请将示例参数名称（例如 *myResourceGroup*、*mystorageaccount* 和 *mydisks*）替换为自己的值。
 
@@ -104,7 +105,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
-可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storageaccount-create)为自定义磁盘和 VM 创建存储帐户。 以下示例在前面创建的资源组中创建名为 *mystorageaccount* 的存储帐户：
+可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create)为自定义磁盘和 VM 创建存储帐户。 以下示例在前面创建的资源组中创建名为 *mystorageaccount* 的存储帐户：
 
 ```azurecli
 az storage account create \

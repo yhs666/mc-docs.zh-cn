@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 12/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b5ab29f00056a56818b80450fa04fc245927c3d9
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: e20b55e7da269cfaf7740652d063285fbbdd73ac
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736131"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666100"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -79,15 +79,18 @@ Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://c
 Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 Azure 运行时进行优化。  有关 Azure 合作伙伴的详细信息，请参阅以下链接：
 
 * Azure 上的 Linux - [认可的分发](endorsed-distros.md)
-* SUSE - [Azure 市场 - SUSE Linux Enterprise Server](https://market.azure.cn/zh-cn/marketplace/apps?search=%27SUSE%27)
+* SUSE - [Azure 市场 - SUSE Linux Enterprise Server](https://market.azure.cn/zh-cn/marketplace/apps/SUSE.SLES?tab=Overview)
+* Red Hat - [Azure 市场 - Red Hat Enterprise Linux](https://market.azure.cn/zh-cn/marketplace/apps?search=redhat)
 * Canonical - [Azure 市场 - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure 市场 - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Azure 市场 - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
+* FreeBSD - [Azure 市场 - FreeBSD 10.4](https://market.azure.cn/zh-cn/marketplace/apps?search=FreeBSD)
 * CoreOS - [Azure 市场 - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
 * Jenkins - [Azure 市场 - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)
 
-<!-- Not Available on 75-76 * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
+
+<!--MOONCAKE CUSTOMIZE * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux](https://market.azure.cn/zh-cn/marketplace/apps?search=redhat)-->
+<!--MOONCAKE CUSTOMIZE * FreeBSD - [Azure Marketplace - FreeBSD 10.4](https://market.azure.cn/zh-cn/marketplace/apps?search=FreeBSD)-->
 <!-- Not Availalbe on 79-80 * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
 <!-- Not Availalbe on 80-81 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
 <!-- Not Availalbe on 80-81 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->

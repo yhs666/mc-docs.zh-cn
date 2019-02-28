@@ -1,5 +1,5 @@
 ---
-title: 适用于 Linux 的 Azure DSC 扩展 | Azure
+title: 适用于 Linux 的 DSC 扩展
 description: 安装 OMI 和 DSC 包，以便能够使用 Desired State Configuration 来配置 Azure Linux VM。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 09/24/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2043cb21845755e2401f8e26bb78fe5cabb9dfd6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 915b687b754fc6a9237dcfb18b31be54bdbafc00
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658130"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666284"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
-
-## <a name="overview"></a>概述
 
 Desired State Configuration (DSC) 是一个管理平台，可让你使用“配置即代码”来管理 IT 和开发基础结构。
 
@@ -36,20 +34,18 @@ DSCForLinux 扩展由 Microsoft 发布和提供支持。 该扩展在 Azure 虚�
 - 将自定义的 DSC 模块安装到 Linux VM (Install ExtensionAction)
 - 在 Linux VM 中删除自定义的 DSC 模块 (Remove ExtensionAction)
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
 ### <a name="operating-system"></a>操作系统
 
-DSC Linux 扩展支持[扩展支持的 OS](https://azurewiki.cloudapp.netvmagentextension/extensionSupportedOSs) 中所述的所有 OS，但以下项除外：
+DSC Linux 扩展支持所有[在 Azure 上认可的 Linux 分发版](/virtual-machines/linux/endorsed-distros)，除了以下这些：
 
 | 分发 | 版本 |
 |---|---|
-| CentOS Linux | 6.5 和更高版本 |
-| Ubuntu| 12.04 LTS、14.04 LTS 和 16.04 LTS  |
-| openSUSE| 13.1 和更高版本  |
-| SUSE Linux Enterprise Server| 11 SP3 和更高版本  |
-
-<!-- Not Available on | RHEL| 6.5 and higher  |-->
+| Debian | 所有版本 |
+| Ubuntu| 18.04 |
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
@@ -67,7 +63,7 @@ DSCForLinux 扩展要求目标虚拟机已连接到 Internet。 例如，Registe
 * `NodeConfigurationName`：（可选，字符串）要应用的节点配置的名称。
 * `RefreshFrequencyMins`：（可选，整数）指定 DSC 尝试从提取服务器获取配置的频率（以分钟为单位）。 
     如果提取服务器上的配置不同于目标节点上的当前配置，则会将前者复制到挂起的存储并应用。
-* `ConfigurationMode`：（可选，字符串）指定 DSC 如何应用配置。 有效值：ApplyOnly、ApplyAndMonitor 和 ApplyAndAutoCorrect。
+* `ConfigurationMode`：（可选，字符串）指定 DSC 如何应用配置。 有效值是：ApplyOnly、ApplyAndMonitor 和 ApplyAndAutoCorrect。
 * `ConfigurationModeFrequencyMins`：（可选，整数）指定 DSC 确保配置处于所需状态的频率（以分钟为单位）。
 
 > [!NOTE]
@@ -367,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 可运行以下命令登录到 Azure 帐户（Azure 资源管理器模式）：
 
 ```powershell>
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Login-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
 单击[**此处**](../../azure-resource-manager/powershell-azure-resource-manager.md)详细了解如何将 Azure PowerShell 与 Azure 资源管理器配合使用。
@@ -399,7 +395,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```
@@ -420,12 +416,13 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-错误代码 51 表示分发版或扩展操作不受支持。
+错误代码：51 表示分发版或扩展操作不受支持。
 在某些情况下，如果计算机中存在较高版本的 OMI，则 DSC Linux 扩展无法安装 OMI。 [错误响应: (000003)不允许降级]
 
 ### <a name="support"></a>支持
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+
 <!-- Not Available on [MSDN Azure and CSDN Azure](https://www.azure.cn/support/community/)-->
 
 ## <a name="next-steps"></a>后续步骤

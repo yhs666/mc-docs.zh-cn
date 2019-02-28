@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/17/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 62065476ec64cefadad0e8e3bbd7b7c35467ff88
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 856e75a89559ff49bffaa0402394cc2f7020757d
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674739"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666290"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建 Linux 虚拟机
 
@@ -31,9 +31,9 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 <a name="launch-azure-cloud-shell"></a>
-## <a name="launch-local-shell"></a>启动本地 Shell
+## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
-若要在本地安装并使用 PowerShell，则本快速入门需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+若要在本地安装并使用 PowerShell，则本快速入门需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 来创建与 Azure 的连接。
 
 ## <a name="create-ssh-key-pair"></a>创建 SSH 密钥对
 
@@ -42,7 +42,8 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 打开 bash shell，使用 [ssh-keygen](https://www.ssh.com/ssh/keygen/) 创建一个 SSH 密钥对。
 
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)--> 
-```PowerShell
+
+```powershell
 ssh-keygen -t rsa -b 2048
 ```
 
@@ -52,24 +53,24 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器：
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器：
 
-```PowerShell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaEast"
+```powershell
+New-AzResourceGroup -Name "myResourceGroup" -Location "ChinaEast"
 ```
 
 ## <a name="create-virtual-network-resources"></a>创建虚拟网络资源
 
 创建虚拟网络、子网和公共 IP 地址。 这些资源用来与 VM 建立网络连接，以及将其连接到 Internet：
 
-```PowerShell
+```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
   -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroup" `
   -Location "ChinaEast" `
   -Name "myVNET" `
@@ -77,7 +78,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
   -Location "ChinaEast" `
   -AllocationMethod Static `
@@ -87,9 +88,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 创建 Azure 网络安全组和流量规则。 网络安全组使用入站和出站规则来保护 VM。 在下面的示例中，将为 TCP 端口 22 创建允许 SSH 连接的入站规则。 为允许传入的 Web 流量，还将为 TCP 端口 80 创建一个入站规则。
 
-```PowerShell
+```powershell
 # Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleSSH = New-AzNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleSSH"  `
   -Protocol "Tcp" `
   -Direction "Inbound" `
@@ -101,7 +102,7 @@ $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig `
   -Access "Allow"
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleWWW"  `
   -Protocol "Tcp" `
   -Direction "Inbound" `
@@ -113,18 +114,18 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
   -Access "Allow"
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName "myResourceGroup" `
   -Location "ChinaEast" `
   -Name "myNetworkSecurityGroup" `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 创建虚拟网络接口卡 (NIC)。 虚拟 NIC 将 VM 连接到子网、网络安全组和公用 IP 地址。
+使用 [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) 创建虚拟网络接口卡 (NIC)。 虚拟 NIC 将 VM 连接到子网、网络安全组和公用 IP 地址。
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
   -Name "myNic" `
   -ResourceGroupName "myResourceGroup" `
   -Location "ChinaEast" `
@@ -139,40 +140,40 @@ $nic = New-AzureRmNetworkInterface `
 
 定义 SSH 凭据、OS 信息和 VM 大小。 在此示例中，SSH 密钥存储在 `~/.ssh/id_rsa.pub` 中。 
 
-```PowerShell
+```powershell
 # Define a credential object
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig `
+$vmConfig = New-AzVMConfig `
   -VMName "myVM" `
   -VMSize "Standard_D1" | `
-Set-AzureRmVMOperatingSystem `
+Set-AzVMOperatingSystem `
   -Linux `
   -ComputerName "myVM" `
   -Credential $cred `
   -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage `
+Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
   -Skus "16.04-LTS" `
   -Version "latest" | `
-Add-AzureRmVMNetworkInterface `
+Add-AzVMNetworkInterface `
   -Id $nic.Id
 
 # Configure the SSH key
 $sshPublicKey = cat ~/.ssh/id_rsa.pub
-Add-AzureRmVMSshPublicKey `
+Add-AzVMSshPublicKey `
   -VM $vmconfig `
   -KeyData $sshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-现在，组合前面的配置定义来使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建虚拟机：
+现在，组合前面的配置定义来使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建虚拟机：
 
-```PowerShell
-New-AzureRmVM `
+```powershell
+New-AzVM `
   -ResourceGroupName "myResourceGroup" `
   -Location chinaeast -VM $vmConfig
 ```
@@ -181,15 +182,16 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
-使用公共 IP 地址创建与 VM 的 SSH 连接。 若要查看 VM 的公用 IP 地址，请使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) cmdlet：
+使用公共 IP 地址创建与 VM 的 SSH 连接。 若要查看 VM 的公用 IP 地址，请使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) cmdlet：
 
-```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
+```powershell
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
 使用创建 SSH 密钥对时使用过的 bash shell（例如本地 bash shell）将 SSH 连接命令粘贴到 shell 中，以便创建一个 SSH 会话。
 
 <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
+
 ```bash
 ssh azureuser@10.111.12.123
 ```
@@ -215,10 +217,10 @@ sudo apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要、则可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet 删除资源组、VM 和所有相关资源：
+不再需要时，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet 删除资源组、VM 和所有相关资源：
 
-```PowerShell
-Remove-AzureRmResourceGroup -Name "myResourceGroup"
+```powershell
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -228,4 +230,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties, wording update, update cmdlet  -->

@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集 - Azure | Azure
-description: 了解如何使用 HDInsight .NET SDK 针对 HDInsight 中的 Hadoop 群集执行管理任务。
+title: 使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 群集
+description: 了解如何使用 HDInsight .NET SDK 针对 HDInsight 中的 Apache Hadoop 群集执行管理任务。
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -13,16 +13,16 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 12/24/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7ba84f8dc7fbc59816fef64512621e2cfa02980a
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 05dcb71909d936df419a2f6345a48dfa12991ec7
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569244"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665686"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 了解如何使用 [HDInsight.NET SDK](https://docs.azure.cn/dotnet/api/overview/hdinsight) 管理 HDInsight 群集。
@@ -171,9 +171,9 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
   * Storm Web UI
   * 命令行界面 (CLI) 工具
-
-    有关详细信息，请参阅 [Apache Storm 文档](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
-
+    
+    有关详细信息，请参阅 [Apache Storm 文档](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+    
     HDInsight 群集上提供了 Storm Web UI：
 
     ![HDInsight Storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
@@ -235,7 +235,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 也可以通过门户完成此操作。 请参阅[使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 用户凭据
-这与[授予/撤消 HTTP 访问权限](#grant/revoke-access)是同一过程。如果已向群集授予 HTTP 访问权限，则必须先撤消该访问权限。  然后再使用新的 HTTP 用户凭据授予访问权限。
+此过程与授予/撤销 HTTP 访问权限相同。  如果已授予群集 HTTP 访问权限，必须先撤销该权限。  然后再使用新的 HTTP 用户凭据授予访问权限。
 
 ## <a name="find-the-default-storage-account"></a>查找默认存储帐户
 以下代码片段演示如何获取群集的默认存储帐户名称和默认存储帐户密钥。
@@ -251,23 +251,23 @@ foreach (var key in results.Configuration.Keys)
 ## <a name="submit-jobs"></a>提交作业
 **提交 MapReduce 作业**
 
-请参阅[在 HDInsight 中运行 Hadoop MapReduce 示例](hadoop/apache-hadoop-run-samples-linux.md)。
+请参阅[在 HDInsight 中运行 MapReduce 示例](hadoop/apache-hadoop-run-samples-linux.md)。
 
 **提交 Apache Hive 作业** 
 
-请参阅[使用 .NET SDK 运行 Hive 查询](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
+请参阅[使用 .NET SDK 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 
 **提交 Apache Pig 作业**
 
-请参阅[使用 .NET SDK 运行 Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
+请参阅[使用 .NET SDK 运行 Apache Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
 
 **提交 Apache Sqoop 作业**
 
-请参阅 [将 Sqoop 与 HDInsight 配合使用](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
+请参阅[将 Apache Sqoop 与 HDInsight 配合使用](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
 
 **提交 Apache Oozie 作业**
 
-请参阅[在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流](hdinsight-use-oozie-linux-mac.md)。
+请参阅[在 HDInsight 中将 Apache Oozie 与 Hadoop 配合使用以定义和运行工作流](hdinsight-use-oozie-linux-mac.md)。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>将数据上传到 Azure Blob 存储
 请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。

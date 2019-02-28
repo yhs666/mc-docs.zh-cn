@@ -3,18 +3,18 @@ title: 创建 Azure Data Lake Storage Gen2 存储帐户 | Microsoft Docs
 description: 快速学习使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建能够访问 Data Lake Storage Gen2 的新存储帐户
 services: storage
 author: WenJason
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 origin.date: 12/06/2018
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 02de2bca64e186934e48f9a890ff3eab82130e82
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: c9222c4dc12f625071f5c3bc4278a3204110273b
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192959"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665600"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 存储帐户
 
@@ -24,19 +24,17 @@ Azure Data Lake Storage Gen2 [支持分层命名空间服务](data-lake-storage-
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
 
 |           | 先决条件 |
 |-----------|--------------|
 |门户     | 无         |
 |PowerShell | 本快速入门需要 PowerShell 模块 Az.Storage 0.7 或更高版本。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以外的版本，则必须升级 powershell 模块。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
-|CLI        | 可以登录到 Azure，然后在本地运行 Azure CLI 命令。|
-
-使用命令行时，可以选择在本地安装 CLI。
+|CLI        | 可以安装 CLI 并在本地运行 CLI 命令。|
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI
 
-也可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.38 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.38 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>创建启用了 Azure Data Lake Storage Gen2 的存储帐户
 
@@ -73,15 +71,18 @@ Azure Data Lake Storage Gen2 [支持分层命名空间服务](data-lake-storage-
 
 若要在 Azure 门户中创建常规用途 v2 存储帐户，请执行以下步骤：
 
+> [!NOTE]
+> 分层命名空间目前在所有公共区域中提供。
+
 1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
 2. 选择之前创建的订阅和资源组。
 3. 输入存储帐户的名称。
-4. 将“位置”设置为“中国北部 2”
+4. 将“位置”设置为“中国东部”
 5. 将这些字段保留设置为其默认值：性能、帐户类型、复制、访问层。
 6. 选择要在其中创建存储帐户的订阅。
 7. 选择“下一步:高级 >”
 8. 将“SECURITY”和“VIRTUAL NETWORKS”字段下的值设置为默认值。
-9. 在“Data Lake Storage Gen2(预览版)”部分中，将“分层命名空间”设置为“已启用”。
+9. 在“Data Lake Storage Gen2”部分中，将“分层命名空间”设置为“已启用”。
 10. 单击“查看 + 创建”以创建存储帐户。
 
     ![显示 Azure 门户中存储帐户创建情况的屏幕截图](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
@@ -113,11 +114,8 @@ Azure Data Lake Storage Gen2 [支持分层命名空间服务](data-lake-storage-
 安装 Az.Storage 模块
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> Azure Powershell Az 模块是在 Powershell 中与 Azure 服务搭配使用的首选模块。 若要了解详细信息，请参阅[新 Azure Powershell Az 模块简介](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
 
 ### <a name="log-in-to-your-azure-subscription"></a>登录 Azure 订阅
 
@@ -131,11 +129,14 @@ Login-AzAccount -EnvironmentName AzureChinaCloud
 
 若要通过 PowerShell 创建新的资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令： 
 
+> [!NOTE]
+> 分层命名空间目前在所有公共区域中提供。
+
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
-$location = "chinanorth2"
+$location = "chinaeast"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -144,7 +145,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) 命令：
 
 ```powershell
-$location = "chinanorth2"
+$location = "chinaeast"
 
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
@@ -164,9 +165,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>使用 Azure CLI 创建帐户
 
-若要启动 Azure Cloud Shell，请登录到 [Azure 门户](https://portal.azure.cn)。
-
-若要登录到本地安装的 CLI，请运行登录命令：
+若要登录到本地安装的 CLI，可运行登录命令：
 
 ```cli
 az login
@@ -176,27 +175,30 @@ az login
 
 若要使用 CLI 来与 Data Lake Storage Gen2 交互，必须将扩展添加到 shell。
 
-为此，请使用 Cloud Shell 或本地 shell 输入以下命令：`az extension add --name storage-preview`
+为此，请使用本地 shell 输入以下命令：`az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
-若要通过 Azure CLI 创建新的资源组，请使用 [az group create](/cli/group#az_group_create) 命令。
+若要通过 Azure CLI 创建新的资源组，请使用 [az group create](/cli/group) 命令。
 
-```azurecli
+```azurecli-interactive
 az group create `
     --name storage-quickstart-resource-group `
-    --location chinanorth2
+    --location chinaeast
 ```
+
+> [!NOTE]
+> > 分层命名空间目前在所有公共区域中提供。
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>创建常规用途 v2 存储帐户
 
-若要使用本地冗余存储从 Azure CLI 创建常规用途 v2 存储帐户，请使用 [az storage account create](/cli/storage/account#az_storage_account_create) 命令。
+若要使用本地冗余存储从 Azure CLI 创建常规用途 v2 存储帐户，请使用 [az storage account create](/cli/storage/account) 命令。
 
-```azurecli
+```azurecli-interactive
 az storage account create `
     --name storagequickstart `
     --resource-group storage-quickstart-resource-group `
-    --location chinanorth2 `
+    --location chinaeast `
     --sku Standard_LRS `
     --kind StorageV2 `
     --hierarchical-namespace true
@@ -204,7 +206,7 @@ az storage account create `
 
 ### <a name="clean-up-resources"></a>清理资源
 
-若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [az group delete](/cli/group#az_group_delete) 命令。
+若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [az group delete](/cli/group) 命令。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -214,4 +216,4 @@ az group delete --name myResourceGroup
 
 在本快速入门中，你已创建了一个具有 Data Lake Storage Gen2 功能的存储帐户。 若要了解如何通过存储帐户上传和下载 Blob，请参阅以下主题。
 
-* [AzCopy V10](/storage/common/storage-use-azcopy-v10?toc=%2fstorage%2fblobs%2ftoc.json)
+* [AzCopy V10](/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

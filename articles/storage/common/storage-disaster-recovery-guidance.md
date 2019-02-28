@@ -1,64 +1,61 @@
 ---
-title: Azure 存储中断时怎么办 | Microsoft Docs
-description: Azure 存储中断时怎么办
+title: 灾难恢复和存储帐户故障转移（预览版）- Azure 存储
+description: Azure 存储支持异地冗余存储帐户故障转移（预览版）。 通过帐户故障转移，可以在主终结点不可用时为存储帐户启动故障转移过程。
 services: storage
 author: WenJason
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/12/2018
-ms.date: 01/14/2019
+origin.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 964048e6e36124dc0c11eb4f0b07ebea115ef63b
-ms.sourcegitcommit: 3727a3bb5790523af56b5eb36d2ce78fc27a603a
+ms.subservice: common
+ms.openlocfilehash: 28b3d883477a6328ad988b8ac22c85c51c1076de
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55290190"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665420"
 ---
-# <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>在 Azure 存储中断时该怎么办
-我们一直努力确保我们在 Azure 上提供的服务始终可用。 但有时候，各种不可控因素会导致一个或多个区域出现计划外服务中断，对我们造成影响。 为了帮助你应对这些偶发事件，我们提供了下述针对 Azure 存储服务的概述性指导。
+# <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 存储中的灾难恢复和存储帐户故障转移（预览版）
 
-## <a name="how-to-prepare"></a>如何准备
-每个客户都应准备好自己的灾难恢复计划，这很重要。 从存储中断进行恢复时，通常需要操作人员和自动化过程的参与，目的是在正常运行状态下重新激活应用程序。 制定自己的灾难恢复计划时，请参阅以下 Azure 文档：
+Azure 致力于确保 Azure 服务一直可用。 不过，可能会发生计划外服务中断。 如果应用程序需要复原能力，Azure 建议使用异地冗余存储，这样就可以将数据复制到另一个区域。 此外，客户还应制定用于处理区域服务中断的灾难恢复计划。 灾难恢复计划的一个重要组成部分是，准备在主终结点不可用时将故障转移到辅助终结点。 
 
-* [Azure Site Recovery 服务](https://www.azure.cn/home/features/site-recovery/)
-* [Azure 存储复制](storage-redundancy.md)
-* [Azure 备份服务](https://www.azure.cn/home/features/backup/)
+## <a name="choose-the-right-redundancy-option"></a>选择正确的冗余选项
 
-## <a name="how-to-detect"></a>如何检测
-若要确定 Azure 服务状态，建议订阅 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)。
+为了实现冗余，所有存储帐户都会进行复制。 为帐户选择哪个冗余选项取决于所需的复原能力水平。 若要防止区域中断，请选择有权或无权从次要区域读取数据的异地冗余存储：  
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>在存储空间中断时该怎么办
-如果一个或多个区域的一个或多个存储服务临时不可用，可以考虑两种选项。 如果需要立即访问数据，请考虑“选项 2”。
+**异地冗余存储 (GRS)**：在至少相距数百英里的两个地理区域之间异步复制数据。 如果主要区域遭遇服务中断，次要区域便会成为数据的冗余源。 可以通过启动故障转移，将辅助终结点转换为主终结点。
 
-### <a name="option-1-wait-for-recovery"></a>选项 1：等待恢复
-在此情况下，不需要采取任何操作。 我们正在努力还原 Azure 服务的可用性。 可以在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上监视服务状态。
+**读取访问权限异地冗余存储 (RA-GRS)**：为异地冗余存储提供附加优势，即对辅助终结点的读取访问权限。 如果主终结点发生中断，配置了 RA-GRS 且旨在实现高可用性的应用程序可以继续从辅助终结点读取数据。 我们建议对应用程序使用 RA-GRS，以获取最大复原能力。
 
-### <a name="option-2-copy-data-from-secondary"></a>选项 2：从辅助数据库复制数据
-如果为存储帐户选择[读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md)（推荐），就可以从次要区域访问数据。 可使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 和 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)之类的工具将数据从次要区域复制到不受影响区域的其他存储帐户中，然后将应用程序指向该存储帐户，确保可读取和写入。
+> [!WARNING]
+> 异地冗余存储有数据丢失风险。 数据是异步复制到次要区域。也就是说，数据写入主要区域与数据写入次要区域之间存在延迟。 在服务中断的情况下，对主终结点执行、但尚未复制到辅助终结点的写入操作将会丢失。 
 
-## <a name="what-to-expect-if-a-storage-failover-occurs"></a>进行存储空间故障转移时会发生什么情况
-如果选择[异地冗余存储 (GRS)](storage-redundancy-grs.md) 或[读取访问地域冗余存储 (RA-GRS)](storage-redundancy-grs.md)（推荐），Azure 存储会将数据持久保存在两个区域（主要区域和次要区域）中。 在这两个区域，Azure 存储始终维护你数据的多个副本。
+## <a name="design-for-high-availability"></a>旨在实现高可用性
 
-当区域灾难影响主要区域时，我们会首先尝试还原该区域的服务，以提供 RTO 和 RPO 的最佳组合。 在很少的情况下，我们可能无法还原主要区域，具体取决于灾难的性质及其影响。 在那种情况下，我们会进行异地故障转移。 跨区域数据复制是一个有延迟的异步过程，因此，可能会丢失尚未复制到次要区域的更改。
+请务必从一开始就设计高可用性应用程序。 有关设计应用程序和计划灾难恢复方面的指导，请参阅以下 Azure 资源：
 
-有关存储空间异地故障转移体验的一些观点：
+* [设计使用 RA-GRS 的高可用性应用程序](storage-designing-ha-apps-with-ragrs.md)：有关生成利用 RA-GRS 的应用程序的设计指南。
+* [教程：生成使用 Blob 存储的高可用性应用程序](../blobs/storage-create-geo-redundant-storage.md)：介绍了如何生成在模拟故障和恢复时自动切换终结点的高可用性应用程序的教程。 
 
-* 只能通过 Azure 存储团队触发存储空间异地故障转移 - 不需客户操作。 当 Azure 存储团队在同一区域中用完了还原数据的所有选项时，会触发故障转移，这可以提供 RTO 和 RPO 的最佳组合。
-* Blob、表、队列和文件的现有存储服务终结点在故障转移后将保持不变；Azure 提供的 DNS 入口需要更新才能从主要区域切换到次要区域。 Azure 将在异地故障转移过程中自动执行此更新。
-* 在异地故障转移之前和过程中，由于灾难的影响，无法对存储帐户进行写入访问，但如果存储帐户已配置为 RA-GRS，则仍然可以从次要区域进行读取。
-* 完成异地故障转移并传播 DNS 更改后，如果你有 GRS 或 RA-GRS，则会还原对存储帐户的读写访问权限。 先前作为辅助终结点的终结点将成为你的主终结点。 
-* 你可以检查主要位置的状态，并查询存储帐户的上次异地故障转移时间。 有关详细信息，请参阅[存储帐户 - 获取属性](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties)。
-* 在故障转移之后，存储帐户将完全正常运行，但处于“已降级”状态，因为它托管在独立的区域中，不可能进行异地复制。 为了缓解此风险，我们需要还原原始的主要区域，并通过异地故障回复还原原始状态。 如果原始的主要区域不可恢复，我们会分配其他次要区域。
+此外，还请注意下面这些可保持 Azure 存储数据高可用性的最佳做法：
 
-## <a name="best-practices-for-protecting-your-data"></a>数据保护最佳实践
-可以通过一些推荐的方法定期备份存储数据。
+* **磁盘：** 利用 [Azure 备份](/backup/)备份 Azure 虚拟机使用的 VM 磁盘。 还建议在发生区域灾难时使用 [Azure Site Recovery](/site-recovery/) 保护 VM。
+* **块 blob：** 启用[软删除](../blobs/storage-blob-soft-delete.md)以防发生对象级删除和覆盖，或使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)将块 blob 复制到其他区域中的另一个存储帐户内。
+* **文件：** 使用 [AzCopy](storage-use-azcopy.md) 或 [Azure PowerShell](storage-powershell-guide-full.md) 将文件复制到其他区域中的另一个存储帐户内。
+* **表：** 使用 [AzCopy](storage-use-azcopy.md) 将表数据导出到其他区域中的另一个存储帐户内。
 
-* VM 磁盘 - 利用 [Azure 备份服务](https://www.azure.cn/home/features/backup/)备份 Azure 虚拟机所用的 VM 磁盘。
-* 块 Blob - 打开[软删除](../blobs/storage-blob-soft-delete.md)以防止发生对象级删除和覆盖，或者使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)将 Blob 复制到其他区域的其他存储帐户中。
-* 表 - 使用 [AzCopy](storage-use-azcopy.md) 将表数据导出到其他区域的其他存储帐户中。
-* 文件 - 使用 [AzCopy](storage-use-azcopy.md) 或 [Azure PowerShell](storage-powershell-guide-full.md) 将文件复制到其他区域的其他存储帐户中。
+## <a name="track-outages"></a>跟踪服务中断
 
-若要深入了解如何创建充分利用 RA-GRS 功能的应用程序，请参阅[使用 RA-GRS 存储设计高可用性应用程序](../storage-designing-ha-apps-with-ragrs.md)
+客户可以订阅 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)，以跟踪 Azure 存储和其他 Azure 服务的运行状况和状态。
+
+Azure 还建议将应用程序设计为可以应对可能出现的写入故障。 应用程序应公开写入故障，以提醒你主要区域可能存在服务中断。
+
+## <a name="azure-managed-failover"></a>Azure 托管的故障转移
+
+在由于重大灾难而导致区域丢失的极端情况下，Azure 可能会启动区域故障转移。 在此情况下，不需要采取任何操作。 在 Azure 托管的故障转移完成之前，你对存储帐户不拥有写入访问权限。 如果存储帐户已配置 RA-GRS，应用程序可以从次要区域读取数据。 
+
+## <a name="see-also"></a>另请参阅
+
+* [使用 RA-GRS 设计高度可用的应用程序](storage-designing-ha-apps-with-ragrs.md)
+* [教程：生成使用 Blob 存储的高可用性应用程序](../blobs/storage-create-geo-redundant-storage.md) 

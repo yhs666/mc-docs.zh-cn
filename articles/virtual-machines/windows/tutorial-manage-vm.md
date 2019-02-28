@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 11/02/2018
-ms.date: 11/26/2018
+origin.date: 11/28/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: db326609dc09270f130df754a0db2d4ec99a1cb9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 30a9fade71b19112ed2a95ac1575022408c6ca45
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674460"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666390"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -35,19 +35,18 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 > * 调整 VM 的大小
 > * 查看并了解 VM 状态
 
-## <a name="launch-local-shell"></a>启动本地 Shell
-<!-- Not Available on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
+## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令创建资源组。
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在以下示例中，在“ChinaEast”区域中创建了名为“myResourceGroupVM”的资源组：
 
-```PowerShell
-New-AzureRmResourceGroup `
+```powershell
+New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "ChinaEast"
 ```
@@ -60,14 +59,14 @@ New-AzureRmResourceGroup `
 
 使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6) 设置 VM 上管理员帐户所需的用户名和密码：
 
-```PowerShell
+```powershell
 $cred = Get-Credential
 ```
 
-使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。
+使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。
 
-```PowerShell
-New-AzureRmVm `
+```powershell
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Location "ChinaEast" `
@@ -84,8 +83,8 @@ New-AzureRmVm `
 
 运行以下命令，以返回 VM 的公共 IP 地址。 需记下此 IP 地址，以便在后续步骤中使用浏览器连接到它测试 Web 连接。
 
-```PowerShell
-Get-AzureRmPublicIpAddress `
+```powershell
+Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
@@ -101,16 +100,18 @@ mstsc /v:<publicIpAddress>
 
 Azure 市场包括许多可用于新建 VM 的映像。 在之前的步骤中，使用 Windows Server 2016 Datacenter 映像创建了 VM。 在此步骤中，我们将使用 PowerShell 模块在市场中搜索其他 Windows 映像，这些映像也可用作新 VM 的基础。 此过程包括查找发布者、产品/服务、SKU，以及用于[标识](cli-ps-findimage.md#terminology)映像的版本号（可选）。
 
-使用 [Get AzureRmVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令返回映像发布者的列表：
+使用 [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) 命令返回映像发布者的列表：
 
-```PowerShell
-Get-AzureRmVMImagePublisher -Location "ChinaEast"
+```powershell
+Get-AzVMImagePublisher -Location "ChinaEast"
 ```
 
-使用 [Get AzureRmVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) 返回映像产品/服务的列表。 使用此命令，返回筛选了指定发布者（名为 `MicrosoftWindowsServer`）的列表：
+使用 [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) 返回映像套餐的列表。 使用此命令，返回筛选了指定发布者（名为 `MicrosoftWindowsServer`）的列表：
 
-```PowerShell
-Get-AzureRmVMImageOffer -Location "ChinaEast" -PublisherName "MicrosoftWindowsServer"
+```powershell
+Get-AzVMImageOffer `
+   -Location "ChinaEast" `
+   -PublisherName "MicrosoftWindowsServer"
 ```
 
 结果将如以下示例所示： 
@@ -123,32 +124,40 @@ WindowsServer     MicrosoftWindowsServer ChinaEast
 WindowsServer-HUB MicrosoftWindowsServer ChinaEast
 ```
 
-然后，使用 [Get AzureRmVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) 命令对发布者和产品/服务名称进行筛选，以返回映像名称的列表。
+然后，使用 [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) 命令对发布者和套餐名称进行筛选，以返回映像名称的列表。
 
-```PowerShell
-Get-AzureRmVMImageSku -Location "ChinaEast" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+```powershell
+Get-AzVMImageSku `
+   -Location "ChinaEast" `
+   -PublisherName "MicrosoftWindowsServer" `
+   -Offer "WindowsServer"
 ```
 
 结果将如以下示例所示： 
+
 ```powershell
-Skus                            Offer         PublisherName          Location
-----                            -----         -------------          --------
-2008-R2-SP1                     WindowsServer MicrosoftWindowsServer ChinaEast  
-2008-R2-SP1-zhcn                WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-Datacenter                 WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-Datacenter-zhcn            WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-R2-Datacenter-zhcn         WindowsServer MicrosoftWindowsServer ChinaEast  
-2016-Datacenter                 WindowsServer MicrosoftWindowsServer ChinaEast  
-2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer ChinaEast  
-2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer ChinaEast  
-2016-Nano-Server                WindowsServer MicrosoftWindowsServer ChinaEast
+Skus                                      Offer         PublisherName          Location
+----                                      -----         -------------          --------
+2008-R2-SP1                               WindowsServer MicrosoftWindowsServer ChinaEast  
+2008-R2-SP1-smalldisk                     WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-Datacenter                           WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-Datacenter-smalldisk                 WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-R2-Datacenter                        WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-R2-Datacenter-smalldisk              WindowsServer MicrosoftWindowsServer ChinaEast  
+2016-Datacenter                           WindowsServer MicrosoftWindowsServer ChinaEast  
+2016-Datacenter-Server-Core               WindowsServer MicrosoftWindowsServer ChinaEast  
+2016-Datacenter-Server-Core-smalldisk     WindowsServer MicrosoftWindowsServer ChinaEast
+2016-Datacenter-smalldisk                 WindowsServer MicrosoftWindowsServer ChinaEast
+2016-Datacenter-with-Containers           WindowsServer MicrosoftWindowsServer ChinaEast
+2016-Datacenter-with-Containers-smalldisk WindowsServer MicrosoftWindowsServer ChinaEast
+2016-Datacenter-with-RDSH                 WindowsServer MicrosoftWindowsServer ChinaEast
+2016-Nano-Server                          WindowsServer MicrosoftWindowsServer ChinaEast
 ```
 
 此信息可用于部署具有特定映像的 VM。 此示例通过将最新版本的 Windows Server 2016 与容器映像配合使用来部署 VM。
 
-```PowerShell
-New-AzureRmVm `
+```powershell
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
     -Location "ChinaEast" `
@@ -187,69 +196,69 @@ VM 大小决定 VM 可用计算资源（如 CPU、GPU 和内存）的数量。 �
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
-若要查看在特定区域可用的 VM 大小的列表，请使用 [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize) 命令。
+若要查看在特定区域可用的 VM 大小的列表，请使用 [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 命令。
 
-```PowerShell
-Get-AzureRmVMSize -Location "ChinaEast"
+```powershell
+Get-AzVMSize -Location "ChinaEast"
 ```
 
 ## <a name="resize-a-vm"></a>调整 VM 的大小
 
 部署 VM 后，可调整其大小以增加或减少资源分配。
 
-调整 VM 大小之前，请检查所需的大小在当前 VM 群集上是否可用。 使用 [Get AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize) 命令返回大小的列表。
+调整 VM 大小之前，请检查所需的大小在当前 VM 群集上是否可用。 使用 [Get AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 命令返回大小的列表。
 
-```PowerShell
-Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
+```powershell
+Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-如果所需大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。
+如果大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。
 
-```PowerShell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
+```powershell
+$vm = Get-AzVM `
+   -ResourceGroupName "myResourceGroupVM"  `
+   -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Update-AzVM `
+   -VM $vm `
+   -ResourceGroupName "myResourceGroupVM"
 ```
 
 如果所需大小在当前群集上不可用，则需解除分配 VM，才能执行重设大小操作。 解除分配 VM 时会删除临时磁盘上的任何数据，并且如果不使用静态 IP 地址，则公共 IP 地址会发生更改。
 
-```PowerShell
-Stop-AzureRmVM `
+```powershell
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
-$vm = Get-AzureRmVM `
+$vm = Get-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_E2s_v3"
-Update-AzureRmVM -VM $vm `
+Update-AzVM -VM $vm `
    -ResourceGroupName "myResourceGroupVM"
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -Name $vm.name
 ```
 
 ## <a name="vm-power-states"></a>VM 电源状态
 
-Azure VM 可能会处于多种电源状态之一。 从虚拟机监控程序的角度来看，此状态表示 VM 的当前状态。
-
-### <a name="power-states"></a>电源状态
+Azure VM 可能会处于多种电源状态之一。 
 
 | 电源状态 | 说明
 |----|----|
-| 正在启动 | 指示正在启动虚拟机。 |
-| 正在运行 | 指示虚拟机正在运行。 |
-| 正在停止 | 指示正在停止虚拟机。 |
-| 已停止 | 指示 VM 已停止。 虚拟机处于停止状态时仍会产生计算费用。  |
-| 正在解除分配 | 指示 VM 正解除分配。 |
+| 正在启动 | 正在启动虚拟机。 |
+| 正在运行 | 虚拟机正在运行。 |
+| 正在停止 | 正在停止虚拟机。 |
+| 已停止 | VM 已停止。 虚拟机处于停止状态时仍会产生计算费用。  |
+| 正在解除分配 | VM 正解除分配。 |
 | 已解除分配 | 指示 VM 已从监控程序中删除，但仍可在控制面板中使用。 处于 `Deallocated` 状态的虚拟机不会产生计算费用。 |
-| - | 指示 VM 的电源状态未知。 |
+| - | VM 的电源状态未知。 |
 
-### <a name="find-power-state"></a>查找电源状态
+若要获取特定 VM 的状态，请使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 命令。 请确保为 VM 和资源组指定有效的名称。
 
-若要检索特定 VM 的状态，请使用 [Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 命令。 请确保为 VM 和资源组指定有效的名称。
-
-```PowerShell
-Get-AzureRmVM `
+```powershell
+Get-AzVM `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
@@ -269,10 +278,10 @@ PowerState/running
 
 ### <a name="stop-a-vm"></a>停止 VM
 
-使用 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) 停止并解除分配 VM：
+使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 停止并解除分配 VM：
 
-```PowerShell
-Stop-AzureRmVM `
+```powershell
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
 ```
@@ -281,18 +290,18 @@ Stop-AzureRmVM `
 
 ### <a name="start-a-vm"></a>启动 VM
 
-```PowerShell
-Start-AzureRmVM `
+```powershell
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>删除资源组
 
-删除资源组会删除其包含的所有资源。
+删除资源组时，会删除其中的一切。
 
-```PowerShell
-Remove-AzureRmResourceGroup `
+```powershell
+Remove-AzResourceGroup `
    -Name "myResourceGroupVM" `
    -Force
 ```

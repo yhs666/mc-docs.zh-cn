@@ -2,24 +2,33 @@
 title: 适用于 SQL 数据库的 Azure CLI 脚本示例 | Microsoft Docs
 description: 创建和管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙的 Azure CLI 脚本示例。
 services: sql-database
-author: WenJason
-manager: digimobile
-tags: azure-service-management
 ms.service: sql-database
+ms.subservice: service
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: f3b53da0a3fa6fbb1c6400b4e8c96c29cb84a77c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: ''
+manager: digimobile
+origin.date: 02/03/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 0028a77b35283dc6130c5956bc0e493c594fe544
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663655"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663678"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
+
+可以使用 <a href="/cli/azure">Azure CLI</a> 配置 Azure SQL 数据库。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+可以在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
+
+## <a name="single-database--elastic-pools"></a>单一数据库和弹性池
 
 下表包括适用于 Azure SQL 数据库的 Azure CLI 脚本示例的链接。
 
@@ -32,3 +41,6 @@ ms.locfileid: "52663655"
 | [缩放单一数据库](scripts/sql-database-monitor-and-scale-database-cli.md) | 此 CLI 脚本示例在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的计算大小。 |
 | [缩放弹性池](scripts/sql-database-scale-pool-cli.md) | 此 CLI 脚本示例将 SQL 弹性池缩放为不同的计算大小。  |
 |||
+
+详细了解[单一数据库 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。
+

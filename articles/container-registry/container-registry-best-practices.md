@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 09/27/2018
-ms.date: 11/12/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7433ef0bb8e053aa783109f236757e49dd4f7d54
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8c9833a71444ba69e017e9c316b1ef85d0c46f59
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660769"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440047"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 
@@ -43,7 +43,7 @@ contoso.azurecr.cn/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>专用资源组
 
-由于容器注册表是跨多个容器主机使用的资源，因此注册表应位于其自己的资源组中。
+由于容器注册表是跨多个容器主机使用的资源，注册表应位于其自己的资源组中。
 
 虽然可以试用特定的主机类型（如 Azure 容器实例），但完成操作后可能会删除容器实例。 但是，你可能还想保留推送到 Azure 容器注册表的映像集合。 通过将注册表置于其自己的资源组中，可以最小化删除容器实例资源组时在注册表中意外删除映像集合的风险。
 
@@ -60,7 +60,7 @@ Azure 容器注册表的身份验证有两种主要方案：单个身份验证�
 
 ## <a name="manage-registry-size"></a>管理注册表大小
 
-每个[容器注册表 SKU][container-registry-skus] 的存储约束旨在与典型方案保持一致，即基本 SKU 适用于入门，标准 SKU 适用于大部分生产应用程序，高级 SKU 适用于超大规模提升性能。 在注册表的整个生命周期中，应定期删除未使用的内容，管理注册表大小。
+每个[容器注册表 SKU][container-registry-skus] 的存储约束旨在与典型方案保持一致：**基本** SKU 适用于入门，**标准** SKU 适用于大部分生产应用程序，**高级** SKU 适用于超大规模提升性能。 在注册表的整个生命周期中，应定期删除未使用的内容，管理注册表大小。
 
 <!-- Not Available on [geo-replication][container-registry-geo-replication]-->
 
@@ -100,4 +100,4 @@ Azure 容器注册表可用于多层（称为 SKU），每层提供不同功能�
 
 <!-- Not Available on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-skus]: container-registry-skus.md
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

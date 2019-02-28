@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 origin.date: 04/10/2018
-ms.date: 05/21/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 964775b9a2a6f88a6b066aa886a6e242156ab68b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: jroth
+ms.openlocfilehash: 6397bec5ce5686bde39454c1f6eb5789a6eec37d
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653289"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665948"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure 虚拟机 (Linux) 上的 SQL Server 概述
 
@@ -29,6 +30,7 @@ ms.locfileid: "52653289"
 Azure 虚拟机上的 SQL Server 允许你在云中使用完整版本的 SQL Server，而不需管理任何本地硬件。 使用即用即付时，SQL Server VM 还可以简化许可成本。
 
 Azure 虚拟机在中国许多不同的[地理区域](https://www.azure.cn/support/service-dashboard/)运行， 并提供各种[虚拟机大小](../sizes.md)。 使用虚拟机映像库可以创建 SQL Server VM，而且版本和操作系统都很正确。 因此，虚拟机适用于许多不同的 SQL Server 工作负荷。
+
 <!--Notice: Change around the world to China -->
 
 <a name="create"></a>
@@ -41,8 +43,11 @@ Azure 虚拟机在中国许多不同的[地理区域](https://www.azure.cn/suppo
 
 | 版本 | 操作系统 | 版本 |
 | --- | --- | --- |
+| **SQL Server 2019** | Red Hat Enterprise Linux (RHEL) 7.4 | [开发人员](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseCTP20SQLServer2019DeveloperonRedHatEnterpriseLinux74-ARM) |
 | **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)、[Express](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS)、[Developer](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
-<!-- Not Avaiable on RHEL (Red Har Enterprise License) -->
+
+<!-- ONLY AVAILABLE ON Red Hat Enterprise Linux (RHEL) 7.4 [Developer]-->
+<!-- AVAILABLE ON SQL Server 2019 Red Hat Enterprise Linux (RHEL) 7.4 -->
 <!-- Not Avaiable on SLES (SUSE Linux Enterprise Server) -->
 
 > [!NOTE]
@@ -55,8 +60,10 @@ Azure 虚拟机在中国许多不同的[地理区域](https://www.azure.cn/suppo
 
 | 分发 | [数据库引擎](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [工具](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server 代理](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [全文搜索](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA 外接程序](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
+| RHEL | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![否](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![是](./media/sql-server-linux-virtual-machines-overview/yes.png) |
-<!-- Not Avaiable on RHEL (Red Har Enterprise License) -->
+
+<!-- ONLY Avaiable on Red Hat Enterprise Linux (RHEL) 7.4 [Developer] -->
 <!-- Not Avaiable on SLES (SUSE Linux Enterprise Server) -->
 
 ## <a name="related-products-and-services"></a>相关产品和服务
@@ -87,6 +94,5 @@ Azure Linux 虚拟机上的 SQL Server 入门：
 * [在 Azure 门户中创建 SQL Server VM](provision-sql-server-linux-virtual-machine.md)
 
 <!-- Not Available on Get answers to commonly asked questions about SQL VMs on Linux: -->
-
 <!-- Not Available on [SQL Server on Azure Linux Virtual Machines FAQ](sql-server-linux-faq.md)-->
 <!-- Update_Description: update meta properties, wording update, update link -->

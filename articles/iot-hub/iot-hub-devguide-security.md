@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 96baacabe4be1252beda5b0ace3fe2b7ac1baafa
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 03/04/2019
+ms.openlocfilehash: 251a141fe82146f62fda47f669ed9f97af5718c1
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736712"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665619"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -89,7 +89,7 @@ HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身�
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
 
-密码（可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 中心工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)（以前称为 Azure IoT 工具包扩展）来生成 SAS 令牌）：
+密码（可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)来生成 SAS 令牌）：
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -145,7 +145,7 @@ SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={UR
 
 以下 Node.js 代码片段显示名为 **generateSasToken** 的函数，该函数通过输入 `resourceUri, signingKey, policyName, expiresInMins` 计算令牌。 以下各节将详细讲解如何初始化不同令牌用例的不同输入。
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -159,7 +159,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-    // Construct autorization string
+    // Construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
     + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
@@ -260,7 +260,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 上述 Node js 函数的使用示例如下：
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.cn/devices/device1";
 var deviceKey ="...";
 
@@ -274,7 +274,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 ```
 
 > [!NOTE]
-> 可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 中心工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌。
+> 可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)来生成 SAS 令牌。
 > 
 > 
 
@@ -298,7 +298,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 
 上述 Node js 函数的使用示例如下：
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.cn/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -333,7 +333,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 * 策略名称： `registryRead`，
 * 任何过期时间。
 
-```nodejs
+```javascript
     var endpoint ="myhub.azure-devices.cn/devices";
     var policyName = 'registryRead';
     var policyKey = '...';

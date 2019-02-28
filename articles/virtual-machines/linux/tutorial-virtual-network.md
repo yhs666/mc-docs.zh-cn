@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0c4dab24449fae36b6cba23fb34570aaa6613b93
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bae512102e989f18c29d663468395c2ea84bbd70
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663323"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665896"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教程：使用 Azure CLI 为 Linux 虚拟机创建和管理 Azure 虚拟网络
 
@@ -209,7 +209,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-只能在端口 *22* 和端口 *80* 上访问前端 VM。 其他所有传入流量将在网络安全组中被阻止。 可视化 NSG 规则配置可能很有帮助。 使用 [az network rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list) 命令返回 NSG 规则配置。 
+只能在端口 *22* 和端口 *80* 上访问前端 VM。 其他所有传入流量将在网络安全组中被阻止。 可视化 NSG 规则配置可能很有帮助。 使用 [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list) 命令返回 NSG 规则配置。 
 
 ```azurecli 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -286,7 +286,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-只能通过前端子网在端口 *22* 和端口 *3306* 上访问后端 VM。 其他所有传入流量将在网络安全组中被阻止。 可视化 NSG 规则配置可能很有帮助。 使用 [az network rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list) 命令返回 NSG 规则配置。 
+只能通过前端子网在端口 *22* 和端口 *3306* 上访问后端 VM。 其他所有传入流量将在网络安全组中被阻止。 可视化 NSG 规则配置可能很有帮助。 使用 [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list) 命令返回 NSG 规则配置。 
 
 ```azurecli 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
@@ -308,4 +308,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > [!div class="nextstepaction"]
 > [在 Azure 中备份 Linux 虚拟机](./tutorial-backup-vms.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

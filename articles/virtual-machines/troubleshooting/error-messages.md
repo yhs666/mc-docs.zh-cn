@@ -11,21 +11,23 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure
 origin.date: 05/22/2017
-ms.date: 10/22/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd38da21669cff4026677ea91568b5d6ee26a09a
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: cc521e6ea822aba09d8bc6c3e968a8a78ccecf83
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785200"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665997"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解在 Azure 中管理虚拟机时遇到的常见错误消息
 
 本文介绍在 Azure 中创建或管理虚拟机 (VM) 时可能会遇到的一些最常见的错误代码和消息。
 
 >[!NOTE]
-> 可以通过本反馈页面或 [Azure 反馈](https://support.azure.cn/zh-cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
+> 可以通过 [Azure 反馈](https://support.azure.cn/zh-cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
+
+<!--Not Available on on this page for feedback or-->
 
 ## <a name="error-response-format"></a>错误响应格式 
 Azure VM 使用以下 JSON 格式提供错误响应：
@@ -217,4 +219,4 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 ## <a name="next-steps"></a>后续步骤
 如果需要更多帮助，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
 
-<!-- Update_Description: wording update, move file to new directory -->
+<!-- Update_Description: wording update -->

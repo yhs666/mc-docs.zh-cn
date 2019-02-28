@@ -1,34 +1,34 @@
 ---
-title: Azure 存储中的数据复制 | Microsoft Docs
-description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 复制选项包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。
+title: Azure 存储中的数据冗余 | Microsoft Docs
+description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 冗余选项包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 10/08/2018
-ms.date: 11/05/2018
+origin.date: 01/18/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 896258002a48529c79d48a2fbb23fc694647c0af
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 2efa35af7e50da7f6f74003ce940071a83b0cbf7
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653449"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665676"
 ---
-# <a name="azure-storage-replication"></a>Azure 存储复制
+# <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
-始终复制 Azure 存储帐户中的数据，确保持久性和高可用性。 Azure 存储复制功能可以复制数据，以防范各种计划内和计划外的事件，例如暂时性的硬件故障、网络中断或断电、大范围自然灾害等。 可以选择在同一数据中心以及甚至跨区域复制数据。
+始终复制 Azure 存储帐户中的数据，确保持久性和高可用性。 Azure 存储功能会复制数据，以防范各种计划内和计划外的事件，包括暂时性的硬件故障、网络中断或断电、大范围自然灾害等。 可以选择在同一数据中心甚至跨地域分隔区域复制数据。
 
 即使面临故障时，复制也可确保存储帐户满足[存储的服务级别协议 (SLA)](https://www.azure.cn/zh-cn/support/sla/storage/)的要求。 请参阅 SLA，了解有关 Azure 存储确保持续性和可用性的信息。
 
-## <a name="choosing-a-replication-option"></a>选择复制选项
+## <a name="choosing-a-redundancy-option"></a>选择冗余选项
 
-创建存储帐户时，可以选择以下复制选项之一：
+创建存储帐户时，可以选择以下冗余选项之一：
 
 * [本地冗余存储 (LRS)](storage-redundancy-lrs.md)
 * [异地冗余存储 (GRS)](storage-redundancy-grs.md)
-* [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md)
+* [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
 下表简要概述了每种复制策略为给定类型的事件（或具有类似影响性的事件）提供的持久性和可用性范围。
 
@@ -64,6 +64,6 @@ ms.locfileid: "52653449"
 - [异地冗余存储 (GRS)：Azure 存储的跨区域复制](storage-redundancy-grs.md)
 - [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)
 - [使用 RA-GRS 存储设计高度可用的应用程序](../storage-designing-ha-apps-with-ragrs.md)
-- [Azure 存储冗余选项和读取访问异地冗余存储](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-<!--Update_Description: main content struture update-->（SOSP 论文 - Azure 存储：具有高度一致性的高可用性云存储服务）
+- [Azure 存储冗余选项和读取访问异地冗余存储](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [SOSP 论文 - Azure 存储：具有高度一致性的高可用云存储服务](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+<!--Update_Description: main content struture update-->

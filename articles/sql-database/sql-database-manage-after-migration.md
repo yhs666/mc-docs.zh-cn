@@ -3,7 +3,7 @@ title: 迁移后管理 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何在迁移到 Azure SQL 数据库后管理数据库。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 5148cd2b2ef69f43995e0341c57b53650483a5d4
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 02/24/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 50deddf9fe69dcc1de463773159264d5a77af9d0
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363805"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663571"
 ---
 # <a name="new-dba-in-the-cloud---managing-your-database-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中的数据库
 
@@ -56,7 +56,7 @@ ms.locfileid: "54363805"
 
 数据库备份存储在异地复制的存储中，确保在发生区域性灾难时，可将备份还原到另一个 Azure 区域。 这称为异地还原。 此方案的 RPO（恢复点目标）通常小于 1 小时，ERT（估计恢复时间）通常为几分钟到几小时。
 
-对于任务关键型数据库，Azure SQL 数据库提供活动异地复制。 实质上，此方案的工作原理是在另一个区域创建原始数据库的异地复制辅助副本。 例如，如果数据库最初托管在 Azure 中国北部区域，而你希望在发生区域性灾难时具有复原能力。 那么，可以在中国东部或其他区域创建中国北部数据库的活动异地副本。 当中国北部发生灾难时，可以故障转移到中国东部区域。 更好的做法是在自动故障转移组中配置这些数据库，因为这可以确保在发生灾难时，数据库可自动故障转移到美国东部的次要区域。 此方案的 RPO 小于 5 秒，ERT 小于 30 秒。
+对于任务关键型数据库，Azure SQL 数据库提供活动异地复制。 实质上，此方案的工作原理是在另一个区域创建原始数据库的异地复制辅助副本。 例如，如果数据库最初托管在 Azure 中国北部区域，而你希望在发生区域性灾难时具有复原能力。 那么，可以在中国东部或其他区域创建中国北部数据库的活动异地副本。 当中国北部发生灾难时，可以故障转移到中国东部区域。 最好将它们配置到自动故障转移组中，因为这样可以确保在发生灾难时数据库自动故障转移到美国东部的辅助数据库。 此方案的 RPO 小于 5 秒，ERT 小于 30 秒。
 
 如果没有配置自动故障转移组，那么你的应用程序需要主动监视灾难，并启动向辅助数据库的故障转移。 可以在不同的 Azure 区域中最多创建 4 个此类活动异地副本。 这样，效果会更好。 还能以只读方式访问这些辅助活动异地副本。 这样可以非常方便地减少异地分布式应用程序方案的延迟。
 
@@ -82,7 +82,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 - [Azure Active Directory 身份验证](sql-database-aad-authentication.md)
 - SQL 身份验证
 
-不支持传统的 Windows 身份验证。 Azure Active Directory (AD) 是集中式的标识和访问管理服务。 使用此服务可以十分方便地为组织的所有人员提供单一登录访问 (SSO)。 这意味着，为简化身份验证，凭据将在所有 Azure 服务之间共享。 AAD 支持 [MFA（多重身份验证）](sql-database-ssms-mfa-authentication.md)，只需[点击几下鼠标](../active-directory/hybrid/how-to-connect-install-express.md)，AAD 就能与 Windows Server Active Directory 集成。 SQL 身份验证的工作方式与以往并无不同。 只需提供用户名/密码，就能让用户在给定逻辑服务器上的任何数据库中进行身份验证。 此外，还允许 SQL 数据库和 SQL 数据仓库在 Azure AD 域中提供多重身份验证和来宾用户帐户。 如果你已经有一个本地 Active Directory，则可以将该目录与 Azure Active Directory 联合在一起，以将目录扩展到 Azure。
+不支持传统的 Windows 身份验证。 Azure Active Directory (AD) 是集中式的标识和访问管理服务。 使用此服务可以十分方便地为组织的所有人员提供单一登录访问 (SSO)。 这意味着，为简化身份验证，凭据将在所有 Azure 服务之间共享。 AAD 支持 [MFA（多重身份验证）](sql-database-ssms-mfa-authentication.md)，只需[点击几下鼠标](../active-directory/hybrid/how-to-connect-install-express.md)，AAD 就能与 Windows Server Active Directory 集成。 SQL 身份验证的工作方式与以往并无不同。 提供用户名/密码后，即可对给定 SQL 数据库服务器上任何数据库的用户进行身份验证。 此外，还允许 SQL 数据库和 SQL 数据仓库在 Azure AD 域中提供多重身份验证和来宾用户帐户。 如果你已经有一个本地 Active Directory，则可以将该目录与 Azure Active Directory 联合在一起，以将目录扩展到 Azure。
 
 |**如果你…**|**SQL 数据库/SQL 数据仓库**|
 |---|---|
@@ -104,9 +104,9 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 #### <a name="firewall"></a>防火墙
 
-防火墙阻止外部实体访问你的服务器，只允许特定的实体访问你的逻辑服务器。 默认情况下，禁止在逻辑服务器中创建任何连接和数据库，但来自其他 Azure 服务的连接除外。 使用防火墙规则，可以只对批准的实体（例如开发人员计算机）开放服务器的访问，并允许该计算机的 IP 地址通过防火墙。 此外，还可以指定允许其访问逻辑服务器的 IP 范围。 例如，可以在防火墙设置页中指定范围，一次性添加组织中的多个开发人员计算机 IP 地址。
+防火墙仅允许特定实体访问 SQL 数据库服务器，以此来防止外部实体访问服务器。 默认拒绝 SQL 数据库服务器内的所有连接和数据库，来自其他 Azure 服务的连接除外。 使用防火墙规则，可以只对批准的实体（例如开发人员计算机）开放服务器的访问，并允许该计算机的 IP 地址通过防火墙。 利用它还可以指定你想要允许访问 SQL 数据库服务器的 IP 范围。 例如，可以在防火墙设置页中指定范围，一次性添加组织中的多个开发人员计算机 IP 地址。
 
-可以在服务器级别或数据库级别创建防火墙规则。 可以通过 Azure 门户或 SSMS 创建服务器级防火墙规则。 有关如何设置服务器和数据库级防火墙规则的详细信息，请参阅：[在 SQL 数据库中创建防火墙规则](sql-database-security-tutorial.md#create-firewall-rules)。
+可以在服务器级别或数据库级别创建防火墙规则。 可使用 Azure 门户或通过 SSMS 创建服务器级 IP 防火墙规则。 有关如何设置服务器级和数据库级防火墙规则的详细信息，请参阅：[在 SQL 数据库中创建 IP 防火墙规则](sql-database-security-tutorial.md#create-firewall-rules)。
 
 #### <a name="service-endpoints"></a>服务终结点
 
@@ -132,7 +132,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 #### <a name="threat-detection"></a>威胁检测
 
-使用[威胁检测](sql-database-threat-detection.md)可以轻松地对“审核”功能发现的安全或策略违规采取措施。 无需安全方面的专业知识即可解决系统中的潜在威胁或违规。 威胁检测还提供一些内置功能，例如 SQL 注入检测。 SQL 注入是指尝试改动或破坏数据，这是攻击数据库应用程序的一种常见手段。 SQL 数据库威胁检测运行多组算法，这些算法可以检测潜在漏洞和 SQL 注入攻击，以及异常的数据库访问模式（如来自异常位置或不熟悉主体的访问）。 如果在数据库中检测到威胁，安全管理人员或其他指定管理员将收到电子邮件通知。 每个通知都会提供可疑活动的详细信息，以及如何进一步调查和缓解威胁的建议。 若要了解如何启用威胁检测，请参阅：[启用 SQL 数据库威胁检测](sql-database-security-tutorial.md#enable-security-features)。
+使用[威胁检测](sql-database-threat-detection.md)可以轻松地对“审核”功能发现的安全或策略违规采取措施。 无需安全方面的专业知识即可解决系统中的潜在威胁或违规。 威胁检测还提供一些内置功能，例如 SQL 注入检测。 SQL 注入是指尝试改动或破坏数据，这是攻击数据库应用程序的一种常见手段。 威胁检测运行多组算法，这些算法可以检测潜在漏洞和 SQL 注入攻击，以及异常的数据库访问模式（如来自异常位置或不熟悉主体的访问）。 如果在数据库中检测到威胁，安全管理人员或其他指定管理员将收到电子邮件通知。 每个通知都会提供可疑活动的详细信息，以及如何进一步调查和缓解威胁的建议。 若要了解如何启用威胁检测，请参阅：[启用威胁检测](sql-database-security-tutorial.md#enable-security-features)。
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>如何在 SQL 数据库中对数据采取常规保护
 
@@ -217,7 +217,7 @@ SQL 数据库符合一系列合规要求。 若要查看符合的最新一组合
 
 ### <a name="security-optimization"></a>安全优化
 
-SQL 数据库提供可行的安全建议，帮助保护数据，威胁检测可用于识别和调查可能对数据库构成威胁的可疑数据库活动。 [SQL 漏洞评估](sql-vulnerability-assessment.md)是一项数据库扫描和报告服务，用于大规模监视数据库的安全状态、识别安全风险以及偏离所定义的安全基线的行为。 每次扫描之后，都会提供可行步骤和修正脚本的自定义列表，还会提供有助于你满足符合性要求的评估报告。
+SQL 数据库提供可行的安全建议，帮助保护数据，威胁检测可用于识别和调查可能对数据库构成威胁的可疑数据库活动。 [漏洞评估](sql-vulnerability-assessment.md)是一项数据库扫描和报告服务，允许你大规模监视数据库的安全状态、识别安全风险以及偏离你定义的安全基线的行为。 每次扫描之后，都会提供可行步骤和修正脚本的自定义列表，还会提供有助于你满足符合性要求的评估报告。
 
 Azure 安全中心不时地传送安全建议，只需点击一下鼠标就能应用这些建议。
 
@@ -237,7 +237,7 @@ Azure SQL 平台会分析服务器中数据库的利用率历史记录，作出�
 
 #### <a name="azure-portal"></a>Azure 门户
 
-Azure 门户通过选择数据库并单击“概览”窗格中的图表来显示单个数据库的利用率。 可以修改图表以显示多个指标，包括 CPU 百分比、DTU 百分比、数据 IO 百分比、会话百分比和数据库大小百分比。
+Azure 门户通过选择数据库并单击“概述”窗格中的图表来显示数据库的利用率。 可以修改图表以显示多个指标，包括 CPU 百分比、DTU 百分比、数据 IO 百分比、会话百分比和数据库大小百分比。
 
 ![监视图表](./media/sql-database-manage-after-migration/monitoring-chart.png)
 

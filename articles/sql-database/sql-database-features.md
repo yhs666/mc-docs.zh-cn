@@ -3,7 +3,7 @@ title: Azure SQL 数据库功能比较 | Microsoft Docs
 description: 本文比较了不同风格的 Azure SQL 数据库中可用的 SQL Server 功能。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
-origin.date: 12/03/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 7559cc2f05f775e7775b21f5076ae36b21ffcf02
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 258a371d22827b7b0f39b3cc7039eec077af94ae
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858192"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663561"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server
 
-Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数据库支持的 SQL Server 功能取决于创建的 Azure SQL 数据库类型。 使用 Azure SQL 数据库时，可以创建一个数据库作为逻辑服务器的一部分，并将其放入弹性池（可选）。 
+Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数据库支持的 SQL Server 功能取决于创建的 Azure SQL 数据库类型。 使用 Azure SQL 数据库，可以作为弹性池或单一数据库的一部分创建一个数据库。
 
 我们会继续向 Azure SQL 数据库添加功能。 访问针对 Azure 的服务更新网页，并使用以下筛选器获取最新更新：
 
@@ -33,7 +33,7 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 
 下表列出了 SQL Server 的主要功能，并说明该功能是否部分或完全受支持，同时提供更详细介绍该功能的链接。
 
-| **SQL 功能** | **在 Azure SQL 数据库/逻辑服务器中受支持** | 
+| **SQL 功能** | **在单一数据库/弹性池中受支持** |
 | --- | --- |
 | [活动异地复制](sql-database-active-geo-replication.md) | 是 - 仅限“常规用途”和“业务关键”服务层|
 | [自动故障转移组](sql-database-auto-failover-group.md) | 是 - 仅限“常规用途”和“业务关键”服务层|

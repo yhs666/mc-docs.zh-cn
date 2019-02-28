@@ -11,23 +11,31 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 7d02e2761f7ed9b926824032bbd960bb90b5114e
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/01/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 9677de41508a9e3f36b3f4ad1f993d45d5457efa
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806333"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663639"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure PowerShell 示例
+
+Azure SQL 数据库允许你使用 Azure PowerShell 配置数据库、实例和池。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+可以在本地安装并使用 PowerShell。本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 来创建与 Azure 的连接。
+
+## <a name="single-database-and-elastic-pools"></a>单一数据库和弹性池
 
 下表包括了适用于 Azure SQL 数据库的示例 Azure PowerShell 脚本的链接。
 
 | |  |
 |---|---|
-|**创建单一数据库和弹性池**||
-| [创建单一数据库和配置防火墙规则](scripts/sql-database-create-and-configure-database-powershell.md) | 此 PowerShell 脚本创建单一 Azure SQL 数据库，并配置服务器级防火墙规则。 |
+|**创建和配置单一数据库和弹性池**||
+| [创建单一数据库和配置数据库服务器防火墙规则](scripts/sql-database-create-and-configure-database-powershell.md) | 此 PowerShell 脚本创建单一 Azure SQL 数据库，并配置服务器级防火墙规则。 |
 | [创建弹性池并移动入池数据库](scripts/sql-database-move-database-between-pools-powershell.md) | 此 PowerShell 脚本创建 Azure SQL 数据库弹性池，移动入池数据库并更改计算大小。|
 |**配置异地复制和故障转移**||
 | [配置单一数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| 此 PowerShell 脚本为单个 Azure SQL 数据库配置活动异地复制，并将其故障转移到次要副本。 |
@@ -47,4 +55,6 @@ ms.locfileid: "53806333"
 | [在 SQL 数据库和本地 SQL Server 之间同步数据](scripts/sql-database-sync-data-between-azure-onprem.md) | 此 PowerShell 脚本将数据同步配置为在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步。 |
 | [更新 SQL 数据同步的同步架构](scripts/sql-database-sync-update-schema.md) | 此 PowerShell 脚本将在数据同步的同步架构中添加或删除项。 |
 |||
-<!--Update_Description: wording update-->
+
+详细了解[单一数据库 Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)。
+

@@ -1,29 +1,27 @@
 ---
 title: 使用 Azure 容器注册表进行身份验证
-description: Azure 容器注册表的身份验证选项包括 Azure Active Directory 服务主体直接登录和注册表登录。
+description: Azure 容器注册表的身份验证选项，包括使用 Azure Active Directory 标识、使用服务主体以及使用可选的管理凭据进行登录。
 services: container-registry
 author: rockboyfor
 manager: digimobile
 ms.service: container-registry
 ms.topic: article
-origin.date: 01/23/2018
-ms.date: 11/12/2018
+origin.date: 12/21/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d66a03fe91e3c1363d9804fcd5ef43da1f99c54c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: daf8ba9d1e41cd2dc6e6496f24babc025b73ebbe
+ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651237"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56440037"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>使用私有 Docker 容器注册表进行身份验证
 
 可通过几种方法使用 Azure 容器注册表进行身份验证，并且每种方法适用于一种或多种注册表使用方案。
 
-可以通过[单次登录](#individual-login-with-azure-ad)来登录注册表目录，应用程序和容器业务流程协调程序可以通过使用 Azure Active Directory (Azure AD) [服务主体](#service-principal)执行无人参与或“无外设”身份验证。
-
-Azure 容器注册表不支持未经身份验证的 Docker 操作或匿名访问。 对于公共映像，可以使用 [Docker 中心](https://docs.docker.com/docker-hub/)。
+你可以通过[个人登录](#individual-login-with-azure-ad)来直接登录到注册表，应用程序和容器业务流程协调程序也可以通过使用 Azure Active Directory (Azure AD) [服务主体](#service-principal)执行无人参与或“无外设”身份验证。
 
 ## <a name="individual-login-with-azure-ad"></a>使用 Azure AD 进行单次登录
 
@@ -33,24 +31,30 @@ Azure 容器注册表不支持未经身份验证的 Docker 操作或匿名访问
 az acr login --name <acrName>
 ```
 
-使用 `az acr login` 登录时，CLI 将使用执行 `az login` 时创建的令牌和注册表对会话进行无缝身份验证。 以这种方式登录后，系统会缓存凭据并且后续 `docker` 命令将不再需要用户名或密码。 如果令牌过期，可以通过再次使用 `az acr login` 命令重新进行身份验证来刷新令牌。 配合使用 `az acr login` 和 Azure 标识可提供[基于角色的访问](../role-based-access-control/role-assignments-portal.md)。
+使用 `az acr login` 进行登录时，CLI 将使用执行 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 时创建的令牌和注册表对会话进行无缝身份验证。 以这种方式登录后，系统会缓存凭据，并且会话中的后续 `docker` 命令将不再需要用户名或密码。 
+
+对于注册表访问，`az acr login` 使用的令牌有效期为 1 小时，因此，建议在运行 `docker` 命令之前始终登录到注册表。 如果令牌过期，可以通过再次使用 `az acr login` 命令重新进行身份验证来刷新令牌。 
+
+配合使用 `az acr login` 和 Azure 标识可提供[基于角色的访问](../role-based-access-control/role-assignments-portal.md)。 在某些情况下，你可能希望使用 Azure AD 中你自己的个人标识登录注册表。 对于跨服务方案，或者若要在不想管理个人访问的情况下满足工作组的需求，还可以使用 [Azure 资源的托管标识](container-registry-authentication-managed-identity.md)进行登录。
 
 ## <a name="service-principal"></a>服务主体
 
-可以为注册表分配[服务主体](../active-directory/develop/app-objects-and-service-principals.md)，并且应用程序或服务可以将其用于无外设身份验证。 服务主体允许通过[基于角色的访问](../role-based-access-control/role-assignments-portal.md)来访问注册表，并且可以为注册表分配多个服务主体。 如果拥有多个服务主体，则可为不同应用程序定义不同的访问权限。
+如果为注册表分配了[服务主体](../active-directory/develop/app-objects-and-service-principals.md)，则应用程序或服务可以将其用于无外设身份验证。 服务主体允许通过[基于角色的访问](../role-based-access-control/role-assignments-portal.md)来访问注册表，并且可以为注册表分配多个服务主体。 如果拥有多个服务主体，则可为不同应用程序定义不同的访问权限。
 
-可用的角色如下：
+容器注册表的可用角色包括：
 
-  * **读者**：拉取
-  * **参与者**：拉取和推送
-  * **所有者**：拉取、推送和为其他用户分配角色
+* **AcrPull**：拉取
+
+* **AcrPush**：拉取和推送
+
+* **所有者**：拉取、推送和为其他用户分配角色
 
 服务主体在推送和拉取方案中启用到注册表的“无外设”连接，如下所示：
 
   * *读者*：从注册表到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）的容器部署。 还可从容器注册表进行拉取并推送到相关 Azure 服务，例如 [应用服务](../app-service/index.yml)、[Batch](../batch/index.yml) 和 [Service Fabric](/service-fabric/) 等。
       
       <!-- Not Available on [AKS](../aks/index.yml)-->
-  * 参与者：生成容器映像并将它们推送到注册表的持续集成和部署解决方案（如 Azure Pipelines 或 Jenkins）。
+  * *参与者*：生成容器映像并将它们推送到注册表的持续集成和部署解决方案（如 Azure Pipelines 或 Jenkins）。
 
 > [!TIP]
 > 可通过运行 [az ad sp reset-credentials](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 命令重新生成服务主体的密码。

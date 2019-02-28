@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/15/2017
-ms.date: 01/14/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: b08d10140ac5b287806dc22af51432b688f6b640
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: common
+ms.openlocfilehash: 44ac84d59aaa2b3d15caafc19641b57cf6e58736
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192932"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665702"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 存储指标和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -99,10 +99,10 @@ Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能
 
 若要开始使用 Azure 适用的 PowerShell，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-1. 使用 [Add-AzureAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet 将 Azure 用户帐户添加到 PowerShell 窗口中：
+1. 使用 [Add-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet 将 Azure 用户帐户添加到 PowerShell 窗口中：
    
     ```powershell
-        Add-AzureAccount -Environment AzureChinaCloud
+        Add-AzAccount -Environment AzureChinaCloud
     ```
 
 2. 在“登录 Azure”窗口中，键入与帐户关联的电子邮件地址和密码。 Azure 将对凭据信息进行身份验证并保存，然后关闭该窗口。
@@ -111,7 +111,7 @@ Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. 为 Blob 服务启用存储日志记录：

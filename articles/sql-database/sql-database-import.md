@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/05/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: fd18202d44f60cf8c55a2c76bc53f6b344573e03
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: 51674761854687ef54bb67624137be04cde2736e
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996294"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663457"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>快速入门：将 BACPAC 文件导入到新的 Azure SQL 数据库
 
-可以使用 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件（扩展名为 `.bacpac` 且包含数据库的元数据和数据的 zip 文件）将 SQL Server 数据库迁移到 Azure SQL 数据库。 可以从 Azure blob 存储（仅限标准存储）或从本地位置中的本地存储导入 BACPAC 文件。 若要最大程度地提高导入速度，则可以指定一个较高的服务层和计算大小（例如 P6）。 然后，可以在导入成功后进行缩减。 导入的数据库的兼容性级别基于源数据库的兼容性级别。
+可以使用 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件（扩展名为 `.bacpac` 且包含数据库的元数据和数据的 zip 文件）将 SQL Server 数据库迁移到 Azure SQL 数据库。 可以从 Azure Blob 存储（仅限标准存储）或从本地位置中的本地存储导入 BACPAC 文件。 若要最大程度地提高导入速度，则可以指定一个较高的服务层和计算大小（例如 P6）。 然后，可以在导入成功后进行缩减。 导入的数据库的兼容性级别基于源数据库的兼容性级别。
 
 > [!IMPORTANT]
 > 导入数据库后，可选择以当前兼容级别（对于 AdventureWorks2008R2 数据库是级别 100）或更高级别操作数据库。 有关在特定兼容级别操作数据库的影响和选项的详细信息，请参阅 [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)（更改数据库兼容级别）。 有关与兼容级别相关的其他数据库级别设置的信息，另请参阅 [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)（更改数据库范围的配置）。
@@ -31,7 +31,7 @@ ms.locfileid: "53996294"
 
 本部分介绍如何在 [Azure 门户](https://portal.azure.cn)中根据存于 Azure blob 存储中的 BACPAC 文件创建 Azure SQL 数据库。 该门户仅支持从 Azure blob 存储导入 BACPAC 文件。
 
-若要在 Azure 门户中导入数据库，请打开将托管导入的逻辑服务器对应的页面，然后在工具栏上选择“导入数据库”。  
+若要在 Azure 门户中导入数据库，请打开将托管导入的 SQL 数据库服务器对应的页面，然后在工具栏上选择“导入数据库”。  
 
    ![数据库导入](./media/sql-database-import/import.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "53996294"
 
 ### <a name="monitor-imports-progress"></a>监视导入的进度
 
-若要监视导入的进度，请打开导入的数据库的逻辑服务器页，在“设置”下，选择“导入/导出历史记录”。 成功导入后，状态为“已完成”。
+若要监视导入的进度，请打开导入的数据库的服务器页，然后在“设置”下，选择“导入/导出历史记录”。 成功导入后，状态为“已完成”。
 
 若要验证数据库在服务器上是否处于活动状态，请选择“SQL 数据库”并验证新数据库是否为“联机”。
 
@@ -49,14 +49,14 @@ ms.locfileid: "53996294"
 
 在大多数生产环境中，建议使用 SqlPackage 来实现缩放和性能。 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 
-以下 SqlPackage 命令可将 AdventureWorks2008R2 数据库从本地存储导入到名为 mynewserver20170403 的 Azure SQL 数据库逻辑服务器。 它将创建名为 myMigratedDatabase 的新数据库，其中包含高级服务层和 P6 服务目标。 根据你的环境更改这些值。
+以下 SqlPackage 命令可将 AdventureWorks2008R2 数据库从本地存储导入到名为 mynewserver20170403 的 Azure SQL 数据库服务器。 它将创建名为 myMigratedDatabase 的新数据库，其中包含高级服务层和 P6 服务目标。 根据你的环境更改这些值。
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.chinacloudapi.cn;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Azure SQL 数据库逻辑服务器在端口 1433 上进行侦听。 若要从公司防火墙后连接到逻辑服务器，该防火墙必须打开此端口。
+> SQL 数据库服务器在端口 1433 上进行侦听。 若要从公司防火墙后连接到 SQL 数据库服务器，该防火墙必须打开此端口。
 >
 
 此示例演示如何通过 Active Directory 通用身份验证，使用 SqlPackage 来导入数据库。
@@ -105,7 +105,7 @@ $importStatus
 
 ## <a name="limitations"></a>限制
 
-不支持导入到弹性池中的数据库。 可以将数据导入到单一数据库，然后将数据库移到池。
+不支持导入到弹性池中的数据库。 可以将数据导入到单一数据库，然后将数据库移到弹性池。
 
 ## <a name="import-using-wizards"></a>使用向导导入
 

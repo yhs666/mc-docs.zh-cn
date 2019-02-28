@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 07/11/2018
-ms.date: 09/10/2018
+ms.date: 03/04/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 20318338cbecc385532c76e25457ac9d160ca848
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 4afc725ea7f5df62bfc580972f01a8ce3def5125
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029019"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665423"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教程：为 IoT 中心执行手动故障转移（公共预览版）
 
@@ -94,7 +94,7 @@ ms.locfileid: "53029019"
 
    ![显示故障转移已完成的屏幕截图](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-## <a name="perform-a-failback"></a>执行故障回复 
+## <a name="perform-a-failover"></a> 执行故障回复 
 
 执行手动故障转移以后，可以将中心的操作切换回原始的主要区域 -- 这称为故障回复。 如果刚执行故障转移，则需等待大约一小时，然后才能请求故障回复。 如果尝试在比这更短的时间内执行故障回复，则会显示错误消息。
 

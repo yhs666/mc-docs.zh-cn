@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
-origin.date: 11/07/2018
-ms.date: 12/24/2018
+origin.date: 11/30/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 948991e5a2a65a2ff9c289646350c71bd64e900a
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 507aa56b2071f1d564e38eac7f9c1e1d398199ce
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736165"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666263"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数。 也可以定义规则，以便根据 CPU、内存需求或网络流量等资源使用情况进行自动缩放。 在本教程中，请在 Azure 中部署虚拟机规模集，并了解如何执行以下操作：
@@ -34,9 +34,9 @@ ms.locfileid: "53736165"
 > * 增加或减少规模集中的实例数
 > * 创建自动缩放规则
 
-<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 6.0.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="scale-set-overview"></a>规模集概述
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 规模集中的 VM 将分布在逻辑容错域和更新域的一个或多个*放置组*中。 放置组是配置类似的 VM 的组，与[可用性集](tutorial-availability-sets.md)相似。
@@ -46,10 +46,10 @@ ms.locfileid: "53736165"
 使用 Azure 平台映像时，规模集最多支持 1,000 个 VM。 对于有重要安装或 VM 自定义要求的工作负荷，可能需要[创建自定义 VM 映像](tutorial-custom-images.md)。 使用自定义映像时，在规模集中最多可以创建 300 个 VM。
 
 ## <a name="create-a-scale-set"></a>创建规模集
-使用 [New-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmss) 创建虚拟机规模集。 以下示例创建名为 *myScaleSet* 且使用 *Windows Server 2016 Datacenter* 平台映像的规模集。 虚拟网络、公共 IP 地址和负载均衡器的 Azure 网络资源均会自动创建。 出现提示时，可以针对规模集中的 VM 实例设置自己的管理凭据：
+使用 [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 创建虚拟机规模集。 以下示例创建名为 *myScaleSet* 且使用 *Windows Server 2016 Datacenter* 平台映像的规模集。 虚拟网络、公共 IP 地址和负载均衡器的 Azure 网络资源均会自动创建。 出现提示时，可以针对规模集中的 VM 实例设置自己的管理凭据：
 
-```PowerShell
-New-AzureRmVmss `
+```powershell
+New-AzVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Location "ChinaEast" `
   -VMScaleSetName "myScaleSet" `
@@ -67,7 +67,7 @@ New-AzureRmVmss `
 
 使用自定义脚本扩展安装基本的 IIS Web 服务器。 应用可安装 IIS 的自定义脚本扩展，如下所示：
 
-```PowerShell
+```powershell
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
     "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
@@ -75,37 +75,37 @@ $publicSettings = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
-            -ResourceGroupName "myResourceGroupScaleSet" `
-            -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $publicSettings
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroupScaleSet" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 ## <a name="allow-traffic-to-application"></a>允许流量发往应用程序
 
-若要允许访问基本的 Web 应用程序，请使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 和 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 创建网络安全组。 有关详细信息，请参阅 [Azure 虚拟机规模集的网络](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)。
+若要允许访问基本的 Web 应用程序，请使用 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 和 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) 创建网络安全组。 有关详细信息，请参阅 [Azure 虚拟机规模集的网络](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)。
 
-```PowerShell
+```powershell
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
-            -ResourceGroupName "myResourceGroupScaleSet" `
-            -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 #Create a rule to allow traffic over port 80
-$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -117,40 +117,40 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 #Create a network security group and associate it with the rule
-$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+$nsgFrontend = New-AzNetworkSecurityGroup `
   -ResourceGroupName  "myResourceGroupScaleSet" `
   -Location ChinaEast `
   -Name myFrontendNSG `
   -SecurityRules $nsgFrontendRule
 
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName  "myResourceGroupScaleSet" `
   -Name myVnet
 
 $frontendSubnet = $vnet.Subnets[0]
 
-$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name mySubnet `
   -AddressPrefix $frontendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgFrontend
 
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroupScaleSet" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 ## <a name="test-your-scale-set"></a>测试规模集
-若要查看运行中的规模集，请使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例显示创建为规模集一部分的“myPublicIP”的 IP 地址：
+若要查看运行中的规模集，请使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例显示创建为规模集一部分的“myPublicIP”的 IP 地址：
 
-```PowerShell
-Get-AzureRmPublicIPAddress `
-    -ResourceGroupName "myResourceGroupScaleSet" `
-    -Name "myPublicIPAddress" | select IpAddress
+```powershell
+Get-AzPublicIPAddress `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myPublicIPAddress" | select IpAddress
 ```
 
 将公共 IP 地址输入到 Web 浏览器中。 将显示 Web 应用，包括负载均衡器将流量分发到的 VM 的主机名：
@@ -163,10 +163,12 @@ Get-AzureRmPublicIPAddress `
 在规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 Azure PowerShell 提供了一种用于执行这些任务的快速方法。 以下是一些常见任务。
 
 ### <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
-若要在规模集中查看 VM 实例的列表，请使用 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)，如下所示：
+若要在规模集中查看 VM 实例的列表，请使用 [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)，如下所示：
 
-```PowerShell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
+```powershell
+Get-AzVmssVM `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 ```
 
 以下示例输出显示了规模集中的两个 VM 实例：
@@ -178,32 +180,35 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   chinaeast Standard_DS1_v2          0   
 MYRESOURCEGROUPSCALESET   myScaleSet_1   chinaeast Standard_DS1_v2          1         Succeeded
 ```
 
-若要查看特定 VM 实例的其他信息，请将 `-InstanceId` 参数添加到 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)。 以下示例查看 VM 实例 *1* 的相关信息：
+若要查看特定 VM 实例的其他信息，请将 `-InstanceId` 参数添加到 [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)。 以下示例查看 VM 实例 *1* 的相关信息：
 
-```PowerShell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
+```powershell
+Get-AzVmssVM `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet" `
+  -InstanceId "1"
 ```
 
 ### <a name="increase-or-decrease-vm-instances"></a>增加或减少 VM 实例
-若要查看规模集中当前包含的实例数，请使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) 并查询 sku.capacity：
+若要查看规模集中当前包含的实例数，请使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 并查询 sku.capacity：
 
-```PowerShell
-Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
-    -VMScaleSetName "myScaleSet" | `
-    Select -ExpandProperty Sku
+```powershell
+Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet" | `
+  Select -ExpandProperty Sku
 ```
 
-然后，可以使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 *3*：
+然后，可以使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 *3*：
 
-```PowerShell
+```powershell
 # Get current scale set
-$scaleset = Get-AzureRmVmss `
+$scaleset = Get-AzVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $scaleset.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+Update-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
     -Name "myScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
@@ -213,16 +218,16 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
 ### <a name="configure-autoscale-rules"></a>配置自动缩放规则
 你可以定义自动缩放规则，而不是手动缩放规模集中实例的数目。 这些规则监视规模集中的实例，并根据所定义的指标和阈值做出相应响应。 如果在 5 分钟内平均 CPU 负载高于 60%，以下示例将增加一个实例。 如果平均 CPU 负载低于 30% 且持续时间超过 5 分钟，则将减少一个实例：
 
-```PowerShell
+```powershell
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
+$mySubscriptionId = (Get-AzSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "China East"
-$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
+$myScaleSetId = (Get-AzVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
-$myRuleScaleUp = New-AzureRmAutoscaleRule `
+$myRuleScaleUp = New-AzAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId $myScaleSetId `
   -Operator GreaterThan `
@@ -235,7 +240,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionValue 1
 
 # Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
-$myRuleScaleDown = New-AzureRmAutoscaleRule `
+$myRuleScaleDown = New-AzAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId $myScaleSetId `
   -Operator LessThan `
@@ -248,7 +253,7 @@ $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -ScaleActionValue 1
 
 # Create a scale profile with your scale up and scale down rules
-$myScaleProfile = New-AzureRmAutoscaleProfile `
+$myScaleProfile = New-AzAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
@@ -256,7 +261,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
   -Name "autoprofile"
 
 # Apply the autoscale rules
-Add-AzureRmAutoscaleSetting `
+Add-AzAutoscaleSetting `
   -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `

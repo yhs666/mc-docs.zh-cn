@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4ffff0bc6d0d94844ead50f33f62cb000e836371
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5a2354e790dc09e84535726cae6cf932f35daeb0
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52677123"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666476"
 ---
 若要诊断 Azure 云服务的问题，需要在问题发生时收集虚拟机上该服务的日志文件。 可以使用 AzureLogCollector 扩展按需从一个或多个云服务 VM（通过 Web 角色和辅助角色）执行一次性日志收集，并将收集到的文件传输到 Azure 存储帐户 - 所有这些操作都无需远程登录到任何 VM。
 
@@ -32,9 +32,9 @@ ms.locfileid: "52677123"
 
 在两种收集模式下，均可使用以下结构的集合来指定额外的数据收集文件夹：
 
-* **Name**：集合的名称，用作已收集文件所在的 zip 文件中子文件夹的名称。
-* **Location**：要收集文件所在虚拟机上的文件夹路径。
-* **SearchPattern**：要收集的文件名的样式。 默认值为“\*”
+* **名称**：集合的名称，用作包含已收集文件的 zip 文件中子文件夹的名称。
+* **位置**：要收集的文件所在虚拟机上的文件夹路径。
+* **SearchPattern**：要收集的文件的名称模式。 默认值为“\*”
 * **Recursive**：如果要收集的文件以递归方式列于指定位置下。
 
 ## <a name="prerequisites"></a>先决条件
@@ -177,9 +177,9 @@ param (
 
 * **ServiceName**：云服务名称。
 * **Roles**：角色列表，例如“WebRole1”或“WorkerRole1”。
-* **Instances**：逗号分隔的角色实例名称列表 — 使用通配符字符串（“*”）代表所有角色实例。
+* **Instances**：逗号分隔的角色实例名称的列表 -- 使用通配符字符串（“*”）代表所有角色实例。
 * **Slot**：槽名称。 “生产”或“过渡”。
-* **Mode**：收集模式。 “完整”或“GA”。
+* **模式**：收集模式。 “完整”或“GA”。
 * **StorageAccountName**：用于存储所收集数据的 Azure 存储帐户的名称。
 * **StorageAccountKey**：Azure 存储帐户密钥的名称。
 * **AdditionalDataLocationList**：以下结构的列表：
@@ -259,7 +259,7 @@ param (
 
 * **ServiceName**：云服务名称。
 * **VMName**：VM 的名称。
-* **Mode**：收集模式。 “完整”或“GA”。
+* **模式**：收集模式。 “完整”或“GA”。
 * **StorageAccountName**：用于存储所收集数据的 Azure 存储帐户的名称。
 * **StorageAccountKey**：Azure 存储帐户密钥的名称。
 * **AdditionalDataLocationList**：以下结构的列表：
@@ -375,7 +375,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -450,7 +450,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

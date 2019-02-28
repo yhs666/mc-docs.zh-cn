@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 11/26/2018
+ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bc4e7169c163010a01533de6f1760faaa3fb370
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 33eb638d21e806ad72263dbe0445b4bcab72d513
+ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674927"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56666152"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -74,12 +74,12 @@ Windows 来宾代理不提供用于重定向代理流量请求的代理服务器
 
 ## <a name="discover-vm-extensions"></a>发现 VM 扩展
 
-有许多不同的 VM 扩展可与 Azure VM 配合使用。 若要查看完整列表，请使用 [Get-AzureRmVMExtensionImage](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmextensionimage)。 以下示例列出“ChinaNorth”位置的所有可用扩展：
+有许多不同的 VM 扩展可与 Azure VM 配合使用。 若要查看完整列表，请使用 [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage)。 以下示例列出“ChinaNorth”位置的所有可用扩展：
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "ChinaNorth" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "ChinaNorth" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>运行 VM 扩展
@@ -93,7 +93,7 @@ Azure VM 扩展在现有 VM 上运行，需要在已部署的 VM 上进行配置
 存在多个用于运行单个扩展的 PowerShell 命令。 若要查看列表，请使用 [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) 并根据“扩展”筛选：
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module Az.Compute
 ```
 
 此命令的输出如下所示：
@@ -101,25 +101,25 @@ Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       1.2.0      Az.Compute
+Cmdlet          Set-AzVMADDomainExtension                     1.2.0      Az.Compute
+Cmdlet          Set-AzVMAEMExtension                          1.2.0      Az.Compute
+Cmdlet          Set-AzVMBackupExtension                       1.2.0      Az.Compute
+Cmdlet          Set-AzVMBginfoExtension                       1.2.0      Az.Compute
+Cmdlet          Set-AzVMChefExtension                         1.2.0      Az.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 1.2.0      Az.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  1.2.0      Az.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               1.2.0      Az.Compute
+Cmdlet          Set-AzVMDscExtension                          1.2.0      Az.Compute
+Cmdlet          Set-AzVMExtension                             1.2.0      Az.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    1.2.0      Az.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             1.2.0      Az.Compute
 ```
 
 以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，并运行该脚本。 有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](custom-script-windows.md)。
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "China North"
@@ -130,12 +130,12 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location ChinaNorth -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` 命令可用于启动任何 VM 扩展。 有关详细信息，请参阅 [Set-AzureRmVMExtension 参考](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension)。
+`Set-AzVMExtension` 命令可用于启动任何 VM 扩展。 有关详细信息，请参阅 [Set-AzVMExtension 参考](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)。
 
 <!-- Not Available on ### Azure portal-->
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
@@ -260,7 +260,7 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 #### <a name="listing-extensions-deployed-to-a-vm"></a>列出部署到 VM 的扩展
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -301,14 +301,14 @@ Windows 来宾代理仅包含扩展处理代码，Windows 预配代码需要单�
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>在 VM 上使用 autoUpgradeMinorVersion 识别是否设置了扩展
 
-如果使用“autoUpgradeMinorVersion”预配了扩展，则可以从 VM 模型查看信息。 若要检查，请使用 [Get-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 并提供资源组和 VM 名称，如下所示：
+如果使用“autoUpgradeMinorVersion”预配了扩展，则可以从 VM 模型查看信息。 若要检查，请使用 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 并提供资源组和 VM 名称，如下所示：
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-以下示例输出显示 *autoUpgradeMinorVersion* 设置为 *true*：
+以下示例输出显示 autoUpgradeMinorVersion 设置为 true：
 
 ```powershell
 ForceUpdateTag              :
@@ -357,10 +357,10 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>查看扩展状态
 
-针对 VM 运行 VM 扩展后，请使用 [Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 返回扩展状态。 *Substatuses[0]* 显示扩展预配成功，这意味着，该扩展已成功部署到 VM，但 VM 中的扩展执行失败 (*Substatuses[1]*)。
+针对 VM 运行 VM 扩展后，请使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 返回扩展状态。 *Substatuses[0]* 显示扩展预配成功，这意味着，该扩展已成功部署到 VM，但 VM 中的扩展执行失败 (*Substatuses[1]*)。
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 输出类似于以下示例输出：
@@ -393,10 +393,10 @@ Extensions[0]           :
 
 ### <a name="rerun-vm-extensions"></a>重新运行 VM 扩展
 
-在某些情况下，可能需要重新运行 VM 扩展。 如果要重新运行扩展，可以先删除扩展，然后使用所选执行方法重新运行扩展。 若要删除扩展，请使用 [Remove-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension)，如下所示：
+在某些情况下，可能需要重新运行 VM 扩展。 如果要重新运行扩展，可以先删除扩展，然后使用所选执行方法重新运行扩展。 若要删除扩展，请使用 [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension)，如下所示：
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 也可以在 Azure 门户中删除扩展，如下所示：
@@ -418,4 +418,4 @@ Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -N
 
 有关 VM 扩展的详细信息，请参阅 [Azure 虚拟机扩展和功能概述](overview.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

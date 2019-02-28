@@ -4,7 +4,7 @@ description: 了解有关访问 Azure AD 报告 API 的先决条件
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 origin.date: 11/13/2018
-ms.date: 12/06/2018
+ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6b6113143cb7d76ec86503397e22dca448fa97f3
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: 1911e19fc3c8a400a0e8d312159332be67a35761
+ms.sourcegitcommit: 791c712e00a5ee97aa71b20c3b94c92ce181dc16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440349"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56334263"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>访问 Azure Active Directory 报告 API 的先决条件
 
@@ -215,6 +215,25 @@ ms.locfileid: "54440349"
 
     d. 复制密钥值。
 
+## <a name="troubleshoot-errors-in-the-reporting-api"></a>排查报告 API 中的错误
+
+本部分列出了使用 MS Graph API 访问活动报告时可能遇到的常见错误消息及其解决步骤。
+
+### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>访问 Microsoft Graph V2 终结点时出现 500 HTTP 内部服务器错误
+
+目前，我们不支持 Microsoft Graph v2 终结点，请务必使用 Microsoft Graph v1 终结点访问活动日志。
+
+### <a name="error-user-is-not-in-the-allowed-roles"></a>错误：用户不是允许的角色 
+
+如果在尝试使用 API 访问审核日志时看到此错误消息，请确保帐户属于 Azure Active Directory 租户中的“安全读者”或“报表读者”角色。 
+
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>错误：应用程序缺少 AAD“读取目录数据”权限 
+
+请按照[访问 Azure Active Directory 报告 API 的先决条件](howto-configure-prerequisites-for-reporting-api.md)中的步骤操作，确保应用程序使用正确的权限集运行。 
+
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>错误：应用程序缺少 MSGraph API“读取所有审核日志数据”权限
+
+请按照[访问 Azure Active Directory 报告 API 的先决条件](howto-configure-prerequisites-for-reporting-api.md)中的步骤操作，确保应用程序使用正确的权限集运行。 
 
 ## <a name="next-steps"></a>后续步骤
 

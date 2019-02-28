@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 01/04/2019
-ms.date: 01/28/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: ad5492f8492cd163425ad565b98389cd7f9673ff
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: be45ddd87a68b12c02efe323503958ce187e829c
+ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396791"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56665638"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 C# IoT Edge 模块并将其部署到模拟设备
 
@@ -100,7 +100,7 @@ Azure IoT Edge 设备：
    | 提供解决方案名称 | 输入解决方案的描述性名称，或者接受默认的 **EdgeSolution**。 |
    | 选择模块模板 | 选择“C# 模块”。 |
    | 提供模块名称 | 将模块命名为 **CSharpModule**。 |
-   | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是在上一步预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 最终的字符串看起来类似于 \<注册表名称\>.azurecr.io/csharpmodule。 |
+   | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是基于你在上一步中提供的名称预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br>最终的映像存储库看起来类似于 \<registry name\>.azurecr.cn/csharpmodule。 |
  
    ![提供 Docker 映像存储库](./media/tutorial-csharp-module/repository.png)
 
@@ -167,7 +167,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
     // Read the TemperatureThreshold value from the module twin's desired properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-    OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
+    await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
     
     // Attach a callback for updates to the module twin's desired properties.
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
@@ -307,6 +307,12 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 告知 Visual Studio Code 生成解决方案时，它首先获取部署模板中的信息，然后在名为 **config** 的新文件夹中生成 deployment.json 文件。然后，它在集成终端运行两个命令，即 `docker build` 和 `docker push`。 这两个命令会生成代码，将 CSharpModule.dll 容器化，然后将代码推送到在初始化解决方案时指定的容器注册表。 
 
 可在 VS Code 集成终端中查看具有标记的完整容器映像地址。 映像地址根据 module.json 文件中的信息生成，其格式为 \<存储库\>:\<版本\>-\<平台\>。 在本教程中，它应该类似于 registryname.azurecr.io/csharpmodule:0.0.1-amd64。
+
+>[!TIP]
+>如果你在尝试生成并推送模块时收到错误，请进行以下检查：
+>* 你在 Visual Studio Code 中登录到 Docker 时是否使用了来自容器注册表的凭据？ 这些凭据不同于用来登录到 Azure 门户的凭据。
+>* 你的容器存储库是否正确？ 打开“模块” > “cmodule” > “module.json”并查找 **repository** 字段。 映像存储库应当类似于 **\<registryname\>.azurecr.cn/csharpmodule**。 
+>* 你在生成的容器是否为开发计算机运行的同一类型的容器？ Visual Studio Code 默认生成 Linux amd64 容器。 如果开发计算机运行的是 Windows 容器或 Linux arm32v7 容器，请在 VS Code 窗口底部的蓝色状态栏上更新平台，以匹配你的容器平台。
 
 ## <a name="deploy-and-run-the-solution"></a>部署并运行解决方案
 
