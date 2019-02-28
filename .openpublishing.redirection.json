@@ -13416,7 +13416,7 @@
     },
     {
         "source_path": "articles/monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md",
-        "redirect_url": "/azure-monitor/platform/diagnostic-logs-append-blobs",
+        "redirect_url": "/azure-monitor/platform/diagnostic-logs-overview",
         "redirect_document_id": "false"
     },
     {
@@ -13800,26 +13800,28 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-portal.md",
+      "redirect_url": "/network-watcher/diagnose-vm-network-traffic-filtering-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-check-next-hop-portal.md",
+      "redirect_url": "/network-watcher/diagnose-vm-network-routing-problem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-topology-overview.md",
+      "redirect_url": "/network-watcher/view-network-topology",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-app-service-fault-domain-update.md",
       "redirect_url": "/azure-stack/azure-stack-app-service-before-you-get-started#high-availability",
       "redirect_document_id": false
     }
 
 
-
-
-
-
-
     
-
-
-
-
-
-
-      
-
 
 
 
