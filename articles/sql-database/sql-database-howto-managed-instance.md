@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
-origin.date: 12/14/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 641f7927d76281017ea36852a2f694a27e03c6b6
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+origin.date: 01/25/2019
+ms.date: 02/25/2019
+ms.openlocfilehash: c8a9debcd80d9350273b56d87ebb52e50a084bab
+ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396999"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56663750"
 ---
-# <a name="how-to-use-managed-instance"></a>如何使用托管实例
+# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>如何在 Azure SQL 数据库中使用托管实例
 
-在本部分中，你可以找到可帮助你管理和配置“Azure SQL 数据库 - 托管实例”的各种指南、脚本和说明。
+本文提供各种指南、脚本和说明，可帮助你管理和配置托管实例。
 
 ## <a name="migration"></a>迁移
 
@@ -34,7 +34,7 @@ ms.locfileid: "54396999"
 
 - [确定托管实例子网的大小](sql-database-managed-instance-determine-size-vnet-subnet.md) - 托管实例置于专用子网中，在向该子网添加资源以后，就不能重设其大小。 因此，需要根据要部署在子网中的实例的数目和类型来计算子网所需地址的 IP 范围。
 - [为托管实例创建新的 VNet 和子网](sql-database-managed-instance-create-vnet-subnet.md) - 必须根据[此处所述的网络要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)配置要在其中部署托管实例的 Azure VNet 和子网。 本指南介绍如何轻松地创建针对托管实例进行了相应配置的全新 VNet 和子网。
-- [为托管实例配置现有的 VNet 和子网](sql-database-managed-instance-configure-vnet-subnet.md) - 如果需要配置现有的 VNet 和子网，以便在其中部署托管实例，可以在此处找到脚本，以便检查[网络要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)并根据要求进行子网配置。
+- [为托管实例配置现有的 VNet 和子网](sql-database-managed-instance-configure-vnet-subnet.md) - 如果想要配置现有的 VNet 和子网，以便在其中部署托管实例，可以在此处找到脚本，以便检查[网络要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)并根据要求进行子网配置。
 - [配置自定义 DNS](sql-database-managed-instance-custom-dns.md) - 如果需要通过 DB 邮件配置文件的链接服务器从托管实例访问自定义域上的外部资源，则需配置自定义 DNS。
 - [同步网络配置](sql-database-managed-instance-sync-network-configuration.md) - 虽然[已将应用与 Azure 虚拟网络集成](../app-service/web-sites-integrate-with-vnet.md)，仍可能出现无法建立与托管实例的连接的情况。 可尝试刷新服务计划的网络配置。
 - [查找管理终结点 IP 地址](sql-database-managed-instance-find-management-endpoint-ip-address.md) - 托管实例仅将公共终结点用于管理目的。 可以使用此处所述的脚本确定管理终结点的 IP 地址。
@@ -47,4 +47,5 @@ ms.locfileid: "54396999"
 - [配置威胁检测](sql-database-managed-instance-threat-detection.md) - [威胁检测](sql-database-threat-detection-overview.md)是一项内置的 Azure SQL 数据库功能，用于检测各种潜在的攻击，例如 SQL 注入或者来自可疑位置的访问。 本指南介绍如何为托管实例启用并配置[威胁检测](sql-database-threat-detection-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解[单一数据库中的操作指南](sql-database-howto-single-database.md)
+
+- 详细了解[单一数据库操作指南](sql-database-howto-single-database.md)
