@@ -13,17 +13,18 @@
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "LandingData": "Content",
-        "RestApi": "Content"
+        "RestApi": "Content",
+        "ContextObject": "Toc"
       },
       "build_entry_point": "docs",
-      "template_folder": "_themes"
+      "template_folder": "_themes",
+      "version": 0
     }
   ],
   "notification_subscribers": [
     "v-johch@microsoft.com"
   ],
   "branches_to_filter": [],
-  "continue_with_document_error": true,
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "dependent_repositories": [
@@ -33,15 +34,6 @@
       "branch": "master",
       "branch_mapping": {
         "huxie-test": "mooncake"
-      }
-    },
-    {
-      "path_to_root": "_repo.en-us",
-      "url": "https://github.com/wacn/mc-docs-pr.en-us",
-      "branch": "live",
-      "branch_mapping": {
-        "live": "live",
-        "master": "master"
       }
     }
   ],
