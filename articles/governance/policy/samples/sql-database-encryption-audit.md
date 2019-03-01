@@ -1,23 +1,22 @@
 ---
-title: Azure Policy 示例 - 审核 SQL 数据库的透明数据加密
-description: 如果 SQL 数据库未启用透明数据加密，则此示例策略会进行审核。
+title: 示例 - 审核 SQL 数据库的透明数据加密
+description: 如果 SQL 数据库未启用透明数据加密，则此示例策略定义会进行审核。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 04/27/2018
-ms.date: 12/17/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: d51e30e052c1b323607a04097bdbb1e2953ec6c2
-ms.sourcegitcommit: 6e07735318eb5f6ea319b618863259088eab3722
+ms.openlocfilehash: f1380871e94fb32186e4346a62db87f380358dae
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52981685"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903228"
 ---
-# <a name="audit-sql-database-encryption"></a>审核 SQL 数据库加密
+# <a name="sample---audit-sql-database-encryption"></a>示例 - 审核 SQL 数据库加密
 
 如果 SQL 数据库未启用透明数据加密，则此内置策略会进行审核。
 
@@ -86,12 +85,12 @@ ms.locfileid: "52981685"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12
 
-New-AzureRmPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition -Scope <scope>
+New-AzPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition -Scope <scope>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>清理 PowerShell 部署
@@ -99,7 +98,7 @@ New-AzureRmPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition 
 运行以下命令删除策略分配。
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
+Remove-AzPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

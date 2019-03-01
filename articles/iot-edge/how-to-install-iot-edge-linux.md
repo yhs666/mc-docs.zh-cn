@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 17856922c694374da8c8bef6929b265a21804cf6
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: aabaec12ace180d326aa8b9a5475efb571c7c186
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665531"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196634"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux 上安装 Azure IoT Edge 运行时 (x64)
 
@@ -41,8 +41,8 @@ sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
-# Perform apt upgrade
-sudo apt-get upgrade
+# Perform apt update
+sudo apt-get update
 ```
 
 ## <a name="install-the-container-runtime"></a>安装容器运行时 

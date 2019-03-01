@@ -5,6 +5,7 @@ description: Azure 标准负载均衡器功能概述
 services: load-balancer
 documentationcenter: na
 author: WenJason
+manager: digimobile
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/11/2019
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 39ab985dad56c5d66f61bb4263ba98ee3b9ea180
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: a24a5f3f30ad4f6eb028e2577117035e9a33c54d
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333924"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836926"
 ---
-# <a name="azure-standard-balancer-overview"></a>Azure 标准负载均衡器概述
+# <a name="azure-standard-load-balancer-overview"></a>Azure 标准负载均衡器概述
 
 使用 Azure 负载均衡器可以缩放应用程序，并为服务提供高可用性。 负载均衡器可用于入站和出站方案、提供低延迟和高吞吐量，以及为所有 TCP 和 UDP 应用程序纵向扩展到数以百万计的流。 
 
@@ -198,4 +199,5 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 - 了解有关[虚拟网络](../virtual-network/virtual-networks-overview.md)的信息。
 - 详细了解[网络安全组](../virtual-network/security-overview.md)。
 - 了解 [VNet 服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)。
+- 了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。
 - 详细了解[负载均衡器](load-balancer-overview.md)。

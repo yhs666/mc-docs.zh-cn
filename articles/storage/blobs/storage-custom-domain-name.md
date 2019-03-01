@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/26/2018
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 08e68f20a059010312aec725cd01fd125d08d30a
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 6ba6b0ce9354efb9281a05b9066d45e3ede3594e
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665673"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196543"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>为 Azure 存储帐户配置自定义域名
 
@@ -57,7 +57,7 @@ ms.locfileid: "56665673"
 
 将自定义域映射到 Blob 终结点会导致在 [Azure 门户](https://portal.azure.cn)中注册域时出现短暂的停机。 如果该域目前所支持的应用程序的服务级别协议 (SLA) 要求不能有停机时间，请使用 Azure *asverify* 子域作为中间注册步骤。 此步骤可确保用户能够在 DNS 映射期间访问域。
 
-[使用 *asverify* 子域注册自定义域](#register-a-custom-domain-using-the-asverify-subdomain)中介绍了中间方法。
+使用 asverify 子域注册自定义域中介绍了中间方法。
 
 ## <a name="register-a-custom-domain"></a>注册自定义域
 如果符合以下陈述，则可以使用本部分所述的过程来注册域：
@@ -66,7 +66,7 @@ ms.locfileid: "56665673"
 
 可以使用 Azure DNS 为 Azure Blob 存储配置自定义 DNS 名称。 有关详细信息，请参阅[使用 Azure DNS 为 Azure 服务提供自定义域设置](/dns/dns-custom-domain#blob-storage)。
 
-如果自定义域目前在支持不能有任何停机时间的应用程序，请遵循[使用 *asverify* 子域注册自定义域](#register-a-custom-domain-using-the-asverify-subdomain)中的过程。
+如果自定义域目前在支持不能有任何停机时间的应用程序，请遵循使用 asverify 子域注册自定义域中的过程。
 
 若要配置自定义域名，请在 DNS 中创建一个新的 CNAME 记录。 该 CNAME 记录指定了域名的别名。 本示例将自定义域的地址映射到存储帐户的 Blob 存储终结点。
 

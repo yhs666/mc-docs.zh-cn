@@ -1,6 +1,6 @@
 ---
-title: 使用 REST API 创建自定义角色 - Azure | Microsoft Docs
-description: 了解如何使用 REST API 为基于角色的访问控制 (RBAC) 创建自定义角色。 这包括如何列出、创建、更新和删除自定义角色。
+title: 使用 REST API 为 Azure 资源创建自定义角色 - Azure | Microsoft Docs
+description: 了解如何使用 REST API 为 Azure 资源使用基于角色的访问控制 (RBAC) 创建自定义角色。 这包括如何列出、创建、更新和删除自定义角色。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,20 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/20/2018
-ms.date: 07/24/2018
+origin.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 137728ceb9bd687083f4e56740fc4dce9decc9e4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 84282e9b9e54918acd9f9c2e2e59aaa450ee51de
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658153"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836921"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>使用 REST API 创建自定义角色
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>使用 REST API 为 Azure 资源创建自定义角色
 
-如果[内置角色](built-in-roles.md)不能满足组织的特定需求，你可以创建自己的自定义角色。 本文介绍如何使用 REST API 创建和管理自定义角色。
+如果 [Azure 资源的内置角色](built-in-roles.md)不能满足组织的特定需求，则可以创建你自己的自定义角色。 本文介绍如何使用 REST API 创建和管理自定义角色。
 
 ## <a name="list-roles"></a>列出角色
 
@@ -152,6 +152,7 @@ ms.locfileid: "52658153"
               "Microsoft.Compute/virtualMachines/start/action",
               "Microsoft.Compute/virtualMachines/restart/action",
               "Microsoft.Authorization/*/read",
+              "Microsoft.ResourceHealth/availabilityStatuses/read",
               "Microsoft.Resources/subscriptions/resourceGroups/read",
               "Microsoft.Insights/alertRules/*",
               "Microsoft.Support/*"
@@ -234,6 +235,7 @@ ms.locfileid: "52658153"
               "Microsoft.Compute/virtualMachines/start/action",
               "Microsoft.Compute/virtualMachines/restart/action",
               "Microsoft.Authorization/*/read",
+              "Microsoft.ResourceHealth/availabilityStatuses/read",
               "Microsoft.Resources/subscriptions/resourceGroups/read",
               "Microsoft.Insights/alertRules/*",
               "Microsoft.Insights/diagnosticSettings/*",
@@ -273,7 +275,8 @@ ms.locfileid: "52658153"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 中的自定义角色](custom-roles.md)
-- [使用 RBAC 和 REST API 管理访问权限](role-assignments-rest.md)
+- [Azure 资源的自定义角色](custom-roles.md)
+- [使用 RBAC 和 REST API 管理对 Azure 资源的访问权限](role-assignments-rest.md)
 - [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)
 
+<!-- Update_Description: wording update -->

@@ -2,18 +2,18 @@
 title: Azure Key Vault - 如何将软删除与 CLI 配合使用
 description: 使用 CLI 代码剪辑进行软删除的用例示例
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 08/04/2017
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 705a5777af147bfb5e022a3ceb4c862a6a140249
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 94fe7c16bb0fec1f83285efadf2f224cf9a3726d
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409067"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903244"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何将 Key Vault 软删除与 CLI 配合使用
 
@@ -227,5 +227,5 @@ az keyvault purge --location chinanorth --name ContosoVault
 ## <a name="other-resources"></a>其他资源
 
 - 有关 Key Vault 软删除功能的概述，请参阅 [Azure Key Vault 软删除概述](key-vault-ovw-soft-delete.md)。
-- 有关 Azure Key Vault 使用情况的综述，请参阅 [Azure Key Vault 入门](key-vault-get-started.md)。
+- 有关 Azure 密钥保管库使用情况的综述，请参阅[什么是 Azure 密钥保管库？](key-vault-overview.md)。
 

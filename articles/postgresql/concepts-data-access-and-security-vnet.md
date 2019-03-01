@@ -1,21 +1,18 @@
 ---
-title: Azure Database for PostgreSQL 服务器 vnet 服务终结点概述 | Microsoft Docs
-description: 介绍 vnet 服务终结点如何为 Azure Database for PostgreSQL 服务器工作。
-services: postgresql
+title: Azure Database for PostgreSQL 服务器 vnet 服务终结点概述
+description: 了解 VNET 服务终结点如何为 Azure Database for PostgreSQL 服务器工作。
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 08/20/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 2d7d90e7de5f9141658d68601d5f5267e28f8865
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.openlocfilehash: 8d677d946b950801bdeb32ff689baaf1dfb9e435
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662211"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836984"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>使用适用于Azure Database for PostgreSQL 的虚拟网络服务终结点和规则
 
@@ -27,18 +24,19 @@ ms.locfileid: "52662211"
 
 > [!NOTE]
 > Azure 公有云中的所有区域均提供此功能，其中 Azure Database for PostgreSQL 部署用于常规用途和内存优化服务器。
+> 在 VNet 对等互连的情况下，如果流量通过具有服务终结点的公共 VNet 网关流动，并且应该流向对等机，请创建 ACL/VNet 规则，以便网关 VNet 中的 Azure 虚拟机能够访问 Azure Database for PostgreSQL 服务器。
 
 <a name="anch-terminology-and-description-82f" />
 
 ## <a name="terminology-and-description"></a>术语和说明
 
-虚拟网络：可以让虚拟网络与 Azure 订阅相关联。
+**虚拟网络：** 可以让虚拟网络与 Azure 订阅相关联。
 
-子网：虚拟网络包含子网。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
+**子网：** 虚拟网络包含**子网**。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
 
-虚拟网络服务终结点：[虚拟网络服务终结点][vm-virtual-network-service-endpoints-overview-649d]是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 **Microsoft.Sql** 的类型名称，即名为“SQL 数据库”的 Azure 服务。 此服务标记也适用于 Azure Database for PostgreSQL 和 MySQL 服务。 务必要注意的一点是，将 Microsoft.Sql 服务标记应用到 VNet 服务终结点时，它将为子网上的所有 Azure SQL 数据库、Azure Database for PostgreSQL 和 Azure Database for MySQL 服务器配置服务终结点流量。 
+**虚拟网络服务终结点：**[虚拟网络服务终结点][vm-virtual-network-service-endpoints-overview-649d]是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 **Microsoft.Sql** 的类型名称，即名为“SQL 数据库”的 Azure 服务。 此服务标记也适用于 Azure Database for PostgreSQL 和 MySQL 服务。 务必要注意的一点是，将 Microsoft.Sql 服务标记应用到 VNet 服务终结点时，它将为子网上的所有 Azure SQL 数据库、Azure Database for PostgreSQL 和 Azure Database for MySQL 服务器配置服务终结点流量。 
 
-虚拟网络规则：适用于 Azure Database for PostgreSQL 服务器的虚拟网络规则是一个子网，该子网列在 Azure Database for PostgreSQL 服务器的访问控制列表 (ACL) 中。 该子网必须包含“Microsoft.Sql”类型名称才会列在 Azure Database for PostgreSQL 服务器的 ACL 中。
+**虚拟网络规则：** 适用于 Azure Database for PostgreSQL 服务器的虚拟网络规则是一个子网，该子网列在 Azure Database for PostgreSQL 服务器的访问控制列表 (ACL) 中。 该子网必须包含“Microsoft.Sql”类型名称才会列在 Azure Database for PostgreSQL 服务器的 ACL 中。
 
 虚拟网络规则要求 Azure Database for PostgreSQL 服务器接受来自该子网上所有节点的通信。
 
@@ -92,8 +90,8 @@ ms.locfileid: "52662211"
 
 在管理虚拟网络服务终结点时，安全角色是分开的。 下述每个角色都需要进行操作：
 
-- 网络管理员：&nbsp;启用终结点。
-- 数据库管理员：&nbsp;更新访问控制列表 (ACL)，将给定的子网添加到 Azure Database for PostgreSQL 服务器。
+- **网络管理员：**&nbsp; 启用终结点。
+- **数据库管理员：**&nbsp; 更新访问控制列表 (ACL)，将给定的子网添加到 Azure Database for PostgreSQL 服务器。
 
 RBAC 备用：
 
@@ -116,7 +114,7 @@ RBAC 备用：
 
 - 虚拟网络规则仅适用于 Azure 资源管理器虚拟网络，不适用于[经典部署模型][arm-deployment-model-568f]网络。
 
-- 使用 **Microsoft.Sql** 服务标记为 Azure Database for PostgreSQL 启用虚拟网络服务终结点也会为所有 Azure 数据库服务（Azure Database for MySQL、Azure Database for PostgreSQL、Azure SQL 数据库和 Azure SQL 数据仓库）启用终结点。
+- 使用 **Microsoft.Sql** 服务标记为 Azure Database for PostgreSQL 启用虚拟网络服务终结点也会为以下所有 Azure 数据库服务启用终结点：Azure Database for MySQL、Azure Database for PostgreSQL、Azure SQL 数据库和 Azure SQL 数据仓库。
 
 - 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 
@@ -146,7 +144,7 @@ RBAC 备用：
 - [使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 规则](howto-manage-vnet-using-cli.md)
 
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

@@ -4,19 +4,19 @@ title: 配置 Azure 密钥保管库防火墙和虚拟网络 - Azure 密钥保管
 description: 配置 Key Vault 防火墙和虚拟网络的分步说明
 services: key-vault
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
 origin.date: 01/02/2019
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: f664f0c04c7b2f2fea7ac0c9b1cd981dd6cd51b9
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 667d54e55cd7bad3ecb63f08f29d4cf2eb16aa30
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409094"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903311"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>配置 Azure Key Vault 防火墙和虚拟网络
 
@@ -39,11 +39,11 @@ ms.locfileid: "56409094"
 
 还可添加新的虚拟网络和子网，然后通过选择“+ 添加新的虚拟网络”，为新创建的虚拟网络和子网启用服务终结点。 然后遵照提示操作。
 
-## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
+## <a name="use-the-azure-cli"></a>使用 Azure CLI 
 
-下面介绍了如何使用 Azure CLI 2.0 配置 Key Vault 防火墙和虚拟网络：
+下面介绍了如何使用 Azure CLI 配置 Key Vault 防火墙和虚拟网络
 
-1. [安装 Azure CLI 2.0](/cli/install-azure-cli) 并[登录](/cli/authenticate-azure-cli)。
+1. [安装 Azure CLI](/cli/install-azure-cli) 并[登录](/cli/authenticate-azure-cli)。
 
 2. 列出可用的虚拟网络规则。 如果尚未设置此 Key Vault 的任何规则，该列表将为空。
    ```azurecli
@@ -78,45 +78,47 @@ ms.locfileid: "56409094"
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 下面介绍了如何使用 PowerShell 配置 Key Vault 防火墙和虚拟网络：
 
-1. 安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+1. 安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 
 2. 列出可用的虚拟网络规则。 如果尚未设置此密钥保管库的任何规则，该列表将为空。
    ```PowerShell
-   (Get-AzureRmKeyVault -VaultName "mykeyvault").NetworkAcls
+   (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. 在现有虚拟网络和子网上启用 Key Vault 的服务终结点。
    ```PowerShell
-   Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzureRmVirtualNetwork
+   Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. 为虚拟网络和子网添加网络规则。
    ```PowerShell
-   $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
+   $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. 添加允许通信的 IP 地址范围。
    ```PowerShell
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. 如果所有受信服务都可以访问此 Key Vault，请将 `bypass` 设置为 `AzureServices`。
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. 将默认操作设置为 `Deny`，以启用网络规则。
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
 ## <a name="references"></a>参考
 
-* Azure CLI 2.0 命令：[az keyvault network-rule](/cli/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell cmdlets：[Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault)、[Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule)、[Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule)、[Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Azure CLI 命令：[az keyvault network-rule](/cli/keyvault/network-rule?view=azure-cli-latest)
+* Azure PowerShell cmdlets：[Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>后续步骤
 

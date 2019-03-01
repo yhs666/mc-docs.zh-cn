@@ -7,16 +7,16 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 02/18/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
 keywords: powershell, runbook, json, azure 自动化
-ms.openlocfilehash: 8a1999b289f66bc848835d347fd3e238fae10bb6
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 44efee417edf7da9e98df17944d69ba6abc4d258
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302952"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987113"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
 
@@ -24,20 +24,20 @@ ms.locfileid: "56302952"
 
 这样，便可以将 Azure 资源的部署自动化。 可以在一个安全的中心位置（例如 Azure 存储）维护资源管理器模板。
 
-本主题创建一个 PowerShell Runbook，该 Runbook 使用 [Azure 存储](../storage/common/storage-introduction.md)中存储的资源管理器模板部署新的 Azure 存储帐户。
+本文创建一个 PowerShell Runbook，该 Runbook 使用 [Azure 存储](../storage/common/storage-introduction.md)中存储的资源管理器模板部署新的 Azure 存储帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本教程，需要以下各项：
+若要完成本教程，需要拥有以下项目：
 
 * Azure 订阅。 如果没有订阅，可[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * [自动化帐户](automation-sec-configure-azure-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
 * 要在其中存储资源管理器模板的 [Azure 存储帐户](../storage/common/storage-create-storage-account.md)
 * 在本地计算机上安装的 Azure Powershell。 若要详细了解如何获得 Azure PowerShell，请参阅 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0)（安装和配置 Azure PowerShell）。
 
-## <a name="create-the-resource-manager-template"></a>创建资源管理器模板
+## <a name="create-the-resource-manager-template"></a>创建 Resource Manager 模板
 
-在本示例中，我们使用一个用于部署新 Azure 存储帐户的资源管理器模板。
+在本示例中，我们使用用于部署新 Azure 存储帐户的资源管理器模板。
 
 在文本编辑器中复制以下文本：
 
@@ -177,7 +177,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Templa
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>在 Azure 自动化帐户中导入并发布 Runbook
 
 现在，我们使用 PowerShell 将 Runbook 导入 Azure 自动化帐户，并发布该 Runbook。
-有关如何在 Azure 门户中导入和发布 Runbook 的信息，请参阅[在 Azure 自动化中创建或导入 Runbook](automation-creating-importing-runbook.md)。
+有关如何在 Azure 门户中导入和发布 Runbook 的信息，请参阅[在 Azure 自动化中管理 Runbook](manage-runbooks.md)。
 
 若要将 `DeployTemplate.ps1` 以 PowerShell Runbook 的形式导入自动化帐户，请运行以下 PowerShell 命令：
 

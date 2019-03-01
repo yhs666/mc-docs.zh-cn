@@ -1,26 +1,26 @@
 ---
 title: 如何缩放 Azure Redis 缓存 | Microsoft Docs
 description: 了解如何缩放 Azure Redis 缓存实例
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 04/11/2017
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9fd299bc0ed07470992e665ee63b96d1996a62dc
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: c99a198d00f50841d17378337f1815d87e02a1eb
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334281"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903214"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>如何缩放 Azure Redis 缓存
 Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能的选择更加灵活。 创建缓存后，如果应用程序的要求发生更改，可以缩放缓存的大小和定价层。 本文演示如何使用 Azure 门户以及 Azure PowerShell 和 Azure CLI 等工具来缩放缓存。
@@ -70,9 +70,12 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 - [使用 MAML 进行缩放](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>使用 PowerShell 进行缩放
-修改 `Size`、`Sku` 或 `ShardCount` 属性后，可以在 PowerShell 中使用 [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet 缩放 Azure Redis 缓存实例。 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+修改 `Size`、`Sku` 或 `ShardCount` 属性后，可以在 PowerShell 中使用 [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) cmdlet 缩放 Azure Redis 缓存实例。 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 有关使用 PowerShell 进行缩放的详细信息，请参阅[使用 PowerShell 缩放 Azure Redis 缓存](cache-howto-manage-redis-cache-powershell.md#scale)。
 
@@ -113,7 +116,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 - [在缩放过程中是否会丢失缓存中的数据？](#will-i-lose-data-from-my-cache-during-scaling)
 - [在缩放过程中，自定义数据库设置是否会受影响？](#is-my-custom-databases-setting-affected-during-scaling)
 - [在缩放过程中，缓存是否可用？](#will-my-cache-be-available-during-scaling)
-- [配置异地复制后，为什么我不能在群集中缩放缓存或更改分片？](#scaling-limitations-with-geo-relication)
+- 配置异地复制后，我为什么不能在群集中缩放缓存或更改分片？
 - [不支持的操作](#operations-that-are-not-supported)
 - [缩放需要多长时间？](#how-long-does-scaling-take)
 - [如何判断缩放何时完成？](#how-can-i-tell-when-scaling-is-complete)
@@ -183,5 +186,6 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
+
 

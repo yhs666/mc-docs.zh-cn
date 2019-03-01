@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 500eca9cb59f438dddd2b0b91525e85666c08f17
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 0ddf95c4013bf72fc5055817f085a75e66fc2475
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309197"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987959"
 ---
-# <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>使用 Azure Cosmos DB 更改源处理器库
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 更改源处理器 
 
 借助 [Azure Cosmos DB 更改源处理器库](sql-api-sdk-dotnet-changefeed.md)，可以在多个使用者之间分配事件处理负载。 此库简化了跨分区和多个并行工作的线程读取更改的过程。
 
@@ -78,4 +78,4 @@ ms.locfileid: "54309197"
 * [读取更改源的方式](read-change-feed.md)
 * [将更改源与 Azure Functions 配合使用](change-feed-functions.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

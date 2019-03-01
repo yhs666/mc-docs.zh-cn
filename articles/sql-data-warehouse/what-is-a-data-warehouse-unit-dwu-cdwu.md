@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ded2351eb9fcb81c289b64e93024de0b923817d
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: af32bc40aff25d781847938101283f25f30292fc
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192851"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833357"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。 
@@ -38,7 +38,7 @@ ms.locfileid: "54192851"
 - 增加并发查询和并发槽的最大数量。
 
 ## <a name="service-level-objective"></a>服务级别目标
-服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 第 2 代服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 第 1 代服务级别以 DWU 计量，例如 DW2000。 
+服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 第 2 代服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 第 1 代服务级别以 DWU 计量，例如 DW2000。
 
 在 T-SQL 中，SERVICE_OBJECTIVE 设置确定了数据仓库的服务级别和性能层。
 
@@ -63,7 +63,7 @@ WITH
 每个性能层用于其数据仓库单位测量的单位都略有不同。 当规模单位直接转换为计费时，这种差异会反映在发票上。
 
 - 第 1 代数据仓库以数据仓库单位计量 (DWU)。
-- 第 2 代数据仓库以计算数据仓库单位计量 (cDWU)。 
+- 第 2 代数据仓库以计算数据仓库单位 (cDWU) 计量。 
 
 DWU 和 cDWU 都支持增加或减少计算，以及在无需使用数据仓库时暂停计算。 这些操作均可按需进行。 第 2 代还会在计算节点上使用基于本地磁盘的缓存以提高性能。 缩放或暂停系统时，缓存将失效，因此在达到最佳性能前，缓存需要预热一段时间。  
 
@@ -91,6 +91,8 @@ SQL 数据仓库是一个向外扩展系统，可预配大量计算和查询大�
 ## <a name="permissions"></a>权限
 
 更改数据仓库单位需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) 中所述的权限。 
+
+Azure 资源的内置角色（如 SQL DB 参与者和 SQL Server 参与者）可以更改 DWU 设置。 
 
 ## <a name="view-current-dwu-settings"></a>查看当前的 DWU 设置
 

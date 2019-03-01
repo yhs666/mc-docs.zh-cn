@@ -3,7 +3,7 @@ title: 使用媒体服务 .NET SDK 配置内容密钥授权策略 | Microsoft Do
 description: 了解如何使用媒体服务 .NET SDK 配置内容密钥的授权策略。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 1/22/2017
-ms.author: v-nany
-ms.openlocfilehash: bba6a85c71b66b79e2f3e75ddbe794e08960e601
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/10/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 42c2b84e81c6a680ac02ec44097e60e35666b556
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645571"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833376"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -89,7 +89,7 @@ ms.locfileid: "52645571"
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -186,7 +186,7 @@ ms.locfileid: "52645571"
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -278,7 +278,7 @@ ms.locfileid: "52645571"
 ```
 
 ### <a name="token-restriction"></a>令牌限制
-若要配置令牌限制选项，需要使用 XML 来描述令牌的授权要求。 令牌限制配置 XML 必须遵循“[令牌限制架构](#token-restriction-schema)”部分所示的 XML 架构。
+若要配置令牌限制选项，需要使用 XML 来描述令牌的授权要求。 令牌限制配置 XML 必须遵循“令牌限制架构”部分所示的 XML 架构。
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
@@ -314,7 +314,7 @@ ms.locfileid: "52645571"
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
         // Associate the content key authorization policy with the content key

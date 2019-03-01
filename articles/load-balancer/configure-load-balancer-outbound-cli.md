@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: ed112a025e13798698753389ff4ceaee0cb76b69
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 3336f07436144d3ea15008675b757267cdc874df
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333870"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836952"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在标准负载均衡器中配置负载均衡和出站规则
 
@@ -31,7 +31,7 @@ ms.locfileid: "54333870"
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/group) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 以下示例在“chinaeast2”位置创建名为“myresourcegroupoutbound”的资源组：
 
@@ -41,7 +41,7 @@ ms.locfileid: "54333870"
     --location chinaeast2
 ```
 ## <a name="create-virtual-network"></a>创建虚拟网络
-使用 [az network vnet create](/cli/network/vnet#create) 在 *myresourcegroupoutbound* 中创建名为 *myvnetoutbound* 的虚拟网络，该虚拟网络包含名为 *mysubnetoutbound* 的子网。
+使用 [az network vnet create](/cli/network/vnet) 在 *myresourcegroupoutbound* 中创建名为 *myvnetoutbound* 的虚拟网络，该虚拟网络包含名为 *mysubnetoutbound* 的子网。
 
 ```cli
   az network vnet create \
@@ -54,7 +54,7 @@ ms.locfileid: "54333870"
 
 ## <a name="create-inbound-public-ip-address"></a>创建入站公共 IP 地址 
 
-若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 标准负载均衡器仅支持标准公共 IP 地址。 使用 [az network public-ip create](/cli/network/public-ip#create) 在 *myresourcegroupoutbound* 中创建名为 *mypublicipinbound* 的标准公共 IP 地址。
+若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 标准负载均衡器仅支持标准公共 IP 地址。 使用 [az network public-ip create](/cli/network/public-ip) 在 *myresourcegroupoutbound* 中创建名为 *mypublicipinbound* 的标准公共 IP 地址。
 
 ```cli
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipinbound --sku standard
@@ -62,7 +62,7 @@ ms.locfileid: "54333870"
 
 ## <a name="create-outbound-public-ip-address"></a>创建出站公共 IP 地址 
 
-使用 [az network public-ip create](/cli/network/public-ip#create) 为负载均衡器的前端出站配置创建标准 IP 地址。
+使用 [az network public-ip create](/cli/network/public-ip) 为负载均衡器的前端出站配置创建标准 IP 地址。
 
 ```cli
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -80,7 +80,7 @@ ms.locfileid: "54333870"
 
 ### <a name="create-load-balancer"></a>创建负载均衡器
 
-使用 [az network lb create ](/cli/network/lb?view=azure-cli-latest#create) 创建名为“lb”的入站 IP 地址负载均衡器，该负载均衡器包括入站前端 IP 配置和后端池（与在前一步创建的公共 IP 地址“mypublicipinbound”相关联）。
+使用 [az network lb create ](/cli/network/lb?view=azure-cli-latest) 创建名为“lb”的入站 IP 地址负载均衡器，该负载均衡器包括入站前端 IP 配置和后端池（与在前一步创建的公共 IP 地址“mypublicipinbound”相关联）。
 
 ```cli
   az network lb create \
@@ -94,7 +94,7 @@ ms.locfileid: "54333870"
   ```
 
 ### <a name="create-outbound-frontend-ip"></a>创建出站前端 IP
-使用 [az network lb frontend-ip create](/cli/network/lb?view=azure-cli-latest#create) 为负载均衡器创建出站前端 IP 配置，该负载均衡器包括名为 *myfrontendoutbound* 的出站前端 IP 配置（关联到公共 IP 地址 *mypublicipoutbound*）
+使用 [az network lb frontend-ip create](/cli/network/lb?view=azure-cli-latest) 为负载均衡器创建出站前端 IP 配置，该负载均衡器包括名为 *myfrontendoutbound* 的出站前端 IP 配置（关联到公共 IP 地址 *mypublicipoutbound*）
 
 ```cli
   az network lb frontend-ip create \
@@ -106,7 +106,7 @@ ms.locfileid: "54333870"
 
 ### <a name="create-health-probe"></a>创建运行状况探测
 
-运行状况探测器将检查所有虚拟机实例，以确保它们可以发送网络流量。 探测器检查失败的虚拟机实例将从负载均衡器中删除，直到它恢复联机状态并且探测器检查确定它运行正常。 使用 [az network lb probe create](/cli/network/lb/probe?view=azure-cli-latest#create) 创建运行状况探测，以监视虚拟机的运行状况。 
+运行状况探测器将检查所有虚拟机实例，以确保它们可以发送网络流量。 探测器检查失败的虚拟机实例将从负载均衡器中删除，直到它恢复联机状态并且探测器检查确定它运行正常。 使用 [az network lb probe create](/cli/network/lb/probe?view=azure-cli-latest) 创建运行状况探测，以监视虚拟机的运行状况。 
 
 ```cli
   az network lb probe create \
@@ -120,7 +120,7 @@ ms.locfileid: "54333870"
 
 ### <a name="create-load-balancing-rule"></a>创建负载均衡规则
 
-负载均衡器规则定义传入流量的前端 IP 配置和后端池以接收流量，同时定义所需源和目标端口。 使用 [az network lb rule create](/cli/network/lb/rule?view=azure-cli-latest#create) 创建负载均衡器规则 *myinboundlbrule*，以便侦听前端池 *myfrontendinbound* 中的端口 80，并且将经过负载均衡的网络流量发送到也使用端口 80 的后端地址池 *bepool*。 
+负载均衡器规则定义传入流量的前端 IP 配置和后端池以接收流量，同时定义所需源和目标端口。 使用 [az network lb rule create](/cli/network/lb/rule?view=azure-cli-latest) 创建负载均衡器规则 *myinboundlbrule*，以便侦听前端池 *myfrontendinbound* 中的端口 80，并且将经过负载均衡的网络流量发送到也使用端口 80 的后端地址池 *bepool*。 
 
 >[!NOTE]
 >此负载均衡规则通过其 --disable-outbound-snat 参数禁用自动出站 (S)NAT。 出站 NAT 仅通过出站规则提供。

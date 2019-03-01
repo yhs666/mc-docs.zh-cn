@@ -6,15 +6,15 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 12/11/2018
-ms.date: 01/21/2019
+origin.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: a8fe9106f3b08b446bfb54d2b71f550b9fd314f8
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 62de82971364adc635a3eb00241d11c0a8b1820a
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665654"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196560"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 上传、下载和列出 Blob
 
@@ -26,7 +26,7 @@ ms.locfileid: "56665654"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本快速入门需要 Azure PowerShell 模块 Az 版本 0.7 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
+本快速入门需要 Azure PowerShell 模块 Az 版本 0.7 或更高版本。 运行 `Get-InstalledModule -Name Az -AllVersions | select Name,Version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 

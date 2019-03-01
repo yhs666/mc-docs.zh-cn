@@ -3,7 +3,7 @@ title: 使用 Azure 门户传送点播视频入门 | Microsoft Docs
 description: 本教程介绍了在 Azure 门户中使用 Azure 媒体服务应用程序实施基本的视频点播内容传送服务的步骤。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/07/2017
-ms.date: 09/04/2017
-ms.author: v-johch
-ms.openlocfilehash: e08c026c119982fddaaa0e0d516215bd094e74ca
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/12/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: d5a003febaccbf515568c324c198f9db59c519fb
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663548"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833397"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>使用 Azure 门户按需传送内容入门
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 本教程介绍了在 Azure 门户中使用 Azure 媒体服务应用程序实施基本的视频点播内容传送服务的步骤。
@@ -124,7 +125,7 @@ ms.locfileid: "52663548"
 > 
 > 
 
-可以使用 [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259) 来更新定位符的过期日期。 
+可以使用 [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259) 来更新定位符的过期日期。 
 
 > [!NOTE]
 > 更新共享访问签名定位符的过期日期时，URL 会发生变化。

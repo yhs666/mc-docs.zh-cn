@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 04/09/2018
+ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7cdb06fa4aa26ee99a98374b1ebe5671fc52ed4d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f3be14833a512d05f1062122c6830c334eb09136
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666903"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196631"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>使用 ServiceNow 配置服务运行状况警报
 
@@ -79,7 +79,7 @@ ms.locfileid: "52666903"
                     short_description += " - Service Issue - ";
                 } else if (event.data.context.activityLog.properties.incidentType == "Maintenance") {
                     short_description += " - Planned Maintenance - ";
-                } else if (event.data.context.activityLog.properties.incidentType == "Information" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
+                } else if (event.data.context.activityLog.properties.incidentType == "Informational" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
                     short_description += " - Health Advisory - ";
                 }
                 short_description += event.data.context.activityLog.properties.title;
@@ -161,7 +161,7 @@ ms.locfileid: "52666903"
 
     a. **操作类型：***Webhook*
 
-    b. **详细信息：** 前面保存的 ServiceNow **集成 URL**。
+    b. **详细信息：** 前面保存的 ServiceNow 集成 URL。
 
     c. **名称：** Webhook 的名称、别名或标识符。
 
@@ -178,7 +178,7 @@ ms.locfileid: "52666903"
 
     a. **操作类型：***Webhook*
 
-    b. **详细信息：** 前面保存的 ServiceNow **集成 URL**。
+    b. **详细信息：** 前面保存的 ServiceNow 集成 URL。
 
     c. **名称：** Webhook 的名称、别名或标识符。
 

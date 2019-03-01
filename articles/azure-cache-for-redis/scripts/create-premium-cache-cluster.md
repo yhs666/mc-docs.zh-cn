@@ -1,27 +1,27 @@
 ---
 title: Azure CLI 脚本示例 - 通过群集创建高级 Azure Redis 缓存 | Microsoft Docs
 description: Azure CLI 脚本示例 - 通过群集创建高级层 Azure Redis 缓存
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 tags: azure-service-management
 ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
-ms.service: cache-redis
+ms.service: cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 02/12/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 78d8c9e660b07c6af80ffb759ff58508730a3643
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: bd233e47350340d13ed62111d1848945cde9cf31
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096543"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903196"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>通过群集创建高级 Azure Redis 缓存
 
@@ -60,4 +60,4 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

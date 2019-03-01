@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 11/30/2018
-ms.date: 12/20/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 3d8f473d8f3c294b545b55ff0061201a24d8e91d
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 9d23a4a858e7dbb95fe32f51ddfdd1fca10fbf64
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656513"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836930"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色
 
@@ -74,7 +74,7 @@ Azure RBAC 是基于 [Azure 资源管理器](../azure-resource-manager/resource-
 | [读取者](built-in-roles.md#reader) | <ul><li>查看 Azure 资源</li></ul> | 适用于所有资源类型。 |
 | [用户访问管理员](built-in-roles.md#user-access-administrator) | <ul><li>管理用户对 Azure 资源的访问</li></ul> |  |
 
-剩余的内置角色允许管理特定的 Azure 资源。 例如，[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色允许用户创建和管理虚拟机。 有关所有内置角色的列表，请参阅[内置角色](built-in-roles.md)。
+剩余的内置角色允许管理特定的 Azure 资源。 例如，[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色允许用户创建和管理虚拟机。 有关所有内置角色的列表，请参阅 [Azure 资源的内置角色](built-in-roles.md)。
 
 只有 Azure 门户和 Azure 资源管理器 API 支持 Azure RBAC。 分配有 RBAC 角色的用户、组和应用程序无法使用 [Azure 经典部署模型 API](../azure-resource-manager/resource-manager-deployment-model.md)。
 
@@ -96,7 +96,7 @@ Azure AD 管理员角色用于管理目录中的 Azure AD 资源，例如，创�
 | [用户管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>创建和管理用户与组的所有方面</li><li>管理支持票证</li><li>监视服务运行状况</li><li>更改用户、支持管理员和其他用户帐户管理员的密码</li></ul> |  |
 | [计费管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>购买产品</li><li>管理订阅</li><li>管理支持票证</li><li>监视服务运行状况</li></ul> |  |
 
-有关所有 Azure AD 管理员角色的列表，请参阅[在 Azure Active Directory 中分配管理员角色](/active-directory/active-directory-assign-admin-roles-azure-portal)。
+有关所有 Azure AD 管理员角色的列表，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
 
 在 Azure 门户中的“角色和管理员”边栏选项卡上，可以看到 Azure AD 管理员角色的列表。
 
@@ -123,8 +123,8 @@ Azure AD 管理员角色用于管理目录中的 Azure AD 资源，例如，创�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [什么是基于角色的访问控制 (RBAC)？](overview.md)
-- [在 Azure Active Directory 中分配管理员角色](/active-directory/active-directory-assign-admin-roles-azure-portal)
+- [什么是 Azure 资源的基于角色的访问控制 (RBAC)？](overview.md)
+- [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [添加或更改 Azure 订阅管理员](/billing/billing-add-change-azure-subscription-administrator)
 
 <!-- Update_Description: wording update -->

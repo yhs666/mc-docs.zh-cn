@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2019
-ms.date: 02/18/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: bcaf8e91c5b6ea13068de46cb1187340a8266818
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 7dba185a5235e0dca018307692a7953013f7ddb9
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218278"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905457"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -58,28 +58,6 @@ API 配置文件使用三个命名约定：
 | 订阅 | 2016-10-01 |
 
 有关 API 配置文件中提供程序的每种资源类型的更多版本列表，请参阅 [2018-03-01-hybrid 配置文件的详细信息](#details-for-the-2018-03-01-hybrid)。
-
-## <a name="overview-of-2018-03-01-hybrid"></a>2018-03-01-hybrid 概述
-
-| 资源提供程序 | Api-version |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage（数据平面） | 2015-04-05  |
-| Microsoft.Storage（控制平面） | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>（未更改） |
-| Microsoft.Resources<br>（Azure 资源管理器本身） | 2016-02-01 |
-| Microsoft.Authorization<Br>（策略操作） | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| 策略 | 2015-10-01-preview |
-| 资源 | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| 订阅 | 2016-06-1 |
-
-有关 API 配置文件中提供程序的每种资源类型的版本的列表，请参阅下一部分。
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的详细信息
 

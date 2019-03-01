@@ -1,6 +1,6 @@
 ---
-title: 对 Azure 中的 RBAC 进行故障排除 | Microsoft Docs
-description: 排查 Azure 基于角色的访问控制 (RBAC) 的问题。
+title: 对 Azure 资源的 RBAC 问题进行故障排除 | Microsoft Docs
+description: 对 Azure 资源基于角色的访问控制 (RBAC) 问题进行故障排除。
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,25 +11,49 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/23/2018
-ms.date: 08/23/2018
+origin.date: 01/18/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: fba2f35fef6a4f1c0d50c2bd1a6edfe6d98e0f8c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d73fdb8dd55f5f90c03d5a1cf79a69a1b0dd7084
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651932"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836990"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>对 Azure 中的 RBAC 进行故障排除
+# <a name="troubleshoot-rbac-for-azure-resources"></a>对 Azure 资源的 RBAC 问题进行故障排除
 
-本文解答有关基于角色的访问控制 (RBAC) 的常见问题，以便你了解在 Azure 门户中使用角色时可能出现的情况，并可解决访问权限问题。
+本文解答有关 Azure 资源的基于角色的访问控制 (RBAC) 的常见问题，以便你了解在 Azure 门户中使用角色时可能出现的情况，并可对访问问题进行故障排除。
+
+## <a name="problems-with-rbac-role-assignments"></a>RBAC 角色分配出现问题
+
+- 如果因为**添加角色分配**选项被禁用或者因为收到权限错误而无法添加角色分配，请检查你使用的角色在你尝试分配角色的作用域内是否具有 `Microsoft.Authorization/roleAssignments/*` 权限。 如果不具有此权限，请联系你的订阅管理员。
+- 如果尝试创建资源时遇到权限错误，请检查使用的角色在所选范围内是否有权创建资源。 例如，你可能需要拥有“参与者”权限。 如果没有此权限，请联系订阅管理员。
+- 如果尝试创建或更新支持票证时收到权限错误，请检查你使用的角色是否具有 `Microsoft.Support/*` 权限，例如[支持请求参与者](built-in-roles.md#support-request-contributor)。
+- 如果尝试分配角色时收到“超出了角色分配数”错误，请尝试通过改为将角色分配给组来减少角色分配数。 Azure 对于每个订阅最多支持 **2000** 个角色分配。
+
+## <a name="problems-with-custom-roles"></a>自定义角色出现问题
+
+- 如果无法更新现有的自定义角色，请检查你是否拥有 `Microsoft.Authorization/roleDefinition/write` 权限。
+- 如果无法更新现有的自定义角色，请检查租户中是否删除了一个或多个可分配范围。 自定义角色的 `AssignableScopes` 属性控制[谁可以创建、删除、更新或查看自定义角色](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role)。
+- 如果尝试创建新角色时遇到“超出了角色定义限制”错误，请删除任何未使用的自定义角色。 还可以尝试合并或重复使用任何现有的自定义角色。 Azure 在一个租户中最多支持 **2000** 个自定义角色。
+- 如果无法删除某个自定义角色，请检查是否有一个或多个角色分配仍在使用自定义角色。
+
+## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>在租户之间移动订阅时恢复 RBAC
+
+- 如果你需要了解将订阅转让给其他帐户的步骤，请参阅[将 Azure 订阅所有权转让给其他帐户](/billing/billing-subscription-transfer)。
+- 如果将订阅转移到不同的租户，所有角色分配将从源租户中永久删除，而不会迁移到目标租户。 必须在目标租户中重新创建角色分配。
+- 如果你是全局管理员并且失去了对某个订阅的访问权限，请使用“Azure 资源的访问权限管理”开关暂时[提升访问权限](elevate-access-global-admin.md)，以重新获取对该订阅的访问权限。
+
+## <a name="rbac-changes-are-not-being-detected"></a>未检测到 RBAC 更改
+
+Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或删除角色分配时，更改最多可能需要 30 分钟才能生效。 如果使用的是 Azure 门户、Azure PowerShell 或 Azure CLI，则可以通过注销和登录来强制刷新角色分配更改。 如果使用 REST API 调用进行角色分配更改，则可以通过刷新访问令牌来强制刷新。
 
 ## <a name="web-app-features-that-require-write-access"></a>需要写访问权限的 Web 应用功能
 
-如果为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有写入权限（参与者或所有者），并且不适用于任何只读方案。
+如果为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有**写**访问权限（参与者或所有者），并且在任何只读方案中不可用。
 
 - 命令（例如启动、停止等。）
 - 更改设置（如常规配置、缩放设置、备份设置和监视设置）
@@ -52,9 +76,9 @@ ms.locfileid: "52651932"
 
 因此，如果只授予某人对 Web 应用的访问权限，则 Azure 门户中的网站边栏选项卡上的很多功能将被禁用。
 
-这些项需要对与网站对应的**应用服务计划**具有**写**访问权限：  
+这些项需要对与网站对应的应用服务计划具有写入权限：  
 
-- 查看 Web 应用的定价层（免费或标准）  
+- 查看 Web 应用的定价层（“免费”或“标准”）  
 - 规模配置（实例数、虚拟机大小、自动缩放设置）  
 - 配额（存储空间、带宽、CPU）  
 
@@ -94,13 +118,9 @@ ms.locfileid: "52651932"
 
 读者可单击“平台功能”选项卡，然后单击“所有设置”查看与函数应用（类似于 Web 应用）相关的一些设置，但无法修改任何这些设置。
 
-## <a name="rbac-changes-are-not-being-detected"></a>未检测到 RBAC 更改
-
-Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或删除角色分配时，更改最多可能需要 30 分钟才能生效。 如果使用的是 Azure 门户、Azure PowerShell 或 Azure CLI，则可以通过注销和登录来强制刷新角色分配更改。 如果使用 REST API 调用进行角色分配更改，则可以通过刷新访问令牌来强制刷新。
-
 ## <a name="next-steps"></a>后续步骤
-- [使用 RBAC 和 Azure 门户管理访问权限](role-assignments-portal.md)
-- [查看活动日志以了解 RBAC 更改](change-history-report.md)
+- [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)
+- [查看 Azure 资源的 RBAC 更改的活动日志](change-history-report.md)
 
 
 <!-- Update_Description: wording update -->

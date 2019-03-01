@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: jay
-ms.openlocfilehash: 9822c1f70d4dc09a443c88c9a79417114be87a5d
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: f47372f5030921948025948beb025ababd63f698
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672715"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833398"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>在高级编码器中使用多个输入文件和组件属性
 ## <a name="overview"></a>概述
@@ -275,7 +275,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 假设要在视频编码时覆盖输入视频中的徽标图像。 此示例中，输入视频命名为“Microsoft_HoloLens_Possibilities_816p24.mp4”，徽标命名为“logo.png”。 执行以下步骤：
 
 * 创建包含工作流文件的工作流资产（参阅以下示例）。
-* 创建包含以下两个文件的媒体资产：MyInputVideo.mp4（主文件）和 MyLogo.png。
+* 创建媒体资产，其中包含两个文件：作为主文件的 MyInputVideo.mp4 以及 MyLogo.png。
 * 使用上述输入资产将任务发送到媒体编码器高级工作流媒体处理器，并指定以下配置字符串。
 
 配置:
@@ -352,7 +352,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 *覆盖层位置*
 
 要将视频流编码成 H.264，请将 AVC 视频编码器和 AAC 编码器组件添加到设计器图面。 连接插针。
-设置 AAC 编码器，并选择“音频格式转换/预设：2.0 (L, R)”。
+设置 AAC 编码器，并选择“音频格式转换/预设:2.0 (L, R)”。
 
 ![音频和视频编码器](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -429,9 +429,9 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 可以从 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/)下载示例工作流。
 
-## <a name="example-2--multiple-audio-language-encoding"></a>示例 2：多种音频语言编码
+## <a name="example-2--multiple-audio-language-encoding"></a>示例 2：多个音频语言编码
 
-可在 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding)中获取多个音频语言编码工作流的示例。
+可在 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding) 中获取多个音频语言编码工作流的示例。
 
 此文件夹中包含的示例工作流可用于将 MXF 文件编码为具有多个音频轨道的多个 MP4 文件资产。
 

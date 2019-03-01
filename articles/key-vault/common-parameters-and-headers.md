@@ -4,23 +4,22 @@ description: 这些参数和标头常见于与 Key Vault 资源相关的所有�
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 10/22/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: bf01aeeea71d329a4673f6803f907475c074496d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8c9195a5778e0c2475e5953509846511c1172299
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645498"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903067"
 ---
 # <a name="common-parameters-and-headers"></a>常见参数和标头
 
@@ -36,12 +35,14 @@ ms.locfileid: "52645498"
 ## <a name="common-error-response"></a>常见错误响应
 服务使用 HTTP 状态代码指示成功或失败。 此外，失败还会包含采用以下格式的响应：
 
+```
    {  
      "error": {  
      "code": "BadRequest",  
      "message": "The key vault sku is invalid."  
      }  
    }  
+```
 
 |元素名称 | 类型 | 说明 |
 |---|---|---|

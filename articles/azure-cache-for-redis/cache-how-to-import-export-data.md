@@ -1,26 +1,26 @@
 ---
 title: 在 Azure Redis 缓存中导入和导出数据 | Microsoft Docs
 description: 了解如何使用高级 Azure Redis 缓存实例在 blob 存储中导入和导出数据
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 07/31/2017
-ms.date: 12/21/2018
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: b959a2450518e0a58498268da78d15a1e636328f
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: e719d791434369c2c01a052ee9da9f6ec79aadd8
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784965"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903086"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>在 Azure Redis 缓存中导入和导出数据
 导入/导出是一种 Azure Redis 缓存数据管理操作，可用于通过从高级缓存导入 Azure Redis 缓存数据库 (RDB) 快照以及将 Azure Redis 缓存数据库 (RDB) 快照导出到 Azure 存储帐户中的 blob 来相应地将数据导入到 Azure Redis 缓存以及从 Azure Redis 缓存导出数据。 
@@ -178,4 +178,5 @@ Azure Redis 缓存暂留能够将 Redis 中存储的数据长期保存在 Azure 
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

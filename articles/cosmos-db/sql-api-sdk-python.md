@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 origin.date: 11/29/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 61a9969ecad4f4e4b0d3e9b36f196cef57cccc67
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: e8bc215e50cb841294cd1b74b3c01b3f0f4ff568
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309240"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988023"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -31,20 +31,15 @@ ms.locfileid: "54309240"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
+| |  |
+|---|---|
+|**下载 SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API 文档**|[Python API 参考文档](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**SDK 安装说明**|[Python SDK 安装说明](https://github.com/Azure/azure-cosmos-python)|
+|**参与 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**入门**|[Python SDK 入门](sql-api-python-application.md)|
+|**当前受支持的平台**|[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)|
 
-<tr><td>**下载 SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API 文档**</td><td>[Python API 参考文档](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK 安装说明**</td><td>[Python SDK 安装说明](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**入门**</td><td>[Python SDK 入门](sql-api-python-application.md)</td></tr>
-
-<tr><td>**当前受支持的平台**</td><td>[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
 
 <!-- Not Available on ## Release notes -->
 <!-- Not Available on ## Release & retirement dates -->

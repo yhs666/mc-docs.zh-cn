@@ -3,7 +3,7 @@ title: 使用媒体服务 REST API 配置资产传送策略 | Microsoft Docs
 description: 本主题介绍如何使用媒体服务 REST API 配置不同的资产传送策略。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/07/2017
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: 3de271929644d3cd29d852f4f654055f310b6652
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 8ba4a800b2f70d7c73c4628c33f4ebb4ec5ea772
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661758"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833384"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -29,16 +29,16 @@ ms.locfileid: "52661758"
 
 本主题介绍创建和配置资产传送策略的原因和方式。
 
->[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+> [!NOTE]
+> 创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 >
->此外，若要使用动态打包和动态加密，用户的资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
+> 此外，若要使用动态打包和动态加密，用户的资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
 
 可以将不同的策略应用到同一个资产。 例如，可以将 PlayReady 加密应用到平滑流式处理，将 AES 信封加密应用到 MPEG DASH 和 HLS。 将阻止流式处理传送策略中未定义的任何协议（例如，添加仅将 HLS 指定为协议的单个策略）。 如果根本没有定义任何传送策略，则情况不是这样。 此时，将允许所有明文形式的协议。
 
 如果要传送存储加密资产，则必须配置资产的传送策略。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传送策略流式传输用户的内容。 例如，若要传送使用高级加密标准 (AES) 信封加密密钥加密的资产，请将策略类型设为“DynamicEnvelopeEncryption”。 要删除存储加密并以明文的形式流式传输资产，请将策略类型设置为 **NoDynamicEncryption**。 下面是演示如何配置这些策略类型的示例。
 
-根据配置资产传送策略的方式，可以动态打包、动态加密和流式传输以下流式传输协议：平滑流式处理、HLS、MPEG DASH 流。
+根据配置资产传送策略的方式，可以动态打包、动态加密和流式传输以下流式处理协议：平滑流式处理、HLS、MPEG DASH 流。
 
 以下列表显示了用于流式传输平滑流、HLS、DASH 的格式。
 
@@ -63,9 +63,9 @@ MPEG DASH
 * 可将多个资产传送策略关联到单个资产，但只能指定一种方法来处理给定的 AssetDeliveryProtocol。  也就是说，如果尝试链接两个指定 AssetDeliveryProtocol.SmoothStreaming 协议的传送策略，则会导致出错，因为当客户端发出平滑流式处理请求时，系统不知道要应用哪个策略。
 * 如果资产包含现有流式处理定位符，则不能将新策略链接到该资产、取消现有策略与该资产的链接，或者更新与该资产关联的传送策略。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  重新创建流式处理定位符时，可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已被来源或下游 CDN 缓存。
 
->[!NOTE]
+> [!NOTE]
 
->访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+> 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 
 ## <a name="connect-to-media-services"></a>连接到媒体服务
 
@@ -73,7 +73,7 @@ MPEG DASH
 
 ## <a name="clear-asset-delivery-policy"></a>清除资产传送策略
 ### <a id="create_asset_delivery_policy"></a>创建资产传送策略
-以下 HTTP 请求将创建一个资产传送策略，该策略指定不要应用动态加密，而使用以下任何协议传送流：MPEG DASH、HLS 和平滑流式处理协议。 
+以下 HTTP 请求将创建一个资产传送策略，该策略指定不应用动态加密，而使用以下任何协议传送流：MPEG DASH、HLS 和平滑流式处理协议。 
 
 有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。   
 
@@ -146,7 +146,7 @@ MPEG DASH
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 资产传送策略
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>创建 EnvelopeEncryption 类型的内容密钥，并将其链接到资产
-指定 DynamicEnvelopeEncryption 传送策略时，需确保将资产链接到 EnvelopeEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](media-services-rest-create-contentkey.md)）。
+指定 DynamicEnvelopeEncryption 传送策略时，需确保将资产链接到 EnvelopeEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](media-services-rest-create-contentkey.md)。
 
 ### <a id="get_delivery_url"></a>获取传送 URL
 获取上一步创建的内容密钥的指定传送方法的传送 URL。 客户端使用返回的 URL 来请求 AES 密钥或 PlayReady 许可证，以播放受保护内容。
@@ -232,7 +232,7 @@ MPEG DASH
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>创建 CommonEncryption 类型的内容密钥，并将其链接到资产
-在指定 DynamicCommonEncryption 传送策略时，需确保将资产链接到 CommonEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](media-services-rest-create-contentkey.md)）。
+在指定 DynamicCommonEncryption 传送策略时，需确保将资产链接到 CommonEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](media-services-rest-create-contentkey.md)。
 
 ### <a name="get-delivery-url"></a>获取传送 URL
 获取上一步创建的内容密钥的 PlayReady 传送方法的传送 URL。 客户端使用返回的 URL 来请求 PlayReady 许可证，以播放受保护内容。 有关详细信息，请参阅 [获取传送 URL](#get_delivery_url)。
@@ -345,7 +345,7 @@ MPEG DASH
         None = 0,
 
         /// <summary>
-        /// Use PlayReady License acquistion protocol
+        /// Use PlayReady License acquisition protocol
         ///
         </summary>
         PlayReadyLicense = 1,

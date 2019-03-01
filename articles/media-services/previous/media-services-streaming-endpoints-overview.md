@@ -7,36 +7,41 @@ author: WenJason
 writer: juliako
 manager: digimobile
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/24/2018
-ms.date: 12/03/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: bc21b5b6d62f48321bb8846e243a10a2d94f970a
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.openlocfilehash: 3d26093a98e340f10b58d91a956fea558092e01f
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858201"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833372"
 ---
-# <a name="streaming-endpoints-overview"></a>流式处理终结点概述 
+# <a name="streaming-endpoints-overview"></a>流式处理终结点概述  
 
 ## <a name="overview"></a>概述
 
 在 Azure 媒体服务 (AMS)中，**流式处理终结点**代表一个流服务，它可以直接将内容分发给客户端播放器应用程序，也可以传递给内容分发网络 (CDN) 以进一步分发。 媒体服务还提供无缝 Azure CDN 集成。 StreamingEndpoint 服务的出站流可以是实时流、视频点播，也可以是媒体服务帐户中进行的渐进式资产下载。 每个 Azure 媒体服务帐户包括一个默认的 StreamingEndpoint。 可以在该帐户下创建其他 StreamingEndpoint。 StreamingEndpoint 有两个版本：1.0 和 2.0。 从 2017 年 1 月 10 日开始，任何新创建的 AMS 帐户都会包括 2.0 版的 **默认** StreamingEndpoint。 添加到该帐户的其他流式处理终结点也会是 2.0 版。 此更改不会影响现有帐户；现有的 StreamingEndpoint 会是 1.0 版，但可以升级到 2.0 版。 此更改将导致行为、计费和功能更改（有关详细信息，请参阅下面所述的**流式处理类型和版本**部分）。
 
-此外，从 2.15 版开始（2017 年 1 月发布的），向流式处理终结点实体的以下属性添加了媒体服务：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
+Azure 媒体服务将以下属性添加到流式处理终结点实体：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 用户创建 Azure 媒体服务帐户时，将为用户创建一个处于“已停止”状态的默认标准流式处理终结点。 无法删除默认流式处理终结点。  
-
->[!NOTE]
->可以在启动流式处理终结点之前禁用 Azure CDN 集成。
+                
+> [!NOTE]
+> 可以在启动流式处理终结点之前禁用 Azure CDN 集成。
 
 本主题概述流式处理终结点提供的主要功能。
+
+## <a name="naming-conventions"></a>命名约定
+
+对于默认终结点：`{AccountName}.streaming.mediaservices.chinacloudapi.cn`
+
+对于任何其他终结点：`{EndpointName}-{AccountName}.streaming.mediaservices.chinacloudapi.cn`
 
 ## <a name="streaming-types-and-versions"></a>流式处理类型和版本
 

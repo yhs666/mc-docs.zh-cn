@@ -2,20 +2,21 @@
 title: 分布式表设计指南 - Azure SQL 数据仓库 | Microsoft Docs
 description: 有关如何在 Azure SQL 数据仓库中设计哈希分布式表和轮循机制分布式表的一些建议。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: 4fa6c86d37dc04e12ffbcc81bb0e7d6377a3b378
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 8474fa9326acfc9dfd14f61aafcede4fdff3e853
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647054"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833371"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>有关如何在 Azure SQL 数据仓库中设计分布式表的指南
 有关如何在 Azure SQL 数据仓库中设计哈希分布式表和轮循机制分布式表的一些建议。
@@ -147,7 +148,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;
@@ -164,6 +165,7 @@ order by two_part_name, row_count
 - 联接类型不能是 `CROSS JOIN`。
 
 若要了解查询是否正在移动数据，可以查看查询计划。  
+
 
 ## <a name="resolve-a-distribution-column-problem"></a>解决分布列问题
 无需解决所有数据倾斜问题。 分布数据就是为了找出将数据倾斜降至最低与将数据移动降至最低两者之间的适当平衡。 因为现实中无法每次都做到将数据倾斜和数据移动同时降至最低。 有时，最少的数据移动带来的好处可能胜过数据倾斜造成的影响。

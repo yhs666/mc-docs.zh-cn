@@ -12,20 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/20/2018
-ms.date: 12/31/2018
+ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 92430e9038a2333f4bc35a09d5b1d136bb56cce4
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: d06e3f47829cd5de6e3c688114b3908c031ba831
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736667"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196598"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>如何在 Azure API 管理中添加自定义 CA 证书
 
 Azure API 管理允许在受信任的根证书和中间证书存储中的计算机上安装 CA 证书。 如果服务需要自定义 CA 证书，则应使用此功能。
 
 本文介绍如何在 Azure 门户中管理 Azure API 管理服务实例的 CA 证书。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -52,7 +54,7 @@ Azure API 管理允许在受信任的根证书和中间证书存储中的计算�
     ![添加 CA 证书](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> 可以使用 `New-AzureRmApiManagementSystemCertificate` Powershell 命令上传 CA 证书。
+> 可以使用 `New-AzApiManagementSystemCertificate` Powershell 命令上传 CA 证书。
 
 ## <a name="step1a"> </a>删除客户端证书
 

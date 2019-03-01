@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 03/27/2018
+origin.date: 11/16/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: e216aa28f14f33102242aaa4530b20b44ee6bdb3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/11/2019
+ms.openlocfilehash: 6fd8878c9ab51afbcfb8d5efec35d0682eb422cf
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655871"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196635"
 ---
 # <a name="azure-resource-health-overview"></a>Azure 资源运行状况概述
  
@@ -54,7 +54,7 @@ Azure 资源运行状况有助于在 Azure 服务问题影响资源时进行诊�
 ![由于平台事件虚拟机显示“不可用”状态](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>非平台事件
-非平台事件是由用户的操作触发的。 例如：停止虚拟机或达到 Redis 缓存的最大连接数。
+非平台事件是由用户的操作触发的。 例如：停止虚拟机或达到 Azure Redis 缓存的最大连接数。
 
 ![由于非平台事件虚拟机显示“不可用”状态](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

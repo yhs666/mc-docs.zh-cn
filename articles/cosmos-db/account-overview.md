@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: dd2e46e8b3b680d378bff4d870c15bc3eabd042b
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: c0c8936428d973850448e3281955e7c00a37aef4
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309092"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987932"
 ---
-# <a name="working-with-azure-cosmos-account"></a>使用 Azure Cosmos 帐户
+# <a name="work-with-azure-cosmos-account"></a>使用 Azure Cosmos 帐户
 
 Azure Cosmos DB 是完全托管的平台即服务 (PaaS)。 若要开始使用 Azure Cosmos DB，首先应在 Azure 订阅中创建一个 Azure Cosmos 帐户。 Azure Cosmos 帐户包含唯一的 DNS 名称，可以使用 Azure 门户、Azure CLI 或不同的特定于语言的 SDK 来管理帐户。 有关详细信息，请参阅[如何管理 Azure Cosmos 帐户](how-to-manage-database-account.md)。
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: 687c04398faecedd6137a803b8583a14866d49b5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/11/2019
+ms.openlocfilehash: 50e25dc735cbc3416e550215708ab70aa55543f6
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647147"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196630"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何在 Azure API 管理中将事件记录到 Azure 事件中心
 事件中心是一个高度可缩放的引入服务，每秒可以引入数百万的事件，使用户能够处理和分析连接设备和应用程序生成的海量数据。 事件中心充当事件管道的“前门”，将数据收集到事件中心后，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储这些数据。 事件中心可将事件流的生成与这些事件的使用分离开来，因此，事件使用者可以根据自己的计划访问事件。
@@ -119,7 +119,7 @@ ms.locfileid: "52647147"
 * 了解有关 API 管理和事件中心集成的详细信息
   * [记录器实体引用](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub 策略引用](./api-management-advanced-policies.md#log-to-eventhub)
-  * [使用 Azure API 管理、事件中心和 Runscope 监视 API](./api-management-log-to-eventhub-sample.md)    
+  * [使用 Azure API 管理、事件中心和 Moesif 监视 API](api-management-log-to-eventhub-sample.md)  
 
 
 

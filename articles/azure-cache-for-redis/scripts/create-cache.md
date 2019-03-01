@@ -1,27 +1,27 @@
 ---
 title: Azure CLI 脚本示例 - 创建 Azure Redis 缓存 | Microsoft Docs
 description: Azure CLI 脚本示例 - 创建 Azure Redis 缓存
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 tags: azure-service-management
 ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
-ms.service: cache-redis
+ms.service: cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 02/12/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: dfa17f7f27c1b806c13adef49caf7b4a6b75d09b
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: f38895e4b8a0bef07a804cf8323d2af96f3ff77c
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096541"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903109"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>创建 Azure Redis 缓存
 
@@ -61,4 +61,4 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

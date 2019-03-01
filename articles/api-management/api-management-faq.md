@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 02/25/2019
-ms.openlocfilehash: d128e90e86ecba9fef37b3976a60936860e61a8a
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 03/11/2019
+ms.openlocfilehash: adc35fbb53fc7421a2da9912fe24e55547295c8e
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303012"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196653"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="contact-us"></a>联系我们
 * [如何向 Microsoft Azure API 管理团队提问？](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
@@ -90,9 +92,9 @@ ms.locfileid: "56303012"
 
 现在，新添加的参与者可以使用 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 下面是以管理员身份登录的方法：
 
-1. 使用 `Connect-AzureRmAccount` cmdlet 登录。
-2. 使用 `Set-AzureRmContext -SubscriptionID <subscriptionGUID>` 将上下文设置为具有该服务的订阅。
-3. 使用 `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` 获取单一登录 URL。
+1. 使用 `Connect-AzAccount` cmdlet 登录。
+2. 使用 `Set-AzContext -SubscriptionID <subscriptionGUID>` 将上下文设置为具有该服务的订阅。
+3. 使用 `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` 获取单一登录 URL。
 4. 使用 URL 访问管理门户。
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>想要添加的策略为何在策略编辑器中不可用？
@@ -133,11 +135,11 @@ ms.locfileid: "56303012"
 是的。 可以通过 PowerShell 或直接提交到 API 来完成此操作。 这将禁用证书链验证，并将允许在从 API 管理与后端服务进行通信时使用自签名或私人签名证书。
 
 #### <a name="powershell-method"></a>Powershell 方法 ####
-使用 [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend)（适用于新后端）或 [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置设为 `True`。 
+使用 [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend)（适用于新后端）或 [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置设为 `True`。 
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### <a name="direct-api-update-method"></a>直接 API 更新方法 ####

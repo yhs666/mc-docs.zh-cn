@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 50034f8fe334a834ef5512f7eabce8d156a6bd49
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+ms.openlocfilehash: d797d6f0081c2cea7b0a2dae11cf4505c840f68a
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363705"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987055"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>跨 Azure 订阅和资源组移动恢复服务保管库（受限公共预览版）
 
@@ -42,9 +42,9 @@ ms.locfileid: "54363705"
 >
 >
 
-## <a name="register-the-subscription-to-move-your-recovery-services-vault"></a>注册订阅以移动恢复服务保管库
+## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>注册来源订阅以移动恢复服务保管库
 
-若要注册订阅以**移动**恢复服务保管库，请在 PowerShell 终端中运行以下 cmdlet：
+若要注册来源订阅以**移动**恢复服务保管库，请在 PowerShell 终端中运行以下 cmdlet：
 
 1. 登录到 Azure 帐户
 
@@ -63,7 +63,13 @@ ms.locfileid: "54363705"
   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
   ```
 
-等待 30 分钟以将订阅加入白名单，然后开始使用 Azure 门户或 PowerShell 执行移动操作。
+4. 运行命令
+
+  ```
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+  ```
+
+等待 30 分钟以将订阅加入允许列表，然后开始使用 Azure 门户或 PowerShell 执行移动操作。
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-different-resource-group"></a>使用 Azure 门户将恢复服务保管库移到不同的资源组
 

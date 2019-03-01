@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3292725bfc24fd32086c4eb481069b165e16f568
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7b82c63a9731e04193805d7b79851f8648f241be
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676490"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903063"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -27,32 +27,20 @@ ms.locfileid: "52676490"
 
 还需安装并配置 Azure CLI 2.0.46 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
-## <a name="create-a-storage-account"></a>创建存储帐户
+## <a name="create-a-storage-class"></a>创建存储类
 
-将 Azure 文件共享动态创建为 Kubernetes 卷时，可以使用任何存储帐户，只要该帐户在 AKS“节点”资源组中。 此组是通过为 AKS 群集预配资源而创建的具有 *MC_* 前缀的资源组。 使用 [az aks show][az-aks-show] 命令获取资源组名称。
+存储类用于定义如何创建 Azure 文件共享。 *_MC* 资源组中会自动创建一个存储帐户来与存储类配合使用，以保存 Azure 文件共享。 为 *skuName* 选择下列任一 [Azure 存储冗余][storage-skus]：
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_chinaeast
-```
-
-可使用 [az storage account create][az-storage-account-create] 命令创建存储帐户。
-
-将 `--resource-group` 更新为上一个步骤中收集的资源组的名称，并将 `--name` 更新为你选择的名称。 提供自己的唯一存储帐户名称：
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_chinaeast --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS* - 标准本地冗余存储 (LRS)
+* *Standard_GRS* - 标准异地冗余存储 (GRS)
+* *Standard_RAGRS* - 标准读取访问异地冗余存储 (RA-GRS)
 
 > [!NOTE]
 > Azure 文件目前仅使用标准存储。 如果使用高级存储，则无法预配该卷。
 
-## <a name="create-a-storage-class"></a>创建存储类
+有关 Azure 文件的 Kubernetes 存储类的详细信息，请参阅 [Kubernetes 存储类][kubernetes-storage-classes]。
 
-存储类用于定义如何创建 Azure 文件共享。 可在此类中指定存储帐户。 如果未指定存储帐户，必须指定 *skuName* 和 *location*，并评估关联的资源组中的所有存储帐户的匹配度。 有关 Azure 文件的 Kubernetes 存储类的详细信息，请参阅 [Kubernetes 存储类][kubernetes-storage-classes]。
-
-创建名为 `azure-file-sc.yaml` 的文件，并将其复制到以下示例清单中。 将 *storageAccount* 值更新为前一步骤创建的目标存储帐户的名称。 有关 *mountOptions* 的详细信息，请参阅[装载选项][mount-options]部分。
+创建名为 `azure-file-sc.yaml` 的文件，并将其复制到以下示例清单中。 有关 *mountOptions* 的详细信息，请参阅[装载选项][mount-options]部分。
 
 ```yaml
 kind: StorageClass
@@ -67,7 +55,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令创建存储类：
@@ -185,7 +172,7 @@ spec:
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-现有一个正在运行的 Pod，其中的 Azure 磁盘已装载到 */mnt/azure* 目录中。 通过 `kubectl describe pod mypod` 检查 pod 时，可以看到此配置。 以下精简示例输出显示容器中装载的卷：
+现有一个正在运行的 Pod，其中的 Azure 文件存储共享已装载到 /mnt/azure 目录中。 通过 `kubectl describe pod mypod` 检查 pod 时，可以看到此配置。 以下精简示例输出显示容器中装载的卷：
 
 ```
 Containers:
@@ -297,3 +284,4 @@ spec:
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
 ?view=azure-cli-latest
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

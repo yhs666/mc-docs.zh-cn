@@ -3,7 +3,7 @@ title: 如何使用 Azure 媒体服务实时传送视频流，通过 Azure 门�
 description: 本教程介绍了创建通道的步骤，该通道接收单比特率实时流并利用 Azure 门户将其编码为多比特率流。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/09/2017
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: ee149610d4fb6b8a840bb82d4fade81b51e04a5f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/09/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: c132d7343b8ce087514552349ff23bf86ec4b3b6
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654727"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833359"
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用 Azure 媒体服务执行实时传送视频流以通过 Azure 门户创建多比特率流
+# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal-legacy"></a>如何使用媒体服务实时传送视频流，通过 Azure 门户（旧版）创建多比特率流
 > [!div class="op_single_selector"]
-> * [门户](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
@@ -45,7 +45,7 @@ ms.locfileid: "52654727"
 > 
 > 
 
-1. 将视频摄像机连接到计算机。 启动并配置可以通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
    
     此步骤也可以在创建频道后执行。
 2. 创建并启动通道。 

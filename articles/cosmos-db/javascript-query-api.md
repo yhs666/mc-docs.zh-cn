@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/08/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: edd8e35dcf4c04cfc51d8a57938ca90b6860d84d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 80ff8c3648f3d1cd9863c07871063274af4c02e8
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309320"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988003"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>将 JavaScript 语言集成式查询 API 用于 Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 JavaScript 查询 API
 
 除了使用 Azure Cosmos DB 中的 SQL API 发出查询之外，[Cosmos DB 服务器端 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 还允许使用 JavaScript 接口来执行优化的查询。 你不需要了解 SQL 语言便可使用此 JavaScript 接口。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法以及 Lodash 之类的热门 JavaScript 库，通过将谓词函数传递到函数调用序列中以编程方式生成查询。 查询将由 JavaScript 运行时进行分析并使用 Azure Cosmos DB 索引高效执行。
 

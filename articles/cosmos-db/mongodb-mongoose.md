@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 186b98ebe783e7751be55bb27b57974616487d73
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: 6a8f35180a2d2d2b72eb15a24d389700034c13cf
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857409"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987965"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>将 Node.js Mongoose 应用程序连接到 Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 
 ## <a name="create-a-cosmos-account"></a>创建 Cosmos 帐户
 
-让我们创建 Cosmos 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 Node.js 应用程序](#SetupNode)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Node.js 应用程序](#SetupNode)。
+让我们创建 Cosmos 帐户。 如果已经有想要使用的帐户，可以直接跳到“设置 Node.js 应用程序”。 如果使用 Azure Cosmos DB 仿真器，请遵循 [Azure Cosmos DB 仿真器](local-emulator.md)中的步骤设置该仿真器，并直接跳到“设置 Node.js 应用程序”。
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -186,7 +186,7 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
 
 1. 现在，请转到 Azure 门户，可以看到 Cosmos DB 中创建了两个集合。
 
-    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库][mutiple-coll]
+    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库][multiple-coll]
 
 1. 最后，我们从 Cosmos DB 读取数据。 由于我们使用的是默认 Mongoose 操作模型，读取操作与 Mongoose 的其他读取操作相同。
 
@@ -316,6 +316,6 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
 - 通过 Azure Cosmos DB 的用于 MongoDB 的 API 来浏览 MongoDB [示例](mongodb-samples.md)。
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
+[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

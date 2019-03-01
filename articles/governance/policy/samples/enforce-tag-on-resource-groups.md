@@ -1,22 +1,22 @@
 ---
 title: 示例 - 在资源组强制执行标记及其值
-description: 此示例策略要求，必须对资源组使用标记和值。
+description: 此示例策略定义要求对资源组使用标记和值。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 0edb0afde8d2ab05c39df3798cec6136514c910e
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: bd9cae451908946c69bda9c65e3a719e612c895e
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409069"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903108"
 ---
-# <a name="enforce-tag-and-its-value-on-resource-groups"></a>在资源组强制执行标记及其值
+# <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>示例 - 在资源组强制执行标记及其值
 
 此策略要求资源组有标记和值。 由你指定标记名称和值。
 
@@ -150,7 +150,7 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 

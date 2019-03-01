@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/02/2017
 ms.date: 07/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: 853ec4f49e6099eaaed1760181bb19f437f8000e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 39b5f57b724b0aa703441bd70c407b683d7297d7
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646554"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987014"
 ---
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 池
 
@@ -151,7 +151,5 @@ az batch pool delete --pool-id mypool-linux
 ## <a name="next-steps"></a>后续步骤
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
-
-可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 
 

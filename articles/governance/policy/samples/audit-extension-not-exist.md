@@ -1,23 +1,22 @@
 ---
 title: 示例 - 如果扩展不存在，则进行审核
-description: 如果虚拟机未部署扩展，此示例策略会进行审核。
+description: 如果虚拟机未部署扩展，此示例策略定义会进行审核。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: deb2c516c8e237eb7027f4a1964579872306b004
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 4e605700705dd0dd97e9485bcda8ede84094ac81
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996386"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903078"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>如果扩展不存在，则进行审核
+# <a name="sample---audit-if-extension-does-not-exist"></a>示例 - 如果扩展不存在，则进行审核
 
 如果虚拟机未部署扩展，则此策略会进行审核。 指定扩展发布者和类型以检查是否已部署扩展。
 
@@ -98,12 +97,12 @@ ms.locfileid: "53996386"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "audit-vm-extension" -DisplayName "Audit if extension does not exist" -description "This policy audits if a required extension doesn't exist." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "audit-vm-extension" -DisplayName "Audit if extension does not exist" -description "This policy audits if a required extension doesn't exist." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -publisher <Extension Publisher> -type <Extension Type> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -publisher <Extension Publisher> -type <Extension Type> -PolicyDefinition $definition
 $assignment
 ```
 
@@ -112,7 +111,7 @@ $assignment
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

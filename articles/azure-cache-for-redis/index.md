@@ -1,24 +1,18 @@
 ---
 title: “用于 Redis 的 Azure 缓存”文档 - 教程和 API 参考 | Microsoft Docs
 description: 了解如何使用用于 Redis 的 Azure 缓存（安全的数据缓存和消息传送中转站，可让应用程序快速访问数据）。 教程、API 参考和其他资源。
-services: azure-cache-for-redis
-author: czeumault
-manager: carolz
+services: cache
+author: yegu-ms
+manager: jubbard
 layout: LandingPage
-ms.assetid: ''
-ms.service: azure-cache-for-redis
+ms.assetid: null
+ms.service: cache
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: c7d2c8c896e71e5248e871fd7048b957034f3fbf
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334260"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>“用于 Redis 的 Azure 缓存”文档
 
@@ -145,8 +139,8 @@ ms.locfileid: "54334260"
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/redis">Azure CLI 2.0（预览版）</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/az.rediscache">PowerShell</a></p>
+                        <p><a href="/cli/redis">Azure CLI</a></p>
                     </div>
                 </div>
             </div>

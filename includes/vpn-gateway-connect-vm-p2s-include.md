@@ -5,16 +5,16 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 12/24/2018
+origin.date: 02/01/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: c44567cfb7857eb3fc9209a745bc5c330f72af6d
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: c56c1ff1f9d5d19243a2a37b54515cc77ddd4abd
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656645"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833229"
 ---
 可以连接到已部署到 VNet 的 VM，方法是创建到 VM 的远程桌面连接。 若要通过初始验证来确认能否连接到 VM，最好的方式是使用其专用 IP 地址而不是计算机名称进行连接。 这种方式是测试能否进行连接，而不是测试名称解析是否已正确配置。
 
@@ -25,8 +25,8 @@ ms.locfileid: "53656645"
    - PowerShell - 通过此示例查看资源组中的 VM 和专用 IP 地址的列表。 在使用此示例之前无需对其进行修改。
 
      ```powershell
-     $VMs = Get-AzureRmVM
-     $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
+     $VMs = Get-AzVM
+     $Nics = Get-AzNetworkInterface | Where VirtualMachine -ne $null
 
      foreach($Nic in $Nics)
      {

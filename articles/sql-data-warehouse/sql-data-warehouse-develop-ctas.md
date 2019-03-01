@@ -6,16 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 4ce70698a03f1098ce5a3d8a2d638ff93ded3167
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: igorstan
+ms.openlocfilehash: e9a078ef3f836d71918ac059861fe49630ccaff5
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656492"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833405"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中使用 CREATE TABLE AS SELECT (CTAS)
 有关在开发解决方案时使用 Azure SQL 数据仓库中的 CREATE TABLE AS SELECT (CTAS) T-SQL 语句编写代码的技巧。
@@ -276,11 +277,11 @@ WHERE NOT EXISTS
 ;
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 
 ```
 
-## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>CTAS 建议：显式声明数据类型和输出是否可为 null
+## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>GTAS 建议：显式声明数据类型和输出是否可为 null
 迁移代码时，可能会遇到这种类型的编码模式：
 
 ```sql

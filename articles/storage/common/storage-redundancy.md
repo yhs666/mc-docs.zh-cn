@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/18/2019
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 2efa35af7e50da7f6f74003ce940071a83b0cbf7
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 3cfb2ecd50c95356b0cc634c5a563949548b2dfd
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665676"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196530"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -48,7 +48,7 @@ ms.locfileid: "56665676"
 有关 Azure 存储确保持续性和可用性的信息，请参阅 [Azure 存储 SLA](https://azure.cn/support/sla/storage/)。
 
 > [!NOTE]
-> 高级存储仅支持本地冗余存储 (LRS)。 有关高级存储的信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../virtual-machines/windows/premium-storage.md)。
+> 高级存储仅支持本地冗余存储 (LRS)。
 
 ## <a name="changing-replication-strategy"></a>更改复制策略
 我们允许使用 [Azure 门户](https://portal.azure.cn/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或众多的 [Azure 客户端库](https://docs.azure.cn/index?view=azure-dotnet#pivot=sdkstools)之一来更改存储帐户的复制策略。 更改存储帐户的复制类型不会导致停机。

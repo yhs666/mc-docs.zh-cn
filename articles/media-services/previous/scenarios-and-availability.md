@@ -11,22 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 10/15/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 73dfdd246c3a32ab1b1cda8313b973019ba76fc3
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: ad239c9a2441af655df5a012379e3461b769a28b
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672874"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833409"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
 可以使用 Azure 媒体服务 (AMS) 安全地上传、存储、编码和打包视频或音频内容，以便将点播流和实时传送视频流交付到各种客户端（例如，电视、电脑和移动设备）。
 
 
-本主题演示了[实时](#live_scenarios)交付内容或[点播](#vod_scenarios)交付内容的常见方案。 本主题还详细说明了媒体功能和服务的跨数据中心可用性。
+本主题展示了以[实时](#live_scenarios)方式或点播方式交付内容的常见方案。 本主题还详细说明了媒体功能和服务的跨数据中心可用性。
 
 ## <a name="overview"></a>概述
 
@@ -166,7 +166,7 @@ AMS 客户可以缩放其 AMS 帐户中的流式处理终结点、媒体处理�
 
 #### <a name="availability"></a>可用性
 
-可在以下两个区域创建媒体服务帐户：中国北部、中国东部。 
+若要确定数据中心是否提供媒体服务，请浏览到 https://www.azure.cn/support/service-dashboard/，并滚动到 MEDIA 表。
 
 ### <a name="streaming-endpoints"></a>流式处理终结点 
 
@@ -183,7 +183,7 @@ AMS 客户可以缩放其 AMS 帐户中的流式处理终结点、媒体处理�
 
 #### <a name="availability"></a>可用性
 
-在以下区域之外的所有数据中心可用：德国、巴西南部、印度西部、印度南部和印度中部。 
+在所有数据中心内可用，但以下数据中心例外：德国、巴西南部、印度西部、印度南部和印度中部。 
 
 ### <a name="encoding-media-processors"></a>编码媒体处理器
 

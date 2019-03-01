@@ -5,27 +5,26 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 12/24/2018
+origin.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 41bf7b1219c7b1640bf94b1e9dcf8fc2b20af6d4
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 9f14b83c6a7a71a8281d02163bb3d82c66a115ff
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656608"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833173"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>为本机 Azure 证书身份验证 P2S 配置创建并安装 VPN 客户端配置文件
 
-VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本机 Windows、Mac IKEv2 VPN 或 Linux 客户端通过使用本机 Azure 证书身份验证的点到站点连接，来与 VNet 建立连接所需的设置。 有关点到站点连接的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
+VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本机 Windows、Mac IKEv2 VPN 或 Linux 客户端通过使用本机 Azure 证书身份验证的点到站点连接，来与 VNet 建立连接所需的设置。
+
+客户端配置文件特定于 VNet 的 VPN 配置。 如果在生成 VPN 客户端配置文件后，点到站点 VPN 配置（例如 VPN 协议类型或身份验证类型）发生变化，请务必为用户设备生成新的 VPN 客户端配置文件。 
+
+有关点到站点连接的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->客户端配置文件特定于 VNet 的 VPN 配置。 如果在生成 VPN 客户端配置文件后，点到站点 VPN 配置（例如 VPN 协议类型或身份验证类型）发生变化，请务必为用户设备生成新的 VPN 客户端配置文件。
->
 >
 
 ## <a name="generate"></a>生成 VPN 客户端配置文件
@@ -46,10 +45,12 @@ VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本�
 
 ### <a name="zipps"></a>使用 PowerShell 生成文件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 生成 VPN 客户端配置文件时，“-AuthenticationMethod”的值为“EapTls”。 使用以下命令生成 VPN 客户端配置文件：
 
   ```powershell
-  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+  $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
   $profile.VPNProfileSASUrl
   ```

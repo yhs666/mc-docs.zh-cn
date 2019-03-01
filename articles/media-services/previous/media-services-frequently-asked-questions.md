@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 68ae1ae4c6670e4272bae4fe3fa03be0e6c70e08
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: a07a6826b6b7122ef5a64e40733a5a6ef3a0bb7f
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672507"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833353"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -27,7 +27,7 @@ ms.locfileid: "52672507"
 
 ## <a name="general-ams-faqs"></a>一般性的 AMS 常见问题
 
-问：如何流式传输到 Apple iOS 设备
+问：如何流式传输到 Apple iOS 设备？
 
 答：向 URL 的“/Manifest”部分添加“(format=m3u8-aapl)”路径，告知流式处理源服务器返回供 Apple iOS 本机设备使用的 HLS 内容（有关详细信息，请参阅[传送内容](media-services-deliver-content-overview.md)）。
 
@@ -37,13 +37,13 @@ ms.locfileid: "52672507"
 
 问：我已经上传、编码并发布了视频。 为什么在尝试对视频进行流式处理时，它不播放？
 
-答：最常见的原因之一是，你没有“正在运行”状态下从其播放的流式处理终结点。  
+答：最常见的原因之一是，没有“正在运行”状态下从其播放的流式处理终结点。  
 
-问：是否可以在实时流上进行合成操作？
+问：我是否可以在实时流上进行合成操作？
 
 答：Azure 媒体服务当前不提供实时流上的合成操作，因此需要在计算机上进行预合成。
 
-问：是否可以将 Azure CDN 与实时传送视频流一起使用？
+问：我是否可以将 Azure CDN 与实时流式处理一起使用？
 
 答：媒体服务支持与 Azure CDN 集成（有关详细信息，请参阅[如何在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)）。  可以将实时传送视频流与 CDN 结合使用。 Azure 媒体服务提供平滑流式处理、HLS 和 MPEG-DASH 输出。 所有这些格式均使用 HTTP 来传输数据并从 HTTP 缓存中获益。 实时流式处理中，实际视频/音频数据被分为数个片段，并且单个片段缓存于 CDN 中。 唯一需要刷新的数据是清单数据。 CDN 定期刷新清单数据。
 
@@ -53,7 +53,7 @@ ms.locfileid: "52672507"
 
 问：如何将资产从一个媒体服务帐户复制到另一个媒体服务帐户？
 
-答：要使用 .NET 将资产从一个媒体服务帐户复制到另一个帐户，可以使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)存储库中提供的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 扩展方法。 有关详细信息，请参阅 [此](https://social.msdn.microsoft.com/Forums/zh-cn/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 论坛主题。 
+答：要使用 .NET 将资产从一个媒体服务帐户复制到另一个帐户，可以使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)存储库中提供的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 扩展方法。 有关详细信息，请参阅 [此](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 论坛主题。
 
 问：AMS 支持使用哪些字符来为文件命名？
 
@@ -61,9 +61,9 @@ ms.locfileid: "52672507"
 
 问：如何使用 REST 进行连接？
 
-答：有关如何连接到 AMS API 的信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+答：若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-问：如何在编码过程中旋转视频。
+问：如何在编码过程中旋转视频？
 
 答：[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支持旋转 90/180/270 度。 默认行为是“自动”，即尝试在传入的 MP4/MOV 文件中检测旋转元数据并对其进行补偿。 包含 **此处** 定义的 json 预设之一的以下 [Sources](media-services-mes-presets-overview.md)元素：
 

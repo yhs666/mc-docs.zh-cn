@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 10/04/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 13f04e7a441b4e161705d6328a7ff6bbd23fa837
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 73a11cd18e716bdf04e0a3fe373b077dcaa3ab8c
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028221"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833214"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 创建基于路由的 VPN 网关
 
@@ -25,7 +25,7 @@ ms.locfileid: "53028221"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#az_group_create) 命令创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](/cli/group) 命令创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 
 ```azurecli 
@@ -34,7 +34,7 @@ az group create --name TestRG1 --location chinanorth
 
 ## <a name="vnet"></a>创建虚拟网络
 
-使用 [az network vnet create](/cli/network/vnet#az_network_vnet_create) 命令创建虚拟网络。 以下示例在“ChinaNorth”位置创建一个名为“VNet1”的虚拟网络：
+使用 [az network vnet create](/cli/network/vnet) 命令创建虚拟网络。 以下示例在“ChinaNorth”位置创建一个名为“VNet1”的虚拟网络：
 
 ```azurecli 
 az network vnet create \
@@ -71,7 +71,7 @@ az network public-ip create \
 
 ## <a name="CreateGateway"></a>创建 VPN 网关
 
-使用 [az network vnet-gateway create](/cli/group#az_network_vnet_gateway_create) 命令创建 VPN 网关。
+使用 [az network vnet-gateway create](/cli/group) 命令创建 VPN 网关。
 
 如果使用 `--no-wait` 参数运行该命令，则不会显示任何反馈或输出。 `--no-wait` 参数允许在后台创建网关。 但并不意味着 VPN 网关会立即创建。
 
@@ -171,7 +171,7 @@ az network public-ip show \
 ```
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要所创建的资源，请使用 [az group delete](/cli/group#az_group_delete) 删除资源组。 这将删除资源组及其包含的所有资源。
+如果不再需要所创建的资源，请使用 [az group delete](/cli/group) 删除资源组。 这将删除资源组及其包含的所有资源。
 
 ```azurecli 
 az group delete --name TestRG1 --yes

@@ -1,23 +1,22 @@
 ---
 title: 示例 - 需要对 Data Lake Store 进行加密
-description: 此示例策略需要对 Data Lake Store 进行加密。
+description: 此示例策略定义要求启用 Data Lake Store 加密。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 04/27/2018
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 23a04aa5bc325ec84b493861f44dc0058acd12e1
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 29802cbc68b4cf503ad5dadc56c446f59f239854
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996398"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903300"
 ---
-# <a name="require-data-lake-store-encryption"></a>需要 Data Lake Store 加密
+# <a name="sample---require-data-lake-store-encryption"></a>示例 - 需要 Data Lake Store 加密
 
 此内置策略拒绝任何未启用加密的 Data Lake Store 帐户。
 
@@ -53,12 +52,12 @@ ms.locfileid: "53996398"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a7ff3161-0087-490a-9ad9-ad6217f4f43a
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a7ff3161-0087-490a-9ad9-ad6217f4f43a
 
-New-AzureRmPolicyAssignment -name "Data Lake Store encryption" -PolicyDefinition $definition -Scope <scope>
+New-AzPolicyAssignment -name "Data Lake Store encryption" -PolicyDefinition $definition -Scope <scope>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>清理 PowerShell 部署
@@ -66,7 +65,7 @@ New-AzureRmPolicyAssignment -name "Data Lake Store encryption" -PolicyDefinition
 运行以下命令删除策略分配。
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name "Data Lake Store encryption" -Scope <scope>
+Remove-AzPolicyAssignment -Name "Data Lake Store encryption" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

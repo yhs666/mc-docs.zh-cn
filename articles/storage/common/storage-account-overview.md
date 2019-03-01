@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/13/2018
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 1f29d74ad15e6d26f37ed51cfc44ef11b82b0801
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 65d7b47b724cd0be336b79e4ace7c3d8427b36df
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665436"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196558"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 
@@ -79,7 +79,7 @@ Blob 存储帐户提供多个访问层用于根据使用模式存储数据。 �
 可以针对下述两个性能层之一配置常规用途存储帐户：
 
 * 用于存储 Blob、文件、表、队列和 Azure 虚拟机磁盘的标准性能层。
-* 仅用于存储 Azure 虚拟机磁盘的高级性能层。 请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../virtual-machines/windows/premium-storage.md)以了解高级存储的详细概述。
+* 仅用于存储非托管虚拟机磁盘的高级性能层。
 
 ## <a name="access-tiers-for-block-blob-data"></a>块 Blob 数据的访问层
 

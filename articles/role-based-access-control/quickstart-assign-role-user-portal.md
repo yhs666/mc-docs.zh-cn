@@ -1,6 +1,6 @@
 ---
-title: 教程 - 使用 RBAC 和 Azure 门户为用户授予访问权限 | Microsoft Docs
-description: 使用基于角色的访问控制 (RBAC) 在 Azure 门户中分配角色，以便向用户授予权限。
+title: 教程 - 使用 RBAC 和 Azure 门户授予用户对 Azure 资源的访问权限 | Microsoft Docs
+description: 了解如何使用 Azure 门户中的基于角色的访问控制 (RBAC) 授予用户对 Azure 资源的访问权限。
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 11/30/2018
-ms.date: 12/20/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 20b8a6111d7154b5d17f8ff3bd287db123c5a832
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 531ae99d7071b834dd054e3dffac36b04b7e5c4b
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656518"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836888"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>教程：使用 RBAC 和 Azure 门户为用户授予访问权限
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>教程：使用 RBAC 和 Azure 门户授予用户对 Azure 资源的访问权限
 
-可以在 Azure 中通过[基于角色的访问控制 (RBAC)](overview.md) 这种方式管理对资源的访问。 在本教程中，你将授权用户在某个资源组中创建和管理虚拟机。
+可以通过[基于角色的访问控制 (RBAC)](overview.md) 方式管理对 Azure 资源的访问权限。 在本教程中，你将授权用户在某个资源组中创建和管理虚拟机。
 
 本教程介绍如何执行下列操作：
 
@@ -114,7 +114,7 @@ ms.locfileid: "53656518"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [教程：使用 RBAC 和 PowerShell 授予用户访问权限](tutorial-role-assignments-user-powershell.md)
+> [教程：使用 RBAC 和 Azure PowerShell 授予用户对 Azure 资源的访问权限](tutorial-role-assignments-user-powershell.md)
 
 
 <!-- Update_Description: wording update -->

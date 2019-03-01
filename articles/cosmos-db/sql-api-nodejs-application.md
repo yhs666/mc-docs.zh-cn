@@ -7,17 +7,16 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/10/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 1b9ab062ebe10e39c9414db9e8f14e98aa32841d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 85e9e825ba3ced77beb45b72bfbce1bce1a712f9
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309243"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988007"
 ---
-<a name="_Toc395783175"></a>
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 
 > [!div class="op_single_selector"]
@@ -122,7 +121,7 @@ ms.locfileid: "54309243"
 
 3. 将以下代码复制到“taskDao.js”文件中：
 
-   ```nodejs
+   ```javascript
    // @ts-check
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const debug = require("debug")("todo:taskDao");
@@ -202,7 +201,7 @@ ms.locfileid: "54309243"
 
 2. 将以下代码添加到 **tasklist.js**。 此代码会加载 **tasklist.js** 使用的 CosmosClient 和 async 模块， 并定义 **TaskList** 类，该类作为我们之前定义的 **TaskDao** 对象的一个实例来传递：
 
-   ```nodejs
+   ```javascript
    const TaskDao = require("../models/TaskDao");
 
    class TaskList {
@@ -263,7 +262,7 @@ ms.locfileid: "54309243"
 
 2. 将以下代码添加到 **config.js** 文件。 此代码会定义应用程序所需的配置设置和值。
 
-   ```nodejs
+   ```javascript
    const config = {};
 
    config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
@@ -292,7 +291,7 @@ ms.locfileid: "54309243"
 
 2. 将以下代码添加到 **app.js** 文件。 此代码定义要使用的配置文件，并将值加载到将要在后续部分使用的某些变量中。 
 
-   ```nodejs
+   ```javascript
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const config = require("./config");
    const TaskList = require("./routes/tasklist");
@@ -333,7 +332,7 @@ ms.locfileid: "54309243"
      })
      .catch(err => {
        console.error(err);
-       console.error("Shutting down because there was an error settinig up the database.");
+       console.error("Shutting down because there was an error setting up the database.");
        process.exit(1);
      });
 
@@ -499,4 +498,4 @@ ms.locfileid: "54309243"
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 和 REST API 列出拒绝分配 - Azure | Microsoft Docs
-description: 了解如何使用基于角色的访问控制 (RBAC) 和 REST API 来列出用户、组和应用程序的拒绝分配。
+title: 使用 REST API 为 Azure 资源列出拒绝分配 - Azure | Microsoft Docs
+description: 了解如何使用 Azure 资源基于角色的访问控制 (RBAC) 和 REST API 来列出用户、组和应用程序的拒绝分配。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 10/22/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: c2a08e1b916c96278c5d6a9de2d327cdfb5eb1b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 94980c3e12eb8b5b7a4d0acbac3412ac13da4643
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658355"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836898"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 列出拒绝分配
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>使用 REST API 列出 Azure 资源的拒绝分配
 
 当前，拒绝分配为“只读”，且只能由 Azure 设置。 即使无法自行创建拒绝分配，也可列出拒绝分配，因为它们可能会影响你的有效权限。 本文介绍了如何使用 RBAC 和 REST API 列出拒绝分配。
 
@@ -96,7 +96,8 @@ ms.locfileid: "52658355"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解拒绝分配](deny-assignments.md)
+- [了解 Azure 资源的拒绝分配](deny-assignments.md)
 - [提升 Azure Active Directory 中全局管理员的访问权限](elevate-access-global-admin.md)
 - [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)
 
+<!-- Update_Description: wording update -->

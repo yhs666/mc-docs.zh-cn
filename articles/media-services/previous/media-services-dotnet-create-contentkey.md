@@ -3,7 +3,7 @@ title: 使用 .NET 创建内容密钥
 description: 了解如何创建提供对资产进行安全访问的内容密钥。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/20/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 93e5b0de25c79f900b39c4ee2f8b70f830b38846
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/09/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 5fe165d6ce15496a8912447063a91bfb17918495
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661480"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833282"
 ---
-# <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥
+# <a name="create-contentkeys-with-net-legacy"></a>使用 .NET 创建内容密钥（旧版）
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -31,9 +31,9 @@ ms.locfileid: "52661480"
 
 媒体服务允许创建资产和传送加密的资产。 “ContentKey”提供对“资产”的安全访问。 
 
-创建新资产时（例如，[上传文件](media-services-dotnet-upload-files.md)之前），可以指定以下加密选项：“StorageEncrypted”、“CommonEncryptionProtected”或“EnvelopeEncryptionProtected”。 
+创建新资产时（例如，[上传文件](media-services-dotnet-upload-files.md)之前），可以指定以下加密选项：StorageEncrypted、CommonEncryptionProtected 或 EnvelopeEncryptionProtected。 
 
-将资产传送到客户端时，可以使用以下两个加密选项之一 [将资产配置为动态加密](media-services-dotnet-configure-asset-delivery-policy.md)：“DynamicEnvelopeEncryption”或“DynamicCommonEncryption”。
+将资产传送到客户端时，可以使用以下两个加密选项之一[将资产配置为动态加密](media-services-dotnet-configure-asset-delivery-policy.md)：DynamicEnvelopeEncryption 或 DynamicCommonEncryption。
 
 加密的资产必须与 **ContentKey**关联。 本文介绍如何创建内容密钥。
 

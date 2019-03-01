@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/01/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d1f65e31c3766cc67b64ef239205f83dbcd43db1
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: 9353c75168b9f94f12865b5f5a494bec411c5724
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857417"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987982"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用（SDK 版本 3 预览）
 
@@ -79,6 +79,7 @@ ms.locfileid: "54857417"
 <a name="Connect"></a>
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a>步骤 3：连接到 Azure Cosmos DB 帐户
 1. 首先，将 **Program.cs** 文件中 C# 应用程序开头的引用替换为以下引用：
+
     ```csharp
     using System;
     using System.Threading.Tasks;
@@ -87,6 +88,7 @@ ms.locfileid: "54857417"
     using System.Collections.Generic;
     using System.Net;
     ```
+
 1. 现在，请将这些常量和变量添加到公共类 ``Program`` 中。
     ```csharp
     public class Program
@@ -300,7 +302,7 @@ ms.locfileid: "54857417"
     ```csharp
     /*
         Create the container if it does not exist. 
-        Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+        Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
     */
     private async Task CreateContainer()
     {

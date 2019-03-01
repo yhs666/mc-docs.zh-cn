@@ -1,6 +1,6 @@
 ---
-title: 了解 Azure RBAC 中的拒绝分配 | Microsoft 文档
-description: 了解针对 Azure 中的资源基于角色的访问控制 (RBAC) 中的拒绝分配。
+title: 了解 Azure 资源的拒绝分配 | Microsoft Docs
+description: 了解 Azure 资源基于角色的访问控制 (RBAC) 中的拒绝分配。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/30/2018
-ms.date: 12/20/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 96c9bd10412556432cfde49d02d0499e328dbab8
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: bcf2934ccbcd1c23186bcf0dd8d7be7d6362a9da
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656519"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836923"
 ---
-# <a name="understand-deny-assignments"></a>了解拒绝分配
+# <a name="understand-deny-assignments-for-azure-resources"></a>了解 Azure 资源的拒绝分配
 
-*拒绝分配*类似于角色分配，可将一组拒绝操作附加到特定范围内的用户、组或服务主体，以便拒绝访问。 即使角色分配向用户授予了访问权限，拒绝分配也会阻止用户执行特定的操作。 Azure 中的某些资源提供程序现在包括了拒绝分配。 当前，拒绝分配为“只读”，且只能由 Azure 设置。
+*拒绝分配*类似于角色分配，可将一组拒绝操作附加到特定范围内的用户、组或服务主体，以便拒绝访问。 即使角色分配向用户授予了访问权限，拒绝分配也会阻止用户执行特定的 Azure 资源操作。 Azure 中的某些资源提供程序现在包括了拒绝分配。 当前，拒绝分配为“只读”，且只能由 Azure 设置。
 
 在某些方面，拒绝分配不同于角色分配。 拒绝分配可以排除主体并阻止子范围进行继承。 拒绝分配也适用于[经典订阅管理员](rbac-and-directory-admin-roles.md)分配。
 
@@ -54,14 +54,14 @@ ms.locfileid: "53656519"
 
 ## <a name="system-defined-principal"></a>系统定义的主体
 
-为了支持拒绝分配，引入了**系统定义的主体**。 此主体表示 Azure AD 目录中的所有用户、组、服务主体。 如果主体 ID 是零 GUID `00000000-0000-0000-0000-000000000000` 且主体类型是 `SystemDefined`，则此主体表示所有主体。 可以将 `SystemDefined` 与 `ExcludePrincipals` 组合使用来拒绝除了某些用户之外的所有主体。 `SystemDefined` 具有以下约束：
+为了支持拒绝分配，引入了**系统定义的主体**。 此主体表示 Azure AD 目录中的所有用户、组、服务主体和托管标识。 如果主体 ID 是零 GUID `00000000-0000-0000-0000-000000000000` 且主体类型是 `SystemDefined`，则此主体表示所有主体。 可以将 `SystemDefined` 与 `ExcludePrincipals` 组合使用来拒绝除了某些用户之外的所有主体。 `SystemDefined` 具有以下约束：
 
 - 只能用于 `Principals`，不能用于 `ExcludePrincipals`。
 - `Principals[i].Type` 必须设置为 `SystemDefined`。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 RBAC 和 REST API 列出拒绝分配](deny-assignments-rest.md)
-- [了解角色定义](role-definitions.md)
+- [使用 REST API 列出 Azure 资源的拒绝分配](deny-assignments-rest.md)
+- [了解 Azure 资源的角色定义](role-definitions.md)
 
 <!-- Update_Description: wording update -->

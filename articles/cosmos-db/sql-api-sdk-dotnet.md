@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 03/09/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: c2db99a2f4b3d0d7e20074a71d939973c8db8b9d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 4dd6dd8072fed7d516459f184856173aa4e6e678
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309060"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987963"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -31,20 +31,14 @@ ms.locfileid: "54309060"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK 下载**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-
-<tr><td>**API 文档**</td><td>[ 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**示例**</td><td>[.NET代码示例](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**入门**</td><td>[Azure Cosmos DB .NET SDK 入门](sql-api-get-started.md)</td></tr>
-
-<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**当前受支持的框架**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
+|**API 文档**|[ 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)|
+|**示例**|[.NET代码示例](sql-api-dotnet-samples.md)|
+|**入门**|[Azure Cosmos DB .NET SDK 入门](sql-api-get-started.md)|
+|**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)|
+|**当前受支持的框架**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 <!-- Not Available on ## Release notes -->
 

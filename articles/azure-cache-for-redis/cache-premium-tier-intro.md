@@ -1,26 +1,26 @@
 ---
 title: Azure Redis 缓存高级层简介 | Microsoft Docs
 description: 了解如何为高级层 Azure Redis 缓存实例创建和管理 Redis 暂留、Redis 群集和 VNet 支持
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 47cfe19a71f62fb13ef177dff56a311982738cea
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: d6dfde9581a9195012f5ab144faf8a9315a8598a
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334279"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903077"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Redis 缓存高级层简介
 Azure Redis 缓存是一种分布式托管缓存，可提供对数据的超快访问，有助于生成高度可缩放且响应速度快的应用程序。 
@@ -104,5 +104,5 @@ Redis 群集可提供最大的缩放能力和吞吐量。 增加群集中分片�
 - [如何在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)
 - [如何管理 Azure Redis 缓存](cache-administration.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 

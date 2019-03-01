@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: be16d97f6aaa075ba286ea447ec7367adc7c3148
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: f0b2dcd0b951f532bd9ebc2c24c92f0774d68c9c
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309190"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988045"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引类型
 
@@ -43,7 +43,7 @@ ms.locfileid: "54309190"
 | ---------- | ---------------- |
 | 哈希  | 对 /prop/?（或 /）应用哈希索引 (or /) 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>对 /props/[]/?（或 / 和 /props/）应用哈希索引 可用于有效完成下列查询：<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | 范围  | 对 /prop/?（或 /）应用范围索引 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| 空间     | /prop/? 可用于有效完成下列查询：<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type":"Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type":"Polygon", ... }) --启用对点的索引编制<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type":"Point", ... }, c.prop) --启用对多边形的索引编制。     |
+| 空间     | /prop/? 可用于有效完成下列查询：<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type":"Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type":"Point", ... }) --启用对点的索引编制<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type":"Polygon", ... }, c.prop) --启用对多边形的索引编制。     |
 
 ## <a name="default-behavior-of-index-kinds"></a>索引种类的默认行为
 

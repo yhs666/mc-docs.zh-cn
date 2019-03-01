@@ -1,22 +1,22 @@
 ---
 title: 示例 - 应用标记及其默认值
-description: 如果未提供该标记，此示例策略会追加指定的标记名称和值。
+description: 此示例策略定义会追加指定的标记名称和值（如果未提供该标记）。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: e62ee427d0376aa5949c7fc1afb219bb3efc1c7b
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 06714d5d96d67759a798c4371fdf0cfd2ee3bf73
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996442"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903305"
 ---
-# <a name="apply-tag-and-its-default-value"></a>应用标记及其默认值
+# <a name="sample---apply-tag-and-its-default-value"></a>示例 - 应用标记及其默认值
 
 如果未提供标记，此策略会追加指定的标记名称和值。 由你指定要应用的标记名称和值。
 
@@ -30,7 +30,9 @@ ms.locfileid: "53996442"
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-policy"></a>示例策略
+
 ### <a name="policy-definition"></a>策略定义
+
 结构完整的 JSON 策略定义，可以通过 REST API、“部署到 Azure”按钮以及手动在门户中使用。
 
 ```json
@@ -147,49 +149,49 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 [![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
 
-##  <a name="powershell"></a>PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-### <a name="deploy-with--powershell"></a>使用 PowerShell 进行部署
+### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
 ```powershell
 # Create the Policy Definition (Subscription scope)
-$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' -Mode All
 
-# Set the scope to a resource group; may also be a subscription or management group
-$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+# Set the scope to a resource group; may also be a resource, subscription, or management group
+$scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
 $policyparam = '{ "tagName": { "value": "costCenter" }, "tagValue": { "value": "headquarter" } }'
 
 # Create the Policy Assignment
-$assignment = New-AzureRmPolicyAssignment -Name 'apply-default-tag-value' -DisplayName 'Apply tag and its default value Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
+$assignment = New-AzPolicyAssignment -Name 'apply-default-tag-value' -DisplayName 'Apply tag and its default value Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
-### <a name="remove-with--powershell"></a>使用 PowerShell 删除
+### <a name="remove-with-azure-powershell"></a>使用 Azure PowerShell 删除
 
 运行以下命令来删除以前的分配和定义：
 
 ```powershell
 # Remove the Policy Assignment
-Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+Remove-AzPolicyAssignment -Id $assignment.ResourceId
 
 # Remove the Policy Definition
-Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
+Remove-AzPolicyDefinition -Id $definition.ResourceId
 ```
 
-### <a name="powershell-explanation"></a>PowerShell 说明
+### <a name="azure-powershell-explanation"></a>Azure PowerShell 说明
 
 部署和删除脚本使用以下命令。 下表中的每条命令均链接到特定于命令的文档：
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/new-azurermpolicydefinition) | 创建新的 Azure Policy 定义。 |
-| [Get-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/get-azurermresourcegroup) | 获取单个资源组。 |
-| [New-AzureRmPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/new-azurermpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [Remove-AzureRmPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | 删除现有的 Azure Policy 分配。 |
-| [Remove-AzureRmPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | 删除现有的 Azure Policy 定义。 |
+| [New-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicydefinition) | 创建新的 Azure Policy 定义。 |
+| [Get-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Get-Azresourcegroup) | 获取单个资源组。 |
+| [New-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/New-Azpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| [Remove-AzPolicyAssignment](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Remove-Azpolicyassignment) | 删除现有的 Azure Policy 分配。 |
+| [Remove-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/Remove-Azpolicydefinition) | 删除现有的 Azure Policy 定义。 |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -201,7 +203,7 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'apply-default-tag-value' --display-name 'Apply tag and its default value' --description 'Applies a required tag and its default value if it is not specified by the user' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' --mode All)
 
-# Set the scope to a resource group; may also be a subscription or management group
+# Set the scope to a resource group; may also be a resource, subscription, or management group
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)

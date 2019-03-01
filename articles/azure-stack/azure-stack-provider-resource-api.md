@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/22/2018
-ms.date: 12/17/2018
+origin.date: 02/19/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: e73ff1e14df566054d477361dbd50af4cc2f6450
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: f15b8c50e440828912efce73914c836267b047bc
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396205"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905344"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 “提供者”一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
@@ -82,8 +83,8 @@ meterID1",
 | **参数** | **说明** |
 | --- | --- |
 | *id* |使用情况聚合的唯一 ID。 |
-| name |使用情况聚合的名称。 |
-| type |资源定义。 |
+| *name* |使用情况聚合的名称。 |
+| *类型* |资源定义。 |
 | *subscriptionId* |Azure Stack 用户的订阅标识符。 |
 | *usageStartTime* |此使用情况聚合所属的使用情况存储桶 UTC 开始时间。|
 | *usageEndTime* |此使用情况聚合所属的使用情况存储桶 UTC 结束时间。 |

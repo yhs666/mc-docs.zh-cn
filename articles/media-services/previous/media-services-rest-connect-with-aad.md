@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/22/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: vjay
-ms.openlocfilehash: bab88c2108ed3c1d404803001f3337c1eecd9c43
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: cf5ecd96dab6a642b18e283e2ab25be7c1705696
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672609"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833412"
 ---
-# <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
+# <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问媒体服务 API
 
 通过 Azure 媒体服务使用 Azure AD 身份验证时，可以通过以下两种方式之一进行身份验证：
 
@@ -51,7 +51,7 @@ ms.locfileid: "52672609"
 - 查看[使用 Azure AD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)一文。
 - 安装 [Postman](https://www.getpostman.com/) REST 客户端，以便执行本文介绍的 REST API。 
 
-    在本教程中，我们使用的是 **Postman**，但任何 REST 工具都适用。 其他可使用的工具有：具有 REST 插件的 **Visual Studio Code** 或 **Telerik Fiddler**。 
+    本教程中要使用的是 **Postman**，但任何 REST 工具也适用。 其他替代工具包括：带有 REST 插件的 **Visual Studio Code** 或 **Telerik Fiddler**。 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>从 Azure 门户获取身份验证信息
 
@@ -80,7 +80,7 @@ ms.locfileid: "52672609"
 5. 选择现有的 **Azure AD 应用程序**，或者创建一个新的（如下所示）。
 
     > [!NOTE]
-    > 尝试访问媒体服务帐户时，调用用户的角色必须是**参与者**或**所有者**，这样 Azure 媒体 REST 请求才会成功。 如果出现“远程服务器返回错误: (401)未授权”异常，请参阅[访问控制](media-services-use-aad-auth-to-access-ams-api.md#access-control)。
+    > 尝试访问媒体服务帐户时，调用用户的角色必须是**参与者**或**所有者**，这样 Azure 媒体 REST 请求才会成功。 如果出现“远程服务器返回错误:(401)未授权”的异常，请参阅[访问控制](media-services-use-aad-auth-to-access-ams-api.md#access-control)。
 
     如需创建新的 AD 应用，请执行以下步骤：
     
@@ -191,5 +191,5 @@ ms.locfileid: "52672609"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 尝试 [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln)（通过 Azure AD 身份验证访问 Azure 媒体服务：均使用 REST API）中的此示例代码
+* 尝试使用 [Azure AD Authentication for Azure Media Services Access:Both via REST API](https://github.com/willzhan/WAMSRESTSoln)（Azure 媒体服务访问的 Azure AD 身份验证：均通过 REST API）中的此示例代码
 * [使用 .NET 上传文件](media-services-dotnet-upload-files.md)

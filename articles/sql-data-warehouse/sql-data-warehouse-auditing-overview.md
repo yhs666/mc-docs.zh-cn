@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 origin.date: 04/11/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 459f37b0fd84181ced481cca10b0370cfcb853fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1d6219f6743ec754d5fa8c436246a7423a92ae71
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655249"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833340"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的审核
 
@@ -75,10 +75,13 @@ SQL 数据仓库数据库审核可让你：
     ![导航窗格][8]
 
     > [!IMPORTANT]
-    > 服务器级审核日志会写入 Azure 订阅的 Azure Blob 存储中的**追加 Blob**。
+    > 审核日志会写入 Azure 订阅的 Azure Blob 存储中的**追加 Blob**。
     >
-    > * 追加 Blob 目前不支持高级存储。
-    > * 目前不支持 VNet 中的存储。
+    > - 支持所有存储类型（v1、v2、blob）。
+    > - 支持所有存储复制配置。
+    > - 目前不支持高级存储。
+    > - 目前不支持 VNet 中的存储。
+    > - 目前不支持有防火墙的存储
 
 8. 单击“保存” 。
 
@@ -108,14 +111,15 @@ SQL 数据仓库数据库审核可让你：
 
 5. 单击“确定”按钮保存存储详细信息配置。
 6. 在“按事件记录日志”下，单击“成功”和“失败”以记录所有事件，或者选择单个事件类别。
-7. 如果要为某个数据库配置审核，可能需要更改客户端的连接字符串，以确保正确捕获数据审核。 对于下层客户端连接，请查看 [修改连接字符串中的服务器 FDQN](sql-data-warehouse-auditing-downlevel-clients.md) 主题。
-<!-- Redirect sql-data-warehouse-auditing-downlevel-clients.md to sql-data-warehouse-auditing-overview.md-->
+7. 如果要为某个数据库配置审核，可能需要更改客户端的连接字符串，以确保正确捕获数据审核。 对于下层客户端连接，请查看[修改连接字符串中的服务器 FQDN](sql-data-warehouse-auditing-downlevel-clients.md) 主题。
 8. 单击 **“确定”**。
 
 ## <a id="subheading-3"></a>分析审核日志和报告
-<!-- Server-level policy audit logs unsupported.--> 审核日志会在设置期间选择的 Azure 存储帐户中前缀为 **SQLDBAuditLogs** 的一系列存储表内进行聚合。 可以使用工具（比如 [Azure 存储资源管理器](http://azurestorageexplorer.codeplex.com)）查看日志文件。
+<!-- Server-level policy audit logs unsupported.-->
+### <a name="database-level-policy-audit-logs"></a>数据库级策略审核日志
+数据库级审核日志会在设置期间选择的 Azure 存储帐户中前缀为 **SQLDBAuditLogs** 的一系列存储表内进行聚合。 可以使用工具（比如 [Azure 存储资源管理器](http://azurestorageexplorer.codeplex.com)）查看日志文件。
 
-可以借助以[可下载 Excel 电子表格](http://go.microsoft.com/fwlink/?LinkId=403540)形式提供的预配置仪表板报告模板来快速分析日志数据。 若要对审核日志使用模板，需要安装 Excel 2013 或更高版本以及 Power Query（可[从此处下载](http://www.microsoft.com/download/details.aspx?id=39379)）。
+可以借助以[可下载 Excel 电子表格](https://go.microsoft.com/fwlink/?LinkId=403540)形式提供的预配置仪表板报告模板来快速分析日志数据。 若要对审核日志使用模板，需要安装 Excel 2013 或更高版本以及 Power Query（可[从此处下载](https://www.microsoft.com/download/details.aspx?id=39379)）。
 
 该模板包含虚构的示例数据，可以将 Power Query 设置为直接从 Azure 存储帐户导入审核日志。
 
@@ -161,7 +165,7 @@ SQL 数据仓库数据库审核可让你：
 * JDBC（JDBC 虽然支持 TDS 7.4，但不完全支持 TDS 重定向功能）
 * Tedious（适用于 Node.JS）
 
-**注释：** 前面的服务器 FDQN 修改可能还可用于应用 SQL Server 级别的审核策略，而无需在每个数据库中进行配置（临时缓解）。     
+**注释：** 前面的服务器 FQDN 修改可能还可用于应用 SQL Server 级别的审核策略，而无需在每个数据库中进行配置（临时缓解）。     
 
 
 

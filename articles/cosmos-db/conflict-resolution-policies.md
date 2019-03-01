@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB 中的冲突解决类型和解决策略
+title: Azure Cosmos DB 中具有多个写入区域的冲突解决类型和解决策略
 description: 本文介绍 Azure Cosmos DB 中的冲突类别和冲突解决策略。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/26/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 77daae600ec8e1b8de12b6e7c6547c1711adfbd8
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 459c1427f2b9cef7bf46d58ac8e35081f3a8df87
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309304"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988021"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>冲突类型和解决策略
 
@@ -53,8 +53,9 @@ Azure Cosmos DB 提供了灵活的策略驱动的机制来解决更新冲突。 
 
 了解如何配置冲突解决策略。 请参阅以下文章：
 
+* [如何配置应用程序中的多主数据库](how-to-multi-master.md)
 * [使用 LWW 冲突解决策略](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [使用自定义冲突解决策略](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [使用冲突源](how-to-manage-conflicts.md#read-from-conflict-feed)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

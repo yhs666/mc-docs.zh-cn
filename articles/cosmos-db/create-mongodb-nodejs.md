@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 12/06/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: fabdd0b2fdfc0fa816f1de94fce2acedfbad8a89
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.date: 03/04/2019
+ms.openlocfilehash: 6c0f38ea597ba8bed62873a3ad5bc775a9abecfa
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085692"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987999"
 ---
-# <a name="migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
+# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -85,19 +85,17 @@ npm start
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作。
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作。 
 
-<!--Not Available on Azure Cloud Shell-->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az cloud set -n AzureChinaCloud
-az login
-#az cloud set -n AzureCloud  //means return to global azure 
+az login 
 ``` 
 
 ## <a name="add-the-azure-cosmos-db-module"></a>添加 Azure Cosmos DB 模块
 
-如果使用已安装的 Azure CLI，请运行 `az` 命令，检查是否已安装 `cosmosdb` 组件。 如果 `cosmosdb` 在基本命令列表中，请继续执行下一个命令。
+如果使用已安装的 Azure CLI，请运行 `az` 命令，检查是否已安装 `cosmosdb` 组件。 如果 `cosmosdb` 在基本命令列表中，请继续执行下一个命令。 
 
 <!-- Not Available on Azure Cloud Shell-->
 
@@ -265,4 +263,4 @@ git commit -m "configured MongoDB connection string"
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

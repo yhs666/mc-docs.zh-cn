@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 0e849318a4e7c3469d378a15fb89581d84e91cb1
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 47052a80564ad208d7c39f961ac26160396a630b
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309212"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988009"
 ---
-# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>使用 PowerShell 创建和管理 Azure Cosmos DB 资源
+# <a name="manage-azure-cosmos-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos 资源
 
 以下指南介绍了使用 Azure Powershell 自动管理 Azure Cosmos DB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][distribute-data-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 Azure Cosmos DB 帐户的跨平台管理，可使用 [Azure CLI](cli-samples.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](create-sql-api-dotnet.md#create-account)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "54309212"
 <a name="create-documentdb-account-powershell"></a>
 ##  <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
-使用此命令可创建 Azure Cosmos DB 数据库帐户。 可将新数据库帐户配置为具有特定[一致性策略](consistency-levels.md)的单区域或 [多区域][distribute-data-globally.md]。
+使用此命令可创建 Azure Cosmos DB 数据库帐户。 可以将新数据库帐户配置为具有特定[一致性策略](consistency-levels.md)的单区域或[多区域][distribute-data-globally]。
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -58,7 +58,7 @@ ms.locfileid: "54309212"
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "China North" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>注释
-* 上述示例创建具有两个区域的数据库帐户。 还可能创建单区域（指定为写入区域并且故障转移优先级值为 0）或多区域数据库帐户。 有关详细信息，请参阅 [多区域数据库帐户][distribute-data-globally.md]。
+* 上述示例创建具有两个区域的数据库帐户。 还可能创建单区域（指定为写入区域并且故障转移优先级值为 0）或多区域数据库帐户。 有关详细信息，请参阅[多区域数据库帐户][distribute-data-globally]。
 * 这些位置必须是已正式推出 Azure Cosmos DB 的区域。 [Azure 区域页面](https://www.azure.cn/support/service-dashboard/#services)提供当前的区域列表。
 
 <a name="update-documentdb-account-powershell"></a>
@@ -209,4 +209,4 @@ ms.locfileid: "54309212"
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties, wording update -->

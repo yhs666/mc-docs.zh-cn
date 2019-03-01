@@ -1,26 +1,26 @@
 ---
 title: 如何为高级 Azure Redis 缓存配置 Redis 群集功能 | Microsoft Docs
 description: 了解如何为高级层的 Azure Redis 缓存实例创建和管理 Redis 群集功能
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5b0725911bb86747278114049840b38d459b7395
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 871a94f6bdf5da5e073fcef6bea673ebe39e63c0
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334284"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903030"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置 Redis 群集功能
 Azure Redis 缓存具有不同的缓存产品/服务，从而在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上具有灵活性。 本文介绍如何配置高级 Azure Redis 缓存实例中的群集功能。
@@ -178,5 +178,6 @@ Redis 群集协议要求每个客户端直接以群集模式连接到每个分�
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: update metedata properties -->
 

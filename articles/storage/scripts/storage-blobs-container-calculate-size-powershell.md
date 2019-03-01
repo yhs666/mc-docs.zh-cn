@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 11/07/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 0990109a1f4908888e3d0add21cc35b31e810af3
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 49f80127ce1787191699a647c7406f25c9c98d2d
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334475"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196531"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
 此脚本通过计算容器中 blob 的总大小来计算 Azure Blob 存储中容器的大小。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 04/25/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0902caa10e83ef73123d6196ea3b714f7b7c81c7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6b4eabf5efdb0562342ba3521e7cbc23e82adbb8
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676786"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56902975"
 ---
 # <a name="http-application-routing"></a>HTTP 应用程序路由
 
@@ -39,6 +39,9 @@ HTTP 应用程序路由加载项可以在部署 AKS 群集时通过 Azure CLI �
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> 如果要启用多个加载项，请以逗号分隔列表的形式提供。 例如，要启用 HTTP 应用程序路由和监视，请使用格式 `--enable-addons http_application_routing,monitoring`。
 
 还可以使用 [az aks enable-addons][az-aks-enable-addons] 命令在现有 AKS 群集上启用 HTTP 路由。 若要在现有群集上启用 HTTP 路由，请添加 `--addons` 参数并指定 *http_application_routing*，如以下示例所示：
 
@@ -174,6 +177,36 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+当禁用了 HTTP 应用程序路由加载项时，某些 Kubernetes 资源可能会保留在群集中。 这些资源包括 *configMap* 和 *secret*，并且是在 *kube-system* 命名空间中创建的。 为了维护一个干净的群集，你可能想要删除这些资源。
+
+使用以下 [kubectl get][kubectl-get] 命令查找 *addon-http-application-routing* 资源：
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+以下示例输出显示了应当删除的 configMap：
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+若要删除资源，请使用 [kubectl delete][kubectl-delete] 命令。 指定资源类型、资源名称和命名空间。 以下示例删除上面的 configmap 之一：
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+针对群集中剩余的所有 *addon-http-application-routing* 资源重复前面的 `kubectl delete` 步骤。
+
 ## <a name="troubleshoot"></a>故障排除
 
 请使用 [kubectl logs][kubectl-logs] 命令查看 External-DNS 应用程序的应用程序日志。 这些日志应确认已成功创建 A 和 TXT DNS 记录。
@@ -255,6 +288,7 @@ ingress "party-clippy" deleted
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

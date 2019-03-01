@@ -1,25 +1,25 @@
 ---
 title: 云服务的多个 VIP
+titlesuffix: Azure Load Balancer
 description: 概述 MultiVIP，以及如何在云服务上设置多个 VIP
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/05/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 21e2c97efdb9652bbffb88da9b387f69f270193c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e5c21f17236ad2f58b81864527954354dd611fd1
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652156"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836951"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>为云服务配置多个 VIP
 

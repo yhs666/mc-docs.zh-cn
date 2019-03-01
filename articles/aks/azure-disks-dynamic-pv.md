@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3307ca7fac5439d5405175419374e254447c13d8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e958458b37c5571303157b4f3dd325ebab91fe48
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676551"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903012"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
@@ -268,7 +268,7 @@ Volumes:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/premium-storage.md
+[premium-storage]: ../virtual-machines/windows/disks-types.md
 [az-disk-list]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list
 [az-snapshot-create]: https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-create
 [az-disk-create]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create

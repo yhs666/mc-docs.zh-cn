@@ -1,22 +1,22 @@
 ---
 title: 示例 - 不允许的 VM 扩展
-description: 此示例策略禁止使用指定的扩展。
+description: 此示例策略定义禁止在虚拟机上使用指定的扩展。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 09/18/2018
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 6c21879284e0080141d0e42dea84522864f8afb5
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: b945ca1cf0d975b8fcdc721604ae759c0f12a278
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996394"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903216"
 ---
-# <a name="not-allowed-vm-extensions"></a>不允许的 VM 扩展
+# <a name="sample---not-allowed-vm-extensions"></a>示例 - 不允许的 VM 扩展
 
 禁止使用指定的扩展。 指定一个数组，其中包含被禁止的扩展类型。
 
@@ -69,12 +69,12 @@ ms.locfileid: "53996394"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" -DisplayName "Not allowed VM Extensions" -description "This policy governs which VM extensions that are explicitly denied." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "not-allowed-vmextension" -DisplayName "Not allowed VM Extensions" -description "This policy governs which VM extensions that are explicitly denied." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -notAllowedExtensions <Denied extension> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -notAllowedExtensions <Denied extension> -PolicyDefinition $definition
 $assignment
 ```
 
@@ -83,7 +83,7 @@ $assignment
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

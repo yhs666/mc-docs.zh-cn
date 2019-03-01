@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 6/5/2018
-ms.date: 12/21/2018
+ms.date: 01/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4e73606ab64dd5c05ff6b260e2f71def41b01602
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.openlocfilehash: bd62aeff56f7342dc462595a9f80b742665c09f4
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737016"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987052"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 
@@ -32,7 +32,7 @@ Azure 备份服务器保护以下 Azure Stack 虚拟机工作负荷。
 | Windows Server 半年频道 - Datacenter/Enterprise/Standard | 卷、文件、文件夹 |
 | Windows Server 2016 - Datacenter/Enterprise/Standard | 卷、文件、文件夹 |
 | Windows Server 2012 R2 - Datacenter/Enterprise/Standard | 卷、文件、文件夹 |
-| Windows Server 2012 - Datacenter/Entprise/Standard | 卷、文件、文件夹 |
+| Windows Server 2012 - Datacenter/Enterprise/Standard | 卷、文件、文件夹 |
 | Windows Server 2008 R2 - Datacenter/Enterprise/Standard | 卷、文件、文件夹 |
 | SQL Server 2016 | 数据库 |
 | SQL Server 2014 | 数据库 |

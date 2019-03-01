@@ -1,27 +1,19 @@
 ---
-title: 跨界连接的规划和设计：Azure VPN 网关 | Microsoft 文档
+title: 跨界连接的规划和设计：Azure VPN 网关 | Microsoft Docs
 description: 了解跨界、混合与 VNet 到 VNet 连接的 VPN 网关规划和设计
 services: vpn-gateway
-documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: WenJason
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 07/27/2017
-ms.date: 08/31/2017
-ms.author: v-junlch
-ms.openlocfilehash: 20996391c9c75189f22441ba79e94aa46be4df97
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: cb963788261ee53ff30e03922de51ab15fcb0d8c
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660455"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833196"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 
@@ -31,15 +23,15 @@ ms.locfileid: "52660455"
 
 ### <a name="compare"></a>跨界连接选项
 
-要安全地将本地站点连接到虚拟网络，可以使用三种不同的方式实现此目的：站点到站点、点到站点和 ExpressRoute。 比较可用的不同跨界连接。 选择的选项取决于不同的考虑因素，例如：
+若要将本地站点安全地连接到虚拟网络，可以使用三种不同的方式实现此目的：站点到站点、点到站点和 ExpressRoute。 比较可用的不同跨界连接。 选择的选项取决于不同的考虑因素，例如：
 
-- 解决方案需要哪种吞吐量？
-- 是希望通信通过经由安全 VPN 的公共 Internet 进行，还是通过专用连接进行？
-- 是否有可用的公共 IP 地址？
-- 是否打算使用 VPN 设备？ 如果是，它兼容吗？
-- 是要连接几台计算机，还是想要站点持续连接？
-- 想要创建的解决方案需要哪种类型的 VPN 网关？
-- 应该使用哪个网关 SKU？
+* 解决方案需要哪种吞吐量？
+* 是希望通信通过经由安全 VPN 的公共 Internet 进行，还是通过专用连接进行？
+* 是否有可用的公共 IP 地址？
+* 是否打算使用 VPN 设备？ 如果是，它兼容吗？
+* 是要连接几台计算机，还是想要站点持续连接？
+* 想要创建的解决方案需要哪种类型的 VPN 网关？
+* 应该使用哪个网关 SKU？
 
 ### <a name="planningtable"></a>规划表
 
@@ -70,6 +62,10 @@ ms.locfileid: "52660455"
 
 以下部分介绍 VPN 网关基础知识。 
 
+#### <a name="servicelimits"></a>网络服务限制
+
+滚动浏览表以查看[网络服务限制](../azure-subscription-service-limits.md#networking-limits)。 列出的限制可能会影响设计。
+
 #### <a name="subnets"></a>关于子网
 
 创建连接时，必须考虑子网范围。 不能有重叠的子网地址范围。 子网重叠是指一个虚拟网络或本地位置包含其他位置所包含的相同地址空间。 这意味着，需要请求本地网络的网络工程师指定一个可用于 Azure IP 寻址空间/子网的范围。 使用的地址空间不能已在本地网络中使用。
@@ -88,17 +84,17 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 
 网关类型包括：
 
-- Vpn
-- ExpressRoute
+* Vpn
+* ExpressRoute
 
 #### <a name="connectiontype"></a>关于连接类型
 
 每个配置需要特定的连接类型。 连接类型包括：
 
-- IPsec
-- Vnet2Vnet
-- ExpressRoute
-- VPNClient
+* IPsec
+* Vnet2Vnet
+* ExpressRoute
+* VPNClient
 
 #### <a name="vpntype"></a>关于 VPN 类型
 
@@ -114,8 +110,8 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 
 若要配置站点到站点连接，不管使用哪种部署模型，都需要以下各项：
 
-- 与 Azure VPN 网关兼容的 VPN 设备
-- 不在 NAT 后面的面向公众的 IPv4 IP 地址
+* 与 Azure VPN 网关兼容的 VPN 设备
+* 不在 NAT 后面的面向公众的 IPv4 IP 地址
 
 必须具有配置 VPN 设备的经验，或者有人可以帮助配置设备。
 

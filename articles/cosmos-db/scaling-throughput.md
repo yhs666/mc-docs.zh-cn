@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/15/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 6db933737a65070d99887990d007a14bbbfedfe5
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 4b982f9dc4829c6ecb80d52225f364ee4641b1d1
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309042"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987928"
 ---
-# <a name="scaling-throughput-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中缩放吞吐量
+# <a name="globally-scale-provisioned-throughput"></a>全局缩放预配的吞吐量 
 
 在 Azure Cosmos DB 中，预配吞吐量以“请求单位数/秒 (RU/秒)”表示。 RU 度量针对 Cosmos 容器执行的读取和写入操作的成本，如下图所示：
 

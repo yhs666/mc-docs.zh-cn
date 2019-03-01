@@ -11,17 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 89703b3cf7ff9e90037167a577d9f83cf453ae44
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 66741b67b7172534cbb3a0fd08265b8b868f6082
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673164"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833401"
 ---
-# <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
+# <a name="azure-media-services-concepts"></a>Azure 媒体服务概念 
+
 本部分概述最重要的媒体服务概念。
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>资产和存储
@@ -107,7 +108,7 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 ## <a name="live-streaming"></a>实时流式处理
 在 Azure 媒体服务中，频道表示用于处理实时流内容的管道。 频道通过以下两种方式之一接收实时输入流：
 
-* 本地实时编码器将多比特率 RTMP 或平滑流（分片 MP4）发送到通道。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 编码器。 引入流会通过通道，但不会进行任何进一步的转码和编码操作。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器将多比特率 RTMP 或平滑流（分片 MP4）发送到频道。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 编码器。 引入流会通过通道，但不会进行任何进一步的转码和编码操作。 收到请求时，媒体服务会将该流传送给客户。
 * 将单比特率流（采用以下某种格式：RTMP 或平滑流式处理（分片 MP4））发送到能够使用媒体服务执行实时编码的通道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
 
 ### <a name="channel"></a>通道
@@ -137,7 +138,7 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 ### <a name="dynamic-encryption"></a>动态加密
 使用 Azure 媒体服务，可以在媒体从离开计算机到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准（AES，使用 128 位加密密钥）和通用加密（CENC，使用 PlayReady DRM）进行动态加密的内容。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 PlayReady 许可证的服务。
 
-当前可以加密以下流格式：HLS、MPEG DASH 和平滑流。 无法加密渐进式下载。
+当前可以加密以下流格式：HLS、MPEG DASH 和平滑流式处理。 无法加密渐进式下载。
 
 如果需要媒体服务来加密资产，则需要将加密密钥（CommonEncryption 或 EnvelopeEncryption）与资产关联，并配置密钥的授权策略。
 

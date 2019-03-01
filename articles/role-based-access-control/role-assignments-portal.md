@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 和 Azure 门户管理访问权限 | Microsoft Docs
-description: 了解如何使用基于角色的访问控制 (RBAC) 和 Azure 门户来管理用户、组、服务主体的访问权限。 这包括如何列出访问权限、授予访问权限以及删除访问权限。
+title: 使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限 | Microsoft Docs
+description: 了解如何使用基于角色的访问控制 (RBAC) 和 Azure 门户来管理用户、组、服务主体和托管标识对 Azure 资源的访问权限。 这包括如何列出访问权限、授予访问权限以及删除访问权限。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/30/2018
-ms.date: 12/20/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 75b3f9cddfca940928690c4d8ffe2a5f5891cc91
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 06df9cd259f250a9300404232f0b9cfdc68a63a5
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656582"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836986"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 门户管理访问权限
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限
 
-可以在 Azure 中通过[基于角色的访问控制 (RBAC)](overview.md) 这种方式管理对资源的访问。 本文介绍如何使用 RBAC 和 Azure 门户来管理用户、组、服务主体和托管标识的访问权限。
+可以通过[基于角色的访问控制 (RBAC)](overview.md) 管理对 Azure 资源的访问权限。 本文介绍如何使用 RBAC 和 Azure 门户来管理用户、组、服务主体和托管标识的访问权限。
 
 ## <a name="open-access-control-iam"></a>打开访问控制 (IAM)
 
@@ -42,7 +42,7 @@ ms.locfileid: "53656582"
 
 ## <a name="view-roles-and-permissions"></a>查看角色和权限
 
-角色定义是用于角色分配的权限的集合。 Azure 有 70 个以上的[内置角色](built-in-roles.md)。 请按照以下步骤查看可在管理和数据平面上执行的角色和权限。
+角色定义是用于角色分配的权限的集合。 Azure 提供超过 70 个 [Azure 资源的内置角色](built-in-roles.md)。 请按照以下步骤查看可在管理和数据平面上执行的角色和权限。
 
 1. 在要查看角色和权限的范围（例如管理组、订阅、资源组或资源）内打开“访问控制(IAM)”。
 
@@ -166,9 +166,9 @@ ms.locfileid: "53656582"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [教程：使用 RBAC 和 Azure 门户为用户授予访问权限](quickstart-assign-role-user-portal.md)
-- [教程：使用 RBAC 和 Azure PowerShell 授予用户访问权限](tutorial-role-assignments-user-powershell.md)
-- [内置角色](built-in-roles.md)
+- [教程：使用 RBAC 和 Azure 门户授予用户对 Azure 资源的访问权限](quickstart-assign-role-user-portal.md)
+- [教程：使用 RBAC 和 Azure PowerShell 授予用户对 Azure 资源的访问权限](tutorial-role-assignments-user-powershell.md)
+- [对 Azure 资源的 RBAC 进行故障排除](troubleshooting.md)
 - [使用 Azure 管理组来组织资源](../azure-resource-manager/management-groups-overview.md)
 
 <!-- Update_Description: wording update -->

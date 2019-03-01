@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/31/2019
-ms.date: 02/18/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f4eb6aaf29c04be5847c10701a7f9f09daa7f0f4
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 078fe5dd4923c92f9ae6d4ebf8ded8ef8e41cb90
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218277"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905384"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异和注意事项
 
@@ -65,6 +65,7 @@ ms.locfileid: "56218277"
 Azure Stack 托管磁盘支持以下 API 版本：
 
 - 2017-03-30
+- 2017-12-01
 
 ## <a name="managed-images"></a>托管映像
 

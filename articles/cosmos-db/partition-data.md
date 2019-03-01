@@ -6,13 +6,13 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 6a7cb3920fa61a813679c8c47151a3c5d7788357
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.date: 03/04/2019
+ms.openlocfilehash: 1118ac283822acf232a3d92852083847fee6af90
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309116"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987930"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区和水平缩放
 
@@ -30,7 +30,6 @@ ms.locfileid: "54309116"
 
 通过将数据和吞吐量分配到大量逻辑分区上来缩放 Azure Cosmos 容器。 在内部，一个或多个逻辑分区将映射到由一组副本（也称为副本集）构成的**物理分区**。 每个副本集托管 Azure Cosmos 数据库引擎的一个实例。 副本集使物理分区中存储的数据具有持久性、高可用性和一致性。 物理分区支持固定的最大数量存储和 RU。 构成物理分区的每个副本均继承存储配额。 并且物理分区的所有副本共同支持分配给物理分区的吞吐量。 下图显示了逻辑分区如何映射到多区域分布的物理分区：
 
-<!--Notice on Line 31 : Change globally to multiple-regionally-->
 ![Azure Cosmos DB 分区](./media/partition-data/logical-partitions.png)
 
 为容器预配的吞吐量在物理分区之间均匀划分。 因此，不会均匀分配吞吐量请求的分区键设计可能会产生“热”分区。 热分区可能导致速率限制以及预配吞吐量的低效使用。

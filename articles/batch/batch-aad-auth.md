@@ -16,12 +16,12 @@ ms.workload: big-compute
 origin.date: 04/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 20fb1bd12c2b2e611c50c5fa9c8349079114ec79
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.openlocfilehash: 8bbd61f69571b0091cc4cc8144b838be3d71373b
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745207"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987023"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -139,9 +139,10 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 1. 在 Azure 门户中，导航到应用程序使用的 Batch 帐户。
 2. 在 Batch 帐户的“设置”边栏选项卡中，选择“访问控制(IAM)”。
-3. 单击“添加”按钮。 
-4. 在“角色”下拉列表中，为应用程序选择参与者或读者角色。 有关这些角色的详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。  
-5. 在“选择”字段中，输入应用程序的名称。 从列表中选择你的应用程序，并单击“保存”。
+3. 单击“角色分配”选项卡。
+4. 单击“添加角色分配”按钮。 
+5. 在“角色”下拉列表中，为应用程序选择参与者或读者角色。 有关这些角色的详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。  
+6. 在“选择”字段中，输入应用程序的名称。 从列表中选择你的应用程序，并单击“保存”。
 
 现在，应用程序应出现在访问控制设置中，同时已分配有 RBAC 角色。 
 
@@ -373,7 +374,7 @@ credentials = ServicePrincipalCredentials(
 
 - 有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
 
-- 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../resource-group-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
+* 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
 
 - 若要使用 Azure AD 对 Batch 应用程序进行验证，请参阅[使用 Active Directory 对 Batch 管理解决方案进行验证](batch-aad-auth-management.md)。
 
@@ -382,7 +383,7 @@ credentials = ServicePrincipalCredentials(
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/develop/authentication-scenarios.md
-[aad_integrate]: ../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md
+[aad_integrate]: ../active-directory/develop/quickstart-v1-add-azure-ad-app.md
 [azure_portal]: http://portal.azure.cn
 
 <!-- Update_Description: link update -->

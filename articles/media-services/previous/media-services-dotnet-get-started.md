@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 10/29/2018
-ms.date: 12/03/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: f8ac02bd150fa70d6b3b819222a6f78bd78514ef
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 4572a3ae114fe8ceaa072d60c4b16286a4cc17f9
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672519"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833373"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 本教程介绍了在 Azure 媒体服务 .NET SDK 中使用 Azure 媒体服务 (AMS) 应用程序实施基本的视频点播 (VoD) 内容传送服务的步骤。
@@ -88,7 +89,7 @@ ms.locfileid: "52672519"
 
 使用采用 .NET 的媒体服务时，必须将 **CloudMediaContext** 类用于大多数媒体服务编程任务：连接到媒体服务帐户；创建、更新、访问和删除以下对象：资产、资产文件、作业、访问策略、定位符等等。
 
-使用以下代码覆盖默认的 Program 类：此代码演示如何从 App.config 文件中读取连接值，以及如何创建 **CloudMediaContext** 对象以连接到媒体服务。 有关详细信息，请参阅[连接到媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。
+使用以下代码覆盖默认程序类：该代码演示如何从 App.config 文件中读取连接值，以及如何创建 **CloudMediaContext** 对象以连接到媒体服务。 有关详细信息，请参阅[连接到媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。
 
 确保更新保存媒体文件所需的文件名和路径。
 
@@ -190,7 +191,7 @@ ms.locfileid: "52672519"
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>将源文件编码为一组自适应比特率 MP4 文件
 将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，然后将其传送至客户端。 根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作。
 
-如前所述，使用 Azure 媒体服务时最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可以将一组自适应比特率 MP4 文件动态打包为以下其中一种格式：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。
+如前所述，使用 Azure 媒体服务时最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可将一组自适应比特率 MP4 文件动态打包为以下格式之一：HTTP Live Streaming (HLS)、平滑流式处理、MPEG DASH。
 
 若要利用动态打包，需要将夹层（源）文件编码或转换成一组自适应比特率 MP4 文件或自适应比特率平滑流式处理文件。  
 

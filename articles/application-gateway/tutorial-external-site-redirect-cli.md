@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/24/2018
-ms.date: 02/11/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3dbe162569d78ab5db6846496b58c76fc214944e
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: ceebe1f5b384c0141d5cf81366f3e2d3e80075cd
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079631"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836879"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持外部重定向的应用程序网关
 
@@ -47,7 +47,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源 
 
-使用 [az network vnet create](/cli/network/vnet) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。 这些资源用于提供与应用程序网关及其关联资源的网络连接。
+使用 [az network vnet create](/cli/network/vnet) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 使用 [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。 这些资源用于提供与应用程序网关及其关联资源的网络连接。
 
 ```azurecli
 az network vnet create \
@@ -92,7 +92,7 @@ az network application-gateway create \
 
 ### <a name="add-the-redirection-configuration"></a>添加重定向配置
 
-添加将流量发送应用程序网关到重定向配置 *bing.com*使用 [az 网络应用程序网关重定向-config 创建](https://docs.azure.cn/zh-cn/cli/network/application-gateway/redirect-config?view=azure-cli-latest#az-network-application-gateway-redirect-config-create)。
+添加将流量发送应用程序网关到重定向配置 *bing.com*使用 [az 网络应用程序网关重定向-config 创建](/cli/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create)。
 
 ```azurecli
 az network application-gateway redirect-config create \
@@ -130,7 +130,7 @@ az network application-gateway rule create \
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
 应该会看到 *bing.com* 出现在浏览器中。
 

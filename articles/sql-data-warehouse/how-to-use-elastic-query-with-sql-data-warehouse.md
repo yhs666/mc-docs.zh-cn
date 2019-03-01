@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 origin.date: 04/11/2018
-ms.date: 11/12/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 6914b8bfe07511ad2c51d164e5916e39974628f6
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.openlocfilehash: d20b59c4897ffb8f5b444f6dc3e65cf6f8df35d5
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858189"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833366"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据库中的弹性查询访问 Azure SQL 数据仓库中的数据的最佳做法
 了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。 

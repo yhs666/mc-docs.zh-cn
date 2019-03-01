@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2018
-ms.date: 12/17/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.openlocfilehash: d6f379f8efdf720e6848cb115cd63472fce21ae5
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: f938a18ea1cd5d05399a5fe35d5e9b212a16af7e
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396247"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905328"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 

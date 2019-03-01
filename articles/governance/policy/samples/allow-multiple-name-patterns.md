@@ -1,23 +1,22 @@
 ---
-title: Azure Policy 示例 - 多名称模式
-description: 该示例策略需要资源匹配所提供的其中一个名称模式。
+title: 示例 - 多名称模式
+description: 此示例策略定义要求资源匹配所提供的其中一种名称模式。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 11/13/2017
-ms.date: 11/12/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 23923aa822296a551bcd501146a7814a9706bda8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a40328aef01af64e326bce31564fd973769c55ba
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652675"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903090"
 ---
-# <a name="allow-multiple-name-patterns"></a>允许多名称模式
+# <a name="sample---allow-multiple-name-patterns"></a>示例 - 允许多种名称模式
 
 允许资源使用多种名称模式中的一种。 在策略规则中指定允许的名称模式。
 
@@ -62,12 +61,12 @@ ms.locfileid: "52652675"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "allow-multiple-name-patterns" -DisplayName "Allow one of many name patterns to be used for resources." -description "Allow one of many name patterns to be used for resources." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "allow-multiple-name-patterns" -DisplayName "Allow one of many name patterns to be used for resources." -description "Allow one of many name patterns to be used for resources." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
 $assignment
 ```
 
@@ -76,7 +75,7 @@ $assignment
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

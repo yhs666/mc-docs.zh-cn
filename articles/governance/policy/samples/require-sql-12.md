@@ -1,22 +1,22 @@
 ---
 title: 示例 - 需要 SQL Server 版本 12.0
-description: 此示例策略需要 SQL Server 使用版本 12.0。
+description: 此示例策略定义要求 SQL Server 运行 12.0 版。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 0ae1591f9636bab184d2e9ba9356e994dfcfcd70
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 78f9b60fad5a47bdc2c82f6eb2608cf69985dd7b
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996388"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903104"
 ---
-# <a name="require-sql-server-version-120"></a>需要 SQL Server 版本 12.0
+# <a name="sample---require-sql-server-version-120"></a>示例 - 需要 SQL Server 版本 12.0
 
 此策略需要 SQL Server 使用版本 12.0。
 
@@ -63,12 +63,12 @@ ms.locfileid: "53996388"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "require-sqlserver-version12" -DisplayName "Require SQL Server version 12.0" -description "This policy ensures all SQL servers use version 12.0." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/require-sqlserver-version12/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/require-sqlserver-version12/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "require-sqlserver-version12" -DisplayName "Require SQL Server version 12.0" -description "This policy ensures all SQL servers use version 12.0." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/require-sqlserver-version12/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/require-sqlserver-version12/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -PolicyDefinition $definition
 $assignment
 ```
 
@@ -77,7 +77,7 @@ $assignment
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

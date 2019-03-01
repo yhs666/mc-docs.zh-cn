@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/06/2018
-ms.date: 10/17/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: ae593af722980ae11dd1e11c9f3122ff9c81fc2f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1a8342e34ee5f0ba09b52d751f58144be43f0fce
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662479"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836909"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
@@ -45,7 +45,7 @@ ms.locfileid: "52662479"
 
 例如：
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -104,4 +104,4 @@ $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

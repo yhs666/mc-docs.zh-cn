@@ -1,23 +1,22 @@
 ---
-title: Azure Policy 示例 - 对 VM 网络接口使用已批准的 vNet
-description: 此示例策略需要网络接口使用已批准的虚拟网络。
+title: 示例 - 对 VM 网络接口使用已批准的 vNet
+description: 此示例策略定义要求网络接口使用已批准的虚拟网络。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 11/12/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: afba8e491f3d9f65bee99ae8cf67d4957b8d877c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: be65434d8a2560291749c0b49b74198a37db1a11
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652760"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903194"
 ---
-# <a name="use-approved-vnet-for-vm-network-interfaces"></a>对 VM 网络接口使用已批准的 vNet
+# <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>示例 - 对 VM 网络接口使用已批准的 vNet
 
 此策略要求网络接口使用已批准的虚拟网络。 由你指定已批准的虚拟网络的 ID。
 
@@ -68,12 +67,12 @@ ms.locfileid: "52652760"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "vm-creation-in-approved-vnet" -DisplayName "Use approved vNet for VM network interfaces" -description "This policy enforces VM network interfaces to use vNet." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-vnet/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-vnet/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "vm-creation-in-approved-vnet" -DisplayName "Use approved vNet for VM network interfaces" -description "This policy enforces VM network interfaces to use vNet." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-vnet/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-vnet/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -vNetId <vNet Id> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -vNetId <vNet Id> -PolicyDefinition $definition
 $assignment
 ```
 
@@ -82,7 +81,7 @@ $assignment
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

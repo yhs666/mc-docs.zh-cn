@@ -6,19 +6,21 @@ author: WenJason
 ms.service: dns
 ms.topic: include file for PowerShell for Azure DNS
 origin.date: 03/21/2018
-ms.date: 12/24/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: bd719ad96c2d38fd884e99147e597ace559b9acd
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: 9af1ad93867950c39b5f7f670d67575285732581
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615236"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56837040"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>设置适用于 Azure DNS 的 Azure PowerShell
 
 ### <a name="before-you-begin"></a>准备阶段
+
+[!INCLUDE [requires-azurerm](requires-azurerm.md)]
 
 在开始配置之前，请确保具备以下各项。
 

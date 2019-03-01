@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 08/15/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 34ff3a24662916413f8b00e874ca1f79bbd9b4bb
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 932fd3a06b594e64446bb593c065c1e7c82d7412
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676511"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903031"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>结合使用 Draft 与 Azure Kubernetes 服务 (AKS)
 
@@ -140,7 +140,7 @@ $ draft connect
 Connect to java:4567 on localhost:49804
 [java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 [java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 [java]: == Spark has ignited ...
 [java]: >> Listening on 0.0.0.0:4567
 ```

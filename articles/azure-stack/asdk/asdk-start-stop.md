@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/05/2018
-ms.date: 11/12/2018
+origin.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: fe1af5780b4cc0986db4aad08a3776c6ef38c5e4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 9e174b80f90979027aa1f4ea39838b204ee9eb79
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655057"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905359"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>启动和停止 Azure Stack 开发工具包 (ASDK)
 建议不要仅仅重启 ASDK 主机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。 
@@ -29,7 +30,7 @@ ms.locfileid: "52655057"
 ## <a name="stop-azure-stack"></a>停止 Azure Stack 
 若要正常关闭 Azure Stack 服务和 ASDK 主机，请使用以下 PowerShell 命令：
 
-1. 以 AzureStack\CloudAdmin 身份登录到 ASDK 主机。
+1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
 2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
 3. 运行以下命令建立特权终结点 (PEP) 会话： 
 
@@ -49,7 +50,7 @@ ms.locfileid: "52655057"
 不管 ASDK 是否已关闭，都应该使用以下步骤来验证打开主机后，所有 Azure Stack 服务是否都已启动并完全正常运行： 
 
 1. 打开 ASDK 主机。 
-2. 以 AzureStack\CloudAdmin 身份登录到 ASDK 主机。
+2. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
 3. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
 4. 运行以下命令建立特权终结点 (PEP) 会话：
 
@@ -68,7 +69,7 @@ ms.locfileid: "52655057"
 ## <a name="troubleshoot-startup-and-shutdown"></a>排查启动和关机问题 
 如果在打开 ASDK 主机后的两个小时内 Azure Stack 服务未成功启动，请执行以下步骤：
 
-1. 以 AzureStack\CloudAdmin 身份登录到 ASDK 主机。
+1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
 2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
 3. 运行以下命令建立特权终结点 (PEP) 会话：
 

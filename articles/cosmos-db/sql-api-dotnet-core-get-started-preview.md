@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/01/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67611a684f9f0b0d13bfbe52783a2ecd1eb43834
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 935f06d44b19a52340f3233ad48e474468210c47
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309315"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987993"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET Core 控制台应用（SDK 版本 3 预览）
 
@@ -193,6 +193,8 @@ ms.locfileid: "54309315"
 
 可以使用“CosmosDatabases”类的 [CreateDatabaseIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 或 [CreateDatabaseAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 函数创建一个数据库。 数据库是跨容器分区的项的逻辑容器。
 
+<!--MOONCAKE: CORRECT ON https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos-->
+
 1. 将 **CreateDatabase** 方法复制并粘贴到 **GetStartedDemoAsync** 方法下面。 **createDatabase** 会使用通过 `databaseId` 字段指定的 ID `FamilyDatabase` 来创建新数据库（如果不存在）。
 
    ```csharp
@@ -310,12 +312,14 @@ ms.locfileid: "54309315"
 
 可以使用 **CosmosContainers** 类中的 [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 或 [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 函数创建容器。 容器包含项（在使用 SQL API 的情况下为 JSON 文档）和关联的 JavaScript 服务器端应用程序逻辑，例如存储过程、用户定义的函数以及触发器。
 
+<!--MOONCAKE: CORRECT ON https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos-->
+
 1. 将 **CreateContainer** 方法复制并粘贴到 **CreateDatabase** 方法下面。 **CreateContainer** 会使用通过 `containerId` 字段指定的 ID `FamilyContainer` 来创建新容器（如果不存在）。
 
    ```csharp
    /*
        Create the container if it does not exist.
-       Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+       Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
    */
    private async Task CreateContainer()
    {
@@ -347,6 +351,8 @@ ms.locfileid: "54309315"
 ## <a name="step-6-add-items-to-the-container"></a>步骤 6：向容器添加项
 
 可以使用“CosmosItems”类的 [CreateItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos) 函数创建项。 使用 SQL API 时，项会投射为文档，后者是用户定义的（任意）JSON 内容。 现在，可以将项插入到 Azure Cosmos DB 容器中。
+
+<!--MOONCAKE: CORRECT ON https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos-->
 
 在本例中，首先需要创建 Family 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。
 

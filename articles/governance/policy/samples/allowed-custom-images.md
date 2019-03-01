@@ -1,23 +1,22 @@
 ---
-title: Azure Policy 示例 - 已批准的 VM 映像
-description: 此示例策略要求在环境中仅部署已批准的自定义映像。
+title: 示例 - 已批准的 VM 映像
+description: 此示例策略定义要求在环境中仅部署已批准的自定义映像。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 09/13/2018
-ms.date: 11/12/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 625afadefad0e537fa586bedbe3f21af8964319f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c3e0d24f14b75b2bf3f66e01562d897c38285385
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667280"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903242"
 ---
-# <a name="approved-vm-images"></a>已批准的 VM 映像
+# <a name="sample---approved-vm-images"></a>示例 - 已批准的 VM 映像
 
 此策略要求在环境中仅部署已批准的自定义映像。 指定已批准的映像 ID 的数组。
 
@@ -148,22 +147,22 @@ PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
 ```powershell
 # Create the Policy Definition (Subscription scope)
-$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
 
-# Set the scope to a resource group; may also be a subscription or management group
-$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+# Set the scope to a resource group; may also be a resource, subscription, or management group
+$scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
 $policyparam = '{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/chinaeast/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
 
 # Create the Policy Assignment
-$assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
+$assignment = New-AzPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
 ### <a name="remove-with-azure-powershell"></a>使用 Azure PowerShell 删除
@@ -172,10 +171,10 @@ $assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignmen
 
 ```azurepowershell
 # Remove the Policy Assignment
-Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+Remove-AzPolicyAssignment -Id $assignment.ResourceId
 
 # Remove the Policy Definition
-Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
+Remove-AzPolicyDefinition -Id $definition.ResourceId
 ```
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell 说明
@@ -184,11 +183,11 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) | 创建新的 Azure Policy 定义。 |
-| [Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup) | 获取单个资源组。 |
-| [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [Remove-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | 删除现有的 Azure Policy 分配。 |
-| [Remove-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | 删除现有的 Azure Policy 定义。 |
+| [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicydefinition) | 创建新的 Azure Policy 定义。 |
+| [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/Get-Azresourcegroup) | 获取单个资源组。 |
+| [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| [Remove-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/Remove-Azpolicyassignment) | 删除现有的 Azure Policy 分配。 |
+| [Remove-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Remove-Azpolicydefinition) | 删除现有的 Azure Policy 定义。 |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -200,7 +199,7 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All)
 
-# Set the scope to a resource group; may also be a subscription or management group
+# Set the scope to a resource group; may also be a resource, subscription, or management group
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)
@@ -287,10 +286,10 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 服务 | 组 | 操作 | 注释 |
 |---|---|---|---|
-| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替代方法：[在管理组中创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替换项：[在管理组中创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | 资源管理 | 策略分配 | [创建](https://docs.microsoft.com/rest/api/resources/policyassignments/create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
 | 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/rest/api/resources/policyassignments/delete) | 删除现有的 Azure Policy 分配。 |
-| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替代方法：[在管理组中删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替换项：[在管理组中删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>后续步骤
 

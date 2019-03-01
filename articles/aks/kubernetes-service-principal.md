@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: get-started-article
 origin.date: 09/26/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 790cc46af84d5e074654f23947ce353b4f6684a9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 130725635f7a009656cf762187325eb16a07b403
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676654"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903198"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 的服务主体
 
@@ -115,6 +115,10 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
   - *Microsoft.Compute/disks/write*
 - 或者，在资源组中分配[存储帐户参与者][rbac-storage-contributor]内置角色
 
+### <a name="azure-container-instances"></a>Azure 容器实例
+
+如果使用虚拟 Kubelet 与 AKS 集成并选择在与 AKS 群集分开的资源组中运行 Azure 容器实例 (ACI)，则必须在 ACI 资源组上授予 AKS 服务主体“参与者”权限。
+
 ## <a name="additional-considerations"></a>其他注意事项
 
 使用 AKS 和 Azure AD 服务主体时，请牢记以下注意事项。
@@ -125,11 +129,10 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 在 Kubernetes 群集的主 VM 和节点 VM 中，服务主体凭据存储在 `/etc/kubernetes/azure.json` 文件中
 - 使用 [az aks create][az-aks-create] 命令自动生成服务主体时，会将服务主体凭据写入用于运行命令的计算机上的 `~/.azure/aksServicePrincipal.json` 文件中。
 - 删除通过 [az aks create][az-aks-create] 创建的 AKS 群集时，不会删除自动创建的服务主体。
-    - 若要删除服务主体，请首先使用 [az ad app list][az-ad-app-list] 获取服务主体的 ID。 以下示例查询名为 *myAKSCluster* 的群集，然后使用 [az ad app delete][az-ad-app-delete] 删除应用 ID。 将以下名称替换为你自己的值：
+    - 若要删除服务主体，请查询群集 *servicePrincipalProfile.clientId*，然后使用 [az ad app delete][az-ad-app-delete] 进行删除。 将以下资源组和群集名称替换为你自己的值：
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>后续步骤

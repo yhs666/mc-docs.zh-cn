@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 66db7d41789b52949d0ec40dc219b7f85e1b6d57
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: c5ad73f943082a4532deafc599e39c962bf31fb5
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309230"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988029"
 ---
 <!--Not Available on  Azure Cosmos DB and-->
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 存储表设计指南：设计可伸缩的高性能表
@@ -209,13 +209,13 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用的分�
 | **Age** |Integer |
 | **EmailAddress** |String |
 
-前面的章节 [Azure 表服务概述](#overview) 介绍了对查询设计有直接影响的 Azure 表服务的一些主要功能。 这些功能产生了以下设计表服务查询的通用准则。 下述示例中所用的筛选器语法源自表服务 REST API，详细信息请参阅 [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx)（查询实体）。  
+有关一些直接影响查询设计的主要 Azure 表服务功能，请参阅上一章节：Azure 表服务概述。 这些功能产生了以下设计表服务查询的通用准则。 下述示例中所用的筛选器语法源自表服务 REST API，详细信息请参阅 [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx)（查询实体）。  
 
 * ***点查询***是最高效的一种查找方式，可用于且建议用于大容量查找或要求最低延迟的查找。 通过指定 **PartitionKey** 和 **RowKey** 值，此类查询可以高效地利用索引查找单个实体。 例如：$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
 * 其次是***范围查询***，它使用 **PartitionKey**并筛选一系列 **RowKey** 值，从而返回多个实体。 **PartitionKey** 值确定特定分区，**RowKey** 值确定该分区中的实体子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
 * 然后是***分区扫描***，它使用 **PartitionKey** 并筛选另一个非键属性，可能会返回多个实体。 **PartitionKey** 值确定特定分区，而属性值将选择该分区中的实体子集。 例如：$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***表扫描***不包括 **PartitionKey** 且效率较低，因为它会依次搜索构成表的所有分区，查找所有匹配的实体。 它会执行表扫描而不管你的筛选器是否使用 **RowKey**。 例如：$filter=LastName eq 'Jones'  
-* 返回多个实体的查询将按 **PartitionKey** 和 **RowKey** 顺序返回实体。 若要避免对客户端中的实体重新排序，请选择定义最常见排序顺序的 **RowKey**。  
+* 返回多个实体的 Azure Table Storage 查询将按 PartitionKey 和 RowKey 顺序返回实体。 若要避免对客户端中的实体重新排序，请选择定义最常见排序顺序的 **RowKey**。  
 
 使用“**or**”指定基于 **RowKey** 值的筛选器将导致分区扫描，而不会视为范围查询。 因此，应避免使用筛选器 （如查询：$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
@@ -253,7 +253,12 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用的分�
 * [索引实体模式](#index-entities-pattern) - 维护索引实体以启用返回实体列表的高效搜索。  
 
 ### <a name="sorting-data-in-the-table-service"></a>对表服务中的数据进行排序
-表服务依次按 **PartitionKey** 和 **RowKey** 以升序排序返回实体。 这些键是字符串值，以确保数字值正确排序，应将值转换为固定长度并使用零进行填充。 例如，如果用作 **RowKey** 的员工 ID 值是个整数值，则应将员工 ID **123** 转换为 **00000123**。  
+
+表服务返回的查询结果按照 PartitionKey 的升序排序，然后按 RowKey 排序。
+
+<!--Not Available on Azure Table API in Azure Cosmos DB-->
+
+Azure 存储表中的键是字符串值，以确保数字值正确排序，应将值转换为固定长度并使用零进行填充。 例如，如果用作 **RowKey** 的员工 ID 值是个整数值，则应将员工 ID **123** 转换为 **00000123**。 
 
 许多应用程序要求使用按不同顺序排序的数据：例如，按名称或按加入日期对员工进行排序。 [表设计模式](#table-design-patterns)部分中的以下模式介绍了如何替换实体的排序顺序：  
 
@@ -718,6 +723,8 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 ### <a name="log-tail-pattern"></a>日志结尾模式
 通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
+
+<!--Not Available on Azure Table API in Azure Cosmos DB-->
 
 #### <a name="context-and-problem"></a>上下文和问题
 一个常见的需求是能够检索最近创建的实体，例如某个员工提交的最近 10 个费用报销单。 表查询支持 **$top** 查询操作以返回一个集中的前 n 个实体：没有等效的查询操作可返回一个集中的最后 *n* 个实体。  
@@ -1291,7 +1298,7 @@ foreach (var e in entities)
 
 如果两个不同类型的实体可能具有相同键值，则在 **RowKey** 前面添加实体类型的第一个选项会很有用。 它还会在分区中将同一类型的实体分组在一起。  
 
-本部分中讨论的技术与本指南中前面的[对关系进行建模](#modelling-relationships)部分中讨论的[继承关系](#inheritance-relationships)有关。  
+本部分中讨论的技术与本指南中前面的“对关系进行建模”部分中讨论的[继承关系](#inheritance-relationships)有关。  
 
 > [!NOTE]
 > 应考虑在实体类型值中包含版本号以允许客户端应用程序演变 POCO 对象并处理不同版本。  

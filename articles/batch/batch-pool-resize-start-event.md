@@ -13,12 +13,12 @@ ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7cc76a0907e3c79167d0735247fc45f84052d502
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b95ea4a320a06d2862b38419ebc4c716f38dc2f5
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647220"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987012"
 ---
 # <a name="pool-resize-start-event"></a>池调整大小开始事件
 

@@ -7,15 +7,15 @@ manager: digimobile
 keywords: 备份和还原;恢复服务;备份解决方案
 ms.service: backup
 ms.topic: overview
-ms.date: 1/3/2019
+ms.date: 01/31/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 5f964c089c15bd98bfbfeb079944b1482ae47532
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 1cc97349e7a1bb24af003af73a7667e0f674860f
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029261"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987027"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。

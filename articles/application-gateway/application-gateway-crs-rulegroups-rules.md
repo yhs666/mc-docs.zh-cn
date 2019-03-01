@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
 origin.date: 04/16/2018
-ms.date: 06/07/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1896a1ad5e5c0f3779cacd7a89aa32a80ada3d0e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c8b20800ac8eba2b178767f0ff5f9cf45dad36d7
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648310"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836932"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 Web 应用程序防火墙 CRS 规则组和规则列表
 
@@ -28,6 +28,11 @@ ms.locfileid: "52648310"
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">常规</p>
+
+|RuleId|说明|
+|---|---|
+|200004|可能的多部分不匹配边界。|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -240,6 +245,8 @@ ms.locfileid: "52648310"
 |941290|IE XSS 筛选器 - 检测到攻击。|
 |941300|IE XSS 筛选器 - 检测到攻击。|
 |941310|US-ASCII 格式错误编码 XSS 筛选器 - 检测到攻击。|
+|941330|IE XSS 筛选器 - 检测到攻击。|
+|941340|IE XSS 筛选器 - 检测到攻击。|
 |941350|UTF-7 编码 IE XSS - 检测到攻击。|
 |941013|规则 941013|
 |941014|规则 941014|
@@ -256,18 +263,29 @@ ms.locfileid: "52648310"
 |942011|规则 942011|
 |942012|规则 942012|
 |942100|检测到通过 libinjection 展开的 SQL 注入攻击|
+|942110|SQL 注入攻击：检测到常见注入测试|
+|942130|SQL 注入攻击：检测到 SQL 同义反复。|
 |942140|SQL 注入攻击 = 检测到常用 DB 名称|
 |942160|检测到使用 sleep() 或 benchmark() 的盲注 sqli 测试。|
 |942170|检测到包含条件查询的 SQL 基准和休眠注入企图|
+|942190|检测到 MSSQL 代码执行和信息收集尝试|
+|942200|检测到 MySQL 注释/空间经过模糊处理的注入和反引号终止|
 |942230|检测到条件 SQL 注入企图|
+|942260|检测到基本 SQL 身份验证绕过尝试 2/3|
 |942270|正在查找基本 sql 注入。 针对 mysql oracle 和其他系统的常见攻击字符串。|
 |942290|查找基本 MongoDB SQL 注入企图|
+|942300|检测到 MySQL 注释、条件和 ch(a)r 注入|
 |942320|检测 MySQL 和 PostgreSQL 存储过程/函数注入|
+|942330|检测到经典 SQL 注入探测 1/2|
+|942340|检测到基本 SQL 身份验证绕过尝试 3/3|
 |942350|检测 MySQL UDF 注入和其他数据/结构操作企图|
+|942360|检测到连接的基本 SQL 注入和 SQLLFI 尝试|
+|942370|检测到经典 SQL 注入探测 2/2|
 |942013|规则 942013|
 |942014|规则 942014|
 |942150|SQL 注入攻击|
 |942410|SQL 注入攻击|
+|942430|受限 SQL 字符异常情况检测 (args)：已超出特殊字符数 (12)|
 |942440|检测到 SQL 注释序列。|
 |942450|识别到 SQL 十六进制编码|
 |942015|规则 942015|
@@ -293,7 +311,7 @@ ms.locfileid: "52648310"
 |943017|规则 943017|
 |943018|规则 943018|
 
-##<a name="owasp229"></a> OWASP_2.2.9
+## <a name="owasp229"></a> OWASP_2.2.9
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -551,8 +569,7 @@ ms.locfileid: "52648310"
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[自定义 WAF 规则](application-gateway-customize-waf-rules-portal.md)，了解如何禁用 WAF 规则
+查看以下文章，了解如何禁用 WAF 规则：[自定义 WAF 规则](application-gateway-customize-waf-rules-portal.md)
 
-[1]: ./media/application-gateway-integration-security-center/figure1.png
 
 <!-- Update_Description: wording update -->

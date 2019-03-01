@@ -1,25 +1,25 @@
 ---
 title: 如何将 redis-cli 与 Azure Redis 缓存配合使用 | Microsoft Docs
 description: 了解如何将 redis-cli 与 Azure Redis 缓存配合使用。
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 31ed30b6b0eea6279e6899259ebb641de6f43592
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 8a9d3a2256474bd26ed37905d0b654bfc0735b4a
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334266"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56902999"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>如何将 Redis 命令行工具与 Azure Redis 缓存配合使用
 
@@ -31,10 +31,12 @@ redis-cli.exe 是一种常用的命令行工具，可作为客户端与 Azure Re
 
 ## <a name="gather-cache-access-information"></a>收集缓存访问信息
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 可通过三种方式收集访问缓存所需的信息：
 
 1. 在 Azure CLI 中使用 [az redis list-keys](/cli/redis?view=azure-cli-latest#az-redis-list-keys)
-2. 在 Azure PowerShell 中使用 [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+2. 在 Azure PowerShell 中使用 [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. 使用 Azure 门户。
 
 本部分介绍如何从 Azure 门户检索密钥。
@@ -96,4 +98,4 @@ redis-cli.exe -h yourcachename.redis.cache.chinacloudapi.cn -p 6379 -a YourAcces
 了解使用 [Redis 控制台](cache-configure.md#redis-console)发出命令的详细信息。
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

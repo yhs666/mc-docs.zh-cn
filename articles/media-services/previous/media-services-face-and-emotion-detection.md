@@ -3,7 +3,7 @@ title: 使用 Azure 媒体分析检测面部和情绪 | Microsoft Docs
 description: 本主题演示如何使用 Azure 媒体分析检测人脸和情感。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 1072586a72c35ccdcc2e7e2728d7d0eef0340821
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/10/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: d972ddbc792b894402d8875440bc2c86570d4ab6
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646721"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833393"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
 ## <a name="overview"></a>概述
@@ -419,7 +419,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

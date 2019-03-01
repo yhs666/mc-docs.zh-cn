@@ -7,21 +7,21 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 origin.date: 12/21/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.custom: mvc
-ms.openlocfilehash: 1340ad8ffa078fc7b169b270d911a5faa59d9b85
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 0941298dbf8b53720f2a62142728a695773d2c00
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396922"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836957"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-借助 [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/api/mysql/)，DevOps 工程师能够自动执行并集成 Azure 中托管的 MySQL 服务器和数据库的预配、配置和操作。  通过 API，可对 Azure Database for MySQL 服务上的 MySQL 服务器和数据库进行创建、枚举、管理和删除。
+借助 [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/)，DevOps 工程师能够自动执行并集成 Azure 中托管的 MySQL 服务器和数据库的预配、配置和操作。  通过 API，可对 Azure Database for MySQL 服务上的 MySQL 服务器和数据库进行创建、枚举、管理和删除。
 
 Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所需的 Azure 资源，这与将基础结构作为代码的概念相一致。 模板可参数化 Azure 资源名称、SKU、网络、防火墙配置和设置，允许一次创建后多次使用。  可使用 [Azure 门户](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)或 [Visual Studio Code](/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI) 轻松创建 Azure 资源管理器模板。 这些模板允许自动执行可集成到 DevOps CI/CD 管道的应用程序打包、标准化和部署。  例如，如果你希望使用 Azure Database for MySQL 后端快速部署 Web 应用，则可以使用来自 GitHub 库的此[快速入门模板](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/)来执行端到端部署。
 

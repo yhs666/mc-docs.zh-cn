@@ -13,12 +13,12 @@ ms.workload: big-compute
 origin.date: 11/14/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 403b5f735fb632a8800a5fc22f9d1283d302a2be
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6df5b0f47976466f5c6920b0394945b388678a0f
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674227"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987032"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -47,7 +47,7 @@ Azure Batch 提供多种持久保存任务输出的方式。 使用 Batch 服务
 
 ```csharp
 CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-await conainer.CreateIfNotExists();
+await container.CreateIfNotExists();
 ```
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>获取容器的共享访问签名

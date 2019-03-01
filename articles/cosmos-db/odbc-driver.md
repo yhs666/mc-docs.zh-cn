@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/22/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a8f936b0a67912b4db8308c5491b2fc74a49a40c
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 2827391113edca9deb18056c6b80de2138e71186
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309183"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987992"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -74,8 +74,8 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
     - **重试次数**：输入当初始请求因服务速率限制而未能完成时，重试操作的次数。
     - **架构文件**：此处有多个选项供你选择。
         - 默认情况下，可将此项保留原样（空白），驱动程序会在第一页的数据中扫描所有集合，确定每个集合的架构。 这称为“集合映射”。 如果未定义架构文件，驱动程序必须针对每个驱动程序会话执行扫描，这可能会导致使用 DSN 启动应用程序时需要更长的时间。 我们建议始终关联 DSN 的架构文件。
-        - 如果已有一个架构文件（也许是使用[架构编辑器](#schema-editor)创建的文件），则可以单击“浏览”，导航到该文件，单击“保存”，并单击“确定”。
-        - 如果想要创建新架构，请单击“确定”，并在主窗口中单击“架构编辑器”。 接下来，继续在[架构编辑器](#schema-editor)中提供信息。 创建新架构文件后，请记得返回“高级选项”窗口以包含新建的架构文件。
+        - 如果已有一个架构文件（也许是使用架构编辑器创建的文件），则可以单击“浏览”，导航到该文件，单击“保存”，并单击“确定”。
+        - 如果想要创建新架构，请单击“确定”，并在主窗口中单击“架构编辑器”。 接下来，继续在架构编辑器中提供信息。 创建新架构文件后，请记得返回“高级选项”窗口以包含新建的架构文件。
 
 1. 完成并关闭“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口后，新的用户 DSN 会添加到“用户 DSN”选项卡。
 

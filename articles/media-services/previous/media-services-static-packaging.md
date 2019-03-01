@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/24/2018
-ms.date: 12/03/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 25aa665c27200d32ce29e6f22351098aed5dff47
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 22867691d66bf22937c7885c1ee8221c807e67c9
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672769"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833375"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure 媒体包装器完成静态打包任务
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure 媒体包装器完成静态打包任务  
 > [!NOTE]
 > Microsoft Azure 媒体包装器和 Microsoft Azure 媒体加密器的使用期限已延长到 2017 年 3 月 1 日。 在此日期之前，这些处理器的功能将添加到 Media Encoder Standard (MES) 中。 客户将收到有关如何迁移工作流以将作业发送到 MES 的指示。 格式转换和加密功能也可通过动态打包和动态加密提供。
 > 
@@ -42,7 +42,7 @@ ms.locfileid: "52672769"
 
 * 验证使用外部编码器编码的自适应比特率 MP4（例如，使用第三方编码器）。
 
-还可使用静态打包执行以下任务：但是建议使用动态加密。
+还可以使用静态打包执行下列任务：但是，仍建议使用动态加密。
 
 * 通过静态加密使用 PlayReady 来保护平滑流和 MPEG DASH
 * 通过静态加密使用 AES-128 来保护 HLSv3
@@ -109,7 +109,7 @@ ms.locfileid: "52672769"
             private static readonly string _multibitrateMP4s =
                 Path.Combine(_mediaFiles, @"MultibitrateMP4Files");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations";
 
             private static MediaServicesCredentials _cachedCredentials = null;
@@ -169,7 +169,7 @@ ms.locfileid: "52672769"
                 SetISMFileAsPrimary(multibitrateMP4sAsset);
 
                 // Create a new job.
-                IJob job = _context.Jobs.Create("MP4 validation and converstion to Smooth Stream job.");
+                IJob job = _context.Jobs.Create("MP4 validation and conversion to Smooth Stream job.");
 
                 // Read the task configuration data into a string. 
                 string configMp4Validation = File.ReadAllText(Path.Combine(
@@ -292,7 +292,7 @@ ms.locfileid: "52672769"
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
 
@@ -536,18 +536,18 @@ ms.locfileid: "52672769"
                 IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
                     MediaProcessorNames.MediaEncoderStandard);
 
-                ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
+                ITask adaptiveBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
                    "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
-                adpativeBitrateTask.InputAssets.Add(asset);
+                adaptiveBitrateTask.InputAssets.Add(asset);
 
                 // Add an output asset to contain the results of the job. 
                 // This output is specified as AssetCreationOptions.None, which 
                 // means the output asset is in the clear (unencrypted).
-                IAsset abrAsset = adpativeBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
+                IAsset abrAsset = adaptiveBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
                                         AssetCreationOptions.None);
 
                 return abrAsset;
@@ -739,7 +739,7 @@ ms.locfileid: "52672769"
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"SingleMP4\BigBuckBunny.mp4");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
             private static MediaServicesCredentials _cachedCredentials = null;
@@ -887,18 +887,18 @@ ms.locfileid: "52672769"
                 IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
                     MediaProcessorNames.MediaEncoderStandard);
 
-                ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
+                ITask adaptiveBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
                    "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
-                adpativeBitrateTask.InputAssets.Add(asset);
+                adaptiveBitrateTask.InputAssets.Add(asset);
 
                 // Add an output asset to contain the results of the job. 
                 // This output is specified as AssetCreationOptions.None, which 
                 // means the output asset is in the clear (unencrypted).
-                IAsset abrAsset = adpativeBitrateTask.OutputAssets.AddNew("Multibitrate MP4s", 
+                IAsset abrAsset = adaptiveBitrateTask.OutputAssets.AddNew("Multibitrate MP4s", 
                                         AssetCreationOptions.None);
 
                 return abrAsset;
@@ -1025,7 +1025,7 @@ ms.locfileid: "52672769"
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"SingleMP4\BigBuckBunny.mp4");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
 
@@ -1044,7 +1044,7 @@ ms.locfileid: "52672769"
                 _cachedCredentials = new MediaServicesCredentials(
                                 _mediaServicesAccountName,
                                 _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
+                // Used the cached credentials to create CloudMediaContext.
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Load an MP4 file.
@@ -1261,18 +1261,18 @@ ms.locfileid: "52672769"
                 IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
                     MediaProcessorNames.MediaEncoderStandard);
 
-                ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
+                ITask adaptiveBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
                    "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
-                adpativeBitrateTask.InputAssets.Add(asset);
+                adaptiveBitrateTask.InputAssets.Add(asset);
 
                 // Add an output asset to contain the results of the job. 
                 // This output is specified as AssetCreationOptions.None, which 
                 // means the output asset is in the clear (unencrypted).
-                IAsset abrAsset = adpativeBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
+                IAsset abrAsset = adaptiveBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
                                         AssetCreationOptions.None);
 
                 return abrAsset;

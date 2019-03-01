@@ -1,26 +1,26 @@
 ---
 title: 如何为 Azure Redis 缓存配置异地复制 | Microsoft Docs
 description: 了解如何跨地理区域复制 Azure Redis 缓存实例。
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 12/21/2018
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1f547ff1a4bcfa23801337612c5532d5f883c400
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 5f2378cdb57f9f7b8edaae36f83204a6bab5ab2d
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784922"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903245"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>如何为 Azure Redis 缓存配置异地复制
 
@@ -185,4 +185,4 @@ ms.locfileid: "53784922"
 
 了解有关 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

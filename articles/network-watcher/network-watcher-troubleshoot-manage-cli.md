@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d080b4f95eee199097d81b713a0fbe97854d7313
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ffcc71c9c18c760c69b31c45e988c75220340a88
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660452"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987021"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>使用 Azure 网络观察程序 Azure CLI 对虚拟网络网关和连接进行故障排除
 
@@ -48,8 +48,6 @@ ms.locfileid: "52660452"
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>检索虚拟网络网关连接
 
 在此示例中，将针对连接运行资源故障排除。 还可以向其传递虚拟网络网关。 以下 cmdlet 将列出资源组中的 vpn 连接。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az network vpn-connection list --resource-group resourceGroupName

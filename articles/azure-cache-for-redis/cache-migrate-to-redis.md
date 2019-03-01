@@ -1,26 +1,26 @@
 ---
 title: 将托管缓存服务应用程序迁移到 Redis - Azure | Microsoft 文档
 description: 了解如何将托管缓存服务和角色中缓存应用程序迁移到 Azure Redis 缓存
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/30/2017
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: e47adbdf73d3c5a593e728d6fc850e72d0b59fc9
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 04fb5253241a8ee215e0e1a4ca1d05d677b5992f
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334276"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903075"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>从托管缓存服务迁移到 Azure Redis 缓存
 在将使用 Azure 托管缓存服务的应用程序迁移到 Azure Redis 缓存时，只需对应用程序略做更改，具体情况取决于缓存应用程序所使用的托管缓存服务功能。 API 虽非完全相同，但却极为类似，而且使用托管缓存服务来访问缓存的多数现有代码，只需略做更改即可重复使用。 本文介绍了为迁移托管缓存服务应用程序以使用 Azure Redis 缓存，如何进行必要的配置和应用程序更改；还介绍了如何使用 Azure Redis 缓存的某些功能实现托管缓存服务缓存功能。
@@ -192,5 +192,5 @@ Azure Redis 缓存有适用于 ASP.NET 会话状态和页面输出缓存的提�
 ## <a name="next-steps"></a>后续步骤
 浏览 [Azure Redis 缓存文档](https://www.azure.cn/zh-cn/home/features/redis-cache)中的教程、示例、视频及其他信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 

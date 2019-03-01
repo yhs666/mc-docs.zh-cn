@@ -3,7 +3,7 @@ title: 使用 Azure 媒体服务 .NET SDK 创建筛选器
 description: 本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务创建动态清单来存档此选择性流。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 87fcf587c832274c3c5a9ffa25a1702a6b3fe094
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/09/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 4d3e373aea6b0ecad2ecf38e85402e4ac542adf3
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654595"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833378"
 ---
-# <a name="creating-filters-with-azure-media-services-net-sdk"></a>使用 Azure 媒体服务 .NET SDK 创建筛选器
+# <a name="creating-filters-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 创建筛选器 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)

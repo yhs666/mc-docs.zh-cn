@@ -3,7 +3,7 @@ title: Azure Media Indexer 的任务预设
 description: 本主题概述 Azure Media Indexer 的任务预设。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/03/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 667dd091eddbf7ba41fc5b6a8bc7bed9172784cb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 788760941896b49e575192303985765d43988e12
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654594"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833317"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer 的任务预设
+# <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer 的任务预设 
 
 Azure Media Indexer 是用于执行以下任务的媒体处理器：使媒体文件和内容可搜索、生成隐藏式字幕跟踪和关键字、为属于资产的资产文件编制索引。
 

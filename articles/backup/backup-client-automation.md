@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/24/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 57eb9acd5f5041fa0d9882a4ab871876fff69f11
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: cdef189eac3217b6d5d9e75c498941739ea924ba
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674613"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987047"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -116,11 +116,11 @@ PS C:\> MARSAgentInstaller.exe /?
 | 选项 | 详细信息 | 默认 |
 | --- | --- | --- |
 | /q |静默安装 |- |
-| /p:"location" |Azure 备份代理的安装文件夹路径。 |C:\Program Files\Azure Recovery Services Agent |
-| /s:"location" |Azure 备份代理的缓存文件夹路径。 |C:\Program Files\Azure Recovery Services Agent\Scratch |
-| /m |选择加入 Azure 更新 |- |
+| /p:"location" |Azure 备份代理的安装文件夹路径。 |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Azure 备份代理的缓存文件夹路径。 |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |选择启用 Microsoft Update |- |
 | /nu |安装完成后不要检查更新 |- |
-| /d |卸载 Azure 恢复服务代理 |- |
+| /d |卸载 Microsoft Azure 恢复服务代理 |- |
 | /ph |代理主机地址 |- |
 | /po |代理主机端口号 |- |
 | /pu |代理主机用户名 |- |
@@ -140,13 +140,13 @@ PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -V
 代理安装程序不会更新 $Env:PSModulePath 变量。 这意味着模块自动加载失败。 若要解决此问题，请尝试执行以下操作：
 
 ```
-PS C:\>  $Env:psmodulepath += ';C:\Program Files\Azure Recovery Services Agent\bin\Modules'
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 ```
 
 或者，可在脚本中手动加载模块，如下所示：
 
 ```
-PS C:\>  Import-Module  'C:\Program Files\Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
+PS C:\>  Import-Module  'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
 
 ```
 

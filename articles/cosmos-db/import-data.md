@@ -4,15 +4,15 @@ description: 了解如何使用开源 Azure Cosmos DB 数据迁移工具从各�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
-origin.date: 11/15/2018
-ms.date: 01/21/2019
+origin.date: 02/22/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f2cf8b8817c49fc82a243117cd2001b227e1f072
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: e10ef79493143c4c8d1cc8f0ddacfcc2065855fe
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309341"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987995"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
@@ -64,7 +64,7 @@ ms.locfileid: "54309341"
 <a name="Install"></a>
 ## <a name="installation"></a>安装
 
-迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，或者[下载一个预编译的库](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip)，然后运行以下任一项：
+迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，或者[下载一个预编译的库](http://aka.ms/csdmtool)，然后运行以下任一项：
 
 * **Dtui.exe**：该工具的图形界面版本
 * **Dt.exe**：该工具的命令行版本
@@ -237,6 +237,7 @@ Azure 表存储连接字符串的格式为：
 `DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn;`
     
 <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
+
 > [!NOTE]
 > 使用验证命令来确保可以访问在连接字符串字段中指定的 Azure 表存储实例。
 
@@ -258,6 +259,7 @@ dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;Account
 ```
 
 <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
+
 <a name="DynamoDBSource"></a>
 ## <a name="import-from-amazon-dynamodb"></a>从 Amazon DynamoDB 导入
 

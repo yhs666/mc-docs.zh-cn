@@ -1,5 +1,5 @@
 items:
-- name: 基于角色的访问控制文档
+- name: Azure 资源的 RBAC 文档
   href: index.yml
 - name: 概述
   items:
@@ -9,7 +9,7 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: 快速入门
   items:
-  - name: 查看用户的角色
+  - name: 查看用户的访问权限
     href: check-access.md
 - name: 教程
   items:
@@ -56,10 +56,12 @@ items:
       href: custom-roles-rest.md
   - name: 查看活动日志
     href: change-history-report.md
-  - name: 为全局管理员提升访问权限
+  - name: 提升访问权限来管理所有订阅
     href: elevate-access-global-admin.md
   - name: 管理外部用户的访问权限
     href: role-assignments-external-users.md
+  - name: 经典管理员
+    href: classic-administrators.md
   - name: 故障排除
     href: troubleshooting.md
 - name: 参考
@@ -71,7 +73,7 @@ items:
   - name: RBAC 限制
     href: ../azure-subscription-service-limits.md#role-based-access-control-limits
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.resources
+    href: https://docs.microsoft.com/powershell/module/az.resources
   - name: Azure CLI
     href: /cli/role?view=azure-cli-latest
   - name: REST API
@@ -82,9 +84,9 @@ items:
       href: https://docs.microsoft.com/azure/templates/microsoft.authorization/roleassignments
     - name: 角色定义
       href: https://docs.microsoft.com/azure/templates/microsoft.authorization/roledefinitions
-ms.openlocfilehash: 0d2379d5088733f8ed833ec8df30618dd755ea13
-ms.sourcegitcommit: ea0cd1bb32d5dc42a0f4358bbfcc0adea936b2fc
+ms.openlocfilehash: 55b9af6c988206e5552442d84a90b230a3781fcf
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/21/2019
-ms.locfileid: "54417333"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836970"

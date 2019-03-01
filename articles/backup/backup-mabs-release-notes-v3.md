@@ -7,14 +7,13 @@ manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/22/2018
-ms.author: v-jysur
-ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: ae34602b2a1e84591844859b883bc9e735639e1a
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.author: v-lingwu
+ms.openlocfilehash: 9115a2ff88a2c24e0c8f990fd81e98914c34b484
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737020"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986996"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure 备份服务器发行说明
 本文提供了 Microsoft Azure 备份服务器 (MABS) V3 的已知的问题和解决方法。
@@ -58,13 +57,13 @@ ms.locfileid: "53737020"
 
 **变通方法：** 执行以下步骤以使用俄罗斯语安装包升级到 MABS V3：
 
-1.  [备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure)你的 SQL 数据库并卸载 MABS V2（在卸载期间选择保留受保护的数据）。
+1.  [备份](https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure)你的 SQL 数据库并卸载 MABS V2（在卸载期间选择保留受保护的数据）。
 2.  在升级过程中升级到 SQL 2017（企业版）并卸载报告功能。
-3. [安装](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS)。
-4.  [安装](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio (SSMS)。
-5.  如[使用 SQL 2017 时的 SSRS 配置](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)中所述使用参数配置报告功能。
+3. [安装](https://docs.microsoft.com/zh-cn/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS)。
+4.  [安装](https://docs.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio (SSMS)。
+5.  如[使用 SQL 2017 时的 SSRS 配置](https://docs.microsoft.com/zh-cn/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)中所述使用参数配置报告功能。
 6.  [安装](backup-azure-microsoft-azure-backup.md) MABS V3。
-7. 使用 SSMS [还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL 并如[此处](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10))所述运行 DPM-Sync 工具。
+7. 使用 SSMS [还原](https://docs.microsoft.com/zh-cn/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL 并如[此处](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10))所述运行 DPM-Sync 工具。
 8.  使用以下命令更新 dbo.tbl_DLS_GlobalSetting 表中的“DataBaseVersion”属性：
 
         UPDATE dbo.tbl_DLS_GlobalSetting
@@ -75,6 +74,3 @@ ms.locfileid: "53737020"
 9.  启动 MSDPM 服务。
 
 
-## <a name="next-steps"></a>后续步骤
-
-[MABS V3 中的新增功能](backup-mabs-whats-new-mabs.md)

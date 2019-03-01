@@ -1,26 +1,26 @@
 ---
 title: Azure Redis 缓存常见问题解答 | Microsoft Docs
 description: 了解 Azure Redis 缓存的常见问题、模式和最佳做法
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 07/27/2017
-ms.date: 02/12/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 34bfeef6c9e29493821b5d77074c9d38baecaaa1
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: 5dcbbd7b3026389b268f0ff276c261fd524c0197
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096555"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903103"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -459,4 +459,4 @@ Redis 取得成功的另一个重要方面是围绕它构建了健康而充满�
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

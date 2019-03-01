@@ -1,6 +1,6 @@
 ---
-title: 教程 - 使用 RBAC 和 Azure PowerShell 授予组的访问权限 | Microsoft Docs
-description: 使用基于角色的访问控制 (RBAC) 授予组访问权限，以便通过 Azure PowerShell 查看订阅中的所有内容并管理资源组中的一切。
+title: 教程 - 使用 RBAC 和 Azure PowerShell 授予组对 Azure 资源的访问权限 | Microsoft Docs
+description: 了解如何使用基于角色的访问控制 (RBAC) 和 Azure PowerShell 授予组对 Azure 资源的访问权限。
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 06/11/2018
-ms.date: 09/25/2018
+origin.date: 02/02/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3bb3771dfcc3708c9a4e8d62b46f8a399eef6997
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ed3753c5bf59d4b1a0b20e2e52828ce7799cff96
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666655"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836974"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予组的访问权限
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予组对 Azure 资源的访问权限
 
-可以在 Azure 中通过[基于角色的访问控制 (RBAC)](overview.md) 这种方式管理对资源的访问。 在本教程中，请授予组访问权限，以便通过 Azure PowerShell 查看订阅中的所有内容并管理资源组中的一切。
+可以通过[基于角色的访问控制 (RBAC)](overview.md) 方式管理对 Azure 资源的访问权限。 在本教程中，请授予组访问权限，以便通过 Azure PowerShell 查看订阅中的所有内容并管理资源组中的一切。
 
 本教程介绍如何执行下列操作：
 
@@ -33,6 +33,8 @@ ms.locfileid: "52666655"
 > * 删除访问权限
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -70,16 +72,16 @@ ms.locfileid: "52666655"
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-如果无权创建组，可以改为尝试[教程：使用 RBAC 和 Azure PowerShell 授予用户的访问权限](tutorial-role-assignments-user-powershell.md)。
+如果你无权创建组，可以尝试改用[教程：使用 RBAC 和 Azure PowerShell 授予用户对 Azure 资源的访问权限](tutorial-role-assignments-user-powershell.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
 请使用资源组来演示如何在资源组范围分配角色。
 
-1. 使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 命令获取区域位置的列表。
+1. 使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 命令获取区域位置的列表。
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. 选择附近的一个位置，将其分配给某个变量。
@@ -88,10 +90,10 @@ ms.locfileid: "52666655"
    $location = "chinanorth"
    ```
 
-1. 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令创建新的资源组。
+1. 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建新的资源组。
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -104,7 +106,7 @@ ms.locfileid: "52666655"
 
 ## <a name="grant-access"></a>授予访问权限
 
-若要为组授予访问权限，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) 命令分配一个角色。 必须指定安全主体、角色定义和范围。
+若要为组授予访问权限，请使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) 命令分配一个角色。 必须指定安全主体、角色定义和范围。
 
 1. 使用 [Get-AzureADGroup](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroup) 命令获取组的对象 ID。
 
@@ -124,10 +126,10 @@ ms.locfileid: "52666655"
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. 使用 [Get-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription) 命令获取订阅的 ID。
+1. 使用 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription) 命令获取订阅的 ID。
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -146,7 +148,7 @@ ms.locfileid: "52666655"
 1. 将[读者](built-in-roles.md#reader)角色分配给订阅范围内的组。
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -166,7 +168,7 @@ ms.locfileid: "52666655"
 1. 将[参与者](built-in-roles.md#contributor)角色分配给资源组范围内的组。
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -185,10 +187,10 @@ ms.locfileid: "52666655"
 
 ## <a name="list-access"></a>列出访问权限
 
-1. 若要验证订阅的访问权限，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment) 命令列出角色分配。
+1. 若要验证订阅的访问权限，请使用 [Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment) 命令列出角色分配。
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
+    Get-AzRoleAssignment -ObjectId $groupId -Scope $subScope
     ```
 
     ```Example
@@ -205,10 +207,10 @@ ms.locfileid: "52666655"
 
     在输出中，可以看到“读者”角色已分配给订阅范围的“RBAC 教程组”。
 
-1. 若要验证资源组的访问权限，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment) 命令列出角色分配。
+1. 若要验证资源组的访问权限，请使用 [Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment) 命令列出角色分配。
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -247,12 +249,12 @@ ms.locfileid: "52666655"
 
 ## <a name="remove-access"></a>删除访问权限
 
-若要删除用户、组和应用程序的访问权限，请使用 [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermroleassignment) 删除角色分配。
+若要删除用户、组和应用程序的访问权限，请使用 [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment) 删除角色分配。
 
 1. 使用以下命令，删除组在资源组范围的“参与者”角色分配。
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -260,7 +262,7 @@ ms.locfileid: "52666655"
 1. 使用以下命令，删除组在订阅范围的“读者”角色分配。
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -269,10 +271,10 @@ ms.locfileid: "52666655"
 
 若要清理本教程创建的资源，请删除资源组和组。
 
-1. 使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令删除资源组。
+1. 使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令删除资源组。
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -294,6 +296,6 @@ ms.locfileid: "52666655"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [使用 RBAC 和 PowerShell 管理访问权限](role-assignments-powershell.md)
+> [使用 RBAC 和 Azure PowerShell 管理对 Azure 资源的访问权限](role-assignments-powershell.md)
 
 <!-- Update_Description: wording update -->

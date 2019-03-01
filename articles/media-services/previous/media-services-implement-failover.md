@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 10/22/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: ae9d35a757e3010a7ef48fa7a7a59abf779f0875
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d80d6ba5343d4eb84989c35d9f396ddc6abe8878
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647964"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833420"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>使用 Azure 媒体服务实现故障转移流式处理
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>使用媒体服务实现故障转移流式处理（旧版）
 
 本演练演示如何将内容 (blob) 从一个资产复制到另一个资产，以便处理按需流式处理的冗余。 如果想要将 Azure 内容分发网络设置为当某个数据中心发生中断时在两个数据中心之间故障转移，则很适合采用此方案。 本演练使用 Azure 媒体服务 SDK、Azure 媒体服务 REST API 和 Azure 存储 SDK 来演示以下任务：
 
@@ -62,7 +62,7 @@ ms.locfileid: "52647964"
 
 1. 使用 Visual Studio 创建包含 C# 控制台应用程序项目的新解决方案。 输入 **HandleRedundancyForOnDemandStreaming** 作为名称，并单击“确定”。
 2. 在与 HandleRedundancyForOnDemandStreaming.csproj 项目文件相同的级别创建 SupportFiles 文件夹。 在 SupportFiles 文件夹下创建 OutputFiles 和 MP4Files 文件夹。 将一个 .mp4 文件复制到 MP4Files 文件夹。 （本示例使用 BigBuckBunny.mp4 文件。） 
-3. 使用 Nuget 添加对媒体服务相关 DLL 的引用。 在 Visual Studio 主菜单中，选择“工具” > “库包管理器” > “包管理器控制台”。 在控制台窗口中键入 **Install-Package windowsazure.mediaservices**，并按 Enter。
+3. 使用 Nuget 添加对媒体服务相关 DLL 的引用。 在 Visual Studio 主菜单中，选择“工具” > “库包管理器” > “包管理器控制台”。 在控制台窗口中键入 Install-Package windowsazure.mediaservices，并按 Enter。
 4. 添加此项目所需的其他引用：System.Configuration、System.Runtime.Serialization 和 System.Web。
 5. 将默认添加到 Programs.cs 文件中的 using 语句替换为以下语句：
    
@@ -179,7 +179,7 @@ ms.locfileid: "52647964"
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

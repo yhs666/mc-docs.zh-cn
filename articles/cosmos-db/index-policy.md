@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/10/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b4c9744750c4bfc3ce7a1d687e48801cff396a9e
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 62db0008d892bb48b892d1a9020e3458567b69fb
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309162"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987964"
 ---
-# <a name="indexing-policy-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
+# <a name="index-policy-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 
 可以通过配置以下参数来替代 Azure Cosmos 容器上的默认索引策略：
 

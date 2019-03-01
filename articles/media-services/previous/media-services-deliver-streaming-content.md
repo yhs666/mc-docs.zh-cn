@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 86475a05172d4f17e6c02c5999d028e5bf28b038
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/09/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 749b82a9eb3b767be31e818b66c45a561eab96d0
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647395"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833402"
 ---
-# <a name="publish-azure-media-services-content-using-net"></a>使用 .NET 发布 Azure 媒体服务内容
+# <a name="publish-media-services-content-using-net"></a>使用 .NET 发布媒体服务内容  
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)

@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/24/2019
-ms.date: 02/18/2019
+origin.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.reviewer: bganapa
+ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d723e7568e31af998a17e070449fc2f843fcf44d
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: ca8e55479b6dce1d620a540a62ec1f8054debfe6
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218235"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905293"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack
 
@@ -70,12 +70,7 @@ ms.locfileid: "56218235"
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-
-  $cred = get-credential
-
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackUser" `
-    -Credential $cred
+  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## <a name="register-resource-providers"></a>注册资源提供程序

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a502b5c709ab34c5d41cc6152e3e96d22dcf22df
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 72b93d4e21dfe9db9177d9b631471ea3c433e884
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676764"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903141"
 documentType: LandingData
 title: Azure Kubernetes 服务 (AKS)
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/26/2018
+  ms.date: 03/04/2019
   ms.author: v-yeche
 abstract:
   description: Azure Kubernetes 服务 (AKS) 管理托管的 Kubernetes 环境，使用户无需具备容器业务流程专业知识即可快速、轻松地部署和管理容器化的应用程序。 它还通过按需预配、升级和缩放资源，消除了正在进行的操作和维护的负担，而无需使应用程序脱机。
@@ -52,33 +52,3 @@ sections:
     - html: <a href="/aks/tutorial-kubernetes-scale">缩放应用程序和 Kubernetes 基础结构</a>
     - html: <a href="/aks/tutorial-kubernetes-app-update">更新 Kubernetes 中运行的应用程序</a>
     - html: <a href="/aks/tutorial-kubernetes-upgrade-cluster">升级 AKS 群集</a>
-- title: 利用 Azure Learn 掌握技能
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: 通过 Azure 容器实例运行 Docker 容器
-      href: https://docs.microsoft.com/en-us/learn/modules/run-docker-with-azure-container-instances/
-      image:
-        src: https://docs.microsoft.com/en-us/learn/achievements/run-docker-with-azure-container-instances.svg
-        href: https://docs.microsoft.com/en-us/learn/modules/run-docker-with-azure-container-instances/
-    - title: 使用 Azure 容器注册表生成并存储容器映像
-      href: https://docs.microsoft.com/en-us/learn/modules/build-and-store-container-images/
-      image:
-        src: https://docs.microsoft.com/en-us/learn/achievements/build-and-store-container-images.svg
-        href: https://docs.microsoft.com/en-us/learn/modules/build-and-store-container-images/
-  - type: paragraph
-    text: <a href="https://docs.microsoft.com/en-us/learn/browse/?products=azure-container-registry%2Cazure-container-instances">更多交互式学习...</a>
-- title: 参考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/zh-cn/cli/azure/aks?view=azure-cli-latest">Azure CLI</a></p>
-    - title: 语言
-      html: <p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/overview/azure/containerservice?view=azure-dotnet">.NET</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/containerservice">Python</a></p><p><a href="https://docs.microsoft.com/zh-cn/java/api/overview/azure/containerservice?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/container-service">Node.js</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/aks">REST API</a></p>

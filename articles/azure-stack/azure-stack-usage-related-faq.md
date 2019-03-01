@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/18/2018
-ms.date: 12/17/2018
+origin.date: 02/19/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 6282bbaba87327da06492a98e1687c82509bdc05
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 11/08/2018
+ms.openlocfilehash: 7dbe3372966555569f0136f17eaa8d641cbc3a38
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396223"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905426"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
@@ -300,7 +301,7 @@ ms.locfileid: "53396223"
 **计量名称**：DatabaseSizeHourMySqlMeter  
 **单元**：MB\*小时  
 **注释**：创建时的总数据库容量。 如果以每日粒度调用用量 API，计量器会返回 MB 乘以小时数。    
-### <a name="key-vault"></a>Key Vault   
+### <a name="key-vault"></a>密钥保管库   
   
 **计量 ID**：EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **计量名称**：Key Vault 事务  
@@ -331,27 +332,27 @@ ms.locfileid: "53396223"
   
 **计量 ID**：957E9F36-2C14-45A1-B6A1-1723EF71A01D  
 **计量名称**：共享应用服务小时数  
-**单元**：1 小时	  
+**单元**：1 小时  
 **注释**：共享应用服务计划的每小时使用情况。 计划按单个应用来计量。  
   
 **计量 ID**：539CDEC7-B4F5-49F6-AAC4-1F15CFF0EDA9  
 **计量名称**：免费应用服务小时数  
-**单元**：1 小时	  
+**单元**：1 小时  
 **注释**：免费应用服务计划的每小时使用情况。 计划按单个应用来计量。  
   
 **计量 ID**：88039D51-A206-3A89-E9DE-C5117E2D10A6  
 **计量名称**：小型标准应用服务小时数  
-**单元**：1 小时	  
+**单元**：1 小时  
 **注释**：根据大小与实例数进行计算。  
   
 **计量 ID**：83A2A13E-4788-78DD-5D55-2831B68ED825  
 **计量名称**：中型标准应用服务小时数  
-**单元**：1 小时	  
+**单元**：1 小时  
 **注释**：根据大小与实例数进行计算。  
   
 **计量 ID**：1083B9DB-E9BB-24BE-A5E9-D6FDD0DDEFE6  
 **计量名称**：大型标准应用服务小时数  
-**单元**：1 小时	  
+**单元**：1 小时  
 **注释**：根据大小与实例数进行计算。  
   
 ### <a name="custom-worker-tiers"></a>自定义辅助角色层   
@@ -393,7 +394,7 @@ ms.locfileid: "53396223"
 目前，只能按“报告时间”查询。
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
-| **HTTP 状态代码** | **错误代码** | **说明** |
+| **HTTP 状态代码** | 错误代码 | **说明** |
 | --- | --- | --- |
 | 400/错误的请求 |*NoApiVersion* |未提供 *api-version* 查询参数。 |
 | 400/错误的请求 |*InvalidProperty* |属性缺失或使用了无效值。 响应正文中错误代码内的消息指示缺少属性。 |

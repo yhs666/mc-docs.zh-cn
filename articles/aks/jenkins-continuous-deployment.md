@@ -6,14 +6,14 @@ ms.service: container-service
 author: rockboyfor
 ms.author: v-yeche
 ms.topic: article
-origin.date: 09/27/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: c1e33f51ba1b28044c3db06e7eb6f8cc6ae93a12
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 01/09/2019
+ms.date: 03/04/2019
+ms.openlocfilehash: efa2caf5d69f6abfced48c19b8b2551f0a06d9d7
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676690"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903236"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>教程：使用 Jenkins 持续集成和部署从 GitHub 部署到 Azure Kubernetes 服务 (AKS)
 
@@ -230,11 +230,6 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 1. 输入“azure-vote”作为作业名称。 依次选择“自由风格项目”和“确定”
 1. 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 *https://github.com/\<your-github-account\>/azure-voting-app-redis*
 1. 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
-    - 对于凭据，依次单击“添加” > “Jenkins”
-    - 在“类型”下选择“机密文本”，输入 [GitHub 个人访问令牌][git-access-token]作为机密。
-    - 完成时请选择“添加”。
-
-    ![GitHub 凭据](media/aks-jenkins/github-creds.png)
 
 1. 在“生成触发器”部分下面，选择“用于 GITscm 轮询的 GitHub 挂钩触发器”
 1. 在“生成环境”下，选择“使用机密文本或文件”
@@ -314,10 +309,7 @@ SHOWHOST = 'false'
 
 ![AKS 中由 Jenkins 生成作业更新的示例 Azure 投票应用程序](media/aks-jenkins/azure-vote-updated.png)
 
-## <a name="next-steps"></a>后续步骤
-
-本文介绍了如何将 Jenkins 用作 CI/CD 解决方案的一部分。 AKS 可与其他 CI/CD 解决方案和自动化工具集成。
-
+<!--Not Available on ## Next steps-->
 <!--Not Available on [Azure DevOps Project][azure-devops]-->
 <!--Not Available on [creating an AKS cluster with Ansible][aks-ansible]-->
 
@@ -336,11 +328,9 @@ SHOWHOST = 'false'
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-ad-sp-create-for-rbac]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [az-acr-show]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-show
-<!-- Not Available on [azure-devops]: ../devops-project/azure-devops-project-aks.md-->
-<!-- Not Available on [aks-ansible]: ../ansible/ansible-create-configure-aks.md-->
+<!--Not Available on [azure-devops]: ../devops-project/azure-devops-project-aks.md-->
+<!--Not Available on [aks-ansible]: ../ansible/ansible-create-configure-aks.md-->

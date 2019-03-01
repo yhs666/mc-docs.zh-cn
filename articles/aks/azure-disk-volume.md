@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5ea3ab79b426bc0a5f48c71e4d4e1118c35aa5e4
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2339d035e186b752008d163e553e631dbba184ef
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676552"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903050"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 磁盘手动创建并使用卷
 
@@ -132,7 +132,7 @@ Events:
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
-[managed-disk-pricing-performance]: https://www.azure.cn/pricing/details/storage/
+[managed-disk-pricing-performance]: https://www.azure.cn/pricing/details/storage/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list
@@ -142,6 +142,5 @@ Events:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [azure-files-volume]: azure-files-volume.md

@@ -1,23 +1,22 @@
 ---
 title: 示例 - 审核诊断设置
-description: 如果未对指定资源类型启用诊断设置，此示例策略会进行审核。
+description: 如果未对指定资源类型启用诊断设置，此示例策略定义会进行审核。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 04/27/2018
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 2ed77902f38ea27add492657685fc303a1105359
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 05495e2139dfcf1f9cb76265f6ad4df511dae8b0
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996387"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903125"
 ---
-# <a name="audit-diagnostic-setting"></a>审核诊断设置
+# <a name="sample---audit-diagnostic-setting"></a>示例 - 审核诊断设置
 
 如果未对指定资源类型启用诊断设置，则内置策略会进行审核。 指定一个资源类型的数组以检查是否已启用诊断设置。
 
@@ -83,12 +82,12 @@ ms.locfileid: "53996387"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
 
-New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
+New-AzPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>清理 PowerShell 部署
@@ -96,7 +95,7 @@ New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definit
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
+Remove-AzPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

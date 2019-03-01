@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中查看 RBAC 更改的活动日志 | Microsoft Docs
-description: 查看过去 90 天内基于角色的访问控制 (RBAC) 更改的活动日志。
+title: 查看 Azure 资源的 RBAC 更改的活动日志 | Microsoft Docs
+description: 查看过去 90 天内 Azure 资源的基于角色的访问控制 (RBAC) 更改的活动日志。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/23/2018
-ms.date: 07/25/2018
+origin.date: 02/02/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97c6fc92ae109104fb4d30fd9a24d344886903a4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 07571c6227afd1e6c5fd3306016b627b8c6e0f78
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662609"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836954"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>查看 RBAC 更改的活动日志
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>查看 Azure 资源的 RBAC 更改的活动日志
 
-有时需要了解基于角色的访问控制 (RBAC) 更改，如出于审核或故障排除目的。 只要有人更改了你订阅中的角色分配或角色定义，这些更改就会被记录到 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解在过去 90 天内发生的所有 RBAC 更改。
+有时需要了解 Azure 资源的基于角色的访问控制 (RBAC) 更改，如出于审核或故障排除目的。 只要有人更改了你订阅中的角色分配或角色定义，这些更改就会被记录到 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解在过去 90 天内发生的所有 RBAC 更改。
 
 ## <a name="operations-that-are-logged"></a>记录的操作
 
@@ -54,24 +54,26 @@ ms.locfileid: "52662609"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-若要使用 Azure PowerShell 查看活动日志，请使用 [Get-AzureRmLog](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermlog) 命令。
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+若要使用 Azure PowerShell 查看活动日志，请使用 [Get-AzLog](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzLog) 命令。
 
 此命令列出过去 7 天内订阅中所有角色分配的更改：
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 此命令列出过去 7 天内资源组中所有角色定义的更改：
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 此命令列出过去 7 天内订阅中所有角色分配和角色定义的更改，并在列表中显示结果：
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example

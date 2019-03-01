@@ -5,19 +5,19 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 294f23586ea287ac70e20de89c4cc9deab071a8c
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 010db8e87e462d8eacb720a7985aa7df864949b6
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409079"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903308"
 ---
-# <a name="understand-policy-effects"></a>了解 Policy 效果
+# <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
 Azure Policy 中的每个策略定义都有单一效果。 该效果确定了在评估匹配的策略规则时发生的情况。 如果这些效果适用于新资源、更新的资源或现有资源，则它们的行为会有所不同。
 
@@ -85,7 +85,8 @@ Policy 首先评估通过 Azure 资源管理器创建或更新资源的请求。
 }
 ```
 
-示例 3：使用[别名](definition-structure.md#aliases)具有数组值的单个字段/值对，可在存储帐户上设置 IP 规则。
+示例 3：使用具有数组**值**的非 **[\*]**
+[别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 如果非 **[\*]** 别名是数组，该效果将以整个数组的形式附加**值**。 如果数组已存在，该冲突会导致拒绝事件发生。
 
 ```json
 "then": {
@@ -96,6 +97,21 @@ Policy 首先评估通过 Azure 资源管理器创建或更新资源的请求。
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+示例 4：使用具有数组**值**的 **[\*]** [别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 通过使用 **[\*]** 别名，该效果会将**值**附加到可能预先存在的数组。 如果数组尚不存在，则会创建数组。
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```

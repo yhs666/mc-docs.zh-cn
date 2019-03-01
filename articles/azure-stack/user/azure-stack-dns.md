@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2018
-ms.date: 12/31/2018
+origin.date: 01/05/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 4182d495ad708f2056a6ee47818aab1238fe9d73
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 1976c66bc071ce668123ac1899f3042cd9695745
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218236"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905393"
 ---
 # <a name="using-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 
@@ -44,7 +44,7 @@ Azure Stack 支持以下域名系统 (DNS) 功能：
 
 以下屏幕截图显示了使用门户创建公共 IP 地址时的“创建公共 IP 地址”对话框：
 
-![创建公共 IP 地址](media/azure-stack-whats-new-dns/image01.png)
+![创建公共 IP 地址](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>示例方案
 

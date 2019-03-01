@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 6afb78956b491a47392156d5c49829c69656686c
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 4c97fb57d0397e48fac20dd4127550f34c408a43
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672561"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833358"
 ---
 # <a name="how-to-check-job-progress"></a>如何：检查作业进度
 > [!div class="op_single_selector"]
@@ -36,7 +36,6 @@ ms.locfileid: "52672561"
 
 若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-
 ## <a name="check-job-progress"></a>检查作业进度
 
 请求：
@@ -49,8 +48,6 @@ ms.locfileid: "52672561"
     Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     Host: media.chinacloudapi.cn
-
-
 
 响应：
 

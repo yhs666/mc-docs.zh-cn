@@ -3,7 +3,7 @@ title: 使用 Azure 媒体分析检测动作 | Microsoft Docs
 description: Azure 媒体动作检测器媒体处理器 (MP) 可让你在冗长且平淡的视频中有效识别出你感兴趣的部分。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 7598ec84d53b69bfbda160628332ee844126f985
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/10/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 9586a1140019239f3f2d545d57c5b66c8bf52657
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659075"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833377"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述
@@ -45,7 +45,7 @@ ms.locfileid: "52659075"
 | sensitivityLevel |字符串：'low'、'medium'、'high' |设置报告动作情况的敏感度级别。 调整此项是为了调整误报数量。 |'medium' |
 | frameSamplingValue |正整数 |设置算法的运行频率。 1 等于每个帧，2 是指每 2 个帧，如此类推。 |1 |
 | detectLightChange |布尔值：'true'、'false' |设置是否在结果中报告轻微的更改 |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>示例：00:00:03 |指定动作事件之间的时间窗口，其中的 2 个事件将组合成 1 个事件进行报告。 |00:00:00 |
+| mergeTimeThreshold |Xs-time：Hh:mm:ss<br/>示例：00:00:03 |指定动作事件之间的时间窗口，其中的 2 个事件将组合成 1 个事件进行报告。 |00:00:00 |
 | detectionZones |检测区域的一个数组：<br/>- 检测区域是一个包含 3 个或 3 个以上点的数组<br/>- 点是从 0 到 1 的 x 和 y 坐标。 |描述要使用的多边形检测区域列表。<br/>报告结果时将报告以 ID 表示的区域，其中第一个是 ‘id’:0 |单个区域，涵盖整个帧。 |
 
 ### <a name="json-example"></a>JSON 示例
@@ -281,7 +281,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

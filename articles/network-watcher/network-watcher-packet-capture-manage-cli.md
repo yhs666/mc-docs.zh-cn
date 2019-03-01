@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 5e0398bc33a563398dab46c16150bd30d24dbe56
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1ead690a341d94fb7c580408c5fd9be2ecffa0e2
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648892"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987048"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>通过 Azure CLI 使用 Azure 网络观察程序管理数据包捕获
 
@@ -32,8 +32,7 @@ ms.locfileid: "52648892"
 
 使用网络观察程序数据包捕获，可以创建捕获会话以跟踪进出虚拟机的流量。 为捕获会话提供了筛选器以确保仅捕获所需的流量。 数据包捕获有助于以主动和被动方式诊断网络异常。 其他用途包括收集网络统计信息，获得网络入侵信息，调试客户端与服务器之间的通信，等等。 由于能够远程触发数据包捕获，此功能可减轻手动运行数据包捕获的负担，并可在所需计算机上运行，从而可节省宝贵的时间。
 
-本文使用资源管理部署模型的新一代 CLI (Azure CLI 2.0)，其适用于 Windows、Mac 和 Linux。
-
+若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](/cli/install-azure-cli?view=azure-cli-latest)。
 
 本文将引导完成当前可用于数据包捕获的不同管理任务。
 
@@ -58,8 +57,6 @@ ms.locfileid: "52648892"
 
 在来宾虚拟机上运行 `az vm extension set` cmdlet 以安装数据包捕获代理。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 对于 Windows 虚拟机：
 
 ```azurecli
@@ -69,8 +66,8 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 对于 Linux 虚拟机：
 
 ```azurecli
-az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux --version 1.4
-````
+az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
+```
 
 ### <a name="step-2"></a>步骤 2
 
@@ -111,7 +108,7 @@ az vm extension show --resource-group resourceGroupName --vm-name virtualMachine
 下一步是检索网络观察程序实例。 在步骤 4 中，会将网络观察程序的名称传递给 `az network watcher show` cmdlet。
 
 ```azurecli
-az network watcher list --query "[?location=='chinaeast']"
+az network watcher show --resource-group resourceGroup --name networkWatcherName
 ```
 
 ### <a name="step-2"></a>步骤 2
@@ -127,7 +124,7 @@ azure storage account list
 可以使用筛选器来限制数据包捕获存储的数据。 以下示例为数据包捕获设置了多个筛选器。  前三个筛选器仅收集从本地 IP 10.0.0.3 发往目标端口 20、80 和 443 的传出 TCP 流量。  最后一个筛选器仅收集 UDP 流量。
 
 ```azurecli
-az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{'protocol':'TCP', 'remoteIPAddress':'1.1.1.1-255.255.255','localIPAddress':'10.0.0.3', 'remotePort':'20'},{'protocol':'TCP', 'remoteIPAddress':'1.1.1.1-255.255.255','localIPAddress':'10.0.0.3', 'remotePort':'80'},{'protocol':'TCP', 'remoteIPAddress':'1.1.1.1-255.255.255','localIPAddress':'10.0.0.3', 'remotePort':'443'},{'protocol':'UDP'}]"
+az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
 以下示例是运行 `az network watcher packet-capture create` cmdlet 后的预期输出。

@@ -51,7 +51,7 @@
 ## 管理
 
 ### [根据 Azure 限制查看资源使用情况](check-usage-against-limits.md)
-### [查看网络拓扑](../network-watcher/network-watcher-topology-powershell.md?toc=%2fnetworking%2ftoc.json)
+### [查看网络拓扑](../network-watcher/view-network-topology.md)
 
 ## 示例脚本
 ### [Azure CLI](cli-samples.md)

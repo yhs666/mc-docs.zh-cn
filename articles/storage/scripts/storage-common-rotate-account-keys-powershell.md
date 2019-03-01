@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/13/2017
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: fc94e50761a086d2ed10351271f2fef37512ad95
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 1e4cb13bb1de763c0105e977652c706fd6a014aa
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192820"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196557"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>创建存储帐户并轮换其帐户访问密钥
 
 此脚本会创建一个 Azure 存储帐户，显示新存储帐户的主访问密钥，然后续订（轮换）密钥。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

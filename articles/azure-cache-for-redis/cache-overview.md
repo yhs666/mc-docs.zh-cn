@@ -1,26 +1,26 @@
 ---
 title: 什么是 Azure Redis 缓存？ | Microsoft Docs
 description: 了解什么是 Azure Redis 缓存及其常用方式。
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/26/2018
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3915e3fd6e5713ff1aeba75fad0dc952a8512718
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: bc2bd946fb6766d7dcf5aa227f711bd457ebecfa
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334270"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903167"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>什么是 Azure Redis 缓存
 
@@ -83,4 +83,4 @@ Azure Redis 缓存在下述层中提供：
 - [Java 快速入门](cache-java-get-started.md)创建使用 Azure Redis 缓存的简单 Java 应用。
 - [Python 快速入门](cache-python-get-started.md)创建使用 Azure Redis 缓存的简单 Python 应用。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

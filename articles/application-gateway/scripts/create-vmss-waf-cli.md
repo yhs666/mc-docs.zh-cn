@@ -12,15 +12,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/29/2018
-ms.date: 02/11/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: fcd1842f33f20b01e8d810fc1e30686c008c5610
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 0a0501390e2713e086f1e82baa184310cc488ad1
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079637"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836976"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>使用 Azure CLI 限制 Web 流量
 
@@ -122,13 +122,13 @@ az group delete --name myResourceGroupAG --yes
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az network vnet create](/cli/network/vnet) | 创建虚拟网络。 |
-| [az network vnet subnet create](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) | 在虚拟网络中创建子网。 |
+| [az network vnet subnet create](/cli/network/vnet/subnet#az-network-vnet-subnet-create) | 在虚拟网络中创建子网。 |
 | [az network public-ip create](/cli/network/public-ip?view=azure-cli-latest) | 创建应用程序网关的公用 IP 地址。 |
 | [az network application-gateway create](/cli/network/application-gateway?view=azure-cli-latest) | 创建应用程序网关。 |
 | [az vmss create](/cli/vmss#az-vmss-create) | 创建虚拟机规模集。 |
 | [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
 | [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | 创建存储帐户。 |
-| [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | 获取应用程序网关的公共 IP 地址。 |
+| [az network public-ip show](/cli/network/public-ip#az-network-public-ip-show) | 获取应用程序网关的公共 IP 地址。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 1/3/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 8c6fdefa521713e09885974a6dc567e1dc4d5d1c
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: f99f92f5e5930fc8092857d73f06ae8b461389a9
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996520"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987054"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -62,7 +62,7 @@ ms.locfileid: "53996520"
   * [启动任务](#start-task)
   * [作业管理器任务](#job-manager-task)
   * [作业准备和释放任务](#job-preparation-and-release-tasks)
-  * [多实例任务 (MPI)](#multi-instance-tasks)
+  * 多实例任务 (MPI)
   * [任务依赖项](#task-dependencies)
 * [应用程序包](#application-packages)
 
@@ -268,7 +268,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 * [启动任务](#start-task)
 * [作业管理器任务](#job-manager-task)
 * [作业准备和释放任务](#job-preparation-and-release-tasks)
-* [多实例任务 (MPI)](#multi-instance-tasks)
+* 多实例任务 (MPI)
 * [任务依赖项](#task-dependencies)
 
 ### <a name="start-task"></a>启动任务

@@ -2,20 +2,20 @@
 title: 使用 Node.js 发送事件 - Azure 事件中心
 description: 本文提供了一个演练，说明如何创建从 Azure 事件中心发送事件的 Node.js 应用程序。
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 origin.date: 09/18/2018
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: cfd3526530b12f3b019dde08fe6eefda040e250e
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 31223b577df589be7d489c123d17d1c19df9af0a
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785233"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903034"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>使用 Node.js 将事件发送到 Azure 事件中心
 
@@ -38,63 +38,73 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 按照以下文章中的说明获取事件中心命名空间的连接字符串：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 本教程后面的步骤将使用此连接字符串。
 
 ## <a name="clone-the-sample-git-repository"></a>克隆示例 Git 存储库
-将示例 Git 存储库从 [Github](https://github.com/Azure/azure-event-hubs-node) 克隆到计算机。 
+将示例 Git 存储库从 [GitHub](https://github.com/Azure/azure-event-hubs-node) 克隆到计算机。 
 
 ## <a name="install-nodejs-package"></a>安装 Node.js 程序包
 在计算机上安装适用于 Azure 事件中心的 Node.js 程序包。 
 
-```nodejs
+```shell
 npm install @azure/event-hubs
 ```
 
 ## <a name="clone-the-git-repository"></a>克隆 Git 存储库
-从 Github 下载或克隆[示例](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples)。 
+从 GitHub 下载或克隆[示例](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples)。 
 
 ## <a name="send-events"></a>发送事件
 你克隆的 SDK 包含了多个示例，其中展示了如何使用 node.js 将事件发送到事件中心。 在本快速入门中，你将使用 **simpleSender.js** 示例。 若要观察正在接收的事件，请打开另一个终端，并使用[接收示例](event-hubs-node-get-started-receive.md)来接收事件。
 
 1. 在 Visual Studio Code 中打开项目。 
 2. 在 **client** 文件夹下创建一个名为 **.env** 的文件。 从根文件夹中的 **sample.env** 中复制并粘贴示例环境变量。
-3. 配置你的事件中心连接字符串、事件中心名称和存储终结点。 可以在 Azure 门户中从“事件中心”页面上的 **RootManageSharedAccessKey** 下的“连接字符串-主要”密钥下复制你的事件中心的连接字符串。 有关详细步骤，请参阅[获取连接字符串](event-hubs-create.md#create-an-event-hubs-namespace)。
+3. 配置你的事件中心连接字符串、事件中心名称和存储终结点。 有关获取事件中心连接字符串的说明，请参阅[获取连接字符串](event-hubs-create.md#create-an-event-hubs-namespace)。
 4. 在 Azure CLI 中，导航到 **client** 文件夹路径。 通过运行以下命令安装节点程序包并生成项目：
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. 通过运行以下命令来启动发送事件： 
 
-    ```nodejs
+    ```shell
     node dist/examples/simpleSender.js
     ```
 
 
 ## <a name="review-the-sample-code"></a>查看示例代码 
-下面是使用 node.js 将事件发送到事件中心的示例代码。 可以手动创建 sampleSender.js 文件，并运行它来将事件发送到事件中心。 
+查看 simpleSender.js 文件中用于将事件发送到事件中心的示例代码。
 
-
-```nodejs
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+```javascript
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-在运行此脚本之前，请记得设置环境变量。 可以在命令行中如以下示例所示配置此变量，也可以使用 [dotenv 程序包](https://www.npmjs.com/package/dotenv#dotenv)。 
+在运行此脚本之前，请记得设置环境变量。 可以在命令行中如以下示例所示配置这些变量，也可以使用 [dotenv 包](https://www.npmjs.com/package/dotenv#dotenv)。 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"

@@ -7,12 +7,12 @@ ms.author: v-junlch
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 48045654bb28eddf9984f05dee47d7a07ae544a4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 25a57f07616abfef8f5b1f4ac11fe17f40eac56a
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648614"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987037"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>在渲染 VM 映像上预安装的应用程序
 
@@ -24,26 +24,26 @@ ms.locfileid: "52648614"
 
 ## <a name="applications-on-centos-7-rendering-nodes"></a>CentOS 7 渲染节点上的应用程序
 
-- Autodesk Maya I/O 2017 更新 5 (cut 201708032230)
-- Autodesk Maya I/O 2018 更新 2 (cut 201711281015)
-- Autodesk Arnold for Maya 2017（Arnold 版本 5.0.1.1）MtoA-2.0.1.1-2017
-- Autodesk Arnold for Maya 2018（Arnold 版本 5.0.1.4）MtoA-2.1.0.3-2018
-- Chaos Group V-Ray for Maya 2017（版本 3.60.04）
-- Chaos Group V-Ray for Maya 2018（版本 3.60.04）
-- Blender (2.68)
+* Autodesk Maya I/O 2017 更新 5 (cut 201708032230)
+* Autodesk Maya I/O 2018 更新 2 (cut 201711281015)
+* Autodesk Arnold for Maya 2017（Arnold 版本 5.0.1.1）MtoA-2.0.1.1-2017
+* Autodesk Arnold for Maya 2018（Arnold 版本 5.0.1.4）MtoA-2.1.0.3-2018
+* Chaos Group V-Ray for Maya 2017（版本 3.60.04）
+* Chaos Group V-Ray for Maya 2018（版本 3.60.04）
+* Blender (2.68)
 
 ## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Windows Server 2016 渲染节点上的应用程序
 
-- Autodesk Maya I/O 2017 更新 5（版本 17.4.5459）
-- Autodesk Maya I/O 2018 更新 3（版本 18.3.0.7040）  
-- Autodesk 3ds Max I/O 2019 更新 1（版本 21.10.1314）
-- Autodesk 3ds Max I/O 2018 更新 4（版本 20.4.0.4254）
-- Autodesk Arnold for Maya（Arnold 版本 5.0.1.1）MtoA-2.0.1.1-2017
-- Autodesk Arnold for Maya（Arnold 版本 5.0.1.4）MtoA-2.0.2.3-2018
-- Autodesk Arnold for 3ds Max（Arnold 版本 5.0.2.4）（版本 1.2.926）
-- Chaos Group V-Ray for Maya（版本 3.52.03）
-- Chaos Group V-Ray for 3ds Max（版本 3.60.02）
-- Blender (2.79)
+* Autodesk Maya I/O 2017 更新 5（版本 17.4.5459）
+* Autodesk Maya I/O 2018 更新 4（版本 18.4.0.7622）  
+* Autodesk 3ds Max I/O 2019 更新 1（版本 21.2.0.2219）
+* Autodesk 3ds Max I/O 2018 更新 4（版本 20.4.0.4254）
+* Autodesk Arnold for Maya 2017（Arnold 版本 5.2.0.1）MtoA-3.1.0.1-2017
+* Autodesk Arnold for Maya 2018（Arnold 版本 5.2.0.1）MtoA-3.1.0.1-2018
+* Autodesk Arnold for 3ds Max（Arnold 版本 5.0.2.4）（版本 1.2.926）
+* Chaos Group V-Ray for Maya（版本 3.52.03）
+* Chaos Group V-Ray for 3ds Max（版本 3.60.02）
+* Blender (2.79)
 
 ## <a name="next-steps"></a>后续步骤
 

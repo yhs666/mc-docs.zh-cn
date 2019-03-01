@@ -8,12 +8,12 @@ ms.author: v-junlch
 origin.date: 08/13/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: e4bc9d979ac4f79ffc848b3fc6a252c9dc6afcce
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f354a1477b2c53256772fd62ce08bcddec51b942
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658401"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987058"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 渲染的参考体系结构
 
@@ -51,7 +51,7 @@ ms.locfileid: "52658401"
 
 - **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-- **存储** - 跨界：Avere vFXT。 通过 Azure Data Box 以可选方式将本地文件存档到 Blob 存储。
+* **存储** - 跨界：Avere vFXT。 通过 Azure Data Box 以可选方式将本地文件存档到 Blob 存储，或通过本地 Avere vFXT 加速 NAS。
 
   ![云迸发 - 混合计算和存储](./media/batch-rendering-architectures/hybrid-compute-storage.png)
 

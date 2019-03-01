@@ -3,19 +3,19 @@ title: 使用 Chocolatey 进行 Azure Automation State Configuration 持续部�
 description: 使用 Azure Automation State Configuration、DSC 和 Chocolatey 包管理器进行 DevOps 持续部署。  包含完整 JSON 资源管理器模板和 PowerShell 源代码的示例。
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2018
-ms.date: 12/24/2018
+ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ea20040664371360277b23830b82c3ddb35a2995
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: ba7912fb334139c4a624472f972f2cecbc84dc2b
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615184"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987116"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用情况示例：使用 Automation State Configuration 和 Chocolatey 持续部署到虚拟机
 
@@ -37,7 +37,7 @@ DevOps 领域中有许多工具可帮助你处理持续集成管道中的各个�
 [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 之类的包管理器在 Linux 领域耳熟能详，但在 Windows 领域并不被大家所熟悉。
 [Chocolatey](https://chocolatey.org/) 就是这样一个工具，Scott Hanselman 的有关该工具主题的[博客](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)对此工具进行了深入介绍。 简单的说，Chocolatey 可让你使用命令行从包的中央存储库将包安装到 Windows 系统。 可以创建和管理自己的存储库，Chocolatey 可以从指定的任何数量的存储库来安装包。
 
-Desired State Configuration (DSC)（[概述](https://docs.microsoft.com/powershell/dsc/overview)）是一个 PowerShell 工具，可使用它为计算机声明所需的配置。 例如，可以说“我想要安装 Chocolatey、我想要安装 IIS、我想要打开端口 80、我想要安装网站 1.0.0 版”。 DSC 本地配置管理器 (LCM) 实现该配置。 DSC 拉取服务器有一个存储库用于保存计算机的配置。 每台计算机上的 LCM 定期检查计算机的配置是否与存储的配置匹配。 它可以报告状态，也可以尝试让计算机恢复到与存储的配置匹配。 可以编辑拉取服务器上存储的配置，使一台计算机或一组计算机与更改的配置匹配。
+Desired State Configuration (DSC)（[概述](https://docs.microsoft.com/powershell/dsc/overview)）是一个 PowerShell 工具，可使用它为计算机声明所需的配置。 例如，可以说“我想要安装 Chocolatey、我想要安装 IIS、我想要打开端口 80、我想要安装网站 1.0.0 版”。 DSC 本地配置管理器 (LCM) 实现该配置。 DSC“拉”服务器有一个存储库用于保存计算机的配置。 每台计算机上的 LCM 定期检查计算机的配置是否与存储的配置匹配。 它可以报告状态，也可以尝试让计算机恢复到与存储的配置匹配。 可以编辑“拉”服务器上存储的配置，使一台计算机或一组计算机与更改的配置匹配。
 
 Azure 自动化是 Azure 中的托管服务，允许使用 Runbook、节点、凭据、资源以及资产（如计划和全局变量），自动执行各种任务。
 Azure Automation State Configuration 扩展了此自动化功能，包含 PowerShell DSC 工具。 以下是一个不错的 [概述](automation-dsc-overview.md)。
@@ -54,12 +54,12 @@ Resource Manager 模板的一项主要功能是能够在预配时将 VM 扩展�
 首先，需要编写、生成和测试代码，并创建安装包。
 Chocolatey 可以处理各种类型的安装包，例如 MSI、MSU、ZIP。 如果 Chocolatey 的本机功能不足以满足需要，还有 PowerShell 的完整功能可执行实际安装。 将包放入可访问的位置 – 包存储库。 本用例使用 Azure Blob 存储帐户中的公共文件夹，但它可以位于任何位置。 Chocolatey 原生可配合 NuGet 服务器和其他某些工具一起管理包元数据。 [本文](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 介绍了相应的选项。 本用例使用 NuGet。 Nuspec 是包的元数据。 Nuspec 将“编译”成 NuPkg，然后存储在 NuGet 服务器中。 当配置按名称请求某个包并引用 NuGet 服务器时，Chocolatey DSC 资源（现在位于 VM 中）将获取并安装包。 也可以请求特定版本的包。
 
-示意图左下方有一个 Azure 资源管理器模板。 在本用例中，VM 扩展将 VM 注册到 Azure Automation State Configuration 拉取服务器（即请求服务器）成为“节点”。 配置存储在拉取服务器中。
+示意图左下方有一个 Azure 资源管理器模板。 在本用例中，VM 扩展将 VM 注册到 Azure Automation State Configuration“拉”服务器（即请求服务器）成为“节点”。 配置存储在“拉”服务器中。
 实际上存储两次：一次存储为纯文本，另一次编译成 MOF 文件（适用于对此有所了解的人）。在门户，MOF 是“节点配置”（而不只是“配置”）。 它是与“节点”关联的项目，因此节点知道它的配置。 以下详细信息演示如何将节点配置分配给节点。
 
-也许已执行了开头的一点或大部分操作。 创建和编译 nuspec 并将其存储在 NuGet 服务器中是一件很简单的事。 并且已在管理 VM。 持续部署的下一步需要设置拉取服务器（一次）、向它注册节点（一次），然后创建配置并存储到节点中（初步）。 接下来，当包升级并部署到存储库时，请刷新拉取服务器中的“配置”和“节点配置”（根据需要重复）。
+也许已执行了开头的一点或大部分操作。 创建和编译 nuspec 并将其存储在 NuGet 服务器中是一件很简单的事。 并且已在管理 VM。 持续部署的下一步需要设置拉取服务器（一次）、向它注册节点（一次），然后创建配置并存储到节点中（初步）。 接下来，当包升级并部署到存储库时，请刷新“拉”服务器中的“配置”和“节点配置”（根据需要重复）。
 
-如果不是从资源管理器模板开始，也没关系。 有一些 PowerShell Cmdlet 可帮助你向拉取服务器注册 VM，以及完成余下的所有工作。 有关详细信息，请参阅以下文章：[登记由 Azure Automation State Configuration 管理的计算机](automation-dsc-onboarding.md)。
+如果不是从资源管理器模板开始，也没关系。 有一些 PowerShell Cmdlet 可帮助你向“拉”服务器注册 VM，以及完成余下的所有工作。 有关详细信息，请参阅以下文章：[登记由 Azure Automation State Configuration 管理的计算机](automation-dsc-onboarding.md)。
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>步骤 1：设置拉取服务器和自动化帐户
 
@@ -73,7 +73,7 @@ New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location M
 ## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>步骤 2：VM 扩展根据资源管理器模板进行调整
 
 此 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver)提供了 VM 注册（使用 PowerShell DSC VM 扩展）的详细信息。
-此步骤将新的 VM 注册到拉取服务器的 State Configuration 节点列表中。 此注册的一部分指定要应用到节点的节点配置。 此节点配置尚无需存在于请求服务器中，因此该操作最初可以在步骤 4 中执行。 但在步骤 2 中，需要确定节点名称和配置名称。 在本用例中，节点名称为“isvbox”，配置名称为“ISVBoxConfig”。 因此，节点配置名称（会在 DeploymentTemplate.json 中指定）为“ISVBoxConfig.isvbox”。
+此步骤将新的 VM 注册到“拉”服务器的 State Configuration 节点列表中。 此注册的一部分指定要应用到节点的节点配置。 此节点配置尚无需存在于请求服务器中，因此该操作最初可以在步骤 4 中执行。 但在步骤 2 中，需要确定节点名称和配置名称。 在本用例中，节点名称为“isvbox”，配置名称为“ISVBoxConfig”。 因此，节点配置名称（会在 DeploymentTemplate.json 中指定）为“ISVBoxConfig.isvbox”。
 
 ## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>步骤 3：将所需的 DSC 资源添加到拉取服务器
 
@@ -128,9 +128,8 @@ Configuration ISVBoxConfig
             Name         = 'Web-Server-TCP-In'
             DisplayName  = 'Web Server (TCP-In)'
             Description  = 'IIS allow incoming web site traffic.'
-            DisplayGroup = 'IIS Incoming Traffic'
-            State        = 'Enabled'
-            Access       = 'Allow'
+            Enabled       = 'True'
+            Action       = 'Allow'
             Protocol     = 'TCP'
             LocalPort    = '80'
             Ensure       = 'Present'
@@ -166,7 +165,7 @@ Get-AzureRmAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-这些步骤生成要放在拉取服务器上的名为“ISVBoxConfig.isvbox”的新节点配置。 生成的节点配置名称为“configurationName.nodeName”。
+这些步骤生成要放在“拉”服务器上的名为“ISVBoxConfig.isvbox”的新节点配置。 生成的节点配置名称为“configurationName.nodeName”。
 
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>步骤 5：创建和维护包元数据
 
@@ -175,7 +174,7 @@ Get-AzureRmAutomationDscCompilationJob `
 
 ## <a name="step-6-tying-it-all-together"></a>步骤 6：汇总
 
-每当有某个版本通过 QA 和部署批准时，即会创建包，更新 nuspec 和 nupkg 并将其部署到 NuGet 服务器。 此外，还必须更新配置（上述步骤 4）以便与新版本号匹配。 配置必须发送到拉取服务器并进行编译。
+每当有某个版本通过 QA 和部署批准时，即会创建包，更新 nuspec 和 nupkg 并将其部署到 NuGet 服务器。 此外，还必须更新配置（上述步骤 4）以便与新版本号匹配。 配置必须发送到“拉”服务器并进行编译。
 然后，依赖于该配置的 VM 提取并安装更新。 其中的每项更新都很简单 - 只需一两行的 PowerShell 命令。
 
 ## <a name="notes"></a>注释
@@ -183,7 +182,7 @@ Get-AzureRmAutomationDscCompilationJob `
 本用例开头的 VM 来自于 Azure 库的通用 Windows Server 2012 R2 映像。 用户可以从任何存储的映像开始，并使用 DSC 配置对其进行调整。
 不过，更改已刻入映像的配置要比使用 DSC 动态更新配置难得多。
 
-将此技巧运用于 VM 时，不需要使用资源管理器模板和 VM 扩展。 即使 VM 不在 Azure 上，也能由 CD 管理。 只需在 VM 上安装 Chocolatey 并配置 LCM，以使其知道拉取服务器的所在位置即可。
+将此技巧运用于 VM 时，不需要使用资源管理器模板和 VM 扩展。 即使 VM 不在 Azure 上，也能由 CD 管理。 只需在 VM 上安装 Chocolatey 并配置 LCM，以使其知道“拉”服务器的所在位置即可。
 
 当然，在生产环境中的 VM 上更新包时，在安装更新的过程中，需要将 VM 从轮转列表中排除。 具体的操作根据情况而有很大的差异。 例如，如果 VM 在 Azure 负载均衡器后面，则可以添加自定义探测。 更新 VM 时，让探测终结点返回 400。 可在配置中进行所需的调整来造成这种更改，但更新完成时，调整将切换为返回 200。
 

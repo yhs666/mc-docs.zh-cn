@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 10/24/2018
-ms.date: 01/21/2019
+origin.date: 01/30/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: cdba12b29f02aa4ef0549b0917d997766d974569
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 7174733116019968b2ba52997a63a667c7a626a0
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309288"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988024"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 更改源处理器 SDK：下载和发行说明
 > [!div class="op_single_selector"]

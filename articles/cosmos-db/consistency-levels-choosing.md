@@ -6,16 +6,16 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/24/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4a9d4b9418a29e46caca1e896f20dcfaf3593358
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 50f46cc2cb0136f462f43f5b668a57b9d8f548e6
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309228"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987998"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>为你的应用程序选择适当的一致性级别
+# <a name="choose-the-right-consistency-level"></a>选择适当的一致性级别 
 
 依赖于复制以实现高可用性、低延迟或这两者的分布式数据库在读取一致性与可用性、延迟和吞吐量之间进行基本权衡。 大多数商用分布式数据库都要求开发人员在两种极端一致性模型之间进行选择：非常一致和最终一致。 开发人员使用 Azure Cosmos DB 可在五个妥善定义的一致性模型（非常、有限过期、会话、一致前缀和最终）之间进行选择。 这些一致性模型中的每一种都具有明确的定义并直观呈现，可用于特定的真实场景。 五种一致性模型中的每一种在[可用性与性能方面都进行了权衡](consistency-levels-tradeoffs.md)，并有全面的 SLA 作为保障。 以下简单的注意事项将有助于你在许多常见方案中做出正确的选择。
 
@@ -34,6 +34,8 @@ ms.locfileid: "54309228"
 - 如果需要的一致性不如会话一致性提供的那么严格的话，建议使用一致前缀一致性级别。
 
 - 如果需要最高可用性和最低延迟，请使用最终一致级别。
+
+- 如果需要更高的数据持久性而不想牺牲性能，可以在应用层创建自定义一致性级别。 有关详细信息，请参阅[如何在应用程序中实现自定义同步](how-to-custom-synchronization.md)。
 
 ## <a name="mongodb-api"></a>MongoDB API
 
@@ -65,4 +67,4 @@ ms.locfileid: "54309228"
 * [如何管理应用程序的会话令牌](how-to-manage-consistency.md#utilize-session-tokens)
 * [监视概率有限过期性 (PBS) 指标](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: f310963b6f583be09c0175a4de37d2d2b3d46f72
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+ms.openlocfilehash: 7766e6ec84bc3ddfb4c74b9a2229f52704e9ba6f
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363646"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987043"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -126,42 +126,19 @@ VM 无法根据部署要求访问 Internet。 或者现有的限制阻止访问 
 
 若要正常工作，备份扩展需要连接到 Azure 公共 IP 地址。 扩展将命令发送到 Azure 存储终结点 (HTTPS URL)，以管理 VM 快照。 如果扩展无法访问公共 Internet，则备份最终会失败。
 
-可以部署代理服务器来路由 VM 流量。
-##### <a name="create-a-path-for-https-traffic"></a>创建 HTTPS 流量路径
-
-1. 若有网络限制（例如，网络安全组），请部署 HTTPS 代理服务器来路由流量。
-2. 若要允许从 HTTPS 代理服务器访问 Internet，请将规则（若有）添加到网络安全组。
-
-若要了解如何为 VM 备份设置 HTTPS 代理，请参阅[准备环境以备份 Azure 虚拟机](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
-
-无论是备份的 VM 还是路由流量的代理服务器，都需要对 Azure 公共 IP 地址的访问权限
-
 ####  <a name="solution"></a>解决方案
-若要解决此问题，请尝试下列方法：
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>允许访问与该区域对应的 Azure 存储
-
-可以使用[服务标记](../virtual-network/security-overview.md#service-tags)允许与特定区域存储建立连接。 确保允许访问存储帐户的规则的优先级高于阻止 Internet 访问的规则。 
-
-![使用区域存储标记的网络安全组](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-> [!WARNING]
-> 存储服务标记以预览版提供。 它们只在特定的区域中可用。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)。
-
-如果使用 Azure 托管磁盘，可能需要在防火墙上打开另一个端口 (8443)。
-
-此外，如果子网没有用于 Internet 出站流量的路由，则需要将具有服务标记“Microsoft.Storage”的服务终结点添加到子网。 
+若要解决网络问题，请参阅[建立网络连接](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理安装在 VM 中，但无响应（针对 Windows VM）
 
 #### <a name="solution"></a>解决方案
 VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮助获取最新版本。 此外，还有助于与服务重新开始通信。
 
-1. 确定 Windows 来宾代理服务是否在 VM 服务 (services.msc) 中运行。 尝试重启 Windows 来宾代理服务并启动备份。    
-2. 如果“服务”中未显示 Windows 来宾代理服务，请在控制面板中转到“程序和功能”，确定是否已安装 Windows 来宾代理服务。
-4. 如果“程序和功能”中显示了 Windows 来宾代理，请将其卸载。
+1. 确定 Windows Azure 来宾代理服务是否在 VM 服务 (services.msc) 中运行。 尝试重启 Windows Azure 来宾代理服务并启动备份。    
+2. 如果服务中未显示 Windows Azure 来宾代理服务，请在“控制面板”中转到“程序和功能”，确定是否已安装 Windows Azure 来宾代理服务。
+4. 如果“程序和功能”中显示了 Windows Azure 来宾代理，请将其卸载。
 5. 下载并安装[最新版本的代理 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 必须拥有管理员权限才能完成安装。
-6. 检查能否在服务中看到 Windows 来宾代理服务。
+6. 检查服务中是否显示了 Windows Azure 来宾代理服务。
 7. 运行按需备份：
     * 在门户中，选择“立即备份”。
 
@@ -267,4 +244,5 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 5. 单击“删除”以清理还原点集合。
 6. 再次重试备份操作。
 
-<!-- Update_Description: wording update -->
+> [!NOTE]
+ >如果资源（RP 集合）具有大量还原点，则从门户中删除相同数量还原点的操作可能会超时并失败。 这是已知的 CRP 问题，其中所有还原点不会在规定时间内都删除且操作会超时；但是，删除操作通常会在 2 次或 3 次重试后成功。

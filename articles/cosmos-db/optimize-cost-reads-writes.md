@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b6d54d5d4676280271d8599cf7b72e54ba08b0bf
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 268344e708442c69ce910637928c69eef949698d
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333866"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987929"
 ---
-# <a name="optimize-the-cost-required-to-read-and-write-data-from-azure-cosmos-db"></a>优化从 Azure Cosmos DB 读取和写入数据所需的成本
+# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的读取和写入成本
 
 本文介绍如何计算从 Azure Cosmos DB 读取和写入数据所需的成本。 读取操作包括对项的 Get 操作；写入操作包括项的插入、替换、删除和 upsert。  
 
@@ -33,11 +33,11 @@ Azure Cosmos DB 通过使用预配置吞吐量模型，在吞吐量和延迟方�
 
 ## <a name="normalized-cost-for-1-million-reads-and-writes"></a>100 万次读取和写入的标准化成本
 
-<!--Notice: $0.08 against CNY0.82 for Azure China-->
+<!--MOONCAKE CUSTOMIZE: $0.08 against CNY0.82 for Azure China-->
 
 预配 1,000 RU/秒转换为 360 万 RU/小时，每小时费用为 0.82 元（Azure 中国）。 对于 1 KB 的项，可使用此预配吞吐量每小时执行 360 万次读取或 72 万次写入（此值计算方式为：`3.6 million RU / 5`）。 规范化为百万次读取和写入后，成本将是 0.228 元/百万次读取（此值的计算如下：0.82 元/3.6 百万）和 1.14 元/百万次写入（此值的计算如下：0.82 元/0.72 百万）。
 
-<!--Notice: $0.08 against CNY0.82 for Azure China-->
+<!--MOONCAKE CUSTOMIZE: $0.08 against CNY0.82 for Azure China-->
 
 ## <a name="number-of-regions-and-the-request-units-cost"></a>区域数量和请求单位成本
 
@@ -56,6 +56,9 @@ Azure Cosmos DB 通过使用预配置吞吐量模型，在吞吐量和延迟方�
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
 * 详细了解[开发和测试优化](optimize-dev-test.md)
+
+<!-- Not Available on  [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)

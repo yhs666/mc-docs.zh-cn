@@ -1,27 +1,27 @@
 ---
 title: 使用 Azure Redis 缓存创建 ASP.NET Web 应用 | Microsoft Docs
 description: 本快速入门介绍如何使用 Azure Redis 缓存创建 ASP.NET Web 应用
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 03/26/2018
-ms.date: 02/12/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b5fe6c48e35ff5d3bcad8e875ff6a20a99239067
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: a04ee64741263d5317fee15cee11391588243655
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096551"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903176"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入门：创建 ASP.NET Web 应用 
 
@@ -340,4 +340,5 @@ ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中�
 > [!div class="nextstepaction"]
 > [在 ASP.NET 中创建缓存端排行榜](cache-web-app-cache-aside-leaderboard.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
+

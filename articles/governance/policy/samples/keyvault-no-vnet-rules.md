@@ -1,22 +1,22 @@
 ---
-title: 示例 - 审核 Key Vault 保管库是否没有虚拟网络终结点
-description: 此示例策略审核 Key Vault 保管库以检测没有虚拟网络服务终结点的实例。
+title: 示例 - 审核密钥保管库是否没有虚拟网络终结点
+description: 此示例策略定义审核 Key Vault 保管库以检测没有虚拟网络服务终结点的实例。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/26/2019
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: a018e2b5a27cfce1affdeee87c96cb7a6d2dccee
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 780428afc5c53492165d84f4341aedac48616e15
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409093"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903191"
 ---
-# <a name="key-vault-vaults-with-no-virtual-network-endpoints"></a>没有虚拟网络终结点的 Key Vault 保管库
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>示例 - 没有虚拟网络终结点的 Key Vault 保管库
 
 此策略通过审核来查找没有虚拟网络终结点的 Key Vault 保管库。 用于强制执行安全要求。 有关详细信息，请参阅 [Key Vault 中的虚拟网络服务终结点](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)。
 
@@ -124,7 +124,7 @@ ms.locfileid: "56409093"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 

@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 01/14/2019
+origin.date: 02/22/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 4f5ded12a88ac9ed9a57b9b41628f075dd830e9c
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.subservice: common
+ms.openlocfilehash: 6519985516d04b3120c895fe52d1e0c502301b92
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665701"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196563"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 

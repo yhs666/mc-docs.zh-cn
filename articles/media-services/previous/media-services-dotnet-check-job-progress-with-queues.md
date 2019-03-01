@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 12/03/2018
+origin.date: 02/09/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 1c2c92e990aa7dbdd755d91c2a83219917cd4648
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: d4819cd858d31d5e892ba659fcadf459299c8a8b
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672865"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833329"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知（旧版）
+
 运行编码作业时，通常需要采用某种方式来跟踪作业进度。 可以配置媒体服务将通知传送到 [Azure 队列存储](../../storage/storage-dotnet-how-to-use-queues.md)。 然后可以通过从队列存储获取通知来监视作业进度。 
 
 用户可以从任何位置访问已传给到队列存储中的消息。 队列存储消息体系结构十分可靠，且伸缩性极高。 建议使用其他方法轮询消息的队列存储。
@@ -339,7 +340,7 @@ namespace JobNotification
 }
 ```
 
-以上示例生成以下输出：您的值会有所变化。
+以上示例生成了以下输出：值会有所变化。
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

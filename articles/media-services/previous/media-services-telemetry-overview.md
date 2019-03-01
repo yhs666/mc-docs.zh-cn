@@ -3,7 +3,7 @@ title: Azure 媒体服务遥测 | Microsoft Docs
 description: 本文概述了 Azure 媒体服务遥测。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 6d419db64256b0ea642fc4b3aeb373eae936c8c3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/09/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 8b59b597209a4ddd8810429e32ebfb400cab4f5a
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647788"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833407"
 ---
-# <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
+# <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测  
 
 通过 Azure 媒体服务 (AMS) 可访问其服务的遥测/指标数据。 通过当前版本的 AMS，可收集活动 Channel、StreamingEndpoint 和 Archive 实体的遥测数据。 
 
@@ -86,9 +86,9 @@ ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 
 特定于实体的遥测数据条目有三种类型，每种类型的推送频率如下：
 
-- 流式处理终结点：每 30 秒
-- 直播频道：每分钟
-- 直播存档：每分钟
+- 流式处理终结点：每隔 30 秒
+- 直播频道：每隔一分钟
+- 实时存档：每隔一分钟
 
 **流式处理终结点**
 

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 09/26/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd07239b47cf2312190c3c1ed5e59e6e65c070d1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c2dd3aa82113447ef764a3b48f1081ee22641b77
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676735"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903015"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的出口流量使用公用静态 IP 地址
 
@@ -64,7 +64,7 @@ az network public-ip create \
     "ipAddress": "40.121.183.52",
     [..]
   }
-````
+```
 
 稍后可以使用 [az network public-ip list][az-network-public-ip-list] 命令获取公用 IP 地址。 指定节点资源组的名称，然后查询 ipAddress，如以下示例中所示：
 

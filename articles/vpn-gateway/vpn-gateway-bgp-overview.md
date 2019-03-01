@@ -1,30 +1,23 @@
 ---
-title: Azure VPN 网关的 BGP 概述 | Microsoft 文档
+title: BGP 和 Azure VPN 网关概述 | Microsoft Docs
 description: 本文概述了 Azure VPN 网关的 BGP。
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 01/12/2017
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 5c2d409f8346f1fcad31f3ded02af78f694642e0
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 63391f1e8c3517898517f1f65a3194316654bbac
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029049"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833141"
 ---
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN 网关的 BGP 概述
-本文概述了 Azure VPN 网关中支持的 BGP（边界网关协议）。
+# <a name="about-bgp-with-azure-vpn-gateway"></a>关于 Azure VPN 网关的 BGP
+本文概述了 Azure VPN 网关中的 BGP（边界网关协议）支持。
 
 BGP 是通常在 Internet 上使用的，用于在两个或更多网络之间交换路由和可访问性信息的标准路由协议。 在 Azure 虚拟网络的上下文中使用时，BGP 允许 Azure VPN 网关和本地 VPN 设备（称为 BGP 对等节点或邻居）交换“路由”，这些路由会通知这两个网关这些前缀的可用性和可访问性，以便这些前缀可通过涉及的网关或路由器。 BGP 还可以通过将 BGP 网关从一个 BGP 对等节点获知的路由传播到所有其他 BGP 对等节点来允许在多个网络之间传输路由。 
 

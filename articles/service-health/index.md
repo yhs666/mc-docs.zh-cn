@@ -2,23 +2,17 @@
 title: Azure 服务运行状况
 description: Azure 服务运行状况是一个体验套件，在你受到 Azure 服务中的问题影响时提供个性化指导和支持。
 services: Azure Service Health
-author: czeumault
+author: stephbaron
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 03/27/2018
-ms.date: 04/30/2018
+ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0d2c569922adeda47d882e48ca8508a27b431c8d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645879"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 
@@ -104,7 +98,24 @@ Azure 服务运行状况由以下部分组成：
         </div>
         </a>
     </li>
-
+    <li>
+        <a href="./resource-health-alert-arm-template-guide.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/article.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>在下次 Azure 资源变得不可用时收到通知</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---

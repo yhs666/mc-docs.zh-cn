@@ -3,7 +3,7 @@ title: Azure 快速入门 - 使用 Azure CLI 在 Key Vault 中设置和检索机
 description: 快速入门介绍如何使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/10/2018
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 54b98ae747309673cbdab0bfcdf7e2794a9cde3e
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 8886ed8a9f2a0e19113b3b661c4393f5580d0397
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409071"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903133"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 
@@ -67,12 +67,12 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
 
-只需再执行几个步骤即可向保管库添加机密。 此密码可供应用程序使用。 此密码将名为 **ExamplePassword**，将在其中存储的值为 **Pa$$w0rd**。
+只需再执行几个步骤即可向保管库添加机密。 此密码可供应用程序使用。 此密码将名为 **ExamplePassword**，将在其中存储的值为 **hVFkk965BuUv**。
 
-键入以下命令，在 Key Vault 中创建名为 **ExamplePassword** 的机密，用于存储的值将为 **Pa$$w0rd**：
+键入以下命令，在 Key Vault 中创建名为 **ExamplePassword** 的机密，用于存储的值将为 **hVFkk965BuUv**：
 
 ```azurecli
-az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 现在，可以通过使用密码的 URI，引用已添加到 Azure Key Vault 的此密码。 使用 **https://ContosoVault.vault.azure.cn/secrets/ExamplePassword** 获取当前版本。 

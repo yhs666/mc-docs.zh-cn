@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 08/21/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b550d5c4e26d53ce2a8b77d9bd773ac3685e2c66
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d366ab42bc20266b4b0ce3d018413a83d6c83ec9
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676670"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903129"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 连接到 Azure Kubernetes 服务 (AKS) 群集节点以进行维护或故障排除
 
@@ -130,7 +130,7 @@ aks-nodepool1-79590246-0  10.240.0.4
      * Support:        https://ubuntu.com/advantage
 
       Get cloud support with Ubuntu Advantage Cloud Guest:
-        http://www.ubuntu.com/business/services/cloud
+        https://www.ubuntu.com/business/services/cloud
 
     [...]
 

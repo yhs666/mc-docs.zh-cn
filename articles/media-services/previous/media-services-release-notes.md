@@ -11,23 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 12/24/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 1e4aa5a4fa878859b20b851b8cb8448981df36ac
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 731d8225745f238b8856a1654e17e9e23f49a3f8
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833410"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
+
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
 
-> [!NOTE]
-> 我们希望能够倾听客户的心声，以便努力解决对客户造成影响的问题。 要报告问题或提出问题，请将在 [Azure 媒体服务 MSDN 论坛]提交问题。
-> 
-> 
+我们希望能够倾听客户的心声，以便努力解决对客户造成影响的问题。 要报告问题或提出问题，请将在 [Azure 媒体服务 MSDN 论坛]提交问题。 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>当前已知的问题
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒体服务一般问题
@@ -421,6 +419,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 ## <a id="august_changes_13"></a>2013 年 8 月版本
 ### <a name="aug_13_powershell_changes"></a>Azure SDK 工具中包含的媒体服务 PowerShell cmdlet
+[Azure SDK 工具](https://github.com/Azure/azure-sdk-tools)中现在包含以下媒体服务 PowerShell cmdlet。
 
 * Get-AzureMediaServices 
 

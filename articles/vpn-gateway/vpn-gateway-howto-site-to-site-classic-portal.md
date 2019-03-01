@@ -3,8 +3,8 @@ title: 将本地网络连接到 Azure 虚拟网络：站点到站点 VPN（经�
 description: 通过公共 Internet 创建从本地网络到经典 Azure 虚拟网络的 IPsec 连接。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: jpconnock
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/12/2018
-ms.author: v-junlch
-ms.openlocfilehash: 7ff41b5c6bdb496c86e84e2b2011c7e289660f11
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: ebf90e0cbf7c052bafcd79463ef8f07895b2560a
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651735"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833178"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
 
@@ -45,37 +45,37 @@ ms.locfileid: "52651735"
 
 在开始配置之前，请验证是否符合以下条件：
 
-- 确认是否需要使用经典部署模型。 如果要使用资源管理器部署模型，请参阅[创建站点到站点连接（资源管理器）](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。 我们建议在可能的情况下使用资源管理器部署模型。
-- 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
-- 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
-- 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
-- 目前需要使用 PowerShell 来指定共享密钥和创建 VPN 网关连接。 安装最新版本的 Azure 服务管理 (SM) PowerShell cmdlet。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 PowerShell 进行此配置时，请确保以管理员身份运行。 
+* 确认是否需要使用经典部署模型。 如果要使用资源管理器部署模型，请参阅[创建站点到站点连接（资源管理器）](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。 我们建议在可能的情况下使用资源管理器部署模型。
+* 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
+* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
+* 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
+* 目前需要使用 PowerShell 来指定共享密钥和创建 VPN 网关连接。 安装最新版本的 Azure 服务管理 (SM) PowerShell cmdlet。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 PowerShell 进行此配置时，请确保以管理员身份运行。 
 
 ### <a name="values"></a>此练习的示例配置值
 
 本文中的示例使用以下值。 可使用这些值创建测试环境，或参考这些值以更好地理解本文中的示例。
 
-- **VNet 名称：** TestVNet1
-- **地址空间：** 
-  - 10.11.0.0/16
-  - 10.12.0.0/16（可选，适用于本练习）
-- **子网：**
-  - FrontEnd：10.11.0.0/24
-  - BackEnd：10.12.0.0/24（可选，适用于本练习）
-- **GatewaySubnet：** 10.11.255.0/27
-- **资源组：** TestRG1
-- **位置：** 中国北部
-- DNS 服务器：10.11.0.3（可选，适用于本练习）
-- **本地站点名称：** Site2
-- 客户端地址空间：位于本地站点的地址空间。
+* **VNet 名称：** TestVNet1
+* **地址空间：** 
+  * 10.11.0.0/16
+  * 10.12.0.0/16（可选，适用于本练习）
+* **子网：**
+  * FrontEnd：10.11.0.0/24
+  * BackEnd：10.12.0.0/24（对于本练习来说是可选的）
+* **GatewaySubnet：** 10.11.255.0/27
+* **资源组：** TestRG1
+* **位置：** 中国北部
+* **DNS 服务器：** 10.11.0.3（对于本练习来说是可选的）
+* **本地站点名称：** Site2
+* **客户端地址空间：** 位于本地站点的地址空间。
 
 ## <a name="CreatVNet"></a>1.创建虚拟网络
 
 创建适用于 S2S 连接的虚拟网络时，需确保指定的地址空间与适用于本地站点（需要连接到这些站点）的任何客户端地址空间不重叠。 如果有重叠子网，连接无法正常工作。
 
-- 如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 请特别注意任何可能与其他网络重叠的子网。 
+* 如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 请特别注意任何可能与其他网络重叠的子网。 
 
-- 如果还没有虚拟网络，请创建。 这些屏幕截图仅供参考。 请务必替换成自己的值。
+* 如果还没有虚拟网络，请创建。 这些屏幕截图仅供参考。 请务必替换成自己的值。
 
 ### <a name="to-create-a-virtual-network"></a>创建虚拟网络
 
@@ -128,9 +128,9 @@ ms.locfileid: "52651735"
   ![单击此项配置网关设置](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "单击此项配置网关设置")
 3. 在“新建 VPN 连接”页上，选择“站点到站点”。
 4. 单击“本地站点 - 配置所需的设置”打开“本地站点”页。 配置设置，然后单击“确定”保存设置。
-  - **名称：** 创建本地站点的名称，方便进行标识。
+  - **名称：** 为本地站点创建一个名称，方便进行识别。
   - **VPN 网关 IP 地址：** 这是本地网络的 VPN 设备的公共 IP 地址。 VPN 设备需要 IPv4 公共 IP 地址。 为要连接到的 VPN 设备指定一个有效的公共 IP 地址。 它不能位于 NAT 后面，并且必须可让 Azure 访问。 如果不知道 VPN 设备的 IP 地址，则始终可以先添加一个占位符值（只要其格式是有效的公共 IP 地址），等到以后再更改。
-  - **客户端地址空间:** 列出一个 IP 地址范围，需通过该网关将此范围路由到本地网络。 可以添加多个地址空间范围。 请确保在此处指定的范围与虚拟网络连接到的其他网络的范围不重叠，也与虚拟网络本身的地址范围不重叠。
+  - **客户端地址空间：** 列出要通过此网关路由到本地网络的 IP 地址范围。 可以添加多个地址空间范围。 请确保在此处指定的范围与虚拟网络连接到的其他网络的范围不重叠，也与虚拟网络本身的地址范围不重叠。
 
   ![本地站点](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "配置本地站点")
 
@@ -178,19 +178,19 @@ ms.locfileid: "52651735"
 
 1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
-    ```powershell
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+  ```powershell
+  Add-AzureAccount -Environment AzureChinaCloud
+  ```
 2. 检查该帐户的订阅。
 
-    ```powershell
-    Get-AzureSubscription
-    ```
+  ```powershell
+  Get-AzureSubscription
+  ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
-    ```powershell
-    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-    ```
+  ```powershell
+  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+  ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>步骤 2. 设置共享密钥并创建连接
 
@@ -209,7 +209,7 @@ ms.locfileid: "52651735"
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-创建连接后，结果为“状态: 成功”。
+创建连接后，结果为：**状态:** 成功”。
 
 ## <a name="verify"></a>9.验证连接
 
@@ -227,7 +227,7 @@ ms.locfileid: "52651735"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。
-- 有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-about-forced-tunneling.md)。
+* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/)。
+* 有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-about-forced-tunneling.md)。
 
 <!--Update_Description: update metedata properties-->

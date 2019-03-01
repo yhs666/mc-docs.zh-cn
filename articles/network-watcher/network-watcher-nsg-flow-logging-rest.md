@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a191315495ea2bae71f305fdad1e17b9fdd29104
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 71b653a02844155fe94b15fce70afd736d56d9e1
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674248"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987035"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>使用 REST API 配置网络安全组流日志
 
@@ -31,9 +31,6 @@ ms.locfileid: "52674248"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 网络安全组流日志是网络观察程序的一项功能，可用于查看有关通过网络安全组的入口和出口 IP 流量的信息。 这些流日志以 json 格式编写，并基于每个规则显示出站和入站流、流所适用的 NIC、有关流的 5 元组信息（源/目标 IP、源/目标端口、协议），以及是允许还是拒绝流量。
-
-> [!NOTE] 
-> 流日志版本 2 仅在中国北部区域可用。 配置可通过 Azure 门户和 REST API 获取。 在不支持的区域启用版本 2 日志时，版本 1 日志就会输出到存储帐户中。
 
 ## <a name="before-you-begin"></a>准备阶段
 

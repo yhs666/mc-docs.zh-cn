@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/30/2019
-ms.date: 02/18/2019
+origin.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: ae5d94fdbc2f990188b2fa51d141e830edd6602e
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: d4909007a68343402053f8026b2315bc6e9708e7
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218284"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905396"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
 
@@ -65,12 +65,7 @@ Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanage
   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
   # Sign in to your environment
-
-  $cred = get-credential
-
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -Credential $cred
+  Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
 > [!Note]  

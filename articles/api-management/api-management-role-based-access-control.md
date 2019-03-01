@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/20/2018
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: 06e86615cfe75fac0109b5eb55749099e7b37267
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/11/2019
+ms.openlocfilehash: 5b7983d8a18d63a1f6006dffc4bca88858483417
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651326"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196629"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用基于角色的访问控制
 Azure API 管理依赖于 Azure 基于角色的访问控制 (RBAC) 来为 API 管理服务和实体（例如，API 和策略）启用精细访问管理。 本文概述 API 管理中的内置角色和自定义角色。 有关 Azure 门户中的访问管理的详细信息，请参阅 [Azure 门户中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="built-in-roles"></a>内置角色
 API 管理目前提供了三个内置角色，不久之后会再添加两个角色。 可在不同的范围（包括订阅、资源组和单个 API 管理实例）分配这些角色。 例如，如果在资源组级别将“Azure API 管理服务读取者”角色分配给某个用户，则该用户将对该资源组中的所有 API 管理实例拥有读取访问权限。 
@@ -50,7 +52,7 @@ API 管理目前提供了三个内置角色，不久之后会再添加两个角�
 创建自定义角色时，从某个内置角色着手会更为轻松。 编辑属性以添加 **Actions**、**NotActions** 或 **AssignableScopes**，然后将所做的更改保存为新角色。 以下示例从“Azure API 管理服务读取者”角色着手，创建名为“计算器 API 编辑者”的自定义角色。 可以将自定义角色分配给特定的 API。 因此，此角色仅有权访问该 API。 
 
 ```
-$role = Get-AzureRmRoleDefinition "API Management Service Reader Role"
+$role = Get-AzRoleDefinition "API Management Service Reader Role"
 $role.Id = $null
 $role.Name = 'Calculator API Contributor'
 $role.Description = 'Has read access to Contoso APIM instance and write access to the Calculator API.'
@@ -58,8 +60,8 @@ $role.Actions.Add('Microsoft.ApiManagement/service/apis/write')
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/*/write')
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add('/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>')
-New-AzureRmRoleDefinition -Role $role
-New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
+New-AzRoleDefinition -Role $role
+New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
 ```
 
 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)一文提供了可以在 API 管理级别授予的权限的列表。

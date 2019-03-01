@@ -1,29 +1,27 @@
 ---
-title: 教程：对从 Internet 到 VM 的流量进行负载均衡 - Azure 门户 | Microsoft Docs
+title: 教程：对传入 VM 的 Internet 流量进行负载均衡 - Azure 门户
+titlesuffix: Azure Load Balancer
 description: 本教程展示了如何使用 Azure 门户创建和管理标准负载均衡器。
 services: load-balancer
 documentationcenter: na
 author: WenJason
 manager: digimobile
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/20/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.custom: mvc
-ms.openlocfilehash: 2ab21f2d0ba71367892e2c2a269c3cb3db9f5674
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.custom: seodec18
+ms.openlocfilehash: 134375504f0a87ff42bb356bbc5bffe4c33912a2
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673152"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836918"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>教程：通过 Azure 门户对从 Internet 到 VM 的流量进行负载均衡
 

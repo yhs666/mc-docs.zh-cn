@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 01/02/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 110ced31adad1a54b0bc23e80a75419626cb1379
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 61ca5194ceeeb10f33484f0a68b8ab366a3ccc89
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309171"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988011"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>适用于 Azure Cosmos DB 和 Java 的性能提示
 
@@ -37,7 +37,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
     2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
     
-    <!-- URL is valid on ._connection_mode without gateay and directhttps --> 网关模式受所有 SDK 平台支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
+    <!-- URL is valid on ._connection_mode without gateay and directhttps -->
+    
+    网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
 
     Java SDK 使用 HTTPS 作为传输协议。 HTTPS 使用 SSL 进行初始身份验证和加密通信。 使用 Java SDK 时，只需打开 HTTPS 端口 443。 
 
@@ -104,11 +106,11 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
    <a name="tune-page-size"></a>
 8. **调整查询/读取源的页面大小以获得更好的性能**
 
-    使用读取源功能（例如 [readDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments#com.microsoft.azure.documentdb.documentclient.readDocumentsStringFeedOptionsc)）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
+    使用读取源功能（例如 [readDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
 
     若要减少检索所有适用结果所需的网络往返次数，可以使用 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 请求标头将页面大小最大增加到 1000。 在只需要显示几个结果的情况下（例如，用户界面或应用程序 API 一次只返回 10 个结果），也可以将页面大小缩小为 10，以降低读取和查询所耗用的吞吐量。
 
-    也可以使用 [setPageSize 方法](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize#com.microsoft.azure.documentdb.feedoptionsbase.setPageSizeInteger)设置页面大小。
+    也可以使用 [setPageSize 方法](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize)设置页面大小。
 
 ## <a name="indexing-policy"></a>索引策略
 

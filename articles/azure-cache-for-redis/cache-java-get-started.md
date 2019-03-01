@@ -1,27 +1,27 @@
 ---
 title: 了解如何将 Azure Redis 缓存与 Java 配合使用的快速入门 | Microsoft Docs
 description: 本快速入门将创建一个使用 Azure Redis 缓存的新 Java 应用
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/23/2018
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4711147c331d857535570324198e8737eedd1852
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: e54f29ca7d6672f9182b05b4377a264776b13f58
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334272"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903184"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>快速入门：如何将 Azure Redis 缓存与 Java 配合使用
 
@@ -179,6 +179,6 @@ mvn exec:java -D exec.mainClass=example.demo.App
 > [!div class="nextstepaction"]
 > [创建使用 Azure Redis 缓存的 ASP.NET Web 应用。](./cache-web-app-howto.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 
 

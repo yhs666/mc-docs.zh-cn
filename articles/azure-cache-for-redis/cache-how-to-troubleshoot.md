@@ -1,26 +1,26 @@
 ---
 title: 如何排查 Azure Redis 缓存问题 | Microsoft Docs
 description: 了解如何解决 Azure Redis 缓存的常见问题。
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2017
-ms.date: 02/12/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: f0fdd82392e36ce39b5a6bd326ebc2b31cfd26fa
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: d0c25c4eeb7e0082d49d61289199df930aeb1147
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096557"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903246"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>如何排查 Azure Redis 缓存问题
 本文提供的指南适用于排查以下类别的 Azure Redis 缓存问题。
@@ -264,5 +264,5 @@ StackExchange.Redis 使用名为 `synctimeout` 的配置设置进行同步操作
 - [如何运行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 - [如何监视 Azure Redis 缓存](cache-how-to-monitor.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 

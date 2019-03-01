@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: b5fc647a6886beee1a49ac6fd992c3b5fa0a18dd
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.subservice: common
+ms.openlocfilehash: 354ea6931022fd47197eb6f9cd1189cde874c322
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397035"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196561"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：
@@ -133,7 +133,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- 如果使用的是 [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280)，请指定“AlreadyEncrypted”，并在驱动器集 CSV 中提供密钥。
+- 如果使用的是 [WAImportExport V2](https://www.microsoft.com/download/details.aspx?id=55280)，请指定“AlreadyEncrypted”，并在驱动器集 CSV 中提供密钥。
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

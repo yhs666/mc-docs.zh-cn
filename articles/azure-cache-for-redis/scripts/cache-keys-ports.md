@@ -1,27 +1,27 @@
 ---
 title: Azure CLI 脚本示例 - 获取 Azure Redis 缓存的主机名、端口和密钥 | Microsoft Docs
 description: Azure CLI 脚本示例 - 获取 Azure Redis 缓存的主机名、端口和密钥
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 tags: azure-service-management
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
-ms.service: cache-redis
+ms.service: cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 08/30/2017
-ms.date: 02/12/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 78f7815de46bb51541be7155d182628e35228eea
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: c4fa85a75b2995f332abae7fca656a2cc6b26875
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096546"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903088"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>获取 Azure Redis 缓存的主机名、端口和密钥
 
@@ -67,4 +67,4 @@ echo "Secondary Key:" ${keys[1]}
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 origin.date: 04/26/2018
-ms.date: 11/12/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 9cb011d2002e792ea98ece3b0cfa38b8b033a29e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 342672f23a8e41fb1758b8b76b3469c9994b5416
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651015"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833396"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据仓库中的资源类管理工作负荷
 有关在 Azure SQL 数据仓库中使用资源类管理查询内存和并发性的指导。  
@@ -91,7 +91,7 @@ ms.locfileid: "52651015"
 ### <a name="default-resource-class"></a>默认资源类
 默认情况下，每个用户都是动态资源类 (**smallrc**) 的成员。 
 
-服务管理员的资源类是固定的，不可更改。  服务管理员是预配过程中创建的用户。
+服务管理员的资源类在 smallrc 中是固定的，不可更改。  服务管理员是预配过程中创建的用户。  在使用新服务器创建新的 SQL 数据仓库实例时，此上下文中的服务管理员是为“服务器管理员登录”指定的登录名。
 
 > [!NOTE]
 > 定义为 Active Directory 管理员的用户或组也是服务管理员。

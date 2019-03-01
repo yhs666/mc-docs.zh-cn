@@ -3,8 +3,8 @@ title: 针对虚拟网络对等互连配置 VPN 网关传输：Azure 资源管�
 description: 针对虚拟网络对等互连配置 VPN 网关传输。
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/25/2018
-ms.date: 06/13/2018
-ms.author: v-junlch
-ms.openlocfilehash: 47253411e05118b40251034a35ae6511902c8dd3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: a19e84dca10032351107d379a2b37a582cef20b4
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657269"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833166"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>针对虚拟网络对等互连配置 VPN 网关传输
 
@@ -42,6 +42,8 @@ ms.locfileid: "52657269"
 > 全局虚拟网络对等互连目前不支持网关传输。
 
 ## <a name="requirements"></a>要求
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 本文档中的示例要求创建以下资源：
 
@@ -80,7 +82,7 @@ ms.locfileid: "52657269"
     - 设置“使用远程网关”选项
     - 单击“确定”
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. 如果已创建对等互连，请导航到对等互连资源，然后启用“使用远程网关”选项（类似于步骤 (1) 中所示的屏幕截图）
 
@@ -91,7 +93,7 @@ ms.locfileid: "52657269"
     - 设置“允许网关传输”选项
     - 单击“确定”
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. 如果已创建对等互连，请导航到对等互连资源，然后启用“允许网关传输”选项（类似于步骤 (3) 中所示的屏幕截图）
 
@@ -107,16 +109,16 @@ $SpokeRM = "Spoke-RM"
 $HubRG   = "HubRG1"
 $HubRM   = "Hub-RM"
 
-$spokermvnet = Get-AzureRmVirtualNetwork -Name $SpokeRM -ResourceGroup $SpokeRG
-$hubrmvnet   = Get-AzureRmVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
+$spokermvnet = Get-AzVirtualNetwork -Name $SpokeRM -ResourceGroup $SpokeRG
+$hubrmvnet   = Get-AzVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
 
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name SpokeRMtoHubRM `
   -VirtualNetwork $spokermvnet `
   -RemoteVirtualNetworkId $hubrmvnet.Id `
   -UseRemoteGateways
 
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name HubRMToSpokeRM `
   -VirtualNetwork $hubrmvnet `
   -RemoteVirtualNetworkId $spokermvnet.Id `
@@ -152,9 +154,9 @@ Add-AzureRmVirtualNetworkPeering `
 $HubRG   = "HubRG1"
 $HubRM   = "Hub-RM"
 
-$hubrmvnet   = Get-AzureRmVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
+$hubrmvnet   = Get-AzVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
 
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name HubRMToSpokeRM `
   -VirtualNetwork $hubrmvnet `
   -RemoteVirtualNetworkId "/subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/Spoke-Classic" `
@@ -163,5 +165,5 @@ Add-AzureRmVirtualNetworkPeering `
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在为生产用途创建虚拟网络对等互连之前，请详细了解[虚拟网络对等互连约束和行为](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)和[虚拟网络对等互连设置](../virtual-network/virtual-network-manage-peering.md#create-a-peering)。
+* 在为生产用途创建虚拟网络对等互连之前，请详细了解[虚拟网络对等互连约束和行为](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)和[虚拟网络对等互连设置](../virtual-network/virtual-network-manage-peering.md#create-a-peering)。
 

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 11/28/2018
-ms.date: 01/14/2019
-ms.author: v-nany
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: db20230974f957b4509ce24affb7ea9e690322e5
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: ee32470fdba37b0a27d1f42cf0aa688eb56b9904
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665674"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196554"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数据。 本文介绍 Azure 文件、Blob 和磁盘，旨在帮助用户选择合适的功能。
@@ -68,5 +68,4 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
   
 某些 SMB 功能不适用于云。 有关详细信息，请参阅 [Features not supported by the Azure File service](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service)（Azure 文件服务不支持的功能）。
   
-有关磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/attach-managed-disk-portal.md)。
-<!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->
+有关磁盘的详细信息，请参阅[托管磁盘简介](../../virtual-machines/windows/managed-disks-overview.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/attach-managed-disk-portal.md)。

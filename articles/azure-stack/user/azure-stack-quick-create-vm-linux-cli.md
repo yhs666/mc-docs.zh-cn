@@ -3,24 +3,25 @@ title: 在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Microsoft Do
 description: 在 Azure Stack 中使用 CLI 创建 Linux 虚拟机。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+origin.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: f658e3398450f870dd79559527dc6c0a738fd069
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: d0208a3ff598c398d345e525a73c8415d2db5acf
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666837"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905413"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Linux 服务器虚拟机
 
@@ -74,7 +75,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
-由于此虚拟机将用来运行 IIS Web 服务器，因此需要为 Internet 流量打开端口 80。 使用 [az vm open-port](/cli/vm#open-port) 命令打开所需端口。
+由于此虚拟机将用来运行 IIS Web 服务器，因此需要为 Internet 流量打开端口 80。 使用 [az vm open-port](/cli/vm) 命令打开所需端口。
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

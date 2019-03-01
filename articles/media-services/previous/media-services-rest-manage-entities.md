@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/19/2017
-ms.date: 10/22/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: f306d08dd4fb913f5a524ccab85c0ac79988da21
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 893162aa8b61880956c2a81c6791ed9e1c06df00
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658891"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833418"
 ---
-# <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体 
+# <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体  
+
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)

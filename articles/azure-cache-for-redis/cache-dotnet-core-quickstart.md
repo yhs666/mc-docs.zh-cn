@@ -1,27 +1,27 @@
 ---
 title: 快速入门：了解如何将 Azure Redis 缓存与 .NET Core 应用配合使用 | Microsoft Docs
 description: 在本快速入门中，了解如何在 .NET Core 应用中访问 Azure Redis 缓存
-services: azure-cache-for-redis,app-service
+services: cache,app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/18/2018
-ms.date: 12/21/2018
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d50e982ded17547b998f0137dce671826e079620
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 4aa7c3dd8fc59f2ebdc9440959fa7d299d412a50
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784928"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903237"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
 
@@ -337,4 +337,4 @@ dotnet run
 
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

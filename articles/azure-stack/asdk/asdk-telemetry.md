@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 8d93a7e10401e777f1a7587fede1a79555060c56
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 053824467addc440e56784bb9bfc6005add77a66
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645615"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905246"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -69,7 +70,7 @@ Microsoft 无意收集敏感信息，例如信用卡号、用户名和密码、�
 在开发工具包主机上部署 Azure Stack 之前，请先引导至 CloudBuilder.vhdx，然后在权限提升的 PowerShell 窗口中运行以下脚本：
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

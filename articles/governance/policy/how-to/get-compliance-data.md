@@ -5,17 +5,17 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 07/29/2018
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 064d8d14a1231a38a63c2a4bc59c3e52715b28a7
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 8a3dc55c8d78d61c76ea823630ee8327781caf9d
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409089"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903137"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 
@@ -30,6 +30,8 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 
 > [!WARNING]
 > 如果符合性状态被报告为“未注册”，请验证是否已注册 Microsoft.PolicyInsights 资源提供程序，并验证用户是否具有适当的基于角色的访问控制 (RBAC) 权限，如[此处](../overview.md#rbac-permissions-in-azure-policy)所述。
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>评估触发器
 
@@ -144,9 +146,9 @@ Azure 门户展示了一个图形体验用于可视化和了解环境中的符�
 若要在 PowerShell 中使用以下示例，请使用此示例代码构造身份验证令牌。 然后，将示例中的 $restUri 替换为所需的字符串，以检索随后可分析的 JSON 对象。
 
 ```powershell
-# Login first with Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Login first with Connect-AzAccount -EnvironmentName AzureChinaCloud
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -292,15 +294,15 @@ Install-Module -Name Az.PolicyInsights
 # Import the downloaded module
 Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using CLI
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Login with Connect-AzAccount if not using CLI
+Connect-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
-该模块包含三个 cmdlet：
+该模块拥有以下 cmdlet：
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
 
 示例：获取不合规资源数最多的、最前面的已分配策略的状态摘要。
 

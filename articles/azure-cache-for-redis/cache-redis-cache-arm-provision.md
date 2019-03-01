@@ -3,26 +3,29 @@ title: 使用 Azure 资源管理器预配 Azure Redis 缓存 | Microsoft Docs
 description: 使用 Azure 资源管理器模板部署 Azure Redis 缓存。
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 02/12/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 026897e2ab9494d73c0b7e32ffff771c113981aa
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: 82fcf81e21f132c19f8e448e75e188a35f98fe4c
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096548"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903202"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>使用模板创建 Azure Redis 缓存
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 本主题将介绍如何创建 Azure 资源管理器模板，以便部署 Azure Redis 缓存。 该缓存可以用于现有存储帐户以保存诊断数据。 还将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
 
 目前，对订阅的同一区域中的所有缓存共享诊断设置。 更新区域中的一个缓存会影响该区域中的所有其他缓存。
@@ -128,11 +131,12 @@ Azure Redis 缓存的位置。 为获得最佳性能，请使用要与缓存配�
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+
+    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
 

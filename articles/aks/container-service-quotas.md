@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: overview
 origin.date: 08/01/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b4dd346a251ce5397ff67766d8b232ede0cf76de
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: ea69ae60ab72734e1565ce875ed15ae45847387e
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785154"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903309"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的配额和区域可用性
 
@@ -41,7 +41,9 @@ Azure Kubernetes 服务 (AKS) 在以下区域提供预览版：
 - 中国东部
 - 中国北部
 - 中国东部
+- 印度南部
 - 英国南部
+- 英国西部
 - 中国北部
 - 中国北部
 - 中国北部 2
@@ -52,6 +54,3 @@ Azure Kubernetes 服务 (AKS) 在以下区域提供预览版：
 
 <!-- LINKS - External -->
 [azure-support]: https://support.azure.cn/zh-cn/support/support-azure/
-
-<!--The parent file of includes file of container-service-limits.md-->
-<!--ms.date:11/26/2018-->

@@ -6,36 +6,37 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 01/15/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8017f193446cf2f27642210a45e0ab78b81e98d7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 47db100caa2fee13a03f83c0af31ca0c8c41285d
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673053"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833387"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
 
 本文档包含的输入和输出文件格式及编解码器列表受 **媒体编码器高级工作流** 编码器的公开预览版支持。
 
-[媒体编码器高级工作流输入格式和编解码器](#input_formats)
+[Media Encoder Premium Workflow 输入格式和编解码器](#input_formats)
 
-[媒体编码器高级工作流输出格式和编解码器](#output_formats)
+Media Encoder Premium Workflow 输出格式和编解码器
 
 **媒体编码器高级工作流** 支持 [此](#closed_captioning) 部分中所述的隐藏式字幕。 
 
 ## <a id="input_formats"></a>媒体编码器高级工作流输入格式和编解码器
+
 以下部分列出了此媒体处理器支持的作为输入的编解码器和文件格式。
 
 ### <a name="input-containerfile-formats"></a>输入容器/文件格式
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -46,6 +47,7 @@ ms.locfileid: "52673053"
 * AVI（8 位/10 位未压缩）
 
 ### <a name="input-video-codecs"></a>输入视频编解码器
+
 * AVC 8 位/10 位，最高支持 4:2:2，包括 AVCIntra
 * Avid DNxHD（MXF 格式）
 * DVCPro/DVCProHD（MXF 格式）
@@ -56,6 +58,7 @@ ms.locfileid: "52673053"
 * Windows Media 视频/VC-1
 
 ### <a name="input-audio-codecs"></a>输入音频编解码器
+
 * AES（SMPTE 331M 和 302M、AES3-2003）
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -66,9 +69,11 @@ ms.locfileid: "52673053"
 * WAV/PCM
 
 ## <a id="output_format"></a>媒体编码器高级工作流输出格式和编解码器
+
 以下部分列出了支持作为此媒体处理器输出的编解码器和文件格式。
 
 ### <a name="output-containerfile-formats"></a>输出容器/文件格式
+
 * Adobe® Flash® F4V
 * MXF（OP1a、XDCAM 和 AS02）
 * DPP（包括 AS11）
@@ -80,6 +85,7 @@ ms.locfileid: "52673053"
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>输出视频编解码器
+
 * AVC（H.264；8 位；最高支持 High Profile、Level 5.2；4K Ultra HD；AVC Intra）
 * Avid DNxHD（MXF 格式）
 * DVCPro/DVCProHD（MXF 格式）
@@ -87,8 +93,10 @@ ms.locfileid: "52673053"
 * MPEG-1
 * Windows Media 视频/VC-1
 * JPEG 缩略图创建
+* HEVC（H.265；8 位和 10 位，Main 和 Main 10 Profile）
 
 ### <a name="output-audio-codecs"></a>输出音频编解码器
+
 * AES（SMPTE 331M 和 302M、AES3-2003）
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3)，最高支持 7.1
@@ -101,6 +109,7 @@ ms.locfileid: "52673053"
 >如果编码为 Dolby® Digital (AC3)，则只能将输出写入到 ISO MP4 文件。
 
 ## <a id="closed_captioning"></a>支持隐藏式字幕
+
 引入时， **媒体编码器高级工作流** 支持：
 
 1. SCC 文件
@@ -117,8 +126,10 @@ ms.locfileid: "52673053"
 5. SRT 字幕文件
 6. DVB 字幕流
 
-注意：不一定支持通过 Azure 媒体服务中的流式传输传送上述所有输出格式。
+> [!NOTE]
+> 不一定支持通过 Azure 媒体服务中的流式传输来传送上述所有输出格式。
 
 ## <a name="known-issues"></a>已知问题
+
 如果输入视频不包含隐藏式字幕，输出资产仍包含一个空的 TTML 文件。 
 

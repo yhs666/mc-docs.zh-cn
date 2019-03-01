@@ -1,26 +1,26 @@
 ---
 title: 缓存 ASP.NET 输出缓存提供程序
 description: 了解如何使用 Azure Redis 缓存来缓存 ASP.NET 页面输出
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 02/14/2017
-ms.date: 12/21/2018
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: f897f26c644a4e07d6711f8a1d04eadac917ece2
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: e8ceafbe161b88b851a6a05db24a589b773979f7
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784899"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903180"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Redis 缓存的 ASP.NET 输出缓存提供程序
 Redis 输出缓存提供程序是用于输出缓存数据的进程外存储机制。 此数据专门用于完整 HTTP 响应（页面输出缓存）。 此提供程序会插入 ASP.NET 4 中引入的新输出缓存提供程序扩展点。
@@ -106,4 +106,4 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 ## <a name="next-steps"></a>后续步骤
 了解 [Azure Redis 缓存的 ASP.NET 会话状态提供程序](cache-aspnet-session-state-provider.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

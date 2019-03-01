@@ -1,27 +1,27 @@
 ---
 title: 快速入门：了解如何将 Azure Redis 缓存与 Node.js 配合使用 | Microsoft Docs
 description: 本快速入门介绍如何将 Azure Redis 缓存与 Node.js 和 node_redis 配合使用。
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/21/2018
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2cb021734713a5ee0c14dc93fba02498a8c96975
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: c5ae1471a140b3f0ac16bbfec5fe9012c44d2391
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334268"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56902985"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>快速入门：如何将 Azure Redis 缓存与 Node.js 配合使用
 
@@ -161,5 +161,5 @@ node redistest.js
 
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 

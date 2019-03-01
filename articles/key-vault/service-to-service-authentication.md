@@ -3,22 +3,20 @@ title: 使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 description: 使用 Microsoft.Azure.Services.AppAuthentication 库通过 .NET 向 Azure Key Vault 进行身份验证。
 keywords: azure key-vault 身份验证本地凭据
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 services: key-vault
 ms.author: v-biyu
 origin.date: 11/15/2017
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
-ms.prod: ''
 ms.service: key-vault
-ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 2f3ec61f455b65412b3bfd68f74ef12974c26235
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 2eb787d3ddf05642550b44214eec72b391a28e47
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996345"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903036"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
@@ -37,7 +35,7 @@ ms.locfileid: "53996345"
 
 对于 .NET 应用程序，若要使用托管标识，最简单的方式是通过 `Microsoft.Azure.Services.AppAuthentication` 包。 下面介绍如何入门：
 
-1. 向应用程序添加对 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 包的引用。
+1. 向应用程序添加对 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 包的引用。 
 
 2. 添加以下代码：
 
@@ -45,16 +43,13 @@ ms.locfileid: "53996345"
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 `AzureServiceTokenProvider` 类将令牌缓存在内存中，在过期前才将其从 Azure AD 检索出来。 结果就是，不再需要在调用 `GetAccessTokenAsync` 方法之前检查是否过期。 在需要使用令牌时直接调用该方法即可。 
@@ -195,12 +190,10 @@ az account list
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}
+          CertificateStoreLocation={CertificateStore}
     ```
  
-    将 {AppId}、{TenantId} 和 {Thumbprint} 替换为步骤 1 中生成的值。
-
-    **CertificateStoreLocation** 必须为 CurrentUser 或 LocalMachine，具体取决于部署计划。
+    将 {AppId}、{TenantId} 和 {Thumbprint} 替换为步骤 1 中生成的值。 根据部署计划，将 *{CertificateStore}* 替换为 `LocalMachine` 或 `CurrentUser`。
 
 4. 运行应用程序。 
 
@@ -242,8 +235,5 @@ az account list
 
 ## <a name="next-steps"></a>后续步骤
 
-
-
 - 了解[对应用进行身份验证和授权](https://docs.azure.cn/zh-cn/app-service/app-service-authentication-overview)的不同方式。
-
 - 详细了解 Azure AD [身份验证方案](https://docs.azure.cn/zh-cn/active-directory/develop/authentication-scenarios#web-browser-to-web-application)。

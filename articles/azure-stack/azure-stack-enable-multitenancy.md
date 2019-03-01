@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/06/2018
-ms.date: 12/17/2018
+origin.date: 11/6/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: bryanr
-ms.openlocfilehash: 15c9947da56ee7aa813036735d6b7af5a976247d
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 11/6/2018
+ms.openlocfilehash: 0670f3abfc0cf8a7ddf4ce7122bae7b2d6d5781b
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396077"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905211"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 
@@ -42,10 +43,10 @@ ms.locfileid: "53396077"
  - 确保已[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-admin.md)适用于 Azure Stack 的 PowerShell。
  - [下载 Azure Stack Tools](azure-stack-powershell-download.md)，并导入“连接和标识”模块：
 
-    ````PowerShell  
+    ```PowerShell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
-    ````
+    ```
 
 ### <a name="configure-azure-stack-directory"></a>配置 Azure Stack 目录
 
@@ -55,7 +56,7 @@ ms.locfileid: "53396077"
 
 contoso.partner.onmschina.cn 的服务管理员运行以下命令。
 
-````PowerShell  
+```PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -76,7 +77,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
  -Location $location `
  -ResourceGroupName $ResourceGroupName
-````
+```
 
 ### <a name="configure-guest-directory"></a>配置来宾目录
 
@@ -86,7 +87,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 Fabrikam 的目录管理员 Mary 在来宾目录 fabrikam.partner.onmschina.cn 中运行以下命令。
 
-````PowerShell
+```PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
@@ -97,7 +98,7 @@ Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
-````
+```
 
 > [!IMPORTANT]
 > 如果你的 Azure Stack 管理员将来安装新服务或更新，则你可能需要再次运行此脚本。
@@ -134,7 +135,7 @@ Mary 将指导 Fabrikam 目录中的任何[外部主体](../role-based-access-co
 2. 以 Azure Stack 的服务管理员身份（在此场景中是你）运行 *Unregister-AzSGuestDirectoryTenant*。 
 
     ``` PowerShell  
-    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory
@@ -158,5 +159,6 @@ Mary 将指导 Fabrikam 目录中的任何[外部主体](../role-based-access-co
 ## <a name="next-steps"></a>后续步骤
 
 - [管理委派提供程序](azure-stack-delegated-provider.md)
-- [Azure Stack 的重要概念](azure-stack-key-features.md)
-<!-- Update_Description: Disable multi-tenancy -->
+- [Azure Stack 关键概念](azure-stack-key-features.md)
+- [作为云服务提供商管理 Azure Stack 的使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
+- [将用于统计使用情况和计费的租户添加到 Azure Stack](azure-stack-csp-howto-register-tenants.md)

@@ -2,26 +2,18 @@
 title: 关于 Azure 点到站点路由 | Microsoft Docs
 description: 本文介绍点到站点 VPN 路由的工作原理。
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 04/16/2018
-ms.date: 12/10/2018
+origin.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 97e359283297651ebecb585163cd1fd566c70ccb
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 6743e9d06d6cc5c7349bbac739f253d5b94f0d3e
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397069"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833172"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>关于点到站点 VPN 路由
 

@@ -3,8 +3,8 @@ title: 基于 Azure Stack 的应用服务 Update 2 发行说明 | Microsoft Docs
 description: 了解基于 Azure Stack 的应用服务 Update 2 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
-ms.reviewer: brenduns
-ms.openlocfilehash: 464eebae7475192892777cbc6ff5c0b6f1a3c142
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.reviewer: sethm
+ms.lastreviewed: 05/18/2018
+ms.openlocfilehash: 2329f7e8287ba74bbd5a957075f3d06102f151ef
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663891"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905289"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>基于 Azure Stack 的应用服务 Update 2 发行说明
 
@@ -67,7 +68,7 @@ ms.locfileid: "52663891"
   - 更新了 .Net Core 组件，使其与公有云中的 Azure 应用服务保持一致。
   - 更新了 Kudu
 
-- 启用了部署槽位自动交换功能 - [配置自动交换](/app-service/web-sites-staged-publishing#configure-auto-swap)
+- 启用了部署槽位自动交换功能 - [配置自动交换](/app-service/deploy-staging-slots#configure-auto-swap)
 
 - 启用了在生产中测试功能 - [在生产中测试简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -84,15 +85,15 @@ ms.locfileid: "52663891"
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- - 源：任何
- - 源端口范围：*
- - 目标：IP 地址
- - 目标 IP 地址范围：文件服务器的 IP 范围
- - 目标端口范围：445
- - 协议：TCP
- - 操作：允许
- - 优先级：700
- - 名称：Outbound_Allow_SMB445
+ * 源：任意
+ * 源端口范围：*
+ * 目标：IP 地址
+ * 目标 IP 地址范围：文件服务器的 IP 范围
+ * 目标端口范围：445
+ * 协议：TCP
+ * 操作：允许
+ * 优先级：700
+ * 姓名：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
 
@@ -102,4 +103,3 @@ ms.locfileid: "52663891"
 
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
 - 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
-

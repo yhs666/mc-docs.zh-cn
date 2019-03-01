@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/22/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 59043c3b8a3e0b95929bcb63ebd81fd3c19ce7f8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/11/2019
+ms.openlocfilehash: 2476a7d93e87f760d645d2dd940f85a5b3c16131
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643603"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196623"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 云服务角色上安装 .NET
 本文介绍如何安装不随 Azure 来宾 OS 一起提供的 .NET Framework 版本。 可使用来宾 OS 上的 .NET 配置云服务 web 角色和辅助角色。
@@ -35,7 +35,7 @@ ms.locfileid: "52643603"
 ## <a name="add-the-net-installer-to-your-project"></a>将 .NET 安装程序添加到项目
 若要下载 .NET Framework 的 Web 安装程序，请选择想要安装的版本：
 
-* [.NET 4.7.2 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.7.2 Web 安装程序](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 Web 安装程序](https://www.microsoft.com/download/details.aspx?id=53345)
 
 添加 web 角色的安装程序：
@@ -185,10 +185,10 @@ ms.locfileid: "52643603"
         if %ERRORLEVEL%== 3010 goto restart
         if %ERRORLEVEL%== 1641 goto restart
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-
+        goto exit
     :restart
     echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-    EXIT /B %ERRORLEVEL%
+    shutdown.exe /r /t 5 /c "Installed .NET framework" /f /d p:2:4
 
     :installed
     echo .NET (%netfx%) is installed >> %startuptasklog%

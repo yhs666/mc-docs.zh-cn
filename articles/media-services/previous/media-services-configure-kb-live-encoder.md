@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 11/04/2018
-ms.date: 12/03/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 4198066d8892612f6d3f73dcdfcd266b8a8a8b50
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 2ada98f4f25814e264695252e9df813fdc77224c
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672622"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833386"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 实时编码器发送单比特率实时流
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 实时编码器发送单比特率实时流  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -60,7 +60,7 @@ ms.locfileid: "52672622"
 
 视频：
 -   编解码器：H.264
--   配置文件：高（等级 4.0）
+-   配置文件：高（级别 4.0）
 -   比特率：5000 kbps
 -   关键帧：2 秒（60 帧）
 -   帧速率：30
@@ -68,22 +68,22 @@ ms.locfileid: "52672622"
 音频：
 -   编解码器：AAC (LC)
 -   比特率：192 kbps
--   采样速率：44.1 kHz
+-   采样率：44.1 kHz
 
 ## <a name="configuration-steps"></a>配置步骤
 1.  登录到 Haivision KB 用户界面。
 2.  单击频道控制中心的“菜单按钮”，然后选择“添加频道”  
-    ![Screen Shot 2017-08-14 at 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![2017-08-14 上午 9:15:09 屏幕截图](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  在“名称”字段中键入“频道名”，然后单击“下一步”。  
-    ![Screen Shot 2017-08-14 at 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![2017-08-14 上午 9:19:07 屏幕截图](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  从“输入源”下拉列表中选择“频道输入源”，然后单击“下一步”。
-    ![Screen Shot 2017-08-14 at 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![2017-08-14 上午 9:20:44 屏幕截图](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  从“编码器模板”下拉列表中选择“H264-720-AAC-192”，然后单击“下一步”。
-    ![Screen Shot 2017-08-14 at 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![2017-08-14 上午 9:23:15 屏幕截图](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  从“选择新输出”下拉列表中选择“RTMP”，然后单击“下一步”。  
-    ![Screen Shot 2017-08-14 at 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![2017-08-14 上午 9:27:51 屏幕截图](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  在“频道输出”窗口，填充 Azure 流信息。 粘贴“服务器”区域中初始频道设置中的 RTMP 链接。 在“输出名”区域键入频道名。 在“流名称模板”区域中，使用模板 RTMPStreamName_％video_bitrate％ 命名流。
-    ![Screen Shot 2017-08-14 at 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![2017-08-14 上午 9:33:17 屏幕截图](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  单击“下一步”，然后单击“完成”。
 9.  单击“播放按钮”启动编码器频道。  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

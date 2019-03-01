@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 12/31/2018
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: e2bef9d4078517b7e87b3c7f517abda0edbd391a
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 5796d7dc8b5a38595d215e153921dabe86f28656
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736699"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196638"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -120,7 +120,7 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
     ![诊断日志](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. 单击“启用诊断”。 可以将诊断日志与指标一起存档到存储帐户，将其流式传输到事件中心，或者将其发送到 Log Analytics。 
+3. 单击“启用诊断”。 可以将诊断日志与指标一起存档到存储帐户，将其流式传输到事件中心，或者将其发送到 Azure Monitor 日志。 
 
 API 管理当前提供有关单个 API 请求的诊断日志（每小时进行批处理），其中每个条目具有以下架构：
 

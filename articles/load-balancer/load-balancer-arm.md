@@ -3,24 +3,21 @@ title: 负载均衡器的 Azure 资源管理器支持 | Microsoft Docs
 description: 使用 Azure Resource Manager 将 powershell 用于负载均衡器。 对负载均衡器使用模板
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
+author: WenJason
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 09/10/2018
-ms.author: v-yeche
-ms.openlocfilehash: 09578b3a55445d742f33cede518303b2c4ac262f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: d789b8fadad7098542ab801ea43eefb5b6261a70
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660941"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836890"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>将 Azure Resource Manager 支持与 Azure 负载均衡器配合使用
 
@@ -48,7 +45,7 @@ Azure Resource Manager 是 Azure 中的首选服务管理框架。 Azure 负载�
 
 [详细了解模板](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-<!-- Not Available on [Learn more about Network Resources](../networking/networking-overview.md)-->
+[详细了解网络资源](../networking/networking-overview.md)
 
 有关使用 Azure 负载均衡器的快速入门模板，请参阅 [GitHub 存储库](https://github.com/Azure/azure-quickstart-templates)（托管社区生成的模板集）。
 
@@ -62,7 +59,7 @@ Azure Resource Manager 是 Azure 中的首选服务管理框架。 Azure 负载�
 
 Azure Resource Manager cmdlet、命令行工具和 REST API 入门
 
-* [Azure 网络 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.network#networking) 可用于创建负载均衡器。
+* [Azure 网络 Cmdlet](https://docs.microsoft.com/powershell/module/az.network#networking) 可用于创建负载均衡器。
 * [如何使用 Azure Resource Manager 创建负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
 * [将 Azure CLI 与 Azure 资源管理结合使用](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST APIs（负载均衡器 REST API）](https://msdn.microsoft.com/library/azure/mt163651.aspx)

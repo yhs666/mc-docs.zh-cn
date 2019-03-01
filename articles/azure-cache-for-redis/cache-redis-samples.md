@@ -1,26 +1,26 @@
 ---
 title: Azure Redis 缓存示例 | Microsoft Docs
 description: 了解如何使用 Azure Redis 缓存
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: cb78016df383dfce560947a7cf4fea87a1f7eb9c
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 66954af7a1903e785e35cff2cde0259239d29484
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334267"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903217"
 ---
 # <a name="azure-cache-for-redis-samples"></a>“用于 Redis 的 Azure 缓存”示例
 本主题提供 Azure Redis 缓存示例列表，包括连接到缓存、从缓存读取数据和将数据写入缓存，以及使用 ASP.NET Azure Redis 缓存提供程序等方案。 有些示例是可下载的项目，有些示例提供了分步指南并包含代码片段但没有链接到可下载的项目。
@@ -71,5 +71,5 @@ ms.locfileid: "54334267"
 ## <a name="bandwidth-monitor"></a>带宽监视器
 [带宽监视器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 示例允许监视客户端上使用的带宽。 要测量带宽、请在缓存客户端计算机上运行该示例，对缓存执行调用，并观察带宽监视器示例报告的带宽。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 

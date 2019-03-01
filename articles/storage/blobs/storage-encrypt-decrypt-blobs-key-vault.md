@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: ace6e792e3d226cbe9c82bc69d6688cefdf921a9
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 5c0b92ab6ce85b069075df8254e7846611ee5018
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665395"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196559"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-azure-storage-using-azure-key-vault"></a>教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob
 ## <a name="introduction"></a>简介
@@ -44,7 +44,7 @@ ms.locfileid: "56665395"
 4. 然后，将已加密的数据上传到 Azure 存储服务。
 
 ## <a name="set-up-your-azure-key-vault"></a>设置 Azure 密钥保管库
-若要继续本教程，请执行教程 [Azure Key Vault 入门](../../key-vault/key-vault-get-started.md)中所述的以下步骤：
+若要继续本教程，请执行教程[什么是 Azure 密钥保管库？](../../key-vault/key-vault-overview.md)中所述的以下步骤：
 
 * 创建密钥保管库。
 * 将密钥或密码添加到密钥保管库。
@@ -226,6 +226,6 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 
 有关 Blob REST API 的详细信息，请参阅 [Blob 服务 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)。
 
-有关 Azure 存储的最新信息，请转到 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)。
+有关 Azure 存储的最新信息，请转到 [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)。
 
 <!--Update_Description: update link-->

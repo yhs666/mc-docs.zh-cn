@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 62231310012a02980c639c732aaddb7a2fcd8158
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: f7da83e0f6f6f1747e9fe5e1c2dc5a81024f0563
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673170"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833411"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>高级媒体编码器高级工作流教程
 ## <a name="overview"></a>概述
@@ -45,12 +45,12 @@ ms.locfileid: "52673170"
   * [添加单独的音轨](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [添加“ISM”SMIL 文件](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [将 MXF 编码为多比特率 MP4 - 增强的蓝图](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [要增强的工作流概述](#workflow-overview-to-enhance)
+  * 要增强的工作流概述
   * [文件命名约定](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [将组件属性发布到工作流根目录](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [使生成的输出文件名依赖于发布的属性值](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [将缩略图添加到多比特率 MP4 输出](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [要将缩略图添加到的工作流概述](#workflow-overview-to-add-thumbnails-to)
+  * 要将缩略图添加到的工作流概述
   * [添加 JPG 编码](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [处理颜色空间转换](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [写入缩略图](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
@@ -693,8 +693,8 @@ ms.locfileid: "52673170"
 
 首先，我们需要确定想要修剪视频的哪一个点到哪一个点。 为了让它方便工作流较不具技术性的用户，请将两个属性发布到图形的根目录。 为此，请右键单击设计器图面并选择“添加属性”：
 
-* 第一个属性：类型为“TIMECODE”的“ClippingTimeStart”
-* 第二个属性：类型为“TIMECODE”的“ClippingTimeEnd”
+* 第一个属性：“ClippingTimeStart”的类型："TIMECODE"
+* 第二个属性：“ClippingTimeEnd”的类型："TIMECODE"
 
 ![添加属性对话框中的剪辑开始时间](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

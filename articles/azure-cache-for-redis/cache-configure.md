@@ -1,26 +1,26 @@
 ---
 title: 如何配置 Azure Redis 缓存 | Microsoft Docs
 description: 了解 Azure Redis 缓存的默认 Redis 配置，并了解如何配置 Azure Redis 缓存实例
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 02/12/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: af5a358c427dadaf2ed75d54d2e922ff8df9fd65
-ms.sourcegitcommit: c353902162a12f21aecbcbcde89f92c7ff9de441
+ms.openlocfilehash: 7ca5909c345077de19cbf31814e951f924cb8ac6
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56096556"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903098"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -430,7 +430,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 有关数据库的详细信息，请参阅[什么是 Redis 数据库？](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> `databases` 设置只能在创建缓存期间配置，并且只能使用 PowerShell、CLI 或其他管理客户端进行配置。 有关在创建缓存期间使用 PowerShell 配置 `databases` 的示例，请参阅 [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases)。
+> `databases` 设置只能在创建缓存期间配置，并且只能使用 PowerShell、CLI 或其他管理客户端进行配置。 有关在创建缓存期间使用 PowerShell 配置 `databases` 的示例，请参阅 [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases)。
 > 
 > 
 

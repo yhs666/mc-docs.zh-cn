@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/03/2018
-ms.date: 12/24/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: f5cf7b2e054872eb0b80653b885723cf8364e273
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 2b52d7dbbe41ca008a1bb7dd139b92a77e71371e
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656590"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833210"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
@@ -134,7 +134,7 @@ ms.locfileid: "53656590"
        - **共享密钥**：输入 *abc123*。 可以自行创建共享密钥。 在 VNet 之间建立连接时，上述值必须匹配。
 
 ## <a name="create-and-configure-testvnet1"></a>创建并配置 TestVNet1
-如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 请特别注意任何可能与其他网络重叠的子网。 如果有重叠的子网，将无法正常连接。 为 VNet 配置正确的设置后，可以开始执行[指定 DNS 服务器](#dns)部分中的步骤。
+如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 请特别注意任何可能与其他网络重叠的子网。 如果有重叠的子网，将无法正常连接。 为 VNet 配置正确的设置后，可以开始执行“指定 DNS 服务器”部分中的步骤。
 
 ### <a name="to-create-a-virtual-network"></a>创建虚拟网络
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

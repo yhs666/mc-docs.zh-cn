@@ -16,12 +16,12 @@ origin.date: 10/05/2017
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 625f8252e81b98c60faa50b0331a648321f64739
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 706617bb79a9713cc20a3dcda1131b3c045ca1ef
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646388"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987004"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
@@ -118,13 +118,14 @@ $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageR
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 16.04")
 
-New-AzureBatchPool -Id "mypool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
+New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 ```
 
-通过自动缩放公式确定新池中的目标计算节点数。 在本示例中，公式为 **$TargetDedicated=4**，表示池中的计算节点数最多为 4。
+通过自动缩放公式计算新池中的目标计算节点数。 在本示例中，公式为 **$TargetDedicated=4**，表示池中的计算节点数最多为 4。
 
 ## <a name="query-for-pools-jobs-tasks-and-other-details"></a>查询池、作业、任务以及其他详细信息
-使用 **Get-AzureBatchPool**、**Get-AzureBatchJob** 和 **Get-AzureBatchTask** 等 cmdlet 查询在批处理帐户下创建的实体。
+
+使用 **Get-AzBatchPool**、**Get-AzBatchJob** 和 **Get-AzBatchTask** 等 cmdlet 查询在 Batch 帐户下创建的实体。
 
 ### <a name="query-for-data"></a>查询数据
 例如，使用 **Get-AzureBatchPools** 可查找池。 假设已将 BatchAccountContext 对象存储在 *$context*中，则默认情况下，此 cmdlet 将查询帐户下的所有池：

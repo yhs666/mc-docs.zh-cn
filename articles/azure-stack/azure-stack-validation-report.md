@@ -13,20 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 10/23/2018
-ms.date: 12/17/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 697a83d3a63bf67e357febbedd56fb02e0d16644
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: unknown
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: be4199ddbf62e43bca4156b339c010bb61b31838
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396076"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905214"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 验证报表
 使用 Azure Stack 就绪性检查器工具运行验证来为 Azure Stack 环境的部署和维护提供支持。 该工具将结果写入到 .json 报表文件。 该报表显示有关 Azure Stack 部署的先决条件状态的详细数据和汇总数据。 该报表还显示有关现有 Azure Stack 部署的机密轮换的信息。  
 
- ## <a name="where-to-find-the-report"></a>在何处可以找到该报表
+## <a name="where-to-find-the-report"></a>在何处可以找到该报表
 该工具运行时，它会将结果记录到 **AzsReadinessCheckerReport.json** 中。 该工具还会创建一个名为 **AzsReadinessChecker.log** 的日志。 这些文件的位置会随验证结果一起显示在 PowerShell 中。
 
 ![运行验证](./media/azure-stack-validation-report/validation.png)
@@ -45,7 +46,7 @@ ms.locfileid: "53396076"
 
 输出如下所示：
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -85,7 +86,7 @@ StartTime         : 2018/10/22 14:24:16
 EndTime           : 2018/10/22 14:24:19
 Duration          : 3
 PSBoundParameters : 
-````
+```
 
 ## <a name="view-the-report-summary"></a>查看报表摘要
 若要查看报表摘要，可以在 PowerShell 命令行的末尾添加 **-Summary** 开关。 例如： 

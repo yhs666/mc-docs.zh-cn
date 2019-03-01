@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: a900258d4becf03ed7c854505852534c42f2afc1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 03/11/2018
+ms.openlocfilehash: 4044dfea1eff517fd7a27c4abb0dc00788c69799
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674371"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196633"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨域策略
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
   
 ##  <a name="CrossDomainPolicies"></a> 跨域策略  
   
@@ -41,7 +41,7 @@ ms.locfileid: "52674371"
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+        see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->
 </cross-domain>  
 ```  
   
@@ -59,7 +59,7 @@ ms.locfileid: "52674371"
   
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
-|cross-domain|根元素。 子元素必须符合 [Adobe 跨域策略文件规范](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|  
+|cross-domain|根元素。 子元素必须符合 [Adobe 跨域策略文件规范](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
@@ -148,9 +148,9 @@ ms.locfileid: "52674371"
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：** 入站  
+-   **策略节：** 入站  
   
--   **策略范围：** API、操作  
+-   **策略范围：** 全局、API、操作
   
 ##  <a name="JSONP"></a> JSONP  
  `jsonp` 策略向操作或 API 添加填充型 JSON (JSONP) 支持，以便从基于 JavaScript 浏览器的客户端执行跨域调用。 JSONP 是 JavaScript 程序中使用的方法，用于从不同域中的服务器请求数据。 JSONP 规避了大多数 Web 浏览器强制实施的只能在同一域中访问网页的限制。  

@@ -4,19 +4,19 @@ description: 对 Azure Automation State Configuration (DSC) 及其术语和已�
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 96fc39086a5dd00fc85d77405d496e2647082b8b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 98ecb1accfa9e7aaa0246882561cc2a332da8b63
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672506"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987109"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 
@@ -36,16 +36,7 @@ Azure Automation State Configuration 向 [PowerShell Desired State Configuration
 
 从 Azure 门户，或从 PowerShell，你可以管理所有的 DSC 配置、资源和目标节点。
 
-![Azure 自动化边栏选项卡的屏幕截图](./media/automation-dsc-overview/azure-automation-blade.png)
-
-## <a name="introduction-video"></a>简介视频
-
-更喜欢观看视频而不喜欢阅读文档？ 请观看下述在 2015 年 5 月发布的视频，这是首次发布 Azure Automation State Configuration 的时间。
-
-> [!NOTE]
-> 尽管这段视频中所述的概念和生命周期都是正确的，但 Azure Automation State Configuration 自从这段视频录制以来已有很大的发展。 它现已正式发布，在 Azure 门户中具有更丰富的 UI，并支持更多功能。
-
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+![“Azure 自动化”页的屏幕截图](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ## <a name="next-steps"></a>后续步骤
 

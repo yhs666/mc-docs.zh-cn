@@ -5,38 +5,38 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 91c42b1350df32ddacc41ff7d581b8331b013702
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: b220e6c8386fb4a7e7fab77f1575ffed70492d97
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309141"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987898"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中为数据库预配吞吐量
 
-本文介绍如何在 Azure Cosmos DB 中为数据库预配吞吐量。 可以为单个[容器](how-to-provision-container-throughput.md)预配吞吐量，也可以为数据库预配吞吐量，并在数据库中的容器之间共享吞吐量。 可以使用 Azure 门户或 Cosmos DB SDK 来预配数据库级别吞吐量。
+本文介绍如何在 Azure Cosmos DB 中为数据库预配吞吐量。 可以为单个[容器](how-to-provision-container-throughput.md)预配吞吐量，也可以为数据库预配吞吐量，并在数据库中的容器之间共享吞吐量。 可以使用 Azure 门户或 Azure Cosmos DB SDK 来预配数据库级别吞吐量。
 
-## <a name="provision-throughput-using-azure-portal"></a>使用 Azure 门户预配吞吐量
+## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 门户预配吞吐量
 
 <a name="portal-sql"></a>
 ### <a name="sql-core-api"></a>SQL（核心）API
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. [新建 Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
+1. [创建新的 Azure Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
 
-1. 打开“数据资源管理器”窗格，然后选择“新建数据库”。 接下来，在表单中填写以下详细信息：
+1. 打开“数据资源管理器”窗格，然后选择“新建数据库”。 提供以下详细信息：
 
-   * 输入数据库 ID。 
-   * 选择“预配吞吐量”。
-   * 输入吞吐量，例如 1000 RU。
-   * 选择“确定” 。
+    * 输入数据库 ID。 
+    * 选择“预配吞吐量”。
+    * 输入吞吐量（例如 1000 RU）。
+    * 选择“确定” 。
 
-![SQL API 预配数据库吞吐量](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    ![“新建数据库”对话框屏幕截图](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
+## <a name="provision-throughput-by-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
 
 > [!Note]
 > 使用 SQL API 为所有 API 预配吞吐量。 也可以选择将以下示例用于 Cassandra API。
@@ -67,9 +67,9 @@ session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provision
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅以下文章，了解如何在 Cosmos DB 中预配吞吐量：
+请参阅以下文章，了解如何在 Azure Cosmos DB 中预配吞吐量：
 
 * [如何为容器预配吞吐量](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB 中的请求单位和吞吐量](request-units.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

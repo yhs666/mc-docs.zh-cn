@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 05/28/2018
-ms.author: v-johch
-ms.openlocfilehash: bc087a0208c202c1fd3808f03abb2c4af7e0641a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 9c54da3cf2576e7288de7b6f1789e2f85e0a3a43
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667028"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833343"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计
+# <a name="hybrid-design-of-drm-subsystems-legacy"></a>DRM 子系统的混合设计（旧版）
 
 本主题介绍如何使用 Azure 媒体服务进行 DRM 子系统的混合设计。
 
@@ -68,8 +68,8 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 
 ### <a name="drm-license-delivery"></a>DRM 许可证传送
 
-* AMS：DRM 许可证由 AMS 许可证传送服务传送。
-* 第三方：DRM 许可证由 AMS 外部的第三方 DRM 许可证服务器传送。
+* AMS：DRM 许可证由 AMS 许可证传送服务提供。
+* 第三方：DRM 许可证由 AMS 外部的第三方 DRM 许可证服务器提供。
 
 ## <a name="configure-based-on-your-hybrid-scenario"></a>根据混合方案进行配置
 
@@ -102,7 +102,7 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 |AMS|第三方|外部|否|否|示例 4|
 |第三方|第三方|AMS|是|否|    
 
-在示例中，PlayReady 保护适用于 DASH 和平滑流式处理。 以下视频 URL 是平滑流式处理 URL。 若要获取相应的 DASH URL，只需追加“(format=mpd-time-csf)”。 可以使用 [azure media test player](http://aka.ms/amtest) 在浏览器中进行测试。 这样就可以配置要在哪种技术下使用哪个流式处理协议。 Windows 10 上的 IE11 和 MS Edge 支持通过 EME 使用 PlayReady。 有关详细信息，请参阅[有关测试工具的详细信息](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)。
+在示例中，PlayReady 保护适用于 DASH 和平滑流式处理。 以下视频 URL 是平滑流式处理 URL。 若要获取相应的 DASH URL，只需追加“(format=mpd-time-csf)”。 可以使用 [azure media test player](https://aka.ms/amtest) 在浏览器中进行测试。 这样就可以配置要在哪种技术下使用哪个流式处理协议。 Windows 10 上的 IE11 和 Microsoft Edge 支持通过 EME 使用 PlayReady。 有关详细信息，请参阅[有关测试工具的详细信息](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)。
 
 ### <a name="sample-1"></a>示例 1
 

@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 09/17/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 36eccbcf1f02d6a307f325914f6e23399a59dd37
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: bc0c98cad6cba84cf15e9fa9057410419e49877f
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396923"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833370"
 ---
-# <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
+# <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户  
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -89,7 +89,7 @@ ms.locfileid: "54396923"
     ```
 4. 在“Postman”窗口的左侧，单击“1.获取 AAD 身份验证令牌” -> “获取服务主体的 Azure AD 令牌”。
 
-    URL 部分填入 **AzureADSTSEndpoint** 环境变量（在本教程的前面部分，设置了支持[集合](#configure-the-collection)的[环境变量](#configure-the-environment)的值）。
+    URL 部分填入 AzureADSTSEndpoint 环境变量（在本教程的前面部分，设置了支持集合的环境变量的值）。
 
     ![上传文件](./media/media-services-rest-upload-files/postment-get-token.png)
 

@@ -6,14 +6,14 @@ documentationcenter: na
 author: WenJason
 ms.service: vpn-gateway
 origin.date: 10/23/2018
-ms.date: 12/24/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: af22ac657270f69c881f8c0d69bb8f2de3c91c64
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 7ada56b16ddc9ace1a4c506e261ec1c282320ea3
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656515"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833163"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 
@@ -61,7 +61,7 @@ ms.locfileid: "53656515"
 如果不关心是否要保留资源组中的任何资源，而只是要从头开始配置，则可以删除整个资源组。 这种方法可以快速删除所有信息。 以下步骤仅适用于 Resource Manager 部署模型。
 
 1. 在“所有资源”中，找到该资源组并单击以打开边栏选项卡。
-2. 单击“删除” 。 在“删除”边栏选项卡上，查看受影响的资源。 请确保要删除所有这些资源。 否则使用本文开头[删除 VPN 网关](#deletegw)中的步骤。
+2. 单击“删除” 。 在“删除”边栏选项卡上，查看受影响的资源。 请确保要删除所有这些资源。 否则使用本文开头“删除 VPN 网关”中的步骤。
 3. 如果要继续，请键入要删除的资源组的名称，并单击“删除”。
 
 <!--Update_Description: wording update-->

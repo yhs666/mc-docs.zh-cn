@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 06/13/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 2b2a62b91c24412ec02c5d9d30f76e0b68c9bcc9
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 4b8519687e015977701291fbfed75638203e96e5
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334477"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196545"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 
 此脚本根据容器名称的前缀删除 Azure Blob 存储中的容器。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ad964cb756f5947db0fe27992eb03bbb3089acb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 24d4d62f095a53e9ab8255d9c14bdbd5a87c07ae
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652400"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833421"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>使用 SQL 数据仓库中的事务
 有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。
@@ -91,8 +91,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
     END CATCH;

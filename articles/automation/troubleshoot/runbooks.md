@@ -4,17 +4,17 @@ description: 了解如何解决 Azure 自动化 Runbook 的问题
 services: automation
 author: WenJason
 ms.author: v-jay
-origin.date: 01/17/2019
-ms.date: 02/18/2019
+origin.date: 01/24/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: 5ffea969ebda63e0800c26534a3c4a8c949752af
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 0f0a8ac54a75c2f8ae3511de17c542733e7c189a
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303042"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987126"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -313,6 +313,9 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 1. 验证是否正确[对Azure 进行身份验证](../manage-runas-account.md)。
 2. 确认没有任何 cmdlet 提示输入信息。 Runbook 中不支持此行为。
 3. 检查模块中的任何内容是否依赖于模块中未包含的内容。
+
+如果使用这些解决方案均未解决问题，请查看[作业日志](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)以了解 Runbook 失败的特定详细信息。
+
 ### <a name="quota-exceeded"></a>场景：Runbook 作业失败，因为超过了分配的配额
 
 #### <a name="issue"></a>问题

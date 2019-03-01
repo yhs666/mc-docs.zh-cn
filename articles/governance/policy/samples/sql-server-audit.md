@@ -1,23 +1,22 @@
 ---
-title: Azure Policy 示例 - 审核 SQL Server 审核设置
-description: 此示例策略会审核 SQL Server 审核设置。
+title: 示例 - 审核 SQL Server 审核设置
+description: 此示例策略定义使用 auditIfNotExists 审核 SQL Server 审核设置。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 04/27/2018
-ms.date: 11/12/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 9a1ccd6f196f48c9d7f820623e0af6488bb99b3c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 27d49e6b44704930ff5caed56f41732b5bb4032d
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654963"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903146"
 ---
-# <a name="audit-sql-server-audit-settings"></a>审核 SQL Server 审核设置
+# <a name="sample---audit-sql-server-audit-settings"></a>示例 - 审核 SQL Server 审核设置
 
 此内置策略会基于是否启用了审核设置审核 SQL Server。
 
@@ -65,12 +64,12 @@ ms.locfileid: "52654963"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9
 
-New-AzureRmPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -PolicyParameter '{"setting": {"value":"enabled"}}' -Scope <scope>
+New-AzPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -PolicyParameter '{"setting": {"value":"enabled"}}' -Scope <scope>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>清理 PowerShell 部署
@@ -78,7 +77,7 @@ New-AzureRmPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definitio
 运行以下命令删除策略分配。
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
+Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

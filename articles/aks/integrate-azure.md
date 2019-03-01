@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: overview
 origin.date: 12/05/2017
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8544fdbd209c696bfc8fe16c5d28ea5729393811
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 962983bcb796a9a575c5a49d1783ea3537deb9d7
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676672"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903229"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 与 Azure 托管服务进行集成
 
@@ -25,13 +25,15 @@ ms.locfileid: "52676672"
 
 * Azure CLI：[在本地安装它][azure-cli-install]。
 
-<!-- Not Available on [Azure Cloud Shell][azure-cloud-shell]-->
+    <!--Not Available on , or use it in the [Azure local Shell][azure-cloud-shell]-->
+
 * Helm CLI 2.7+：[在本地安装它][helm-cli-install]。
 
-<!-- Not Available on [Azure Cloud Shell][azure-cloud-shell]-->
+    <!--Not Available on , or use it in the [Azure local Shell][azure-cloud-shell]-->
+    
 * 使用 Azure 订阅上的参与者角色创建服务主体的权限
 
-* 现有 Azure Kubernetes 服务 (AKS) 群集。 如果需要 AKS 群集，请按照[创建 AKS 群集][create-aks-cluster] 快速入门操作。
+* 现有 Azure Kubernetes 服务 (AKS) 群集。 如果需要 AKS 群集，请参照[创建 AKS 群集][create-aks-cluster]操作，以便快速入门。
 
 ## <a name="install-service-catalog"></a>安装服务目录
 
@@ -50,13 +52,13 @@ helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 最后，使用 Helm Chart 安装服务目录。 如果群集启用了 RBAC，请运行此命令。
 
 ```azurecli
-helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 如果群集未启用 RBAC，请运行以下命令。
 
 ```azurecli
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 运行 Helm 图表后，验证 `servicecatalog` 是否出现在以下命令的输出中：
@@ -174,7 +176,7 @@ chmod +x ./svcat
 在此步骤中，使用 Helm 为 WordPress 安装更新的 Helm 图表。 该图表预配 WordPress 可以使用的外部 Azure Database for MySQL 实例。 此过程可能需要几分钟。
 
 ```azurecli
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 为了验证安装是否已预配适当的资源，请列出已安装的服务实例和绑定：
@@ -206,4 +208,8 @@ kubectl get secrets -n wordpress -o yaml
 
 <!-- LINKS - internal -->
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-<!--Not Available on [azure-cloud-shell]: ../cloud-shell/overview.md--> [create-aks-cluster]: ./kubernetes-walkthrough.md [create-service-principal]: ./kubernetes-service-principal.mdd
+
+<!--Not Available on [azure-cloud-shell]: ../cloud-shell/overview.md-->
+
+[create-aks-cluster]: ./kubernetes-walkthrough.md
+[create-service-principal]: ./kubernetes-service-principal.md

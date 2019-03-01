@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2016
-ms.date: 09/02/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 48e2180771bf6c17df19b6c21a0a0065bf9133b4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2339317b1094cb2dbdcf64df07a8e4659d317466
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644712"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833165"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨界连接与 VNet 到 VNet 连接
 本文概述使用 Azure VPN 网关的跨界连接和 VNet 到 VNet 连接的高可用性配置选项。
@@ -50,7 +50,8 @@ ms.locfileid: "52644712"
 3. 此配置需要 BGP。 必须在“BgpPeerIpAddress”属性中为代表 VPN 设备的每个本地网络网关指定唯一的 BGP 对等 IP 地址。
 4. 每个本地网络网关中的 AddressPrefix 属性字段不能重叠。 应在 AddressPrefix 字段中指定 /32 CIDR 格式的“BgpPeerIpAddress”，例如 10.200.200.254/32。
 5. 应使用 BGP 向 Azure VPN 网关播发同一本地网络的相同前缀，流量将同时通过这些隧道转发。
-6. 每个连接将计入 Azure VPN 网关的隧道数目上限，基本和标准 SKU 的上限为 10，高性能 SKU 的上限为 30。 
+6. 必须使用等价多路径路由 (ECMP)。
+7. 每个连接将计入 Azure VPN 网关的隧道数目上限，基本和标准 SKU 的上限为 10，高性能 SKU 的上限为 30。 
 
 在此配置中，Azure VPN 网关仍处于主动-待机模式，因此，仍会发生 [上述](#activestandby)故障转移行为和短暂中断。 但是，这种设置可针对本地网络和 VPN 设备故障或中断提供保护。
 

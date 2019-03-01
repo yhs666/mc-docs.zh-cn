@@ -17,12 +17,12 @@ origin.date: 10/25/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 8e1e17251c1f178339a485b47cf1d104271bb6e3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 341f1496d061fedd8854b2a143efd0b21dac61cc
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675227"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987040"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教程：使用 Azure 门户监视两个虚拟机之间的网络通信
 
@@ -74,11 +74,11 @@ ms.locfileid: "52675227"
 
 |步骤|设置|值|
 |---|---|---|
-| 1 | 选择“Ubuntu Server 17.10 VM” |                                                                         |
-| 3 | Name                              | myVm2                                                                   |
-| 3 | 身份验证类型               | 粘贴 SSH 公钥，或者在选择“密码”后输入密码。 |
-| 3 | 资源组                    | 选择“使用现有资源组”，再选择“myResourceGroup”。                 |
-| 6 | 扩展                        | **适用于 Linux 的网络代理**                                             |
+| 1 | 选择某一版本的 **Ubuntu Server** |                                                                         |
+| 3 | Name                                  | myVm2                                                                   |
+| 3 | 身份验证类型                   | 粘贴 SSH 公钥，或者在选择“密码”后输入密码。 |
+| 3 | 资源组                        | 选择“使用现有资源组”，再选择“myResourceGroup”。                 |
+| 6 | 扩展                            | **适用于 Linux 的网络代理**                                             |
 
 部署 VM 需要几分钟时间。 在继续余下的步骤之前，请等待 VM 完成部署。
 
@@ -161,7 +161,7 @@ ms.locfileid: "52675227"
 
     可以看到在 **myvm2529** 网络接口的状态列中有一个红色感叹号。
 
-6. 若要了解状态变化的原因，请选择上图中的“10.0.0.5”。 连接监视器指示通信故障的原因是：流量被以下网络安全组规则阻止: UserRule_DenySshInbound。
+6. 若要了解状态变化的原因，请选择上图中的“10.0.0.5”。 连接监视器通知你通信失败的原因是：“由于以下网络安全组规则，通信被阻止：UserRule_DenySshInbound”。
 
     如果你并不知道某人已实施你在步骤 4 中创建的安全规则，则可以从连接监视器中了解到，该规则是引发通信问题的原因。 然后，你就可以更改、覆盖或删除该规则，以便还原 VM 之间的通信。
 

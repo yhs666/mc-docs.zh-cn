@@ -5,17 +5,17 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/16/2018
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e9e8c25335e000235da467ded11e0511fb2fc54a
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 46e1a9c439127a21f45c8e812e6f742beb2e4d81
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409078"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903057"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -69,6 +69,8 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 所有 Azure Policy 示例均位于[策略示例](../samples/index.md)内。
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="mode"></a>Mode
 
 **模式**确定将对策略评估哪些资源类型。 支持的模式包括：
@@ -86,11 +88,22 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 构建策略时，参数同样适用。 如果在策略定义中包括参数，就可以通过使用不同的值重新使用策略以执行不同方案。
 
 > [!NOTE]
-> 策略或计划定义的参数定义只能在策略或计划的初始创建期间配置。 以后无法更改参数定义。
-> 这可以防止策略或计划的现有分配间接被设为无效。
+> 参数可以添加到现有和已分配的定义。 新参数必须包含 defaultValue 属性。 这可以防止策略或计划的现有分配间接被设为无效。
 
-例如，可以定义策略来限制资源的部署位置。
-创建策略时需声明以下参数：
+### <a name="parameter-properties"></a>参数属性
+
+参数有下述可以在策略定义中使用的属性：
+
+- **name**：参数的名称。 由策略规则中的 `parameters` 部署函数使用。 有关详细信息，请参阅[使用参数值](#using-a-parameter-value)。
+- `type`：确定参数是**字符串**还是**数组**。
+- `metadata`：定义主要由 Azure 门户用来显示用户友好信息的子属性：
+  - `description`：说明参数的用途。 可以用来提供可接受值的示例。
+  - `displayName`：在门户中显示的用于参数的友好名称。
+  - `strongType`：（可选）通过门户分配策略定义时使用。 提供上下文感知列表。 有关详细信息，请参阅 [strongType](#strongtype)。
+- `defaultValue`：（可选）设置分配的参数的值（如果值未给定）。 在更新已分配的现有策略定义时必须使用此项。
+- `allowedValues`：（可选）提供参数在分配过程中接受的值的列表。
+
+例如，可以定义策略定义来限制资源的部署位置。 **allowedLocations** 可以是该策略定义的一个参数。 每次分配策略定义来限制接受的值时，会使用此参数。 使用 **strongType** 可以在通过门户完成分配时提供增强的体验：
 
 ```json
 "parameters": {
@@ -100,21 +113,18 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "chinanoorth",
+        "allowedValues": [
+            "chinanorth2",
+            "chinaeast",
+            "chinaeast2"
+        ]
     }
 }
 ```
 
-参数类型可以是字符串，也可以是数组。 Azure 门户等工具使用元数据属性显示用户友好信息。
-
-在元数据属性中，可以使用 **strongType** 提供 Azure 门户中的选项多选列表。 **strongType** 的允许值目前包括：
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>使用参数值
 
 在策略规则中，使用以下 `parameters` 部署值函数语法引用参数：
 
@@ -124,6 +134,19 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+此示例引用 **allowedLocations** 参数，该参数已在[参数属性](#parameter-properties)中演示过。
+
+### <a name="strongtype"></a>strongType
+
+在 `metadata` 属性中，可以使用 **strongType** 提供 Azure 门户中的选项多选列表。 **strongType** 的允许值目前包括：
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>定义位置
 
@@ -136,7 +159,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 ## <a name="display-name-and-description"></a>显示名称和说明
 
-请使用“displayName”和“description”来标识策略定义，并提供其使用上下文。
+请使用“displayName”和“description”来标识策略定义，并提供其使用上下文。 **displayName** 的最大长度为 128 个字符，**description** 的最大长度为 512 个字符。
 
 ## <a name="policy-rule"></a>策略规则
 
@@ -192,7 +215,9 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -204,7 +229,8 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 使用 like 和 notLike 条件时，请在值中指定通配符 `*`。
 值不应包含多个通配符 `*`。
 
-当使用 match 和 notMatch 条件时，请提供 `#` 来匹配数字，提供 `?` 来表示字母，提供 `.` 来匹配所有字符，并提供任何其他字符来匹配该实际字符。 例如，请参阅[允许多个名称模式](../samples/allow-multiple-name-patterns.md)。
+当使用 match 和 notMatch 条件时，请提供 `#` 来匹配数字，提供 `?` 来表示字母，提供 `.` 来匹配所有字符，并提供任何其他字符来匹配该实际字符。
+“match”和“notMatch”区分大小写。 “matchInsensitively”和“notMatchInsensitively”中提供了不区分大小写的替代方案。 例如，请参阅[允许多个名称模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>字段
 
@@ -221,14 +247,86 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
   - 对于不限位置的资源，请使用 **global**。 如需示例，请参阅[示例 - 允许的位置](../samples/allowed-locations.md)。
 - `identity.type`
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - 此括号语法支持具有标点符号的标记名称，例如连字符、句点或空格。
   - 其中 **\<tagName\>** 是要验证其条件的标记的名称。
-  - 示例：`tags.CostCenter`，其中 **CostCenter** 是标记的名称。
-- `tags[<tagName>]`
-  - 此括号语法支持包含句点的标记名称。
-  - 其中 **\<tagName\>** 是要验证其条件的标记的名称。
-  - 示例：`tags[Acct.CostCenter]`，其中 **Acct.CostCenter** 是标记的名称。
+  - 示例：`tags['Acct.CostCenter']`，其中 Acct.CostCenter 是标记的名称。
+- `tags['''<tagName>''']`
+  - 此括号语法通过双撇号进行转义，可支持在其中包含撇号的标记名称。
+  - 其中“\<tagName\>”是要验证其条件的标记的名称。
+  - 示例：`tags['''My.Apostrophe.Tag''']`，其中“\<tagName\>”是标记的名称。
 - 属性别名 - 若要查看列表，请参阅[别名](#aliases)。
+
+> [!NOTE]
+> `tags.<tagName>``tags[tagName]` 和 `tags[tag.with.dots]` 仍然是可接受的用于声明标记字段的方式。
+> 但是，首选表达式是上面列出的那些。
+
+#### <a name="use-tags-with-parameters"></a>使用带参数的标记
+
+参数值可以传递给标记字段。 将参数传递给标记字段可在策略分配期间提高策略定义的灵活性。
+
+在以下示例中，`concat` 用于为名为 tagName 参数值的标记创建标记字段查找。 如果该标记不存在，则使用“追加”效果来添加该标记，该效果使用 `resourcegroup()` 查找函数在审计资源父资源组上使用同一命名标记集的值来添加该标记。
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
+
+### <a name="value"></a>值
+
+也可使用 **value** 来形成条件。 **value** 会针对[参数](#parameters)、[支持的模板函数](#policy-functions)或文本来检查条件。
+**value** 可与任何支持的[条件](#conditions)配对。
+
+#### <a name="value-examples"></a>Value 示例
+
+此策略规则示例使用 **value** 将 `resourceGroup()` 函数和返回的 **name** 属性的结果与 **like** 条件 `*netrg` 进行对比。 此规则拒绝名称以 `*netrg` 结尾的资源组中 **type** 不为 `Microsoft.Network/*` 的资源。
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+此策略规则示例使用 **value** 来检查多个嵌套函数的结果是否 **equals** `true`。 此规则拒绝并没有至少三个标记的资源。
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>效果
 
@@ -269,7 +367,7 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 
 此外，`field` 函数可用于策略规则。 `field` 主要用于 **AuditIfNotExists** 和 **DeployIfNotExists**，以引用所评估资源上的字段。 可以在 [DeployIfNotExists 示例](effects.md#deployifnotexists-example)中看到这种用法的示例。
 
-#### <a name="policy-function-examples"></a>策略函数示例
+#### <a name="policy-function-example"></a>策略函数示例
 
 此策略规则示例使用 `resourceGroup` 资源函数获取 **name** 属性，并将该属性与 `concat` 数组和对象函数结合使用以构建 `like` 条件，该条件强制资源名称以资源组名称开头。
 
@@ -287,24 +385,6 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 }
 ```
 
-此策略规则示例使用 `resourceGroup` 资源函数获取资源组上 **CostCenter** 标记的 **tags** 属性数组值，并将其附加到新资源上的  **CostCenter** 标记。
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
-    }
-}
-```
-
 ## <a name="aliases"></a>别名
 
 使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
@@ -314,13 +394,13 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 - PowerShell
 
   ```powershell
-  # Login first with Connect-AzureRmAccount if not using CLI
+  # Login first with Connect-AzAccount if not using CLI
 
-  # Use Get-AzureRmPolicyAlias to list available providers
-  Get-AzureRmPolicyAlias -ListAvailable
+  # Use Get-AzPolicyAlias to list available providers
+  Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
  
 - CLI

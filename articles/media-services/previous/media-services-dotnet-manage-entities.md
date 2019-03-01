@@ -1,7 +1,7 @@
 ---
 title: 使用媒体服务 .NET SDK 管理资产和相关的实体
 description: 了解如何使用适用于 .NET 的媒体服务 SDK 管理资产和相关的实体。
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: bdeb2cbac11f8a19904362c6bacd0eb5bc52479e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 2e53fbcefffed4e212b08d9a54a2a4d4131e96ac
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652092"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833394"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 管理资产和相关的实体
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "52652092"
 > 
 > 
 
-本主题介绍如何使用 .NET 管理 Azure 媒体服务实体。 
+本主题演示如何使用 .NET 管理 Azure 媒体服务实体（旧版）
 
 >[!NOTE]
 > 自 2017 年 4 月 1 日起，即使记录总数低于最大配额，也自动删除帐户中所有超过 90 天的作业记录，及其相关的任务记录。 例如，在 2017 年 4 月 1 日，用户帐户中 2016 年 12 月 31 日以前的任何作业记录都会被系统自动删除。 若需存档作业/任务信息，可使用本主题所述代码。

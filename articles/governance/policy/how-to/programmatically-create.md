@@ -5,23 +5,25 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cfe3aa7fd86ec21a8acd4ecfdcab9502a8280659
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 65f796f952d82b6986a0deb7d2acd89e09f9c21b
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409065"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903145"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
 
 本文逐步讲解如何以编程方式创建和管理策略。 策略定义对资源强制实施不同的规则和效果。 强制实施可确保资源始终符合企业标准和服务级别协议。
 
 有关符合性的信息，请参阅[获取符合性数据](get-compliance-data.md)。
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,24 +48,24 @@ ms.locfileid: "56409065"
 
 1. 使用以下 JSON 代码片段创建名为 AuditStorageAccounts.json 的 JSON 文件。
 
-  ```json
-  {
-      "if": {
-          "allOf": [{
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-              },
-              {
-                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                  "equals": "Allow"
-              }
-          ]
-      },
-      "then": {
-          "effect": "audit"
-      }
-  }
-  ```
+   ```json
+   {
+       "if": {
+           "allOf": [{
+                   "field": "type",
+                   "equals": "Microsoft.Storage/storageAccounts"
+               },
+               {
+                   "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                   "equals": "Allow"
+               }
+           ]
+       },
+       "then": {
+           "effect": "audit"
+       }
+   }
+   ```
 
    有关编写策略定义的详细信息，请参阅 [Azure Policy 定义结构](../concepts/definition-structure.md)。
 2. 运行以下命令，使用 AuditStorageAccounts.json 文件创建策略定义。
@@ -75,7 +77,7 @@ ms.locfileid: "56409065"
    该命令创建名为 _Audit Storage Accounts Open to Public Networks_ 的策略定义。
    有关可用的其他参数的详细信息，请参阅 [New-AzPolicyDefinition](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/new-azpolicydefinition)。
 
-   在没有位置参数的情况下调用时，`New-AzureRmPolicyDefinition` 默认将策略定义保存在会话上下文的选定订阅中。 若要将定义保存到其他位置，请使用以下参数：
+   在没有位置参数的情况下调用时，`New-AzPolicyDefinition` 默认将策略定义保存在会话上下文的选定订阅中。 若要将定义保存到其他位置，请使用以下参数：
 
    - **SubscriptionId** - 保存到其他订阅。 需要 _GUID_ 值。
    - **ManagementGroupName** - 保存到管理组。 需要_字符串_值。

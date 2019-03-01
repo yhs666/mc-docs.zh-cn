@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 09/26/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86eac7094c155e4127836cdf45860d1a64b6c8fc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e0f2a2484bf70f731a58442ee12661257ec8522d
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676432"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903046"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>将静态公用 IP 地址用于 Azure Kubernetes 服务 (AKS) 负载均衡器
 
@@ -27,9 +27,13 @@ ms.locfileid: "52676432"
 
 还需安装并配置 Azure CLI 2.0.46 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
+目前仅支持基本 IP SKU。 支持标准 IP 的开发正在进行中。
+
 ## <a name="create-a-static-ip-address"></a>创建静态 IP 地址
 
-创建静态公用 IP 地址以用于 AKS 时，必须在节点资源组中创建 IP 地址资源。 使用 [az aks show][az-aks-show] 命令获取资源组名称并添加 `--query nodeResourceGroup` 查询参数。 以下示例获取名为 myResourceGroup 的资源组中 AKS 群集名称 myAKSCluster 的节点资源组：
+创建静态公共 IP 地址以用于 AKS 时，应在**节点**资源组中创建 IP 地址资源。 若要分隔资源，请参阅[在节点资源组外部使用静态 IP 地址](#use-a-static-ip-address-outside-of-the-node-resource-group)。
+
+使用 [az aks show][az-aks-show] 命令并添加 `--query nodeResourceGroup` 查询参数获取节点资源组名称。 以下示例获取名为 myResourceGroup 的资源组中 AKS 群集名称 myAKSCluster 的节点资源组：
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

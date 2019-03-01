@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-origin.date: 09/18/2018
-ms.date: 10/22/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 3fc6004fcdbab981e54bf824bde7dcc929471590
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 9a37204c8d51e88ed27109f27747da6825267c0d
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673051"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833306"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门（旧版）
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 本教程介绍了通过 Java 客户端 SDK 在 Azure 媒体服务中实施基本的视频内容传送服务的步骤。

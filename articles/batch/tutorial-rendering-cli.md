@@ -10,12 +10,12 @@ origin.date: 10/24/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: b0ac587d6bfac416b43875ca220eaacbd756c298
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 226d6983a4508ad0648a7384f5ba5432468979ff
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675527"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987030"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -121,7 +121,7 @@ az storage blob upload-batch \
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.2.1"
+      "version": "1.3.2"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },

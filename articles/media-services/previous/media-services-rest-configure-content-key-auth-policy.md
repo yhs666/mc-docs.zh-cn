@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 10/22/2018
+origin.date: 02/09/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 6b35fc360c2211ac553c5ec7b84dd8d759e56404
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1e7b6780190d3c4f642a43a197e10d5bc6b118cf
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660453"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833380"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy-legacy"></a>动态加密：配置内容密钥授权策略（旧版）
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述

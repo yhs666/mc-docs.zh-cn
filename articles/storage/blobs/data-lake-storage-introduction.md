@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f2fc5f1a0e82c862ab970f34650b5b9ca72a8370
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 96c0da1cbc3012b2ab4bc3a144a1373505c676ff
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665586"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196552"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 简介
 
@@ -76,9 +76,9 @@ Data Lake Storage Gen2 是用于大数据分析的附加功能，基于 Azure Bl
 
 | 平台 |  支持的版本 | 更多信息 |
 | --- | --- | --- |
-| [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop 版本存档](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop 版本存档](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x 发行说明](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [HortonWorks](https://hortonworks.com/)| 2.6+ | [Hortonworks 文档](https://docs.hortonworks.com/) |
+|[HortonWorks](https://hortonworks.com/)| 3.1.x++ | [配置云数据访问](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## <a name="next-steps"></a>后续步骤
 

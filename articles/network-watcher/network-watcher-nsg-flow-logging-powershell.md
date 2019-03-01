@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2c5fa9dcb2c8e9bb89da6d9053441cfcc48f41c6
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: adf15323b65103c1b679e94a111c55dc8d1e09c4
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363546"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987018"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>使用 PowerShell 配置网络安全组流日志
 
@@ -30,9 +30,6 @@ ms.locfileid: "54363546"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 网络安全组流日志是网络观察程序的一项功能，可用于查看有关通过网络安全组的入口和出口 IP 流量的信息。 这些流日志以 json 格式编写，并基于每个规则显示出站和入站流、流所适用的 NIC、有关流的 5 元组信息（源/目标 IP、源/目标端口、协议），以及是允许还是拒绝流量。
-
-> [!NOTE] 
-> 流日志版本 2 仅在中国北部区域可用。 在不支持的区域启用版本 2 日志时，版本 1 日志可能会输出到存储帐户中。
 
 ## <a name="register-insights-provider"></a>注册 Insights 提供程序
 

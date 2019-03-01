@@ -1,6 +1,6 @@
 ---
-title: Azure Policy 示例 - 审核 SQL DB 级别审核设置
-description: 如果 SQL 数据库审核设置与指定的设置不匹配，则此示例策略将对这些数据库设置进行审核。
+title: 示例 - 审核 SQL DB 级别审核设置
+description: 如果 SQL 数据库审核设置与指定的设置不匹配，则此示例策略定义将对这些数据库设置进行审核。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,15 +9,14 @@ ms.topic: sample
 origin.date: 10/30/2017
 ms.date: 11/12/2018
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 1b2f5be84f05bd29d4e82bdcd94f057059fc6643
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: beb4e4dcabf15ed5bb0e0ac93a89b7ff1b29ce4a
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652679"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903035"
 ---
-# <a name="audit-sql-db-level-audit-setting"></a>审核 SQL DB 级别审核设置
+# <a name="sample---audit-sql-db-level-audit-setting"></a>示例 - 审核 SQL DB 级别审核设置
 
 如果 SQL 数据库审核设置与指定设置不匹配，则此策略会审核这些设置。 指定用于指示应启用或禁用审核设置的值。
 
@@ -69,12 +68,12 @@ ms.locfileid: "52652679"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "audit-sql-db-auditing" -DisplayName "Audit SQL DB Level Audit Setting" -description "Audit DB level audit setting for SQL databases" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "audit-sql-db-auditing" -DisplayName "Audit SQL DB Level Audit Setting" -description "Audit DB level audit setting for SQL databases" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-db-auditing/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -setting <Audit Setting> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -setting <Audit Setting> -PolicyDefinition $definition
 $assignment
 ```
 
@@ -83,7 +82,7 @@ $assignment
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

@@ -3,7 +3,7 @@ title: 使用 .NET SDK 管理流式处理终结点。 | Microsoft Docs
 description: 本文说明如何使用 Azure 门户管理流式处理终结点。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 writer: juliako
 manager: digimobile
 editor: ''
@@ -13,17 +13,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: c7dd889591133255d4e0bdd7c894c1771b89c27c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: baca1d6811b5ee5858d78d7dd726874acf2daccb
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647767"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833276"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>使用 .NET SDK 管理流式处理终结点
+# <a name="manage-streaming-endpoints-with-net-sdk-legacy"></a>使用 .NET SDK 管理流式处理终结点（旧版）
 
 >[!NOTE]
 >请确保查看[概述](media-services-streaming-endpoints-overview.md)一文。 另请查看 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。

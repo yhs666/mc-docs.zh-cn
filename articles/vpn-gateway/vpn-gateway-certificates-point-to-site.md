@@ -6,15 +6,15 @@ documentationcenter: na
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 09/05/2018
-ms.date: 12/24/2018
+origin.date: 12/03/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: e898396ad03d716cde18bbff9268a5cbd31f070f
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 436beeed09cc878546e8c919016b61693c145caa
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656606"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833205"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>使用 PowerShell 为点到站点连接生成和导出证书
 
@@ -48,7 +48,7 @@ ms.locfileid: "53656606"
 
 ### <a name="example-1"></a>示例 1
 
-此示例使用上一部分中声明的“$cert”变量。 如果创建自签名根证书后关闭了 PowerShell 控制台，或者要在新的 PowerShell 控制台会话中创建其他客户端证书，请使用[示例 2](#ex2) 中的步骤。
+如果创建自签名根证书之后没有关闭 PowerShell 控制台，请使用此示例。 此示例延续上一节的内容，并使用已声明的“$cert”变量。 如果创建自签名根证书后关闭了 PowerShell 控制台，或者要在新的 PowerShell 控制台会话中创建其他客户端证书，请使用[示例 2](#ex2) 中的步骤。
 
 修改并运行示例以生成客户端证书。 如果在未经修改的情况下直接运行以下示例，会生成名为“P2SChildCert”的客户端证书。  如果想要为子证书指定其他名称，请修改 CN 值。 运行此示例时，请不要更改 TextExtension。 生成的客户端证书自动安装在计算机上的“Certificates - Current User\Personal\Certificates”中。
 

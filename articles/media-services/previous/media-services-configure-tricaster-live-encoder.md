@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 09/25/2017
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-johch
-ms.openlocfilehash: 33050f20a548c967d9a0eb205a35714192741ad2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e6ce07a71a7b90c4ecb73ea041524ba6dcba4c8d
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650311"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833365"
 ---
-# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 编码器发送单比特率实时流
+# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 编码器发送单比特率实时流  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -41,17 +41,20 @@ ms.locfileid: "52650311"
 >
 
 ## <a name="prerequisites"></a>先决条件
+
 * [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)
 * 确保流式处理终结点正在运行。 有关详细信息，请参阅[在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)
 * 安装最新版本的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 启动该工具并连接到 AMS 帐户。
 
 ## <a name="tips"></a>提示
+
 * 尽可能使用硬编码的 Internet 连接。
 * 确定带宽要求时，可以认为它就是将流式处理比特率翻倍。 虽然此要求不是强制性要求，但它可以减轻网络拥塞的影响。
 * 使用基于软件的编码器时，请关闭任何不需要的程序。
 
 ## <a name="create-a-channel"></a>创建频道
+
 1. 在 AMSE 工具中，导航到“实时”选项卡，并右键单击频道区域。 从菜单中选择“创建频道…”  。
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
@@ -76,13 +79,14 @@ ms.locfileid: "52650311"
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>配置 NewTek TriCaster 编码器
+## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>配置 NewTek TriCaster 编码器
+
 在本教程中，将使用以下输出设置。 本部分的其余内容介绍更详细的配置步骤。
 
 **视频**：
 
 * 编解码器：H.264
-* 配置文件：高（等级 4.0）
+* 配置文件：高（级别 4.0）
 * 比特率：5000 kbps
 * 关键帧：2 秒（60 秒）
 * 帧速率：30
@@ -91,9 +95,10 @@ ms.locfileid: "52650311"
 
 * 编解码器：AAC (LC)
 * 比特率：192 kbps
-* 采样速率：44.1 kHz
+* 采样率：44.1 kHz
 
 ### <a name="configuration-steps"></a>配置步骤
+
 1. 根据所用的视频输入源创建一个新的 **NewTek TriCaster** 项目。
 2. 进入该项目以后，找到“流”  按钮，单击该按钮旁边的齿轮图标，以便访问流配置菜单。
 
@@ -132,6 +137,7 @@ ms.locfileid: "52650311"
 >
 
 ## <a name="test-playback"></a>测试播放
+
 导航回 AMSE 工具，并右键单击要测试的频道。 在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -141,6 +147,7 @@ ms.locfileid: "52650311"
 如果收到错误，则需重置频道并调整编码器设置。 有关指南，请参阅[故障排除](media-services-troubleshooting-live-streaming.md)一文。  
 
 ## <a name="create-a-program"></a>创建节目
+
 1. 确认频道可以播放后，即可创建节目。 在 AMSE 工具的“实时”选项卡下，右键单击节目区域，并选择“创建新节目”。  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -157,5 +164,6 @@ ms.locfileid: "52650311"
 现在可以将流嵌入到播放器中，也可将其分发给受众进行实时观看。  
 
 ## <a name="troubleshooting"></a>故障排除
+
 有关指南，请参阅[故障排除](media-services-troubleshooting-live-streaming.md)一文。
 <!--Update_Description: update links-->

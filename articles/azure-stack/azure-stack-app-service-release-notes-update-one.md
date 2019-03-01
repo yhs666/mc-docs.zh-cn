@@ -3,8 +3,8 @@ title: 基于 Azure Stack 的应用服务 Update 1 发行说明 | Microsoft Docs
 description: 了解基于 Azure Stack 的 Update 1 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digmobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
-ms.reviewer: brenduns
-ms.openlocfilehash: 708373947bbd2e9d58c657f09c55e75558c3db9f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.reviewer: sethm
+ms.lastreviewed: 03/20/2018
+ms.openlocfilehash: 9b9386bf0c87e61c0b222eeeecc84fd28fd03318
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643888"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905428"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>基于 Azure Stack 的应用服务 Update 1 发行说明
 
@@ -146,7 +147,7 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. 浏览到 Azure Stack 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。 使用在部署应用服务期间指定的凭据。
 3. 以管理员身份启动 **PowerShell** 并执行以下脚本
@@ -198,18 +199,20 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
- 
+
+6. 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
+
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- - 源：任何
- - 源端口范围：*
- - 目标：IP 地址
- - 目标 IP 地址范围：文件服务器的 IP 范围
- - 目标端口范围：445
- - 协议：TCP
- - 操作：允许
- - 优先级：700
- - 名称：Outbound_Allow_SMB445
+
+- 源：任意
+- 源端口范围：*
+- 目标：IP 地址
+- 目标 IP 地址范围：文件服务器的 IP 范围
+- 目标端口范围：445
+- 协议：TCP
+- 操作：允许
+- 优先级：700
+- 姓名：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
 

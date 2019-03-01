@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 66ebe9059942f67ca7446484ef0205eee19f6447
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: 8d75ef5423afeba3563357a001248f9ec4feb789
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857413"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988012"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
+# <a name="work-with-data-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器处理数据
 
 通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL 和 MongoDB 配置的 Cosmos 帐户。
 
@@ -35,10 +35,10 @@ ms.locfileid: "54857413"
 
    ![插件图标](./media/storage-explorer/plug-in-icon.png)
    
-    <!-- Select the Azure China value in Add an Azure Account -->
+    <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
 2. 在“添加 Azure 帐户”中选择值“Azure 中国”，然后单击“登录”。
     
-    <!-- Select the Azure China value in Add an Azure Account -->
+    <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
    ![连接到 Azure 订阅](./media/storage-explorer/connect-to-azure-subscription.png)
 
 2. 在“Azure 登录”对话框中，选择“登录”，然后输入 Azure 凭据。
@@ -63,7 +63,8 @@ ms.locfileid: "54857413"
 
     ![通过连接字符串连接到 Cosmos DB](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 目前仅支持 SQL API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
+2. 目前仅支持 SQL API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
+    
     <!-- Not Available on Table API-->
     
     ![连接字符串](./media/storage-explorer/connection-string.png)
@@ -78,7 +79,7 @@ ms.locfileid: "54857413"
 
     ![通过模拟器连接到 Cosmos DB](./media/storage-explorer/emulator-entry.png)
 
-3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
+3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
 
     ![通过模拟器对话框连接到 Cosmos DB](./media/storage-explorer/emulator-dialog.png)
 
@@ -230,7 +231,7 @@ ms.locfileid: "54857413"
   - .extaccounts
 - 若要删除附加了 SAS 的存储资源，请删除：
   - %AppData%/StorageExplorer 文件夹（对于 Windows）
-  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer（对于 Mac）
+  - Mac 中的 /Users/<your_name>/Library/Application SUpport/StorageExplorer
   - ~/.config/StorageExplorer（对于 Linux）
   - 删除这些文件之后，**需要重新输入所有凭据**
 

@@ -1,27 +1,27 @@
 ---
 title: 创建使用 Azure Redis 缓存的 Python 应用快速入门 | Microsoft Docs
 description: 本快速入门介绍如何创建使用 Azure Redis 缓存的 Python 应用
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/11/2018
-ms.date: 12/21/2018
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: aa058c9116c9439b09ed617ec8af222a0c06a07f
-ms.sourcegitcommit: d2893ae6bdbb3784d243d5d3c49c25c9cfd99d9b
+ms.openlocfilehash: 0c00f002139234da8ecfa763c159b4baa4187046
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2018
-ms.locfileid: "53784898"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56902981"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入门：将 Azure Redis 缓存与 Python 配合使用
 
@@ -134,4 +134,4 @@ for c in result:
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

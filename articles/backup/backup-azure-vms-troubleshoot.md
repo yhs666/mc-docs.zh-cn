@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ba0ff8bf5d5a2efa43933d64afa2ea89484f33b8
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 23b342d269d10fbcad6d0d43d7f5b7ece2561339
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996528"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987044"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 可使用下表中所列出的信息排查使用 Azure 备份时遇到的错误：
@@ -21,7 +21,7 @@ ms.locfileid: "53996528"
 | 错误详细信息 | 解决方法 |
 | ------ | --- |
 | 由于虚拟机 (VM) 不再存在，备份无法执行操作： <br>停止保护虚拟机，无需删除备份数据。 有关更多信息，请参阅[停止保护虚拟机](http://go.microsoft.com/fwlink/?LinkId=808124)。 |删除主 VM 时会发生此错误，但备份策略仍会查找要备份的 VM。 要修复此错误，请执行以下步骤： <ol><li> 重新创建具有相同名称和相同资源组名称的虚拟机，“云服务名称”<br>**or**</li><li> 通过删除或不删除备份数据来停止保护虚拟机。 有关更多信息，请参阅[停止保护虚拟机](https://go.microsoft.com/fwlink/?LinkId=808124)。</li></ol> |
-| 由于虚拟机未建立网络连接，快照操作失败： <br>请确保 VM 具有网络访问权限。 要成功进行快照操作，请将 Azure 数据中心 IP 范围列入白名单，或设置代理服务器以进行网络访问。 有关详细信息，请参阅[对 Azure 备份失败进行故障排除：代理或扩展的问题](http://go.microsoft.com/fwlink/?LinkId=800034)。 <br><br>如果已经在使用代理服务器，请确保正确配置代理服务器设置。 | 拒绝虚拟机上的出站 Internet 连接时，会发生此错误。 VM 快照扩展需要建立 Internet 连接才能创建基础磁盘的快照。 请参阅 [ExtensionSnapshotFailedNoNetwork](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)。 |
+| 由于虚拟机未建立网络连接，快照操作失败： <br>请确保 VM 具有网络访问权限。 要成功进行快照操作，请将 Azure 数据中心 IP 范围列入允许列表，或设置代理服务器以进行网络访问。 有关详细信息，请参阅[对 Azure 备份失败进行故障排除：代理或扩展的问题](http://go.microsoft.com/fwlink/?LinkId=800034)。 <br><br>如果已经在使用代理服务器，请确保正确配置代理服务器设置。 | 拒绝虚拟机上的出站 Internet 连接时，会发生此错误。 VM 快照扩展需要建立 Internet 连接才能创建基础磁盘的快照。 请参阅 [ExtensionSnapshotFailedNoNetwork](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)。 |
 | Azure 虚拟机代理（VM 代理）无法与 Azure 备份服务通信： <br>请确保 VM 具有网络连接，并且 VM 代理为最新版且正常运行。 有关详细信息，请参阅[对 Azure 备份失败进行故障排除：代理或扩展的问题](http://go.microsoft.com/fwlink/?LinkId=800034)。 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会发生此错误。 了解有关[调试 VM 快照问题](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup)的详细信息。 <br><br>如果 VM 代理未导致任何问题，请重启 VM。 VM 状态错误可能导致问题，重启 VM 会重置状态。 |
 | VM 处于失败的预配状态： <br>请重启 VM，并确保 VM 正在运行或已关闭。 | 当其中某个扩展失败将 VM 状态置于失败的预配状态时，会发生此错误。 请转到扩展列表，查看是否有失败的扩展，将其删除并尝试重启虚拟机。 如果所有扩展都处于运行状态，请检查 VM 代理服务是否正在运行。 如果未运行，请重启 VM 代理服务。 |
 | 托管磁盘的“VMSnapshot”扩展操作失败： <br>请重试备份操作。 如果问题仍然存在，请按照[对 Azure 备份失败进行故障排除](http://go.microsoft.com/fwlink/?LinkId=800034)中的说明进行操作。 如果问题持续出现，请联系 Azure 支持部门。 | 备份服务未能触发快照时，会发生此错误。 了解有关[调试 VM 快照问题](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtentionOperationFailed-vmsnapshot-extension-operation-failed)的详细信息。 |
@@ -71,9 +71,7 @@ ms.locfileid: "53996528"
 | 备份服务无权访问订阅中的资源。 |要修复此错误，请首先使用[还原备份磁盘](backup-azure-arm-restore-vms.md#create-new-restore-disks)中的步骤来还原磁盘。 然后使用[从已还原的磁盘创建 VM](backup-azure-vms-automation.md#restore-an-azure-vm) 中的 PowerShell 步骤。 |
 
 ## <a name="backup-or-restore-takes-time"></a>备份或还原需要一定时间
-如果备份时间超过 12 小时，或还原时间超过 6 小时：
-* 请了解[影响备份时间的因素](backup-azure-vms-introduction.md#time-considerations)和[影响还原时间的因素](backup-azure-vms-introduction.md#restore-considerations)。
-* 请务必遵循[备份最佳做法](backup-azure-vms-introduction.md#best-practices)。
+如果备份时间超过 12 小时，或者还原时间超过 6 小时，请查看[最佳做法](backup-azure-vms-introduction.md#best-practices)和[性能注意事项](backup-azure-vms-introduction.md#backup-performance)
 
 ## <a name="vm-agent"></a>VM 代理
 ### <a name="set-up-the-vm-agent"></a>设置 VM 代理
@@ -113,7 +111,7 @@ ms.locfileid: "53996528"
 ## <a name="troubleshoot-vm-snapshot-issues"></a>排查 VM 快照问题
 VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储或者快照任务运行延迟，则备份作业可能会失败。 以下状态可能会导致快照任务失败：
 
-- 使用 NSG 阻止对存储进行网络访问。 了解有关如何使用 IP 白名单或通过代理服务器[建立网络访问](backup-azure-arm-vms-prepare.md#establish-network-connectivity)的详细信息。
+- 使用 NSG 阻止对存储进行网络访问。 了解有关如何使用 IP 允许列表或通过代理服务器[建立网络访问](backup-azure-arm-vms-prepare.md#establish-network-connectivity)的详细信息。
 - 配置了 SQL Server 备份的 VM 可能会导致快照任务延迟。 默认情况下，VM 备份在 Windows VM 上创建 VSS 完整备份。 运行 SQL Server 且配置有 SQL Server 备份的 VM 可能会遇到快照延迟。 如果快照延迟导致备份失败，请设置以下注册表项：
 
    ```
@@ -136,7 +134,7 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 
 正确完成名称解析后，还需要提供对 Azure IP 的访问权限。 若要取消阻止对 Azure 基础结构的访问，请执行以下步骤之一：
 
-- 将 Azure 数据中心 IP 范围加入白名单：
+- 将 Azure 数据中心 IP 范围加入允许列表：
    1. 获取要列入允许列表的 [Azure 数据中心 IP](https://www.microsoft.com/download/details.aspx?id=42064) 列表。
    1. 使用 [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet 取消阻止 IP。 在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet。 以管理员身份运行。
    1. 如果已创建规则，则向 NSG 添加规则，以允许访问这些 IP。

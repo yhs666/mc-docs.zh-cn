@@ -5,21 +5,21 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 09/21/2018
-ms.date: 11/26/2018
+origin.date: 02/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a33b52358a40807d116cba20115a34f3f98d53dd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a7f5c139ae71ed88931aa44ad51b32fa510b7d55
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676444"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903107"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
 Kubernetes 社区大约会每隔三个月发布次要版本。 这些版本包括新增功能和改进。 修补程序版本更为频繁（有时会每周发布），并且仅用于次要版本中的关键 Bug 修复。 这些修补程序版本包括针对影响大量客户以及在生产中基于 Kubernetes 运行的产品的安全漏洞或重大 Bug 的修复。
 
-[acs-engine][acs-engine] 在第一天提供了新的 Kubernetes 次要版本。 AKS 服务级别目标 (SLO) 将根据版本的稳定性在 30 天内发布 AKS 群集的次要版本。
+[aks-engine][aks-engine] 在第一天提供了新的 Kubernetes 次要版本。 AKS 服务级别目标 (SLO) 将根据版本的稳定性在 30 天内发布 AKS 群集的次要版本。
 
 ## <a name="kubernetes-version-support-policy"></a>Kubernetes 版本支持策略
 
@@ -28,11 +28,11 @@ AKS 支持以下四个 Kubernetes 次要版本：
 - 上游发布的当前次要版本 (n)
 - 以前的三个次要版本。 每个受支持的次要版本还支持两个稳定的修补程序。
 
-例如，如果 AKS 今天引入了 1.11.x，则还会为 1.10.a + 1.10.b、1.9.c + 1.9d、1.8.e + 1.8f（其中，带字母的修补程序版本是两个最新的稳定版本）提供支持。
+例如，如果 AKS 今天引入了 1.12.x，则还会为 1.11.a + 1.11.b、1.10.c + 1.10d、1.9.e + 1.9f（其中，带字母的修补程序版本是两个最新的稳定版本）提供支持。
 
-引入新的次要版本后，将停止对最早次要版本和修补程序版本的支持。 在发布新的次要版本和即将发生版本停用的 15 天前，会通过 [Azure 更新通道][azure-update-channel]发布公告。 在已发布 1.11.x 的示例中，停用的版本是 1.7.g + 1.7.h。
+引入新的次要版本后，将停止对最早次要版本和修补程序版本的支持。 在发布新的次要版本和即将发生版本停用的 15 天前，会通过 [Azure 更新通道][azure-update-channel]发布公告。 在上例中，1.12.x 已发布，停用的版本是 1.8.g + 1.8.h。
 
-在门户中或使用 Azure CLI 部署 AKS 群集时，群集始终会设置为 n-1 次要版本和最新修补程序。 例如，如果 AKS 支持 1.11.x、1.10.a + 1.10.b、1.9.c + 1.9d、1.8.e + 1.8f，则新群集的默认版本是 1.10.b。
+在门户中或使用 Azure CLI 部署 AKS 群集时，群集始终会设置为 n-1 次要版本和最新修补程序。 例如，如果 AKS 支持 1.12.x、1.11.a + 1.11.b、1.10.c + 1.10d、1.9.e + 1.9f，则新群集的默认版本是 1.10.b。
 
 ## <a name="list-currently-supported-versions"></a>列出当前支持的版本
 
@@ -42,19 +42,19 @@ AKS 支持以下四个 Kubernetes 次要版本：
 az aks get-versions --location chinaeast --output table
 ```
 
-输出类似于以下示例，其中显示 Kubernetes 版本 *1.11.3* 是可用的最新版本：
+输出类似于以下示例，其中显示 Kubernetes 版本 1.12.5 是可用的最新版本：
 
 ```
 KubernetesVersion    Upgrades
--------------------  ----------------------
-1.11.3               None available
-1.11.2               1.11.3
-1.10.8               1.11.2, 1.11.3
-1.10.7               1.10.8, 1.11.2, 1.11.3
-1.9.10               1.10.7, 1.10.8
-1.9.9                1.9.10, 1.10.7, 1.10.8
-1.8.15               1.9.9, 1.9.10
-1.8.14               1.8.15, 1.9.9, 1.9.10
+-------------------  -----------------------
+1.12.5               None available
+1.12.4               1.12.5
+1.11.7               1.12.4, 1.12.5
+1.11.6               1.11.7, 1.12.4, 1.12.5
+1.10.12              1.11.6, 1.11.7
+1.10.9               1.10.12, 1.11.6, 1.11.7
+1.9.11               1.10.9, 1.10.12
+1.9.10               1.9.11, 1.10.9, 1.10.12
 ```
 
 ## <a name="faq"></a>常见问题
@@ -63,8 +63,8 @@ KubernetesVersion    Upgrades
 
 如果当前为 n-4 版本，则会退出 SLO。 如果从 n-4 版本升级到 n-3 成功，则会返回 SLO。 例如：
 
-- 如果受支持的 AKS 版本包括 1.10.a + 1.10.b、1.9.c + 1.9d、1.8.e + 1.8f，且当前为 1.7.g 或 1.7.h，则会退出 SLO。
-- 如果从 1.7.g 或 1.7.h 升级到 1.8.e 或 1.8.f 成功，则会返回 SLO。
+- 如果受支持的 AKS 版本包括 1.12.x、1.11.a + 1.11.b、1.10.c + 1.10d 和 1.9.e + 1.9f，且当前版本为 1.8.g 或 1.8.h，则会退出 SLO。
+- 如果从 1.8.g 或 1.8.h 升级到 1.9.e 或 1.9.f 成功，则会返回 SLO。
 
 不支持升级到早于 n-4 的版本。 在这种情况下，我们会建议客户创建新的 AKS 群集并重新部署其工作负载。
 
@@ -85,7 +85,7 @@ KubernetesVersion    Upgrades
 有关如何升级群集的信息，请参阅[升级 Azure Kubernetes 服务 (AKS) 群集][aks-upgrade]。
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://www.azure.cn/what-is-new/
 
 <!-- LINKS - Internal -->

@@ -1,6 +1,6 @@
 ---
-title: 使用 RBAC 和 REST API 管理访问权限 - Azure | Microsoft Docs
-description: 了解如何使用基于角色的访问控制 (RBAC) 和 REST API 来管理用户、组和应用程序的访问权限。 这包括如何列出访问权限、授予访问权限以及删除访问权限。
+title: 使用 RBAC 和 REST API 管理对 Azure 资源的访问 - Azure | Microsoft Docs
+description: 了解如何使用基于角色的访问控制 (RBAC) 和 REST API 来管理用户、组和应用程序对 Azure 资源的访问。 这包括如何列出访问权限、授予访问权限以及删除访问权限。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/20/2018
-ms.date: 07/25/2018
+ms.date: 02/26/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 65fe56491ebc956d5dde0ae67c1222b0cd2adc1c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e260908418e15b1f2bf9f8790d6b9f02dea48572
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647426"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836927"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理访问权限
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理对 Azure 资源的访问权限
 
-可以在 Azure 中通过[基于角色的访问控制 (RBAC)](overview.md) 这种方式管理对资源的访问。 本文介绍如何使用 RBAC 和 REST API 来管理用户、组和应用程序的访问权限。
+可以通过[基于角色的访问控制 (RBAC)](overview.md) 管理对 Azure 资源的访问权限。 本文介绍如何使用 RBAC 和 REST API 来管理用户、组和应用程序的访问权限。
 
 ## <a name="list-access"></a>列出访问权限
 
-在 RBAC 中，若要列出访问权限，请列出角色分配。 若要列出角色分配，可以使用其中一个[角色分配 - List](https://docs.microsoft.com/rest/api/authorization/roleassignments/list) REST API。 若要优化结果，请指定一个范围和可选的筛选器。 若要调用 API，必须具有对指定范围的 `Microsoft.Authorization/roleAssignments/read` 操作的访问权限。 一些[内置角色](built-in-roles.md)均具有对此操作的访问权限。
+在 RBAC 中，若要列出访问权限，请列出角色分配。 若要列出角色分配，可以使用其中一个[角色分配 - List](https://docs.microsoft.com/rest/api/authorization/roleassignments/list) REST API。 若要优化结果，请指定一个范围和可选的筛选器。 若要调用 API，必须具有对指定范围的 `Microsoft.Authorization/roleAssignments/read` 操作的访问权限。 多个 [Azure 资源的内置角色](built-in-roles.md)具有对此操作的访问权限。
 
 1. 从下面的请求开始：
 
@@ -118,6 +118,6 @@ ms.locfileid: "52647426"
 
 - [使用 Resource Manager 模板和 Resource Manager REST API 部署资源](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)
-- [使用 REST API 创建自定义角色](custom-roles-rest.md)
+- [使用 REST API 为 Azure 资源创建自定义角色](custom-roles-rest.md)
 
 <!-- Update_Description: wording update -->

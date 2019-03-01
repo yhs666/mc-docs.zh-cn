@@ -5,17 +5,17 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7e72aaa7763c9e5c242711e590b1c59e946d58ff
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 9c49b74839de7b87631c7f5c526abcb499043651
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996199"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903081"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>使用 Azure CLI 创建策略分配以识别不符合的资源
 
@@ -65,11 +65,11 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 若要查看此新分配下不合规的资源，请运行以下命令获取策略分配 ID：
 
 ```powershell
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
+$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
-有关策略分配 ID 的详细信息，请参阅 [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
+有关策略分配 ID 的详细信息，请参阅 [Get-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyassignment)。
 
 接下来，运行以下命令，获取输出到 JSON 文件中的不合规资源的资源 ID：
 

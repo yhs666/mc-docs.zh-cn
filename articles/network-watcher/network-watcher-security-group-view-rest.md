@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9aef4ce5b718d5304039e2de46dca612c3793615
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e1235f6e98de386aa86c05beb0562f604aeea772
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648882"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987009"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 
@@ -98,10 +98,8 @@ pute/virtualMachines/{vmName}/extensions/CustomScriptExtension"
 ```powershell
 $subscriptionId = "<subscription id>"
 $resourceGroupName = "<resource group name>"
-$networkWatcherName = "NetworkWatcher_chinaeast"
-$networkWatcherGroupName = "NetworkWatcherRG"
-$vmName="<virtual machiche name>"
-$targetUri = "<uri of target resource>" # Example: /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.compute/virtualMachines/$vmName
+$networkWatcherName = "<network watcher name>"
+$targetUri = "<uri of target resource>" # Example: /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.compute/virtualMachine/$vmName
 
 $requestBody = @"
 {

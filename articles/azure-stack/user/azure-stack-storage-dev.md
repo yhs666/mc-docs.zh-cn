@@ -5,17 +5,18 @@ services: azure-stack
 author: WenJason
 ms.author: v-jay
 origin.date: 12/03/2018
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: digimobile
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 18988a75595c3c820d10d55d1e4acea33e699181
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 27e6815b69e9253a51bf1acf7cd89d77e0acb014
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059016"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905392"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
@@ -124,7 +125,7 @@ public static final String storageConnectionString =
 
 对于 Azure Stack，在声明实例中指定终结点后缀：
 
-```nodejs
+```javascript
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```

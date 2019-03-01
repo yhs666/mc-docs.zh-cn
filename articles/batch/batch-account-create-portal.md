@@ -16,12 +16,12 @@ origin.date: 06/18/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e273d29c6d8b5f16eec390d74af03bb8f06740c3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1aa3625399e875bd14fa5c891a5634af4977d098
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651885"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987045"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -45,11 +45,11 @@ ms.locfileid: "52651885"
 
     a. **帐户名称**：所选名称必须在创建帐户的 Azure 区域中唯一（参见下面的“位置”）。 帐户名只能包含小写字符或数字，且长度必须为 3-24 个字符。
 
-    b. **订阅**：要在其中创建批处理帐户的订阅。 如果只有一个订阅，则默认选择此项。
+    b. **订阅**：要在其中创建 Batch 帐户的订阅。 如果只有一个订阅，则默认选择此项。
 
-    c. **资源组**：为新批处理帐户选择现有的资源组，或选择创建一个新组。
+    c. **资源组**：为新 Batch 帐户选择现有的资源组，或选择创建一个新组。
 
-    d. **位置**：要在其中创建批处理帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
+    d. **位置**：要在其中创建 Batch 帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
 
     e. **存储帐户**（可选）：与 Batch 帐户关联的 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 有关 Batch 中的存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。 在门户中，选择一个现有存储帐户，或者选择创建一个新帐户。
 
@@ -92,11 +92,11 @@ ms.locfileid: "52651885"
 
     ![注册 Microsoft.Batch 提供程序][register_provider]
 
-1. 在“订阅”页中，选择“访问控制(IAM)” > “添加”。
+1. 在“订阅”页上，选择“访问控制(IAM)” > “角色分配” > “添加角色分配”。
 
     ![订阅访问控制][subscription_access]
 
-1. 在“添加权限”页上，选择“参与者”角色，然后搜索 Batch API。 搜索每一条字符串，直到找到此 API：
+1. 在“添加角色分配”页上，选择“参与者”角色，然后搜索 Batch API。 搜索每一条字符串，直到找到此 API：
     1. MicrosoftAzureBatch。
     1. **Azure Batch**。 较新的 Azure AD 租户可能使用此名称。
     1. ddbf3205-c6bd-46ae-8127-60eb93363864 是此 Batch API 的 ID。 
@@ -117,7 +117,7 @@ ms.locfileid: "52651885"
 ## <a name="other-batch-account-management-options"></a>其他 Batch 帐户管理选项
 除了使用 Azure 门户外，还可使用以下工具创建和管理 Batch 帐户：
 
-- [Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)
+- [批处理 PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)
 - [Azure CLI](batch-cli-get-started.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 

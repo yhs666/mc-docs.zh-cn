@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 10/15/2018
-ms.date: 12/03/2018
+origin.date: 02/10/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: e8024ec1a71c222890e8f4abc16e3c378bbf7c85
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b8889bc25fc2d9919c6c0ef287e034d3428418cc
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673158"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833294"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 

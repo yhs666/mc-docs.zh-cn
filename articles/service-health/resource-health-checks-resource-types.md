@@ -3,7 +3,7 @@ title: 通过 Azure 资源运行状况支持的资源类型
 description: 通过 Azure 资源运行状况支持的资源类型
 services: Resource health
 documentationcenter: ''
-author: BernardoAMunoz
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 10/09/2017
+origin.date: 01/29/2019
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: fe8cf2aa931aeddc666d4935d3f2100186712adc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/11/2019
+ms.openlocfilehash: 95618b54a0bbe5a390c68431f4518a282bbc1028
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666991"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196621"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
@@ -103,6 +103,11 @@ ms.locfileid: "52666991"
 |执行的检查|
 |---|
 |<ul><li>是否可在群集上执行诊断操作？</li></ul>|
+
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+|执行的检查|
+|---|
+|<ul><li>客户是否遇到用户生成的服务总线错误？</li><li>用户是否遇到由于服务总线命名空间升级导致的暂时性错误增加？</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |执行的检查|

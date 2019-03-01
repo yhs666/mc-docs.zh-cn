@@ -36,8 +36,10 @@ items:
     href: cli-samples.md
 - name: 概念
   items:
-  - name: 端到端 SSL
-    href: ssl-overview.md
+  - name: 应用程序网关工作原理
+    href: how-application-gateway-works.md
+  - name: 应用程序网关组件
+    href: application-gateway-components.md
   - name: SSL 策略概述
     href: application-gateway-ssl-policy-overview.md
   - name: Web 应用程序防火墙
@@ -186,9 +188,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 6a1ddd67ec44b3e79ab6baed0c36913b94ef8e31
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 30de1510d12ac49030b43beed597b074ae5e253a
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079632"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836985"

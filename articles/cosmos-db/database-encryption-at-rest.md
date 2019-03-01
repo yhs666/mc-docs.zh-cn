@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: abb0bb66b719093179f840f862b219a1666f6f23
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 2f2651fc7db8137a7cf060d1a3097ca42ac7f7ea
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309067"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987941"
 ---
-# <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
+# <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据加密 
 
 “静态加密”这个短语通常指非易失性存储设备（例如固态硬盘 (SSD) 和机械硬盘 (HDD)）上的数据的加密。 Cosmos DB 将其主数据库存储在 SSD 上。 其媒体附件和备份存储在通常由 HDD 备份的 Azure Blob 存储中。 随着 Cosmos DB 的静态加密功能的发布，所有数据库、媒体附件以及备份都是加密的。 现在数据在传输中（通过网络）以及在静态时（非易失性存储）都处于加密状态，从而实现端到端加密。
 
@@ -42,10 +42,12 @@ ms.locfileid: "54309067"
 
 ### <a name="q-who-manages-the-encryption-keys"></a>问：加密密钥由谁管理？
 答：密钥由世纪互联管理。
+
 <!-- Notice:  Should Be 21Vianet -->
 
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>问：加密密钥多久轮换一次？
 答：世纪互联针对加密密钥轮换提供一组内部指导原则，Cosmos DB 必须遵守这些指导原则。 未发布具体的指导原则。 Azure 发布了[安全开发生命周期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，可以将其视为内部指导原则的一部分，其中提供的最佳做法对开发人员很有用。
+
 <!-- Notice:  Should Be 21Vianet -->
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>问：我可以使用自己的加密密钥吗？
@@ -65,5 +67,4 @@ ms.locfileid: "54309067"
 有关 Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)。
 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
-<!-- Notice:  Should be OUR certifications -->
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

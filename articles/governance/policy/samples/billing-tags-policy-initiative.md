@@ -1,23 +1,22 @@
 ---
 title: 示例 - 计费标记策略计划
-description: 此示例策略集需要成本中心和产品名称的指定标记值。
+description: 此示例策略定义集需要成本中心和产品名称的指定标记值。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 0251cefef07429392ef2ef2e397261893bd274ee
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: af11e6801a7732f2ffca040910f4e06674003c3d
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996389"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56902959"
 ---
-# <a name="billing-tags-policy-initiative"></a>计费标记策略计划
+# <a name="sample---billing-tags-policy-initiative"></a>示例 - 计费标记策略计划
 
 此策略集需要成本中心和产品名称的指定标记值。 使用内置策略来应用并强制执行所需标记。 指定所需的标记值。
 
@@ -103,15 +102,15 @@ ms.locfileid: "53996389"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.definitions.json"
 $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.parameters.json"
 
-$policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -DisplayName "Billing Tags Policy Initiative" -Description "Specify cost Center tag and product name tag" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
+$policyset= New-AzPolicySetDefinition -Name "multiple-billing-tags" -DisplayName "Billing Tags Policy Initiative" -Description "Specify cost Center tag and product name tag" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
 
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>
+New-AzPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>清理 PowerShell 部署
@@ -119,7 +118,7 @@ New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentnam
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="apply-tags-to-existing-resources"></a>将标记应用到现有资源
@@ -127,11 +126,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 分配策略后，可以触发对所有现有资源的更新，以强制执行已添加的标记策略。 以下脚本会保留资源上存在的任何其他标记：
 
 ```powershell
-$resources = Get-AzureRmResource -ResourceGroupName 'ExampleGroup'
+$resources = Get-AzResource -ResourceGroupName 'ExampleGroup'
 
 foreach ($r in $resources) {
     try {
-        Set-AzureRmResource -Tags ($a = if ($r.Tags -eq $NULL) { @{} } else {$r.Tags}) -ResourceId $r.ResourceId -Force -UsePatchSemantics
+        Set-AzResource -Tags ($a = if ($r.Tags -eq $NULL) { @{} } else {$r.Tags}) -ResourceId $r.ResourceId -Force -UsePatchSemantics
     }
     catch {
         Write-Host $r.ResourceId + "can't be updated"

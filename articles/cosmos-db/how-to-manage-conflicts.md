@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/17/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4be8ef63ec1bcf76663046c9723db5286e83e888
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 2a78b7f7d6e955b616288bb39ca0f7ee03dd9031
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309096"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988004"
 ---
-# <a name="manage-conflicts-between-regions"></a>管理区域之间的冲突
+# <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 
 如果启用多区域写入，则在发生数据冲突时，可以使用不同的冲突解决策略来解决冲突。 本文介绍如何使用不同的语言平台管理冲突解决策略。
 
@@ -266,9 +266,9 @@ for (Conflict conflict : response.getResults()) {
 ### <a name="java-sync-sdk"></a>Java 同步 SDK
 
 ```java
-Iterator<Conflict> conflictsIterartor = client.readConflicts(this.collectionLink, null).getQueryIterator();
-while (conflictsIterartor.hasNext()) {
-    Conflict conflict = conflictsIterartor.next();
+Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
+while (conflictsIterator.hasNext()) {
+    Conflict conflict = conflictsIterator.next();
     /* Do something with conflict */
 }
 ```
@@ -288,8 +288,8 @@ const { result: conflicts } = await container.conflicts.readAll().toArray();
 ### <a name="python"></a>Python
 
 ```python
-conflicts_iterartor = iter(client.ReadConflicts(self.manual_collection_link))
-conflict = next(conflicts_iterartor, None)
+conflicts_iterator = iter(client.ReadConflicts(self.manual_collection_link))
+conflict = next(conflicts_iterator, None)
 while conflict:
     # Do something with conflict
     conflict = next(conflicts_iterator, None)
@@ -299,6 +299,7 @@ while conflict:
 
 了解以下 Azure Cosmos DB 概念：
 
+* [如何配置应用程序中的多主数据库](how-to-multi-master.md)。
 * [分区和数据分布](partition-data.md)
 * [Azure Cosmos DB 中的索引](indexing-policies.md)
 

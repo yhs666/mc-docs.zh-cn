@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/02/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 95c0e912ae13b89608ae24c97656057aa74f15b5
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: f805074563632002bf8bcde585c0cc23d47b61cd
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309103"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988034"
 ---
-# <a name="cross-origin-resource-sharing-cors-in-azure-cosmos-db"></a>Azure Cosmos DB 中的跨源资源共享 (CORS) 
+# <a name="configure-cross-origin-resource-sharing-cors"></a>配置跨源资源共享 (CORS) 
 
 跨源资源共享 (CORS) 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为“同源策略”的安全限制，防止网页调用不同域中的 API。 但是，CORS 提供了一种安全的方法，允许源域调用其他域中的 API。Azure Cosmos DB 中的核心 SQL API 现在通过使用“allowedOrigins”标头支持跨源资源共享 (CORS)。 为 Azure Cosmos 帐户启用 CORS 支持后，仅对经过身份验证的请求进行评估，以根据指定的规则确定是否允许这些请求。
 
@@ -108,4 +108,4 @@ module.exports = {
 
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

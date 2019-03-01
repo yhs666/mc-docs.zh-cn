@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/07/2017
-ms.date: 01/07/2019
+origin.date: 02/09/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: d3d5375965d372bc80a3aafc42b6e40f6b69dc4d
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: b27afb9cec692cd97e59fdb9cc8c53906fd055be
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996153"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833374"
 ---
-# <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容
+# <a name="publish-content-in-the-azure-portal-legacy"></a>在 Azure 门户中发布内容（旧版）
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)

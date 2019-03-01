@@ -1,24 +1,21 @@
 ---
 title: 通过 PHP 连接到 Azure Database for MySQL
 description: 本快速入门提供了多个 PHP 代码示例，你可以使用它来连接到 Azure Database for MySQL 并查询其中的数据。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 02/28/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 4e510090d6cb90bc8e3d554fd996c71ea2e09245
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 03/04/2019
+ms.openlocfilehash: a3b4f82b7f509db2bb81e03bdeb01c1e063ac62c
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672950"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836987"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL：使用 PHP 进行连接并查询数据
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL：使用 PHP 连接和查询数据
 
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
@@ -31,7 +28,7 @@ ms.locfileid: "52672950"
 - [使用 Azure CLI 创建用于 MySQL 服务器的 Azure 数据库](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>安装 PHP
-在自己的服务器上安装 PHP，或者创建包括 PHP 的 Azure [Web 应用](../app-service/app-service-web-overview.md)。
+在自己的服务器上安装 PHP，或者创建包括 PHP 的 Azure [Web 应用](../app-service/overview.md)。
 
 ### <a name="macos"></a>MacOS
 - 下载 [PHP 7.1.4 版](https://secure.php.net/downloads.php)。

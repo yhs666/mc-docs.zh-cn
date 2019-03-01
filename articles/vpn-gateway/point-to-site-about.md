@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 12/14/2018
-ms.date: 12/24/2018
+origin.date: 01/18/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: ae352fdd1f5203d2cba87202a16a5391847e150c
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 062e3ed90a76a6bd26042b02e5ad2ffa6c8b2595
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656526"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833203"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 

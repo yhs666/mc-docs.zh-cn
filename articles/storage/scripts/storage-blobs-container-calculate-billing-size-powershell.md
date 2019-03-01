@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 11/07/2017
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 817f9ed87cee62e37e7273b1b70a62af600962f6
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 803ec0d1df10b419b51999a30155f52d422622a2
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192831"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196541"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>计算要计费的 Blob 容器总大小
 
 此脚本出于估算计费成本的目的，计算 Azure Blob 存储中的容器大小。 此脚本计算容器中各 blob 的大小总和。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

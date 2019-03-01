@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8897af4b9bc16fd053940ea002fd9775e7683f21
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b0f7dd6ab4abda1e34e701a95b4207b184b00e7b
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672856"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833427"
 ---
-# <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 多比特率 1080p 音频 5.1
+# <a name="h264-multiple-bitrate-1080p-audio-51-legacy"></a>H264 多比特率 1080p Audio 5.1（旧版）
+
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
   
  本主题演示 XML 和 JSON 格式的 `H264 Multiple Bitrate 1080p Audio 5.1` 预设。  
@@ -30,7 +31,7 @@ ms.locfileid: "52672856"
  此预设会生成一组 8 个 GOP 对齐的 MP4 文件，范围为 6000 kbps - 400 kbps，以及 AAC 5.1 音频。 若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。 有关每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)。  
   
 > [!NOTE]
->  跨层修改 `Width` 和 `Height` 值时，请确保纵横比保持一致。 例如：1920x1080、1280x720、1080x576、640x360。 不应使用混合纵横比，如 1280x720、720x480、640x360。  
+>  跨层修改 `Width` 和 `Height` 值时，请确保纵横比保持一致。 例如：1920x1080、1280x720、1080x576、640x360。 不应使用混合的纵横比，例如：1280x720、720x480、640x360。  
   
  XML  
   

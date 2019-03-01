@@ -3,8 +3,8 @@ title: 开发使用媒体服务的 Azure Functions
 description: 本主题说明如何在 Azure 门户中开始开发使用媒体服务的 Azure Functions。
 services: media-services
 documentationcenter: ''
-author: forester123
-manager: josefree
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 6e4c712343d3525eb26e5cf974867b04793cbb9f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/10/2019
+ms.date: 03/04/2019
+ms.author: juliako
+ms.openlocfilehash: d51675569b6ef4ceaf719a505f3bbe01f84dac8d
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661833"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833314"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>开发使用媒体服务的 Azure Functions
 
@@ -136,7 +136,7 @@ project.json 文件包含依赖项。 下面是一个 **project.json** 文件示
 
 在实际方案中，很可能需要跟踪作业进度，并发布编码的资产。 有关详细信息，请参阅[使用 Azure WebHook 监视媒体服务作业通知](media-services-dotnet-check-job-progress-with-webhooks.md)。 有关更多示例，请参阅[媒体服务 Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)。  
 
-使用以下代码替换现有 run.csx 文件的内容：函数定义完成后，单击“保存并运行”。
+将现有 run.csx 文件的内容替换为以下代码：定义后，请单击“保存并运行”。
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -339,7 +339,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 4. 按“上传”并浏览到要上传的 .mp4 文件。
 
 >[!NOTE]
-> 在消耗计划中使用 Blob 触发器时，函数应用处于空闲状态后，处理新 Blob 的过程中可能会出现长达 10 分钟的延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [Blob 存储触发器和绑定](/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings)。
+> 在消耗计划中使用 Blob 触发器时，函数应用处于空闲状态后，处理新 Blob 的过程中可能会出现长达 10 分钟的延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [Blob 存储触发器和绑定](/azure-functions/functions-bindings-storage-blob)。
 
 ## <a name="next-steps"></a>后续步骤
 

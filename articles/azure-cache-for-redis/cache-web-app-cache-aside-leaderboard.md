@@ -1,27 +1,27 @@
 ---
 title: 有关通过用于 Redis 的 Azure 缓存创建使用缓存端模式的 Web 应用的教程 | Microsoft Docs
 description: 了解如何通过用于 Redis 的 Azure 缓存创建使用缓存端模式的 Web 应用
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 03/30/2018
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: b41d6c1b874b8dada4bfc21a12cf440850fb494d
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 01dcb9eb9da04f280f90d1b23b4457bb967775cf
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334287"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903112"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教程：在 ASP.NET 中创建缓存端排行榜
 
@@ -747,5 +747,5 @@ ms.locfileid: "54334287"
 > [!div class="nextstepaction"]
 > [如何缩放用于 Redis 的 Azure 缓存](./cache-how-to-scale.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 

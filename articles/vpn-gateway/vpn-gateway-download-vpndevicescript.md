@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 01/09/2019
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 4962c8a2078fe5221891a3e41ad78dcfd1afaab6
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 5adfbb8ff852edb249287579331023721d4ff8ae
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333901"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833195"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下载用于 S2S VPN 连接的 VPN 设备配置脚本
 
@@ -78,6 +78,8 @@ ms.locfileid: "54333901"
 
 ## <a name="download-the-configuration-script-using-azure-powershell"></a>使用 Azure PowerShell 下载配置脚本
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 也可以使用 Azure PowerShell 下载配置脚本，如以下示例中所示：
 
 ```powershell
@@ -87,10 +89,10 @@ $Connection  = "VNet1toSite1"
 ```
 
 # <a name="list-the-available-vpn-device-models-and-versions"></a>列出可用的 VPN 设备型号和版本
-Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
+Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
 # <a name="download-the-configuration-script-for-the-connection"></a>下载适用于连接的配置脚本
-Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
+Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
 ## Apply the configuration script to your VPN device

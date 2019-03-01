@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/14/2018
-ms.date: 12/17/2018
+origin.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 77d6f1d9268b70d5d1748237489c9c6567d82cc3
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 11/14/2018
+ms.openlocfilehash: dc37bb876a34f91dc91c3604a3c6a3c7554ab46e
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396198"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905432"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -82,4 +83,4 @@ ms.locfileid: "53396198"
 ## <a name="next-steps"></a>后续步骤
 
 * [通过门户部署模板](azure-stack-deploy-template-portal.md)
-* [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)

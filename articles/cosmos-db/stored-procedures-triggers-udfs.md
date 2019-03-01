@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 829fcfafa0e04b2ea6b4b68dcb21d012a03a9162
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 2a69540a1ff7faa3e4188ea2211a48d8d198a8a1
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309297"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988031"
 ---
-# <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>使用 Azure Cosmos DB 存储过程、触发器和用户定义的函数
+# <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
 
 Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Cosmos DB 中使用 SQL API 时，可以采用 JavaScript 语言编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 可以使用 JavaScript 编写可在数据库引擎内部执行的逻辑。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Cosmos DB 中的 JavaScript 语言集成式查询 API](javascript-query-api.md) 或 [Cosmos DB SQL API 客户端 SDK](how-to-use-stored-procedures-triggers-udfs.md) 来创建及执行触发器、存储过程与 UDF。
 

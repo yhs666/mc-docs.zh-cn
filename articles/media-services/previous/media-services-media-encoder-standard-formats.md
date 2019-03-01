@@ -11,17 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/12/2018
-ms.date: 12/24/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8d3f7322e465a6ae84c73ac81c259238d52a4d85
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: e15f935ab0aac75bfa784521eb8857265a780ccc
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656517"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833337"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和编解码器
+# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Media Encoder Standard 格式和编解码器（旧版）
+
 本文档包含最常见的导入和导出文件格式的列表，可以将这些格式用于 Media Encoder Standard。
 
 ## <a name="input-containerfile-formats"></a>输入容器/文件格式
@@ -74,7 +75,7 @@ Media Encoder Standard 支持在输入容器中带有以下音频格式：
 | Apple ProRes Proxy |是 |
 | Apple ProRes 4444 |是 |
 | Apple ProRes 4444 XQ |是 |
-| HEVC/H.265| Main Profile|
+| HEVC/H.265| Main 和 Main 10 (&#42;) Profiles<br/>Main 10 Profile 支持适用于 8 位 4:2:0 内容。 |
 
 ## <a name="input-audio-codecs"></a>输入音频编解码器
 | 输入音频编解码器 | 支持 |

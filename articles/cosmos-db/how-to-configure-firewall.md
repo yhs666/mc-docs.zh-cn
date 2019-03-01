@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f2b78c41dbfb7f5cc2d31a0354c50500c8c3587f
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: 86128eb2ac4ecae0d1e800fb8fffdffb099144fa
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857411"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988026"
 ---
-# <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>为 Azure Cosmos DB 帐户配置 IP 防火墙
+# <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
 
 可以使用 IP 防火墙保护存储在 Azure Cosmos DB 帐户中的数据。 Azure Cosmos DB 支持使用基于 IP 的访问控制来提供入站防火墙支持。 可通过以下方法之一为 Azure Cosmos DB 帐户设置 IP 防火墙：
 
@@ -151,10 +151,10 @@ az cosmosdb update \
 为 Azure Cosmos DB 帐户启用 IP 访问控制策略后，将阻止从 IP 地址范围的允许列表外部的计算机向帐户发出的所有请求。 若要启用门户数据平面操作，例如浏览容器和查询文档，需要使用门户中的“防火墙”窗格显式允许访问 Azure 门户。
 
 ### <a name="sdks"></a>SDK 
-使用不在允许列表内的计算机访问 Azure Cosmos DB 资源时，将返回一般的“404 找不到”响应，但不提供其他任何详细信息。 验证帐户的允许 IP 列表并确保 Azure Cosmos DB 帐户中应用了正确的策略配置。 
+使用不在允许列表内的计算机访问 Azure Cosmos DB 资源时，将返回一般的“403 禁止访问”响应，但不提供其他任何详细信息。 验证帐户的允许 IP 列表并确保 Azure Cosmos DB 帐户中应用了正确的策略配置。 
 
 ### <a name="source-ips-in-blocked-requests"></a>受阻止请求中的源 IP
-对 Azure Cosmos DB 帐户启用诊断日志记录。 这些日志显示每个请求和响应。 在内部，将会记录带有 403 返回代码的防火墙相关消息。 通过筛选这些消息，可以查看已阻止请求的源 IP。
+对 Azure Cosmos DB 帐户启用诊断日志记录。 这些日志显示每个请求和响应。 会记录带有 403 返回代码的防火墙相关消息。 通过筛选这些消息，可以查看已阻止请求的源 IP。
 
 <!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md)-->
 
@@ -168,4 +168,4 @@ az cosmosdb update \
 * [适用于 Azure Cosmos DB 帐户的虚拟网络和子网访问控制](vnet-service-endpoint.md)
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

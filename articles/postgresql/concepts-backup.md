@@ -4,15 +4,15 @@ description: 了解如何自动备份和还原 Azure Database for PostgreSQL 服
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/28/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 93e843ae76a3fed1b0c4c1c8fe6d88d703b24760
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 03/04/2019
+ms.openlocfilehash: 6e7beb9ec604a7e122a015a50a22f6acf9efcf82
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302937"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836897"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>在 Azure Database for PostgreSQL 中进行备份和还原
 
@@ -51,7 +51,7 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
 > [!IMPORTANT]
-> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。
+> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 为了防止服务器资源在部署后遭意外删除或意外更改，管理员可以利用[管理锁](/azure-resource-manager/resource-group-lock-resources)。
 
 ### <a name="point-in-time-restore"></a>时间点还原
 

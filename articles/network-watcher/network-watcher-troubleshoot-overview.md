@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 38f9dd898292e1d5762c67262aa902659fd98012
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aa6ebc70d1917e6da41c74a2b2cc781db8d753e3
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662165"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987029"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>在 Azure 网络观察程序中进行资源故障排除简介
 
@@ -75,11 +75,11 @@ ms.locfileid: "52662165"
 | ConnectionEntityNotFound | 连接配置缺失 | 否 |
 | ConnectionIsMarkedDisconnected | 连接标记为“断开连接” |否|
 | ConnectionNotConfiguredOnGateway | 未在基础服务上配置连接。 | 是 |
-| ConnectionMarkedStandy | 底层服务标记为备用。| 是|
-| 身份验证 | 预共享密钥不匹配 | 是|
+| ConnectionMarkedStandby | 底层服务标记为备用。| 是|
+| Authentication | 预共享密钥不匹配 | 是|
 | PeerReachability | 无法访问对等网关。 | 是|
 | IkePolicyMismatch | 对等网关中的 IKE 策略不受 Azure 支持。 | 是|
-| WfpParse 错误 | 分析 WFP 日志时出错。 |是|
+| WfpParse Error | 分析 WFP 日志时出错。 |是|
 
 ## <a name="supported-gateway-types"></a>支持的网关类型
 
@@ -211,9 +211,6 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>后续步骤
-
-访问[网关故障诊断 - Azure 门户](network-watcher-troubleshoot-manage-portal.md)，了解如何通过门户诊断 VPN 网关和连接。
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

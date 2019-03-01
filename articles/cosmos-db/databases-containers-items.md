@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/08/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1bde947ab58bfb45468b7f45de271f860a062921
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 8caaa4b2fa82d30fc1d317cf936ae798affa03b5
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309313"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987967"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 数据库、容器和项
+# <a name="work-with-databases-containers-and-items"></a>使用数据库、容器和项
 
 在 Azure 订阅下创建 [Azure Cosmos DB 帐户](account-overview.md)后，可以通过创建数据库、容器和项来管理帐户中的数据。 本文介绍以下每个实体：数据库、容器和项。 下图显示 Azure Cosmos 帐户中不同实体的层次结构：
 
@@ -113,6 +113,7 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 | 删除容器 | 是 | 是 | 是 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 项
 
 根据所选的 API，Azure Cosmos 项可以表示集合中的一个文件、表格中的一行或者图形中的一个节点/边缘。 下表显示特定于 API 的实体和 Azure Cosmos 项之间的映射：
@@ -124,6 +125,7 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 |Azure Cosmos 项 | 文档 | 文档 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+
 ### <a name="properties-of-an-item"></a>项的属性
 
 每个 Azure Cosmos 项都具有以下系统定义的属性。 根据所选的 API，其中一些属性可能不会直接公开。
@@ -140,6 +142,7 @@ Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 |任意用户定义的属性 | 用户定义 | 用户定义的属性以 API 本机表示形式表示（JSON、BSON、CQL 等等） | 是 | 是 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+
 ### <a name="operations-on-items"></a>对项执行的操作
 
 Azure Cosmos 项支持可使用任何 Azure Cosmos API 执行的以下操作。
@@ -151,6 +154,7 @@ Azure Cosmos 项支持可使用任何 Azure Cosmos API 执行的以下操作。
 | 插入、替换、删除、Upsert、读取 | 否 | 是 | 是 |
 
 <!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+
 ## <a name="next-steps"></a>后续步骤
 
 现在可以继续了解如何预配 Azure Cosmos 帐户上的吞吐量，或查看其他概念：

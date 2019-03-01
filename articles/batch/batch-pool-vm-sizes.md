@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/21/19
+ms.date: 01/25/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 40d591a5ffe9b86854bfbf3eec9dea70b65bb63e
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 8ffd697ada8c28f4069b205aa71f018cd281fb1b
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363278"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987046"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -43,10 +43,10 @@ ms.locfileid: "54363278"
 | B 系列 | 全部 |
 | DC 系列 | 全部 | 
 | 最佳内存优化 | 全部 |
-| Hb 系列 <sup>1</sup> | 全部 | 
-| Hc 系列 <sup>1</sup> | 全部 |
+| Hb 系列<sup>1,2</sup> | 全部 |
+| Hc 系列<sup>1,2</sup> | 全部 |
 | Lsv2 系列 | 全部 |
-| NDv2 系列 <sup>1</sup> | 全部 |
+| NDv2 系列<sup>1,2</sup> | 全部 |
 | NVv2 系列 <sup>1</sup> | 全部 |
 | SAP HANA | 全部 |
 

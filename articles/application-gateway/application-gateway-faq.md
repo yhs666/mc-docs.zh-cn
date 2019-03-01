@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/11/2019
-ms.date: 02/11/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 94cae333733ebbc1dbbafaa2065fa886d6bf1243
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 53d87b0ca0a5c8f4152d3145757cad6016715135
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079679"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836924"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -42,7 +42,7 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 默认情况下，HTTP/2 支持处于禁用状态。 以下 Azure PowerShell 代码片段示例展示了如何启用该支持：
 
-```
+```powershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw

@@ -1,10 +1,10 @@
 ---
 title: 使用本地编码器实时传送视频流以创建多比特率流 - Azure | Microsoft 文档
-description: 本主题介绍如何设置接收来自本地编码器的多比特率实时流的频道。 然后，该流可使用以下自适应流式传输协议之一，通过一个或多个流式传输终结点传送给客户端播放应用程序：HLS、平滑流、DASH。
+description: 本主题介绍如何设置接收来自本地编码器的多比特率实时流的频道。 然后，该流可使用以下自适应流式传输协议之一，通过一个或多个流式传输终结点传送给客户端播放应用程序：HLS、平滑流式处理、DASH。
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 04/12/2017
-ms.date: 07/30/2018
-ms.author: v-johch
-ms.openlocfilehash: 47ea70775130b5514326ec52d3540d843964b394
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/10/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 849fcec97c3e309d184e805cd18abf95ca417f72
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664597"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833403"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用本地编码器执行实时传送视频流以创建多比特率流
 
@@ -36,11 +36,11 @@ ms.locfileid: "52664597"
   > 实时传送视频流时，使用直通方法是最经济的。
 
 
-* 本地实时编码器采用 RTMP 或平滑流式处理（分片 MP4）格式将单比特率流发送至能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 媒体服务会将流传送给请求它的客户。
+* 本地实时编码器采用以下格式之一将单比特率流发送至能够使用媒体服务执行实时编码的频道：RTMP 或平滑流式处理（分片 MP4）。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 媒体服务会将流传送给请求它的客户。
 
 从媒体服务 2.10 版开始，创建频道时，可以指定频道接收输入流的方式。 还可以指定是否想要频道对流执行实时编码。 可以使用两个选项：
 
-* 直通：如果计划使用将多比特率流（直通流）作为输出的本地实时编码器，请指定此值。 在这种情况下，传入流无需任何编码即可传递到输出。 这是 2.10 版以前的频道行为。 本文提供有关如何使用这种频道的详细信息。
+* **直通**：如果计划使用将多比特率流（直通流）作为输出的本地实时编码器，请指定此值。 在这种情况下，传入流无需任何编码即可传递到输出。 这是 2.10 版以前的频道行为。 本文提供有关如何使用这种频道的详细信息。
 * **实时编码**：如果计划使用媒体服务将单比特率实时流编码为多比特率流，请选择此值。 使实时编码通道处于“正在运行”状态会产生帐单费用。 建议在实时传送视频流事件完成之后立即停止正在运行的频道，以避免产生额外的小时费用。 媒体服务会将流传送给请求它的客户。
 
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.locfileid: "52664597"
 ## <a id="scenario"></a>常见的实时流处理方案
 以下步骤介绍创建常见的实时传送视频流应用程序时涉及的任务。
 
-1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4（平滑流式处理）流的本地实时编码器。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4（平滑流式处理）流的本地实时编码器。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
 
     也可以在创建频道后执行此步骤。
 2. 创建并启动频道。
@@ -106,7 +106,7 @@ ms.locfileid: "52664597"
 
     在此方案中这两个编码器将数据推送到主和辅助 URL。 这提供了最佳的可靠性、容错能力以及数据冗余。 此方案可以容忍两个编码器同时发生故障和断开连接，即使一个编码器停止工作。 此方案假设编码器已同步时间，并提供完全相同的数据。  
 
-有关 RTMP 实时编码器详细信息，请参阅 [Azure 媒体服务的 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+有关 RTMP 实时编码器详细信息，请参阅 [Azure 媒体服务的 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
 
 #### <a name="ingest-urls-endpoints"></a>摄取 URL（终结点）
 频道提供你在实时编码器中指定的输入终结点（引入 URL），因此编码器可以将流推送到你的频道。   
@@ -116,7 +116,7 @@ ms.locfileid: "52664597"
 可以选择通过 SSL 连接引入分片 MP4（平滑流）实时流。 要通过 SSL 进行引入，请确保将引入 URL 更新为 HTTPS。 当前，无法通过 SSL 引入 RTMP。
 
 #### <a id="keyframe_interval"></a>关键帧间隔
-当使用本地实时编码器生成多比特率流时，关键帧间隔指定外部编码器使用的帧组 (GOP) 的持续时间。 当频道收到此传入流后，可以通过下列任意格式将实时流传输到客户端播放应用程序：平滑流、基于 HTTP 的动态自适应流 (DASH) 和 HTTP Live Streaming (HLS)。 当执行实时传送视频流时，HLS 始终是动态打包的。 默认情况下，媒体服务根据从实时编码器收到的关键帧间隔自动计算 HLS 段打包比率（每段的片数）。
+当使用本地实时编码器生成多比特率流时，关键帧间隔指定外部编码器使用的帧组 (GOP) 的持续时间。 当频道收到此传入流后，可以通过下列任意格式将实时流传送到客户端播放应用程序：平滑流式处理、Dynamic Adaptive Streaming over HTTP (DASH) 和 HTTP Live Streaming (HLS)。 当执行实时传送视频流时，HLS 始终是动态打包的。 默认情况下，媒体服务根据从实时编码器收到的关键帧间隔自动计算 HLS 段打包比率（每段的片数）。
 
 下表显示了段持续时间是如何计算的：
 
@@ -128,7 +128,7 @@ ms.locfileid: "52664597"
 
 可以通过配置频道的输出并设置 ChannelOutputHls 上的 FragmentsPerSegment 来更改每段的片数这一比率。
 
-还可以通过设置 ChanneInput 上的 KeyFrameInterval 属性更改关键帧间隔值。 如果显式设置了 KeyFrameInterval，则会通过上述规则计算 HLS 段打包比率 FragmentsPerSegment。  
+还可以通过设置 ChannelInput 上的 KeyFrameInterval 属性更改关键帧间隔值。 如果显式设置了 KeyFrameInterval，则会通过上述规则计算 HLS 段打包比率 FragmentsPerSegment。  
 
 如果同时显式设置了 KeyFrameInterval 和 FragmentsPerSegment，则媒体服务使用设置的值。
 
@@ -178,8 +178,8 @@ ms.locfileid: "52664597"
 频道的当前状态的可能值包括：
 
 * **已停止**：这是频道在创建后的初始状态。 在此状态下，可以更新频道属性，但不允许进行流式传输。
-* **正在启动**：正在启动频道。 在此状态下，不允许进行更新或流式传输。 如果发生错误，则频道会返回到“已停止”状态。
-* **正在运行**：频道可以处理实时流。
+* **正在启动**：频道正在启动。 此状态下不允许进行更新或流式传输。 如果发生错误，则频道会返回到“已停止”状态。
+* **Running**：频道可以处理实时流。
 * **正在停止**：正在停止频道。 此状态下不允许进行更新或流式传输。
 * **正在删除**：正在删除频道。 此状态下不允许进行更新或流式传输。
 

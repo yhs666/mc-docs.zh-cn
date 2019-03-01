@@ -42,6 +42,35 @@ items:
     href: concepts-storage.md
   - name: 缩放
     href: concepts-scale.md
+  - name: 最佳做法
+    href: best-practices.md
+    items:
+    - name: 适用于群集操作员
+      items:
+      - name: 多租户和群集隔离
+        href: operator-best-practices-cluster-isolation.md
+      - name: 基本计划程序功能
+        href: operator-best-practices-scheduler.md
+      - name: 高级计划程序功能
+        href: operator-best-practices-advanced-scheduler.md
+      - name: 身份验证和授权
+        href: operator-best-practices-identity.md
+      - name: 群集安全性
+        href: operator-best-practices-cluster-security.md
+      - name: 容器映像管理
+        href: operator-best-practices-container-image-management.md
+      - name: 网络
+        href: operator-best-practices-network.md
+      - name: 存储
+        href: operator-best-practices-storage.md
+      - name: 业务连续性 (BC) 和灾难恢复 (DR)
+        href: operator-best-practices-multi-region.md
+    - name: 适用于应用程序开发人员
+      items:
+      - name: 资源管理
+        href: developer-best-practices-resource-management.md
+      - name: Pod 安全性
+        href: developer-best-practices-pod-security.md
   - name: 配额和区域限制
     href: container-service-quotas.md
   - name: 从 ACS 迁移到 AKS
@@ -53,7 +82,7 @@ items:
   - name: 群集操作
     items:
     - name: 创建 AKS 群集
-      href: http://docs.microsoft.com/cli/azure/aks#az-aks-create
+      href: https://docs.microsoft.com/zh-cn/cli/azure/aks?view=azure-cli-latest#az-aks-create
       maintainContext: true
     - name: 缩放 AKS 群集
       href: scale-cluster.md
@@ -62,14 +91,20 @@ items:
     - name: 处理节点 OS 更新
       href: node-updates-kured.md
     - name: 删除 AKS 群集
-      href: http://docs.microsoft.com/cli/azure/aks#az-aks-delete
+      href: https://docs.microsoft.com/zh-cn/cli/azure/aks?view=azure-cli-latest#az-aks-delete
       maintainContext: true
     - name: 启用了 Azure AD 的 AKS
       href: aad-integration.md
+    - name: 创建虚拟节点（预览版）
+      items:
+      - name: Azure CLI
+        href: virtual-nodes-cli.md
+      - name: Azure 门户
+        href: virtual-nodes-portal.md
     - name: 使用虚拟 Kubelet
       href: virtual-kubelet.md
-    - name: 使用群集自动缩放程序
-      href: autoscaler.md
+    - name: 使用群集自动缩放程序（预览版）
+      href: cluster-autoscaler.md
   - name: 配置数据卷
     items:
     - name: Azure 磁盘 - 动态
@@ -83,7 +118,11 @@ items:
   - name: 配置网络
     items:
     - name: 创建虚拟网络或使用现有虚拟网络
-      href: configure-advanced-networking.md
+      items:
+      - name: 使用 kubenet
+        href: configure-kubenet.md
+      - name: 使用 Azure-CNI
+        href: configure-azure-cni.md
     - name: 创建内部负载均衡器
       href: internal-lb.md
     - name: 使用静态 IP 地址
@@ -109,10 +148,20 @@ items:
     items:
     - name: 创建服务主体
       href: kubernetes-service-principal.md
+    - name: 限制对群集配置文件的访问
+      href: control-kubeconfig-access.md
+    - name: 使用网络策略保护 Pod 流量（预览版）
+      href: use-network-policies.md
+    - name: 更新群集服务主体凭据
+      href: update-credentials.md
     - name: 使用 ACR 进行身份验证
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2faks%2ftoc.json
+      href: ../container-registry/container-registry-auth-aks.md
+      maintainContext: true
   - name: 监视和日志记录
     items:
+    - name: 用于容器的 Azure Monitor
+      href: ../azure-monitor/insights/container-insights-overview.md
+      maintainContext: true
     - name: 查看主组件日志
       href: view-master-logs.md
     - name: 查看 kubelet 日志
@@ -125,17 +174,24 @@ items:
       href: kubernetes-draft.md
     - name: 使用 Open Service Broker for Azure
       href: integrate-azure.md
+    - name: 将用于 MongoDB 的 Cosmos DB API 与 OSBA 配合使用
+      href: use-cosmosdb-osba-mongo-app.md
     - name: 使用 OpenFaaS
       href: openfaas.md
     - name: 运行 Spark 作业
       href: spark-job.md
     - name: 使用 GPU
       href: gpu-cluster.md
+    - name: 使用 Istio
+      items:
+      - name: 安装和配置
+        href: istio-install.md
+      - name: 智能路由和 Canary 发布
+        href: istio-scenario-routing.md
   - name: DevOps
     items:
     - name: Jenkins 持续部署
       href: jenkins-continuous-deployment.md
-      maintainContext: true
   - name: Kubernetes 基础知识
     items:
     - name: 使用 Kubernetes 仪表板
@@ -151,21 +207,19 @@ items:
 - name: 引用
   items:
   - name: Azure CLI
-    href: http://docs.microsoft.com/cli/azure/aks
+    href: https://docs.microsoft.com/zh-cn/cli/azure/aks?view=azure-cli-latest
   - name: REST
-    href: http://docs.microsoft.com/rest/api/aks
+    href: https://docs.microsoft.com/rest/api/aks
   - name: PowerShell
-    href: http://docs.microsoft.com/powershell/module/azurerm.aks#aks
+    href: https://docs.microsoft.com/powershell/module/azurerm.aks#aks
   - name: .NET
-    href: http://docs.microsoft.com/dotnet/api/overview/azure/containerservice
+    href: https://docs.microsoft.com/zh-cn/dotnet/api/overview/azure/containerservice
   - name: Python
     href: /python/api/overview/azure/containerservice
   - name: Java
-    href: http://docs.microsoft.com/java/api/overview/azure/containerservice
+    href: https://docs.microsoft.com/java/api/overview/azure/containerservice
   - name: Node.js
     href: /javascript/api/overview/azure/container-service
-  - name: 资源管理器模板
-    href: /templates/microsoft.containerservice/managedclusters
 - name: 资源
   items:
   - name: 上市区域
@@ -173,16 +227,14 @@ items:
   - name: 定价
     href: https://www.azure.cn/pricing/details/container-service/
   - name: 提供产品反馈
-    href: https://support.azure.cn/zh-cn/support/support-azure/
-  - name: 堆栈溢出
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://www.azure.cn/support/contact/
   - name: 视频
     href: https://www.azure.cn/video-center/
   - name: 常见问题解答
     href: faq.md
-ms.openlocfilehash: 3a378fb23c88a7932339453b7167a42433379e8c
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 334ca365c601c480badd149435f2432a9a8a9b82
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785164"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903060"

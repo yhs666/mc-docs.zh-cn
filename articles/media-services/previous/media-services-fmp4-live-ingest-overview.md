@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 09/04/2017
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 901667c8b152ebafe72c87cdb3b06e2d14abbcad
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9064adf8702cfc23b7556619609842dc0aa12638
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648130"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833389"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒体服务分片 MP4 实时引入规范
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Azure 媒体服务分片 MP4 实时引入规范（旧版）
+
 本规范适用于 Azure 媒体服务，描述基于分片 MP4 的实时传送视频流引入的协议和格式。 媒体服务提供实时传送视频流服务，让客户使用 Azure 作为云平台来实时流式传输实时事件和广播内容。 此外，本文档还介绍了有关构建高度冗余和稳健的实时引入机制的最佳做法。
 
 ## <a name="1-conformance-notation"></a>1.一致表示法
@@ -88,12 +89,12 @@ ms.locfileid: "52648130"
 
 ![流-单个轨道][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>选项 2：将每个轨道包含在单独的流中
+### <a name="option-2-each-track-in-a-separate-stream"></a>选项 2：将每个轨迹包含在单独的流中
 在此选项中，编码器在每个分片 MP4 位流中放置一个轨道，然后通过独立的 HTTP 连接发布所有流。 这可通过一个或多个编码器来实现。 从实时引入的角度来看，此实时演播由四个流组成。
 
 ![流-单独轨道][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>选项 3：将音频轨道与比特率最低的视频轨道捆绑成一个流
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>选项 3：将音频轨迹与比特率最低的视频轨迹捆绑成一个流
 在此选项中，客户选择将音频轨道与比特率最低的视频轨道捆绑成一个分片 MP4 位流，并让另外两个视频轨道保留在单独的流。 
 
 ![流-音频和视频轨道][image4]

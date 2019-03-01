@@ -1,26 +1,26 @@
 ---
 title: 缓存 ASP.NET 会话状态提供程序 | Microsoft Docs
 description: 了解如何使用 Azure Redis 缓存存储 ASP.NET 会话状态
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/01/2017
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: f86e9a15ec99a9096e2a249db4213f36e8115270
-ms.sourcegitcommit: e79651227d4378e6d24f9ab155b9f4fee044b2c0
+ms.openlocfilehash: 989722c7bcc55d2defeedb0da3809da42f18835b
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334282"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903171"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Redis 缓存的 ASP.NET 会话状态提供程序
 Azure Redis 缓存提供了一个会话状态提供程序，可使用该提供程序通过 Azure Redis 缓存将会话状态存储在内存中而不是存储在 SQL Server 数据库中。 要使用缓存会话状态提供程序，首先配置缓存，然后使用用于 Azure Redis 缓存会话状态 NuGet 包为缓存配置 ASP.NET 应用程序。
@@ -133,4 +133,4 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 ## <a name="next-steps"></a>后续步骤
 请查看[用于 Azure Redis 缓存的 ASP.NET 输出缓存提供程序](cache-aspnet-output-cache-provider.md)。
 
-<!--Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

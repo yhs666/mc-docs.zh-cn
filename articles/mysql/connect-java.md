@@ -1,25 +1,22 @@
 ---
 title: 使用 Java 连接到 Azure Database for MySQL
 description: 本快速入门提供了一个 Java 代码示例，你可以使用它来连接到 Azure Database for MySQL 数据库并查询其中的数据。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 origin.date: 02/28/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: c8a1f17be7212ca9359b448ac4641b6ecca4aacc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.openlocfilehash: 99f20588b913e45a6b967250c9e8ec0c338e1b63
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650284"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836969"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Java 进行连接并查询数据
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Java 连接和查询数据
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
@@ -36,8 +33,8 @@ ms.locfileid: "52650284"
 2. 确保在配置 Azure Database for MySQL 连接安全性时，已打开防火墙并对 SSL 设置进行了调整，以便应用程序能够成功进行连接。
 
 3. 使用以下某个方法获取 MySQL Connector/J 连接器：
-   - 使用 Maven 包 [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) 在项目的 POM 文件中包括 [mysql 依赖项](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6)。
-   - 下载 JDBC 驱动程序 [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)，将 JDBC jar 文件（例如 mysql-connector-java-5.1.42-bin.jar）包括到应用程序类路径中。 如果遇到类路径的问题，请参阅环境文档（例如 [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 或 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)），了解类路径具体信息
+   - 使用 Maven 包 [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) 在项目的 POM 文件中包括 [mysql 依赖项](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6)。
+   - 下载 JDBC 驱动程序 [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)，将 JDBC jar 文件（例如 mysql-connector-java-5.1.42-bin.jar）包括到应用程序类路径中。 如果遇到类路径的问题，请参阅环境文档（例如 [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 或 [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)），了解类路径具体信息
 
 ## <a name="get-connection-information"></a>获取连接信息
 获取连接到 Azure Database for MySQL 所需的连接信息。 需要完全限定的服务器名称和登录凭据。
@@ -238,7 +235,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>更新数据
-使用以下代码，通过 **UPDATE** SQL 语句更改数据。 [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) 方法用于连接到 MySQL。 使用 [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) 和 executeUpdate() 方法来准备和运行 update 语句。 
+使用以下代码，通过 **UPDATE** SQL 语句更改数据。 [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) 方法用于连接到 MySQL。 使用 [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) 和 executeUpdate() 方法来准备和运行 update 语句。 
 
 将 host、database、user 和 password 参数替换为创建你自己的服务器和数据库时指定的值。
 
@@ -319,7 +316,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>删除数据
-使用以下代码，通过 **DELETE** SQL 语句删除数据。 [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) 方法用于连接到 MySQL。  使用 [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) 和 executeUpdate() 方法来准备和运行 update 语句。 
+使用以下代码，通过 **DELETE** SQL 语句删除数据。 [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) 方法用于连接到 MySQL。  使用 [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) 和 executeUpdate() 方法来准备和运行 update 语句。 
 
 将 host、database、user 和 password 参数替换为创建你自己的服务器和数据库时指定的值。
 

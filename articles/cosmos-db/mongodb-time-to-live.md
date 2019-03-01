@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: bb898a72615fddfc96bbf1f0397ecd5a1e3a7db6
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.date: 03/04/2019
+ms.openlocfilehash: a48e0af7cbbb994aad3426f2ebc220a5e0ccb8ff
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309319"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988018"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 使数据过期
 
@@ -56,7 +56,7 @@ TTL 值必须是 int32。 也可以是属于 int32 的 int64，或者是没有�
 
 文档的 TTL 值为可选；没有 TTL 值的文档可以插入集合中。  在这种情况下，将使用集合的 TTL 值。 
 
-以下文档具有有效的 TTL 值。 插入文档以后，文档 TTL 值会替代集合的 TTL 值。 因此，会在 20 秒后删除文档。  
+以下文档具有有效的 TTL 值。 插入文档以后，文档 TTL 值会替代集合的 TTL 值。 因此，会在 20 秒后删除文档。   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 

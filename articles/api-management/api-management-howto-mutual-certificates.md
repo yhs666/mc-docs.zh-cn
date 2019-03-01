@@ -3,7 +3,7 @@ title: 使用客户端证书身份验证确保后端服务安全 - Azure API 管
 description: 了解如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/20/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 5ac8ece797704a4b79fca0a7cad7d4d13182d7de
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 03/11/2019
+ms.openlocfilehash: b2009e445198d7a27363b31c5ced70b048b5a7a7
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736683"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196652"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全
 
@@ -28,6 +28,8 @@ API 管理允许使用客户端证书保护对 API 后端服务的访问。 本�
 有关如何使用 API 管理 REST API 来管理证书的信息，请参阅 <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API 管理 REST API 证书实体</a>。
 
 ## <a name="prerequisites"> </a>先决条件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 本指南介绍如何将 API 管理服务实例配置为使用客户端证书身份验证访问 API 的后端服务。 在按照本文中的步骤操作之前，应该为后端服务配置客户端证书身份验证（[若要在 Azure 网站中配置证书身份验证，请参阅此文][to configure certificate authentication in Azure WebSites refer to this article]）。 你需要访问证书和密码才能将其上传到 API 管理服务。
 
@@ -93,11 +95,11 @@ API 管理允许使用客户端证书保护对 API 后端服务的访问。 本�
 
 ## <a name="self-signed-certificates"></a>自签名证书
 
-如果使用自签名证书，将需要禁用证书链验证使 API 管理能够与后端系统进行通信， 否则，它将返回 500 错误代码。 若要配置此项，可以使用 [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend)（适用于新后端）或 [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置为 `True`。
+如果使用自签名证书，将需要禁用证书链验证使 API 管理能够与后端系统进行通信， 否则，它将返回 500 错误代码。 若要配置此项，可以使用 [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend)（适用于新后端）或 [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置为 `True`。
 
-```
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```powershell
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 [How to add operations to an API]: mock-api-responses
@@ -110,7 +112,7 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 [Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[Azure API Management REST API Certificate entity]: https://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 

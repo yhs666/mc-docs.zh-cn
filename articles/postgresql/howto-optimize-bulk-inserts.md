@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 10/22/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: ae63a7b7b1477e8fac80b05946cdd2135b273028
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 03/04/2019
+ms.openlocfilehash: f074ef230d84ead17968ac402d86f5caa3eceb3f
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302970"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836911"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>优化 Azure Database for PostgreSQL 服务器中的批量插入和使用瞬态数据 
 本文介绍如何优化 Azure Database for PostgreSQL 服务器中的批量插入操作以及使用瞬态数据。
@@ -26,9 +26,9 @@ ms.locfileid: "56302970"
 
 使用以下选项可创建无日志记录表：
 - 使用语法 `CREATE UNLOGGED TABLE <tableName>` 创建新的无日志记录表。
-- 使用语法 `ALTER <tableName> SET UNLOGGED` 将现有日志记录表转换为无日志记录表。  
+- 使用语法 `ALTER TABLE <tableName> SET UNLOGGED` 将现有日志记录表转换为无日志记录表。  
 
-若要撤消过程，请使用语法 `ALTER <tableName> SET LOGGED`。
+若要撤消过程，请使用语法 `ALTER TABLE <tableName> SET LOGGED`。
 
 ## <a name="unlogged-table-tradeoff"></a>无日志记录表的利弊
 无日志记录表无法防崩溃。 发生崩溃或者执行不彻底的关机后，无日志记录表将被自动截断。 此外，无日志记录表的内容不会复制到备用服务器。 基于无日志记录表创建的任何索引也不会自动取消记录。 插入操作完成后，将表转换为日志记录表，使插入操作具有持久性。

@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 10/15/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: scottnap
-ms.openlocfilehash: c1f2d342ff4056134d152cf04d66917947c3371e
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: 414e67bf5658a2cfad2d0b7536f5ae77f70f009a
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814629"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905312"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*  
@@ -53,11 +54,6 @@ ms.locfileid: "53814629"
 8.   以 CIDR 表示法输入要添加的地址块。  例如：192.168.203.0/24
 9.  在“地址范围(CIDR 块)”字段中提供有效的 CIDR 范围以后，“开始 IP 地址”、“结束 IP 地址”和“可用 IP 地址”字段会自动进行填充。  这些字段为只读字段，并且是自动生成的，因此在不修改“地址范围”字段中的值的情况下，不能更改这些字段。
 10. 查看边栏选项卡上的信息并确认一切正确以后，请单击“确定”，以便提交所做的更改并将地址范围添加到 Azure Stack。
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>更新架顶式交换机上的 ACL
-启用新添加的 IP 范围时，最后需更新架顶式 (ToR) 交换机上的访问控制列表 (ACL)。  ToR 交换机上的 ACL 处于锁定状态，因此不能从 Azure Stack 外部连接到新添加的 IP 范围，这种情况一直持续到将新范围添加到交换机上的 ACL 以后。  
-
-需联系 OEM，让他们更新 ToR 交换机上的 ACL。  他们可以通过必需的工具以系统支持的方式执行此类操作。
 
 
 ## <a name="next-steps"></a>后续步骤 

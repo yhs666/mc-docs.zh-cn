@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/16/2018
-ms.date: 12/17/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.openlocfilehash: 8b67e016499f2aed676f66c69ae125c0eec54ee1
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: ff92189e9db79f15376ec357767049131a9b55ff
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396078"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905444"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上的应用服务概述
 
@@ -42,8 +43,8 @@ Azure Stack 上的 Azure 应用服务是 Azure 的一种可用于 Azure Stack �
 
 应用服务提供多种应用类型，每种类型负责托管特定的工作负荷：
 
-- [Web 应用](../app-service/app-service-web-overview.md)用于托管网站和 Web 应用程序。
-- [API 应用](../app-service/app-service-web-overview.md)用于托管 REST API。
+- [Web 应用](../app-service/overview.md)用于托管网站和 Web 应用程序。
+- [API 应用](../app-service/overview.md)用于托管 REST API。
 - Azure Functions 用于托管事件驱动的无服务器工作负荷。
 
 “应用”一词是指专用于运行工作负荷的托管资源。 以 Web 应用为例，你可能习惯于将 Web 应用视为计算资源和应用程序代码，二者共同向浏览器提供功能。 在应用服务中，Web 应用是 Azure Stack 提供的用于托管应用程序代码的计算资源。

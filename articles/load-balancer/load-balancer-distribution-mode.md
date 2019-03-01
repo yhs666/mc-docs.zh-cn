@@ -1,27 +1,29 @@
 ---
-title: 配置 Azure 负载均衡器分配模式 | Microsoft Docs
+title: 配置 Azure 负载均衡器分发模式
+titlesuffix: Azure Load Balancer
 description: 如何配置 Azure 负载均衡器的分配模式以支持源 IP 关联。
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/05/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 0d9261ddb7af50c5ac3711de05bcbcd6fd589e96
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0b7ed86a289fc9e5a4e591cc7256b3e091c2e517
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660257"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836998"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>配置 Azure 负载均衡器的分配模式
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="hash-based-distribution-mode"></a>基于哈希的分发模式
 
@@ -51,10 +53,10 @@ Azure 负载均衡器的默认分配模式是 5 元组哈希。 元组由源 IP�
 
 对于使用资源管理器部署的虚拟机，请使用 PowerShell 更改现有负载均衡规则上的负载均衡器分发设置。 这将更新分发模式： 
 
-```powershell 
-$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
-$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
-Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```powershell
+$lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 对于经典虚拟机，请使用 Azure PowerShell 更改分发设置。 将 Azure 终结点添加到虚拟机并配置负载均衡器分配模式：

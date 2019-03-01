@@ -3,7 +3,7 @@ title: Azure 状态概述 | Microsoft Docs
 description: Azure 服务运行状况的全局视图。
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 03/27/2018
-ms.date: 04/30/2017
+origin.date: 02/11/2019
+ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 52307612c0a9bdcc09e1644a6b10698dc9008fe7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5fb963aa5352c77833a0c367482a1889bc5f22a0
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651982"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196622"
 ---
 # <a name="azure-status"></a>Azure 状态
-[Azure 状态](https://www.azure.cn/support/service-dashboard/)可提供 Azure 服务运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的最新信息。 所有人均可访问 Azure 状态并查看报告其服务运行状况的所有服务。 
+[Azure 状态](https://www.azure.cn/support/service-dashboard/)可提供 Azure 服务和区域运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的最新信息。 每个人都可以使用 Azure 状态查看报告其服务运行状况的所有服务，以及具有广泛影响的事件。 但是，如果你现在是 Azure 用户，我们强烈建议你在 [Azure 服务运行状况](https://aka.ms/azureservicehealth)中使用个性化体验。 Azure 服务运行状况包括所有中断、即将计划的维护活动和服务建议。
 
 ![Azure 状态页](./media/azure-status-overview/azure-status.PNG)
 
@@ -38,6 +38,6 @@ Azure 状态页会根据 Azure 服务运行状况的变化而实时更新。 如
 在该页中可最多查看过去 90 天内的事件，包括有关 Azure 的初步根本原因、风险缓解和后续步骤。
 
 
-# <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 * 了解如何使用[服务运行状况](./service-health-overview.md)更个性化地查看 Azure 运行状况。
 * 了解如何使用[资源运行状况](./resource-health-overview.md)更细化地查看特定 Azure 资源的运行状况。

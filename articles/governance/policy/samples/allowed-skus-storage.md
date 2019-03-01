@@ -1,23 +1,22 @@
 ---
-title: Azure Policy 示例 - 允许用于存储帐户和虚拟机的 SKU
-description: 此示例策略要求存储帐户和虚拟机使用已批准的 SKU。
+title: 示例 - 允许用于存储帐户和虚拟机的 SKU
+description: 此示例策略定义要求存储帐户和虚拟机使用已批准的 SKU。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 10/30/2017
-ms.date: 11/12/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: f533028c3a947b3b6f73a4856bd15eea088a11d5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d3dad73d6c701b2a19d690ba2585332778745c16
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650877"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903299"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>允许用于存储帐户和虚拟机的 SKU
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>示例 - 允许用于存储帐户和虚拟机的 SKU
 
 此策略需要存储帐户和虚拟机使用已批准的 SKU。 使用内置策略以确保使用已批准的 SKU。 指定已批准的虚拟机 SKU 数组和已批准的存储帐户 SKU 数组。
 
@@ -77,15 +76,15 @@ ms.locfileid: "52650877"
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```powershell
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json"
 $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"
 
-$policyset= New-AzureRmPolicySetDefinition -Name "skus-for-multiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters 
+$policyset= New-AzPolicySetDefinition -Name "skus-for-multiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters 
  
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentName> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs>
+New-AzPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentName> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>清理 PowerShell 部署
@@ -93,8 +92,8 @@ New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentNam
 运行以下命令删除策略分配和定义。
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name <assignmentName>
-Remove-AzureRmPolicySetDefinitions -Name "skus-for-multiple-types"
+Remove-AzPolicyAssignment -Name <assignmentName>
+Remove-AzPolicySetDefinitions -Name "skus-for-multiple-types"
 ```
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 进行部署

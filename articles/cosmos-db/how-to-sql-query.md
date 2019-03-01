@@ -3,18 +3,18 @@ title: Azure Cosmos DB 的 SQL 查询
 description: 了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查询。 SQL 可在 Azure Cosmos DB 中作为 JSON 查询语言使用。
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 origin.date: 11/15/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: cefd98c344a1f4929b974de32590dcd72ec469e6
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: f2cc0c0e467036452503c6576d6601bce97ac3a3
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309272"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988047"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>从 Azure Cosmos DB 中查询数据的 SQL 查询示例
+# <a name="sql-query-examples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 SQL 查询示例
 
 Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来支持查询 SQL API 帐户中的项。 在设计 Azure Cosmos DB 的查询语言时，请考虑到以下两个目标：
 
@@ -511,7 +511,7 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
 
 如同使用其他查询运算符一样，如果任何项中缺少条件表达式的引用属性，或者如果正在进行比较的类型不同，那么这些项会被排除在查询结果之外。
 
-联合 (??) 运算符可用于有效地检查文档中是否存在属性（也称为 defined）。 此运算符在对半结构化数据或混合类型的数据执行查询时很有用。 例如，此查询返回“lastName”（如果存在）或“surname”（如果不存在）。
+联合 (??) 运算符可用于有效地检查项目中是否存在某个属性。 此运算符在对半结构化数据或混合类型的数据执行查询时很有用。 例如，此查询返回“lastName”（如果存在）或“surname”（如果不存在）。
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -1381,29 +1381,29 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | 返回指定数值表达式的绝对（正）值。 |
-| [CEILING (num_expr)](#bk_ceiling) | 返回大于或等于指定数值表达式的最小整数值。 |
-| [FLOOR (num_expr)](#bk_floor) | 返回小于或等于指定数值表达式的最大整数。 |
-| [EXP (num_expr)](#bk_exp) | 返回指定数值表达式的指数。 |
-| [LOG (num_expr [,base])](#bk_log) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
-| [LOG10 (num_expr)](#bk_log10) | 返回指定数值表达式以 10 为底的对数值。 |
-| [ROUND (num_expr)](#bk_round) | 返回一个数值，四舍五入到最接近的整数值。 |
-| [TRUNC (num_expr)](#bk_trunc) | 返回一个数值，截断到最接近的整数值。 |
-| [SQRT (num_expr)](#bk_sqrt) | 返回指定数值表达式的平方根。 |
-| [SQUARE (num_expr)](#bk_square) | 返回指定数值表达式的平方。 |
-| [POWER (num_expr, num_expr)](#bk_power) | 返回指定数值表达式相对指定值的幂。 |
-| [SIGN (num_expr)](#bk_sign) | 返回指定数值表达式的符号值 (-1, 0, 1)。 |
-| [ACOS (num_expr)](#bk_acos) | 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。 |
-| [ASIN (num_expr)](#bk_asin) | 返回角度（弧度），其正弦是指定的数值表达式。 此函数也称为反正弦。 |
-| [ATAN (num_expr)](#bk_atan) | 返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。 |
-| [ATN2 (num_expr)](#bk_atn2) | 返回正 x 轴与射线（原点到点 (y, x)）之间的角度（弧度），其中 x 和 y 是两个指定的浮点表达式的值。 |
-| [COS (num_expr)](#bk_cos) | 返回指定表达式中指定角度的三角余弦（弧度）。 |
-| [COT (num_expr)](#bk_cot) | 返回指定数值表达式中指定角度的三角余切。 |
-| [DEGREES (num_expr)](#bk_degrees) | 返回指定角度（弧度）的相应角度（度）。 |
-| [PI ()](#bk_pi) | 返回 PI 的常数值。 |
-| [RADIANS (num_expr)](#bk_radians) | 返回输入的数值表达式（度）的弧度。 |
-| [SIN (num_expr)](#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
-| [TAN (num_expr)](#bk_tan) | 返回指定表达式中输入表达式的正切。 |
+| [ABS (num_expr)](sql-api-query-reference.md#bk_abs) | 返回指定数值表达式的绝对（正）值。 |
+| [CEILING (num_expr)](sql-api-query-reference.md#bk_ceiling) | 返回大于或等于指定数值表达式的最小整数值。 |
+| [FLOOR (num_expr)](sql-api-query-reference.md#bk_floor) | 返回小于或等于指定数值表达式的最大整数。 |
+| [EXP (num_expr)](sql-api-query-reference.md#bk_exp) | 返回指定数值表达式的指数。 |
+| [LOG (num_expr [,base])](sql-api-query-reference.md#bk_log) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
+| [LOG10 (num_expr)](sql-api-query-reference.md#bk_log10) | 返回指定数值表达式以 10 为底的对数值。 |
+| [ROUND (num_expr)](sql-api-query-reference.md#bk_round) | 返回一个数值，四舍五入到最接近的整数值。 |
+| [TRUNC (num_expr)](sql-api-query-reference.md#bk_trunc) | 返回一个数值，截断到最接近的整数值。 |
+| [SQRT (num_expr)](sql-api-query-reference.md#bk_sqrt) | 返回指定数值表达式的平方根。 |
+| [SQUARE (num_expr)](sql-api-query-reference.md#bk_square) | 返回指定数值表达式的平方。 |
+| [POWER (num_expr, num_expr)](sql-api-query-reference.md#bk_power) | 返回指定数值表达式相对指定值的幂。 |
+| [SIGN (num_expr)](sql-api-query-reference.md#bk_sign) | 返回指定数值表达式的符号值 (-1, 0, 1)。 |
+| [ACOS (num_expr)](sql-api-query-reference.md#bk_acos) | 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。 |
+| [ASIN (num_expr)](sql-api-query-reference.md#bk_asin) | 返回角度（弧度），其正弦是指定的数值表达式。 此函数也称为反正弦。 |
+| [ATAN (num_expr)](sql-api-query-reference.md#bk_atan) | 返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。 |
+| [ATN2 (num_expr)](sql-api-query-reference.md#bk_atn2) | 返回正 x 轴与射线（原点到点 (y, x)）之间的角度（弧度），其中 x 和 y 是两个指定的浮点表达式的值。 |
+| [COS (num_expr)](sql-api-query-reference.md#bk_cos) | 返回指定表达式中指定角度的三角余弦（弧度）。 |
+| [COT (num_expr)](sql-api-query-reference.md#bk_cot) | 返回指定数值表达式中指定角度的三角余切。 |
+| [DEGREES (num_expr)](sql-api-query-reference.md#bk_degrees) | 返回指定角度（弧度）的相应角度（度）。 |
+| [PI ()](sql-api-query-reference.md#bk_pi) | 返回 PI 的常数值。 |
+| [RADIANS (num_expr)](sql-api-query-reference.md#bk_radians) | 返回输入的数值表达式（度）的弧度。 |
+| [SIN (num_expr)](sql-api-query-reference.md#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
+| [TAN (num_expr)](sql-api-query-reference.md#bk_tan) | 返回指定表达式中输入表达式的正切。 |
 
 例如，现在可以运行以下示例中所示的查询：
 
@@ -2291,4 +2291,4 @@ Cosmos DB 提供了一种编程模型，使用存储过程和触发器对容器�
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update -->

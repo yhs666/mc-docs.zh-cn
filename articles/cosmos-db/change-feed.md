@@ -6,17 +6,17 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8a8bbc9d8e1218d6972869faa76d965ebde2b05d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: ae9b87f8982a9835b54c4be639dd8bb0f9c5bbc1
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309150"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988030"
 ---
-# <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源
+# <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的更改源 - 概述
 
 Azure Cosmos DB 中更改源支持的工作原理是侦听 Azure Cosmos DB 容器中发生的任何更改。 然后会输出一个排序的列表，其中包含已更改的文档，其顺序与修改顺序一样。 所做的更改会持久保存，并能够以异步和增量方式进行处理，而且输出可以分发到一个或多个使用者进行并行处理。 
 
@@ -44,6 +44,7 @@ Azure Cosmos DB 非常适合用于 IoT、游戏、零售和操作日志记录应
 |Node/JS|不可用|是|否|
 
 <!-- Not Available on **Cassandra API** **Gremlin API**  **Table API**-->
+
 ## <a name="change-feed-and-different-operations"></a>更改源和不同操作
 
 如今，在更改流中可以看到所有操作。 针对只更新和不插入等特定操作的功能（可控制更改源）尚不可用。 可以在更新项上添加“软标记”，并在更改源中处理项时根据标记进行筛选。 目前更改源不会记录删除操作。 与前面的示例类似，可在要删除的项上添加软标记，例如，可在名为“已删除”的项中添加属性并将其设置为“true”，然后在该项上设置 TTL，这样系统就可将其自动删除。 可以阅读历史项的更改流（例如，五年前添加的项）。 如果未删除该项，则可以读取不超过容器原始时间的更改源。
@@ -90,7 +91,8 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 
 * 在移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或其位置的所有更改），并触发特定操作（例如，使用 [Azure Functions](change-feed-functions.md) 向客户的设备发送推送通知）。
 
-<!-- Not Available on [serverless](http://azure.com/serverless)-->
+    <!-- Not Available on [serverless](http://azure.com/serverless)-->
+    
 * 例如，若要使用 Azure Cosmos DB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。
 
 ## <a name="working-with-change-feed"></a>使用更改源
@@ -132,4 +134,4 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 * [将更改源与 Azure Functions 配合使用](change-feed-functions.md)
 * [使用更改源处理器库](change-feed-processor.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

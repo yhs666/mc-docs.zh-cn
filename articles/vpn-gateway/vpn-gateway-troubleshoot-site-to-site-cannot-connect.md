@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/30/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 0ca0a605a116f0393f34b3162ad841c0e5d0e5af
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5ecc4ca496bc5f893bbaf5da7dfee2ffc0d453c6
+ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028435"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833168"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>故障排除：Azure 站点到站点 VPN 连接无法建立连接并停止工作
 
@@ -40,11 +40,11 @@ ms.locfileid: "53028435"
 
 2. 有关类型信息，请查看 VPN 网关的“概述”页。
     
-    ![网关概述](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![网关概述](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步骤 1。 检查是否已验证本地 VPN 设备
 
-1. 检查是否使用的是[已验证的 VPN 设备和操作系统版本](vpn-gateway-about-vpn-devices.md#devicetable)。 如果设备是未经验证的 VPN 设备，你可能需要与设备制造商联系，了解是否存在兼容性问题。
+1. 检查是否使用的是[已验证的 VPN 设备和操作系统版本](vpn-gateway-about-vpn-devices.md#devicetable)。 如果设备是未经验证的 VPN 设备，可能需要与设备制造商联系，了解是否存在兼容性问题。
 
 2. 确保已正确配置 VPN 设备。 有关详细信息，请参阅[编辑设备配置示例](vpn-gateway-about-vpn-devices.md#editing)。
 
@@ -64,9 +64,11 @@ ms.locfileid: "53028435"
 
 **Azure PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 对于 Azure 资源管理器部署模型：
 
-    Get-AzureRmVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+    Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
 
 对于经典部署模型：
 
@@ -79,7 +81,7 @@ ms.locfileid: "53028435"
 
 ### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>步骤 4. 检查网关子网上的 UDR 和 NSG
 
-检查并删除网关子网中的用户定义的路由 (UDR) 或网络安全组 (NSG)，然后测试结果。 如果问题得到解决，请验证 NSG 或 UDR 应用的设置。
+检查并删除网关子网中的用户定义的路由 (UDR) 或网络安全组 (NSG)，并测试结果。 如果问题得到解决，请验证 NSG 或 UDR 应用的设置。
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>步骤 5。 检查本地 VPN 设备的外部接口地址
 

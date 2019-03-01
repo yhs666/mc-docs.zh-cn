@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: bad126593da56bc9ef284b125015021ef8f02f1f
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 360f97d1fb63c780630337514eee49aaf856e0ea
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309299"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987951"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>如何将 Azure Cosmos DB 更改源与 Azure Functions 配合使用
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>从 Azure Cosmos DB 触发 Azure Functions
 
 如果使用 Azure Functions，连接到更改源的最简单方法是将一个 [Azure Cosmos DB 触发器](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)添加到 Azure Functions 应用。 在 Azure Functions 应用中创建 Cosmos DB 触发器时，请选择要连接到的 Cosmos DB 容器，以及每当更改该容器中的某项设置时要触发的函数。
 
@@ -71,6 +71,7 @@ Azure Cosmos DB 触发器在内部利用更改源处理器库。 因此，它需
 * [读取更改源的方式](read-change-feed.md)
 * [使用更改源处理器库](change-feed-processor.md)
 * [如何使用更改源处理器库](change-feed-processor.md)
+
 <!--Not Available on * [Serverless database computing using Azure Cosmos DB and Azure Functions](serverless-computing-database.md)-->
 
 <!-- Update_Description: update meta properties -->
