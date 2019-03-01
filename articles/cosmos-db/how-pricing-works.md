@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/28/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ced170e802a81e74e5ac0e9b35e01b2bd60634c1
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: bc3262754d1fa0912d551f728e63b810e7eebb67
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857404"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988025"
 ---
-# <a name="pricing-model-of-azure-cosmos-db"></a>Azure Cosmos DB 的定价模型 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的定价模型 
 
 Azure Cosmos DB 的定价模型可简化成本管理和计划。 使用 Azure Cosmos DB 时，需要为预配的吞吐量和消耗的存储支付费用。
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 的定价模型可简化成本管理和计划。 使用 Azure Co
 有关详细信息，请参阅 [Azure Cosmos DB 定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 <!--Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
-<!-- Notice: 6 美元 to 61.01 人民币 on 100RU/s-->
+<!--MOONCAKE CUSTOMIZE: 6 美元 to 61.01 人民币 on 100RU/s-->
 
 Azure Cosmos DB 中的定价模型在所有 API 中都是一致的。 有关详细信息，请参阅 [Azure Cosmos DB 定价模型如何对客户而言更具经济效益](total-cost-ownership.md)。 数据库或容器需要最小吞吐量来确保 SLA，可以按每 100 RU/s 6 美元增加或减少预配的吞吐量。
 
@@ -43,12 +43,13 @@ Azure Cosmos DB 中的定价模型在所有 API 中都是一致的。 有关详�
 
 如上表所示，Azure Cosmos DB 的最低吞吐量的最低价格为 244 元/月。 如果从最低吞吐量开始，随着时间逐步扩大吞吐量以支持生产工作负荷，那么成本将平稳上升，增量为 61.01 元/月。 Azure Cosmos DB 的定价模型是弹性的，按比例增加或减少时，价格会平稳地上升或下降。
 
-<!-- Notice: 24 美元/月 to 244 人民币/月 on 400RU/s-->
+<!--MOONCAKE CUSTOMIZE: 24 美元/月 to 244 人民币/月 on 400RU/s-->
 
 ## <a name="try-azure-cosmos-db-for-free"></a>免费试用 Azure Cosmos DB 
 
 Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 
+<!--MOONCAKE CUSTOMIZE: Azure trial account-->
 * **Azure 试用帐户**：Azure 提供了一个[免费层](https://www.azure.cn/pricing/1rmb-trial/)，它在前 30 天为你提供了价值人民币 1500 元的 Azure 额度。
 
 <!--Not Available on For more information [Azure trial account](../billing/billing-avoid-charges-free-account.md)-->

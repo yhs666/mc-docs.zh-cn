@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 12/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: f8e1c6629a8c7a5b9951626ae3a971953a7a81ec
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.openlocfilehash: 0c19433c2b357365efd060d9e710570794d76227
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737015"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987050"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
@@ -60,7 +60,7 @@ ms.locfileid: "53737015"
 
 3. 随后将下载名为 **download** 的文件。 根据所用的浏览器，此时会出现一条消息，询问是打开还是保存该文件。
 
-    ![下载证书时显示的下载消息](./media/backup-azure-backup-server-vmware/download-certs.png)
+    ![下载 CA 证书](./media/backup-azure-backup-server-vmware/download-certs.png)
 
 4. 以 .zip 扩展名将该文件保存在 Azure 备份服务器计算机上。
 
@@ -95,11 +95,11 @@ ms.locfileid: "53737015"
 
     ![验证证书是否位于正确的文件夹中](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-    
+
 12. 确认导入证书后，登录到 vCenter 服务器以确认连接安全。
 
 
-  
+
 
 ### <a name="disable-default-https"></a>禁用默认 HTTPS
 
@@ -197,7 +197,6 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![添加 BackupAdmin 用户](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
-    单击“确定”，将选定的用户添加到“添加权限”对话框中。
 
 7.  在“分配的角色”的下拉列表中，选择“BackupAdminRole” > “确定”。
 
@@ -248,9 +247,9 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 3. 在“选择计算机”>“服务器名称/IP 地址”中，指定 VMware 服务器的 FQDN 或 IP 地址。 如果所有 ESXi 服务器由同一个 vCenter 管理，请指定 vCenter 名称。 否则请添加 ESXi 主机。
 
-    ![指定 VMware 服务器的 FQDN 或 IP 地址](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
+    ![指定 VMware 服务器](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
-4. 在“SSL 端口”中，输入用于与 VMware 服务器通信的端口。 除非确定需要使用其他端口，否则请使用默认端口 443。
+4. 在“SSL 端口”中，输入用于与 VMware 服务器通信的端口。 443 是默认端口，但如果 VMware 服务器在不同的端口上侦听，则你可以更改端口。
 
 5. 在“指定凭据”中，选择先前创建的凭据。
 
@@ -278,7 +277,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 添加要备份的 VMware VM。 保护组收集多个 VM，并将相同的数据保留和备份设置应用到组中的所有 VM。 
 
 
-1. 在 Azure 备份服务器控制台中单击“保护”，然后在工具功能区中，单击“新建”打开“创建新保护组”向导。
+1. 在 Azure 备份服务器控制台中，单击“保护”>“新建”。
 
     ![打开“创建新保护组”向导](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 

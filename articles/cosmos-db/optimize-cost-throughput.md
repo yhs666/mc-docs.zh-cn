@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b46d415b23c24d9f44dea323d653f3418eb17e64
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: 2dea626c41da49eb6a37e3783be3ab873270e02c
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857410"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987968"
 ---
-# <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化吞吐量成本
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 
 通过提供预配的吞吐量模型，Azure Cosmos DB 可在任何规模下提供可预测的性能。 预留或提前预配吞吐量消除了对性能造成的“干扰性邻居影响”。 只需指定所需的确切吞吐量，然后，Azure Cosmos DB 就能确保配置的吞吐量，并以 SLA 作为保障。
 
@@ -37,7 +37,9 @@ ms.locfileid: "54857410"
 1. 有几十个 Azure Cosmos 容器，并想要在部分或所有容器之间共享吞吐量。 
 
 2. 从专用于在 IaaS 托管的 VM 上运行或本地运行的单租户数据库（例如，NoSQL 数据库或关系数据库）迁移到 Azure Cosmos DB。 你有许多集合，并且不想要对数据模型进行任何更改。 请注意，如果在从本地数据库迁移时不更新数据模型，可能需要牺牲 Azure Cosmos DB 提供的一些优势。 建议始终重新访问数据模型，以获得最大性能并优化成本。 
-
+    
+    <!--Not Available on tables/graphs -->
+    
 3. 想要在数据库级别利用入池吞吐量，来缓解容易出现意外高峰的工作负荷中的计划外高峰。 
 
 4. 不针对单个容器设置特定的吞吐量，而是考虑如何在数据库中的一组容器之间获得聚合吞吐量。
@@ -83,7 +85,7 @@ HTTP Status 429,
 
 如果累计有多个客户端一贯在超过请求速率的情况下运行，则当前设置为 9 的默认重试计数可能并不足够。 在这种情况下，客户端会向应用程序引发 `DocumentClientException` 并返回状态代码 429。 可以通过在 ConnectionPolicy 实例上设置 `RetryOptions` 来更改默认重试计数。 默认情况下，如果请求继续以高于请求速率的方式运行，则在 30 秒的累积等待时间后返回 DocumentClientException 和状态代码 429。 即使当前的重试计数小于最大重试计数（默认值 9 或用户定义的值），也会发生这种情况。 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) 设置为 3，因此，在这种情况下，如果请求操作由于超过集合的预留吞吐量而受到速率限制，则请求操作将重试三次，然后向应用程序引发异常。 [MaxRetryWaitTimeInSeconds](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 设置为 60，因此，在这种情况下，如果自首次请求以来，累积重试等待时间（以秒为单位）超过 60 秒，则会引发异常。
+[MaxRetryAttemptsOnThrottledRequests](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 设置为 3，因此，在这种情况下，如果请求操作由于超过集合的预留吞吐量而受到速率限制，则请求操作将重试三次，然后向应用程序引发异常。 [MaxRetryWaitTimeInSeconds](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 设置为 60，因此，在这种情况下，如果自首次请求以来，累积重试等待时间（以秒为单位）超过 60 秒，则会引发异常。
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -112,7 +114,9 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ## <a name="data-access-patterns"></a>数据访问模式 
 
 根据访问数据的频率以逻辑方式将数据划分成逻辑类别始终是良好的做法。 将数据分类成热数据、中性数据或冷数据，可以微调消耗的存储和所需的吞吐量。 根据访问频率，可将数据放入单独的容器（例如集合），并微调其预配的吞吐量，以适应数据分段的需要。 
- <!--Not Available on tables, graphs-->
+
+<!--Not Available on tables, graphs-->
+
 此外，如果你正在使用 Azure Cosmos DB，并知道你不会按特定的数据值进行搜索或者很少访问这些值，则应存储这些属性的压缩值。 使用此方法可以节省存储空间、索引空间和预配的吞吐量，从而较低成本。
 
 ## <a name="optimize-by-changing-indexing-policy"></a>通过更改索引策略进行优化 
@@ -175,7 +179,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 8. 考虑对开发/测试方案使用可下载的 Cosmos DB 模拟器。 将这些选项用于开发/测试可以明显降低成本。  
 
-  <!--Not Available on "Cosmos DB Free Tier" (free for one year), Try Cosmos DB (up to three regions) or -->
+    <!--Not Available on "Cosmos DB Free Tier" (free for one year), Try Cosmos DB (up to three regions) or -->
 
 9. 可以进一步执行工作负荷特定的成本优化 - 例如，增加批大小、对跨多个区域的读取操作进行负载均衡，以及删除重复数据（如果适用）。
 
@@ -185,7 +189,8 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
-* 详细了解[开发和测试优化](optimize-dev-test.md)
+* 详细了解[针对开发和测试进行优化](optimize-dev-test.md)
+<!--Not Available on* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)

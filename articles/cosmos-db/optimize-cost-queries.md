@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0e731b53639bd8668b4769fb6c61899e125a9ddf
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 2b8df172ea7adce1beaf13f826896f9045167f72
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309123"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987903"
 ---
-# <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>优化在 Azure Cosmos DB 中运行查询所需的成本
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的查询成本
 
 Azure Cosmos DB 提供了丰富的数据库操作，包括对容器中的项进行操作的关系和分层查询。 与这些操作关联的成本取决于完成操作所需的 CPU、IO 和内存。 可以考虑将请求单位 (RU) 视为执行各种数据库操作以提供请求所需的资源的单一度量值，而无需虑和管理硬件资源。 本文介绍如何评估查询的请求单位费用，并在性能和成本方面优化查询。 
 
@@ -111,6 +111,6 @@ Total Query Execution Time               :   �
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
-<!-- Not Available on * Learn more about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
+<!-- Not Available on [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 
 <!-- Update_Description: update meta properties  -->

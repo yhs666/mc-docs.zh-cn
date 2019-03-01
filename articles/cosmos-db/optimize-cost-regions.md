@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7583e2eb2d0e50c8cf24670550ea9613f7bdafb9
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: 38a6a788cfa7fdc3e9f209f0dd287233ed783b4d
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857400"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988043"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域部署的成本
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域成本
 
 可随时对 Azure Cosmos 帐户添加或删除区域。 在与帐户关联的每个区域中会保留为各种 Azure Cosmos 数据库和容器配置的吞吐量。 如果每小时预配的吞吐量（即，跨所有数据库和容器为 Azure Cosmos 帐户配置的 RU/秒总和）为 `T`，并且与数据库帐户关联的 Azure 区域数是 `N`，则对于给定小时，Cosmos 帐户的总预配吞吐量等于：
 
@@ -22,11 +22,11 @@ ms.locfileid: "54857400"
 
 1. `T x (N+1) RU/s`，如果使用能够处理写入的所有区域配置 Azure Cosmos 帐户。 
 
-<!--Notice: $0.008 against CNY0.082 on 100 RU/s for Azure China-->
+<!--MOONCAKE: $0.008 against CNY0.082 on 100 RU/s for Azure China-->
 
 具有单个写入区域的预配吞吐量每 100 RU/秒的成本为 0.082 元/小时，具有多个可写区域的预配吞吐量每 100 RU/秒的成本为 0.164 元/小时。 若要了解详细信息，请参阅 Azure Cosmos DB [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
-<!--Notice: $0.008 against CNY0.082 on 100 RU/s for Azure China-->
+<!--MOONCAKE: $0.008 against CNY0.082 on 100 RU/s for Azure China-->
 
 ## <a name="costs-for-multiple-write-regions"></a>多个写入区域的成本
 
@@ -36,7 +36,7 @@ ms.locfileid: "54857400"
 
 假设你在中国东部有一个容器，该容器预配的吞吐量为 10K RU/秒，这个月存储的数据为 1 TB。 假设你添加了三个区域 - 中国东部 2、中国北部和中国北部 2，每个区域的存储和吞吐量相同，而你希望能够通过自己的多区域分布式应用将内容写入所有四个区域中的容器。 一个月的总月度帐单（假定为 31 天）如下所示：
 
-<!--Notice: Master region is China East, and the other 3 regions are China East 2 , China North, and China North 2-->
+<!--MOONCAKE: Master region is China East, and the other 3 regions are China East 2 , China North, and China North 2-->
 
 |**项目**|**使用情况（每月）**|**费率**|**每月成本**|
 |----|----|----|----|
@@ -46,7 +46,7 @@ ms.locfileid: "54857400"
 |3 个其他区域 - 中国东部 2、中国北部和中国北部 2 的存储帐单 |3 * 1 TB |2.576 元/GB  |772.8 元 |
 |**总计**|||**62035.4 元** |
 
-<!--Notice: Master region is China East, and the other 3 regions are China East 2 , China North, and China North 2-->
+<!--MOONCAKE: Master region is China East, and the other 3 regions are China East 2 , China North, and China North 2-->
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>按每个区域提高吞吐量利用率
 

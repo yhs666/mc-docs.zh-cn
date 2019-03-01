@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 01/21/2019
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: b6074da4b13954f05e421e7b46b9028cc23b4b62
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: fa701173002a7bac5f7ade98c7cc498584b8fbae
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333902"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833413"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序  
 
 借助适用于 Windows 8 的平滑流式处理客户端 SDK，开发人员可以生成支持按需付费、直播平滑流式处理内容的 Windows 应用商店应用程序。 除了播放平滑流式处理内容这一基本功能以外，该 SDK 还提供其他丰富功能，例如 Microsoft PlayReady 保护、质量级别限制、实时 DVR、音频流切换、收听状态更新（如质量级别更改）和错误事件，等等。 有关支持的功能的详细信息，请参阅 [发行说明](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)。 有关详细信息，请参阅 [适用于 Windows 8 的播放器框架](http://playerframework.codeplex.com/)。 
 
@@ -143,7 +143,7 @@ ms.locfileid: "54333902"
    MediaElement 控件用于播放媒体。 在下一课中，我们使用名为 sliderProgress 的滚动条控件来控制媒体进度。
 3. 按 **CTRL+S** 保存文件。
 
-MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用平滑流式处理支持，必须按文件扩展名和 MIME 类型注册平滑流式处理字节流处理程序。  若要注册，可以使用 Windows.Media 命名空间的 MediaExtensionManager.RegisterByteStremHandler 方法。
+MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用平滑流式处理支持，必须按文件扩展名和 MIME 类型注册平滑流式处理字节流处理程序。  若要注册，可以使用 Windows.Media 命名空间的 MediaExtensionManager.RegisterByteStreamHandler 方法。
 
 在此 XAML 文件中，某些事件处理程序与控件关联。  必须定义这些事件处理程序。
 

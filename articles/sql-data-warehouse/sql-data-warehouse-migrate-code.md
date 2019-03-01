@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: ea682c3d977c71b63fbdc867d102c29ce419beb3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 615b1342ecffcd9856c558bc19ac23cca0892ee2
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649220"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833336"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>将 SQL 代码迁移到 SQL 数据仓库
 本文介绍了将代码从其他数据库迁移到 SQL 数据仓库时可能需要做出的代码更改。 某些 SQL 数据仓库功能设计为以分布方式运行，因此可以大幅改善性能。 但是，为了保持性能和缩放性，某些功能还无法使用。
@@ -33,7 +33,7 @@ ms.locfileid: "52649220"
 * output 子句
 * 内联用户定义的函数
 * 多语句函数
-* [通用表表达式](#Common-table-expressions)
+* 通用表表达式
 * [递归通用表表达式 (CTE)](#Recursive-common-table-expressions-(CTE)
 * CLR 函数和过程
 * $partition 函数
