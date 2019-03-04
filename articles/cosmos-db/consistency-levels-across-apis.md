@@ -6,27 +6,28 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b8b419157061da5973baf759be0c25cfa9f75503
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 6ef2efa2a446040a1653dbc32568f113426653c1
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309257"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987940"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性级别和 Azure Cosmos DB API
 
-Azure Cosmos DB SQL API 本机支持 Azure Cosmos DB 提供的五个一致性模型。 使用 Azure Cosmos DB 时，SQL API 是默认 API。 
+SQL API 本机支持 Azure Cosmos DB 提供的五个一致性模型。 使用 Azure Cosmos DB 时，SQL API 是默认 API。 
 
-Azure Cosmos DB 还为常用数据库提供对与线路协议兼容的 API 的本机支持。 数据库包括 MongoDB。 数据库既没有提供准确定义的一致性模型，也没有为一致性级别提供由 SLA 支持的保证。 它们通常仅提供 Azure Cosmos DB 提供的五个一致性模型的一个子集。 对于 SQL API，将使用 Azure Cosmos DB 帐户上配置的默认一致性级别。 
+Azure Cosmos DB 还为常用数据库提供对与线路协议兼容的 API 的本机支持。 数据库包括 MongoDB。 数据库既没有提供准确定义的一致性模型，也没有为一致性级别提供由 SLA 支持的保证。 它们通常仅提供 Azure Cosmos DB 提供的五个一致性模型的一个子集。 对于 SQL API，将使用 Azure Cosmos 帐户上配置的默认一致性级别。 
 
 <!-- Not Available on Apache Cassandra, Gremlin, and Azure Tables-->
 <!-- Not Available on Gremlin API and Table API-->
 
-以下各部分介绍了由 MongoDB 3.4 的 OSS 客户端驱动程序请求的数据一致性之间的映射。 本文档还介绍了 MongoDB 对应的 Azure Cosmos DB 一致性级别。
+以下部分显示了 MongoDB 的 OSS 客户端驱动程序所请求的数据一致性与 Azure Cosmos DB 中的对应一致性级别之间的映射。
 
-<!-- Not Available on Apache Cassandra 4.x which use Cassandra API-->
+<!-- Not Available on Apache Cassandra-->
+
 <a name="cassandra-mapping"></a>
 <!-- Not Available on ## Mapping between Apache Cassandra and Azure Cosmos DB consistency levels-->
 <a name="mongo-mapping"></a>
@@ -49,4 +50,4 @@ Azure Cosmos DB 还为常用数据库提供对与线路协议兼容的 API 的�
 
 <!-- Not Available on * [Apache Cassandra features supported by the Azure Cosmos DB Cassandra API](cassandra-support.md)-->
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

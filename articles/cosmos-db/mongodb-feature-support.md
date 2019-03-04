@@ -5,29 +5,29 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 12/26/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 6b0effc66a5eb4918dd1c47acb0003db9bdd9042
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 54722c4f6f348293fa0e5538ea89bdf359713f97
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309286"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987983"
 ---
-# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 支持（针对 MongoDB 功能和语法）
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB：支持的功能和语法
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可通过任何开源 MongoDB 客户端[驱动程序](https://docs.mongodb.org/ecosystem/drivers)与 Azure Cosmos DB 的用于 MongoDB 的 API 通信。 Azure Cosmos DB 的用于 MongoDB 的 API 允许按照 MongoDB [线路协议](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)使用现有的客户端驱动程序。
 
 通过使用 Azure Cosmos DB 的用于 MongoDB 的 API，可以像以往一样从 MongoDB 中受益，并且可使用 Cosmos DB 提供的所有企业功能：[多区域分发](distribute-data-globally.md)、[自动分片](partition-data.md)、可用性和延迟保证、自动编制每个字段的索引、静态加密和备份等。
 
-## <a name="mongodb-protocol-support"></a>MongoDB 协议支持
+## <a name="protocol-support"></a>协议支持
 
-默认情况下，Azure Cosmos DB 的用于 MongoDB 的 API 兼容 MongoDB Server 版本 **3.2**。 支持的运算符以及限制或例外已列在下面。 在 MongoDB 版本 **3.4** 中添加的功能或查询运算符目前以预览版功能形式提供。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB 的用于 MongoDB 的 API。
+默认情况下，Azure Cosmos DB 的 MongoDB API 兼容 MongoDB Server 版本 **3.2**。 支持的运算符以及限制或例外已列在下面。 在 MongoDB 版本 **3.4** 中添加的功能或查询运算符目前以预览版功能形式提供。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB 的用于 MongoDB 的 API。
 
 [MongoDB 聚合管道](#aggregation-pipeline)目前也以单独的预览版功能形式提供。
 
-## <a name="mongodb-query-language-support"></a>MongoDB 查询语言支持
+## <a name="query-language-support"></a>查询语言支持
 
 Azure Cosmos DB 的用于 MongoDB 的 API 为 MongoDB 查询语言构造提供全面的支持。 下面是一个详细列表，列出了目前支持的操作、运算符、阶段、命令和选项。
 
@@ -282,6 +282,9 @@ $centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ 
 $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | 是
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是
 
+## <a name="sort-operations"></a>排序操作
+使用 `findOneAndUpdate` 操作时，支持基于单个字段的排序操作，但不支持基于多个字段的排序操作。
+
 ## <a name="additional-operators"></a>其他运算符
 
 运算符 | 示例 | 说明 
@@ -340,4 +343,4 @@ Cosmos DB 支持服务器端自动分片。 Cosmos DB 不支持手动分片命�
 
 <sup>注意：本文介绍了可与 MongoDB 数据库实现线路协议兼容的 Azure Cosmos DB 功能。Azure 不会运行 MongoDB 数据库来提供此服务。Azure Cosmos DB 并不隶属于 MongoDB, inc.</sup>
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

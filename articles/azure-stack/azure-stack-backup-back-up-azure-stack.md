@@ -12,22 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 509a946907d863b283cfe8f8c02ea8f7a9391c8e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: b9f70544857cdcc64bb25582a86b4d51aaae50e8
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649812"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905348"
 ---
 # <a name="back-up-azure-stack"></a>备份 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 上使用备份就地执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
+在 Azure Stack 上执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
 
 ## <a name="start-azure-stack-backup"></a>启动 Azure Stack 备份
 
@@ -121,4 +122,4 @@ ms.locfileid: "52649812"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解从数据丢失事件恢复的工作流程。 请参阅[从灾难性数据丢失中恢复](azure-stack-backup-recover-data.md)。
+详细了解[从数据丢失事件恢复](azure-stack-backup-recover-data.md)的工作流程。

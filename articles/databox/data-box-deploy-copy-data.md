@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 01/28/2019
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: b2a2495b2816290a95a6df37b5c5dc6f96b0cc58
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 26cabcc94b70a51822b0038351cfaf83ada1d7f8
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666651"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905421"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教程：通过 SMB 将数据复制到 Azure Data Box
 
@@ -91,7 +91,11 @@ ms.locfileid: "56666651"
 
     **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
     
-     
+如果使用 Linux 客户端，请使用以下命令来装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入适当的版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+
+    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    
+
 
 ## <a name="copy-data-to-data-box"></a>将数据复制到 Data Box
 

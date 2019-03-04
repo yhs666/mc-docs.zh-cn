@@ -12,24 +12,24 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/13/2018
-ms.date: 12/17/2018
+origin.date: 01/16/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8c100ed4349864d10c8a841228f1b735dd206aa5
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.reviewer: anwestg
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: 06bea4352092734de9af5c4d57839fee71567927
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059003"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905424"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。
->
->
+> 请将 1809 更新或更高版本应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。 在更新资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 遵循本文中的说明可以升级部署在处于以下状态的 Azure Stack 环境中的[应用服务资源提供程序](azure-stack-app-service-overview.md)：
 

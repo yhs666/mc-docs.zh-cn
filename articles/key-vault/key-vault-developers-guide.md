@@ -2,20 +2,20 @@
 title: Azure 密钥保管库开发人员指南
 description: 开发人员可以使用 Azure 密钥保管库来管理 Azure 环境中的加密密钥。
 services: key-vault
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
 origin.date: 10/12/2017
-ms.date: 10/22/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 454c4cdfe00a403175e2ef0bf71fee6e251bbce2
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 5ae3d539f74aff5b33449bca2e66f7423af1cbab
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676894"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903134"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -61,7 +61,7 @@ ms.locfileid: "52676894"
 使用密钥保管库中的密钥、机密或证书前，请通过 CLI、PowerShell、资源管理器模板或 REST 创建和管理密钥保管库，如以下文章所述：
 
 - [使用 CLI 创建和管理 Key Vault](key-vault-manage-with-cli2.md)
-- [使用 PowerShell 创建和管理 Key Vault](key-vault-get-started.md)
+- [使用 PowerShell 创建和管理 Key Vault](key-vault-overview.md)
 - [通过 Azure Resource Manager 模板创建密钥保管库并添加机密](../azure-resource-manager/resource-manager-template-keyvault.md)
 - [使用 REST 创建和管理 Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
 
@@ -149,8 +149,8 @@ ms.locfileid: "52676894"
 
 ## <a name="social"></a>社交
 
-- [密钥保管库博客](http://aka.ms/kvblog)
-- [密钥保管库论坛](http://aka.ms/kvforum)
+- [密钥保管库博客](https://aka.ms/kvblog)
+- [密钥保管库论坛](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>支持库
 

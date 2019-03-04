@@ -5,17 +5,17 @@ services: automation
 author: WenJason
 ms.author: v-jay
 origin.date: 01/15/2019
-ms.date: 02/18/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: efb77f08b2642bf0485fd70f325bdad64df5efe8
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 44807747a3bb79fe1da7cc948c02c9f58205e08b
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302974"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987110"
 ---
 # <a name="create-an-azure-automation-account"></a>创建 Azure 自动化帐户
 

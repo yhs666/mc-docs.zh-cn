@@ -12,30 +12,31 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: d94ccaed3f1d7fedd9a7fe79427d5225bfbb1efb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 2d886733ddbc6984285169e8866faaff0f913bc2
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643956"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905353"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
-如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本指南概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。
+如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本文概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。
 
 ## <a name="understand-the-builds"></a>了解版本
 
 ### <a name="integrated-systems"></a>集成系统
 
-如果使用 Azure Stack 集成系统，则会通过更新包分发更新版的 Azure Stack。 可以通过管理员门户中的“更新”磁贴导入并应用这些包。
+如果使用 Azure Stack 集成系统，则会通过更新包分发更新版的 Azure Stack。 可以通过管理员门户中的“更新”磁贴导入并应用这些包。 不支持更新 ASDK 安装。 
  
 ### <a name="development-kit"></a>开发工具包
 
-如果使用 Azure Stack 开发工具包，请参阅[什么是 Azure Stack？](asdk/asdk-what-is.md)一文，确保了解该开发工具包的用途和限制。 应该将开发工具包作为“沙盒”使用，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用。 （有关部署信息，请参阅 [Azure Stack 开发工具包部署](asdk/asdk-install.md)一文。）
+如果使用 Azure Stack 开发工具包，请参阅[什么是 Azure Stack？](./asdk/asdk-what-is.md)一文，确保了解该开发工具包的用途和限制。 应该将开发工具包作为“沙盒”使用，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用。 （有关部署信息，请参阅 [Azure Stack 开发工具包部署](./asdk/asdk-install.md)一文。）
 
-正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果开发包正在运行，但需要更新到最新版本，则必须[重新部署 Azure Stack](asdk/asdk-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
+正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果开发包正在运行，但需要更新到最新版本，则必须[重新部署 Azure Stack](./asdk/asdk-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
 
 ## <a name="learn-about-available-services"></a>了解可用的服务
 
@@ -64,7 +65,7 @@ ms.locfileid: "52643956"
 
 **服务路线图**
 
-Azure Stack 会持续增加对 Azure 服务的支持。 如需计划的路线图，请参阅 [Azure Stack: An extension of Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)（Azure Stack：Azure 的扩展）白皮书。 也可留意 [Azure Stack 博客文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)中的新公告。
+Azure Stack 会持续增加对 Azure 服务的支持。 有关计划的路线图，请参阅 [Azure Stack：Azure 的扩展](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)白皮书。 也可留意 [Azure Stack 博客文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)中的新公告。
 
 ## <a name="what-account-should-i-use"></a>我应使用什么帐户?
 管理 Azure Stack 时，应该注意帐户方面的几个事项， 尤其是在使用 Windows Server Active Directory 联合身份验证服务 (AD FS) 而不是 Azure Active Directory (Azure AD) 作为标识提供者的部署中。 以下帐户注意事项同时适用于 Azure Stack 集成系统和 ASDK 部署：
@@ -82,7 +83,7 @@ Azure Stack 会持续增加对 Azure 服务的支持。 如需计划的路线图
  
 可以使用[管理员门户](azure-stack-manage-portals.md)或 PowerShell 来管理 Azure Stack。 若要了解基本概念，最简单的方式是使用门户。 若要使用 PowerShell，则需完成准备步骤。 必须[安装](azure-stack-powershell-install.md) PowerShell，[下载](azure-stack-powershell-download.md)更多的模块，然后[配置](azure-stack-powershell-configure-admin.md) PowerShell。
 
-Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，应了解资源管理器。 请参阅 [Azure 资源管理器入门](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)白皮书。
+Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，应了解资源管理器。 请参阅 [Azure 资源管理器入门](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)白皮书。
 
 ## <a name="your-typical-responsibilities"></a>典型责任
 
@@ -109,7 +110,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 在 Azure Stack 中使用服务和开发应用之前，用户必须了解某些信息。 例如，必须了解特定的 PowerShell 和 API 版本要求。 另外，Azure 中的服务与 Azure Stack 中的相应服务存在一些功能差异。 请确保用户参阅以下文章：
 
-- [重要注意事项：使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用](user/azure-stack-considerations.md)
+- [重要注意事项：使用 Azure Stack 的服务或构建适用于 Azure Stack 的应用](user/azure-stack-considerations.md)
 - [Azure Stack 中虚拟机的注意事项](user/azure-stack-vm-considerations.md)
 - [存储：差异和注意事项](user/azure-stack-acs-differences.md)
 

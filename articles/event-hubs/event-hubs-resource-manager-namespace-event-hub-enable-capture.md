@@ -1,5 +1,5 @@
 ---
-title: 使用模板创建 Azure 事件中心命名空间并启用捕获 | Azure
+title: 创建启用了捕获的事件中心 - Azure 事件中心 | Azure Docs
 description: 使用 Azure 资源管理器模板创建包含一个事件中心的 Azure 事件中心命名空间并启用捕获
 services: event-hubs
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 11/05/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 69d47eb70912580928fcae64459ee028e6b97273
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 716f8676eea7964b1297c855de622b84819b19ee
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652161"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903011"
 ---
 <!--Verify successfully-->
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用模板通过事件中心创建一个命名空间并启用捕获
@@ -305,10 +305,12 @@ ms.locfileid: "52652161"
 
 ## <a name="powershell"></a>PowerShell
 
-部署模板，允许事件中心捕获将事件捕获到 Azure 存储中：
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+部署模板，允许事件中心捕获将事件捕获到 Azure 存储中：
+ 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
 <!-- Not Availalble on Azure Data Lake Store and corresponding code -->

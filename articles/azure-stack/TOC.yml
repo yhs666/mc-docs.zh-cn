@@ -203,6 +203,8 @@ items:
       href: azure-stack-rotate-secrets.md
     - name: 更新防病毒定义
       href: azure-stack-security-av.md
+    - name: 日志收集和数据处理
+      href: azure-stack-data-collection.md
   - name: 充实市场
     items:
     - name: 市场概述
@@ -276,8 +278,6 @@ items:
       href: azure-stack-app-service-capacity-planning.md
     - name: 准备工作
       href: azure-stack-app-service-before-you-get-started.md
-    - name: 如何跨容错域在 Azure Stack 上重新分配 Azure 应用服务
-      href: azure-stack-app-service-fault-domain-update.md
     - name: 部署应用服务资源提供程序
       href: azure-stack-app-service-deploy.md
     - name: 脱机部署应用服务
@@ -381,9 +381,9 @@ items:
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 7a5f615a2d84136130eb67c55a7b79b1dbf0b137
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 074e91c256f346bfc19eefba1c83838a51856919
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218303"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905400"

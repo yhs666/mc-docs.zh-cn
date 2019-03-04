@@ -12,23 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 9b15859dd240f24856fcae9823518464fbfc5bcc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: e434afe6b396cd23f60085b3b22d6baf5cd2de6b
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650633"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905439"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中添加更多的缩放单元节点
 
-Azure Stack 操作员可以通过添加更多的物理计算机来提高现有缩放单元的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点同源。
-
-> [!NOTE]  
-必须运行 Azure Stack 1807 或更高版本才能添加更多的缩放单元节点。
+Azure Stack 操作员可以通过添加更多的物理计算机来提高现有缩放单元的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。
 
 若要添加某个缩放单元节点，请在 Azure Stack 中操作并运行硬件设备制造商 (OEM) 提供的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
 
@@ -106,6 +104,7 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 
 ### <a name="status-for-the-add-node-operation"></a>“添加节点”操作的状态 
 **对于缩放单元：**
+
 |状态               |说明  |
 |---------------------|---------|
 |正在运行              |所有节点都积极参与缩放单元。|
@@ -116,6 +115,7 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 
 
 **对于缩放单元节点：**
+
 |状态                |说明  |
 |----------------------|---------|
 |正在运行               |节点都积极参与缩放单元。|
@@ -129,17 +129,17 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 ## <a name="troubleshooting"></a>故障排除
 下面是添加节点时的常见问题。 
 
-**场景 1：**“添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
-- 修正：使用修复操作来修复一个或多个节点。 一次只能运行一个修复操作。
+**场景 1：**“添加缩放单元节点”操作失败，但一个或多个节点在列出时其状态为“已停止”。  
+- 补救措施：使用修复操作来修复一个或多个节点。 一次只能运行一个修复操作。
 
 **场景 2：** 添加了一个或多个缩放单元节点，但存储扩展失败。 在这种情况下，缩放单元节点对象报告的状态为“正在运行”，但“配置存储”任务未启动。  
-- 修正：通过运行以下 PowerShell cmdlet，使用特权终结点来查看存储运行状况：
+- 补救措施：通过运行以下 PowerShell cmdlet，使用特权终结点来查看存储运行状况：
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
 **场景 3：** 收到一个警报，指出存储横向扩展作业失败。  
-- 修正：在这种情况下，存储配置任务已失败。 此问题需要联系支持部门。
+- 补救措施：在这种情况下，存储配置任务已失败。 此问题需要联系支持部门。
 
 
 ## <a name="next-steps"></a>后续步骤 

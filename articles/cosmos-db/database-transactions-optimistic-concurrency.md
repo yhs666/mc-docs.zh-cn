@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1757743c13214ee3bfdcba005afe68a13d4cda54
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: a0b257d87ad83747f802e7bd5ee843bfb23cc8fc
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309132"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987997"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>数据库事务和乐观并发控制
+# <a name="transactions-and-optimistic-concurrency-control"></a>事务和乐观并发控制
 
 数据库事务提供一种安全且可预测的编程模型来处理数据的并发更改。 利用 SQL Server 等传统关系数据库，你可以使用存储过程和/或触发器编写业务逻辑，然后将其发送到该服务器以便直接在数据库引擎中执行。 使用传统关系数据库时需要处理两种不同的编程语言 - 非事务性应用程序编程语言（例如 JavaScript、Python、C#、Java 等）和由数据库本机执行的事务性编程语言 (T-SQL)。
 
@@ -56,7 +56,7 @@ Azure Cosmos DB 的通信协议层对项的并发更新受 OCC 限制。 Azure C
 
 存储在 Azure Cosmos 容器中的每个项都具有系统定义的 `_etag` 属性。 每次更新项时，`_etag` 的值都由服务器自动生成和更新。 `_etag` 可与客户端提供的 if-match 标头配合使用，使服务器能够决定是否可以条件性地更新某项。 如果 if-match 标头的值与服务器上的 `_etag` 的值匹配，则会更新该项。 如果 if-match 请求标头值不再是最新值，则服务器会拒绝该操作，并提供“HTTP 412 前置条件失败”响应消息。 然后客户端可重新提取该项，以在服务器上获取该项的当前版本，或用该项自己的 `_etag` 值覆盖服务器中该项的版本。 此外，`_etag` 可以与 if-none-match 标头配合使用，以确定是否需要重新提取资源。 
 
-每次更新项时，项的 __etag 值都会发生更改。 对于替换项操作，必须在请求选项中显式表达 if-match。 有关示例，请参阅 [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446) 中的示例代码。 将对存储过程接触的所有写入项隐式检查 `__etag` 值。 如果检查到任何冲突，存储过程将回退事务并引发异常。 通过此方法，将以原子方式应用存储过程中的所有写入内容或不应用任何写入内容。 这是应用程序重新应用更新并重试原始客户端请求的信号。
+每次更新项时，项的 _etag 值都会发生更改。 对于替换项操作，必须在请求选项中显式表达 if-match。 有关示例，请参阅 [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446) 中的示例代码。 将对存储过程接触的所有写入项隐式检查 `_etag` 值。 如果检查到任何冲突，存储过程将回退事务并引发异常。 通过此方法，将以原子方式应用存储过程中的所有写入内容或不应用任何写入内容。 这是应用程序重新应用更新并重试原始客户端请求的信号。
 
 ## <a name="next-steps"></a>后续步骤
 

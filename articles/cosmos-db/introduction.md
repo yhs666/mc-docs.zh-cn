@@ -5,21 +5,21 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: overview
 origin.date: 12/18/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f8509796b93887c94b555cc4523349edeeba4a63
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 61d8b64836182b179dae6e93d626ae3542fbbb6d
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309318"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987897"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
 如今的应用程序需要具备高响应能力并始终联机。 若要实现低延迟和高可用性，需要在靠近用户的数据中心部署这些应用程序的实例。 应用程序需要实时响应高峰期的重大用量变化，存储不断增长的数据，并在数毫秒内向用户提供此数据。
 
-Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 可以弹性缩放吞吐量和存储，并使用你偏爱的 API 在 SQL 与 MongoDB 之间以 10 毫秒以下的延迟快速访问数据。 Cosmos DB 在吞吐量、延迟和可用性方面提供全面的[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 和一致性保证，这是其他数据库服务无法提供的。
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 只需单击一个按钮，即可通过 Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 可以弹性缩放吞吐量和存储，并使用你偏爱的 API 在 SQL 与 MongoDB 之间以 10 毫秒以下的延迟快速访问数据。 Cosmos DB 在吞吐量、延迟和可用性方面提供全面的[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 和一致性保证，这是其他数据库服务无法提供的。
 
 <!--Not Available on  Cassandra, Tables, or Gremlin-->
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
@@ -32,19 +32,16 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 ### <a name="turnkey-multiple-region-distribution"></a>统包式多区域分布
 
 利用 Cosmos DB，可在中国全境范围内生成具有高响应能力和可用性的应用程序。 不管用户位于何处，Cosmos DB 都能以透明方式复制你的数据，使用户能够与最靠近的数据副本交互。
-<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
-Cosmos DB 允许随时在 Cosmos 帐户中添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将数据无缝复制到与 Cosmos 帐户关联的所有区域，同时，得益于该服务的多宿主功能，应用程序可持续保持高可用性。
+Cosmos DB 允许随时在 Cosmos 帐户中添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将数据无缝复制到与 Cosmos 帐户关联的所有区域，同时，得益于该服务的多宿主功能，应用程序可持续保持高可用性。 有关详细信息，请参阅[多区域分布](distribute-data-globally.md)一文。
 
-有关详细信息，请参阅[多区域分布](distribute-data-globally.md)一文。
-
-### <a name="always-on"></a>始终联机
+### <a name="always-on"></a>Always On
 
 Cosmos DB 与 Azure 基础结构和[透明多主数据库复制](global-dist-under-the-hood.md)深度集成，为读写操作提供 99.999% 的[高可用性](high-availability.md)。 Cosmos DB 还可让你以编程方式（或通过门户）调用 Cosmos 帐户的区域性故障转移。 此功能有助于确保在发生区域性灾难时，Cosmos 数据库可以自动故障转移，同时应用程序的剩余部分也能故障转移。
 
 ### <a name="elastic-scalability-of-throughput-and-storage-around-china"></a>中国全境范围内的吞吐量和存储可弹性缩放
 
-Cosmos DB 采用透明水平分区和多主数据库复制设计，为中国全境范围内的读写操作提供前所未有的弹性缩放能力。 在中国境内，只需发出一次 API 调用，即可将每秒数千个请求弹性扩展到数百万个请求，而你只需为实际使用的吞吐量（和存储）付费。 此功能可帮助你处理工作负荷的意外激增，而无需针对峰值过度预配资源。 请参阅 [Cosmos DB 中的分区](partitioning-overview.md)、[容器和数据库的预配吞吐量](set-throughput.md)和[全局缩放预配的吞吐量](scaling-throughput.md)。
+Cosmos DB 采用透明水平分区和多主数据库复制设计，为中国全境范围内的读写操作提供前所未有的弹性缩放能力。 在中国境内，只需发出一次 API 调用，即可将每秒数千个请求弹性扩展到数百万个请求，而你只需为实际使用的吞吐量（和存储）付费。 此功能可帮助你处理工作负荷的意外激增，而无需针对峰值过度预配资源。 请参阅 [Cosmos DB 中的分区](partitioning-overview.md)、[容器和数据库的预配吞吐量](set-throughput.md)和[缩放中国预配的吞吐量](scaling-throughput.md)。
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-around-china"></a>在中国境内保证 99% 时间内的低延迟
 
@@ -52,21 +49,22 @@ Cosmos DB 采用透明水平分区和多主数据库复制设计，为中国全�
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>精确定义的多个一致性选项
 
-不再需要[在一致性、可用性、延迟和可编程性之间做出顾此失彼的取舍](consistency-levels-tradeoffs.md)。 Cosmos DB 的多主数据库复制协议经过精心设计，提供[五个妥善定义的一致性选项](consistency-levels.md) - 非常一致性、有限过期一致性、一致前缀、会话一致性和最终一致性 - 可为多区域分布式应用程序提供直观的编程模型以及低延迟和高可用性。
+不再需要[在一致性、可用性、延迟和吞吐量之间进行极端的权衡](consistency-levels-tradeoffs.md)。 Cosmos DB 的多主数据库复制协议经过精心设计，提供[五个妥善定义的一致性选项](consistency-levels.md) - 非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性 - 可为多区域分布式应用程序提供直观的编程模型以及低延迟和高可用性。
 
 ### <a name="no-schema-or-index-management"></a>无需架构或索引管理
 
-对于多区域分布式应用而言，使数据库架构和索引与应用程序的架构保持同步非常棘手。 但是，如果使用 Cosmos DB，则不需要处理架构或索引。 数据库引擎完全与架构无关。  由于不需要进行架构和索引管理，因此也就不需要担心迁移架构时应用程序会关闭。 Cosmos DB [自动为所有数据编制索引](index-policy.md) - 无需架构和索引 - 可以快速为查询提供服务。
+对于多区域分布式应用而言，使数据库架构和索引与应用程序的架构保持同步非常棘手。 但是，借助 Cosmos DB，则无需处理架构或索引管理。 数据库引擎完全与架构无关。  由于不需要进行架构和索引管理，因此也就不需要担心迁移架构时应用程序会关闭。 Cosmos DB [自动为所有数据编制索引](index-policy.md)，并可快速提供查询服务。
 
 ### <a name="battle-tested-database-service"></a>在实战中检验的数据库服务
 
-Cosmos DB 是 Azure 上的一项基本服务。 近十年以来，世纪互联的大量多区域规模任务关键应用程序产品使用了 Cosmos DB，其中包括 Skype、Xbox、Office 365、Azure，等等。 目前，Cosmos DB 是 Azure 上发展速度最快的服务之一，已由许多外部客户和应用程序使用，可以解决弹性缩放和/或统包式多数据中心、多区域、多主数据库复制，以及为读写操作提供低延迟和高可用性的需求。
+Cosmos DB 是 Azure 中的一项基本服务。 近十年以来，世纪互联的大量多区域规模任务关键应用程序产品使用了 Cosmos DB，其中包括 Skype、Xbox、Office 365、Azure，等等。 目前，Cosmos DB 是 Azure 上发展速度最快的服务之一，已由许多外部客户和应用程序使用，可以解决弹性缩放和/或统包式多数据中心、多区域、多主数据库复制，以及为读写操作提供低延迟和高可用性的需求。
 
 ### <a name="ubiquitous-regional-presence"></a>遍及各个区域
 
-Cosmos DB 面向中国的所有 Azure 区域提供。 请参阅 [Cosmos DB 的区域覆盖范围](regional-presence.md)。
+Cosmos DB 在中国各地的所有 Azure 中国区域提供。 请参阅 [Cosmos DB 的区域覆盖范围](regional-presence.md)。
 
 <!--Not Available on including 54+ regions in public cloud, Azure China 21Vianet-->
+
 ### <a name="secure-by-default-and-enterprise-ready"></a>默认安全且企业就绪
 
 Cosmos DB 通过了[广泛的合规标准](compliance.md)认证。 此外，Cosmos DB 中的所有数据经过静态和动态加密。 Cosmos DB 提供行级授权，并遵守严格的安全标准。
@@ -98,11 +96,11 @@ Cosmos DB 还直接在服务中实现 [MongoDB](mongodb-introduction.md) 网络�
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>受益于 Azure Cosmos DB 的解决方案
 
-任何 [Web、移动、游戏和 IoT 应用程序](use-cases.md)，只要其需要处理大量的数据和[全局](distribute-data-globally.md)规模的读写操作，各种数据的响应时间接近实时，就可以充分利用 Azure Cosmos DB 所[保证的](https://www.azure.cn/support/sla/cosmos-db/)高可用性、高吞吐量、低延迟以及可调的一致性。 了解如何将 Azure Cosmos DB 应用于 [IoT 和 远程信息处理](use-cases.md#iot-and-telematics)、[零售和营销](use-cases.md#retail-and-marketing)、[游戏](use-cases.md#gaming)以及 [Web 和移动应用程序](use-cases.md#web-and-mobile-applications)。
+任何 [Web、移动、游戏和 IoT 应用程序](use-cases.md)，只要其需要处理大量的数据和[全局](distribute-data-globally.md)规模的读写操作，各种数据的响应时间接近实时，就可以充分利用 Cosmos DB 所[保证的](https://www.azure.cn/support/sla/cosmos-db/)高可用性、高吞吐量、低延迟以及可调的一致性。 了解如何将 Azure Cosmos DB 用于生成 [IoT 和 远程信息处理](use-cases.md#iot-and-telematics)、[零售和营销](use-cases.md#retail-and-marketing)、[游戏](use-cases.md#gaming)以及 [Web 和移动应用程序](use-cases.md#web-and-mobile-applications)。
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 Cosmos DB 的[多区域分布](distribute-data-globally.md)和[分区](partitioning-overview.md)功能。
+详细了解 Cosmos DB 的[统包式多区域分布](distribute-data-globally.md)和[分区](partitioning-overview.md)功能。
 
 请通过阅读以下快速入门文章之一，来开始使用 Azure Cosmos DB：
 
@@ -112,4 +110,5 @@ Cosmos DB 还直接在服务中实现 [MongoDB](mongodb-introduction.md) 网络�
 <!--Not Available on * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)-->
 <!--Not Available on * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)-->
 <!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)-->
+
 <!--Update_Description: update meta properties, wording update -->

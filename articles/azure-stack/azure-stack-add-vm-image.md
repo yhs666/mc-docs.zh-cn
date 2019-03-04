@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-origin.date: 01/18/2019
-ms.date: 02/18/2019
+origin.date: 2/19/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ec517a01e848b6b0f168d1f5b4eaf22c218aa5df
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 28d06af57ee45002b2642d7d5736771285fa8666
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218304"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905462"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机映像
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 中，可以使虚拟机映像可供用户使用。 可以让 Azure 资源管理器模板引用这些映像，也可以将它们作为市场项添加到 Azure 市场 UI。 可以使用来自全球 Azure 市场的映像，也可以添加自己的自定义映像。 可以使用门户或 Windows PowerShell 添加 VM。
+在 Azure Stack 中，可以使虚拟机映像可供用户使用。 Azure 资源管理器模板可以使用这些映像。 还可以将这些映像作为市场项目添加到 Azure 市场 UI。 可以使用来自全球 Azure 市场的映像，也可以使用自己的自定义映像。 可以使用门户或 Windows PowerShell 添加映像。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>通过门户添加 VM 映像
 

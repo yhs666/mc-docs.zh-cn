@@ -11,22 +11,23 @@ ms.workload: mobile
 ms.devlang: na
 ms.topic: sample
 origin.date: 11/16/2017
-ms.date: 08/13/2018
+ms.date: 03/11/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: d6d22cc40939cd05b90f94a93e6e72893b103590
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7f3f1833a150654665f1497966b1f4f473f6341c
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648206"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196647"
 ---
 # <a name="backup-and-restore-service"></a>备份和还原服务
 
 本文中显示的此示例演示如何备份和还原 API 管理服务实例。 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 1.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/en-us//powershell/azure/install-Az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 来创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -76,10 +77,10 @@ Restore-AzureRmApiManagement -ResourceGroupName $resourceGroupName -Name $apiMan
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us//powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令将其删除。
+如果不再需要资源组和所有相关资源，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/en-us//powershell/module/az.resources/remove-azresourcegroup) 命令将其删除。
 
 ```azurepowershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤

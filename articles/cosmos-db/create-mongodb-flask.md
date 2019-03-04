@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: e1aa8cc1e40d1cb3e047e7f17a7bef44e919d587
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.date: 03/04/2019
+ms.openlocfilehash: a71a77d7ca114d63dad1906bc2210544eb16480e
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333900"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988035"
 ---
-# <a name="build-a-flask-app-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 构建 Flask 应用
+# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 Python 应用
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -137,9 +137,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="deploy-to-azure"></a>“部署到 Azure”
 
-若要部署此应用，可在 Azure 中创建新的 Web 应用，并使用此 GitHub 存储库分支启用持续部署。 按照此[教程](/app-service-web/app-service-continuous-deployment)，在 Azure 中使用 GitHub 设置持续部署。
-
-<!--URL is Correct on [tutorial](/app-service-web/app-service-continuous-deployment)-->
+若要部署此应用，可在 Azure 中创建新的 Web 应用，并使用此 GitHub 存储库分支启用持续部署。 按照此[教程](/app-service/deploy-continuous-deployment)，在 Azure 中使用 GitHub 设置持续部署。
 
 部署到 Azure 时，应删除应用程序密钥并确保以下部分未被注释掉：
 

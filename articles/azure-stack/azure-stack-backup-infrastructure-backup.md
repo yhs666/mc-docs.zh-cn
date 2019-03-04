@@ -10,16 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/25/2018
-ms.date: 12/17/2018
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 17ef59e4565fa9f71c07bd65cf0f58c8f70452d3
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 0ae50086aa502dd180e5afdfccafd73b9df6380f
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396116"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905356"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 
@@ -52,14 +53,18 @@ ms.locfileid: "53396116"
   需要可从 Azure Stack 访问的文件共享，其中可以包含七个备份。 每个备份大约为 10 GB。 共享应能够存储 140 GB 的备份。 有关为 Azure Stack 基础结构备份服务选择存储位置的详细信息，请参阅[备份控制器要求](azure-stack-backup-reference.md#backup-controller-requirements)。
 - **凭据**  
   需要域用户帐户和凭据，例如，可以使用 Azure Stack 管理员凭据。
-- **加密密钥**  
-  使用此密钥加密备份文件。 请确保将此密钥存储在安全位置。 首次设置此密钥或将来轮换密钥后，都无法从此界面查看此密钥。 有关生成预共享密钥的详细说明，请按照[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)中的脚本进行操作。
+- **加密证书**  
+  备份文件使用证书中的公钥加密。 请确保将此证书存储在安全位置。 
+
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[从管理门户为 Azure Stack 启用备份](azure-stack-backup-enable-backup-console.md)。
-- 了解如何[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
-- 了解如何[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- 了解如何[从灾难性数据丢失中恢复](azure-stack-backup-recover-data.md)
+了解如何[从管理门户为 Azure Stack 启用备份](azure-stack-backup-enable-backup-console.md)。
+
+了解如何[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
+
+了解如何[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+
+了解如何[从灾难性数据丢失中恢复](azure-stack-backup-recover-data.md)
 
 <!-- Update_Description: link update -->

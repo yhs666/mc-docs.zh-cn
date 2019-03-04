@@ -10,16 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 12/14/2018
-ms.date: 12/31/2018
+origin.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 7bdff9647286d86a08929abb7c3a116878e8b1a3
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 5c26f81ca3f3f5661d44e567e246f5607891290b
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814616"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905349"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -38,24 +39,22 @@ ms.locfileid: "53814616"
 
 需要可以直接访问 Azure Stack 或 VPN 连接，存储资源管理器才能访问 Azure Stack 订阅。 若要了解如何设置到 Azure Stack 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
 
-若是 Azure Stack 开发工具包，需要导出 Azure Stack 颁发机构根证书。
+对于 Azure Stack 开发工具包 (ASDK)，需要导出 Azure Stack 颁发机构根证书。
+
+> [!Note]  
+> 对于 ASDK，如果要通过 VPN 连接到 ASDK，请不要使用在 VPN 设置过程中创建的根证书 (CA.cer)。  这是 DER 编码的证书，不允许存储资源管理器检索 Azure Stack 订阅。 请按照以下步骤导出 Base-64 编码证书，以用于存储资源管理器。
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>导出然后导入 Azure Stack 证书
+
+导出然后导入 ASDK 的 Azure Stack 证书。 对于集成系统，证书是公开签名的。 因此，在设置存储资源管理器与 Azure Stack 集成系统的连接时，不需要执行此步骤。
 
 1. 在 Azure Stack 主机或已与 Azure Stack 建立 VPN 连接的本地计算机上打开 `mmc.exe`。 
 
 2. 在“文件”中选择“添加/删除管理单元”，并添加“证书”以管理“我的用户帐户”。
 
-3.  在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下。
+3.  在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下。 找到 **AzureStackSelfSignedRootCert**。
 
-    - 对于 ASDK，找到 **AzureStackSelfSignedRootCert**。
-
-        ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
-
-    - 对于集成系统，找到外部证书的根证书。 
-    
-        ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
-        
+    ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. 右键单击该证书，选择“所有任务” > “导出”，并按说明导出 **Base-64 编码 X.509 (.CER)** 证书。
 

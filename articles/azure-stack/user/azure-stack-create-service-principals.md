@@ -11,15 +11,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/12/2018
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 4d4beb922fc14545f5a4b370065907a8713805dd
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 12/12/2018
+ms.openlocfilehash: 32ec53b618a7e1d324bb821f1d7c533c01867cac
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54058992"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905362"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -50,7 +51,7 @@ ms.locfileid: "54058992"
 * 创建适用于 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 的服务主体。
 * 创建适用于 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) 的服务主体。
 
-将服务主体分配到角色的步骤对于 Azure AD 和 AD FS 是相同的。 创建服务主体后，可以通过将其分配到某个角色来[委派权限](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
+将服务主体分配到角色的步骤对于 Azure AD 和 AD FS 是相同的。 创建服务主体后，可以通过将其分配到某个角色来[委派权限](azure-stack-create-service-principals.md)。
 
 ## <a name="create-service-principal-for-azure-ad"></a>为 Azure AD 创建服务主体
 
@@ -73,9 +74,9 @@ ms.locfileid: "54058992"
 
 1. 从 Active Directory 中的“应用注册”，选择应用程序。
 
-2. 复制“应用程序 ID”并将其存储在应用程序代码中。 在引用**应用程序 ID** 时，[示例应用程序](#sample-applications)中的应用程序使用了**客户端 id**。
+2. 复制“应用程序 ID”并将其存储在应用程序代码中。 在引用“应用程序 ID”时，示例应用程序中的应用程序使用“客户端 ID”。
 
-     ![应用程序的应用程序 ID](./media/azure-stack-create-service-principal/image12.png)
+     ![应用程序的应用程序 ID](./media/azure-stack-create-service-principals/image12.png)
 3. 若要生成身份验证密钥，请选择“密钥” 。
 
 4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
@@ -83,9 +84,9 @@ ms.locfileid: "54058992"
 >[!IMPORTANT]
 保存密钥后，将显示密钥**值**。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
 
-![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principal/image15.png)
+![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principals/image15.png)
 
-最后一步是[将应用程序分配到某个角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
+最后一步是[将应用程序分配到某个角色](azure-stack-create-service-principals.md)。
 
 ## <a name="create-service-principal-for-ad-fs"></a>为 AD FS 创建服务主体
 
@@ -110,7 +111,7 @@ ms.locfileid: "54058992"
 
 2. 选择要将应用程序分配到的订阅。 在此示例中，该订阅是 Visual Studio Enterprise。
 
-     ![选择 Visual Studio Enterprise 订阅用于分配](./media/azure-stack-create-service-principal/image16.png)
+     ![选择 Visual Studio Enterprise 订阅用于分配](./media/azure-stack-create-service-principals/image16.png)
 
 3. 选择该订阅的“访问控制(标识和访问管理)”。
 

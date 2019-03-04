@@ -1,26 +1,25 @@
 ---
-title: Azure 快速入门 - 使用 Azure 门户在 Key Vault 中设置和检索机密
+title: Azure 快速入门 - 使用 Azure 门户在 Key Vault 中设置和检索机密 | Azure Docs
 description: 快速入门介绍如何使用 Azure 门户在 Azure Key Vault 中设置和检索机密
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/10/2018
-ms.date: 10/22/2018
+ms.date: 03/11/2018
 ms.author: v-biyu
-ms.openlocfilehash: e6ef41dd252d18f49df9d8f897870f03228fef42
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1abf64e20f019659c70e05554d7529365664f679
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649152"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903158"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索机密
 
@@ -42,16 +41,16 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 4. 在“Key Vault”部分，选择“创建”。
 5. 在“创建密钥保管库”部分，提供以下信息：
     - **名称**：必须提供唯一的名称。 对于本快速入门，请使用 **Contoso-vault2**。 
-    - **订阅**：选择一个订阅。
+    - **订阅**：选择订阅。
     - 在“资源组”下选择“新建”，然后输入资源组名称。
     - 在“位置”下拉菜单中选择一个位置。
     - 勾选“固定到仪表板”复选框。
     - 让其他选项保留默认值。
 6. 提供上述信息后，选择“创建”。
 
-记下下面列出的两项属性：
+请记下下面列出的两个属性：
 
-* **保管库名称**：在本示例中为 **Contoso-Vault2**。 将在其他步骤中使用此名称。
+* **保管库名称**：在本示例中，此项为 **Contoso-Vault2**。 将在其他步骤中使用此名称。
 * **保管库 URI**：在本示例中，此项为 https://contoso-vault2.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 目前，只有你的 Azure 帐户有权对这个新保管库执行操作。
@@ -60,14 +59,14 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
 
-只需再执行几个步骤即可向保管库添加机密。 在此示例中，我们将添加可供应用程序使用的密码。 此密码名为 **ExamplePassword**，我们在其中存储的值为 **Pa$$w0rd**。
+只需再执行几个步骤即可向保管库添加机密。 在此示例中，我们将添加可供应用程序使用的密码。 此密码名为 **ExamplePassword**，我们在其中存储的值为 **hVFkk965BuUv**。
 
 1. 在 Key Vault 属性页中，选择“机密”。
 2. 单击“生成/导入”。
 3. 在“创建机密”屏幕上，选择以下值：
     - **上传选项**：手动。
     - **名称**：ExamplePassword。
-    - **值**：Pa$$w0rd。
+    - **值**：hVFkk965BuUv
     - 让其他值保留默认设置。 单击**创建**。
 
 收到机密已成功创建的消息后，即可单击列表中的该机密， 然后就可以看到某些属性。 如果单击当前版本，则可看到在上一步指定的值。

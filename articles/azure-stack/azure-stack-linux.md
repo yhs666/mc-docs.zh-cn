@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/16/2018
-ms.date: 12/17/2018
+origin.date: 02/15/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 6cf973407d61cc2c94b04c6093659f7f2ab12b95
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: unknown
+ms.lastreviewed: 11/16/2018
+ms.openlocfilehash: 635452681d9c9542310d5a500038c4cec5057327
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396127"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905369"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>将 Linux 映像添加到 Azure Stack
 
@@ -36,9 +37,9 @@ ms.locfileid: "53396127"
 
 ## <a name="prepare-your-own-image"></a>准备自己的映像
 
-只要有可能，请下载通过市场管理提供的映像，这些映像已针对 Azure Stack 进行了准备和测试。 
- 
-Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用版本 2.2.18 或更高版本。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
+只要有可能，请下载通过市场管理提供的映像，这些映像已针对 Azure Stack 进行了准备和测试。
+
+Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用版本 2.2.20 或更高版本。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
 可以按照以下说明准备自己的 Linux 映像：
 
@@ -48,9 +49,8 @@ Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需�
 * [SLES 和 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-    
 ## <a name="add-your-image-to-the-marketplace"></a>将映像添加到市场
- 
+
 按照[将映像添加到市场](azure-stack-add-vm-image.md)进行操作。 请确保 `OSType` 参数已设置为 `Linux`。
 
 将映像添加到市场 后，便会创建市场项，用户就可以部署 Linux 虚拟机了。

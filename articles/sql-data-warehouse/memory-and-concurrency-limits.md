@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 origin.date: 10/04/2018
-ms.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 28e462c448144727efa0c31c5a5dd91db4f2ad51
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 1ac1b5062a57101c6c61c9038e48eb487da30675
+ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192885"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833408"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的内存和并发限制
 查看分配给 Azure SQL 数据仓库中的各个性能级别和资源类的内存和并发限制。 若要了解详细信息并将这些功能应用于你的工作负荷管理计划，请参阅[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)。 
@@ -79,7 +79,7 @@ ms.locfileid: "54192885"
 
 下表显示了每个[静态资源类](resource-classes-for-workload-management.md)的最大并发查询数和并发槽位数。  
 
-| 服务级别 | 并发查询数上限 | 可用的并发槽位数 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| 服务级别 | 并发查询数上限 | 可用的并发槽位数 | staticrc10 使用的槽数 | staticrc20 使用的槽数 | staticrc30 使用的槽数 | staticrc40 使用的槽数 | staticrc50 使用的槽数 | staticrc60 使用的槽数 | staticrc70 使用的槽数 | staticrc80 使用的槽数 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -134,7 +134,7 @@ ms.locfileid: "54192885"
 
 下表显示了**第 1 代**每个[静态资源类](resource-classes-for-workload-management.md)的最大并发查询数和并发槽位数。
 
-| 服务级别 | 并发查询数上限 | 最大并发槽位数 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| 服务级别 | 并发查询数上限 | 最大并发槽位数 | staticrc10 使用的槽数 | staticrc20 使用的槽数 | staticrc30 使用的槽数 | staticrc40 使用的槽数 | staticrc50 使用的槽数 | staticrc60 使用的槽数 | staticrc70 使用的槽数 | staticrc80 使用的槽数 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -157,7 +157,7 @@ ms.locfileid: "54192885"
 
 下表显示了**第 1 代**每个[动态资源类](resource-classes-for-workload-management.md)的最大并发查询数和并发槽位数。
 
-| 服务级别 | 并发查询数上限 | 可用的并发槽位数 | smallrc | mediumrc | largerc | xlargerc |
+| 服务级别 | 并发查询数上限 | 可用的并发槽位数 | smallrc 使用的槽数 | mediumrc 使用的槽数 | largerc 使用的槽数 | xlargerc 使用的槽数 |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

@@ -11,20 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/25/2018
-ms.date: 12/17/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: quying
-ms.openlocfilehash: 5d671f5af385fab42210a196ba21ba28777fe261
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: e4d224b166061fb23de03eabe8e2e3c1fc3bd1d9
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396156"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905373"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>在 Azure Stack 中使用 SQL 数据库
 
-使用 SQL Server 资源提供程序适配器将 SQL 数据库提供为 [Azure Stack](azure-stack-poc.md) 的一项服务。 安装资源提供程序并将它连接到一个或多个 SQL Server 实例之后，你和用户可以创建：
+使用 SQL Server 资源提供程序将 SQL 数据库作为 [Azure Stack](azure-stack-poc.md) 的一项服务提供。 安装资源提供程序并将其连接到一个或多个 SQL Server 实例之后，你和用户可以创建：
 
 - 适用于云原生应用的数据库。
 - 使用 SQL 的网站。

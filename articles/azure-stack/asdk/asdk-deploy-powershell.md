@@ -13,16 +13,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-origin.date: 09/10/2018
-ms.date: 11/12/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 12ba072a14bceaf894b224c87e245abef790cd7c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 6629e1e991ace9cef83bef4681a070558733f34b
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655118"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905303"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>从命令行部署 ASDK
 ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
@@ -106,7 +107,7 @@ ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Az
 
 在 AD FS 部署中，默认的标记目录服务用作标识提供者。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，而密码则会设置为在 PowerShell 安装命令中提供的密码。
 
-部署过程可能需要数小时，在此期间系统会自动重启一次。 如果部署成功，PowerShell 控制台会显示“完成操作‘部署’”。 如果部署失败，可以尝试使用 -rerun 参数再次运行脚本。 也可从头开始[重新部署 ASDK](asdk-redeploy.md)。
+部署过程可能需要数小时，在此期间系统会自动重启一次。 如果部署成功，PowerShell 控制台会显示“COMPLETE: Action 'Deployment'”。 如果部署失败，可以尝试使用 -rerun 参数再次运行脚本。 也可从头开始[重新部署 ASDK](asdk-redeploy.md)。
 
 > [!IMPORTANT]
 > 若要在 ASDK 主机重启后监视部署进度，必须以 AzureStack\AzureStackAdmin 身份登录。 如果在主机重启（并加入 azurestack.local 域）后以本地管理员身份登录，将看不到部署进度。 请勿重新运行部署，而应以 azurestack 身份登录，验证其是否正在运行。
@@ -134,7 +135,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 如果环境没有启用 DHCP，则必须在上述某个选项中包括下述额外的参数（已提供用法示例）： 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 可选参数
@@ -146,9 +147,6 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |InfraAzureDirectoryTenantAdminCredential|可选|设置 Azure Active Directory 用户名和密码。 这些 Azure 凭据必须是组织 ID。|
 |InfraAzureEnvironment|可选|选择 Azure 环境，以便将此 Azure Stack 部署注册到其中。 选项包括“公共 Azure”、“Azure - 中国”、“Azure - 美国政府”。|
 |DNSForwarder|可选|在 Azure Stack 部署过程中会创建 DNS 服务器。 若要允许解决方案中的计算机解析标记外部的名称，请提供现有的基础结构 DNS 服务器。 标记内 DNS 服务器将未知的名称解析请求转发至此服务器。|
-|NatIPv4Address|DHCP NAT 支持所需|为 MAS-BGPNAT01 设置静态 IP 地址。 仅当 DHCP 无法分配可以访问 Internet 的有效 IP 地址时，才使用此参数。|
-|NatIPv4Subnet|DHCP NAT 支持所需|IP 子网前缀，适用于经 NAT 的 DHCP 支持。 仅当 DHCP 无法分配可以访问 Internet 的有效 IP 地址时，才使用此参数。|
-|PublicVlanId|可选|设置 VLAN ID。 仅当主机和 MAS-BGPNAT01 必须通过配置 VLAN ID 来访问物理网络（和 Internet）时，才使用此参数。 例如，.\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
 |Rerun|可选|使用此标志重新运行部署。 将使用所有以前的输入。 不支持重新输入以前提供的数据，因为已生成多个唯一的值并将其用于部署。|
 
 

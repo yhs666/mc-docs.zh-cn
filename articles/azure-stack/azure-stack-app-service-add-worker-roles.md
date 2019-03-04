@@ -12,18 +12,19 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/08/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
-ms.reviewer: brenduns
-ms.openlocfilehash: cc090f5c1e4ec44cfd957b62ab69f636b5408364
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 02/22/2010
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.reviewer: anwestg
+ms.lastreviewed: 06/08/2018
+ms.openlocfilehash: 52cea6efc77f4ac8c2aba40d7355164a64350736
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656245"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905347"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>基于 Azure Stack 的应用服务：添加更多的基础结构或辅助角色
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上的应用服务：添加更多基础结构或辅助角色
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*  
 
@@ -37,11 +38,6 @@ ms.locfileid: "52656245"
 如果不确定默认的基于 Azure Stack 的应用服务安装的部署内容，可以参阅[基于 Azure Stack 的应用服务概述](azure-stack-app-service-overview.md)以获取更多信息。
 
 基于 Azure Stack 的 Azure 应用服务使用虚拟机规模集来部署所有角色，因此可充分利用此工作负荷的缩放功能。 因此，辅助角色层的所有缩放都是通过应用服务管理员完成的。
-
-> [!IMPORTANT]
-> 目前无法按照 Azure Stack 发行说明中介绍的那样在门户中缩放虚拟机规模集，因此请使用 PowerShell 示例进行横向扩展。
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>使用 PowerShell 添加更多辅助角色
 
@@ -80,23 +76,23 @@ ms.locfileid: "52656245"
 
 3. 在“应用服务管理”中监视新角色实例的状态。若要查看单个角色实例的状态，请单击列表中的角色类型。
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>在“应用服务资源提供程序管理”中直接添加更多辅助角色。
+## <a name="add-additional-workers-using-the-administration-portal"></a>使用管理门户添加更多辅助角色
 
 1. 以服务管理员身份登录到 Azure Stack 管理门户。
 
 2. 浏览到“应用服务”。
 
-    ![](./media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. 单击“角色”。 在这里会看到所有已部署的应用服务角色的明细。
 
 4. 右键单击要缩放的类型所在的行，然后单击“ScaleSet”。
 
-    ![](./media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. 单击“缩放”，选择要缩放到的实例数，然后单击“保存”。
 
-    ![](./media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. 基于 Azure Stack 的应用服务此时会添加其他 VM，对其进行配置，安装所有必需的软件，并在此过程完成后将其标记为“就绪”。 此过程可能需要大约 80 分钟。
 
@@ -106,7 +102,7 @@ ms.locfileid: "52656245"
 
 在完全部署并就绪以后，辅助角色即可供用户使用，用户可以将其工作负荷部署到辅助角色上。 下面显示的示例为默认提供的多个定价层。 如果特定的辅助角色层没有可用的辅助角色，则用于选择相应定价层的选项不可用。
 
-![](./media/azure-stack-app-service-add-worker-roles/image04.png)
+![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
 > 若要横向扩展“管理”、“前端”或“发布者”角色，必须横向扩展相应的角色类型。 

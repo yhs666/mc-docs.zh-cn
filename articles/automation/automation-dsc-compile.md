@@ -3,19 +3,19 @@ title: 在 Azure Automation State Configuration 中编译配置
 description: 本文介绍如何为 Azure 自动化编译 Desired State Configuration (DSC) 配置。
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 09/10/2018
-ms.date: 10/01/2018
+ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 509a0ddfb1e563904a6f04f21b4a53d9204cac75
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 52da8a64c96f2f21cf267f0bdc33a371e9ba0c5f
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664021"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987118"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>在 Automation State Configuration 中编译 DSC 配置
 
@@ -131,7 +131,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="composite-resources"></a>复合资源
 
-借助**复合资源**，可将 DSC 配置用作某个配置中的嵌套资源。 这样，便可将多个配置应用到单个资源。 有关**复合资源**的详细信息，请参阅[复合资源：将 DSC 配置用作资源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)。
+借助**复合资源**，可将 DSC 配置用作某个配置中的嵌套资源。 这样，便可将多个配置应用到单个资源。 请参阅[复合资源：将 DSC 配置用作资源](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)，了解有关**复合资源**的详细信息。
 
 > [!NOTE]
 > 若要正确编译**复合资源**，首先必须确保复合资源所依赖的所有 DSC 资源已事先安装在 Azure 自动化帐户模块存储库中，否则复合资源不会正确导入。
@@ -172,7 +172,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
 ## <a name="configurationdata"></a>ConfigurationData
 
-通过 **ConfigurationData** 可在使用 PowerShell DSC 时分开结构化配置与任何环境特定配置。 若要了解有关 [ConfigurationData](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) 的详细信息，请参阅 **Separating "What" from "Where" in PowerShell DSC**（区分 PowerShell DSC 中的“What”与“Where”）。
+通过 **ConfigurationData** 可在使用 PowerShell DSC 时分开结构化配置与任何环境特定配置。 若要了解有关 [ConfigurationData](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) 的详细信息，请参阅 **Separating "What" from "Where" in PowerShell DSC**（区分 PowerShell DSC 中的“What”与“Where”）。
 
 > [!NOTE]
 > 使用 Azure PowerShell 在 Azure Automation State Configuration 中进行编译时，可使用 **ConfigurationData**，但在 Azure 门中编译时不可使用。
@@ -198,7 +198,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-可以使用 PowerShell 编译上述 DSC 配置。 以下 PowerShell 将两个节点配置添加到 Azure Automation State Configuration“拉”服务器：**ConfigurationDataSample.MyVM1** 和 **ConfigurationDataSample.MyVM3**：
+可以使用 PowerShell 编译上述 DSC 配置。 以下 PowerShell 将两个节点配置添加到 Azure Automation State Configuration 拉取服务器：**ConfigurationDataSample.MyVM1** 和 **ConfigurationDataSample.MyVM3**：
 
 ```powershell
 $ConfigData = @{
@@ -262,7 +262,7 @@ Configuration CredentialSample
 }
 ```
 
-可以使用 PowerShell 编译上述 DSC 配置。 以下 PowerShell 将两个节点配置添加到 Azure Automation State Configuration“拉”服务器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
+可以使用 PowerShell 编译上述 DSC 配置。 以下 PowerShell 将两个节点配置添加到 Azure Automation State Configuration 拉取服务器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
 
 ```powershell
 $ConfigData = @{
@@ -285,6 +285,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > 编译完成后，可能会收到一条错误消息：由于已导入“Microsoft.PowerShell.Management”管理单元，因此未导入“Microsoft.PowerShell.Management”模块。 可以安全地忽略此警告。
+
+## <a name="partial-configuration"></a>部分配置
+
+Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs)。
+在此方案中，DSC 配置为独立管理多个配置，并且每个配置都从 Azure 自动化中检索。
+但是，每个自动化帐户只能为一个节点分配一个配置。
+这意味着，如果对节点使用两种配置，则需要两个自动化帐户。
+有关团队如何协作以代码形式使用配置来协作管理服务器的更多信息，请参见[了解 DSC 在 CI/CD 管道中的角色](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced)。
 
 ## <a name="importing-node-configurations"></a>导入节点配置
 

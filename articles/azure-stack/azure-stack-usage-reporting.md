@@ -11,25 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/19/2018
-ms.date: 01/14/2019
+origin.date: 01/16/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 55525f927095b254a902086a058bc171a95732e9
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: e4c9ba78aba8a3794ac1caa7e45ef23ac6db7c9c
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059012"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905339"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据 
+# <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据
 
-用量数据也称为消耗数据，表示使用的资源量。 
+用量数据也称为消耗数据，表示使用的资源量。
 
 使用基于消耗的计费模式的 Azure Stack 多节点系统应向 Azure 报告用量数据，以便计费。 Azure Stack 操作员应将其 Azure Stack 实例配置为向 Azure 报告用量数据。
 
-> [!NOTE]
-> 根据即用即付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)）。 对于 Azure Stack 开发工具包用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。 
+> [!IMPORTANT]
+> 所有工作负荷都[必须部署在租户订阅](#are-users-charged-for-the-infrastructure-vms)下，才符合 Azure Stack 的许可条款。
+
+根据即用即付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)）。 对于 Azure Stack 开发工具包用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
 
 ![计费流](media/azure-stack-usage-reporting/billing-flow.png)
 

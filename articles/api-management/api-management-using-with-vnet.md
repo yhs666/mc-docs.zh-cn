@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 8a123cb031bf18f9f8deba04fa3d4595e44ee632
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 03/11/2019
+ms.openlocfilehash: f137d57703d814711faac64cdc01f52237cfd592
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736717"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196640"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -28,6 +28,8 @@ ms.locfileid: "53736717"
 
 > [!NOTE]
 > Azure API 管理同时支持经典 VNet 和 Azure 资源管理器 VNet。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -88,9 +90,9 @@ ms.locfileid: "53736717"
 ## <a name="enable-vnet-powershell"></a>使用 PowerShell cmdlet 启用 VNET 连接
 还可以使用 PowerShell cmdlet 启用 VNET 连接
 
-* **在 VNET 内创建 API 管理服务**：使用 cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagement) 在 VNET 内创建 Azure API 管理服务。
+* **在 VNET 内创建 API 管理服务**：使用 cmdlet [New-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/new-azapimanagement) 在 VNET 内创建 Azure API 管理服务。
 
-* **在 VNET 内部署现有 API 管理服务**：使用 cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) 将现有 Azure API 管理服务移动到虚拟网络内。
+* **在 VNET 内部署现有 API 管理服务**：使用 cmdlet [Update-AzApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/update-azapimanagementdeployment) 将现有 Azure API 管理服务移到虚拟网络内。
 
 ## <a name="connect-vnet"></a>连接到虚拟网络中托管的 Web 服务
 将 API 管理服务连接到 VNET 后，访问 VNET 中的后端服务与访问公共服务无异。 在创建新的 API 或编辑现有 API 时，只需将 Web 服务的本地 IP 地址或主机名（如果为 VNET 配置了 DNS 服务器）键入到“Web 服务 URL”字段。
@@ -141,6 +143,8 @@ ms.locfileid: "53736717"
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
     | Azure 中国 | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
 * **SMTP 中继**：在主机 `ies.global.microsoft.com` 下解析的 SMTP 中继的出站网络连接。
+
+* **开发人员门户 CAPTCHA**：在主机 `client.hip.live.com` 下解析的开发人员门户 CAPTCHA 的出站网络连接。
 
 * **Azure 门户诊断**：若要在从虚拟网络内部使用 API 管理扩展时从 Azure 门户启用诊断日志流，需要允许在端口 443 上对 `dc.services.visualstudio.com` 进行出站访问。 这有助于排查使用扩展时可能遇到的问题。
 

@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/22/2018
-ms.date: 12/17/2018
+origin.date: 01/28/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: jerskine
-ms.openlocfilehash: 3db846b60a0d8b6520f080011c04a4b7a217fcae
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: c9140a77d25cc209d17681332d10ebe6e862d848
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396323"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905398"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>验证 Azure Stack 的 Graph 集成
 
@@ -95,7 +96,7 @@ ms.locfileid: "53396323"
     Invoke-AzsGraphValidation Completed
     ```
 
-在生产环境中，从操作员工作站测试网络连接无法完全指示 Azure Stack 可用的连接。 Azure Stack 堆栈的公共 VIP 网络需要 LDAP 流量的连接才能执行标识集成。
+在生产环境中，从操作员工作站测试网络连接无法完全指示 Azure Stack 可用的连接。 Azure Stack 标记的公共 VIP 网络需要 LDAP 流量的连接才能执行标识集成。
 
 ## <a name="report-and-log-file"></a>报表和日志文件
 

@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 12/17/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: quying
-ms.openlocfilehash: b9556669550b00a7f2b27604bf307c96830f1c57
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: 756106143ef08a3173e8df13c044b4813888f969
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396158"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905410"
 ---
 # <a name="create-mysql-databases"></a>创建 MySQL 数据库
+订阅了包含 MySQL 数据库服务的产品/服务的 Azure Stack 用户可以在用户门户中创建和管理自助式 MySQL 数据库。
 
-可以在用户门户中创建和管理自助服务数据库。 Azure Stack 用户需要一个包含套餐的订阅，该套餐应包含 MySQL 数据库服务。
-
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>创建 MySQL 数据库以测试部署
+## <a name="create-a-mysql-database"></a>创建 MySQL 数据库
 
 1. 登录到 Azure Stack 用户门户。
 2. 选择“+ 创建资源” > “数据 + 存储” > “MySQL 数据库” > “添加”。

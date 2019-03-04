@@ -3,25 +3,45 @@ title: Azure 自动化 Desired State Configuration (DSC) 问题疑难解答
 description: 本文提供有关 Desired State Configuration (DSC) 疑难解答的信息
 services: automation
 ms.service: automation
-ms.component: ''
+ms.subservice: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 06/19/2018
-ms.date: 07/23/2018
+ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 4ccc60e847c4d53cf2d41baac849e6f292e0b6da
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 56948987364d92075c13ea24b83778183ce044f8
+ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644101"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987122"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) 疑难解答
 
 本文提供有关 Desired State Configuration (DSC) 问题疑难解答的信息。
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用所需状态配置 (DSC) 时的常见错误
+
+### <a name="unsupported-characters"></a>场景：无法从门户删除带有特殊字符的配置
+
+#### <a name="issue"></a>问题
+
+尝试通过门户删除 DSC 配置时，将看到以下错误：
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>原因
+
+这是一个计划要解决的临时问题。
+
+#### <a name="resolution"></a>解决方法
+
+* 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 删除配置。
+* 此 cmdlet 的文档尚未更新。  在此之前，请参阅 AzureRM 模块的文档。
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>场景：节点处于失败状态，出现“未找到”错误
 

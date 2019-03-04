@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 12/17/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: quying
-ms.openlocfilehash: ea3b31626648a4d16492923231a3bd877c3bd0f5
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: e27b5a1ca336b3801de99ae337c87cf4ce0e7a69
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396070"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905294"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 

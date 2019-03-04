@@ -1,26 +1,27 @@
 ---
-title: 使用 PowerShell 为 Azure Stack 启用备份 | Azure
+title: 使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs
 description: 使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 5abcc5d84fcbcee4f75089e60f7fe91624c0ab0d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 1eba70e81bd3dd631864feb51e186bfea1a77fdb
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651113"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905285"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 
@@ -29,8 +30,10 @@ ms.locfileid: "52651113"
 使用 Windows PowerShell 启用基础结构备份服务，以便定期备份以下内容：
  - 内部标识服务和根证书
  - 用户计划、产品/服务、订阅
- - KeyVault 机密
+ - 计算配额、存储配额和网络用户配额
+ - 用户密钥保管库机密
  - 用户 RBAC 角色和策略
+ - 用户存储帐户
 
 可以访问 PowerShell cmdlet 以启用备份、启动备份，以及通过操作员管理终结点获取备份信息。
 

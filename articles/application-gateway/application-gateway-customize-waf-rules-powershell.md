@@ -1,33 +1,20 @@
 ---
-title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - PowerShell | Microsoft Docs
+title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - PowerShell
 description: 本文将介绍如何使用 PowerShell 自定义应用程序网关的 Web 应用程序防火墙规则。
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-origin.date: 07/26/2017
-ms.date: 11/21/2018
+origin.date: 02/22/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 079103b76dbbf54fe10144384efce7d144b6a40e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 4e0860a8cfb9e34b61dc2341b654f7b193884f52
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672508"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836875"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>通过 PowerShell 自定义 Web 应用程序防火墙规则
-
-> [!div class="op_single_selector"]
-> * [Azure 门户](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 Azure 应用程序网关 Web 应用程序防火墙 (WAF) 可为 Web 应用程序提供保护。 这些保护通过打开 Web 应用程序安全性项目 (OWASP) 核心规则集 (CRS) 来提供。 某些规则可能会导致误报，并会阻止实际流量。 出于此原因，应用程序网关提供了自定义规则组和规则的功能。 有关特定规则组和规则的详细信息，请参阅 [Web 应用程序防火墙 CRS 规则组和规则列表](application-gateway-crs-rulegroups-rules.md)。
 
@@ -104,6 +91,19 @@ $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -Rul
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
+
+## <a name="mandatory-rules"></a>强制性规则
+
+以下列表包含导致 WAF 在防护模式下阻止请求的条件（在检测模式下，它们作为异常记录）。 无法配置或禁用这些规则：
+
+- 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
+- 请求正文（不带文件）数据长度大于配置的限制
+- 请求正文（包括文件）大于限制
+- WAF 引擎发生内部错误
+
+CRS 3.x 特定：
+
+- 入站异常分数超出阈值
 
 ## <a name="next-steps"></a>后续步骤
 

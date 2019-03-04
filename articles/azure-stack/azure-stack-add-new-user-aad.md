@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: unknown
-ms.openlocfilehash: 77c833b66b2511f023d7e39fad84d7d1e6c923c0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: deb7c9c688af8edef5ae8cd0fe0b43b9a36ea843
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658038"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905406"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 租户帐户
 
@@ -56,17 +57,15 @@ ms.locfileid: "52658038"
 7. 使用新帐户登录到 Azure 门户。 出现提示时更改密码。
 8. 使用新帐户登录到 `https://portal.local.azurestack.external`，以查看租户门户。
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>使用 PowerShell 创建 Azure Stack 租户帐户
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>使用 PowerShell 创建 Azure Stack 用户帐户
 
 如果没有 Azure 订阅，则无法使用 Azure 门户添加租户用户帐户。 在这种情况下，可以改用适用于 Windows PowerShell 的 Azure Active Directory 模块。
 
 > [!NOTE]
 > 如果使用 Microsoft 帐户 (Live ID) 部署 Azure Stack 开发工具包，则无法使用 AAD PowerShell 创建租户帐户。 
-> 
-> 
 
 1. 安装[适用于 IT 专业人员 RTW 的 Microsoft Online Services 登录助手](https://www.microsoft.com/en-us/download/details.aspx?id=41950)。
-2. 安装[适用于 Windows PowerShell 的 Azure Active Directory 模块（64 位版本）](http://go.microsoft.com/fwlink/p/?linkid=236297)并将其打开。
+2. 安装[适用于 Windows PowerShell 的 Azure Active Directory 模块（64 位版本）](https://go.microsoft.com/fwlink/p/?linkid=236297)并将其打开。
 3. 运行以下 cmdlet：
 
     ```powershell
@@ -85,3 +84,6 @@ ms.locfileid: "52658038"
 1. 使用新帐户登录到 Azure。 出现提示时更改密码。
 2. 使用新帐户登录到 `https://portal.local.azurestack.external`，以查看租户门户。
 
+## <a name="next-steps"></a>后续步骤
+
+[在 AD FS 中添加 Azure Stack 用户](azure-stack-add-users-adfs.md)

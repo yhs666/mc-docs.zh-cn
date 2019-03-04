@@ -12,22 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/12/2018
-ms.date: 11/12/2018
+origin.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 75c8cc9284a9ce59455d23422f837bce45baae59
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: efemmano
+ms.lastreviewed: 10/12/2018
+ms.openlocfilehash: ca098d5b6c8eb85ed1bf63fcaa24cdd56be48956
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652278"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905297"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、套餐、配额和订阅概述
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 [Azure Stack](azure-stack-poc.md) 中可以交付多种多样的服务，例如虚拟机、SQL Server 数据库、SharePoint、Exchange，甚至 [Azure M市场项](azure-stack-marketplace-azure-items.md)。 Azure Stack 操作员可以使用计划、套餐和配额，在 Azure Stack 中配置并交付此类服务。
+在 [Azure Stack](azure-stack-poc.md) 中可以交付多种多样的服务，例如虚拟机、SQL Server 数据库、SharePoint、Exchange，甚至 [Azure 市场项](azure-stack-marketplace-azure-items.md)。 Azure Stack 操作员可以使用计划、套餐和配额，在 Azure Stack 中配置并交付此类服务。
 
 套餐包含一个或多个计划，每个计划包含一个或多个服务。 通过创建计划并将其组合成不同的套餐，可以管理：
 
@@ -76,9 +77,9 @@ ms.locfileid: "52652278"
 
 ## <a name="subscriptions"></a>订阅
 
-订阅是用户访问套餐的方式。 如果你是服务提供商的 Azure Stack 操作员，则用户（租户）可通过订阅你的产品/服务来购买你的服务。 如果你是组织的 Azure Stack 操作员，则用户（员工）可以订阅你提供的服务，而无需付费。
+订阅是用户访问套餐的方式。 如果你是服务提供商的 Azure Stack 操作员，则用户（租户）可通过订阅你的套餐来购买你的服务。 如果你是组织的 Azure Stack 操作员，则用户（员工）可以订阅你提供的服务，而无需付费。
 
-用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、套餐与配额仅适用于每个唯一的订阅，而不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
+用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、套餐与配额仅适用于唯一的订阅，而不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 

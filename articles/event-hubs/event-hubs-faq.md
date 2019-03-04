@@ -1,21 +1,21 @@
 ---
-title: Azure 事件中心常见问题解答 | Azure
-description: Azure 事件中心常见问题 (FAQ)
+title: 常见问题解答 - Azure 事件中心 | Azure Docs
+description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 ms.service: event-hubs
 ms.topic: article
 origin.date: 08/07/2018
-ms.date: 12/10/2018
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 5f1dbd60dd3ed49ab4cc5b1f72e6ab32ca7fca42
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 44e4034734c287ba9fdb34fbc001e9ececabcc15
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676918"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903186"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -156,6 +156,9 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ## <a name="troubleshooting"></a>故障排除
 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>为什么在从其他订阅中删除命名空间后无法创建该命名空间？ 
+从订阅中删除命名空间时，请等待 4 个小时，然后才能在另一个订阅中使用相同的名称重新创建它。 否则，可能会收到以下错误消息：`Namespace already exists`。 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>事件中心生成的异常有哪些，建议采取什么操作？
 
 有关可能的事件中心异常的列表，请参阅[异常概述](event-hubs-messaging-exceptions.md)。
@@ -174,5 +177,3 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
 * [事件中心自动膨胀](event-hubs-auto-inflate.md)
-
-<!--Update_Description: update meta properties, update link -->

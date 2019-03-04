@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 02/19/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: comartin
-ms.openlocfilehash: 18c810ef9a747a24c4cf1a340e485d76db36fb76
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 6c16c064af59f8322c63555555aa14f0f55a6431
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656924"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905445"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -41,7 +42,7 @@ Azure Stack 遥测基于 Windows Server 2016 互连用户体验与遥测组件�
 
 ## <a name="privacy-considerations"></a>隐私注意事项
 
-ETW 服务将遥测数据发回到受保护的云存储。 最低特权原则支配遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 除非客户自行要求，或者符合 [Microsoft 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的受限目的，否则 Microsoft 不会与第三方共享客户个人数据。 与 OEM 和合作伙伴共享的业务报告包含聚合的匿名数据。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
+ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则指导对遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 除非客户自行要求，或者符合 [Microsoft 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的受限目的，否则 Microsoft 不会与第三方共享客户个人数据。 与 OEM 和合作伙伴共享的业务报告包含聚合的匿名数据。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
 
 Microsoft 相信并实行信息最小化。 我们尽量只收集所需的信息，并且只在服务所需或进行分析时才存储这些信息。 许多有关 Azure Stack 系统和 Azure 服务工作原则的信息在六个月内删除。 汇总或聚合的数据保留更长一段时间。
 
@@ -113,7 +114,7 @@ Microsoft 无意收集敏感数据，例如信用卡号、用户名和密码、�
 在开发工具包主机上部署 Azure Stack 之前，请先引导至 CloudBuilder.vhdx，然后在权限提升的 PowerShell 窗口中运行以下脚本：
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

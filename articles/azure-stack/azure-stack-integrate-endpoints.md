@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 12/31/2018
+origin.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: wamota
-keywords: ''
-ms.openlocfilehash: 9e4ef1ba9aede957d2a4978247f2ffa172652e9a
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: 7232c75054c1b3edddc934eb721eb7adbe8e9f8b
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814674"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905337"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -36,14 +36,17 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 > [!Note]  
 > 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
 
+> [!Note]
+> 自 1811 更新起，由于添加了[扩展主机](azure-stack-extension-host-prepare.md)，因此不再需要打开 12495-30015 范围内的端口。
+
 |终结点 (VIP)|DNS 主机 A 记录|协议|端口|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|门户（管理员）|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|门户（管理员）|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure 资源管理器（管理员）|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|门户（用户）|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure 资源管理器（用户）|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure 资源管理器（管理员）|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（用户）|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure 资源管理器（用户）|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |证书吊销列表|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
@@ -67,27 +70,28 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上行链接到传统的代理服务器，则必须允许以下端口和 URL，以便能够进行出站通信：
 
 > [!Note]  
-> Azure Stack 不支持使用 Express Route 访问下表中列出的 Azure 服务。
+> Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务。
 
-|目的|URL|协议|端口|
-|---------|---------|---------|---------|
-|标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
-|市场联合|https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|修补程序和更新|https://&#42;.azureedge.net|HTTPS|443|
-|注册|https://management.chinacloudapi.cn|HTTPS|443|
-|使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.cn|HTTPS|443|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|
-|DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|
-|CRL|（证书上的 CRL 分发点下的 URL）|HTTP|80|
-|基础结构备份|（外部目标文件服务器的 IP 或 FQDN）|SMB|445|
-|     |     |     |     |
+|目的|目标 URL|协议|端口|源网络|
+|---------|---------|---------|---------|---------|
+|标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|市场联合|https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|公共 VIP - /27|
+|修补程序和更新|https://&#42;.azureedge.net|HTTPS|443|公共 VIP - /27|
+|注册|https://management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
+|使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.cn|HTTPS|443|公共 VIP - /27|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
+|DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|公共 VIP - /27|
+|CRL|（证书上的 CRL 分发点下的 URL）|HTTP|80|公共 VIP - /27|
+|LDAP|为 Graph 集成提供的 Active Directory 林|TCP<br>UDP|389|公共 VIP - /27|
+|LDAP SSL|为 Graph 集成提供的 Active Directory 林|TCP|636|公共 VIP - /27|
+|LDAP GC|为 Graph 集成提供的 Active Directory 林|TCP|3268|公共 VIP - /27|
+|LDAP GC SSL|为 Graph 集成提供的 Active Directory 林|TCP|3269|公共 VIP - /27|
+|AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
+|     |     |     |     |     |
 
 > [!Note]  
 > 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载均衡 URL，Azure 可以更新和更改后端终结点，而不会影响客户。 Azure 不共享负载均衡 URL 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。
-
-> [!Note]  
-> 在 1809 中，基础结构备份服务与公共 VIP 网络中的外部文件服务器进行通信。 在 1809 之前，服务通过公共基础结构网络进行通信。 如果你的环境不允许从公共 VIP 网络访问基础结构资源，请应用 Azure Stack 的最新 [1809 修补程序](azure-stack-update-1809.md#post-update-steps)。 该修补程序会将基础结构备份服务移回公共基础结构网络。 在 1811 中，如果应用 1809 修补程序，则基础结构备份服务将保留在公共基础结构网络上。 如果不应用该修补程序，则更新会将服务移回公共基础结构网络。
 
 ## <a name="next-steps"></a>后续步骤
 

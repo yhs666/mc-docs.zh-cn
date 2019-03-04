@@ -12,19 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/07/2018
-ms.date: 12/17/2018
+origin.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: d5dec5331bd36f7574f8e0b7030951b18fdf06bf
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: fiseraci
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: 3f9bdcc7a4b6f355ea3e08556effac7716819043
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396211"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905342"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的标识体系结构
-在选择要与 Azure Stack 配合使用的标识提供者之前，请了解 Azure Active Directory (Azure AD) 的选项与 Active Directory 联合身份验证服务 (AD FS) 的选项之间的重要区别。 
+
+选择要与 Azure Stack 配合使用的标识提供者时，应了解 Azure Active Directory (Azure AD) 的选项与 Active Directory 联合身份验证服务 (AD FS) 的选项之间的重要区别。
 
 ## <a name="capabilities-and-limitations"></a>功能和限制 
 选择的标识提供者可能会限制可用的选项，包括对多租户的支持。 

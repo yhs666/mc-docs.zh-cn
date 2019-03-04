@@ -6,17 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: 39bd4f01ccab87c12dd2821334385dfb0a2f9b4b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f80b2f952328e886d7ea3dc88b21d9959a2020f7
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656216"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905314"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 若要能够从 Azure Stack 外部访问 Azure Stack 终结点（**门户**、**adminportal**、**管理**、**adminmanagement** 等），需将 Azure Stack DNS 服务与托管 DNS 区域（要在 Azure Stack 中使用）的 DNS 服务器集成。
@@ -114,15 +115,15 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-在名为 `AzureStackStampDeploymentInfo.json` 的文件中，此信息也会在所有 Azure Stack 部署的末尾创建。 该文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定对 Azure Stack 部署使用了什么值，可以从该文件中获取这些值。
+在名为 `AzureStackStampInformation.json` 的文件中，此信息也会在所有 Azure Stack 部署的末尾创建。 该文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定对 Azure Stack 部署使用了什么值，可以从该文件中获取这些值。
 
-如果部署虚拟机不再可用或无法访问，则可连接到特权终结点并运行 `Get-AzureStackInfo` PowerShell cmdlet，以便获取这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
+如果部署虚拟机不再可用或无法访问，则可连接到特权终结点并运行 `Get-AzureStackStampInformation` PowerShell cmdlet，以便获取这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>设置到 Azure Stack 的条件性转发
 
 若要将 Azure Stack 与 DNS 基础结构集成，最简单也最安全的方式是将区域从托管父区域的服务器进行条件性转发。 如果可以直接控制为 Azure Stack 外部 DNS 命名空间托管父区域的 DNS 服务器，建议使用此方法。
 
-如果不熟悉如何通过 DNS 进行条件性转发，请参阅以下 TechNet 文章：[Assign a Conditional Forwarder for a Domain Name](https://technet.microsoft.com/library/cc794735)（为域名分配条件性转发器），或者参阅特定于 DNS 解决方案的文档。
+如果你不熟悉如何使用 DNS 进行条件转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](https://technet.microsoft.com/library/cc794735)，或特定于 DNS 解决方案的文档。
 
 如果已将外部 Azure Stack DNS 区域指定为类似公司域名的子域那样，则无法使用条件性转发。 必须配置 DNS 委托。
 

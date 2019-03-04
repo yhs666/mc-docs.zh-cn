@@ -14,12 +14,12 @@ ms.workload: tbd
 origin.date: 02/05/2019
 ms.author: v-yiso
 ms.date: 02/25/2019
-ms.openlocfilehash: 392bfd4760b50e096af33da973165d8881572be1
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: adbb520a974372919fe6d4ed953fa4a1e7e9952d
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303048"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196637"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -78,6 +78,15 @@ ms.locfileid: "56303048"
 > [!NOTE]
 > Windows Azure SDK for .NET 3.0 可在[此处][Windows Azure SDK]下载。
 >
+>安装步骤：
+>1. 请卸载任何旧版本的 MicrosoftAzureAuthoringTools*.msi
+>2. 安装[用于 .NET 的 Azure SDK - 3.0][Windows Azure SDK]
+>3. 重启计算机
+>4. 创建新的云服务项目并添加单个辅助角色
+>5. 将 OS 系列更改为 6 并生成一个包
+>6. 使用 Azure 门户或 Visual Studio 将该包部署到 Azure
+>
+
 
 | 配置字符串 | 发行日期 | 停用日期 |
 | --- | --- | --- |

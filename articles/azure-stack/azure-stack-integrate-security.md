@@ -6,26 +6,27 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 10/23/2018
-ms.date: 12/17/2018
+origin.date: 01/28/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
+ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 93a0d41849590e2988ad18f2daa02d09abc1f598
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.openlocfilehash: ae8e07c706f325a36bd4cbdad252313938c3048b
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396230"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905378"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
 
-本文介绍如何使用 Syslog 将 Azure Stack 基础结构与已经部署在数据中心的外部安全解决方案集成。 例如，安全信息和事件管理 (SIEM) 系统。 Syslog 通道会公开由 Azure Stack 基础结构的所有组件提供的审核、警报和安全日志。 使用 Syslog 转发可以与安全监视解决方案集成，并且/或者可以检索所有审核、警报和安全日志，将其以存储方式保留。 
+本文介绍如何使用 Syslog 将 Azure Stack 基础结构与已经部署在数据中心的外部安全解决方案集成。 例如，安全信息和事件管理 (SIEM) 系统。 Syslog 通道会公开由 Azure Stack 基础结构的所有组件提供的审核、警报和安全日志。 使用 Syslog 转发可以与安全监视解决方案集成，并且/或者可以检索所有审核、警报和安全日志，将其以存储方式保留。
 
 从 1809 更新开始，Azure Stack 有了一个集成的 Syslog 客户端，该客户端在配置后可以通过通用事件格式 (CEF) 的有效负载发出 Syslog 消息。
 
 下图描绘了 Azure Stack 与外部 SIEM 的集成。 需要考虑两种集成模式：第一种模式（以蓝色表示）是包含基础结构虚拟机和 Hyper-V 节点的 Azure Stack 基础结构。 来自这些组件的所有审核、安全日志和警报将通过包含 CEF 有效负载的 syslog 集中收集和公开。 本文档页将介绍此集成模式。
-第二种集成模式以橙色表示，涵盖基板管理控制器 (BMC)、硬件生命周期主机 (HLH)、运行硬件合作伙伴监视和管理软件的虚拟机和/或虚拟设备，以及架顶式 (TOR) 交换机。 由于这些组件由专门的硬件合作伙伴提供，因此请联系硬件合作伙伴，以获取有关将其与外部 SIEM 集成的文档。
+第二种集成模式以橙色表示，涵盖基板管理控制器 (BMC)、硬件生命周期主机 (HLH)、运行硬件合作伙伴监视和管理软件的虚拟机和/或虚拟设备，以及架顶式 (TOR) 交换机。 由于这些组件是特定于硬件合作伙伴的，因此请与硬件合作伙伴联系，以获取有关如何将这些组件与外部 SIEM 集成的文档。
 
 ![Syslog 转发图](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -37,9 +38,9 @@ Azure Stack 中的 Syslog 客户端支持以下配置：
 
 2. **基于 TCP 的 Syslog，支持服务器身份验证和 TLS 1.2 加密：** 在此配置中，Syslog 客户端可以通过证书验证 Syslog 服务器的身份。 消息通过 TLS 1.2 加密的通道发送。
 
-3. **基于 TCP 的 Syslog，不支持加密：** 在此配置中，Syslog 客户端和 Syslog 服务器不验证彼此的身份。 消息通过 TCP 以明文形式发送。
+3. **基于 TCP 的 Syslog，不支持加密：** 在此配置中，不验证 syslog 客户端和 syslog 服务器标识。 消息通过 TCP 以明文形式发送。
 
-4. **基于 UDP 的 Syslog，不支持加密：** 在此配置中，Syslog 客户端和 Syslog 服务器不验证彼此的身份。 消息通过 UDP 以明文形式发送。
+4. **基于 UDP 的 Syslog，不支持加密：** 在此配置中，不验证 syslog 客户端和 syslog 服务器标识。 消息通过 UDP 以明文形式发送。
 
 > [!IMPORTANT]
 > 强烈建议将支持身份验证和加密（配置 1，或者至少为配置 2）的 TCP 用于生产环境，防范人为干预攻击和消息窃听。
@@ -130,7 +131,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>使用 TCP、服务器身份验证和 TLS 1.2 加密配置 Syslog 转发
 
-在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端也会验证服务器是否提供了有效且可信的证书。 这样可以防止客户端将消息发送至不受信任的目标。
+在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端也会验证服务器是否提供了有效且可信的证书。 此配置可以防止客户端将消息发送至不受信任的目标。
 使用身份验证和加密的 TCP 是默认的配置，代表我们建议的用于生产环境的最低安全级别。 
 
 ```powershell
@@ -246,21 +247,21 @@ Prefix fields
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
+|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10 个|
+|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10 个|
 |PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
+|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10 个|
+|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10 个|
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
+|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10 个|
+|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10 个|
 
 PEP 严重性表：
 
 | 严重性 | 级别 | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10|严重|值：1. 指示严重警报的日志|
+|10 个|关键|值：1. 指示严重警报的日志|
 |8|错误| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
 |2|信息|值：4. 指示信息性消息的日志|
@@ -282,15 +283,15 @@ Prefix fields
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
 |RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
+|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10 个|
+|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10 个|
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP 严重性表：
 | 严重性 | 级别 | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10|严重|值：1. 指示严重警报的日志|
+|10 个|关键|值：1. 指示严重警报的日志|
 |8|错误| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
 |2|信息|值：4. 指示信息性消息的日志|
@@ -309,7 +310,7 @@ Windows 事件的严重性表：
 | CEF 严重性值 | Windows 事件级别 | 数字值 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10|严重|值：1. 指示严重警报的日志|
+|10 个|关键|值：1. 指示严重警报的日志|
 |8|错误| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
 |2|信息|值：4. 指示信息性消息的日志|
@@ -355,13 +356,13 @@ Azure Stack 中 Windows 事件的自定义扩展表：
 | 严重性 | 级别 |
 |----------|-------|
 |0|Undefined|
-|10|严重|
+|10 个|关键|
 |5|警告|
 
 Azure Stack 中已创建警报的自定义扩展表：
 | 自定义扩展名称 | 示例 | 
 |-----------------------|---------|
-|MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 - 补救措施：联系支持人员。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程 |
+|MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 - 补救措施：请联系支持人员。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程 |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>已关闭警报的 CEF 映射
 

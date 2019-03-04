@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 19f61e3c38d006c9ea42e5f7e77281b7fd96c60b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: cfa165f08df95ac5fb8bf681f0064136a45859fc
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676624"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903028"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念
 
@@ -29,7 +29,7 @@ Kubernetes 是一个快速发展的平台，用于管理基于容器的应用程
 
 作为开放平台，Kubernetes 可使用首选的编程语言、OS、库或消息总线生成应用程序。 现有的持续集成和持续交付 (CI/CD) 工具可以与 Kubernetes 集成，以计划和部署版本。
 
-Azure Kubernetes 服务 (AKS) 提供托管 Kubernetes 服务，可简化部署和核心管理任务，包括协调升级。 Azure 平台可托管 AKS 群集主机，你只需为运行应用程序的 AKS 节点付费。 AKS 建立在开放源代码 Azure 容器服务引擎 (acs-engine) 的基础之上。
+Azure Kubernetes 服务 (AKS) 提供托管 Kubernetes 服务，可简化部署和核心管理任务，包括协调升级。 Azure 平台可托管 AKS 群集主机，你只需为运行应用程序的 AKS 节点付费。 AKS 建立在开放源代码 Azure Kubernetes 服务引擎 (aks-engine) 的基础之上。
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 群集体系结构
 
@@ -53,9 +53,9 @@ Kubernetes 群集分为两个组件：
 
 AKS 为单租户群集主机提供专用 API 服务器、计划程序等。定义节点的数量和大小，Azure 平台可以对群集主机和节点之间的安全通信进行配置。 通过 Kubernetes API（例如 `kubectl` 或 Kubernetes 仪表板）与群集主机进行交互。
 
-此托管群集主机意味着无需配置高可用性 etcd 存储等组件，但这也意味着无法直接访问群集主机。 通过 Azure CLI 或 Azure 门户安排 Kubernetes 升级，后者先升级群集主机，然后升级节点。 要解决可能出现的问题，可以通过 Azure Log Analytics 查看群集主日志。
+此托管群集主机意味着无需配置高可用性 etcd 存储等组件，但这也意味着无法直接访问群集主机。 通过 Azure CLI 或 Azure 门户安排 Kubernetes 升级，后者先升级群集主机，然后升级节点。 要解决可能出现的问题，可以通过 Azure Monitor 日志查看群集主日志。
 
-如果需要以特定方式配置群集主机或直接对其进行访问，可以使用 [acs-engine][acs-engine] 部署自己的 Kubernetes 群集。
+如果需要以特定方式配置群集主机或直接对其进行访问，可以使用 [aks-engine][aks-engine] 部署自己的 Kubernetes 群集。
 
 ## <a name="nodes-and-node-pools"></a>节点和节点池
 
@@ -71,13 +71,13 @@ AKS 为单租户群集主机提供专用 API 服务器、计划程序等。定�
 
 在 AKS 中，群集中节点的 VM 映像当前基于 Ubuntu Linux。 创建 AKS 群集或纵向扩展节点数时，Azure 平台会创建所请求数量的 VM 并对其进行配置。 无需执行手动配置。
 
-如果需要使用不同的主机 OS、容器运行时或包含自定义程序包，可以使用 [acs-engine][acs-engine] 部署自己的 Kubernetes 群集。 上游 `acs-engine` 正式在 AKS 群集中受支持之前会发布功能并提供配置选项。 例如，如果要使用 Windows 容器或 Docker 之外的容器运行时，可以使用 `acs-engine` 来配置和部署满足当前需求的 Kubernetes 群集。
+如果需要使用不同的主机 OS、容器运行时或包含自定义程序包，可以使用 [aks-engine][aks-engine] 部署自己的 Kubernetes 群集。 上游 `aks-engine` 正式在 AKS 群集中受支持之前会发布功能并提供配置选项。 例如，如果要使用 Windows 容器或 Docker 之外的容器运行时，可以使用 `aks-engine` 来配置和部署满足当前需求的 Kubernetes 群集。
 
 ### <a name="resource-reservations"></a>资源预留
 
 你不需要在每个节点上管理核心 Kubernetes 组件（例如 *kubelet*、*kube-proxy* 和 *kube-dns*），但它们确实消耗某些可用的计算资源。 为保持节点性能和功能，每个节点上会预留以下计算资源：
 
-- **CPU** - 60 毫秒
+- **CPU** - 60 ms
 - **内存** - 20%，最多 4 GiB
 
 这些预留意味着你的应用程序的可用 CPU 和内存量可能显示为少于节点本身包含的数量。 如果由于你运行的应用程序数太多而存在资源约束，则这些预留可以确保 CPU 和内存保持可供核心 Kubernetes 组件使用。 资源预留无法更改。
@@ -157,9 +157,10 @@ spec:
 
 ### <a name="package-management-with-helm"></a>使用 Helm 进行包管理
 
-在 Kubernetes 中管理应用程序的常用方法是使用 [Helm][helm]。 可以生成和使用包含应用程序代码打包版本和 Kubernetes YAML 清单的现有公共 Helm chart 来部署资源。 这些 Helm chart 可以存储在本地，通常也可以存储在远程存储库中，例如 Azure 容器注册表 Helm chart 存储库。
+在 Kubernetes 中管理应用程序的常用方法是使用 [Helm][helm]。 可以生成和使用包含应用程序代码打包版本和 Kubernetes YAML 清单的现有公共 Helm chart 来部署资源。 这些 Helm chart 可以存储在本地，通常也可以存储在远程存储库中，例如 [Azure 容器注册表 Helm chart 存储库][acr-helm]。
 
-<!--Pending on [Azure Container Registry Helm chart repo][acr-helm]--> 为使用 Helm，Kubernetes 群集中会安装名为 Tiller 的服务器组件。 Tiller 管理群集中 chart 的安装。 Helm 客户端自身本地安装在计算机上，也可以在 [Azure Cloud Shell][azure-cloud-shell] 中使用。 可以使用客户端搜索或创建 Helm chart，然后将其安装到 Kubernetes 群集。
+
+为使用 Helm，Kubernetes 群集中会安装名为 Tiller 的服务器组件。 Tiller 管理群集中 chart 的安装。 Helm 客户端本身安装在本地计算机上，也可以在 [Azure 本地 Shell][azure-cloud-shell] 中使用。 可以使用客户端搜索或创建 Helm chart，然后将其安装到 Kubernetes 群集。
 
 ![Helm 包括客户端组件和服务器端 Tiller 组件，用于在 Kubernetes 群集内创建资源](media/concepts-clusters-workloads/use-helm.png)
 
@@ -219,7 +220,7 @@ Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中�
 - [Kubernetes/AKS 规模][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -235,5 +236,4 @@ Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中�
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
-[acr-helm]: ../container-registry/container-registry-helm-repos.md
-[aks-helm]: kubernetes-helm.md
+<!--Not Available on [acr-helm]: ../container-registry/container-registry-helm-repos.md--> [aks-helm]: kubernetes-helm.mdd

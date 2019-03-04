@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/04/2018
-ms.date: 12/31/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 1e33fd452cf58ed69b492f2716d212ad1c79a452
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 18b7f0f7df28221c6462e82c9d02d9c719cc86e5
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814602"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905204"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
  
@@ -67,6 +68,8 @@ ms.locfileid: "53814602"
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.partner.onmschina.cn -Message "Enter Credentials for Subscription Owner"
    ```
+> [!NOTE]
+  > 作为 CSP，在使用共享服务或 IUR 订阅时，你需要提供来自相应 AAD 的用户的凭据。 通常这将类似于 `subscriptionowner@iurcontoso.partner.onmschina.cn`。 该用户必须具有相应的凭据，如上文所述。
 
 3. 从 PowerShell 提示符下，运行以下命令将 `$subscriptionID` 设置为你将使用的 Azure 订阅。 将 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 替换为你自己的订阅 ID：
    ```powershell

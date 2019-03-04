@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/17/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d6be831ae9135971d80946818b4d9788124b000a
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 3210ff888680f76ffc3b3e1d22cbb6bb870b1157
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309339"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987957"
 ---
 <!-- Verify Successfully-->
-# <a name="manage-database-accounts-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理数据库帐户
+# <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
 
 本文介绍了如何管理你的 Azure Cosmos DB 帐户。 你将了解如何设置多宿主功能、添加或删除区域、配置多个写入区域，以及设置故障转移优先级。 
 
@@ -37,25 +37,28 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 ## <a name="configure-clients-for-multi-homing"></a>配置多宿主客户端
 
 <a name="configure-clients-multi-homing-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK v2
 
 ```csharp
-// Create a new connection policy.
 ConnectionPolicy policy = new ConnectionPolicy
     {
-        // Note: These aren't required settings for multi-homing,
-        // just suggested defaults.
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp,
-        UseMultipleWriteLocations = true,
+        UseMultipleWriteLocations = true
     };
-// Add regions to preferred locations.
-// The name of the location will match what you see in the portal, etc.
-policy.PreferredLocations.Add("China East");
-policy.PreferredLocations.Add("China North");
+policy.SetCurrentLocation("China North");
 
 // Pass the connection policy with the preferred locations on it to the client.
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
+```
+
+<a name="configure-clients-multi-homing-dotnet-v3"></a>
+### <a name="net-sdk-v3-preview"></a>.NET SDK v3（预览版）
+
+```csharp
+CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
+config.UseCurrentRegion("China North");
+CosmosClient client = new CosmosClient(config);
 ```
 
 <a name="configure-clients-multi-homing-java-async"></a>
@@ -63,38 +66,30 @@ DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.a
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
-policy.setPreferredLocations(Collections.singleton("China North"));
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Collections.singletonList(region));
+
 AsyncDocumentClient client =
-        new AsyncDocumentClient.Builder()
-                .withMasterKey(this.accountKey)
-                .withServiceEndpoint(this.accountEndpoint)
-                .withConnectionPolicy(policy).build();
-```
-
-<a name="configure-clients-multi-homing-java-sync"></a>
-### <a name="java-sync-sdk"></a>Java 同步 SDK
-
-```java
-ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-Collection<String> preferredLocations = new ArrayList<String>();
-preferredLocations.add("China East");
-connectionPolicy.setPreferredLocations(preferredLocations);
-DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
+    new AsyncDocumentClient.Builder()
+        .withMasterKeyOrResourceToken(this.accountKey)
+        .withServiceEndpoint(this.accountEndpoint)
+        .withConsistencyLevel(ConsistencyLevel.Eventual)
+        .withConnectionPolicy(policy).build();
 ```
 
 <a name="configure-clients-multi-homing-javascript"></a>
 ### <a name="nodejsjavascripttypescript-sdk"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
-// Set up the connection policy with your preferred regions.
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
-connectionPolicy.PreferredLocations = ["China North", "China East"];
+connectionPolicy.UseMultipleWriteLocations = true;
+connectionPolicy.PreferredLocations = [region];
 
-// Pass that connection policy to the client.
 const client = new CosmosClient({
   endpoint: config.endpoint,
   auth: { masterKey: config.key },
-  connectionPolicy
+  connectionPolicy,
+  consistencyLevel: ConsistencyLevel.Eventual
 });
 ```
 
@@ -103,9 +98,10 @@ const client = new CosmosClient({
 
 ```python
 connection_policy = documents.ConnectionPolicy()
-connection_policy.PreferredLocations = ['China North', 'China East']
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy)
+connection_policy.UseMultipleWriteLocations = True
+connection_policy.PreferredLocations = [region]
 
+client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## <a name="addremove-regions-from-your-database-account"></a>在数据库帐户中添加/删除区域
@@ -302,7 +298,9 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 ```bash
 az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'chinaeast=0 chinanorth=2 chinaeast2=1'
 ```
-<!--Notice:  chinaeast2=1-->
+
+<!--MOONCAKE CUSTOMIZE:  chinaeast2=1-->
+
 ## <a name="next-steps"></a>后续步骤
 
 了解如何管理 Azure Cosmos DB 中的一致性级别和数据冲突。 请参阅以下文章：
@@ -310,4 +308,4 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 * [管理一致性](how-to-manage-consistency.md)
 * [管理区域之间的冲突](how-to-manage-conflicts.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update-->

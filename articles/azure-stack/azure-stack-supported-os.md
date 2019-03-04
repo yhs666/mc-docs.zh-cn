@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/27/2018
-ms.date: 01/14/2019
-ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 438c133fd39f1e9df82b2254b003c642da404413
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.date: 03/04/2019
+ms.author: sethm
+ms.reviewer: unknown
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 54341f388070d147314147ed81e2a05f180cd636
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059021"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905354"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -53,7 +54,7 @@ Datacenter 版本可在市场中下载；客户可以自带包含其他版本的
 市场中列为可用的 Linux 发行版包括必要的 Azure Linux 代理 (WALA)。 如果将自己的映像带到 Azure Stack，请遵循[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md) 中的指导。
 
 > [!NOTE]
-> 应使用最新的公共 WALA 版本生成自定义映像。 低于 2.2.18 的版本在 Azure Stack 上可能无法正常运行。
+> 自定义映像应该使用最新的公共 WALA 版本或 2.2.20 版本生成。 低于 2.2.18 的版本以及介于 2.2.20 和 2.2.35 之间（排他）的版本在 Azure Stack 上可能无法正常运行。 
 >
 > 目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 

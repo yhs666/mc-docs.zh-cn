@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/10/2018
-ms.date: 02/18/2019
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: c371376177d509c443d7846688bb73985a79408b
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: ff6b482f6bdf1d1b05b0ea16b3dcb6515811e657
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218257"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905395"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack 数据中心集成
 
@@ -129,7 +129,7 @@ OEM 合作伙伴应执行的操作包括：
 
 -   为客户准备部署摘要
 
--   [检查更新以确保解决方案软件已更新到最新版本](azure-stack-updates.md)
+-   [检查更新以确保解决方案软件已更新到最新版本](.\azure-stack-updates.md)
 
 有几个步骤是必需或可选的，具体取决于安装类型。
 
@@ -149,7 +149,7 @@ OEM 合作伙伴应执行的操作包括：
 ![](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
 ## <a name="support"></a>支持
-Azure Stack 可以在整个系统生命周期内实现 Azure 一致的集成支持体验。 若要完全支持 Azure Stack 集成系统，客户需要签署两份支持合同：与 Microsoft（或其云解决方案提供商）签署有关 Azure 服务支持的合同，与硬件提供商签署有关系统支持的合同。 集成支持体验提供协调的事务升级和解决方法，不管客户首先联系哪一家提供商，都能获得一致的支持体验。 已购买顶级支持的客户可以同时获得 Azure - 标准/专业直接或合作伙伴支持，以及 Azure Stack 软件支持。
+Azure Stack 可以在整个系统生命周期内实现 Azure 一致的集成支持体验。 若要完全支持 Azure Stack 集成系统，客户需要签署两份支持合同：与 Azure（或其云解决方案提供商）签署有关 Azure 服务支持的合同，与硬件提供商签署有关系统支持的合同。 集成支持体验提供协调的事务升级和解决方法，不管客户首先联系哪一家提供商，都能获得一致的支持体验。 已购买顶级支持的客户可以同时获得 Azure - 标准/专业直接或合作伙伴支持，以及 Azure Stack 软件支持。
 
 集成支持体验利用“案例交换”机制为 Azure 与硬件合作伙伴之间的支持案例和案例更新提供双向传输。 Azure Stack 将遵循[新式生命周期策略](https://support.microsoft.com/help/30881)。
 

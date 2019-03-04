@@ -1,5 +1,5 @@
 ---
-title: Azure Batch 的指标、警报和诊断日志 | Azure
+title: 指标、警报和诊断日志 - Azure Batch
 description: 记录并分析 Azure Batch 帐户资源（诸如池和任务）的诊断日志事件。
 services: batch
 documentationcenter: ''
@@ -12,33 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-origin.date: 04/05/2018
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 94ce4f0e7300fc5a1292253e93cd55201370fd17
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.openlocfilehash: cd7792b9f51fdf8c917c34cb4c1fb9dda76b9596
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745204"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987042"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
  
-本文介绍如何使用 Azure Monitor 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](https://docs.microsoft.com/zh-cn/azure/azure-monitor/platform/data-collection)和[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，以便在某项指标达到指定值时收到通知。 
+本文介绍如何使用 [Azure Monitor](../azure-monitor/overview.md) 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](../azure-monitor/platform/data-collection.md#metrics)和[诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../azure-monitor/platform/alerts-overview.md)，以便在某项指标达到指定值时收到通知。 
 
 ## <a name="batch-metrics"></a>Batch 指标
 
 指标是 Azure Monitor 服务使用的 Azure 资源发出的 Azure 遥测数据（也称为性能计数器）。 Batch 帐户中的示例指标包括：“池创建事件”、“低优先级节点计数”和“任务完成事件”。 
 
-请参阅[支持的 Batch 指标列表](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts)。
+请参阅[支持的 Batch 指标列表](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)。
 
 指标：
 
 * 无需经过额外的配置，便已在每个 Batch 帐户中默认启用
 * 每分钟生成一次
-* 不会自动保留，但有 30 天的历史记录滚动更新周期。 可将活动指标保留为[诊断日志记录](#work-with-diagnostic-logs)的一部分。
+* 不会自动保留，但有 30 天的历史记录滚动更新周期。 可将活动指标保留为诊断日志记录的一部分。
 
 ### <a name="view-metrics"></a>查看指标
 
@@ -53,6 +52,12 @@ ms.locfileid: "52745204"
     ![Batch 指标](./media/batch-diagnostics/metrics-portal.png)
 
 若要以编程方式检索指标，请使用 Azure Monitor API。 有关示例，请参阅[使用 .NET 检索 Azure Monitor 指标](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)。
+
+## <a name="batch-metric-reliability"></a>Batch 指标可靠性
+
+指标用于确定趋势和进行数据分析。 指标不保证送达，并且可能会出现乱序送达、数据丢失和/或数据重复。 建议不要使用单一事件来发出警报或触发函数。 有关如何为警报设置阈值的更多详细信息，请参阅 [Batch 指标警报](#batch-metric-alerts)部分。
+
+过去 3 分钟内发出的指标可能仍在聚合。 在此时间范围内，指标值可能会被少报。
 
 ## <a name="batch-metric-alerts"></a>Batch 指标警报
 
@@ -100,7 +105,7 @@ ms.locfileid: "52745204"
 
     ![Batch 诊断](./media/batch-diagnostics/diagnostics-portal.png)
 
-用于启用日志收集的其他选项包括：在门户中使用 Azure Monitor 配置诊断设置、使用[资源管理器模板](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)，或者使用 Azure PowerShell 或 Azure CLI。 请参阅[从 Azure 资源收集和使用日志数据](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)。
+用于启用日志收集的其他选项包括：在门户中使用 Azure Monitor 配置诊断设置、使用[资源管理器模板](../azure-monitor/platform/diagnostic-logs-stream-template.md)，或者使用 Azure PowerShell 或 Azure CLI。 请参阅[从 Azure 资源收集和使用日志数据](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs)。
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>访问存储中的诊断日志
@@ -124,7 +129,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 每个 PT1H.json Blob 文件包含 JSON 格式的事件，这些事件是在 Blob URL 中指定的小时（例如 h=12）内发生的。 在当前的小时内发生的事件将附加到 PT1H.json 文件。 分钟值始终为 00 (m=00)，因为诊断日志事件按小时细分成单个 blob。 （所有时间均是 UTC 时间。）
 
 
-有关存储帐户中诊断日志的架构的详细信息，请参阅[存档 Azure 诊断日志](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)。
+有关存储帐户中诊断日志的架构的详细信息，请参阅[存档 Azure 诊断日志](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)。
 
 若要以编程方式访问存储帐户中的日志，请使用存储 API。 
 

@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 54218e840e637b9a7fc9a6f1e49e82de137357c6
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 740c374b5739259a874b5ced2945d2c797dd22cd
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676816"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903227"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>从 Azure 容器服务 (ACS) 迁移到 Azure Kubernetes 服务 (AKS)
 
@@ -36,7 +36,7 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
 
 ### <a name="differences-between-kubernetes-versions"></a>Kubernetes 版本之间的差异
 
-若要迁移到较新版本的 Kubernetes（例如，从 1.7.x 迁移到 1.9.x），需要关注 k8s API 发生的几处更改。
+如果要迁移到更高版本的 Kubernetes（例如：1.7.x 到 1.9.x），需要注意对 k8s API 的一些更改。
 
 * [将 ThirdPartyResource 迁移到 CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [版本 1.8 和 1.9 中的工作负荷 API 更改](https://kubernetes.io/docs/reference/workloads-18-19/)。
@@ -92,7 +92,7 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
 7. 验证
 8. 将流量指向 AKS 群集
 
-> **重要说明**：如果不暂停写入，则需要将数据复制到新部署，因为自创建磁盘快照后写入的数据将会丢失
+> **重要说明**：如果选择不暂停写入，则需要将数据复制到新部署，因为你将丢失自创建磁盘快照以来写入的数据
 
 可以借助一些开源工具来创建托管磁盘，并在 Kubernetes 群集之间迁移卷。
 

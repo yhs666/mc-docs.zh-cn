@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2019
-ms.date: 02/18/2019
+origin.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: b462e2a01760aaa93a1af23b954332b6eccc751a
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: 4287107a35967b14f384798921f06416cf635e51
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218324"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905408"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>为 Azure Stack 创建注册角色
 

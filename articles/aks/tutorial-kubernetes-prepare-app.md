@@ -3,19 +3,18 @@ title: Azure 上的 Kubernetes 教程 - 准备应用程序
 description: 本 Azure Kubernetes 服务 (AKS) 教程介绍如何通过 Docker Compose 准备和生成一个多容器应用，以便能够随后将其部署到 AKS。
 services: container-service
 author: rockboyfor
-manager: digimobile
 ms.service: container-service
 ms.topic: tutorial
-origin.date: 08/14/2018
-ms.date: 11/26/2018
+origin.date: 12/19/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fc31184bec5626ba4edd593b6ee0c225cf251a7f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dbde9cdc138cd550400d0676a689f7830e3dcfa6
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676611"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903102"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教程：准备用于 Azure Kubernetes 服务 (AKS) 的应用程序
 
@@ -30,7 +29,7 @@ ms.locfileid: "52676611"
 
 ![Azure 上的 Kubernetes 群集映像](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-在后续教程中，此容器映像会上传到 Azure 容器注册表，然后部署到 AKS 群集中。
+在其他教程中，此容器映像会上传到 Azure 容器注册表，然后部署到 AKS 群集中。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -38,7 +37,7 @@ ms.locfileid: "52676611"
 
 若要完成本教程，需要运行 Linux 容器的本地 Docker 开发环境。 Docker 提供的包可在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系统上配置 Docker。
 
-Azure Cloud Shell 不包含完成这些教程的每个步骤所需的 Docker 组件。 因此，我们建议使用完整的 Docker 开发环境。
+Azure 本地 Shell 不包含完成这些教程的每个步骤所需的 Docker 组件。 因此，我们建议使用完整的 Docker 开发环境。
 
 ## <a name="get-application-code"></a>获取应用程序代码
 
@@ -50,7 +49,7 @@ Azure Cloud Shell 不包含完成这些教程的每个步骤所需的 Docker 组
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-将目录更改为克隆的目录，以供使用。
+切换到克隆目录。
 
 ```console
 cd azure-voting-app-redis

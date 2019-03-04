@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 12/17/2018
+origin.date: 02/08/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 2bf35149fb2d1d38f0994488ded526824f262ad0
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 3c1bb26eba5cd0886a3962b6acefc20e4d6e6850
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396203"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905305"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -41,13 +42,22 @@ ms.locfileid: "53396203"
 
 路径的通用命名约定 (UNC) 字符串必须使用完全限定的域名 (FQDN)。 如果无法使用名称解析，可以使用 IP 地址。 UNC 字符串指定资源（例如共享文件或设备）的位置。
 
-### <a name="encryption"></a>加密
+### <a name="encryption"></a>Encryption
+
+#### <a name="version-1901-and-newer"></a>版本 1901 及更新版本
+
+加密证书用来对导出到外部存储的备份数据进行加密。 证书可以是自签名证书，因为证书仅用于传输密钥。 有关如何创建证书的更多信息，请参阅 New-SelfSignedCertificate。  
+密钥必须存储在安全位置（例如，全局 Azure 密钥保管库证书）。 CER 格式的证书用于加密数据。 在 Azure Stack 的云恢复部署期间，必须使用 PFX 格式来解密备份数据。
+
+![将证书存储在安全位置。](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 版及更低版本
 
 加密密钥用来对导出到外部存储的备份数据进行加密。 密钥将在[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)的过程中生成。
 
-密钥必须存储在一个安全位置（例如，公共 Azure Key Vault 机密）。 在重新部署 Azure Stack 期间，必须使用此密钥。 
+密钥必须存储在安全位置（例如，全局 Azure 密钥保管库机密）。 在重新部署 Azure Stack 期间，必须使用此密钥。 
 
-![将密钥存储在一个安全位置。](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![将密钥存储在一个安全位置。](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>操作最佳实践
 
@@ -95,8 +105,8 @@ MASBackup 文件夹是 Azure Stack 存储其备份数据的地方。 不应使�
 
 ## <a name="next-steps"></a>后续步骤
 
-查看[基础结构备份服务](azure-stack-backup-reference.md)的参考资料。
+查看[基础结构备份服务](azure-stack-backup-reference.md)的参考资料
 
-启用[基础结构备份服务](azure-stack-backup-enable-backup-console.md)。
+启用[基础结构备份服务](azure-stack-backup-enable-backup-console.md)
 
 <!-- Update_Description: wording update -->

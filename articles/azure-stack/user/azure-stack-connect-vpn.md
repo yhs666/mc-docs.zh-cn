@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/24/2018
-ms.date: 02/18/2019
+origin.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 67baaebb3126ebaa8259e1b46074b53cafe49c5e
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: e3272f9b8d187d3adf52cb4f9742b951275253fc
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218334"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905388"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 

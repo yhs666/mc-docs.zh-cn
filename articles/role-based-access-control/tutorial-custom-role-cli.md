@@ -1,6 +1,6 @@
 ---
-title: 教程 - 使用 Azure CLI 创建自定义角色 | Microsoft Docs
-description: 开始使用 Azure CLI 创建自定义角色。
+title: 教程 - 使用 Azure CLI 为 Azure 资源创建自定义角色 | Microsoft Docs
+description: 开始使用 Azure CLI 为 Azure 资源创建自定义角色。
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 06/12/2018
-ms.date: 07/24/2018
+origin.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2164658cb654a2a960dd38445668ef717b56a7d1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a8a79df2b161ee2161c2a916e31e590364edf3d3
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660340"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836979"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>教程：使用 Azure CLI 创建自定义角色
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>教程：使用 Azure CLI 为 Azure 资源创建自定义角色
 
-如果[内置角色](built-in-roles.md)不能满足你的组织的特定需求，可以创建你自己的自定义角色。 对于本教程，你将使用 Azure CLI 创建名为 Reader Support Tickets 的自定义角色。 该自定义角色允许用户查看订阅中的所有内容，以及创建支持票证。
+如果 [Azure 资源的内置角色](built-in-roles.md)不能满足组织的特定需求，则可以创建你自己的自定义角色。 对于本教程，你将使用 Azure CLI 创建名为 Reader Support Tickets 的自定义角色。 该自定义角色允许用户查看订阅管理平面中的所有内容，以及开具支持票证。
 
 本教程介绍如何执行下列操作：
 
@@ -40,7 +40,7 @@ ms.locfileid: "52660340"
 要完成本教程，需要：
 
 - 有权创建自定义角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)
-- 在本地安装 [Azure CLI](/cli/install-azure-cli)
+- [Azure CLI](/cli/install-azure-cli)
 
 ## <a name="sign-in-to-azure-cli"></a>登录 Azure CLI
 
@@ -62,28 +62,20 @@ ms.locfileid: "52660340"
 
 1. 在编辑器中打开 ReaderSupportRole.json 并添加以下 JSON。
 
-    有关不同属性的信息，请参阅[自定义角色](custom-roles.md)。
+    有关不同属性的信息，请参阅 [Azure 资源的自定义角色](custom-roles.md)。
 
     ```json
     {
-        "Name":  "",
-        "IsCustom":  true,
-        "Description":  "",
-        "Actions":  [
-    
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/{subscriptionId1}"
-                             ]
+      "Name": "",
+      "IsCustom": true,
+      "Description": "",
+      "Actions": [],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/{subscriptionId1}"
+      ]
     }
     ```
     
@@ -110,25 +102,19 @@ ms.locfileid: "52660340"
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
@@ -222,26 +208,20 @@ ms.locfileid: "52660340"
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         
@@ -290,6 +270,6 @@ ms.locfileid: "52660340"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 创建自定义角色](custom-roles-cli.md)
+> [使用 Azure CLI 为 Azure 资源创建自定义角色](custom-roles-cli.md)
 
 <!-- Update_Description: wording update -->

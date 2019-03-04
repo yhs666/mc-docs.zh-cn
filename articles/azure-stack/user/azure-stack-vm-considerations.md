@@ -11,16 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/19/2018
-ms.date: 01/14/2019
+origin.date: 01/18/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.openlocfilehash: c2d6c885fac7a08d66d6048d3ce9a3462c5fb1a6
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 12/19/2018
+ms.openlocfilehash: 86445e9ede6c922323776e9a34a622337ee994bf
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059004"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905456"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -41,8 +42,9 @@ Azure Stack 虚拟机提供可按需缩放的计算资源。 在部署虚拟机 
 | 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于磁盘所附加到的 VM 的 VM 大小，请参阅 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 始终提供所有虚拟机功能的最新 API 版本。 | Azure Stack 支持特定的 Azure 服务以及这些服务的特定 API 版本。 若要查看支持的 API 版本列表，请参阅本文的 [API 版本](#api-versions)部分。 |
 | Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和配置虚拟机的正在运行的虚拟机实例的信息。  | Azure Stack 不支持实例元数据服务。 |
-|虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）<br>多个更新域<br>支持托管磁盘|多个容错域（每个区域 2 个或 3 个）<br>多个更新域（最多 20 个）<br>不支持托管磁盘|
-|虚拟机规模集|支持自动缩放|不支持自动缩放。<br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。
+| 虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）<br>多个更新域|多个容错域（每个区域 2 个或 3 个）<br>多个更新域（最多 20 个）|
+| 虚拟机规模集|支持自动缩放|不支持自动缩放。<br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
+| 虚拟机诊断 | Linux VM 诊断 | Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。
 
 ## <a name="virtual-machine-sizes"></a>虚拟机大小
 
@@ -71,7 +73,7 @@ Azure Stack 施加了一些资源限制，以避免资源（服务器本地和�
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
 
- Azure Stack 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
+Azure Stack 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
 
 使用以下 PowerShell 脚本可获取 Azure Stack 环境中可用的虚拟机扩展的列表：
 
@@ -82,6 +84,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+如果在 VM 部署上预配某个扩展时耗时过长，请让预配超时，而不要尝试通过停止该进程来解除 VM 的分配或将 VM 删除。
 
 ## <a name="api-versions"></a>API 版本
 
@@ -105,8 +109,8 @@ Get-AzureRmResourceProvider | `
 
 必须根据产品使用权利和 Microsoft 许可条款使用 Windows 产品。 Azure Stack 使用[自动 VM 激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) 来激活 Windows Server 虚拟机 (VM)。
 
-- Azure Stack 主机使用 Windows Server 2016 的 AVMA 密钥激活 Windows。 运行 Windows Server 2012 或更高版本的所有 VM 都将自动激活。
-- 运行 Windows Server 2008 R2 的 VM 不会自动激活，必须使用 [MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)进行激活。 若要使用 MAK 激活，必须提供自己的产品密钥。
+- Azure Stack 主机使用 Windows Server 2016 的 AVMA 密钥激活 Windows。 运行 Windows Server 2012 R2 或更高版本的所有 VM 都将自动激活。
+- 运行 Windows Server 2012 或更早版本的 VM 不会自动激活，必须使用 [MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)进行激活。 若要使用 MAK 激活，必须提供自己的产品密钥。
 
 Azure 使用 KMS 激活来激活 Windows VM。 如果将 VM 从 Azure Stack 移动到 Azure 并且遇到了激活问题，请参阅[排查 Azure Windows 虚拟机激活问题](/virtual-machines/windows/troubleshoot-activation-problems)。 可以在 Azure 支持团队博客文章 [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)（排查 Azure VM 上的 Windows 激活故障）中找到其他信息。
 

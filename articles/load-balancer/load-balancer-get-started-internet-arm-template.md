@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 19dd70b0076a64c93c16b24136b0af0356721a71
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 9b8ea0eb53892be1b9abc0c0f7336cad49dbea2c
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333925"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836857"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>使用模板创建公共负载均衡器
 
@@ -29,7 +29,7 @@ ms.locfileid: "54333925"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -40,10 +40,10 @@ ms.locfileid: "54333925"
 若要使用 PowerShell 部署下载的模板，请执行以下步骤。
 
 1. 如果从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择订阅。
-2. 运行 **New-AzureRmResourceGroupDeployment** cmdlet 以使用模板创建资源组。
+2. 运行 **New-AzResourceGroupDeployment** cmdlet 以使用模板创建资源组。
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location chinanorth `
+    New-AzResourceGroupDeployment -Name TestRG -Location chinanorth `
         -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
         -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```

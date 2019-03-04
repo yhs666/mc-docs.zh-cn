@@ -6,29 +6,27 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 02/07/2018
-ms.date: 02/25/2019
+origin.date: 02/22/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 9a68c134a97e46eaf8448f71b679ab7831737348
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: d4de88f7faee0662fc4fcb38e298ea4ada256757
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665669"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196532"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
-本文包含 Azure Data Lake Storage Gen2 的已知问题和暂时性限制。
+本文包含 Data Lake Storage Gen2 的已知问题和临时限制。
 
-## <a name="api-interoperability"></a>API 互操作性
+## <a name="data-lake-storage-gen2-apis"></a>Data Lake Storage Gen2 API
 
-Blob 存储 API 和 Azure Data Lake Gen2 API 不能互操作。
-
-如果有使用 Blob API 的工具、应用程序、服务或脚本，并且希望使用它们处理上传到帐户的所有内容，则在 Blob API 与 Azure Data Lake Gen2 API 实现互操作之前，请勿在 Blob 存储帐户中启用分层命名空间。 使用未启用分层命名空间的存储帐户意味着无法访问 Data Lake Storage Gen2 特定的功能，例如目录和文件系统访问控制列表。
+Data Lake Storage Gen2 帐户尚不支持这些 API。
 
 ## <a name="blob-storage-apis"></a>Blob 存储 API
 
-Blob 存储 API 在 Azure Data Lake Storage Gen2 帐户中尚不可用。
+Data Lake Storage Gen2 帐户尚不能使用 Blob 存储 API。
 
 这些 API 已禁用，以防止意外出现的数据访问问题，因为 Blob 存储 API 与 Azure Data Lake Gen2 API 目前不可互操作。
 
@@ -46,6 +44,12 @@ Blob 存储 API 在 Azure Data Lake Storage Gen2 帐户中尚不可用。
 
 非托管虚拟机 (VM) 磁盘依赖于被禁用的 Blob 存储 API，因此，若要在存储帐户中启用分层命名空间，请考虑将非托管 VM 磁盘放到未启用分层命名空间功能的存储帐户中。
 
+## <a name="api-interoperability"></a>API 互操作性
+
+Blob 存储 API 和 Azure Data Lake Gen2 API 不能互操作。
+
+如果有使用 Blob API 的工具、应用程序、服务或脚本，并且希望使用它们处理上传到帐户的所有内容，则在 Blob API 与 Azure Data Lake Gen2 API 实现互操作之前，请勿在 Blob 存储帐户中启用分层命名空间。 使用未启用分层命名空间的存储帐户意味着无法访问 Data Lake Storage Gen2 特定的功能，例如目录和文件系统访问控制列表。
+
 ## <a name="azure-storage-explorer"></a>Azure 存储资源管理器
 
 若要使用 Azure 存储资源管理器查看或管理 Data Lake Storage Gen2 帐户，你必须至少具有可[免费下载](https://azure.microsoft.com/features/storage-explorer/)的此工具的版本 `1.6.0`。
@@ -54,23 +58,23 @@ Blob 存储 API 在 Azure Data Lake Storage Gen2 帐户中尚不可用。
 
 ## <a name="blob-viewing-tool"></a>Blob 查看工具
 
-Azure 门户中的 Blob 查看工具仅为 Azure Data Lake Storage Gen2 提供有限的支持。
+Azure 门户中的 Blob 查看工具仅为 Data Lake Storage Gen2 提供有限的支持。
 
 ## <a name="third-party-applications"></a>第三方应用程序
 
-第三方应用程序可能不支持 Azure Data Lake Storage Gen2。
+第三方应用程序可能不支持 Data Lake Storage Gen2。
 
-是否支持该服务由每家第三方应用程序提供商决定。 目前，Blob 存储 API 和 Azure Data Lake Storage Gen2 API 不可用于管理相同的内容。 由于我们正在努力实现这种互操作性，有可能许多第三方工具可自动支持 Azure Data Lake Storage Gen2。
+是否支持该服务由每家第三方应用程序提供商决定。 目前，Blob 存储 API 和 Data Lake Storage Gen2 API 不可用于管理相同的内容。 由于我们正在努力实现这种互操作性，有可能许多第三方工具将自动支持 Data Lake Storage Gen2。
 
 ## <a name="azcopy-support"></a>AzCopy 支持
 
-AzCopy 版本 8 不支持 Azure Data Lake Storage Gen2。
+AzCopy 版本 8 不支持 Data Lake Storage Gen2。
 
-请改用 AzCopy 的最新预览版 ([AzCopy v10](/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))，因为它支持 Azure Data Lake Storage Gen2 终结点。
+请改用 AzCopy 的最新预览版 ([AzCopy v10](/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))，因为它支持 Data Lake Storage Gen2 终结点。
 
 ## <a name="soft-delete-and-snapshots"></a>软删除和快照
 
-软删除和快照不适用于 Azure Data Lake Storage Gen2 帐户。
+软删除和快照不适用于 Data Lake Storage Gen2 帐户。
 
 所有版本控制功能（包括[快照](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)和[软删除](/storage/blobs/storage-blob-soft-delete)）尚不适用于已启用分层命名空间功能的存储帐户。
 
@@ -80,4 +84,4 @@ AzCopy 版本 8 不支持 Azure Data Lake Storage Gen2。
 
 ## <a name="diagnostic-logs"></a>诊断日志
 
-诊断日志不适用于 Azure Data Lake Storage Gen2 帐户。
+诊断日志不适用于 Data Lake Storage Gen2 帐户。

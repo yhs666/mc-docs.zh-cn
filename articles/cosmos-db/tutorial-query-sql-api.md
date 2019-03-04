@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 97ad3b59f312757cd7188b6bd9d719128f02d4d3
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 4cb56414c2c53637e776af81ff55aa683f2685a0
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309219"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987918"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -131,7 +131,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 > [!div class="checklist"]
 > * 已了解如何使用 SQL 进行查询  
 
-现可继续学习下一教程，了解如何全局分发数据。
+现可继续学习下一教程，了解如何多区域分发数据。
 
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)

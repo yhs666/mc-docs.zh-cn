@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/05/2018
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 298d585a2d9f7104a0cf395520fcfa8ab500e361
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 8c3a25813bcaeb64999964e9dbc0ef8ed3d85e86
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785287"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903004"
 ---
 # <a name="check-resource-usage-against-limits"></a>根据限制检查资源使用情况
 
@@ -48,12 +48,12 @@ ms.locfileid: "53785287"
 
 ## <a name="powershell"></a>PowerShell
 
-可以从计算机上的 PowerShell 中运行后面的命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount` 以登录到 Azure。
+可以从计算机上的 PowerShell 中运行后面的命令。 如果在计算机上运行 PowerShell，需要 Azure PowerShell 模块 1.0.0 或更高版本。 在计算机上运行 `Get-Module -ListAvailable Az`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/zh-cn/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount` 以登录到 Azure。
 
-使用 [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0) 根据限制查看使用情况。 以下示例获取在“中国东部”位置至少部署了一个资源的资源的使用情况：
+使用 [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage) 根据限制查看使用情况。 以下示例获取在“中国东部”位置至少部署了一个资源的资源的使用情况：
 
 ```azurepowershell
-Get-AzureRmNetworkUsage `
+Get-AzNetworkUsage `
   -Location chinaeast `
   | Where-Object {$_.CurrentValue -gt 0} `
   | Format-Table ResourceType, CurrentValue, Limit

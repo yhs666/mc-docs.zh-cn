@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Policy 来创建和管理策略以强制实施组织符合性
+title: 创建和管理策略以强制实施符合性
 description: 使用 Azure Policy 强制执行标准、满足法规遵从性、审核需求、控制成本、维护安全和性能的一致性，并实施企业范围的设计原则。
 services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/22/2018
-ms.date: 11/12/2018
+ms.date: 03/11/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f6b4b432a349cb9dedb93291067fc92acac5b4e3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 898246fdb17c107c640be257f7ae797f2e414479
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664492"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903247"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -106,7 +106,7 @@ ms.locfileid: "52664492"
     }
     ```
 
-    策略规则中字段属性的值必须是下列其中一项：“名称”、“类型”、“位置”、“标记”或别名。 例如，别名为 `"Microsoft.Compute/VirtualMachines/Size"`。
+    策略规则中 *field* 属性的值必须是以下值之一：Name、Type、Location、Tags 或某个别名。 例如，别名为 `"Microsoft.Compute/VirtualMachines/Size"`。
 
     若要查看其他 Azure Policy 示例，请参阅 [Azure Policy 示例](../samples/index.md)。
 
@@ -154,15 +154,13 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Micro
 
 ## <a name="create-a-policy-definition-with-powershell"></a>使用 PowerShell 创建策略定义
 
-在继续完成 PowerShell 示例之前，请确保已安装最新版本的 Azure PowerShell。 版本 3.6.0 中添加了策略参数。 如果使用较早版本，示例将返回一个错误，指示“找不到参数”。
+在继续完成 PowerShell 示例之前，请确保已安装最新版本的 Azure PowerShell。 版本 3.6.0 中添加了策略参数。 如果使用较早版本，示例会返回一个错误，指示找不到参数。
 
-可以使用 `New-AzureRmPolicyDefinition` cmdlet 创建策略定义。
+可以使用 `New-AzPolicyDefinition` cmdlet 创建策略定义。
 
-要在文件中创建策略定义，请将路径传递给该文件。 对于外部文件，请使用 
-
-以下示例：
+要在文件中创建策略定义，请将路径传递给该文件。 对于外部文件，请使用以下示例：
 ```powershell
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
@@ -171,7 +169,7 @@ $definition = New-AzureRmPolicyDefinition `
 对于本地文件，请使用以下示例：
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
     -Policy 'c:\policies\coolAccessTier.json'
@@ -180,7 +178,7 @@ $definition = New-AzureRmPolicyDefinition `
 要使用内联规则创建策略定义，请使用以下示例：
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+$definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
                 "field": "type",
@@ -202,8 +200,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description '
 }'
 ```
 
-输出存储在 `$definition` 对象中，会在策略分配过程中使用该对象。
-以下示例创建包含参数的策略定义：
+输出存储在 `$definition` 对象中，会在策略分配过程中使用该对象。 以下示例创建包含参数的策略定义：
 
 ```powershell
 $policy = '{
@@ -236,7 +233,7 @@ $parameters = '{
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
+$definition = New-AzPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
 ### <a name="view-policy-definitions-with-powershell"></a>使用 PowerShell 查看策略定义
@@ -244,10 +241,10 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 若要查看订阅中的所有策略定义，请运行以下命令：
 
 ```powershell
-Get-AzureRmPolicyDefinition
+Get-AzPolicyDefinition
 ```
 
-此命令返回所有可用的策略定义，包括内置策略。 返回的每个策略的格式如下：
+此命令可返回所有可用的策略定义，包括内置策略。 返回的每个策略的格式如下：
 
 ```output
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -262,8 +259,7 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 
 ## <a name="create-a-policy-definition-with-azure-cli"></a>使用 Azure CLI 创建策略定义
 
-可以将 Azure CLI 与策略定义命令结合使用来创建策略定义。
-要使用内联规则创建策略定义，请使用以下示例：
+可以将 Azure CLI 与策略定义命令结合使用来创建策略定义。 要使用内联规则创建策略定义，请使用以下示例：
 
 ```cli
 az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
@@ -337,7 +333,7 @@ az policy definition list
 
 1. 输入计划的“名称”和“说明”。
 
-   此示例确保资源符合有关保证安全的策略定义。 计划的名称为“保证安全”，说明为：“创建此计划的目的是处理所有与保护资源相关的策略定义”。
+   此示例验证资源是否符合有关保证安全的策略定义。 将计划命名为“保证安全”，并将说明设置为：**创建此计划的目的是处理所有与保护资源相关的策略定义**。
 
 1. 对于“类别”，请从现有的选项中选择，或者创建新类别。
 
@@ -353,7 +349,7 @@ az policy definition list
 
    ![计划定义](../media/create-and-manage/initiative-definition-2.png)
 
-1. 如果要添加到计划的策略定义有参数，则这些参数会显示在“策略和参数”区域的策略名称下。 _value_ 可以设置为“设置值”（针对此计划的所有分配进行硬编码）或“使用计划参数”（在每个计划分配期间设置）。 如果选择了“设置值”，则下拉到 _Values_ 的右侧即可输入或选择所需值。 如果选择了“使用计划参数”，则会显示新的“计划参数”部分，用于定义将要在计划分配期间设置的参数。 此计划参数的允许值可能会进一步限制能够在计划分配期间设置的内容。
+1. 如果要添加到计划的策略定义有参数，则这些参数会显示在“策略和参数”区域的策略名称下。 _value_ 可以设置为“设置值”（针对此计划的所有分配进行硬编码）或“使用计划参数”（在每个计划分配期间设置）。 如果选择了“设置值”，则“值”右侧的下拉列表允许输入或选择值。 如果选择了“使用计划参数”，则会显示新的“计划参数”部分，用于定义将要在计划分配期间设置的参数。 此计划参数的允许值可能会进一步限制能够在计划分配期间设置的内容。
 
    ![计划定义参数](../media/create-and-manage/initiative-definition-3.png)
 
@@ -365,12 +361,12 @@ az policy definition list
 ### <a name="assign-an-initiative-definition"></a>分配计划定义
 
 1. 选择“Azure Policy”页左侧“创作”下的“定义”。
-2. 找到前面创建的“保证安全”计划定义并选择它。
-3. 选择页面顶部的“分配”，打开“保证安全: 分配计划”页。
+
+1. 找到前面创建的“保证安全”计划定义并单击它。 选择页面顶部的“分配”，打开“保证安全: 分配计划”页。
 
    ![分配定义](../media/create-and-manage/assign-definition.png)
 
-   或者，可以右键单击选定的行，或者单击上下文菜单行末尾处的省略号。  然后选择“分配”。
+   也可右键单击选定的行，或者左键单击上下文菜单行末尾处的省略号。  然后选择“分配”。
 
    ![右键单击某个行](../media/create-and-manage/select-right-click.png)
 
@@ -379,8 +375,8 @@ az policy definition list
    - 范围：在其中保存计划的管理组或订阅变为默认。  可以更改范围，以将计划分配到保存位置中的某个订阅或资源组。
    - 排除项：配置上述范围内的任何资源，以防止向其应用计划分配。
    - 计划定义和分配名称：“保证安全”（预先填充了所分配计划的名称）。
-   - 说明：此计划分配旨在实施这组策略定义。
-   - 分配者：根据登录的用户自动填写。 此字段是可选字段，因此可输入自定义值。
+   - 说明:此计划分配旨在实施这组策略定义。
+   - 分配者：根据登录的用户自动填充。 此字段是可选字段，因此可输入自定义值。
 
 5. 单击“分配”。
 
@@ -400,12 +396,12 @@ az policy definition list
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>使用“排除”豁免不符合或遭拒绝的资源
 
-继续以上示例，在通过分配策略定义来要求使用 SQL Server 版本 12.0 以后，通过 12.0 以外的版本创建的 SQL Server 将被拒绝。 本部分介绍如何通过创建单个资源组中的排除项，来解决拒绝尝试创建 SQL Server 的问题。 该排除项可防止对该资源实施策略（或计划）。
+继续以上示例，在通过分配策略定义来要求使用 SQL Server 版本 12.0 以后，通过 12.0 以外的版本创建的 SQL Server 将被拒绝。 本部分介绍如何通过创建单个资源组中的排除项，来解决拒绝创建 SQL Server 的请求的问题。 该排除项可防止对该资源实施策略（或计划）。
 在以下示例中，允许在单个资源组中使用任何 SQL Server 版本。 可对订阅、资源组应用排除，或者将排除范围缩小到单个资源。
 
-可在两个位置查看由于分配的策略或计划而导致受阻的部署：
+可在两个位置查看被分配的策略或计划阻止的部署：
 
-- 在部署部署针对的资源组中：选择页面左侧的“部署”，然后单击失败部署的“部署名称”。 随后将会列出带有“禁止”状态的被拒绝资源。 若要确定拒绝该资源的策略或计划和分配，请在“部署概述”页上单击“失败。单击此处了解详细信息 ->”。 页面右侧会打开一个窗口，其中显示了错误信息。 “错误详细信息”下显示了相关策略对象的 GUID。
+- 在部署针对的资源组中：选择页面左侧的“部署”，然后单击失败部署的“部署名称”。 随后将会列出带有“禁止”状态的被拒绝资源。 若要确定拒绝该资源的策略或计划和分配，请在“部署概述”页上单击“失败。单击此处了解详细信息 ->”。 页面右侧会打开一个窗口，其中显示了错误信息。 “错误详细信息”下显示了相关策略对象的 GUID。
 
   ![策略分配拒绝的部署](../media/create-and-manage/rg-deployment-denied.png)
 
@@ -413,13 +409,15 @@ az policy definition list
 
   ![分配策略的符合性概述](../media/create-and-manage/compliance-overview.png)
 
-在本示例中，Trent Baker（Contoso 的高级虚拟化专家之一）执行了所需的工作。 我们需要为他指定一个例外项，但不希望在任何资源组中使用版本 12.0 以外的 SQL Server。 我们创建了新资源组 **SQLServers_Excluded**，现在要将此资源组指定为此策略分配的例外项。
+在此示例中，Contoso 的资深虚拟化专家之一 Trent Baker 执行了所需的工作。 我们需要为 Trent 指定一个例外项，但不希望在任何资源组中使用版本 12.0 以外的 SQL Server。 我们创建了新资源组 **SQLServers_Excluded**，现在要将此资源组指定为此策略分配的例外项。
 
 ### <a name="update-assignment-with-exclusion"></a>使用排除项更新分配
 
 1. 在“Azure Policy”页左侧的“创作”下选择“分配”。
-2. 浏览所有策略分配并打开“需要 SQL Server 版本 12.0”分配。
-3. 设置“排除项”：单击省略号并选择要排除的资源组（在本示例中为 *SQLServers_Excluded*）。
+
+1. 浏览所有策略分配并打开“需要 SQL Server 版本 12.0”分配。
+
+1. 设置“排除项”：单击省略号并选择要排除的资源组（在本示例中为 *SQLServers_Excluded*）。
 
    ![请求排除](../media/create-and-manage/request-exclusion.png)
 
@@ -428,7 +426,7 @@ az policy definition list
 
 4. 单击“选择”，然后单击“保存”。
 
-在本部分，我们通过对单个资源组创建排除项，解决了拒绝尝试创建受禁 SQL Server 版本的问题。
+本部分介绍如何通过创建单个资源组中的排除项，来解决请求被拒绝的问题。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -440,7 +438,7 @@ az policy definition list
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已成功完成以下操作：
+在本教程中，你已成功完成以下任务：
 
 > [!div class="checklist"]
 > - 分配策略，对将来创建的资源强制执行条件

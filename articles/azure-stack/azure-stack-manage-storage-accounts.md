@@ -11,37 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-origin.date: 09/28/2018
-ms.date: 11/12/2018
+origin.date: 01/18/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3b039f6315ae010d00539192f3ecb07931140613
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/18/2019
+ms.openlocfilehash: 3a00ff309a1094c0420dbce9411477c91b2dc84f
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658992"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905265"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>管理 Azure Stack 中的存储帐户
+
 了解如何管理 Azure Stack 中的存储帐户，以根据业务需求查找、恢复和回收存储容量。
 
-## <a name="find"></a>查找存储帐户
+## <a name="find-a-storage-account"></a>查找存储帐户
 可在 Azure Stack 中通过以下方式查看区域中的存储帐户列表：
 
 1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
 
-2. 在“管理”下选择“所有服务” > “区域管理”。
+2. 选择“所有服务” > “存储帐户”。
 
-3. 从“资源提供程序”列表中选择“存储”。
-   
-   ![存储资源提供程序](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. 在“存储”中选择“存储帐户”。
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   此边栏选项卡显示该区域中的存储帐户列表。
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 默认显示前 10 个帐户。 可以单击列表底部的“加载更多”链接来提取更多的帐户。
@@ -76,7 +68,7 @@ OR
 
 在 Azure Stack 中，可通过一种简单的方法实现此目的：
 
-1. 浏览到存储帐户列表。 有关详细信息，请参阅本文中的[查找存储帐户](#find)。
+1. 浏览到存储帐户列表。 有关详细信息，请参阅本文中的“查找存储帐户”。
 2. 在列表中找到该特定帐户。 可能需要执行筛选。
 3. 检查帐户的状态。 状态应显示为“已删除”。
 4. 选择该帐户，这会打开帐户详细信息窗格。
@@ -85,7 +77,7 @@ OR
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. 恢复过程随即显示“正在处理...请稍候”，表示恢复成功。
-   也可以选择门户顶部的铃铛图标查看进度指示。
+   也可以选择门户顶部的“铃铛”图标查看进度指示。
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
@@ -122,7 +114,7 @@ OR
 可以使用门户或 PowerShell 来回收容量。
 
 **使用门户回收容量：**
-1. 导航到存储帐户窗格。 请参阅[查找存储帐户](#find)。
+1. 导航到存储帐户窗格。 请参阅“查找存储帐户”。
 2. 选择窗格顶部的“回收空间”。
 3. 阅读消息，并选择“确定”。
 
@@ -149,7 +141,7 @@ OR
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-有关详细信息，请参阅 [Azure Stack PowerShell 文档](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)。
+有关详细信息，请参阅 [Azure Stack PowerShell 文档](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。
  
 
 ## <a name="next-steps"></a>后续步骤

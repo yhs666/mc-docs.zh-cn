@@ -1,26 +1,36 @@
 ---
-title: 将设备更新到最新版本的 Azure IoT Edge | Microsoft Docs
+title: 更新设备上的 IoT Edge 版本 - Azure IoT Edge
 description: 如何将 IoT Edge 设备更新为运行最新版本的安全守护程序和 IoT Edge 运行时
 keywords: ''
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 10/05/2018
+ms.author: v-yiso
+origin.date: 12/17/2018
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 23753ef726ad11b814358891d542f50d6200e60c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.custom: seodec18
+ms.openlocfilehash: faff2600c212cc76087e7bb12f39d69ad9fdba3b
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675323"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196632"
 ---
-# <a name="update-the-iot-edge-runtime"></a>更新 IoT Edge 运行时
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全守护程序和运行时
 
 当 IoT Edge 服务发布新版本时，你可以更新 IoT Edge 设备，使其获得最新功能并改善安全性。 本文提供有关在新版本推出时如何更新 IoT Edge 设备的信息。 
 
-若要转移到较新的版本，需要更新 IoT Edge 设备的两个组件。 第一个组件是在设备上运行的安全守护程序，它会在设备启动时启动运行时。 目前，只能从设备本身更新安全守护程序。 第二个组件是由 Edge 中心和 Edge 代理模块构成的运行时。 根据部署的构造方式，可以从设备或者远程更新运行时。 
+若要转移到较新的版本，需要更新 IoT Edge 设备的两个组件。 第一个组件是安全守护程序，它在设备上运行并在设备启动时启动运行时模块。 目前，只能从设备本身更新安全守护程序。 第二个组件是由 IoT Edge 中心和 IoT Edge 代理模块组成的运行时。 根据部署的构造方式，可以从设备或者远程更新运行时。 
+
+>[!IMPORTANT]
+>如果在 Windows 设备上运行 Azure IoT Edge，则在下述某个条件适用于设备的情况下，请勿将其更新到版本 1.0.5： 
+>* 尚未将设备升级到 Windows 内部版本 17763。 IoT Edge 版本 1.0.5 不支持低于 17763 的 Windows 内部版本。
+>* 在 Windows 设备上运行 Java 或 Node.js 模块。 跳过版本 1.0.5，即使已将 Windows 设备更新到最新的内部版本。 
+>
+>有关 IoT Edge 版本 1.0.5 的详细信息，请参阅 [1.0.5 发行说明](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 若要详细了解如何不让开发工具更新到最新版本，请参阅 [IoT 开发人员博客](https://devblogs.microsoft.com/iotdev/)。
+
 
 若要查找最新版本的 Azure IoT Edge，请参阅 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)。
 
@@ -42,7 +52,7 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows 设备
 
-在 Windows 设备上，请使用 PowerShell 脚本卸载并重新安装安全守护程序。 安装脚本会自动提取最新版本的安全守护程序。 在安装过程中，必须再次为设备提供连接字符串。 
+在 Windows 设备上，请使用 PowerShell 脚本卸载并重新安装安全守护程序。 安装脚本会自动提取最新版本的安全守护程序。 
 
 在管理员 PowerShell 会话中卸载安全守护程序。 
 
@@ -51,24 +61,28 @@ apt-get install libiothsm iotedge
 UnInstall-SecurityDaemon
 ```
 
-根据 IoT Edge 设备使用的是 Windows 容器还是 Linux 容器重新安装安全守护程序。 请将短语 **\<Windows or Linux\>** 替换为某个容器操作系统。 
+在没有任何参数的情况下运行 `Uninstall-SecurityDaemon` 命令会从设备中删除安全守护程序以及两个运行时容器映像。 config.yaml 文件以及 Moby 容器引擎中的数据会保留在设备上。 保留该配置意味着，在安装过程中，不需再次为设备提供连接字符串或设备预配服务信息。 
+
+根据 IoT Edge 设备使用的是 Windows 容器还是 Linux 容器重新安装安全守护程序。 请将短语 **\<Windows or Linux\>** 替换为某个容器操作系统。 使用 **-ExistingConfig** 标志即可指向设备上的现有 config.yaml 文件。 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
+Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
 ```
+
+若要安装特定版本的安全守护程序，请从 [IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)下载相应的 iotedged-windows.zip 文件。 然后，使用 `-OfflineInstallationPath` 参数指向文件位置。 有关详细信息，请参阅[脱机安装](how-to-install-iot-edge-windows.md#offline-installation)。
 
 ## <a name="update-the-runtime-containers"></a>更新运行时容器
 
-更新 Edge 代理和 Edge 中心容器的方式取决于在部署中使用的是滚动标记（如 1.0）还是特定标记（如 1.0.2）。 
+更新 IoT Edge 代理和 IoT Edge 中心容器的方式取决于在部署中使用的是滚动标记（如 1.0）还是特定标记（如 1.0.2）。 
 
-使用 `iotedge logs edgeAgent` 或 `iotedge logs edgeHub` 命令检查设备上目前安装的 IoT Edge 代理和 Edge 中心模块的版本。 
+使用 `iotedge logs edgeAgent` 或 `iotedge logs edgeHub` 命令检查设备上目前安装的 IoT Edge 代理和 IoT Edge 中心模块的版本。 
 
-  ![查看容器版本](./media/how-to-update-iot-edge/container-version.png)
+  ![在日志中查找容器版本](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>了解 IoT Edge 标记
 
-为 Edge 代理和 Edge 中心映像标记了与其关联的 IoT Edge 版本。 可通过两种不同的方法对运行时映像使用标记： 
+IoT Edge 代理和 IoT Edge 中心映像使用与之关联的 IoT Edge 版本进行标记。 可通过两种不同的方法对运行时映像使用标记： 
 
 * **滚动更新标记** - 仅使用版本号的前两个值来获取匹配这些数字的最新映像。 例如，每当有新版本指向最新的 1.0.x 版时，就更新 1.0。 如果 IoT Edge 设备的容器运行时重新提取映像，则运行时模块会更新到最新版本。 建议在开发时使用此方法。 Azure 门户中的部署默认使用滚动更新标记。 
 * **特定标记** - 使用版本号的所有三个值，以显式设置映像版本。 例如，1.0.2 在其初始版本发布后不会更改。 准备好更新时，可以在部署清单中声明新的版本号。 建议在生产环境中使用此方法。
@@ -77,7 +91,7 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 
 如果在部署中使用滚动更新标记（例如 mcr.microsoft.com/azureiotedge-hub:**1.0**），则需要在设备上强制实施容器运行时，以提取最新版本的映像。 
 
-从 IoT Edge 设备中删除本地版本的映像。 
+从 IoT Edge 设备中删除本地版本的映像。 在 Windows 计算机上，卸载安全守护程序时也会删除运行时映像，因此不需再次执行此步骤。 
 
 ```cmd/sh
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
@@ -123,5 +137,4 @@ IoT Edge 服务将提取最新版本的运行时映像，并自动在设备上�
 
 查看最新的 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)。
 
-持续关注[物联网博客](https://azure.microsoft.com/blog/topics/internet-of-things/
-)中的最新更新和通告 
+持续关注[物联网博客](https://azure.microsoft.com/blog/topics/internet-of-things/)中的最新更新和公告 

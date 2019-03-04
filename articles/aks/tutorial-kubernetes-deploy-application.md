@@ -3,19 +3,18 @@ title: Azure 上的 Kubernetes 教程 - 部署应用程序
 description: 在本 Azure Kubernetes 服务 (AKS) 教程中，请使用存储在 Azure 容器注册表中的自定义映像将多容器应用程序部署到群集。
 services: container-service
 author: rockboyfor
-manager: digimobile
 ms.service: container-service
 ms.topic: tutorial
-origin.date: 08/14/2018
-ms.date: 11/26/2018
+origin.date: 12/19/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 55c1d670522551d4c815f42dfc73e58b02abb2cf
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b0e6846be57ad8269b0b2cc6e405045ec4e7bbfd
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676445"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903190"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中运行应用程序
 
@@ -26,17 +25,17 @@ Kubernetes 为容器化应用程序提供一个分布式平台。 你生成自�
 > * 在 Kubernetes 中运行应用程序
 > * 测试应用程序
 
-在后续教程中，此应用程序将进行横向扩展和更新。
+在另外的教程中，此应用程序将进行横向扩展和更新。
 
-本教程假定你基本了解 Kubernetes 概念。有关 Kubernetes 的详细信息，请参阅 [Kubernetes 文档][kubernetes-documentation]。
+本快速入门假设读者基本了解 Kubernetes 的概念。 有关详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在前面的教程中，我们已将应用程度打包到容器映像中，将此映像上传到 Azure 容器注册表，并创建了 Kubernetes 群集。
 
-必须先预创建 `azure-vote-all-in-one-redis.yaml` Kubernetes 清单文件，然后才能完成本教程。 此文件是在上一教程中与应用程序源代码一同下载。 验证是否已克隆存储库，并且是否已将目录更改为克隆的存储库。 如果尚未完成这些步骤，并且想要逐一完成，请返回到[教程 1 - 创建容器映像][aks-tutorial-prepare-app]。
+必须先预创建 `azure-vote-all-in-one-redis.yaml` Kubernetes 清单文件，然后才能完成本教程。 此文件是在上一教程中与应用程序源代码一同下载。 验证是否已克隆存储库，并且是否已将目录更改为克隆的存储库。 如果尚未完成这些步骤，并且想要逐一完成，请先参阅[教程 1 - 创建容器映像][aks-tutorial-prepare-app]。
 
-本教程需要运行 Azure CLI 2.0.44 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+此教程需要运行 Azure CLI 2.0.53 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
 ## <a name="update-the-manifest-file"></a>更新清单文件
 
@@ -48,7 +47,7 @@ Kubernetes 为容器化应用程序提供一个分布式平台。 你生成自�
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-在第一个教程中克隆的 git 存储库中的示例清单文件使用登录服务器名称 *microsoft*。 使用 `vi` 之类的文本编辑器打开该清单文件：
+在第一个教程中克隆的 git 存储库中的示例清单文件使用登录服务器名称 *microsoft*。 确保位于所克隆的 *azure-voting-app-redis* 目录中，然后使用某个文本编辑器（例如 `vi`）打开清单文件：
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
@@ -70,7 +69,7 @@ containers:
   image: <acrName>.azurecr.cn/azure-vote-front:v1
 ```
 
-保存并关闭该文件。
+保存并关闭该文件。 在 `vi` 中，使用 `:wq`。
 
 ## <a name="deploy-the-application"></a>部署应用程序
 
@@ -80,7 +79,7 @@ containers:
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Kubernetes 对象在群集中创建，如以下示例所示：
+下面的示例输出表明已成功在 AKS 群集中创建了资源：
 
 ```
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -93,25 +92,27 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>测试应用程序
 
-创建向 Internet 公开应用程序的 [Kubernetes 服务][kubernetes-service]。 此过程可能需要几分钟。 若要监视进度，请将 [kubectl get service][kubectl-get] 命令与 `--watch` 参数配合使用：
+应用程序运行时，Kubernetes 服务将向 Internet 公开应用程序前端。 此过程可能需要几分钟才能完成。
+
+若要监视进度，请将 [kubectl get service][kubectl-get] 命令与 `--watch` 参数配合使用。
 
 ```console
 kubectl get service azure-vote-front --watch
 ```
 
-*azure-vote-front* 服务的 *EXTERNAL-IP* 一开始显示为“挂起”，如以下示例所示：
+最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*：
 
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-当 EXTERNAL-IP 地址从“挂起”变为实际的公共 IP 地址以后，请使用 `CTRL-C` 停止 kubectl 监视进程。 以下示例显示现在已分配一个公共 IP 地址：
+当 *EXTERNAL-IP* 地址从 *pending* 更改为实际公共 IP 地址时，请使用 `CTRL-C` 停止 `kubectl` 监视进程。 以下示例输出显示向服务分配了有效的公共 IP 地址：
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-若要查看正在操作的应用程序，请打开 Web 浏览器并转到外部 IP 地址。
+若要查看应用程序的实际效果，请打开 Web 浏览器，以转到服务的外部 IP 地址：
 
 ![Azure 上的 Kubernetes 群集映像](media/container-service-kubernetes-tutorials/azure-vote.png)
 
@@ -119,7 +120,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已将 Azure 投票应用程序部署到 AKS 中的 Kubernetes 群集。 你已了解如何：
+在本教程中，已将示例 Azure 投票应用程序部署到 AKS 中的 Kubernetes 群集。 你已了解如何：
 
 > [!div class="checklist"]
 > * 更新 Kubernetes 清单文件
@@ -135,11 +136,13 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-documentation]: https://kubernetes.io/docs/home/
-[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
-[az-acr-list]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#list
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-acr-list]: https://docs.azure.cn/zh-cn/cli/acr
+?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
+?view=azure-cli-latest
+[kubernetes-concepts]: concepts-clusters-workloads.md
+[kubernetes-service]: concepts-network.md#services

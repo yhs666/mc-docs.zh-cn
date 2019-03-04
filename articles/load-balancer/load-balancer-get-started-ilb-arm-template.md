@@ -1,26 +1,25 @@
 ---
-title: 创建内部负载均衡器 - Azure 模板 | Azure
+title: 创建内部负载均衡器 - Azure 模板
+titlesuffix: Azure Load Balancer
 description: 了解如何在 Resource Manager 中使用模板创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
-tags: azure-resource-manager
-ms.assetid: 64150862-6ced-42de-85dc-89d323257d7c
+author: WenJason
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: ee06d123fbfc345d09ce90ad9ee69b6977ffe130
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.openlocfilehash: 0dc772fd308a455a2288addb3ece6c4f1e81613e
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660250"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56837008"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用模板创建内部负载均衡器
 
@@ -30,6 +29,7 @@ ms.locfileid: "52660250"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -46,10 +46,10 @@ ms.locfileid: "52660250"
 1. 如果从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择订阅。
 2. 将参数文件下载到本地磁盘。
 3. 编辑该文件并将其保存。
-4. 运行 **New-AzureRmResourceGroupDeployment** cmdlet 以使用模板创建资源组。
+4. 运行 **New-AzResourceGroupDeployment** cmdlet 以使用模板创建资源组。
 
-    ```azurecli
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location chinanorth `
+    ```azurepowershell
+    New-AzResourceGroupDeployment -Name TestRG -Location chinanorth `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```

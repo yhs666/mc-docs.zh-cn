@@ -12,22 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+origin.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 5424545159f5c4683a22fa9ffb56e51436eb8718
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 9abad39499a2d7485fac2525941b341a4568f077
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663189"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905332"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
 若要管理资源，必须连接到 Azure Stack 开发工具包。 本文详细介绍连接到开发工具包的步骤。 可以使用以下任一连接选项：
 
-* [远程桌面](#connect-with-remote-desktop)：可让单个并发用户快速地从开发工具包进行连接。
-* [虚拟专用网络 (VPN)](#connect-with-vpn)：可让多个并发用户从 Azure Stack 基础结构外部的客户端进行连接（需要配置）。
+* 远程桌面：可让单个并发用户快速地从开发工具包进行连接。
+* 虚拟专用网络 (VPN)：可让多个并发用户从 Azure Stack 基础结构外部的客户端进行连接（需要配置）。
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>使用远程桌面连接到 Azure Stack
 单个并发用户可以使用门户通过远程桌面连接来管理资源。

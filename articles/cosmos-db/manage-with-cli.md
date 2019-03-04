@@ -5,20 +5,22 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/23/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f71eb74420d1d7eb612f2bd76b07511fe92387da
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 002394b8288014cff04fe61ab26565d7a169749e
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309095"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987919"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos DB 资源
+# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 资源
 
 以下指南介绍了使用 Azure CLI 自动管理 Azure Cosmos DB 帐户、数据库和容器的命令。 它还包括用来缩放容器吞吐量的命令。 [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。 还可以在[针对 Azure Cosmos DB 的 Azure CLI 示例](cli-samples.md)中找到更多示例，包括如何为 MongoDB 创建和管理 Cosmos DB 帐户、数据库和容器。
 
-<!-- Not Available on  Gremlin, Cassandra and Table API--> 此示例 CLI 脚本创建 Azure Cosmos DB SQL API 帐户、数据库和容器。  
+<!-- Not Available on  Gremlin, Cassandra and Table API-->
+
+此示例 CLI 脚本创建一个 Azure Cosmos DB SQL API 帐户、数据库和容器。  
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -29,6 +31,7 @@ ms.locfileid: "54309095"
 若要在“中国东部”和“中国北部”创建启用了 SQL API、会话一致性和多主数据库的 Azure Cosmos DB 帐户，请打开 Azure CLI 并运行以下命令：
 
 <!-- Not Available on cloud shell-->
+
 ```azurecli
 az cosmosdb create \
    --name "myCosmosDbAccount" \
@@ -44,6 +47,7 @@ az cosmosdb create \
 若要创建 Cosmos DB 数据库，请打开 Azure CLI 并运行以下命令：
 
 <!-- Not Available on cloud shell-->
+
 ```azurecli
 az cosmosdb database create \
    --name "myCosmosDbAccount" \
@@ -56,6 +60,7 @@ az cosmosdb database create \
 若要创建吞吐量为 1000 RU/秒且具有分区键的 Cosmos DB 容器，请打开 Azure CLI 并运行以下命令：
 
 <!-- Not Available on cloud shell-->
+
 ```azurecli
 # Create a container
 az cosmosdb collection create \
@@ -69,7 +74,9 @@ az cosmosdb collection create \
 
 ## <a name="change-the-throughput-of-a-container"></a>更改容器的吞吐量
 
-<!-- Not Available on cloud shell--> 若要将 Cosmos DB 容器的吞吐量更改为 400 RU/秒，请打开 Azure CLI 并运行以下命令：
+<!-- Not Available on cloud shell-->
+
+若要将 Cosmos DB 容器的吞吐量更改为 400 RU/秒，请打开 Azure CLI 并运行以下命令：
 
 ```azurecli
 # Update container throughput

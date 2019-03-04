@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 6ac8127a5017ee38d818f85dfeb00444ce3bdba6
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 03/11/2019
+ms.openlocfilehash: e890de32bb1d7ef1a3ae002a80e80e1248ad3f8f
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736710"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196627"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 
@@ -34,11 +34,13 @@ ms.locfileid: "53736710"
 >
 > 每个备份都会在 30 天后过期。 如果在 30 天有效期到期后尝试还原备份，还原会失败并显示 `Cannot restore: backup expired` 消息。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authenticating-azure-resource-manager-requests"></a>对 Azure 资源管理器请求进行身份验证
 > [!IMPORTANT]
-> 用于还原和备份的 REST API 使用 Azure 资源管理器，并且具有与用于管理 API 管理实体的 REST API 不同的身份验证机制。 本部分中的步骤介绍如何对 Azure 资源管理器请求进行身份验证。 有关详细信息，请参阅[对 Azure 资源管理器请求进行身份验证](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
+> 用于还原和备份的 REST API 使用 Azure 资源管理器，并且具有与用于管理 API 管理实体的 REST API 不同的身份验证机制。 本部分中的步骤介绍如何对 Azure 资源管理器请求进行身份验证。 有关详细信息，请参阅[对 Azure 资源管理器请求进行身份验证](https://msdn.microsoft.com/library/azure/dn790557.aspx)。
 >
 >
 
@@ -54,7 +56,7 @@ ms.locfileid: "53736710"
 2. 使用包含 API 管理服务实例的订阅导航到 Azure Active Directory 中的“应用注册”选项卡（Azure Active Directory > 管理/应用注册）。
 
     > [!NOTE]
-    > 如果 Azure Active Directory 默认目录对帐户不可见，请联系 Azure 订阅的管理员以向帐户授予所需权限。
+    > 如果 Azure Active Directory 默认目录对帐户不可见，请联系 Azure 订阅的管理员，要求他们向你的帐户授予必要的权限。
     >
     >
     
@@ -211,7 +213,7 @@ POST https://management.azure.cnsubscriptions/{subscriptionId}/resourceGroups/{r
 > 还原操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的**更改****可能会被覆盖**。
 
 > [!NOTE]
-> 也可分别使用 Powershell *Backup-AzureRmApiManagement* 和 *Restore-AzureRmApiManagement* 命令执行备份和还原操作。
+> 也可分别运行 PowerShell Backup-AzApiManagement 和 Restore-AzApiManagement 命令，执行备份和还原操作。
 
 ## <a name="next-steps"></a>后续步骤
 

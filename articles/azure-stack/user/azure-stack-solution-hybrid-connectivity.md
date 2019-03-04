@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/28/2018
-ms.date: 11/12/2018
+origin.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: anajod
-ms.openlocfilehash: f16e5e8ec8abeb3ba823d15ed813533b58f86e28
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 6ddb7bd8ad8c547bc8e2c8a25cdb3438c73064a0
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659274"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905411"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 配置混合云连接
 
@@ -61,7 +62,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 ### <a name="azure"></a>Azure
 
  - 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) 。
- - 在 Azure 中创建  [Web 应用](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal)。 请记下 Web 应用 URL，因为需在本教程中使用它。
+ - 在 Azure 中创建  [Web 应用](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts)。 请记下 Web 应用 URL，因为需在本教程中使用它。
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -86,13 +87,13 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 连接规范：
 
- - **VPN 类型**：基于路由
- - **连接类型**：站点到站点 (IPsec)
- - **网关类型**：VPN
- - **Azure 连接名称**：Azure-Gateway-AzureStack-S2SGateway（门户会自动填充此值）
- - **Azure Stack 连接名称**：AzureStack-Gateway-Azure-S2SGateway（门户会自动填充此值）
- - **共享密钥**：任何与 VPN 硬件兼容且在连接两端的值匹配的共享密钥
- - **订阅**：任何首选订阅
+ - **VPN 类型**： 基于路由
+ - **连接类型**： 站点到站点 (IPsec)
+ - **网关类型**： VPN
+ - **Azure 连接名称**： Azure-Gateway-AzureStack-S2SGateway（门户会自动填充此值）
+ - **Azure Stack 连接名称**： AzureStack-Gateway-Azure-S2SGateway（门户会自动填充此值）
+ - **共享密钥**： 任何与 VPN 硬件兼容且在连接的两端都有匹配值的共享密钥
+ - **订阅**： 任何首选订阅
  - **资源组**：Test-Infra
 
 网络和子网 IP 地址：
@@ -154,7 +155,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
     - **SKU**：基本
     - **虚拟网络**：选择此前创建的虚拟网络。 已创建的网关子网会自动选中。
-    - **首个 IP 配置**：这是网关的公共 IP。
+    - **第一个 IP 配置**：这是网关的公共 IP。
         - 选择“创建网关 IP 配置”，然后就会转到“选择公共 IP 地址”页。
         - 选择“+新建”，以打开“创建公共 IP 地址”页面。 
         - 输入公共 IP 地址的 **名称** 。 将“SKU”保留为“基本”，然后选择“确定”，以便保存所做的更改。 **** ****
@@ -187,12 +188,12 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 3. 选择“本地网关”，然后选择“创建”，打开“创建本地网关”页。 ****  **** 
 4. 使用**教程示例值**，在“创建本地网关”上指定本地网关的值。 包括以下其他值。
 
-    - **IP 地址**：这是需要 Azure 或 Azure Stack 连接到的 VPN 设备的公共 IP 地址。 指定一个有效的不在 NAT 后面的公共 IP 地址，这样 Azure 就能访问该地址。 如果目前没有 IP 地址，可以使用示例中显示的作为占位符的值，但是需要返回来将占位符替换为 VPN 设备的公共 IP 地址。 除非提供有效的地址，否则 Azure 无法连接到设备。
-    - **地址空间**：即此本地网络所代表的网络的地址范围。 可以添加多个地址空间范围。 请确保指定的范围没有与要连接到的其他网络的范围重叠。 Azure 会将指定的地址范围路由到本地 VPN 设备 IP 地址。 如果需要连接到本地站点，请使用自己的值而不是示例值。
-    - **配置 BGP 设置**：仅在配置 BGP 时使用。 否则，不选择此项。
-    - **订阅**：确保显示的是正确订阅。
-    - **资源组**：选择要使用的资源组。 可以创建新的资源组或选择已创建的资源组。
-    - **位置**：选择将在其中创建此对象的位置。 可选择 VNet 所在的位置，但这不是必须的。
+    - **IP 地址**： 这是想要 Azure 或 Azure Stack 连接到的 VPN 设备的公共 IP 地址。 指定一个有效的不在 NAT 后面的公共 IP 地址，这样 Azure 就能访问该地址。 如果目前没有 IP 地址，可以使用示例中显示的作为占位符的值，但是需要返回来将占位符替换为 VPN 设备的公共 IP 地址。 除非提供有效的地址，否则 Azure 无法连接到设备。
+    - **地址空间**： 这是此本地网络所代表的网络的地址范围。 可以添加多个地址空间范围。 请确保指定的范围没有与要连接到的其他网络的范围重叠。 Azure 会将指定的地址范围路由到本地 VPN 设备 IP 地址。 如果需要连接到本地站点，请使用自己的值而不是示例值。
+    - **配置 BGP 设置**： 仅在配置 BGP 时使用。 否则，不选择此项。
+    - **订阅**： 确保显示的是正确订阅。
+    - **资源组**： 选择要使用的资源组。 可以创建新的资源组或选择已创建的资源组。
+    - **位置**： 选择将在其中创建此对象的位置。 可选择 VNet 所在的位置，但这不是必须的。
 5. 将所需值指定完以后，选择“创建”即可创建本地网关。 
 6. 在 Azure Stack 部署上重复这些步骤 (1-5)。
 
@@ -211,12 +212,12 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 4. 在“连接”上选择“创建”。
 5. 在“创建连接”上配置以下设置：
 
-    - **连接类型**：选择“站点到站点(IPSec)”。
-    - **资源组**：选择测试资源组。
-    - **虚拟网关**：选择创建的虚拟网关。
-    - **本地网关**：选择创建的本地网关。
+    - **连接类型**： 选择“站点到站点(IPSec)”。
+    - **资源组**：选择你的测试资源组。
+    - **虚拟网络网关**：选择已创建的虚拟网络网关。
+    - **本地网络网关**：选择已创建的本地网络网关。
     - **连接名称**：系统会使用两个网关的值自动填充此项。
-    - **共享密钥**：此值必须与用于本地 VPN 设备的值匹配。 教程示例使用“abc123”，但可以（而且应该）使用更复杂的。 重要的是，此值必须与配置 VPN 设备时指定的值相同。
+    - **共享密钥**： 此值必须与用于本地 VPN 设备的值匹配。 教程示例使用“abc123”，但可以（而且应该）使用更复杂的。 重要的是，此值必须与配置 VPN 设备时指定的值相同。
     - “订阅”、“资源组”和“位置”值是固定的。
 
 6. 选择“确定”以创建连接。

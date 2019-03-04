@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 10/15/2018
-ms.date: 01/14/2019
+origin.date: 10/25/2018
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: ee003b02ba4266f00cae3fe3c245d5bb4fb4b19e
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 43b18b75cfcefd8d96359d53044cf24d0b131855
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54058983"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905267"
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 
@@ -30,8 +31,6 @@ Azure Stack 是一种混合云平台，用于在数据中心提供 Azure 服务�
 
 Azure Stack 以两个部署选项提供，以满足你的需求。
 
-## <a name="azure-stack-integrated-systems"></a>Azure Stack 集成系统
-Azure Stack 集成系统通过 Azure 与[硬件合作伙伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作关系提供，它创建的解决方案兼顾云时代的创新与计算管理的简化。 由于 Azure Stack 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。 Azure Stack 集成系统的大小范围从 4 个节点到 12 个节点，由硬件合作伙伴和 Microsoft 共同提供支持。  使用 Azure Stack 集成系统可以创建新的方案，以及为生产工作负荷部署新解决方案。
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 开发工具包
 
@@ -45,6 +44,9 @@ ASDK 具有以下限制：
 * ASDK 与单个 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 标识提供者相关联。 可在此目录中创建多个用户，并将订阅分配给每个用户。
 * 由于 Azure Stack 组件部署在一台主机上，可用作租户资源的物理资源有限。 此配置不适用于规模或性能评估。
 * 由于只有一台主机和 NIC 部署要求方面的原因，网络方案会受到限制。
+
+## <a name="azure-stack-integrated-systems"></a>Azure Stack 集成系统
+Azure Stack 集成系统通过 Azure 与[硬件合作伙伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作关系提供，它创建的解决方案兼顾云时代的创新与计算管理的简化。 由于 Azure Stack 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。 Azure Stack 集成系统的大小范围从 4 个节点到 16 个节点，由硬件合作伙伴和 Azure 共同提供支持。  使用 Azure Stack 集成系统可以创建新的方案，以及为生产工作负荷部署新解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,21 +1,21 @@
 ---
-title: 开发和调试 Azure IoT Edge 模块 | Microsoft Docs
+title: 开发和调试 Azure IoT Edge 模块
 description: 使用 Visual Studio Code 开发、生成和调试使用 C#、Python、Node.js、Java 或 C 的 Azure IoT Edge 模块
 services: iot-edge
 keywords: ''
 author: shizn
 manager: philmea
 ms.author: v-yiso
-origin.date: 01/12/2019
-ms.date: 01/28/2019
+origin.date: 02/20/2019
+ms.date: 03/11/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ffdec2f5bce4a1c36a921af951f337bff65bc218
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: c5750e15d1f322b1475703699ff3eacd98ef28cb
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396890"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196641"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 模块
 
@@ -351,6 +351,12 @@ Visual Studio Code 采用你提供的信息，创建一个 IoT Edge 解决方案
 
 > [!NOTE]
 > 上面的示例展示了如何调试容器上的 IoT Edge 模块。 它为模块的容器 `createOptions` 设置添加了公开的端口。 完成模块的调试后，建议为可用于生产的 IoT Edge 模块删除那些公开的端口。
+
+## <a name="build-and-debug-a-module-remotely"></a>远程生成和调试模块
+
+凭借近期为支持 SSH 连接而对 Docker 和 Moby 引擎所做的更改，以及 Azure IoT 工具（可以将环境设置注入 Visual Studio Code 命令面板和 Azure IoT Edge 终端）中的新设置，现在可以在远程设备上生成和调试模块。
+
+请参阅此 [IoT 开发人员博客文章](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/)获取详细信息和分步说明。
 
 ## <a name="next-steps"></a>后续步骤
 

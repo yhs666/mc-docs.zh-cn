@@ -5,26 +5,28 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/10/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: f9167443369ed50ff395a0a034208e62aef92fc4
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: b901653853d22a767ef79880929019e601f4efac
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309310"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987971"
 ---
-# <a name="azure-cosmos-db-multiple-region-distribution---under-the-hood"></a>Azure Cosmos DB 多区域分布 - 揭秘
+# <a name="multiple-region-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB 多区域分配数据 - 揭秘
 
 Azure Cosmos DB 是 Azure 的一个基础服务，因此它将部署在中国境内的所有 Azure 区域中。 在数据中心内，我们会在大量的计算机阵列上部署和管理 Azure Cosmos DB，其中的每个服务都有专用的本地存储。 在数据中心内，Azure Cosmos DB 部署在许多群集之间，每个群集可能运行多代硬件。 群集中的计算机通常分散在 10 到 20 个容错域之间。 下图显示了 Cosmos DB 多区域分布系统拓扑：
 
 <!-- Not Available on including the public, sovereign, Department of Defense (DoD) and government clouds-->
+
 ![系统拓扑](./media/global-dist-under-the-hood/distributed-system-topology.png)
 
 **Azure Cosmos DB 中的多区域分布是统包式：** 随时可以点击几下鼠标或者使用单个 API 调用以编程方式来添加或删除与 Cosmos 数据库关联的地理区域。 而 Cosmos 数据库包含一组 Cosmos 容器。 在 Cosmos DB 中，容器充当逻辑性的分布和缩放单元。 创建的集合（在内部）只是 Cosmos 容器。 容器对架构完全不可知，它提供查询范围。 Cosmos 容器中的数据在引入时会自动编制索引。 自动编制索引使用户无需处理架构或进行繁琐的索引管理（尤其是在多区域分布式设置中）就能查询数据。  
 
 <!-- Not Available on  tables, and graphs-->
+
 - 在给定的区域中，可以使用分区键来分布容器中的数据。分区键由你提供，并由基础物理分区以透明方式进行管理（本地分布）。  
 
 - 每个物理分区还会跨地理区域进行复制（多区域分布）。 

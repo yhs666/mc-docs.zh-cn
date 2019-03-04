@@ -11,15 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/09/2018
-ms.date: 11/12/2018
+origin.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: ae91c9819c1f87b06158bc89f619ddf6f13470c5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: fiseraci
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 8157d63106dc3f1446084e8bec916cb4cce8677d
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648739"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905438"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -41,7 +43,7 @@ Azure Stack 的安全局势功能旨在防范新式威胁，为符合主要合�
 由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Microsoft 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
 
 ## <a name="data-at-rest-encryption"></a>静态数据加密
-所有 Azure Stack 基础结构和租户静态数据都以 Bitlocker 加密。 这种加密可以防范 Azure Stack 存储组件的实物遗失或失窃。 
+所有 Azure Stack 基础结构和租户数据都使用 Bitlocker 进行静态加密。 这种加密可以防范 Azure Stack 存储组件的实物遗失或失窃。 有关详细信息，请参阅 [Azure Stack 中的静态数据加密](azure-stack-security-bitlocker.md)。
 
 ## <a name="data-in-transit-encryption"></a>传输中数据加密
 Azure Stack 基础结构组件使用以 TLS 1.2 加密的通道进行通信。 加密证书由基础结构自行管理。 
@@ -71,7 +73,7 @@ Azure Stack 中的每个组件（Hyper-V 主机和虚拟机）受到 Windows Def
 在联网场景中，防病毒定义和引擎更新每天应用多次。 在离线场景中，反恶意软件更新作为 Azure Stack 的每月更新的一部分应用。 有关详细信息，请参阅[更新 Azure Stack 上的 Windows Defender Antivirus](azure-stack-security-av.md)。
 
 ## <a name="constrained-administration-model"></a>受约束的管理模型
-Azure Stack 中的管理是使用三个入口点来控制的，其中每个入口点有特定的用途： 
+Azure Stack 中的管理通过三个入口点进行控制，每个入口点都有特定的用途： 
 1. [管理员门户](azure-stack-manage-portals.md)针对日常管理操作提供点击式体验。
 2. Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。 
 3. 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。

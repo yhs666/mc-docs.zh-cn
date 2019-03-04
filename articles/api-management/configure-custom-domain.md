@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 12/14/2017
-ms.date: 12/31/2018
+ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 702078c2680caaaf93076029f7b8802e740b312c
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 5646240f644e2904d9aad5c3c33793722cd153bc
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736695"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196643"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
@@ -58,9 +58,12 @@ ms.locfileid: "53736695"
 3. 选择要更新的终结点。 
 4. 在右侧窗口中，单击“自定义”。
 
-    + 在“自定义域名”中，指定要使用的名称。 例如，`api.contoso.com`。 <br/>还支持通配符域名（例如 *.domain.com）。
-    + 在“证书”中，指定要上传的有效 .PFX 文件。 
-    + 如果证书具有密码，请将其输入到“密码”字段中。
+    + 在“自定义域名”中，指定要使用的名称。 例如，`api.contoso.com`。 还支持通配符域名（例如 *.domain.com）。
+    + 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
+
+    > [!TIP]
+    > 如果使用 Azure 密钥保管库来管理自定义域 SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密插入到密钥保管库中。 如果证书设置为“自动轮换”，API 管理会自动选取最新版本。
+
 1. 单击“应用”。
 
     >[!NOTE]

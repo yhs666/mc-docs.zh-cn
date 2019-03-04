@@ -11,18 +11,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 02/05/2019
+origin.date: 02/20/2019
 ms.author: v-yiso
-ms.date: 02/25/2019
-ms.openlocfilehash: ba5719a7769ff3fba2a7b83f859b9c3abead78eb
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 03/11/2019
+ms.openlocfilehash: d8e293191d6aa30ae3f6ea25ac714301de00f300
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303078"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196649"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="february-2019-guest-os"></a>2019 年 2 月来宾 OS
+
+>[!NOTE]
+>目前，我们正在将 2 月来宾 OS 推广到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 2 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
+
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4487038] | 闪烁 | 3.70, 4.63, 5.28, 6.4 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4486564] | Windows 安全性 | 2.83 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483483] | .NET 3.5.1 安全性 | 2.83 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483474] | .NET 4.5.2 安全性 | 2.83 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4486993] | Windows 安全性 | 3.70 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483481] | .NET 3.5 安全性 | 3.70 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483473] | .NET 4.5.2 安全性 | 3.70 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4487028] | Windows 安全性 | 4.63 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483484] | .NET 3.5 安全性 | 4.63 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483472] | .NET 4.5.2 安全性 | 4.63 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4487026] | Windows 安全性 | 5.28 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4487044] | Windows 安全性 | 6.4 | 2019 年 2 月 12 日 |
+| Rel 19-02 | [4483452] | .NET 3.5、4.7.2 安全性 | 6.4 | 2019 年 2 月 12 日 |
+| 不适用 | [4480970] | 1 月非安全性汇总 | 2.83 | 2019 年 1 月 8 日 |
+| 不适用 | [4483483] | 1 月非安全性汇总 .NET 3.5.1  | 2.83 | 2019 年 1 月 8 日 |
+| 不适用 | [4480059] | 1 月非安全性汇总 .NET 4.5.2  | 2.83 | 2019 年 1 月 8 日 |
+| 不适用 | [4480975] | 1 月非安全性汇总 | 3.70 | 2019 年 1 月 8 日 |
+| 不适用 | [4480061] | 1 月非安全性汇总 .NET 3.5 | 3.70 | 2019 年 1 月 8 日 |
+| 不适用 | [4480058] | 1 月非安全性汇总 .NET 4.5.2 | 3.70 | 2019 年 1 月 8 日 |
+| 不适用 | [4480963] | 1 月非安全性汇总 | 4.63 | 2019 年 1 月 8 日 |
+| 不适用 | [4480064] | 1 月非安全性汇总 .NET 3.5 | 4.63 | 2019 年 1 月 8 日 |
+| 不适用 | [4480057] | 1 月非安全性汇总 .NET 4.5.2 | 4.63 | 2019 年 1 月 8 日 |
+
+[4486474]: http://support.microsoft.com/kb/4486474
+[4487038]: http://support.microsoft.com/kb/4487038
+[4486564]: http://support.microsoft.com/kb/4486564
+[4483483]: http://support.microsoft.com/kb/4483483
+[4483474]: http://support.microsoft.com/kb/4483474
+[4486993]: http://support.microsoft.com/kb/4486993
+[4483481]: http://support.microsoft.com/kb/4483481
+[4483473]: http://support.microsoft.com/kb/4483473
+[4487028]: http://support.microsoft.com/kb/4487028
+[4483484]: http://support.microsoft.com/kb/4483484
+[4483472]: http://support.microsoft.com/kb/4483472
+[4487026]: http://support.microsoft.com/kb/4487026
+[4487044]: http://support.microsoft.com/kb/4487044
+[4483452]: http://support.microsoft.com/kb/4483452
+[4480970]: http://support.microsoft.com/kb/4480970
+[4483483]: http://support.microsoft.com/kb/4483483
+[4480059]: http://support.microsoft.com/kb/4480059
+[4480975]: http://support.microsoft.com/kb/4480975
+[4480061]: http://support.microsoft.com/kb/4480061
+[4480058]: http://support.microsoft.com/kb/4480058
+[4480963]: http://support.microsoft.com/kb/4480963
+[4480064]: http://support.microsoft.com/kb/4480064
+[4480057]: http://support.microsoft.com/kb/4480057
 
 ## <a name="january-2019-guest-os"></a>2019 年 1 月来宾 OS
 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 95d7ed20baa55736c81d5c0ee33563c82174f057
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 60240fac8fd4f719e868233721b7c44efd6a89c4
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309337"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988006"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 1. **连接策略：使用直接连接模式**
 
-    客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接*模式*和[连接*协议*](#connection-protocol)。  两种可用模式：
+    客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接模式和连接协议。  两种可用模式：
 
     * 网关模式（默认）
 
@@ -50,7 +50,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
         |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
         |---------|---------|---------|---------|
         |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)    |
-        |直接    |    HTTPS     |  .Net 和 Java SDK    |    SQL(443)   |
+        |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 范围内的端口    |
         |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
         
         <!--Not Available on Table(443), Cassandra(443), Graph(443)--> Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
@@ -82,7 +82,11 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
     
-    <!--Not Available on time span between East to West coast--> ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png) <a name="increase-threads"></a>
+    <!--Not Available on time span between East to West coast-->
+    
+    ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png)
+    
+    <a name="increase-threads"></a>
 4. **增加线程/任务数目**
 
     由于对 Cosmos DB 的调用是通过网络执行的，因此可能需要改变请求的并行度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用的是 .NET 的[任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约数百个读取或写入 Azure Cosmos DB 的任务。

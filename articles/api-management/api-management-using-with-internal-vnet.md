@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: ce6fa1977f8b583b1a2725c61e950f1978bab360
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 03/11/2019
+ms.openlocfilehash: db3d0eb4d49992b384c0d1553a22c9fe213b522a
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736659"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196636"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -68,11 +68,14 @@ ms.locfileid: "53736659"
 > Azure 门户上提供的测试控制台不适用于**内部** VNET 部署的服务，因为网关 URL 未在公共 DNS 上注册。 应改用**开发人员门户**上提供的测试控制台。
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>使用 PowerShell cmdlet 启用虚拟网络连接
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 也可以使用 PowerShell cmdlet 启用虚拟网络连接。
 
-* **在虚拟网络中创建 API 管理服务：使用 cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagement) 在虚拟网络中创建 Azure API 管理服务，并将其配置为使用内部虚拟网络类型。
+* 在虚拟网络中创建 API 管理服务：使用 cmdlet [New-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/new-azapimanagement) 在虚拟网络中创建 Azure API 管理服务，并将其配置为使用内部虚拟网络类型。
 
-* **在虚拟网络中部署现有的 API 管理服务：使用 cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) 将现有 API 管理服务移到虚拟网络内，并将其配置为使用内部虚拟网络类型。
+* 在虚拟网络中部署现有的 API 管理服务：使用 cmdlet [Update-AzApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/update-azapimanagementdeployment) 将现有 API 管理服务移到虚拟网络内，并将其配置为使用内部虚拟网络类型。
 
 ## <a name="apim-dns-configuration"></a>DNS 配置
 如果 API 管理采用外部虚拟网络模式，则 DNS 由 Azure 管理。 使用内部虚拟网络模式时，必须管理自己的路由。

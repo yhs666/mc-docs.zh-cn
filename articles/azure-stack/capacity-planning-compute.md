@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 11/12/2018
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: 788ec717a0978e44ac6da180f61836ef6878dfc8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e30b4b87d74a283116d18fccc2353c5dc4c3705a
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656915"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905194"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 计算容量规划
 [Azure Stack 上支持的 VM 大小](./user/azure-stack-vm-sizes.md)是在 Azure 上支持的 VM 大小的子集。 Azure 在多方面施加资源限制，以避免资源（服务器本地和服务级别）的过度消耗。 如果未对租户使用资源施加一些限制，则当一些租户过度使用资源时，另一些租户的体验就会变差。 VM 的网络出口在 Azure Stack 上有与 Azure 限制一致的带宽上限。 就存储资源来说，在 Azure Stack 上实施存储 IOPS 限制可以避免租户因访问存储而造成资源过度使用。  
@@ -30,10 +31,7 @@ ms.locfileid: "52656915"
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>VM 放置以及虚拟核心与物理核心的比率预配过度
 在 Azure Stack 中，租户无法将特定的服务器指定用于 VM 放置。 放置 VM 时，唯一的考虑是主机上是否有足够的内存用于该 VM 类型。 Azure Stack 不允许过度使用内存，但允许过度使用核心数。 由于放置算法不将现在的虚拟核心与物理核心的预配过度比率视为一个因素，因此每个主机可以有不同的比率。 
 
-在 Azure 中，为了实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域的可用性集中。 这就意味着，放置在可用性集中的 VM 在物理上彼此隔离（位于某个服务器架上），因此可以进行故障还原，如下图所示：
-
-![容错域和更新域](media/azure-stack-capacity-planning/domains.png)
-
+在 Azure 中，为了实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域的可用性集中。 在 Azure Stack 中，可用性集中的容错域定义为缩放单元中的单个节点。
 
 在发生硬件故障时，虽然 Azure Stack 的基础结构具备故障还原能力，但基础技术（故障转移群集功能）的局限仍会导致受影响物理服务器上的 VM 出现停机。 目前，为了与 Azure 保持一致，Azure Stack 支持的可用性集最多有三个容错域。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 节点）中。 出现硬件故障时，发生故障的容错域中的 VM 会在其他节点中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。
 
@@ -46,7 +44,7 @@ ms.locfileid: "52656915"
 
 以下计算会生成一个可用于租户 VM 放置的总可用内存。 该内存容量适用于整个 Azure Stack 缩放单元。
 
-  VM 放置的可用内存 = 服务器总内存 – 复原保留 – Azure Stack 基础结构开销<sup>1</sup>
+  VM 放置的可用内存 = 服务器总内存 - 复原保留 - 运行 VM 所使用的内存 - Azure Stack 基础结构开销<sup>1</sup>
 
   复原保留 = H + R * (N-1) + V * (N-2)
 

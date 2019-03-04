@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/23/2018
 ms.author: v-yiso
-ms.date: 11/12/2018
-ms.openlocfilehash: a9d5eb4fdf861a4d3a45dd965f0c3b492199079b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/11/2019
+ms.openlocfilehash: b60f81f000550f65f5d705e24260a99affe4c750
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646562"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196625"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题解答 (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题 (FAQ)
 
 本文包含 [Azure 云服务](/cloud-services/)的常见连接和网络问题。 有关大小信息，请参阅[云服务 VM 大小页](./cloud-services-sizes-specs.md)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "52646562"
 有关详细信息，请参阅[使用端口 ping 而不是 ICMP 来测试 Azure VM 连接](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/)。
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>如何防止接收来自未知 IP 地址的数千次点击，这些 IP 地址是否会对云服务造成某种形式的恶意攻击？
-Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝服务 (DDoS) 攻击。 Azure DDoS 防御系统是 Azure 持续监视过程的一部分，通过渗透测试不断改进。 此 DDoS 防御系统不仅能够承受外部的攻击，而且也能承受其他 Azure 租户的攻击。 有关详细信息，请参阅 [Azure 网络安全](http://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)。
+Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝服务 (DDoS) 攻击。 Azure DDoS 防御系统是 Azure 持续监视过程的一部分，通过渗透测试不断改进。 此 DDoS 防御系统不仅能够承受外部的攻击，而且也能承受其他 Azure 租户的攻击。 有关详细信息，请参阅 [Azure 网络安全](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)。
 
 还可以创建一个启动任务来选择性地阻止某些特定 IP 地址。 有关详细信息，请参阅[阻止特定 IP 地址](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)。
 
@@ -71,30 +71,31 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 - [为 URL 重写模块创建重写规则](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [删除默认链接](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
-## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>如何阻止/禁用发往云服务的默认 URL 的传入流量？ 
+## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>如何阻止/禁用发往云服务的默认 URL 的传入流量？
 
 可以阻止发往云服务的默认 URL/名称（例如 \*.chinacloudapp.cn）的传入流量。 在云服务定义 (*.csdef) 文件中的站点绑定配置下将主机标头设置为自定义 DNS 名称（例如 www.MyCloudService.com）。 
- 
 
-    <?xml version="1.0" encoding="utf-8"?> 
-    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
-      <WebRole name="MyWebRole" vmsize="Small"> 
-        <Sites> 
-          <Site name="Web"> 
-            <Bindings> 
-              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
-            </Bindings> 
-          </Site> 
-        </Sites> 
-        <Endpoints> 
-          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
-        </Endpoints> 
-        <ConfigurationSettings> 
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
-        </ConfigurationSettings> 
-      </WebRole> 
-    </ServiceDefinition> 
- 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+    <WebRole name="MyWebRole" vmsize="Small">
+        <Sites>
+            <Site name="Web">
+            <Bindings>
+                <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" />
+            </Bindings>
+            </Site>
+        </Sites>
+        <Endpoints>
+            <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+        </Endpoints>
+        <ConfigurationSettings>
+            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+        </ConfigurationSettings>
+    </WebRole>
+</ServiceDefinition>
+```
+
 因为通过 csdef 文件强制实施了此主机标头绑定，所以，只能通过自定义名称“www.MyCloudService.com”访问该服务。 发往“*.cloudapp.net”域的所有传入请求都将失败。 如果在服务中使用了自定义 SLB 探测或内部负载均衡器，则阻止服务的默认 URL/名称可能会干扰探测行为。 
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>如何确保云服务面向公众的 IP 地址永不改变？
@@ -117,13 +118,15 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 
 可以使用以下 PS 脚本来获取订阅下的云服务公共 IP 列表
 
-    $services = Get-AzureService  | Group-Object -Property ServiceName
+```powershell
+$services = Get-AzureService  | Group-Object -Property ServiceName
 
-    foreach ($service in $services) 
-    {
-        "Cloud Service '$($service.Name)'"
+foreach ($service in $services)
+{
+    "Cloud Service '$($service.Name)'"
 
-        $deployment = Get-AzureDeployment -ServiceName $service.Name 
-        "VIP - " +  $deployment.VirtualIPs[0].Address
-        "================================="
-    }
+    $deployment = Get-AzureDeployment -ServiceName $service.Name
+    "VIP - " +  $deployment.VirtualIPs[0].Address
+    "================================="
+}
+```

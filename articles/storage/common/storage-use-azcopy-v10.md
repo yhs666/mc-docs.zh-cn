@@ -9,12 +9,12 @@ origin.date: 10/09/2018
 ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 447d67536ee1560ee035fbbf89b382400d41b58b
-ms.sourcegitcommit: 3727a3bb5790523af56b5eb36d2ce78fc27a603a
+ms.openlocfilehash: 2c8768dc40be4dfaef2222050017526cbc703b6e
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55290185"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196542"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>使用 AzCopy v10（预览版）传输数据
 
@@ -54,7 +54,10 @@ AzCopy v10 不需要安装。 打开首选命令行应用程序并导航到 `azc
 ## <a name="authentication-options"></a>身份验证选项
 
 使用 Azure 存储进行身份验证时，AzCopy v10 允许你使用以下选项：
-- **SAS 令牌 [在 Blob 和文件服务上受支持]**。 在命令行上将 SAS 令牌追加到 blob 路径以使用它。 可以使用 Azure 门户、[存储资源管理器](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或所选择的其他工具生成 SAS 令牌。 有关详细信息，请参阅[示例](/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+- **SAS 令牌 [支持用于 Blob 和文件服务]**。 在命令行上将 SAS 令牌追加到 blob 路径以使用它。 可以使用 Azure 门户、[存储资源管理器](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或所选择的其他工具生成 SAS 令牌。 有关详细信息，请参阅[示例](/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+
+> [!IMPORTANT]
+> 向 Azure 支持部门提交支持请求时（或者排查涉及第三方的问题时），请共享你尝试执行的命令的已修订版本，以确保不会意外地与任何人共享 SAS。 可以在日志文件的开头找到经修订的版本。 有关更多详细信息，请查看本文下文中的“故障排除”部分。
 
 ## <a name="getting-started"></a>入门
 
@@ -176,11 +179,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## <a name="troubleshooting"></a>故障排除
 
-AzCopy v10 为所有作业创建日志文件和计划文件。 可以使用日志调查并解决任何潜在问题。 日志包含失败状态（UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED）、完整路径以及失败原因。 作业日志和计划文件位于 %USERPROFILE\\.azcopy 文件夹。
+AzCopy v10 为所有作业创建日志文件和计划文件。 可以使用日志调查并解决任何潜在问题。 日志包含失败状态（UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED）、完整路径以及失败原因。 作业日志和计划文件在 Windows 上位于 %USERPROFILE\\.azcopy 文件夹中，在 Mac 和 Linux 上位于 $HOME\\.azcopy 文件夹中。
+
+> [!IMPORTANT]
+> 向 Azure 支持部门提交支持请求时（或者排查涉及第三方的问题时），请共享你尝试执行的命令的已修订版本，以确保不会意外地与任何人共享 SAS。 可以在日志文件的开头找到经修订的版本。
+
+### <a name="change-the-location-of-the-log-files"></a>更改日志文件的位置
+
+你可以更改日志文件的位置以满足需要或者避免填满 OS 磁盘。
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>查看错误日志
 

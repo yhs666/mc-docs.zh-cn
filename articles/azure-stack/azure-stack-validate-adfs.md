@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/22/2018
-ms.date: 12/17/2018
+origin.date: 01/28/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: jerskine
-ms.openlocfilehash: 51397cb52e6bde89579b4e46027748205696dc55
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 09e00f9f6bb7df6086f0595fc280f1dc7166ddab
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396319"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905443"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>验证 Azure Stack 的 AD FS 集成
 

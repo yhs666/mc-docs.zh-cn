@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 03/28/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author:WenJason ms.service: vpn-gateway ms.topic: include origin.date:02/14/2019 ms.date:03/04/2019 ms.author: v-jay ms.custom: include file
 ---
 **下载 VPN 设备配置脚本：**
 
@@ -13,7 +13,7 @@
 
 - 有关设备配置设置的链接，请参阅[已验证的 VPN 设备](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 我们会尽力提供各种设备配置链接。 如需最新的配置信息，最好是咨询设备制造商。 列表中显示了我们已测试的版本。 如果你的 OS 不在该列表中，则仍有可能版本是兼容的。 请与设备制造商联系以验证 VPN 设备的 OS 版本是否兼容。
 
-- 有关 VPN 设备配置的概述，请参阅[第三方 VPN 设备配置概述](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)。
+- 有关 VPN 设备配置的概述，请参阅 [VPN 设备配置概述](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)。
 
 - 若要了解如何编辑设备配置示例，请参阅[编辑示例](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing)。
 
@@ -24,5 +24,3 @@
 - 有关 IPsec/IKE 策略的配置步骤，请参阅[配置用于 S2S VPN 或 VNet 到 VNet 连接的 IPsec/IKE 策略](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)。
 
 - 若要连接多个基于策略的 VPN 设备，请参阅[使用 PowerShell 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)。
-
-<!-- ms.date: 03/28/2018 -->

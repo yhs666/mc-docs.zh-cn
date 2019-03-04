@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 10/22/2018
-ms.date: 17/12/2018
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: shnatara
-ms.openlocfilehash: 4e4664738d8124a26f9d36cd5b73f4ead9be8e7e
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 28af6fc3561f9747403a15c763386af7e094e080
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396105"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905440"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
@@ -119,7 +120,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
    ``` 
 
 
-有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack 上的 KeyVault](/azure-stack/user/azure-stack-kv-manage-powershell)。
+有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack 上的 KeyVault](/azure-stack/user/azure-stack-key-vault-manage-powershell)。
 
 ## <a name="deploy-the-marketplace-item"></a>部署市场项
 
@@ -211,7 +212,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 3. 更改环境变量的顺序后，重启 PowerShell，然后运行以下 PowerShell 脚本获取 Service Fabric 群集的访问权限：
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -222,7 +223,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > 脚本中群集名称的前面没有 *https://*。 必须指定端口 19000。

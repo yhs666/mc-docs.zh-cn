@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 11/12/2018
+origin.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: prchint
-ms.openlocfilehash: b648315afaea995f06b8613014ef946d464bfcba
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: e139965d9e7fce4b2411150b1bdc4c987951c54d
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647421"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905436"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack 存储容量规划
 以下部分提供 Azure Stack 存储容量规划信息，帮助你针对解决方案的存储需求进行规划。
@@ -38,7 +39,9 @@ Azure Stack 的超聚合配置允许共享物理存储设备。 可用存储的�
 
 ![Azure 存储容量规划](media/azure-stack-capacity-planning/storage.png)
 
-在全闪存配置中，缓存为 NVMe，可以选择 SATA SSD 或 NVMe 作为容量。 在混合配置中，缓存可以在 NVMe 和 SATA SSD 之间进行选择，而容量则为 HDD。
+在全闪存配置中，配置可以是双层配置，也可以是单层配置。  如果配置是单层配置，则所有容量设备将是相同类型（例如 NVMe 或 SATA SSD 或 SAS SSD），并且不使用缓存设备。 在双层全闪存配置中，典型配置是 NVMe 作为缓存设备，然后 SATA 或 SAS SSD 作为容量设备。
+
+在混合双层配置中，缓存可在 NVMe、SATA 或 SAS SSD 之间进行选择，而容量则为 HDD。 
 
 存储空间直通和 Azure Stack 存储配置概述如下：
 - 一个缩放单元一个存储空间池（所有存储设备在单个池中配置）
@@ -48,9 +51,6 @@ Azure Stack 的超聚合配置允许共享物理存储设备。 可用存储的�
 - 每个 ReFS 文件系统都会启用 BitLocker 进行静态数据加密。 
 
 虚拟磁盘自动创建，其容量如下所示：
-
-
-
 
 |Name|容量计算|说明|
 |-----|-----|-----|

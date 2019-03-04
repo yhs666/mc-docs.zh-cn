@@ -1,20 +1,21 @@
 ---
-title: 部署 Azure IoT Edge 模块（门户）| Microsoft Docs
+title: 从 Azure 门户部署模块 - Azure IoT Edge
 description: 使用 Azure 门户将模块部署到 IoT Edge 设备
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 06/06/2018
+ms.author: v-yiso
+origin.date: 02/19/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a27b49a128cbd5cc98601cbaa4ea6e5ff67281b6
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655365"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196615"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>通过 Azure 门户部署 Azure IoT Edge 模块
 
@@ -38,7 +39,7 @@ ms.locfileid: "52655365"
 
 部署清单是一个 JSON 文档，其中描述了要部署的模块、数据在模块间的流动方式以及模块孪生的所需属性。 要详细了解部署清单的工作原理及创建方式，请参阅[了解如何使用、配置和重用 IoT Edge 模块](module-composition.md)。
 
-Azure 门户提供部署清单的创建向导，无需你手动构建 JSON 文档。 创建分为三步：添加模块、指定路由和评审部署。 
+Azure 门户提供部署清单的创建向导，无需你手动构建 JSON 文档。 它分为三步：添加模块、指定路由和评审部署。 
 
 ### <a name="add-modules"></a>添加模块
 

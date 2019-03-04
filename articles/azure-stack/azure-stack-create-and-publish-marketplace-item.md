@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/08/2019
-ms.date: 02/18/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: ac16097aa560aa8093c97be7b3fb344a26204a77
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 14037c88cf0432af2f6d373dace7c05944e2beed
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218270"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905371"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
@@ -160,10 +160,12 @@ ms.locfileid: "56218270"
 | 屏幕快照 |533 px |32 px |可选 |
 
 ### <a name="categories"></a>Categories
+
 应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个。
 
 ### <a name="links"></a>链接
-每个市场项可以包括指向其他内容的各种链接。 链接是作为名称和 URI 的列表指定的。
+
+每个市场项可以包括指向其他内容的各种链接。 链接以名称和 URI 的列表形式进行指定：
 
 | Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -171,6 +173,7 @@ ms.locfileid: "56218270"
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
+
 除了前面的元数据之外，市场作者可以采用以下形式提供自定义键/值对数据：
 
 | Name | 必须 | 类型 | 约束 | 说明 |
@@ -179,16 +182,19 @@ ms.locfileid: "56218270"
 | 值 |X |String |最多 30 个字符 | |
 
 ### <a name="html-sanitization"></a>HTML 清理
+
 对于允许使用 HTML 的任何字段，将允许使用以下元素和属性：
 
-h1、h2、h3、h4、h5、p、ol、ul、li、a[target|href]、br、strong、em、b、i
+`h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
 ## <a name="reference-marketplace-item-ui"></a>参考：市场项 UI
+
 在 Azure Stack 门户中显示的市场项的图标和文本将如下所示。
 
 ### <a name="create-blade"></a>“创建”边栏选项卡
-![“创建”边栏选项卡](media/azure-stack-marketplace-item-ui-reference/image1.png)
+
+![“创建”边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>市场项详细信息边栏选项卡
-![市场项详细信息边栏选项卡](media/azure-stack-marketplace-item-ui-reference/image3.png)
 
+![市场项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)

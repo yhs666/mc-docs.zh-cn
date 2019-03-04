@@ -5,29 +5,30 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6e18a7c04e9e4c0a849145f0e00dc5b34548de59
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: e6a4e58849e149bffcbf80baaf4a3589ad654494
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309295"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987984"
 ---
-# <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
+# <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 安全性 - 概述
 
 本文介绍了数据库安全最佳做法以及 Azure Cosmos DB 提供的关键功能，帮助你防范、检测和应对数据库入侵。
 
 <a name="whats-new"></a>
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Azure Cosmos DB 在安全性方面有哪些新增功能？
 
-静态加密现已可用于所有 Azure 区域的 Azure Cosmos DB 中存储的文档和备份。 对于这些区域中的新客户和现有客户，会自动应用静态加密。 无需进行任何配置；可获得与以前（即知道使用静态加密可确保数据安全之前）一样的出色延迟、吞吐量、可用性和功能。
+静态加密现已可用于所有 Azure 中国区域的 Azure Cosmos DB 中存储的文档和备份。 对于这些区域中的新客户和现有客户，会自动应用静态加密。 无需进行任何配置；可获得与以前（即知道使用静态加密可确保数据安全之前）一样的出色延迟、吞吐量、可用性和功能。
 
 ## <a name="how-do-i-secure-my-database"></a>如何保护我的数据库？ 
 
 数据安全性的责任由你、客户和数据库提供程序共同分担。 根据所选的数据库提供程序，要承担的责任大小将有所不同。 如果选择本地解决方案，则从终结点保护到硬件物理安全性的所有工作都由你负责 - 这不是一个轻松的任务。 如果选择 Azure Cosmos DB 等 PaaS 云数据库提供程序，要考虑的问题会明显减少。 下图摘自我们的 [Shared Responsibilities for Cloud Computing](https://aka.ms/sharedresponsibility)（云计算的责任分担）白皮书，显示了使用 Azure Cosmos DB 等 PaaS 提供程序时，责任会得到怎样的减轻。
 
 <!-- Notice: update Microsoft to ours is Correct-->
+
 ![客户和数据库提供程序的责任](./media/database-security/nosql-database-security-responsibilities.png)
 
 上图显示了高层级的云安全组件，但是，对于数据库解决方案，需要考虑到哪些具体的事项呢？ 如何对不同的解决方案进行比较？ 
@@ -94,6 +95,8 @@ ms.locfileid: "54309295"
 
 有关主密钥和资源令牌的详细信息，请参阅[保护对 Azure Cosmos DB 数据的访问](secure-access-to-data.md)。
 
-<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) --> 有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
+<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md)-->
+
+有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
 <!--Update_Description: update meta properties, wording update -->
