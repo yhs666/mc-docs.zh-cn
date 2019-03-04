@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 02/18/2019
+origin.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: adepue
-ms.openlocfilehash: 80d3abde0aaa5ab26b21633ee02e6bb0b439162a
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.lastreviewed: 02/09/2019
+ms.openlocfilehash: 5b0e8ff0eb2d29f0cc8b4e5014301599fa22d0e4
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218331"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905447"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -70,6 +71,35 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 使用 Azure Stack 上的托管映像可以在通用化 VM（非托管和托管的 VM）上创建托管映像对象，以后只能创建托管磁盘 VM。 有关详细信息，请参阅 [Azure Stack 托管磁盘](user/azure-stack-managed-disk-considerations.md#managed-images)。
 
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Bug 修复 - `Import-AzureRmContext` 可正确反序列化已保存的令牌。  
+   * **AzureRm.Resources**  
+         Bug 修复 - `Get-AzureRmResource` 可按资源类型进行不区分大小写的查询。  
+   * **Azure.Storage**  
+         AzureRm 汇总模块现在包含已发布的 4.5.0 版，支持 **api-version 2017-07-29**。  
+   * **AzureRm.Storage**  
+         AzureRm 汇总模块现在包含已发布的 5.0.4 版，支持 **api-version 2017-10-01**。  
+   * **AzureRm.Compute**  
+         在 `New-AzureRMVM` 和 `NewAzureRMVMSS` 中添加了简单参数集，`-ImageName` 参数支持指定用户映像。  
+   * **AzureRm.Insights**  
+         AzureRm 汇总模块现在包含已发布的 5.1.5 版，支持适用于指标、指标定义资源类型的 **api-version 2018-01-01**。
+
+- **AzureStack 1.7.0** 这是一个有中断性变更的版本。 有关中断性变更的详细信息，请参阅 https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin 模块**  
+         重大更改：备份对基于证书的加密模式的更改。 已弃用对对称密钥的支持。  
+   * **Azs.Fabric.Admin 模块**  
+         `Get-AzsInfrastructureVolume` 已弃用。 使用新的 cmdlet `Get-AzsVolume`。  
+         `Get-AzsStorageSystem` 已弃用。  使用新的 cmdlet `Get-AzsStorageSubSystem`。  
+         `Get-AzsStoragePool` 已弃用。 `StorageSubSystem` 对象包含容量属性。  
+   * **Azs.Compute.Admin 模块**  
+         Bug 修复 - `Add-AzsPlatformImage`、`Get-AzsPlatformImage`：仅在成功路径中调用 `ConvertTo-PlatformImageObject`。  
+         Bug 修复 - `Add-AzsVmExtension`、`Get-AzsVmExtension`：仅在成功路径中调用 ConvertTo-VmExtensionObject。  
+   * **Azs.Storage.Admin 模块**  
+         Bug 修复 - 在不提供值的情况下，新的存储配额使用默认值。
+
+若要查看已更新模块的参考，请参阅 [Azure Stack 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0)。
+
 ## <a name="fixed-issues"></a>修复的问题
 
 - 修复了以下问题：门户显示了创建基于策略的 VPN 网关的选项，但该选项在 Azure Stack 中不受支持。 已从门户中删除此选项。
@@ -105,7 +135,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 修复了以下问题：将[计算配额类型](azure-stack-quota-types.md#compute-quota-types)下面的托管磁盘配额设置为 0 时，相当于使用默认值 2048 GiB。 现在遵循零配额值。
 
 <!-- 2724873 - IS --> 
-- 修复了以下问题：使用 PowerShell cmdlet **Start-AzsScaleUnitNode** 或 **Stop-AzsScaleunitNode** 管理缩放单元时，首次尝试启动或停止缩放单元可能会失败。
+- 修复了以下问题：使用 PowerShell cmdlet **Start-AzsScaleUnitNode** 或 **Stop-AzsScaleUnitNode** 管理缩放单元时，首次尝试启动或停止缩放单元可能会失败。
 
 <!-- 2724961- IS ASDK --> 
 - 修复了以下问题：尽管在订阅设置中注册了 **Microsoft.Insight** 资源提供程序并创建了支持来宾 OS 诊断的 Windows VM，但 VM 概述页中的“CPU 百分比”图表仍不显示指标数据。 现在会正常显示数据。
@@ -166,7 +196,9 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
            "autoUpgradeMinorVersion": "true"
    ```
 
-- 准确规划 Azure Stack 容量时需要考虑一个新的因素。 我们针对可在 Azure Stack 中部署的 VM 总数设置了限制，以确保我们的所有内部服务能够满足客户的运行规模。 该限制为每台主机可以托管 60 个 VM，整个堆栈最多可以托管 700 个 VM（如果达到了每台主机托管 60 个 VM 的限制）。 有关详细信息，请参阅[新版容量规划器](http://aka.ms/azstackcapacityplanner)。
+- 准确规划 Azure Stack 容量时需要考虑一个新的因素。 使用 1901 更新时，现在可创建的虚拟机总数有限制。  此限制是暂时性的，目的是避免解决方案不稳定。 我们已解决大量 VM 的稳定性问题根源，但尚未确定补救措施的具体时间表。 使用 1901 更新时，现在每台服务器存在 60 个 VM 的限制，解决方案总体限制为 700 个。  例如，8 个服务器的 Azure Stack VM 数目限制是 480 (8 * 60)。  对于包含 12 到 16 个服务器的 Azure Stack 解决方案，限制为 700 个 VM。 确定此限制时，我们考虑到了所有计算容量，例如复原能力，以及运营商想要在阵列上保持的虚拟与物理 CPU 之比。 有关详细信息，请参阅新版容量规划器。  
+如果达到了 VM 规模限制，将返回以下错误代码：VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。 
+ 
 
 - 计算 API 版本已递增到 2017-12-01。
 
@@ -257,7 +289,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
    - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+      2. 在同一订阅下，转到“访问控制(IAM)”，检查“AzureStack-DiskRP-Client”是否已列出。
    - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。

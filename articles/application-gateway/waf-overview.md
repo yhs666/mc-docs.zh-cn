@@ -4,15 +4,15 @@ description: 本文概述应用程序网关的 Web 应用程序防火墙 (WAF)
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 11/16/2018
-ms.date: 11/21/2018
+origin.date: 02/22/2019
+ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5eb58236755e527f408f0107ba3fd572cc08033a
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: cfdeebf72303ad1b556637988c43d477323be849
+ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672584"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56836968"
 ---
 # <a name="web-application-firewall-waf"></a>Web 应用程序防火墙 (WAF)
 
@@ -59,19 +59,8 @@ WAF 基于 [OWASP 核心规则集](https://www.owasp.org/index.php/Category:OWAS
 - 防止 HTTP 协议异常行为（例如缺少主机用户代理和接受标头）
 - 防止自动程序、爬网程序和扫描程序
 - 检测常见应用程序错误配置（例如 Apache、IIS 等的错误配置）
-
-### <a name="public-preview-features"></a>公共预览版功能
-
-当前的 WAF 公共预览版 SKU 包括以下功能：
-
-- **请求大小限制** - Web 应用程序防火墙允许用户在下限和上限内配置请求大小限制。
-- **排除列表** - WAF 排除列表允许用户忽略 WAF 评估中的某些请求属性。 常见示例是 Active Directory 插入的令牌，这些令牌用于身份验证或密码字段。
-
-有关 WAF 公共预览版的详细信息，请参阅 [Web 应用程序防火墙请求大小限制和排除列表（公共预览版）](application-gateway-waf-configuration.md)。
-
-
-
-
+- 请求大小限制 - Web 应用程序防火墙允许用户在下限和上限内配置请求大小限制。
+- 排除列表 - WAF 排除列表允许用户忽略 WAF 评估中的某些请求属性。 常见示例是 Active Directory 插入的令牌，这些令牌用于身份验证或密码字段。
 
 ### <a name="core-rule-sets"></a>核心规则集
 
@@ -132,6 +121,16 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 - **检测模式** - 配置为在检测模式下运行时，应用程序网关 WAF 会监视所有威胁警报并将其记录到日志文件中。 应使用“诊断”部分打开应用程序网关的日志记录诊断。 还需确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
 - **阻止模式** - 配置为在阻止模式中运行时，应用程序网关主动阻止其规则检测到的入侵和攻击。 攻击者会收到 403 未授权访问异常，且连接会终止。 阻止模式会继续在 WAF 日志中记录此类攻击。
 
+### <a name="anomaly-scoring-mode"></a>异常评分模式 
+ 
+OWASP 使用两种模式来确定是否阻止流量： 传统模式和异常评分模式。 在传统模式下，将独立评估与任何规则匹配的流量，无论是否也匹配其他规则。 尽管这种模式更易于理解，但它存在一种限制：不知道特定的请求激发的多少个规则。 针对这种局限，我们引入了异常评分模式，它已成为 OWASP 3.x 中的默认模式。 
+
+在异常评分模式下，上一部分所述的某个规则与流量匹配这一事实并不直接意味着将要阻止该流量（假设防火墙处于“阻止”模式）。 规则采用特定的严重性（严重、错误、警告和通知），并根据该严重性增大调用异常评分的请求的数值。 例如，一个匹配的“警告”规则的评分值为 3，而一个匹配的“严重”规则的评分值为 5。 
+
+异常评分有一个设置为 5 的阈值，低于该阈值的流量不会删除。 这意味着，单个匹配的“严重”规则就足以让处于“阻止”模式的 Azure WAF 阻止请求（因为根据上一段落所述，“关键”规则会将异常评分增加 5）。 但是，一个“警告”级别的匹配规则只会将异常评分增加 3。 由于 3 仍低于阈值 5，因此不会阻止流量，即使 WAF 处于“阻止”模式。 
+
+请注意，当 WAF 规则与流量匹配时记录的消息会包含值为“Blocked”的 action_s 字段，但这不一定意味着真正阻止了流量。 若要真正阻止流量，异常评分必须至少达到 5。  
+
 ### <a name="application-gateway-waf-reports"></a>WAF 监视
 
 监视应用程序网关的运行状况非常重要。 借助日志记录以及与 Azure Monitor 的集成，可以监视 Web 应用程序防火墙及其保护的应用程序的运行状况。
@@ -187,4 +186,3 @@ Web 应用程序防火墙在新的 WAF SKU 中提供。 此 SKU 仅在 Azure Res
 了解 WAF 后，请参阅[如何在应用程序网关上配置 Web 应用程序防火墙](tutorial-restrict-web-traffic-powershell.md)。
 
 
-<!-- Update_Description: wording update -->

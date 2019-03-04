@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/25/2018
-ms.date: 01/14/2019
+origin.date: 02/12/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 5e8d4637a6b235e0af6caf5c8fb57ad0ecc23aa9
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: dc9984a0b5389b7827582c531470c5d60aeea85a
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059014"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905286"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 
@@ -108,6 +109,23 @@ Azure Stack 由许多服务构成，其中包括门户、Azure 资源管理器�
 > [!Note]  
 > 无需打开任何入站端口。
 
+### <a name="encryption-requirements"></a>加密要求
+
+从 1901 版本开始，基础结构备份服务将在执行云恢复期间，使用包含公钥的证书 (.CER) 来加密备份数据，并使用包含私钥的证书 (.PFX) 来解密备份数据。   
+ - 该证书用于传输密钥，而不会用于建立经过身份验证的安全通信。 出于此原因，该证书可以是自签名证书。 Azure Stack 无需验证此证书的根或信任，因此无需外部 Internet 访问权限。
+ 
+自签名证书有两个部分，一个部分包含公钥，另一个部分包含私钥：
+ - 加密备份数据：包含公钥的证书（导出到 .CER 文件）用于加密备份数据
+ - 解密备份数据：包含私钥的证书（导出到 .PFX 文件）用于解密备份数据
+
+内部机密轮换不会管理包含公钥的证书 (.CER)。 若要轮换证书，需要创建新的自签名证书，并使用新的文件 (.CER) 更新备份设置。  
+ - 所有现有备份将使用以前的公钥保持加密状态。 新备份将使用新的公钥。 
+ 
+出于安全原因，Azure Stack 不会保留云恢复期间使用的包含私钥的证书 (.PFX)。 在云恢复期间，需要显式提供此文件。  
+
+**后向兼容性模式**从 1901 版本开始，加密密钥支持已弃用，将来的版本会将其删除。 如果已从 1811 版本更新，并且已使用加密密钥启用了备份，则 Azure Stack 将继续使用加密密钥。 至少有 3 个版本会继续支持后向兼容性模式。 在此之后，需要使用证书。 
+ * 从加密密钥更新到证书是单向操作。  
+ * 所有现有备份将使用加密密钥保持加密状态。 新备份将使用证书。 
 
 ## <a name="infrastructure-backup-limits"></a>基础结构备份限制
 
