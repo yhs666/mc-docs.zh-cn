@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 12/10/2018
-ms.date: 01/14/2019
+origin.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: d42d7caa4d2d26464de6dcdbec1ca0e65eeae1d5
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.reviewer: unknown
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: d88e6862a0032ee759a07906625b4762ffe5f894
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059017"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905358"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -166,9 +167,15 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
    ```PowerShell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
+
+   `-origin` 参数指定包含所有已下载产品的顶级文件夹；例如，`"D:\downloadfolder"`。
+
     `-AzsCredential` 参数是可选的。 该参数用于续订访问令牌（如果已过期）。 如果未指定 `-AzsCredential` 参数且令牌已过期，则你会收到输入操作员凭据的提示。
+
+    > [!Note]  
+    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack 和 AD FS 作为标识管理服务，请参阅[管理 AD FS的服务主体](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)。
 
 4. 成功完成该脚本后，Azure Stack 市场中应会提供该项。
 
@@ -233,9 +240,9 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 现在，可以使用 Azure Stack PowerShell 1.3.0 版添加虚拟机扩展。 例如：
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>后续步骤
 
