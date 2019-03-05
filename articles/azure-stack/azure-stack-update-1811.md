@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2019
-ms.date: 02/18/2019
+origin.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: beafba58c24808d241e106c63e284a6e8f2f9bc4
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 6fb941f643e0cc3dab4947f6da50a68da62b6260
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218298"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905446"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -119,6 +119,18 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 - 使用 Azure Stack 门户创建虚拟机时，现在默认会启用托管磁盘。 有关需要对托管磁盘执行哪些附加步骤才能避免 VM 创建失败，请参阅[已知问题](#known-issues-post-installation)部分。
 
 - 此版本为 Azure Stack 操作员引入了警报“修复”操作。 1811 中的某些警报在警报中提供一个“修复”按钮用于解决问题。 有关详细信息，请参阅[在 Azure Stack 中监视运行状况和警报](azure-stack-monitor-health.md)。
+
+- 更新到 Azure Stack 中的更新体验。 更新增强功能包括： 
+    - 用于将“更新”与“更新历史记录”拆分开来的选项卡，这样可以更好地跟踪正在进行的更新与已完成的更新。
+    - “概要”部分的增强的状态可视化效果，其中的新图标和布局对应于“当前版本和 OEM 版本”以及“上次更新的日期”。
+    - “发行说明”列的“查看”链接直接将用户转到特定于该更新的文档，而不是转到常规更新页。
+    - “更新历史记录”选项卡，用于确定每项更新的运行时间以及增强的筛选功能。  
+    - 连接的 Azure Stack 缩放单元仍会自动接收已发布的**可用更新**。
+    - 未连接的 Azure Stack 缩放单元可以导入更新，就像以前一样。 
+    - 从门户下载 JSON 日志的过程没有任何变化。 Azure Stack 操作员会看到表示进度的扩展步骤。
+
+    有关详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
+
 
 ## <a name="fixed-issues"></a>修复的问题
 

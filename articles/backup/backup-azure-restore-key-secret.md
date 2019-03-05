@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794e6ba32aed8d03a737d1e6b2acd21347ca0c65
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 382fcf583e0aaf341920f4a82f53582ac65cb79e
+ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363386"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987039"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 备份还原已加密 VM 的密钥保管库密钥和机密
 本文介绍在密钥和机密不存在于密钥保管库中的情况下，如何使用 Azure VM 备份对加密的 Azure VM 进行还原。 如果要为还原的 VM 保留密钥（密钥加密密钥）和机密（BitLocker 加密密钥）的单独副本，也可以使用这些步骤。
@@ -62,7 +62,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 
 ## <a name="restore-secret"></a>还原机密
 
-如果不带 Azure AD 的 Azure VM 仅使用 BEK（适用于 Windows 和 Linux VM）加密，则请通过上述命令生成机密名称和值，然后通过馈送方式来设置机密 cmdlet，以便将机密 (BEK) 放回到密钥保管库中。
+使用先前生成的 JSON 文件来获取机密名称和值，并将其他提供给设置机密 cmdlet，以便将机密 (BEK) 放回密钥保管库中。�如果**使用 BEK 和 KEK 加密 VM**，请使用这些 cmdlet。
 
 **如果 Windows VM 通过 BEK 和 KEK 加密，请使用这些 cmdlet。**
 
@@ -84,7 +84,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-如果带 AD 的 Azure VM **仅使用 BEK 加密**，请从 JSON 生成机密 Blob 文件并输入，以还原机密 cmdlet，将机密 (BEK) 放回密钥保管库。
+使用先前生成的 JSON 文件来获取机密名称和值，并将其他提供给设置机密 cmdlet，以便将机密 (BEK) 放回密钥保管库中。�如果**仅使用 BEK 加密 VM**，请使用这些 cmdlet。
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'

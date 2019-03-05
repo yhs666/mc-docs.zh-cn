@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: overview
 origin.date: 09/26/2018
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b44fc3a1c6c21a0307d41b809f5d5cba34a8aec3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1b3ca8825478d52182f7a05b2dc9cb71869f4c5a
+ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676637"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56903201"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS)
 
@@ -38,7 +38,7 @@ ms.locfileid: "52676637"
 
 为了了解 AKS 群集和部署的应用程序的性能，负责监视容器运行状况的 Azure Monitor 会从容器、节点和控制器收集内存和处理器指标。 可以查看容器日志，也可[查看 Kubernetes 主节点日志][aks-master-logs]。 此监视数据存储在 Azure Log Analytics 工作区中，可以通过 Azure 门户、Azure CLI 或 REST 终结点获取。
 
-<!-- Not Available on [Monitor Azure Kubernetes Service container health][container-health]-->
+有关详细信息，请参阅[监视 Azure Kubernetes 服务容器运行状况][container-health]。
 
 ## <a name="cluster-and-node"></a>群集和节点
 
@@ -66,7 +66,7 @@ AKS 支持创建启用了 GPU 的节点池。 Azure 目前提供单个或多个�
 
 若要支持应用程序工作负荷，可以为持久保存的数据装载存储卷。 静态和动态卷都可以使用。 根据要共享存储的已连接 Pod 的数目，可以使用 Azure 磁盘支持的存储进行单个 Pod 的访问，也可以使用 Azure 文件支持的存储进行多个并发 Pod 的访问。
 
-通过 [Azure 磁盘][azure-disk]或 [Azure 文件][azure-files]完成动态永久性卷的入门。
+通过 [Azure 磁盘][azure-disk] 或 [Azure 文件][azure-files] 完成动态永久性卷的入门。
 
 ## <a name="virtual-networks-and-ingress"></a>虚拟网络和入口
 
@@ -84,11 +84,13 @@ AKS 群集可以部署到现有的虚拟网络中。 在此配置中，群集中
 
 Kubernetes 有丰富的生态系统，其中包含各种开发和管理工具，例如 Helm、Draft 以及适用于 Visual Studio Code 的 Kubernetes 扩展。 这些工具可以与 AKS 无缝地配合使用。
 
-另外，Azure Dev Spaces 为团队提供快速、迭代的 Kubernetes 开发体验。 只需最少的配置，即可直接在 AKS 中运行和调试容器。 有关入门，请参阅 [Azure Dev Spaces][azure-dev-spaces]。
+另外，Azure Dev Spaces 为团队提供快速、迭代的 Kubernetes 开发体验。 只需最少的配置，即可直接在 AKS 中运行和调试容器。 
+
+<!--Not Available on To get started, see [Azure Dev Spaces][azure-dev-spaces]-->
 
 Azure DevOps 项目允许通过简单的解决方案将现有的代码和 Git 存储库带到 Azure 中。 DevOps 项目自动创建 Azure 资源（例如 AKS，Azure DevOps Services 中的一种发布管道，其中包括用于 CI 的生成管道），为 CD 设置发布管道，然后创建适用于监视的 Azure Application Insights 资源。
 
-有关详细信息，请参阅 [Azure DevOps 项目][azure-devops]。
+<!--Not Available on For more information, see [Azure DevOps project][azure-devops]-->
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Docker 映像支持和专用容器注册表
 
@@ -112,7 +114,7 @@ Azure Kubernetes 服务 (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 规范。
 > [AKS 快速入门][aks-cli]
 
 <!-- LINKS - external -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [draft]: https://github.com/Azure/draft
 [helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
@@ -128,9 +130,6 @@ Azure Kubernetes 服务 (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 规范。
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: /dev-spaces/azure-dev-spaces
-[azure-devops]: /devops-project/overview
-[azure-disk]: ./azure-disks-dynamic-pv.md
-[azure-files]: ./azure-files-dynamic-pv.md
-
-<!--Not Available on [container-health]: ../monitoring/monitoring-container-health.md--> [aks-master-logs]: view-master-logs.md [aks-supported versions]: supported-kubernetes-versions.md
+<!--Not Available on [azure-dev-spaces]: /dev-spaces/azure-dev-spaces-->
+<!--Not Available on [azure-devops]: /devops-project/overview--> [azure-disk]: ./azure-disks-dynamic-pv.md [azure-files]: ./azure-files-dynamic-pv.md [container-health]: ../azure-monitor/insights/container-insights-overview.md <!--URL monitoring-container-health.md direct to azure-monitor/insights/container-insights-overview.md-->
+[aks-master-logs]: view-master-logs.md [aks-supported versions]: supported-kubernetes-versions.md

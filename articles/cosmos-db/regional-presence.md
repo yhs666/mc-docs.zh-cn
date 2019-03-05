@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 7dd26cbe814f97d9ca90a86c2aa97614f0c0b9d7
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: c29fa0a87e347824299c210479e454b343975aef
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309239"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56987924"
 ---
-# <a name="regional-presence-of-azure-cosmos-db"></a>Azure Cosmos DB 的区域覆盖范围
+# <a name="regional-presence-with-azure-cosmos-db"></a>Azure Cosmos DB 的区域可用性
 
 目前，Azure 在中国的 [4 个区域](https://www.azure.cn/zh-cn/home/features/products-by-region)提供。 Azure Cosmos DB 是 Azure 中的一项基础服务，在所有提供 Azure 的区域均可使用。
 
@@ -26,10 +26,11 @@ ms.locfileid: "54309239"
 
 ## <a name="regional-presence-with-multiple-region-distribution"></a>采用多区域分布的区域覆盖
 
-所有 Azure 区域提供 Azure Cosmos DB（包括 SQL 和 MongoDB）公开的 API。 例如，Azure 中国云中的 Azure Cosmos DB 可以公开 MongoDB 和 SQL API。
-
+Azure Cosmos DB 公开的不同 API（包括 SQL 和 MongoDB）在所有 Azure 中国区域均可用。 例如，可以在 Azure 中国云中使用 Azure Cosmos DB 公开的 MongoDB API。
 <!-- Not Available on Cassandra, Gremlin, and Azure Table storage-->
-<!-- Not Available on Germany, Government, and Department of Defense (DoD) regions--> Azure Cosmos DB 是[多区域分布式](distribute-data-globally.md)数据库。 可将任意数量的 Azure 区域与 Azure Cosmos 帐户相关联，并且数据会自动且透明地得到复制。 可随时向 Azure Cosmos 帐户添加或从中删除区域。 借助统包多区域分布功能和多主控复制协议，Azure Cosmos DB 能够在第 99 百分位提供不到 10 毫秒的读写延迟、提供 99.999 的读写可用性并能够在与 Azure Cosmos 帐户相关的所有区域中灵活扩展预配的读写吞吐量。 Azure Cosmos DB 还提供五种定义完善的一致性模型，可以选择对数据应用特定的一致性模型。 最后，Azure Cosmos DB 是业内唯一一种提供综合服务级别协议 (SLA) 的数据库服务，包括预配的吞吐量、第 99 百分位的延迟、高可用性和一致性。
+<!-- Not Available on Germany, Government, and Department of Defense (DoD) regions-->
+
+Azure Cosmos DB 是[多区域分布式](distribute-data-globally.md)数据库。 可将任意数量的 Azure 区域与 Azure Cosmos 帐户相关联，并且数据会自动且透明地得到复制。 可随时向 Azure Cosmos 帐户添加或从中删除区域。 借助统包多区域分布功能和多主控复制协议，Azure Cosmos DB 能够在第 99 百分位提供不到 10 毫秒的读写延迟、提供 99.999 的读写可用性并能够在与 Azure Cosmos 帐户相关的所有区域中灵活扩展预配的读写吞吐量。 Azure Cosmos DB 还提供五种定义完善的一致性模型，可以选择对数据应用特定的一致性模型。 最后，Azure Cosmos DB 是业内唯一一种提供综合服务级别协议 (SLA) 的数据库服务，包括预配的吞吐量、第 99 百分位的延迟、高可用性和一致性。
 
 ## <a name="next-steps"></a>后续步骤
 

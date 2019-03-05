@@ -4,19 +4,19 @@ description: 本文介绍 Azure Cosmos DB 中使用的 SQL 查询语言语法、
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: reference
+ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 4c4d5111c297fbeba03b134394557ea119be22ff
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 14ce45d91bd215b73c9cf847a7f60a365ead7260
+ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309231"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988037"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL 语言参考 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB SQL 语言参考 
 
 Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本文提供与 SQL API 帐户兼容的 SQL 查询语言的文档。 有关示例 SQL 查询的演练，请参阅 [Cosmos DB 中的 SQL 查询](how-to-sql-query.md)。  
 
@@ -494,8 +494,8 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**算术**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|加。<br /><br /> 减。<br /><br /> 乘。<br /><br /> 除。<br /><br /> 求模。|  
 |**按位**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|按位或。<br /><br /> 按位与。<br /><br /> 按位异或。<br /><br /> 左移。<br /><br /> 右移。<br /><br /> 补零右移。|  
-|**逻辑**|**AND**<br /><br /> **OR**|逻辑连接。 如果两个参数都为 true，则返回 true，否则返回 false。<br /><br /> 逻辑连接。 如果两个参数都是 **true**，则返回 **true**，否则返回 **false**。|  
-|比较|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|等于。 如果参数相等，则返回 **true**，否则返回 **false**。<br /><br /> 不等于。 如果参数不相等，则返回 **true**，否则返回 **false**。<br /><br /> 大于。 如果第一个参数大于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 大于或等于。 如果第一个参数大于或等于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 小于。 如果第一个参数小于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 小于或等于。 如果第一个参数小于或等于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 联合。 如果第一个参数是一个**未定义的**值，则返回第二个参数。|  
+|**逻辑**|**AND**<br /><br /> **OR**|逻辑连接。 如果两个参数都是 **true**，则返回 **true**，否则返回 **false**。<br /><br /> 逻辑或运算。 如果任何参数为 true，则返回 true，否则返回 false。|  
+|**比较**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|等于。 如果参数相等，则返回 **true**，否则返回 **false**。<br /><br /> 不等于。 如果参数不相等，则返回 **true**，否则返回 **false**。<br /><br /> 大于。 如果第一个参数大于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 大于或等于。 如果第一个参数大于或等于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 小于。 如果第一个参数小于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 小于或等于。 如果第一个参数小于或等于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 联合。 如果第一个参数是一个**未定义的**值，则返回第二个参数。|  
 |**字符串**|**&#124;&#124;**|串联。 返回两个参数的串联。|  
 
  **三元运算符：**  
@@ -621,7 +621,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|撇号 (')|U+0027|  
 |\\"|引号 (")|U+0022|  
-|\\\|反斜线号 (\\)|U+005C|  
+|\\\ |反斜线号 (\\)|U+005C|  
 |\\/|斜线号 (/)|U+002F|  
 |\b|退格键|U+0008|  
 |\f|换页符|U+000C|  
@@ -1848,8 +1848,10 @@ SELECT
 |[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  返回一个字符串，该字符串是连接两个或多个字符串值的结果。  
@@ -2170,7 +2172,10 @@ REPLICATE(<str_expr>, <num_expr>)
 
 -   `num_expr`  
 
-     是任何有效的数值表达式。  
+     是任何有效的数值表达式。 如果 num_expr 为负或非有限，则结果未定义。
+
+  > [!NOTE]
+  > 结果的最大长度为 10,000 个字符，即 (length(str_expr)  *  num_expr) <= 10,000。
 
  **返回类型**  
 
@@ -2325,14 +2330,234 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 ```  
 [{"$1": false, "$2": true}]  
 ```  
-  
-####  <a name="bk_substring"></a> SUBSTRING  
+
+#### <a name="bk_stringtoarray"></a> StringToArray  
+ 返回已转换为数组的表达式。 如果表达式无法转换，则返回未定义的表达式。  
+
+ **语法**  
+
+```  
+StringToArray(<expr>)  
+```  
+
+ **参数**  
+
+-   `expr`  
+
+     是任何有效的 JSON 数组表达式。 请注意，字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
+
+ **返回类型**  
+
+ 返回一个数组表达式或未定义的表达式。  
+
+ **示例**  
+
+以下示例演示 StringToArray 在不同类型中的行为方式。 
+
+```  
+SELECT 
+StringToArray('[]'), 
+StringToArray("[1,2,3]"),
+StringToArray("[\"str\",2,3]"),
+IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
+IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
+StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
+StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
+StringToArray(false), 
+StringToArray(undefined),
+StringToArray(NaN), 
+StringToArray("[")
+```  
+
+ 下面是结果集。  
+
+```  
+[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
+```  
+
+<a name="bk_stringtoboolean"></a>
+####  <a name="stringtoboolean"></a>StringToBoolean  
+ 返回已转换为布尔值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
+
+ **语法**  
+
+```  
+StringToBoolean(<expr>)  
+```  
+
+ **参数**  
+
+-   `expr`  
+
+     是任何有效的表达式。  
+
+ **返回类型**  
+
+ 返回一个布尔表达式或未定义的表达式。  
+
+ **示例**  
+
+以下示例演示 StringToBoolean 在不同类型中的行为方式。 
+
+```  
+SELECT 
+StringToBoolean("true"), 
+StringToBoolean("    false"),
+IS_BOOL(StringToBoolean("false")), 
+StringToBoolean("null"),
+StringToBoolean(undefined),
+StringToBoolean(NaN), 
+StringToBoolean(false), 
+StringToBoolean(true), 
+StringToBoolean("TRUE"),
+StringToBoolean("False")
+```  
+
+ 下面是结果集。  
+
+```  
+[{"$1": true, "$2": false, "$3": true}]
+```  
+
+#### <a name="bk_stringtonull"></a> StringToNull  
+ 返回已转换为 Null 的表达式。 如果表达式无法转换，则返回未定义的表达式。  
+
+ **语法**  
+
+```  
+StringToNull(<expr>)  
+```  
+
+ **参数**  
+
+-   `expr`  
+
+     是任何有效的表达式。  
+
+ **返回类型**  
+
+ 返回一个 Null 表达式或未定义的表达式。  
+
+ **示例**  
+
+以下示例演示 StringToNull 在不同类型中的行为方式。 
+
+```  
+SELECT 
+StringToNull("null"), 
+StringToNull("  null "),
+IS_NULL(StringToNull("null")), 
+StringToNull("true"), 
+StringToNull(false), 
+StringToNull(undefined),
+StringToNull(NaN), 
+StringToNull("NULL"),
+StringToNull("Null")
+```  
+
+ 下面是结果集。  
+
+```  
+[{"$1": null, "$2": null, "$3": true}]
+```  
+
+#### <a name="bk_stringtonumber"></a> StringToNumber  
+ 返回已转换为数字值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
+
+ **语法**  
+
+```  
+StringToNumber(<expr>)  
+```  
+
+ **参数**  
+
+-   `expr`  
+
+     是任何有效的 JSON 数字表达式。 JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
+
+ **返回类型**  
+
+ 返回一个数字表达式或未定义的表达式。  
+
+ **示例**  
+
+以下示例演示 StringToNumber 在不同类型中的行为方式。 
+
+```  
+SELECT 
+StringToNumber("1.000000"), 
+StringToNumber("3.14"),
+IS_NUMBER(StringToNumber("   60   ")), 
+StringToNumber("0xF"),
+StringToNumber("-1.79769e+308"),
+IS_STRING(StringToNumber("2")),
+StringToNumber(undefined),
+StringToNumber("99     54"), 
+StringToNumber("false"), 
+StringToNumber(false),
+StringToNumber(" "),
+StringToNumber(NaN)
+```  
+
+ 下面是结果集。  
+
+```  
+{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+```  
+
+#### <a name="bk_stringtoobject"></a> StringToObject  
+ 返回已转换为对象的表达式。 如果表达式无法转换，则返回未定义的表达式。  
+
+ **语法**  
+
+```  
+StringToObject(<expr>)  
+```  
+
+ **参数**  
+
+-   `expr`  
+
+     是任何有效的 JSON 对象表达式。 请注意，字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
+
+ **返回类型**  
+
+ 返回一个对象表达式或未定义的表达式。  
+
+ **示例**  
+
+以下示例演示 StringToObject 在不同类型中的行为方式。 
+
+```  
+SELECT 
+StringToObject("{}"), 
+StringToObject('{"a":[1,2,3]}'),
+StringToObject("{'a':[1,2,3]}"),
+StringToObject("{a:[1,2,3]}"),
+IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
+IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
+IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
+StringToObject(false), 
+StringToObject(undefined),
+StringToObject(NaN), 
+StringToObject("{")
+```  
+
+ 下面是结果集。  
+
+```  
+[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+```  
+
+<a name="bk_substring"></a>
+####  <a name="substring"></a>SUBSTRING  
  返回字符串表达式的部分内容，该内容起于指定字符从零开始的位置，继续到指定长度或字符串结尾。  
 
  **语法**  
 
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
 
  **参数**  
@@ -2343,7 +2568,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
 
 -   `num_expr`  
 
-     是任何有效的数值表达式。  
+     是表示开始和结束字符的任何有效数字表达式。    
 
  **返回类型**  
 
@@ -2544,7 +2769,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 
+返回一个布尔，它指示数组是否包含指定的值。 可以通过在命令中使用布尔表达式来检查对象的部分匹配或完全匹配。 
 
  **语法**  
 
@@ -2564,7 +2789,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
 
-     为任何布尔表达式。       
+     为任何布尔表达式。 如果将其设置为“true”，并且指定的搜索值是对象，则该命令将检查部分匹配（搜索对象是其中一个对象的子集）。 如果将其设置为“false”，则该命令将检查数组中所有对象的完全匹配。 如果未指定，默认值为“false”。 
 
  **返回类型**  
 

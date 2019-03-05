@@ -11,16 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 01/14/2019
+origin.date: 01/22/2019
+ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a5c41fb9d069368dc68a9493af747d8fed65657
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 01/22/2019
+ms.openlocfilehash: fe399f1ad6a53a2bb93ebce63649489ff686a0e6
+ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059006"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905435"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -143,16 +144,32 @@ ms.locfileid: "54059006"
  - 硬件组件发生故障并予以更换之后（如果现场可更换单元 (FRU) 文档中建议更换）。
 
 > [!Important]  
-> 需要更换节点或单个硬件组件时，请参阅 OEM 硬件供应商的 FRU 文档，以了解确切的步骤。 FRU 文档将指定在更换硬件组件之后是否需要运行修复操作。  
+> 需要更换节点或单个硬件组件时，请参阅 OEM 硬件供应商的 FRU 文档，以了解具体步骤。 FRU 文档将指定在更换硬件组件之后是否需要运行修复操作。 
 
 运行修复操作时，需要指定 BMC IP 地址。 
 
 若要运行修复操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+“关闭”操作会先将所有活动工作负荷移到同一缩放单元中的其余节点。 然后该操作会正常关闭缩放单元节点。
+
+启动已关闭的节点后，需要运行“[恢复](#resume)”操作。 之前在节点上运行的工作负荷不会故障回复。
+
+如果关闭操作失败，请尝试“[清空](#drain)”操作，然后执行关闭操作。
+
+若要运行关闭操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0)。
+若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
