@@ -13843,7 +13843,18 @@
       "source_path": "articles/automation/automation-testing-runbook.md",
       "redirect_url": "/automation/manage-runbooks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate.md",
+      "redirect_url": "/sql-database/sql-database-single-database-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-service-tiers.md",
+      "redirect_url": "/sql-database/sql-database-purchase-models",
+      "redirect_document_id": false
     }
+
 
 
 
