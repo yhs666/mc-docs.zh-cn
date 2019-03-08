@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 05/23/2017
 ms.author: v-yiso
-ms.date: 03/04/2019
-ms.openlocfilehash: 3cff3fe56f743949587fccdda3a5e7dab0587ddf
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.date: 03/18/2019
+ms.openlocfilehash: adfe63d5306384a17800c11c614675136ed5ad7f
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665481"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560468"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
@@ -119,11 +119,13 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>使用 Azure PowerShell 检索和更新 IP 筛选器
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 可以通过 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0) 检索和设置 IoT 中心的 IP 筛选器。 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
-$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
 $iothubResource.Properties.ipFilterRules |% { Write-host $_ }
@@ -138,7 +140,7 @@ $iothubResource.Properties.ipFilterRules += $filter
 $iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
 
 # Update your IoT Hub resource with your updated IP filters
-$iothubResource | Set-AzureRmResource -Force
+$iothubResource | Set-AzResource -Force
 ```
 
 ## <a name="update-ip-filter-rules-using-rest"></a>使用 REST 更新 IP 筛选器

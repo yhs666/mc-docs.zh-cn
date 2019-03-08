@@ -6,14 +6,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 origin.date: 12/31/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: efe12366d17663c64c7381b1f8639490d09454a6
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 5c27f915996ce70857d93bac051d4d5074089509
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363512"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463665"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 到 Azure 的灾难恢复体系结构
 
@@ -44,6 +44,7 @@ ms.locfileid: "54363512"
         - **应用一致的快照**。 应用一致的快照可以每隔 1 到 12 个小时创建一次，具体取决于你的应用需求。 快照是标准的 Azure blob 快照。 在 VM 上运行的移动代理根据此设置请求 VSS 快照，并且会将该时间点标记为复制流中的一个应用一致点。
 
 2. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以结合使用 Azure ExpressRoute 和[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
+    <!--MOONCAKE: Anchor is correct on public-peering-->
 3. 完成初始复制后，开始将增量更改复制到 Azure。 针对机器跟踪的更改将发送到进程服务器。
 4. 通信按如下方式发生：
 

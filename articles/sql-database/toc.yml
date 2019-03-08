@@ -1,5 +1,5 @@
 items:
-- name: SQL DB 文档
+- name: SQL 数据库文档
   href: index.yml
 - name: SQL 数据库服务
   items:
@@ -29,7 +29,7 @@ items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: Azure Data Studio
-      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database
+      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/sql-database/toc.json
     - name: Azure 门户
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -53,15 +53,15 @@ items:
   expanded: true
 - name: 教程
   items:
-  - name: 设计 Azure SQL 数据库
+  - name: 在 SQL 数据库中设计数据库
     items:
     - name: 使用 SSMS 设计数据库
       href: sql-database-design-first-database.md
     - name: 使用 .NET 设计数据库
       href: sql-database-design-first-database-csharp.md
-  - name: Azure SQL 数据库中的安全性
+  - name: SQL 数据库中的安全性
     items:
-    - name: 单一数据库安全性
+    - name: 单一数据库和共用数据库安全性
       href: sql-database-security-tutorial.md
   - name: 实现地理分散的数据库
     href: sql-database-implement-geo-distributed-database.md
@@ -82,10 +82,10 @@ items:
   - name: 购买模型
     items:
     - name: 概述
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: 基于 vCore 的模型
       href: sql-database-service-tiers-vcore.md
-    - name: DTU 模型
+    - name: DTU 服务层
       href: sql-database-service-tiers-dtu.md
   - name: 计算和存储
     items:
@@ -289,8 +289,8 @@ items:
     items:
     - name: 概述
       href: sql-database-howto-single-database.md
-    - name: 迁移到 SQL 数据库
-      href: sql-database-cloud-migrate.md
+    - name: 迁移到单一/共用数据库
+      href: sql-database-single-database-migrate.md
     - name: 在迁移后管理 SQL 数据库
       href: sql-database-manage-after-migration.md
     - name: 配置复制
@@ -341,7 +341,7 @@ items:
         href: sql-database-elastic-scale-add-a-shard.md
       - name: 解决分片映射问题
         href: sql-database-elastic-database-recovery-manager.md
-      - name: 迁移分片 DB
+      - name: 迁移分片数据库
         href: sql-database-elastic-convert-to-use-elastic-tools.md
       - name: 创建计数器
         href: sql-database-elastic-database-perf-counters.md
@@ -357,7 +357,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: 在具有不同架构的表中进行查询
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: 弹性数据库作业
+    - name: 弹性作业
       items:
       - name: 创建和管理 (PowerShell)
         href: elastic-jobs-powershell.md
@@ -365,11 +365,11 @@ items:
         href: elastic-jobs-tsql.md
   - name: 加载和移动数据
     items:
-    - name: 在 Azure 内复制 DB
+    - name: 在 Azure 中复制数据库
       href: sql-database-copy.md
-    - name: 从 BACPAC 导入 DB
+    - name: 从 BACPAC 文件导入数据库
       href: sql-database-import.md
-    - name: 将 DB 导出到 BACPAC
+    - name: 将数据库导出到 BACPAC 文件
       href: sql-database-export.md
     - name: 数据同步
       items:
@@ -425,6 +425,8 @@ items:
       href: sql-database-develop-overview.md
     - name: 处理 JSON 数据
       href: sql-database-json-features.md
+    - name: 使用 Azure Functions
+      href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/sql-database/toc.json
     - name: 使用 Spark 连接器
       href: sql-database-spark-connector.md
     - name: 应用身份验证
@@ -514,9 +516,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: b50044808884c64ed991dc7b37bb49cdefa7c2d2
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: cadd5a7ab1b39b4071a3f1e5a4d8a78bf3234994
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663596"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347117"

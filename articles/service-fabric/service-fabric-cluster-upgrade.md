@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: bbfaff265ac3864f13caf85710183770bb3b2aeb
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 482b16a1a4672339885b54fce6683227c897da7b
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901084"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204185"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升级和更新 Azure Service Fabric 群集
 
@@ -28,7 +28,7 @@ ms.locfileid: "52901084"
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制在群集上运行的结构版本
 
-请确保群集始终运行受支持的结构版本。 当我们公布新版本的 Service Fabric 发布后，则标志着自该日期起至少 60 天以后结束对旧版本的支持。 新版本在 Service Fabric 团队博客上公布。 之后新版本则可供选择。
+确保始终让群集运行[受支持的结构版本](service-fabric-versions.md)。 当我们公布新版本的 Service Fabric 发布后，则标志着自该日期起至少 60 天以后结束对旧版本的支持。 新版本在 Service Fabric 团队博客上公布。 之后新版本则可供选择。
 
 群集运行的版本过期前 14 天，系统会生成运行状况事件，使群集进入警告运行状况状态。 在升级到支持的结构版本之前，群集将保持警告状态。
 

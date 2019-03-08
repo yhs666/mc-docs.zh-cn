@@ -1,6 +1,6 @@
 ---
 title: 创建服务器级防火墙规则 - Azure SQL 数据库 | Microsoft Docs
-description: 为单一数据库或入池数据库创建 SQL 数据库服务器级防火墙规则
+description: 为单一数据库和入池数据库创建 SQL 数据库服务器级防火墙规则
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 1c7f647e66e37ecb93ed1550d3175787a3ae4a7a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/11/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: d488833af629e57188446c7f2339a278875a8964
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663850"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347055"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据库中创建服务器级防火墙规则
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>快速入门：使用 Azure 门户为单一数据库和入池数据库创建服务器级防火墙规则
 
-本快速入门介绍如何使用 Azure 门户中 Azure SQL 数据库中创建服务器级防火墙规则，以便能够从本地资源连接到该数据库。
+本快速入门详细介绍如何使用 Azure 门户为 Azure SQL 数据库中的单一数据库和入池数据库创建[服务器级防火墙规则](sql-database-firewall-configure.md)，以便能够连接到数据库服务器、单一数据库、弹性池及其数据库。 若要从其他 Azure 资源和本地资源进行连接，必须使用防火墙规则。
 
 ## <a name="prerequisites"></a>先决条件
 

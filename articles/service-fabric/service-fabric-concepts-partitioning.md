@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 063d1e755d1ec6cc44e23b9420d12e1638288df8
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 0128b85c64ea037df5888803d116281fe8134a7f
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396671"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204125"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Service Fabric Reliable Services 分区
 本文介绍 Azure Service Fabric Reliable Services 分区的基本概念。 本文中使用的源代码也可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上获取。
@@ -65,6 +65,7 @@ ms.locfileid: "54396671"
 ![简单分区](./media/service-fabric-concepts-partitioning/cities.png)
 
 因为城市的人口差别很大，所以最后可能出现一些分区包含大量数据而另一些分区包含非常少的数据这样一种状态。 那么分区具有不均匀的状态数量会有什么影响呢？
+
 <!-- Not Available on Seattle and Kirkland-->
 
 如果再次考虑该示例，便可以很容易地发现为西雅图保存投票的分区获得的流量会多于柯克兰的相应分区。 默认情况下，Service Fabric 可确保每个节点上的主副本和辅助副本数量大致相同。 因此，最后可能节点容纳的一些副本处理较多流量，而其他副本处理较少流量。 会倾向于避免群集中出现类似于这种情况的热点和冷点。
@@ -131,9 +132,7 @@ Service Fabric 提供了三个分区方案可供选择：
 1. 打开“Visual Studio” > “文件” > “新建” > “项目”。
 2. 在“新建项目”对话框中，选择 Service Fabric 应用程序。
 3. 将项目命名为“AlphabetPartitions”。
-4. 在“创建服务”对话框中，选择“有状态”服务并将它称为“Alphabet.Processing”，如下图所示。
-    ![Visual Studio 中的“新建服务”对话框][1]
-
+4. 在“创建服务”对话框中，选择“有状态”服务并将它称为“Alphabet.Processing”。
 5. 设置分区数。 打开 AlphabetPartitions 项目的 ApplicationPackageRoot 文件夹中的 Applicationmanifest.xml 文件，然后将参数 Processing_PartitionCount 更新为 26，如下所示。
 
     ```xml
@@ -167,7 +166,7 @@ Service Fabric 提供了三个分区方案可供选择：
 
     可以在同一台计算机上托管此服务的多个副本，因此此地址需要是副本独有的。 这就是 URL 中包含分区 ID 和副本 ID 的原因。 HttpListener 可以在同一端口上侦听多个地址，前提是 URL 前缀是唯一的。
 
-    额外 GUID 在其中用于辅助副本也针对只读请求进行侦听的高级情况。 如果是这种情况，则要确保在从主副本转换为辅助副本时使用新的唯一地址，强制客户端重新解析地址。 “+”在此处用作地址，以便副本在所有可用主机（IP、FQDM、localhost 等）上进行侦听下面的代码演示一个示例。
+    额外 GUID 在其中用于辅助副本也针对只读请求进行侦听的高级情况。 如果是这种情况，则要确保在从主副本转换为辅助副本时使用新的唯一地址，强制客户端重新解析地址。 “+”在此处用作地址，以便副本在所有可用主机（IP、FQDN、localhost 等）上进行侦听下面的代码演示一个示例。
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -365,7 +364,7 @@ Service Fabric 提供了三个分区方案可供选择：
 该示例的完整源代码位于 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)。
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 和执行组件分支子进程
-服务结构不支持 Reliable Services，因此也不支持 Reliable Actors 分支子进程。 不支持的原因的一个示例是 [CodePackageActivationContext](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) 不能用于注册不受支持的子进程，并且取消令牌仅发送到已注册进程；当父进程收到取消令牌后子进程未关闭时，会导致各种问题，例如升级失败。 
+服务结构不支持 Reliable Services，因此也不支持 Reliable Actors 分支子进程。 这里举例说明其不受支持的原因：[CodePackageActivationContext](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) 不能用于注册不受支持的子过程，并且取消令牌仅发送到已注册过程；若子过程在父过程收到取消令牌后未关闭，会导致各种问题，例如升级失败。 
 
 ## <a name="next-steps"></a>后续步骤
 有关 Service Fabric 概念的信息，请参阅以下内容：

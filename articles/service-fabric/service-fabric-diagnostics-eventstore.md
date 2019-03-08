@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/21/2018
-ms.date: 01/07/2019
+origin.date: 01/17/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 97566cb3477cad001a5dfa99170cf8f5302d3b15
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 65ca464f2125a2641d024c9347cc065b7b201f26
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083790"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204115"
 ---
 # <a name="eventstore-service-overview"></a>事件存储服务概述
 
@@ -34,6 +34,8 @@ EventStore 服务是从版本 6.2 中引入的，它是 Service Fabric 中的监
 * 在开发或测试时或者当可能使用监视管道时对问题进行诊断
 * 确认正在正确处理对群集执行的管理操作
 * 获取 Service Fabric 如何与特定实体进行交互的“快照”
+
+![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 若要查看 EventStore 中可用的事件的完整列表，请参阅 [Service Fabric 事件](service-fabric-diagnostics-event-generation-operational.md)。
 
@@ -53,7 +55,7 @@ EventStore 服务是从版本 6.2 中引入的，它是 Service Fabric 中的监
 * 分区副本：来自所有副本的事件/特定分区中的实例，由 `partitionId` 标识
 * 分区副本：来自特定副本的事件/实例，由 `replicaId` 和 `partitionId` 标识
 
-若要了解有关 API 的详细信息，请查看 [EventStore API 参考]((https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)。
+若要了解有关 API 的详细信息，请查看 [EventStore API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)。
 
 EventStore 服务还能够将群集中的事件相关联。 通过查看在同一时间从可能已相互影响的不同实体写入的事件，EventStore 服务能够将这些事件进行关联来帮助查明群集中发生各项活动的原因。 例如，如果某个应用程序变得不正常且没有诱发任何变化，则 EventStore 将查看由平台公开的其他事件并且可能会将此情况与 `Error` 或 `Warning` 事件相关联。 这有助于更快地进行故障检测和根本原因分析。
 
@@ -119,4 +121,5 @@ EventStore 服务还能够将群集中的事件相关联。 通过查看在同�
 * Service Fabric 中的监视和诊断概述 - [Service Fabric 的监视和诊断](service-fabric-diagnostics-overview.md)
 * 查看 API 调用的完整列表 - [EventStore REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
 * 了解有关监视群集的详细信息 - [监视群集和平台](service-fabric-diagnostics-event-generation-infra.md)。
+
 <!-- Update_Description: update meta properties, wording update -->

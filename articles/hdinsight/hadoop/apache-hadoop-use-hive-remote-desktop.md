@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 01/14/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c6e8b598c44a6ced085a14391805e95203cf244
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: a74d6bb944ae68e8a76fff314bb332516643e869
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029132"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560449"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面将 Apache Hive 与 HDInsight 上的 Apache Hadoop 配合使用
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -116,7 +116,6 @@ ms.locfileid: "54029132"
 如果将 Tez 与 Hive 配合使用，请参阅以下文档以了解调试信息：
 
 * [在基于 Windows 的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-* [在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

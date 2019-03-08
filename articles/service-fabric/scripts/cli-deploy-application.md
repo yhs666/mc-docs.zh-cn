@@ -13,15 +13,15 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 04/16/2018
-ms.date: 08/20/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6fe0a9df82a4ec75d1915fa06a558db1cef81fa8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f1c983509b5b787597c775b6380393f63e2faadb
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647758"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204081"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 

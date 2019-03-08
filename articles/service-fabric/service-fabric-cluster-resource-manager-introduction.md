@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: e0be878e936a2bd457f96d283fcea180dba7343c
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8a390acf62c5b44f0425a764d5223453cda17a79
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083738"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204079"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric 群集 Resource Manager 简介
 在传统上，管理 IT 系统或联机服务意味着将特定物理机或虚拟机专用于这些特定的服务或系统。 服务构建为层级形式。 这些层级分为“ Web”层和“数据”（或“存储”）层。 应用程序会有消息传送层（请求在其中流入和流出）以及一组专用于缓存的计算机。 每个层级或每种类型的工作负荷都有特定的专用计算机：数据库需要一些专用计算机，Web 服务器也需要一些。 如果特定类型的工作负荷导致运行它的计算机运行温度过高，则可以向该层添加更多具有该相同配置的计算机。 但是，并非所有工作负荷都可以如此轻松地进行横向扩展 - 尤其是在数据层中，通常需要将计算机替换为更大的计算机。 这很容易理解。 如果某台计算机发生故障，则在还原该计算机之前，整个应用程序中的该部件以较低容量运行。 这仍然很容易理解（但不一定有趣）。
@@ -45,8 +45,6 @@ ms.locfileid: "54083738"
 2. 优化环境
 3. 提供其他进程的帮助
 
-<!--Not Available on VIDEO-->
-
 ### <a name="what-it-isnt"></a>它不是什么
 在传统 N 层应用程序中，始终存在[负载均衡器](https://en.wikipedia.org/wiki/Load_balancing_(computing))。 通常这是网络负载均衡器 (NLB) 或应用程序负载均衡器 (ALB)，具体取决于它在网络堆栈中的位置。 有些负载均衡器基于硬件（例如 F5 的 BigIP 产品），有些则基于软件（例如 21Vianet 的 NLB）。 在其他环境中，可能会在此角色中看到类似于 HAProxy、nginx、Istio 或 Envoy 的组件。 在这些体系结构中，负载均衡作业的目标是确保无状态工作负荷（大致） 接收相同的工作量。 均衡负载策略各不相同。 某些均衡器会将每个不同的调用发送到不同的服务器。 另外一些均衡器提供会话固定/粘连。 更高级的均衡器使用实际负载估计或报告来根据其预期的成本和当前计算机负载路由调用。
 
@@ -64,4 +62,4 @@ ms.locfileid: "54083738"
 - 群集 Resource Manager 可与 Service Fabric 的管理功能配合使用。 若要详细了解这种集成，请阅读[此文](service-fabric-cluster-resource-manager-management-integration.md)
 - 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关[平衡负载](service-fabric-cluster-resource-manager-balancing.md)的文章
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

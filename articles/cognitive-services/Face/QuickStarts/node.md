@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用 Azure 人脸 REST API 和 Node.js 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 11/09/2018
-ms.date: 11/23/2018
+origin.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 46019df303b8eaf8f0685a9073d32b2e4e6d87d1
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 0071e56a89c686fb706baf0a571d3b62a6c58cd7
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673086"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57203982"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入门：使用人脸 REST API 和 Node.js 检测图像中的人脸
 
@@ -27,12 +27,21 @@ ms.locfileid: "52673086"
 ## <a name="prerequisites"></a>先决条件
 
 - 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
+- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>创建 Node.js 脚本
+## <a name="set-up-the-node-environment"></a>设置 Node 环境
 
-以下代码将调用人脸 API 并获取图像中的人脸属性数据。 首先，将代码复制到文本编辑器中&mdash;在运行它之前，需进行一些更改。
+转到你要创建项目的文件夹并创建一个新文件 (*facedetection.js*)。 然后将 `requests` 模块安装到此项目中。 这样，你的脚本就可以发出 HTTP 请求。
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>编写 Node.js 脚本
+
+将以下代码粘贴到 *facedetection.js* 中。 这些字段指定如何连接到人脸服务，以及在何处获取输入数据。 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 你可能希望更改 `imageUrl` 字段以指向自己的输入图像。
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -44,7 +53,12 @@ const uriBase = 'https://api.cognitive.azure.cn/face/v1.0/detect';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+然后，添加以下代码以调用人脸 API 并从输入图像中获取人脸属性数据。 `returnFaceAttributes` 字段指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -74,26 +88,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>订阅密钥
-将 `<Subscription Key>` 替换为有效的人脸订阅密钥。
-
-### <a name="face-endpoint-url"></a>人脸终结点 URL
-
-URL `https://api.cognitive.azure.cn/face/v1.0/detect` 指示要查询的 Azure 人脸终结点。 可能需更改此 URL 的第一部分，使之与订阅密钥的相应区域匹配（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。
-
-### <a name="url-query-string"></a>URL 查询字符串
-
-`returnFaceAttributes` 字段指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
-
-### <a name="image-source-url"></a>图像源 URL
-`imageUrl` 字段指示将要用作输入的图像。 可以更改此字段，使之指向要分析的任何图像。
-
 ## <a name="save-and-run-the-script"></a>保存并运行脚本
 
-完成更改后，请将文件另存为 JavaScript (.js) 脚本。 然后打开一个命令提示符，使用 `node` 命令来运行它。
+进行更改以后，请打开命令提示符并使用 `node` 命令运行该文件。
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 应该会在控制台窗口中看到显示为 JSON 数据的人脸信息。 例如：
@@ -279,8 +279,9 @@ node myfile.js
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你编写了一个 cURL 命令，该命令调用 Azure 人脸 API，以便检测图像中的人脸并返回其属性。 接下来，请浏览人脸 API 参考文档，以便进行详细的了解。
+在本快速入门中，你编写了一个 Node.js 脚本，该脚本调用 Azure 人脸 API，以便检测图像中的人脸并返回其属性。 接下来，请浏览人脸 API 参考文档，以便进行详细的了解。
 
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
+<!-- Update_Description: wording update -->

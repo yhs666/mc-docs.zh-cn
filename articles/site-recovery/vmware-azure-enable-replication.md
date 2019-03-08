@@ -3,16 +3,16 @@ title: 使用 Azure Site Recovery 为 VMware 灾难恢复到 Azure 启用 VMware
 description: 本文介绍如何使用 Azure Site Recovery 启用 VMware VM 复制以便灾难恢复到 Azure。
 author: rockboyfor
 ms.service: site-recovery
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 01/29/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: efe9bb608d7148111f5d80fa8f27910dab4e261d
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: e3f30db19823a77a8bedcc17c5c99aef7d89d234
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363489"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463648"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -54,12 +54,10 @@ ms.locfileid: "54363489"
     >   * 可以选择高级或标准存储帐户。 如果选择高级帐户，则需要为正在进行的复制日志指定其他标准存储帐户。 这些帐户必须位于与恢复服务保管库相同的区域中。
     >   * 如果要使用不同的存储帐户，可以[创建一个](../storage/common/storage-create-storage-account.md)。 若要使用资源管理器创建存储帐户，请单击“新建”。 
 
-8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需创建一个。 若要使用资源管理器创建网络，请单击“新建”。 选择适用的子网，然后单击“确定”。
-
-    <!-- Anchor not Exist on [创建一个](#set-up-an-azure-network) -->
+8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需要创建一个。 若要使用资源管理器创建网络，请单击“新建”。 选择适用的子网，然后单击“确定”。
 
     ![启用复制目标设置](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. 在“虚拟机” > “选择虚拟机”中，选择要复制的每个虚拟机。 只能选择可以启用复制的计算机。 。
+9. 在“虚拟机” > “选择虚拟机”中，选择要复制的每个虚拟机。 只能选择可以启用复制的计算机。 。 如果无法查看/选择特定虚拟机，请单击[此处](../site-recovery/vmware-azure-troubleshoot-replication.md#source-machine-isnt-listed-in-the-azure-portal)解决此问题。
 
     ![启用复制 选择虚拟机](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. 在“属性” > “配置属性”中，选择进程服务器用于在虚拟机上自动安装移动服务的帐户。  
@@ -83,18 +81,20 @@ ms.locfileid: "54363489"
 
 1. 单击“设置” > “复制的项”，然后选择虚拟机。 “概要”页显示有关虚拟机设置和状态的信息。
 2. 在“属性”中，可以查看 VM 的复制和故障转移信息。
-3. 在“计算和网络” > “计算属性”中，可以指定 Azure VM 名称和目标大小。 如有必要，请修改名称使其符合 Azure 要求。
+3. 在“计算和网络” > “计算属性”中，可以更改多个 VM 属性：
+    * Azure VM 名称 - 如有必要，请修改名称使其符合 Azure 要求
+    * 目标 VM 大小或类型 - 默认 VM 大小是根据源 VM 大小选择的。 在故障转移之前，你随时可以根据需要选择不同的 VM 大小。 请注意，VM 磁盘大小也取决于源磁盘大小，并且它只能在故障转移后进行更改。 在我们的[磁盘可伸缩性目标](../virtual-machines/windows/disk-scalability-targets.md)文章中了解有关磁盘大小和 IOPS 的详细信息。
 
-    ![“计算和网络”属性](./media/vmware-azure-enable-replication/vmproperties.png)
+        ![“计算和网络”属性](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  可以选择虚拟机会在故障转移后成为其中一部分的[资源组](/virtual-machines/windows/infrastructure-resource-groups-guidelines)。 在故障转移前，可以随时更改此设置。 故障转移后，如果将虚拟机迁移到其他资源组，则会中断该虚拟机的保护设置。
-5. 如果需要虚拟机在故障转移后成为某个[可用性集](/virtual-machines/windows/infrastructure-availability-sets-guidelines)的一部分，可以选择一个可用性集。 选择可用性集时，请记住：
+    *  资源组 - 可以选择虚拟机在故障转移后会成为其中一部分的[资源组](/virtual-machines/windows/infrastructure-resource-groups-guidelines)。 在故障转移前，可以随时更改此设置。 故障转移后，如果将虚拟机迁移到其他资源组，则会中断该虚拟机的保护设置。
+    * 可用性集 - 如果需要虚拟机在故障转移后成为某个[可用性集](/virtual-machines/windows/infrastructure-availability-sets-guidelines)的一部分，可以选择一个可用性集。 选择可用性集时，请记住：
 
-    * 仅会列出属于指定资源组的可用性集。  
-    * 具有不同虚拟网络的虚拟机不能属于同一可用性集。
-    * 仅大小相同的虚拟机可以属于同一可用性集。
-5. 还可查看和添加有关目标网络、子网和分配给 Azure VM 的 IP 地址的信息。
-6. 在“磁盘”中，可看到要复制的 VM 上的操作系统和数据磁盘。
+        * 仅会列出属于指定资源组的可用性集。  
+        * 具有不同虚拟网络的虚拟机不能属于同一可用性集。
+        * 仅大小相同的虚拟机可以属于同一可用性集。
+4. 还可查看和添加有关目标网络、子网和分配给 Azure VM 的 IP 地址的信息。
+5. 在“磁盘”中，可看到要复制的 VM 上的操作系统和数据磁盘。
 
 ### <a name="configure-networks-and-ip-addresses"></a>配置网络和 IP 地址
 
@@ -117,7 +117,7 @@ Azure 软件保障客户可以使用 Azure 混合权益来节省迁移到 Azure 
 
 ## <a name="common-issues"></a>常见问题
 
-* 每个磁盘的大小应小于 1 TB。
+* 每个磁盘的大小应小于 4 TB。
 * OS 磁盘应是基本磁盘而不是动态磁盘。
 * 对于第 2 代虚拟机/已启用 UEFI 的虚拟机，操作系统系列应是 Windows，并且启动盘应小于 300 GB。
 
@@ -125,6 +125,7 @@ Azure 软件保障客户可以使用 Azure 混合权益来节省迁移到 Azure 
 
 保护完成且虚拟机处于受保护状态后，可以尝试[故障转移](site-recovery-failover.md)，检查应用程序是否出现在 Azure 中。
 
-如果要禁用保护，请了解如何[清理注册和保护设置](site-recovery-manage-registration-and-protection.md)。
+* 若要禁用保护，请了解如何[清理注册和保护设置](site-recovery-manage-registration-and-protection.md)。
+* 了解如何[使用 Powershell 为虚拟机自动执行复制](vmware-azure-disaster-recovery-powershell.md)
 
 <!--Update_Description: update meta properties, wording update -->

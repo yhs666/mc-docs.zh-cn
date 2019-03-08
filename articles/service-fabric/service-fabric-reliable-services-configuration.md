@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d67f34d944af96e4ab78f0663d41c6c53ba06f42
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ab3530ec8be6aa59519f64a8fe1650f0eec1424a
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650212"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463594"
 ---
 # <a name="configure-stateful-reliable-services"></a>配置有状态 Reliable Services
 有两组配置设置可供 Reliable Services 使用。 一组适用于群集中的所有 Reliable Services，而另一组特定于特定的 Reliable Service。
@@ -193,4 +193,4 @@ SharedLogId 和 SharedLogPath 设置始终一起使用，使服务可以使用�
 * [在 Visual Studio 中调试 Service Fabric 应用程序](service-fabric-debugging-your-application.md)
 * [Reliable Services 的开发人员参考](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

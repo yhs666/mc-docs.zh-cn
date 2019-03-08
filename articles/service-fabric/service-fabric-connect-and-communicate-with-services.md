@@ -13,21 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/01/2017
-ms.date: 05/28/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 241887ae251a0ca3605d66108ee31db6641b8cb8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: be21aa6ab5b61a1e178dbe93d7acd1dd9b269677
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652449"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204178"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>在 Service Fabric 中与服务建立连接和通信
 在 Service Fabric 中，服务在 Service Fabric 群集（通常分布在多个 VM 间）中的某个位置运行。 它可以从一个位置移动到另一个位置（由服务所有者移动或由 Service Fabric 自动移动）。 服务不以静态方式绑定到特定计算机或地址。
 
 Service Fabric 应用程序通常由许多不同服务组成，其中每个服务执行专门任务。 这些服务可能会相互进行通信以形成一个完整功能，如呈现 Web 应用程序的不同部分。 其中也有连接到服务并与之通信的客户端应用程序。 本文档介绍如何在 Service Fabric 中设置与服务进行的通信以及服务之间的通信。
-
-<!-- Not Avaialble on Microsoft Virtual Academy video-->
 
 ## <a name="bring-your-own-protocol"></a>自带协议
 Service Fabric 可帮助管理服务的生命周期，但是它不会制定有关服务执行的操作的决策。 这包括通信。 服务由 Service Fabric 打开时，服务可以使用所需的任何协议或通信堆栈为传入请求设置终结点。 服务使用任何寻址方案（如 URI）来侦听一般的 **IP: 端口** 地址。 多个服务实例或副本可能会共享主机进程，在这种情况下，它们需要使用不同端口，或使用端口共享机制（例如 Windows 中的 http.sys 内核驱动程序）。 在任一情况下，主机进程中的每个服务实例或副本都必须可唯一寻址。
@@ -171,11 +169,11 @@ Azure 中的 Service Fabric 群集位于 Azure 负载均衡器之后。 发送�
 请务必记住，Azure 负载均衡器和探测只了解节点，而不了解在节点上运行的服务。 Azure 负载均衡器始终将流量发送到响应探测的节点，因此必须格外小心以确保服务在能够响应探测的节点上可用。
 
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services：内置通信 API 选项
-Reliable Services 框架附带几个预建的通信选项。 可以根据所选的编程模型、通信框架和编写服务时使用的编程语言来决定哪个选项最适合自己。
+Reliable Services 框架附带几个预建的通信选项。 可以根据所选的编程模型、通信框架和编写服务时使用的编程语言决定哪个选项最适合自己。
 
-* 无特定协议：如果没有选择特定的通信框架，但需要可以快速启动并运行协议，则理想之选是[服务远程处理](service-fabric-reliable-services-communication-remoting.md)，此协议可对 Reliable Services 和 Reliable Actors 实现强类型远程过程调用。 这是服务通信入门最简单、最快捷的方法。 服务远程处理可处理服务地址的解析、连接、重试和错误处理。 这适用于 C# 和 Java 应用程序。
+* **无特定协议：** 如果没有选择特定的通信框架，但想要快速启动并运行某个程序，则理想之选是[服务远程处理](service-fabric-reliable-services-communication-remoting.md)，此项允许对 Reliable Services 和 Reliable Actors 进行强类型远程过程调用。 这是服务通信入门最简单、最快捷的方法。 服务远程处理可处理服务地址的解析、连接、重试和错误处理。 这适用于 C# 和 Java 应用程序。
 * **HTTP**：对于与语言无关的通信，HTTP 为行业标准选择提供了可在许多不同语言（Service Fabric 全都支持）中使用的工具和 HTTP 服务器。 服务可以使用提供的任何 HTTP 堆栈，包括适用于 C# 应用程序的 [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md)。 以 C# 编写的客户端可以利用 `ICommunicationClient` 和 `ServicePartitionClient` 类（而 Java 则可以使用 `CommunicationClient` 和 `FabricServicePartitionClient` 类）来[进行服务解析、HTTP 连接和重试循环](service-fabric-reliable-services-communication.md)。
-* **WCF**：如果具备将 WCF 用作通信框架的现有代码，则可将 `WcfCommunicationListener` 用于服务器端，将 `WcfCommunicationClient` 和 `ServicePartitionClient` 类用于客户端。 但是，这仅适用于基于 Windows 的群集上的 C# 应用程序。 有关更多详细信息，请参阅这篇有关[通信堆栈的基于 WCF 的实现](service-fabric-reliable-services-communication-wcf.md)的文章。
+* **WCF**：如果具备将 WCF 用作通信框架的现有代码，则可将 `WcfCommunicationListener` 用于服务器端，并将 `WcfCommunicationClient` 和 `ServicePartitionClient` 类用于客户端。 但是，这仅适用于基于 Windows 的群集上的 C# 应用程序。 有关更多详细信息，请参阅这篇有关[通信堆栈的基于 WCF 的实现](service-fabric-reliable-services-communication-wcf.md)的文章。
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>使用自定义协议和其他通信框架
 服务可以使用任何协议或框架进行通信，无论它是 TCP 套接字上的自定义二进制协议，还是通过 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)或 [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)实现的流式处理事件。 Service Fabric 提供了通信 API，可以将通信堆栈插入其中，同时将用于发现和连接的所有工作与你分离。 有关更多详细信息，请参阅这篇有关 [Reliable Service 通信模型](service-fabric-reliable-services-communication.md)的文章。

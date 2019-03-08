@@ -197,10 +197,11 @@ items:
   - name: Azure AD 博客
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: 获取帮助
+    displayName: support, help options
     href: developer-support-help-options.md
-ms.openlocfilehash: 549cf5fabc7060660491d3097118c847a5e71fa2
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.openlocfilehash: fc28de9417dd4a1cbc93a635c63f8c16c87770ba
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262195"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462369"

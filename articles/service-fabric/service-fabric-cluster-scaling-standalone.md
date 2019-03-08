@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/13/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f9b89a39d9286ceb514bc3e6629eb0cea1242271
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 24592da60e63d750f69958263f799acf4a206000
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901187"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204184"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>缩放 Service Fabric 独立群集
 Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理机，可在其中部署和管理微服务。 属于群集一部分的计算机或 VM 称为节点。 群集可以包含数千个节点。 创建 Service Fabric 群集后，可以群集横向缩放（更改节点数）或纵向缩放（更改节点资源）该群集。  随时可以缩放群集，即使该群集上正在运行工作负荷。  在缩放群集的同时，应用程序也会随之自动缩放。
@@ -56,7 +56,6 @@ Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理�
 * 了解[应用程序可伸缩性](service-fabric-concepts-scalability.md)。
 * [横向扩展或缩减 Azure 群集](service-fabric-tutorial-scale-cluster.md)
 * 使用 fluent Azure 计算 SDK [以编程方式缩放 Azure 群集](service-fabric-cluster-programmatic-scaling.md)。
-* [横向扩展或缩减独立群集](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [横向扩展或缩减独立群集](service-fabric-cluster-windows-server-add-remove-nodes.md)。
 
-<!-- Update_Description: new articles on service fabric cluster scaling standalone -->
-<!--ms.date: 12/10/2018-->
+<!-- Update_Description: wording update -->

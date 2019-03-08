@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 origin.date: 11/06/2018
-ms.date: 01/04/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: af0f13090db74b542da9543cd8f78d6d28cc9e8d
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 406f3952f97e7bda7f890b94b3f58fb5f8e1e01a
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083558"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204024"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>教程：计算机视觉 API Python
 

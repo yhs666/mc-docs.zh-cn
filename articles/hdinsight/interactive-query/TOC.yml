@@ -82,9 +82,6 @@ items:
     - name: 处理和分析 JSON 文档
       href: ../hadoop/using-json-in-hive.md
       maintainContext: true
-    - name: 使用 Avro 库将数据序列化
-      href: ../hadoop/apache-hadoop-dotnet-avro-serialization.md
-      maintainContext: true
     - name: 使用 C# 用户定义的函数
       href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
       maintainContext: true
@@ -193,7 +190,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: 管理的 Hadoop 群集
+    - name: 管理 Apache Hadoop 群集
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: 使用 .NET SDK
@@ -336,9 +333,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 167c88576c3d121a867e3b199067d3fd59052b34
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: c24b045a62d8900b2074ba9138a096b347ddb2c7
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303017"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560486"

@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 03/20/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 514a3fb5433e873b5114a0cdf4280838408c168b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 1c9c5ea10f9437c93f23a95d76b7c7c7579dfb50
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083849"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347193"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>使用 Web 服务器日志监视 Web 应用
 
@@ -32,8 +32,8 @@ ms.locfileid: "54083849"
 
 ## <a name="sample-script"></a>示例脚本
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```powershell
-
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 
@@ -43,22 +43,23 @@ $AppName="AppServiceMonitor$Random"
 $Location="ChinaNorth"
 
 # Create a Resource Group
-New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create an App Service Plan
-New-AzureRMAppservicePlan -Name AppServiceMonitorPlan -ResourceGroupName $ResourceGroupName -Location $Location -Tier Basic
+New-AzAppservicePlan -Name AppServiceMonitorPlan -ResourceGroupName $ResourceGroupName -Location $Location -Tier Basic
 
 # Create a Web App in the App Service Plan
-New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroupName -Location $Location -AppServicePlan AppServiceMonitorPlan
+New-AzWebApp -Name $AppName -ResourceGroupName $ResourceGroupName -Location $Location -AppServicePlan AppServiceMonitorPlan
 
 # Enable Logs
-Set-AzureRMWebApp -RequestTracingEnabled $True -HttpLoggingEnabled $True -DetailedErrorLoggingEnabled $True -ResourceGroupName $ResourceGroupName -Name $AppName
+Set-AzWebApp -RequestTracingEnabled $True -HttpLoggingEnabled $True -DetailedErrorLoggingEnabled $True -ResourceGroupName $ResourceGroupName -Name $AppName
 
 # Make a Request
 Invoke-WebRequest -Method "Get" -Uri https://$AppName.chinacloudsites.cn/404 -ErrorAction SilentlyContinue
 
 # Download the Web App Logs
-#Get-AzureRMWebAppMetrics -ResourceGroupName $ResourceGroupName -Name $AppName -Metrics
+#Get-AzWebAppMetrics -ResourceGroupName $ResourceGroupName -Name $AppName -Metrics
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
@@ -66,7 +67,7 @@ Invoke-WebRequest -Method "Get" -Uri https://$AppName.chinacloudsites.cn/404 -Er
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -75,11 +76,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
-| [Set-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermwebapp) | 修改 Web 应用的配置。 |
-| [Get-AzureRMWebAppMetrics](https://docs.microsoft.com/powershell/module/azurerm.websites/get-azurermwebappmetrics) | 获取 Web 应用的指标。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
+| [Set-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) | 修改 Web 应用的配置。 |
+| [Get-AzWebAppMetrics](https://docs.microsoft.com/powershell/module/az.websites/get-azwebappmetrics) | 获取 Web 应用的指标。 |
 
 ## <a name="next-steps"></a>后续步骤
 

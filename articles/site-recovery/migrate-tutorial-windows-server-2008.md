@@ -7,15 +7,15 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 3670c46605e039103423e457bafad504868e7756
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: e4382d4f47945ecaebaac263514bb021ba4f2b12
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363468"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463659"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -61,18 +61,18 @@ ms.locfileid: "54363468"
 - 如果服务器包含动态磁盘，在某些配置中你可能会发现，这些磁盘在故障转移的服务器上已标记为脱机，或显示为外部磁盘。 此外还可能发现，不同动态磁盘上的镜像卷的镜像集状态已标记为“故障冗余”。 可以在 diskmgmt.msc 中通过手动导入并重新激活这些磁盘来解决此问题。
 
 - 要迁移的服务器应有 vmstorfl.sys 驱动程序。 如果要迁移的服务器中没有该驱动程序，故障转移可能失败。 
-  > [!TIP]
-  >通过“C:\Windows\system32\drivers\vmstorfl.sys”路径检查是否存在该驱动程序。 如果找不到该驱动程序，可以通过就地创建一个虚构文件来解决问题。 
-  >
-  > 打开命令提示符（单击“运行”并键入 cmd），运行以下命令：“copy nul c:\Windows\system32\drivers\vmstorfl.sys”
+    > [!TIP]
+    >通过“C:\Windows\system32\drivers\vmstorfl.sys”路径检查是否存在该驱动程序。 如果找不到该驱动程序，可以通过就地创建一个虚构文件来解决问题。 
+    >
+    > 打开命令提示符（单击“运行”并键入 cmd），运行以下命令：“copy nul c:\Windows\system32\drivers\vmstorfl.sys”
 
 - 将运行 32 位操作系统的 Windows Server 2008 SP2 服务器故障转移或测试故障转移到 Azure 之后，可能无法立即通过 RDP 连接到这些服务器。 请在 Azure 门户中重启故障转移的虚拟机，并重试连接。 如果仍然无法连接，请检查服务器是否配置为允许远程桌面连接，并确保没有任何防火墙规则或网络安全组阻止连接。 
-  > [!TIP]
-  > 在迁移服务器之前，我们强烈建议执行测试故障转移。 确保在要迁移的每台服务器上至少成功执行了一次测试故障转移。 在执行测试故障转移的过程中，请连接到测试故障转移的计算机，并确保一切符合预期。
-  >
-  >测试故障转移操作不会造成中断，可帮助你通过在所选的隔离网络中创建虚拟机来测试迁移。 与故障转移操作不同，在测试故障转移操作期间，数据复制会持续进行。 在准备好迁移之前，可以执行任意次测试故障转移。 
-  >
-  >
+    > [!TIP]
+    > 在迁移服务器之前，我们强烈建议执行测试故障转移。 确保已在每个要迁移的服务器上执行至少一次成功的测试性故障转移。 在执行测试故障转移的过程中，请连接到测试故障转移的计算机，并确保一切符合预期。
+    >
+    >测试故障转移操作不会造成中断，可帮助你通过在所选的隔离网络中创建虚拟机来测试迁移。 与故障转移操作不同，在测试故障转移操作期间，数据复制会持续进行。 在准备好迁移之前，可以执行任意次测试故障转移。 
+    >
+    >
 
 ## <a name="getting-started"></a>入门
 
@@ -86,7 +86,7 @@ ms.locfileid: "54363468"
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
 2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复”。
 
-    <!--Submenu is Correct on **Monitoring + Management**-->
+    <!--MOONCAKE is Correct on **Monitoring + Management**-->
 
 3. 在“名称”中，指定友好名称 **W2K8-migration**。 如果有多个订阅，请选择合适的一个。
 4. 创建资源组 **w2k8migrate**。
@@ -115,13 +115,13 @@ ms.locfileid: "54363468"
 1. 若要创建新的复制策略，请单击“Site Recovery 基础结构” > “复制策略” > “+复制策略”。
 2. 在“创建复制策略”中指定策略名称。
 3. 在“RPO 阈值”中，指定恢复点目标 (RPO) 限制。 如果复制 RPO 超过此限制，则会生成警报。
-4. 在“恢复点保留期”中，指定每个恢复点的保留期时长（以小时为单位）。 可将复制的虚拟机恢复到窗口中的任何点。 复制到高级存储的计算机最多支持 24 小时的保留期，复制到标准存储的计算机最多支持 72 小时的保留期。
+4. 在“恢复点保留期”中，指定每个恢复点的保留期时长（以小时为单位）。 可以将复制的服务器恢复到此窗口中的任何点。 复制到高级存储的计算机最多支持 24 小时的保留期，复制到标准存储的计算机最多支持 72 小时的保留期。
 5. 在“应用一致性快照频率”中，指定“关闭”。 单击“确定”创建该策略。
 
 此策略自动与配置服务器关联。
 
 > [!WARNING]
-> 确保在复制策略的“应用一致性快照频率”设置中指定“关闭”。 复制运行 Windows Server 2008 的服务器时，仅支持崩溃一致性恢复点。 为“应用一致性快照频率”指定其他任何值会导致误报，并使服务器的复制运行状况变得严重，因为缺少应用一致性恢复点。
+> 确保在复制策略的“应用一致性快照频率”设置中指定“关闭”。 复制运行 Windows Server 2008 的服务器时，仅支持崩溃一致性恢复点。 为“应用一致性快照频率”指定任何其他值时，由于缺少应用一致性恢复点，会导致服务器的复制运行状况出现严重问题，因此会生成假警报。
 
    ![创建复制策略](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
@@ -149,14 +149,14 @@ ms.locfileid: "54363468"
 2. 在“故障转移”中，选择要故障转移到的“恢复点”。 选择最新恢复点。
 3. 选择“在开始故障转移前关闭计算机”。 Site Recovery 在触发故障转移之前会尝试关闭服务器。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
 4. 检查 Azure VM 是否在 Azure 中按预期显示。
-5. 在“复制的项”中，右键单击 VM >“完成迁移”。 这样会执行以下操作：
+5. 在“复制的项”中，右键单击服务器 >“完成迁移”。 这样会执行以下操作：
 
-    - 完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+    - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
     - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-   ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+    ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 > [!WARNING]
-> **请勿取消正在进行的故障转移**：在故障转移开始前，VM 复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但 VM 将不再进行复制。
+> **请勿取消正在进行的故障转移**：在故障转移开始前，服务器复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但服务器将不继续复制。
 
 <!-- Update_Description: update meta properties, update link, wording update -->

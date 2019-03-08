@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 04148d25d7850cfb0afaecdbf75fb994ea48ce5e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 70fc83bf8c4d868f58c0331645c644930a961d5b
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663687"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347079"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>支持高达 100 TB 的超大规模服务层（预览版）
 
@@ -33,7 +33,7 @@ Azure SQL 数据库中的超大规模服务层是基于 vCore 的采购模型中
 > [!IMPORTANT]
 > 超大规模服务层目前提供公共预览版，仅可在有限的 Azure 区域中使用。 要获取完整的区域列表，请参阅[超大规模服务层可用区域](#available-regions)。 我们尚不建议在超大规模数据库中运行任何生产工作负荷。 无法将超大规模数据库更新为其他服务层。 出于测试目的，我们建议创建当前数据库的副本，并将副本更新为超大规模服务层。
 > [!NOTE]
-> 有关基于 vCore 的购买模型中的常规用途服务层和业务关键服务层的详细信息，请参阅[常规用途](sql-database-service-tier-general-purpose.md)服务层和[业务关键](sql-database-service-tier-business-critical.md)服务层。 有关基于 vCore 购买模型与基于 DTU 购买模型的比较，请参阅 [Azure SQL 数据库购买模型和资源](sql-database-service-tiers.md)。
+> 有关基于 vCore 的购买模型中的常规用途服务层和业务关键服务层的详细信息，请参阅[常规用途](sql-database-service-tier-general-purpose.md)服务层和[业务关键](sql-database-service-tier-business-critical.md)服务层。 有关基于 vCore 购买模型与基于 DTU 购买模型的比较，请参阅 [Azure SQL 数据库购买模型和资源](sql-database-purchase-models.md)。
 > [!IMPORTANT]
 > 超大规模服务层目前提供公共预览版。 我们尚不建议在超大规模数据库中运行任何生产工作负荷。 无法将超大规模数据库更新为其他服务层。 出于测试目的，我们建议创建当前数据库的副本，并将副本更新为超大规模服务层。
 
@@ -162,7 +162,7 @@ Server=tcp:<myserver>.database.chinacloudapi.cn;Database=<mydatabase>;Applicatio
 ## <a name="next-steps"></a>后续步骤
 
 - 有关超大规模层的常见问题，请参阅[超大规模层常见问题解答](sql-database-service-tier-hyperscale-faq.md)。
-- 有关服务层的信息，请参阅[服务层](sql-database-service-tiers.md)
+- 有关服务层的信息，请参阅[服务层](sql-database-purchase-models.md)
 - 有关服务器和订阅级别限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)。
 - 有关单一数据库的购买模型限制的信息，请参阅 [适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。

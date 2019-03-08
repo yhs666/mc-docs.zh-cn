@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1700dfa72ede66983f09185d44506de092afb2c3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: b5ab8a9125587376824437bc9988078daa292114
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665720"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560452"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -43,6 +43,8 @@ ms.locfileid: "56665720"
 
 * [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
 * [使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/resource-group-template-deploy.md)
+* [Microsoft.HDInsight/clusters](https://docs.microsoft.com/en-us/azure/templates/microsoft.hdinsight/allversions) 模板引用
+* [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>生成模板
 

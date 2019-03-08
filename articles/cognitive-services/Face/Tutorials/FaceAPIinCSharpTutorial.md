@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 本教程将创建一个 Windows 应用，以便使用人脸 API 来检测和定格图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
-origin.date: 11/05/2018
-ms.date: 11/23/2018
+origin.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 13fb5c4e744901cfbedb952d40cd764612df37d7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 9a5bc877b0c364dfb71548ae5a70649ff32eeae0
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673151"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204119"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教程：创建一个用于显示图像中人脸数据的 WPF 应用
 
@@ -50,7 +50,7 @@ ms.locfileid: "52673151"
 1. 在 Visual Studio 中打开“新建项目”对话框。 展开“已安装”，接着展开“Visual C#”，然后选择“WPF 应用(.NET Framework)”。
 1. 将应用程序命名为 **FaceTutorial**，单击“确定”。
 1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包：
-    - Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="add-the-initial-code"></a>添加初始代码
 
@@ -419,4 +419,4 @@ if (!mouseOverFace) faceDescriptionStatusBar.Text = defaultStatusBarText;
 > [!div class="nextstepaction"]
 > [如何检测图像中的人脸](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

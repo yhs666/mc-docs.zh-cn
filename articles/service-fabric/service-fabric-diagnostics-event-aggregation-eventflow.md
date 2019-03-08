@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/15/2017
-ms.date: 05/28/2018
+origin.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e74d0e95eece24da1061169f33764da97ca0ab4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4bfa1c0dd09e24b10c4d1b5c5d189162bf531824
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663232"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204173"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
@@ -158,7 +158,8 @@ servicefabric:/<section-name>/<setting-name>
 ## <a name="next-steps"></a>后续步骤
 
 <!-- Not Available on * * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
-<!-- Not Available on * [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) -->
+
+* [使用 Log Analytics 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 文档](https://github.com/Azure/diagnostics-eventflow)
 
 <!--Update_Description: update meta properties  -->

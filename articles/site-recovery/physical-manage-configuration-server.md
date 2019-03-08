@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd836cf3e9eeff203854b28b6b5d3423883fdeb1
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 4d0f09d38854a8a1a83876670169febc989c64a3
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363382"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463675"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -122,7 +122,7 @@ Site Recovery 门户中提供了配置服务器安装文件的最新版本。 �
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>创建 MYSQLCredsFilePath 的文件输入
 
 MySQLCredsFilePath 参数使用某个文件作为输入。 创建使用以下格式的文件并将其作为输入 MySQLCredsFilePath 参数进行传递。
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password"
 MySQLUserPassword = "Password"
@@ -130,7 +130,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>创建 ProxySettingsFilePath 的文件输入
 ProxySettingsFilePath 参数使用某个文件作为输入。 创建使用以下格式的文件并将其作为输入 ProxySettingsFilePath 参数进行传递。
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -147,36 +147,37 @@ ProxyPassword="Password"
 3. 单击“保管库注册”  选项卡。
 4. 从门户下载新的保管库注册文件，并将其作为输入提供给该工具。
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 提供新代理的详细信息，并单击“注册”按钮。
 6. 打开管理员 PowerShell 命令窗口。
 7. 运行以下命令：
-  ```
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber - ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
 
-  >[!WARNING]
-  如果向配置服务器附加了更多的进程服务器，则需要在部署中[修复所有横向扩展进程服务器上的代理设置](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)。
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber -ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
+
+    > [!WARNING]
+    > 如果向配置服务器附加了更多的进程服务器，则需要在部署中[修复所有横向扩展进程服务器上的代理设置](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server)。
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>将配置服务器重新注册到同一保管库
-  1. 登录到配置服务器。
-  2. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
-  3. 单击“保管库注册”  选项卡。
-  4. 从门户下载新的注册文件，并将其作为输入提供给该工具。
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. 提供代理服务器的详细信息，并单击“注册”按钮  。  
-  6. 打开管理员 PowerShell 命令窗口。
-  7. 运行以下命令
+1. 登录到配置服务器。
+2. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
+3. 单击“保管库注册”  选项卡。
+4. 从门户下载新的注册文件，并将其作为输入提供给该工具。
+    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. 提供代理服务器的详细信息，并单击“注册”按钮  。  
+6. 打开管理员 PowerShell 命令窗口。
+7. 运行以下命令
 
-      ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber - ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber -ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
   >[!WARNING]
   如果有多个进程服务器，则需要[重新注册它们](vmware-azure-manage-process-server.md#reregister-a-process-server)。
@@ -199,9 +200,9 @@ ProxyPassword="Password"
 6. 提供代理服务器的详细信息，并单击“注册”按钮  。  
 7. 打开管理员 PowerShell 命令窗口。
 8. 运行以下命令
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber - ProxyUserName domain\username -ProxyPassword $pwd
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber -ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
     net start obengine
     ```
@@ -237,44 +238,44 @@ ProxyPassword="Password"
 4. 单击“是”确认删除该服务器。
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>卸载配置服务器及其依赖项
-  > [!TIP]
-  如果打算再次结合 Azure Site Recovery 重新使用该配置服务器，可以直接跳到步骤 4
+> [!TIP]
+如果打算再次结合 Azure Site Recovery 重新使用该配置服务器，可以直接跳到步骤 4
 
 1. 以管理员身份登录到配置服务器。
 2. 打开“控制面板”>“程序”>“卸载程序”
 3. 按以下顺序卸载程序：
-  * Azure 恢复服务代理
-  * Azure Site Recovery 移动服务/主目标服务器
-  * Azure Site Recovery 提供程序
-  * Azure Site Recovery 配置服务器/进程服务器
-  * Azure Site Recovery 配置服务器依赖项
-  * MySQL Server 5.5
+    * Azure 恢复服务代理
+    * Azure Site Recovery 移动服务/主目标服务器
+    * Azure Site Recovery 提供程序
+    * Azure Site Recovery 配置服务器/进程服务器
+    * Azure Site Recovery 配置服务器依赖项
+    * MySQL Server 5.5
 4. 在管理员命令提示符下运行以下命令。
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>删除或取消注册配置服务器 (PowerShell)
 
-1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块
+1. [安装](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块
 2. 使用命令登录到 Azure 帐户
 
     `Connect-AzureRmAccount -Environment AzureChinaCloud`
 3. 选择其下存在保管库的订阅
 
-     `Get-AzureRmSubscription -SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+    `Get-AzureRmSubscription -SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  现在设置保管库上下文
 
-    ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```PowerShell
+    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. 选择配置服务器
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. 删除配置服务器
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
 
 > [!NOTE]
 > Remove-AzureRmSiteRecoveryFabric 中的 -Force 选项可用于强制执行删除配置服务器。
@@ -303,4 +304,4 @@ ProxyPassword="Password"
 
 查看有关设置[物理服务器](tutorial-physical-to-azure.md)到 Azure 的灾难恢复的教程。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/27/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9997ceccb8ae3a665c388c559d384c0c15dfdec1
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 34b7a9540275be31d709f4885c05d9e7f7ec4b67
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901124"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204140"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -29,9 +29,9 @@ ms.locfileid: "52901124"
 * 每个节点类型的属性（大小、是否为主节点、是否面向 Internet、VM 数目，等等）
 * 群集的可靠性和持久性特征
 
-> [!NOTE]
-> 规划期间至少应该查看所有“不允许的”升级策略值。 这样可以确保正确设置值，并且可以减少不可更改的系统配置设置所导致的群集使用。
-> 
+> [!NOTE]
+> 规划期间至少应该查看所有“不允许的”升级策略值。 这样可以确保正确设置值，并且可以减少不可更改的系统配置设置所导致的群集使用。 
+> 
 
 让我们简单地了解其中每一项。
 
@@ -52,7 +52,7 @@ ms.locfileid: "52901124"
 
 Service Fabric 群集可以包含不止一个节点类型。 在这种情况下，群集包含一个主节点类型以及一个或多个非主节点类型。
 
-<!-- Not Available on Scaling on MC-->
+对于 SF 应用程序，单节点类型无法可靠地扩展到每个虚拟机规模集超过 100 个节点；要可靠地实现超过 100 个节点，需要添加其他虚拟机规模集。
 
 ### <a name="primary-node-type"></a>主节点类型
 
@@ -218,4 +218,4 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!--Update_Description: wording update, update link, wording update -->
+<!--Update_Description: wording update, wording update -->

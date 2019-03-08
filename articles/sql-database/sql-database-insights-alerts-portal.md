@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 11/02/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 52647efb55d6870502aba6c9819cd1fa8b88a26c
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 03/11/2019
+ms.openlocfilehash: 968953fdf48de762b5f9ce5a9ce3aeb0517e9b6c
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363775"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347138"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -104,7 +104,6 @@ ms.locfileid: "54363775"
 ||||||               
 | SQL 数据仓库 | cpu_percent | CPU 百分比 | 平均值 | 10 分钟 |
 | SQL 数据仓库 | physical_data_read_percent | 数据 IO 百分比 | 平均值 | 10 分钟 |
-| SQL 数据仓库 | storage | 数据库总大小 | 最大值 | 10 分钟 |
 | SQL 数据仓库 | connection_successful | 成功的连接数 | 总计 | 10 分钟 |
 | SQL 数据仓库 | connection_failed | 失败的连接数 | 总计 | 10 分钟 |
 | SQL 数据仓库 | blocked_by_firewall | 被防火墙阻止 | 总计 | 10 分钟 |

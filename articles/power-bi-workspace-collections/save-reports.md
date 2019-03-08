@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/20/2017
-ms.date: 09/26/2018
+origin.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6b2f2b9974c82bc8786db4c6448111fd43e9c0b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ae01541f44386ae9c1dfb2777875fd75297f9223
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654965"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347097"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中保存报表
 
@@ -48,9 +48,10 @@ ms.locfileid: "52654965"
 
 例如，在 JavaScript 中：
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -76,6 +77,7 @@ ms.locfileid: "52654965"
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>    
 ```
 
 现在，会在应用中嵌入一个处于编辑模式的报表。
@@ -84,7 +86,7 @@ ms.locfileid: "52654965"
 
 使用适当的令牌和权限嵌入处于编辑模式的报表后，可以通过文件菜单或 JavaScript 保存该报表：
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -94,7 +96,7 @@ ms.locfileid: "52654965"
 
 ## <a name="save-as"></a>另存为
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -111,9 +113,9 @@ ms.locfileid: "52654965"
 
 然后，需要在执行“另存为”操作后加载新报表。 加载新报表类似于嵌入任何报表。
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>  
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
@@ -125,6 +127,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>    
 ```
 
 ## <a name="see-also"></a>另请参阅

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/06/2018
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a786d036ee1d0acb348b1efa9ec9b166a37615f7
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 1b5d76685c9020f6656e0d80d949abb8072397a5
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083692"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204192"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -116,7 +116,6 @@ ms.locfileid: "54083692"
 > [!NOTE]
 > 具有多个节点类型的常见情景是包含前端服务和后端服务的应用程序。 要将前端服务放在端口向 Internet 开放的较小型 VM（D2_V2 等 VM 大小）上，同时要将后端服务放在没有向 Internet 开放端口的较大型 VM（D3_V2、D6_V2、D15_V2 等 VM 大小）上。
 > 
-> 
 
 1. 选择节点类型的名称（1 到 12 个字符，只能包含字母和数字）。
 2. 主节点类型的 VM **大小**下限取决于为群集选择的**持久性**层。 持久性层的默认值为 bronze。 有关持久性的详细信息，请参阅[如何选择 Service Fabric 群集持久性][service-fabric-cluster-durability]。
@@ -126,10 +125,9 @@ ms.locfileid: "54083692"
 6. 配置**自定义终结点**。 可在此字段中输入以逗号分隔的端口列表，可以通过 Azure 负载均衡器针对应用程序向公共 Internet 公开这些端口。 例如，如果计划在群集中部署 Web 应用程序，请在此处输入“80”，允许端口 80 的流量进入群集。 有关终结点的详细信息，请参阅 [communicating with applications][service-fabric-connect-and-communicate-with-services]
 7. **启用反向代理**。  借助 [Service Fabric 反向代理](service-fabric-reverseproxy.md)，Service Fabric 群集中运行的微服务可以发现包含 http 终结点的其他服务，并与之通信。
 8. 返回“群集配置”边栏选项卡，在“+显示可选设置”下，配置群集**诊断**。 默认情况下，已在群集上启用诊断，以帮助排查问题。 若要禁用诊断，请将其“状态”切换为“关”。 **不**建议关闭诊断。
+    <!-- Not Available on Application Insights -->
 9. **包括 DNS 服务**。  [DNS 服务](service-fabric-dnsservice.md)是一项可选服务，可用于查找使用 DNS 协议的其他服务。
 10. 选择要将群集设置为的**结构升级模式**。 如果希望系统自动选取最新可用版本并尝试将群集升级到该最新版本，则选择“自动”。 如果想要选择受支持的版本，则将模式设置为“手动”。 有关 Fabric 升级模式的详细信息，请参阅 [Service Fabric 群集升级文档][service-fabric-cluster-upgrade]。
-
-<!-- Not Available Line 124 on Application Insights -->
 
 > [!NOTE]
 > 我们仅支持那些运行受支持的 Service Fabric 版本的群集。 选择“手动”模式，即表示由你负责将群集升级到受支持的版本。
@@ -222,7 +220,7 @@ ms.locfileid: "54083692"
 [azure-powershell]: https://docs.azure.cn/zh-cn/powershell-install-configure
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.cn/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

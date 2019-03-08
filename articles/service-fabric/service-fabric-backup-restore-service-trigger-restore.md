@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/30/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 796f0cce2de556d0dc091557fd16dc3cdff1f2e4
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 0d85484e88b6b3b65d556c8d24b709148b7efaf7
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396714"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204193"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>在 Azure Service Fabric 中还原备份
 
@@ -157,7 +157,7 @@ $url = "https://mysfcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Partitions
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-可以使用 [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress) 跟踪还原进度。
+可以使用 TrackRestoreProgress 跟踪还原进度。
 
 ### <a name="data-restore-for-data-corruptiondata-loss"></a>在数据损坏/数据丢失时进行数据还原
 
@@ -197,7 +197,7 @@ $url = "https://mysfcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Partitions
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-可以使用 [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress) 跟踪还原进度。
+可以使用 TrackRestoreProgress 跟踪还原进度。
 
 ## <a name="track-restore-progress"></a>跟踪还原进度
 
@@ -230,7 +230,7 @@ $restoreResponse | Format-List
     ```
 
 3. **Success**、**Failure** 或 **Timeout**：请求的还原可能是在以下任一状态下完成的。 每种状态的含义和响应详细信息如下：
-    - **成功**：_Success_ 还原状态表示已重新获取分区状态。 分区将报告 _RestoreEpoch_ 和 _RestordLSN_ 状态，以及 UTC 格式的时间。
+    - **成功**：_Success_ 还原状态表示已重新获取分区状态。 分区将报告 _RestoredEpoch_ 和 _RestoredLSN_ 状态，以及 UTC 格式的时间。
 
         ```
         RestoreState  : Success
@@ -267,5 +267,4 @@ $restoreResponse | Format-List
 - [了解定期备份配置](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [备份还原 REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-<!-- Update_Description: new articles on service fabric backup restore service trigger restore -->
-<!--ms.date: 01/21/2019-->
+<!-- Update_Description: wording update -->

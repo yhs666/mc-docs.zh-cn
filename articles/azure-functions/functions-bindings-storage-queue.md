@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 5b0dce3a1f6c345ba4765560259bed8240a9df5b
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a4aac43e634b9e70c914a3e2e802c242346d8143
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665438"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254056"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -275,7 +275,7 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---message-metadata"></a>触发器 - 消息元数据
 
-[队列触发器提供了数个元数据属性。](functions-triggers-bindings.md#binding-expressions---trigger-metadata) 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [CloudQueueMessage](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 类的属性。
+[队列触发器提供了数个元数据属性。](./functions-bindings-expressions-patterns.md#trigger-metadata) 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [CloudQueueMessage](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 类的属性。
 
 |属性|类型|说明|
 |--------|----|-----------|
@@ -592,4 +592,4 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 [CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

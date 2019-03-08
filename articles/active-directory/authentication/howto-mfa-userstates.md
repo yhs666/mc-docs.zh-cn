@@ -3,20 +3,21 @@ title: Azure 多重身份验证用户状态
 description: 了解 Azure 多重身份验证中的用户状态。
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 07/11/2018
-ms.date: 11/05/2018
+origin.date: 01/11/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 7bab099939a790d8f151ba0b58584388200f0bea
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3ac96d0981b1ddb415671dfa7715b7537718d494
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440353"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462363"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求对用户进行双重验证
 
@@ -81,7 +82,7 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 > 不要忘记先使用 **Connect-MsolService -AzureEnvironment AzureChinaCloud** 进行连接
 
 
-当你需要批量启用用户时，使用 PowerShell 是一个不错的选择。 创建一个 PowerShell 脚本，它会循环访问用户列表并启用它们：
+ 此示例 PowerShell 脚本为单个用户启用 MFA：
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -90,7 +91,7 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-下面的脚本就是一个示例。
+当需要批量启用用户时，使用 PowerShell 是一个不错的选择。 例如，以下脚本循环访问用户列表并在其帐户上启用 MFA：
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -102,11 +103,11 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-若要禁用 MFA，请使用以下脚本：
+若要禁用 MFA，请使用此脚本：
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-也可以缩短为：
+该脚本还可缩写为：
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
@@ -116,4 +117,4 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 有关管理 Azure 多重身份验证的用户设置的信息，请参阅[管理云中 Azure 多重身份验证的用户设置](howto-mfa-userdevicesettings.md)一文
 
-<!-- Update_Description: coding update -->
+<!-- Update_Description: wording update -->

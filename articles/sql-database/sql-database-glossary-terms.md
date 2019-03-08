@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 937d4cae6d015ec7e39a2d1c36fab7cd45210067
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 91cd00e6bf6225cba3caca3b43458992739ac9ed
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663812"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347199"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL 数据库术语表
 
@@ -36,7 +36,7 @@ ms.locfileid: "56663812"
 ||高级数据库|在基于 DTU 的购买模型的高级服务层内创建或移入其中的数据库|
 ||常规用途数据库|在基于 vCore 的购买模型的一般用途服务层内创建或移入其中的数据库|
 ||业务关键数据库|在基于 vCore 的购买模型的业务关键服务层内创建或移入其中的数据库|
-|[购买模型和资源](sql-database-service-tiers.md)|基于 DTU 的购买模型|[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)|
+|[购买模型和资源](sql-database-purchase-models.md)|基于 DTU 的购买模型|[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)|
 ||基于 vCore 的购买模型|[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)|
 ||vCore|虚拟机监控程序向来宾 OS 提供的核心。|
 ||服务层|购买模型中的服务级别|

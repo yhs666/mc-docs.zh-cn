@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/08/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7b30eec5b7452b7fcd2063a3bea4bd03f6963009
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: d6e6c23bba42d2322b2083cde54da3fdf3a9ee6e
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901154"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204199"
 ---
 # <a name="application-upgrade-parameters"></a>应用程序升级参数
 本文介绍 Azure Service Fabric 应用程序升级期间应用的各种参数。 应用程序升级参数控制升级期间应用的超时和运行状况检查，并指定在升级失败时必须应用的策略。 应用程序参数使用以下项应用于升级：
@@ -132,4 +132,4 @@ application-version |作为升级目标的应用程序类型版本。|
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-<!--Update_Description: update meta properties, add parameters description and usage  -->
+<!--Update_Description: update meta properties -->

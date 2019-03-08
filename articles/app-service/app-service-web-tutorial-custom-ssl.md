@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/24/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 083227feebc17144a67f61baa9766733492733b1
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 153674aea83a7aaffe1243d6cb53d651c72fa5c6
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083637"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347118"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>教程：将现有的自定义 SSL 证书绑定到 Azure 应用服务
 
@@ -249,10 +249,12 @@ az webapp config set \
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 以下命令上传已导出的 PFX 文件并添加基于 SNI 的 SSL 绑定。
 
 ```PowerShell
-New-AzureRmWebAppSSLBinding `
+New-AzWebAppSSLBinding `
     -WebAppName <app_name> `
     -ResourceGroupName <resource_group_name> `
     -Name <dns_name> `
@@ -261,7 +263,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>公用证书（可选）
-可以将[公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上传到 Web 应用，使该应用能够访问需要证书身份验证的外部服务。  若要更详细地了解如何在应用中加载和使用公用证书，请参阅[在 Azure 应用服务的应用程序代码中使用 SSL 证书](/app-service/app-service-web-ssl-cert-load)。  还可以对应用服务环境中的应用使用公用证书。 若要将证书存储在 LocalMachine 证书存储中，需要在应用服务环境中使用 Web 应用。 有关详细信息，请参阅[如何将公用证书配置到 Web 应用](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
+如果应用需要访问充当客户端的远程资源，而远程资源需要证书身份验证，则可将[公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上传到应用。 对应用进行 SSL 绑定不需公用证书。
+
+若要更详细地了解如何在应用中加载和使用公用证书，请参阅[在 Azure 应用服务的应用程序代码中使用 SSL 证书](app-service-web-ssl-cert-load.md)。 还可以对应用服务环境中的应用使用公用证书。 若要将证书存储在 LocalMachine 证书存储中，需要在应用服务环境中使用应用。 有关详细信息，请参阅[如何将公用证书配置到应用服务应用](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
 
 ![上传公用证书](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

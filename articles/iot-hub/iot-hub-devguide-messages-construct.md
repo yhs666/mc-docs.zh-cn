@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 08/13/2018
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: ac250625212621fd022ac33a977699b8894146f1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/18/2019
+ms.openlocfilehash: a09511aff8a16aeb850c75ffc8e0e8944c0acb28
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667178"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560490"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 

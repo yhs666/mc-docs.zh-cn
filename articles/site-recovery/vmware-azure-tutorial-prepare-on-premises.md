@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 12/31/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 8ccbb53a3a7ab80dc0f8c14e3ee1555c4470f7fd
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: fce376b65c3f531ce3c8d27e33b8487c8a2d2d8b
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363578"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463521"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>准备本地 VMware 服务器用于灾难恢复到 Azure
 
@@ -77,7 +77,7 @@ Site Recovery 需要访问 VMware 服务器，才能够：
 3. 检查本地[网络](vmware-physical-azure-support-matrix.md#network)和[存储](vmware-physical-azure-support-matrix.md#storage)支持。 
 4. 故障转移后，检查 [Azure 网络](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)、[存储](vmware-physical-azure-support-matrix.md#azure-storage)和[计算](vmware-physical-azure-support-matrix.md#azure-compute)支持的功能。
 5. 复制到 Azure 的本地 VM 必须符合 [Azure VM 要求](vmware-physical-azure-support-matrix.md#azure-vm-requirements)。
-6. 在 Linux 虚拟机中，设备名称或装入点名称都应具有唯一性。 请确保两个设备/装入点的名称不仅仅是只区分大小写。 例如，同一虚拟机中的两个设备不能命名为“device1”和“Device1”。
+6. 在 Linux 虚拟机中，设备名称或装入点名称都应具有唯一性。 请确保没有两个设备/装入点具有相同名称。 请注意，名称不区分大小写。 例如，不允许将同一 VM 的两个设备命名为 device1 和 Device1。
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>准备在故障转移后连接到 Azure VM
 
@@ -113,4 +113,4 @@ Site Recovery 需要访问 VMware 服务器，才能够：
 > [!div class="nextstepaction"]
 > [针对 VMware VM 设置到 Azure 的灾难恢复](vmware-azure-tutorial.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

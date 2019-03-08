@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 726b814b04a539fd123526ffc10116ff490e75dd
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: d97c71865f444dfd4fc87aa6efb4a85d6dbfcf37
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363328"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463663"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUANG ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -102,7 +102,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 - 所有路由都通过 Azure 路由表 (UDR) 进行控制。
 - vNet 之间或流向本地数据中心的所有出站流量都经过 NVA 路由。
 
-<!-- Notice on 95: Change Hong Kong to Guang Zhou -->
+<!-- Notice on 97: Change Hong Kong to Guang Zhou -->
 
 ### <a name="hub-and-spoke-peering-settings"></a>中心和分支对等互连设置
 
@@ -140,6 +140,8 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>在使用 ExpressRoute 时对 Azure VM 进行故障转移
 
 在使用 Site Recovery 将 Azure VM 故障转移到目标 Azure 区域后，可以使用 ExpressRoute [专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)对其进行访问。
+
+<!--MOONCAKE: Anchor is correct on private-peering-->
 
 - 需要使用新连接将 ExpressRoute 连接到目标 vNet。 现有的 ExpressRoute 连接不会自动传输。
 - 将 ExpressRoute 连接设置为目标 vNet 的方式取决于 ExpressRoute 拓扑。
@@ -192,7 +194,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 ### <a name="example-steps"></a>示例步骤
 若要在本示例中自动执行恢复，需要执行以下操作：
 
-1. 按照[设置复制](#azure-vm-replication-steps)的步骤执行操作。
+1. 按照设置复制的步骤执行操作。
 2. 在故障转移期间或之后按照这些附加步骤[对 Azure VM 进行故障转移](azure-to-azure-tutorial-failover-failback.md)。
 
     a. 在目标区域中心 VNet 内创建 Azure ExpressRoute 网关。 这需要将目标中心 vNet 连接到 ExpressRoute 线路。
@@ -203,8 +205,8 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
     d. 在中心 VNet 和两个分支 VNet 中设置 UDR。
 
-    - 使用相同的 IP 地址时，目标端 UDR 的属性与源端中的属性相同。
-    - 使用不同的目标 IP 地址时，应相应地修改 UDR。
+        - The properties of the target side UDRs are the same as those on the source side when using the same IP addresses.
+        - With different target IP addresses, the UDRs should be modified accordingly.
 
 可在[恢复计划](site-recovery-create-recovery-plans.md)中编写上述步骤的脚本。 根据应用程序连接和恢复时间要求，也可以在开始故障转移之前完成上述步骤。
 

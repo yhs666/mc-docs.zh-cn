@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 4f87680505cac8c14b799be84b2048a7acddbfe2
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 6f46fcbb4b1761e4c6085cd5d726e3e061dc6d14
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083922"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347084"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 
@@ -31,6 +31,7 @@ ms.locfileid: "54083922"
 
 ## <a name="sample-script"></a>示例脚本
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```powershell
 # Replace the following URL with a public GitHub repo URL
 $gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
@@ -38,22 +39,22 @@ $webappname="mywebapp$(Get-Random)"
 $location="China North"
 
 # Create a resource group.
-New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+New-AzResourceGroup -Name myResourceGroup -Location $location
 
 # Create an App Service plan in Free tier.
-New-AzureRmAppServicePlan -Name $webappname -Location $location `
+New-AzAppServicePlan -Name $webappname -Location $location `
 -ResourceGroupName myResourceGroup -Tier Free
 
 # Create a web app.
-New-AzureRmWebApp -Name $webappname -Location $location `
+New-AzWebApp -Name $webappname -Location $location `
 -AppServicePlan $webappname -ResourceGroupName myResourceGroup
 
 # Upgrade App Service plan to Standard tier (minimum required by deployment slots)
-Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName myResourceGroup `
+Set-AzAppServicePlan -Name $webappname -ResourceGroupName myResourceGroup `
 -Tier Standard
 
 #Create a deployment slot with the name "staging".
-New-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
+New-AzWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
 -Slot staging
 
 # Configure GitHub deployment to the staging slot from your GitHub repo and deploy once.
@@ -61,21 +62,21 @@ $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
 }
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
+Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
 -ResourceType Microsoft.Web/sites/slots/sourcecontrols `
 -ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
 
 # Swap the verified/warmed up staging slot into production.
-Switch-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
+Switch-AzWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
 -SourceSlotName staging -DestinationSlotName production
-```
 
+```
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -84,13 +85,13 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
-| [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermappserviceplan) | 修改应用服务计划以更改其定价层。 |
-| [New-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebappslot) | 为 Web 应用创建部署槽。 |
-| [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | 修改资源组中的资源。 |
-| [Switch-AzureRmWebAppSlot](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/switch-azurermwebappslot?view=azurermps-5.7.0) | 将 Web 应用的部署槽交换到生产环境。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
+| [Set-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/set-azappserviceplan) | 修改应用服务计划以更改其定价层。 |
+| [New-AzWebAppSlot](https://docs.microsoft.com/powershell/module/az.websites/new-azwebappslot) | 为 Web 应用创建部署槽。 |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 修改资源组中的资源。 |
+| [Switch-AzWebAppSlot](https://docs.microsoft.com/powershell/module/az.websites/switch-azwebappslot) | 将 Web 应用的部署槽交换到生产环境。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: vturecek;
 ms.assetid: ''
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 08/20/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5ab1b4b57e544abbd54cb7dc3df04610b40fe720
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0c3e8cefc1b7d77a0d44b570b36a2fb132e21bce
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666730"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463634"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命周期概述
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ ms.locfileid: "52666730"
 3. 完成 `StatefulServiceBase.OnCloseAsync()` 后，销毁服务对象。
 
 ## <a name="stateful-service-primary-swaps"></a>有状态服务主副本交换
-运行有状态服务时，只有该有状态服务的主副本打开其通信侦听器并调用其 **RunAsync** 方法。 会构造辅助副本，但不会对其执行进一步的调用。 在运行有状态服务时，当前用作主副本的副本可能会更改。 从副本看到的生命周期事件角度看，这意味着什么呢？ 有状态副本看到的行为取决于在交换期间该副本是已降级还是已升级。
+运行有状态服务时，只有该有状态服务的主副本打开其通信侦听器并调用其 **RunAsync** 方法。 会构造辅助副本，但不会对其执行进一步的调用。 在运行有状态服务时，当前用作主副本的副本可能会因故障或群集均衡优化而发生更改。 从副本看到的生命周期事件角度看，这意味着什么呢？ 有状态副本看到的行为取决于在交换期间该副本是已降级还是已升级。
 
 ### <a name="for-the-primary-thats-demoted"></a>对于已降级的主副本
 对于已降级的主副本，Service Fabric 需要使用此副本来停止处理消息，退出正在执行的任何后台工作。 因此，此步骤类似于关闭服务时的情况。 一个差别在于，在此情况下不会销毁或关闭服务，因为它保留为辅助副本。 将调用以下 API：
@@ -140,4 +140,4 @@ Service Fabric 更改有状态服务的主要副本的原因有多种。 最常�
 - [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 - [副本和实例](service-fabric-concepts-replica-lifecycle.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, wording update  -->

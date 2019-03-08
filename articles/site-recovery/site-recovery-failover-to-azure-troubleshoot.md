@@ -1,27 +1,23 @@
 ---
 title: 对故障转移到 Azure 的故障进行排除 | Azure
 description: 本指南介绍如何解决在故障转移到 Azure 中的常见错误
-services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/11/2018
-ms.date: 01/21/2019
+origin.date: 01/29/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 307939fae496c6ca67bca86ca383bb03e6067be8
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 11484358423d2193d255b309bd573bd468efe72a
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363423"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463630"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>解决从虚拟机到 Azure 的故障转移时出现的错误
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>解决将 VMware VM 或物理计算机故障转移到 Azure 时出现的错误
 
 在执行从虚拟机到 Azure 的故障转移时，可能会收到以下错误之一。 若要解决错误，请为每个错误条件使用所述步骤。
 
@@ -49,7 +45,9 @@ Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可�
 
 Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 发生此情况可能是因为本地虚拟机上执行的混合的一个内部活动失败。
 
-若要启动 Azure 中的任何计算机，Azure 环境需要某些驱动程序处于引导启动状态，并要求 DHCP 之类的服务处于自动启动状态。 因此，在进行故障转移时，混合活动会将 **atapi、intelide、storflt、vmbus 和 storvsc 驱动程序**的启动类型转换为引导启动。 它还会将 DHCP 之类的一些服务的启动类型转换为自动启动。 此活动可能会由于环境特定问题而失败。 若要手动更改驱动程序的启动类型，请执行以下步骤：
+若要启动 Azure 中的任何计算机，Azure 环境需要某些驱动程序处于引导启动状态，并要求 DHCP 之类的服务处于自动启动状态。 因此，在进行故障转移时，混合活动会将 **atapi、intelide、storflt、vmbus 和 storvsc 驱动程序**的启动类型转换为引导启动。 它还会将 DHCP 之类的一些服务的启动类型转换为自动启动。 此活动可能会由于环境特定问题而失败。 
+
+若要手动更改 **Windows 来宾 OS** 的驱动程序的启动类型，请执行以下步骤：
 
 1. [下载](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1)“非混合”脚本并如下所述运行脚本。 此脚本检查 VM 是否需要混合。
 

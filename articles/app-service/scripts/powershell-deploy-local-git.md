@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 3719bc58472ad43fcb8b1b1739fad055491c8842
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9144dbbd80e73b49f21c9892647358e1ddd11176
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083839"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347126"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 
@@ -31,49 +31,27 @@ ms.locfileid: "54083839"
 
 ## <a name="sample-script"></a>示例脚本
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $gitdirectory="<Replace with path to local Git repo>"
 $webappname="mywebapp$(Get-Random)"
-$location="China North"
 
-# Create a resource group.
-New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+cd $gitdirectory
 
-# Create an App Service plan in `Free` tier.
-New-AzureRmAppServicePlan -Name $webappname -Location $location `
--ResourceGroupName myResourceGroup -Tier Free
+# Create a web app and set up Git deployement.
+New-AzWebApp -Name $webappname
 
-# Create a web app.
-New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
--ResourceGroupName myResourceGroup
-
-# Configure GitHub deployment from your GitHub repo and deploy once.
-$PropertiesObject = @{
-    scmType = "LocalGit";
-}
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
--ResourceType Microsoft.Web/sites/config -ResourceName $webappname/web `
--ApiVersion 2015-08-01 -Force
-
-# Get app-level deployment credentials
-$xml = [xml](Get-AzureRmWebAppPublishingProfile -Name $webappname -ResourceGroupName myResourceGroup `
--OutputFile null)
-$username = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@userName").value
-$password = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@userPWD").value
-
-# Add the Azure remote to your local Git respository and push your code
-#### This method saves your password in the git remote. You can use a Git credential manager to secure your password instead.
-git remote add azure "https://${username}:$password@$webappname.scm.chinacloudsites.cn"
+# Push your code to the new Azure remote
 git push azure master
 
 ```
-
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -82,7 +60,7 @@ Remove-AzureRmResourceGroup -Name $webappname -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmWebApp](https://docs.microsoft.com//powershell/module/azurerm.websites/new-azurermwebapp) | 使用所需的资源组和应用服务组创建 Web 应用。 如果当前目录包含 Git 存储库，则还要添加 `azure` 远程控制。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 使用所需的资源组和应用服务组创建 Web 应用。 如果当前目录包含 Git 存储库，则还要添加 `azure` 远程控制。 |
 
 ## <a name="next-steps"></a>后续步骤
 

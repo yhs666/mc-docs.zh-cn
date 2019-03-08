@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/24/2018
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9c8e233d90d0cb37f0765a07be49f916a4ec5c20
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: eae40fb68840bf3e476d355bb3db5b9e7404340d
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083597"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463519"
 ---
 # <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
 

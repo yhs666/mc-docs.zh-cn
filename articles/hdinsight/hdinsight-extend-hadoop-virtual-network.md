@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 302c99bcb3906f1cbc27830d5cd5f31418894f47
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 81cc6d07cef72574a80ddebcf0f932c64695fbe9
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665694"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560498"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -228,8 +228,6 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 作为托管服务，对于从 VNET 传入和传出的流量，HDInsight 都需要对 HDinsight 运行状况和管理服务具有不受限制的访问权限。 使用 NSG 和 UDR 时，必须确保这些服务仍然可以与 HDInsight 进行通信。
 
-HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必须允许将端口上的流量用于这些服务。 有关详细信息，请参阅[所需端口]部分。
-
 ### <a id="hdinsight-ip"></a> HDInsight 与网络安全组和用户定义路由
 
 如果计划使用网络安全组或用户定义路由来控制网络流量，请在安装 HDInsight 之前执行以下操作：
@@ -260,11 +258,11 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 >
 > 如果不使用网络安全组或用户定义的路由来控制流量，则可以忽略本部分。
 
-如果使用网络安全组或用户定义的路由，则必须允许来自 Azure 运行状况和管理服务的流量发往 HDInsight。 还必须允许在子网内的 VM 之间传输流量。 使用以下步骤来查找必须允许的 IP 地址：
+如果使用网络安全组，则必须允许来自 Azure 运行状况和管理服务的流量在端口 443 上到达 HDInsight 群集。 还必须允许在子网内的 VM 之间传输流量。 使用以下步骤来查找必须允许的 IP 地址：
 
 1. 必须始终允许来自以下 IP 地址的流量：
 
-    | IP 地址 | 允许的端口 | 方向 |
+    | 源 IP 地址 | Destination Port | 方向 |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | 入站 |
     | 23.99.5.239 | 443 | 入站 |
@@ -276,7 +274,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
     > [!IMPORTANT]
     > 如果未列出所用的 Azure 区域，则仅使用步骤 1 中所列的四个 IP 地址。
 
-    | 国家/地区 | 区域 | 允许的 IP 地址 | 允许的端口 | 方向 |
+    | 国家/地区 | 区域 | 允许的源 IP 地址 | 允许的目标端口 | 方向 |
     | ---- | ---- | ---- | ---- | ----- |
     | 亚洲 | 东亚 | 23.102.235.122</br>52.175.38.134 | 443 | 入站 |
     | &nbsp; | 东南亚 | 13.76.245.160</br>13.76.136.249 | 443 | 入站 |
@@ -313,15 +311,11 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 有关详细信息，请参阅[控制网络流量](#networktraffic)部分。
 
+如果使用用户定义的路由 (UDR)，则应当指定一个路由并允许来自 VNET 的出站流量到达下一跃点设置为“Internet”的上述 IP。
+    
 ## <a id="hdinsight-ports"></a> 所需端口
 
-如果计划使用**防火墙**来保护虚拟网络并通过某些端口访问群集，则应允许你的方案所需的端口上的流量。 默认情况下，不需要将这些端口加入允许列表：
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+如果计划使用**防火墙**并在特定端口上从外部访问群集，则需要允许你的方案所需的那些端口上的流量。 默认情况下，只要允许上一部分中介绍的 Azure 管理流量在端口 443 上到达群集，则不需要特地将端口列入白名单。
 
 对于特定服务的端口列表，请参阅 [HDInsight 上的 Apache Hadoop 服务所用的端口](hdinsight-hadoop-port-settings-for-services.md)文档。
 

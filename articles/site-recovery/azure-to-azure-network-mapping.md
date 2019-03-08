@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 320d8c37bbbc602ae93e4fd93d0ec0cf87e4f880
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 3028806920282b649f98ea43650e4180df93298d
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363286"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463520"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>设置 VNet 的网络映射和 IP 寻址
 
@@ -35,13 +35,13 @@ ms.locfileid: "54363286"
 
 3. 在“添加网络映射”中，选择源和目标位置。 在本示例中，源 VM 在“中国东部”区域运行，将复制到“中国北部”区域。
     
-    <!-- Notice: Change as replicated to China North region -->
+    <!--MOONCAKE: Change as replicated to China North region -->
     
     ![选择源和目标 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 3. 现在，在对方目录中创建网络映射。 在本示例中，源现在是“中国北部”，目标是“中国东部”。
     
-    <!-- Notice: Change as from China North region TO China East region-->
+    <!--MOONCAKE: Change as from China North region TO China East region-->
     
     ![添加网络映射窗格 - 选择目标网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 

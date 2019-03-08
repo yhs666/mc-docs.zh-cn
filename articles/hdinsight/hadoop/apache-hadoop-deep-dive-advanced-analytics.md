@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 11/14/2017
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: d015e22a3e768cb401df5ea36959bfbcf7683d31
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: b32cdb6f54ee8743fc9207c182bb0e11d650b0d7
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029256"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560481"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探讨 - 高级分析
 
@@ -64,10 +64,9 @@ HDInsight 提供可从大量结构化、非结构化和快速移动的数据中�
 
 HDInsight 提供多个适用于高级分析工作流的机器学习选项：
 
-* [机器学习和 Apache Spark](#machine-learning-and-spark)
-* [R 和 ML Services](#r-and-r-server)
-* [Azure 机器学习和 Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark 和深度学习](#spark-and-deep-learning)
+* 机器学习和 Apache Spark
+* Azure 机器学习和 Apache Hive
+* Apache Spark 和深度学习
 
 ### <a name="machine-learning-and-apache-spark"></a>机器学习和 Apache Spark
 

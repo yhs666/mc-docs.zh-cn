@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 49619c2b4d0c524470710d19c7394a75bb720f30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0908d877e991b01edd900e284977e4b4d03c412b
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653210"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204177"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -54,19 +54,19 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    可以在 Docker 安装路径的 daemon.json 文件中直接更新这些设置。
+    可以在 Docker 安装路径的 daemon.json 文件中直接更新这些设置。 可直接在 Docker 中修改守护程序配置设置。 选择 **Docker 图标**，然后选择“首选项” > “守护程序” > “高级”。
 
     >[!NOTE]
     >
-    >daemon.json 文件的位置因计算机而异。 例如，~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json。
+    >建议直接在 Docker 中修改守护程序，因为 daemon.json 文件的位置可能会因计算机而异。 例如，~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json。
     >
-    >建议直接在 Docker 中修改守护程序配置设置。 选择 **Docker 图标**，然后选择“首选项” > “守护程序” > “高级”。
-    >
+
+    >[!TIP]
     >测试大型应用程序时，我们建议增加分配给 Docker 的资源。 为此，可以选择 **Docker 图标**，然后选择“高级”来调整核心数量和内存量。
 
 2. 在新目录中创建名为 `Dockerfile` 的文件，以生成 Service Fabric 映像：
 
-    ```dockerfile
+    ```Dockerfile
     FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
@@ -111,13 +111,13 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. 群集需要一小段时间来启动，可以使用以下命令查看日志，或者通过 [http://localhost:19080](http://localhost:19080) 跳转到仪表板来查看群集运行状况：
+5. 群集需要一小段时间来启动。 运行时，可以使用以下命令查看日志，或者通过跳转到仪表板来查看群集运行状况 [http://localhost:19080](http://localhost:19080)：
 
     ```bash 
     docker logs sftestcluster
     ```
 
-6. 完成后，可使用以下命令来停止并清理容器：
+6. 若要停止并清理容器，请使用以下命令。 但是，我们将在下一步中使用此容器。
 
     ```bash 
     docker rm -f sftestcluster
@@ -172,6 +172,9 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     brew cask install java
     brew install gradle
     ```
+
+    >[!TIP]
+    > 请务必验证并确保已安装 JDK 的正确版本。 
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>通过 Terminal 在 Mac 上部署应用程序
 

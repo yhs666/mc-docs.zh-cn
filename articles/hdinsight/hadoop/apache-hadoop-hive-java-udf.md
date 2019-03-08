@@ -13,15 +13,15 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/16/2018
-ms.date: 01/14/2019
+origin.date: 02/15/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1dff4d38b5118cb761c9503052629a7af391e882
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: eb2bc116c48caad138a420bb0012f516f21c769a
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029140"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560488"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>将 Java UDF 与 HDInsight 中的 Apache Hive 配合使用
 
@@ -45,9 +45,9 @@ ms.locfileid: "54029140"
 * 文本编辑器或 Java IDE
 
     > [!IMPORTANT]
-    > 如果在 Windows 客户端上创建 Python 文件，则必须使用将 LF 用作行尾的编辑器。 如果无法确定编辑器使用的是 LF 还是 CRLF，请参阅[故障排除](#troubleshooting)部分，了解删除 CR 字符的步骤。
+    > 如果在 Windows 客户端上创建 Python 文件，则必须采用使用 LF 作为行结束的编辑器。 如果无法确定编辑器使用的是 LF 还是 CRLF，请参阅“故障排除”部分，了解删除 CR 字符的步骤。
 
-## <a name="create-an-example-java-udf"></a>创建 Java UDF 示例 
+## <a name="create-an-example-java-udf"></a>创建示例 Java UDF 
 
 1. 从命令行中，使用以下命令新建 Maven 项目：
 

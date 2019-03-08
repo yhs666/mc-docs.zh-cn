@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/08/2018
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a84c1ded93751e00ca2bb5fea21d4f7a765dac29
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: e6f98263c65952e827dd10c34266eb35b23f3c2f
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901105"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204092"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
 
@@ -49,7 +49,7 @@ Service Fabric 是 21Vianet 推出的跨计算机群集部署微服务的[容器
 
 相比于虚拟机，容器具有以下优势：
 
-* **小**：容器使用单个存储空间和层的版本与更新提高了效率。
+* **小型**：容器使用单个存储空间和层的版本与更新提高了效率。
 * **快**：容器无需启动整个操作系统，因此启动速度更快，通常在几秒内即可启动。
 * **可移植性**：容器化的应用程序映像可以移植到云中或本地运行、移植到虚拟机中运行，或者直接在物理机上运行。
 * **资源调控**：容器可限制在其主机上消耗的物理资源。

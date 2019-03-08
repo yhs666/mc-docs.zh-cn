@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 11/29/2017
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: c7684afb39bbd7357bcb87ca2ffa5893e0268e54
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 64a9c63c8a5783246f8d7e0ebc1f26c29381e56e
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665703"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254053"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 绑定
 
@@ -58,7 +58,7 @@ public static void Run(
 {
 var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
-var message = new SendGridMessage();
+message = new SendGridMessage();
 message.AddTo(emailObject.To);
 message.AddContent("text/html", emailObject.Body);
 message.SetFrom(new EmailAddress(emailObject.From));

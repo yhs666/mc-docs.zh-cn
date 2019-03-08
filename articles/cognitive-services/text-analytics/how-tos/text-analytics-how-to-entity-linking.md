@@ -3,20 +3,20 @@ title: 结合使用实体识别和文本分析 API
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用文本分析 REST API 识别实体。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-origin.date: 10/01/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: cf8b18eca01b2ef0bc3acb18731303a766e725c9
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 4c502388a9d52dc28528d10ddd3f7fae15aecae6
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858089"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204135"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文本分析（预览版）中使用命名实体识别
 
@@ -295,3 +295,6 @@ ms.locfileid: "54858089"
 
 > [!div class="nextstepaction"]
 > [文本分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+
+<!-- Update_Description: update metedata properties -->
+

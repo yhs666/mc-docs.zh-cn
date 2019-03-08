@@ -46,20 +46,44 @@ items:
     items:
     - name: 1 - 使用 Docker Compose 部署 .NET 应用
       href: service-fabric-host-app-in-a-container.md
+    - name: 2- 使用 CI/CD 部署 Windows 容器应用程序
+      href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
   - name: 创建和管理群集
     items:
     - name: 1- 在 Azure 上创建群集
-      items:
-      - name: 1a- 创建 Windows 群集
-        href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-      - name: 1b- 创建 Linux 群集
-        href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
     - name: 2- 缩放群集
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- 升级群集运行时
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 4- 删除群集
       href: service-fabric-tutorial-delete-cluster.md
+  - name: 在 AWS 上创建独立群集
+    items:
+    - name: 1- 在 AWS 上创建基础结构
+      href: service-fabric-tutorial-standalone-create-infrastructure.md
+    - name: 2 - 设置 Service Fabric
+      href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+    - name: 3- 将应用程序部署到群集
+      href: service-fabric-tutorial-standalone-install-an-application.md
+    - name: 4- 清理群集和删除基础结构
+      href: service-fabric-tutorial-standalone-clean-up.md
+- name: 最佳实践
+  items:
+  - name: Service Fabric 最佳做法概述
+    href: service-fabric-best-practices-overview.md
+  - name: 安全性
+    href: service-fabric-best-practices-security.md
+  - name: 网络
+    href: service-fabric-best-practices-networking.md
+  - name: 计算规划和缩放
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: 基础结构即代码
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: 监视和诊断
+    href: service-fabric-best-practices-monitoring.md
+  - name: 生产就绪情况核对清单
+    href: service-fabric-production-readiness-checklist.md
 - name: 示例
   items:
   - name: 代码示例
@@ -96,6 +120,8 @@ items:
         href: service-fabric-reliable-services-introduction.md
       - name: 服务分区
         href: service-fabric-concepts-partitioning.md
+      - name: 重新配置有状态服务
+        href: service-fabric-concepts-reconfiguration.md
       - name: Reliable Services 生命周期 - C#
         href: service-fabric-reliable-services-lifecycle.md
       - name: Reliable Services 生命周期 - Java
@@ -213,6 +239,8 @@ items:
       href: service-fabric-linux-windows-differences.md
     - name: Azure 上的群集
       items:
+      - name: Azure 群集概述
+        href: service-fabric-azure-clusters-overview.md
       - name: 节点类型和 VM 规模集
         href: service-fabric-cluster-nodetypes.md
       - name: 升级 Azure 中的群集
@@ -223,6 +251,8 @@ items:
         href: service-fabric-patterns-networking.md
     - name: 独立群集
       items:
+      - name: 独立群集概述
+        href: service-fabric-standalone-clusters-overview.md
       - name: 升级独立群集
         href: service-fabric-cluster-upgrade-standalone.md
       - name: 扩展
@@ -311,8 +341,6 @@ items:
       href: service-fabric-capacity-planning.md
   - name: 创建第一个...
     items:
-    - name: C# 应用程序（在 Visual Studio 中）
-      href: service-fabric-create-your-first-application-in-visual-studio.md
     - name: Windows 容器应用程序
       href: service-fabric-get-started-containers.md
     - name: Linux 容器应用程序
@@ -492,10 +520,6 @@ items:
       href: service-fabric-how-to-specify-environment-variables.md
     - name: 部署或删除应用程序
       items:
-      - name: 在本地群集上部署应用程序
-        href: service-fabric-get-started-with-a-local-cluster.md
-      - name: 删除节点类型
-        href: service-fabric-how-to-remove-node-type.md
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -558,14 +582,20 @@ items:
           href: service-fabric-cluster-creation-via-arm.md
         - name: 使用证书公用名称创建
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: 创建 Linux 群集
+          href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
       - name: 缩放
         items:
         - name: 手动横向扩展
           href: service-fabric-cluster-scale-up-down.md
         - name: 以编程方式横向扩展
           href: service-fabric-cluster-programmatic-scaling.md
-        - name: 虚拟机规模集节点类型横向扩展
+        - name: 纵向扩展主节点类型
+          href: service-fabric-scale-up-node-type.md
+        - name: 添加节点类型
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
+        - name: 删除节点类型
+          href: service-fabric-how-to-remove-node-type.md
       - name: 升级
         items:
         - name: 升级 Service Fabric 版本
@@ -612,12 +642,14 @@ items:
           href: service-fabric-cluster-security-roles.md
         - name: 修补群集节点 (Windows)
           href: service-fabric-patch-orchestration-application.md
-    - name: 将群集可视化
+    - name: 使用 Service Fabric Explorer 进行可视化
       href: service-fabric-visualizing-your-cluster.md
     - name: 连接到安全群集
       href: service-fabric-connect-to-secure-cluster.md
   - name: 监视和诊断
     items:
+    - name: 诊断常见方案
+      href: service-fabric-diagnostics-common-scenarios.md
     - name: 监视应用程序
       items:
       - name: 将日志记录添加到应用程序
@@ -626,12 +658,22 @@ items:
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
     - name: 监视群集
       items:
+      - name: 配置 Log Analytics 以收集群集事件
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: 使用 Log Analytics 监视群集
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: 查询 EventStore API
         href: service-fabric-diagnostics-eventstore-query.md
       - name: Windows 群集诊断
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux Azure 诊断
-        href: service-fabric-diagnostics-event-aggregation-lad.md
+      - name: Linux 群集诊断
+        href: service-fabric-diagnostics-oms-syslog.md
+    - name: 监视基础架构
+      items:
+      - name: 使用 Log Analytics 代理收集性能计数器
+        href: service-fabric-diagnostics-oms-agent.md
+      - name: 使用 WAD 收集性能计数器
+        href: service-fabric-diagnostics-perf-wad.md
     - name: 监视运行状况
       items:
       - name: 报告并检查运行情况
@@ -644,10 +686,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: 对本地群集进行故障排除
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: 最佳实践
-    items:
-    - name: 生产就绪情况核对清单
-      href: service-fabric-production-readiness-checklist.md
 - name: 参考
   items:
   - name: Azure PowerShell
@@ -696,7 +734,7 @@ items:
     - name: sfctl store
       href: service-fabric-sfctl-store.md
   - name: Java API
-    href: https://docs.azure.cn/zh-cn/java/api/servicefabric
+    href: https://docs.azure.cn/zh-cn/java/api/servicefabric?view=azure-java-stable
   - name: .NET
     href: https://docs.azure.cn/zh-cn/dotnet/api/overview/service-fabric?view=azure-dotnet
   - name: REST
@@ -732,6 +770,8 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 疑难解答指南
     href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
+  - name: 常见安全属性
+    href: service-fabric-security-attributes.md
   - name: 代码示例
     href: http://aka.ms/servicefabricsamples
   - name: 支持选项
@@ -742,9 +782,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: af7aa5f8627c8d006ab51a1b6963e4ece37a7afe
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: c66ebef1544289ef2b71c78ed51c5a50860a8fa6
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396674"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463668"

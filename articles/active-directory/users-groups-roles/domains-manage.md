@@ -10,16 +10,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 01/31/2019
-ms.date: 02/18/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 80a07ccdede020d04e8305e6bc1f1f9ab4690122
-ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d58f376421245fee0ae5fdc21834fdbfcbb0f5d2
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409409"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462366"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 
@@ -68,13 +69,13 @@ ms.locfileid: "56409409"
 ### <a name="frequently-asked-questions"></a>常见问题
 
 **问：为何域删除操作失败，并显示错误“此域名包含 Exchange 主控的组”？** <br>
-**答：** 目前，某些组（例如，支持邮件的安全组和分发列表）由 Exchange 预配，需要手动在 [Exchange 管理中心 (EAC)](https://outlook.office365.com/ecp/) 清理这些组。 可能有遗留的 ProxyAddresses 依赖于自定义域名，需要手动将其更新为另一个域名。 
+**答:** 目前，某些组（例如，支持邮件的安全组和分发列表）由 Exchange 预配，需要手动在 [Exchange 管理中心 (EAC)](https://outlook.office365.com/ecp/) 清理这些组。 可能有遗留的 ProxyAddresses 依赖于自定义域名，需要手动将其更新为另一个域名。 
 
 **问：我以 admin@contoso.com 身份登录，但无法删除域名“contoso.com”，为什么？**<br>
-**答：** 无法引用你尝试在用户帐户名中删除的自定义域名。 请确保全局管理员帐户使用初始默认域名 (.partner.onmschina.cn)，例如 admin@contoso.partner.onmschina.cn。 使用不同的全局管理员帐户（例如 admin@contoso.partner.onmschina.cn），或帐户为 admin@fabrikam.com 的另一个自定义域名（例如“fabrikam.com”）登录。
+**答:** 无法引用你尝试在用户帐户名中删除的自定义域名。 请确保全局管理员帐户使用初始默认域名 (.partner.onmschina.cn)，例如 admin@contoso.partner.onmschina.cn。 使用不同的全局管理员帐户（例如 admin@contoso.partner.onmschina.cn），或帐户为 admin@fabrikam.com 的另一个自定义域名（例如“fabrikam.com”）登录。
 
 **问：我单击了“删除域”按钮，但看到删除操作的状态为 `In Progress`。需要多长时间？如果该操作失败，会发生什么情况？**<br>
-**答：** 域删除操作是一个异步后台任务，会重命名对域名的所有引用。 它在一两分钟内应会完成。 如果域删除失败，请确保不存在以下情况：
+**答:** 域删除操作是一个异步后台任务，会重命名对域名的所有引用。 它在一两分钟内应会完成。 如果域删除失败，请确保不存在以下情况：
 
 - 使用 appIdentifierURI 在域名中配置了应用
 - 有任何支持邮件的组引用了自定义域名
@@ -93,6 +94,6 @@ ms.locfileid: "56409409"
 
 - [添加自定义域名](/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [在 Exchange 管理中心删除 Azure AD 的自定义域名中支持 Exchange 邮件的安全组](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-- [使用 Microsoft 图形 API 强制删除自定义域名](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
+- [使用 Microsoft 图形 API 强制删除自定义域名](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

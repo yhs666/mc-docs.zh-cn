@@ -5,6 +5,8 @@ items:
   items:
   - name: 关于 Site Recovery
     href: site-recovery-overview.md
+  - name: Site Recovery 中的新增功能
+    href: site-recovery-whats-new.md
 - name: 快速入门
   items:
   - name: 将 Azure VM 复制到另一个区域
@@ -58,6 +60,8 @@ items:
       href: migrate-tutorial-aws-azure.md
   - name: 移动 Azure VM
     items:
+    - name: 概述
+      href: azure-to-azure-move-overview.md
     - name: 将 Azure VM 移动到另一区域
       href: azure-to-azure-tutorial-migrate.md
 - name: 概念
@@ -150,10 +154,18 @@ items:
       items:
       - name: 启用 Azure 到 Azure 复制
         href: azure-to-azure-how-to-enable-replication.md
+      - name: 为加密的 VM 启用 Azure 到 Azure 复制
+        href: azure-to-azure-how-to-enable-replication-ade-vms.md
+      - name: 为 S2D VM 启用 Azure 到 Azure 复制
+        href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+      - name: 排除磁盘
+        href: azure-to-azure-exclude-disks.md
       - name: 故障转移后重新保护 Azure VM
         href: azure-to-azure-how-to-reprotect.md
       - name: 设置 Azure VM 迁移到 Azure 后的灾难恢复
         href: azure-to-azure-replicate-after-migration.md
+      - name: Azure Site Recovery 中的更新
+        href: service-updates-how-to.md
   - name: VMware 到 Azure 的灾难恢复
     items:
     - name: 设置网络
@@ -226,6 +238,8 @@ items:
         href: vmware-azure-manage-process-server.md
       - name: 管理 vCenter 服务器
         href: vmware-azure-manage-vcenter.md
+      - name: Azure Site Recovery 中的更新
+        href: service-updates-how-to.md
       - name: 删除服务器并禁用保护
         href: site-recovery-manage-registration-and-protection.md
       - name: 删除保管库
@@ -266,6 +280,8 @@ items:
         href: vmware-azure-manage-process-server.md
       - name: 删除服务器并禁用保护
         href: site-recovery-manage-registration-and-protection.md
+      - name: Azure Site Recovery 中的更新
+        href: service-updates-how-to.md
       - name: 删除保管库
         href: delete-vault.md
   - name: Azure Stack VM 灾难恢复
@@ -312,12 +328,14 @@ items:
         href: hyper-v-azure-failback.md
     - name: 管理
       items:
-      - name: 删除服务器并禁用保护
-        href: site-recovery-manage-registration-and-protection.md
-      - name: 删除保管库
-        href: delete-vault.md
       - name: 升级已配置了 Site Recovery 的 Windows Servers
         href: upgrade-2012R2-to-2016.md
+      - name: 删除服务器并禁用保护
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Azure Site Recovery 中的更新
+        href: service-updates-how-to.md
+      - name: 删除保管库
+        href: delete-vault.md
   - name: 应用的灾难恢复
     items:
     - name: 为本地应用设置灾难恢复到 Azure
@@ -430,9 +448,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 53a59e1c6e94bbde68123ebf3e37e39c9e3aa2cc
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f2180073abe50bab8b5c55e79276a4634a743e09
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363337"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463597"

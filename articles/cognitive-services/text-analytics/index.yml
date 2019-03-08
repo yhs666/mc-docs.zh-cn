@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1efe94fe0c854b9d3aa59baaa1e39c2a2c6dbc70
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 2783a63645a2779f4aea606f54bcbe646ef16a5f
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582755"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204158"
 documentType: LandingData
 title: 文本分析 API 文档
 metadata:
@@ -20,7 +20,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
 origin.date: 09/24/2018
-ms.date: 02/21/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
 abstract:
   description: 文本分析 API 是一种基于云的服务，它对原始文本提供高级自然语言处理，并且包含三项主要功能：情绪分析、关键短语提取和语言检测。 使用快速入门、教程和示例，了解如何以不同的方式分析内容。
@@ -92,6 +92,6 @@ sections:
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>
     - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: <p><a href="/cli/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

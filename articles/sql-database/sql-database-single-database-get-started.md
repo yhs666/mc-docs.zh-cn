@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/04/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 0b78348bd51102c22836709536fe53ddfcea94aa
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 3f2b7f114a838fb186ce3f35d5c5a73e437284ae
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663810"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347153"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据库中创建单一数据库
 
@@ -30,7 +30,7 @@ ms.locfileid: "56663810"
 
 ## <a name="create-a-single-database"></a>创建单一数据库
 
-单一数据库有一组通过两个[购买模型] (sql-database-service-tiers.md)中的一个定义的计算、内存和存储资源。 创建单一数据库时，也定义一个 [SQL 数据库服务器](sql-database-servers.md)来管理它并将它放置在指定区域的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中。
+单一数据库有一组通过两个[购买模型] (sql-database-purchase-models.md)中的一个定义的计算、内存和存储资源。 创建单一数据库时，也定义一个 [SQL 数据库服务器](sql-database-servers.md)来管理它并将它放置在指定区域的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中。
 
 若要创建包含 Adventure Works LT 示例数据的单一数据库，请执行以下操作：
 

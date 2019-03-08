@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 3e1526ae000724398f1f82eab0bb46cc07278875
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/08/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 287afbfaf98a65c172ca698420b017ea4415007d
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663462"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347006"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放弹性池
 
@@ -98,7 +98,7 @@ az group delete --name myResourceGroup
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
 | [az sql elastic-pools create](/cli/sql/elastic-pool#az-sql-elastic-pool-create) | 创建弹性池。 |
-| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建独立数据库或入池数据库。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建单一数据库或入池数据库。 |
 | [az sql elastic-pools update](/cli/sql/elastic-pool#az-sql-elastic-pool-update) | 更新弹性池，在此示例中更改分配的 eDTU。 |
 | [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/29/2018
-ms.date: 01/07/2019
+origin.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d3d44c6950469689910274da984a3fa81e9e606a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 286536901680510695e1e5ffb49f431828af2d34
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083620"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204141"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>查询群集事件的 EventStore API
 

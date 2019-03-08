@@ -6,16 +6,16 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.custom: mvc
-origin.date: 05/29/2018
-ms.date: 03/04/2019
+origin.date: 02/22/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 1314858c8d15d39dfee59e852a83793a5b95e7e7
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 3d91faf6c887c33c6ce2946e1b9efcb97fab8e36
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665568"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560495"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试与 IoT 中心的连接
 
@@ -122,7 +122,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 
 如果设备使用某个 IoT 中心设备 SDK，SDK 库代码会生成用于通过中心进行身份验证的 SAS 令牌。 可以通过中心名称、设备名称和设备密钥生成 SAS 令牌。
 
-在某些情况下，例如在云协议网关中或使用自定义身份验证方案的情况下，可能需要自行生成 SAS 令牌。 若要排查 SAS 生成代码的问题，必须能够生成可以在测试过程中使用的已知良好的 SAS 令牌。
+在某些情况下，例如在云协议网关中或使用自定义身份验证方案的情况下，可能需要自行生成 SAS 令牌。 若要排查 SAS 生成代码的问题，必须生成可以在测试过程中使用的已知良好的 SAS 令牌。
 
 > [!NOTE]
 > SimulatedDevice-2.js 示例包括使用 SDK 和不使用 SDK 生成 SAS 令牌的示例。
@@ -189,13 +189,9 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 ![发送消息的模拟设备](media/tutorial-connectivity/sim-3-sending.png)
 
-可以使用门户中的“指标”来验证遥测消息是否已到达 IoT 中心：
+可以使用门户中的“指标”来验证遥测消息是否已到达 IoT 中心。 在“资源”下拉列表中选择 IoT 中心，选择“发送的遥测消息数”作为指标，然后将时间范围设置为“过去一小时”。 图表显示模拟设备发送的消息的聚合计数：
 
-![导航到 IoT 中心指标](media/tutorial-connectivity/metrics-portal.png)
-
-在“资源”下拉列表中选择 IoT 中心，选择“发送的遥测消息数”作为指标，然后将时间范围设置为“过去一小时”。 图表显示模拟设备发送的消息的聚合计数：
-
-![显示 IoT 中心指标](media/tutorial-connectivity/metrics-active.png)
+![显示 IoT 中心指标](media/tutorial-connectivity/metrics-portal.png)
 
 启动模拟设备后，指标在数分钟后才会变得可用。
 

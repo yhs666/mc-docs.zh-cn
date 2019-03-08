@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: 了解与计算机视觉 API 的图像标记功能相关的概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 02/08/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 0fdb29b51196691960d47467d095d226ca8c599e
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 6f85579575a18b6cedabb29993a2beeaf4ca4793
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083573"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204026"
 ---
 # <a name="applying-content-tags-to-images"></a>将内容标记应用于图像
 
@@ -88,4 +88,3 @@ ms.locfileid: "54083573"
 
 了解[对图像进行分类](concept-categorizing-images.md)和[描述图像](concept-describing-images.md)的概念。
 
-<!-- Update_Description: wording update -->

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 72ca49675060b77e46b104d940b3ba84b43d8ecf
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 8bc3e94c578c9b0041970e3b99f084e62f143964
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363325"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463587"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -60,7 +60,7 @@ Select-AzureRmSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 本文中的示例会将“中国东部”区域中的某个虚拟机复制到“中国北部”区域并在其中进行恢复。 要复制的虚拟机是包含 OS 磁盘和单个数据磁盘的虚拟机。 本示例中使用的虚拟机名称为 AzureDemoVM。
 
-<!--Notice: Source Target in China East region-->
+<!--MOONCAKE: Source Target in China East region-->
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -85,7 +85,7 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-<!--Notice: Source Target in China East region-->
+<!--MOONCAKE: Source Target in China East region-->
 
 获取虚拟机磁盘的详细信息。 稍后在开始复制虚拟机时，将使用磁盘详细信息。
 
@@ -190,7 +190,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfulLy completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-ChinaEast"
@@ -215,7 +215,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-ChinaNorth"
@@ -261,7 +261,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 
 Write-Output $TempASRJob.State
 
@@ -282,7 +282,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
@@ -301,7 +301,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
@@ -321,7 +321,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 ```
 
@@ -393,7 +393,7 @@ $ChinaNorthTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstor
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
-    #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+    #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
 
    ```
@@ -408,7 +408,7 @@ $ChinaNorthTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstor
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
-    #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+    #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
 
@@ -477,7 +477,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 ```
 

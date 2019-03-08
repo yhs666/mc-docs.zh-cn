@@ -2,17 +2,18 @@
 title: 使用 Azure Site Recovery 将 VMware VM 灾难恢复到 Azure 期间从 Azure 进行故障回复 | Azure
 description: 了解如何在将 VMware VM 和物理服务器灾难恢复到 Azure 期间故障转移到 Azure 后，故障回复到本地站点。
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 01/15/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 6ffedbf437c4beb447dd997211f667147478e36e
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: a75a4a8a99684281909c198065c4edf2d2d29fa8
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363476"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463635"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>将 VMware VM 和物理服务器从 Azure 故障回复到本地站点
 

@@ -3,20 +3,20 @@ title: 获取文本分析 API 的访问密钥
 titleSuffix: Azure Cognitive Services
 description: 获取文本分析操作的访问密钥以提交原始文本，在认知服务中进行处理。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: 12a873cb1c28295e32d162dc703888139f5b6fdd
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 7b387437982e79334e66f2009c0cd4d293ae2b18
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858082"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204014"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>如何查找文本分析认知服务的终结点和访问密钥
 
@@ -45,3 +45,5 @@ ms.locfileid: "54858082"
 
 > [!div class="nextstepaction"]
 > [调用文本分析 API](text-analytics-how-to-call-api.md)
+
+<!-- Update_Description: update metedata properties -->

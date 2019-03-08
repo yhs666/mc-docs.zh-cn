@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a4f4c5a1a74c5258fff3b986a9676b71345bb071
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f242a3835b06b5535031831ae54adee3ac5af3fc
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363532"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463629"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>为故障回复使用更多进程服务器进行扩展
 
@@ -25,8 +25,8 @@ ms.locfileid: "54363532"
 
 请确保已执行[容量规划](site-recovery-plan-capacity-vmware.md)以进行 VMware 复制。 这可帮助你确定如何以及何时应部署额外的进程服务器。
 
->[!NOTE]
->不支持使用克隆的进程服务器组件。 按照本文中的步骤横向扩展每个 PS。
+> [!NOTE]
+> 不支持使用克隆的进程服务器组件。 按照本文中的步骤横向扩展每个 PS。
 
 ### <a name="sizing-requirements"></a>调整大小要求 
 

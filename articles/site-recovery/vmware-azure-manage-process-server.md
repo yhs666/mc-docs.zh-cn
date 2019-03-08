@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 02/05/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 615864146186700de9152a0abb2bf46a593fe84e
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 507c67137f129ef134f5bfe026a74fe39df984c7
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363306"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463653"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 

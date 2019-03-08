@@ -10,15 +10,15 @@ ms.topic: reference
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: craigg
-origin.date: 04/17/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: d204e8b6d36995762a598c230e5408a7e399194d
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+manager: digimobile
+origin.date: 10/01/2018
+ms.date: 03/11/2019
+ms.openlocfilehash: 5b9ba6674ba82d070100858adb6c1aa85cf06d28
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663587"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347059"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用于测试和原型设计的公共数据集
 

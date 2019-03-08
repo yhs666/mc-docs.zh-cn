@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2929fd2783a905d7b2ea4c3d35eab025587c9eff
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 8938a96048286d827fa17f749bc81e8d8f579b08
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363514"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463531"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>设置在故障转移后用于连接到 Azure VM 的 IP 地址
 
@@ -80,4 +80,4 @@ Site Recovery 支持在通过子网故障转移到 Azure 时保留固定的 IP �
 ## <a name="next-steps"></a>后续步骤
 [运行故障转移](site-recovery-failover.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

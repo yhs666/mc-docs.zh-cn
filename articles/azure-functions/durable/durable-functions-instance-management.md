@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5bf0f55a98352053e07e1d2d3b104c3896f5e250
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 1f9a86ebb393d5f761ca4544b09e95ee5f5ea0c7
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665683"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254059"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>在 Azure 中管理 Durable Functions 中的实例
 
@@ -719,4 +719,4 @@ func durable delete-task-hub --task-hub-name UserTest
 > [!div class="nextstepaction"]
 > [了解如何使用 HTTP API 进行实例管理](durable-functions-http-api.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: 与计算机视觉 API 的图像描述功能相关的概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 02/11/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: fd770fc9d97508aa9d9ad743adcfe9c49fed64d1
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 6cd3540464c4e61088e560e249207db194555c4f
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083529"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57203985"
 ---
 # <a name="describe-images-with-human-readable-language"></a>使用人类可读语言描述图像
 
-计算机视觉的算法可分析图像中的内容。 此分析形成“说明”的基础。该“说明”以人类可读语言显示，采用完整句子。 说明汇总了图像中找到的内容。 计算机视觉的算法可根据图像中标识的视觉特征生成各种说明。 每项说明都经过评估并带有置信度分数。 然后返回一个列表，将置信度从高到低进行排列。
+计算机视觉可以分析图像并生成描述其内容的人工可读的句子。 该算法实际返回基于不同视觉功能的多个描述，且每个描述都有一个可信度分数。 最终输出是按可信度从高到低排列的描述的列表。
 
 ## <a name="image-description-example"></a>图像说明示例
 

@@ -4,58 +4,137 @@ titleSuffix: Azure Cognitive Services
 description: 了解如何指定图像分类域以返回有关图像的更多详细信息。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 02/08/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: bd04d2e744fd1e344acecb1f9fd3619177dfbb3c
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 4fc444070aab9a537440162ff335ca3a703f1883
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083676"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204048"
 ---
-# <a name="detecting-domain-specific-content"></a>检测特定领域的内容
+# <a name="detect-domain-specific-content"></a>检测特定于域的内容
 
-除了标记和顶级分类以外，计算机视觉还支持专用（或特定于域的）信息。 可将专用信息作为独立方法来实现，也可将其与高级分类配合使用。 可以利用该信息，通过添加特定领域的模块来进一步优化“86 类”分类。
+除标记和高级分类外，计算机视觉还支持使用已经过专门数据训练的模型执行进一步特定于域的分析。 
 
-可以通过两个选项来使用特定领域的模型：
+可通过两种方法使用特定于域的模型：使用模型本身（作用域分析）或用作分类功能的增强。
 
-- 作用域分析  
-  通过调用 HTTP POST 调用仅分析所选模型。 如果知道要使用的模型，请指定该模型的名称。 仅获取与该模型相关的信息。 例如，如果只进行名人识别，则可使用此选项。 响应包含一系列可能与之匹配的名人，以及置信度。
-- 增强分析  
-  通过分析，提供与“86 类”分类中的类别相关的更多详细信息。 如果应用程序用户除了获取一个或多个特定领域模型中的详细信息，还需要获取泛型图像分析信息，则可使用此选项。 调用此方法时，先调用“86 类”分类的分类器。 如果任何类别与已知或匹配模型的类别相匹配，将执行第二轮分类器调用。 例如，如果 HTTP POST 调用的 `details` 参数设置为“all”或包括“celebrities”，则在调用 86 类别分类器后，该方法将调用名人分类器。 如果图像被分类为 `people_` 或该类别的子类别，则调用名人分类器。
+### <a name="scoped-analysis"></a>作用域分析
 
-## <a name="listing-domain-specific-models"></a>列出特定于域的模型
+可通过调用 [Models/\<model\>/Analyze](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e200) API，仅使用选择的特定于域的模型来分析图像。 
 
-可以列出计算机视觉支持的特定于域的模型。 目前，计算机视觉支持以下特定于域的模型，用于检测特定于域的内容：
+以下是 **models/celebrities/analyze** API 为给定图像返回的示例 JSON 响应：
+
+![Satya Nadella 的站立图](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>增强版分类分析  
+
+特定于域的模型还可用于对常规图像分析进行补充。 可通过在 [Analyze](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API 调用的 *details* 参数中指定特定于域的模型，作为[高级分类](concept-categorizing-images.md)的一部分执行此操作。 
+
+在这种情况下，首先会调用 86 类别分类分类器。 如果检测到的任何类别具有匹配的特定于域的模型，图像也会通过该模型并会添加结果。 
+
+以下 JSON 响应展示可如何在更广泛的分类分析中以 `detail` 节点的形式包含特定于域的分析。
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>列出特定于域的模型
+
+目前，计算机视觉支持以下特定于域的模型：
 
 | Name | 说明 |
 |------|-------------|
 | 名人 | 名人识别，支持属于 `people_` 类别的图像 |
 | 地标 | 地标识别，支持属于 `outdoor_` 或 `building_` 类别的图像 |
 
-### <a name="domain-model-list-example"></a>域模型列表示例
-
-以下 JSON 响应列出了计算机视觉支持的特定于域的模型。
+调用 [Models](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd) API 将返回此信息，以及每个模型可应用于的类别：
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 
@@ -63,4 +142,4 @@ ms.locfileid: "54083676"
 
 了解有关[对图像进行分类](concept-categorizing-images.md)的概念。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

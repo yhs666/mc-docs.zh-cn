@@ -8,15 +8,15 @@ ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/25/2017
-ms.date: 02/15/2019
+origin.date: 02/15/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8660a8b0d3e03ba72635f49b7271f7f0e9c65d5b
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: c3d16427c3b0fd697f9da3161f824385a8d12279
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306081"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347098"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
@@ -79,7 +79,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
 1. 在 **PowerBI Embedded** Visual Studio 解决方案中，右键单击“EmbedSample”Web 应用程序，并选择“设为启动项目”。
 2. 在 **web.config** 中，在 **EmbedSample** Web 应用程序中，编辑 **appSettings**：**AccessKey**、**WorkspaceCollection** 名称和 **WorkspaceId**。
 
-    ```
+    ```xml
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
         <add key="powerbi:ApiUrl" value="https://api.powerbi.cn" />
@@ -112,7 +112,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
 
 **ReportsViewModel.cs**：表示多个 Power BI 报表。
 
-```
+```csharp
 public class ReportsViewModel
 {
     public List<Report> Reports { get; set; }
@@ -121,7 +121,7 @@ public class ReportsViewModel
 
 **ReportViewModel.cs**：表示一个 Power BI 报表。
 
-```
+```csharp
 public classReportViewModel
 {
     public IReport Report { get; set; }
@@ -151,7 +151,7 @@ Data Source=tcp:MyServer.database.chinacloudapi.cn,1433;Initial Catalog=MyDataba
 | 标题 |报表的名称。 |
 | QueryString |指向报表 ID 的链接。 |
 
-```
+```cshtml
 <div id="reports-nav" class="panel-collapse collapse">
     <div class="panel-body">
         <ul class="nav navbar-nav">
@@ -169,7 +169,7 @@ Data Source=tcp:MyServer.database.chinacloudapi.cn,1433;Initial Catalog=MyDataba
 
 Report.cshtml：为 **PowerBIReportFor** 设置 **Model.AccessToken** 和 Lambda 表达式。
 
-```
+```cshtml
 @model ReportViewModel
 
 ...
@@ -184,7 +184,7 @@ Report.cshtml：为 **PowerBIReportFor** 设置 **Model.AccessToken** 和 Lambda
 
 **DashboardController.cs**：创建用于传递**应用令牌** 的 PowerBIClient。 JSON Web 令牌 (JWT) 是基于**签名密钥**生成的，用于获取**凭据**。 **凭据**用于创建 **PowerBIClient** 实例。 创建 **PowerBIClient** 实例后，可以调用 GetReports() 和 GetReportsAsync()。
 
-```
+```csharp
 CreatePowerBIClient()
 
     private IPowerBIClient CreatePowerBIClient()
@@ -197,9 +197,11 @@ CreatePowerBIClient()
 
         return client;
     }
+```
 
 ActionResult Reports()
 
+```csharp
     public ActionResult Reports()
     {
         using (var client = this.CreatePowerBIClient())
@@ -214,9 +216,11 @@ ActionResult Reports()
             return PartialView(viewModel);
         }
     }
+```
 
-Task<ActionResult> Report(string reportId)
+任务<ActionResult>报表 (string reportId)
 
+```csharp
     public async Task<ActionResult> Report(string reportId)
     {
         using (var client = this.CreatePowerBIClient())
@@ -240,7 +244,7 @@ Task<ActionResult> Report(string reportId)
 
 创建**报表**后，可以使用 **IFrame** 嵌入 Power BI **报表**。 以下是来自 **Power BI 工作区集合**示例中的 powerbi.js 代码片段。
 
-```
+```javascript
 init: function() {
     var embedUrl = this.getEmbedUrl();
     var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 

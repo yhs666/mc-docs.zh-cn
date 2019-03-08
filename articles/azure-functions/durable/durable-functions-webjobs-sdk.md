@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 04/25/2018
-ms.date: 12/25/2018
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5b9456ba2a887303ae4dc54d5bdc52949dc67d9e
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 15e1df09d5c8b2250a7b9957bac92c289eca2008
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806660"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254032"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式运行 Durable Functions
 
@@ -159,3 +159,4 @@ while (true)
 
 若要详细了解 WebJobs SDK，请参阅[如何使用 WebJobs SDK](../../app-service/webjobs-sdk-how-to.md)。
 
+<!-- Update_Description: update metedata properties -->

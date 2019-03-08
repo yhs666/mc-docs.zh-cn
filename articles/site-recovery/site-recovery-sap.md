@@ -8,14 +8,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe808d92f0b0cd5e329bffbc0fbdcb72c744a380
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: d085eb390ec0bd0cab8d574b43ede8a0646b316b
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363406"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463546"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>为多层 SAP NetWeaver 应用部署设置灾难恢复
 
@@ -141,7 +141,7 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 1. 将操作前脚本添加到“组 1”，以故障转移 SQL 可用性组。 使用示例脚本中发布的“ASR-SQL-FailoverAG”脚本。 确保遵循脚本中的指导，并相应地在脚本中进行所需的更改。
 2. 添加一个操作后脚本，以便在 Web 层的已故障转移虚拟机（组 1）上附加负载均衡器。 使用示例脚本中发布的“ASR-AddSingleLoadBalancer”脚本。 确保遵循脚本中的指导，并相应地在脚本中进行所需的更改。
 
-![SAP 恢复计划](./media/site-recovery-sap/sap_recovery_plan.png)
+    ![SAP 恢复计划](./media/site-recovery-sap/sap_recovery_plan.png)
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移
 

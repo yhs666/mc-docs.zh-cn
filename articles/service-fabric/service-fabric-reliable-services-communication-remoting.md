@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 09/20/2017
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7735cfae485ee9c7fb42dc864967eded20b5de73
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 90f06faae4747179fe27b53ce1fb9645fd93fe42
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083705"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463601"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>通过 Reliable Services 使用 C# 进行服务远程处理
 
@@ -239,7 +239,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>使用远程处理 V2（与接口兼容）堆栈
 
- 远程处理 V2（与接口兼容，又称 V2_1）堆栈具有 V2 远程处理堆栈的所有功能。 其接口堆栈与远程处理 V1 堆栈兼容，但不后向兼容 V2 和 V1。 若要在不影响服务可用性的情况下从 V1 升级到 V2_1，请按照[从 V1 升级到 V2（与接口兼容）](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible)一文中的步骤操作。
+ 远程处理 V2（与接口兼容，又称 V2_1）堆栈具有 V2 远程处理堆栈的所有功能。 其接口堆栈与远程处理 V1 堆栈兼容，但不后向兼容 V2 和 V1。 若要从 V1 升级到 V2_1 且不影响服务可用性，请遵循“从 V1 升级到 V2（接口兼容）”一文中的步骤。
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>通过程序集属性使用远程处理 V2（与接口兼容）堆栈
 

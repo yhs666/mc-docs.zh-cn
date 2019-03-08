@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/28/2018
-ms.date: 11/12/2018
+origin.date: 01/14/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c45237d9449927602548a7163a6ce62f4882bef3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 921749d73c9583d867e3e5336352d2a3e8f1949a
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647089"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463679"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建并部署应用程序
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
 
@@ -329,8 +329,6 @@ namespace VotingWeb.Controllers
 
 此外，更新投票项目中的应用程序 URL 属性值，使 Web 浏览器在调试应用程序时打开到正确的端口。  在解决方案资源管理器中，选择“投票”项目并将“应用程序 URL”属性更新为 **8080**。
 
-![应用程序 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>在本地部署并运行“投票”应用程序
 现在可以继续运行“投票”应用程序进行调试。 在 Visual Studio 中，按 **F5** 在调试模式下将应用程序部署到本地 Service Fabric 群集。 如果此前未以管理员身份打开 Visual Studio，则应用程序会失败。
 
@@ -457,12 +455,7 @@ namespace VotingData.Controllers
 
 在如何与 Reliable Services 通信方面，Service Fabric 提供十足的弹性。 在单个应用程序中，可能有能够通过 TCP 访问的服务。 其他服务也许可以通过 HTTP REST API 访问，并且仍可通过 Web 套接字访问。 有关可用选项和相关权衡取舍的背景信息，请参阅[与服务通信](service-fabric-connect-and-communicate-with-services.md)。
 
-本教程使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 和 [Service Fabric 反向代理](service-fabric-reverseproxy.md)，以便 VotingWeb 前端 Web 服务能够与后端 VotingData 服务通信。 反向代理默认配置为使用端口 19081，应适用于本教程。 在用于设置群集的 ARM 模板中设置端口。 若要确定使用了哪个端口，请查看 **Microsoft.ServiceFabric/clusters** 资源中的群集模板，或者查看群集清单中的 HttpApplicationGatewayEndpoint 元素。
-
-> [!NOTE]
-> 仅在运行 Windows 8 及更高版本或 Windows Server 2012 及更高版本的群集上支持反向代理。
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort 资源</u>
+本教程使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 和 [Service Fabric 反向代理](service-fabric-reverseproxy.md)，以便 VotingWeb 前端 Web 服务能够与后端 VotingData 服务通信。 反向代理默认配置为使用端口 19081，应适用于本教程。 反向代理端口是在用于设置群集的 Azure 资源管理器模板中设置的。 若要确定使用哪个端口，请在 **Microsoft.ServiceFabric/clusters** 资源中搜索群集模板： 
 
 ```json
 "nodeTypes": [
@@ -475,15 +468,13 @@ namespace VotingData.Controllers
           }
         ],
 ```
-在本地 Service Fabric 群集清单中查看 HttpApplicationGatewayEndpoint 元素：
-1. 打开浏览器窗口并导航到 http://localhost:19080。
-2. 单击“清单”。
+若要查找在本地开发群集中使用的反向代理端口，请查看本地 Service Fabric 群集清单中的 **HttpApplicationGatewayEndpoint** 元素：
+1. 打开一个浏览器窗口，并导航到 http://localhost:19080 以打开 Service Fabric Explorer 工具。
+2. 选择“群集”->“清单”。
 3. 记下 HttpApplicationGatewayEndpoint 元素端口。 默认情况下，此端口应是 19081。 如果不是 19081，则需要更改以下 VotesController.cs 代码的 GetProxyAddress 方法中的端口。
 
 <a name="updatevotecontroller"></a>
-
 <a name="updatevotecontroller_anchor"></a>
-
 ### <a name="update-the-votescontrollercs-file"></a>更新 VotesController.cs 文件
 
 在“VotingWeb”项目中，打开 Controllers/VotesController.cs 文件。  将 `VotesController` 类定义内容替换为以下内容，然后保存所做更改。 如果在前面的步骤中发现反向代理端口不是 19081，更改发现的端口从 19081 GetProxyAddress 方法中使用的端口。
@@ -599,7 +590,6 @@ public class VotesController : Controller
 ```
 
 <a name="walkthrough"></a>
-
 <a name="walkthrough_anchor"></a>
 
 ## <a name="walk-through-the-voting-sample-application"></a>大致了解投票示例应用程序
@@ -625,9 +615,9 @@ public class VotesController : Controller
 
 若要查看代码，请完成以下步骤：
 
-1. 打开 **VotingWeb\VotesController.cs** 文件，并在此 Web API 的 **Put** 方法（第 63 行）中设置断点。
+1. 打开 **VotingWeb\VotesController.cs** 文件，并在此 Web API 的 **Put** 方法（第 72 行）中设置断点。
 
-2. 打开 **VotingData\VoteDataController.cs** 文件，并在此 Web API 的 **Put** 方法（第 53 行）中设置断点。
+2. 打开 **VotingData\VoteDataController.cs** 文件，并在此 Web API 的 **Put** 方法（第 54 行）中设置断点。
 
 3. 按 **F5** 以调试模式启动应用程序。
 

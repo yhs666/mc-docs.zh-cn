@@ -2,39 +2,37 @@
 title: 在 Azure AD 中还原已删除的 Office 365 组 | Microsoft Docs
 description: 如何在 Azure Active Directory 中还原已删除的组、查看可还原的组，以及永久删除组
 services: active-directory
-documentationcenter: ''
-author: eross-msft
-manager: mtillman
-editor: ''
+author: curtand
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: users-groups-roles
 ms.topic: quickstart
-origin.date: 08/28/2017
-ms.date: 01/22/2019
+origin.date: 02/21/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: cee6f63f1fe1ae11b2d843de8fcfc4d25a978266
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c232baf8b8d92cf772413e1f9e2a327438934475
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440350"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462362"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中还原已删除的 Office 365 组
-
 在 Azure Active Directory (Azure AD) 中删除某个 Office 365 组后，删除的组会保留，但从删除日期开始算起的 30 天内将不可见。 此行为是为了在需要时可以还原组及其内容。 此功能仅适用于 Azure AD 中的 Office 365 组， 而不适用于安全组和分发组。
 
 > [!NOTE]
-> 请勿使用 `Remove-MsolGroup`，因为它会永久清除组。 始终使用 `Remove-AzureADMSGroup` 来删除 O365 组。
+> 请勿使用 `Remove-MsolGroup`，因为它会永久清除组。 始终使用 `Remove-AzureADMSGroup` 来删除 Office 365 组。
 
 还原组所需的权限可能是下列其中一项：
 
 角色 | 权限
 --------- | ---------
-公司管理员、合作伙伴 2 级支持人员和 InTune 服务管理员 | 可以还原任何已删除的 Office 365 组
-用户帐户管理员与合作伙伴 1 级支持人员 | 可以还原任何已删除的 Office 365 组，但分配给公司管理员角色的组除外
+公司管理员 | 可以还原任何已删除的 Office 365 组
+用户帐户管理员 | 可以还原任何已删除的 Office 365 组，但分配给公司管理员角色的组除外
 User | 可以还原他们拥有的任何已删除 Office 365 组
 
 
@@ -54,16 +52,16 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
     Get-AzureADMSDeletedGroup -Id <objectId>
     ```
 
-## <a name="how-to-restore-your-deleted-office-365-group"></a>如何还原已删除的 Office 365 组
+## <a name="how-to-restore-your-deleted-office-365-group-using-powershell"></a>如何使用 Powershell 还原已删除的 Office 365 组
 确认组仍可还原后，可以使用以下步骤之一还原已删除的组。 如果该组包含文档、SP 站点或其他持久对象，可能需要 24 小时才能完全还原该组及其内容。
 
-1.  运行以下 cmdlet 还原该组及其内容。
+1. 运行以下 cmdlet 还原该组及其内容。
  
     ```
     Restore-AzureADMSDeletedDirectoryObject -Id <objectId>
     ``` 
 
-    或者，可运行以下 cmdlet 永久清除已删除的组。
+2. 或者，可运行以下 cmdlet 永久清除已删除的组。
     ```
     Remove-AzureADMSDeletedDirectoryObject -Id <objectId>
     ```

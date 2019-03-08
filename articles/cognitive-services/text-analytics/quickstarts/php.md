@@ -1,22 +1,22 @@
 ---
 title: 快速入门：使用 PHP 调用文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 获取信息和代码示例，以便帮助你快速开始使用 Azure 上认知服务中的文本分析 API。
+description: 获取信息和代码示例，帮助快速开始使用 Azure 上 Microsoft 认知服务中的文本分析 API。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
-origin.date: 10/01/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: bef969d2ba6b90b4700dda0aea2b2922bcda8014
-ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
+origin.date: 02/15/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 8d46b382254a3f23a3e94822e31fd4d26dad47fb
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668438"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204039"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 PHP 调用文本分析认知服务
 <a name="HOLTop"></a>
@@ -590,3 +590,5 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
  [文本分析概述](../overview.md)  
  [常见问题解答 (FAQ)](../text-analytics-resource-faq.md)
+
+<!-- Update_Description: update metedata properties -->

@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
 origin.date: 10/09/2018
-ms.date: 11/22/2018
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9365c9850a6da363c910e4ef473a5395b1d9bb37
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.openlocfilehash: 8c3c49a8879fb8a208474b7ab732a3327af6a9c7
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131767"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254045"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 开发人员参考
 
@@ -55,7 +55,7 @@ FunctionsProject
 
 有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每个函数都有自己的代码文件 (.fsx) 和绑定配置文件 (function.json)。
 
-[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
+[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
 
 ## <a name="binding-to-arguments"></a>绑定到参数
 对于每个绑定支持某些参数，请参阅 [Azure 函数触发器和绑定开发人员参考](functions-triggers-bindings.md)。 例如，blob 触发器支持的其中一个参数绑定是 POCO，可以使用 F # 记录来表示。 例如：
@@ -97,7 +97,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>日志记录
-若要记录以 F # 输出传送到 [流式传输日志](../app-service/web-sites-enable-diagnostic-log.md) 中，函数应采取 `ILogger` 参数。 为了保持一致，我们建议参数名为 `log`。 例如：
+若要记录以 F # 输出传送到 [流式传输日志](../app-service/troubleshoot-diagnostic-logs.md) 中，函数应采取 `ILogger` 参数。 为了保持一致，我们建议参数名为 `log`。 例如：
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -302,4 +302,4 @@ let mylog(log: ILogger, text: string) =
 - [Azure Functions 缩放](functions-scale.md)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

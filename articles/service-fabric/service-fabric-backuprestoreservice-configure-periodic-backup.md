@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/01/2018
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe8c0d6f6e73b2c448932896f0f1e1096c8fca31
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 4713eee58cec9df12aa180e074b15f6615bb5af5
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083802"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204111"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>了解 Azure Service Fabric 中的定期备份配置
 
@@ -46,7 +46,7 @@ ms.locfileid: "54083802"
 
 * **备份计划**：要执行定期备份的时间或频率。 可以将备份安排为按指定的时间间隔或者每日/每周在固定的时间进行。
 
-    1. **基于频率的备份计划**：如果需要按固定时间间隔执行数据备份，应使用此计划类型。 两个连续备份之间的所需时间间隔是使用 ISO8601 格式定义的。 基于频率的备份计划支持的最高时间间隔分辨率为分钟。
+    1. **基于频率的备份计划**：如果需要按固定时间间隔执行数据备份，应使用此计划类型。 两个连续备份之间的所需时间间隔是使用 ISO8601 格式定义的。 基于频率的备份计划支持的时间间隔分辨率为分钟。
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -111,6 +111,7 @@ ms.locfileid: "54083802"
             ```
 
         2. _使用用户名和密码保护文件共享_，这会将对文件共享的访问权限提供给特定用户。 在指定文件共享存储时还可以指定辅助用户名和辅助密码来提供回退凭据，以防使用主用户名和主密码进行身份验证失败。 在这种情况下，请设置以下字段来配置基于“文件共享”的备份存储。
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -219,9 +220,9 @@ ms.locfileid: "54083802"
 * 如果暂停是在“分区”上应用的，则应当使用[恢复分区备份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API 进行恢复。
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>暂停备份与禁用备份之间的差异
-当特定的应用程序、服务或分区不再需要备份时，应当禁用备份。 用户实际上可以在将“清理备份”参数设置为 true 的情况下调用“禁止备份”请求，这意味着所有现有备份也将被删除。 但是，暂停将用于以下场景：当用户希望暂时关闭备份时，例如，当本地磁盘已满或者上传备份由于已知的网络问题等而失败时。 
+当特定的应用程序、服务或分区不再需要备份时，应当禁用备份。 用户可以在将“清理备份”参数设置为 true 的情况下调用“禁用备份”请求，这意味着所有现有备份也将被删除。 但是，暂停将用于以下场景：当用户希望暂时关闭备份时，例如，当本地磁盘已满或者上传备份由于已知的网络问题等而失败时。 
 
-只能在先前显式为备份启用的级别调用禁用，但是可以在当前直接或通过继承/层次结构为备份启用的任何级别应用暂停。 例如，如果在某个应用程序级别启用了备份，则用户只能在该应用程序级别调用禁用，但是可以在该应用程序上以及该应用程序下的任何服务或分区上调用暂停。 
+只能在先前显式启用备份的级别调用禁用，但是可以在当前直接或通过继承/层次结构启用备份的任何级别应用暂停。 例如，如果在某个应用程序级别启用了备份，则用户只能在该应用程序级别调用禁用，但是可以在该应用程序上以及该应用程序下的任何服务或分区上调用暂停。 
 
 ## <a name="auto-restore-on-data-loss"></a>在数据丢失时自动还原
 服务分区可能会由于意外故障而导致数据丢失。 例如，分区的三个副本中两个副本（包括主副本）的磁盘数据已损坏或被擦除。

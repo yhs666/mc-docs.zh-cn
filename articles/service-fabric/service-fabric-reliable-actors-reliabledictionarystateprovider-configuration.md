@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ce690ecd13cddf840ca653fa3b090acde48b64b1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3e32b57af74476e7eae4b3f4dec4bb4065cb5612
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664176"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463553"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>配置 Reliable Actors - ReliableDictionaryActorStateProvider
 通过更改 Visual Studio 包根目录下的指定执行组件的 Config 文件夹中生成的 settings.xml 文件，可以修改 ReliableDictionaryActorStateProvider 的默认配置。
@@ -131,4 +131,4 @@ MaxRecordSizeInKB 设置用于定义可由复制器写入日志文件的记录�
 
 SharedLogId 和 SharedLogPath 设置始终一起使用，使服务可以使用与节点的默认共享日志不同的共享日志。 为获得最佳效率，应让尽可能多的服务指定相同共享日志。 共享日志文件应置于仅用于共享日志文件的磁盘上，以便减少磁头运动争用。 我们预期这些值只在极少数情况下需要更改。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

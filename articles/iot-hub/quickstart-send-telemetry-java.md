@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 06/22/2018
-ms.date: 01/28/2019
+origin.date: 02/22/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: a3aee5ca59286edebde0b84ea0c4828f24e29314
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 58048762d93fc77b1508b93698e753b67ba213d9
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396775"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560453"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Java)
 
@@ -40,7 +40,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 可以使用以下命令验证开发计算机上 Java 的当前版本：
 
 ```cmd/sh
-java --version
+java -version
 ```
 
 若要生成示例，需安装 Maven 3。 可从 [Apache Maven](https://maven.apache.org/download.cgi) 为多个平台下载 Maven。
@@ -65,7 +65,7 @@ mvn --version
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyJavaDevice**：这是为注册的设备提供的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyJavaDevice**：所注册的设备的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
     ```azurecli
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice

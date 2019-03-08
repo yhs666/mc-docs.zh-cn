@@ -1,5 +1,5 @@
 ---
-title: 快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Hadoop 和 Hive | Microsoft Docs
+title: 快速入门：通过 Azure 门户开始使用 Apache Hadoop 和 Apache Hive - Azure HDInsight
 description: 了解如何使用 Azure 门户创建 HDInsight 群集，以及如何使用 Hive 查询数据。
 keywords: hadoop 入门,hadoop linux,hadoop 快速入门,hive 入门,hive 快速入门
 services: hdinsight
@@ -9,18 +9,18 @@ manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 01/14/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 64b2010d8dd46a889cf4044419ceb79e2dd9524c
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 2ab098f043fadcd0c89d1720ca220731e2410797
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303064"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560502"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -68,7 +68,7 @@ ms.locfileid: "56303064"
     |属性  |说明  |
     |---------|---------|
     |**群集类型**     | 选择“Hadoop” |
-    |**操作系统**     |  选择 Azure 订阅。 |
+    |**操作系统**     | 选择“Linux” |
     |**版本**     | 选择 Hadoop 2.7.3 (HDI 3.6)|
 
     单击“选择”，然后单击“下一步”。

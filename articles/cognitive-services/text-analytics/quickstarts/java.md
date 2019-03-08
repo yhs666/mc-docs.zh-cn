@@ -1,22 +1,22 @@
 ---
 title: 快速入门：使用 Java 调用文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 获取信息和代码示例，以便帮助你快速开始使用 Azure 上认知服务中的文本分析 API。
+description: 获取信息和代码示例，帮助快速开始使用 Azure 上 Microsoft 认知服务中的文本分析 API。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
-origin.date: 10/01/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: fe97327e9804869b53bc60a9adab72cb696b3823
-ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
+origin.date: 02/15/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: b44204b9ef2d84eed3300c01be22cca91efce3c4
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668443"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204054"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Java 调用文本分析认知服务
 <a name="HOLTop"></a>
@@ -813,3 +813,5 @@ public class GetEntities {
 
  [文本分析概述](../overview.md)  
  [常见问题解答 (FAQ)](../text-analytics-resource-faq.md)
+
+<!-- Update_Description: update metedata properties -->

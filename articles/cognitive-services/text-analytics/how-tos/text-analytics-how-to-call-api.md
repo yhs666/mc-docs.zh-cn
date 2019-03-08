@@ -3,20 +3,20 @@ title: 调用文本分析 API
 titlesuffix: Azure Cognitive Services
 description: 了解如何调用文本分析 REST API。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 10/01/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: d912e93263b36c9820995a9b5ef1d7a6be0d4ebf
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: d48047d4d854012bc054e71485ed9687ce23ca47
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858098"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204070"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何调用文本分析 REST API
 
@@ -31,9 +31,7 @@ ms.locfileid: "54858098"
 
 ## <a name="prerequisites"></a>先决条件
 
-必须拥有包含**文本分析 API** 的[认知服务 API 帐户](/cognitive-services/cognitive-services-apis-create-account)。 
-
-注册认知服务时，必须具有为你生成的[终结点和访问密钥](text-analytics-how-to-access-key.md)。 
+必须有带有文本分析 API 的[认知服务 API 帐户](/cognitive-services/cognitive-services-apis-create-account)，以及在注册认知服务时生成的[终结点和访问密钥](text-analytics-how-to-access-key.md)。 
 
 <a name="json-schema"></a>
 
@@ -103,3 +101,5 @@ ms.locfileid: "54858098"
 
 > [!div class="nextstepaction"]
 > [检测语言](text-analytics-how-to-language-detection.md)
+
+<!-- Update_Description: wording update -->

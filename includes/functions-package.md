@@ -7,22 +7,22 @@ manager: cfowler
 ms.service: functions
 ms.topic: include
 origin.date: 05/23/2018
-ms.date: 07/24/2018
+ms.date: 03/04/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 6ee553b22a453551483b931a3b8e823438154fc8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 12cba57f77088a32790347d540cd3bcdfe0b1e42
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643854"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254068"
 ---
 下表说明了如何在每个开发环境中添加对此绑定的支持。
 
 | 开发环境               | 添加支持 <br>Functions 1.x  |
 |----------------------|----------------|---------------|
-|本地开发 - C# 类库       | [安装包](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|本地开发 - C# 类库       | [安装包](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) | 
 |本地开发 - C# 脚本、JavaScript、F# |自动         |
 |门户开发|  自动    |
 
-<!-- ms.date: 07/24/2018 -->
+<!-- ms.date: 03/04/2019 -->

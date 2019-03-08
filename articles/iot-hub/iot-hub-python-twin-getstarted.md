@@ -2,22 +2,22 @@
 title: Azure IoT 中心设备孪生入门 (Python)
 description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用用于 Python 的 Azure IoT SDK 来实现一个模拟设备应用，并实现可添加标记和运行 IoT 中心查询的一个服务应用。
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/04/2017
-ms.date: 12/03/2018
+origin.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9597dfbd4b4f611fe78c4d49718c1326651b2c6a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2a04b442abbf054fadd9a5580e8b6aedef94b31a
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674846"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560464"
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

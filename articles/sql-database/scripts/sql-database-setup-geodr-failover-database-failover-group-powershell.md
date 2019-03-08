@@ -1,5 +1,5 @@
 ---
-title: PowerShell 示例 - 异地复制故障转移组 - 独立 Azure SQL 数据库 | Microsoft Docs
+title: PowerShell 示例 - 异地复制故障转移组 - 单个 Azure SQL 数据库 | Microsoft Docs
 description: 为 Azure SQL 数据库中的单一数据库设置活动异地复制故障转移组并进行故障转移的 Azure PowerShell 示例脚本。
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/25/2019
-md.date: 02/25/2019
-ms.openlocfilehash: 08c97a292a8d2ef82faa4dee7788c7b09a004526
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/08/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: ff25b6dcd333e4dbb78aaed1d80c2145a7973a93
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663703"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347202"
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>使用 PowerShell 为 Azure SQL 数据库中的单一数据库配置活动异地复制故障转移组
 

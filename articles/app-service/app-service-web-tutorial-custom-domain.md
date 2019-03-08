@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/18/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 5c44cee0e21c06d338508fa0c6a8722e7b43fc5a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 78026e285b0adf7a9f41af9f019cc8c168c47768
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083604"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347074"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教程：将现有的自定义 DNS 名称映射到 Azure 应用服务
 
@@ -198,6 +198,15 @@ ms.locfileid: "54083604"
 | A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
 | TXT | `@` | `<app_name>.chinacloudsites.cn` |
 
+> [!NOTE]
+> 若要使用 A 记录（而不是建议的 [CNAME 记录](#map-a-cname-record)）添加子域（如 `www.contoso.com`），A 记录和 TXT 记录应改为类似于下表：
+>
+> | 记录类型 | 主机 | 值 |
+> | - | - | - |
+> | A | `www` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
+> | TXT | `www` | `<app_name>.chinacloudsites.cn` |
+>
+
 添加记录后，DNS 记录页面看起来如以下示例：
 
 ![DNS 记录页](./media/app-service-web-tutorial-custom-domain/a-record.png)
@@ -292,7 +301,7 @@ ms.locfileid: "54083604"
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-not-found"></a>解决 404“未找到”错误
+## <a name="resolve-404-not-found"></a>解决“404 未找到”问题
 
 如果在浏览到自定义域的 URL 时收到 HTTP 404（未找到）错误，请验证域是否使用 <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> 对应用的 IP 地址进行解析。 如果没有，则可能是以下原因之一造成的：
 
@@ -336,10 +345,12 @@ az webapp config hostname add \
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 以下命令将配置的自定义 DNS 名称添加到应用服务应用。 
 
 ```PowerShell  
-Set-AzureRmWebApp `
+Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
     -HostNames @("<fully_qualified_domain_name>","<app_name>.chinacloudsites.cn") 
@@ -362,5 +373,3 @@ Set-AzureRmWebApp `
 
 > [!div class="nextstepaction"]
 > [将现有的自定义 SSL 证书绑定到 Azure 应用服务](app-service-web-tutorial-custom-ssl.md)
-
-<!--Update_Description: add the includes file of accessing DNS record with domain provider-->

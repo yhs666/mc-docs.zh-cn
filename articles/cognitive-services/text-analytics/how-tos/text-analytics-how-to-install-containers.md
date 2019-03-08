@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 02/21/2019
+origin.date: 02/21/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 90c19a1c689c49db7c6e47a3b1bc3995c3f37f61
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 8ddb1e74bf70e87fb42c10067cc331d1c7521d1d
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582773"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204055"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安装和运行文本分析容器
 
@@ -130,6 +130,8 @@ ApiKey={BILLING_KEY}
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](#billing)。
+
+[!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查询容器的预测终结点
 

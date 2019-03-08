@@ -14,14 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 02/14/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: f625ceeee3ec4ff09ca2b6dbe3e12bf5da7e20f2
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b24ff9228a76d8ee1095fd915e4718d06894eb59
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262193"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462370"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
@@ -421,7 +422,7 @@ ms.locfileid: "56262193"
 如果希望应用程序仅接受属于特定 Azure AD 实例的帐户（包括该示例的来宾帐户）进行登录，请按照下列步骤操作：
 
 1. 使用 `Common` 将 web.config 中的 `Tenant` 参数替换为组织的租户名称 - 例如 contoso.partner.onmschina.cn。
-1. 将 [OWIN Startup 类](#configure-the-authentication-pipeline)中的 `ValidateIssuer` 参数更改为 `true`。
+1. 将 [OWIN Startup 类](#step-4-configure-the-authentication-pipeline)中的 `ValidateIssuer` 参数更改为 `true`。
 
 要仅允许用户来自特定组织的列表，请按照下列步骤操作：
 

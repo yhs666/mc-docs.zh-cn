@@ -13,44 +13,47 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 11/21/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: f60cc35d345b6f31c4cc15644d7121631fd59ee8
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 51fbb145c97386dde0b667f608ec948faf056dcc
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083940"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346989"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>使用 PowerShell 从备份中还原 Web 应用
 
 此示例脚本从现有的 Web 应用中检索以前已完成的备份，然后通过重写其内容将其还原。 
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzureRmAccount` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount` 创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
-$resourceGroupName = "myResourceGroup" $webappname = "<replace-with-your-app-name>"
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+```powershell
+$resourceGroupName = "myResourceGroup"
+$webappname = "<replace-with-your-app-name>"
 
 
-# <a name="list-statuses-of-all-backups-that-are-complete-or-currently-executing"></a>列出已完成或当前正在执行的所有备份的状态。
-Get-AzureRmWebAppBackupList -ResourceGroupName $resourceGroupName -Name $webappname
+# List statuses of all backups that are complete or currently executing.
+Get-AzWebAppBackupList -ResourceGroupName $resourceGroupName -Name $webappname
 
-# <a name="note-the-backupid-property-of-the-backup-you-want-to-restore"></a>请注意要还原的备份的 BackupID 属性
+# Note the BackupID property of the backup you want to restore
 
-# <a name="get-the-backup-object-that-you-want-to-restore-by-specifying-the-backupid"></a>通过指定 BackupID 获取要还原的备份对象
-$backup = (Get-AzureRmWebAppBackupList -ResourceGroupName $resourceGroupName -Name $webappname | where {$_.BackupId -eq <replace-with-BackupID>}) 
+# Get the backup object that you want to restore by specifying the BackupID
+$backup = (Get-AzWebAppBackupList -ResourceGroupName $resourceGroupName -Name $webappname | where {$_.BackupId -eq <replace-with-BackupID>}) 
 
-# <a name="restore-the-app-by-overwriting-it-with-the-backup-data"></a>通过使用备份数据重写应用来还原应用
-$backup | Restore-AzureRmWebAppBackup -Overwrite
-
+# Restore the app by overwriting it with the backup data
+$backup | Restore-AzWebAppBackup -Overwrite
+```
 ## <a name="clean-up-deployment"></a>清理部署 
 
 如果不再需要 Web 应用，请使用以下命令删除资源组、Web 应用和所有相关的资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
+Remove-AzResourceGroup -Name $resourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -59,8 +62,8 @@ Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmWebAppBackupList](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | 获取 Web 应用的备份列表。 |
-| [Restore-AzureRmWebAppBackup](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/restore-azurermwebappbackup) | 从以前完成的备份中还原 Web 应用。 |
+| [Get-AzWebAppBackupList](https://docs.microsoft.com/powershell/module/az.websites/get-azwebappbackuplist) | 获取 Web 应用的备份列表。 |
+| [Restore-AzWebAppBackup](https://docs.microsoft.com/powershell/module/az.websites/restore-azwebappbackup) | 从以前完成的备份中还原 Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,22 +1,22 @@
 ---
-title: 快速入门：使用 C# 分析文本内容中是否存在令人反感的材料
+title: 快速入门：使用 C# 分析文本内容 - 内容审查器
 titlesuffix: Azure Cognitive Services
 description: 如何使用适用于 .NET 的内容审查器 SDK 分析文本内容中是否存在各种令人反感的材料
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-origin.date: 10/31/2018
-ms.date: 01/22/2019
+origin.date: 02/07/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 17c3a24cf36f62c7a4743749cdd0858d08d099ec
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 02772aa78c02cffc58913c3a8c2084902924e9cc
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858050"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204077"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入门：使用 C# 分析文本内容中是否存在令人反感的材料 
 
@@ -36,9 +36,9 @@ ms.locfileid: "54858050"
 1. 在 Visual Studio 中创建新的**控制台应用 (.NET Framework)** 项目并将其命名为 **TextModeration**。 
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
 1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包：
-    - Microsoft.Azure.CognitiveServices.ContentModerator
-    - Microsoft.Rest.ClientRuntime
-    - Newtonsoft.Json
+    - `Microsoft.Azure.CognitiveServices.ContentModerator`
+    - `Microsoft.Rest.ClientRuntime`
+    - `Newtonsoft.Json`
 
 ## <a name="add-text-moderation-code"></a>添加文本审查代码
 
@@ -246,3 +246,4 @@ Autocorrect typos, check for matching terms, PII, and classify.
 > [!div class="nextstepaction"]
 > [文本审查指南](text-moderation-api.md)
 
+<!-- Update_Description: wording update -->

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: Carlrab
 manager: digimobile
-origin.date: 01/15/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: b1313408f60a5aaa70bc5962e34deee1e4e1d8cd
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/18/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 533131b46468e4172623a29e4ffd2c00a368936f
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663518"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347170"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
@@ -36,21 +36,21 @@ ms.locfileid: "56663518"
 
 1. 在 Azure 门户的左上角选择“创建资源”。
 2. 找到“托管实例”，然后选择“Azure SQL 托管实例”。
-3. 选择“创建”。
+3. 选择“创建” 。
 
    ![创建托管实例](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. 根据下表中的说明，在“托管实例”窗体中填充请求的信息：
+4. 根据下表中的信息，在“SQL 托管实例”窗体中填充要求的信息：
 
    | 设置| 建议的值 | Description |
    | ------ | --------------- | ----------- |
    | **订阅** | 订阅 | 你有权在其中创建新资源的订阅 |
-   |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
-   |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
+   |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解有效名称。|
+   |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解有效名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
    |**密码**|任何有效的密码|密码必须至少 16 个字符，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
    |**排序规则**|要为托管实例使用的排序规则|如果从 SQL Server 迁移数据库，请使用 `SELECT SERVERPROPERTY(N'Collation')` 检查源排序规则并使用该值。 有关排序规则的信息，请参阅[服务器级别排序规则](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
    |**位置**|你要在其中创建托管实例的位置|中国东部、中国东部 2、中国北部、中国北部 2|
-   |**虚拟网络**|选择“创建新的虚拟网络”或有效的虚拟网络和子网。| 如果网络/子网是灰色的，则必须先[对其进行修改以满足网络要求](sql-database-managed-instance-configure-vnet-subnet.md)，然后再选择它作为新托管实例的目标。 若要了解为托管实例配置网络环境的要求，请参阅[为 Azure SQL 数据库托管实例配置 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
+   |**虚拟网络**|选择“创建新的虚拟网络”或有效的虚拟网络和子网。| 如果网络/子网是灰色的，则必须先[对其进行修改以满足网络要求](sql-database-managed-instance-configure-vnet-subnet.md)，然后再选择它作为新托管实例的目标。 若要了解为托管实例配置网络环境的要求，请参阅[为托管实例配置 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
    |**资源组**|新的或现有的资源组|如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。|
 
    ![托管实例名称窗体](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
@@ -73,22 +73,40 @@ ms.locfileid: "56663518"
 
 在部署成功完成后，查看创建的资源，并检索完全限定的服务器名称以在后续快速入门中使用。
 
-1. 打开你的托管实例的资源组，并查看在[创建托管实例](#create-a-managed-instance)快速入门中创建的其资源。
-
-2. 选择你的托管实例。
+1. 打开托管实例的资源组，并查看在[创建托管实例](#create-a-managed-instance)快速入门中创建的资源。
 
    ![托管实例资源](./media/sql-database-managed-instance-get-started/resources.png)
 
-3. 在“概览”选项卡上，找到“主机”属性并复制托管实例的完全限定主机地址。
+2. 选择路由表以查看创建的用户定义的路由 (UDR) 表。
 
-   ![托管实例资源](./media/sql-database-managed-instance-get-started/host-name.png)
+   ![路由表](./media/sql-database-managed-instance-get-started/route-table.png)
+
+3. 在路由表中，查看用于从托管实例虚拟网络或在其中路由流量的条目。 若要手动创建或配置路由表，必须确保在路由表中创建这些条目。
+
+   ![用于从 MI 子网路由到本地的条目](./media/sql-database-managed-instance-get-started/udr.png)
+
+4. 返回资源组并选择网络安全组，查看安全规则。
+
+   ![Network-security-group](./media/sql-database-managed-instance-get-started/network-security-group.png)
+
+5. 查看入站和出站安全规则。
+
+   ![安全规则](./media/sql-database-managed-instance-get-started/security-rules.png)
+
+6. 返回资源组并选择托管实例。
+
+   ![托管实例](./media/sql-database-managed-instance-get-started/managed-instance.png)
+
+7. 在“概览”选项卡上，找到“主机”属性并复制托管实例的完全限定主机地址，以供在下一个快速入门中使用。
+
+   ![主机名](./media/sql-database-managed-instance-get-started/host-name.png)
 
    名称类似于 **your_machine_name.a1b2c3d4e5f6.database.chinacloudapi.cn**。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 若要了解如何连接到托管实例，请参阅：
-  - 如需应用程序的连接选项的概述，请参阅[将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md)。
-  - 有关展示了如何从 Azure 虚拟机连接到托管实例的快速入门，请参阅[配置 Azure 虚拟机连接](sql-database-managed-instance-configure-vm.md)。
-  - 如需介绍如何使用点到站点连接从本地客户端计算机连接到托管实例的快速入门，请参阅[配置点到站点连接](sql-database-managed-instance-configure-p2s.md)。
+  - 有关应用程序的连接选项概述，请参阅[将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md)。
+  - 有关介绍如何从 Azure 虚拟机连接到托管实例的快速入门，请参阅[配置 Azure 虚拟机连接](sql-database-managed-instance-configure-vm.md)。
+  - 有关介绍如何使用点到站点连接从本地客户端计算机连接到托管实例的快速入门，请参阅[配置点到站点连接](sql-database-managed-instance-configure-p2s.md)。
 - 若要将现有 SQL Server 数据库从本地还原到托管实例，可以使用 [T-SQL RESTORE 命令](sql-database-managed-instance-get-started-restore.md)从数据库备份文件还原。

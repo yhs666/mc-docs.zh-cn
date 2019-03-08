@@ -11,20 +11,20 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 548776639d5a257719139c7e970f63f64f4dc1da
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/08/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 9ed230ecc0fa4442b91581111c6ee61981f4e4f1
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663852"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347197"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL 数据库服务器及其管理
 
 ## <a name="what-is-an-azure-sql-database-server"></a>什么是 Azure SQL 数据库服务器
 
-SQL 数据库服务器是用作多个独立或[入池](sql-database-elastic-pool.md)数据库的中心管理点的逻辑构造，包括[登录名](sql-database-manage-logins.md)、[防火墙规则](sql-database-firewall-configure.md)、[审核规则](sql-database-auditing.md)、[威胁检测策略](sql-database-threat-detection.md)和[故障转移组](sql-database-auto-failover-group.md)。SQL 数据库服务器可以位于与其资源组不同的区域。 必须先创建 SQL 数据库服务器，然后才能创建 Azure SQL 数据库。 在 SQL 数据库服务器所在的同一区域内创建由 SQL 数据库服务器托管的所有数据库。
+SQL 数据库服务器是用作多个单一或[入池](sql-database-elastic-pool.md)数据库的中心管理点的逻辑构造，包括[登录名](sql-database-manage-logins.md)、[防火墙规则](sql-database-firewall-configure.md)、[审核规则](sql-database-auditing.md)、[威胁检测策略](sql-database-threat-detection.md)和[故障转移组](sql-database-auto-failover-group.md)。SQL 数据库服务器可以位于与其资源组不同的区域。 必须先创建 SQL 数据库服务器，然后才能创建 Azure SQL 数据库。 在 SQL 数据库服务器所在的同一区域内创建由 SQL 数据库服务器托管的所有数据库。
 
 SQL 数据库服务器不同于在本地环境中可能已熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务不保证数据库相对于管理它们的 SQL 数据库服务器的位置，并且不公开实例级访问权限或功能。
 
@@ -188,5 +188,5 @@ SQL 数据库服务器：
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解如何将 SQL Server 数据库迁移到 Azure，请参阅[迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
+- 若要详细了解如何将 SQL Server 数据库迁移到 Azure，请参阅[迁移到 Azure SQL 数据库](sql-database-single-database-migrate.md)。
 - 有关受支持功能的信息，请参阅[功能](sql-database-features.md)。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 03/04/0219
 ms.author: v-yiso
-ms.openlocfilehash: a6257a625cef33c5c2b1e94eb528a22c90eb3bff
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a640180a247ce540d7f4487a09978f8200880735
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665690"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560501"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -515,7 +515,7 @@ Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster `
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>支持 HDInsight 群集上使用的开源软件
 
-Azure HDInsight 服务使用围绕 Apache Hadoop 形成的开源技术生态系统。 Azure 为开源技术提供一般级别的支持。 有关详细信息，请参阅 [Azure 支持常见问题解答网站](https://www.azure.cn/support/faq/)上的**支持范围**部分。 HDInsight 服务为内置组件提供附加的支持级别。
+Azure HDInsight 服务使用围绕 Apache Hadoop 形成的开源技术生态系统。 Azure 为开源技术提供一般级别的支持。 有关详细信息，请参阅 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)的“支持范围”部分。 HDInsight 服务为内置组件提供附加的支持级别。
 
 在 HDInsight 服务中可以使用两种类型的开源组件：
 
@@ -640,4 +640,5 @@ sudo pip install azure-storage==0.20.0
 * [将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "群集创建过程中的阶段"
+
 <!--Update_Description: wording update: change 'blade' into 'sections'-->

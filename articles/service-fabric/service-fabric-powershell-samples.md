@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 origin.date: 11/29/2018
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 35dab14f90079d7e77c32cee2bd8e74863694449
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 382aac87ab49e727f8ffae51c7aa8cc32b5b9606
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083603"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463464"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
@@ -45,4 +45,4 @@ ms.locfileid: "54083603"
 | [升级应用程序](./scripts/service-fabric-powershell-upgrade-application.md)| 升级应用程序。|
 | [删除应用程序](./scripts/service-fabric-powershell-remove-application.md)| 从群集中删除应用程序。|
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

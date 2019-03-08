@@ -8,15 +8,15 @@ ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.topic: conceptual
 ms.workload: powerbi
-origin.date: 09/20/2017
-ms.date: 09/26/2018
+origin.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 69fdb3623a1d8df08732ecbf70f1542ecbd09bd1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 418d2d464bd0a5de4eff287265d1904912054350
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646673"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347088"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>使用 JavaScript API 与 Power BI 报表进行交互
 
@@ -64,7 +64,7 @@ JavaScript API 能发现报表中的所有页并设置当前页。 请尝试 [�
 #### <a name="basic-filters"></a>基本筛选器
 基本筛选器置于列或层次结构级别，包含要包括或排除的值的列表。
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
@@ -93,7 +93,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 - IsBlank
 - IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
   $schema: "http://powerbi.com/product/schema#advanced",
   target: {

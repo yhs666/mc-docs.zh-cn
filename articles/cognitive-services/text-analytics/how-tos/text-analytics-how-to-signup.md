@@ -1,22 +1,22 @@
 ---
 title: 注册文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 说明如何在注册后使用文本分析以及如何在受限情况下运行。
+description: 有关注册和使用文本分析服务的说明。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: e52a184487b43d95fd959287f40fe8979c7aafbe
-ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 5eefdbfb8952f3b80e42c2a00247b0e80645b6c8
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668442"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204196"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>如何注册文本分析 API
 
@@ -46,3 +46,5 @@ ms.locfileid: "55668442"
 
 > [!div class="nextstepaction"]
 > [获取访问密钥](text-analytics-how-to-access-key.md)
+
+<!-- Update_Description: update metedata properties -->

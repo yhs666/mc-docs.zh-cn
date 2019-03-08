@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/16/2018
-ms.date: 02/22/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9a2601bf6ac54616bc5979ea69793cc7e1d22a32
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: cb2c7db533b3a9bb7d432ed7289a420cd588842d
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665618"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254033"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -110,7 +110,7 @@ Python 函数项目的文件夹结构如下所示：
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须使用 Azure Functions Core Tools [注册绑定扩展](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 
+Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须使用 Azure Functions Core Tools [注册绑定扩展](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 
 
 在 Azure 中将 Functions 项目部署到函数应用时，FunctionApp 文件夹的整个内容应包含在包中，但不包含该文件夹本身。
 
@@ -352,4 +352,4 @@ script:
 - [存储绑定](functions-bindings-storage-queue.md)
 - [计时器触发器](functions-bindings-timer.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

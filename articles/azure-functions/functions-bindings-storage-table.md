@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 01/15/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0111ede5fde718423e28dcb99ee3c1eb99205d75
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 78c82a31e7d1d32750aa0966eb1719380eeb30ad
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334213"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254051"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -466,7 +466,7 @@ public int run(
   }
   ```
 
-  有关完整示例，请参阅[输入 - C# 示例](#input---c-example)。
+  有关完整示例，请参阅“输入 - C#”示例。
 
 - [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -803,4 +803,4 @@ public static MyPoco TableOutput(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

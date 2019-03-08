@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/29/2018
-ms.date: 08/20/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 146024565850755354102174e1cab9abd3172919
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b60baf6bebc96952e4808ba0d60adb488bdf48ff
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645795"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204156"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 开发 C# Service Fabric 应用程序
 
@@ -67,7 +67,7 @@ sudo code . --user-data-dir='.'
 ## <a name="deploy-the-application-to-the-local-cluster"></a>将应用程序部署到本地群集
 生成应用程序后，可将其部署到本地群集。 
 
-1. 在**命令面板**中，选择“Service Fabric: 部署应用程序(Localhost)”命令。 安装过程的输出将发送到集成式终端。
+1. 从**命令面板**中，选择“Service Fabric: 部署应用程序(Localhost)”命令。 安装过程的输出将发送到集成式终端。
 
    ![VS Code 中的“部署应用程序”命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -108,11 +108,10 @@ sudo code . --user-data-dir='.'
 
    ![从调试程序断开连接](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
 
-7. 完成调试后，可以使用“Service Fabric: 删除应用程序”命令以从本地群集中删除 CounterService 应用程序。 
+7. 完成调试后，可以使用“Service Fabric: 删除应用程序”命令从本地群集中删除 CounterService 应用程序。 
 
 ## <a name="next-steps"></a>后续步骤
 
 * 了解如何[使用 VS Code 开发和调试 Java Service Fabric 应用程序](./service-fabric-develop-java-applications-with-vs-code.md)。
 
-<!-- Update_Description: new articles on service fabric develop csharp application with visual studio code  -->
-<!--ms.date: 08/20/2018-->
+<!-- Update_Description: wording update -->

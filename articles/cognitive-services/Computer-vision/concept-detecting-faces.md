@@ -4,28 +4,31 @@ titleSuffix: Azure Cognitive Services
 description: 与计算机视觉 API 的人脸检测功能相关的概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 02/11/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 54b26c4b11f0a28cbd5e8a326d79a32a4e912c46
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 06b8761c5300a886ce42a27d5b5b940f06b029a3
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083654"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204164"
 ---
 # <a name="face-detection-with-computer-vision"></a>使用计算机视觉进行人脸检测
 
-计算机视觉检测图片中的人脸，并为每个检测到的脸部生成年龄、性别和人脸边框。 计算机视觉提供可以在[人脸](/cognitive-services/face/)中发现的部分功能。可以使用人脸服务进行更详细的分析，例如人脸识别和姿势检测。  
+计算机视觉可检测图像中的人脸，并为每个检测到的人脸生成年龄、性别和人脸边框。 
+
+> [!NOTE]
+> Azure [人脸](/cognitive-services/face/)服务也提供此功能。 有关人脸分析（包括人脸识别和姿势检测）的详细信息，请参阅此替代方案。 
 
 ## <a name="face-detection-examples"></a>人脸检测示例
 
-第一个示例演示了计算机视觉为包含单个人脸的图像返回的 JSON 响应。
+以下示例演示了计算机视觉为包含单个人脸的图像返回的 JSON 响应。
 
 ![视觉分析屋顶的女人人脸](./Images/woman_roof_face.png)
 
@@ -111,6 +114,6 @@ ms.locfileid: "54083654"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解关于[检测特定于域的内容](concept-detecting-domain-content.md)的概念。
+有关如何使用人脸检测功能的详细信息，请参阅[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)参考文档。
 
 <!-- Update_Description: wording update -->

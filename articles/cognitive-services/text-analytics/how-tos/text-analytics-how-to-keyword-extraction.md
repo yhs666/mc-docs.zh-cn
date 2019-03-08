@@ -1,23 +1,23 @@
 ---
-title: 如何使用文本分析 REST API（Azure 上的 Microsoft 认知服务）进行关键短语提取 | Microsoft Docs
-description: 本演练教程介绍了如何使用 Azure 上 Microsoft 认知服务中的文本分析 REST API 提取关键短语。
+title: 使用文本分析 REST API 进行关键短语提取 | Microsoft Docs
+description: 如何通过 Azure 认知服务使用文本分析 REST API 提取关键短语。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: ca1262158844d776fe383bf890eaafdbad659bf7
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 946019d174d6e5c136a4e1e4daa774881e5fbc08
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858100"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204181"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>示例：如何使用文本分析提取关键短语
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>示例：如何使用文本分析提取关键短语
 
 [关键短语提取 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) 用于计算非结构化的文本，并针对每个 JSON 文档返回关键短语列表。 
 
@@ -30,13 +30,13 @@ ms.locfileid: "54858100"
 
 ## <a name="preparation"></a>准备工作
 
-提供的文本区块越大，关键短语提取效果越好。 这恰好与情绪分析（文本区块越小，效果越好）相反。 若要使两种操作都能获得最佳结果，请考虑相应地重建输入。
+提供的要处理的文本量越大，关键短语提取效果越好。 这恰好与情绪分析（文本量越小，效果越好）相反。 要从两个操作获取最佳结果，请考虑相应地重建输入。
 
 必须拥有以下格式的 JSON 文档：ID、文本、语言
 
 每个文档的大小必须少于 5,000 个字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 以下示例例举了可能提交以进行关键短语提取的内容。
 
-```
+```json
     {
         "documents": [
             {
@@ -93,11 +93,11 @@ ms.locfileid: "54858100"
 
 所有 POST 请求都将返回 JSON 格式的响应，其中包含 ID 和检测到的属性。
 
-系统会立即返回输出。 可以将结果流式传输到接受 JSON 的应用程序，或者将输出保存到本地系统上的文件中，然后将其导入到允许对数据进行排序、搜索和操作的应用程序。
+系统会立即返回输出。 可将结果流式传输到接受 JSON 的应用程序，或者将输出保存到本地系统上的文件中，然后将其导入到允许对数据进行排序、搜索和操作的应用程序。
 
 关键短语提取输出的示例如下所示：
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [
@@ -163,3 +163,6 @@ ms.locfileid: "54858100"
 
 > [!div class="nextstepaction"]
 > [文本分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+
+<!-- Update_Description: wording update -->
+

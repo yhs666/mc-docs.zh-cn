@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 06/22/2018
-ms.date: 12/03/2018
+origin.date: 02/22/2019
+ms.date: 03/158/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2f3244affadec8fc2fc21f4242c299556af81011
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 675ad4a44b666c45bc7e8dea273365c09765a2e9
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736681"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560473"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入门：控制连接到 IoT 中心的设备 (Java)
 
@@ -43,7 +43,7 @@ IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入�
 可以使用以下命令验证开发计算机上 Java 的当前版本：
 
 ```cmd/sh
-java --version
+java -version
 ```
 
 若要生成示例，需安装 Maven 3。 可从 [Apache Maven](https://maven.apache.org/download.cgi) 为多个平台下载 Maven。
@@ -72,7 +72,7 @@ mvn --version
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyJavaDevice**：此值是为注册的设备提供的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyJavaDevice**：所注册的设备的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
     ```azurecli
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
@@ -85,7 +85,7 @@ mvn --version
 
     ```azurecli
     az iot hub device-identity show-connection-string \
-      -hub-name YourIoTHubName \
+      --hub-name YourIoTHubName \
       --device-id MyJavaDevice \
       --output table
     ```
@@ -98,7 +98,7 @@ mvn --version
 
 ## <a name="retrieve-the-service-connection-string"></a>检索服务连接字符串
 
-还需一个_服务连接字符串_，以便后端应用程序能够连接到 IoT 中心检索消息。 以下命令检索 IoT 中心的服务连接字符串：
+还需一个服务连接字符串，以便后端应用程序能够连接到 IoT 中心并检索消息。 以下命令检索 IoT 中心的服务连接字符串：
    
 **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 

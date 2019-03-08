@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/16/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 62ddb56a1218236dc96a75014684b92db4a77d56
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 3bff246d9ccf22a5609acb82629efdde5904c2ba
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334198"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254034"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Durable Functions 的函数类型和功能概述 (Azure Functions)
 
@@ -201,4 +201,4 @@ module.exports = async function(context, statusUrl) {
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

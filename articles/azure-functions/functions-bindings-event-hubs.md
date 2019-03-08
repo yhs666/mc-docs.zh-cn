@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/08/2017
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: bc4de2e8a28c8770e8b3e6b4e7463f904072ed37
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 1c0e602e53f77e79c9754260af94da86aa56d878
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665478"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254062"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中心绑定
 
@@ -430,7 +430,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ## <a name="trigger---event-metadata"></a>触发器 - 事件元数据
 
-事件中心触发器提供了几个[元数据属性](functions-triggers-bindings.md#binding-expressions---trigger-metadata)。 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [EventData](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventdata) 类的属性。
+事件中心触发器提供了几个[元数据属性](./functions-bindings-expressions-patterns.md)。 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [EventData](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventdata) 类的属性。
 
 |属性|类型|说明|
 |--------|----|-----------|
@@ -742,4 +742,4 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

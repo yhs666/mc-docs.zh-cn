@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/16/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 50a1c3becccd18c3795da34351f73c8865f9e735
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: c73911ede9063c6481808c182b63a32799c91a9a
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334236"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254055"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts"></a>Durable Functions 模式和技术概念
 
@@ -410,3 +410,4 @@ Durable Functions 扩展使用 Azure 存储队列、表和 Blob 来持久保存�
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html
 
+<!-- Update_Description: update metedata properties -->

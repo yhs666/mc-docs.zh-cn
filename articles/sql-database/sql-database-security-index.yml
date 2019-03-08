@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c6e89aaaa2152b221204affe152af0ba0731da8d
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: e360bb34cd8efd04590b2d65e385ec18ca994d30
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663710"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347061"
 documentType: LandingData
 title: Azure SQL 数据库 - 高级安全
 metadata:
@@ -12,6 +12,7 @@ metadata:
   title: Azure SQL 数据库 - 高级安全
   meta.description: Learn about the Advanced security capabilities of Azure SQL Database.
   services: sql-database
+  ms.subservice: security
   author: WenJason
   manager: digimobile
   requires-business-manager-approval: false
@@ -20,7 +21,7 @@ metadata:
   ms.devlang: 
   ms.topic: overview
   origin.date: 02/07/2019
-  ms.date: 02/25/2019
+  ms.date: 03/11/2019
   ms.author: v-jay
 sections:
 - items:
@@ -70,7 +71,7 @@ sections:
       - href: /sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
     - title: 在单一数据库上设置数据库服务器防火墙规则
       values:
-      - href: /sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-the-azure-portal
+      - href: /sql-database/sql-database-firewall-configure
       - href: /sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-cli
       - href: /sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-powershell
     - title: 管理漏洞评估规则

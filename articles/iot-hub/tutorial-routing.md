@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 09/11/2018
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 514f9e879a89dd69f7dfa1d0cae403e59abd0e1f
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 6018500e7e7a1e350f527f493e35934c3f90d8ee
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396813"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560493"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
@@ -38,6 +38,7 @@ ms.locfileid: "54396813"
 
 ## <a name="prerequisites"></a>先决条件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 - Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 - 安装 [Visual Studio](https://www.visualstudio.com/)。 
@@ -185,21 +186,21 @@ $iotDeviceName = "Contoso-Test-Device"
 
 # Create the resource group to be used 
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
 $iotHubName = "ContosoTestHub$(Get-Random)"
 Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
-New-AzureRmIotHub -ResourceGroupName $resourceGroup `
+New-AzIotHub -ResourceGroupName $resourceGroup `
     -Name $iotHubName `
     -SkuName "S1" `
     -Location $location `
     -Units 1
 
 # Add a consumer group to the IoT hub for the 'events' endpoint.
-Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
+Add-AzIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
@@ -211,7 +212,7 @@ Write-Host "storage account name is " $storageAccountName
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
 #   to be used when creating a container.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
     -Name $storageAccountName `
     -Location $location `
     -SkuName Standard_LRS `
@@ -219,7 +220,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $storageContext = $storageAccount.Context 
 
 # Create the container in the storage account.
-New-AzureStorageContainer -Name $containerName `
+New-AzStorageContainer -Name $containerName `
     -Context $storageContext
 
 # The Service Bus namespace must be globally unique,
@@ -228,7 +229,7 @@ $serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
 Write-Host "Service Bus namespace is " $serviceBusNamespace
 
 # Create the Service Bus namespace.
-New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
+New-AzServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
 
@@ -238,7 +239,7 @@ $serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
 Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
-New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
+New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
     -Namespace $serviceBusNamespace `
     -Name $serviceBusQueueName 
 
@@ -604,10 +605,10 @@ az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>使用 PowerShell 清理资源
 
-若要删除资源组，使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令。 $resourceGroup 在本教程开始时就已设置为“ContosoIoTRG1”。
+若要删除资源组，请使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令。 $resourceGroup 在本教程开始时就已设置为“ContosoIoTRG1”。
 
 ```azurepowershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 

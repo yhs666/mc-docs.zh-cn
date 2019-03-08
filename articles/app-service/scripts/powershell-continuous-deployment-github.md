@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 2b2b7e6afc552c1a808ad27f90a4754e61ddc966
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 1391feb04b83d073ece7632b1a02ce16f31a41c3
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083923"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347219"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>从 GitHub 使用连续部署创建 Web 应用
 
@@ -35,6 +35,8 @@ ms.locfileid: "54083923"
 
 ## <a name="sample-script"></a>示例脚本
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```PowerShell
 $gitrepo="<replace-with-URL-of-your-own-GitHub-repo>"
 $gittoken="<replace-with-a-GitHub-access-token>"
@@ -42,21 +44,21 @@ $webappname="mywebapp$(Get-Random)"
 $location="China North"
 
 # Create a resource group.
-New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+New-AzResourceGroup -Name myResourceGroup -Location $location
 
 # Create an App Service plan in Free tier.
-New-AzureRmAppServicePlan -Name $webappname -Location $location `
+New-AzAppServicePlan -Name $webappname -Location $location `
 -ResourceGroupName myResourceGroup -Tier Free
 
 # Create a web app.
-New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
+New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
 -ResourceGroupName myResourceGroup
 
 # SET GitHub
 $PropertiesObject = @{
-    token = $token;
+    token = $gittoken;
 }
-Set-AzureRmResource -PropertyObject $PropertiesObject `
+Set-AzResource -PropertyObject $PropertiesObject `
 -ResourceId /providers/Microsoft.Web/sourcecontrols/GitHub -ApiVersion 2015-08-01 -Force
 
 # Configure GitHub deployment from your GitHub repo and deploy once.
@@ -64,17 +66,17 @@ $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
 }
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
+Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
 -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web `
 -ApiVersion 2015-08-01 -Force
-```
 
+```
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -83,10 +85,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
-| [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | 修改资源组中的资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 修改资源组中的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

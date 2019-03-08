@@ -9,14 +9,14 @@ keywords: Azure Functions，函数，事件处理，动态计算，无服务体�
 ms.service: azure-functions; cosmos-db
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9a8462909d96b0582342a1337ef0221c2ba55389
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f7a6bd56cc853ba3fba9074112946b8b44e7e7b6
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665668"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254063"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>适用于 Azure Functions 1.x 的 Azure Cosmos DB 绑定
 
@@ -1167,7 +1167,7 @@ F# 代码如下所示：
 |**name**     || 表示函数中的文档的绑定参数的名称。  |
 |**databaseName** |**DatabaseName** |包含文档的数据库。        |
 |**collectionName** |**CollectionName** | 包含文档的集合的名称。 |
-|**id**    | Id | 要检索的文档的 ID。 此属性支持[绑定表达式](functions-triggers-bindings.md#binding-expressions-and-patterns)。 不要同时设置 **id** 和 **sqlQuery** 属性。 如果上述两个属性都未设置，则会检索整个集合。 |
+|**id**    | Id | 要检索的文档的 ID。 此属性支持[绑定表达式](./functions-bindings-expressions-patterns.md)。 不要同时设置 **id** 和 **sqlQuery** 属性。 如果上述两个属性都未设置，则会检索整个集合。 |
 |**sqlQuery**  |**SqlQuery**  | 用于检索多个文档的 Azure Cosmos DB SQL 查询。 该属性支持运行时绑定，如以下示例中所示：`SELECT * FROM c where c.departmentId = {departmentId}`。 不要同时设置 **id** 和 **sqlQuery** 属性。 如果上述两个属性都未设置，则会检索整个集合。|
 |**连接**     |**ConnectionStringSetting**|内含 Azure Cosmos DB 连接字符串的应用设置的名称。        |
 |**partitionKey**|**PartitionKey**|指定用于查找分区键值。 可以包含绑定参数。|
@@ -1614,4 +1614,4 @@ F# 代码如下所示：
 > [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
 --->
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

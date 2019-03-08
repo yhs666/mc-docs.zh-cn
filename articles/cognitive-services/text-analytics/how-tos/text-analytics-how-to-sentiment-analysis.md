@@ -1,23 +1,23 @@
 ---
-title: 如何在文本分析 REST API（Azure 上的 Microsoft 认知服务）中进行情绪分析 | Microsoft Docs
-description: 在本演练教程中，了解如何使用 Azure 上 Microsoft 认知服务中的文本分析 REST API 检测情绪。
+title: 使用 Azure 认知服务中的文本分析进行情绪分析 | Microsoft Docs
+description: 了解如何使用文本分析 REST API 检测情绪。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: 2c79deb1a4c59ea59e5b0052fac16c2ddf1a3430
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 7f169d04f6b2382926eaddbc6df9fd8112c221d2
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858084"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204059"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>示例：如何在文本分析中检测情绪
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>示例：如何使用文本分析检测情绪
 
 [情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) 评估每个文档的文本输入并返回情绪分数，分数范围从 0（消极）到 1（积极）。
 
@@ -151,3 +151,5 @@ ms.locfileid: "54858084"
 
 > [!div class="nextstepaction"]
 > [提取关键短语](text-analytics-how-to-keyword-extraction.md)
+
+<!-- Update_Description: wording update -->

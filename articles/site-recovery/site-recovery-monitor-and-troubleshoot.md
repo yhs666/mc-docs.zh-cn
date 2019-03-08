@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: troubleshooting
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: addd06684cfa54ddd936139539b75edfcbebb4fa
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 7e1c7aefcccfbcac638553adf4276e7671e6403e
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463633"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>监视和排查 Site Recovery 问题
 

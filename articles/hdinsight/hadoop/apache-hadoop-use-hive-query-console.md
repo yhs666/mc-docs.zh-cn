@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 01/14/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: f856238f0a7d9c6203b58b609716a7cd23c5ac7c
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 4ec40ab43a15014db693563bb81fe524b1c8389c
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029172"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560454"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>使用查询控制台运行 Apache Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -93,7 +93,6 @@ ms.locfileid: "54029172"
 如果将 Tez 与 Hive 配合使用，请参阅以下文档以了解调试信息：
 
 * [在基于 Windows 的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-* [在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

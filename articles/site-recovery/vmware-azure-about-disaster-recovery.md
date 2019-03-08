@@ -6,14 +6,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 origin.date: 12/31/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 236aec9e7158b59cea0083b4b8c81b20e05bd257
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: b6a660182e1101174ce800cf8d39e1946cadb6ac
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363301"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463469"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>关于 VMware VM 到 Azure 的灾难恢复
 
@@ -69,7 +69,7 @@ Site Recovery 可复制受支持的 VMware VM 或物理服务器上运行的任�
 
 1. 需要设置几个帐户：
 
-    - 如果要复制 VMware VM，则 Site Recovery 需要一个帐户才能访问 vCenter SErver 或 vSphere ESXi 主机以自动发现 VM。
+    - 如果要复制 VMware VM，则 Site Recovery 需要一个帐户才能访问 vCenter Server 或 vSphere ESXi 主机以自动发现 VM。
     - 需要一个帐户才能在要复制的每台物理计算机或 VM 上安装 Site Recovery 移动服务代理。
 
 2. 如果以前没有这样做，则需要检查 VMware 基础架构的兼容性。

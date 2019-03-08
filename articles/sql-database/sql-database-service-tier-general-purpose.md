@@ -12,18 +12,18 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 73e8ada6abc0330544277bd2fca903282d9b02d2
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: f56eab892e6756c9762336476cde8319fa47eef2
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663479"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347144"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>常规用途服务层 - Azure SQL 数据库
 
 > [!NOTE]
-> 基于 vCore 的购买模型中的常规用途服务层在基于 DTU 的购买模型中称为标准服务层。 有关基于 vCore 购买模型与基于 DTU 购买模型的比较，请参阅 [Azure SQL 数据库购买模型和资源](sql-database-service-tiers.md)。
+> 基于 vCore 的购买模型中的常规用途服务层在基于 DTU 的购买模型中称为标准服务层。 有关基于 vCore 购买模型与基于 DTU 购买模型的比较，请参阅 [Azure SQL 数据库购买模型和资源](sql-database-purchase-models.md)。
 
 Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结构已根据云环境做出调整，以确保即使在发生基础结构故障时，也仍能提供 99.99% 的可用性。 Azure SQL 数据库中使用了三个服务层，每个服务层具有不同的体系结构模型。 这些服务层为：
 

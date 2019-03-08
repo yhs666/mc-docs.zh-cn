@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用 Azure 人脸 REST API 和 C# 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 11/09/2018
-ms.date: 11/23/2018
+origin.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: b6300f3de2ef6266467c6e40f448ad4f17e0ca99
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 8a313b4eadc8d7a281479d10947e0fc959a05b2c
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672736"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204037"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>快速入门：使用人脸 REST API 和 C# 检测图像中的人脸
 
@@ -50,7 +50,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>添加必要的字段
 
-将以下字段添加到 **Program** 类。 该数据指定如何连接到人脸服务，以及在何处获取输入数据。 将需要使用订阅密钥的值更新 `subscriptionKey` 字段。
+将以下字段添加到 **Program** 类。 该数据指定如何连接到人脸服务，以及在何处获取输入数据。 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。
 
 
 ```csharp
@@ -332,4 +332,4 @@ static string JsonPrettyPrint(string json)
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

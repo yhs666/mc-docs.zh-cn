@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/15/2017
-ms.date: 10/15/2018
+origin.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8223adead14e01d933829ae3d26bb7187dd28ea5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d65a78007458781ae73e6d8c14168ca930e22672
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664411"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204076"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.locfileid: "52664411"
 * **Service Fabric Visual Studio 工具中有内置支持，可以查看 ETW 事件。** 使用 Service Fabric 正确配置 Visual Studio 后，ETW 事件将出现在 Visual Studio 的“诊断事件”视图中。 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>在 Visual Studio 中查看 Service Fabric 系统事件
-Service Fabric 发出 ETW 事件以帮助应用程序开发人员了解平台中发生的情况。 如果还没有这么做，请继续遵循[在 Visual Studio 中创建第一个应用程序](service-fabric-create-your-first-application-in-visual-studio.md)中的步骤。 此信息将帮助你使应用程序启动并运行，通过诊断事件查看器显示跟踪消息。
+Service Fabric 发出 ETW 事件以帮助应用程序开发人员了解平台中发生的情况。 如果还没有这么做，请继续遵循[在 Visual Studio 中创建第一个应用程序](service-fabric-tutorial-create-dotnet-app.md)中的步骤。 此信息将帮助你使应用程序启动并运行，通过诊断事件查看器显示跟踪消息。
 
 1. 如果诊断事件窗口未自动显示，请在 Visual Studio 中转到“视图”选项卡上，选择“其他窗口”，然后选择“诊断事件查看器”。
 2. 每个事件都有标准元数据信息，它将显示事件来自的节点、应用程序和服务。 也可以使用事件窗口顶端的“筛选事件”框来筛选事件列表。 例如，可根据“节点名称”或“服务名称”进行筛选。 查看事件详细信息时，也可以使用事件窗口顶端的“暂停”按钮来暂停，稍后再继续，而不会丢失任何事件。
@@ -69,4 +69,4 @@ Service Fabric Visual Studio 项目模板包含示例代码。 该代码演示�
 * [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-wad.md)
 * [使用 EventFlow 聚合和收集事件](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

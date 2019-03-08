@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 12/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 070e16edaa4ad185e49bbd303fc0c4bac9e30f68
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 74d0ae72085cc2bbccb5c3ecac6dd1ccc9073a6e
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363464"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463485"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -45,7 +45,7 @@ ms.locfileid: "54363464"
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
 2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复”。
 
-    <!--Submenu is Correct on **Monitoring + Management**-->
+    <!--MOONCAKE is Correct on **Monitoring + Management**-->
 
 3. 在“名称”中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
 4. 创建资源组 **ContosoRG**。
@@ -128,7 +128,7 @@ ms.locfileid: "54363464"
 - 执行任何迁移后应用微调，例如，更新数据库连接字符串和 Web 服务器配置。 
 - 在当前在 Azure 中运行的迁移后应用程序上执行最终的应用程序和迁移验收测试。
 - [Azure VM 代理](/virtual-machines/extensions/agent-windows)管理 VM 与 Azure 结构控制器之间的交互。 它是某些 Azure 服务所必需的，例如 Azure 备份、Site Recovery 和 Azure 安全。
-    - 如果是迁移 VMware 计算机和物理服务器，则移动服务安装程序会在 Windows 计算机上安装可用的 Azure VM 代理。 在 Linux VM 上，建议你在故障转移后安装代理。 a
+    - 如果是迁移 VMware 计算机和物理服务器，则移动服务安装程序会在 Windows 计算机上安装可用的 Azure VM 代理。 在 Linux VM 上，建议你在故障转移后安装代理。
     - 如果是将 Azure VM 迁移到次要区域，则必须在迁移之前在 VM 上预配 Azure VM 代理。
     - 如果是将 Hyper-V VM 迁移到 Azure，请在迁移之后在 Azure VM 上安装 Azure VM 代理。
 - 手动从 VM 中删除任何 Site Recovery 提供程序/代理。 如果迁移 VMware VM 或物理服务器，请从 Azure VM 中[卸载移动服务][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]。

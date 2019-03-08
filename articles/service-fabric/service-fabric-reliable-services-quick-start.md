@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/16/2018
-ms.date: 05/28/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08fd0c651027424ac166a49279f19d21d971b0fd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4683fcaadb94029ccb0641d734ffc3ff66952e47
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659837"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463570"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -29,16 +29,14 @@ ms.locfileid: "52659837"
 > 
 > 
 
-Azure Service Fabric 应用程序包含运行代码的一个或多个服务。 本指南说明如何使用 [Reliable Services](service-fabric-reliable-services-introduction.md) 同时创建无状态与有状态的 Service Fabric 应用程序。  此微软虚拟学院视频还说明如何创建无状态可靠服务： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Azure Service Fabric 应用程序包含运行代码的一个或多个服务。 本指南说明如何使用 [Reliable Services](service-fabric-reliable-services-introduction.md)同时创建无状态与有状态的 Service Fabric 应用程序。  
 
 ## <a name="basic-concepts"></a>基本概念
 了解几个基本概念，即可开始使用 Reliable Services：
 
-* **服务类型**：这是服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
+* **服务类型**：这是你的服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
 * **命名服务实例**：若要运行服务，需要创建服务类型的命名实例，就像创建类类型的对象实例一样。 服务实例具有使用“fabric:/”方案（如“fabric:/MyApp/MyService”）的 URI 形式的名称。
-* **服务主机**：创建的命名服务实例需要在主机进程内运行。 服务宿主是可以运行服务实例的进程。
+* **服务宿主**：创建的命名服务实例需在主机进程中运行。 服务宿主是可以运行服务实例的进程。
 * **服务注册**：通过注册可将所有对象融合在一起。 只有在服务宿主中将服务类型注册 Service Fabric 运行时，Service Fabric 才能创建该类型的可运行实例。  
 
 ## <a name="create-a-stateless-service"></a>创建无状态服务
@@ -62,21 +60,21 @@ Azure Service Fabric 应用程序包含运行代码的一个或多个服务。 �
 
 * 名为 *RunAsync* 的开放式入口点方法，可在其中开始执行任何工作负荷，包括长时间运行的计算工作负荷。
 
-```csharp
-protected override async Task RunAsync(CancellationToken cancellationToken)
-{
-    ...
-}
-```
+    ```csharp
+    protected override async Task RunAsync(CancellationToken cancellationToken)
+    {
+        ...
+    }
+    ```
 
 * 一个通信入口点，可在其中插入所选的通信堆栈，例如 ASP.NET Core。 这就是可以开始接收来自用户和其他服务请求的位置。
 
-```csharp
-protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-{
-    ...
-}
-```
+    ```csharp
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        ...
+    }
+    ```
 
 在本教程中，我们将重点放在 `RunAsync()` 入口点方法上。 可在其中立即开始运行代码。
 项目模板包括 `RunAsync()` 的示例实现，该实现递增滚动计数。
@@ -179,7 +177,6 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
 ```
 
 [IReliableDictionary](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) 是一种字典实现，可用于将状态可靠地存储在服务中。 利用 Service Fabric 和可靠集合，可以将数据直接存储在服务中而无需外部持久性存储。 可靠集合可让数据具备高可用性。 Service Fabric 通过创建和管理服务的多个 *副本* 来实现此目的。 它还提供一个抽象 API，消除了管理这些副本及其状态转换所存在的复杂性。
-<!-- URL is correct to https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2-->
 
 可靠集合可以存储任何 .NET 类型（包括自定义类型），但需要注意以下几点：
 

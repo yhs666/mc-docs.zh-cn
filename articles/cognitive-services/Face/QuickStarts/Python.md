@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用 Azure 人脸 REST API 和 Python 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 11/09/2018
-ms.date: 11/23/2018
+origin.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53730eda95a8c24f5257d9156d92b248d0bacd5b
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 6eea9abcf6e375ebdc420f79c6cec79da700ca0c
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672706"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204015"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入门：使用人脸 REST API 和 Python 检测图像中的人脸
 
@@ -44,4 +44,4 @@ ms.locfileid: "52672706"
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 80bb0fa90d272792d89f8b97295be9e44bd090ec
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 7d78ec35dd9d904b1d7c79df4b96d81d7f2d676c
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083600"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204095"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -32,7 +32,9 @@ ms.locfileid: "54083600"
 
 回退应用程序的任何升级需要在提交更改的 Service Fabric 群集仲裁前，进行运行状况故障检测；已提交的更改只能前滚。 如果引入了不受监控的重大证书更改，则可能需要呈报工程师的通过客户支持服务才能恢复群集。  [Service Fabric 的应用程序升级](/service-fabric/service-fabric-application-upgrade)应用[应用程序升级参数](/service-fabric/service-fabric-application-upgrade-parameters)，并提供零停机时间升级承诺。  按照建议的应用程序升级监视模式，更新域上的自动更新进度基于运行状况检查是否通过，如果更新默认服务失败，将自动回退。
 
-<!--Notice: Remove https://review.docs.microsoft.com/azure/--> 如果你的群集仍在利用资源管理器模板中的经典 Certificate Thumbprint 属性，建议你[将群集从证书指纹更改为公用名称](/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)，以便利用新式机密管理功能。
+<!--Notice: Remove https://review.docs.microsoft.com/azure/-->
+
+如果你的群集仍在利用资源管理器模板中的经典 Certificate Thumbprint 属性，建议你[将群集从证书指纹更改为公用名称](/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)，以便利用新式机密管理功能。
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>是否可以创建跨越多个 Azure 区域或自己的数据中心的群集？
 
@@ -57,7 +59,7 @@ ms.locfileid: "54083600"
 
 **简短解答** - 否。 
 
-**详细解答** - 尽管通过大型虚拟机规模集可将虚拟机规模集扩展至多达 1000 个 VM 实例，但这是通过使用放置组 (PG) 实现的。 容错域 (FD) 和升级域 (UD) 仅在使用 FD 和 UD 来为服务副本/服务实例做出放置决策的放置组 Service Fabric 中保持一致。 因为 FD 和 UD 仅在放置组中可比较，因此 SF 无法使用它。 例如，如果 PG1 中的 VM1 具有一个 FD=0 的拓扑，并且 PG2 中的 VM9 具有一个 FD=4 的拓扑，这并不意味着 VM1 和 VM2 在两个不同的硬件机架上，因此在这种情况下 SF 无法使用 FD 值做出放置决策。
+**详细解答** - 尽管通过大型虚拟机规模集可将虚拟机规模集缩放至多达 1000 个 VM 实例，但这是通过使用放置组 (PG) 实现的。 容错域 (FD) 和升级域 (UD) 仅在使用 FD 和 UD 来为服务副本/服务实例做出放置决策的放置组 Service Fabric 中保持一致。 因为 FD 和 UD 仅在放置组中可比较，因此 SF 无法使用它。 例如，如果 PG1 中的 VM1 具有一个 FD=0 的拓扑，并且 PG2 中的 VM9 具有一个 FD=4 的拓扑，这并不意味着 VM1 和 VM2 在两个不同的硬件机架上，因此在这种情况下 SF 无法使用 FD 值做出放置决策。
 
 当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 
 
@@ -73,7 +75,7 @@ ms.locfileid: "54083600"
 
 我们希望该群集在两个节点同时发生故障时保持可用。 要使 Service Fabric 群集可用，系统服务必须可用。 跟踪哪些服务已部署到群集及其当前托管位置的有状态系统服务（例如命名服务和故障转移管理器服务）取决于非常一致性。 而这种非常一致性又取决于能否获取*仲裁*来更新这些服务的状态，其中，仲裁表示给定服务在严格意义上的大多数副本 (N/2 + 1)。 因此，如果我们希望能够弹性应对两个节点同时丢失（因而系统服务的两个副本也会同时丢失）的情况，必须保证 ClusterSize - QuorumSize >= 2，这会将最小大小强制为 5。 为了演示这一点，我们假设群集包含 N 个节点，并且系统服务有 N 个副本 - 每个节点上各有一个副本。 系统服务的仲裁大小为 (N/2 + 1)。 上述不等式类似于 N - (N/2 + 1) >= 2。 要考虑两种情况：N 为偶数，以及 N 为奇数。 如果 N 为偶数，例如 N = 2\*m，其中 m >= 1，则不等式类似于 2\*m - (2\*m/2 + 1) >= 2 或 m >= 3。 N 的最小值为 6，这是 m = 3 时实现的。 另一方面，如果 N 为奇数，例如 N = 2\*m+1，其中 m >= 1，则不等式类似于 2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2 或 2\*m+1 - (m+1) >= 2 或 m >= 2。 N 的最小值为 5，这是 m = 2 时实现的。 因此，在满足不等式 ClusterSize - QuorumSize >= 2 的所有 N 值中，最小值为 5。
 
-请注意，在上面的参数中，我们假设每个节点有一个系统服务副本，因此，仲裁大小是根据群集中的节点数计算的。 但是，我们可以通过更改 *TargetReplicaSetSize* 来使仲裁大小小于 (N/2+1)，这可能会造成这样的观点：可以使用少于 5 个节点的群集，并且仍有 2 个额外的节点可以超过仲裁大小。 例如，在 4 节点群集中，如果将 TargetReplicaSetSize 设置为 3，则基于 TargetReplicaSetSize 的仲裁大小为 (3/2 + 1) 或 2，因此 CluserSize - QuorumSize = 4-2 >= 2。 但是，如果同时丢失任何一对节点，则我们无法保证系统服务将会达到或超过仲裁。有可能丢失的两个节点托管了两个副本，因此，系统服务将进入仲裁丢失状态（只留下一个副本）且不可用。
+请注意，在上面的参数中，我们假设每个节点有一个系统服务副本，因此，仲裁大小是根据群集中的节点数计算的。 但是，我们可以通过更改 *TargetReplicaSetSize* 来使仲裁大小小于 (N/2+1)，这可能会造成这样的观点：可以使用少于 5 个节点的群集，并且仍有 2 个额外的节点可以超过仲裁大小。 例如，在 4 节点群集中，如果将 TargetReplicaSetSize 设置为 3，则基于 TargetReplicaSetSize 的仲裁大小为 (3/2 + 1) 或 2，因此 ClusterSize - QuorumSize = 4-2 >= 2。 但是，如果同时丢失任何一对节点，则我们无法保证系统服务将会达到或超过仲裁。有可能丢失的两个节点托管了两个副本，因此，系统服务将进入仲裁丢失状态（只留下一个副本）且不可用。
 
 在了解这种背景的前提下，让我们探讨一些可能的群集配置：
 
@@ -136,6 +138,7 @@ ms.locfileid: "54083600"
 
 A. 在应用程序生成/打包作业期间，可以将证书拉进 SF 应用的数据包中，并使用此实现对 KeyVault 的身份验证。
 <!--Not Available on MSI -->
+
 ## <a name="application-design"></a>应用程序设计
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>跨可靠集合的分区查询数据的最佳方法是什么？
@@ -187,8 +190,8 @@ Reliable Services 通常已分区，因此，存储量仅受限于群集中的�
 
 有关已发布的更多详细信息，请参阅 [Service Fabric 博客](https://blogs.msdn.microsoft.com/azureservicefabric/)。
 
-<!-- Not Available on ## Next steps-->
+## <a name="next-steps"></a>后续步骤
 
-<!-- Not Available on  [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965) -->
+了解[核心 Service Fabric 概念](service-fabric-technical-overview.md)和[最佳做法](service-fabric-best-practices-overview.md)
 
 <!--Update_Description: update meta properties, wording update, update link -->

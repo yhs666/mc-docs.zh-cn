@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/16/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ba63872fa88e4f07297dce098a4832f0813eb93
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 822bc1e7e639cd98e8ff876772bf60b4c1d13425
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660913"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463631"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.locfileid: "52660913"
 
 * 接口项目 (HelloWorld.Interfaces)。 此项目包含执行组件的接口定义。 可以在任何项目中使用任何名称来定义执行组件接口。  接口将定义由执行组件实现和调用执行组件的客户端这两者所共享的执行组件协定。  由于客户端项目可能依赖于接口，因此通常在独立于执行组件实现的程序集中定义它。
 
-* 执行组件服务项目 (HelloWorld)。 此项目定义要托管执行组件的 Service Fabric 服务。 它包含执行组件的实现 HellowWorld.cs。 执行组件实现是派生自基类型 `Actor` 的一个类，用于实现 MyActor.Interfaces 项目中定义的接口。 执行组件类还必须实现一个接受 `ActorService` 实例和 `ActorId` 并将其传递给基本 `Actor` 类的构造函数。
+* 执行组件服务项目 (HelloWorld)。 此项目定义要托管执行组件的 Service Fabric 服务。 它包含执行组件的实现 HelloWorld.cs。 执行组件实现是派生自基类型 `Actor` 的一个类，用于实现 MyActor.Interfaces 项目中定义的接口。 执行组件类还必须实现一个接受 `ActorService` 实例和 `ActorId` 并将其传递给基本 `Actor` 类的构造函数。
 
     此项目还包含 Program.cs，它使用 `ActorRuntime.RegisterActorAsync<T>()` 向 Service Fabric 运行时注册执行组件类。 `HelloWorld` 类已注册。 还必须使用 `Main()` 方法来注册添加到项目中的任何其他执行组件实现。
 

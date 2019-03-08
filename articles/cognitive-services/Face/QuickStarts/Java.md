@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用 Azure 人脸 REST API 和 Java 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 11/09/2018
-ms.date: 01/17/2019
+origin.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 03c9a377ff05df536c24d229427506f2ffa7c727
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: 1817857cd34db5c914e946faefbba5aefd8c10c2
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396448"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204075"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入门：使用 REST API 和 Java 检测图像中的人脸
 
@@ -246,4 +246,4 @@ catch (Exception e)
 > [!div class="nextstepaction"]
 > [教程：创建一个用于检测和定格人脸的 Android 应用](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

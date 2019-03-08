@@ -1,20 +1,20 @@
 ---
 title: 了解 Azure IoT 中心查询语言
 description: 开发人员指南 - 介绍了类似 SQL 的 IoT 中心查询语言，该语言用于在 IoT 中心检索设备/模块孪生和作业的相关信息。
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 02/26/2018
+origin.date: 10/29/2018
 ms.author: v-yiso
-ms.date: 03/04/2019
-ms.openlocfilehash: 01625b7a8451cd5bbf2e54be40a7257ea27ad3ff
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.date: 03/18/2019
+ms.openlocfilehash: f7914c0c15e71361b1c12375dc9ea5fe02f5afef
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665584"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560491"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -170,13 +170,15 @@ SELECT * FROM devices.modules
 不允许在 devices 与 devices.modules 集合之间进行联接。 如果要跨设备查询模块孪生，则需要基于标记来执行此操作。 以下查询将返回所有设备中具有扫描状态的所有模块孪生：
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 以下查询将仅返回指定的设备子集上具有扫描状态的所有模块孪生：
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C# 示例

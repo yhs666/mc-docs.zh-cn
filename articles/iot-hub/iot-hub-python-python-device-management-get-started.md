@@ -2,22 +2,22 @@
 title: Azure IoT 中心设备管理入门 (Python)
 description: 如何使用 IoT 中心设备管理进行远程设备重启。 使用适用于 Python 的 Azure IoT SDK 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/02/2018
-ms.date: 03/04/2019
+origin.date: 02/20/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: fde68726262e7b77ac2e7ad786d04ef8b3808813
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: b5bce4f850fcdc73d3d0d493820024a71f3ad489
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665660"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560477"
 ---
 # <a name="get-started-with-device-management-python"></a>设备管理入门 (Python)
 

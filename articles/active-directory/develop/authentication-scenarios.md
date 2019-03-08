@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/06/2018
+ms.date: 03/05/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8e0c08b3b01468f84bb863d92c7cd8512dc7c10c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a42528506d83f1886aa5585c985a132b76a949a2
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662114"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462379"
 ---
 # <a name="what-is-authentication"></a>什么是身份验证？
 
@@ -136,4 +137,4 @@ Azure AD 颁发的安全令牌（访问令牌和 ID 令牌）包含与经过身�
 
 - 了解有关 [Azure Active Directory 支持的应用程序类型和方案](app-types.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

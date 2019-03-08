@@ -1,23 +1,23 @@
 ---
-title: 如何在文本分析 REST API（Azure 上的 Microsoft 认知服务）中进行语言检测 | Microsoft Docs
-description: 本演练教程介绍如何使用 Azure 上认知服务中的文本分析 REST API 检测语言。
+title: 通过文本分析 REST API 检测语言 | Microsoft Docs
+description: 如何通过 Azure 认知服务使用文本分析 REST API 检测语言。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: 304a780fb8a0a6ecb3b54c2112f297de1c526162
-ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 7868485d5af9abb3ed963d034cf6449cd75b921e
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668444"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204186"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>示例：如何在文本分析中检测语言
+# <a name="example-how-to-detect-language-with-text-analytics"></a>示例：如何通过文本分析检测语言
 
 [语言检测 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 评估每个文档的文本输入，并返回带有指示分析强度分数的语言标识符。 文本分析可识别多达 120 种语言。
 
@@ -222,3 +222,5 @@ ms.locfileid: "55668444"
 
 > [!div class="nextstepaction"]
 > [分析情绪](text-analytics-how-to-sentiment-analysis.md)
+
+<!-- Update_Description: wording update -->

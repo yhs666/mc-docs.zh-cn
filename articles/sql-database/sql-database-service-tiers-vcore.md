@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sashan, moslake
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: ebe4308340f9d2b54932b9f0beca1679352e6d1a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 82e8837b4ecf2f93382109794cde70d9eadce681
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663538"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347196"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
 
@@ -30,7 +30,7 @@ ms.locfileid: "56663538"
 第 4 代为每个 vCore 提供的内存要大得多。 但是，第 5 代硬件允许以高得多的力度纵向扩展计算资源。
 
 > [!NOTE]
-> 有关基于 DTU 的服务层的信息，请参阅[基于 DTU 的服务层](sql-database-service-tiers-dtu.md)。 若要了解如何区分基于 DTU 的服务层和基于 vCore 的服务层，请参阅 [Azure SQL 数据库购买模型](sql-database-service-tiers.md)。
+> 有关基于 DTU 的服务层的信息，请参阅[基于 DTU 的服务层](sql-database-service-tiers-dtu.md)。 若要了解如何区分基于 DTU 的服务层和基于 vCore 的服务层，请参阅 [Azure SQL 数据库购买模型](sql-database-purchase-models.md)。
 
 ## <a name="service-tier-characteristics"></a>服务层特征
 

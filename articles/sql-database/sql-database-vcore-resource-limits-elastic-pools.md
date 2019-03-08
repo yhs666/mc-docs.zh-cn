@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 9cbca883778dfa61d7e9efe3f4097119418eb5cd
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/15/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 44bc9f33b39daac33754dd8c34d3c8d59479b2b8
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663675"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347206"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用基于 vCore 的购买模型限制的弹性池的资源限制
 
@@ -60,11 +60,11 @@ ms.locfileid: "56663675"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>常规用途服务层：第 4 代计算平台（第 2 部分）
 
-|计算大小|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|计算大小|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |硬件代次|4|4|4|4|4|4|
 |vCore 数|7|8|9|10 个|16|24|
@@ -86,7 +86,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>常规用途服务层：第 5 代计算平台（第 1 部分）
 
@@ -112,7 +112,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>常规用途服务层：第 5 代计算平台（第 2 部分）
 
@@ -137,7 +137,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>“业务关键”服务层：存储大小和计算大小
 
@@ -165,7 +165,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>“业务关键”服务层：第 4 代计算平台（第 2 部分）
 
@@ -191,7 +191,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>“业务关键”服务层：第 5 代计算平台（第 1 部分）
 
@@ -217,7 +217,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|是|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>“业务关键”服务层：第 5 代计算平台（第 2 部分）
 
@@ -243,7 +243,7 @@ ms.locfileid: "56663675"
 |读取横向扩展|是|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-\* 有关单个数据库当前工作进程（请求）的最大数目，请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)
+\*如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果弹性池使用 Gen5 且其每个数据库的最大 vCore 数为 2，则最大并发辅助角色数为 200。  如果每个数据库的最大 vCore 数为 0.5，则最大并发辅助角色数为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。  对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 如果弹性池的所有 vCore 繁忙，则池中的每个数据库将接收相同数量的计算资源来处理查询。 SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 vCore 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 

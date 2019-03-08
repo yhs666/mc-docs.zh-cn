@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 12/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: e3e1f635937ad2238a525f088f3a121827cf3291
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: ef11c399c25df6a360ec91b7f9235f8a13b3022d
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901158"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463677"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>为什么通过微服务的方法生成应用程序？
 
@@ -171,7 +171,7 @@ Service Fabric 允许重用现有代码，可以通过新的微服务对现有�
 **直接迁移**  
 许多公司都出于两个原因，将现有单一式应用程序直接迁移到容器中：
 
-- 由于整合和移除现有硬件或以较高密度运行的应用程序，因此成本降低。 
+- 由于整合和移除现有硬件或以较高密度运行的应用程序，因此成本降低。
 - 开发和运营遵循一致的部署协定。
 
 成本降低可以理解，在 Azure 内部，大量现有应用程序正在进行容器化，节省的成本就高达数百万美元。 虽然部署一致性难以评估，但同样很重要。 这意味着，开发者仍可以自由选择适合自己的技术；不过，运营人员只接受使用一种方法来部署和管理这些应用程序。 这样可以减轻运营压力，不必处理许多不同的复杂技术，也不用强制开发者只选择特定技术。 实质上，每个应用程序都容器化到独立式部署映像中。

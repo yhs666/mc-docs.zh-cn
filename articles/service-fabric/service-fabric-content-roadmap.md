@@ -13,23 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/08/2017
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd6933c2f0c88d076afe5f6e587c833e77078fe4
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: a6fc06243359295849bdd1c49af782a9298abc00
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083638"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204150"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>想要了解 Service Fabric 吗？
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。  不过，Service Fabric 的外围应用领域广泛，有很多东西需要学习。  本文简要说明了 Service Fabric，并介绍了核心概念、编程模型、应用程序生命周期、测试、群集和运行状况监视。 请参阅[概述](service-fabric-overview.md)和[什么是微服务？](service-fabric-overview-microservices.md)，概览相关信息，并了解如何使用 Service Fabric 创建微服务。 本文包含的内容列表虽不完整，但确实提供了 Service Fabric 每个应用领域的概述和入门文章链接。 
 
 ## <a name="core-concepts"></a>核心概念
 此处介绍基础知识，有关详细概念和介绍，可参阅 [Service Fabric 术语](service-fabric-technical-overview.md)、[应用程序模型](service-fabric-application-model.md)和[支持的编程模型](service-fabric-choose-framework.md)。
-
-<!-- Not Available on https://mva.microsoft.com/en-US/training-course -->
-
 
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>设计时：应用程序类型、服务类型，应用程序包和清单、服务包和清单
 应用程序类型是分配给服务类型集合的名称/版本。 这在 *ApplicationManifest.xml* 文件中定义，该文件嵌入到应用程序包目录中。 然后将应用程序包复制到 Service Fabric 群集的映像存储。 然后，可基于此应用程序类型，创建在群集内运行的命名应用程序。 
@@ -102,7 +99,7 @@ Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication
 
 可以使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# API](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient?view=azure-dotnet)、[Java API](https://docs.azure.cn/zh-cn/java/api/servicefabric?view=azure-java-stable) 和 [REST API](https://docs.microsoft.com/rest/api/servicefabric/) 管理整个应用生命周期。 还可以使用 [Azure Pipelines](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) 等工具来设置持续集成/持续部署管道。
 
-<!-- Not Available on Microsoft Virtual Academy VIDEO -->
+<!--MOONCAKE: CORRECT on java/api/servicefabric -->
 
 
 ## <a name="test-applications-and-services"></a>测试应用程序和服务
@@ -124,10 +121,6 @@ Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication
 [Service Fabric 群集](service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务将在其中部署和管理。 群集可以扩展到成千上万台计算机。 群集中的计算机或 VM 称为群集节点。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如放置属性。 每个计算机或 VM 都有一个自动启动服务 `FabricHost.exe`，此服务在引导时开始运行，并启动两个可执行文件：Fabric.exe 和 FabricGateway.exe。 这两个可执行文件构成了节点。 在测试方案中，可以通过运行 `Fabric.exe` 和 `FabricGateway.exe` 的多个实例，在单台计算机或 VM 上托管多个节点。
 
 可在运行 Windows Server 或 Linux 的虚拟机或物理计算机上创建 Service Fabric 群集。 可在包含一组互连 Windows Server 或 Linux 计算机（本地计算机、Azure 计算机或任何云提供商的计算机）的任何环境中部署和运行 Service Fabric 应用程序。
-
-
-<!-- Not Available Microsoft Virtual Academy VIDEO -->
-
 
 ### <a name="clusters-on-azure"></a>Azure 上的群集
 在 Azure 上运行 Service Fabric 群集可提供与其他 Azure 功能和服务的集成，这样可使群集的操作和管理更容易且更可靠。 群集是 Azure 资源管理器资源，因此可以像 Azure 中的其他资源一样对群集进行建模。 Resource Manager 还可以轻松管理群集作为单个单元使用的所有资源。 Azure 上的群集与 Azure 诊断和 Log Analytics 集成。 群集节点类型是[虚拟机规模集](/virtual-machine-scale-sets/index)，因此自动缩放功能是内置的。
@@ -162,7 +155,6 @@ Service Fabric 提供一个安装包，用于在本地或者任何云提供程�
 我们会定期发布新版本的 Service Fabric 运行时。 在群集上执行运行时或结构升级，以便始终运行[受支持的版本](service-fabric-support.md)。 除了结构升级，还可以更新群集配置（例如证书或应用程序端口）。
 
 Service Fabric 群集是你拥有的，但部分由世纪互联管理的资源。 Azure 负责修补基础 OS 并在群集上执行结构升级。 当 Azure 发布新版本时，可以将群集设置为接收自动结构升级，或选择所需的受支持结构版本。 可通过 Azure 门户或 Resource Manager 设置结构和配置升级。 有关详细信息，请参阅[升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)。 
-<!-- Notice: Microsoft to Azure or we -->
 
 独立群集是你完全拥有的资源。 负责修补基础 OS 和启动结构升级。 如果群集可以连接到 [https://www.microsoft.com/download](https://www.microsoft.com/download)，可以将群集设置为自动下载并预配新的 Service Fabric 运行时包。 然后会启动升级。 如果群集无法访问 [https://www.microsoft.com/download](https://www.microsoft.com/download)，可以从连接 Internet 的计算机手动下载新的运行时包，并启动升级。 有关详细信息，请参阅[升级独立 Service Fabric 群集](service-fabric-cluster-upgrade-windows-server.md)。
 
@@ -183,9 +175,6 @@ Service Fabric 提供了多种方式查看在运行状况存储中聚合的[运�
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 或其他可视化工具。
 * 运行状况查询（通过 [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient?view=azure-dotnet) 和 [Java FabricClient API](https://docs.azure.cn/java/api/system.fabric) 或 [REST API](https://docs.microsoft.com/rest/api/servicefabric)）。
 * 常规查询，返回将运行状况作为属性之一的实体的列表（通过 PowerShell、CLI、API 或 REST）。
-
-<!-- Not Available on Microsoft Virtual Academy VIDEO -->
-
 
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断
 [监视和诊断](service-fabric-diagnostics-overview.md)对任何环境中的开发、测试和部署应用程序和服务都至关重要。 如果规划和实施的监视与诊断有助于确保应用程序和服务在本地开发环境或在生产环境中按预期工作，则 Service Fabric 解决方案可以发挥最大的作用。

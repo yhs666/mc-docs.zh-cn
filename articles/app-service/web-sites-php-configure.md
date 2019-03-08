@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 06e2737c09d49ef1dcb2391c843bd2251e90849e
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 2cab6ca5313fbf088d7a0370af743e6de267b136
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083696"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347115"
 ---
 # <a name="configure-php-in-azure-app-service"></a>在 Azure 应用服务中配置 PHP
 
@@ -35,6 +35,7 @@ ms.locfileid: "54083696"
 PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要更新 PHP 版本，请使用下列方法之一：
 
 ### <a name="azure-portal"></a>Azure 门户
+
 1. 在 [Azure 门户](https://portal.azure.cn)中浏览到 Web 应用，然后单击“设置”按钮。
 
     ![应用设置][settings-button]
@@ -47,9 +48,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 打开 Azure PowerShell 并登录到帐户：
 
-        PS C:\> Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+        PS C:\> Connect-AzAccount -EnvironmentName AzureChinaCloud
 2. 设置应用的 PHP 版本。
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}

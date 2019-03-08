@@ -11,15 +11,15 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/14/2018
-ms.date: 12/10/2018
+origin.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9b78e7f1d161f77b965e5c92e3936a815af72ad5
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 3d4a77ea0f1565b71f668620899fb544d90be6d1
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901108"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204166"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>如何：使用 Visual Studio 2017 在 Azure Service Fabric 中调试 Windows 容器
 
@@ -38,10 +38,10 @@ ms.locfileid: "52901108"
 1. 为了支持容器之间的 DNS 解析，必须使用计算机名称来设置本地开发群集。 如果要通过反向代理寻址服务，则还需要执行这些步骤。
     1. 以管理员身份打开 PowerShell
     2. 导航到 SDK 群集安装文件夹，通常为 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
-    3. 使用参数 `-UseMachineName` 运行脚本 `DevClusterSetup.ps1`
+    3. 运行脚本 `DevClusterSetup.ps1`
 
         ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
         ```
 
     > [!NOTE]

@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 06/19/2018
-ms.date: 01/28/2019
+origin.date: 02/22/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2a38fbaa2ed4033c3e817a0f597958f3959fd546
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 57b3149aac4103ad56b159fad73d84e92b53ed7f
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396792"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560460"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (Node.js)
 
@@ -57,14 +57,12 @@ node --version
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyNodeDevice**：这是为注册的设备提供的名称。 请按显示的方法使用 MyNodeDevice。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyNodeDevice**：所注册的设备的名称。 请按显示的方法使用 MyNodeDevice。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
-    如果为设备选择不同名称，则在运行示例应用程序之前，请在其中更新设备名称。
 
 1. 运行以下命令，获取刚注册设备的设备连接字符串：
 
@@ -79,7 +77,7 @@ node --version
 
     稍后会在快速入门中用到此值。
 
-1. 还需一个_服务连接字符串_，以便后端应用程序能够连接到 IoT 中心检索消息。 以下命令检索 IoT 中心的服务连接字符串：
+1. 还需一个服务连接字符串，以便后端应用程序能够连接到 IoT 中心并检索消息。 以下命令检索 IoT 中心的服务连接字符串：
    
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 

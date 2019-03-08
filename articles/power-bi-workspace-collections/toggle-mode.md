@@ -7,15 +7,15 @@ ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/20/2017
-ms.date: 02/15/2019
+origin.date: 02/15/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7decdee7c6123b95fea5702eea78365181084c81
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 04b2ed2df134a23eb68e048bee003693af444e45
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306046"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347226"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中在报表的查看和编辑模式之间切换
 
@@ -31,7 +31,7 @@ ms.locfileid: "56306046"
 > [!NOTE]
 > 这可以让你编辑现有报表并保存更改。 如果还需要支持“另存为”的功能，则需要提供额外的权限。 有关详细信息，请参阅[范围](app-token-flow.md#scopes)。
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -47,9 +47,10 @@ var token = embedToken.Generate("{access key}");
 
 例如，在 JavaScript 中：
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ var token = embedToken.Generate("{access key}");
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>    
 ```
 
 这表示会根据设置为 models.ViewMode.View 的 viewMode 在查看模式下嵌入报表。
@@ -83,7 +85,7 @@ var token = embedToken.Generate("{access key}");
 
 如果处于编辑模式下，可以使用以下 JavaScript 切换到查看模式。
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -99,7 +101,7 @@ report.switchMode("view");
 
 如果处于查看模式下，可以使用以下 JavaScript 切换到编辑模式。
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

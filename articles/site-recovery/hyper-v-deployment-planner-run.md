@@ -6,21 +6,21 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a20401922b5fad2604b99e925fd403833d728db1
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 72ad60de073d1cdbef7355eee2c1d5e1fbc77bd8
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363579"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463655"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>运行用于从 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 
 可使用以下四种模式之一运行 Site Recovery 部署规划器命令行工具 (ASRDeploymentPlanner.exe)： 
--   [获取虚拟机 (VM) 列表](#get-vm-list-for-profiling-hyper-v-vms)
+-   获取虚拟机 (VM) 列表
 -   [Profile](#profile-hyper-v-vms)
--   [生成报表](#generate-report)
+-   生成报告
 -   [获取吞吐量](#get-throughput)
 
 首先，运行该工具，从单个或多个 Hyper-V 主机中获取 VM 的列表。 然后，以分析模式运行该工具，收集 VM 数据变动量和 IOPS。 接下来，运行该工具生成报告，确定网络带宽和存储要求。
@@ -76,7 +76,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 此工具无缝处理从群集中的一个节点到另一个节点的 VM 迁移，以及主机中的存储迁移。
 
 ### <a name="getting-the-vm-list-to-profile"></a>获取要分析的 VM 列表
-若要创建要分析的 VM 的列表，请参阅 [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) 操作。
+若要创建要分析的 VM 的列表，请参阅“GetVMList 操作”。
 
 创建要分析的 VM 的列表后，可在分析模式下运行该工具。 
 
@@ -99,6 +99,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-StorageAccountName|（可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
 |-StorageAccountKey|（可选）用于访问存储帐户的密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**（或经典存储帐户的主访问密钥）。|
 |-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 中国时，请使用此参数。|
+
+<!--MOONCAKE: Environment on Azure China Cloud-->
 
 建议在分析 VM 时，分析 7 天以上。 如果变动量模式在某个月发生变化，建议在看到最大变动量的一周内进行分析。 最好的方式是分析 31 天，以便获取更好的建议。 
 
@@ -285,6 +287,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 中国时，请使用此参数。|
 
 <!-- Not Available on either Azure US Government or-->
+
 ### <a name="example"></a>示例
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==

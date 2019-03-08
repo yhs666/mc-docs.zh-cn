@@ -12,16 +12,16 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/23/2017
-ms.date: 01/07/2019
+origin.date: 01/29/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 590b104d9e57bce1924da7e607ca69bde4ea4e3a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 4c58a5d9c4613320abee39b24da5778a8b5cbc53
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083803"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463559"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入门：将 Java Reliable Services 应用程序部署到 Service Fabric
 
@@ -35,7 +35,6 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 * 使用 Eclipse 处理 Service Fabric Java 应用程序
 * 将应用程序部署到本地群集
-* 将应用程序部署到 Azure 中的群集
 * 跨多个节点横向扩展应用程序
 
 ## <a name="prerequisites"></a>先决条件
@@ -83,101 +82,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 现在可以添加一组投票选项，并开始进行投票。 此应用程序可以运行，并将所有数据存储到 Service Fabric 群集中，而无需单独提供数据库。
 
-## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
-
-### <a name="set-up-your-azure-service-fabric-cluster"></a>设置 Azure Service Fabric 群集
-
-若要将应用程序部署到 Azure 中的群集，可创建自己的群集。
-
-
-登录并加入 Linux 群集。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。
-
-> [!Note]
-> Spring Boot 服务配置为侦听端口 8080 上的传入流量。 请确保此端口在群集中处于打开状态。 
->
-
-Service Fabric 提供多种可以用来管理群集及其应用程序的工具：
-
-* Service Fabric Explorer，一种基于浏览器的工具。
-* Service Fabric 命令行界面 (CLI)，在 Azure CLI 基础上运行。
-* PowerShell 命令。
-
-在本快速入门中，请使用 Service Fabric CLI 和 Service Fabric Explorer。
-
-若要使用 CLI，需根据下载的 PFX 文件创建 PEM 文件。 若要转换此文件，请使用以下命令。 
-
-<!-- Not Available on (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)-->
-
-    ```bash
-    openssl pkcs12 -in <YOUR_CERTIFICATE_PFX_FILE_Name>.pfx -out <YOUR_CERTIFICATE_PEM_FILE_Name>.pem -nodes -passin pass:<YOUR_PASSWORD>
-    ```
-
-若要使用 Service Fabric Explorer，需要将从 [Azure 门户](https://portal.azure.cn)下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器本身 (Ubuntu) 中。
-
-<!-- Change Part website to Portal website-->
-<!-- Not Available on You need the PFX private key password, which you can get from the **ReadMe** page.-->
-
-请使用最熟悉的方法将证书导入到系统中。 例如：
-
-* 在 Windows 上：双击 PFX 文件，并按照提示在个人存储 `Certificates - Current User\Personal\Certificates` 中安装证书。 也可以使用**自述文件**说明中的 PowerShell 命令。
-* 在 Mac 上：双击 PFX 文件，并按照提示在 Keychain 中安装证书。
-* 在 Ubuntu 上：Mozilla Firefox 是 Ubuntu 16.04 中的默认浏览器。 若要将证书导入 Firefox，请单击浏览器右上角的菜单按钮，然后单击“选项”。 在“首选项”页上，使用搜索框搜索“证书”。 单击“查看证书”，选择“你的证书”选项卡，单击“导入”，然后按提示导入证书。
-
-   ![在 Firefox 上安装证书](./media/service-fabric-quickstart-java/install-cert-firefox.png)
-
-### <a name="add-certificate-information-to-your-application"></a>向应用程序添加证书信息
-
-需将证书指纹添加到应用程序，因为它使用 Service Fabric 编程模型。
-
-1. 在安全群集上运行时，需要 `Voting/VotingApplication/ApplicationManifest.xml` 文件中的证书的指纹。 运行以下命令，提取证书指纹。
-
-    ```bash
-    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
-    ```
-
-2. 在 `Voting/VotingApplication/ApplicationManifest.xml` 文件中，在 **ApplicationManifest** 标记下添加以下代码片段。 **X509FindValue** 应该是上一步的指纹（无分号）。
-
-    ```xml
-    <Certificates>
-        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
-    </Certificates>
-    ```
-
-### <a name="deploy-the-application-using-eclipse"></a>使用 Eclipse 部署应用程序
-
-应用程序和群集现已准备就绪，可直接通过 Eclipse 部署到群集。
-
-1. 打开“PublishProfiles”目录下的“Cloud.json”文件，并适当填写 `ConnectionIPOrURL` 和 `ConnectionPort` 字段。 示例如下：
-
-    ```bash
-    {
-         "ClusterConnectionParameters":
-         {
-            "ConnectionIPOrURL": "lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn",
-            "ConnectionPort": "19080",
-            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
-            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
-         }
-    }
-    ```
-
-2. 右键单击该项目并选择“Service Fabric”下拉列表中的“发布应用程序...”。 选择“PublishProfiles/Cloud.json”为目标配置文件，然后单击“发布”。
-
-    ![云端“发布”对话框](./media/service-fabric-quickstart-java/cloudjson.png)
-
-3. 打开 Web 浏览器并通过 **http://\<ConnectionIPOrURL>:8080** 访问该应用程序。
-
-    ![云端应用程序前端](./media/service-fabric-quickstart-java/runningcloud.png)
-
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
 
 可跨群集缩放服务来适应服务负载的变化。 可以通过更改群集中运行的实例数量来缩放服务。 存在多种服务缩放方式，例如，可使用 Service Fabric CLI (sfctl) 脚本/命令。 以下步骤使用 Service Fabric Explorer。
 
-Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集的 HTTP 管理端口 (19080)，例如，`http://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`。
+Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集的 HTTP 管理端口 (19080)，例如，`http://localhost:19080`。
 
 若要缩放 Web 前端服务，请执行以下操作：
 
-1. 在群集中打开 Service Fabric Explorer - 例如 `https://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`。
+1. 在群集中打开 Service Fabric Explorer - 例如 `https://localhost:19080`。
 2. 单击树视图中 fabric:/Voting/VotingWeb 节点旁边的省略号（三个点），再选择“缩放服务”。
 
     ![Service Fabric Explorer 缩放服务](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -199,7 +112,6 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 
 * 使用 Eclipse 处理 Service Fabric Java 应用程序
 * 将 Java 应用程序部署到本地群集
-* 将 Java 应用程序部署到 Azure 中的群集
 * 跨多个节点横向扩展应用程序
 
 若要详细了解如何在 Service Fabric 中使用 Java 应用，请继续学习适用于 Java 应用的教程。

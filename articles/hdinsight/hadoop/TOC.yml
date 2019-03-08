@@ -18,7 +18,7 @@ items:
   items:
   - name: 创建 Apache Hadoop 群集 - 门户
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: 创建 Apache Hadoop 群集 - 资源管理器
+  - name: 创建 Apache Hadoop 群集 - 资源管理器模板
     href: apache-hadoop-linux-tutorial-get-started.md
 - name: 教程
   items:
@@ -77,8 +77,6 @@ items:
         href: apache-hadoop-use-mapreduce-curl.md
       - name: 使用 Azure PowerShell
         href: apache-hadoop-use-mapreduce-powershell.md
-      - name: 使用远程桌面
-        href: apache-hadoop-use-mapreduce-remote-desktop.md
       - name: 使用 .NET SDK
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: 运行 MapReduce 示例
@@ -94,8 +92,6 @@ items:
         href: apache-hadoop-use-pig-dotnet-sdk.md
       - name: 使用 cURL
         href: apache-hadoop-use-pig-curl.md
-      - name: 使用远程桌面
-        href: apache-hadoop-use-pig-remote-desktop.md
     - name: 将 Apache DataFu 与 Apache Pig 配合使用
       href: apache-hadoop-use-pig-datafu-udf.md
     - name: 提交 Apache Hadoop 作业
@@ -119,8 +115,6 @@ items:
       href: apache-hadoop-streaming-python.md
     - name: 处理和分析 JSON 文档
       href: using-json-in-hive.md
-    - name: 使用 Avro 库将数据序列化
-      href: apache-hadoop-dotnet-avro-serialization.md
     - name: 使用 C# 用户定义的函数
       href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
     - name: 将 Python 与 Apache Hive 和 Apache Pig 配合使用
@@ -224,6 +218,9 @@ items:
     items:
     - name: 将 SSH 与 HDInsight 配合使用
       href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+      maintainContext: true
+    - name: 使用 SSH 隧道
+      href: ../hdinsight-linux-ambari-ssh-tunnel.md
       maintainContext: true
     - name: 限制数据访问
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
@@ -455,9 +452,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 492f001a47ff31e5dbd9151072eb429b7943a7d3
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 6c6086032eb9436bdec7ddf710da63df62eb25cf
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029233"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560469"

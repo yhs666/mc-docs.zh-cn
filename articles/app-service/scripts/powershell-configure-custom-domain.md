@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 360986d805584112c2f1195cb6872ebde0746a69
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: aa8353a0b6445833971f4d41ff273176bffc7e50
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083909"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347223"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>使用 PowerShell 将自定义域分配到 Web 应用
 
@@ -31,45 +31,46 @@ ms.locfileid: "54083909"
 
 ## <a name="sample-script"></a>示例脚本
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```powershell
 $fqdn="<Replace with your custom domain name>"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"
 
 # Create a resource group.
-New-AzureRmResourceGroup -Name $webappname -Location $location
+New-AzResourceGroup -Name $webappname -Location $location
 
 # Create an App Service plan in Free tier.
-New-AzureRmAppServicePlan -Name $webappname -Location $location `
+New-AzAppServicePlan -Name $webappname -Location $location `
 -ResourceGroupName $webappname -Tier Free
 
 # Create a web app.
-New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
+New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
 -ResourceGroupName $webappname
 
-Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
+Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
 Read-Host "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Upgrade App Service plan to Shared tier (minimum required by custom domains)
-Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $webappname `
+Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname `
 -Tier Shared
 
 # Add a custom domain name to the web app. 
-Set-AzureRmWebApp -Name $webappname -ResourceGroupName $webappname `
--HostNames @($fqdn,"$webappname.chinacloudsites.cn")
+Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `
+-HostNames @($fqdn,"$webappname.azurewebsites.net")
 
 ```
-
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -78,11 +79,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
-| [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermappserviceplan) | 修改应用服务计划以更改其定价层。 |
-| [Set-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/set-azurermwebapp) | 修改 Web 应用的配置。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
+| [Set-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/set-azappserviceplan) | 修改应用服务计划以更改其定价层。 |
+| [Set-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) | 修改 Web 应用的配置。 |
 
 ## <a name="next-steps"></a>后续步骤
 

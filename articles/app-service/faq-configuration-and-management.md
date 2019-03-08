@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
-ms.openlocfilehash: 2fb005d3e1defaff3562adf2ab941357d5f58644
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 57bb731a35aa2a53ecb430f51a9126d898c7a89b
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083612"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347179"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -195,7 +195,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 1. 创建一个 settings.job 文件。
 2. 在此 JSON 文件中，使用 Cron 表达式将计划属性包括在内： 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -213,6 +213,8 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>我的应用服务证书被标记为存在欺诈。 如何解决此问题？
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在应用服务证书购买的域验证过程中，可能会看到以下消息：
 
 “你的证书已被标记为可能存在欺诈。 请求当前正在审查中。 如果证书未在 24 小时内变为可用，请联系 Azure 支持部门。”
@@ -222,12 +224,12 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 如果你的应用服务证书在 24 小时后继续显示此消息，请运行以下 PowerShell 脚本。 该脚本会联系[证书提供商](https://www.godaddy.com/)直接解决问题。
 
 ```
-Connect-AzureRmAccount -Environment AzureChinaCloud
-Set-AzureRmContext -SubscriptionId <subId>
+Connect-AzAccount -Environment AzureChinaCloud
+Set-AzContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
     };
-Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>应用服务中是如何进行身份验证和授权的？
@@ -246,7 +248,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>为什么自动缩放不按预期方式工作？
 
-如果 Azure 自动缩放未按预期方式缩放 web 应用，可能会陷入一种困境，在这种情况下，建议主动选择不进行缩放以避免由“不稳定”引起的无限循环。 当扩大与缩小阈值之间没有足够空间时，通常会发生这种情况。 若要了解如何避免“波动”以及如何了解其他自动缩放最佳做法，请参阅[自动缩放最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices)。
+如果 Azure 自动缩放未按预期方式缩放 web 应用，可能会陷入一种困境，在这种情况下，建议主动选择不进行缩放以避免由“不稳定”引起的无限循环。 当扩大与缩小阈值之间没有足够空间时，通常会发生这种情况。 若要了解如何避免“波动”以及如何了解其他自动缩放最佳做法，请参阅[自动缩放最佳做法](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices)。
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>为何自动缩放有时只部分缩放？
 
@@ -260,10 +262,10 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 若要同时为静态和动态内容类型启用压缩，请将以下代码添加到应用程序级别的 web.config 文件：
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 还可以指定要压缩的特定动态和静态 MIME 类型。 有关详细信息，请参阅我们在[简单 Azure 网站上的 httpCompression 设置](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview)中对论坛问题的回复。

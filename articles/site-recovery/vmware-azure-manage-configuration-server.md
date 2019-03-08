@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 02/12/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 482b02a8b60557bfe2e246bb9a9c8a85156fc8d0
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 60803639f806a0287807df5995ba334aeb4112b8
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363393"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463529"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>为 VMware VM 灾难恢复管理配置服务器
 
@@ -136,10 +136,12 @@ ms.locfileid: "54363393"
 - 如果运行的是 9.7、9.8、9.9 或 9.10 版，可以直接升级到 9.11 版。
 - 如果运行的是 9.6 版或更早版本并且想要升级到 9.11 版，则必须先升级到 9.7 版， 然后再升级到 9.11 版。
 
-[Azure 更新页](https://www.azure.cn/what-is-new/)中提供了用于升级到配置服务器的所有版本的更新汇总的链接。
+有关 Azure Site Recovery 组件支持声明的详细指南，请参阅[此处](../site-recovery/service-updates-how-to.md#support-statement-for-azure-site-recovery)。
+[此处](../site-recovery/service-updates-how-to.md#links-to-currently-supported-update-rollups)提供了用于升级到配置服务器的所有版本的更新汇总的链接。
 
 > [!IMPORTANT]
-> 对于每一新版“N”的已发布 Azure Site Recovery 组件，“N-4”以下的所有版本都被视为不受支持。 始终建议升级到可用的最新版本。
+> 对于每一新版“N”的已发布 Azure Site Recovery 组件，“N-4”以下的所有版本都被视为不受支持。 始终建议升级到可用的最新版本。</br>
+> 有关 Azure Site Recovery 组件支持声明的详细指南，请参阅[此处](../site-recovery/service-updates-how-to.md#support-statement-for-azure-site-recovery)。
 
 按如下所示升级服务器：
 
@@ -157,6 +159,61 @@ ms.locfileid: "54363393"
     ![更新](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. 单击“完成”关闭安装程序。
+8. 若要升级其余的 Site Recovery 组件，请参阅我们的[升级指南](../site-recovery/service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure)。
+
+## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>从命令行升级配置服务器/进程服务器
+
+如下所示运行安装文件：
+
+  ```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+  ```
+
+### <a name="sample-usage"></a>示例用法
+  ```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
+  ```
+
+### <a name="parameters"></a>parameters
+
+|参数名称| 类型 | 说明| 值|
+|-|-|-|-|
+| /ServerMode|必须|指定是要同时安装配置服务器和进程服务器，还是只安装进程服务器|CS<br>PS|
+|/InstallLocation|必须|用于安装组件的文件夹| 计算机上的任意文件夹|
+|/MySQLCredsFilePath|必须|存储 MySQL 服务器凭据的文件路径|该文件应采用以下指定格式|
+|/VaultCredsFilePath|必须|保管库凭据文件的路径|有效的文件路径|
+|/EnvType|必须|要保护的环境类型 |VMware<br>NonVMware|
+|/PSIP|必须|要用于复制数据传输的 NIC 的 IP 地址| 任何有效的 IP 地址|
+|/CSIP|必须|配置服务器正在侦听的 NIC 的 IP 地址| 任何有效的 IP 地址|
+|/PassphraseFilePath|必须|密码文件位置的完整路径|有效的文件路径|
+|/BypassProxy|可选|指定配置服务器在不使用代理的情况下连接到 Azure|从 Venu 获取此值|
+|/ProxySettingsFilePath|可选|代理设置（默认代理需要身份验证，或自定义代理）|该文件应采用以下指定格式|
+|DataTransferSecurePort|可选|用于复制数据的 PSIP 上的端口号| 有效端口号（默认值为 9433）|
+|/SkipSpaceCheck|可选|跳过缓存磁盘的空间检查| |
+|/AcceptThirdpartyEULA|必须|该标志表示接受第三方 EULA| |
+|/ShowThirdpartyEULA|可选|显示第三方 EULA。 如果作为输入提供，将忽略所有其他参数| |
+
+### <a name="create-file-input-for-mysqlcredsfilepath"></a>创建 MYSQLCredsFilePath 的文件输入
+
+MySQLCredsFilePath 参数使用某个文件作为输入。 创建使用以下格式的文件并将其作为输入 MySQLCredsFilePath 参数进行传递。
+```ini
+[MySQLCredentials]
+MySQLRootPassword = "Password>"
+MySQLUserPassword = "Password"
+```
+### <a name="create-file-input-for-proxysettingsfilepath"></a>创建 ProxySettingsFilePath 的文件输入
+ProxySettingsFilePath 参数使用某个文件作为输入。 创建使用以下格式的文件并将其作为输入 ProxySettingsFilePath 参数进行传递。
+
+```ini
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
+```
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>删除或取消注册配置服务器
 
@@ -172,7 +229,7 @@ ms.locfileid: "54363393"
 
 还可以选择使用 PowerShell 删除配置服务器。
 
-1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块。
+1. [安装](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块。
 2. 使用以下命令登录到 Azure 帐户：
 
     `Connect-AzureRmAccount -Environment AzureChinaCloud`

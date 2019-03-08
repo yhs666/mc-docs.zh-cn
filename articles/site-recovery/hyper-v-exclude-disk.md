@@ -2,17 +2,19 @@
 title: 使用 Azure Site Recovery 服务设置灾难恢复时，从复制中排除磁盘 | Azure
 description: 介绍如何在灾难恢复到 Azure 期间将 VM 磁盘从复制中排除。
 author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 01/19/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6a17baa2925f0985dcdf28ace8817b37e1b43cd1
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f4ede3c5a0c4f92bc4a4ac8dfd663fca24e6d436
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363459"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463616"
 ---
 # <a name="exclude-disks-from-replication"></a>从复制中排除磁盘
 本文介绍如何从复制中排除磁盘。 这种排除可以优化消耗的复制带宽，或者优化此类磁盘利用的目标端资源。
@@ -58,7 +60,7 @@ ms.locfileid: "54363459"
 - SQL Server tempdb 磁盘
 - 页面文件 (pagefile.sys) 磁盘
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>示例 1：排除 SQL Server tempdb 磁盘
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>示例 1：排除 SQL Server tempdb 磁盘
 假设有一台拥有可被排除的 tempdb 的 SQL Server 虚拟机。
 
 虚拟磁盘的名称为 SalesDB。

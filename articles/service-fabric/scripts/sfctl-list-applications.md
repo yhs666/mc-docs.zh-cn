@@ -13,15 +13,15 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 04/13/2018
-ms.date: 08/20/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 03fb6c386697c9d5baed73d310f265b231f0d23f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3e71d7b96b9b30dba4f8d77a51dd0c01cf9f42fd
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645545"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204008"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>列出在 Service Fabric 群集中运行的应用程序
 

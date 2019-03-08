@@ -9,14 +9,14 @@ ms.author: v-yiso
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 02/04/2019
-ms.openlocfilehash: 435ef2d22af651ddf643ec51de833b95f4879f99
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+origin.date: 02/08/2019
+ms.date: 03/18/2019
+ms.openlocfilehash: c12a20949cb50b301073ef9e203b66224c9675a9
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906209"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560500"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
@@ -27,127 +27,29 @@ Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage（Gen
 在开始下一步之前，请注意以下要求：
 
 * 一个 Azure HDInsight 群集。 有关说明，请参阅 [Azure HDInsight 入门][hdinsight-get-started]或[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
-* 学习以下两篇文章：
+* 学习以下文章：
 
     - [将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]
-    - [将 Data Lake Storage Gen2 与 HDInsight 配合使用](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>将数据上传到 Azure 存储
 
-### <a name="command-line-utilities"></a>命令行实用程序
+## <a name="utilities"></a>实用程序
 Microsoft 提供以下实用工具用于操作 Azure 存储：
 
 | 工具 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 经典 CLI][azurecli] |✔ |✔ |✔ |
-| [Azure PowerShell][azure-powershell] | | |✔ |
-| [AzCopy][azure-azcopy] |✔ | |✔ |
+| [Azure 门户](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 | [Hadoop 命令](#commandline) |✔ |✔ |✔ |
 
-> [!NOTE]
-> 尽管 Azure 经典 CLI、Azure PowerShell 和 AzCopy 都可从 Azure 外部使用，但是 Hadoop 命令只能在 HDInsight 群集上使用。 使用该命令只能将数据从本地文件系统载入 Azure 存储。
->
->
 
-#### <a id="xplatcli"></a>Azure 经典 CLI
-Azure 经典 CLI 是一个跨平台工具，可用于管理 Azure 服务。 使用以下步骤将数据上传到 Azure 存储：
+> [!NOTE]  
+> Hadoop 命令仅在 HDInsight 群集上可用。 使用该命令只能将数据从本地文件系统载入 Azure 存储。  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [安装和配置适用于 Mac、Linux 和 Windows 的 Azure 经典 CLI](../cli-install-nodejs.md)。
-2. 打开命令提示符、bash 或其他 shell，并使用以下方法对 Azure 订阅进行身份验证。
-
-    ```cli
-    azure login
-    ```
-
-    出现提示时，输入订阅的用户名和密码。
-3. 输入以下命令，列出订阅的存储帐户：
-
-    ```cli
-    azure storage account list
-    ```
-
-4. 选择包含用户要使用的 Blob 的存储帐户，并使用以下命令检索此帐户的密钥：
-
-    ```cli
-    azure storage account keys list <storage-account-name>
-    ```
-
-    此命令返回**主**密钥和**辅助**密钥。 复制 **主** 密钥值，因为后续步骤要用到它。
-5. 使用以下命令可检索存储帐户中的 Blob 容器列表：
-
-    ```cli
-    azure storage container list -a <storage-account-name> -k <primary-key>
-    ```
-
-6. 使用以下命令可将文件上传和下载到 Blob：
-
-   * 上传文件：
-
-        ```cli
-        azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-        ```
-
-   * 下载文件：
-
-        ```cli
-        azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
-        ```
-    
-> [!NOTE]
-> 如果始终使用同一个存储帐户，可以设置以下环境变量，而无需为每条命令指定帐户和密钥：
->
-> * **AZURE\_STORAGE\_ACCOUNT**：存储帐户名称
-> * **AZURE\_STORAGE\_ACCESS\_KEY**：存储帐户密钥
->
->
-
-#### <a id="powershell"></a>Azure PowerShell
-Azure PowerShell 是一个脚本编写环境，可用于在 Azure 中控制和自动执行工作负荷的部署和管理。 有关配置工作站运行 Azure PowerShell 的信息，请参阅[安装和配置 Azure PowerShell](/powershell/azure/overview)。
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
-
-**将本地文件上传到 Azure 存储**
-
-1. 根据[安装和配置 Azure PowerShell](/powershell/azure/overview) 中的说明打开 Azure PowerShell 控制台。
-2. 设置以下脚本中前五个变量的值：
-
-    ```powershell
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $storageAccountName = "<StorageAccountName>"
-    $containerName = "<ContainerName>"
-
-    $fileName ="<LocalFileName>"
-    $blobName = "<BlobName>"
-
-    # Get the storage account key
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-    # Create the storage context object
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-
-    # Copy the file from local workstation to the Blob container
-    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-    ```
-
-3. 将脚本粘贴到 Azure PowerShell 控制台中，以运行它来复制文件。
-
-有关创建用来使用 HDInsight 的 PowerShell 脚本示例，请参阅 [HDInsight 工具](https://github.com/blackmist/hdinsight-tools)。
-
-#### <a id="azcopy"></a>AzCopy
-AzCopy 是一个命令行工具，用于简化将数据传入和传出 Azure 存储帐户的任务。 可以将它作为独立的工具使用，也可以将此工具融入到现有应用程序中。 [下载 AzCopy][azure-azcopy-download]。
-
-AzCopy 语法为：
-
-```command
-AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
-```
-
-有关详细信息，请参阅 [AzCopy - 上传/下载 Azure Blob 的文件][azure-azcopy]。
-
-AzCopy on Linux 预览版已推出。  请参阅[宣布推出 AzCopy on Linux 预览版](https://blogs.msdn.microsoft.com/windowsazurestorage/2017/05/16/announcing-azcopy-on-linux-preview/)。
-
-#### <a id="commandline"></a>Hadoop 命令行
+## <a id="commandline"></a>Hadoop 命令行
 仅当数据已存在于群集头节点中时，才可以使用 Hadoop 命令行将数据存储到 Azure 存储 Blob。
 
 若要使用 Hadoop 命令，必须先使用以下方法之一连接到头节点：
@@ -171,53 +73,31 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > 在 Apache HBase 群集上，写入数据为 256 KB 时会使用默认块大小。 虽然在使用 HBase Api 或 REST API 时可良好运行，但使用 `hadoop` 或 `hdfs dfs` 命令编写大于 ~12 GB 的数据会导致错误。 有关详细信息，请参阅本文的[在 Blob 上编写时的存储异常](#storageexception)部分。
 >
 >
 
-### <a name="graphical-clients"></a>图形客户端
+## <a name="graphical-clients"></a>图形客户端
 还有一些应用程序可提供用于 Azure 存储的图形界面。 下表是其中一些应用程序的列表：
 
 | 客户端 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [用于 HDInsight 的 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure 存储空间资源管理器](https://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
+| [Azure 存储空间资源管理器](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Resource Manager](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [适用于 Microsoft Azure 的 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
-#### <a name="visual-studio-tools-for-hdinsight"></a>用于 HDInsight 的 Visual Studio 工具
-有关详细信息，请参阅[导航链接的资源](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources)。
 
-#### <a id="storageexplorer"></a>Azure 存储资源管理器
-*Azure 存储资源管理器* 是一种用于在 Blob 中检查和更改数据的实用工具。 它是免费的开源工具，可从 [https://storageexplorer.com/](https://storageexplorer.com/) 下载。 也可以从此链接获取源代码。
-
-使用该工具之前，必须知道 Azure 存储帐户名和帐户密钥。 有关如何获取此信息的说明，请参阅：[创建、管理或删除存储帐户][azure-create-storage-account]中的“如何：查看、复制和重新生成存储访问密钥”部分。
-
-1. 运行 Azure 存储资源管理器。 首次运行存储资源管理器时，系统会提示输入“存储帐户名”和“存储帐户密钥”。 如果以前运行过存储资源管理器，请使用  “添加”按钮添加一个新的存储帐户名和密钥。
-
-    输入 HDInsight 群集使用的存储帐户的名称和密钥，然后选择“保存并打开”。
-
-    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
-2. 在界面左侧的容器列表中，单击与 HDInsight 群集关联的容器名称。 默认情况下，这是 HDInsight 群集的名称，但如果在创建群集时输入了特定的名称，则该名称可能不同。
-3. 在工具栏中选择上传图标。
-
-    ![突出显示了上传图标的工具栏](./media/hdinsight-upload-data/toolbar.png)
-4. 指定要上传的文件，然后单击“打开”。 出现提示时，请选择“上传”将文件上传到存储容器的根目录。 若要将文件上传到特定的路径，请在“目标”字段中输入该路径，然后选择“上传”。
-
-    ![文件上传对话框](./media/hdinsight-upload-data/fileupload.png)
-
-    上传完文件后，可以通过 HDInsight 群集中的作业来使用该文件。
-
-### <a name="mount-azure-storage-as-local-drive"></a>将 Azure 存储装载为本地驱动器
+## <a name="mount-azure-storage-as-local-drive"></a>将 Azure 存储装载为本地驱动器
 请参阅[将 Azure 存储装载为本地驱动器](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
 
 ### <a name="upload-using-services"></a>使用服务上传
-#### <a id="sqoop"></a>Apache Sqoop
+### <a id="sqoop"></a>Apache Sqoop
 Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后回过来将数据导出到 RDBMS。
 
 有关详细信息，请参阅[将 Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
@@ -234,8 +114,8 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 
 有关安装 Azure SDK 的详细信息，请参阅 [Azure 下载](https://azure.microsoft.com/downloads/)
 
-### <a name="troubleshooting"></a>故障排除
-#### <a id="storageexception"></a>写入 blob 时的存储异常
+## <a name="troubleshooting"></a>故障排除
+### <a id="storageexception"></a>写入 blob 时的存储异常
 **症状**：使用 `hadoop` 或 `hdfs dfs` 命令在 HBase 群集上编写大于或等于 ~12 GB 的文件时，可能会遇到以下错误：
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge

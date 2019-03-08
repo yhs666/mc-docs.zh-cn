@@ -3,20 +3,20 @@ title: 有关文本分析 API 的常见问题解答
 titleSuffix: Azure Cognitive Services
 description: 获取有关文本分析 API 的常见问题解答。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: 023d4c3436657c2518290224b351510b32939540
-ms.sourcegitcommit: c1ef8d674de75dd4532a2cc66a296d8020bb7e80
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 542ebabd52567e72ec538aeac1cc0f04e222cb01
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668447"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204002"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>有关文本分析认知服务的常见问题解答 (FAQ)
 
@@ -46,3 +46,4 @@ ms.locfileid: "55668447"
 
 如果更改较大，则会宣布对模型和算法进行改进；如果更新很小，则会悄悄地将其整合到服务中。 随着时间的推移，你可能会发现相同的文本输入会产生不同的情绪分数或关键短语输出。 这是在云中使用托管机器学习资源的正常且有意的结果。
 
+<!-- Update_Description: update metedata properties -->

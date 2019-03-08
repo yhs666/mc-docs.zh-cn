@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory 中按照任务委托最小特权角色 | Microsoft Docs
+title: 按管理员任务委托最小特权角色 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory 中为标识任务委托角色
 services: active-directory
 documentationcenter: ''
@@ -8,21 +8,22 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 11/08/2018
-ms.date: 01/04/2019
+origin.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b79c836ab8c3878627d3cd8e94d4cb460ddcbd19
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c68a30611ce7f92c869f0fd0ef67e77ce4a4be36
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029141"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462374"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory 中按照标识任务委托的管理员角色
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中按管理员任务委托管理员角色
 
 本文介绍了通过在 Azure Active Directory (Azure AD) 中分配最小特权角色来限制用户管理员权限所需的信息。 你将能查找按功能区域整理的管理员任务、执行每项任务所需的最小特权角色，以及可以执行任务的其他非全局管理员角色。
 
@@ -112,8 +113,8 @@ ms.locfileid: "54029141"
 禁用 MFA | 全局管理员角色 | 
 启用 MFA | 全局管理员角色 | 
 管理 MFA 服务设置 | 全局管理员角色 | 
-要求选定的用户再次提供联系方法 | 全局管理员角色 | 
-在所有记住的设备上还原多重身份验证  | 全局管理员角色 | 
+要求选定的用户再次提供联系方法 | 身份验证管理员 | 
+在所有记住的设备上还原多重身份验证  | 身份验证管理员 | 
 
 ## <a name="organizational-relationships"></a>组织关系
 

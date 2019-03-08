@@ -4,51 +4,48 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用人脸 API 和 PHP 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 05/30/2018
-ms.date: 11/23/2018
+origin.date: 02/07/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: ff574e254198ec3becbd52d8fb050d9383d39773
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: c97a428153d489177c3d768230cc5cf0124f293b
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672748"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204003"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
-本快速入门使用人脸 API 检测图像中的人脸。
+在本快速入门中，将使用 Azure 人脸 REST API 和 PHP 来检测图像中的人脸。
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
 
-## <a name="face---detect-request"></a>人脸 - 检测请求
+- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
 
-使用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)方法检测图像中的人脸并返回人脸属性，包括：
+## <a name="initialize-the-html-file"></a>初始化 HTML 文件
 
-- 人脸 ID：多个人脸 API 方案中使用的唯一 ID。
-- 人脸矩形：左侧、顶部、宽度和高度，指示人脸在图像中的位置。
-- 地标：27 点人脸地标数组，指向人脸组成部分的重要位置。
-- 人脸属性包括年龄、性别、笑容程度、头部姿态和面部毛发。
+创建一个新的 HTML 文件 (*detectFaces.html*)，并添加以下代码。
 
-若要运行此示例，请执行以下步骤：
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-1. 将以下代码复制到编辑器中。
-1. 将 `<Subscription Key>` 替换为有效订阅密钥。
-1. （可选）将 `imageUrl` 设置为要分析的图像。
-1. 使用 `.php` 扩展名保存文件。
-1. 在 PHP 支持的浏览器窗口中打开该文件。
+## <a name="write-the-php-script"></a>编写 PHP 脚本
+
+在该文档的 `body` 元素中添加以下代码。 这将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”按钮、响应窗格和图像显示窗格。
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -99,13 +96,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>人脸 - 检测响应
+需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 `returnFaceAttributes` 字段指定要检索的人脸属性；你可能希望根据自己的预期用途更改此字符串。
 
-成功的响应以 JSON 格式返回，例如：
+## <a name="run-the-script"></a>运行脚本
+
+在支持 PHP 的 Web 浏览器中打开该文件。 你应该获得人脸数据的 JSON 字符串，如下所示。
 
 ```json
 [
@@ -293,3 +290,4 @@ catch (HttpException $ex)
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
+<!-- Update_Description: wording update -->

@@ -6,20 +6,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/04/2019
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7a4a95dd9bfe76797eb09091e54b8318f6726b3f
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 8731a1d268defea5dd7e08b18d17e379f0803b1f
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396781"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560461"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Azure IoT 工具创建 IoT 中心
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 本文介绍了如何使用[适用于 Visual Studio Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)创建 Azure IoT 中心。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要完成本文，需要以下各项：
 

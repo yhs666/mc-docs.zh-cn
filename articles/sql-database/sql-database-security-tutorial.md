@@ -1,6 +1,6 @@
 ---
-title: 在 Azure SQL 数据库中确保独立数据库或入池数据库的安全 | Microsoft Docs
-description: 了解在 Azure SQL 数据库中保护独立数据库或入池数据库的技术和功能。
+title: 在 Azure SQL 数据库中确保单一数据库或入池数据库的安全 | Microsoft Docs
+description: 了解在 Azure SQL 数据库中保护单一数据库或入池数据库的技术和功能。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,18 +9,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/30/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: ff314714a4f76629cce622ab6c6894578c78d9bb
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/08/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: bc9c2e9f74e35396c1785307f3c3a58d238194ef
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663562"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347194"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>教程：保护独立数据库或入池数据库
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>教程：保护单一数据库或入池数据库
 
-Azure SQL 数据库允许你通过以下方式确保独立数据库或入池数据库中数据的安全：
+Azure SQL 数据库允许你通过以下方式确保单一数据库或入池数据库中数据的安全：
 
 - 使用防火墙规则限制访问
 - 使用需要标识的身份验证机制

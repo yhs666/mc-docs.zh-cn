@@ -10,14 +10,14 @@ ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8b49694fee7b0249c31c5618cb20cf2525919789
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 171d9a85ce020eeec7a895001720da4677d76568
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665491"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254065"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>适用于 Azure Functions 2.x 的 Azure Cosmos DB 绑定
 
@@ -993,7 +993,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 此部分包含的以下示例可以通过指定各种源提供的 ID 值来读取单个文档：
 
-- [队列触发器，从 JSON 查找 ID](#queue-trigger-look-up-id-from-string-javascript)
+- [队列触发器，从 JSON 查找 ID](#queue-trigger-look-up-id-from-json-javascript)
 - [HTTP 触发器，从查询字符串查找 ID](#http-trigger-look-up-id-from-query-string-javascript)
 - [HTTP 触发器，从路由数据查找 ID](#http-trigger-look-up-id-from-route-data-javascript)
 - [队列触发器，使用 SqlQuery 获取多个文档](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1201,7 +1201,7 @@ JavaScript 代码如下所示：
 
 此部分包含的以下示例可以通过指定各种源提供的 ID 值来读取单个文档：
 
-- [队列触发器，从 JSON 查找 ID](#queue-trigger-look-up-id-from-string-python)
+- [队列触发器，从 JSON 查找 ID](#queue-trigger-look-up-id-from-json-python)
 - [HTTP 触发器，从查询字符串查找 ID](#http-trigger-look-up-id-from-query-string-python)
 - [HTTP 触发器，从路由数据查找 ID](#http-trigger-look-up-id-from-route-data-python)
 - [队列触发器，使用 SqlQuery 获取多个文档](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -1717,7 +1717,7 @@ public class DocsFromRouteSqlQuery {
 |**name**     || 表示函数中的文档的绑定参数的名称。  |
 |**databaseName** |**DatabaseName** |包含文档的数据库。        |
 |**collectionName** |**CollectionName** | 包含文档的集合的名称。 |
-|**id**    | Id | 要检索的文档的 ID。 此属性支持[绑定表达式](functions-triggers-bindings.md#binding-expressions-and-patterns)。 不要同时设置 **id** 和 **sqlQuery** 属性。 如果上述两个属性都未设置，则会检索整个集合。 |
+|**id**    | Id | 要检索的文档的 ID。 此属性支持[绑定表达式](./functions-bindings-expressions-patterns.md)。 不要同时设置 **id** 和 **sqlQuery** 属性。 如果上述两个属性都未设置，则会检索整个集合。 |
 |**sqlQuery**  |**SqlQuery**  | 用于检索多个文档的 Azure Cosmos DB SQL 查询。 该属性支持运行时绑定，如以下示例中所示：`SELECT * FROM c where c.departmentId = {departmentId}`。 不要同时设置 **id** 和 **sqlQuery** 属性。 如果上述两个属性都未设置，则会检索整个集合。|
 |**connectionStringSetting**     |**ConnectionStringSetting**|内含 Azure Cosmos DB 连接字符串的应用设置的名称。        |
 |**partitionKey**|**PartitionKey**|指定用于查找分区键值。 可以包含绑定参数。|

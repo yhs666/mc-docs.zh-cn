@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 11/02/2018
-ms.date: 12/27/2018
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 126cdb7550999b65528e7f2c050028d3c44a85c1
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: aea0b6e40a8cf53ff1b0ec257574f86447a3e169
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806516"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254048"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>如何管理 Azure Functions 中的连接
 
@@ -120,4 +120,4 @@ public static async Task Run(string input)
 ## <a name="next-steps"></a>后续步骤
 有关更多 Azure Functions 性能提示，请参阅[优化 Azure Functions 的性能和可靠性](functions-best-practices.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

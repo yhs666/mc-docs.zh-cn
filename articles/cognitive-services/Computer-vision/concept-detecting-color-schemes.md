@@ -4,24 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: 使用计算机视觉 API 检测图像中的配色方案的相关概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 02/08/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 411a42f4ac8bb3304d73a755c07dc222b18ca96b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 6239c4eba73d019dd3f74698d634641d9e0cf49d
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083778"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204188"
 ---
 # <a name="detect-color-schemes-in-images"></a>检测图像中的配色方案
 
-计算机视觉可从图像中提取颜色。 然后在三个不同的上下文中分析颜色：主导前景色、主导背景色和图像的整体主导色。 它们可分组为 12 种主导的主题色。 这些主题色为黑、蓝、褐、灰、绿、橙、粉、紫、红、青、白、黄。 计算机视觉可分析从图像中提取的颜色，以通过主导色和饱和度的组合返回向观众呈现最鲜艳图像颜色的主题色。 可能会在十六进制颜色代码中返回简单的黑白色或主题色，具体取决于图像中的颜色。 计算机视觉还会返回一个布尔值，该值指示图像为黑色还是白色。
+计算机视觉分析图像中的颜色以便提供三种不同属性：主导前景色、主导背景色和图像的整体主导色的集。 返回色属于集：黑色、蓝色、棕色、灰色、绿色、橙色、粉红色、紫色、红色、青色、白色和黄色。 
+
+计算机视觉还提取了代表图像中最鲜艳颜色的主题色，其基于主色和饱和度的组合。 主题色作为十六进制 HTML 颜色代码返回。 
+
+计算机视觉还返回布尔值，该值指示图像为黑色或白色。
 
 ## <a name="color-scheme-detection-examples"></a>配色方案检测示例
 
@@ -49,7 +53,7 @@ ms.locfileid: "54083778"
 
 ### <a name="dominant-color-examples"></a>主导色示例
 
-下表描述计算机视觉所返回的每个示例图像的主导前景色、主导背景色和图像颜色。
+下表显示了针对每个示例图像返回的前景、背景和图像颜色。
 
 | 映像 | 主色 |
 |-------|-----------------|
@@ -58,7 +62,7 @@ ms.locfileid: "54083778"
 
 ### <a name="accent-color-examples"></a>主题色示例
 
- 下表描述计算机视觉所返回的十六进制 HTML 值形式的每个示例图像的主题色。
+ 下表显示返回的十六进制 HTML 值形式的每个示例图像的主题色。
 
 | 映像 | 主题色 |
 |-------|--------------|
@@ -68,7 +72,7 @@ ms.locfileid: "54083778"
 
 ### <a name="black--white-detection-examples"></a>黑白检测示例
 
-下表指示计算机视觉所返回的每个示例图像是为黑色还是白色。
+下表显示示例图像中的计算机视觉的黑色和白色计算。
 
 | 映像 | 黑色还是白色？ |
 |-------|----------------|

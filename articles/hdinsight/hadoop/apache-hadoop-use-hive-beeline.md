@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 04/20/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4858c5ca86281037ca461c75dbe94c41a9fdead3
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 007aeaa639ceca75f850abbdb049eeab7fd48c16
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303020"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560497"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>将 Apache Beeline 客户端与 Apache Hive 配合使用
 
@@ -284,7 +284,6 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 如果将 Tez 与 Hive 配合使用，请参阅以下文档：
 
 * [在基于 Windows 的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-* [在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

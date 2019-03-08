@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/12/2018
-ms.date: 12/27/2018
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3dc68bb82699c072ac0779beeefc9ef892d4f78f
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 312b30e09267fc4fb53ae27ef7f8d12fa77e48a6
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806607"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254047"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -51,7 +51,7 @@ Azure Functions 支持 C# 和 C# 脚本编程语言。 如果要寻找有关[在
  | - host.json
 ```
 
-部署到 Azure 中函数应用的正是此目录。 Functions 运行时 [2.x 版](functions-versions.md) 中所需的绑定扩展[作为 NuGet 包添加到项目中](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017)。
+部署到 Azure 中函数应用的正是此目录。 Functions 运行时 [2.x 版](functions-versions.md) 中所需的绑定扩展[作为 NuGet 包添加到项目中](./functions-bindings-register.md#c-class-library-with-visual-studio-2017)。
 
 > [!IMPORTANT]
 > 生成过程将为每个函数创建一个 *function.json* 文件。 此 *function.json* 文件不应直接编辑。 无法通过编辑此文件来更改绑定配置或禁用函数。 要了解如何禁用函数，请参阅[如何禁用函数](disable-function.md#functions-2x---c-class-libraries)。
@@ -84,7 +84,7 @@ public static class SimpleExample
 - [输入和输出绑定](functions-triggers-bindings.md)通过使用属性修饰来进行此类标记。  
 - 用于[日志](#logging)的 `ILogger` 或 `TraceWriter`（仅限[版本 1.x](functions-versions.md#creating-1x-apps)）参数。
 - 用于[正常关闭](#cancellation-tokens)的 `CancellationToken` 参数。
-- 用于获取触发器元数据的[绑定表达式](functions-triggers-bindings.md#binding-expressions-and-patterns)参数。
+- 用于获取触发器元数据的[绑定表达式](./functions-bindings-expressions-patterns.md)参数。
 
 函数签名中的参数顺序并不重要。 例如，可以在其他绑定之前或之后放置触发器参数，也可以在触发器或绑定参数之前或之后添加记录器参数。
 
@@ -206,7 +206,7 @@ Visual Studio 使用 [Azure Functions Core Tools](functions-run-local.md#install
 
 ## <a name="binding-to-method-return-value"></a>绑定到方法返回值
 
-通过将属性应用于方法返回值，可以对输出绑定使用方法返回值。 有关示例，请参阅[触发器和绑定](functions-triggers-bindings.md#using-the-function-return-value)。 
+通过将属性应用于方法返回值，可以对输出绑定使用方法返回值。 有关示例，请参阅[触发器和绑定](./functions-bindings-return-value.md)。 
 
 仅当成功的函数执行始终将返回值传递给输出绑定时，才使用返回值。 否则，请使用 `ICollector` 或 `IAsyncCollector`，如以下部分所示。
 

@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 0dfce1318fbb0d7b5aaf84db5366a163afdb950b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 861035d59b819b642b45b72c8135ff2ee69dfc7e
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083886"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347213"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>使用 FTP 将文件上传到 Web 应用
 
@@ -31,24 +31,26 @@ ms.locfileid: "54083886"
 
 ## <a name="sample-script"></a>示例脚本
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```powershell
 $appdirectory="<Replace with your app directory>"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"
 
 # Create a resource group.
-New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+New-AzResourceGroup -Name myResourceGroup -Location $location
 
 # Create an App Service plan in `Free` tier.
-New-AzureRmAppServicePlan -Name $webappname -Location $location `
+New-AzAppServicePlan -Name $webappname -Location $location `
 -ResourceGroupName myResourceGroup -Tier Free
 
 # Create a web app.
-New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
+New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
 -ResourceGroupName myResourceGroup
 
 # Get publishing profile for the web app
-$xml = (Get-AzureRmWebAppPublishingProfile -Name $webappname `
+$xml = [xml](Get-AzWebAppPublishingProfile -Name $webappname `
 -ResourceGroupName myResourceGroup `
 -OutputFile null)
 
@@ -72,13 +74,12 @@ foreach ($file in $files)
 $webclient.Dispose()
 
 ```
-
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -87,10 +88,10 @@ Remove-AzureRmResourceGroup -Name $webappname -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
-| [Get-AzureRmWebAppPublishingProfile](https://docs.microsoft.com/powershell/module/azurerm.websites/get-azurermwebapppublishingprofile) | 获取 Web 应用的发布配置文件。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
+| [Get-AzWebAppPublishingProfile](https://docs.microsoft.com/powershell/module/az.websites/get-azwebapppublishingprofile) | 获取 Web 应用的发布配置文件。 |
 
 ## <a name="next-steps"></a>后续步骤
 

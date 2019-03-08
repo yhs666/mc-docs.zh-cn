@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 01/30/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 98d738c5171641427343647b2487a65758e1d785
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/13/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 792825d141c87c68ff8669f6c703a64bee6cf45a
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663653"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347198"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
 

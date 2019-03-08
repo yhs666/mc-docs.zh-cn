@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 225cdc065e81fbad6e7df7fb77d94d6dd4da4b05
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 95004b693206ad41907b2e88161170fe9ac1587b
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663709"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347222"
 documentType: LandingData
 title: Azure SQL 数据库：单一数据库
 metadata:
@@ -16,11 +16,12 @@ metadata:
   manager: digimobile
   requires-business-manager-approval: false
   ms.service: sql-database
+  ms.subservice: single-database
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
   origin.date: 01/25/2019
-  ms.date: 02/25/2019
+  ms.date: 03/11/2019
   ms.author: v-jay
 abstract:
   description: Azure SQL 数据库是基于最新稳定版 Microsoft SQL Server 数据库引擎的关系数据库即服务 (DBaaS)。 SQL 数据库是一种高性能、易于使用、可靠且安全的数据库，可以用来以所选编程语言构建新的应用程序、网站和微服务，且无需管理基础结构。 使用我们的快速入门、教程和示例了解如何使用 SQL 数据库。
@@ -120,10 +121,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: 使用 <a href="/sql-database/sql-database-design-first-database">SSMS</a> 或 <a href="/sql-database/sql-database-design-first-database-csharp">.NET</a> 创建和设计新 SQL 数据库的架构
-    - html: 使用<a href="/sql-database/sql-database-migrate-your-sql-server-database">数据库迁移助手</a>或 <a href="/sql-database/sql-database-import">BACPAC 导入</a>将现有数据库迁移到 Azure
-    - html: <a href="/sql-database/sql-database-security-tutorial">保护 SQL 数据库</a>
-    - html: 使用<a href="/sql-database/sql-database-implement-geo-distributed-database">地理分散的数据库</a>在全球分布数据
+    - html: 使用 <a href="/sql-database/sql-database-design-first-database">SSMS</a> 或 <a href="/sql-database/sql-database-design-first-database-csharp">.NET</a> 创建和设计新 SQL 数据库的架构。
+    - html: 使用<a href="/sql-database/sql-database-migrate-your-sql-server-database">数据库迁移助手</a>或 <a href="/sql-database/sql-database-import">BACPAC 导入</a>将现有数据库迁移到 Azure。
+    - html: <a href="/sql-database/sql-database-security-tutorial">保护 SQL 数据库</a>。
+    - html: 使用<a href="/sql-database/sql-database-implement-geo-distributed-database">地理分散的数据库</a>在全球分布数据。
     - html: 查找可以帮助你配置数据库的更多<a href="sql-database-howto-single-database.md">操作指南</a>。
 - title: 示例
   items:

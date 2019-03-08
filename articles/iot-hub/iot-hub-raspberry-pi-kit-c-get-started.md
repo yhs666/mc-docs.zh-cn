@@ -1,25 +1,23 @@
 ---
-title: 连接到云的 Raspberry Pi (C) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs
-description: 在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
+title: 使用 C 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs
+description: 了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台
 author: rangv
-manager: ''
-keywords: Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/11/2018
+origin.date: 02/14/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 01/28/2019
-ms.openlocfilehash: 2b0b8c67210cf4bf558555324a85cbb80d6acc1b
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.date: 03/18/2019
+ms.openlocfilehash: 3588f0f2b6c3f660125433733bfb28ec0b22827b
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396810"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560494"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -88,7 +86,7 @@ ms.locfileid: "54396810"
 准备用于安装 Raspbian 映像的 microSD 卡。
 
 1. 下载 Raspbian。
-   1. [下载 Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
+   1. [下载 Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
    1. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
 1. 将 Raspbian 安装到 microSD 卡。
    1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI 脚本部署示例
-description: 使用 Azure Service Fabric CLI 在 Azure 中创建安全的 Service Fabric Linux 群集。
+title: Azure CLI 脚本部署示例
+description: 使用 Azure CLI 在 Azure 中创建安全的 Service Fabric Linux 群集。
 services: service-fabric
 documentationcenter: ''
 author: rockboyfor
@@ -13,21 +13,21 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 01/18/2018
-ms.date: 03/12/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2d5f936c18d8753946038016af902a100e792574
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1a9c0f0221663ad111e2613f897975340af9d766
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654109"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204157"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>在 Azure 中创建安全的 Service Fabric Linux 群集
 
 此命令创建一个自签名证书，将其添加到密钥保管库并在本地下载该证书。  新证书用于在群集部署时保护群集。  也可以使用现有证书而不是创建一个新证书。  不管怎样，证书的使用者名称都必须与用于访问 Service Fabric 群集的域匹配。 只有满足此匹配，才能为群集的 HTTPS 管理终结点和 Service Fabric Explorer 提供 SSL。 无法从 CA 获取 `.cloudapp.chinacloudapi.cn` 域的 SSL 证书。 必须获取群集的自定义域名。 从 CA 请求证书时，该证书的使用者名称必须与用于群集的自定义域名匹配。
 
-根据需要安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+根据需要安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -54,7 +54,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
   --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
   --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
   --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
-    
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -72,9 +72,10 @@ az group delete --name $ResourceGroupName
 
 | 命令 | 注释 |
 |---|---|
-| [az sf cluster create](https://docs.azure.cn/zh-cn/cli/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | 新建 Service Fabric 群集。  |
+| [az sf cluster create](https://docs.azure.cn/zh-cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) | 新建 Service Fabric 群集。  |
 
 ## <a name="next-steps"></a>后续步骤
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
+
 <!--Update_Description: update meta properties, update wording -->

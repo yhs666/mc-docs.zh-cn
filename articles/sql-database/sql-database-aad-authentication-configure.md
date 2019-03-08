@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 12/03/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 66e37dca71fdd1b0e2474e5cb0ae64d872c9f2cb
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 02/20/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 1842315ff3691ecf24c0cb5d8fcdc1a413337066
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806222"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347178"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -222,9 +222,6 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>使用 Azure AD 标识通过 SSMS 或 SSDT 进行连接
 
 以下过程说明如何使用 SQL Server Management Studio 或 SQL Server 数据库工具连接到具有 Azure AD 标识的 SQL 数据库。
-
->[!IMPORTANT]
->目前不支持将 Azure AD 登录名和用户（公共预览版）用于 SSDT。
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory 集成身份验证
 

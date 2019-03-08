@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: digimobile
 origin.date: 12/12/2018
-ms.date: 01/07/2019
-ms.openlocfilehash: 8c7d29810428e83d295d40d8d5b89bef7326242a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 6b838ac99d522097d3cac2b1d7745433a78293cc
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663719"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347165"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL 数据库托管实例资源限制概述
 
@@ -41,7 +41,7 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 | 计算 | 8、16、24 个 vCore | 8、16、24、32、40、64、80 个 vCore |
 | 内存 | 每个 vCore 7 GB | 每个 vCore 5.1 GB |
 | 内存中 OLTP 内存 | 每个 vCore 3 GB | 每个 vCore 2.6 GB |
-| 最大存储（常规用途） |  8 TB | 1 TB |
+| 最大存储（常规用途） |  8 TB | 8 TB |
 | 最大存储空间（业务关键） | 1 TB | 1 TB、2 TB 或 4 TB，具体取决于核心数 |
 
 ### <a name="service-tier-characteristics"></a>服务层特征
@@ -57,7 +57,7 @@ Azure SQL 数据库托管实例可部署在两个硬件代次（Gen4 和 Gen5）
 | 每个实例的数据库数目上限 | 100 | 100 |
 | 每个实例的数据库文件数目上限 | 最多 280 个 | 每个数据库 32,767 个文件 |
 | 数据/日志 IOPS（近似值） | 500 - 7,500（每个文件）<br/>\*[取决于文件大小](/virtual-machines)| 11 K - 110 K（每个 vCore 为 1,375） |
-| 日志吞吐量 | 22 MB/s（每个实例） | 3 MB/s（每个 vCore）<br/>最大 48 MB/s |
+|日志吞吐量 | 22 MB/s（每个实例） | 3 MB/s（每个 vCore）<br/>最大 48 MB/s |
 | 数据吞吐量（近似值） | 每个文件 100-250 MB/秒<br/>\*[取决于文件大小](/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 每个 vCore 24-48 MB/秒 |
 | IO 延迟（近似） | 5-10 毫秒 | 1-2 毫秒 |
 | 最大 tempDB 大小 | 192 - 1,920 GB（每个 vCore 为 24 GB） | 无约束 - 受最大实例存储大小限制 |

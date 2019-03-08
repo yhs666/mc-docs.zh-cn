@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 配合使用 - Azure | Azure
-description: 了解如何在 Azure HDInsight 中通过 Hadoop 使用 C# 创建 MapReduce 解决方案。
+description: 了解如何在 Azure HDInsight 中通过 Apache Hadoop 使用 C# 创建 MapReduce 解决方案。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -12,15 +12,15 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 02/27/2018
-ms.date: 05/21/2018
+origin.date: 02/15/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 41ed895d2beab2c38d7b08bebb6c7829c5f1bad4
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: ebc1be1d0737a939eca35e98e7838d4ff3a18669
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029151"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560479"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -152,8 +152,6 @@ namespace reducer
 创建该应用程序后，生成它以在项目目录中生成 `/bin/Debug/reducer.exe` 文件。
 
 ## <a name="upload-to-storage"></a>上传到存储
-
-[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
 
 1. 在 Visual Studio 中，打开“服务器资源管理器”。
 

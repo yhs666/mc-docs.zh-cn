@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 10/12/2018
-ms.date: 11/12/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 118df523d175434530d39de7f8136e9979fb37e6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 276191495a72686edb6929135fb5196a28caddf5
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650610"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463562"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -63,8 +63,8 @@ Reliable Service 实例由派生自 `StatelessService` 或 `StatefulService` 的
 `Microsoft.ServiceFabric.AspNetCore.*` NuGet 包中 Kestrel 和 HttpSys 的 `ICommunicationListener` 实现具有类似的使用模式，但针对每个 Web 服务器所执行的操作略有不同。 
 
 这两种通信侦听器都能提供采用以下参数的构造函数：
- - **`ServiceContext serviceContext`**：包含有关运行中的服务信息的 `ServiceContext` 对象。
- - **`string endpointName`**：ServiceManifest.xml 中 `Endpoint` 配置的名称。 以下是两种通信侦听器的主要区别：HttpSys 需要 `Endpoint` 配置，而 Kestrel 不需要。
+ - **`ServiceContext serviceContext`**：包含有关运行中服务的信息的 `ServiceContext` 对象。
+ - **`string endpointName`**：ServiceManifest.xml 中 `Endpoint` 配置的名称。 下面是两个通信侦听器的主要不同之处：HttpSys **需要** `Endpoint` 配置，而 Kestrel 不需要。
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**：你实现的 lambda，在其中创建和返回 `IWebHost`。 这允许按通常在 ASP.NET Core 应用程序中使用的方法配置 `IWebHost`。 Lambda 提供生成的 URL，具体取决于使用的 Service Fabric 集成选项和你提供的 `Endpoint` 配置。 然后可修改 URL 或直接将其按原样用于启动 Web 服务器。
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 集成中间件

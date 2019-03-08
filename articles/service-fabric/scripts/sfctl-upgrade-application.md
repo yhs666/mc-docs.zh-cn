@@ -13,15 +13,15 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 08/20/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 02d4a906c3b7cd779d8297482001bceca1ab127b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 734ff63a9327133b519dfd9cdbc62ea4748414b5
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664560"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204176"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
@@ -53,4 +53,5 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 有关详细信息，请参阅 [Service Fabric CLI 文档](../service-fabric-cli.md)。
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
+
 <!--Update_Description: update meta properties -->

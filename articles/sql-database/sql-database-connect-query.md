@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/18/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: f7e642b4dc950e5743dacc10ade3fa917b2e54e7
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 79b26fa377b7d7fdafbfe8ffbe3cd46a32ad9a8d
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663536"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347147"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>快速入门：Azure SQL 数据库连接和查询
 
@@ -76,7 +76,7 @@ Azure 提供或支持的所有驱动程序使用传输层安全性 (TLS) 连接 
 | :-- | :-- | :-- |
 | C# | Windows、Linux、macOS | [实体框架](https://docs.microsoft.com/ef)<br>[实体框架核心](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows、Linux、macOS |[Hibernate ORM](https://hibernate.org/orm)|
-| PHP | Windows、Linux、macOS | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
+| PHP | Windows、Linux、macOS | [Laravel (Eloquent)](https://laravel.com/docs/eloquent)<br>[Doctrine](https://www.doctrine-project.org/projects/orm.html) |
 | Node.js | Windows、Linux、macOS | [Sequelize ORM](https://docs.sequelizejs.com) |
 | Python | Windows、Linux、macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows、Linux、macOS | [Ruby on Rails](https://rubyonrails.org/) |

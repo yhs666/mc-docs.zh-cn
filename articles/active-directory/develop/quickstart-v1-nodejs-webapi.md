@@ -7,21 +7,22 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 01/21/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 11bc209b46bd54e4081cf07a42225a24447bac28
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1ef450117f971ebd585225b4d6a536acefcd35e6
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440370"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462365"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>快速入门：使用 Azure Active Directory 保护 Web API
 
@@ -45,21 +46,20 @@ ms.locfileid: "54440370"
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-创建 `package.json` 后，在命令提示符下运行 `npm install` 来安装包依赖项。 
+创建 `package.json` 后，在命令提示符下运行 `npm install` 来安装包依赖项。
 
 #### <a name="configure-the-project-to-use-active-directory"></a>将项目配置为使用 Active Directory
 
@@ -112,7 +112,7 @@ module.exports.credentials = {
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -123,7 +123,7 @@ const
 
 在此代码片段中：
 
-- 引用了 `restify` 和 `restify-plugins` 模块以设置 Restify 服务器。
+- 引用了 `restify` 和插件模块以设置 Restify 服务器。
 - `passport` 和 `passport-azure-ad` 模块负责与 Azure AD 通信。
 - `config` 变量已使用在前一步骤中创建的 `config.js` 文件中的值初始化。
 - 为 `authenticatedUserTokens` 创建了一个数组，将用户令牌传递到受保护的终结点时，该数组会存储这些令牌。

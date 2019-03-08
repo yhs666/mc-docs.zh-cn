@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5818b071d4ed9f852a1669d42972d9d3bdce2fe8
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8436bfd57111efdc16ff14fd15ad50ed42454129
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083569"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57203998"
 documentType: LandingData
 title: 计算机视觉 API 文档
 metadata:
@@ -14,12 +14,12 @@ metadata:
   author: nitinme
   manager: cgronlun
   ms.service: cognitive-services
-  ms.component: computer-vision
+  ms.subservice: computer-vision
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
 origin.date: 09/24/2018
-ms.date: 01/08/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
 abstract:
@@ -95,6 +95,6 @@ sections:
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: <p><a href="/cli/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>

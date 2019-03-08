@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/20/2017
-ms.date: 02/15/2019
+origin.date: 02/15/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6916a4e3288fbc974e1798f7841c748084d9e678
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 35e08f780ffcbb3b810d9a476d35f0ae5c083e11
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306237"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347215"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>嵌入 Power BI 工作区集合中的报表
 
@@ -43,13 +43,13 @@ ms.locfileid: "56306237"
 
 **安装 NuGet 包**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Api
 ```
 
 **C# 代码**
 
-```
+```csharp
 using Microsoft.PowerBI.Api.V1;
 using Microsoft.Rest;
 
@@ -64,7 +64,7 @@ var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, 
 
 ### <a name="calling-the-rest-api-directly"></a>直接调用 REST API
 
-```
+```csharp
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.cn/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
 
 request.Method = "GET";
@@ -91,13 +91,13 @@ Power BI 工作区集合使用嵌入标记，即 HMAC 签名的 JSON Web 令牌�
 
 **安装 NuGet 包**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# 代码**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername, roles and scopes are optional.
@@ -119,16 +119,17 @@ var token = embedToken.Generate("{access key}");
 
 **安装 NuGet 包**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript 代码**
 
-```
+```html
 <script src="/scripts/powerbi.js"></script>
 <div id="reportContainer"></div>
 
+<script>
 var embedConfiguration = {
     type: 'report',
     accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
@@ -138,6 +139,7 @@ var embedConfiguration = {
 
 var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
+</script>
 ```
 
 ### <a name="set-the-size-of-embedded-elements"></a>设置嵌入元素的大小

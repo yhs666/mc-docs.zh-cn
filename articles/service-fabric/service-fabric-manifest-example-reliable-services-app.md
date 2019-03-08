@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/11/2018
-ms.date: 07/09/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ffbede2e5a2fa93a08cb6d4faa05e4595d84e659
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2a39317bf79df9800e541c12a8956436746ba1de
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644971"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463615"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 应用程序和服务清单示例
 下面是应用程序和服务清单的示例，这些清单适用于带 ASP.NET Core Web 前端和有状态后端的 Service Fabric 应用程序。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Service Fabric .NET 快速入门](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)清单。
@@ -29,8 +29,8 @@ ms.locfileid: "52644971"
 |清单|功能|
 |---|---|
 |[应用程序清单](#application-manifest)| [资源调控](service-fabric-resource-governance.md)、[使用本地管理员帐户运行服务](service-fabric-application-runas-security.md)、[将默认策略应用到所有服务代码包](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages)、[创建用户和组主体](service-fabric-application-runas-security.md)、在服务实例之间共享数据包、[重新服务终结点](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[FrontEndService 服务清单](#frontendservice-service-manifest)| [在服务启动时运行脚本](service-fabric-run-script-at-service-startup.md)、[定义 HTTPS 终结点](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[BackEndService 服务清单](#backendservice-service-manifest)| [声明配置包](service-fabric-application-and-service-manifests.md)、[声明数据包](service-fabric-application-and-service-manifests.md)、[配置终结点](service-fabric-service-manifest-resources.md)| 
+|FrontEndService 服务清单| [在服务启动时运行脚本](service-fabric-run-script-at-service-startup.md)、[定义 HTTPS 终结点](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService 服务清单| [声明配置包](service-fabric-application-and-service-manifests.md)、[声明数据包](service-fabric-application-and-service-manifests.md)、[配置终结点](service-fabric-service-manifest-resources.md)| 
 
 请参阅[应用程序清单元素](#application-manifest-elements)、[VotingWeb 服务清单元素](#votingweb-service-manifest-elements)和 [VotingData 服务清单元素](#votingdata-service-manifest-elements)，详细了解特定的 XML 元素。
 
@@ -199,7 +199,7 @@ ms.locfileid: "52644971"
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -216,7 +216,7 @@ ms.locfileid: "52644971"
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -397,10 +397,12 @@ ms.locfileid: "52644971"
  有关详细信息，请参阅 [Arguments 元素](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder 元素
-部署应用程序时所在群集节点上的代码包中的进程工作目录。 可以指定三个值：Work（默认）、CodePackage 或 CodeBase。 CodeBase 指定将工作目录设置为在代码包中定义 EXE 时所在的目录。 CodePackage 将工作目录设置为代码包的根目录，不管在代码包目录中定义 EXE 时的位置如何。 Work 将工作目录设置为在节点上创建的唯一文件夹。  整个应用程序实例的此文件夹是同一个文件夹。 默认情况下，应用程序中所有进程的工作目录设置为应用程序工作文件夹。 这是允许进程写入数据的位置。 建议不要在代码包或代码库中写入数据，因为这些文件夹可能是在不同的应用程序实例之间共享的，可能会被删除。 有关详细信息，请参阅 [WorkingFolder 元素](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+部署应用程序时所在群集节点上的代码包中的进程工作目录。 可以指定三个值：Work（默认值）、CodePackage 或 CodeBase。 CodeBase 指定将工作目录设置为在代码包中定义 EXE 时所在的目录。 CodePackage 将工作目录设置为代码包的根目录，不管在代码包目录中定义 EXE 时的位置如何。 Work 将工作目录设置为在节点上创建的唯一文件夹。  整个应用程序实例的此文件夹是同一个文件夹。 默认情况下，应用程序中所有进程的工作目录设置为应用程序工作文件夹。 这是允许进程写入数据的位置。 建议不要在代码包或代码库中写入数据，因为这些文件夹可能是在不同的应用程序实例之间共享的，可能会被删除。 有关详细信息，请参阅 [WorkingFolder 元素](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>ConsoleRedirection 元素
-警告！ 请勿在生产应用程序中使用控制台重定向，只能将其用于本地开发和调试。 请在部署和运行应用程序时所在的群集节点上，将控制台输出从启动脚本重定向到名为“log”的应用程序文件夹中的一个输出文件。 有关详细信息，请参阅 [ConsoleRedirection 元素](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> 请勿在生产应用程序中使用控制台重定向，只能将其用于本地开发和调试。 请在部署和运行应用程序时所在的群集节点上，将控制台输出从启动脚本重定向到名为“log”的应用程序文件夹中的一个输出文件。 有关详细信息，请参阅 [ConsoleRedirection 元素](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="entrypoint-element"></a>EntryPoint 元素
 EntryPoint 指定的可执行文件通常是长时间运行的服务主机。 提供单独的设置入口点可避免长时间使用高特权运行服务主机。 由 EntryPoint 指定的可执行文件在 SetupEntryPoint 成功退出后运行。 如果总是终止或出现故障，则将监视并重启所产生的过程（再次从 SetupEntryPoint 开始）。 有关详细信息，请参阅 [EntryPoint 元素](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -443,7 +445,7 @@ EntryPoint 指定的可执行文件通常是长时间运行的服务主机。 �
 可执行文件名称。  例如，“MySetup.bat”或“MyServiceHost.exe”。 有关详细信息，请参阅 [Program 元素](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder 元素
-部署应用程序时所在群集节点上的代码包中的进程工作目录。 可以指定三个值：Work（默认）、CodePackage 或 CodeBase。 CodeBase 指定将工作目录设置为在代码包中定义 EXE 时所在的目录。 CodePackage 将工作目录设置为代码包的根目录，不管在代码包目录中定义 EXE 时的位置如何。 Work 将工作目录设置为在节点上创建的唯一文件夹。  整个应用程序实例的此文件夹是同一个文件夹。 默认情况下，应用程序中所有进程的工作目录设置为应用程序工作文件夹。 这是允许进程写入数据的位置。 建议不要在代码包或代码库中写入数据，因为这些文件夹可能是在不同的应用程序实例之间共享的，可能会被删除。 有关详细信息，请参阅 [WorkingFolder 元素](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+部署应用程序时所在群集节点上的代码包中的进程工作目录。 可以指定三个值：Work（默认值）、CodePackage 或 CodeBase。 CodeBase 指定将工作目录设置为在代码包中定义 EXE 时所在的目录。 CodePackage 将工作目录设置为代码包的根目录，不管在代码包目录中定义 EXE 时的位置如何。 Work 将工作目录设置为在节点上创建的唯一文件夹。  整个应用程序实例的此文件夹是同一个文件夹。 默认情况下，应用程序中所有进程的工作目录设置为应用程序工作文件夹。 这是允许进程写入数据的位置。 建议不要在代码包或代码库中写入数据，因为这些文件夹可能是在不同的应用程序实例之间共享的，可能会被删除。 有关详细信息，请参阅 [WorkingFolder 元素](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage 元素
 声明一个按 Name 特性命名的文件夹，该文件夹位于 Settings.xml 文件所在的 PackageRoot 中。 此文件包含进程用户定义的键值对设置，进程可在运行时读回这些设置。 升级期间，如果仅更改了 ConfigPackage 版本，则不重启正在运行的进程。 相反，一个回调会告知进程配置设置已更改，以便动态重新加载。 有关详细信息，请参阅 [ConfigPackage 元素](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -459,5 +461,5 @@ EntryPoint 指定的可执行文件通常是长时间运行的服务主机。 �
 
 ### <a name="endpoint-element"></a>Endpoint 元素
 要重写的已在服务清单中声明的终结点。 有关详细信息，请参阅 [Endpoint 元素](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
-<!-- Update_Description: new articles on service fabric manifest example reliable services app -->
-<!--ms.date: 07/09/2018-->
+
+<!-- Update_Description: wording update -->

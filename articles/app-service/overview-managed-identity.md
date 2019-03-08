@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/20/2018
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
-ms.openlocfilehash: e876d9341259613775c7fdae39833b2dc9f85dc1
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 109ebbd030f1f9527a4c16d02aaff1bee6a64304
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222600"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347173"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
@@ -78,27 +78,29 @@ ms.locfileid: "56222600"
 
 ### <a name="using-azure-powershell"></a>使用 Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 以下步骤将指导你完成使用 Azure PowerShell 创建 Web 应用并为其分配标识的操作：
 
-1. 必要时，请使用 [Azure PowerShell 指南](/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount` 创建与 Azure 的连接。
+1. 必要时，请使用 [Azure PowerShell 指南](/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzAccount` 创建与 Azure 的连接。
 
 2. 使用 Azure PowerShell 创建 Web 应用程序。 有关如何将 Azure PowerShell 用于应用服务的更多示例，请参阅[应用服务 PowerShell 示例](../app-service/samples-powershell.md)：
 
     ```azurepowershell
     # Create a resource group.
-    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    New-AzResourceGroup -Name myResourceGroup -Location $location
     
     # Create an App Service plan in Free tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
     
     # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. 运行 `Set-AzureRmWebApp -AssignIdentity` 命令为此应用程序创建标识：
+3. 运行 `Set-AzWebApp -AssignIdentity` 命令为此应用程序创建标识：
 
     ```azurepowershell
-    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板
@@ -275,8 +277,8 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 有托管标识的应用定义了两个环境变量：
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - 本地令牌服务的 URL。
+- MSI_SECRET - 用于帮助缓解服务器端请求伪造 (SSRF) 攻击的标头。 该值由平台轮换。
 
 “MSI_ENDPOINT”是一本地 URL，应用可向其请求令牌。 若要获取资源的令牌，请对此终结点发起 HTTP GET 请求，并包括以下参数：
 
@@ -284,7 +286,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 > |-----|-----|-----|
 > |resource|查询|应获取其令牌的资源的 AAD 资源 URI。|
 > |api-version|查询|要使用的令牌 API 版本。 目前唯一支持的版本是 "2017-09-01"。|
-> |secret|标头|MSI_SECRET 环境变量的值。|
+> |secret|标头|MSI_SECRET 环境变量的值。 此标头用于帮助缓解服务器端请求伪造 (SSRF) 攻击。|
 > |clientid|查询|（可选）要使用的用户分配的标识的 ID。 如果省略，则将使用系统分配的标识。|
 
 成功的 200 OK 响应包括具有以下属性的 JSON 正文：

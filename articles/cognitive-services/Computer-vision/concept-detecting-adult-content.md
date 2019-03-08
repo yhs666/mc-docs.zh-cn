@@ -4,35 +4,42 @@ titleSuffix: Azure Cognitive Services
 description: 使用计算机视觉 API 检测图像中的成人和不雅内容的相关概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 02/08/2019
+ms.date: 02/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 15b87db225935f32fd1b89efd27031fa907a3717
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: d9053f36edbd0e46d115383800f4992f0888caec
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083678"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57203989"
 ---
-# <a name="detecting-adult-and-racy-content"></a>检测成人和不雅内容
+# <a name="detect-adult-and-racy-content"></a>检测成人和不雅内容
 
-视觉类别包含成人组和种族组，其中的成人组用于检测成人内容，限制显示包含色情内容的图像。 可以根据用户的首选项，相应地设置进行成人和种族内容检测的筛选器。
+计算机视觉可以检测图像中的成人素材，以便开发人员可以限制此类图像显示在他们的软件中。 应用内容标记并使用评分（介于 0 和 1 之间），以便开发人员可以根据自己的偏好来解释结果。 
 
-## <a name="defining-adult-and-racy-content"></a>定义成人和不雅内容
+> [!NOTE]
+> [Azure 内容审查器](/cognitive-services/content-moderator/overview)服务也提供此功能。 有关更严格的内容审核方案（例如，文本审核和人工审核工作流）的解决方案，请参阅此替代方案。
 
-在[分析图像方法](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)所涵盖的各种视觉特征中，成人视觉特征可以检测成人和不雅图像。 “成人”图像定义为实质上淫秽并且通常描绘裸体和性行为的图像。 “不雅”图像定义为实际具有性暗示且往往包含一些性露骨内容（比“成人”图像少）的图像。 成人视觉特征类型通常用于限制包含性暗示和明确性内容的图像的显示。
+## <a name="content-flag-definitions"></a>内容标记定义
 
-## <a name="identifying-adult-and-racy-content"></a>标识成人和不雅内容
+“成人”图像的定义为实质上淫秽并且通常描绘裸体和性行为的图像。 
 
-分析图像方法在方法的 JSON 响应中返回两个属性（`isAdultContent` 和 `isRacyContent`），它们分别表示成人和不雅内容。 这两个属性都返回一个布尔值（true 或 false）。 该方法还返回两个属性 `adultScore` 和 `racyScore`，它们分别表示用于识别成人和不雅内容的置信度分数。 可以在滑尺上设置成人和不雅内容检测的置信度筛选器，从而根据具体情况调整偏好。
+“不雅”图像的定义为实际具有性暗示且往往包含露骨的描绘性内容（比“成人”图像少）的图像。 
+
+## <a name="identify-adult-and-racy-content"></a>标识成人和不雅内容
+
+[分析](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API。
+
+分析图像方法在方法的 JSON 响应中返回两个布尔属性（`isAdultContent` 和 `isRacyContent`），分别表示成人和不雅内容。 该方法还返回 `adultScore` 和 `racyScore` 这两个属性，它们分别表示用于识别成人和不雅内容的置信度分数。
 
 ## <a name="next-steps"></a>后续步骤
 
 了解关于[检测特定于域的内容](concept-detecting-domain-content.md)和[检测人脸](concept-detecting-faces.md)的概念。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

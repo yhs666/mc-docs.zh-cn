@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/04/2019
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8913e55ba09cccae55a5eda9fa67305060b422c0
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 29f635c5b2b678a9939c4af0767d3d544aee8f10
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396672"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204090"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -232,7 +232,7 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][2]
+![HealthCheckUnhealthyApp][2]
 
 ![HealthCheckUnhealthyDsp][3]
 
@@ -261,7 +261,7 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-使用模板中提供的安装脚本，将应用程序包复制到群集的映像存储、注册应用程序类型，并创建应用程序的实例。
+使用 https://github.com/Azure-Samples/service-fabric-containers/ 模板中提供的安装脚本可将应用程序包复制到群集的映像存储、注册应用程序类型和创建应用程序的实例。
 
 ```bash
 ./install.sh

@@ -15,72 +15,73 @@ ms.topic: sample
 origin.date: 10/30/2017
 ms.author: v-biyu
 ms.custom: mvc
-ms.date: 01/21/2019
-ms.openlocfilehash: 995f542d4744e2b7f142cdc2e8156d6bd960ff91
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.date: 03/18/2019
+ms.openlocfilehash: dfc63041f7390630ddfaa805d95773eda3039e01
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083840"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347099"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>使用 PowerShell 为 Web 应用创建计划备份
 
 此示例脚本在应用服务中创建一个 Web 应用及其相关资源，然后为其创建计划的备份。 
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount` 创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```powershell
 $webappname="mywebapp$(Get-Random -Minimum 100000 -Maximum 999999)"
 $storagename="$($webappname)storage"
 $container="appbackup"
-$location="China East"
+$location="China North"
 
 # Create a resource group.
-New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+New-AzResourceGroup -Name myResourceGroup -Location $location
 
 # Create a storage account.
-$storage = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
+$storage = New-AzStorageAccount -ResourceGroupName myResourceGroup `
 -Name $storagename -SkuName Standard_LRS -Location $location
 
 # Create a storage container.
-New-AzureStorageContainer -Name $container -Context $storage.Context
+New-AzStorageContainer -Name $container -Context $storage.Context
 
 # Generates an SAS token for the storage container, valid for 1 year.
 # NOTE: You can use the same SAS token to make backups in Web Apps until -ExpiryTime
-$sasUrl = New-AzureStorageContainerSASToken -Name $container -Permission rwdl `
+$sasUrl = New-AzStorageContainerSASToken -Name $container -Permission rwdl `
 -Context $storage.Context -ExpiryTime (Get-Date).AddYears(1) -FullUri
 
 # Create an App Service plan in Standard tier. Standard tier allows one backup per day.
-New-AzureRmAppServicePlan -ResourceGroupName myResourceGroup -Name $webappname `
+New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name $webappname `
 -Location $location -Tier Standard
 
 # Create a web app.
-New-AzureRmWebApp -ResourceGroupName myResourceGroup -Name $webappname `
+New-AzWebApp -ResourceGroupName myResourceGroup -Name $webappname `
 -Location $location -AppServicePlan $webappname
 
 # Schedule a backup every day, beginning in one hour, and retain for 10 days
-Edit-AzureRmWebAppBackupConfiguration -ResourceGroupName myResourceGroup -Name $webappname `
+Edit-AzWebAppBackupConfiguration -ResourceGroupName myResourceGroup -Name $webappname `
 -StorageAccountUrl $sasUrl -FrequencyInterval 1 -FrequencyUnit Day -KeepAtLeastOneBackup `
 -StartTime (Get-Date).AddHours(1) -RetentionPeriodInDays 10
 
 # List statuses of all backups that are complete or currently executing.
-Get-AzureRmWebAppBackupList -ResourceGroupName myResourceGroup -Name $webappname
+Get-AzWebAppBackupList -ResourceGroupName myResourceGroup -Name $webappname
 
 # (OPTIONAL) Change the backup schedule to every 2 days
-$configuration = Get-AzureRmWebAppBackupConfiguration -ResourceGroupName myResourceGroup `
+$configuration = Get-AzWebAppBackupConfiguration -ResourceGroupName myResourceGroup `
 -Name $webappname
 $configuration.FrequencyInterval = 2
-$configuration | Edit-AzureRmWebAppBackupConfiguration
-```
+$configuration | Edit-AzWebAppBackupConfiguration
 
+```
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -89,15 +90,15 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmStorageAccount](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/new-azurermstorageaccount) | 创建存储帐户。 |
-| [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) | 创建 Azure 存储容器。 |
-| [New-AzureStorageContainerSASToken](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainersastoken) | 为 Azure 存储容器生成 SAS 令牌。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
-| [Edit-AzureRmWebAppBackupConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | 编辑 Web 应用的备份配置。 |
-| [Get-AzureRmWebAppBackupList](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | 获取 Web 应用的备份列表。 |
-| [Get-AzureRmWebAppBackupConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/get-azurermwebappbackupconfiguration) | 获取 Web 应用的备份配置。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) | 创建存储帐户。 |
+| [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontainer) | 创建 Azure 存储容器。 |
+| [New-AzStorageContainerSASToken](https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontainersastoken) | 为 Azure 存储容器生成 SAS 令牌。 |
+| [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
+| [Edit-AzWebAppBackupConfiguration](https://docs.microsoft.com/powershell/module/az.websites/edit-azwebappbackupconfiguration) | 编辑 Web 应用的备份配置。 |
+| [Get-AzWebAppBackupList](https://docs.microsoft.com/powershell/module/az.websites/get-azwebappbackuplist) | 获取 Web 应用的备份列表。 |
+| [Get-AzWebAppBackupConfiguration](https://docs.microsoft.com/powershell/module/az.websites/get-azwebappbackupconfiguration) | 获取 Web 应用的备份配置。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/12/2018
-ms.date: 01/21/2019
+origin.date: 01/17/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7d7fc908133ac8e56790f32513fc5c42ae056016
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: a573da48879e1eb170045f41c6feebe08da872b0
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396669"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463674"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教程：使用 Kestrel 向 ASP.NET Core Web API 前端服务添加 HTTPS 终结点
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-另请添加以下方法，这样 Kestrel 就能通过使用者在 `Cert:\LocalMachine\My` 存储中找到证书。  如果已使用以前的 PowerShell 命令创建自签名证书，请将“&lt;your_CN_value&gt;”替换为“mytestcert”，或者使用证书的 CN。
+另请添加以下方法，这样 Kestrel 就能通过使用者在 `Cert:\LocalMachine\My` 存储中找到证书。  
+
+如果已使用以前的 PowerShell 命令创建自签名证书，请将“&lt;your_CN_value&gt;”替换为“mytestcert”，或者使用证书的 CN。
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -346,7 +348,7 @@ if ($cert -eq $null)
 
 ## <a name="install-certificate-on-cluster-nodes"></a>在群集节点上安装证书
 
-在将应用程序部署到 Azure 之前，请将证书安装到远程群集节点的 `Cert:\LocalMachine\My` 存储中。  当前端 Web 服务在群集节点上启动时，启动脚本会查找证书并配置访问权限。
+在将应用程序部署到 Azure 之前，请将证书安装到所有远程群集节点的 `Cert:\LocalMachine\My` 存储中。  服务可以移到群集的不同节点。  当前端 Web 服务在群集节点上启动时，启动脚本会查找证书并配置访问权限。
 
 首先，将证书导出到 PFX 文件。 打开 certlm.msc 应用程序，导航到“个人”>“证书”。  右键单击 *mytestcert* 证书，选择“所有任务”>“导出”。
 

@@ -3,20 +3,20 @@ title: 语言支持 - 文本分析 API
 titleSuffix: Azure Cognitive Services
 description: 文本分析 API 支持的自然语言列表。 本文介绍了以下每项操作支持哪些语言：情绪分析、关键短语提取、语言检测和实体识别。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 10/01/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: d25ccddc18207e1162a88b314b0b0bf3782a06df
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: 9b48740f9bc7477938de2bb5587f2d1d5e293a98
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858080"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204197"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文本分析 API 的语言和区域支持
 
@@ -63,3 +63,5 @@ ms.locfileid: "54858080"
 
 [认知服务文档页面](/cognitive-services/)   
 [认知服务产品页面](https://www.azure.cn/home/features/cognitive-services/)
+
+<!-- Update_Description: update metedata properties -->

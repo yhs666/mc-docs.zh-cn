@@ -6,16 +6,16 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3c09f18421aa4382e1e8ae1a68a43b57c4362fcc
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 90dc60bc06d0a299529376faa8cbc1398a81933b
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363283"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463650"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>为多层 Dynamics AX 应用程序设置灾难恢复 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>为多层 Dynamics AX 应用程序设置灾难恢复   
 
  Dynamics AX 是企业使用最广泛的 ERP 解决方案之一，可用于标准化不同位置的流程，管理资源及简化符合性。 应用程序对组织至关重要，因此发生灾难时，应用程序应在最短的时间内启动并运行。
 

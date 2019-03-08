@@ -2,17 +2,19 @@
 title: 安装 Linux 主目标服务器以便故障回复到本地站点 | Azure
 description: 了解如何设置 Linux 主目标服务器，以便在使用 Azure Site Recovery 将 VMware VM 灾难恢复到 Azure 期间故障回复到本地站点。
 author: rockboyfor
+services: site-recovery
+manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a3e4a5f5b551c1d1960dbca5a130c0d9e3ffe8b7
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: d8e84f52638b481e97897b8d1b795658e91b2525
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363395"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463654"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -127,7 +129,7 @@ ms.locfileid: "54363395"
 
     ![选择软件](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. 在安装 GRUB 启动加载程序的选项中，选择“是”，再按 Enter。
+1. 在选择是否安装 GRUB 启动加载程序时，选择“是”，再按 Enter。
 
     ![GRUB 启动安装程序](./media/vmware-azure-install-linux-master-target/image20.png)
 
@@ -180,7 +182,7 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 #### <a name="download-and-install-additional-packages"></a>下载并安装其他包
 
 > [!NOTE]
-> 在下载并安装其他包之前，请确保已建立 Internet 连接。 如果没有 Internet 连接，需手动找到并安装这些 RPM 包。
+> 在下载并安装其他包之前，请确保已建立 Internet 连接。 如果没有 Internet 连接，需手动找到并安装这些 Deb 包。
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 

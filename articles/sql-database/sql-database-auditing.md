@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 641c1efdf454f4b280ad406c8b6bee61f99bfa26
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 7e80d3a94be8bb727ec88cdd4f412feab53e2d09
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663522"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347160"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -44,8 +44,11 @@ ms.locfileid: "56663522"
 > [!IMPORTANT]
 > 审核日志会写入 Azure 订阅的 Azure Blob 存储中的**追加 Blob**。
 >
-> - 追加 Blob 目前**不支持****高级存储**。
+> - 支持所有存储类型（v1、v2、blob）。
+> - 支持所有存储复制配置。
+> - 目前不支持高级存储。
 > - 目前不支持 VNet 中的存储。
+> - 目前不支持“应用有防火墙的存储”。
 
 ## <a id="subheading-8"></a>定义服务器级和数据库级审核策略
 

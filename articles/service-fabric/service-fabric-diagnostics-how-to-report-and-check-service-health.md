@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/02/2017
-ms.date: 09/10/2018
+origin.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2d5eb4e5bc6b384ad7506c0b3ffa8f185a1325c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8525e4fafe5796b6df4234bf1a86c569ceb565bb
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663236"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204104"
 ---
 # <a name="report-and-check-service-health"></a>报告和检查服务运行状况
 服务发生问题时，必须能够快速检测问题，才能响应并修复所有事件和中断。 如果从服务代码向 Azure Service Fabric 运行状况管理器报告问题和失败，可使用 Service Fabric 提供的标准运行状况监视工具来检查运行状况。

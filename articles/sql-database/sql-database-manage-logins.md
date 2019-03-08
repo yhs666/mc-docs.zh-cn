@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: cd6289a36a649633e991fe8a3ba888b034e945cd
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: b88c47bbde0364bf3ad05ae850e86bfd9d2fa623
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663735"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347100"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 
@@ -82,10 +82,10 @@ ms.locfileid: "56663735"
 
 ### <a name="database-creators"></a>数据库创建者
 
-其中一个管理角色是 **dbmanager** 角色。 此角色的成员可以创建新数据库。 如果要使用此角色，请在 `master` 数据库中创建一个用户，并将该用户添加到 **dbmanager** 数据库角色。 若要创建数据库，用户必须是 master 数据库中基于 SQL Server 登录名的用户，或者是基于 Azure Active Directory 用户的包含数据库用户。
+其中一个管理角色是 **dbmanager** 角色。 此角色的成员可以创建新数据库。 如果要使用此角色，请在 `master` 数据库中创建一个用户，并将该用户添加到 **dbmanager** 数据库角色。 若要创建数据库，用户必须是基于 `master` 数据库中的 SQL Server 登录名的用户，或者是基于 Azure Active Directory 用户的已包含数据库用户。
 
-1. 使用管理员帐户连接到 master 数据库。
-2. 可选步骤：使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 语句创建 SQL Server 身份验证登录名。 示例语句：
+1. 使用管理员帐户连接到 `master` 数据库。
+2. 使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 语句创建 SQL Server 身份验证登录名。 示例语句：
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -96,7 +96,7 @@ ms.locfileid: "56663735"
 
    为了提高性能，会暂时在数据库级别缓存登录名（服务器级主体）。 若要刷新身份验证缓存，请参阅 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。
 
-3. 在 master 数据库中，使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 语句创建用户。 该用户可以是 Azure Active Directory 身份验证包含数据库用户（如果你已针对 Azure AD 身份验证配置了环境），可以是 SQL Server 身份验证包含数据库用户，也可以是基于 SQL Server 身份验证登录名（在前一步骤中创建）的 SQL Server 身份验证用户。示例语句：
+3. 在 `master` 数据库中，使用 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 语句创建用户。 该用户可以是 Azure Active Directory 身份验证包含数据库用户（如果你已针对 Azure AD 身份验证配置了环境），可以是 SQL Server 身份验证包含数据库用户，也可以是基于 SQL Server 身份验证登录名（在前一步骤中创建）的 SQL Server 身份验证用户。示例语句：
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -104,7 +104,7 @@ ms.locfileid: "56663735"
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. 使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 语句将新用户添加到 **dbmanager** 数据库角色。 示例语句：
+4. 使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 语句将新用户添加到 `master` 中的 dbmanager 数据库角色。 示例语句：
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -116,7 +116,7 @@ ms.locfileid: "56663735"
 
 5. 必要时，可将防火墙规则配置为允许新用户建立连接。 （可在现有防火墙规则中包括新用户。）
 
-现在，该用户可以连接到 master 数据库，并且可以创建新数据库。 创建数据库的帐户成为该数据库的所有者。
+现在，该用户可以连接到 `master` 数据库，并且可以创建新数据库。 创建数据库的帐户成为该数据库的所有者。
 
 ### <a name="login-managers"></a>登录名管理器
 
@@ -139,11 +139,19 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 GRANT ALTER ANY USER TO Mary;
 ```
 
-若要向其他用户授予对数据库的完全控制权限，可通过 `ALTER ROLE` 语句让这些用户成为 **db_owner** 固定数据库角色的成员。
+若要向其他用户授予对数据库的完全控制权限，可让这些用户成为 db_owner 固定数据库角色的成员。
+
+在 Azure SQL 数据库中使用 `ALTER ROLE` 语句。
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+在 Azure SQL 数据仓库中，使用 [EXEC sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)。
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > 创建基于 SQL 数据库服务器登录名的数据库用户的一个常见原因是用户需要访问多个数据库。 由于包含的数据库的用户都是单独的实体，因此每个数据库都维护其各自的用户及其密码。 这可能会导致开销，因为用户必须记住每个数据库的密码，当必须为许多数据库更改多个密码时，这通常难以做到。 但是，当使用 SQL Server 登录名和高可用性（活动异地复制和故障转移组）时，必须手动在每台服务器上设置 SQL Server 登录名。 否则，数据库用户在发生故障转移后将不再映射到该服务器登录名，并且在故障转移后将无法访问数据库。 有关为异地复制配置登录名的详细信息，请参阅[针对异地还原或故障转移配置和管理 Azure SQL 数据库的安全性](sql-database-geo-replication-security-config.md)。

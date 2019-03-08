@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/15/2018
-ms.date: 12/10/2018
+origin.date: 02/15/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 10185f393d00135578f269b4e3908c01b68ca792
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 788050915c58c73f38e3d3f24f52e8c3d33d15ad
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901133"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204080"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>为客户端身份验证设置 Azure Active Directory
 
@@ -34,20 +34,33 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 > [!NOTE]
 > 在创建群集之前，请完成以下步骤。 因为脚本需要群集名称和终结点，这些值应是规划的值，而不是已创建的值。
 
-1. [将脚本下载][sf-aad-ps-script-download]到计算机。
+## <a name="prerequisites"></a>先决条件
+本文假设已创建了一个租户。 如果未创建，请先阅读[如何获取 Azure Active Directory 租户][active-directory-howto-tenant]。
+
+为了简化涉及到配置 Azure AD 与 Service Fabric 群集的一些步骤，我们创建了一组 Windows PowerShell 脚本。
+
+1. [将脚本下载](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)到计算机。
 2. 右键单击 zip 文件，选择“属性”，“解除阻止”复选框，并单击“应用”。
 3. 解压缩 zip 文件。
-4. 运行 `SetupApplications.ps1` 并提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作为参数。 例如：
+
+## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>创建 Azure AD 应用程序并为用户分配角色
+创建两个 Azure AD 应用程序来控制对群集的访问权限：一个 Web 应用程序和一个本机应用程序。 创建用于表示群集的应用程序后，请将用户分配到 [Service Fabric 支持的角色](service-fabric-cluster-security-roles.md)：只读和管理员。
+
+运行 `SetupApplications.ps1` 并提供租户 ID、群集名称和 Web 应用程序回复 URL 作为参数。  另请指定用户的用户名和密码。  例如：
+
+<!--MOONCAKE: Add -location china parameter in cmdlet-->
 
 ```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -location china -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -location 'china' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
-<!-- Add location parameter in cmdlet-->
+<!--MOONCAKE: Add -location china parameter in cmdlet-->
 > [!NOTE]
 > 对于 Azure 中国云，还应指定 `-Location` 参数。
 
-执行 PowerShell 命令 `Get-AzureSubscription`，可找到租户 ID。 执行此命令，为每个订阅显示 TenantId。
+执行 PowerShell 命令 `Get-AzureSubscription`，可找到 TenantId。 执行此命令，为每个订阅显示 TenantId。
 
 将 ClusterName 用作脚本创建的 Azure AD 应用程序的前缀。 它不需要完全匹配实际的群集名称。 旨在更加轻松地将 Azure AD 项目映射到其配合使用的 Service Fabric 群集。
 
@@ -60,7 +73,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-在下一部分创建群集时该脚本显示 Azure Resource Manager 模板所需的 JSON，因此最好不要关闭 PowerShell 窗口。
+[创建群集](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access)时该脚本显示 Azure 资源管理器模板所需的 JSON，因此最好不要关闭 PowerShell 窗口。
 
 ```json
 "azureActiveDirectory": {
@@ -69,31 +82,6 @@ https://&lt;cluster_domain&gt;:19080/Explorer
   "clientApplication":"<guid>"
 },
 ```
-
-<a name="assign-roles"></a>
-
-## <a name="assign-users-to-roles"></a>将用户分配到角色
-创建用于表示群集的应用程序后，请将用户分配到 Service Fabric 支持的角色：只读和管理员。可使用 [Azure 门户][azure-portal]分配这些角色。
-
-1. 在 Azure 门户中，选择右上角的租户。
-
-    ![选择租户按钮][select-tenant-button]
-2. 选择左侧选项卡上的“Azure Active Directory”，然后选择“企业应用程序”。
-3. 选择“所有应用程序”，然后找到并选择名称类似于 `myTestCluster_Cluster` 的 Web 应用程序。
-4. 单击“用户和组”选项卡。
-
-    ![“用户和组”选项卡][users-and-groups-tab]
-5. 单击新页面上的“添加用户”按钮，选择一个用户和要分配的角色，然后单击页面底部的“选择”按钮。
-
-    ![“将用户分配到角色”页][assign-users-to-roles-page]
-6. 单击页面底部的“分配”按钮。
-
-    ![添加分配确认][assign-users-to-roles-confirm]
-
-> [!NOTE]
-> 有关 Service Fabric 中角色的详细信息，请参阅[适用于 Service Fabric 客户端的基于角色的访问控制](service-fabric-cluster-security-roles.md)。
->
->
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>有关排查 Azure Active Directory 设置问题的帮助
 Azure AD 的设置和使用可能有一定难度，可以参考下面的一些指导来调试问题。
@@ -161,13 +149,8 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
-[select-tenant-button]: ./media/service-fabric-cluster-creation-setup-aad/select-tenant-button.png
-[users-and-groups-tab]: ./media/service-fabric-cluster-creation-setup-aad/users-and-groups-tab.png
-[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-page.png
-[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-setup-aad/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-setup-aad/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-setup-aad/web-application-reply-url.png
 
 <!-- Update_Description: wording update, update meta properties -->
-<!--ms.date: 09/10/2018-->

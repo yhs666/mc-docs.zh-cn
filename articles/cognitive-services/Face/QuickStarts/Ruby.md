@@ -4,44 +4,33 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用人脸 API 和 Ruby 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 05/30/2018
-ms.date: 11/23/2018
+origin.date: 02/07/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: f63fbc12dd5d09f08fe03e169d2f097e3a135fed
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 52167cf29201a3e13235382297175c867ea771df
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672898"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204168"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>快速入门：使用 REST API 和 Ruby 检测图像中的人脸
 
-本快速入门使用人脸 API 检测图像中的人脸。
+在本快速入门中，将使用 Azure 人脸 REST API 和 Ruby 来检测图像中的人脸。
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
 
-## <a name="face---detect-request"></a>人脸 - 检测请求
+- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
 
-使用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)方法检测图像中的人脸并返回人脸属性，包括：
+## <a name="write-the-script"></a>编写脚本
 
-- 人脸 ID：多个人脸 API 方案中使用的唯一 ID。
-- 人脸矩形：左侧、顶部、宽度和高度，指示人脸在图像中的位置。
-- 地标：27 点人脸地标数组，指向人脸组成部分的重要位置。
-- 人脸属性包括年龄、性别、笑容程度、头部姿态和面部毛发。
-
-若要运行此示例，请执行以下步骤：
-
-1. 将以下代码复制到编辑器中。
-1. 将 `<Subscription Key>` 替换为有效订阅密钥。
-1. （可选）将 `imageUri` 设置为要分析的图像。
-1. 使用 `.rb` 扩展名保存文件。
-1. 打开 Ruby 命令提示符并运行该文件，例如：`ruby myfile.rb`。
+创建一个新文件 (_faceDetection.rb_)，并添加以下代码。 这将根据给定的图像 URL 调用人脸 API。
 
 ```ruby
 require 'net/http'
@@ -72,9 +61,19 @@ end
 puts response.body
 ```
 
-## <a name="face---detect-response"></a>人脸 - 检测响应
+需使用订阅密钥更新 `request['Ocp-Apim-Subscription-Key']` 值，并且可能需要更改 `uri` 字符串，使之包含正确的区域标识符（如需所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 
 
-成功的响应以 JSON 格式返回，例如：
+你可能还希望更改 `imageUri` 字段以指向自己的输入图像。 你还可能想要更改 `returnFaceAttributes` 字段，该字段指定要检索的人脸属性。
+
+## <a name="run-the-script"></a>运行脚本
+
+使用以下命令运行 Ruby 脚本：
+
+```shell
+ruby faceDetection.rb
+```
+
+应该会看到输出到控制台的已检测到人脸数据的 JSON 字符串。 下面是成功的 JSON 响应的示例。
 
 ```json
 [
@@ -257,9 +256,10 @@ puts response.body
 
 ## <a name="next-steps"></a>后续步骤
 
-探索用于检测图像中人脸的人脸 API，使用矩形划分人脸，并返回年龄和性别等属性。
+在本快速入门中，你编写了一个 Ruby 脚本，该脚本调用 Azure 人脸 API，以便检测图像中的人脸并返回其属性。 接下来，请浏览人脸 API 参考文档，以便进行详细的了解。
 
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+
 
 <!-- Update_Description: wording update -->

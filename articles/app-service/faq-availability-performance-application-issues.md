@@ -14,15 +14,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 777afd8dac30c52d54255f25d58217900410c6df
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: d455e80d3aa0fc0639dae604ae215a10d6a3d5da
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083629"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347174"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -44,7 +44,7 @@ ms.locfileid: "54083629"
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 实现应用服务 Web 应用的自动化？
 
-可以使用 PowerShell cmdlet 管理和维护应用服务 Web 应用。 在我们的博客文章 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)（使用 PowerShell 实现 Azure 应用服务中托管的 Web 应用的自动化）中，我们将说明如何使用基于 Azure Resource Manager 的 PowerShell cmdlet 自动执行常见任务。 此博客文章中还包含适用于各种 Web 应用管理任务的示例代码。 有关所有应用服务 Web 应用 cmdlet 的说明和语法，请参阅 [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0)。
+可以使用 PowerShell cmdlet 管理和维护应用服务 Web 应用。 在我们的博客文章 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)（使用 PowerShell 实现 Azure 应用服务中托管的 Web 应用的自动化）中，我们将说明如何使用基于 Azure Resource Manager 的 PowerShell cmdlet 自动执行常见任务。 此博客文章中还包含适用于各种 Web 应用管理任务的示例代码。 有关所有应用服务 Web 应用 cmdlet 的说明和语法，请参阅 [Az.Websites](https://docs.microsoft.com/zh-cn/powershell/module/az.websites)。
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>如何查看 Web 应用的事件日志？
 
@@ -114,7 +114,7 @@ ms.locfileid: "54083629"
 10. 选择 **Web.config**。
 11. 在 system.webServer 中，添加此配置（以捕获特定的 URL）：
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -130,7 +130,7 @@ ms.locfileid: "54083629"
     </tracing>
     ```
 12. 若要解决性能较低的问题，请添加此配置（如果捕获请求话费的时间超过 30 秒）：
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />
@@ -177,7 +177,7 @@ WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台�
 
 如果使用应用服务的本地缓存功能，应用服务实例“LogFiles 和数据”文件夹的文件夹结构会受到影响。 使用本地缓存时，将在存储 LogFiles 和数据文件夹中创建子文件夹。 子文件夹使用“唯一标识符”+ 时间戳的命名模式。 每个子文件夹对应于一个 VM 实例，其中的 Web 应用正在运行或已运行。
 
-若要确定是否是在本地缓存，请检查应用服务的“应用程序设置”选项卡。如果在使用本地缓存，应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 设置为 `Always`。 
+若要确定是否是在本地缓存，请检查应用服务的“应用程序设置”选项卡。如果在使用本地缓存，应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 设置为 `Always`。
 
 如果未使用本地缓存，并且遇到此问题，请提交支持请求。
 

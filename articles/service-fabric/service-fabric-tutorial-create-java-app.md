@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/01/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fdec42ee5735ba0ea7d6be831539024a2e8363ff
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f34b949fe652c342699b659ad44cccccdc8a826c
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028672"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463548"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教程：在 Service Fabric 上创建包含 Java Web API 前端服务和有状态后端服务的应用程序
 
-本教程是一个系列中的第一部分。 完成后，将生成一个带 Java Web 前端的 Voting 应用程序，用于将投票结果保存到群集的有状态后端服务中。 本教程系列要求你有一台工作的 Mac OSX 或 Linux 开发人员计算机。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-java-quickstart)，跳到[大致了解投票示例应用程序](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。
+本教程是一个系列中的第一部分。 完成后，将生成一个带 Java Web 前端的 Voting 应用程序，用于将投票结果保存到群集的有状态后端服务中。 本教程系列要求你有一台工作的 Mac OSX 或 Linux 开发人员计算机。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-java-quickstart)，跳到[大致了解投票示例应用程序](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，请考虑以下 [Java 可靠服务快速入门。](service-fabric-quickstart-java-reliable-services.md)
 
 ![本地 Voting 应用](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "53028672"
 
 ## <a name="create-the-front-end-java-stateless-service"></a>创建前端 Java 无状态服务
 
-首先，请创建 Voting 应用程序的 Web 前端。 此 Java 无状态服务支持的轻型 HTTP 服务器可托管受 AngularJS 支持的 Web UI。 来自用户的请求由这个无状态服务处理，然后作为远程过程调用发送到有状态服务，以便存储投票。 
+首先，请创建 Voting 应用程序的 Web 前端。 受 AngularJS 支持的 Web UI 会向运行轻型 HTTP 服务器的 Java 无状态服务发送请求。 此服务会处理每个请求，并向有状态服务发送远程过程调用以存储投票。 
 
 1. 启动 Eclipse。
 
@@ -86,7 +86,7 @@ ms.locfileid: "53028672"
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>将 HTML 和 Javascript 添加到 VotingWeb 服务
 
-若要添加可以通过无状态服务来呈现的 UI，请在 *VotingApplication/VotingWebPkg/Code* 中添加 HTML 文件。 然后，通过已嵌入到无状态 Java 服务中的轻型 HTTP 服务器呈现此 HTML 文件。
+若要添加无状态服务可以呈现的 UI，请添加 HTML 文件。 然后，通过已嵌入到无状态 Java 服务中的轻型 HTTP 服务器呈现此 HTML 文件。
 
 1. 展开 *VotingApplication* 目录，以便访问 *VotingApplication/VotingWebPkg/Code* 目录。
 
@@ -210,7 +210,7 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 
 在 **VotingWeb** 子项目中，打开 *VotingWeb/src/statelessservice/VotingWeb.java* 文件。 **VotingWeb** 服务是通往无状态服务的网关，负责设置前端 API 的通信侦听器。
 
-将文件中 **createServiceInstanceListeners** 方法的内容替换为以下内容，然后保存所做的更改。
+将文件中的现有 createServiceInstanceListeners 方法替换为以下内容，然后保存所做的更改。
 
 ```java
 @Override
@@ -229,7 +229,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 HTTP 通信侦听器充当一个控制器，可设置 HTTP 服务器并公开用于定义投票操作的 API。 右键单击 *VotingWeb/src/statelessservice* 文件夹中的 *statelessservice* 包，然后选择“新建”>“文件”。  将文件命名为 *HttpCommunicationListener.java*，然后单击“完成”。
 
-将文件内容替换为以下内容，然后保存所做更改。  稍后在[更新 HttpCommunicationListener.java 文件](#updatelistener_anchor)时会修改此文件，以便呈现、读取和写入来自后端服务的投票数据。  目前，此侦听器会直接返回 Voting 应用的静态 HTML。
+将文件内容替换为以下内容，然后保存所做更改。  稍后在更新 HttpCommunicationListener.java 文件时会修改此文件，以便呈现、读取和写入来自后端服务的投票数据。  目前，此侦听器会直接返回 Voting 应用的静态 HTML。
 
 ```java
 // ------------------------------------------------------------
@@ -388,7 +388,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 <a name="updatelistener_anchor"></a>
 ### <a name="configure-the-listening-port"></a>配置侦听端口
 
-创建 VotingWeb 服务前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingApplication/VotingWebPkg/ServiceManifest.xml*。  在“资源”部分找到“终结点”资源，然后将“端口”值更改为 8080 或其他端口。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 元素中（放在 ```<DataPackage>``` 元素下方）。
+创建 VotingWeb 服务前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingApplication/VotingWebPkg/ServiceManifest.xml*。  在“资源”部分中找到“终结点”资源，然后将“端口”值更改为 8080（我们会继续在本教程中使用此端口）。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 元素中（放在 ```<DataPackage>``` 元素下方）。
 
 ```xml
 <Resources>
@@ -547,9 +547,11 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
+现在已创建前端无状态服务和后端服务的框架。
+
 ## <a name="create-the-communication-interface-to-your-application"></a>创建应用程序的通信接口
 
-现在已创建前端无状态服务和后端服务的框架。 下一步是连接这两项服务。 前端和后端服务都利用一个名为 VotingRPC 的接口来定义 Voting 应用程序的操作。 此接口由前端和后端服务来共同实现，用于在这两项服务之间进行远程过程调用 (RPC)。 由于 Eclipse 不支持添加 Gradle 子项目，因此必须手动添加包含此接口的包。
+ 下一步是连接前端无状态服务和后端服务。 这两个服务都利用一个名为 VotingRPC 的接口来定义 Voting 应用程序的操作。 此接口由前端和后端服务来共同实现，用于在这两项服务之间进行远程过程调用 (RPC)。 遗憾的是，Eclipse 不支持添加 Gradle 子项目，因此必须手动添加包含此接口的包。
 
 1. 在包资源管理器中右键单击“Voting”项目，然后单击“新建”->“文件夹”。 将文件夹命名为 **VotingRPC/src/rpcmethods**。
 
@@ -576,7 +578,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     }
     ``` 
 
-4. 在 *Voting/VotingRPC* 目录中创建名为 *build.gradle* 的文件，并将以下内容粘贴到其中。 此 gradle 文件用于生成和创建由其他服务导入的 jar 文件。 
+4. 在 Voting/VotingRPC 目录中创建名为 build.gradle 的空文件，并将以下内容粘贴到其中。 此 gradle 文件用于生成和创建由其他服务导入的 jar 文件。 
 
     ```gradle
     apply plugin: 'java'
@@ -896,12 +898,14 @@ class VotingDataService extends StatefulService implements VotingRPC {
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
     ``` 
+    请参阅 [OS X 设置指南](service-fabric-get-started-mac.md)中的更多详细说明。
 
     如果是在 Linux 计算机上运行，请通过以下命令启动本地群集： 
 
     ```bash 
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+    请参阅 [Linux 设置指南](service-fabric-get-started-linux.md)中的更多详细说明。
 
 4. 在适用于 Eclipse 的包资源管理器中右键单击“Voting”项目，然后单击“Service Fabric”->“发布应用程序...” 
 5. 在“发布应用程序”窗口的下拉列表中，选择“Local.json”并单击“发布”。
@@ -922,4 +926,4 @@ class VotingDataService extends StatefulService implements VotingRPC {
 > [!div class="nextstepaction"]
 > [在本地群集上调试和记录应用程序](service-fabric-tutorial-debug-log-local-cluster.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

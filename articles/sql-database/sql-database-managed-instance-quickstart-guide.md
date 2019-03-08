@@ -11,25 +11,26 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 1c9252b74ac3374d20f890f0e636d87a603cb35d
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/18/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 94f3d2b32063f06c7c14595021105d628175fd9f
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663844"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347208"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL 数据库托管实例入门
 
-[托管实例](sql-database-managed-instance-index.yml)部署选项创建与最新 SQL Server 本地 (Enterprise Edition) 数据库引擎几乎完全兼容的数据库，提供一个本机[虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 实现来解决常见的安全问题，并提供本地 SQL Server 客户惯用的[业务模型](https://azure.cn/pricing/details/sql-database/)。 本部分介绍如何快速配置和创建托管实例以及迁移数据库。
+[托管实例](sql-database-managed-instance-index.yml)部署选项创建与最新 SQL Server 本地 (Enterprise Edition) 数据库引擎几乎完全兼容的数据库，提供一个本机[虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 实现来解决常见的安全问题，并提供本地 SQL Server 客户惯用的[业务模型](https://azure.cn/pricing/details/sql-database/)。 本文介绍如何快速配置和创建托管实例以及迁移数据库。
 
 ## <a name="quickstart-overview"></a>快速入门概述
 
 参考以下快速入门可以快速创建托管实例、为客户端应用程序配置虚拟机或点到站点 VPN 连接，并使用 `.bak` 文件将数据库还原到新的托管实例：
 
-- [使用 Azure 门户创建托管实例](sql-database-managed-instance-get-started.md)。 在 Azure 门户中配置所需的参数（用户名/密码、核心数、最大存储），并自动创建 Azure 网络环境，而无需了解网络详细信息和基础结构要求。 只需确保有一个允许创建托管实例的[订阅类型](sql-database-managed-instance-resource-limits.md#supported-subscription-types)即可。 如果你想要使用自己的网络，或者要自定义网络，请参阅“如何为托管实例配置网络环境”。
+- [使用 Azure 门户创建托管实例](sql-database-managed-instance-get-started.md)。 在 Azure 门户中配置所需的参数（用户名/密码、核心数、最大存储量），并自动创建 Azure 网络环境，而无需了解网络详细信息和基础结构要求。 只需确保有一个当前允许创建托管实例的[订阅类型](sql-database-managed-instance-resource-limits.md#supported-subscription-types)即可。 若要使用自己的网络，或者要自定义网络，请参阅[为 Azure SQL 数据库托管实例配置现有虚拟网络](sql-database-managed-instance-configure-vnet-subnet.md)或[为 Azure SQL 数据库托管实例创建虚拟网络](sql-database-managed-instance-create-vnet-subnet.md)。
 - 托管实例在其自身的不带公共终结点的 VNet 中创建。 若要进行客户端应用程序访问，可在同一 VNet（不同子网）中创建 VM，或参考以下快速入门之一从客户端计算机与 VNet 建立点到站点 VPN 连接。
+
   - [在托管实例 VNet 中创建 Azure 虚拟机](sql-database-managed-instance-configure-vm.md)以建立客户端应用程序（包括 SQL Server Management Studio）连接。
   - 从装有 SQL Server Management Studio 和其他客户端连接应用程序的客户端计算机[与托管实例建立点到站点 VPN 连接](sql-database-managed-instance-configure-p2s.md)。 这是与托管实例及其 VNet 建立连接的两种方法之一。
 

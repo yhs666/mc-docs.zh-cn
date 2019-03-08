@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0cd913010db5a5a189cb3933136930d425d7da20
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f2dd70646062214e6f797a36c4450007c6887b36
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363495"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463526"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -87,6 +87,7 @@ ms.locfileid: "54363495"
             $registrationPath = $asrHivePath + '\Registration'
             $proxySettingsPath = $asrHivePath + '\ProxySettings'
             $draIdvalue = 'DraID'
+            $idMgmtCloudContainerId='IdMgmtCloudContainerId'
 
             if (Test-Path $asrHivePath)
             {
@@ -107,6 +108,11 @@ ms.locfileid: "54363495"
                 {            
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
+                }
+                if($regNode.IdMgmtCloudContainerId -ne $null)
+                {            
+                    "Removing IdMgmtCloudContainerId"
+                    Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
                 "Registry keys removed."
             }
@@ -145,7 +151,7 @@ ms.locfileid: "54363495"
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>禁用对 Hyper-V 虚拟机（Hyper-V 到 Azure）的保护
 
 > [!NOTE]
-> 要在没有 VMM 服务器的情况下将 Hyper-V VM 复制到 Azure，请执行此过程。 若要使用 System Center VMM 到 Azure 方案复制虚拟机，请按照[禁用对使用 System Center VMM 到 Azure 方案复制的 Hyper-V 虚拟机的保护](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)中的说明操作
+> 要在没有 VMM 服务器的情况下将 Hyper-V VM 复制到 Azure，请执行此过程。 若要使用 **System Center VMM 到 Azure** 方案复制虚拟机，请按照“禁用对使用 System Center VMM 到 Azure 方案复制的 Hyper-V 虚拟机的保护”中的说明操作
 
 1. 依次转到“受保护的项” > “复制的项”，右键单击计算机，再单击“禁用复制”。
 2. 在“禁用复制”中，可以选择下列选项：

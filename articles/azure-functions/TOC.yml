@@ -57,7 +57,19 @@ items:
   - name: 缩放和托管
     href: functions-scale.md
   - name: 触发器和绑定
-    href: functions-triggers-bindings.md
+    items:
+    - name: 关于触发器和绑定
+      href: functions-triggers-bindings.md
+    - name: 绑定示例
+      href: functions-bindings-example.md
+    - name: 注册绑定扩展
+      href: functions-bindings-register.md
+    - name: 绑定表达式模式
+      href: functions-bindings-expressions-patterns.md
+    - name: 使用绑定返回值
+      href: functions-bindings-return-value.md
+    - name: 处理绑定错误
+      href: functions-bindings-errors.md
   - name: 语言
     items:
     - name: 支持的语言
@@ -215,9 +227,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 服务更新
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 11b49ecedc66af0ea4f6a520e9ae63109cc26877
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7ce9bef1426ce77cb0d7763278815b3f4d285812
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665605"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254046"

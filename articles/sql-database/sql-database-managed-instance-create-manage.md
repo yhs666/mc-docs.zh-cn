@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/11/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 1a9d8a7efc42a9129ab100a2d16574513131920d
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 01/25/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: b0b46eb6fe76ec9328dac38a53325744d14ff6c9
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663577"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347083"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL 数据库托管实例的托管 API 引用
 
@@ -94,5 +94,5 @@ ms.locfileid: "56663577"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解如何将 SQL Server 数据库迁移到 Azure，请参阅[迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
+- 若要详细了解如何将 SQL Server 数据库迁移到 Azure，请参阅[迁移到 Azure SQL 数据库](sql-database-single-database-migrate.md)。
 - 有关受支持功能的信息，请参阅[功能](sql-database-features.md)。

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/06/2018
-ms.date: 09/10/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f446c2055220ee81ec66a3cfc6fbda7790db057
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 91df2a71e2edfa87d7eb815537a4f8e328f20523
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651963"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204097"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序
 Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse 中的本地或远程 Service Fabric 群集。 
@@ -38,7 +38,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 从 [Eclipse 站点](https://www.eclipse.org)安装 Eclipse Neon 或更高版本。  还安装 Buildship 2.2.1 版或更高版本（Service Fabric 插件与更旧版本的 Buildship 不兼容）：
 -   若要检查已安装组件的版本，请在 Eclipse 中转到“帮助” > “关于 Eclipse” > “安装详细信息”。
--   若要更新 Buildship，请参阅 [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update]（Eclipse Buildship：适用于 Gradle 的 Eclipse 插件）。
+-   若要更新 Buildship，请参阅 [Eclipse Buildship：适用于 Gradle 的 Eclipse 插件][buildship-update]中的说明更新 Buildship。
 -   若要检查并安装 Eclipse 的更新，请转到“帮助” > “检查更新”。
 
 若要安装 Service Fabric 插件，请在 Eclipse 中转到“帮助” > “安装新软件”。
@@ -210,7 +210,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>升级 Service Fabric Java 应用程序
 
-对于升级方案，假设使用 Service Fabric 插件在 Eclipse 中创建了 **App1** 项目。 已使用该插件部署了此项目，以创建名为 **fabric:/App1Application** 的应用程序。 该应用程序的类型为 **App1AppicationType**，应用程序版本为 1.0。 现在，要在不影响可用性的情况下升级该应用程序。
+对于升级方案，假设使用 Service Fabric 插件在 Eclipse 中创建了 **App1** 项目。 已使用该插件部署了此项目，以创建名为 **fabric:/App1Application** 的应用程序。 该应用程序的类型为 **App1ApplicationType**，应用程序版本为 1.0。 现在，要在不影响可用性的情况下升级该应用程序。
 
 首先，请对应用程序进行任何更改，然后重新生成已修改的服务。 使用服务的更新版本（以及相关的代码、配置或数据）更新已修改服务的清单文件 (ServiceManifest.xml)。 同时，请使用更新的应用程序版本号和已修改的服务修改应用程序的清单 (ApplicationManifest.xml)。  
 

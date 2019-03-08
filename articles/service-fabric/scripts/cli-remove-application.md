@@ -13,15 +13,15 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 08/20/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f1b15b3be0c10a8165a95d9668d92902c73d8c76
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 272abb9a87546650c1b98dee4a6f4fafb3cd81c6
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644966"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204038"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>从 Service Fabric 群集中删除应用程序
 

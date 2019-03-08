@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用 Azure 人脸 SDK 和 C# 检测图像中的人脸。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 11/07/2018
-ms.date: 11/23/2018
+origin.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5e737e2b413a98e1b281c6cd765ba4250367c9e3
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 2939520efd782262c4227d2ac9aa1e96dac40889
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673003"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204067"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入门：使用人脸 .NET SDK 检测图像中的人脸
 
@@ -201,3 +201,4 @@ Male 37   Female 56
 > [!div class="nextstepaction"]
 > [教程：创建一个用于检测和分析图像中人脸的 WPF 应用](../Tutorials/FaceAPIinCSharpTutorial.md)
 
+<!-- Update_Description: update metedata properties -->

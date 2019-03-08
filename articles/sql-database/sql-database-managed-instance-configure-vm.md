@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, srbozovi, bonova
 manager: digimobile
-origin.date: 12/13/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 70a522fc6a8fdb9ee4fdf2025710f27a8c465ffc
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+origin.date: 02/18/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 199dbbb5cafeb682a5f5e4261175f2ab96236317
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397008"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347071"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入门：配置 Azure VM，以便连接到 Azure SQL 数据库托管实例
 
@@ -46,7 +46,7 @@ ms.locfileid: "54397008"
 
 3. 根据此表中的信息填充窗体：
 
-   | 设置| 建议的值 | 说明 |
+   | 设置| 建议的值 | 说明 |
    | ---------------- | ----------------- | ----------- | 
    | **名称** | 任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
    | **地址范围(CIDR 块)** | 有效的范围 | 默认值适用于本快速入门。|
@@ -75,7 +75,7 @@ ms.locfileid: "54397008"
 
 2. 根据下表中的信息填充窗体：
 
-   | 设置| 建议的值 | Description |
+   | 设置| 建议的值 | Description |
    | ---------------- | ----------------- | ----------- |
    | **订阅** | 有效的订阅 | 必须是有权在其中创建新资源的订阅。 |
    | **资源组** |在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中指定的资源组。|此资源组必须是 VNet 所在的资源组。|
@@ -98,7 +98,8 @@ ms.locfileid: "54397008"
 4. 选择“购买”，在网络中部署 Azure VM。
 5. 选择“通知”图标，查看部署的状态。
 
-在创建好 Azure 虚拟机之前，请勿继续操作。 
+> [!IMPORTANT]
+> 创建虚拟机后约 15 分钟内，不要继续操作，以便创建后脚本有时间来安装 SQL Server Management Studio。
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 

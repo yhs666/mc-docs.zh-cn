@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: e26aba3f96ecd955654ea4ffb396838cd1cecd46
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: cd3676078c73f30f3fe7813beeaf8a6c40063185
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363422"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463493"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>为 Active Directory 和 DNS 设置灾难恢复
 
@@ -32,10 +32,10 @@ ms.locfileid: "54363422"
 
 ## <a name="replicate-the-domain-controller"></a>复制域控制器
 
-- 至少需要在一台托管域控制器或 DNS 的 VM 上设置 [Site Recovery 复制](#enable-protection-using-site-recovery)。
-- 如果环境中有[多个域控制器](#environment-with-multiple-domain-controllers)，还必须在目标站点上设置[附加的域控制器](#protect-active-directory-with-active-directory-replication)。 附加的域控制器可以在 Azure 中，也可位于辅助本地数据中心。
+- 至少需要在一台托管域控制器或 DNS 的 VM 上设置 Site Recovery 复制。
+- 如果环境中有多个域控制器，还必须在目标站点上设置附加的域控制器。 附加的域控制器可以在 Azure 中，也可位于辅助本地数据中心。
 - 如果应用程序数目较少并且只有一个域控制器，则可能希望对整个站点进行故障转移。 在这种情况下，我们建议使用 Site Recovery 将域控制器复制到目标站点（无论域控制器位于 Azure 还是辅助本地数据中心）。 也可以将复制的同一个域控制器或 DNS 虚拟机用于[测试故障转移](#test-failover-considerations)。
-- - 如果应用程序数量较多，而环境中不止一个域控制器，或者计划一次性故障转移多个应用程序，除了使用 Site Recovery 复制域控制器虚拟机以外，我们建议在目标站点（Azure 或辅助本地数据中心）上设置[附加的域控制器](#protect-active-directory-with-active-directory-replication)。 对于[测试故障转移](#test-failover-considerations)，可使用由 Site Recovery 复制的域控制器。 对于故障转移，可以在目标站点上使用附加的域控制器。
+- 如果应用程序数量较多，而环境中不止一个域控制器，或者计划一次性故障转移多个应用程序，除了使用 Site Recovery 复制域控制器虚拟机以外，我们建议在目标站点（Azure 或辅助本地数据中心）上设置附加的域控制器。 对于[测试故障转移](#test-failover-considerations)，可使用由 Site Recovery 复制的域控制器。 对于故障转移，可以在目标站点上使用附加的域控制器。
 
 <a name="enable-protection-using-site-recovery"></a>
 ## <a name="enable-protection-with-site-recovery"></a>使用 Site Recovery 启用保护
@@ -186,10 +186,10 @@ ms.locfileid: "54363422"
 如果 DNS 与域控制器不在同一个 VM 上，则需创建一个可以进行测试性故障转移的 DNS VM。 可以使用全新的 DNS 服务器并创建所有需要的区域。 例如，如果 Active Directory 域是 contoso.com，则可以使用名称 contoso.com 创建 DNS 区域。 必须在 DNS 中更新与 Active Directory 对应的条目，如下所示：
 
 1. 确保在恢复计划中的任何其他虚拟机启动之前，以下设置已准备就绪：
-   * 区域必须以林根名称命名。
-   * 必须在区域中备份文件。
-   * 必须启用区域以进行安全和非安全更新。
-   * 托管域控制器的虚拟机的解析程序应指向 DNS 虚拟机的 IP 地址。
+    * 区域必须以林根名称命名。
+    * 必须在区域中备份文件。
+    * 必须启用区域以进行安全和非安全更新。
+    * 托管域控制器的虚拟机的解析程序应指向 DNS 虚拟机的 IP 地址。
 
 2. 在托管域控制器的 VM 中运行以下命令：
 
