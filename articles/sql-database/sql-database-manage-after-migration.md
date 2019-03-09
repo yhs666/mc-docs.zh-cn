@@ -1,5 +1,5 @@
 ---
-title: 迁移后管理 - Azure SQL 数据库 | Microsoft Docs
+title: 迁移后管理单一和共用数据库 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何在迁移到 Azure SQL 数据库后管理数据库。
 services: sql-database
 ms.service: sql-database
@@ -11,24 +11,24 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/24/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 50deddf9fe69dcc1de463773159264d5a77af9d0
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/13/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: b57c3a680bd301b17b697d0298b4631a0755ab9e
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663571"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347230"
 ---
-# <a name="new-dba-in-the-cloud---managing-your-database-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中的数据库
+# <a name="new-dba-in-the-cloud---managing-your-single-and-pooled-databases-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中单一和共用数据库
 
-从传统的自我管理、自我控制环境过渡到 PaaS 环境后，一开始我们可能有点不适应。 应用开发人员或 DBA（数据库管理员）希望了解该平台中可让应用程序始终保持可用性、高效性、安全性和弹性的核心功能。 本文正好介绍了这些内容。 本文以简洁的方式组织资源，提供有关如何以最佳方式利用 SQL 数据库的重要功能来有效管理应用程序并使其保持运行，以及在云中实现最佳效果的指导。 本文主要面向：
+从传统的自我管理、自我控制环境过渡到 PaaS 环境后，一开始我们可能有点不适应。 应用开发人员或 DBA（数据库管理员）希望了解该平台中可让应用程序始终保持可用性、高效性、安全性和弹性的核心功能。 本文正好介绍了这些内容。 本文简要地整理了一下资源，并指导如何充分利用单一和共用 SQL 数据库的主要功能在云中管理应用程序，使应用程序保持高效运行并获得最佳效果。 本文主要面向：
 
-- 正在评估是否要将应用程序迁移到 Azure SQL 数据库 - 将应用程序现代化。
+- 正在评估向 Azure SQL 数据库迁移应用程序（使应用程序现代化）的人员。
 - 正在迁移应用程序 - 现行迁移方案。
 - 最近已完成到 Azure SQL 数据库的迁移 - 云中的新 DBA。
 
-本文介绍 Azure SQL 数据库（用作平台）的、随时可供利用的某些核心特征。 这些特征包括：
+本文讨论 Azure SQL 数据库的一些核心特性，作为在弹性池中使用单一数据库和共用数据库时可以轻松利用的平台。 这些特征包括：
 
 - 业务连续性和灾难恢复 (BCDR)
 - 安全性与符合性
@@ -259,11 +259,11 @@ Azure 门户通过选择数据库并单击“概述”窗格中的图表来显�
 
 诊断查询和数据库性能问题时所用的大多数故障排除方法是相同的。 毕竟云由同一个 SQL Server 引擎驱动。 但是，Azure SQL DB 平台具有内置的“智能”。 它可以帮助你更轻松地排查和诊断性能问题。 此外，它还可以替你执行一些纠正措施；在某些情况下，会自动地主动修复问题。 
 
-结合使用 [Query Performance Insight (QPI)](sql-database-query-performance.md) 和[数据库顾问](sql-database-advisor.md)等智能功能对排查性能问题很有用，因此，故障排除方法的差别也体现在这方面 - 不再需要手动找出可能有助于排除手头问题的重要细节。 平台能够自动解决棘手的工作。 一个例子就是 QPI。 使用 QPI 可以一路深化到查询级别，查看历史趋势并判断查询回归的确切时间。 数据库顾问可针对缺少索引、删除索引、参数化查询等方面提供建议，帮助提高总体性能。 
+结合使用 [Query Performance Insight (QPI)](sql-database-query-performance.md) 和[数据库顾问](sql-database-advisor.md)等智能功能对排查性能问题很有用，因此，故障排除方法的差别也体现在这方面 - 不再需要手动找出可能有助于排除手头问题的重要细节。 平台能够自动解决棘手的工作。 一个例子就是 QPI。 使用 QPI 可以一路深化到查询级别，查看历史趋势并判断查询回归的确切时间。 数据库顾问可针对缺少索引、删除索引、参数化查询等方面提供建议，帮助提高总体性能。
 
 进行性能故障排除时，请务必确定是应用程序，还是支持它的数据库影响了应用程序的性能。 通常，性能问题出现在应用程序层。 问题原因可能在于体系结构或数据访问模式。 例如，假设某个频繁通信的应用程序对网络延迟很敏感。 在这种情况下，由于有许多简短请求在应用程序与服务器之间来回传送（“琐碎 I/O”），因此应用程序的性能会受到影响；在拥塞的网络上，往返次数会快速增加。 若要在此情况下提高性能，可以使用[批处理查询](sql-database-performance-guidance.md#batch-queries)。 使用批处理可以带来很大的帮助，因为现在请求会在批中处理；因此，可帮助减少往返延迟并提高应用程序的性能。
 
-此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 你可能会需要根据工作负荷需求的增加和减少来更改计算大小和/或服务层。 
+此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 你可能会需要根据工作负荷需求的增加和减少来更改计算大小和/或服务层。
 
 有关优化性能问题的全套建议，请参阅：[优化数据库](sql-database-performance-guidance.md#tune-your-database)。
 
@@ -292,18 +292,18 @@ SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏�
 
 - **导出**：可以将 Azure SQL 数据库作为 BACPAC 文件从 Azure 门户导出
 
-   ![数据库导出](./media/sql-database-export/database-export.png)
+   ![数据库导出](./media/sql-database-export/database-export1.png)
 
 - **导入**：还可使用 Azure 门户将数据作为 BACPAC 文件导入到数据库。
 
-   ![数据库导入](./media/sql-database-import/import.png)
+   ![数据库导入](./media/sql-database-import/import1.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>如何在 SQL 数据库与 SQL Server 之间同步数据
 
 可通过多种方法实现此目的：
 
 - **[数据同步](sql-database-sync-data.md)** - 此功能可帮助你在多个本地 SQL Server 数据库和 SQL 数据库之间双向同步数据。 若要与本地 SQL Server 数据库同步，需要在本地计算机上安装并配置同步代理，并打开出站 TCP 端口 1433。
-- **[事务复制](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 使用事务复制功能，可将数据从本地同步到 Azure SQL DB，本地服务器作为发布服务器，而 Azure SQL DB 作为订阅服务器。 目前仅支持此设置。 有关如何以最少停机时间将数据从本地迁移到 Azure SQL 的详细信息，请参阅：[使用事务复制](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[事务复制](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 使用事务复制功能，可将数据从本地同步到 Azure SQL DB，本地服务器作为发布服务器，而 Azure SQL DB 作为订阅服务器。 目前仅支持此设置。 有关如何以最少停机时间将数据从本地迁移到 Azure SQL 的详细信息，请参阅：[使用事务复制](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>后续步骤
 

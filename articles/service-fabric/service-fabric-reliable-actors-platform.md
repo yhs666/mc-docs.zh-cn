@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/09/2018
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: e6f9596c9b57cb344feb9b336f90c97c6101c35d
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 8738b855e434cbff08418e591f65a1005fde9de0
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083794"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463535"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors 如何使用 Service Fabric 平台
 本文介绍了 Reliable Actors 如何使用 Azure Service Fabric 平台。 Reliable Actors 在有状态的可靠服务（称为*执行组件服务*）的实现托管的框架中运行。 执行组件服务包含管理执行组件的生命周期和消息发送所需的所有组件：
@@ -64,7 +64,7 @@ ms.locfileid: "54083794"
 * 分区方案和范围设置为具有完整的 Int64 键范围的统一 Int64。
 
 <a name="service-fabric-partition-concepts-for-stateful-actors"></a>
-## <a name="service-fabric-partition-concepts-for-actors"></a> 针对执行组件的 Service Fabric 分区概念
+## <a name="service-fabric-partition-concepts-for-actors"></a>针对执行组件的 Service Fabric 分区概念
 执行组件服务是已分区的有状态服务。 执行组件服务的每个分区包含一组执行组件。 服务分区在 Service Fabric 的多个节点中自动分布。 因此，执行组件实例分布到各个节点中。
 
 ![执行组件分区和分布][5]
@@ -99,7 +99,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ## <a name="next-steps"></a>后续步骤
 * [执行组件状态管理](service-fabric-reliable-actors-state-management.md)
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
-* [执行组件 API 参考文档](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet#microsoft_servicefabric_actors)
+* [执行组件 API 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet?redirectedfrom=MSDN&view=azure-dotnet)
 * [.NET 代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

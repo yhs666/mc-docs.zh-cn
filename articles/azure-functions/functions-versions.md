@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/03/2018
-ms.date: 10/19/2018
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 81af6d971d7bb012b900c12e47dfc6e229077b60
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2ef39711f2a1f3649fd3be5dea3b8fbc26e79b45
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647832"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254038"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 
@@ -50,7 +50,7 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 
 ### <a name="changes-in-triggers-and-bindings"></a>触发器和绑定的更改
 
-版本 2.x 要求为应用中的函数所用的特定触发器和绑定安装扩展。 唯一的例外是 HTTP 和计时器触发器，它们不需要扩展。  有关详细信息，请参阅[注册和安装绑定扩展](./functions-triggers-bindings.md#register-binding-extensions)。
+版本 2.x 要求为应用中的函数所用的特定触发器和绑定安装扩展。 唯一的例外是 HTTP 和计时器触发器，它们不需要扩展。  有关详细信息，请参阅[注册和安装绑定扩展](./functions-bindings-expressions-patterns.md)。
 
 此外，在不同的版本中，函数的 `function.json` 或属性存在几处更改。 例如，事件中心的 `path` 属性现在为 `eventHubName`。 请参阅[现有绑定表](#bindings)，以获取每个绑定的文档链接。
 
@@ -116,7 +116,7 @@ Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EX
 
 - 更轻便的执行环境，其中运行时仅知道和加载正在使用的绑定。
 
-除 HTTP 和计时器触发器外，其他所有绑定必须显式添加到函数应用项目，或者在门户中注册。 有关详细信息，请参阅[注册绑定扩展](functions-triggers-bindings.md#register-binding-extensions)。
+除 HTTP 和计时器触发器外，其他所有绑定必须显式添加到函数应用项目，或者在门户中注册。 有关详细信息，请参阅[注册绑定扩展](./functions-bindings-expressions-patterns.md)。
 
 下表显示了每个运行时版本支持的绑定。
 
@@ -130,4 +130,4 @@ Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EX
 - [如何面向 Azure Functions 运行时版本](set-runtime-version.md)
 - [发行说明](https://github.com/Azure/azure-functions-host/releases)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

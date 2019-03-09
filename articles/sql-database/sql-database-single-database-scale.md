@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 62f4817b02a448c206e82b7a03cebf83355ff475
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 9dfe14c7c1c9c8ce056a3d615f339091e9b3bc77
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663748"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347216"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放单一数据库资源
 
@@ -43,10 +43,10 @@ ms.locfileid: "56663748"
 
 更改数据库的服务层和/或计算大小将以新的计算大小创建原始数据库的副本，并将连接切换到副本。 当我们切换到副本时，在此过程中不会丢失任何数据，但在短暂的瞬间，将禁用与数据库的连接，因此可能回滚某些处于进行状态的事务。 切换时长因情况而异，但 99% 的情况下通常少于 30 秒。 如果在禁用连接的那一刻有大量的事务正在进行，则用于切换的时间长度可能会更长。
 
-整个扩展过程的持续时间同时取决于更改前后数据库的大小和服务层。 例如，一个正在更改到标准服务层、从“常规用途”服务层更改或在标准服务层内更改的 250 GB 的数据库应在六小时内完成。 如果数据库与正在“业务关键”服务层内更改计算大小的大小相同，应在三小时内完成扩展。
+通常情况下，整个扩展过程的持续时间同时取决于更改前后数据库的大小和服务层。 例如，在“常规用途”服务层内更改计算机大小的任何大小的数据库都应当在几分钟内完成。 另一方面，在“业务关键”层内更改计算大小的延迟通常为每 100 GB 延迟 90 分钟或更少。
 
 > [!TIP]
-> 要监视进行中的操作，请参阅：[使用 SQL REST API 管理操作](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理操作](/cli/sql/db/op)、[使用 T-SQL 监视操作](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)及以下两个 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
+> 若要监视正在进行的操作，请参阅：[使用 SQL REST API 管理操作](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理操作](/cli/sql/db/op)、[使用 T-SQL 监视操作](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)及以下两个 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
 
 - 如果要升级到更高的服务层或计算大小，除非显式指定了更大的大小（最大），否则，最大数据库大小不会增大。
 - 若要对数据库进行降级，数据库所用空间必须小于目标服务层和计算大小允许的最大大小。

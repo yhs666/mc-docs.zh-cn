@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/07/2017
-ms.date: 05/28/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed2804c51f1307c1852efe56bf53c5a0cae06ce6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4654d6ea3c3fbe0c87a9b780b997dc7bd860f67a
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644069"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463501"
 ---
 # <a name="testability-actions"></a>可测试性操作
 为了模拟一个不可靠的基础结构，Azure Service Fabric 向开发人员提供了众多方式来模拟各种现实世界故障和状态转换。 这些方式被称为可测试性操作。 这些操作属于低级别 API，会导致具体的故障注入、状态转换或验证。 结合使用这些操作，可为服务编写全面的测试方案。
@@ -32,21 +32,19 @@ System.Fabric.dll 程序集包含了这些操作的 C# 实现。 Microsoft.Servi
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>常规故障与非常规故障操作
 可测试性操作分为两个主要的类型：
 
-* 非常规故障：这些故障诸如计算机重启和进程崩溃等故障。 在此类故障情形下，进程的执行上下文突然停止。 这意味着在该应用程序重新启动之前，无法运行任何状态清理。
-
-* 常规错误：这些故障模拟由负载均衡触发的副本移动和删除等常规操作。 在此类情形下，服务收到关闭通知并且可以在退出前清理状态。
+* 非常规故障：这些故障诸如计算机重新启动和进程崩溃等故障。 在此类故障情形下，进程的执行上下文突然停止。 这意味着在该应用程序重新启动之前，无法运行任何状态清理。
+* 常规故障：这些故障模拟诸如副本移动和负载均衡触发的删除等常规操作。 在此类情形下，服务收到关闭通知并且可以在退出前清理状态。
 
 为了实现更好的质量验证，在引入各种常规故障和非常规故障的情况下运行服务和业务工作负荷。 非常规故障执行服务进程在某些工作流程中实然退出的方案。 这会在 Service Fabric 恢复服务副本时立即测试恢复路径。 这会有助于测试数据一致性，以及是否在故障之后正确维护服务状态。 另一组故障，即常规故障，测试服务是否对 Service Fabric 正在移动的副本做出正确的反应。 这会测试 RunAsync 方法中的取消处理。 服务需要检查是否正在设置取消标记、正确保存其状态及退出 RunAsync 方法。
 
 ## <a name="testability-actions-list"></a>可测试性操作列表
-
 | 操作 | 说明 | 托管 API | PowerShell cmdlet | 常规/非常规故障 |
 |---------|-------------|-------------|-------------------|------------------------------|
 | CleanTestState |在测试驱动器非正常关闭时从群集删除所有测试状态。 |CleanTestStateAsync |Remove-ServiceFabricTestState |不适用 |
 | InvokeDataLoss |将数据丢失引入到服务分区。 |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |常规 |
 | InvokeQuorumLoss |在一个给定有状态服务分区放入仲裁丢失。 |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |常规 |
-| Move Primary |将有状态服务的指定主副本移动到指定群集节点。 |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |常规 |
-| Move Secondary |将有状态服务的当前辅助副本移动到另一个群集节点。 |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |常规 |
+| MovePrimary |将有状态服务的指定主副本移动到指定群集节点。 |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |常规 |
+| MoveSecondary |将有状态服务的当前辅助副本移动到另一个群集节点。 |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |常规 |
 | RemoveReplica |通过从群集删除副本来模拟副本故障。 这将关闭该副本，将其转换为角色“None”，并从群集中删除其所有状态。 |RemoveReplicaAsync |Remove-ServiceFabricReplica |常规 |
 | RestartDeployedCodePackage |通过重新启动部署在群集中某个节点上的代码包来模拟代码包进程故障。 这会中止代码包进程，并会重新启动驻留在该进程中的所有用户服务副本。 |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |非常规 |
 | RestartNode |通过重新启动某个节点来模拟 Service Fabric 群集节点故障。 |RestartNodeAsync |Restart-ServiceFabricNode |非常规 |
@@ -58,8 +56,7 @@ System.Fabric.dll 程序集包含了这些操作的 C# 实现。 Microsoft.Servi
 | ValidateService |验证一个 Service Fabric 服务的可用性和运行状况，通常在将某些故障引入系统之后。 |ValidateServiceAsync |Test-ServiceFabricService |不适用 |
 
 ## <a name="running-a-testability-action-using-powershell"></a>使用 PowerShell 运行可测试性操作
-
-本教程说明如何使用 PowerShell 运行可测试性操作。 将了解如何针对本地（也称为“单机”）群集或 Azure 群集运行可测试性操作。 安装 Microsoft Service Fabric MSI 时，会自动安装 Microsoft.Fabric.Powershell.dll（Service Fabric PowerShell 模块）。 该模块在打开 PowerShell 提示符时自动加载。
+本教程说明如何使用 PowerShell 运行可测试性操作。 将了解如何针对本地（也称为“单机”）群集或 Azure 群集运行可测试性操作。 安装 Azure Service Fabric MSI 时，会自动安装 Microsoft.Fabric.Powershell.dll（Service Fabric PowerShell 模块）。 该模块在打开 PowerShell 提示符时自动加载。
 
 教程章节：
 
@@ -80,7 +77,6 @@ Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
 ```
 
-
 ```powershell
 $connection = "localhost:19000"
 $nodeName = "Node1"
@@ -95,8 +91,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-第一个 Get-ServiceFabricNode（来自 Service Fabric PowerShell 模块的一个 cmdlet）的输出显示本地群集有五个节点：Node.1 至 Node.5。 在名为 Node.4 的节点上执行可测试性操作 (cmdlet) Restart-ServiceFabricNode 之后，可看到节点的正常运行时间已被重置。
-
+第一个 **Get-ServiceFabricNode**（来自 Service Fabric PowerShell 模块的一个 cmdlet）的输出显示本地群集有五个节点：Node.1 至 Node.5。 在名为 Node.4 的节点上执行可测试性操作 (cmdlet) Restart-ServiceFabricNode 之后，可看到节点的正常运行时间已被重置。
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>针对 Azure 群集运行操作
 针对 Azure 群集运行一个可测试性操作（使用 PowerShell）与针对本地群集运行一个操作类似。 唯一的区别在于：在能够运行操作之前，不是连接到本地群集，而是需要首先连接到 Azure 群集。
@@ -118,7 +113,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 除了按其名称直接指定节点以外，还可以通过分区键和副本类型指定节点。
 
-有关更多信息，请参阅 [PartitionSelector 和 ReplicaSelector](#partition_replica_selector)。
+有关更多信息，请参阅 PartitionSelector 和 ReplicaSelector。
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll
@@ -187,7 +182,6 @@ class Test
 ```
 
 ## <a name="partitionselector-and-replicaselector"></a>PartitionSelector 和 ReplicaSelector
-
 ### <a name="partitionselector"></a>PartitionSelector
 PartitionSelector 是在可测试性中运用的一个帮助程序，用于选择在其上执行任何可测试性操作的具体分区。 如果事先知道分区 ID，则它可用于选择具体分区。 或者，可提供分区键，操作会在内部解析分区 ID。 还可以选择一个随机分区。
 
@@ -241,4 +235,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
   * [在服务工作负荷期间模拟故障](service-fabric-testability-workload-tests.md)
   * [服务到服务通信故障](service-fabric-testability-scenarios-service-communication.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

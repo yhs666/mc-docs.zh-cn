@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 05e6a9416ff98ee53a4c71ff1932d4517909af04
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/11/2019
+ms.openlocfilehash: 2ca4b021b7f2c5974b8059b7995befeba564e5f2
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663499"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347090"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL 数据库数据发现和分类
 
@@ -134,7 +134,7 @@ ms.locfileid: "56663499"
 - [删除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 删除给定列的敏感度标签
 - [获取](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 获取给定列的敏感度标签
 - [按数据库列出当前项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 获取给定数据库的当前敏感度标签
-- [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的当前敏感度标签
+- [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的建议敏感度标签
 
 ## <a id="subheading-5"></a>后续步骤
 
@@ -142,7 +142,7 @@ ms.locfileid: "56663499"
 - 请考虑配置 [Azure SQL 数据库审核](sql-database-auditing.md) 来监视和审核对已分类敏感数据的访问。
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

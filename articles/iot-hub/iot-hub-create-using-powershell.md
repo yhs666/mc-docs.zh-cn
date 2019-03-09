@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2018
 ms.author: v-yiso
-ms.date: 10/29/2017
-ms.openlocfilehash: 02a9677d03b632d58a3ad836909231d831603240
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 03/18/2019
+ms.openlocfilehash: 1b0bc18aad62383b9f0b9642e7b157a0aab6cd30
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674982"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560447"
 ---
-# <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>使用 New-AzureRmIotHub cmdlet 创建 IoT 中心
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>使用 New-AzIotHub cmdlet 创建 IoT 中心
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -28,6 +28,7 @@ ms.locfileid: "52674982"
 
 若要完成本操作说明，需要 Azure 订阅。 如果没有 Azure 订阅，请在开始前[创建一个试用帐户][lnk-free-trial]。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
 
@@ -35,62 +36,62 @@ ms.locfileid: "52674982"
 
 ```powershell
 # Log into Azure account.
-Login-AzureRMAccount -Environment AzureChinaCloud
+Login-AzAccount -Environment AzureChinaCloud
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
 需要一个资源组来部署 IoT 中心。 可以使用现有资源组，也可以创建新组。
 
-若要为 IoT 中心创建资源组，请使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) 命令。 此示例在“中国东部”区域中创建名为 **MyIoTRG1** 的资源组：
+若要为 IoT 中心创建资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 命令。 此示例在“中国东部”区域中创建名为 **MyIoTRG1** 的资源组：
 
 ```powershell
-New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
+New-AzResourceGroup -Name MyIoTRG1 -Location "China East"
 ```
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-若要在上一步创建的资源组中创建 IoT 中心，请使用 [New-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) 命令。 此示例在“中国东部”区域中创建名为 **MyTestIoTHub** 的 **S1** 中心：
+若要在上一步创建的资源组中创建 IoT 中心，请使用 [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) 命令。 此示例在“中国东部”区域中创建名为 **MyTestIoTHub** 的 **S1** 中心：
 
 ```powershell
-New-AzureRmIotHub `
+New-AzIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub `
     -SkuName S1 -Units 1 `
     -Location "China East"
 ```
 
-IoT 中心的名称必须是唯一的。
+IoT 中心的名称必须是全局唯一的。
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-可以使用 [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) 命令列出订阅中的所有 IoT 中心：
+可以使用 [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) 命令列出订阅中的所有 IoT 中心：
 
 
 ```powershell
-Get-AzureRmIotHub
+Get-AzIotHub
 ```
 
 此示例显示在上一步中创建的 S1 标准 IoT 中心。
 
-可以使用 [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) 命令删除 IoT 中心：
+可以使用 [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) 命令删除 IoT 中心：
 
-Remove-AzureRmIotHub `
+Remove-AzIotHub `
     -ResourceGroupName MyIoTRG1 ` -Name MyTestIoTHub
 ```
 
-Alternatively, you can remove a resource group and all the resources it contains using the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) command:
+Alternatively, you can remove a resource group and all the resources it contains using the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) command:
 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name MyIoTRG1
+Remove-AzResourceGroup -Name MyIoTRG1
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
 现在，已使用 PowerShell cmdlet 部署了 IoT 中心，如果想要进一步探索，请查看以下文章：
 
-* [可用于 IoT 中心的 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/)。
+* [可用于 IoT 中心的 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/)。
 
 * [IoT 中心资源提供程序 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)。
 

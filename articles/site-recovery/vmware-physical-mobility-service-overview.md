@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 02/19/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 20d5094d574c8aa16ef0c6bcf4a6bbc2ae541482
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 487d159aef03d00c97475c6abb85a39f12cd189a
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363363"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463468"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>关于适用于 VMware VM 和物理服务器的移动服务
 
@@ -50,7 +50,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 如果要复制的计算机上正在运行活动的防病毒软件，请确保从防病毒操作中排除移动服务安装文件夹 (*C:\ProgramData\ASR\agent*)。 这可确保复制正常工作。
 
-## <a name="update-the-mobility-service"></a>更新移动服务
+## <a name="update-mobility-service-from-azure-portal"></a>从 Azure 门户更新移动服务
 
 1. 开始在受保护的计算机上更新移动服务之前，请确保部署中的配置服务器、横向扩展进程服务器及所有主目标服务器均已更新。
 2. 在门户中打开保管库 >“复制的项”。
@@ -64,7 +64,15 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 5. 将为所选的每台计算机启动“更新移动服务”作业。
 
-## <a name="update-the-acount-used-for-push-installation-of-the-mobility-service"></a>更新用于 Mobility Service 推送安装的帐户
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>在 Windows 服务器上通过 powershell 脚本更新移动服务
+
+使用以下脚本通过 power shell cmdlet 更新服务器上的移动服务
+
+```azurepowershell
+Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+```
+
+## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>更新用于推送安装移动服务的帐户
 
 在部署 Site Recovery 时，为了启用移动服务的推送安装，你已指定一个帐户，供 Site Recovery 进程服务器在为计算机启用了复制时，用来访问计算机和安装服务。 若要更新此帐户的凭据，请遵照[这些说明](vmware-azure-manage-configuration-server.md)操作。
 

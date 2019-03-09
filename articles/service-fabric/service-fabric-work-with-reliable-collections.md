@@ -7,52 +7,52 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/19/2017
-ms.date: 01/07/2019
+origin.date: 02/22/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2c0b5fab22f70af9958e9e9e48586995f7d1cb81
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: e1ba22e9f6deeed8a72316b61d267d6bbe8e865f
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083792"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463576"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠集合
-Service Fabric 通过可靠集合向 .NET 开发人员提供有状态的编程模型。 具体而言，Service Fabric 提供可靠字典和可靠队列类。 在使用这些类时，状态是分区的（实现伸缩性）、复制的（实现可用性），并在分区内进行事务处理（实现 ACID 语义）。 让我们看一下可靠字典对象的典型用法，并看一看它究竟做些什么。
+Service Fabric 通过可靠集合向 .NET 开发人员提供有状态的编程模型。 具体而言，Service Fabric 提供可靠字典和可靠队列类。 在使用这些类时，状态是分区的（实现伸缩性）、复制的（实现可用性），并在分区内进行事务处理（实现 ACID 语义）。 让我们看一下可靠字典对象的典型用法，并看一看它究竟在做些什么。
 
 ```csharp
-
-///retry:
-
-try {
+try
+{
    // Create a new Transaction object for this partition
-   using (ITransaction tx = base.StateManager.CreateTransaction()) {
+   using (ITransaction tx = base.StateManager.CreateTransaction())
+   {
       // AddAsync takes key's write lock; if >4 secs, TimeoutException
       // Key & value put in temp dictionary (read your own writes),
-      // serialized, redo/undo record is logged & sent to
-      // secondary replicas
+      // serialized, redo/undo record is logged & sent to secondary replicas
       await m_dic.AddAsync(tx, key, value, cancellationToken);
 
       // CommitAsync sends Commit record to log & secondary replicas
       // After quorum responds, all locks released
       await tx.CommitAsync();
    }
-   // If CommitAsync not called, Dispose sends Abort
+   // If CommitAsync isn't called, Dispose sends Abort
    // record to log & all locks released
 }
-catch (TimeoutException) {
-   await Task.Delay(100, cancellationToken); goto retry;
+catch (TimeoutException)
+{
+   // choose how to handle the situation where you couldn't get a lock on the file because it was 
+   // already in use. You might delay and retry the operation
 }
 ```
 
 可靠字典对象上的所有操作（无法恢复的 ClearAsync 除外）都需要一个 ITransaction 对象。 此对象与在单个分区中对任何可靠字典和/或可靠队列对象尝试进行的任何及所有更改具有关联性。 可通过调用分区的 StateManager 的 CreateTransaction 方法获取 ITransaction 对象。
 
-在上面的代码中，ITransaction 对象传递到可靠字典的 AddAsync 方法。 在内部，接受键的字典方法采用与键关联的读取器/写入器锁。 如果此方法修改键的值，则在键上使用写入锁；如果此方法只读取键的值，则在键上使用读取锁。 由于 AddAsync 将键值修改成新的传入值，因此使用键的写入锁。 因此，如果有 2（或更多个）线程尝试在同一时间添加相同的键值，则一个线程将获取写入锁，另一个线程将会阻塞。 默认情况下，方法最多阻塞 4 秒以获取锁，4 秒后方法会引发 TimeoutException。 方法重载存在可让你根据需要传递显式超时值。
+在上面的代码中，ITransaction 对象传递到可靠字典的 AddAsync 方法。 在内部，接受键的字典方法采用与键关联的读取器/写入器锁。 如果此方法修改键的值，则在键上使用写入锁；如果此方法只读取键的值，则在键上使用读取锁。 由于 AddAsync 将键值修改成新的传入值，因此使用键的写入锁。 因此，如果有 2（或更多个）线程尝试在同一时间添加相同的键值，则一个线程将获取写入锁，另一个线程会阻塞。 默认情况下，方法最多阻塞 4 秒以获取锁，4 秒后方法会引发 TimeoutException。 方法重载存在可让你根据需要传递显式超时值。
 
 通常，编写代码响应 TimeoutException 的方式是捕获它，然后重试整个操作（如以上代码中所示）。 在我的简单代码中，我只调用了每次传递 100 毫秒的 Task.Delay。 但实际上，最好改用某种形式的指数退让延迟。
 
@@ -66,7 +66,8 @@ catch (TimeoutException) {
 现在你已了解可靠集合在内部的工作原理，让我们了解一些常见的误用。 参阅以下代码：
 
 ```csharp
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // AddAsync serializes the name/user, logs the bytes,
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
@@ -84,8 +85,8 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 再次强调，上面这种错误是很容易发生的。 只有在进程崩溃时才能发现错误。 编写代码的正确方式是只需反转两行：
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
    await tx.CommitAsync();
@@ -95,14 +96,14 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 这是另一个常见的错误：
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user's name to look up their data
-   ConditionalValue<User> user =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (user.HasValue) {
+   if (user.HasValue)
+   {
       // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
@@ -118,14 +119,14 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 以下代码演示在可靠集合中更新值的正确方式：
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user's name to look up their data
-   ConditionalValue<User> currentUser =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (currentUser.HasValue) {
+   if (currentUser.HasValue)
+   {
       // Create new user object with the same state as the current user object.
       // NOTE: This must be a deep copy; not a shallow copy. Specifically, only
       // immutable state can be shared by currentUser & updatedUser object graphs.
@@ -143,24 +144,26 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>定义不可变的数据类型以防止编程器错误
-理想情况下，我们希望编译器能够在意外生成改变对象状态的代码、而此对象又不该改变时报告错误。 但是 C# 编译器做不到这一点。 因此，为了避免潜在的编程器错误，我们强烈建议将可靠集合使用的类型定义为不可变类型。 具体而言，这意味着你要坚持使用核心值类型（例如数字 [Int32、UInt64 等]、DateTime、Guid、TimeSpan 等）。 当然，也可以使用字符串。 最好是避免集合属性，因为将其序列化和反序列化经常会降低性能。 但是，如果希望使用集合属性，强烈建议使用 .NET 的不可变集合库 ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))。 可以从 http://nuget.org 下载此库。此外，我们建议尽可能地密封类，并将字段设为只读。
+理想情况下，我们希望编译器能够在意外生成改变对象状态的代码、而此对象又不该改变时报告错误。 但是 C# 编译器做不到这一点。 因此，为了避免潜在的编程器错误，我们强烈建议将可靠集合使用的类型定义为不可变类型。 具体而言，这意味着你要坚持使用核心值类型（例如数字 [Int32、UInt64 等]、DateTime、Guid、TimeSpan 等）。 也可以使用 String。 最好是避免集合属性，因为将其序列化和反序列化经常会降低性能。 但是，如果希望使用集合属性，强烈建议使用 .NET 的不可变集合库 ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))。 可以从 http://nuget.org 下载此库。此外，我们建议尽可能地密封类，并将字段设为只读。
 
 以下 UserInfo 类型演示如何利用上述建议定义不可变类型。
 
 ```csharp
-
 [DataContract]
 // If you don't seal, you must ensure that any derived classes are also immutable
-public sealed class UserInfo {
+public sealed class UserInfo
+{
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
 
-   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) {
+   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) 
+   {
       Email = email;
       ItemsBidding = (itemsBidding == null) ? NoBids : itemsBidding.ToImmutableList();
    }
 
    [OnDeserialized]
-   private void OnDeserialized(StreamingContext context) {
+   private void OnDeserialized(StreamingContext context)
+   {
       // Convert the deserialized collection to an immutable collection
       ItemsBidding = ItemsBidding.ToImmutableList();
    }
@@ -175,7 +178,8 @@ public sealed class UserInfo {
 
    // Since each UserInfo object is immutable, we add a new ItemId to the ItemsBidding
    // collection by creating a new immutable UserInfo object with the added ItemId.
-   public UserInfo AddItemBidding(ItemId itemId) {
+   public UserInfo AddItemBidding(ItemId itemId)
+   {
       return new UserInfo(Email, ((ImmutableList<ItemId>)ItemsBidding).Add(itemId));
    }
 }
@@ -184,13 +188,13 @@ public sealed class UserInfo {
 ItemId 类型也是不可变类型，如下所示：
 
 ```csharp
-
 [DataContract]
-public struct ItemId {
-
+public struct ItemId
+{
    [DataMember] public readonly String Seller;
    [DataMember] public readonly String ItemName;
-   public ItemId(String seller, String itemName) {
+   public ItemId(String seller, String itemName)
+   {
       Seller = seller;
       ItemName = itemName;
    }
@@ -200,22 +204,21 @@ public struct ItemId {
 ## <a name="schema-versioning-upgrades"></a>架构版本控制（升级）
 就内部而言，可靠集合使用 .NET 的 DataContractSerializer 串行化对象。 串行化对象保存在主副本的本地磁盘中，并传输到辅助副本。 随着服务日趋成熟，你可能想要更改服务所需的数据种类（架构）。 必须十分谨慎地对待数据的版本控制方法。 首先但同样重要的是，始终必须能够反序列化旧数据。 具体而言，这意味着反序列化代码必须无限向后兼容：服务代码的版本 333 必须能够对 5 年前服务代码第 1 版放在可靠集合中的数据进行操作。
 
-此外，服务代码一次只升级一个域。 因此，在升级期间，同时执行两个不同版本的服务代码。 必须避免新版本的服务代码使用新的架构，因为旧版的服务代码可能无法处理新的架构。 应该尽可能将每个版本的服务都设计成向前兼容 1 个版本。 具体而言，这意味着 V1 的服务代码只要能够忽略它不显式处理的任何架构元素即可。 但是，它必须能够保存它不显式了解的任何数据，在更新字典键或值时只需将它写回即可。
+此外，服务代码一次只升级一个域。 因此，在升级期间，同时执行两个不同版本的服务代码。 必须避免新版本的服务代码使用新的架构，因为旧版的服务代码可能无法处理新的架构。 应该尽可能将每个版本的服务都设计成向前兼容 1 个版本。 具体而言，这意味着 V1 的服务代码应当能够忽略它不显式处理的任何架构元素。 但是，它必须能够保存它不显式了解的任何数据，并且在更新字典键或值时将它写回。
 
 > [!WARNING]
 > 尽管可以修改键的架构，但必须确保键的哈希代码和相等算法是稳定的。 如果更改其中任一算法的工作方式，再也无法在可靠字典中查询键。
->
->
+> .NET 字符串可以用作键，但请使用字符串本身作为键，不要使用 String.GetHashCode 的结果作为键。
 
-或者，也可以执行通称为 2 阶段升级的功能。 通过 2 阶段升级，可以将服务从 V1 升级到 V2：V2 包含知道如何处理新架构更改的代码，但此代码不会执行。 当 V2 代码读取 V1 数据时，它在其上操作并写入 V1 数据。 然后，在跨所有升级域的升级都完成之后，就可以通知运行中的 V2 实例，升级已完成。 （通知方式之一是推出配置升级；这就是 2 阶段升级）。现在，V2 实例可以读取 V1 数据，将它转换成 V2 数据、操作它，并写出为 V2 数据。 当其他实例读取 V2 数据时，不需要转换它，只要操作并写出 V2 数据即可。
+另外，也可以执行通称为两阶段升级的功能。 通过两阶段升级，可以将服务从 V1 升级到 V2：V2 包含知道如何处理新架构更改的代码，但此代码不会执行。 当 V2 代码读取 V1 数据时，它在其上操作并写入 V1 数据。 然后，在跨所有升级域的升级都完成之后，就可以通知运行中的 V2 实例，升级已完成。 （通知方式之一是推出配置升级；这就是两阶段升级。）现在，V2 实例可以读取 V1 数据，将它转换成 V2 数据、操作它，并写出为 V2 数据。 当其他实例读取 V2 数据时，不需要转换它，只要操作并写出 V2 数据即可。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解如何创建向前兼容的数据协定，请参阅[向前兼容的数据协定](https://msdn.microsoft.com/library/ms731083.aspx)。
+若要了解如何创建向前兼容的数据约定，请参阅[向前兼容的数据协定](https://msdn.microsoft.com/library/ms731083.aspx)
 
-若要了解版本控制数据协定的最佳实践，请参阅[数据协定版本控制](https://msdn.microsoft.com/library/ms731138.aspx)。
+若要了解版本控制数据协定的最佳做法，请参阅[数据协定版本控制](https://msdn.microsoft.com/library/ms731138.aspx)
 
-若要了解如何实现版本容错的数据协定，请参阅[版本容错的序列化回调](https://msdn.microsoft.com/library/ms733734.aspx)。
+若要了解如何实现版本容错的数据协定，请参阅[版本容错的序列化回调](https://msdn.microsoft.com/library/ms733734.aspx)
 
-若要了解如何提供可跨多个版本互操作的数据结构，请参阅 [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)。
+若要了解如何提供可跨多个版本互操作的数据结构，请参阅 [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/29/2018
-ms.date: 02/22/2019
+ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7caf92e35007b639406ac072c207e4b1bc92fe9c
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 9781b1c990c91f8e843be9afc370365db137bc4f
+ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665647"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57254057"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -94,8 +94,8 @@ Azure Functions Core Tools 有两个版本。 使用的版本取决于本地开�
 
     | Linux 分发版 | 版本 |
     | --------------- | ----------- |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
@@ -157,7 +157,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-有关详细信息，请参阅 [Azure Functions 触发器和绑定概念](functions-triggers-bindings.md#register-binding-extensions)。
+有关详细信息，请参阅 [Azure Functions 触发器和绑定概念](./functions-bindings-expressions-patterns.md)。
 
 ## <a name="local-settings-file"></a>本地设置文件
 
@@ -482,4 +482,4 @@ Azure Functions Core Tools 是[开源工具且托管在 GitHub 上](https://gith
 [Azure 门户]: https://portal.azure.cn 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

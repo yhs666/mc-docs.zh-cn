@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 5b4cd8642650436cf65dec77076b87ee2649820a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/18/2019
+ms.openlocfilehash: 1c21cfe96c1d40750f508d3057f5ac1aa282f956
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654009"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560459"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -28,9 +28,9 @@ ms.locfileid: "52654009"
 可以通过编程方式使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
 
 > [!NOTE]
-> Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
-> 
-> 
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 要完成本教程，需要以下各项：
 
@@ -158,10 +158,10 @@ ms.locfileid: "52654009"
 2. 单击“**生成**”，并单击“**生成解决方案**”。 更正所有错误。
 3. 单击“**调试**”，并单击“**开始调试**”以运行应用程序。 运行部署可能需要几分钟时间。
 
-4. 若要验证应用程序是否添加了新的 IoT 中心，请访问 [Azure 门户][lnk-azure-portal]并查看资源列表。 或者，使用 Get-azurermresource PowerShell cmdlet。
+4. 若要验证应用程序是否添加了新的 IoT 中心，请访问 [Azure 门户][lnk-azure-portal]并查看资源列表。 另外，也可以使用 **Get-AzResource** PowerShell cmdlet。
 
 > [!NOTE]
-> 本示例应用程序会添加用于对你计费的 S1 标准 IoT 中心。 完成操作后，可以通过 [Azure 门户][lnk-azure-portal]删除该 IoT 中心，或者在完成后使用 **Remove-AzureRmResource** PowerShell cmdlet 删除。
+> 本示例应用程序会添加用于对你计费的 S1 标准 IoT 中心。 在完成任务后，可以通过 [Azure 门户][lnk-azure-portal]或者使用 **Remove-AzResource** PowerShell cmdlet 删除该 IoT 中心。
 > 
 > 
 

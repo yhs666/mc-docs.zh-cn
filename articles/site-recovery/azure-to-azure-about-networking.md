@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 746479cf873c44ddd9533e4a539a598b9ebc2aa9
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: d52942c2d1c036b17654679dc86961b9ee6e822a
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363407"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463522"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -82,30 +82,37 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 ### NSG rules - China East
 
-1. Create an outbound HTTPS (443) security rule for "Storage.ChinaEast" on the NSG as shown in the screenshot below.
+1. Create an outbound HTTPS (443) security rule for "Storage" on the NSG as shown in the screenshot below.
+    
+    <!--Current only Storage endpoint without chinaeast-->
+    
+    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
 
-2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
+    ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
+3. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
+
+    **位置** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
     --- | --- | ---
-   China North | 40.69.144.231 | 52.165.34.144
+    中国北部 | 40.69.144.231 | 52.165.34.144
 
-### NSG rules - China North
+### <a name="nsg-rules---china-north"></a>NSG 规则 - 中国北部
 
-These rules are required so that replication can be enabled from the target region to the source region post-failover:
+必须创建这些规则，才能在故障转移后启用从目标区域到源区域的复制：
 
-1. Create an outbound HTTPS (443) security rule for "Storage.ChinaNorth" on the NSG.
+1. 基于 NSG 为“存储”创建出站 HTTPS (443) 安全规则。
 
-2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+    <!--Current only Storage endpoint without chinanorth-->
+    
+2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则。
 
-3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the source location:
+3. 为对应于源位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
 
-   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
+    **位置** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
     --- | --- | ---
-   China North | 13.82.88.226 | 104.45.147.24
+    中国北部 | 13.82.88.226 | 104.45.147.24
 
 -->
 

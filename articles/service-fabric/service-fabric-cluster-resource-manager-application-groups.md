@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2fe5a96cde9cc61ec93f909b5570ab6791231250
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8343ade52a05088b3efb18e16de6f47b3e77b353
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652420"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204136"
 ---
 # <a name="introduction-to-application-groups"></a>应用程序组简介
 Service Fabric 的群集 Resource Manager 通常通过将负载（通过[指标](service-fabric-cluster-resource-manager-metrics.md)表示）平均分散到整个群集来管理群集资源。 Service Fabric 管理群集中节点的容量，并通过[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理整个群集。 指标和容量非常适用于许多种工作负荷，但大量使用不同 Service Fabric 应用程序实例的模式有时还有其他要求。 例如，如果想要：
@@ -107,7 +107,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 - 应用程序实例中的服务数每次都会发生更改 
 - 服务存在，但不会消耗资源 
 
-为应用程序实例保留资源需要指定两个附加参数：MinimumNodes 和 NodeReservationCapacity
+为应用程序实例保留资源需要指定两个附加参数：*MinimumNodes* 和 *NodeReservationCapacity*
 
 - **MinimumNodes** - 定义应用程序实例应在其上运行的最小节点数。  
 - **NodeReservationCapacity** - 此设置是应用程序的各项指标。 应用程序中的服务在节点上运行，该值是为该节点上的该应用程序保留的该指标的量。

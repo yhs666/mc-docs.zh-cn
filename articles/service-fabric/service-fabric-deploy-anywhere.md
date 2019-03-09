@@ -1,6 +1,6 @@
 ---
-title: 在 Windows Server 和 Linux 上创建 Service Fabric 群集 | Azure
-description: Service Fabric 群集会在 Windows Server 或 Linux 上运行，这意味着你能够在可以运行 Windows Server 和 Linux 的任何位置部署和承载 Service Fabric 应用程序。
+title: Azure 和独立 Service Fabric 群集的概述 | Azure
+description: 可以在运行 Windows Server 或 Linux 的任何 VM 或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组互连 Windows Server 或 Linux 计算机（本地计算机、Azure 计算机或任何云提供商的计算机）的任何环境中部署和运行 Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/28/2018
-ms.date: 01/07/2019
+origin.date: 02/01/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7053fb69a7b5a5b53da4539c2ca33d9ec64f4aad
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 43068bd5818de0a1e22bc0daf95da4ae7384bffe
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083793"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204042"
 ---
-# <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>在 Windows Server 或 Linux 上创建 Service Fabric 群集
+# <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>将 Azure Service Fabric 群集与 Windows Server 和 Linux 上的独立 Service Fabric 群集进行比较
 Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理机，可在其中部署和管理微服务。 群集中的计算机或 VM 称为群集节点。 群集可以扩展到数千个节点。 如果向群集添加新节点，Service Fabric 会在新增加的节点间重新平衡服务分区副本和实例。 应用程序总体性能提高，访问内存的争用减少。 如果没有高效使用群集中的节点，可以减少群集中节点的数量。 Service Fabric 会再次在减少的节点间重新平衡分区副本和实例以更加充分利用每个节点上的硬件。
 
 使用 Service Fabric 可在运行 Windows Server 或 Linux 的任何 VM 或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组互连 Windows Server 或 Linux 计算机（无论是本地计算机、Azure 计算机还是任何云提供商的计算机）的任何环境中部署和运行 Service Fabric 应用程序。

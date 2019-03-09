@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/28/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 1eae1ff6b5780932ef0ccac172683c2f3a8750f1
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/12/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 0d1290bbb9c8c7ab32957a7f0af901a341d6f96c
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663673"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347003"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入门：使用 Python 查询 Azure SQL 数据库
 
@@ -28,20 +28,35 @@ ms.locfileid: "56663673"
 
 若要完成本快速入门，请确保符合以下条件：
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+
+  || 单一数据库 |
+  |:--- |:--- |
+  | 创建| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
+  |加载数据|根据快速入门加载的 Adventure Works|
+  |||
   
 - 适用于你的操作系统的 Python 和相关软件：
   
   - **MacOS**：安装 Homebrew 和 Python，接着安装 ODBC 驱动程序和 SQLCMD，再安装 Python Driver for SQL Server。 请参阅 [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)（在 macOS 上使用 SQL Server 创建 Python 应用）中的步骤 1.2、1.3 和 2.1。 有关详细信息，请参阅[在 Linux 和 macOS 上安装 Microsoft ODBC 驱动程序](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)。
-    
+
   - **Ubuntu**：使用 `sudo apt-get install python python-pip gcc g++ build-essential` 安装 Python 和其他所需的程序包。 下载并安装用于 SQL Server 的 ODBC 驱动程序、SQLCMD 和 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)。
-    
+
   - Windows：安装用于 SQL Server 的 Python、ODBC 驱动程序和 SQLCMD 以及 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)。
 
 ## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
+
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+
+2. 导航到“SQL 数据库”页面。
+
+3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
+
 ## <a name="create-code-to-query-your-sql-database"></a>创建用于查询 SQL 数据库的代码 
 
 1. 在文本编辑器中，创建新文件 sqltest.py。  

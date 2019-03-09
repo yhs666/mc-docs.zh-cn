@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 services: site-recovery
-origin.date: 12/31/2018
-ms.date: 01/21/2019
+origin.date: 02/13/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: f8b8952f793aa0dcea4faea6a6ee722fc7c4212f
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 0161546ddf8da5f5ed1c0f607bcd0168c40597a5
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363529"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463557"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常见问题 - VMware 到 Azure 的复制
 
@@ -40,6 +40,53 @@ ms.locfileid: "54363529"
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帐户是否需要拥有创建 VM 的权限？
 如果你是订阅管理员，则已经获得了所需的复制权限。 否则，需要有权在配置 Site Recovery 时指定的资源组和虚拟网络中创建 Azure VM，并有权写入选定的存储帐户。 [了解详细信息](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>是否可以在 Azure 上使用来宾 OS 服务器许可证？
+是，Azure 软件保障客户可以使用 [Azure 混合权益](https://www.azure.cn/en-in/pricing/hybrid-benefit/)来节省迁移到 Azure 的 **Windows Server 计算机**的许可成本，或将 Azure 用于灾难恢复。
+
+## <a name="pricing"></a>定价
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>在故障转移后进行的复制过程中，如何处理许可收费问题？
+
+有关详细信息，请参阅[此处](https://www.azure.cn/zh-cn/pricing/details/site-recovery/)提供的有关许可的常见问题解答。
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>在使用 Site Recovery 的过程中，如何计算大致的费用？
+
+可以使用[定价计算器](https://www.azure.cn/zh-cn/pricing/calculator)来估算使用 Azure Site Recovery 时的费用。 若要对费用进行详细的估算，请运行部署规划器工具 (site-recovery-vmware-deployment-planner-cost-estimation.md) 并分析[成本估算报告](site-recovery-vmware-deployment-planner-cost-estimation.md)。
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>我已成为 Azure Site Recovery 用户一个多月。 对于每个受保护的实例，是否仍享受前 31 天免费？
+
+是，与使用 Azure Site Recovery 的时间长短无关。 在前 31 天内，每个受保护的实例不会产生任何 Azure Site Recovery 费用。 例如，你在过去 6 个月内保护了 10 个实例，然后你将第 11 个实例连接到 Azure Site Recovery，则在连接后的前 31 天内，第 11 个实例不会产生任何 Azure Site Recovery 费用。 而前 10 个实例将继续产生 Azure Site Recovery 费用，因为它们受到保护的时间已超过 31 天。
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在前 31 天的期限内，会产生其他 Azure 费用吗？
+
+会，尽管受保护实例的 Azure Site Recovery 在前 31 天内为免费，但可能产生 Azure 存储、存储交易和数据传输费用。 恢复后的虚拟机也可能产生 Azure 计算费用。
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>使用 Azure Site Recovery 会产生哪些费用？
+
+有关详细信息，请参阅[有关所引发费用的常见问题解答](https://www.azure.cn/zh-cn/pricing/details/site-recovery/)。
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>进行 DR 演练/测试性故障转移时，是否有与之相关联的费用？
+
+DR 演练没有单独的费用。 如果在测试性故障转移后创建虚拟机，则会有计算费用。
+
+## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery 组件升级
+
+### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>我的移动性代理/配置服务器/进程服务器版本过旧，导致升级失败。 应如何升级到最新版本？
+
+Azure Site Recovery 遵循 N-4 支持模型。 有关如何从过旧版本升级的详细信息，请参阅我们的[支持声明](https://aka.ms/asr_support_statement)。
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>在哪里可以找到 Azure Site Recovery 的发行说明/更新汇总？
+
+有关发行说明的信息，请参阅[文档](https://aka.ms/asr_update_rollups)。 可以在每个更新汇总中找到各个组件的安装链接。
+
+### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>应如何将本地 VMware 或物理站点的 Site Recovery 组件升级到 Azure？
+
+请参阅[此处](https://aka.ms/asr_vmware_upgrades)提供的指南来升级组件。
+
+## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>每次升级是否必须重新启动源计算机？
+
+尽管建议重新启动，但并非每次升级都必须这样做。 有关明确的准则，请参阅[此处](https://aka.ms/asr_vmware_upgrades)。
 
 ## <a name="on-premises"></a>本地
 
@@ -67,13 +114,21 @@ ms.locfileid: "54363529"
 
 <!-- Not Available on including Oracle, SAP, IBM and Red Hat-->
 
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>是否可以保护具有 Docker 磁盘配置的虚拟机？
+
+否，此方案不受支持。
+
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>是否可以使用站点到站点 VPN 复制到 Azure？
 Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将数据从本地复制到 Azure 存储。 不支持通过站点到站点 VPN 网络进行的复制。
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>是否可以使用 ExpressRoute 复制到 Azure？
-可以使用 ExpressRoute 将 VM 复制到 Azure。 Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 需要设置[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)将 ExpressRoute 用于 Site Recovery 复制。 此外，复制时还应确保满足[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 将 VM 故障转移到 Azure 虚拟网络后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)访问这些 VM。
+可以使用 ExpressRoute 将 VM 复制到 Azure。 Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 需要设置[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)将 ExpressRoute 用于 Site Recovery 复制。 在复制时，建议使用 Azure 对等互连作为路由域。 此外，复制时还应确保满足[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 将 VM 故障转移到 Azure 虚拟网络后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)访问这些 VM。
 
 <!-- URL should be public-peering and private-peering -->
+
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>在对计算机进行保护以后，如何更改存储帐户？
+
+只能将存储帐户升级到高级。 如果需要使用另一存储帐户，则需禁用对源计算机的复制，然后重新启用对新存储帐户的保护。 除此之外，没有其他方法可以在启用保护之后更改存储帐户。
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>为何不能通过 VPN 复制？
 
@@ -85,6 +140,9 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>可以多久复制到 Azure 一次？
 将 VMware VM 复制到 Azure 时，复制是持续性的。
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>是否可以在故障转移之后保留 IP 地址？
+是的，可以在故障转移之后保留 IP 地址。 确保在故障转移之前在“计算和网络”边栏选项卡上提及目标 IP 地址。 另外，请务必在故障转移时关闭计算机，以免在故障回复时出现 IP 冲突。
 
 ### <a name="can-i-extend-replication"></a>是否可以扩展复制？
 不支持扩展扩展或链式复制。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
@@ -138,7 +196,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 虽然可以这样做，但运行配置服务器的 Azure VM 需要与本地的 VMware 基础结构和 VM 通信。 这可能会增加延迟并影响正在进行的复制。
 
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新配置服务器？
-[了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何更新配置服务器。 可以在 [Azure 更新页](https://www.azure.cn/what-is-new/)中找到最新的更新信息。 另外，还可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器。
+[了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何更新配置服务器。 可以在 [Azure 更新页](https://www.azure.cn/what-is-new/)中找到最新的更新信息。 另外，还可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器。 如果你的版本早于当前版本 4 个版本，请参阅[支持声明](service-updates-how-to.md#support-statement-for-azure-site-recovery)获取升级指南。
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>是否应该备份部署的配置服务器？
 建议定期备份配置服务器。 若想成功进行故障回复，进行故障回复的虚拟机必须存在于配置服务器数据库中，并且配置服务器必须正在运行且处于已连接状态。 可以在[此处](vmware-azure-manage-configuration-server.md)了解有关常见配置服务器管理任务的详细信息。
@@ -223,7 +281,7 @@ Azure 具有复原能力。 Site Recovery 能够根据 Azure SLA 故障转移到
 从 Azure 故障回复时，Azure 中的数据将复制回到本地 VM，这需要提供私人访问权限。
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>是否可以在故障转移后调整 Azure VM 的大小？
-否，无法在故障转移后更改目标 VM 的大小。
+否，无法在故障转移后更改目标 VM 的大小或类型。
 
 ## <a name="automation-and-scripting"></a>自动化和脚本
 

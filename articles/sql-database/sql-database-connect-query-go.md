@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: MightyPen
 manager: digimobile
-origin.date: 12/21/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 22c540cdc988f7950de986a61a0e0fcb8859b58e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/12/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: 3305f1eb7403174cd118fa2fdcb7dbed1f2387e6
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663775"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347217"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>快速入门：使用 Golang 查询 Azure SQL 数据库
 
@@ -28,17 +28,32 @@ ms.locfileid: "56663775"
 
 要完成本教程，需要：
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+
+  || 单一数据库 |
+  |:--- |:--- |
+  | 创建| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
+  |加载数据|根据快速入门加载的 Adventure Works|
+  |||
 
 - 已经为操作系统安装了 Golang 和相关软件：
 
-    - **MacOS**：安装 Homebrew 和 Golang。 请参阅[步骤 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/)。
-    - **Ubuntu**：安装 Golang。 请参阅[步骤 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/)。
-    - Windows：安装 Golang。 请参阅[步骤 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/)。    
+  - **MacOS**：安装 Homebrew 和 Golang。 请参阅[步骤 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/)。
+  - **Ubuntu**：安装 Golang。 请参阅[步骤 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/)。
+  - Windows：安装 Golang。 请参阅[步骤 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/)。
 
-## <a name="sql-server-connection-information"></a>SQL Server 连接信息
+## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
+
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+
+2. 导航到“SQL 数据库”页面。
+
+3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
 
 ## <a name="create-golang-project-and-dependencies"></a>创建 Golang 项目和依赖项
 
@@ -91,7 +106,7 @@ ms.locfileid: "56663775"
 
 1. 在 **SqlServerSample** 文件夹中创建名为 **sample.go** 的文件。
 
-2. 在文件中，粘贴此代码。 添加服务器、数据库、用户名和密码的值。 此示例使用 Golang 上下文方法来确保存在活动的数据库服务器连接。
+2. 在文件中，粘贴此代码。 添加服务器、数据库、用户名和密码的值。 此示例使用 Golang [上下文方法](https://golang.org/pkg/context/)来确保存在活动的数据库服务器连接。
 
    ```go
    package main

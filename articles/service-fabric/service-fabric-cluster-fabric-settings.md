@@ -13,19 +13,21 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/11/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6c3da4a56febd4326832b2da362df29bdacf9c59
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 0ac2b2f085c4bd3880a4676fcfc63398274a9779
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396681"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204169"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
 本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
 
-<!--Not Available on [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md)-->有三种不同的升级策略：
+<!--Not Available on [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md)-->
+
+有三种不同的升级策略：
 
 - **Dynamic** - 对动态配置的更改不会导致 Service Fabric 进程或服务主机进程的任何进程重启。 
 - **Static** - 对静态配置的更改会导致 Service Fabric 节点重启，以便使用该更改。 节点上的服务将重启。
@@ -281,7 +283,8 @@ ms.locfileid: "54396681"
 ## <a name="healthmanager"></a>HealthManager
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-| EnableApplicationTypeHealthEvaluation |Bool，默认值为 false |静态|群集运行状况评估策略：启用按应用程序类型的运行状况评估。 |
+|EnableApplicationTypeHealthEvaluation |Bool，默认值为 false |静态|群集运行状况评估策略：启用按应用程序类型的运行状况评估。 |
+|MaxSuggestedNumberOfEntityHealthReports|Int，默认值为 500 |动态|在对监视器的运行状况报告逻辑提出担忧之前，实体可以拥有的最大健康报告数。 每个运行状况实体应具有相对较少的运行状况报告。 如果报告计数高于此数字，则监视器的实现可能存在问题。 如果某个实体具有过多的报告，则评估该实体时，将通过警告运行状况报告来标记该实体。 |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |

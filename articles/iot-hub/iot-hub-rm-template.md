@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 01/28/2019
-ms.openlocfilehash: 1c97e1736636707d68a87b029a2d1cd469b5cc3d
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.date: 03/18/2019
+ms.openlocfilehash: c1922df55b97f3ade3eebd2937df182eba289051
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396776"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560476"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure 资源管理器模板创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -29,8 +29,8 @@ ms.locfileid: "54396776"
 
 > [!NOTE]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 要完成本教程，需要以下各项：
 
@@ -188,10 +188,10 @@ ms.locfileid: "54396776"
 2. 单击“**生成**”，并单击“**生成解决方案**”。 更正所有错误。
 3. 单击“**调试**”，并单击“**开始调试**”以运行应用程序。 运行部署可能需要几分钟时间。
 
-4. 若要验证应用程序是否添加了新的 IoT 中心，请访问 [Azure 门户][lnk-azure-portal]并查看资源列表。 或者，使用 Get-azurermresource PowerShell cmdlet。
+4. 若要验证应用程序是否添加了新的 IoT 中心，请访问 [Azure 门户][lnk-azure-portal]并查看资源列表。 另外，也可以使用 **Get-AzResource** PowerShell cmdlet。
 
 > [!NOTE]
-> 本示例应用程序会添加用于对你计费的 S1 标准 IoT 中心。 可以通过 [Azure 门户][lnk-azure-portal] 删除该 IoT 中心，或者在完成后使用 **Remove-AzureRmResource** PowerShell cmdlet。
+> 本示例应用程序会添加用于对你计费的 S1 标准 IoT 中心。 在完成任务后，可以通过 [Azure 门户][lnk-azure-portal] 或者使用 **Remove-AzResource** PowerShell cmdlet 删除该 IoT 中心。
 > 
 > 
 
@@ -218,7 +218,7 @@ ms.locfileid: "54396776"
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-[lnk-storage-account]: ../storage/storage-create-storage-account.md
+[lnk-storage-account]: ../storage/common/storage-quickstart-create-account.md
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 

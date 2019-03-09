@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/22/2018
-ms.date: 01/07/2019
+origin.date: 02/01/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 07ef8067a91da2444c569e9257a31063b5b47868
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 66387756addb60b312535d5badb9b5f197fe9ab6
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083657"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463607"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -32,7 +32,9 @@ ms.locfileid: "54083657"
 
 Azure 虚拟机规模集自动 OS 映像升级是使操作系统保持在 Azure 中进行修补的最佳做法，而修补业务流程应用程序 (POA) 是 Service Fabrics RepairManager Systems 服务的包装器，它可为非 Azure 托管群集启用基于配置的 OS 修补计划。 非 Azure 托管群集不需要 POA，但需要按升级域计划修补程序安装，以便在不停机的情况下修补 Service Fabric 群集主机。
 
-<!--Not Available on [Azure virtual machine scale set automatic OS image upgrades](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)--> POA 是一个 Azure Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。
+<!--Not Available on [Azure virtual machine scale set automatic OS image upgrades](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)-->
+
+POA 是一个 Azure Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。
 
 修补业务流程应用提供以下功能：
 
@@ -132,17 +134,17 @@ Azure 虚拟机规模集自动 OS 映像升级是使操作系统保持在 Azure 
     ],
     ```
 
-3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)。 群集使用已更新的群集清单运行后，就可以看到修复管理器系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分下被称为 `fabric:/System/RepairManagerService`。
+3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server)。 现在，群集使用已更新的群集清单运行后，就可以看到“修复管理器”系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分称为 `fabric:/System/RepairManagerService`。
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>在所有节点上禁用自动 Windows 更新
+### <a name="configure-windows-updates-for-all-nodes"></a>为所有节点配置 Windows 更新
 
-自动 Windows 更新可能导致失去可用性，因为多个群集节点可能同时重启。 修补业务流程应用默认会尝试在每个群集节点上禁用自动 Windows 更新。 但是，如果设置由管理员或组策略管理，建议将 Windows 更新策略显式设置为“下载之前发出通知”。
+自动 Windows 更新可能会导致可用性丢失，因为多个群集节点可能同时重启。 修补业务流程应用默认会尝试在每个群集节点上禁用自动 Windows 更新。 但是，如果设置由管理员或组策略管理，建议将 Windows 更新策略显式设置为“下载之前发出通知”。
 
 ## <a name="download-the-app-package"></a>下载应用包
 
 可以从[存档链接](https://go.microsoft.com/fwlink/?linkid=869566)下载应用程序和安装脚本。
 
-可以从 [sfpkg 链接](https://aka.ms/POA/POA_v1.2.2.sfpkg)下载 sfpkg 格式的应用程序。 这对[基于 Azure 资源管理器的应用程序部署](service-fabric-application-arm-resource.md)非常有用。
+可以从 [sfpkg 链接](https://aka.ms/POA/POA.sfpkg)下载 sfpkg 格式的应用程序。 这对[基于 Azure 资源管理器的应用程序部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>配置应用
 
@@ -154,11 +156,11 @@ Azure 虚拟机规模集自动 OS 映像升级是使操作系统保持在 Azure 
 |TaskApprovalPolicy   |枚举 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 所指示的策略将由协调器服务用于跨 Service Fabric 群集节点安装 Windows 更新。<br>                         允许值包括： <br>                                                           <b></b>NodeWise。 每次在一个节点上安装 Windows 更新。 <br>                                                           <b></b>UpgradeDomainWise。 每次在一个升级域上安装 Windows 更新。 （在最大程度情况下，属于升级域的所有节点都可进行 Windows 更新。）<br> 请参阅[常见问题解答](#frequently-asked-questions)部分，了解如何确定最适合你的群集的策略。
 |LogsDiskQuotaInMB   |Long  <br> （默认值：1024）               |可在节点本地持久保存的修补业务流程应用日志的最大大小，以 MB 为单位。
 | WUQuery               | 字符串<br>（默认值："IsInstalled=0")                | 用于获取 Windows 更新的查询。 有关详细信息，请参阅 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
-| InstallWindowsOSOnlyUpdates | 布尔 <br> （默认值：True）                 | 此标志允许安装 Windows 操作系统更新。            |
+| InstallWindowsOSOnlyUpdates | 布尔 <br> （默认值：false）                 | 使用此标志来控制应当下载并安装哪些更新。 允许以下值 <br>true - 仅安装 Windows 操作系统更新。<br>false - 在计算机上安装所有可用的更新。          |
 | WUOperationTimeOutInMinutes | int <br>（默认值：90）                   | 指示任何 Windows 更新操作（搜索、下载或安装）的超时。 在指定的超时内未完成的操作将被中止。       |
 | WURescheduleCount     | int <br> （默认值：5）                  | 在操作持续失败的情况下，服务重新计划 Windows 更新的最大次数。          |
 | WURescheduleTimeInMinutes | int <br>（默认值：30） | 在持续失败的情况下，服务重新计划 Windows 更新的间隔。 |
-| WUFrequency           | 逗号分隔的字符串（默认值："Weekly, Wednesday, 7:00:00"）     | 安装 Windows 更新的频率。 其格式和可能的值包括： <br>-   Monthly, DD, HH:MM:SS，例如：Monthly, 5,12:22:32。 <br> -   Weekly, DAY, HH:MM:SS，例如：Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如：Daily, 12:22:32。  <br> - None 表示不应执行 Windows 更新。  <br><br> 请注意，时间采用 UTC。|
+| WUFrequency           | 逗号分隔的字符串（默认值："Weekly, Wednesday, 7:00:00"）     | 安装 Windows 更新的频率。 其格式和可能的值包括： <br>-   Monthly, DD, HH:MM:SS，例如：Monthly, 5,12:22:32。<br>字段 DD（天）允许的值为范围 1-28 中的数字和“last”。 <br> -   Weekly, DAY, HH:MM:SS，例如：Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如：Daily, 12:22:32。  <br> - None 表示不应执行 Windows 更新。  <br><br> 请注意，时间采用 UTC。|
 | AcceptWindowsUpdateEula | 布尔 <br>（默认值：True） | 设置此标志即表示该应用程序将代表计算机所有者接受 Windows 更新的最终用户许可协议。              |
 
 > [!TIP]
@@ -260,6 +262,7 @@ RebootRequired | true - 需要重新启动<br> true - 不需要重新启动 | �
 在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 记录事件
 
 <!-- URL is correct for https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1 -->
+
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
@@ -293,7 +296,7 @@ A. 在安装过程中，修补业务流程应用会禁用或重启节点，这�
 
 在 Windows 更新安装结束时，节点会在重启后重新启用。
 
-在下面的示例中，由于两个节点关闭且违反了 MaxPercentageUnhealthNodes 策略，群集暂时进入了错误状态。 这是暂时性错误，在修补操作继续后即可恢复。
+在以下示例中，由于两个节点关闭且违反了 MaxPercentageUnhealthyNodes 策略，群集暂时进入了错误状态。 这是暂时性错误，在修补操作继续后即可恢复。
 
 ![不正常群集的图像](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 

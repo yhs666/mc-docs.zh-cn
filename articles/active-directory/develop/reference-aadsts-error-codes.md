@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 01/23/2019
-ms.date: 02/14/2019
+origin.date: 02/13/2019
+ms.date: 03/05/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: e8606fb48b1a4ede32433f2d7c14333f6452f905
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1049d26612e4cdfb2982ab543a4e9967f76b32bb
+ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262187"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57462382"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -191,7 +192,7 @@ ms.locfileid: "56262187"
 | AADSTS90016 | MissingRequiredClaim - 访问令牌无效。 缺少必需的声明。 |
 | AADSTS90019 | MissingTenantRealm - Azure AD 无法确定请求中的租户标识符。 |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - 主体名称格式无效，或者不符合预期的 `name[/host][@realm]` 格式。 主体名称是必需的，而主机和领域是可选的，可设置为 null。 |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | InvalidRequest - 身份验证服务请求无效。 |
 | AADSTS90024 | RequestBudgetExceededError - 发生了暂时性错误。 重试。 |
 | AADSTS90033 | MsodsServiceUnavailable - Microsoft Online Directory Service (MSODS) 不可用。 |
 | AADSTS90036 | MsodsServiceUnretryableFailure - MSODS 托管的 WCF 服务发生意外的不可重试错误。 请[开具支持票证](https://support.azure.cn/en-us/support/support-azure/)，获取有关该错误的更多详细信息。 |
@@ -255,6 +256,7 @@ ms.locfileid: "56262187"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 资源未配置为接受仅限设备的令牌。 |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 未授权用户在 Azure AD 中注册设备。 |
 | AADSTS240002 | RequiredClaimIsMissing - 无法将 id_token 用作 `urn:ietf:params:oauth:grant-type:jwt-bearer` 授予。|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - 租户管理员已配置了阻止此请求的安全策略。 检查在租户级别定义的安全策略来确定你的请求是否满足策略要求。 |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 应用程序中找不到目录/租户。 如果应用程序尚未由租户管理员安装，或者尚未获得租户中的任何用户同意，则可能会发生这种情况。 可能错误配置了应用程序的标识符值，或者将身份验证请求发送到了错误的租户。 |
 | AADSTS700020 | InteractionRequired - 访问权限授予需要交互。 |
 | AADSTS700022 | InvalidMultipleResourcesScope - 为输入参数范围提供的值无效，因为它包含多个资源。 |

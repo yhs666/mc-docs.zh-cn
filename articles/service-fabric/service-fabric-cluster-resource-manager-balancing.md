@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 13aba485a444d859a0622546e955d8d252d7c7a4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7d2bf717f01344a5c60e448d901664d99ab6f6b5
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654120"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204105"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -86,7 +86,7 @@ ClusterManifest.xml：
 
 例如，节点出现故障时，它们可以一次性地对整个容错域执行这样的操作。 会在 *PLBRefreshGap* 后的下一个状态更新过程中捕获所有这些故障。 在以下放置、约束检查和均衡运行的过程中，确定要修正的内容。 默认情况下，群集 Resource Manager 不扫描群集中数小时内进行的更改或尝试一次处理所有更改。 这样会导致大量改动。
 
-群集 Resource Manager 还需要一些其他信息来确定群集是否不均衡。 为此，我们设置了其他两项配置：*BalancingThresholds* 和 *ActivityThresholds*。
+群集 Resource Manager 还需要一些其他信息来确定群集是否不均衡。 为此，我们还提供了另外两个配置：*BalancingThresholds* 和 *ActivityThresholds*。
 
 ## <a name="balancing-thresholds"></a>均衡阈值
 均衡阈值是触发重新均衡的主要控件。 指标的均衡阈值是一个比率。 如果负载最重的节点上某个指标的负载除以负载最轻的节点的负载量超过指标的 *BalancingThreshold*，群集是不均衡的。 因此群集 Resource Manager 进行下一次检查时将触发均衡。 *MinLoadBalancingInterval* 计时器定义群集资源管理器应检查是否需要重新均衡的频率。 检查并不代表发生任何事件。 

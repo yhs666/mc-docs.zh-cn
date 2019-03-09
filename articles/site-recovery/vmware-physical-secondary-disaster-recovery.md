@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 origin.date: 12/31/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: c7abf95d554392098d481f00a99694730f7b6ac1
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 650479c6c9dba5115f4d110da996fe340ccbd470
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363507"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463577"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -30,8 +30,8 @@ Azure Site Recovery 方案（在本地 VMware 或物理数据中心之间进行�
 
 在 2018 年和 2019 年期间，将发布两个更新： 
 
--   更新 7：修复了网络配置与合规性问题，并提供 TLS 1.2 支持。
--   更新 8：添加了对 Linux 操作系统 CentOS 7.3/7.4/7.5 和 SUSE 12 的支持
+- 更新 7：修复了网络配置与合规性问题，并提供 TLS 1.2 支持。
+- 更新 8：添加了对 Linux 操作系统 CentOS 7.3/7.4/7.5 和 SUSE 12 的支持
 
     <!--Not Available on RHEL-->
     
@@ -43,8 +43,8 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 作为替代方法，我们建议将本地 VMware VM 和物理计算机复制到 Azure 来为其设置灾难恢复。 请按如下所示执行此操作：
 
 1.  查看以下快速比较。 在复制本地计算机之前，需要检查它们是否满足复制到 Azure 的[要求](./vmware-physical-azure-support-matrix.md#replicated-machines)。 如果要复制 VMware VM，建议查看[容量规划指南](./site-recovery-plan-capacity-vmware.md)，并运行[部署规划器工具](./site-recovery-deployment-planner.md)来识别容量要求，然后验证符合性。
-2.  运行部署规划器后，可以设置复制：对于 VMware VM，请按照以下教程[准备 Azure](./tutorial-prepare-azure.md)[准备本地 VMware 环境](./vmware-azure-tutorial-prepare-on-premises.md)，然后[设置灾难恢复](./vmware-azure-tutorial-prepare-on-premises.md)。
-对于物理计算机，请遵循此[教程](./physical-azure-disaster-recovery.md)。
+2.  运行部署规划器后，可以设置复制：对于 VMware VM，请按照以下教程[准备 Azure](./tutorial-prepare-azure.md)、[准备本地 VMware 环境](./vmware-azure-tutorial-prepare-on-premises.md)，并[设置灾难恢复](./vmware-azure-tutorial-prepare-on-premises.md)。
+    对于物理计算机，请遵循此[教程](./physical-azure-disaster-recovery.md)。
 3.  在计算机复制到 Azure 后，可以运行[灾难恢复演练](./site-recovery-test-failover-to-azure.md)以确保一切正常运行。
 
 ### <a name="quick-comparison"></a>快速比较
@@ -67,7 +67,7 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 
 ## <a name="download-and-install-component-updates"></a>下载并安装组件更新
 
- 查看并安装最新的[更新](#updates)。 应按以下顺序在服务器上安装更新：
+查看并安装最新的[更新](#updates)。 应按以下顺序在服务器上安装更新：
 
 1. RX 服务器（如果适用）
 2. 配置服务器
@@ -90,6 +90,10 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
   - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
   - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
   - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
   - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
   - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
@@ -130,12 +134,12 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 1. 设置源与目标 VMware 站点之间的复制。
 2. 请参阅以下文档，了解有关安装、保护和恢复的详细信息：
 
-   * [发行说明](https://aka.ms/asr-scout-release-notes)
-   * [兼容性对照表](https://aka.ms/asr-scout-cm)
-   * [用户指南](https://aka.ms/asr-scout-user-guide)
-   * [RX 用户指南](https://aka.ms/asr-scout-rx-user-guide)
-   * [快速安装指南](https://aka.ms/asr-scout-quick-install-guide)
-   * [升级 MYSQL 和 PHP 二进制文件](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+    * [发行说明](https://aka.ms/asr-scout-release-notes)
+    * [兼容性对照表](https://aka.ms/asr-scout-cm)
+    * [用户指南](https://aka.ms/asr-scout-user-guide)
+    * [RX 用户指南](https://aka.ms/asr-scout-rx-user-guide)
+    * [快速安装指南](https://aka.ms/asr-scout-quick-install-guide)
+    * [升级 MYSQL 和 PHP 二进制文件](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
 
 ## <a name="updates"></a>更新
 
@@ -186,7 +190,7 @@ Scout Update 6 是累积更新。 其中包含从 Update 1 到 Update 5 的所�
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
   - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - RHEL5、SUSE 10、SUSE 11 的 UA update4 软件：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 软件：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   
   <!--Not Available on , OL5, OL6,-->
   
@@ -219,7 +223,7 @@ Scout Update 5 是累积更新。 其中包含从 Update 1 到 Update 4 的所�
 
 #### <a name="new-platform-support"></a>新的平台支持
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
-* SLES 11 SP4 64 位 InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz 与基础 Scout GA 包 (**InMage_Scout_Standard_8.0.1 GA.zip**) 打包在一起。 从门户中下载 GA 包，如[创建保管库](#create-a-vault)中所述。
+* SLES 11 SP4 64 位 InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz 与基础 Scout GA 包 (**InMage_Scout_Standard_8.0.1 GA.zip**) 打包在一起。 从门户中下载 GA 包，如“创建保管库”中所述。
 
 #### <a name="bug-fixes-and-enhancements"></a>Bug 修复和增强功能
 
@@ -245,15 +249,14 @@ Scout Update 4 是累积更新。 其中包含从 Update 1 到 Update 3 的所�
 
 * 添加了对 vCenter/vSphere 6.0、6.1 和 6.2 的支持
 * 已添加对以下 Linux 操作系统的支持：
-  
-  * CentOS 7.0、7.1 和 7.2
-  * CentOS 6.8
+    * CentOS 7.0、7.1 和 7.2
+    * CentOS 6.8
   
   <!--Not Available on * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 and 7.2-->
   <!--Not Available on * Red Hat Enterprise Linux (RHEL) 6.8-->
-  
+
 > [!NOTE]
-> CentOS 7 64 位 **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** 与基础 Scout GA 包 **InMage_Scout_Standard_8.0.1 GA.zip** 一起打包。 从门户中下载 Scout GA 包，如[创建保管库](#create-a-vault)中所述。
+> CentOS 7 64 位 **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** 与基础 Scout GA 包 **InMage_Scout_Standard_8.0.1 GA.zip** 一起打包。 从门户中下载 Scout GA 包，如“创建保管库”中所述。
 
 <!--Not Available on RHEL/CentOS-->
 
@@ -273,9 +276,9 @@ Scout Update 4 是累积更新。 其中包含从 Update 1 到 Update 3 的所�
 * 修复了 cxps 传输服务器由于超出范围的异常而崩溃的问题。
 * 在 vContinuum 向导的“推送安装”页面中，现在可对服务器名称列和 IP 地址列的大小进行调整。
 * RX API 的增强功能：
-  * 现在提供了 5 个最新可用的通用一致性点（仅适用于“保证”标记）。
-  * 显示有关所有受保护设备的容量及可用空间的详细信息。
-  * 提供源服务器上的 Scout 驱动程序状态。
+    * 现在提供了 5 个最新可用的通用一致性点（仅适用于“保证”标记）。
+    * 显示有关所有受保护设备的容量及可用空间的详细信息。
+    * 提供源服务器上的 Scout 驱动程序状态。
 
 > [!NOTE]
 > * InMage_Scout_Standard_8.0.1_GA.zip 基础包中含有：
@@ -336,15 +339,15 @@ Update 1 包含以下 bug 修复和新功能：
     * CentOS 6 Update 6
     * CentOS 5 Update 11
 * 用于解决以下问题的 Bug 修复：
-  * 配置服务器或 RX 服务器的保管库注册失败。
-  * 当群集 VM 在恢复期间被重新保护时，群集卷不会按预期显示。
-  * 当主目标服务器托管在与本地生产 VM 不同的 ESXi 服务器中时，故障回复失败。
-  * 升级到 8.0.1 时，配置文件权限发生更改。 此更改会影响保护和操作。
-  * 重新同步阈值不按预期强制执行，导致复制行为不一致。
-  * RPO 设置未正常显示在配置服务器控制台中。 未压缩的数据值错误地显示压缩值。
-  * 在 vContinuum 向导中使用“删除”操作不会按预期执行删除，因而无法从配置服务器控制台删除复制内容。
-  * 在 vContinuum 向导中保护 MSCS VM 期间，单击磁盘视图中的“详细信息”会自动取消选择磁盘。
-  * 在物理到虚拟 (P2V) 方案中，所需的 HP 服务（例如 CIMnotify、CqMgHost）不会在 VM 恢复中变为“手动”。 此问题会导致启动时间延长。
-  * 当主目标服务器上的磁盘数超过 26 个时，Linux VM 保护会失败。
+    * 配置服务器或 RX 服务器的保管库注册失败。
+    * 当群集 VM 在恢复期间被重新保护时，群集卷不会按预期显示。
+    * 当主目标服务器托管在与本地生产 VM 不同的 ESXi 服务器中时，故障回复失败。
+    * 升级到 8.0.1 时，配置文件权限发生更改。 此更改会影响保护和操作。
+    * 重新同步阈值不按预期强制执行，导致复制行为不一致。
+    * RPO 设置未正常显示在配置服务器控制台中。 未压缩的数据值错误地显示压缩值。
+    * 在 vContinuum 向导中使用“删除”操作不会按预期执行删除，因而无法从配置服务器控制台删除复制内容。
+    * 在 vContinuum 向导中保护 MSCS VM 期间，单击磁盘视图中的“详细信息”会自动取消选择磁盘。
+    * 在物理到虚拟 (P2V) 方案中，所需的 HP 服务（例如 CIMnotify、CqMgHost）不会在 VM 恢复中变为“手动”。 此问题会导致启动时间延长。
+    * 当主目标服务器上的磁盘数超过 26 个时，Linux VM 保护会失败。
 
 <!-- Update_Description: update meta properties, wording update -->

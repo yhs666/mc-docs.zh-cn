@@ -1,5 +1,5 @@
 ---
-title: Service Fabric 群集 Resource Manager：移动成本 | Azure
+title: Service Fabric 群集资源管理器：移动成本 | Azure
 description: Service Fabric 服务的移动成本概述
 services: service-fabric
 documentationcenter: .net
@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ed5bde142c7687291967ab1a3c3aa3ceda6e7b8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 26871f57849c2a8843234c0108e5076868ddbd24
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660942"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204060"
 ---
 # <a name="service-movement-cost"></a>服务移动成本
 尝试确定要对群集进行哪些更改时，Service Fabric 群集资源管理器考虑的一个因素是这些更改的成本。 “成本”这一概念根据能够改进的群集量而权衡。 移动服务以满足均衡、碎片整理和其他要求时，成本是一项考虑因素。 目标是以最稳妥或最便宜的方式满足这些要求。 
@@ -77,7 +77,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>移动成本的影响
-MoveCost 有四个级别：“零”、“低”、“中”和“高”。 MoveCost 是相互的，但零除外。 “零”移动成本表示移动不会产生成本，不应计入解决方案的分数。 将移动成本设置为“高”并不能确保副本始终呆在一个位置。
+MoveCost 有四个级别：零、低、中和高。 MoveCost 是相互的，但零除外。 “零”移动成本表示移动不会产生成本，不应计入解决方案的分数。 将移动成本设置为“高”并不能确保副本始终呆在一个位置。
 
 <center>
 ![选择要移动的副本时考虑到移动成本因素][Image1]

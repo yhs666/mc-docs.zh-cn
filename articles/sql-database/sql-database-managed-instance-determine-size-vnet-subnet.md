@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 12/12/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 4e47bb91515a4f910d159aa81c31f10c8abf8d01
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 03/11/2019
+ms.openlocfilehash: 8b5ec6e1282d991481108b08927d2fb141198179
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363763"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347214"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>根据 Azure SQL 数据库托管实例确定 VNet子网大小
 
@@ -28,7 +28,7 @@ Azure SQL 数据库托管实例必须部署在 Azure [虚拟网络 (VNet)](../vi
 
 创建托管实例时，Azure 会根据预配期间选择的层，分配一定数量的虚拟机。 由于这些虚拟机与子网关联，因此它们需要 IP 地址。 为了确保日常操作和服务维护期间保持高可用性，Azure 可能会分配更多的虚拟机。 因此，子网中所需的 IP 地址数大于该子网中的托管实例数。
 
-根据设计，托管实例至少需要子网中的 16 个 IP 地址，有时使用多达 256 个 IP 地址。 因此，在定义子网 IP 范围时，可以使用子网掩码 /28 到 /24。
+根据设计，托管实例至少需要子网中的 16 个 IP 地址，有时使用多达 256 个 IP 地址。 因此，在定义子网 IP 范围时，可以使用介于 /28 和 /24 之间的子网掩码。 对于单一的常规用途或业务关键部署，网络掩码位 /28（每个网络 14 台主机）是一个不错的大小。 对于位于同一 VNet 内的多个托管实例部署，掩码位 /27（每个网络 30 台主机）是理想的。 掩码位设置 /26（62 台主机）和 /24（254 台主机）允许进一步横向扩展 VNet 来支持更多的托管实例。
 
 > [!IMPORTANT]
 > 具有 16 个 IP 地址的子网大小是绝对最小值，进一步实现托管实例横向扩展的潜力有限。强烈建议选择前缀为 /27 或更低值的子网。

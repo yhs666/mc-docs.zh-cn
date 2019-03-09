@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/24/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad86c0c0a889e57123449aef4d1d65135fb574f9
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: 4db9a537a597b2b6643851794f64d18a05812fa5
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985624"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204182"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用证书公用名称而非指纹的 Service Fabric 群集
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  使用证书公用名称会使群集的证书管理更加简单。 本文介绍了如何部署 Service Fabric 群集来使用证书公用名称而非证书指纹。
@@ -80,8 +80,15 @@ Write-Host "Common Name              :"  $CommName
 > 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
 <!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
+
 > [!NOTE]
-> 成功下载模板文件 `azuredeploy.json` 后，将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"` 以匹配 Azure 中国云环境。
+> 在成功下载相应的模板文件后，我们应当替换以下配置来满足 Azure 中国环境：
+> * 替换 [azuredeploy.json](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure/AzureDeploy.json) 中的 storageAccountEndPoint。
+>     * 将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"`。
+> * 替换 [azuredeploy.parameters.json](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure/AzureDeploy.Parameters.json) 中的 clusterLocation。
+>     * 将 `WestUS` 替换为 `chinanorth`。
+> * 替换 [New-ServiceFabricClusterCertificate.ps1](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure/New-ServiceFabricClusterCertificate.ps1) 中的 Location。
+>     * 将 `WestUS` 替换为 `chinanorth`。
 
 ### <a name="update-parameters-file"></a>更新参数文件
 首先，在文本编辑器中打开 *azuredeploy.parameters.json* 文件并添加以下参数值：
@@ -185,13 +192,18 @@ Write-Host "Common Name              :"  $CommName
             "commonNames": [
             {
                 "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
+                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
             }
             ],
             "x509StoreName": "[parameters('certificateStoreValue')]"
         },
         ...
     ```
+    
+    > [!NOTE]
+    > 可以使用“certificateIssuerThumbprint”字段通过给定的使用者公用名指定证书的预期颁发者。 此字段接受以逗号分隔的 SHA1 指纹枚举。 请注意，这是对证书验证的加强 - 在未指定颁发者或颁发者为空的情况下，如果可以构建证书的链并最终得到验证程序信任的根证书，则会接受该证书以用于身份验证。 当指定了颁发者时，如果直接颁发者的指纹与此字段中指定的任意值匹配，则无论根证书是否受信任，都会接受该证书。 请注意，PKI 可以使用不同的证书颁发机构来为同一使用者颁发证书，因此，为给定的使用者指定所有预期的颁发者指纹非常重要。
+    >
+    > 指定颁发者被认为是最佳做法，但对于可以链接成受信任的根证书的证书，省略颁发者也是可行的，此行为存在限制，在不久的将来可能会被淘汰。 另请注意，如果在 Azure 中部署的群集受由某个专用 PKI 颁发且通过使用者声明的 X509 证书保护，并且该 PKI 的证书策略不可发现、不可用且无法访问，则 Azure Service Fabric 服务可能无法对群集进行验证（对于群集到服务通信）。 
 
 ## <a name="deploy-the-updated-template"></a>部署已更新的模板
 在进行更改后，重新部署已更新的模板。
@@ -201,6 +213,7 @@ Write-Host "Common Name              :"  $CommName
 $groupname = "testclustergroup"
 $clusterloc="chinaeast"  
 $id="<subscription ID>"
+$deploymentname="yourdeploymentname"
 
 # Sign in to your Azure account and select your subscription
 Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $id 
@@ -208,7 +221,7 @@ Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $id
 # Create a new resource group and deploy the cluster.
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
+New-AzureRmResourceGroupDeployment -Name $deploymentname -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -3,26 +3,26 @@ title: 什么是文本分析？
 titleSuffix: Azure Cognitive Services
 description: Azure 认知服务中用于情绪分析、关键短语提取、语言检测和实体链接的文本分析。
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-origin.date: 10/01/2018
-ms.date: 02/21/2019
+origin.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 133a98e1dcdab01559a1229c8514d59a697e3d4c
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 5ebe37875b0cceb8e603ad49add337f910a054f2
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582767"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204133"
 ---
 # <a name="what-is-text-analytics"></a>什么是文本分析？
 
 文本分析 API 是一种基于云的服务，它对原始文本提供高级自然语言处理，并且包含四项主要功能：情绪分析、关键短语提取、语言检测和实体链接。
 
-该 API 以 [Azure 认知服务](/cognitive-services/)中的资源（云中机器学习和 AI 算法的集合）为后盾，随时可以在开发项目中使用。
+该 API 是 [Azure 认知服务](/cognitive-services/)的一部分，是云中机器学习和 AI 算法的集合，适用于开发项目。
 
 ## <a name="capabilities-in-text-analytics"></a>文本分析的功能
 
@@ -33,7 +33,7 @@ ms.locfileid: "56582767"
 |[**情绪分析**](how-tos/text-analytics-how-to-sentiment-analysis.md) | 通过在原始文本中分析有关积极和消极情绪的线索，确定客户如何看待你的品牌或主题。 此 API 针对每个文档返回介于 0 和 1 之间的情绪评分，1 是最积极的评分。<br /> 分析模型已使用 Azure 提供的大量文本正文和自然语言技术进行预先训练。 对于[选定的语言](text-analytics-supported-languages.md)，该 API 可以分析和评分提供的任何原始文本，并直接将结果返回给调用方应用程序。 | [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**关键短语提取**](how-tos/text-analytics-how-to-keyword-extraction.md) | 自动提取关键短语，以快速识别要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。  | [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**语言检测**](how-tos/text-analytics-how-to-language-detection.md) | 针对多达 120 种语言，该 API 将检测输入文本是使用哪种语言编写的，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 | [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**实体识别（预览版）**](how-tos/text-analytics-how-to-entity-linking.md) | 识别文本中的实体并将其分类为人员、地点、组织、日期/时间、数量、百分比、货币等。 已知实体也可以在 Web 上识别并链接到更多信息。 | [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+|[**实体识别**](how-tos/text-analytics-how-to-entity-linking.md) | 识别文本中的实体并将其分类为人员、地点、组织、日期/时间、数量、百分比、货币等。 已知实体也可以在 Web 上识别并链接到更多信息。 | [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
 
 ## <a name="use-containers"></a>使用容器
 
@@ -95,3 +95,4 @@ ms.locfileid: "56582767"
 
  [认知服务文档页](/cognitive-services/)
 
+<!-- Update_Description: wording update -->

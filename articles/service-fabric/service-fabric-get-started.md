@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/25/2018
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7c3511daab2ff4dbf7739378f913260a5cfb534f
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9c8aae7f2936b191c81a1126fd97a8c79c75f856
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083613"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204089"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -64,19 +64,19 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>使用 Visual Studio 2015（需要安装 Visual Studio 2015 Update 2 或更高版本）
 对于 Visual Studio 2015，Service Fabric 工具是使用 Web 平台安装程序与 SDK 和运行时 一起安装的：
 
-* [安装 Azure Service Fabric SDK and Tools][full-bundle-vs2015]
+* [安装 Azure Service Fabric SDK 和工具][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>仅安装 SDK
 如果只需要 SDK，则安装此包：
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.3.622
-* Service Fabric 运行时 6.4.622
+* Service Fabric SDK and Tools 3.3.637
+* Service Fabric 运行时 6.4.637
 * 适用于 Visual Studio 2015 的 Service Fabric 工具 2.4.11116.1
 * Visual Studio 2017 15.9 包括适用于 Visual Studio 的 Service Fabric 工具 2.4.11024.1 
 
-有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
+有关支持版本的列表，请参阅 [Service Fabric 版本](service-fabric-versions.md)
 
 > [!NOTE]
 > 应用程序或群集升级不支持单机群集 (OneBox)；如果需要执行群集升级，或在执行应用程序升级时遇到任何问题，请删除 OneBox 群集并重新创建它。 
@@ -93,14 +93,19 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>后续步骤
 完成设置开发环境之后，便可开始生成和运行应用。
 
-* [在 Visual Studio 中创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
-* [了解如何在本地群集上部署和管理应用程序](service-fabric-get-started-with-a-local-cluster.md)
+* [了解如何创建、部署和管理应用程序](service-fabric-tutorial-create-dotnet-app.md)
 * [了解编程模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
 * [在 GitHub 上检查 Service Fabric 代码示例](https://aka.ms/servicefabricsamples)
 * [使用 Service Fabric 资源管理器可视化群集](service-fabric-visualizing-your-cluster.md)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
 
-<!-- Not Available on [1]: https://www.azure.cn/home/features/service-fabric--> [2]:https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC" [full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 链接" [full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接" [core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接" [powershell5-download]: https://www.microsoft.com/download/details.aspx?id=50395
+<!-- Not Available on [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"-->
+
+[2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
+[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 链接"
+[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接"
+[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接"
+[powershell5-download]: https://www.microsoft.com/download/details.aspx?id=50395
 
 <!--Update_Description: update meta properties, wording update -->

@@ -2,19 +2,19 @@
 title: 监视 Azure IoT 中心的运行状况 | Microsoft Docs
 description: 使用 Azure Monitor 和 Azure 资源运行状况监视 IoT 中心并快速诊断问题
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 11/08/2018
-ms.date: 12/03/2018
+origin.date: 02/20/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 926057154f117a15db73c8e3c7fa5d3a0241df0c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0bcc15d860977d2b43a82c377019097869d51263
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674969"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560478"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>监视 Azure IoT 中心的运行状况并快速诊断问题
 
@@ -25,7 +25,7 @@ Azure Monitor 是监视所有 Azure 服务并记录其日志的单一源。 可�
 > [!IMPORTANT]
 > IoT 中心服务使用 Azure Monitor 诊断日志发出的事件不保证可靠或有序。 某些事件可能会丢失或未按顺序传送。 诊断日志也不是实时的，可能需要几分钟的时间才能将事件记录到所选的目标。
 
-Azure 资源运行状况可以帮助你在 Azure 问题影响资源时进行诊断和获取支持。 个性化的仪表板提供 IoT 中心的当前和过去运行状态。 请继续阅读本文，了解如何对 IoT 中心[使用 Azure 资源运行状况](#use-azure-resource-health)。 
+Azure 资源运行状况可以帮助你在 Azure 问题影响资源时进行诊断和获取支持。 仪表板提供每个 IoT 中心的当前和过去的运行状态。 继续阅读到本文底部的部分，了解如何对 IoT 中心[使用 Azure 资源运行状况](#use-azure-resource-health)。 
 
 IoT 中心还提供了其自己的指标，可使用这些指标了解 IoT 资源的状态。 有关详细信息，请参阅[了解 IoT 中心指标][lnk-metrics]。
 
@@ -302,7 +302,7 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
@@ -387,7 +387,7 @@ Azure IoT 中心指示区域级别的运行状况。 如果区域性服务中断
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 导航到“服务运行状况” > “资源运行状况”。
-1. 从下拉列表中选择自己的订阅和“IoT 中心”。
+1. 从下拉列表框中，选择你的订阅，然后选择“IoT 中心”作为资源类型。
 
 若要详细了解如何解释运行状况数据，请参阅 [Azure 资源运行状况概述][lnk-ARH]
 

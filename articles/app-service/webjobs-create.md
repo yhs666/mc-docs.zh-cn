@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/16/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 2f32ce5eafdc5254f17cfbfc49ed09fd1ce7d48a
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 63cfb5e0f8cb5877b0e41f1b01337d455ac87ee0
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906106"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347060"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure 应用服务中使用 WebJobs 运行后台任务
 
@@ -43,8 +43,7 @@ WebJobs 是 [Azure 应用服务](https://docs.azure.cn/zh-cn/app-service/)的一
 | 在运行 Web 应用的所有实例上运行。 可以选择性地将 Web 作业限制为单个实例。 |在 Azure 选择用于负载均衡的单个实例上运行。|
 | 支持远程调试。 | 不支持远程调试。|
 
-> [!NOTE]
-> Web 应用可在进入非活动状态 20 分钟后超时。 只有向实际 Web 应用发出的请求才会重置计时器。 在 Azure 门户中查看应用的配置或向高级工具站点 (https://<app_name>.scm.chinacloudsites.cn) 发出请求不会重置计时器。 如果应用运行连续或计划的 Web 作业，可启用 **Always On** 来确保 Web 作业可靠运行。 此功能仅在基本、标准和高级[定价层](https://www.azure.cn/pricing/details/app-service/)中提供。
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>支持的脚本或程序文件类型
 
@@ -177,10 +176,9 @@ when making changes in one don't forget the other two.
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> 从 Visual Studio 部署 Web 作业时，请将 `settings.job` 文件属性标记为“如果较新则复制”。
+若要了解详细信息，请参阅[计划触发的 Web 作业](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)。
 
 ## <a name="ViewJobHistory"></a>查看作业历史记录
 

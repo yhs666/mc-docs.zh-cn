@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: include
 origin.date: 06/10/2018
-ms.date: 09/17/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 77edbdc932f6964242f75814e0117e70d2948a48
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6b00d3aac2c6c0aeda584d0684e4825b5abd412e
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650345"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463698"
 ---
 配置/进程服务器要求
 
@@ -34,16 +34,27 @@ RAM | 16 GB
 Windows Server 角色 | 请勿启用以下角色： <br> - Active Directory 域服务 <br>- Internet Information Services <br> - Hyper-V 
 组策略 | 请勿启用以下组策略： <br> - 阻止访问命令提示符。 <br> - 阻止访问注册表编辑工具。 <br> - 信任文件附件的逻辑。 <br> - 打开脚本执行。 <br> [了解详细信息](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 无预先存在的默认网站 <br> - 端口 443 上没有预先存在的网站/应用程序侦听 <br>- 启用[匿名身份验证](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 启用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 设置 
-| 
+ | 
 网络设置 | 
 IP 地址类型 | 静态 
-Internet 访问权限 | 服务器需要访问这些 URL（直接或通过代理） <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn  <br> - https://management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 还需要访问以下 URL <br> - https://login.partner.microsoftonline.cn <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.chinacloudapi.cn <br> - https://login.chinacloudapi.cn <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 端口 | 443（控制通道协调）<br>9443（数据传输） 
 NIC 类型 | VMXNET3（如果配置服务器是 VMware VM）
- | 
+ |
+**Internet 访问**  服务器需要访问以下 URL（直接或通过代理）：|
+\*.backup.windowsazure.cn | 用于复制的数据传输和协调
+\*.store.core.chinacloudapi.cn | 用于复制的数据传输和协调
+\*.blob.core.chinacloudapi.cn | 用于访问存储所复制数据的存储帐户
+\*.hypervrecoverymanager.windowsazure.cn | 用于复制管理操作和协调
+https:\//management.chinacloudapi.cn | 用于复制管理操作和协调 
+*.services.visualstudio.com | 用于遥测数据（可选）
+time.nist.gov | 用于检查系统时间与全球时间之间的时间同步。
+time.windows.com | 用于检查系统时间与全球时间之间的时间同步。
+- https:\//login.chinacloudapi.cn <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.chinacloudapi.cn <br> - https:\//login.chinacloudapi.cn <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | OVF 设置需要访问以下这些 URL： 它们由 Azure Active Directory 用于访问控制和标识管理
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | 完成 MySQL 下载
+|
 要安装的软件 | 
 VMware vSphere PowerCLI | 如果配置服务器在 VMware VM 上运行，则应安装 [PowerCLI 版本 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。
-MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行安装。
+MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行安装。 （有关详细信息，请参阅[配置设置](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings)）
 
 配置/进程服务器大小要求
 

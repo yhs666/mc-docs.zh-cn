@@ -2,18 +2,19 @@
 title: Azure IoT 中心迁移到诊断设置
 description: 如何更新 Azure IoT 中心以使用 Azure 诊断设置而非使用操作监视功能来实时监视 IoT 中心内的操作状态。
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 11/19/2018
-ms.date: 12/03/2018
+origin.date: 02/19/2019
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 507f4372aea23c59b10a9607b9d8c83bd6e52006
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 79b5ea8f2b838dac269339f91b7983795e4bd1a9
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674757"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560472"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>将 IoT 中心从操作监视迁移到诊断设置
 
@@ -29,7 +30,7 @@ IoT 中心的操作监视功能已弃用，将来会被删除。 本文提供了
 
 ### <a name="turn-off-operations-monitoring"></a>关闭操作监视
 
-在工作流上测试新的诊断设置后，可以关闭操作监视功能。 
+在工作流中测试新的诊断设置后，可以关闭操作监视功能。 
 
 1. 在 IoT 中心菜单中，选择“操作监视”。
 
@@ -41,7 +42,7 @@ IoT 中心的操作监视功能已弃用，将来会被删除。 本文提供了
 
 操作监视和诊断设置的架构略有不同。 请更新当前使用操作监视的应用程序以映射到诊断设置使用的架构，这非常重要。 
 
-此外，诊断设置还针对五个新类别提供跟踪。 更新应用程序的现有架构后，还要添加新类别：
+此外，诊断设置还提供了五个新的跟踪类别。 更新应用程序的现有架构后，还要添加新类别：
 
 * 云到设备孪生操作
 * 设备到云孪生操作

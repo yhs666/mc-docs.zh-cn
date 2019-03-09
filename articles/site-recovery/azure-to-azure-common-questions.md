@@ -5,25 +5,41 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 origin.date: 12/12/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 3ef4c755b3623fcacf84d78b88b2a4495e478ca0
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 7ff37278272d00908daeeb9554ca0e2553050359
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363599"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463667"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常见问题：Azure 到 Azure 的复制
 
 本文提供使用 Azure Site Recovery 将 Azure VM 的灾难恢复 (DR) 部署到另一个 Azure 区域时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布问题。
 
+## <a name="in-this-article"></a>本文内容 
+1.  **[Azure 到 Azure 的一般问题](#general)** 
+1.  **[复制](#replication)** 
+1.  **[复制策略](#replication-policy)** 
+1.  **[多 VM 一致性](#multi-vm-consistency)** 
+1.  **[恢复计划](#recovery-plan)** 
+1.  **[重新保护和故障回复](#reprotection-and-failback)** 
+1.  **[安全性](#security)** 
+
+<a name="general"></a>
 ## <a name="general"></a>常规
+
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 如何计费？
 请查看 [Azure Site Recovery 定价详细信息](https://www.azure.cn/zh-cn/pricing/details/site-recovery)。
 
 <!--Price is correct on https://www.azure.cn/zh-cn/pricing/details/site-recovery-->
+
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery 的免费层是如何工作的？
+每个使用 Azure Site Recovery 保护的实例在其保护期的前 31 天内均享受免费。 从第 32 天起，将按以上收费率对实例的保护进行计费。
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在前 31 天的期限内，会产生其他 Azure 费用吗？
+是，尽管受保护实例的 Azure Site Recovery 在前 31 天内为免费，但你可能会产生 Azure 存储器、存储事务和数据传输的费用。 恢复后的虚拟机也可能会产生 Azure 计算费用。 可以在[此处](https://www.azure.cn/pricing/details/site-recovery/)获取有关定价的完整详细信息
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>有关在 Azure VM 上配置 Site Recovery 的最佳做法是什么？
 1. [了解 Azure 到 Azure 体系结构](azure-to-azure-architecture.md)
@@ -32,6 +48,7 @@ ms.locfileid: "54363599"
 4. [运行测试故障转移](azure-to-azure-tutorial-dr-drill.md)
 5. [故障转移和故障回复到主要区域](azure-to-azure-tutorial-failover-failback.md)
 
+<a name="replication"></a>
 ## <a name="replication"></a>复制
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>是否可以复制通过 Azure 磁盘加密启用的 VM？
@@ -46,7 +63,7 @@ ms.locfileid: "54363599"
 
 ### <a name="can-i-exclude-disks"></a>是否可以排除磁盘？
 
-是的，可以在保护时使用 PowerShell 排除磁盘。 有关详细信息，请参阅 [PowerShell 指南](/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)。
+是的，可以在保护时使用 PowerShell 排除磁盘。 有关详细信息，请参阅[此文章](azure-to-azure-exclude-disks.md)
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>可以多久复制到 Azure 一次？
 将 Azure VM 复制到另一个 Azure 区域时，复制是持续性的。 有关详细信息，请参阅 [Azure 到 Azure 复制体系结构](/site-recovery/azure-to-azure-architecture#replication-process)。
@@ -61,6 +78,11 @@ ms.locfileid: "54363599"
 
 否，Site Recovery 不需要建立 Internet 连接。 但它需要访问 Site Recovery URL 和 IP 范围，如[此文](/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)中所述。
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>是否可以为不同的层复制具有不同资源组的应用程序？ 
+是的，你可以复制应用程序并且也在另一个资源组中保留灾难恢复配置。
+例如，如果你有一个应用程序，并且每层的应用、数据库和 Web 位于不同的资源组中，则必须三次单击[复制向导](/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)来保护所有层。 ASR 会将这三个层复制到三个不同的资源组中。
+
+<a name="replication-policy"></a>
 ## <a name="replication-policy"></a>复制策略
 
 ### <a name="what-is-a-replication-policy"></a>什么是复制策略？
@@ -76,10 +98,19 @@ ms.locfileid: "54363599"
 
 目前，大多数应用程序都可以从崩溃一致性快照正常恢复。 对于无数据库的操作系统以及文件服务器、DHCP 服务器、打印服务器等应用程序而言，崩溃一致性恢复点通常已足够。
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>崩溃一致性恢复点生成的频率是多少？
+Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>什么是应用程序一致性恢复点？ 
-应用程序一致性恢复点是从应用程序一致性快照创建的。 应用程序一致性快照捕获的数据与崩溃一致性快照相同，此外还会加上内存中的数据，以及所有正在进行的事务。 
+应用程序一致性恢复点是从应用程序一致性快照创建的。 应用程序一致性恢复点捕获的数据与崩溃一致性快照相同，此外还会加上内存中的数据，以及所有正在进行的事务。 
 
 由于包含额外的内容，应用程序一致性快照涉及的操作最多，且执行时间最长。 我们建议对数据库操作系统以及 SQL Server 等应用程序使用应用程序一致性恢复点。
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>应用程序一致性恢复点对应用程序性能有何影响？
+由于应用程序一致性恢复点会捕获内存中的以及正在处理的所有数据，因此它会要求框架（例如 Windows 上的 VSS）静止应用程序。 当工作负荷已经非常繁忙时，如果非常频繁地这样做，可能会影响性能。 对于非数据库工作负荷，通常建议不要对应用程序一致性恢复点使用低频率，即使对于数据库工作负荷，采用 1 小时的频率也足够了。 
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>应用程序一致性恢复点生成的最低频率是多少？
+Site Recovery 可以创建一个应用程序一致性的恢复点，最小频率为 1 小时。
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>如何生成和保存恢复点？
 若要了解 Site Recovery 如何生成恢复点，让我们查看一个复制策略的示例，其中，恢复点保留期为 24 小时，应用一致性快照的频率为 1 小时。
@@ -96,8 +127,8 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。 用户无法更�
 ### <a name="how-far-back-can-i-recover"></a>可以恢复到哪个最早的时间点？
 可以使用的最早恢复点是 72 小时。
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>如果我的复制策略是创建 24 小时的恢复点，但某个问题导致 Site Recovery 有 24 小时以上无法生成恢复点，将会发生什么情况？ 以前的恢复点是否将被删除？
-不会，在这种情况下，Site Recovery 将保留以前的所有恢复点。 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>如果我的复制策略是创建 24 小时的恢复点，但某个问题导致 Site Recovery 有 24 小时以上无法生成恢复点，将会发生什么情况？ 以前的恢复点是否将丢失？
+不会，Site Recovery 将保留以前的所有恢复点。 根据恢复点保留时段（在本示例中为 24 小时），Site Recovery 仅在有新生成的恢复点时才替换最旧的恢复点。 在本示例中，由于某个问题而不会生成新的恢复点，到达保留时段后，所有旧恢复点将保持不变。
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>在 VM 上启用复制后，如何更改复制策略？ 
 转到“Site Recovery 保管库” > “Site Recovery 基础结构” > “复制策略”。 选择要编辑的策略并保存所做的更改。 任何更改也会应用到现有的所有复制。 
@@ -110,6 +141,7 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。 用户无法更�
 
 <!--Not Available on  For example, if a single recovery point has delta changes of 10 GB and the per-GB cost is $0.16 per month, the additional charges would be $1.6 * 48 per month.-->
 
+<a name="multi-vm-consistency"></a>
 ## <a name="multi-vm-consistency"></a>多 VM 一致性 
 
 ### <a name="what-is-multi-vm-consistency"></a>什么是多 VM 一致性？
@@ -127,6 +159,7 @@ Site Recovery 提供“多 VM 一致性”选项，选择该选项会创建一�
 ### <a name="when-should-i-enable-multi-vm-consistency-"></a>何时应启用多 VM 一致性？
 由于多 VM 一致性的 CPU 消耗量较大，启用此功能可能会影响工作负荷性能。 仅当计算机运行相同的工作负荷并且你需要在多个计算机之间保持一致时，才使用此功能。 例如，如果应用程序中有两个 SQL Server 实例和两个 Web 服务器，则你只应为 SQL Server 实例启用多 VM 一致性。
 
+<a name="failover"></a>
 ## <a name="failover"></a>故障转移
 
 ### <a name="is-failover-automatic"></a>故障转移是自动发生的吗？
@@ -156,6 +189,10 @@ Site Recovery 提供“多 VM 一致性”选项，选择该选项会创建一�
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>如果我在两个 Azure 区域之间进行复制，当我的主要区域发生意外的服务中断时，会出现什么情况？
 可以在服务中断后触发故障转移。 Site Recovery 不需要从主要区域建立连接即可执行故障转移。
 
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>什么是虚拟机故障转移的 RTO？
+Site Recovery 的 [RTO SLA 为 2小时](https://www.azure.cn/support/sla/site-recovery/)。 但是，大多数情况下，Site Recovery 会在几分钟内对虚拟机进行故障转移。 可以转到故障转移作业来计算 RTO，该作业显示启动 VM 所需的时间。 有关恢复计划 RTO，请参阅以下部分。 
+
+<a name="recovery-plan"></a>
 ## <a name="recovery-plan"></a>恢复计划
 
 ### <a name="what-is-a-recovery-plan"></a>什么是恢复计划？
@@ -180,6 +217,7 @@ Site Recovery 中的恢复计划可以协调 VM 的故障转移恢复。 它有�
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>是否可将自动化 Runbook 添加到恢复计划？
 是的，可将 Azure 自动化 Runbook 集成到恢复计划中。 [了解详细信息](site-recovery-runbook-automation.md)。
 
+<a name="reprotection-and-failback"></a>
 ## <a name="reprotection-and-failback"></a>重新保护和故障回复 
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>从主要区域故障转移到灾难恢复区域后，灾难恢复区域中的 VM 是否自动受到保护？
@@ -191,7 +229,7 @@ Site Recovery 中的恢复计划可以协调 VM 的故障转移恢复。 它有�
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>故障回复需要多长时间？
 完成重新保护后，故障回复所需的时间通常类似于从主要区域故障转移到次要区域所需的时间。 
 
-## <a name="security"></a>安全性
+## <a name="a-namesecuritysecurity"></a><a name="security">安全性
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>复制数据是否会发送到 Site Recovery 服务？
 否。Site Recovery 不会拦截复制的数据，也不包含虚拟机上运行的组件的任何相关信息。 只有协调复制与故障转移所需的元数据会发送到站点恢复服务。  
 Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正在接受 SOC2 和 FedRAMP JAB 评估。
@@ -203,6 +241,6 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正�
 * [查看](azure-to-azure-support-matrix.md)支持要求。
 * [设置](azure-to-azure-tutorial-enable-replication.md) Azure 到 Azure 的复制。
 
-<!-- Update_Description: new articles on azure to azure common questions -->
-<!--ms.date: 01/21/2019-->
+<!-- Update_Description: wording update -->
+
 

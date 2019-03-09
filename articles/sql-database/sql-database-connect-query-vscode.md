@@ -14,12 +14,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 01/11/2019
 ms.date: 01/21/2019
-ms.openlocfilehash: a9a49a2dc14a556c3a6f58c3eaf5f9cbf1a3fa7b
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.openlocfilehash: e9bda96379e8b45b572141cbfb1cf7ad016b7009
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363768"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347127"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 Visual Studio Code 连接和查询 Azure SQL 数据库
 
@@ -27,17 +27,25 @@ ms.locfileid: "54363768"
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本教程，需要：
+- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || 单一数据库 |
+  |:--- |:--- |
+  | 创建| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
+  |加载数据|根据快速入门加载的 Adventure Works|
+  |||
 
-#### <a name="install-visual-studio-code"></a>安装 Visual Studio Code
+## <a name="install-visual-studio-code"></a>安装 Visual Studio Code
 
 请确保已安装最新版 [Visual Studio Code](https://code.visualstudio.com/Download) 并加载了 [mssql 扩展](https://aka.ms/mssql-marketplace)。 有关 mssql 扩展的安装指南，请参阅[安装 VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) 和 [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)（适用于 Visual Studio Code 的 mssql）。
 
 ## <a name="configure-visual-studio-code"></a>配置 Visual Studio Code 
 
 ### <a name="mac-os"></a>**Mac OS**
+
 对于 macOS，需安装 OpenSSL，这是 mssql 扩展所使用的 .Net Core 的先决条件。 打开终端并输入以下命令，以便安装 **brew** 和 **OpenSSL**。 
 
 ```bash
@@ -57,9 +65,15 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 无需特殊配置。
 
-## <a name="sql-server-connection-information"></a>SQL Server 连接信息
+## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
+
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+
+2. 导航到“SQL 数据库”页面。
+
+3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
 
 ## <a name="set-language-mode-to-sql"></a>将语言模式设置为 SQL
 
@@ -89,7 +103,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 4. 按照提示指定新配置文件的连接属性。 指定每个值后，选择 **Enter** 以继续。 
 
-   | 属性  | 建议的值 | 说明|
+   | 属性       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |
    | **数据库名称** | mySampleDatabase | 要连接到的数据库。 |

@@ -9,36 +9,41 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: digimobile
-origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 8f5ef46f07b2cc93e23df4a533a694efac62373d
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 12/18/2018
+ms.date: 03/11/2019
+ms.openlocfilehash: f32136d6f7076c49dfb4983f69fb65714e10ac7b
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806270"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347123"
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
+
 若要使用拆分/合并服务，必须正确配置安全性。 该服务是 Azure SQL 数据库弹性缩放功能的一部分。 有关详细信息，请参阅[弹性缩放拆分和合并服务教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
 
 ## <a name="configuring-certificates"></a>配置证书
+
 通过两种方式配置证书。 
 
 1. [配置 SSL 证书](#to-configure-the-ssl-certificate)
 2. [配置客户端证书](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>获取证书
+
 可从公共证书颁发机构 (CA) 或 [Windows 证书服务](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)获取证书。 这些方法是获取证书的首选方法。
 
 如果这些选项不可用，可以生成 **自签名证书**。
 
 ## <a name="tools-to-generate-certificates"></a>用于生成证书的工具
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>运行工具
+
 * 有关适用于 Visual Studio 的开发人员命令提示符，请参阅 [Visual Studio 命令提示符](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     如果已安装工具，请转到：
@@ -47,9 +52,11 @@ ms.locfileid: "53806270"
 * 从 [Windows 8.1：下载工具包和工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)获取 WDK
 
 ## <a name="to-configure-the-ssl-certificate"></a>配置 SSL 证书
+
 若要对通信进行加密并对服务器进行身份验证，需要使用 SSL 证书。 从下面的三个方案中选择最适合的方案，并执行其所有步骤：
 
 ### <a name="create-a-new-self-signed-certificate"></a>创建新的自签名证书
+
 1. [创建自签名证书](#create-a-self-signed-certificate)
 2. [为自签名 SSL 证书创建 PFX 文件](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [将 SSL 证书上传到云服务](#upload-ssl-certificate-to-cloud-service)
@@ -115,24 +122,29 @@ ms.locfileid: "53806270"
 默认配置允许对 HTTPS 终结点的所有访问。 可能会进一步限制此设置。
 
 ### <a name="changing-the-configuration"></a>更改配置
-在**服务配置文件**的 **<EndpointAcls>** 节中配置应用的访问控制组规则和终结点。
+所应用的访问控制规则的组和终结点是在**服务配置文件**的 **\<EndpointAcls>** 部分中配置的。
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-在服务配置文件的 <AccessControl name=""> 节中配置访问控制组中的规则。 
+访问控制组中的规则是在服务配置文件的 \<AccessControl name=""> 部分中配置的。 
 
 在网络访问控制列表文档中对格式进行了说明。
 例如，要仅允许范围 100.100.0.0 到 100.100.255.255 中的 IP 访问 HTTPS 终结点，规则如下所示：
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>防止拒绝服务
 可使用两种受支持的不同机制检测和防止拒绝服务攻击：
@@ -148,22 +160,29 @@ ms.locfileid: "53806270"
 ## <a name="restricting-number-of-concurrent-accesses"></a>限制并发访问数
 配置此行为的设置如下：
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 将 DynamicIpRestrictionDenyByConcurrentRequests 更改为 true 以启用此保护。
 
 ## <a name="restricting-rate-of-access"></a>限制访问率
 配置此行为的设置如下：
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>配置对拒绝请求的响应
 以下设置将配置对拒绝请求的响应：
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 有关其他受支持的值，请参考 IIS 中动态 IP 安全文档。
 
 ## <a name="operations-for-configuring-service-certificates"></a>用于配置服务证书的操作
@@ -226,12 +245,16 @@ ms.locfileid: "53806270"
 
 在服务配置文件中，将这些设置更改为 false 以关闭该功能：
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 然后，复制与 CA 证书设置中 SSL 证书相同的指纹：
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>创建自签名证书颁发机构
 执行以下步骤来创建自签名证书，以充当证书颁发机构：
@@ -274,11 +297,15 @@ ms.locfileid: "53806270"
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>在服务配置文件中更新 CA 证书
 在服务配置文件中，使用已上传到云服务的证书指纹更新以下设置的指纹值：
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 使用同一指纹更新以下设置的值：
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>颁发客户端证书
 授予了访问服务权限的每个用户都应具有一个颁发的客户端证书供其独占使用，并且应选择自己的强密码来保护其私钥。 
@@ -332,17 +359,23 @@ ms.locfileid: "53806270"
 * 在打开的“证书”对话框中，选择“详细信息”选项卡
 * 确保“显示”可显示全部内容
 * 选择列表中名为“Thumbprint”的字段
-* 复制指纹的值 ** 删除第一个数字前不可见的 Unicode 字符 ** 删除所有空格
+* 复制指纹的值
+  * 删除第一个数字前的不可见 Unicode 字符
+  * 删除所有空格
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>在服务配置文件中配置允许的客户端
 在服务配置文件中，使用以逗号分隔的客户端证书（允许访问服务）的指纹列表更新以下设置的值：
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>配置客户端证书吊销检查
 默认设置不会通过证书颁发机构检查客户端证书吊销状态。 若要启用检查，请在颁发了客户端证书的证书颁发机构支持此类检查时，使用在 X509RevocationMode 枚举中定义的值之一更改以下设置：
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>为自签名加密证书创建 PFX 文件
 对于加密证书，请执行：
@@ -375,7 +408,9 @@ ms.locfileid: "53806270"
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>在服务配置文件中更新加密证书
 在服务配置文件中，使用已上传到云服务的证书指纹更新以下设置的指纹值：
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>公用证书操作
 * 配置 SSL 证书
@@ -446,7 +481,9 @@ ms.locfileid: "53806270"
 ## <a name="other-security-considerations"></a>其他安全注意事项
 使用 HTTPS 终结点时，本文档中介绍的 SSL 设置对服务及其客户端之间的通信进行加密。 这一点很重要，因为该通信中包含了数据库访问凭据以及其他可能的敏感信息。 但是，请注意，该服务会将内部状态（包括凭据）保存在其内部表中，该表位于在 Azure 订阅中为元数据存储提供的 Azure SQL 数据库中。 在服务配置文件（.CSCFG 文件）中，该数据库已定义为以下设置的一部分： 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 对此数据库中存储的凭据进行加密。 但是，最佳实践是，确保服务部署的 Web 角色和辅助角色保持最新且是安全的，因为它们都有权访问元数据数据库和用于加密和解密存储凭据的证书。 
 

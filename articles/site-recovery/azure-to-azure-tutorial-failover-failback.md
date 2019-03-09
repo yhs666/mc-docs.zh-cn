@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 12/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 65fb7a93a9c55b2d1ec7b8345b71e77927418118
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 0cf4a8155105babf40dc7150edfd9d9d7dc378a3
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363387"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463579"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 区域之间故障转移和故障回复 Azure VM
 
@@ -50,7 +50,7 @@ ms.locfileid: "54363387"
    * **最新处理**：此选项将虚拟机还原到已由 Site Recovery 服务处理的最新恢复点。
    * **自定义**：使用此选项故障转移到特定恢复点。 此选项可用于执行测试故障转移。
 
-3. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源虚拟机，请选择“在开始故障转移之前关闭计算机”。 即使关机失败，故障转移也仍会继续。
+3. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源虚拟机，请选择“在开始故障转移之前关闭计算机”。 即使关机失败，故障转移也仍会继续。 请注意，Site Recovery 不在故障转移之后清理源。
 
 4. 在“作业”页上跟踪故障转移进度。
 
@@ -72,9 +72,17 @@ ms.locfileid: "54363387"
 3. 查看“资源组、网络、存储和可用性集”信息。 任何标记为“新”的资源将在重新保护操作中创建。
 4. 单击“确定”触发重新保护作业。 此作业使用最新数据植入目标站点。 然后，它将增量复制到主要区域。 该 VM 现在处于受保护状态。
 
+    > [!NOTE]
+    > 请参阅[“操作方法”部分](/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)，了解有关重新保护工作流和重新保护期间发生的情况的更多详细信息。
+
 ## <a name="fail-back-to-the-primary-region"></a>故障回复到主要区域
 
 VM 重新受保护后，可以根据需要故障回复到主要区域。 为此，请设置从次要区域到主要区域的故障转移，如本文所述。
 
-<!-- Update_Description: update meta properties -->
+![右键单击以重新保护](./media/azure-to-azure-tutorial-failover-failback/failback.png)
 
+如果你看到前面的屏幕截图，则“ContosoWin2016”VM 已从中国北部故障转移到中国东部，然后从中国东部故障回复到中国北部。
+
+故障转移过程会关闭次要区域（即灾难恢复区域）中的 VM，在主要区域中创建并启动 VM。 请**注意**，DR VM 将保持关闭解除分配状态，如上所示。 此行为是设计使然，因为 Azure Site Recovery 会保存虚拟机的信息，这可能有助于以后从主要区域故障转移到次要区域。 你不需要为已解除分配的虚拟机付费，因此它应保持原样。
+
+<!-- Update_Description: update meta properties, wording update -->

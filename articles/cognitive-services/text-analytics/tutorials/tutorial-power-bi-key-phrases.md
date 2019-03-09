@@ -1,22 +1,22 @@
 ---
-title: 教程：使用 Power BI 进行文本分析
+title: 教程：将 Power BI 与文本分析认知服务集成
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用文本分析从存储在 Power BI 中的文本提取关键短语。
 services: cognitive-services
-author: WenJason
-manager: digimobile
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
-origin.date: 09/12/2018
-ms.date: 01/28/2019
-ms.author: v-jay
-ms.openlocfilehash: 69a9c119e11366250eb5b22cd1c46b52c3df4c5e
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+origin.date: 02/13/2019
+ms.date: 03/01/2019
+ms.author: v-junlch
+ms.openlocfilehash: c799f46bce370c9e8509131e07b8da6339d98cad
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858066"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204094"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教程：将 Power BI 与文本分析认知服务集成
 
@@ -46,7 +46,7 @@ Microsoft Power BI Desktop 是免费的应用程序，可让你连接、转换�
 打开 Power BI Desktop 并加载你在[先决条件](#Prerequisites)中下载的逗号分隔值 (CSV) 文件 `FabrikamComments.csv` 即可开始。 此文件代表某个虚构小公司的支持论坛中一天的虚构活动。
 
 > [!NOTE]
-> Power BI 可以使用各种源（例如 Facebook 或 SQL 数据库）提供的数据。 有关详细信息，请参阅 [Facebook 与 Power BI 集成](https://powerbi.microsoft.com/integrations/facebook/)和 [SQL Server 与 Power BI 集成](https://powerbi.microsoft.com/integrations/sql-server/)。
+> Power BI 可以使用各种源（例如 SQL 数据库）提供的数据。 请在 [SQL Server 与 Power BI 的集成](https://powerbi.microsoft.com/integrations/sql-server/)中了解详细信息。
 
 在 Power BI Desktop 主窗口中，选择“开始”功能区。 在功能区的“外部数据”组中，打开“获取数据”下拉菜单，然后选择“文本/CSV”。
 
@@ -295,7 +295,9 @@ in  keyphrases
 > [文本分析 API 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Power Query M reference](//msdn.microsoft.com/library/mt211003.aspx)（Power Query M 参考）
+> [Power Query M reference](https://msdn.microsoft.com/library/mt211003.aspx)（Power Query M 参考）
 
 > [!div class="nextstepaction"]
-> [Power BI 文档](//powerbi.microsoft.com/documentation/powerbi-landing-page/)
+> [Power BI 文档](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
+
+<!-- Update_Description: link update -->

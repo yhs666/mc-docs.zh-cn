@@ -8,13 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 01/28/2019
-ms.openlocfilehash: fd3ab7b117aa7f288ed793819c2e9f72f148a838
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.date: 03/18/2019
+ms.openlocfilehash: 079345208d8066e4becbc1b7bc3e4c39e6137948
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396790"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560503"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>适用于 C 的 Azure IoT 设备 SDK
 
@@ -103,7 +103,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 
 如果选择“复制所选设备的连接字符串”，会将设备连接字符串复制到剪贴板。 请保留设备连接字符串的副本。 在运行后续部分中所述的示例应用程序时，将要用到它。
 
-完成上述步骤后，可以开始运行一些代码。 大多数示例的主源文件顶部都有一个常量，可让你输入连接字符串。 例如，**iothub\_client\_sample\_mqtt** 应用程序中的相应行如下所示。
+完成上述步骤后，可以开始运行一些代码。 大多数示例的主源文件顶部都有一个常量，可让你输入连接字符串。 例如，**iothub_client\_samples\_iothub_convenience_sample** 应用程序中的相应行如下所示。
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -113,7 +113,7 @@ static const char* connectionString = "[device connection string]";
 
 [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) 存储库的 **iothub\_client** 文件夹中有一个 **samples** 文件夹，其中包含名为 **iothub\_client\_sample\_mqtt** 的应用程序。
 
-Windows 版本的 **iothub\_client\_sample\_mqtt** 应用程序包含以下 Visual Studio 解决方案：
+Windows 版本的 **iothub_client\_samples\_iothub_convenience_sample** 应用程序包含以下 Visual Studio 解决方案：
 
   ![Visual Studio 解决方案资源管理器](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -129,7 +129,7 @@ Windows 版本的 **iothub\_client\_sample\_mqtt** 应用程序包含以下 Visu
 
 在使用 SDK 时始终需要 **Microsoft.Azure.C.SharedUtility** 包。 本示例使用 MQTT 协议，因此，必须包括 Microsoft.Azure.umqtt 和 Microsoft.Azure.IoTHub.MqttTransport 包（AMQP 和 HTTPS 有对应的包）。 由于此示例使用 **IoTHubClient** 库，因此还必须在解决方案中包含 **Microsoft.Azure.IoTHub.IoTHubClient** 包。
 
-可以在 **iothub\_client\_sample\_mqtt.c** 源文件中找到示例应用程序的实现。
+可以在 **iothub_client\_samples\_iothub_convenience_sample** 源文件中找到示例应用程序的实现。
 
 以下步骤使用此示例应用程序来演示使用 **IoTHubClient** 库时所需的项目。
 
@@ -343,9 +343,9 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 其中的大多数包已在前面的示例中出现过，但 **Microsoft.Azure.IoTHub.Serializer** 是新的。 使用**序列化程序**库时需要此包。
 
-可在 **simplesample\_mqtt.c** 文件中找到示例应用程序的实现。
+可以在 ***iothub_client\_samples\_iothub_convenience_sample** 文件中找到示例应用程序的实现。
 
-以下部分将演练本示例的重要组成部分。
+以下部分演练本示例的重要组成部分。
 
 ### <a name="initialize-the-library"></a>初始化库
 
@@ -384,7 +384,7 @@ else
 
 ### <a name="define-the-model"></a>定义模型
 
-**序列化程序**库中的模型定义了设备可发送到 IoT 中心的消息以及可接收的消息（在建模语言中称为*操作*）。 如 **simplesample\_mqtt** 示例应用程序中所示，可以使用一组 C 宏来定义模型：
+**序列化程序**库中的模型定义了设备可发送到 IoT 中心的消息以及可接收的消息（在建模语言中称为*操作*）。 如 **iothub_client\_samples\_iothub_convenience_sample** 示例应用程序中所示，你使用一组 C 宏定义了一个模块：
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

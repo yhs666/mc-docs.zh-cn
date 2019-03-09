@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: debce21564154cd90c78af77961a809553f27dd0
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560669"
+---
 > [!div class="op_single_selector"]
 > * [Windows 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
 > * [Linux 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
@@ -41,9 +49,9 @@
 
 对于连接到解决方案加速器的设备，该设备必须使用有效的凭据将自身标识到 IoT 中心。 将设备添加到解决方案时，有机会保存包含这些凭据的设备连接字符串。 在本教程中，稍后会在客户端应用程序中添加设备连接字符串。
 
-若要在远程监视解决方案中添加设备，请在解决方案中的“设备”页上完成以下步骤：
+若要在远程监视解决方案中添加设备，请在解决方案中的 **Device Explorer** 页上完成以下步骤：
 
-1. 选择“+ 新建设备”，并选择“物理”作为设备类型：
+1. 选择“+ 新建设备”，并选择“真实”作为设备类型：
 
     ![添加真实设备](media/iot-suite-selector-connecting/devicesprovision.png)
 

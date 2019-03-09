@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: douglas, carlrab
 manager: craigg
-origin.date: 10/15/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: ed5289a370afa0bca2192cbee871a6b69d6c8624
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/11/2019
+ms.date: 03/11/2019
+ms.openlocfilehash: a98b871b420bf6f1fdd5dfbb0b9092942389c3a1
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663498"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347190"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>将 SQL Server 实例迁移到 Azure SQL 数据库托管实例
 
@@ -35,7 +35,7 @@ ms.locfileid: "56663498"
 - [监视应用程序](#monitor-applications)
 
 > [!NOTE]
-> 若要将单个数据库迁移到单个数据库或弹性池，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
+> 若要将单个数据库迁移到单个数据库或弹性池，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-single-database-migrate.md)。
 
 ## <a name="assess-managed-instance-compatibility"></a>评估托管实例兼容性
 
@@ -48,7 +48,7 @@ ms.locfileid: "56663498"
 - 需要直接访问操作系统或文件系统（例如，为了在装有 SQL Server 的同一个虚拟机上安装第三方代理或自定义代理）。
 - 严重依赖于目前尚不支持的功能，例如 FileStream/FileTable、PolyBase 和跨实例事务。
 - 绝对需要保持使用特定的 SQL Server 版本（例如 2012）。
-- 计算要求比公共预览版托管实例的要求低得多（例如，只需一个 vCore），并且数据库整合不可接受。
+- 计算要求比托管实例的要求低得多（例如，只需一个 vCore），并且数据库整合不可接受。
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>部署到大小最适合的托管实例
 

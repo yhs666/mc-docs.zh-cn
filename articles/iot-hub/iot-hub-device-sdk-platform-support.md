@@ -1,19 +1,19 @@
 ---
-title: Azure IoT 设备 SDK 平台支持 | Microsoft Docs
+title: Azure IoT 设备 SDK 平台支持
 description: 概念 - Azure IoT 设备 SDK 支持的平台的列表
 author: yzhong94
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9e142ba6c45eea90e18ceaeeae81068a53874479
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: a0f26001b53527408e67917b485d4a3e97f62066
+ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736685"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57560471"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支持
 
@@ -79,6 +79,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
+| Android Things | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>合作伙伴支持的平台
 客户可以通过移植 Azure IoT C SDK 来扩展我们的平台支持，特别是创建 SDK 的平台抽象层 (PAL)。  Microsoft 与合作伙伴合作提供扩展支持。  合作伙伴列表已将 C SDK 移植到更多平台并维护 PAL。

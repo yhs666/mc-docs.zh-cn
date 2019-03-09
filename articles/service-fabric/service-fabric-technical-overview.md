@@ -13,39 +13,40 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/17/2018
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 70d967879cd15d6e9798b6c36a2b3a6196c4281f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 49daeb2280792afff93c14344569188005d73bb6
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674989"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463571"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 术语概述
-Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。 本文详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。
-<!-- Not Available  Microsoft Virtual Academy videos -->
+Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。  可以[在任何位置托管 Service Fabric 群集](service-fabric-deploy-anywhere.md)：Azure、本地数据中心或任何云提供程序。 可以使用任何框架编写服务，并从多个环境选项中选择运行应用程序的位置。 本文详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。
+
+<!--Not Available on [Azure Service Fabric Mesh](/service-fabric-mesh)-->
 
 ## <a name="infrastructure-concepts"></a>基础结构概念
-**群集**：一组通过网络连接在一起的虚拟机或物理计算机，会在其中部署和管理微服务。  群集可以扩展到成千上万台计算机。
+**群集**：一组通过网络连接在一起的虚拟机或物理计算机，微服务会在其中部署和管理。  群集可以扩展到成千上万台计算机。
 
-节点：属于群集一部分的计算机或 VM 称为节点。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如放置属性。 每个计算机或 VM 都有一个自动启动 Windows 服务 `FabricHost.exe`，此服务在引导时开始运行，并启动两个可执行文件：`Fabric.exe` 和 `FabricGateway.exe`。 这两个可执行文件构成了节点。 在测试方案中，可以通过运行 `Fabric.exe` 和 `FabricGateway.exe` 的多个实例，在单台计算机或 VM 上托管多个节点。
+**节点**：属于群集一部分的计算机或 VM 称为节点。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如放置属性。 每个计算机或 VM 都有一个自动启动 Windows 服务 `FabricHost.exe`，此服务在引导时开始运行，并启动两个可执行文件：`Fabric.exe` 和 `FabricGateway.exe`。 这两个可执行文件构成了节点。 在测试方案中，可以通过运行 `Fabric.exe` 和 `FabricGateway.exe` 的多个实例，在单台计算机或 VM 上托管多个节点。
 
 ## <a name="application-and-service-concepts"></a>应用程序和服务概念
 
-**Service Fabric 网格应用程序**：Service Fabric 网格应用程序是由资源模型（YAML 和 JSON 资源文件）描述的，并且可以部署到运行 Service Fabric 的任何环境。
+**Service Fabric 网格应用程序**：Service Fabric 网格应用程序由资源模型（YAML 和 JSON 资源文件）描述，可以部署到运行 Service Fabric 的任何环境中。
 
-**Service Fabric 本机应用程序**：Service Fabric 本机应用程序是由本机应用程序模型（基于 XML 的应用程序和服务清单）描述的。  Service Fabric 本机应用程序无法在 Service Fabric 网格中运行。
+**Service Fabric 本机应用程序**：Service Fabric 本机应用程序由本机应用程序模型（基于 XML 的应用程序和服务清单）描述。  Service Fabric 本机应用程序无法在 Service Fabric 网格中运行。
 
 ### <a name="service-fabric-mesh-application-concepts"></a>Service Fabric 网格应用程序概念
 
 **应用程序**：应用程序是网格应用程序的部署、版本控制和生存期的单位。 每个应用程序实例的生命周期可以单独管理。  应用程序包括一个或多个服务代码包和设置。 应用程序是使用 Azure 资源模型 (RM) 架构定义的。  服务在 RM 模板中描述为应用程序资源的属性。  应用程序使用的网络和卷由应用程序引用。  创建应用程序时，将使用 Service Fabric 资源模型对应用程序、服务、网络和卷进行建模。
 
-**服务**：应用程序中的服务表示一项微服务，并执行完整而独立的功能。 每项服务由一个或多个代码包组成，这些代码包描述运行与代码包关联的容器映像所需的所有内容。  可以纵向扩展和收缩应用程序中的服务数。
+**服务**：应用程序中的服务代表微服务并执行完整且独立的功能。 每项服务由一个或多个代码包组成，这些代码包描述运行与代码包关联的容器映像所需的所有内容。  可以纵向扩展和收缩应用程序中的服务数。
 
-**网络**：网络资源为应用程序创建专用网络，并且独立于可以引用它的应用程序或服务。 来自不同应用程序的多个服务可以是同一网络的一部分。 网络是由应用程序引用的可部署资源。
+**网络**：网络资源为应用程序创建专用网络，并独立于可能引用它的应用程序或服务。 来自不同应用程序的多个服务可以是同一网络的一部分。 网络是由应用程序引用的可部署资源。
 
-**代码包**：代码包描述运行与代码包关联的容器映像所需的所有内容：
+**代码包**：代码包描述运行与代码包关联的容器映像所需的所有内容，包括以下内容：
 
 * 容器名称、版本和注册表
 * 每个容器所需的 CPU 和内存资源
@@ -62,7 +63,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 
 **服务**：服务执行完整且独立的功能，可以独立于其他服务启动和运行。 服务由代码、配置和数据组成。 对于每个服务，代码由可执行二进制文件组成，配置由可在运行时加载的服务设置组成，数据则由可供该服务使用的任意静态数据组成。
 
-应用程序类型：分配给服务类型集合的名称/版本。 在 `ApplicationManifest.xml` 文件中定义并嵌入到应用程序包目录。 然后将目录复制到 Service Fabric 群集的映像存储。 然后，可以基于此应用程序类型，在群集内创建命名的应用程序。
+**应用程序类型**：分配给服务类型集合的名称/版本。 在 `ApplicationManifest.xml` 文件中定义并嵌入到应用程序包目录。 然后将目录复制到 Service Fabric 群集的映像存储。 然后，可以基于此应用程序类型，在群集内创建命名的应用程序。
 
 有关详细信息，请阅读[应用程序模型](service-fabric-application-model.md)一文。
 
@@ -70,7 +71,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 
 命名应用程序：将应用程序包复制到映像存储后，在群集中创建应用程序实例。 当你指定应用程序包的应用程序类型时，通过使用其名称或版本来创建一个实例。 将为每个应用程序类型实例分配一个类似如下的统一资源标识符 (URI) 名称：`"fabric:/MyNamedApp"`。 在群集中，可以从单个应用程序类型创建多个命名应用程序。 也可以从不同的应用程序类型创建命名应用程序。 可单独管理每个命名应用程序并设置其版本。
 
-服务类型：分配给服务的代码包、数据包、配置包的名称/版本。 服务类型在 `ServiceManifest.xml` 文件中定义，并嵌入到服务包目录中。 然后，服务包目录由应用程序包的 `ApplicationManifest.xml` 文件引用。 在群集中创建命名应用程序后，可以从应用程序类型的服务类型之一创建命名服务。 服务类型的 `ServiceManifest.xml` 文件描述该服务。
+**服务类型**：分配给服务的代码包、数据包、配置包的名称/版本。 服务类型在 `ServiceManifest.xml` 文件中定义，并嵌入到服务包目录中。 然后，服务包目录由应用程序包的 `ApplicationManifest.xml` 文件引用。 在群集中创建命名应用程序后，可以从应用程序类型的服务类型之一创建命名服务。 服务类型的 `ServiceManifest.xml` 文件描述该服务。
 
 有关详细信息，请阅读[应用程序模型](service-fabric-application-model.md)一文。
 
@@ -87,7 +88,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 
 命名服务：创建命名应用程序后，可以在群集中创建它的其中一个服务类型的实例。 通过使用其名称/版本指定服务类型。 需为每个服务类型实例分配一个 URI 名称，该名称归并到实例的命名应用程序的 URI 之下。 例如，如果在命名应用程序“MyNamedApp”中创建命名服务“MyDatabase”，则 URI 类似于：`"fabric:/MyNamedApp/MyDatabase"`。 在一个命名应用程序中可以创建多个命名服务。 每个命名服务可以有自身的分区方案和实例或副本计数。
 
-代码包：一个磁盘目录，其中包含服务类型的可执行文件，通常是 EXE/DLL 文件。 服务类型的 `ServiceManifest.xml` 文件引用代码包目录中的文件。 创建命名服务后，会将代码包复制到选定来运行命名服务的一个或多个节点。 然后代码将开始运行。 有两种类型的代码包可执行文件：
+**代码包**：一个磁盘目录，其中包含服务类型的可执行文件，通常是 EXE/DLL 文件。 服务类型的 `ServiceManifest.xml` 文件引用代码包目录中的文件。 创建命名服务后，会将代码包复制到选定来运行命名服务的一个或多个节点。 然后代码将开始运行。 有两种类型的代码包可执行文件：
 
 * **来宾可执行文件**：在主机操作系统（Windows 或 Linux）上按原样运行的可执行文件。 这些可执行文件不会链接到或引用任何 Service Fabric 运行时文件，因此不会使用任何 Service Fabric 编程模型。 这些可执行文件不能使用某些 Service Fabric 功能，例如终结点发现的命名服务。 来宾可执行文件无法报告特定于每个服务实例的负载指标。
 * 服务主机可执行文件：通过链接到 Service Fabric 运行时文件、启用 Service Fabric 功能来使用 Service Fabric 编程模型的可执行文件。 例如，命名服务实例可在 Service Fabric 命名服务中注册终结点，还可以报告负载指标。
@@ -136,7 +137,7 @@ Service Fabric 资源是可以单独部署到 Service Fabric 的任何内容，�
 ### <a name="native-model"></a>本机模块
 本机应用程序模型为应用程序提供对 Service Fabric 的完整低级别访问权限。 应用程序和服务被定义为 XML 清单文件中的已注册类型。
 
-本机模型支持 Reliable Services 框架和 Reliable Actors 框架，该框架提供对 C# 和 Java 中 Service Fabric 运行时 API 和群集管理 API 的访问权限。 本机模型还支持任意容器和可执行文件。 Service Fabric 网格环境中不支持本机模型。
+本机模型支持 Reliable Services 框架和 Reliable Actors 框架，该框架提供对 C# 和 Java 中 Service Fabric 运行时 API 和群集管理 API 的访问权限。 本机模型还支持任意容器和可执行文件。
 
 <!-- Not Available on [Service Fabric Mesh environment](/service-fabric-mesh/service-fabric-mesh-overview)-->
 
@@ -148,7 +149,7 @@ Service Fabric 资源是可以单独部署到 Service Fabric 的任何内容，�
 
 **容器**：Service Fabric 支持在 Linux 上部署 Docker 容器，在 Windows Server 2016 上部署 Windows Server 容器，同时支持 Hyper-V 隔离模式。 在 Service Fabric [应用程序模型](service-fabric-application-model.md)中，容器表示放置多个服务副本的应用程序主机。 Service Fabric 可运行任何容器，该方案类似于来宾可执行的方案，可在容器内打包现有应用程序。 此外，也可[在容器内运行 Service Fabric 服务](service-fabric-services-inside-containers.md)。
 
-**来宾可执行文件**：可在 Azure Service Fabric 中运行任何类型的代码（如 Node.js、Java 或 C++）作为服务。 Service Fabric 将这些类型的服务称为来宾可执行文件，视其为无状态服务。 在 Service Fabric 群集中运行来宾可执行文件的优点包括高可用性、运行状况监视、应用程序生命周期管理、高密度和可发现性。
+**来宾可执行文件**：可以在 Azure Service Fabric 中运行任何类型的代码（如 Node.js、Java 或 C++）作为服务。 Service Fabric 将这些类型的服务称为来宾可执行文件，视其为无状态服务。 在 Service Fabric 群集中运行来宾可执行文件的优点包括高可用性、运行状况监视、应用程序生命周期管理、高密度和可发现性。
 
 有关详细信息，请阅读[为服务选择编程模型](service-fabric-choose-framework.md)一文。
 
@@ -156,6 +157,7 @@ Service Fabric 资源是可以单独部署到 Service Fabric 的任何内容，�
 [Docker Compose](https://docs.docker.com/compose/) 是 Docker 项目的一部分。 Service Fabric 对使用 Docker Compose 模型部署应用程序提供有限支持。
 
 <!-- Pending on [deploying applications using the Docker Compose model](service-fabric-docker-compose.md)-->
+
 ## <a name="environments"></a>环境
 
 Service Fabric 是一种开放源平台技术，多种不同的服务和产品都以它为基础。 Azure 提供了以下选项：
@@ -181,6 +183,7 @@ Service Fabric 是一种开放源平台技术，多种不同的服务和产品�
 |Service Fabric 本机应用程序 | 本机应用程序模型 (XML) | VS 2017 和 VS 2015| 支持|支持|支持|支持|
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## <a name="next-steps"></a>后续步骤
 了解有关 Service Fabric 的详细信息：
 
@@ -189,5 +192,4 @@ Service Fabric 是一种开放源平台技术，多种不同的服务和产品�
 * [应用程序方案](service-fabric-application-scenarios.md)
 
 <!-- Not Available on [Overview of Service Fabric Mesh](/service-fabric-mesh/service-fabric-mesh-overview)-->
-
 <!--Update_Description: update meta properties, wording update -->

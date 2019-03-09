@@ -7,20 +7,20 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 10/15/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: bd44f2fd0f2b85d79d4b05d84deda072304d1cbd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b80f96f133194219ceb368ea8f2129c81a7c1ddb
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643512"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204200"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用指标管理资源消耗和负载
 指标是服务关切的、由群集中的节点提供的资源。 指标是要进行管理以提升或监视服务性能的任何信息。 例如，可能需要监视内存消耗量以了解服务是否过载。 另一个用途是确定服务是否可以移动到内存较少受限的其他位置，以便获得更佳性能。
@@ -66,7 +66,7 @@ ms.locfileid: "52643512"
 任何指标都有一些描述它的属性：名称、权重和默认负载。
 
 * 指标名称：指标的名称。 从资源管理器的角度看，指标名称是群集中指标的唯一标识符。
-* Weight：指标权重定义此指标对于此服务的重要程度（相对于其他指标）。
+* 权重：指标权重定义指标对于此服务的重要程度（相对于其他指标）。
 * 默认负载：默认负载根据服务是无状态还是有状态服务以不同的方式表示。
   * 对于无状态服务，每个指标包含名为 DefaultLoad 的单个属性
   * 对于有状态服务，可以定义：
@@ -275,5 +275,5 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->
 

@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/10/2017
-ms.date: 01/21/2019
+origin.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7085d8ac44dcaa85aeb65f54fa7c46a341aa8e0
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 2b2399da227db49938a0f03d88216cf79157eedd
+ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396676"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57204051"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -64,7 +64,9 @@ ms.locfileid: "54396676"
 
 本文中创建的群集是不安全的。  任何人都可以进行匿名连接并执行管理操作，因此生产型群集应始终使用 X.509 证书或 Windows 安全措施来确保安全性。  安全性只能在群集创建时配置，不能在创建群集以后启用安全性。 更新配置文件以启用[证书安全性](service-fabric-windows-cluster-x509-security.md)或 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)。 请阅读[保护群集](service-fabric-cluster-security.md)，详细了解 Service Fabric 群集安全性。
 
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>步骤 1A：创建不受保护的本地开发群集
+### <a name="step-1-create-the-cluster"></a>步骤 1：创建群集
+
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>方案 A：创建不受保护的本地开发群集
 可以使用*示例*中包含的 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 文件将 Service Fabric 部署到单机开发群集。
 
 将独立包解压缩到计算机，将示例配置文件复制到本地计算机，然后通过管理员 PowerShell 会话从独立包文件夹中运行 *CreateServiceFabricCluster.ps1* 脚本。
@@ -77,7 +79,7 @@ ms.locfileid: "54396676"
 
 如果已完成运行开发方案，则可以引用“[删除群集](#removecluster_anchor)”部分的步骤，从计算机中删除 Service Fabric 群集。 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>步骤 1B：创建多机群集
+#### <a name="scenario-b-create-a-multi-machine-cluster"></a>方案 B：创建多机群集
 在完成[计划和准备群集部署](service-fabric-cluster-standalone-deployment-preparation.md)中详述的计划和准备步骤后，就可以使用群集配置文件创建生产群集。
 
 部署和配置群集的群集管理员必须拥有计算机的管理员权限。 不能在域控制器上安装 Service Fabric。
@@ -117,7 +119,7 @@ ms.locfileid: "54396676"
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>步骤 1C：创建脱机（Internet 断开）群集
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>方案 C：创建脱机（Internet 断开）群集
 创建群集时自动下载 Service Fabric 运行时包。 将群集部署到未连接 Internet 的计算机时，需要单独下载 Service Fabric 运行时包，并在创建群集时提供指向它的路径。
 运行时包可从另一台连接到 Internet 的计算机单独下载：[下载链接 - Service Fabric 运行时 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)。 将运行时包复制到从中部署脱机群集的位置，并通过运行包含 `-FabricRuntimePackagePath` 参数的 `CreateServiceFabricCluster.ps1` 创建群集，如此示例所示： 
 

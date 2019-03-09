@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/07/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: ba7b5900ecc3aeeed12ff892ba3c261bd80f69d8
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: e38746db7453726fcea0a73c2baee3b826bdf0c7
+ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663732"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57347135"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用具有虚拟网络和近 100% 兼容性的 SQL 数据库高级数据安全性
 
@@ -45,7 +45,7 @@ ms.locfileid: "56663732"
 | --- | --- |
 |无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置[高可用性](sql-database-high-availability.md) <br>使用[自动备份](sql-database-automated-backups.md)保护数据 <br>客户可配置的备份保留期 <br>用户发起的[备份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[数据库时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)功能 |
 |**安全性和符合性** | **Management**|
-|隔离的环境（[VNet 集成](sql-database-managed-instance-connectivity-architecture.md)、单租户服务、专用的计算和存储资源） <br>[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 身份验证](sql-database-aad-authentication.md)、单一登录支持 <br> <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 登录名</a>（**公共预览版**） <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>[SQL 审核](sql-database-managed-instance-auditing.md) <br>[威胁检测](sql-database-managed-instance-threat-detection.md) |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务
+|隔离的环境（[VNet 集成](sql-database-managed-instance-connectivity-architecture.md)、单租户服务、专用的计算和存储资源） <br>[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 身份验证](sql-database-aad-authentication.md)、单一登录支持 <br> <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 服务器主体（登录名）</a>（公开预览版） <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>[SQL 审核](sql-database-managed-instance-auditing.md) <br>[威胁检测](sql-database-managed-instance-threat-detection.md) |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务
 
 下表显示托管实例的主要功能：
 
@@ -145,9 +145,9 @@ Azure SQL 数据库提供一组可用于保护数据的高级安全功能。
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 集成
 
-托管实例部署选项支持传统的 SQL Server 数据库引擎登录名，以及与 Azure Active Directory (AAD) 集成的登录名。 AAD 登录名（**公共预览版**）是在本地环境中使用的本地数据库登录名的 Azure 云版本。 使用 AAD 登录名，可以将你的 Azure Active Directory 租户中的用户和组指定为真正的实例范围的主体，能够执行任何实体级操作，包括在同一托管实例内执行跨数据库查询。
+托管实例部署选项支持传统的 SQL Server 数据库引擎登录名，以及与 Azure Active Directory (AAD) 集成的登录名。 Azure AD 服务器主体（登录名）（公共预览版）是在本地环境中使用的本地数据库登录名的 Azure 云版本。 使用 Azure AD 服务器主体（登录名），可以将你的 Azure Active Directory 租户中的用户和组指定为真正的实例范围的主体，能够执行任何实体级操作，包括在同一托管实例内执行跨数据库查询。
 
-引入了用来创建 AAD 登录名（**公共预览版**）的一个新语法：**FROM EXTERNAL PROVIDER**。
+引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法：FROM EXTERNAL PROVIDER。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为托管实例预配 Azure Active Directory 管理员](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)一文。
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
@@ -202,7 +202,7 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 
 - 高可用性是通过类似 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)的技术内置和预配的。
 - 自动备份和时间点还原。 客户可以启动 `copy-only` 备份，而不会干扰自动备份链。
-- 托管实例不允许指定完整的物理路径，因此必须以不同的方式为相应的方案提供支持：RESTORE DB 不支持 WITH MOVE，CREATE DB 不允许使用物理路径，BULK INSERT 仅适用于 Azure Blob，等等。 
+- 托管实例不允许指定完整的物理路径，因此必须以不同的方式为相应的方案提供支持：RESTORE DB 不支持 WITH MOVE，CREATE DB 不允许使用物理路径，BULK INSERT 仅适用于 Azure Blob，等等。
 - 托管实例支持使用 [Azure AD 身份验证](sql-database-aad-authentication.md)作为 Windows 身份验证的云替代方法。
 - 对于包含内存中 OLTP 对象的数据库，托管实例会自动管理 XTP 文件组和文件
 
