@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02c9b7ca3d74daa8781e21daa625d7d0c1a323b4
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 34ae56543563ce0ae93418f8b886d8b4e7c0a28a
+ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363275"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727658"
 ---
 # <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>安装移动服务以对 VMware VM 和物理服务器进行灾难恢复
 
@@ -63,6 +63,6 @@ ms.locfileid: "54363275"
 
 ## <a name="next-steps"></a>后续步骤
 
-安装移动服务后，在 Azure 门户中选择“+复制”以开始保护这些 VM。 详细了解如何为 [VMware VM(vmware-azure-enable-replication.md) 和[物理服务器](physical-azure-disaster-recovery.md#enable-replication)启用复制。
+安装移动服务后，在 Azure 门户中选择“+复制”以开始保护这些 VM。 详细了解如何为 [VMware VM]vmware-azure-enable-replication.md) 和[物理服务器](physical-azure-disaster-recovery.md#enable-replication)启用复制。
 
 <!-- Update_Description: update meta properties, wording update  -->
