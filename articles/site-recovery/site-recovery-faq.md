@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: c1d754ba840bfcdb2925ce5aafecda74b4ca5edd
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 20c112890fdf786dae5a338f3e0dfd5eaa067b3d
+ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463517"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727661"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
 本文包含有关 Azure Site Recovery 的常见问题。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
@@ -88,10 +88,11 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正�
 Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 复制不是通过站点到站点 VPN 进行。 可以使用 Azure 虚拟网络创建站点到站点 VPN。 这不会干扰 Site Recovery 复制。
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>能否使用 ExpressRoute 将虚拟机复制到 Azure？
-能，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 将本地虚拟机复制到 Azure。 Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 需要设置[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)将 ExpressRoute 用于 Site Recovery 复制。 在复制时，建议使用 Azure 对等互连作为路由域。 将虚拟机故障转移到 Azure 虚拟网络以后，即可使用通过 Azure 虚拟网络设置的[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)对其进行访问。 私有对等互连不支持复制。 如果要保护 VMware 计算机或物理计算机，请确保在复制时也满足[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 
+能，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 将本地虚拟机复制到 Azure。 Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 需要设置[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)将 ExpressRoute 用于 Site Recovery 复制。 私有对等互连不支持复制。 如果要保护 VMware 计算机或物理计算机，请确保在复制时也满足[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 
 
+<!--MOONCAKE: Not Available on #private-peering-->
 <!-- Not Available on [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)-->
-<!-- Archor is correct on #public-peering and #private-peering -->
+<!-- Archor is correct on #public-peering -->
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>将虚拟机复制到 Azure 需要满足任何先决条件吗？
 要复制到 Azure 的 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 和 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 应符合 Azure 要求。

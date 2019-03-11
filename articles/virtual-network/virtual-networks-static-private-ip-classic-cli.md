@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2016
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e3ad266092a202bad8148b4290a7fe908dabb88e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 15036dfea6bc0b26c9a307a8c666b588f5769c30
+ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306195"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727657"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 为虚拟机（经典）配置专用 IP 地址
 
@@ -38,7 +38,7 @@ ms.locfileid: "56306195"
 1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-cli-version-1.0?view=azure-cli-latest)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
 2. 运行 **azure service create** 命令以创建云服务。
 
-        azure service create TestService --location uscentral
+        azure service create TestService --location chinaeast
 
     预期输出：
 

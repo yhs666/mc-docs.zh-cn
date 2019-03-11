@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d97c71865f444dfd4fc87aa6efb4a85d6dbfcf37
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: bf0fadb8174e30ba9af5b2307dc38359c657e4e0
+ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463663"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727660"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUANG ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -205,8 +205,8 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
     d. 在中心 VNet 和两个分支 VNet 中设置 UDR。
 
-        - The properties of the target side UDRs are the same as those on the source side when using the same IP addresses.
-        - With different target IP addresses, the UDRs should be modified accordingly.
+    - 使用相同的 IP 地址时，目标端 UDR 的属性与源端中的属性相同。
+    - 使用不同的目标 IP 地址时，应相应地修改 UDR。
 
 可在[恢复计划](site-recovery-create-recovery-plans.md)中编写上述步骤的脚本。 根据应用程序连接和恢复时间要求，也可以在开始故障转移之前完成上述步骤。
 

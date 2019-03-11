@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8e8401f1de45468da82d59922850fc36316aea27
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: e57ae85506ccad8a8f00fdf4a96c9b75687efd11
+ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363569"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727659"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 
@@ -205,12 +205,12 @@ IF NOT %ERRORLEVEL% EQU 0 (
 8. 在“为此部署指定计划”页中，指定计划。 有关详细信息，请参阅[计划包](https://technet.microsoft.com/library/gg682178.aspx)。
 9. 在“分发点”页上，根据数据中心的需求配置属性。 然后完成向导。
 
-> [!TIP]
-> 为了避免不必要的重新启动，请在每月的维护时段或软件更新时段计划包安装。
+    > [!TIP]
+    > 为了避免不必要的重新启动，请在每月的维护时段或软件更新时段计划包安装。
 
-可以使用 Configuration Manager 控制台监视部署进度。 转到“监视” > “部署” > “[包名称]”。
+    可以使用 Configuration Manager 控制台监视部署进度。 转到“监视” > “部署” > “[包名称]”。
 
-    ![Screenshot of Configuration Manager option to monitor deployments](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
+    ![用于监视部署的 Configuration Manager 选项的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 
 ## <a name="deploy-on-linux-machines"></a>在 Linux 计算机上部署
 > [!NOTE]
