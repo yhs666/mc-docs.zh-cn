@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 12/27/2018
-ms.date: 01/21/2019
+ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4cd8dc45e22c5172812886aba2782f6636e3e545
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: ab39417c71adfb9557a3f507b64149fd3f4b85ac
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363551"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463582"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复
 
@@ -44,7 +44,7 @@ ms.locfileid: "54363551"
 在除了源区域之外的任意区域中创建保管库。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
-2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复”。
+2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复(OMS)”。
 
     <!--Correct on **Monitoring + Management**-->
     
@@ -85,7 +85,7 @@ ms.locfileid: "54363551"
 
   <!--Not Available on - [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)--> <!--Not Available on - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)-->
   
-  - [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)
+  - [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)
   - [Office 365 URL 和 IP 地址范围](https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges-21vianet)
   
   <!--Not Available on - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)-->
@@ -170,7 +170,7 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 可以�
     - **应用一致性快照频率**：默认情况下，Site Recovery 每隔 4 小时创建应用一致性快照。 可将此值配置为 1 - 12 小时之间的任何值。 “应用一致”快照是 VM 内应用程序数据的时间点快照。 卷影复制服务 (VSS) 确保 VM 上的应用在拍摄快照时处于一致状态。
     - **复制组**：如果应用程序需要跨 VM 的多 VM 一致性，可为这些 VM 创建一个复制组。 默认情况下，所选的 VM 不属于任何复制组。
 
-5. 若要将 VM 添加到新的或现有的复制组，请在“自定义”中选择“是”以确保多 VM 一致性。 使 VM 成为复制组的一部分。 。
+5. 若要将 VM 添加到新的或现有的复制组，请在“自定义”中选择“是”以确保多 VM 一致性。 。
 
     - 故障转移时，复制组中的所有计算机将具有共享的崩溃一致性恢复点和应用程序一致性恢复点。 启用多 VM 一致性可能会影响工作负荷性能（因为它是 CPU 密集型），因此，仅当计算机运行相同的工作负荷并且需要跨多个计算机的一致性时，才应使用该设置。
     - 可以选择在复制组中最多包含 16 个虚拟机。
