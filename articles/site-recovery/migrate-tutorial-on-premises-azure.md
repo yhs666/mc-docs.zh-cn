@@ -8,12 +8,12 @@ origin.date: 12/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 74d0ae72085cc2bbccb5c3ecac6dd1ccc9073a6e
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 0a53bc144e2afffb09b8fe053fb7687e13d44138
+ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463485"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727656"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -131,7 +131,8 @@ ms.locfileid: "57463485"
     - 如果是迁移 VMware 计算机和物理服务器，则移动服务安装程序会在 Windows 计算机上安装可用的 Azure VM 代理。 在 Linux VM 上，建议你在故障转移后安装代理。
     - 如果是将 Azure VM 迁移到次要区域，则必须在迁移之前在 VM 上预配 Azure VM 代理。
     - 如果是将 Hyper-V VM 迁移到 Azure，请在迁移之后在 Azure VM 上安装 Azure VM 代理。
-- 手动从 VM 中删除任何 Site Recovery 提供程序/代理。 如果迁移 VMware VM 或物理服务器，请从 Azure VM 中[卸载移动服务][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]。
+- 手动从 VM 中删除任何 Site Recovery 提供程序/代理。 如果要迁移 VMware VM 或物理服务器，请从 Azure VM [卸载移动服务](vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer)。
+    <!--MOONCAKE: should be []() format-->
 - 为增强恢复能力，请采取以下措施：
     - 通过使用 Azure 备份服务备份 Azure VM 来确保数据安全。 [了解详细信息]( https://docs.azure.cn/backup/quick-backup-vm-portal)。
     - 通过使用 Site Recovery 将 Azure VM 复制到次要区域，使工作负荷保持运行并持续可用。 [了解详细信息](azure-to-azure-quickstart.md)。
