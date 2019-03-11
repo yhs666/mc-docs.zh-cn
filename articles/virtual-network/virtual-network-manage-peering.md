@@ -25,7 +25,7 @@ ms.locfileid: "56306267"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
-了解如何创建、更改或删除虚拟网络对等互连。 虚拟网络对等互连可以通过 Azure 主干网络连接同一区域或不同区域的虚拟网络（也称为全球 VNet 对等互连）。 对等互连后，这些虚拟网络仍将作为单独的资源进行管理。 如果不熟悉虚拟网络对等互连，可以通过阅读[虚拟网络对等互连概述](virtual-network-peering-overview.md)或完成[教程](tutorial-connect-virtual-networks-portal.md)来了解其详细信息。
+了解如何创建、更改或删除虚拟网络对等互连。 虚拟网络对等互连可以通过 Azure 主干网络连接同一区域或不同区域的虚拟网络（也称为全局 VNet 对等互连）。 对等互连后，这些虚拟网络仍将作为单独的资源进行管理。 如果不熟悉虚拟网络对等互连，可以通过阅读[虚拟网络对等互连概述](virtual-network-peering-overview.md)或完成[教程](tutorial-connect-virtual-networks-portal.md)来了解其详细信息。
 
 <a name="before"></a>
 ## <a name="before-you-begin"></a>准备阶段
