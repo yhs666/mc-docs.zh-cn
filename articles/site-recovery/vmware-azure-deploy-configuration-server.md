@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 12/11/2018
-ms.date: 01/21/2019
+origin.date: 02/05/2018
+ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b07fe5a8ef7ef8c772aa3a37fe277f86807e8fc6
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 361f4361271249815e392e6d280c0799de291e46
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363411"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463672"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -32,6 +32,25 @@ ms.locfileid: "54363411"
 下表汇总了配置服务器的最低硬件要求。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
+## <a name="azure-active-directory-permission-requirements"></a>Azure Active Directory 权限要求
+
+只有拥有 AAD (Azure Active Directory) 中设置的**以下权限之一**的用户才能将配置服务器注册到 Azure Site Recovery 服务。
+
+1. 创建应用程序的用户应该具有“应用程序开发人员”角色。
+    1. 若要验证角色，请登录到 Azure 门户</br>
+    1. 导航到“Azure Active Directory”>“角色和管理员”</br>
+    1. 检查“应用程序开发人员”角色是否已分配到该用户。 如果没有，请使用拥有此权限的用户，或[联系管理员启用该权限](/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)。
+
+1. 如果无法分配“应用程序开发人员”角色，请确保“用户可以注册应用程序”标志设置为 true，使该用户能够创建标识。 若要启用上述权限，请执行以下操作：
+    1. 登录到 Azure 门户
+    1. 导航到“Azure Active Directory”>“用户设置”
+    1. 在“应用注册”下，“用户可以注册应用程序”应设置为“是”。
+
+        ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+
+> [!NOTE]
+> **不支持** Active Directory 联合身份验证服务 (ADFS)。 请使用通过 [Azure Active Directory](/active-directory/fundamentals/active-directory-whatis) 管理的帐户。
 
 ## <a name="capacity-planning"></a>容量计划
 
@@ -63,18 +82,21 @@ ms.locfileid: "54363411"
 1. 使用 VMWare vSphere 客户端登录到 VMware vCenter 服务器或 vSphere ESXi 主机。
 2. 在“文件”菜单中，选择“部署 OVF 模板”以启动“部署 OVF 模板”向导。
 
-     ![OVF 模板](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
+    ![OVF 模板](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
 
 3. 在“选择源”中，输入下载的 OVF 所在的位置。
 4. 在“查看详细信息”中，选择“下一步”。
 5. 在“选择名称和文件夹”和“选择配置”中，接受默认设置。
-6. 在“选择存储”中，为获得最佳性能，请在“选择虚拟磁盘格式”中选择“Thick Provision Eager Zeroed”。
+6. 在“选择存储”中，为获得最佳性能，请在“选择虚拟磁盘格式”中选择“Thick Provision Eager Zeroed”。 使用精简预配选项可能会影响配置服务器的性能。
 7. 在余下的向导页中，接受默认设置。
 8. 在“准备完成”中：
 
     * 若要使用默认设置来设置 VM，请选择“部署后打开” > “完成”。
 
     * 若要添加其他网络接口，请清除“部署后打开”，并选择“完成”。 默认情况下，配置服务器模板是使用单个 NIC 部署的。 可以在部署后添加其他 NIC。
+
+> [!IMPORTANT]
+> 不要在部署后更改资源配置（内存/核心/CPU 限制）、修改/删除配置服务器上的已安装服务或文件。 这会影响向 Azure 服务注册配置服务器以及配置服务器的性能。
 
 ## <a name="add-an-additional-adapter"></a>添加其他适配器
 
@@ -93,35 +115,39 @@ ms.locfileid: "54363411"
 3. 安装完成后，以管理员身份登录到 VM。
 4. 首次登录时，会在数秒内启动 Azure Site Recovery 配置工具。
 5. 输入用于向 Site Recovery 注册配置服务器的名称。 然后，选择“下一步”。
-6. 该工具会检查 VM 是否能够连接到 Azure。 建立连接后，选择“登录”以登录到 Azure 订阅。 使用的凭据必须有权访问配置服务器所要注册到的保管库。
+6. 该工具会检查 VM 是否能够连接到 Azure。 建立连接后，选择“登录”以登录到 Azure 订阅。
+    a. 使用的凭据必须有权访问配置服务器所要注册到的保管库。
+    b. 确保所选用户帐户有权在 Azure 中创建应用程序。 若要启用所需的权限，请遵循[此处](#azure-active-directory-permission-requirements)所述的指导原则。
 7. 该工具将执行一些配置任务，然后重新启动。
 8. 再次登录到计算机。 在数秒内，配置服务器管理向导会自动启动。
 
 ### <a name="configure-settings"></a>配置设置
 
 1. 在配置服务器管理向导中选择“设置连接”，然后选择进程服务器用于接收来自 VM 的复制流量的 NIC。 再选择“保存”。 配置后无法更改此设置。 强烈建议不要更改配置服务器的 IP 地址。 请确保分配给配置服务器的 IP 是静态 IP，而不是 DHCP IP。
-2. 在“选择恢复服务保管库”中，登录到 Azure，选择自己的 Azure 订阅以及相关的资源组和保管库。
+2. 在“选择恢复服务保管库”中，使用在[将配置服务器注册到 Azure Site Recovery 服务](#register-the-configuration-server-with-azure-site-recovery-services)的**步骤 6** 中所用的凭据登录到 Azure。
+3. 登录后，选择你的 Azure 订阅以及相关的资源组和保管库。
 
     > [!NOTE]
     > 注册后，不能随意更改恢复服务保管库。
+    > 更改恢复服务保管库需要从当前保管库取消关联配置服务器，配置服务器下所有受保护虚拟机的复制将会停止。 了解[详细信息](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)。
 
-3. 在“安装第三方软件”中，
+4. 在“安装第三方软件”中，
 
     |场景   |执行的步骤  |
     |---------|---------|
     |我可以下载和手动安装 MySQL 吗？     |  是的。 下载 MySQL 应用程序，将其置于 C:\Temp\ASRSetup 文件夹中，然后手动安装。 现在，接受条款并单击“下载并安装”，门户上显示“已安装”。 可以继续下一步。       |
     |可以避免联机下载 MySQL 吗？     |   是的。 将 MySQL 安装程序应用程序置于 C:\Temp\ASRSetup 文件夹中。 接受条款并单击“下载并安装”，门户将使用你添加的安装程序并安装应用程序。 安装后可以继续执行下一步。    |
     |我想要通过 Azure Site Recovery 下载并安装 MySQL     |  接受许可协议并单击“下载并安装”。 然后，在安装后可以继续执行下一步。       |
-4. 在“验证设备配置”中验证先决条件，然后继续。
-5. 在“配置 vCenter Server/vSphere ESXi 服务器”中，输入要复制的 VM 所在的 vCenter Server 或 vSphere 主机的 FQDN 或 IP 地址。 输入服务器侦听的端口。 为保管库中的 VMware 服务器输入一个可用的友好名称。
-6. 输入配置服务器用来连接到 VMware 服务器的凭据。 Site Recovery 将使用这些凭据自动发现可复制的 VMware VM。 选择“添加”，然后选择“继续”。 此处输入的凭据会在本地保存。
-7. 在“配置虚拟机凭据”中，输入虚拟机的用户名和密码，以便在复制过程中自动安装 Mobility Service。 对于 Windows 计算机，该帐户在要复制的计算机上需有本地管理员特权。 对于 Linux，请提供根帐户的详细信息。
-8. 选择“完成配置”以完成注册。
-9. 完成注册后，打开 Azure 门户，验证配置服务器和 VMware 服务器是否在“恢复服务保管库” > “管理” > “Site Recovery 基础结构” > “配置服务器”中列出。
+5. 在“验证设备配置”中验证先决条件，然后继续。
+6. 在“配置 vCenter Server/vSphere ESXi 服务器”中，输入要复制的 VM 所在的 vCenter Server 或 vSphere 主机的 FQDN 或 IP 地址。 输入服务器侦听的端口。 为保管库中的 VMware 服务器输入一个可用的友好名称。
+7. 输入配置服务器用来连接到 VMware 服务器的凭据。 Site Recovery 将使用这些凭据自动发现可复制的 VMware VM。 选择“添加”，然后选择“继续”。 此处输入的凭据会在本地保存。
+8. 在“配置虚拟机凭据”中，输入虚拟机的用户名和密码，以便在复制过程中自动安装 Mobility Service。 对于 Windows 计算机，该帐户在要复制的计算机上需有本地管理员特权。 对于 Linux，请提供根帐户的详细信息。
+9. 选择“完成配置”以完成注册。
+10. 完成注册后，打开 Azure 门户，验证配置服务器和 VMware 服务器是否在“恢复服务保管库” > “管理” > “Site Recovery 基础结构” > “配置服务器”中列出。
 
 ## <a name="upgrade-the-configuration-server"></a>升级配置服务器
 
-若要将配置服务器升级到最新版本，请按照这些[步骤](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)进行操作。
+若要将配置服务器升级到最新版本，请按照这些[步骤](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)进行操作。 有关如何升级所有 Site Recovery 组件的详细说明，请单击[此处](service-updates-how-to.md)。
 
 ## <a name="manage-the-configuration-server"></a>管理配置服务器
 
@@ -129,34 +155,46 @@ ms.locfileid: "54363411"
 
 ## <a name="faq"></a>常见问题
 
-1. 可以使用安装有配置服务器的 VM 实现其他用途吗？
+1. 通过 OVF 部署在配置服务器上的许可证有效期是多长？ 如果不重新激活许可证会发生什么？
+
+    通过 OVA 模板提供的许可证是有效期为 180 天的评估许可证。 到期之前需要激活许可证。 否则，这可能导致配置服务器频繁关闭，因而妨碍复制活动。
+
+2. 可以使用安装有配置服务器的 VM 实现其他用途吗？
 
     不可以，我们建议仅将 VM 用于配置服务器。 请确保遵循[先决条件](#prerequisites)中提到的所有规范，以便有效管理灾难恢复。
-2. 可以将已在配置服务器中注册的保管库切换为新创建的保管库吗？
+3. 可以将已在配置服务器中注册的保管库切换为新创建的保管库吗？
 
     不可以，将保管库注册到配置服务器后，就无法更改。
-3. 可以使用同一配置服务器来同时保护物理计算机和虚拟机吗？
+4. 可以使用同一配置服务器来同时保护物理计算机和虚拟机吗？
 
     可以，同一配置服务器可以用于复制物理计算机和虚拟机。 但是，物理计算机仅可故障回复到 VMware VM。
-4. 配置服务器有何用途，可用于何处？
+5. 配置服务器有何用途，可用于何处？
 
     请参阅 [VMware 到 Azure 复制体系结构](vmware-azure-architecture.md)，了解有关配置服务器及其功能的更多信息。
-5. 在哪里可以找到最新版本的配置服务器？
+6. 在哪里可以找到最新版本的配置服务器？
 
-    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 还可以从[下载中心](https://aka.ms/asrconfigurationserver_bjb)直接下载。
-6. 在哪里可以下载配置服务器的密码？
+    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 有关如何升级所有 Site Recovery 组件的详细说明，请参阅[此处](../site-recovery/service-updates-how-to.md)。
+7. 在哪里可以下载配置服务器的密码？
 
     请参阅[本文](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)下载密码。
-7. 在哪里可以下载保管库注册密钥？
+8. 是否可以更改通行短语？
+
+    **不可以**，**强烈建议不要更改配置服务器的通行短语**。 通行短语的更改会中断受保护计算机的复制，并会导致关键运行状况状态。
+9. 在哪里可以下载保管库注册密钥？
 
     在“恢复服务保管库”中，“管理” > “Site Recovery 基础结构” > “配置服务器”。 在“服务器”中，选择“下载注册密钥”以下载保管库凭据文件。
-8. 是否可以克隆现有配置服务器并将其用于复制业务流程？
+10. 是否可以克隆现有配置服务器并将其用于复制业务流程？
 
     **不能**，不支持使用克隆的配置服务器组件。
 
-9. 能否更改配置服务器的 IP？
+11. 能否更改配置服务器的 IP？
 
     **否**，强烈建议不要更改配置服务器的 IP 地址。 请确保分配给配置服务器的所有 IP 是静态 IP，而不是 DHCP IP。
+12. 是否可以在 Azure 上设置配置服务器？
+
+    建议使用与 v-Center 的直通连接在本地环境中设置配置服务器，以及将数据传输延迟降至最低。 可出于[故障回复目的](vmware-azure-manage-configuration-server.md#failback-requirements)对配置服务器进行计划备份。
+
+有关配置服务器的更多常见问题解答，请参阅我们[有关配置服务器常见问题的文档](vmware-azure-common-questions.md#configuration-server)。
 
 ## <a name="troubleshoot-deployment-issues"></a>排查部署问题
 
