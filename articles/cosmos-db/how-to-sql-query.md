@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/15/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f2cc0c0e467036452503c6576d6601bce97ac3a3
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: b8ca2e14497fd98c2cbdb446369b2e5b7063c4da
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988047"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004561"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 SQL 查询示例
 
@@ -162,7 +162,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 
 * 结构化查询语言适用于无架构的数据。 因此，需要动态绑定类型系统。 相同的表达式在不同项上可能会产生不同的类型。 查询的结果是一个有效的 JSON 值，但不保证它为固定的架构。  
 
-* Azure Cosmos DB 仅支持严格的 JSON 项。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON 规范](http://www.json.org/)。  
+* Azure Cosmos DB 仅支持严格的 JSON 项。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON 规范](https://www.json.org/)。  
 
 * Cosmos DB 容器是 JSON 项的一个无架构集合。 在容器中，文档内和跨项的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后会在本文中讨论项内联接，因此这是一个值得注意的重要方面。
 

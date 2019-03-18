@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 02/07/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2d015b4f830e20d1c7ff33de2a2ac382ebca685d
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: c2682e2a6b9bbf329bb604f1a9d45b20d77b24fe
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204194"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964457"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入门：使用 REST API 和 JavaScript 检测图像中的人脸
 
@@ -36,7 +36,7 @@ ms.locfileid: "57204194"
 <html>
     <head>
         <title>Detect Faces Sample</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     </head>
     <body></body>
 </html>
@@ -233,4 +233,4 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

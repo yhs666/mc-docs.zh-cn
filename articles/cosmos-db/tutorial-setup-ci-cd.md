@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 11/02/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ef59cc74ae14f6fec4b58dedf76950914b6ce4ca
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 60ccb5b72f20c5793dd707f49bce6c044f74b0cd
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309292"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004705"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>在 Azure DevOps 中通过 Azure Cosmos DB 模拟器生成任务设置 CI/CD 管道
 
@@ -40,7 +40,7 @@ ms.locfileid: "54309292"
 
 安装扩展以后，请登录 Azure DevOps 帐户，从项目仪表板中找到项目。 可以向项目添加[生成管道](https://docs.microsoft.com/zh-cn/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)，也可以修改现有的生成管道。 如果已经有生成管道，则可跳转到[向生成定义添加模拟器生成任务](#addEmulatorBuildTaskToBuildDefinition)。
 
-1. 若要创建新的生成定义，请导航到 Azure DevOps 中的“生成”选项卡。 选择“+新建”。 > **新建生成管道**
+1. 若要创建新的生成定义，请导航到 Azure DevOps 中的 **“生成”** 选项卡。 选择 **“+新建”**。 > **新建生成管道**
 
    ![创建新的生成管道](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

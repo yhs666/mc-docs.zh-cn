@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 本文列出了文本翻译 API 的请求限制。 费用是根据字符数而不是请求频率产生的，每个请求限制为 5,000 个字符。 字符限制是基于订阅的，F0 限制为每小时 200 万个字符。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 11/15/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3d9ef2541919bfc8aac47b9d4da960752762aced
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 641f9b31c3ab943284877173bdff906f965ed55d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673261"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964464"
 ---
 # <a name="request-limits-for-translator-text"></a>文本翻译的请求限制
 
@@ -40,7 +40,6 @@ ms.locfileid: "52673261"
 | S3 | 每小时 1.2 亿个字符 |
 | S4 | 每小时 2 亿个字符 |
 
-这些限制仅限于 Microsoft 的泛型系统。 使用 Microsoft Translator Hub 的自定义翻译系统每秒限制为 1,800 个字符。
 
 ## <a name="latency"></a>延迟
 
@@ -66,7 +65,7 @@ ms.locfileid: "52673261"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [价格](https://www.azure.cn/pricing/details/cognitive-services/)
-- [区域可用性](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-- [v3 文本翻译 API 参考](/cognitive-services/translator/reference/v3-0-reference)
+* [价格](https://www.azure.cn/pricing/details/cognitive-services)
+* [区域可用性](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+* [v3 文本翻译 API 参考](/cognitive-services/translator/reference/v3-0-reference)
 

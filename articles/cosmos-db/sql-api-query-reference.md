@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 14ce45d91bd215b73c9cf847a7f60a365ead7260
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: d12064148c59792ed3282e439a901bf974b1aef9
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988037"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004724"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB SQL 语言参考 
 

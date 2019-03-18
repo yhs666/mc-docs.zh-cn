@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 6f57e81136b9dde581b3d97529507ea201a1f413
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 852555d28b8bcec503027da09150395b0bcfcdbb
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836915"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987960"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>为 Azure 中托管的服务配置反向 DNS
 
@@ -115,7 +115,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "China East" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.chinaeast.cloudapp.chinacloudapi.cn."
+New-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "China East" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.chinaeast.cloudapp.chinacloudapi.cn."
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 经典 CLI
@@ -253,7 +253,7 @@ FQDN 以正向顺序指定，且必须以点号结尾（例如“app1.contoso.co
 
 ## <a name="next-steps"></a>后续步骤
 
-有关反向 DNS 的详细信息，请参阅[反向 DNS 查找](http://en.wikipedia.org/wiki/Reverse_DNS_lookup)。
+有关反向 DNS 的详细信息，请参阅[反向 DNS 查找](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)。
 <br>
 了解如何[在 Azure DNS 中为 ISP 分配的 IP 范围托管反向查找区域](dns-reverse-dns-for-azure-services.md)。
 

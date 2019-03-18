@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 02/22/2019
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4e0860a8cfb9e34b61dc2341b654f7b193884f52
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 1de3419e48dacddf246fee6b981039fc75a733a9
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836875"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788692"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>通过 PowerShell 自定义 Web 应用程序防火墙规则
 
@@ -27,7 +27,7 @@ Azure 应用程序网关 Web 应用程序防火墙 (WAF) 可为 Web 应用程序
 以下示例演示了如何查看规则组：
 
 ```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
+Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
 以下输出截取自前一示例的响应：
@@ -87,23 +87,23 @@ OWASP (Ver. 3.0):
 以下示例在应用程序网关上禁用了规则 `911011` 和 `911012`：
 
 ```powershell
-$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+$disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
+Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="mandatory-rules"></a>强制性规则
 
 以下列表包含导致 WAF 在防护模式下阻止请求的条件（在检测模式下，它们作为异常记录）。 无法配置或禁用这些规则：
 
-- 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
-- 请求正文（不带文件）数据长度大于配置的限制
-- 请求正文（包括文件）大于限制
-- WAF 引擎发生内部错误
+* 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
+* 请求正文（不带文件）数据长度大于配置的限制
+* 请求正文（包括文件）大于限制
+* WAF 引擎发生内部错误
 
 CRS 3.x 特定：
 
-- 入站异常分数超出阈值
+* 入站异常分数超出阈值
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -114,4 +114,4 @@ CRS 3.x 特定：
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

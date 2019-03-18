@@ -2,31 +2,28 @@
 title: Azure 顾问入门 | Microsoft Docs
 description: Azure 顾问入门。
 services: advisor
-documentationcenter: NA
-author: forester123
-manager: carmonm
-editor: ''
-ms.assetid: ''
+author: kasparks
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/10/2017
-ms.date: 03/26/2018
-ms.author: makohli
-ms.openlocfilehash: 502885a0d983d282bdd5b5a44b90e4568562cb5d
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.date: 02/01/2019
+ms.author: kasparks
+ms.openlocfilehash: d647bc1f31eee14c89110acebdd66b5a41c194f7
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737008"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964447"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 
 了解如何通过 Azure 门户访问顾问，以及如何获取和实现建议。
 
-## <a name="get-advisor-recommendations"></a>获取顾问建议
+> [!NOTE]
+> Azure 顾问自动在后台运行，以查找新创建的资源。 最多可能需要 24 小时才能提供有关这些资源的建议。
+
+## <a name="get-recommendations"></a>获取建议
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -117,7 +114,7 @@ ms.locfileid: "53737008"
 
    ![顾问配置建议规则示例](./media/advisor-get-started/advisor-configure-rules.png)
 
-## <a name="download-your-advisor-recommendations"></a>下载顾问建议
+## <a name="download-recommendations"></a>下载建议
 
 可使用顾问下载建议摘要。  可下载 PDF 文件或 CSV 文件格式的建议。  通过下载建议，可轻松与同事共享建议数据，或根据建议数据执行自己的分析。
 

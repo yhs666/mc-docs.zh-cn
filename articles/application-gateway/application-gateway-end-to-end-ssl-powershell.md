@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 01/10/2019
-ms.date: 01/15/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: caea03f4f5dfed71d9d6f221da51edb3eb59af67
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 1ea81c2df3e690ccd88ac24458c9624ee0122f1c
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333886"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788721"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 SSL
 
@@ -34,12 +34,14 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 
 此方案将：
 
-- 创建名为 appgw-rg 的资源组。
-- 创建名为 appgwvnet，地址空间为 10.0.0.0/16 的虚拟网络。
-- 创建名为“appgwsubnet”和“appsubnet”的两个子网。
-- 创建支持端到端 SSL 加密且限制 SSL 协议版本和密码套件的小型应用程序网关。
+* 创建名为 appgw-rg 的资源组。
+* 创建名为 appgwvnet，地址空间为 10.0.0.0/16 的虚拟网络。
+* 创建名为“appgwsubnet”和“appsubnet”的两个子网。
+* 创建支持端到端 SSL 加密且限制 SSL 协议版本和密码套件的小型应用程序网关。
 
 ## <a name="before-you-begin"></a>准备阶段
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要对应用程序网关配置端到端 SSL，需要网关证书和后端服务器证书。 网关证书用来根据 SSL 协议规范派生对称密钥。 然后，对称密钥用来加密和解密发送到网关的流量。 网关证书需要采用个人信息交换 (PFX) 格式。 此文件格式适用于导出私钥，后者是应用程序网关对流量进行加解密所必需的。
 
@@ -55,21 +57,21 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 1. 登录到 Azure 帐户。
 
    ```powershell
-   Connect-AzureRmAccount -Environment AzureChinaCloud
+   Connect-AzAccount -Environment AzureChinaCloud
    ```
 
 
 2. 选择要用于此方案的订阅。
 
    ```powershell
-   Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
+   Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
 
 
 3. 创建资源组。 （若要使用现有资源组，请跳过此步骤。）
 
    ```powershell
-   New-AzureRmResourceGroup -Name appgw-rg -Location "China North"
+   New-AzResourceGroup -Name appgw-rg -Location "China North"
    ```
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>为应用程序网关创建虚拟网络和子网
@@ -80,7 +82,7 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 1. 分配要用于应用程序网关的子网地址范围。
 
    ```powershell
-   $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
+   $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
    ```
 
    > [!NOTE]
@@ -91,21 +93,21 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 2. 分配要用于后端地址池的地址范围。
 
    ```powershell
-   $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
+   $nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
    ```
 
 3. 创建具有上述步骤中定义的子网的虚拟网络。
 
    ```powershell
-   $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "China North" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+   $vnet = New-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "China North" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
    ```
 
 4. 检索要用于后续步骤的虚拟网络资源和子网资源。
 
    ```powershell
-   $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
-   $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
-   $nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
+   $vnet = Get-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
+   $nicSubnet = Get-AzVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
    ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>创建前端配置的公共 IP 地址
@@ -113,7 +115,7 @@ Azure 应用程序网关支持对流量进行端到端加密。 应用程序网�
 创建要用于应用程序网关的公共 IP 资源。 此公共 IP 地址会用于后续步骤之一。
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "China North" -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "China North" -AllocationMethod Dynamic
 ```
 
 > [!IMPORTANT]
@@ -126,20 +128,20 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 1. 创建应用程序网关 IP 配置。 此设置配置应用程序网关要使用的子网。 当应用程序网关启动时，它从配置的子网获取 IP 地址，再将网络流量路由到后端 IP 池中的 IP 地址。 请记住，每个实例需要一个 IP 地址。
 
    ```powershell
-   $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
+   $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
 2. 创建前端 IP 配置。 此设置将专用或公共 IP 地址映射到应用程序网关的前端。 以下步骤将上述步骤中的公共 IP 地址与前端 IP 配置关联。
 
    ```powershell
-   $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
+   $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
 3. 使用后端 Web 服务器的 IP 地址配置后端 IP 地址池。 这些 IP 地址是接收来自前端 IP 终结点的网络流量的 IP 地址。 使用自己的应用程序 IP 地址端点替换样本中的 IP 地址。
 
    ```powershell
-   $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
+   $pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
    ```
 
    > [!NOTE]
@@ -149,14 +151,14 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 4. 配置公共 IP 终结点的前端 IP 端口。 此端口是最终用户连接到的端口。
 
    ```powershell
-   $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
+   $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
 5. 配置应用程序网关的证书。 此证书用于加密和解密应用程序网关上的流量。
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $passwd 
+   $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $passwd 
    ```
 
    > [!NOTE]
@@ -165,7 +167,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 6. 创建应用程序网关的 HTTP 侦听器。 分配要使用的前端 IP 配置、端口和 SSL 证书。
 
    ```powershell
-   $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
+   $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
 7. 上传要在已启用 SSL 的后端池资源上使用的证书。
@@ -176,7 +178,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
    > 如果正在后端使用主机头和服务器名称指示 (SNI)，则检索到的公钥可能不是流量预期流向的站点。 如有疑问，请访问后端服务器上的 https://127.0.0.1/，确认用于默认 SSL 绑定的证书。 本部分使用该请求中的公钥。 如果对 HTTPS 绑定使用主机头和 SNI，但未从后端服务器的 https://127.0.0.1/ 手动浏览器请求收到响应和证书，则必须在其上设置默认 SSL 绑定。 如果不这样做，探测会失败，后端不会列入允许名单。
 
    ```powershell
-   $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
    ```
 
    > [!NOTE]
@@ -185,18 +187,18 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 8. 配置应用程序网关后端 HTTP 设置。 将上述步骤中上传的证书分配给 HTTP 设置。
 
    ```powershell
-   $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
+   $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
 9. 创建配置负载均衡器行为的负载均衡器路由规则。 在此示例中，创建基本轮循机制规则。
 
    ```powershell
-   $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+   $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
 10. 配置应用程序网关的实例大小。 可用大小为 Standard\_Small、Standard\_Medium 和 Standard\_Large。  对于容量，可用值为 1 到 10。
 
     ```powershell
-    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
     ```
 
     > [!NOTE]
@@ -213,7 +215,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
       以下示例将最低协议版本设置为 TLSv1_2 并仅启用 TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256、TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 和 TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256。
 
       ```powershell
-      $SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+      $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
       ```
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
@@ -221,7 +223,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 使用上述所有步骤创建应用程序网关。 网关创建过程需要花费较长时间。
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>限制现有应用程序网关上的 SSL 协议版本
@@ -231,20 +233,20 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 1. 检索要更新的应用程序网关。
 
    ```powershell
-   $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
 2. 定义 SSL 策略。 如下示例禁用了 TLSv1.0 和 TLSv1.1，仅允许密码套件 TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256、TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 和 TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256。
 
    ```powershell
-   Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+   Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
    3. 最后，更新网关。 最后一步是耗时较长的任务。 完成后，应用程序网关上即已配置端到端 SSL。
 
    ```powershell
-   $gw | Set-AzureRmApplicationGateway
+   $gw | Set-AzApplicationGateway
    ```
 
 ## <a name="get-an-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
@@ -254,7 +256,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 若要配置别名，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。 使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+Get-AzPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
 
 ```
@@ -285,4 +287,4 @@ DnsSettings              : {
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: code update -->

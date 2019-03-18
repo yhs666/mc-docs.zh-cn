@@ -1,24 +1,24 @@
 ---
-title: 快速入门：获取备用翻译，Python - 文本翻译 API
+title: 快速入门：使用双语字典、Python 查找字词 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Python 和文本翻译 REST API 查找指定文本的备用翻译和用法示例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 10/21/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 389b5af18c83f44a61221f98cf797e520bb995f8
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: e4b88703933afca80718398f10a5cf2946cb6562
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673277"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964421"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>快速入门：使用 Python 通过文本翻译 API 获取备用翻译
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>快速入门：通过 Python 使用双语字典查找字词
 
 本快速入门介绍如何使用 Python 和文本翻译 REST API 查找指定文本的备用翻译和用法示例。
 
@@ -28,8 +28,8 @@ ms.locfileid: "52673277"
 
 本快速入门需要：
 
-- Python 2.7.x 或 3.x
-- 适用于文本翻译的 Azure 订阅密钥
+* Python 2.7.x 或 3.x
+* 适用于文本翻译的 Azure 订阅密钥
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
@@ -65,7 +65,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-目前有一个终结点可用于文本翻译，并已设置为 `base_url`。 `path` 设置 `dictionary/lookup` 路由并确定我们需使用 API 的版本 3。
+文本翻译全局终结点设置为 `base_url`。 `path` 设置 `dictionary/lookup` 路由并确定我们需使用 API 的版本 3。
 
 `params` 用于设置源和输出语言。 在此示例中，我们将使用英语和西班牙语：`en` 和 `es`。
 
@@ -73,7 +73,7 @@ else:
 > 有关终结点、路由和请求参数的详细信息，请参阅[文本翻译 API 3.0：字典查找](/cognitive-services/translator/reference/v3-0-dictionary-lookup)。
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
+base_url = 'https://api.translator.azure.cn'
 path = '/dictionary/lookup?api-version=3.0'
 params = '&from=en&to=es';
 constructed_url = base_url + path + params
@@ -168,11 +168,11 @@ python dictionary-lookup.py
 
 ## <a name="see-also"></a>另请参阅
 
-除了文本直译，还请了解如何使用文本翻译 API 执行以下操作：
+了解如何使用文本翻译 API 执行以下操作：
 
-- [翻译文本](quickstart-python-translate.md)
-- [直译文本](quickstart-python-transliterate.md)
-- [按输入确定语言](quickstart-python-detect.md)
-- [获取支持的语言的列表](quickstart-python-languages.md)
-- [根据输入确定句子长度](quickstart-python-sentences.md)
+* [翻译文本](quickstart-python-translate.md)
+* [直译文本](quickstart-python-transliterate.md)
+* [按输入确定语言](quickstart-python-detect.md)
+* [获取支持的语言的列表](quickstart-python-languages.md)
+* [根据输入确定句子长度](quickstart-python-sentences.md)
 

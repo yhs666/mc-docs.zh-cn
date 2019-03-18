@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 使用文本翻译 API Transliterate 方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-origin.date: 03/29/2018
-ms.date: 11/26/2018
+origin.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: ef6a118a2e2e15763313ef2670b907b6c8861306
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 93c756a672906bc7116748c7121484f2ffba8cf3
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673298"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964480"
 ---
 # <a name="translator-text-api-30-transliterate"></a>文本翻译 API 3.0：Transliterate
 
@@ -27,7 +27,7 @@ ms.locfileid: "52673298"
 将 `POST` 请求发送到：
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
+https://api.translator.azure.cn/transliterate?api-version=3.0
 ```
 
 ## <a name="request-parameters"></a>请求参数
@@ -43,15 +43,15 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>语言</td>
-    <td>必需参数。<br/>指定要从一个脚本转换为另一个脚本的文本的语言。 通过查询服务的[支持的语言](v3-0-languages.md)获得的 `transliteration` 范围中列出了可能的语言。</td>
+    <td>必需参数。<br/>指定要从一个脚本转换为另一个脚本的文本的语言。 通过查询服务的[支持的语言](./v3-0-languages.md)获得的 `transliteration` 范围中列出了可能的语言。</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*必需参数*。<br/>指定输入文本所使用的脚本。 使用 `transliteration` 范围查找[支持的语言](v3-0-languages.md)，以找到可用于选定语言的输入脚本。</td>
+    <td>*必需参数*。<br/>指定输入文本所使用的脚本。 使用 `transliteration` 范围查找[支持的语言](./v3-0-languages.md)，以找到可用于选定语言的输入脚本。</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*必需参数*。<br/>指定输出脚本。 使用 `transliteration` 范围查找[支持的语言](v3-0-languages.md)，以找到可用于选定输入语言和输入脚本组合的输出脚本。</td>
+    <td>*必需参数*。<br/>指定输出脚本。 使用 `transliteration` 范围查找[支持的语言](./v3-0-languages.md)，以找到可用于选定输入语言和输入脚本组合的输出脚本。</td>
   </tr>
 </table> 
 
@@ -91,17 +91,17 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 以下限制适用：
 
-- 该数组最多可具有 10 个元素。
-- 数组元素的文本值不能超过 1,000 个字符（包括空格）。
-- 包括空格在内，请求中包含的整个文本不能超过 5,000 个字符。
+* 该数组最多可具有 10 个元素。
+* 数组元素的文本值不能超过 1,000 个字符（包括空格）。
+* 包括空格在内，请求中包含的整个文本不能超过 5,000 个字符。
 
 ## <a name="response-body"></a>响应正文
 
 成功的响应是一个 JSON 数组，其中的每个结果对应于输入数组中的一个元素。 结果对象包括以下属性：
 
-  - `text`：一个字符串，它是将输入字符串转换为输出脚本的结果。
+  * `text`：一个字符串，它是将输入字符串转换为输出脚本的结果。
   
-  - `script`：一个字符串，指定输出中使用的脚本。
+  * `script`：一个字符串，指定输出中使用的脚本。
 
 示例 JSON 响应如下：
 
@@ -160,6 +160,8 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
 </table> 
 
+如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 文本翻译 API 参考页面](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+
 ## <a name="examples"></a>示例
 
 以下示例显示如何将两个日语字符串转换为用罗马字母拼写的日语。
@@ -175,7 +177,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 若要在不支持 Unicode 字符的命令行窗口中使用 cURL，请获取以下 JSON 有效负载，并将它保存到 `request.txt` 文件中。 请务必使用 `UTF-8` 编码保存文件。
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
+curl -X POST "https://api.translator.azure.cn/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
 ```
 
 ---

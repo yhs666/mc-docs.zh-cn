@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 02/07/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: c97a428153d489177c3d768230cc5cf0124f293b
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 3b16ca50e9a16f9e946fa8a47906bf1591d4a798
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204003"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964435"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
@@ -56,7 +56,7 @@ $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 
 // This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
+// (https://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . '/detect');
@@ -290,4 +290,4 @@ catch (HttpException $ex)
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

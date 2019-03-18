@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: 使用文本翻译 API 翻译方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-origin.date: 03/29/2018
-ms.date: 11/26/2018
+origin.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3b640181aa0ca83dc2ccf6171456944aab153fda
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: f01a0309fc1661e143ebb959664ba1ac79c66616
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673482"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964476"
 ---
-# <a name="translator-text-api-30-translate"></a>文本翻译 API 3.0：翻译
+# <a name="translator-text-api-30-translate"></a>文本翻译 API 3.0：Translate
 
 翻译文本。
 
@@ -27,7 +27,7 @@ ms.locfileid: "52673482"
 将 `POST` 请求发送到：
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
+https://api.translator.azure.cn/translate?api-version=3.0
 ```
 
 ## <a name="request-parameters"></a>请求参数
@@ -43,11 +43,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>可选参数。<br/>指定输入文本的语言。 可以使用 `translation` 范围来查找[支持的语言](v3-0-languages.md)，了解哪些语言可以翻译。 如果未指定 `from` 参数，则会应用自动语言检测来确定源语言。</td>
+    <td>可选参数。<br/>指定输入文本的语言。 可以使用 `translation` 范围来查找[支持的语言](./v3-0-languages.md)，了解哪些语言可以翻译。 如果未指定 `from` 参数，则会应用自动语言检测来确定源语言。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必需参数。<br/>指定输出文本的语言。 目标语言必须是 `translation` 范围中包含的[支持的语言](v3-0-languages.md)之一。 例如，若要翻译为德语，请使用 `to=de`。<br/>可以在查询字符串中重复使用此参数，这样就可以同时翻译为多种语言。 例如，若要翻译为德语和意大利语，请使用 `to=de&to=it`。</td>
+    <td>必需参数。<br/>指定输出文本的语言。 目标语言必须是 `translation` 范围中包含的[支持的语言](./v3-0-languages.md)之一。 例如，若要翻译为德语，请使用 `to=de`。<br/>可以在查询字符串中重复使用此参数，这样就可以同时翻译为多种语言。 例如，若要翻译为德语和意大利语，请使用 `to=de&to=it`。</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -55,7 +55,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td>可选参数。<br/>一个字符串，指定翻译的类别（领域）。 此参数用于从一个使用[自定义翻译工具](../customization.md)构建的自定义系统获取翻译。 默认值为 `general`。</td>
+    <td>可选参数。<br/>一个字符串，指定翻译的类别（领域）。 默认值为 `general`。</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -127,46 +127,46 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 以下限制适用：
 
-- 数组最多可以有 25 个元素。
-- 包括空格在内，请求中包含的整个文本不能超过 5,000 个字符。
+* 数组最多可具有 100 个元素。
+* 包括空格在内，请求中包含的整个文本不能超过 5,000 个字符。
 
 ## <a name="response-body"></a>响应正文
 
 成功的响应是一个 JSON 数组，其中的每个结果对应于输入数组中的一个字符串。 结果对象包括以下属性：
 
-  - `detectedLanguage`：一个对象，它通过以下属性描述检测到的语言：
+  * `detectedLanguage`：一个对象，它通过以下属性描述检测到的语言：
 
-      - `language`：一个字符串，表示检测到的语言的代码。
+      * `language`：一个字符串，表示检测到的语言的代码。
 
-      - `score`：一个浮点值，表示结果的置信度。 分数介于 0 和 1 之间，较低的分数表示较低的置信度。
+      * `score`：一个浮点值，表示结果的置信度。 分数介于 0 和 1 之间，较低的分数表示较低的置信度。
 
     当请求了语言自动检测时，`detectedLanguage` 属性仅存在于结果对象中。
 
-  - `translations`：翻译结果的数组。 数组的大小与通过 `to` 查询参数指定的目标语言的数目匹配。 数组中的每个元素包括：
+  * `translations`：翻译结果的数组。 数组的大小与通过 `to` 查询参数指定的目标语言的数目匹配。 数组中的每个元素包括：
 
-    - `to`：一个字符串，表示目标语言的语言代码。
+    * `to`：一个字符串，表示目标语言的语言代码。
 
-    - `text`：一个字符串，提供翻译的文本。
+    * `text`：一个字符串，提供翻译的文本。
 
-    - `transliteration`：一个对象，在 `toScript` 参数指定的脚本中提供翻译的文本。
+    * `transliteration`：一个对象，在 `toScript` 参数指定的脚本中提供翻译的文本。
 
-      - `script`：一个字符串，指定目标脚本。   
+      * `script`：一个字符串，指定目标脚本。   
 
-      - `text`：一个字符串，在目标脚本中提供翻译的文本。
+      * `text`：一个字符串，在目标脚本中提供翻译的文本。
 
     如果不进行音译，则不包括 `transliteration` 对象。
 
-    - `alignment`：一个对象，包含的名为 `proj` 的单个字符串属性可以将输入文本映射到翻译文本。 只有在请求参数 `includeAlignment` 为 `true` 时，才提供比对信息。 将以 `[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]]` 格式的字符串值返回比对内容。  冒号分隔开始和结束索引，连字符分隔语言，空格分隔单词。 一个单词可能与另一种语言中的 0 个、1 个或多个单词比对，而比对的词可能是不连续的。 当没有可用的比对信息时，Alignment 元素会为空。 请参阅[获取比对信息](#obtain-alignment-information)，了解示例和限制。
+    * `alignment`：一个对象，包含的名为 `proj` 的单个字符串属性可以将输入文本映射到翻译文本。 只有在请求参数 `includeAlignment` 为 `true` 时，才提供比对信息。 将以 `[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]]` 格式的字符串值返回比对内容。  冒号分隔开始和结束索引，连字符分隔语言，空格分隔单词。 一个单词可能与另一种语言中的 0 个、1 个或多个单词比对，而比对的词可能是不连续的。 当没有可用的比对信息时，Alignment 元素会为空。 请参阅[获取比对信息](#obtain-alignment-information)，了解示例和限制。
 
-    - `sentLen`：一个对象，返回输入和输出文本中的句子边界。
+    * `sentLen`：一个对象，返回输入和输出文本中的句子边界。
 
-      - `srcSentLen`：一个整数数组，表示输入文本中句子的长度。 数组的长度是句子的数量，而各个值是每个句子的长度。
+      * `srcSentLen`：一个整数数组，表示输入文本中句子的长度。 数组的长度是句子的数量，而各个值是每个句子的长度。
 
-      - `transSentLen`：一个整数数组，表示翻译文本中句子的长度。 数组的长度是句子的数量，而各个值是每个句子的长度。
+      * `transSentLen`：一个整数数组，表示翻译文本中句子的长度。 数组的长度是句子的数量，而各个值是每个句子的长度。
 
     只有在请求参数 `includeSentenceLength` 为 `true` 时，才包括句子边界。
 
-  - `sourceText`：一个对象，包含的名为 `text` 的单个字符串属性在源语言的默认脚本中提供输入文本。 `sourceText` 属性存在的前提是，表述输入时采用的脚本不是该语言的通用脚本。 例如，如果输入是采用拉丁语脚本编写的阿拉伯语，则 `sourceText.text` 就是转换为阿拉伯脚本的同一阿拉伯文本。
+  * `sourceText`：一个对象，包含的名为 `text` 的单个字符串属性在源语言的默认脚本中提供输入文本。 `sourceText` 属性存在的前提是，表述输入时采用的脚本不是该语言的通用脚本。 例如，如果输入是采用拉丁语脚本编写的阿拉伯语，则 `sourceText.text` 就是转换为阿拉伯脚本的同一阿拉伯文本。
 
 [示例](#examples)部分提供了 JSON 响应的示例。
 
@@ -226,6 +226,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
 </table> 
 
+如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 文本翻译 API 参考页面](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+
 ## <a name="examples"></a>示例
 
 ### <a name="translate-a-single-input"></a>翻译单个输入
@@ -235,7 +237,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
@@ -261,7 +263,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
@@ -287,7 +289,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
@@ -318,7 +320,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 ---
@@ -347,7 +349,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
@@ -393,10 +395,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
     <td>不雅词语会在输出中使用标记进行替换。 标记取决于 `ProfanityMarker` 参数。<br/><br/>
 如果 `ProfanityMarker=Asterisk`，不雅词语会被替换为 `***`：<br/>
     **示例源（日语）**：彼はジャッカスです。<br/>
-    **示例翻译（中文）**：他是一个\*\*\*。<br/><br/>
+    **示例翻译（中文）**：他是一个 \*\*\*。<br/><br/>
 如果 `ProfanityMarker=Tag`，则不雅词语会被括在 XML 标记 &lt;profanity&gt; 和 &lt;/profanity&gt; 中：<br/>
     **示例源（日语）**：彼はジャッカスです。<br/>
-    **示例翻译（中文）**：他是一个&lt;profanity&gt;笨蛋&lt;/profanity&gt;。
+    **示例翻译（中文）**：他是一个 &lt;profanity&gt;笨蛋&lt;/profanity&gt;。
   </tr>
 </table> 
 
@@ -405,7 +407,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
 ```
 
 ---
@@ -427,7 +429,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
 ```
 
 ---
@@ -458,7 +460,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 ---
@@ -482,7 +484,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
 
 ---
@@ -507,11 +509,11 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 请注意以下限制：
 
-- 仅针对一部分语言对返回比对内容：
+* 仅针对一部分语言对返回比对内容：
   - 从英语到任何其他语言；
   - 从任何其他语言到英语，除了简体中文、繁体中文和拉脱维亚语到英语；
   - 从日语到韩语或从韩语到日语。
-- 如果句子是预录翻译，则不会收到比对内容。 预录翻译示例有“This is a test”、“I love you”，以及其他高频句子。
+* 如果句子是预录翻译，则不会收到比对内容。 预录翻译示例有“This is a test”、“I love you”，以及其他高频句子。
 
 ### <a name="obtain-sentence-boundaries"></a>获取句子边界
 
@@ -520,7 +522,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
 
 ---
@@ -554,7 +556,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 例如，考虑英语句子“The word wordomatic is a dictionary entry.”。 若要在翻译中保留单词 _wordomatic_，请发送请求：
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 结果为：

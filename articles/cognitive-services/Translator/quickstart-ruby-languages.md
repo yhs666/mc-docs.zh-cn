@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在该快速入门中，你将使用文本翻译 API 和 Ruby 获取翻译、音译和字典查找支持的语言列表以及示例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 06/22/2018
-ms.date: 11/27/2018
+origin.date: 02/08/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 60368831f4c94126abb29d95da1659801e7b3bee
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: e354b50b45cb196406db85b2a493baae883443b7
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673256"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964374"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>快速入门：通过文本翻译 REST API (Ruby) 获取受支持的语言
 
@@ -26,16 +26,13 @@ ms.locfileid: "52673256"
 
 需要使用 [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 或更高版本来运行此代码。
 
-若要使用文本翻译 API，还需要订阅密钥；请参阅[如何注册文本翻译 API](translator-text-how-to-signup.md)。
-
 ## <a name="languages-request"></a>语言请求
 
 以下代码使用 [Languages](./reference/v3-0-languages.md) 方法获取翻译、音译、查询字典支持的语言列表和示例。
 
 1. 在你喜欢使用的代码编辑器中新建一个 Ruby 项目。
 2. 添加以下提供的代码。
-3. 使用对订阅有效的访问密钥替换 `key` 值。
-4. 运行该程序。
+3. 运行该程序。
 
 ```ruby
 require 'net/https'
@@ -43,20 +40,12 @@ require 'uri'
 require 'cgi'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the key string value with your valid subscription key.
-key = 'ENTER KEY HERE'
-
-host = 'https://api.cognitive.microsofttranslator.com'
+host = 'https://api.translator.azure.cn'
 path = '/languages?api-version=3.0'
 
 uri = URI (host + path)
 
 request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = key
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request (request)
@@ -68,6 +57,7 @@ json = JSON.pretty_generate(JSON.parse(result))
 
 output_path = 'output.txt'
 
+# Write response to file
 File.open(output_path, 'w' ) do |output|
     output.print json
 end

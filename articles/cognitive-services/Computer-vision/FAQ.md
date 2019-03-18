@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: 获取 Azure 认知服务中计算机视觉 API 的常见问题解答。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 01/26/2017
-ms.date: 01/08/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: f93ba77d4fe5950cdd8e7ac20e80a8593253adb1
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 7c8ffe2725ead9e06e1776f52195c8725566e678
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083779"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964473"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>计算机视觉 API 常见问题解答
 
@@ -56,7 +56,7 @@ ms.locfileid: "54083779"
 
 -----
 
-**问题：***手写识别支持哪些语言？*
+**问**：*手写识别支持哪些语言？*
 
 **答**：目前仅支持英语。
 
@@ -92,4 +92,4 @@ ms.locfileid: "54083779"
 
 -----
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

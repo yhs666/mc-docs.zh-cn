@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: 概述
   items:
-  - name: 用于 MySQL 的 Azure DB
+  - name: 什么是用于 MySQL 的 Azure DB？
     href: overview.md
 - name: 快速入门
   items:
@@ -45,7 +45,8 @@ items:
   - name: 2 - 创建 Web 应用
     items:
     - name: 将 PHP 与 MySQL 配合使用
-      href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json
+      href: ../app-service/app-service-web-tutorial-php-mysql.md
+      maintainContext: true
 - name: 示例
   items:
   - name: Azure CLI
@@ -200,9 +201,9 @@ items:
       href: videos.md
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: 3bdac97c65552a36115bf8b60761dc455e30ba20
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 46f552fcfb1fd4686063548a643db860a2f31960
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663660"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990179"

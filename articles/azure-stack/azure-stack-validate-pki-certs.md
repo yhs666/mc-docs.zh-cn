@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/08/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 26e58db767234a1d161a11134b7bbcfc7dfb470a
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: f90786db933fcb25627991d070b5925ff54e185c
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218239"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987906"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -84,7 +84,11 @@ ms.locfileid: "56218239"
     ```
     
     > [!Note]  
-    > 如果使用 AD FS 作为标识系统，则需要 AD FS 和 Graph。
+    > 如果使用 AD FS 作为标识系统，则需要 AD FS 和 Graph。 例如：
+    >
+    > ```PowerShell  
+    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > ```
     
      - 将证书放入上一步骤中创建的相应目录。 例如：  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`

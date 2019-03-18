@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 使用文本翻译 API 语言方法。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-origin.date: 03/29/2018
-ms.date: 11/26/2018
+origin.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: ab488aa1cbfecda3a028591ced42f26a4f51d4cf
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 5a3304f44b20b8e3a3a3e287679c41f6cea82739
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673260"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964472"
 ---
 # <a name="translator-text-api-30-languages"></a>文本翻译 API 3.0：语言
 
@@ -26,7 +26,7 @@ ms.locfileid: "52673260"
 
 将 `GET` 请求发送到：
 ```HTTP
-https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
+https://api.translator.azure.cn/languages?api-version=3.0
 ```
 
 ## <a name="request-parameters"></a>请求参数
@@ -68,11 +68,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 客户端使用 `scope` 查询参数来定义它关注的语言组。
 
-- `scope=translation` 提供支持将文本从一种语言翻译成另一种语言的语言；
+* `scope=translation` 提供支持将文本从一种语言翻译成另一种语言的语言；
 
-- `scope=transliteration` 提供将一种语言的文本从一个脚本转换为另一个脚本的功能；
+* `scope=transliteration` 提供将一种语言的文本从一个脚本转换为另一个脚本的功能；
 
-- `scope=dictionary` 提供语言对，`Dictionary` 操作针对这些语言对返回数据。
+* `scope=dictionary` 提供语言对，`Dictionary` 操作针对这些语言对返回数据。
 
 客户端可以通过指定逗号分隔的名称列表同时检索多个组。 例如，`scope=translation,transliteration,dictionary` 将返回所有组支持的语言。
 
@@ -94,15 +94,15 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 每个属性的值如下。
 
-- `translation` 属性
+* `translation` 属性
 
   `translation` 属性的值是 (键, 值) 对的字典。 每个键是一个 BCP 47 语言标记。 键标识文本的翻译目标语言或源语言。 与键关联的值是一个 JSON 对象，其中包含描述语言的属性：
 
-  - `name`：通过 `Accept-Language` 标头请求的区域设置中语言的显示名称。
+  * `name`：通过 `Accept-Language` 标头请求的区域设置中语言的显示名称。
 
-  - `nativeName`：此语言的当地区域设置中的语言的显示名称。
+  * `nativeName`：此语言的当地区域设置中的语言的显示名称。
 
-  - `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
+  * `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
 
   示例如下：
           
@@ -120,25 +120,25 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   }
   ```
 
-- `transliteration` 属性
+* `transliteration` 属性
 
   `transliteration` 属性的值是 (键, 值) 对的字典。 每个键是一个 BCP 47 语言标记。 键标识某种语言，该语言的文本可以从一个脚本转换为另一个脚本。 与键关联的值是一个 JSON 对象，其中包含描述语言及其支持的脚本的属性：
 
-  - `name`：通过 `Accept-Language` 标头请求的区域设置中语言的显示名称。
+  * `name`：通过 `Accept-Language` 标头请求的区域设置中语言的显示名称。
 
-  - `nativeName`：此语言的当地区域设置中的语言的显示名称。
+  * `nativeName`：此语言的当地区域设置中的语言的显示名称。
 
-  - `scripts`：要转换的源脚本列表。 `scripts` 列表中的每个元素具有属性：
+  * `scripts`：要转换的源脚本列表。 `scripts` 列表中的每个元素具有属性：
 
-    - `code`：标识脚本的代码。
+    * `code`：标识脚本的代码。
 
-    - `name`：通过 `Accept-Language` 标头请求的区域设置中脚本的显示名称。
+    * `name`：通过 `Accept-Language` 标头请求的区域设置中脚本的显示名称。
 
-    - `nativeName`：语言的当地区域设置中的语言的显示名称。
+    * `nativeName`：语言的当地区域设置中的语言的显示名称。
 
-    - `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
+    * `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
 
-    - `toScripts`：文本可转换到的目标脚本列表。 `toScripts` 列表的每个元素具有前面所述的属性 `code`、`name`、`nativeName` 和 `dir`。
+    * `toScripts`：文本可转换到的目标脚本列表。 `toScripts` 列表的每个元素具有前面所述的属性 `code`、`name`、`nativeName` 和 `dir`。
 
   示例如下：
 
@@ -185,25 +185,25 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   }
   ```
 
-- `dictionary` 属性
+* `dictionary` 属性
 
   `dictionary` 属性的值是 (键, 值) 对的字典。 每个键是一个 BCP 47 语言标记。 键标识支持替代翻译和回译的语言。 值是一个 JSON 对象，描述提供可用翻译的源语言和目标语言：
 
-  - `name`：通过 `Accept-Language` 标头请求的区域设置中源语言的显示名称。
+  * `name`：通过 `Accept-Language` 标头请求的区域设置中源语言的显示名称。
 
-  - `nativeName`：此语言的当地区域设置中的语言的显示名称。
+  * `nativeName`：此语言的当地区域设置中的语言的显示名称。
 
-  - `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
+  * `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
 
-  - `translations`：提供替代翻译以及为源语言中表达的查询提供示例的语言列表。 `translations` 列表中的每个元素具有属性：
+  * `translations`：提供替代翻译以及为源语言中表达的查询提供示例的语言列表。 `translations` 列表中的每个元素具有属性：
 
-    - `name`：通过 `Accept-Language` 标头请求的区域设置中目标语言的显示名称。
+    * `name`：通过 `Accept-Language` 标头请求的区域设置中目标语言的显示名称。
 
-    - `nativeName`：目标语言的当地区域设置中的目标语言的显示名称。
+    * `nativeName`：目标语言的当地区域设置中的目标语言的显示名称。
 
-    - `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
+    * `dir`：方向性，`rtl` 表示语言从右向左，`ltr` 表示语言从左到右。
     
-    - `code`：标识目标语言的语言代码。
+    * `code`：标识目标语言的语言代码。
 
   示例如下：
 
@@ -276,6 +276,8 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
 </table> 
 
+如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 文本翻译 API 参考页面](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+
 ## <a name="examples"></a>示例
 
 以下示例演示如何检索文本翻译支持的语言。
@@ -283,7 +285,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
+curl "https://api.translator.azure.cn/languages?api-version=3.0&scope=translation"
 ```
 
 ---

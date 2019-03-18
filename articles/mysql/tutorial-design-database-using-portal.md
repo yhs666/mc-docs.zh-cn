@@ -1,27 +1,24 @@
 ---
 title: 教程：使用 Azure 门户设计 Azure Database for MySQL
 description: 本教程介绍如何使用 Azure 门户创建和管理 Azure Database for MySQL 服务器。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 origin.date: 03/20/2018
-ms.date: 11/09/2018
+ms.date: 03/18/2019
 ms.custom: mvc
-ms.openlocfilehash: 3a18c74a935e47375054902663327c24128a3b53
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 0a130df049c433902e5f19d894e4d829832d4c26
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396925"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990142"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 Azure Database for MySQL 是一种托管服务，可用于在云中运行、管理和缩放高可用性的 MySQL 数据库。 使用 Azure 门户可以轻松管理服务器和设计数据库。
 
@@ -35,6 +32,8 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 > * 查询数据
 > * 更新数据
 > * 还原数据
+
+如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 打开最喜爱的 Web 浏览器，然后访问 [Azure 门户](https://portal.azure.cn/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。

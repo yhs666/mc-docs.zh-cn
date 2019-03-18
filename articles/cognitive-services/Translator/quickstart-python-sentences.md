@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Python 和文本翻译 REST API 来确定句子长度（以字符数为单位）。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 10/24/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9a5112e0b1a336181998d09b9f3800914b51a156
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 7d81f4d83635808fb2ab4174b288796cac91565f
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673392"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964478"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>快速入门：使用 Python 通过文本翻译 API 来确定句子长度
 
@@ -28,8 +28,8 @@ ms.locfileid: "52673392"
 
 本快速入门需要：
 
-- Python 2.7.x 或 3.x
-- 适用于文本翻译的 Azure 订阅密钥
+* Python 2.7.x 或 3.x
+* 适用于文本翻译的 Azure 订阅密钥
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
@@ -65,7 +65,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-目前有一个终结点可用于文本翻译，并已设置为 `base_url`。 `path` 设置 `breaksentence` 路由并确定我们需使用 API 的版本 3。
+文本翻译全局终结点设置为 `base_url`。 `path` 设置 `breaksentence` 路由并确定我们需使用 API 的版本 3。
 
 此示例中的 `params` 用于设置所提供文本的语言。 `params` 不是 `breaksentence` 路由所需的。 如果不包含在请求中，此 API 会尝试检测所提供文本的语言，并会在响应中提供此信息以及置信度分数。
 
@@ -73,7 +73,7 @@ else:
 > 有关终结点、路由和请求参数的详细信息，请参阅[文本翻译 API 3.0：语言](/cognitive-services/translator/reference/v3-0-break-sentence)。
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
+base_url = 'https://api.translator.azure.cn'
 path = '/breaksentence?api-version=3.0'
 params = '&language=en'
 constructed_url = base_url + path + params
@@ -154,11 +154,11 @@ python sentence-length.py
 
 ## <a name="see-also"></a>另请参阅
 
-除了文本直译，还请了解如何使用文本翻译 API 执行以下操作：
+了解如何使用文本翻译 API 执行以下操作：
 
-- [翻译文本](quickstart-python-translate.md)
-- [直译文本](quickstart-python-transliterate.md)
-- [按输入确定语言](quickstart-python-detect.md)
-- [获取备用翻译](quickstart-python-dictionary.md)
-- [获取支持的语言的列表](quickstart-python-languages.md)
+* [翻译文本](quickstart-python-translate.md)
+* [直译文本](quickstart-python-transliterate.md)
+* [按输入确定语言](quickstart-python-detect.md)
+* [获取备用翻译](quickstart-python-dictionary.md)
+* [获取支持的语言的列表](quickstart-python-languages.md)
 

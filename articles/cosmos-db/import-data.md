@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 02/22/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e10ef79493143c4c8d1cc8f0ddacfcc2065855fe
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 993e17f34840bc01c8a04b654c26b43f986275eb
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987995"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004723"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
@@ -21,11 +21,9 @@ ms.locfileid: "56987995"
 要对 Azure Cosmos DB 使用哪个 API？
 
 * **[SQL API](documentdb-introduction.md)** - 可以使用数据迁移工具中提供的任何源选项导入数据。
-* **[Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md)** - 数据迁移工具目前不支持将 Azure Cosmos DB 的用于 MongoDB 的 API 用作源或目标。 若要将数据迁入或迁出 Azure Cosmos DB 中的集合，请参阅[如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 迁移 Cosmos 数据库中的 MongoDB 数据](mongodb-migrate.md)以获取说明。 仍可使用数据迁移工具将数据从 MongoDB 导出到 Azure Cosmos DB SQL API 集合，以便与 SQL API 配合使用。
-
-<!--Not Available [Table API](table-introduction.md) -->
-<!--Not Available [Import data for use with the Azure Cosmos DB Table API](table-import.md)-->
-<!--Not Available [Graph API](graph-introduction.md) -->
+* **[表 API](table-introduction.md)** - 可以使用数据迁移工具或 AzCopy 导入数据。 有关详细信息，请参阅[导入要在 Azure Cosmos DB 表 API 中使用的数据](table-import.md)。
+* **[Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md)** - 数据迁移工具目前不支持将 Azure Cosmos DB 的用于 MongoDB 的 API 作为源或目标。 若要将数据迁入或迁出 Azure Cosmos DB 中的集合，请参阅[如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 迁移 Cosmos 数据库中的 MongoDB 数据](mongodb-migrate.md)以获取说明。 仍可使用数据迁移工具将数据从 MongoDB 导出到 Azure Cosmos DB SQL API 集合，以便与 SQL API 配合使用。
+* **[Gremlin API](graph-introduction.md)** - Gremlin API 帐户目前不支持将数据迁移工具用作导入工具。
 
 本教程涵盖以下任务：
 
@@ -64,7 +62,7 @@ ms.locfileid: "56987995"
 <a name="Install"></a>
 ## <a name="installation"></a>安装
 
-迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，或者[下载一个预编译的库](http://aka.ms/csdmtool)，然后运行以下任一项：
+迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，或者[下载一个预编译的库](https://aka.ms/csdmtool)，然后运行以下任一项：
 
 * **Dtui.exe**：该工具的图形界面版本
 * **Dt.exe**：该工具的命令行版本
@@ -226,9 +224,7 @@ dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString
 
 借助 Azure 表存储源导入程序选项，可以从单个 Azure 表存储表导入。 可以选择性地筛选要导入的表实体。
 
-从 Azure 表存储导入的数据可输出到 Azure Cosmos DB 表和实体，以便与表 API 配合使用。 导入的数据还可输出到集合和文档，以便与 SQL API 配合使用。 但是，表 API 只能在命令行实用工具中用作目标。 无法使用数据迁移工具用户界面导出到表 API。
-
-<!-- Not Available on [Import data for use with the Azure Cosmos DB Table API](table-import.md)-->
+从 Azure 表存储导入的数据可输出到 Azure Cosmos DB 表和实体，以便与表 API 配合使用。 导入的数据还可输出到集合和文档，以便与 SQL API 配合使用。 但是，表 API 只能在命令行实用工具中用作目标。 无法使用数据迁移工具用户界面导出到表 API。 有关详细信息，请参阅[导入要在 Azure Cosmos DB 表 API 中使用的数据](table-import.md)。
 
 ![Azure 表存储源选项的屏幕截图](./media/import-data/azuretablesource.png)
 

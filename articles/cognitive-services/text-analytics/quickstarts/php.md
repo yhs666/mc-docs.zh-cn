@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 02/15/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8d46b382254a3f23a3e94822e31fd4d26dad47fb
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: fd572998d21aa57db623cd35cdad45a05af34a6d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204039"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964441"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 PHP 调用文本分析认知服务
 <a name="HOLTop"></a>
@@ -73,7 +73,7 @@ function DetectLanguage ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -190,7 +190,7 @@ function GetSentiment ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -280,7 +280,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -392,7 +392,7 @@ function GetEntities ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -591,4 +591,4 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
  [文本分析概述](../overview.md)  
  [常见问题解答 (FAQ)](../text-analytics-resource-faq.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

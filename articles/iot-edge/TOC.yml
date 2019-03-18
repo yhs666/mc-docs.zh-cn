@@ -93,6 +93,7 @@ items:
   - name: 在 VS 2017 中开发和调试模块
     href: how-to-visual-studio-develop-csharp-module.md
   - name: 在 VS Code 中开发和调试模块
+    href: how-to-vs-code-develop-module.md
   - name: 部署模块
     items:
     - name: Azure 门户
@@ -121,8 +122,8 @@ items:
     items:
     - name: IoT Edge 上的 Azure Blob 存储
       href: how-to-store-data-blob.md
-  - name: Azure DevOps 中的 CI/CD
-    href: how-to-ci-cd.md
+    - name: Azure DevOps
+      href: how-to-ci-cd.md
   - name: 故障排除
     href: troubleshoot.md
 - name: 相关内容
@@ -185,9 +186,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 视频
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 97a04e3b6d5afdd16ce122e6caef4509925485df
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 438310ffc01627827e2100cc09ee4f6f45df3357
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396765"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987966"

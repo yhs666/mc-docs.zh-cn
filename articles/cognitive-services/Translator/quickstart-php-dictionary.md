@@ -1,30 +1,30 @@
 ---
-title: 快速入门：查找备用翻译，PHP - 文本翻译 API
+title: 使用双语字典、PHP 查找字词 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 PHP 查找字词的备用翻译和示例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 06/22/2018
-ms.date: 11/27/2018
+origin.date: 02/08/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: a427b6c9310ffa4a007dfbed5790ad403eaa6839
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 1fcd407ba95fe07f87656da8a2fe9964ccaeb366
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673259"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964474"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>快速入门：使用文本翻译 REST API (PHP) 查找备用翻译
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>快速入门：通过 PHP 使用双语字典查找字词
 
 在本快速入门中，你将使用文本翻译 API 查找术语的可能备用翻译的详细信息，以及这些备用翻译的使用示例。
 
 ## <a name="prerequisites"></a>先决条件
 
-需要 [PHP 5.6.x](http://php.net/downloads.php) 运行此代码。
+需要 [PHP 5.6.x](https://php.net/downloads.php) 运行此代码。
 
 若要使用文本翻译 API，还需要订阅密钥；请参阅[如何注册文本翻译 API](translator-text-how-to-signup.md)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "52673259"
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
 
-$host = "https://api.cognitive.microsofttranslator.com";
+$host = "https://api.translator.azure.cn";
 $path = "/dictionary/lookup?api-version=3.0";
 
 // Translate from English to French.
@@ -78,7 +78,7 @@ function DictionaryLookup ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -102,7 +102,7 @@ $result = DictionaryLookup ($host, $path, $key, $params, $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>
@@ -190,7 +190,7 @@ echo $json;
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
 
-$host = "https://api.cognitive.microsofttranslator.com";
+$host = "https://api.translator.azure.cn";
 $path = "/dictionary/examples?api-version=3.0";
 
 // Translate from English to French.
@@ -219,7 +219,7 @@ function DictionaryExamples ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -244,7 +244,7 @@ $result = DictionaryExamples ($host, $path, $key, $params, $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>

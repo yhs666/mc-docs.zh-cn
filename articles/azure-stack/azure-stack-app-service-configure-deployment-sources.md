@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2018
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.openlocfilehash: 5894a6741c143266a70efd5485e1931cdd01c087
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 596fdf5b8c36aeef9eb1576a74043a6681941059
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814640"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987931"
 ---
 # <a name="configure-deployment-sources"></a>配置部署源
 
@@ -136,6 +137,10 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 11. 单击“源代码管理配置”。
 12. 将“应用程序密钥”和“应用机密”分别复制并粘贴到 DropBox 的“客户端 ID”和“客户端机密”输入框。
 13. 单击“保存” 。
+
+## <a name="next-steps"></a>后续步骤
+
+用户现在可以对[持续部署](/app-service/deploy-continuous-deployment)和[本地 Git 部署](/app-service/deploy-local-git)等操作使用部署源。
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

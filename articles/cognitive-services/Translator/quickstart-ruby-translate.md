@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 Ruby 将文本从一种语言翻译成另一种语言。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 06/22/2018
-ms.date: 11/27/2018
+origin.date: 02/08/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: dd5d580eacf92e1f89a175ba22d4ebb2c0f29629
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 225cf2e4388561f17015d1e4f9004a7d77daf652
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673450"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964469"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>快速入门：使用文本翻译 REST API (Ruby) 对文本进行翻译
 
@@ -51,7 +51,7 @@ require 'securerandom'
 # Replace the key string value with your valid subscription key.
 key = 'ENTER KEY HERE'
 
-host = 'https://api.cognitive.microsofttranslator.com'
+host = 'https://api.translator.azure.cn'
 path = '/translate?api-version=3.0'
 
 # Translate to German and Italian.

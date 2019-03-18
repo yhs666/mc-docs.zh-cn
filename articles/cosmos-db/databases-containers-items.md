@@ -8,12 +8,12 @@ origin.date: 11/08/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 8caaa4b2fa82d30fc1d317cf936ae798affa03b5
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 5948b7d1070ddc403ee9cfa757b2a847f0be82a1
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987967"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004535"
 ---
 # <a name="work-with-databases-containers-and-items"></a>使用数据库、容器和项
 
@@ -25,29 +25,25 @@ ms.locfileid: "56987967"
 
 可以在帐户下创建一个或多个 Azure Cosmos 数据库。 数据库类似于命名空间，它是一组 Azure Cosmos 容器的管理单元。 下表显示如何将 Azure Cosmos 数据库映射到各种特定于 API 的实体：
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **Azure Cosmos 实体** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- |
+|Azure Cosmos 数据库 | 数据库 | 密钥空间 | 数据库 | 数据库 | 不可用 |
 
-| **Azure Cosmos 实体** | **SQL API** | * **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- |
-|Azure Cosmos 数据库 | 数据库 | 数据库 |
+> [!NOTE]
+> 使用表 API 帐户，会在创建第一个表时自动在 Azure Cosmos 帐户中创建默认数据库。
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
-
-<!-- Not Available on With Table APIs accounts-->
 ### <a name="operations-on-an-azure-cosmos-database"></a>对 Azure Cosmos 数据库执行的操作
 
 可以使用以下 Azure Cosmos API 与 Azure Cosmos 数据库进行交互：
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **操作** | **Azure CLI**|**SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- | --- |
+|枚举所有数据库| 是 | 是 | 是（将数据库映射至密钥空间） | 是 | 不可用 | 不可用 |
+|读取数据库| 是 | 是 | 是（将数据库映射至密钥空间） | 是 | 不可用 | 不可用 |
+|创建新数据库| 是 | 是 | 是（将数据库映射至密钥空间） | 是 | 不可用 | 不可用 |
+|更新数据库| 是 | 是 | 是（将数据库映射至密钥空间） | 是 | 不可用 | 不可用 |
 
-| **操作** | **Azure CLI**|**SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- | --- |
-|枚举所有数据库| 是 | 是 | 是 |
-|读取数据库| 是 | 是 | 是 |
-|创建新数据库| 是 | 是 | 是 |
-|更新数据库| 是 | 是 | 是 |
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 容器
 
 Azure Cosmos 容器是预配的吞吐量和项目存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器的项以及针对容器预配的吞吐量将基于分区键自动分配给一组逻辑分区。 若要详细了解分区和分区键，请参阅[逻辑分区](partition-data.md)一文。 
@@ -72,88 +68,66 @@ Azure Cosmos 容器是与架构无关的项容器。 容器中的项可以具备
 
 Azure Cosmos 容器专用于特定于 API 的实体，如下所示：
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **Azure Cosmos 实体** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- |
+|Azure Cosmos 容器 | 集合 | 表 | 集合 | Graph | 表 |
 
-| **Azure Cosmos 实体** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- |
-|Azure Cosmos 容器 | 集合 | 集合 |
-
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 容器的属性
 
 Azure Cosmos 容器具备一组系统定义的属性。 根据所选的 API，其中一些属性可能不会直接公开。 下表介绍了受支持的系统定义属性的列表：
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **系统定义的属性** | **是系统生成的还是可由用户设置的？** | **用途** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|_rid | 系统生成的 | 容器的唯一标识符 | 是 | 否 | 否 | 否 | 否 |
+|_etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 | 否 | 否 | 否 |
+|_ts | 系统生成的 | 容器上次更新的时间戳 | 是 | 否 | 否 | 否 | 否 |
+|_self | 系统生成的 | 容器的可寻址 URI | 是 | 否 | 否 | 否 | 否 |
+|id | 用户可配置 | 用户定义的容器唯一名称 | 是 | 是 | 是 | 是 | 是 |
+|indexingPolicy | 用户可配置 | 提供更改索引路径、精度和一致性模型的功能。 | 是 | 否 | 否 | 否 | 是 |
+|TimeToLive | 用户可配置 | 提供在一段时间以后从容器自动删除项的功能。 有关详细信息，请参阅[生存时间](time-to-live.md)一文。 | 是 | 否 | 否 | 否 | 是 |
+|changeFeedPolicy | 用户可配置 | 用于读取对容器中的项所做的更改。 有关详细信息，请参阅[更改源](change-feed.md)一文。 | 是 | 否 | 否 | 否 | 是 |
+|uniqueKeyPolicy | 用户可配置 | 使用唯一键可确保逻辑分区内一个或多个值的唯一性。 有关详细信息，请参阅[唯一键](unique-keys.md)一文。 | 是 | 否 | 否 | 否 | 是 |
 
-| **系统定义的属性** | **是系统生成的还是可由用户设置的？** | **用途** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- | --- | --- |
-|__rid | 系统生成的 | 容器的唯一标识符 | 是 | 否 |
-|__etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 |
-|__ts | 系统生成的 | 容器上次更新的时间戳 | 是  | 否 |
-|__self | 系统生成的 | 容器的可寻址 URI | 是 | 否 |
-|id | 用户可配置 | 用户定义的容器唯一名称 | 是 | 是 |
-|indexingPolicy | 用户可配置 | 提供更改索引路径、精度和一致性模型的功能。 | 是 | 否 |
-|TimeToLive | 用户可配置 | 提供在一段时间以后从容器自动删除项的功能。 有关详细信息，请参阅[生存时间](time-to-live.md)一文。 | 是 | 否 |
-|changeFeedPolicy | 用户可配置 | 用于读取对容器中的项所做的更改。 有关详细信息，请参阅[更改源](change-feed.md)一文。 | 是 | 否 |
-|uniqueKeyPolicy | 用户可配置 | 使用唯一键可确保逻辑分区内一个或多个值的唯一性。 有关详细信息，请参阅[唯一键](unique-keys.md)一文。 | 是 | 否 |
-
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
 ### <a name="operations-on-an-azure-cosmos-container"></a>对 Azure Cosmos 容器执行的操作
 
 Azure Cosmos 容器支持使用任何 Azure Cosmos API 执行的以下操作。
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
-
-| **操作** | **Azure CLI** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- | --- | --- |
-| 枚举数据库中的容器 | 是* | 是 | 是 |
-| 读取容器 | 是 | 是 | 是 |
-| 新建容器 | 是 | 是 | 是 |
-| 更新容器 | 是 | 是 | 是 |
-| 删除容器 | 是 | 是 | 是 |
-
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **操作** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 枚举数据库中的容器 | 是* | 是 | 是 | 是 | 不可用 | 不可用 |
+| 读取容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
+| 新建容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
+| 更新容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
+| 删除容器 | 是 | 是 | 是 | 是 | 不可用 | 不可用 |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 项
 
 根据所选的 API，Azure Cosmos 项可以表示集合中的一个文件、表格中的一行或者图形中的一个节点/边缘。 下表显示特定于 API 的实体和 Azure Cosmos 项之间的映射：
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
-
-| **Cosmos 实体** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- |
-|Azure Cosmos 项 | 文档 | 文档 |
-
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **Cosmos 实体** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- |
+|Azure Cosmos 项 | 文档 | 行 | 文档 | 节点或边缘 | 项目 |
 
 ### <a name="properties-of-an-item"></a>项的属性
 
 每个 Azure Cosmos 项都具有以下系统定义的属性。 根据所选的 API，其中一些属性可能不会直接公开。
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
-
-|**系统定义的属性** | **是系统生成的还是可由用户设置的？**| **用途** | **SQL API**  | **Azure Cosmos DB 的 API for MongoDB**|
-| --- | --- | --- | --- | --- |
-|_id | 系统生成的 | 项的唯一标识符 | 是 | 否 |
-|_etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 |
-|_ts | 系统生成的 | 项上次更新的时间戳 | 是 | 否 |
-|_self | 系统生成的 | 项的可寻址 URI | 是 | 否 |
-|id | 任一个 | 逻辑分区内用户定义的唯一名称。 如果用户没有指定该 ID，则系统会自动生成一个。 | 是 | 是 |
-|任意用户定义的属性 | 用户定义 | 用户定义的属性以 API 本机表示形式表示（JSON、BSON、CQL 等等） | 是 | 是 |
-
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+|**系统定义的属性** | **是系统生成的还是可由用户设置的？**| **用途** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|_id | 系统生成的 | 项的唯一标识符 | 是 | 否 | 否 | 否 | 否 |
+|_etag | 系统生成的 | 用于乐观并发控制的实体标记 | 是 | 否 | 否 | 否 | 否 |
+|_ts | 系统生成的 | 项上次更新的时间戳 | 是 | 否 | 否 | 否 | 否 |
+|_self | 系统生成的 | 项的可寻址 URI | 是 | 否 | 否 | 否 | 否 |
+|id | 任一个 | 逻辑分区内用户定义的唯一名称。 如果用户没有指定该 ID，则系统会自动生成一个。 | 是 | 是 | 是 | 是 | 是 |
+|任意用户定义的属性 | 用户定义 | 用户定义的属性以 API 本机表示形式表示（JSON、BSON、CQL 等等） | 是 | 是 | 是 | 是 | 是 |
 
 ### <a name="operations-on-items"></a>对项执行的操作
 
 Azure Cosmos 项支持可使用任何 Azure Cosmos API 执行的以下操作。
 
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
-
-| **操作** | **Azure CLI** | **SQL API**  | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- | --- | --- |
-| 插入、替换、删除、Upsert、读取 | 否 | 是 | 是 |
-
-<!-- Not Available on **Cassandra API**  | **Gremlin API** | **Table API** |-->
+| **操作** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API** | **表 API** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 插入、替换、删除、Upsert、读取 | 否 | 是 | 是 | 是 | 是 | 是 |
 
 ## <a name="next-steps"></a>后续步骤
 

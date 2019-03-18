@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/30/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: f1b37d920f9de80bbdb60723527ff1ebecc6631a
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: d40953bf12213adf53528be27d6a4abfb8da4fec
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836972"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987936"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 导入和导出 DNS 区域文件 
 
@@ -121,7 +121,7 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 * 可以使用 `nslookup` 验证记录的名称解析。 由于尚未委派区域，因此需要显式指定正确的 Azure DNS 名称服务器。 下面的示例演示如何检索已分配给该区域的名称服务器的名称。 另外，还会演示如何使用 `nslookup` 查询“www”记录。
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json

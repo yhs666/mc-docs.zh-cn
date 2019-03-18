@@ -7,16 +7,16 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 01/09/2019
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.custom: mvc
-ms.openlocfilehash: 154d182b9cc703355c3fd8f703d6aed1705b7ecf
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 0193a361996ee743ddaf3cb55833f3582b96fb44
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663597"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990144"
 ---
-# <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
+# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>快速入门：使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。

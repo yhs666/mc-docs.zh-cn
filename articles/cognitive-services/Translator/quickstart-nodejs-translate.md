@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 Node.js 将文本从一种语言翻译成另一种语言。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 06/21/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3195acf3891beb67069a93108a5eb4d015b1595f
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: ce04d199e37e0ab2cff566eb6da7330b28cb17a0
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673488"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964426"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>快速入门：使用 Node.js 通过文本翻译 API 来翻译字符串
 
@@ -29,8 +29,8 @@ ms.locfileid: "52673488"
 
 本快速入门需要：
 
-- [Node 8.12.x 或更高版本](https://nodejs.org/en/)
-- 适用于文本翻译的 Azure 订阅密钥
+* [Node 8.12.x 或更高版本](https://nodejs.org/en/)
+* 适用于文本翻译的 Azure 订阅密钥
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
@@ -75,7 +75,7 @@ if (!subscriptionKey) {
 ```javascript
 let options = {
     method: 'POST',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: 'https://api.translator.azure.cn/',
     url: 'translate',
     qs: {
       'api-version': '3.0',
@@ -157,9 +157,9 @@ node translate-text.js
 
 除了语言检测，还请了解如何使用文本翻译 API 执行以下操作：
 
-- [直译文本](quickstart-nodejs-transliterate.md)
-- [按输入确定语言](quickstart-nodejs-detect.md)
-- [获取备用翻译](quickstart-nodejs-dictionary.md)
-- [获取支持的语言的列表](quickstart-nodejs-languages.md)
-- [根据输入确定句子长度](quickstart-nodejs-sentences.md)
+* [直译文本](quickstart-nodejs-transliterate.md)
+* [按输入确定语言](quickstart-nodejs-detect.md)
+* [获取备用翻译](quickstart-nodejs-dictionary.md)
+* [获取支持的语言的列表](quickstart-nodejs-languages.md)
+* [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 

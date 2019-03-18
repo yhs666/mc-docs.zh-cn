@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2018
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: be4870bd0e499c11987f21a5dee581631d136284
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: 12d2e0e5fb8f9cfbe23f6efac86024715ea4a09b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396160"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988094"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack 中的使用情况和计费
 
@@ -36,9 +37,9 @@ Azure Stack 中的每个资源提供程序会根据资源使用情况发布使�
 
 如果已[将 Azure Stack 实例注册到 Azure](azure-stack-register.md)，则 Azure Stack 会配置为将使用情况数据发送到 Azure Commerce。 将数据上传到 Azure 后，可以通过计费门户或使用 Azure 资源使用情况 API 访问该数据。 若要详细了解哪些使用情况数据会报告到 Azure，请参阅[使用情况数据报告](azure-stack-usage-reporting.md)。  
 
-下图显示了使用情况管道中的关键组件： 
+下图显示了使用情况管道中的关键组件：
 
-![使用情况管道](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![使用情况管道](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>可以找到哪些使用情况信息，如何查找？
 

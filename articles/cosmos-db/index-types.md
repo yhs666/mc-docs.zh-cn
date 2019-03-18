@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f0b2dcd0b951f532bd9ebc2c24c92f0774d68c9c
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 19510e9798cb0c0e6531fc824e2cab9e52d00a55
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988045"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004522"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引类型
 
@@ -55,6 +55,9 @@ ms.locfileid: "56988045"
 
 ## <a name="index-precision"></a>索引精度
 
+> [!NOTE]
+> Azure Cosmos 容器支持新的索引布局，该布局不再要求使用除最大精度值 (-1) 之外的自定义索引精度。 如果使用此方法，则路径在进行索引时，精度始终是最高的。 如果在索引编制策略上指定精度值，则容器上的 CRUD 请求会以静默方式忽略该精度值，来自容器的响应只包含最高精度值 (-1)。  所有新的 Cosmos 容器默认使用新的索引布局。
+
 - 可以使用索引精度在索引存储开销和查询性能之间做出权衡。 对于数值，我们建议使用默认的精度配置 -1（最大）。 因为数字是 JSON 格式的 8 个字节，这相当于 8 个字节的配置。 选择较低值的精度（如 1-7）意味着在某些范围内的值会映射到相同的索引条目。 因此，可以减少索引存储空间，但查询执行可能需要处理更多的项。 因此，它会消耗更多的吞吐量/RU。
 
 - 索引精度对于字符串范围更加实用。 由于字符串可以是任意长度，索引精度的选择可能会影响字符串范围查询的性能。 也可能影响所需索引存储空间量。 可以使用介于 1 和 100 之间的精度或 -1（最大精度）来配置字符串范围索引。 如果想要对字符串属性执行 ORDER BY 查询，则必须为相应路径指定精度 -1。
@@ -62,9 +65,6 @@ ms.locfileid: "56988045"
 - 空间索引始终为所有类型（Point、LineString 和 Polygon）使用默认索引精度。 无法重写空间索引的默认索引精度。
 
 当查询使用 ORDER BY，但针对最大精度的查询路径没有范围索引时，Azure Cosmos DB 会返回一个错误。
-
-> [!NOTE]
-> Azure Cosmos 容器支持新的索引布局，该布局不再要求使用除最大精度值 (-1) 之外的自定义索引精度。 如果使用此方法，则路径在进行索引时，精度始终是最高的。 如果在索引编制策略上指定精度值，则容器上的 CRUD 请求会以静默方式忽略该精度值，来自容器的响应只包含最高精度值 (-1)。  所有新的 Cosmos 容器默认使用新的索引布局。
 
 ## <a name="next-steps"></a>后续步骤
 

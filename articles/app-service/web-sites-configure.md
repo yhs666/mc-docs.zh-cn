@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 01/21/2019
+ms.date: 03/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 4bcdfaae3aebf7b7037f2248134d9349546084fb
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: cb988f8555ea1eb75fdcd4a40c0ce6c0292bd91e
+ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083721"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57787317"
 ---
 # <a name="configure-apps-in-azure-app-service"></a>在 Azure 应用服务中配置应用
 
@@ -74,7 +74,7 @@ ms.locfileid: "54083721"
 
 应用程序设置在存储时始终进行加密（静态加密）。
 
-
+可以使用[密钥保管库引用](app-service-key-vault-references.md)从密钥保管库解析应用设置。
 
 ### <a name="connection-strings"></a>连接字符串
 链接资源的连接字符串。 
@@ -92,7 +92,7 @@ ms.locfileid: "54083721"
 
 连接字符串在存储时始终进行加密（静态加密）。
 
-
+可以使用[密钥保管库引用](app-service-key-vault-references.md)从密钥保管库解析连接字符串。
 
 ### <a name="default-documents"></a>默认文档
 默认文档是在网站的根 URL 下显示的网页。  使用列表中第一个匹配文件。 

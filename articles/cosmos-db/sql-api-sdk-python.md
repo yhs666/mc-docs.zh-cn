@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 origin.date: 11/29/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e8bc215e50cb841294cd1b74b3c01b3f0f4ff568
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: d27e1185e4e3c0d8d2a42a0ab9e2e1ac0e6bd73a
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988023"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004698"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "56988023"
 | |  |
 |---|---|
 |**下载 SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 文档**|[Python API 参考文档](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**API 文档**|[Python API 参考文档](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**SDK 安装说明**|[Python SDK 安装说明](https://github.com/Azure/azure-cosmos-python)|
 |**参与 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**入门**|[Python SDK 入门](sql-api-python-application.md)|

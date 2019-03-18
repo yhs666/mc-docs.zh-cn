@@ -1,25 +1,23 @@
 ---
 title: Azure Database for MySQL 中的服务器概念
 description: 本主题提供使用 Azure Database for MySQL 服务器的注意事项和指南。
-services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: digimobile
-editor: jasonwhowell
+author: WenJason
+ms.author: v-jay
 ms.service: mysql
-ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 6ee0739cbd809edea8a8baad1022ae9d2c9e1128
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 02/28/2018
+ms.date: 03/18/2019
+ms.openlocfilehash: a3b499d1d725ce6ca7d352ef8010da65e317060d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657296"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990137"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器概念
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本文提供使用 Azure Database for MySQL 服务器的注意事项和指南。
 
@@ -43,7 +41,7 @@ Azure Database for MySQL 服务器：
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>如何连接到 Azure Database for MySQL 服务器并进行身份验证？
 
 以下元素有助于确保安全地访问数据库。
-|||
+|     |     |
 | :-- | :-- |
 | **身份验证和授权** | Azure Database for MySQL 服务器支持本机 MySQL 身份验证。 可使用服务器的管理员登录名连接到服务器并进行身份验证。 |
 | **协议** | 该服务支持 MySQL 使用的基于消息的协议。 |
@@ -52,9 +50,11 @@ Azure Database for MySQL 服务器：
 | SSL | 该服务支持在应用程序和数据库服务器之间强制进行 SSL 连接。  请参阅[配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL](./howto-configure-ssl.md)。 |
 
 ## <a name="how-do-i-manage-a-server"></a>如何管理服务器？
+
 可通过使用 Azure 门户或 Azure CLI 来管理 Azure Database for MySQL 服务器。
 
 ## <a name="next-steps"></a>后续步骤
+
 - 有关该服务的概述，请参阅 [Azure Database for MySQL 概述](./overview.md)
 - 有关基于服务层的具体资源配额和限制的信息，请参阅[服务层](./concepts-service-tiers.md)
 - 有关连接到服务的信息，请参阅 [Azure Database for MySQL 的连接库](./concepts-connection-libraries.md)。

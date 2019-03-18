@@ -7,19 +7,19 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: gwallace
 origin.date: 02/14/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 497afdf028fa1a809983d3c468caac073708e5dc
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 884235ca734ca9a6062401dc9b5aea29944a6d50
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987127"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987920"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>在 Azure 自动化中管理 Runbook
 
-可以通过以下方法将 Runbook 添加到 Azure 自动化：[创建新的 Runbook](#creating-a-new-runbook) 或从文件中导入现有 Runbook。 本文介绍如何通过文件创建和导入 Runbook。
+可以通过以下方法将 Runbook 添加到 Azure 自动化：[创建新的 Runbook](#create-a-runbook) 或从文件中导入现有 Runbook。 本文介绍如何通过文件创建和导入 Runbook。
 
 ## <a name="create-a-runbook"></a>创建 runbook
 
@@ -66,7 +66,7 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 5. 如果“名称”字段已启用，则可以选择更改它。  Runbook 名称必须以字母开头，可以使用字母、数字、下划线和短划线。
 6. 将自动选择 [Runbook 类型](automation-runbook-types.md)，但可以在考虑适用的限制后更改该类型。 
 7. 新的 runbook 会出现在自动化帐户的 runbook 列表中。
-8. 必须先 [发布 Runbook](#publishing-a-runbook) ，才能运行它。
+8. 必须先 [发布 Runbook](#publish-a-runbook) ，才能运行它。
 
 > [!NOTE]
 > 在导入图形 Runbook 或图形 PowerShell 工作流 Runbook 后，可以选择转换为其他类型（如果需要）。 无法转换为文本 runbook。
@@ -90,7 +90,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>测试 Runbook
 
-测试 Runbook 时，将执行[草稿版](#publishing-a-runbook)，并会完成其执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[“输出”](automation-runbook-output-and-messages.md#output-stream)与[“警告和错误”](automation-runbook-output-and-messages.md#message-streams)流。 仅当 [$VerbosePreference 变量](automation-runbook-output-and-messages.md#preference-variables)设置为 Continue 时，才会在“输出”窗格中显示发送到[详细流](automation-runbook-output-and-messages.md#message-streams)的消息。
+测试 Runbook 时，将执行[草稿版](#publish-a-runbook)，并会完成其执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[“输出”](automation-runbook-output-and-messages.md#output-stream)与[“警告和错误”](automation-runbook-output-and-messages.md#message-streams)流。 仅当 [$VerbosePreference 变量](automation-runbook-output-and-messages.md#preference-variables)设置为 Continue 时，才会在“输出”窗格中显示发送到[详细流](automation-runbook-output-and-messages.md#message-streams)的消息。
 
 即使草稿版正在运行，该 Runbook 也仍会正常执行，并针对环境中的资源执行任何操作。 因此，只能在非生产资源中测试 Runbook。
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 Ruby 查明文本中句子的长度。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 06/22/2018
-ms.date: 11/27/2018
+origin.date: 02/08/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3bda1e9ad169b7b6d4255cbb0f2c3d3fdef2a464
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: bdc529b946d880c69cf0dc6a45963f7b71afac65
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673492"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964449"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>快速入门：使用文本翻译 REST API (Ruby) 获取句子长度
 
@@ -51,7 +51,7 @@ require 'securerandom'
 # Replace the key string value with your valid subscription key.
 key = 'ENTER KEY HERE'
 
-host = 'https://api.cognitive.microsofttranslator.com'
+host = 'https://api.translator.azure.cn'
 path = '/breaksentence?api-version=3.0'
 
 uri = URI (host + path)

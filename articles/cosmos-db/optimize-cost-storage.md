@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 99cf45e2e97e1affe5aae03ac3cc7d321dfd4944
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: a824927ba531e69ba97210e6af8467674fa86ba2
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857405"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004550"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的存储成本
 
@@ -22,7 +22,7 @@ Azure Cosmos DB 提供无限的存储和吞吐量。 与必须在 Azure Cosmos �
 
 存储的计费单位为 GB。 数据和索引使用本地 SSD 支持的存储。 使用的总存储量等于使用 Azure Cosmos DB 的所有区域中使用的数据和索引所需的存储。 如果跨三个区域对 Azure Cosmos 帐户进行多区域复制，则将为这三个区域中的每个区域支付总存储成本。 要估算存储要求，请参阅[容量规划器](https://www.documentdb.com/capacityplanner)工具。 Azure Cosmos DB 中的存储成本为 2.576 元/GB/月。有关最新更新，请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。 可以设置警报以确定 Azure Cosmos 容器使用的存储，要监视存储，请参阅[监视 Azure Cosmos DB ](monitor-accounts.md)一文。
 
-<!-- Notice $0.25 to CNY 2.576 -->
+<!--MOONCAKE: CORRRECT ON $0.25 to CNY 2.576 -->
 
 ## <a name="optimize-cost-with-item-size"></a>通过项目大小优化成本
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 希望项目大小不超过 2 MB，以获得最佳性能和成�
 
 ## <a name="check-storage-consumed"></a>检查使用的存储
 
-要检查 Azure Cosmos 容器的存储消耗情况，可以在容器上运行 HEAD 或 GET请求，并检查 `x-ms-request-quota` 和 `x-ms-request-usage` 标头。 或者，如果使用 .NET SDK，可使用 [DocumentSizeQuota](https://docs.microsoft.com/zh-cn/previous-versions/azure/dn850325(v%3Dazure.100)) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 属性来消耗存储。
+要检查 Azure Cosmos 容器的存储消耗情况，可以在容器上运行 HEAD 或 GET请求，并检查 `x-ms-request-quota` 和 `x-ms-request-usage` 标头。 或者，如果使用 .NET SDK，可使用 [DocumentSizeQuota](https://docs.microsoft.com/zh-cn/previous-versions/azure/dn850325(v%3Dazure.100)) 和 [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 属性来消耗存储。
 
 ## <a name="using-sdk"></a>使用 SDK
 
@@ -58,6 +58,7 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
 * 详细了解[开发和测试优化](optimize-dev-test.md)
+<!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->ss
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)

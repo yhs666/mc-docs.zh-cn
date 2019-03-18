@@ -9,25 +9,25 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/08/2019
-ms.date: 02/27/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 4fc444070aab9a537440162ff335ca3a703f1883
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 517ee0ed934f6852c373bec2b85930930a8f2d0b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204048"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964416"
 ---
 # <a name="detect-domain-specific-content"></a>检测特定于域的内容
 
-除标记和高级分类外，计算机视觉还支持使用已经过专门数据训练的模型执行进一步特定于域的分析。 
+除标记和高级分类外，计算机视觉还支持使用已经过专门数据训练的模型执行进一步特定于域的分析。
 
 可通过两种方法使用特定于域的模型：使用模型本身（作用域分析）或用作分类功能的增强。
 
 ### <a name="scoped-analysis"></a>作用域分析
 
-可通过调用 [Models/\<model\>/Analyze](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e200) API，仅使用选择的特定于域的模型来分析图像。 
+可通过调用 [Models/\<model\>/Analyze](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e200) API，仅使用选择的特定于域的模型来分析图像。
 
 以下是 **models/celebrities/analyze** API 为给定图像返回的示例 JSON 响应：
 
@@ -56,28 +56,28 @@ ms.locfileid: "57204048"
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>增强版分类分析  
+### <a name="enhanced-categorization-analysis"></a>增强版分类分析
 
-特定于域的模型还可用于对常规图像分析进行补充。 可通过在 [Analyze](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API 调用的 *details* 参数中指定特定于域的模型，作为[高级分类](concept-categorizing-images.md)的一部分执行此操作。 
+特定于域的模型还可用于对常规图像分析进行补充。 可通过在 [Analyze](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API 调用的 *details* 参数中指定特定于域的模型，作为[高级分类](concept-categorizing-images.md)的一部分执行此操作。
 
-在这种情况下，首先会调用 86 类别分类分类器。 如果检测到的任何类别具有匹配的特定于域的模型，图像也会通过该模型并会添加结果。 
+在这种情况下，首先会调用 86 类别分类分类器。 如果检测到的任何类别具有匹配的特定于域的模型，图像也会通过该模型并会添加结果。
 
 以下 JSON 响应展示可如何在更广泛的分类分析中以 `detail` 节点的形式包含特定于域的分析。
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -86,8 +86,8 @@ ms.locfileid: "57204048"
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -109,20 +109,20 @@ ms.locfileid: "57204048"
 调用 [Models](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd) API 将返回此信息，以及每个模型可应用于的类别：
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

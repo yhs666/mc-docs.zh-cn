@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 02ffee255e17304437caa796e2b7f33a487320f4
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 03/18/2019
+ms.openlocfilehash: 4526dea4147fca6bcc37c00ff53f0267cef2faf1
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806168"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990172"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新用于 MySQL 服务器的 Azure 数据库的配置
 > [!NOTE]
@@ -78,10 +78,10 @@ az group delete --name myresource
 | **命令** | **说明** |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az mysql server create](/cli/mysql/server#az-msql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
-| [az mysql server configuration list](/cli/mysql/server/configuration#az-msql-server-configuration-list) | 列出用于 MySQL 服务器的 Azure 数据库的配置。 |
-| [az mysql server configuration set](/cli/mysql/server/configuration#az-msql-server-configuration-set) | 更新用于 MySQL 服务器的 Azure 数据库的配置。 |
-| [az mysql server configuration show](/cli/mysql/server/configuration#az-msql-server-configuration-show) | 显示用于 MySQL 服务器的 Azure 数据库的配置。 |
+| [az mysql server create](/cli/mysql/server#az-mysql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
+| [az mysql server configuration list](/cli/mysql/server/configuration#az-mysql-server-configuration-list) | 列出用于 MySQL 服务器的 Azure 数据库的配置。 |
+| [az mysql server configuration set](/cli/mysql/server/configuration#az-mysql-server-configuration-set) | 更新用于 MySQL 服务器的 Azure 数据库的配置。 |
+| [az mysql server configuration show](/cli/mysql/server/configuration#az-mysql-server-configuration-show) | 显示用于 MySQL 服务器的 Azure 数据库的配置。 |
 | [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤

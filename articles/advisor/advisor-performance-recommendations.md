@@ -1,26 +1,21 @@
 ---
-title: Azure 顾问性能建议 | Azure Docs
+title: 使用 Azure 顾问提高 Azure 应用程序的性能 | Microsoft Docs
 description: 使用顾问优化 Azure 部署的性能。
 services: advisor
 documentationcenter: NA
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: ''
+author: kasparks
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/21/19
-ms.author: v-lingwu
-ms.openlocfilehash: e1ad3eea35f7b9c4af1c70adc39537cd11b3c62c
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.date: 01/29/2019
+ms.author: lingliw
+ms.openlocfilehash: 0aae6057199c046bdea9d6e135f7321c0890fc50
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363307"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964450"
 ---
-# <a name="advisor-performance-recommendations"></a>顾问性能建议
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>使用 Azure 顾问提高 Azure 应用程序的性能
 
 Azure 顾问性能建议有助于提高关键业务应用程序的速度和响应能力。 可通过顾问从顾问仪表板的“性能”选项卡获取性能建议。
 

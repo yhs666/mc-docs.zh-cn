@@ -1,28 +1,21 @@
 ---
-title: Azure 顾问高可用性建议 | Microsoft Docs
+title: 使用 Azure 顾问提高应用程序的可用性 | Microsoft Docs
 description: 使用 Azure 顾问提高 Azure 部署的高可用性。
 services: advisor
 documentationcenter: NA
-author: forester123
-manager: carmonm
-editor: ''
-ms.assetid: ''
+author: kasparks
+ms.author: lingliw
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-origin.date: 11/16/2016
-ms.date: 03/26/2018
-ms.author: v-johch
-ms.openlocfilehash: b98b8853d863b45116f45dc876e03dd2db5983f0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 01/29/2019
+ms.openlocfilehash: 33dc5415c02f8c52ab564ddfb59707a0eeb2ccb5
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662088"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964461"
 ---
-# <a name="advisor-high-availability-recommendations"></a>顾问高可用性建议
+# <a name="improve-availability-of-your-application-with-azure-advisor"></a>使用 Azure 顾问提高应用程序的可用性
 
 Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可以通过顾问仪表板的“高可用性”选项卡获取顾问的高可用性建议。
 
@@ -33,23 +26,22 @@ Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可�
 > [!NOTE]
 > 如果选择创建可用性集，则必须至少再向其中添加一台虚拟机。 建议在可用性集中对两个或更多虚拟机进行分组，确保其中一台虚拟机在出现故障期间可用。
 
-## <a name="ensure-availability-set-fault-tolerance"></a>确保可用性集容错 
+## <a name="ensure-availability-set-fault-tolerance"></a>确保可用性集容错
 
 要为应用程序提供冗余，建议你将两个或更多虚拟机组合到一个可用性集中。 顾问标识包含单个虚拟机的可用性集，并建议向其中添加一个或多个虚拟机。 这种配置可以确保在计划内或计划外维护事件期间，至少有一个虚拟机可用，并满足 Azure 虚拟机 SLA 要求。 可以选择创建虚拟机，或将现有的虚拟机添加到可用性集。  
+
+## <a name="use-managed-disks-to-improve-data-reliability"></a>使用托管磁盘提高数据可靠性
+
+具有共享存储帐户或存储缩放单元的磁盘的可用性集中的虚拟机在中断期间不可对单个存储规模单元故障进行复原。 顾问将确定这些可用性集，并建议迁移到 Azure 托管磁盘。 这将确保可用性集中的不同虚拟机的磁盘彼此完全独立，以避免单点故障。 
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>确保应用程序网关容错
 为了确保由应用程序网关提供支持的任务关键型应用程序的业务连续性，顾问会标识没有针对容错进行配置的应用程序网关实例，并建议可以执行的修正操作。 顾问会标识中型或大型单实例应用程序网关，并建议至少再添加一个实例。 它还标识单实例或多实例小型应用程序网关，并建议迁移到中型或大型 SKU。 顾问建议执行这些操作以确保应用程序网关实例配置为满足这些资源的当前 SLA 要求。
 
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>提高虚拟机磁盘的性能和可靠性
-
-顾问标识带标准磁盘的虚拟机，并建议升级为高级磁盘。
- 
-Azure 高级存储为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 在固态硬盘 (SSD) 上使用高级存储帐户存储数据的虚拟机磁盘。 为使应用程序实现最佳性能，建议将任何需要高 IOPS 的虚拟机磁盘迁移到高级存储。 
-
-如果磁盘不需要高 IOPS，则可以通过将其保留在标准存储中来限制成本。 标准存储将虚拟机磁盘数据存储在硬盘驱动器 (HDD) 而不是 SSD 上。 可以选择将虚拟机磁盘迁移到高级磁盘。 大多数虚拟机 SKU 支持高级磁盘。 但是在某些情况下，如果要使用高级磁盘，可能也需要升级虚拟机 SKU。
+此建议可确保由应用程序网关提供支持的任务关键型应用程序的业务连续性。 顾问会标识未针对容错进行配置的应用程序网关实例，并且会建议可以执行的修正操作。 顾问会标识中型或大型单实例应用程序网关，并建议至少再添加一个实例。 它还标识单实例或多实例小型应用程序网关，并建议迁移到中型或大型 SKU。 顾问建议执行这些操作以确保应用程序网关实例配置为满足这些资源的当前 SLA 要求。
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>防止意外删除虚拟机数据
-设置虚拟机备份可确保业务关键型数据的可用性，并防止意外删除或损坏。  顾问标识其中未启用备份的虚拟机，并建议启用备份。 
+
+设置虚拟机备份可确保业务关键型数据的可用性，并防止意外删除或损坏。 顾问标识其中未启用备份的虚拟机，并建议启用备份。 
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何访问顾问中的高可用性建议
 

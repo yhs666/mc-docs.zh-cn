@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 在该快速入门中，你将使用文本翻译 API 和 Ruby 识别源文本的语言。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 06/22/2018
-ms.date: 11/27/2018
+origin.date: 02/08/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 32f0f2408570a1c75ded5ffb276614b542117306
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: e9227ddda5f10d70d88fddf544eda408ae13aa61
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673341"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964451"
 ---
 # <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>快速入门：使用文本翻译 REST API (Ruby) 识别文本中的语言
 
@@ -51,7 +51,7 @@ require 'securerandom'
 # Replace the key string value with your valid subscription key.
 key = 'ENTER KEY HERE'
 
-host = 'https://api.cognitive.microsofttranslator.com'
+host = 'https://api.translator.azure.cn'
 path = '/detect?api-version=3.0'
 
 uri = URI (host + path)

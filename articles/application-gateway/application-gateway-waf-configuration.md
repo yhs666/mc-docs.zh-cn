@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
 origin.date: 01/29/2019
-ms.date: 02/11/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4cf05317b63db1f7bf559c304eaf58b1deba0f8b
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 6bab11c1d672de5bbbeae7443955b8ef5d41d80f
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079667"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788714"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 应用程序防火墙请求大小限制和排除列表
 
@@ -38,13 +38,13 @@ WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示�
 
 可以向排除列表添加以下属性：
 
-- 请求标头
-- 请求 Cookie
-- 请求正文
+* 请求标头
+* 请求 Cookie
+* 请求正文
 
-   - 形成多部分数据
-   - XML
-   - JSON
+   * 形成多部分数据
+   * XML
+   * JSON
 
 可以指定请求标头、正文、cookie 或查询字符串属性的完全匹配项。  也可以选择指定部分匹配项。 排除始终应用于标头字段，而不应用于其值。 排除规则的范围具有全局性，将应用于所有页面和所有规则。
 
@@ -59,19 +59,21 @@ WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示�
 
 ### <a name="examples"></a>示例
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 以下 Azure PowerShell 代码片段演示了如何使用排除项：
 
 ```azurepowershell
 // exclusion 1: exclude request head start with xyz
 // exclusion 2: exclude request args equals a
 
-$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
 
-$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
 
 // add exclusion lists to the firewall config
 
-$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
 ```
 
 以下 json 代码片段演示了如何使用排除项：
@@ -95,4 +97,4 @@ $firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfigurati
 
 配置 WAF 设置后，可以了解如何查看 WAF 日志。 有关详细信息，请参阅[应用程序网关诊断](application-gateway-diagnostics.md#diagnostic-logging)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

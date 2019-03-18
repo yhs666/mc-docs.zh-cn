@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 12/21/2016
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 1cd05402c35d483b20a4c35f07c3fdd80983671d
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 385881832b64ea29e0285f5555ea750f74d47a43
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836899"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987923"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 记录和记录集
 
@@ -239,7 +239,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-上述示例说明了如何将“A”记录添加到现有的类型“A”记录集。 可以使用类似操作顺序向其他类型的记录集添加记录，将 `Add-AzDnsRecordConfig` 的 `-Ipv4Address` 参数替换为特定于每个记录类型的其他参数。 每个记录类型的参数与 `New-AzDnsRecordConfig` cmdlet 的参数相同，如上面的[其他记录类型示例](#additional-record-type-examples)所示。
+上述示例说明了如何将“A”记录添加到现有的类型“A”记录集。 可以使用类似操作顺序向其他类型的记录集添加记录，将 `Add-AzDnsRecordConfig` 的 `-Ipv4Address` 参数替换为特定于每个记录类型的其他参数。 每个记录类型的参数与 `New-AzDnsRecordConfig` cmdlet 的参数相同，如上面的其他记录类型示例所示。
 
 类型为“CNAME”或“SOA”的记录集不能包含多个记录。 此约束源自 DNS 标准， 不是 Azure DNS 的限制。
 
@@ -273,7 +273,7 @@ Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyR
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-将适当的特定于类型的参数传递给 `Remove-AzDnsRecordSet` 即可支持不同的记录类型。 每个记录类型的参数与 `New-AzDnsRecordConfig` cmdlet 的参数相同，如上面的[其他记录类型示例](#additional-record-type-examples)所示。
+将适当的特定于类型的参数传递给 `Remove-AzDnsRecordSet` 即可支持不同的记录类型。 每个记录类型的参数与 `New-AzDnsRecordConfig` cmdlet 的参数相同，如上面的其他记录类型示例所示。
 
 
 ## <a name="modify-an-existing-record-set"></a>修改现有记录集

@@ -72,9 +72,6 @@ items:
     - name: Runbook 输出
       displayName: message streams, progress records, preference
       href: automation-runbook-output-and-messages.md
-    - name: 源代码管理集成
-      href: automation-source-control-integration-legacy.md
-      displayname: github
   - name: 状态配置
     displayName: DSC
     items:
@@ -98,6 +95,9 @@ items:
     - name: 使用 Chocolatey 进行连续部署
       displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
+    - name: 将状态配置报告数据转发到 Azure Monitor 日志
+      displayName: DSC
+      href: automation-dsc-diagnostics.md
   - name: 管理共享资源
     items:
     - name: 证书
@@ -119,6 +119,10 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: 在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
       href: automation-deploy-template-runbook.md
+  - name: 监视
+    items:
+    - name: 将 Azure 自动化作业数据转发到 Azure Monitor 日志
+      href: automation-manage-send-joblogs-log-analytics.md
 - name: 故障排除
   items:
   - name: Runbook
@@ -143,9 +147,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/automation/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: 72d1e95a16e580d9956fc7a439d87ef32351ec09
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 2a19a3cadb0650112fb3c2d6d8c0619f379177b1
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987117"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987980"

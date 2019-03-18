@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 origin.date: 02/28/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 75eb1973e772cb783fed1f74ccc853035ad7776d
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 03/18/2019
+ms.openlocfilehash: 656665368ccc9a7894b49facf6cd6b662c5dde56
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806180"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990173"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建 MySQL 服务器并配置防火墙规则
 
@@ -69,7 +69,7 @@ az group delete --name myresource
 | **命令** | **说明** |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az mysql server create](/cli/mysql/server#az-msql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
+| [az mysql server create](/cli/mysql/server#az-mysql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
 | [az mysql server firewall create](/cli/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器及其下的所有数据库。 |
 | [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 

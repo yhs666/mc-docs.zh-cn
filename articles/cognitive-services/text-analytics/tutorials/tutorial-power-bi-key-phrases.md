@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
 origin.date: 02/13/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: c799f46bce370c9e8509131e07b8da6339d98cad
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 57a962f44dff77e0d6fac7095f8e5ed93ef01cd7
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204094"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964485"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教程：将 Power BI 与文本分析认知服务集成
 
@@ -95,7 +95,7 @@ CSV 导入对话框用于验证 Power BI Desktop 是否已正确检测到字符�
 | | |
 | - | - |
 | `id`  | 请求中此文档的唯一标识符。 响应也包含此字段。 这样，在处理多个文档时，就可以轻松地将提取的关键短语与所在文档相关联。 在本教程中，由于每个请求只处理一个文档，你可以将 `id` 值硬编码为针对每个请求均相同。|
-| `text`  | 要处理的文本。 此字段的值来自于你在[先前部分](#PreparingData)中创建的 `Merged` 列，其包含合并的主题行和评论文本。 关键短语 API 要求该数据不得超出 5,000 个字符。|
+| `text`  | 要处理的文本。 此字段的值来自于你在[先前部分](#PreparingData)中创建的 `Merged` 列，其包含合并的主题行和评论文本。 关键短语 API 要求该数据不得超出 5,120 个字符。|
 | `language` | 表示撰写文档时所采用的自然语言的代码。 示例数据中的所有消息均为英语，因此你可以为此字段硬编码 `en` 值。|
 
 ## <a name="create-a-custom-function"></a>创建自定义函数
@@ -300,4 +300,4 @@ in  keyphrases
 > [!div class="nextstepaction"]
 > [Power BI 文档](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

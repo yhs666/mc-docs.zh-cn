@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 origin.date: 02/13/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7868485d5af9abb3ed963d034cf6449cd75b921e
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 93d99f1ebea3f9831a8c6ef42acd6932fe7a0f5b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204186"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964444"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>示例：如何通过文本分析检测语言
 
@@ -30,7 +30,7 @@ ms.locfileid: "57204186"
 
 必须拥有以下格式的 JSON 文档：ID、文本
 
-每个文档的大小必须少于 5,000 个字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 下面是可能提交用于语言检测的内容示例。
+每个文档的大小必须少于 5,120 个字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 下面是可能提交用于语言检测的内容示例。
 
    ```
     {

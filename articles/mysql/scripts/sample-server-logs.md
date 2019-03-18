@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: cd983aff3eba7163cfac11d41f8d1c5bc5012fad
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 03/18/2019
+ms.openlocfilehash: ff923d8249079f98edb3e7d740940122a2c7501b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806113"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990182"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 启用和下载 Azure Database for MySQL 服务器的服务器慢查询日志
 
@@ -93,7 +93,7 @@ az group delete --name myresource
 | **命令** | **说明** |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az mysql server create](/cli/mysql/server#az-msql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
+| [az mysql server create](/cli/mysql/server#az-mysql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
 | [az mysql server configuration list](/cli/mysql/server/configuration#az-mysql-server-configuration-list) | 列出服务器的配置值。 |
 | [az mysql server configuration set](/cli/mysql/server/configuration#az-mysql-server-configuration-set) | 更新服务器的配置。 |
 | [az mysql server-logs list](/cli/mysql/server-logs#az-mysql-server-logs-list) | 列出服务器的日志文件。 |

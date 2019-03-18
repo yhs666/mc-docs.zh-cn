@@ -4,32 +4,29 @@ titleSuffix: Azure Cognitive Services
 description: 在该快速入门中，你将使用文本翻译 API 和 Node.js 获取翻译、音译和字典查找支持的语言列表及示例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 10/29/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: aaf755be6e3eeef20838f546f4218392bfafe918
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 6209dfbf062e411fb11905ae64b33ecce0370683
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673416"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964470"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>快速入门：使用 Node.js 通过文本翻译 API 获取所支持语言的列表
 
 本快速入门介绍如何使用 Node.js 和文本翻译 REST API 发出可以返回所支持语言的列表的 GET 请求。
 
-此快速入门需要包含文本翻译资源的 [Azure 认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
-
 ## <a name="prerequisites"></a>先决条件
 
 本快速入门需要：
 
-- [Node 8.12.x 或更高版本](https://nodejs.org/en/)
-- 适用于文本翻译的 Azure 订阅密钥
+* [Node 8.12.x 或更高版本](https://nodejs.org/en/)
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
@@ -45,25 +42,6 @@ const uuidv4 = require('uuid/v4');
 
 若要构造 HTTP 请求以及为 `'X-ClientTraceId'` 标头创建唯一标识符，必须使用这些模块。
 
-## <a name="set-the-subscription-key"></a>设置订阅密钥
-
-此代码会尝试从环境变量 `TRANSLATOR_TEXT_KEY` 读取文本翻译订阅密钥。 如果不熟悉环境变量，则可将 `subscriptionKey` 设置为字符串并注释掉条件语句。
-
-将以下代码复制到项目中：
-
-```javascript
-/* Checks to see if the subscription key is available
-as an environment variable. If you are setting your subscription key as a
-string, then comment these lines out.
-
-If you want to set your subscription key as a string, replace the value for
-the Ocp-Apim-Subscription-Key header as a string. */
-const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
-```
-
 ## <a name="configure-the-request"></a>配置请求
 
 使用通过请求模块提供的 `request()` 方法，可以以 `options` 对象的形式传递 HTTP 方法、URL、请求参数、标头和 JSON 正文。 在此代码片段中，我们将配置请求：
@@ -74,23 +52,18 @@ if (!subscriptionKey) {
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: 'https://api.translator.azure.cn/',
     url: 'languages',
     qs: {
       'api-version': '3.0',
     },
     headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
     json: true,
 };
 ```
-
-### <a name="authentication"></a>身份验证
-
-若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="make-the-request-and-print-the-response"></a>发出请求并输出响应
 
@@ -216,9 +189,9 @@ node get-languages.js
 
 除了语言检测，还请了解如何使用文本翻译 API 执行以下操作：
 
-- [翻译文本](quickstart-nodejs-translate.md)
-- [直译文本](quickstart-nodejs-transliterate.md)
-- [按输入确定语言](quickstart-nodejs-detect.md)
-- [获取备用翻译](quickstart-nodejs-dictionary.md)
-- [根据输入确定句子长度](quickstart-nodejs-sentences.md)
+* [翻译文本](quickstart-nodejs-translate.md)
+* [直译文本](quickstart-nodejs-transliterate.md)
+* [按输入确定语言](quickstart-nodejs-detect.md)
+* [获取备用翻译](quickstart-nodejs-dictionary.md)
+* [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 

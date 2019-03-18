@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 10/18/2018
-ms.date: 01/14/2019
+origin.date: 01/25/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: ade018ae2a857fe13116b33fd08c56c3d04aa3a7
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.reviewer: anajod
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 93f8e4c0fc2dc788d73e827c9fb4fc0ace93b104
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059029"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987946"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Node.js 和文本翻译 REST API 将文本从一个脚本直译（转换）为另一个脚本。 在此示例中，日语在经过直译后使用拉丁字母。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 10/29/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: a46c83a5ee4ffff3560a69e6ce3f498295277302
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b47086ff93dc2cb1ed00332149404fee5b096c86
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673381"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964418"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>快速入门：使用文本翻译 API 通过 Node.js 对文本进行直译
 
@@ -28,8 +28,8 @@ ms.locfileid: "52673381"
 
 本快速入门需要：
 
-- [Node 8.12.x 或更高版本](https://nodejs.org/en/)
-- 适用于文本翻译的 Azure 订阅密钥
+* [Node 8.12.x 或更高版本](https://nodejs.org/en/)
+* 适用于文本翻译的 Azure 订阅密钥
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
@@ -74,7 +74,7 @@ if (!subscriptionKey) {
 ```javascript
 let options = {
     method: 'POST',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: 'https://api.translator.azure.cn/',
     url: 'transliterate',
     qs: {
       'api-version': '3.0',
@@ -145,9 +145,9 @@ node transliterate-text.js
 
 除了语言检测，还请了解如何使用文本翻译 API 执行以下操作：
 
-- [翻译文本](quickstart-nodejs-translate.md)
-- [按输入确定语言](quickstart-nodejs-detect.md)
-- [获取备用翻译](quickstart-nodejs-dictionary.md)
-- [获取支持的语言的列表](quickstart-nodejs-languages.md)
-- [根据输入确定句子长度](quickstart-nodejs-sentences.md)
+* [翻译文本](quickstart-nodejs-translate.md)
+* [按输入确定语言](quickstart-nodejs-detect.md)
+* [获取备用翻译](quickstart-nodejs-dictionary.md)
+* [获取支持的语言的列表](quickstart-nodejs-languages.md)
+* [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 

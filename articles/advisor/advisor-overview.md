@@ -3,24 +3,19 @@ title: Azure 顾问简介 | Microsoft Docs
 description: 使用 Azure 顾问优化 Azure 部署。
 services: advisor
 documentationcenter: NA
-author: forester123
-manager: carmonm
-editor: ''
-ms.assetid: ''
+author: kasparks
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/16/2016
-ms.date: 03/26/2018
-ms.author: v-johch
-ms.openlocfilehash: 2cd702cd4d0d30477a2dcff280adfe57c01c4ef1
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.date: 02/01/2019
+ms.author: lingliw
+ms.openlocfilehash: 2c77bd9b3e4b627bb890e31ffc0d7c1f17ad7014
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737000"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964424"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 顾问简介
 

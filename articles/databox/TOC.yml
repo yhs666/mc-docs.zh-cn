@@ -29,6 +29,8 @@ items:
           href: data-box-deploy-copy-data-via-rest.md
         - name: 通过数据复制服务
           href: data-box-deploy-copy-data-via-copy-service.md
+        - name: 到托管磁盘
+          href: data-box-deploy-copy-data-from-vhds.md
       - name: 4 - 返回、上传、验证
         href: data-box-deploy-picked-up.md
     - name: 概念
@@ -106,9 +108,9 @@ items:
       href: https://azure.cn/pricing/details/storage/databox/
     - name: Data Box Disk 定价
       href: https://azure.cn/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 4f4c02a0595a295bed490eeb1705230e166d52b5
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: bdbc8250e2b7f20f5e8885c8e9eb30d3943659b5
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666709"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990135"

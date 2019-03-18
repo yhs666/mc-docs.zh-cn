@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: 概述
   items:
-  - name: 用于 PostgreSQL 的 Azure DB
+  - name: 什么是用于 PostgreSQL 的 Azure DB？
     href: overview.md
 - name: 快速入门
   items:
@@ -92,6 +92,16 @@ items:
       href: concepts-connection-libraries.md
     - name: 连接复原
       href: concepts-connectivity.md
+    - name: Java
+      items:
+      - name: 配置 Spring Data JDBC
+        href: /java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+      - name: 配置 Spring Data JPA
+        href: /java/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+  - name: 复制
+    items:
+    - name: 只读副本
+      href: concepts-read-replicas.md
 - name: 操作指南
   items:
   - name: 创建用户
@@ -150,6 +160,10 @@ items:
     items:
     - name: Azure 门户
       href: howto-restart-server-portal.md
+  - name: 复制
+    items:
+    - name: 在 Azure 门户中管理只读副本
+      href: howto-read-replicas-portal.md
 - name: 参考
   items:
   - name: Azure CLI
@@ -182,11 +196,13 @@ items:
         href: https://aka.ms/postg-osba-vid
       - name: 将应用的数据连接到 Power BI
         href: https://aka.ms/postg-powerbi-vid
+  - name: 上市区域
+    href: https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: cc32bfd9c8d898354778f409d6cfc1c56c5a6397
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 2ca2dedf70a6736aa996be6339e537e34db74427
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333867"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990140"

@@ -1,25 +1,22 @@
 ---
 title: 使用 PHP 连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 PHP 代码示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 origin.date: 02/28/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 7d9d9de53fe7066b38719802929c02493bd8bd1a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 03/18/2019
+ms.openlocfilehash: a3f64bf186490fb02edcabebc8d357ff1a442b3d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675436"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990169"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 PHP 进行连接并查询数据
+# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 PHP 连接和查询数据
 本快速入门演示了如何使用 [PHP](https://secure.php.net/manual/intro-whatis.php) 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 PHP 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
 
 ## <a name="prerequisites"></a>先决条件
@@ -28,7 +25,7 @@ ms.locfileid: "52675436"
 - [创建 DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>安装 PHP
-在自己的服务器上安装 PHP，或者创建包括 PHP 的 Azure [Web 应用](../app-service/app-service-web-overview.md)。
+在自己的服务器上安装 PHP，或者创建包括 PHP 的 Azure [Web 应用](../app-service/overview.md)。
 
 ### <a name="windows"></a>Windows
 - 下载 [PHP 7.1.4 非线程安全 (x64) 版本](https://windows.php.net/download#php-7.1)

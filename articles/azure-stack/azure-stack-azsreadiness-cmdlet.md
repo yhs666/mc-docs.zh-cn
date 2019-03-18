@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/04/2018
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 8d58f06e62693a947304ba50e3acac28c0ed9181
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: unknown
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 3d7a2f502535187ae5ec709584a3fc3eefe14770
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814644"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988015"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 

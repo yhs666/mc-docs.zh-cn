@@ -4,32 +4,29 @@ titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用文本翻译 API 和 Python 获取翻译、音译和字典查找支持的语言列表以及示例。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 10/29/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: d03bddc7f33e621aea1c12ddf46b0ce097dd0336
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 53d6ac859d8d9dcd6586f4f9f88b32a7d9fcd648
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673345"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964454"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入门：使用 Python 通过文本翻译 API 获取所支持语言的列表
 
 本快速入门介绍如何使用 Python 和文本翻译 REST API 发出可以返回所支持语言的列表的 GET 请求。
 
-此快速入门需要包含文本翻译资源的 [Azure 认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
-
 ## <a name="prerequisites"></a>先决条件
 
 本快速入门需要：
 
-- Python 2.7.x 或 3.x
-- 适用于文本翻译的 Azure 订阅密钥
+* Python 2.7.x 或 3.x
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
@@ -45,46 +42,27 @@ import os, requests, uuid, json
 
 第一个注释告知 Python 解释器使用 UTF-8 编码。 然后导入必需的模块，以便从环境变量读取订阅密钥、构造 HTTP 请求、创建唯一标识符，以及处理文本翻译 API 返回的 JSON 响应。
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>设置订阅密钥、基 URL 和路径
+## <a name="set-the-base-url-and-path"></a>设置基 URL 和路径
 
-此示例将尝试从环境变量 `TRANSLATOR_TEXT_KEY` 读取文本翻译订阅密钥。 如果不熟悉环境变量，则可将 `subscriptionKey` 设置为字符串并注释掉条件语句。
-
-将以下代码复制到项目中：
-
-```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
-```
-
-目前有一个终结点可用于文本翻译，并已设置为 `base_url`。 `path` 设置 `languages` 路由并确定我们需使用 API 的版本 3。
+文本翻译全局终结点设置为 `base_url`。 `path` 设置 `languages` 路由并确定我们需使用 API 的版本 3。
 
 >[!NOTE]
 > 有关终结点、路由和请求参数的详细信息，请参阅[文本翻译 API 3.0：语言](/cognitive-services/translator/reference/v3-0-languages)。
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
+base_url = 'https://api.translator.azure.cn'
 path = '/languages?api-version=3.0'
 constructed_url = base_url + path
 ```
 
 ## <a name="add-headers"></a>添加标头
 
-若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+请求获取支持的语言不需身份验证。 将 `Content-type` 设置为 `application/json` 并添加 `X-ClientTraceId`，以便对请求进行唯一标识。
 
 将以下代码片段复制到项目中。
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -216,11 +194,11 @@ python get-languages.py
 
 ## <a name="see-also"></a>另请参阅
 
-除了文本直译，还请了解如何使用文本翻译 API 执行以下操作：
+了解如何使用文本翻译 API 执行以下操作：
 
-- [翻译文本](quickstart-python-translate.md)
-- [直译文本](quickstart-python-transliterate.md)
-- [按输入确定语言](quickstart-python-detect.md)
-- [获取备用翻译](quickstart-python-dictionary.md)
-- [根据输入确定句子长度](quickstart-python-sentences.md)
+* [翻译文本](quickstart-python-translate.md)
+* [直译文本](quickstart-python-transliterate.md)
+* [按输入确定语言](quickstart-python-detect.md)
+* [获取备用翻译](quickstart-python-dictionary.md)
+* [根据输入确定句子长度](quickstart-python-sentences.md)
 
