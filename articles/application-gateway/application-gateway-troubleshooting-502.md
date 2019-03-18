@@ -14,29 +14,31 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 02/11/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1a30bc32a7b2d637ed4b7c6b4d202abbf7ab8619
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: d6c20df9c0878666f37024e85e85a113f6bd4895
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079674"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788705"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
 
 了解如何排查使用应用程序网关时收到的网关无效 (502) 错误。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>概述
 
 配置应用程序网关后，用户可能遇到的其中一个错误是“服务器错误：502 - Web 服务器在作为网关或代理服务器时收到了无效响应”。 此错误可能是以下主要原因造成的：
 
-- NSG、UDR 或自定义 DNS 阻止了对后端池成员的访问。
-- 虚拟机规模集的后端 VM 或实例未响应默认的运行状况探测。
-- 自定义运行状况探测的配置无效或不正确。
-- Azure 应用程序网关的[后端池未配置或为空](#empty-backendaddresspool)。
-- [虚拟机规模集](#unhealthy-instances-in-backendaddresspool)中没有正常运行的 VM 或实例。
-- 用户请求出现[请求超时或连接问题](#request-time-out)。
+* NSG、UDR 或自定义 DNS 阻止了对后端池成员的访问。
+* 虚拟机规模集的后端 VM 或实例未响应默认的运行状况探测。
+* 自定义运行状况探测的配置无效或不正确。
+* Azure 应用程序网关的[后端池未配置或为空](#empty-backendaddresspool)。
+* [虚拟机规模集](#unhealthy-instances-in-backendaddresspool)中没有正常运行的 VM 或实例。
+* 用户请求出现[请求超时或连接问题](#request-time-out)。
 
 ## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>网络安全组、用户定义的路由或自定义 DNS 问题
 
@@ -47,25 +49,25 @@ ms.locfileid: "56079674"
 ### <a name="solution"></a>解决方案
 
 通过执行以下步骤验证 NSG、UDR 和 DNS 配置：
-- 检查与应用程序网关子网关联的 NSG。 确保与后端的通信没有被阻止。
-- 检查与应用程序网关子网关联的 UDR。 确保 UDR 没有将流量引离后端子网 - 例如，检查到网络虚拟设备的路由或通过 ExpressRoute/VPN 播发到应用程序网关子网的默认路由。
+* 检查与应用程序网关子网关联的 NSG。 确保与后端的通信没有被阻止。
+* 检查与应用程序网关子网关联的 UDR。 确保 UDR 没有将流量引离后端子网 - 例如，检查到网络虚拟设备的路由或通过 ExpressRoute/VPN 播发到应用程序网关子网的默认路由。
 
     ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-    Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+    $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+    Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
     ```
 
-- 检查包含后端 VM 的有效 NSG 和路由
+* 检查包含后端 VM 的有效 NSG 和路由
 
     ```powershell
-    Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-    Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+    Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+    Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
     ```
 
-- 检查 VNet 中是否存在自定义 DNS。 可以通过查看输出中的 VNet 属性的详细信息来检查 DNS。
+* 检查 VNet 中是否存在自定义 DNS。 可以通过查看输出中的 VNet 属性的详细信息来检查 DNS。
 
     ```json
-    Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+    Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
     DhcpOptions            : {
                             "DnsServers": [
                                 "x.x.x.x"
@@ -89,12 +91,12 @@ ms.locfileid: "56079674"
 
 ### <a name="solution"></a>解决方案
 
-- 确定默认站点已配置且正在侦听 127.0.0.1。
-- 如果 BackendHttpSetting 指定的端口不是 80，则应将默认站点配置为侦听指定的端口。
-- 对 http://127.0.0.1:port 的调用应返回 HTTP 结果代码 200。 应在 30 秒超时期限内返回此代码。
-- 确保配置的端口已打开，并且没有任何防火墙或 Azure 网络安全组在配置的端口上阻止传入或传出流量。
-- 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)。
-- 如果 VM 是通过 Azure Resource Manager 配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/security-overview.md)配置为允许在所需端口上进行访问。
+* 确定默认站点已配置且正在侦听 127.0.0.1。
+* 如果 BackendHttpSetting 指定的端口不是 80，则应将默认站点配置为侦听指定的端口。
+* 对 http://127.0.0.1:port 的调用应返回 HTTP 结果代码 200。 应在 30 秒超时期限内返回此代码。
+* 确保配置的端口已打开，并且没有任何防火墙或 Azure 网络安全组在配置的端口上阻止传入或传出流量。
+* 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)。
+* 如果 VM 是通过 Azure Resource Manager 配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/security-overview.md)配置为允许在所需端口上进行访问。
 
 ## <a name="problems-with-custom-health-probe"></a>自定义运行状况探测出现问题
 
@@ -116,11 +118,11 @@ ms.locfileid: "56079674"
 
 根据上表验证是否已正确配置自定义运行状况探测。 除了上述故障排除步骤以外，另请确保符合以下要求：
 
-- 确保已根据[指南](application-gateway-create-probe-ps.md)正确指定了探测。
-- 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为“127.0.0.1”。
-- 确保对 http://\<host\>:\<port\>\<path\> 的调用返回 HTTP 结果代码 200。
-- 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
-- 如果使用 HTTPS 探测器，请通过在后端服务器本身上配置回退证书，确保后端服务器不需要 SNI。
+* 确保已根据[指南](application-gateway-create-probe-ps.md)正确指定了探测。
+* 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为“127.0.0.1”。
+* 确保对 http://\<host\>:\<port\>\<path\> 的调用返回 HTTP 结果代码 200。
+* 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
+* 如果使用 HTTPS 探测器，请通过在后端服务器本身上配置回退证书，确保后端服务器不需要 SNI。
 
 ## <a name="request-time-out"></a>请求超时
 
@@ -133,7 +135,7 @@ ms.locfileid: "56079674"
 应用程序网关允许用户通过 BackendHttpSetting 配置此设置，并可将此设置应用到不同的池。 不同的后端池可以有不同的 BackendHttpSetting，因此可配置不同的请求超时。
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool 为空
@@ -147,7 +149,7 @@ ms.locfileid: "56079674"
 确保后端地址池不为空。 这可以通过 PowerShell、CLI 或门户来实现。
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 上述 cmdlet 的输出应包含非空后端地址池。 以下示例中返回了两个池，其中配置了后端 VM 的 FQDN 或 IP 地址。 BackendAddressPool 的预配状态必须是“Succeeded”。
@@ -190,7 +192,7 @@ BackendAddressPoolsText：
 
 ## <a name="next-steps"></a>后续步骤
 
-如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
+如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn https://www.azure.cn/support/contact/)。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

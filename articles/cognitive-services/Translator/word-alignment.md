@@ -1,22 +1,23 @@
 ---
-title: 词对齐信息 - 文本翻译 API
+title: 词对齐 - 文本翻译 API
 titlesuffix: Azure Cognitive Services
 description: 从文本翻译 API 接收词对齐信息。
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 12/14/2017
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 54ba97cab4647ca5367c4167c8c8753f00aa6cf8
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.custom: seodec18
+ms.openlocfilehash: 1a714d870394238f70c2ca08711ac3ddaad798ec
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673405"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964404"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>如何接收词对齐信息
 
@@ -34,9 +35,9 @@ ms.locfileid: "52673405"
 
 ## <a name="restrictions"></a>限制
 目前，仅针对语言对的子集返回对齐：
-- 从英语到任何其他语言；
-- 从任何其他语言到英语，简体中文、繁体中文和拉脱维亚语到英语除外
-- 从日语到韩语或从韩语到日语；如果句子是预录翻译，则不会收到对齐信息。 预录翻译示例有“This is a test”、“I love you”，以及其他高频率句子。
+* 从英语到任何其他语言；
+* 从任何其他语言到英语，简体中文、繁体中文和拉脱维亚语到英语除外
+* 从日语到韩语或从韩语到日语；如果句子是预录翻译，则不会收到对齐信息。 预录翻译示例有“This is a test”、“I love you”，以及其他高频率句子。
 
 ## <a name="example"></a>示例
 
