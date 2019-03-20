@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 03/26/2018
-ms.date: 12/19/2018
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: dc36fa194bd2c33b84a71f6dbdda93dd0e8f96fd
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 3fbdb5df055e472c24398f996ed12b84c1d87d2f
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656506"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788730"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -34,6 +34,8 @@ ms.locfileid: "53656506"
 ![URL 路由示例](./media/application-gateway-create-url-route-portal/scenario.png)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -103,7 +105,7 @@ ms.locfileid: "53656506"
 
     ```azurepowershell
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location chinanorth `
       -ExtensionName IIS `
@@ -114,7 +116,7 @@ ms.locfileid: "53656506"
       -Settings $publicSettings
     ```
 
-3. 使用刚刚完成的步骤创建另外两个虚拟机并安装 IIS。 在 Set-AzureRmVMExtension 中输入 *myVM2* 和 *myVM3* 作为名称，并输入 VMName 值。
+3. 使用刚刚完成的步骤创建另外两个虚拟机并安装 IIS。 在 Set-AzVMExtension 中输入 *myVM2* 和 *myVM3* 作为名称，并输入 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>使用虚拟机创建后端池
 
@@ -178,4 +180,4 @@ ms.locfileid: "53656506"
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->
