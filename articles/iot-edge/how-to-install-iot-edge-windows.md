@@ -1,5 +1,5 @@
 ---
-title: 在 Windows 上安装 Azure IoT Edge | Microsoft Docs
+title: 在 Windows 上安装 Azure IoT Edge
 description: 有关在 Windows 10、Windows Server 和 Windows IoT Core 上安装 Azure IoT Edge 的说明
 author: kgremban
 manager: philmea
@@ -11,12 +11,12 @@ origin.date: 01/25/2019
 ms.date: 03/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: f2106c625002733188bb2fba43ab1a3ad906b3d8
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: d07b6e338b5666a40037b9bdd8b1d3a7af90dc97
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665567"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988038"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安装 Azure IoT Edge 运行时
 
@@ -99,6 +99,29 @@ Install-SecurityDaemon -Manual -ContainerOs Windows -DeviceConnectionString '<co
 
 有关这些安装选项的详细信息，请继续阅读本文，或转到[所有安装参数](#all-installation-parameters)。
 
+### <a name="option-2-install-and-automatically-provision"></a>选项 2：安装和自动预配
+
+在这第二个选项中，使用 IoT 中心设备预配服务来预配设备。 提供设备预配服务实例中的“范围 ID”，以及设备中的“注册 ID”。
+
+按照[在 Windows上创建和预配模拟 TPM Edge 设备](how-to-auto-provision-simulated-device-windows.md)中的步骤，设置设备预配服务并检索其**范围 ID**，模拟 TPM 设备并检索其**注册 ID**，然后创建个人注册。 在 IoT 中心注册设备后，继续安装。  
+
+   >[!TIP]
+   >在安装和测试期间，确保运行 TPM 模拟器的窗口处于打开状态。 
+
+以下示例演示使用 Windows 容器进行的自动安装：
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Dps -ContainerOs Windows -ScopeId <DPS scope ID> -RegistrationId <device registration ID>
+```
+
+手动安装和预配设备时，可以使用附加的参数来修改安装，包括：
+* 定向流量，使其通过代理服务器
+* 将安装程序指向某个脱机目录
+* 声明特定的代理容器映像，并提供凭据（如果该映像位于专用注册表中）
+* 跳过 Moby CLI 安装
+
+有关这些安装选项的详细信息，请继续阅读本文，或转到[所有安装参数](#all-installation-parameters)。
 
 ## <a name="update-an-existing-installation"></a>更新现有安装
 
@@ -191,6 +214,34 @@ Get-WinEvent -ea SilentlyContinue `
 ```powershell
 iotedge list
 ```
+
+完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
+
+## <a name="manage-module-containers"></a>管理模块容器
+
+IoT Edge 服务要求在设备上运行容器引擎。 将模块部署到设备时，IoT Edge 运行时将使用容器引擎从云中的注册表提取容器映像。 IoT Edge 服务允许与模块交互和检索日志，但有时，你可能想要使用容器引擎来与容器本身交互。 
+
+有关模块概念的详细信息，请参阅[了解 Azure IoT Edge 模块](iot-edge-modules.md)。 
+
+如果在 Windows IoT Edge 设备上运行 Windows 容器，则 IoT Edge 安装中已包含 Moby 容器引擎。 如果你在 Windows 开发计算机上开发 Linux 容器，可能会使用 Docker Desktop。 Moby 引擎所基于的标准与 Docker 相同，可在 Docker Desktop 所在的同一台计算机上同时运行。 因此，若要以 Moby 引擎管理的容器为目标，则必须专门将该引擎指定为目标，而不要以 Docker 为目标。 
+
+例如，若要列出所有 Docker 映像，可使用以下命令：
+
+```powershell
+docker images
+```
+
+若要列出所有 Moby 映像，可以使用指向 Moby 引擎的指针修改上述命令： 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+引擎 URI 将在安装脚本的输出中列出，也可以在 config.yaml 文件的容器运行时设置节中找到它。 
+
+![config.yaml 中的 moby_runtime uri](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+若要详细了解可以使用哪些命令来与设备上运行的容器和映像交互，请参阅 [Docker 命令行接口](https://docs.docker.com/engine/reference/commandline/docker/)。
 
 ## <a name="uninstall-iot-edge"></a>卸载 IoT Edge
 

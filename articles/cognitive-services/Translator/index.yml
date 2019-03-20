@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 14844257926388eb321d0cebc9cca83459e7a94f
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b108ba0b01e58e0a8b0811f0d0a256090869339f
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673410"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964417"
 documentType: LandingData
 title: 文本翻译文档
 metadata:
@@ -17,33 +17,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-origin.date: 11/06/18
-ms.date: 11/26/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
 abstract:
-  description: 文本翻译是一种基于云的机器翻译服务，可用于通过简单的 REST API 调用几乎实时地翻译文本。 该 API 使用先进的神经机器翻译技术并提供统计机器翻译技术。 “自定义翻译”是文本翻译 API 的扩展，用于构建神经翻译系统。 有关神经机器翻译和统计机器翻译支持的语言的列表，请参阅<a href="languages.md">支持的语言</a>。
+  description: 文本翻译是一种基于云的机器翻译服务，可用于通过简单的 REST API 调用几乎实时地翻译文本。 该 API 使用先进的神经机器翻译技术并提供统计机器翻译技术。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /cognitive-services/translator/translator-info-overview
-      html: <p>了解文本翻译 API</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: 什么是文本翻译 API？
-    - href: /cognitive-services/translator/custom-translator/overview
-      html: <p>了解自定义翻译</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: 什么是自定义翻译（预览版）？
-    - href: /cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-      html: <p>了解如何开始使用自定义翻译</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: 自定义翻译快速入门
 - title: 5 分钟快速入门
   items:
   - type: paragraph
@@ -81,7 +60,7 @@ sections:
       - href: quickstart-nodejs-transliterate.md
       - href: quickstart-python-transliterate.md
       - href: quickstart-go-transliterate.md
-    - title: 确定文本语言
+    - title: 确定 text.md 的语言
       values:
       - href: quickstart-csharp-detect.md
       - href: quickstart-java-detect.md
@@ -95,12 +74,6 @@ sections:
       - href: quickstart-nodejs-dictionary.md
       - href: quickstart-python-dictionary.md
       - href: quickstart-go-dictionary.md
-- title: 分步教程
-  items:
-  - type: paragraph
-    text: 了解如何使用文本翻译 API 开发应用程序：
-  - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">使用 C# 编写 WPF 应用程序以进行文本翻译</a>
 - title: 参考
   items:
   - type: paragraph

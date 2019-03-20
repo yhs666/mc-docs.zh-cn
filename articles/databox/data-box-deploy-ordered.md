@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-origin.date: 01/16/2019
-ms.date: 02/25/2019
+origin.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: e3cf16fe7bf4a8ca4f9b14f75edcf66be4fc21a0
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: d6fd9f6541f27d740239dd22c7ae162a062e0ddd
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666696"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990134"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教程：订购 Azure Data Box
 
@@ -38,7 +38,7 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 - 具有 Azure 存储帐户和访问凭据。
 - 确保用于 Data Box 服务的订阅是下述类型之一：
     - Microsoft 企业协议 (EA)。 详细了解 [EA 订阅](https://azure.cn/pricing/enterprise-agreement/)。
-    - Microsoft Azure 赞助。 详细了解 [Azure 赞助计划](https://azure.microsoft.com/offers/ms-azr-0036p/)。 
+    - Microsoft Azure 赞助。 详细了解 [Azure 赞助计划](https://azure.microsoft.com/offers/ms-azr-0036p/)。
 
 - 确保有订阅的所有者或参与者访问权限，以便创建 Data Box 订单。
 
@@ -68,7 +68,7 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
     |来源国家/地区     |   选择数据当前所在的国家/地区。         |
     |目标 Azure 区域     |     选择要在其中传输数据的 Azure 区域。        |
 
-5. 选择“Data Box”。 单次订购的解决方案最大容量为 80 TB。 可以创建多个订单，以增加数据大小。
+5. 选择“Data Box”。 单次订购的最大可用容量为 786 TB。 可以创建多个订单，以增加数据大小。
 
       [![选择 Data Box 选项 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,8 +79,22 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
     |Name     |  提供友好名称用于跟踪订单。 <br> 名称可以为 3 到 24 个字符，包括字母、数字和连字符。 <br> 名称必须以字母或数字开头和结尾。      |
     |资源组     |   使用现有资源组，或创建新的资源组。 <br> 资源组是可以统一管理或部署的资源的逻辑容器。         |
     |目标 Azure 区域     | 选择存储帐户的区域。 <br> 有关详细信息，请转到[适用区域](data-box-overview.md#region-availability)。        |
-    |存储帐户     | 根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个或多个存储帐户。 Data Box 可以与最多 10 个存储帐户链接。 <br> 也可以创建新的**常规用途 v1**、**常规用途 v2** 或 **Blob 存储帐户**。 无法使用已配置了规则的存储帐户。 存储帐户必须在防火墙和虚拟网络部分中**允许来自所有网络的访问**。|
-    
+    |存储目标     | 选择存储帐户和/或托管磁盘。 <br> 根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个或多个存储帐户。 Data Box 可以与最多 10 个存储帐户链接。 <br> 也可以创建新的**常规用途 v1**、**常规用途 v2** 或 **Blob 存储帐户**。 <br>支持使用虚拟网络的存储帐户。 若要允许 Data Box 服务使用受保护的存储帐户，请在存储帐户网络防火墙设置中启用受信任的服务。 有关详细信息，请参阅如何[将 Azure Data Box 添加为受信任的服务](../storage/common/storage-network-security.md#exceptions)。|
+
+    如果使用存储帐户作为存储目标，则会看到以下屏幕截图：
+
+    ![存储帐户的 Data Box 订单](media/data-box-deploy-ordered/order-storage-account.png)
+
+    如果使用 Data Box 从本地 VHD 创建托管磁盘，则还需要提供以下信息：
+
+    |设置  |值  |
+    |---------|---------|
+    |资源组     | 若要从本地 VHD 创建托管磁盘，请创建新的资源组。 当 Data Box 服务创建托管磁盘的 Data Box 订单时，仅当事先已创建资源组，你才可以使用现有的资源组。 <br> 可以指定多个资源组并用分号分隔。 最多支持 10 个资源组。|
+
+    ![托管磁盘的 Data Box 订单](media/data-box-deploy-ordered/order-managed-disks.png)
+
+    为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 作为页 Blob 上传到临时存储帐户，然后将其转换为托管磁盘并转移到资源组。 有关详细信息，请参阅[验证 Azure 中的数据上传](data-box-deploy-picked-up.md#verify-data-upload-to-azure)。
+
 7. 在“寄送地址”中，提供你的姓名、公司的名称和邮政地址，以及有效的电话号码。 单击“验证地址”。 服务将验证寄送地址，以确定服务是否在该区域可用。 如果服务在指定的寄送地址可用，则会将结果通知给你。 单击“下一步”。
 
 8. 在“通知详细信息”中，指定电子邮件地址。 服务会将有关任何订单状态更新的电子邮件通知发送到指定的电子邮件地址。
@@ -89,7 +103,7 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 
 9. 查看与订单、联系人、通知和隐私条款相关的信息**摘要**。 选中对应于同意隐私条款的复选框。
 
-10. 单击“订购”。 创建订单需要几分钟时间。 
+10. 单击“订购”。 创建订单需要几分钟时间。
 
 
 ## <a name="track-the-order"></a>跟踪订单
@@ -98,9 +112,9 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 
 如果设备缺货，你会收到通知。 如果设备有货，Azure 会确定要发货的设备，并准备发货。 在设备准备期间，会执行以下操作：
 
-- 将为与设备关联的每个存储帐户创建 SMB 共享。 
+- 将为与设备关联的每个存储帐户创建 SMB 共享。
 - 将为每个共享生成访问凭据（例如用户名和密码）。
-- 也会生成用于解锁设备的设备密码。 
+- 也会生成用于解锁设备的设备密码。
 - 锁定 Data Box 的目的是在任何时候防止对设备进行未经授权的访问。
 
 设备准备完成后，门户会显示订单处于“已处理”状态。

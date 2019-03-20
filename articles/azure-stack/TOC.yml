@@ -9,14 +9,14 @@ items:
     items:
     - name: 最新更新
       href: azure-stack-servicing-policy.md#update-package-release-cadence
+    - name: 1902 更新
+      href: azure-stack-update-1902.md
     - name: 1901 更新
       href: azure-stack-update-1901.md
     - name: 1811 更新
       href: azure-stack-update-1811.md
     - name: 1809 更新
       href: azure-stack-update-1809.md
-    - name: 1808 更新
-      href: azure-stack-update-1808.md
 - name: 快速入门
   items:
   - name: 使用管理门户
@@ -161,6 +161,8 @@ items:
         href: azure-stack-manage-storage-accounts.md
       - name: 管理存储容量
         href: azure-stack-manage-storage-shares.md
+      - name: 管理存储基础结构
+        href: azure-stack-storage-infrastructure-overview.md
       - name: 管理物理内存容量
         href: azure-stack-manage-storage-physical-memory-capacity.md
       - name: 添加缩放单元节点
@@ -300,6 +302,8 @@ items:
         href: azure-stack-app-service-release-notes-update-three.md
       - name: 基于 Azure Stack 的应用服务 Update 4 发行说明
         href: azure-stack-app-service-release-notes-update-four.md
+      - name: 基于 Azure Stack 的应用服务 Update 5 发行说明
+        href: azure-stack-app-service-release-notes-update-five.md
   - name: 创建计划、套餐和配额
     items:
     - name: 计划、套餐、配额和订阅概述
@@ -381,9 +385,9 @@ items:
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 074e91c256f346bfc19eefba1c83838a51856919
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 5bcc143f8721f215e66e8388c9b6720043081788
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905400"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988086"

@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Edge 疑难解答 | Microsoft Docs
-description: 解决 Azure IoT Edge 的常见问题并学习疑难解答技能
+title: 故障排除 - Azure IoT Edge
+description: 使用本文了解 Azure IoT Edge 的标准诊断技能，例如检索组件状态和日志，以及解决常见问题
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/26/2018
-ms.date: 12/10/2018
+origin.date: 02/26/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cfadc5af6ae3ec34c77bc53d02cea7ffa22795c7
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 73d142a37f63495c638f14dea4f308194e42ee8a
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674254"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988033"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常见问题和解决方法
 
@@ -101,15 +101,15 @@ ms.locfileid: "52674254"
 
 ### <a name="check-container-logs-for-issues"></a>检查容器日志是否有问题
 
-IoT Edge 安全守护程序运行后，请查看容器日志以检测问题。 先查看你的已部署容器，然后查看构成 IoT Edge 运行时的容器：Edge 代理和 Edge 中心。 Edge 代理日志通常提供有关每个容器的生命周期的信息。 Edge 中心日志提供有关消息传送和路由的信息。 
+IoT Edge 安全守护程序运行后，请查看容器日志以检测问题。 先查看你的已部署容器，然后查看构成 IoT Edge 运行时的容器：edgeAgent 和 edgeHub。 IoT Edge 代理日志通常提供有关每个容器的生命周期的信息。 IoT Edge 中心日志提供有关消息传送和路由的信息。 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>查看经过 Edge 中心的消息
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>查看通过 IoT Edge 中心的消息
 
-查看经过 Edge 中心的消息，并通过来自运行时容器的详细日志收集见解。 若要在这些容器上启用详细日志，请在 yaml 配置文件中设置 `RuntimeLogLevel`。 若要打开该文件，请执行以下操作：
+查看通过 IoT Edge 中心的消息，并通过来自运行时容器的详细日志收集见解。 若要在这些容器上启用详细日志，请在 yaml 配置文件中设置 `RuntimeLogLevel`。 若要打开该文件，请执行以下操作：
 
 在 Linux 上：
 
@@ -137,17 +137,17 @@ IoT Edge 安全守护程序运行后，请查看容器日志以检测问题。 �
 
 将 `env: {}` 替换为：
 
-> [!WARNING]
-> YAML 文件不能包含制表符作为缩进。 请改用 2 个空格。
-
    ```yaml
    env:
      RuntimeLogLevel: debug
    ```
 
+   > [!WARNING]
+   > YAML 文件不能包含制表符作为缩进。 请改用 2 个空格。
+
 保存该文件并重启 IoT Edge 安全管理器。
 
-还可以检查在 IoT 中心与 IoT Edge 设备之间发送的消息。 可以使用适用于 Visual Studio Code 的 [Azure IoT 工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)扩展查看这些消息。 有关详细信息，请参阅 [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)（通过 Azure IoT 进行开发时的顺手工具）。
+还可以检查在 IoT 中心与 IoT Edge 设备之间发送的消息。 使用用于 Visual Studio Code 的 [Azure IoT 中心工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)扩展（以前称为 Azure IoT 工具包扩展）来查看这些消息。 有关详细信息，请参阅 [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)（通过 Azure IoT 进行开发时的顺手工具）。
 
 ### <a name="restart-containers"></a>重启容器
 在调查日志和消息获得信息后，可以尝试重启容器：
@@ -180,11 +180,11 @@ iotedge restart edgeAgent && iotedge restart edgeHub
    Start-Service iotedge
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>Edge 代理在大约一分钟后停止
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge 代理在大约一分钟后停止
 
-Edge 代理启动并成功运行了大约一分钟，然后停止。 日志表明，Edge 代理尝试通过 AMQP 连接到 IoT 中心，并且尝试使用 AMQP 通过 WebSocket 进行连接。 当该操作失败时，Edge 代理退出。 
+edgeAgent 模块将启动并成功运行大约一分钟，然后停止。 日志表明，IoT Edge 代理尝试通过 AMQP 连接到 IoT 中心，并且尝试使用 AMQP 通过 WebSocket 进行连接。 该操作失败时，IoT Edge 代理将会退出。 
 
-示例 Edge 代理日志：
+示例 edgeAgent 日志：
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -194,16 +194,16 @@ Edge 代理启动并成功运行了大约一分钟，然后停止。 日志表�
 ```
 
 ### <a name="root-cause"></a>根本原因
-主机网络上的某个网络配置阻止 Edge 代理到达该网络。 代理首先会尝试通过 AMQP（端口 5671）进行连接。 如果连接失败，它将尝试 WebSocket（端口 443）。
+主机网络上的某个网络配置阻止 IoT Edge 代理到达该网络。 代理首先会尝试通过 AMQP（端口 5671）进行连接。 如果连接失败，它将尝试 WebSocket（端口 443）。
 
 IoT Edge 运行时会为每个模块设置要在其中进行通信的网络。 在 Linux 上，此网络是一个桥网络。 在 Windows 上，它使用 NAT。 此问题在其中的 Windows 容器使用 NAT 网络的 Windows 设备上更为常见。 
 
 ### <a name="resolution"></a>解决方法
 确保分配给此桥/NAT 网络的 IP 地址具有通向 Internet 的路由。 有时候，主机上的 VPN 配置会替代 IoT Edge 网络。 
 
-## <a name="edge-hub-fails-to-start"></a>Edge 中心未能启动
+## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge 中心未能启动
 
-Edge 中心未能启动，并且向日志输出了以下消息： 
+edgeHub 模块未能启动，并且向日志输出了以下消息： 
 
 ```output
 One or more errors occurred. 
@@ -213,16 +213,16 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>根本原因
-主机上的某个其他进程已绑定了端口 443。 Edge 中心映射端口 5671 和 443 以在网关方案中使用。 如果另一进程已绑定了此端口，则此端口映射会失败。 
+主机上的某个其他进程已绑定了端口 443。 IoT Edge 中心映射端口 5671 和 443 以在网关方案中使用。 如果另一进程已绑定了此端口，则此端口映射会失败。 
 
 ### <a name="resolution"></a>解决方法
 找到并停止正在使用端口 443 的进程。 此进程通常是 Web 服务器。
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge 代理无法访问某个模块的映像 (403)
-某个容器未能运行，并且 Edge 代理日志显示了一个 403 错误。 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge 代理无法访问某个模块的映像 (403)
+某个容器未能运行，并且 edgeAgent 日志显示了 403 错误。 
 
 ### <a name="root-cause"></a>根本原因
-Edge 代理无权访问某个模块的映像。 
+Iot Edge 代理无权访问某个模块的映像。 
 
 ### <a name="resolution"></a>解决方法
 确保在部署清单中正确指定了注册表凭据
@@ -244,7 +244,7 @@ IoT Edge 运行时只支持短于 64 个字符的主机名。 物理计算机通
 1. 在 Azure 门户中，导航到虚拟机的概述页面。 
 2. 选择 DNS 名称下的“配置”。 如果你的虚拟机已配置 DNS 名称，则不需要再配置。 
 
-   ![配置 DNS 名称](./media/troubleshoot/configure-dns.png)
+   ![配置虚拟机的 DNS 名称](./media/troubleshoot/configure-dns.png)
 
 3. 为“DNS 名称标签”提供一个值，然后选择“保存”。
 4. 复制新的 DNS 名称，此名称应该为 \<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com。
@@ -266,16 +266,16 @@ IoT Edge 运行时只支持短于 64 个字符的主机名。 物理计算机通
 你可能会在 Raspberry Pi 等受限设备上遇到稳定性问题，尤其是在这些设备用作网关时。 症状包括 Edge 中心模块出现“内存不足”异常、下游设备无法连接或者设备在几小时后停止发送遥测消息。
 
 ### <a name="root-cause"></a>根本原因
-Edge 中心是 Edge 运行时的一部分，默认情况下已针对性能进行了优化，并尝试分配大块内存。 这种优化对于受限 Edge 设备并不理想，并可能会导致稳定性问题。
+IoT Edge 中心是 IoT Edge 运行时的一部分，默认情况下已针对性能进行了优化，并尝试分配大块内存。 这种优化对于受限 Edge 设备并不理想，并可能会导致稳定性问题。
 
 ### <a name="resolution"></a>解决方法
-对于 Edge 中心，请将环境变量 OptimizeForPerformance 设置为 false。 可通过两种方式实现此目的：
+对于 IoT Edge 中心，请将环境变量 **OptimizeForPerformance** 设置为 **false**。 可通过两种方式实现此目的：
 
 在 UI 中： 
 
-在门户中，从“设备详细信息”->“设置模块”->“配置高级 Edge 运行时设置”，创建一个名为 *OptimizeForPerformance* 的环境变量，对于 *Edge 中心*将该变量设置为 *false*。
+在门户中，导航到“设备详细信息” > “设置模块” > “配置高级 Edge 运行时设置”。 为 Edge 中心模块创建名为 *OptimizeForPerformance*、设置为 *false* 的环境变量。
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![设为 false 的 OptimizeForPerformance](./media/troubleshoot/optimizeforperformance-false.png)
 
 **或者**
 
@@ -328,9 +328,9 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>IoT Edge 部署的防火墙和端口配置规则
-Azure IoT Edge 允许使用支持的 IoT 中心协议从本地 Edge 服务器来与 Azure 云通信，具体请参阅[选择通信协议](../iot-hub/iot-hub-devguide-protocols.md)。 为了增强安全性，Azure IoT Edge 与 Azure IoT 中心之间的信道始终配置为出站。 此配置基于[服务辅助通信模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可最大限度地减少恶意实体可探知的攻击面。 入站通信仅在特定情况下需要，其中 Azure IoT 中心需要将消息推送到 Azure IoT Edge 设备。 使用安全的 TLS 通道来保护云到设备的消息，并且可以使用 X.509 证书和 TPM 设备模块来增强其保护。 Azure IoT Edge 安全管理器控制这种通信的建立方式，具体请参阅 [IoT Edge 安全管理器](../iot-edge/iot-edge-security-manager.md)。
+Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Azure 云通信，具体请参阅[选择通信协议](../iot-hub/iot-hub-devguide-protocols.md)。 为了增强安全性，Azure IoT Edge 与 Azure IoT 中心之间的信道始终配置为出站。 此配置基于[服务辅助通信模式](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)，可最大限度地减少恶意实体可探知的攻击面。 入站通信仅在特定情况下需要，其中 Azure IoT 中心需要将消息推送到 Azure IoT Edge 设备。 使用安全的 TLS 通道来保护云到设备的消息，并且可以使用 X.509 证书和 TPM 设备模块来增强其保护。 Azure IoT Edge 安全管理器控制这种通信的建立方式，具体请参阅 [IoT Edge 安全管理器](../iot-edge/iot-edge-security-manager.md)。
 
-IoT Edge 提供增强的配置来保护 Azure IoT Edge 运行时和已部署的模块，但仍依赖于底层计算机和网络配置。 因此，必须确保设置适当的网络和防火墙规则来保护 Edge 与云之间的通信。 为托管 Azure IoT Edge 运行时的底层服务器配置防火墙规则时，可参考以下指导内容：
+IoT Edge 提供增强的配置来保护 Azure IoT Edge 运行时和已部署的模块，但仍依赖于底层计算机和网络配置。 因此，必须确保设置适当的网络和防火墙规则来保护 Edge 与云之间的通信。 为托管 Azure IoT Edge 运行时的底层服务器配置防火墙规则时，可参考下表中的指导：
 
 |协议|端口|传入|传出|指南|
 |--|--|--|--|--|

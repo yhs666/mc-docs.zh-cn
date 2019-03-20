@@ -1,49 +1,49 @@
 ---
 title: Azure Cosmos DB 中的分区和水平缩放
-description: 了解分区在 Azure Cosmos DB 中的工作原理，分区和分区键的配置方式以及应用程序分区键的选取方法。
+description: 了解分区在 Azure Cosmos DB 中的工作原理，分区和分区键的配置方式以及应用程序分区键的选择方法。
 ms.author: v-yeche
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/30/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: 1118ac283822acf232a3d92852083847fee6af90
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.date: 03/18/2019
+ms.openlocfilehash: a971793bc0e7da026b203ad54a1395e4a651372e
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987930"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004699"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区和水平缩放
 
-本文介绍 Azure Cosmos DB 中的物理分区和逻辑分区，以及有关缩放和分区的最佳做法。 
+本文介绍 Azure Cosmos DB 中的物理分区和逻辑分区。 此外，介绍有关缩放和分区的最佳做法。 
 
 ## <a name="logical-partitions"></a>逻辑分区
 
-逻辑分区由一组具有相同分区键的项构成。 例如，假设某个容器中的所有项都包含一个 `City` 属性，则你可以使用 `City` 作为该容器的分区键。 具有特定 `City` 值（例如“London”、“Paris”、“NYC”等）的项组将构成一个非重复性逻辑分区。
+逻辑分区由一组具有相同分区键的项构成。 例如，在所有项都包含一个 `City` 属性的容器中，可以使用 `City` 作为该容器的分区键。 具有特定 `City` 值（例如 `London`、`Paris` 和 `NYC`）的项组构成了独立的逻辑分区。 删除基础数据时，无需担心是否会删除分区。
 
-在 Azure Cosmos DB 中，容器是基本的缩放单元。 添加到容器的数据以及针对容器预配的吞吐量将自动在一组逻辑分区之间（水平）分区。 它们是根据为 Cosmos 容器指定的分区键分区的。 有关详细信息，请参阅[如何为 Cosmos 容器指定分区键](how-to-create-container.md)一文。
+在 Azure Cosmos DB 中，容器是基本的缩放单元。 添加到容器的数据以及针对容器预配的吞吐量将自动在一组逻辑分区之间（水平）分区。 数据和吞吐量是根据为 Azure Cosmos DB 容器指定的分区键分区的。 有关详细信息，请参阅[创建 Azure Cosmos DB 容器](how-to-create-container.md)。
 
 逻辑分区定义数据库事务的范围。 可以使用支持快照隔离的事务来更新逻辑分区中的项。 当向容器中添加新项时，系统将透明地创建新的逻辑分区。
 
 ## <a name="physical-partitions"></a>物理分区
 
-通过将数据和吞吐量分配到大量逻辑分区上来缩放 Azure Cosmos 容器。 在内部，一个或多个逻辑分区将映射到由一组副本（也称为副本集）构成的**物理分区**。 每个副本集托管 Azure Cosmos 数据库引擎的一个实例。 副本集使物理分区中存储的数据具有持久性、高可用性和一致性。 物理分区支持固定的最大数量存储和 RU。 构成物理分区的每个副本均继承存储配额。 并且物理分区的所有副本共同支持分配给物理分区的吞吐量。 下图显示了逻辑分区如何映射到多区域分布的物理分区：
+通过将数据和吞吐量分配到大量逻辑分区上来缩放 Azure Cosmos DB 容器。 在内部，一个或多个逻辑分区将映射到由一组副本（也称为副本集）构成的物理分区。 每个副本集托管 Azure Cosmos DB 数据库引擎的一个实例。 副本集使物理分区中存储的数据具有持久性、高可用性和一致性。 物理分区支持最大数量的存储和请求单位 (RU)。 构成物理分区的每个副本均继承该分区的存储配额。 物理分区的所有副本共同支持分配给物理分区的吞吐量。 
 
-![Azure Cosmos DB 分区](./media/partition-data/logical-partitions.png)
+下图显示了逻辑分区如何映射到多区域分布的物理分区：
 
-为容器预配的吞吐量在物理分区之间均匀划分。 因此，不会均匀分配吞吐量请求的分区键设计可能会产生“热”分区。 热分区可能导致速率限制以及预配吞吐量的低效使用。
+![演示 Azure Cosmos DB 分区的插图](./media/partition-data/logical-partitions.png)
 
-与逻辑分区不同，物理分区是系统的内部实现。 无法控制其大小、位置、计数，或者逻辑分区与物理分区之间的映射。 但是，可以通过选择适当的分区键来控制逻辑分区的数目以及数据和吞吐量的分配。
+为容器预配的吞吐量在物理分区之间均匀划分。 不会均匀分配吞吐量请求的分区键设计可能会产生“热”分区。 热分区可能导致速率限制以及预配吞吐量的低效使用。
+
+与逻辑分区不同，物理分区是系统的内部实现。 无法控制物理分区的大小、位置或计数，也无法控制逻辑分区与物理分区之间的映射。 但是，可以通过选择适当的分区键来控制逻辑分区的数目以及数据和吞吐量的分配。
 
 ## <a name="next-steps"></a>后续步骤
 
-本文概述了数据分区，以及有关 Azure Cosmos DB 中的缩放和分区的最佳做法。 
-
-* 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)
-* 了解 [Azure Cosmos DB 中的多区域分布](distribute-data-globally.md)
-* 了解如何[选择分区键](partitioning-overview.md#choose-partitionkey)
-* 了解[如何对 Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)
-* 了解[如何对 Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)
+* 了解如何[选择分区键](partitioning-overview.md#choose-partitionkey)。
+* 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)。
+* 了解 [Azure Cosmos DB 中的多区域分发](distribute-data-globally.md)。
+* 了解如何[在 Azure Cosmos DB 容器中预配吞吐量](how-to-provision-container-throughput.md)。
+* 了解如何[在 Azure Cosmos DB 数据库中预配吞吐量](how-to-provision-database-throughput.md)。
 
 <!--Update_Description: update meta properties, wording update-->

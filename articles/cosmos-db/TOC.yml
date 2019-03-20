@@ -210,7 +210,7 @@ items:
       href: online-backup-and-restore.md
     - name: 合规性
       href: compliance.md
-- name: MongoDB API
+- name: Cassandra、MongoDB 和其他 API
   items:
   - name: Azure Cosmos DB 的用于 MongoDB 的 API
     items:
@@ -279,6 +279,155 @@ items:
       - name: 存储和管理 Spring Data
         href: https://docs.azure.cn/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db
         maintainContext: true
+  - name: Gremlin API
+    displayName: graph, graph database
+    items:
+    - name: 简介
+      href: graph-introduction.md
+    - name: 线路协议支持
+      href: gremlin-support.md
+    - name: 快速入门
+      items:
+      - name: Gremlin 控制台
+        href: create-graph-gremlin-console.md
+      - name: .NET
+        href: create-graph-dotnet.md
+      - name: Java
+        href: create-graph-java.md
+      - name: Node.js
+        href: create-graph-nodejs.md
+      - name: Python
+        href: create-graph-python.md
+      - name: PHP
+        href: create-graph-php.md
+    - name: 教程
+      items:
+      - name: 1 - 查询数据
+        href: tutorial-query-graph.md
+    - name: 操作指南
+      items:
+      - name: 导入关系图数据
+        href: bulk-executor-graph-dotnet.md
+      - name: 关系图数据分区
+        href: graph-partitioning.md
+      - name: 存储和管理 Spring Data
+        href: https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
+        maintainContext: true
+  - name: Cassandra API
+    items:
+    - name: 简介
+      href: cassandra-introduction.md
+    - name: 线路协议支持
+      href: cassandra-support.md
+    - name: 快速入门
+      items:
+      - name: .NET
+        href: create-cassandra-dotnet.md
+      - name: Java
+        href: create-cassandra-java.md
+      - name: Node.js
+        href: create-cassandra-nodejs.md
+      - name: Python
+        href: create-cassandra-python.md
+    - name: 教程
+      items:
+      - name: 1 - 创建帐户和数据库
+        href: create-cassandra-api-account-java.md
+      - name: 2 - 加载数据
+        href: cassandra-api-load-data.md
+      - name: 3 - 查询数据
+        href: cassandra-api-query-data.md
+      - name: 4 - 迁移数据
+        displayName: import
+        href: cassandra-import-data.md
+    - name: 操作指南
+      items:
+      - name: 存储和管理 Spring Data
+        href: https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+        maintainContext: true
+      - name: Cassandra 和 Spark
+        items:
+        - name: 简介
+          href: cassandra-spark-generic.md
+        - name: 使用 HDInsight 进行连接
+          href: cassandra-spark-hdinsight.md
+        - name: 创建密钥空间和表
+          href: cassandra-spark-ddl-ops.md
+        - name: 插入数据
+          href: cassandra-spark-create-ops.md
+        - name: 读取数据
+          href: cassandra-spark-read-ops.md
+        - name: 更新插入数据
+          href: cassandra-spark-upsert-ops.md
+        - name: 删除数据
+          href: cassandra-spark-delete-ops.md
+        - name: 聚合操作
+          href: cassandra-spark-aggregation-ops.md
+        - name: 复制表数据
+          href: cassandra-spark-table-copy-ops.md
+  - name: 表 API
+    items:
+    - name: 简介
+      href: table-introduction.md
+    - name: 快速入门
+      items:
+      - name: .NET
+        href: create-table-dotnet.md
+      - name: Java
+        href: create-table-java.md
+      - name: Node.js
+        href: create-table-nodejs.md
+      - name: Python
+        href: create-table-python.md
+    - name: 教程
+      items:
+      - name: 1 - 创建帐户
+        href: tutorial-develop-table-dotnet.md
+      - name: 2 - 迁移数据
+        displayName: import
+        href: table-import.md
+      - name: 3 - 查询数据
+        href: tutorial-query-table.md
+      - name: 4 - 多区域分配数据
+        href: tutorial-global-distribution-table.md
+    - name: 示例
+      items:
+      - name: .NET
+        href: table-storage-how-to-use-dotnet.md
+      - name: Java
+        href: table-storage-how-to-use-java.md
+      - name: Node.js
+        href: table-storage-how-to-use-nodejs.md
+      - name: Python
+        href: table-storage-how-to-use-python.md
+      - name: PHP
+        href: table-storage-how-to-use-php.md
+      - name: C++
+        href: table-storage-how-to-use-c-plus.md
+      - name: Ruby
+        href: table-storage-how-to-use-ruby.md
+      - name: F#
+        href: https://docs.azure.cn/zh-cn/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    - name: 操作指南
+      items:
+      - name: 使用表 API 构建应用
+        href: table-support.md
+      - name: 表存储设计指南
+        href: table-storage-design-guide.md
+    - name: 参考
+      items:
+      - name: .NET
+        href: table-sdk-dotnet.md
+      - name: .NET Standard
+        href: table-sdk-dotnet-standard.md
+      - name: Java
+        href: table-sdk-java.md
+      - name: Node.js
+        href: table-sdk-nodejs.md
+      - name: Python
+        href: table-sdk-python.md
+      - name: 表存储 REST API
+        href: https://docs.microsoft.com/rest/api/storageservices/Table-Service-Concepts
   expanded: true
 - name: 操作指南
   items:
@@ -348,10 +497,14 @@ items:
       href: manage-with-cli.md
   - name: 日志记录
     items:
+    - name: 诊断日志记录
+      href: logging.md
     - name: 使用逻辑应用进行应用程序日志记录
       href: https://docs.azure.cn/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
   - name: 监视
     items:
+    - name: 使用指标进行监视
+      href: use-metrics.md
     - name: 监视 SLA
       href: monitor-accounts.md
   - name: 本地开发
@@ -396,6 +549,8 @@ items:
       href: create-website.md
     - name: Azure Functions
       items:
+      - name: 无服务器计算
+        href: serverless-computing-database.md
       - name: Azure Function 绑定
         href: https://docs.azure.cn/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
     - name: Azure 流分析
@@ -420,6 +575,8 @@ items:
     items:
     - name: 排查 Java Async SDK 问题
       href: troubleshoot-java-async-sdk.md
+    - name: 排查 .NET SDK 问题
+      href: troubleshoot-dot-net-sdk.md
 - name: 参考
   items:
   - name: .NET
@@ -448,6 +605,8 @@ items:
     href: /templates/microsoft.documentdb/databaseaccounts
 - name: 资源
   items:
+  - name: 查询备忘单
+    href: query-cheat-sheet.md
   - name: SQL 演练
     href: https://aka.ms/cosmos-db-playground
   - name: 常见问题
@@ -464,9 +623,9 @@ items:
       href: use-cases.md
     - name: 社交媒体应用
       href: social-media-apps.md
-ms.openlocfilehash: c97fd7c80386bfcea799b4c4b136d7e6cccdcbb0
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: ceb5a330d90565469bb759f319716aa9f02ff586
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988002"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004564"

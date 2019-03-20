@@ -1,27 +1,49 @@
 ---
-title: 将块 Blob 存储在设备上 - Azure IoT Edge |Microsoft Docs
+title: 将块 Blob 存储在设备上 - Azure IoT Edge
 description: 将 Azure Blob 存储模块部署到 IoT Edge 设备以在边缘存储数据。
 author: kgremban
 manager: philmea
 ms.author: v-yiso
 ms.reviewer: arduppal
-origin.date: 01/04/2018
-ms.date: 01/28/2018
+origin.date: 03/07/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd154d72a919e5504fa9f3714a59f978e3db473a
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: ca2cf043a5eb4ec99af383d4d8631ef36cd3464a
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396809"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987990"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>通过 IoT Edge 上的 Azure Blob 存储（预览版）在边缘存储数据
 
 IoT Edge 上的 Azure Blob 存储在边缘提供了[块 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 存储解决方案。 IoT Edge 设备上的 blob 存储模块的行为类似于 Azure 块 blob 服务，但块 blob 存储在本地 IoT Edge 设备上。 你可以使用相同的 Azure 存储 SDK 方法或已经习惯的块 blob API 调用来访问 blob。 
 
-拥有视频、图像、财务数据、医院数据或任何需要在本地存储稍后可在本地处理或传输到云的数据的方案，都是使用此模块的很好的示例。
+此模块附带**自动分层**和**自动过期**功能。
+
+> [!NOTE]
+> 目前，自动分层和自动过期功能仅在 Linux AMD64 和 Linux ARM32 中可用。
+
+**自动分层**是可配置的功能，可用于将本地 Blob 存储中的数据自动上传到 Azure，并提供间歇性的 Internet 连接支持。 该功能允许：
+- 启用/禁用分层功能
+- 选择将数据复制到 Azure 的顺序，例如，选择 NewestFirst 或 OldestFirst
+- 指定要将数据上传到的 Azure 存储帐户。
+- 指定要上传到 Azure 的容器。 此模块允许指定源和目标容器名称。
+- 执行完整 Blob 分层（使用 `Put Blob` 操作）和块级分层（使用 `Put Block` 和 `Put Block List` 操作）。
+
+如果 Blob 由块构成，则此模块使用块级分层。 下面是一些常见场景：
+- 应用程序需要更新以前上传的 Blob 的某些块；此模块只上传更新的块，而不会上传整个 Blob。
+- 当模块正在上传 Blob 时，Internet 连接断开；连接恢复后，该模块只上传剩余的块，而不会上传整个 Blob。
+
+如果在 Blob 上传期间发生意外的进程终止（例如电源故障），当模块重新联机时，将再次上传需要上传的所有块。
+
+**自动过期**是可配置的功能，当本地存储中的 Blob 达到生存时间 (TTL) 时，此模块会使用此功能自动删除这些 Blob。 生存时间以分钟为单位。 该功能允许：
+- 启用/禁用自动过期功能
+- 以分钟为单位指定 TTL
+
+对于需要在本地存储视频、图像、金融数据、医院数据或其他任何数据，以后在本地处理数据或将其传输到云的场合，都很适合使用此模块。
 
 本文提供有关在 IoT Edge 设备上运行 blob 服务的 IoT Edge 容器中部署 Azure Blob 存储的说明。 
 
@@ -118,7 +140,9 @@ Azure 市场提供了可直接部署到 IoT Edge 设备的 IoT Edge 模块，包
 
       ![更新模块容器创建选项 - 门户](./media/how-to-store-data-blob/edit-module.png)
 
-   4. 选择“其他安全性验证” 。
+   4. 在所需属性中设置[自动分层和自动过期](#configure-auto-tiering-and-auto-expiration-via-azure-portal)。 [自动分层](#auto-tiering-properties)和[自动过期](#auto-expiration-properties)属性及其可能值的列表。 
+
+   5. 选择“其他安全性验证” 。 
 
 4. 选择“下一步”继续执行向导的下一步。
 5. 在向导的“指定路由”步骤中，选择“下一步”。
@@ -174,11 +198,13 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
    > [!IMPORTANT]
    > 请不要更改存储目录绑定值的后半部分，该部分指向模块中的特定位置。 对于 Linux 容器，存储目录绑定应始终以 **:/blobroot** 结尾；对于 Windows 容器，应以 **:C:/BlobRoot** 结尾。
 
-5. 保存 **deployment.template.json** 文件。
+5. 配置[自动分层和自动过期](#configure-auto-tiering-and-auto-expiration-via-vscode)。 [自动分层](#auto-tiering-properties)和[自动过期](#auto-expiration-properties)属性的列表
 
-6. 在解决方案工作区中打开 **.env** 文件。 
+6. 保存 **deployment.template.json** 文件。
 
-7. .env 文件设置为接收容器注册表凭据，但对于 Blob 存储映像，你不需要提供这些凭据，因为它们是公开的。 请将该文件替换为两个新的环境变量： 
+7. 在解决方案工作区中打开 **.env** 文件。 
+
+8. .env 文件设置为接收容器注册表凭据，但对于 Blob 存储映像，你不需要提供这些凭据，因为它们是公开的。 请将该文件替换为两个新的环境变量： 
 
    ```env
    STORAGE_ACCOUNT_NAME=
@@ -195,23 +221,138 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 
 11. Visual Studio Code 会获取你在 deployment.template.json 和 .env 中提供的信息，并使用它来创建新的部署清单文件。 在解决方案工作区中的新 config 文件夹中创建部署清单。 获得该文件后，可以按照[从 Visual Studio Code 中部署 Azure IoT Edge 模块](how-to-deploy-modules-vscode.md)或[使用 Azure CLI 2.0 部署 Azure IoT Edge 模块](how-to-deploy-modules-cli.md)中的步骤进行操作。
 
+## <a name="auto-tiering-and-auto-expiration-properties-and-configuration"></a>自动分层和自动过期属性与配置
+
+使用所需属性设置自动分层和自动过期属性。 可以在部署期间设置这些属性，或者，以后可以通过编辑模块孪生来更改这些属性，而无需重新部署。 我们建议检查“模块孪生”中的 `reported configuration` 和 `configurationValidation`，以确保正确传播值。
+
+### <a name="auto-tiering-properties"></a>自动分层属性 
+此设置的名称为 `tieringSettings`
+| 字段 | 可能的值 | 说明 |
+| ----- | ----- | ---- |
+| tieringOn | true、false | 默认设置为 `false`，若要启用它，可将它设置为 `true`|
+| backlogPolicy | NewestFirst、OldestFirst | 用于选择将数据复制到 Azure 的顺序。 默认设置为 `OldestFirst`。 顺序由 Blob 的上次修改时间确定 |
+| remoteStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 是一个连接字符串，用于指定要将数据上传到的 Azure 存储帐户。 指定 `Azure Storage Account Name`、`Azure Storage Account Key` 或 `End point suffix`。 |
+| tieredContainers | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | 用于指定要上传到 Azure 的容器名称。 此模块允许指定源和目标容器名称。 如果未指定目标容器名称，系统会自动分配 `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>` 作为容器名称。 可以创建目标容器名称的模板字符串，具体请查看“可能的值”列。 <br>* %h -> IoT 中心名称（3 到 50 个字符）。 <br>* %d -> IoT 设备 ID（1 到 129 个字符）。 <br>* %m -> 模块名称（1 到 64 个字符）。 <br>* %c -> 源容器名称（3 到 63 个字符）。 <br><br>容器名称的最大大小为 63 个字符。尽管系统会自动分配目标容器名称，但如果容器大小超过 63 个字符，系统会将每个部分（IoTHubName、IotEdgeDeviceName、ModuleName、ContainerName）修剪为 15 个字符。 |
+
+### <a name="auto-expiration-properties"></a>自动过期属性
+此设置的名称为 `ttlSettings`
+| 字段 | 可能的值 | 说明 |
+| ----- | ----- | ---- |
+| ttlOn | true、false | 默认设置为 `false`，若要启用它，可将它设置为 `true`|
+| timeToLiveInMinutes | `<minutes>` | 以分钟为单位指定 TTL。 当本地存储中的 Blob 达到 TTL 时，模块会自动删除这些 Blob |
+
+### <a name="configure-auto-tiering-and-auto-expiration-via-azure-portal"></a>通过 Azure 门户配置自动分层和自动过期
+
+若要通过设置所需属性来启用自动分层和自动过期，可以设置以下值：
+
+- **在初始部署期间**：复制“设置模块孪生的所需属性”框中的 JSON。 为每个属性配置适当的值，保存属性，然后继续部署。
+
+   ```json
+   {
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+
+   ```
+
+ ![设置自动分层和自动过期属性](./media/how-to-store-data-blob/iotedge_custom_module.png)
+
+- **通过“模块标识孪生”功能部署模块后**：转到此模块的“模块标识孪生”，复制所需属性下的 JSON，为每个属性配置适当的值，然后保存属性。 在“模块标识孪生”JSON 中，确保每次添加或更新任何所需属性时，`reported configuration` 部分都会反映所做的更改，并且 `configurationValidation` 部分针对每个属性显示成功消息。
+
+   ```json 
+    "ttlSettings": {
+        "ttlOn": <true, false>, 
+        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+    },
+    "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+            "<source container name1>": {
+                "target": "<target container name1>"
+            }
+        }
+    }
+
+   ```
+
+![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
+
+### <a name="configure-auto-tiering-and-auto-expiration-via-vscode"></a>通过 VSCode 配置自动分层和自动过期
+
+- **在初始部署期间**：在 deployment.template.json 中添加以下 JSON，以定义此模块的所需属性。 为每个属性配置适当的值并保存。
+
+   ```json
+   "<your azureblobstorageoniotedge module name>":{
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+
+   ```
+
+下面是此模块的所需属性示例：![设置 azureblobstorageoniotedge 的所需属性 - VS Code](./media/how-to-store-data-blob/tiering_ttl.png)
+
+- **通过“模块孪生”部署模块后**：[编辑此模块的模块孪生](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)，复制所需属性下的 JSON，为每个属性配置适当的值，然后保存属性。 在“模块孪生”JSON 中，确保每次添加或更新任何所需属性时，`reported configuration` 部分都会反映所做的更改，并且 `configurationValidation` 部分针对每个属性显示成功消息。
+
+   ```json 
+    "ttlSettings": {
+        "ttlOn": <true, false>, 
+        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+    },
+    "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+            "<source container name1>": {
+                "target": "<target container name1>"
+            }
+        }
+    }
+
+   ```
+
 ## <a name="connect-to-your-blob-storage-module"></a>连接到 blob 存储模块
 
 可以使用为模块配置的帐户名和帐户密钥来访问 IoT Edge 设备上的 blob 存储。 
 
 将你的 IoT Edge 设备指定为对其进行的任何存储请求的 blob 终结点。 你可以使用 IoT Edge 设备信息和配置的帐户名[为显式存储终结点创建连接字符串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint)。 
 
-1. 对于部署在运行“IoT Edge 上的 Azure Blob 存储”的同一边缘设备上的模块，blob 终结点为：`http://<Module Name>:11002/<account name>`。 
-2. 对于部署在不同边缘设备，而非运行“IoT Edge 上的 Azure Blob 存储”的边缘设备上的模块，blob 终结点为：`http://<device IP >:11002/<account name>` 或 `http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`，具体取决于你的设置
-
-## <a name="logs"></a>日志
-
-可以在以下位置找到容器内的日志： 
-* 对于 Linux：/blobroot/logs/platformblob.log
+1. 对于部署在运行“IoT Edge 上的 Azure Blob 存储”的同一边缘设备上的模块，Blob 终结点为：`http://<module name>:11002/<account name>`。 
+2. 对于部署在不同边缘设备，而非运行“IoT Edge 上的 Azure Blob 存储”的边缘设备上的模块，Blob 终结点为：`http://<device IP >:11002/<account name>`、`http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`，具体取决于设置
 
 ## <a name="deploy-multiple-instances"></a>部署多个实例
 
-如果要在 IoT Edge 上部署 Azure Blob 存储的多个实例，只需更改模块绑定到的 HostPort 即可。 Blob 存储模块始终在容器中公开端口 11002，但你可以声明它在主机上绑定到的端口。 
+若要在 IoT Edge 上部署 Azure Blob 存储的多个实例，需要提供不同的存储路径，并更改模块绑定到的 HostPort。 Blob 存储模块始终在容器中公开端口 11002，但你可以声明它在主机上绑定到的端口。 
 
 编辑模块创建选项以更改 HostPort 值：
 
@@ -221,9 +362,10 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 
 连接到其他 blob 存储模块时，请将终结点更改为指向更新的主机端口。 
 
-### <a name="try-it-out"></a>试用
+## <a name="try-it-out"></a>试用
 
-Azure Blob 存储文档包括以多种语言提供示例代码的快速入门。 你可以通过将 blob 终结点更改为指向 blob 存储模块来运行这些示例，以测试 IoT Edge 上的 Azure Blob 存储。
+### <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob 存储快速入门示例
+Azure Blob 存储文档包括以多种语言提供示例代码的快速入门。 你可以通过将 blob 终结点更改为指向 blob 存储模块来运行这些示例，以测试 IoT Edge 上的 Azure Blob 存储。 遵循相应的步骤[连接到 Blob 存储模块](#connect-to-your-blob-storage-module)
 
 以下快速入门使用 IoT Edge 也同样支持的语言，因此，你可以将它们作为 IoT Edge 模块与 blob 存储模块一起部署：
 
@@ -234,9 +376,9 @@ Azure Blob 存储文档包括以多种语言提供示例代码的快速入门。
 
 ## <a name="supported-storage-operations"></a>受支持的存储操作
 
-IoT Edge 上的 blob 存储模块使用相同的 Azure 存储 SDK，并与适用于块 blob 终结点的 2018 年 3 月 28 日版 Azure 存储 API 保持一致。 后期版本取决于客户需求。 
+IoT Edge 上的 Blob 存储模块使用相同的 Azure 存储 SDK，并与适用于块 Blob 终结点的 2017-04-17 版 Azure 存储 API 保持一致。 后期版本取决于客户需求。
 
-并非所有 Azure Blob 存储操作都受 IoT Edge 上的 Azure Blob 存储支持。 以下部分详细说明了哪些操作不受支持。 
+并非所有 Azure Blob 存储操作都受 IoT Edge 上的 Azure Blob 存储支持。 以下部分列出了支持和不支持的操作。
 
 ### <a name="account"></a>帐户
 
@@ -255,11 +397,11 @@ IoT Edge 上的 blob 存储模块使用相同的 Azure 存储 SDK，并与适用
 * 创建和删除容器
 * 获取容器属性和元数据
 * 列出 Blob
-
-不受支持： 
 * 获取和设置容器 ACL
-* 租用容器
 * 设置容器元数据
+
+不受支持：
+* 租用容器
 
 ### <a name="blobs"></a>Blob
 
@@ -278,7 +420,7 @@ IoT Edge 上的 blob 存储模块使用相同的 Azure 存储 SDK，并与适用
 ### <a name="block-blobs"></a>块 Blob
 
 受支持： 
-* 放置块：- 块大小必须小于或等于 4 MB
+* 放置块
 * 放置和获取块列表
 
 不受支持：
