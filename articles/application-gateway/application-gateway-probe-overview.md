@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/06/2018
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1a8342e34ee5f0ba09b52d751f58144be43f0fce
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 8de9add2d5eb06a40bb9937705241f052887aa0f
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836909"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788742"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
@@ -23,6 +23,8 @@ ms.locfileid: "56836909"
 ![应用程序网关探测示例][1]
 
 除了使用默认的运行状况探测监视以外，还可以根据应用程序的要求自定义运行状况探测。 本文介绍默认的和自定义的运行状况探测。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>默认的运行状况探测
 
@@ -34,20 +36,20 @@ ms.locfileid: "56836909"
 
 ### <a name="probe-matching"></a>探测匹配
 
-默认情况下，包含状态代码 200 的 HTTP(S) 响应被视为正常。 自定义运行状况探测额外支持两个匹配条件。 可根据需要使用条件匹配来修改构成正常响应的因素的默认解释。
+默认情况下，状态代码为 200 到 399 的 HTTP(S) 响应被视为正常。 自定义运行状况探测额外支持两个匹配条件。 可根据需要使用条件匹配来修改构成正常响应的因素的默认解释。
 
 下面是匹配条件： 
 
 - **HTTP 响应状态代码匹配** - 接受用户指定的 http 响应代码或响应代码范围的探测匹配条件。 支持逗号分隔的单个响应状态代码，或一系列状态代码。
 - **HTTP 响应正文匹配** - 查找 HTTP 响应正文并匹配用户指定字符串的探测匹配条件。 该匹配操作只会在响应正文中确定是否存在用户指定的字符串，而不执行完整正则表达式匹配。
 
-可以使用 `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet 指定匹配条件。
+可以使用 `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet 指定匹配条件。
 
 例如：
 
 ```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 指定匹配条件后，可在 PowerShell 中使用 `-Match` 参数将其附加到探测配置。
 

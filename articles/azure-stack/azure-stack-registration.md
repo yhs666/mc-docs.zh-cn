@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/14/2019
-ms.date: 03/04/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: bf3f2d07cc5bcf373206fbefabbb931162eaf854
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 05303a65b426d407f8add1c12a023a02c979292e
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905455"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987939"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -301,7 +301,7 @@ Run: Get-AzureStackStampInformation
 
 ## <a name="verify-azure-stack-registration"></a>验证 Azure Stack 注册
 
-可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
+可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
 1. 登录到 [Azure Stack 管理门户](https://adminportal.local.azurestack.external)。
 
@@ -309,7 +309,7 @@ Run: Get-AzureStackStampInformation
 
 3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。
 
-    [ ![“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴") ](media/azure-stack-registration/admin1.png#lightbox)
+    [![“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴")](media/azure-stack-registration/admin1.png#lightbox)
 
     如果已注册，则属性包括：
     
@@ -323,7 +323,7 @@ Run: Get-AzureStackStampInformation
 
     Azure Stack 应用注册带有 **Azure Stack** 前缀。
 
-或者，可以使用“市场管理”功能来验证注册是否成功。 如果在“市场管理”边栏选项卡中看到市场项列表，即表示注册成功。 但是，在离线环境中，无法在“市场管理”中看到市场项。 不过，可以使用脱机工具来验证注册。
+或者，可以使用“市场管理”功能来验证注册是否成功。 如果在“市场管理”边栏选项卡中看到市场项列表，即表示注册成功。 但是，在离线环境中，无法在“市场管理”中看到市场项。
 
 > [!NOTE]
 > 完成注册后，将不再显示提示未注册的活动警告。 在离线场景中，即使注册成功，“市场管理”中也仍会显示一条消息，要求你注册并激活 Azure Stack。

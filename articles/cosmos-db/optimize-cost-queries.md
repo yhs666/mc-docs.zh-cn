@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2b8df172ea7adce1beaf13f826896f9045167f72
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: dc2683f641017a7e8a3a1b8b0bb3df3dbd16870f
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987903"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004525"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的查询成本
 

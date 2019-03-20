@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/04/2018
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 530652018be0fa9827524a454aede85a775e636a
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: unknown
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 8f0786c178844eb65a368981a44cb221bbd278ac
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814634"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987919"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识 
 使用 Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 验证 Azure Active Directory (Azure AD) 是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证 Azure 标识解决方案。  
@@ -66,7 +67,7 @@ ms.locfileid: "53814634"
    > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.partner.onmschina.cn`
 4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”。 成功的验证如下图所示： 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -77,7 +78,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 
 ## <a name="report-and-log-file"></a>报表和日志文件
@@ -138,7 +139,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ```
 **原因** - 帐户无法登录到指定的 Azure Active Directory (AADDirectoryTenantName)。 在本例中，将 *AzureChinaCloud* 指定为了 *AzureEnvironment*。
 
-**解决方法** - 确认帐户对指定的 Azure 环境有效。 在 PowerShell 中，运行以下命令来验证帐户对特定的环境有效： Login-AzureRmAccount - EnvironmentName AzureChinaCloud 
+**解决方法** - 确认帐户对指定的 Azure 环境有效。 在 PowerShell 中，运行以下命令来验证帐户对特定的环境有效： Login-AzureRmAccount -EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>帐户不是管理员 
  
 ```PowerShell

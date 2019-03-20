@@ -5,16 +5,16 @@ author: kgremban
 manager: ''
 ms.author: v-yiso
 origin.date: 12/17/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 80618ee403d961b622e1f539974c5636b673c1bb
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7cd60de7c5f2ff591e1264f2e0527e4c6d0308b3
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665581"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988021"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>将 IoT Edge 设备配置为通过代理服务器进行通信
 
@@ -72,7 +72,7 @@ Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters 
 
 选择适用于 Docker 版本的项目： 
 
-* [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [适用于 Linux 的 Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [适用于 Windows 的 Docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 守护程序

@@ -6,16 +6,16 @@ documentationcenter: ''
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: article
+ms.topic: quickstart
 origin.date: 08/16/2018
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 7b232e83ae87187d8b57a00409771f5f795f424b
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 4b2e6c186f43c353ab17614795d888476f62baee
+ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222587"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57787313"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -52,41 +52,41 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 事件中心命名空间提供唯一的范围容器，可以通过其完全限定的域名进行引用，而在该容器中，可以创建一个或多个事件中心。 若要使用门户在资源组中创建命名空间，请执行以下操作：
 
 1. 在 Azure 门户中，单击屏幕左上角的“创建资源”。
-
-2. 单击“物联网”，然后单击“事件中心”。
-
-3. 在“创建命名空间”中输入命名空间名称。 系统会立即检查该名称是否可用。
-
-   ![创建事件中心命名空间](./media/event-hubs-create/create-event-hub1.png)
-
-4. 在确保命名空间名称可用后，选择定价层（基本版或标准版）。 另外，请选择一个 Azure 订阅、资源组以及要创建该资源的位置。
- 
-5. 单击“创建”以创建命名空间。 可能需要等待几分钟让系统完全预配资源。
-6. 选择“警报”，然后选择“部署”，所用名称为事件中心命名空间的名称。 
-
-   ![资源组 - 创建过程中的警报](./media/event-hubs-quickstart-portal/create-alert.png)
-6. 从部署过程中创建的资源的列表中选择事件中心命名空间。 
-
-   ![从部署中选择命名空间](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. 在“事件中心命名空间”页上，选择“实体”下的“事件中心”，然后选择“共享访问策略”，并单击 **RootManageSharedAccessKey**。
+2. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择**星号 (`*`)**。 确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。 
     
-8. 单击复制按钮，将 **RootManageSharedAccessKey** 连接字符串复制到剪贴板。 将此连接字符串保存在临时位置（如记事本），供稍后使用。
+   ![搜索事件中心](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. 选择左侧导航菜单中“收藏夹”下的“事件中心”，然后选择工具栏上的“添加”。
+
+   ![“添加”工具栏按钮](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. 在“创建命名空间”页上执行以下步骤：
+    1. 输入该命名空间的名称。 系统会立即检查该名称是否可用。
+    2. 选择定价层（基本或标准）。
+    3. 选择要在其中创建命名空间的**订阅**。
+    4. 选择命名空间所在的**位置**。
+    5. 选择“创建” 。 可能需要等待几分钟让系统完全预配资源。
+
+       ![创建事件中心命名空间](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. 刷新“事件中心”页，以查看事件中心命名空间。 可以在警报中检查事件中心的创建状态。 
+
+    ![创建事件中心命名空间](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. 选择命名空间。 门户中会显示“事件中心命名空间”的主页。 
+
+   ![命名空间的主页](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## <a name="create-an-event-hub"></a>创建事件中心
 
 若要在该命名空间中创建事件中心，请执行以下操作：
 
-1. 在“事件中心命名空间”页上，选择单击“事件中心”。
-   
-    ![在左侧菜单中选择“事件中心”](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. 在“事件中心命名空间”页上，选择左侧菜单中的“事件中心”。
 1. 在窗口顶部，单击“+ 事件中心”。
    
     ![添加事件中心 - 按钮](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. 为事件中心键入名称，然后单击“创建”。
    
     ![创建事件中心](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. 可以在警报中检查事件中心的创建状态。 创建事件中心后，事件中心列表中会显示该事件中心，如下图所示：
 
+    ![已创建事件中心](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 祝贺！ 现已使用门户创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 
 

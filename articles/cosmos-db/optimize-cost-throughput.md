@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2dea626c41da49eb6a37e3783be3ab873270e02c
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 568a1c68b4517dc4973e8e7c7cc35fdb8a8b1470
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987968"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004579"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 
@@ -24,10 +24,8 @@ ms.locfileid: "56987968"
 
 ## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>在不同的级别通过预配吞吐量进行优化
 
-* 如果针对某个数据库预配吞吐量，该数据库中的所有容器（例如集合）可以基于负载共享该吞吐量。 在数据库级别预留的吞吐量将会根据特定容器集上的工作负荷以不均匀的方式进行共享。
+* 如果针对某个数据库预配吞吐量，该数据库中的所有容器（例如集合/表/图形）可以基于负载共享该吞吐量。 在数据库级别预留的吞吐量将会根据特定容器集上的工作负荷以不均匀的方式进行共享。
 
-    <!--Not Available on tables/graphs -->
-    
 * 如果针对某个容器预配吞吐量，则可以保证该容器的吞吐量，并提供 SLA 保障。 所选的逻辑分区键对于在容器的所有逻辑分区之间均匀分配负载至关重要。 有关更多详细信息，请参阅[分区](partitioning-overview.md)和[水平缩放](partition-data.md)文章。
 
 下面是确定预配吞吐量策略时可以参考的一些指导原则：
@@ -36,10 +34,8 @@ ms.locfileid: "56987968"
 
 1. 有几十个 Azure Cosmos 容器，并想要在部分或所有容器之间共享吞吐量。 
 
-2. 从专用于在 IaaS 托管的 VM 上运行或本地运行的单租户数据库（例如，NoSQL 数据库或关系数据库）迁移到 Azure Cosmos DB。 你有许多集合，并且不想要对数据模型进行任何更改。 请注意，如果在从本地数据库迁移时不更新数据模型，可能需要牺牲 Azure Cosmos DB 提供的一些优势。 建议始终重新访问数据模型，以获得最大性能并优化成本。 
-    
-    <!--Not Available on tables/graphs -->
-    
+2. 从专用于在 IaaS 托管的 VM 上运行或本地运行的单租户数据库（例如，NoSQL 数据库或关系数据库）迁移到 Azure Cosmos DB。 有许多集合/表/图形，并且不想要对数据模型进行任何更改。 请注意，如果在从本地数据库迁移时不更新数据模型，可能需要牺牲 Azure Cosmos DB 提供的一些优势。 建议始终重新访问数据模型，以获得最大性能并优化成本。 
+
 3. 想要在数据库级别利用入池吞吐量，来缓解容易出现意外高峰的工作负荷中的计划外高峰。 
 
 4. 不针对单个容器设置特定的吞吐量，而是考虑如何在数据库中的一组容器之间获得聚合吞吐量。
@@ -62,10 +58,9 @@ ms.locfileid: "56987968"
 |----|----|----|
 |SQL API|数据库|容器|
 |Azure Cosmos DB 的用于 MongoDB 的 API|数据库|集合|
-
-<!--Not Available on Azure Cosmos DB API for Cassandra-->
-<!--Not Available on Azure Cosmos DB API for Gremlin-->
-<!--Not Available on Azure Cosmos DB API for Table-->
+|Cassandra API|密钥空间|表|
+|Gremlin API|数据库帐户|Graph|
+|表 API|数据库帐户|表|
 
 在不同的级别预配吞吐量可以根据工作负荷特征优化成本。 如前所述，随时能够以编程方式针对单个容器或者同时针对一组容器增加或减少预配的吞吐量。 根据工作负荷的变化弹性缩放吞吐量，只需为配置的吞吐量付费。 如果单个容器或一组容器分布在多个区域之间，则所有区域都能保证提供针对这些容器配置的吞吐量。
 
@@ -113,9 +108,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 ## <a name="data-access-patterns"></a>数据访问模式 
 
-根据访问数据的频率以逻辑方式将数据划分成逻辑类别始终是良好的做法。 将数据分类成热数据、中性数据或冷数据，可以微调消耗的存储和所需的吞吐量。 根据访问频率，可将数据放入单独的容器（例如集合），并微调其预配的吞吐量，以适应数据分段的需要。 
-
-<!--Not Available on tables, graphs-->
+根据访问数据的频率以逻辑方式将数据划分成逻辑类别始终是良好的做法。 将数据分类成热数据、中性数据或冷数据，可以微调消耗的存储和所需的吞吐量。 根据访问频率，可将数据放入单独的容器（例如表、图形和集合），并微调其预配的吞吐量，以适应数据分段的需要。 
 
 此外，如果你正在使用 Azure Cosmos DB，并知道你不会按特定的数据值进行搜索或者很少访问这些值，则应存储这些属性的压缩值。 使用此方法可以节省存储空间、索引空间和预配的吞吐量，从而较低成本。
 
@@ -129,7 +122,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 ![在 Azure 门户中监视请求单位数](./media/optimize-cost-throughput/monitoring.png)
 
-<!--Not Availble on You can also set alerts to check if the number of rate-limited requests exceeds a specific threshold. See [How to monitor Azure Cosmos DB](use-metrics.md) article for more details. These alerts can send an email to the account administrators or call a custom HTTP Webhook or an Azure Function to automatically increase provisioned throughput.-->
+还可以设置警报，以检查受速率限制的请求数是否超过了特定阈值。 有关更多详细信息，请参阅[如何监视 Azure Cosmos DB](use-metrics.md) 一文。 这些警报可以向帐户管理员发送电子邮件，或者调用自定义 HTTP Webhook 或 Azure 函数来自动增加预配的吞吐量。 
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>按需弹性缩放吞吐量 
 
@@ -167,7 +160,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 2. 有一种方法可以估算应用程序所需的预留吞吐量：在针对应用程序所用的代表性 Azure Cosmos 容器或数据库运行典型操作时，记录与之相关的请求单位 (RU) 费用，然后估算预计每秒会执行的操作数目。 同时请务必测量并包含典型查询及其用量。 若要了解如何以编程方式或使用门户估算查询的 RU 成本，请参阅[优化查询成本](online-backup-and-restore.md)。 
 
-3. 获取操作及其 RU 成本的另一种方法是启用 Log Analytics，它会提供操作/持续时间的细目以及请求费用。 Azure Cosmos DB 提供每个操作的请求费用，因此，可以存储响应中的每笔操作费用，然后将其用于分析。 
+3. 获取操作及其 RU 成本的另一种方法是启用 Azure Monitor 日志，它会提供操作/持续时间的细目以及请求费用。 Azure Cosmos DB 提供每个操作的请求费用，因此，可以存储响应中的每笔操作费用，然后将其用于分析。 
 
 4. 可按需弹性扩展和缩减预配的吞吐量，以适应工作负荷的需要。 
 
@@ -189,7 +182,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
-* 详细了解[针对开发和测试进行优化](optimize-dev-test.md)
+* 详细了解[开发和测试优化](optimize-dev-test.md)
 <!--Not Available on* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)

@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 12/19/2018
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: a9aad065d000af3202ec3a9143cd0e189ab8af98
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: b0369396bc8328d85def3cd2fe38a9d20122121e
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656564"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788739"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 门户创建托管多个站点的应用程序网关
 
@@ -106,7 +106,7 @@ ms.locfileid: "53656564"
 
     ```azurepowershell
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location chinanorth `
       -ExtensionName IIS `
@@ -117,7 +117,7 @@ ms.locfileid: "53656564"
       -Settings $publicSettings
     ```
 
-3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 在 Set-AzureRmVMExtension 中输入 *fabrikamVM* 作为名称，并输入 VMName 值。
+3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 在 Set-AzVMExtension 中输入 *fabrikamVM* 作为名称，并输入 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>使用虚拟机创建后端池
 
@@ -191,4 +191,4 @@ ms.locfileid: "53656564"
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

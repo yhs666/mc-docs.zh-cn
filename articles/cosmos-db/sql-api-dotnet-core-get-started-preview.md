@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/01/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 935f06d44b19a52340f3233ad48e474468210c47
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 8623496dc502d109aa4f4b64505dd54e6953afc8
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987993"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004704"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET Core 控制台应用（SDK 版本 3 预览）
 
@@ -72,10 +72,10 @@ ms.locfileid: "56987993"
 1. 在计算机上打开 **Visual Studio 2017**。
 1. 在“文件”菜单中，选择“新建”，并选择“项目”。
 1. 在“新建项目”对话框中，选择“Visual C#” / “控制台应用(.NET Core)”，为项目命名，然后单击“确定”。
-   ![“新建项目”窗口屏幕截图](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
+   ![“新建项目”窗口的屏幕截图](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
 1. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序，并单击“管理 NuGet 包...”
 
-   ![“项目”右键菜单屏幕截图](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
+   ![项目的右键菜单的屏幕截图](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
 
 1. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中键入 **Microsoft.Azure.Cosmos**。
 1. 在结果中找到“Microsoft.Azure.Cosmos”，并单击“安装”。
@@ -134,7 +134,7 @@ ms.locfileid: "56987993"
 
    从门户中复制该 URI 并将它粘贴到 `Program.cs` 文件中的 `<your endpoint URL>`。 从门户中复制“主密钥”并将它粘贴到 `<your primary key>`。
 
-   ![从 Azure 门户获取 Azure Cosmso DB 密钥的屏幕截图](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![从 Azure 门户获取 Azure Cosmos DB 密钥的屏幕截图](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. 接下来，我们将创建 `CosmosClient` 的新实例并为程序设置一些基架。
 

@@ -4,17 +4,17 @@ description: 为 Azure IoT Edge 开发可与运行时和 IoT 中心通信的自�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 10/05/2017
-ms.date: 01/28/2019
+origin.date: 02/25/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3b64f21bea35cc3efcc856c1f0f18875817a5e77
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 20fc571a32e67c80dcf1275c62fedcd39eac79d7
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396757"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988069"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>开发你自己的 IoT Edge 模块
 
@@ -65,5 +65,9 @@ IoT Edge 中心基于[部署清单](module-composition.md)中介绍的声明性�
 
 ## <a name="next-steps"></a>后续步骤
 
-开发模块后，了解如何[大规模部署和监视 IoT Edge 模块](how-to-deploy-monitor.md)。
+[为 IoT Edge 准备开发和测试环境](development-environment.md)
+
+[使用 Visual Studio 2017 开发适用于 IoT Edge 的 C# 模块](how-to-visual-studio-develop-csharp-module.md)
+
+[使用 Visual Studio Code 开发适用于 IoT Edge 的模块](how-to-vs-code-develop-module.md)
 

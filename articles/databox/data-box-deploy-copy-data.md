@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 01/28/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 26cabcc94b70a51822b0038351cfaf83ada1d7f8
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: cab5d1f0cb92a4f3de4008d2947afe4d235a33d1
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905421"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990126"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教程：通过 SMB 将数据复制到 Azure Data Box
 
@@ -42,9 +42,10 @@ ms.locfileid: "56905421"
 
 根据选择的存储帐户，Data Box 将会：
 - 为每个关联的 GPv1 和 GPv2 存储帐户最多创建三个共享。
-- 为高级或 Blob 存储帐户创建一个共享。
+- 一个共享用于高级存储。 
+- 为 Blob 存储帐户创建一个共享。 
 
-块 Blob 和页 Blob 共享下的一级实体为容器，二级实体为 Blob。 在 Azure 文件共享下，一级实体为共享，二级实体为文件。
+在块 blob 和页 blob 共享下，一级实体为容器，二级实体为 blob。 在 Azure 文件共享下，一级实体为共享，二级实体为文件。
 
 下表显示了 Data Box 上共享的 UNC 路径以及上传数据的 Azure 存储路径 URL。 最终的 Azure 存储路径 URL 可以从 UNC 共享路径派生。
  

@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure IoT Edge 创建透明网关 | Microsoft Docs
-description: 使用 Azure IoT Edge 作为透明网关来处理多个设备的信息
+title: 创建透明网关设备 - Azure IoT Edge
+description: 将 Azure IoT Edge 用作可处理来自下游设备的消息的透明网关
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 11/01/2018
-ms.date: 12/10/2018
+origin.date: 11/29/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 282b0dbdda868beb964c59c871e9de57794637bc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: cd9ac8ba045fb09f90a1ec8f720b2f0a28083aed
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676471"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987979"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>将 IoT Edge 设备配置为充当透明网关
 
@@ -32,7 +32,7 @@ ms.locfileid: "52676471"
 
 可以创建任何启用设备网关拓扑所需的信任的证书基础结构。 在本文中，我们假设使用相同的证书设置来启用 IoT 中心的 [X.509 CA 安全性](../iot-hub/iot-hub-x509ca-overview.md)，其中涉及与特定 IoT 中心（IoT 中心所有者 CA）关联的 X.509 CA 证书，以及通过此 CA 签名的一系列证书和 Edge 设备的 CA。
 
-![网关设置](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![网关证书设置](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 网关在连接启动期间向下游设备显示其 Edge 设备 CA 证书。 下游设备检查以确保 Edge 设备 CA 证书由所有者 CA 证书签名。 此过程允许下游设备确认网关是否来自受信任的源。
 
@@ -41,11 +41,14 @@ ms.locfileid: "52676471"
 ## <a name="prerequisites"></a>先决条件
 
 要配置为网关的 Azure IoT Edge 设备。 可以执行适用于以下操作系统的步骤，将开发计算机或虚拟机用作 IoT Edge 设备：
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-可以使用任一计算机生成证书，然后将其复制到 IoT Edge 设备。 
+可以使用任一计算机生成证书，然后将其复制到 IoT Edge 设备。
+
+>[!NOTE]
+>在此说明中用于创建证书的“网关名称”必须与 IoT Edge 的 config.yaml 文件中用作主机名的名称以及在下游设备的连接字符串中用作 GatewayHostName 的名称相同。 “网关名称”必须能够解析成 IP 地址，不管是使用 DNS 还是主机文件条目。 必须能够在下游设备和透明 IoT Edge 之间进行基于所使用协议 (MQTTS:8883/AMQPS:5671/HTTPS:433) 的通信。 如果中间有防火墙，则需打开相应的端口。
 
 ## <a name="generate-certificates-with-windows"></a>在 Windows 中生成证书
 
@@ -60,9 +63,9 @@ ms.locfileid: "52676471"
    >[!NOTE]
    >如果已在 Windows 设备上安装 OpenSSL，则可以跳过此步骤，但请确保 PATH 环境变量中包含 openssl.exe。
 
-* **简易方法：** 下载并安装任何[第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的此项目](https://sourceforge.net/projects/openssl/)下载并安装。 将 openssl.exe 的完整路径添加到 PATH 环境变量。 
+* **更轻松：** 下载并安装任何[第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的此项目](https://sourceforge.net/projects/openssl/)下载并安装。 将 openssl.exe 的完整路径添加到 PATH 环境变量。 
    
-* **建议方法：** 在计算机上下载 OpenSSL 源代码并自行生成二进制文件，或者通过 [vcpkg](https://github.com/Microsoft/vcpkg) 生成。 下面列出的说明使用 vcpkg 下载源代码，并在 Windows 计算机上编译和安装 OpenSSL，所用的步骤都很简单。
+* **推荐：** 在计算机上下载 OpenSSL 源代码并自行生成二进制文件，或者通过 [vcpkg](https://github.com/Microsoft/vcpkg) 生成。 下面列出的说明使用 vcpkg 下载源代码，并在 Windows 计算机上编译和安装 OpenSSL，所用的步骤都很简单。
 
    1. 导航到要安装 vcpkg 的目录。 我们将此目录称作 *\<VCPKGDIR>*。 按照说明下载并安装 [vcpkg](https://github.com/Microsoft/vcpkg)。
    
@@ -259,7 +262,11 @@ certificates:
 6. 在“审阅模板”页中选择“提交”。
 
 ## <a name="route-messages-from-downstream-devices"></a>路由来自下游设备的消息
-IoT Edge 运行时可以像模块发送的消息一样路由从下游设备发送的消息。 这允许将任何数据发送到云之前在网关上运行的模块中执行分析。 下面的路由将用于将消息从名为 `sensor` 的下游设备发送到模块名称 `ai_insights`。
+IoT Edge 运行时可以像模块发送的消息一样路由从下游设备发送的消息。 这允许将任何数据发送到云之前在网关上运行的模块中执行分析。 
+
+目前，对由下游设备发送的消息进行路由的方式是将它们与由模块发送的消息区分开来。 由模块发送的消息全都包含名为“connectionModuleId”的系统属性，但由下游设备发送的消息则不包含此属性。 可以使用路由的 WHERE 子句以排除包含该系统属性的任何消息。 
+
+以下路由将用于将消息从任何下游设备发送到模块名称 `ai_insights`。
 
 ```json
 {
@@ -270,7 +277,7 @@ IoT Edge 运行时可以像模块发送的消息一样路由从下游设备发�
 }
 ```
 
-有关消息路由的详细信息，请参阅[模块组合](./module-composition.md)。
+有关消息路由的详细信息，请参阅[部署模块和建立路由](./module-composition.md#declare-routes)。
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

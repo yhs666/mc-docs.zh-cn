@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 02/13/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4c502388a9d52dc28528d10ddd3f7fae15aecae6
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 2de5d35df537d79a1684e7899600736bed504a07
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204135"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964483"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文本分析（预览版）中使用命名实体识别
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
 [实体识别 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) 需要使用非结构化文本，并对每个 JSON 文档返回已消除歧义的实体列表，其中包含网上（维基百科和必应）详细信息的链接。 
 
@@ -63,7 +63,7 @@ ms.locfileid: "57204135"
 | DateTime      | 持续时间      | “1 minute and 45 seconds”   | 
 | DateTime      | 设置           | “every Tuesday”     | 
 | DateTime      | TimeZone      |    | 
-| URL           | 暂无\*         | "http://www.bing.com"    |
+| URL           | 暂无\*         | "https://www.bing.com"    |
 | Email         | 暂无\*         | "support@contoso.com" |
 \*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。
 
@@ -75,7 +75,7 @@ ms.locfileid: "57204135"
 
 有关当前支持的语言，请参阅[此列表](../text-analytics-supported-languages.md)。
 
-每个文档的大小必须少于 5,000 个字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 以下示例例举了可能提交至实体链接端的内容。
+每个文档的大小必须少于 5,120 个字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 以下示例例举了可能提交至实体链接端的内容。
 
 ```
 {"documents": [{"id": "1",
@@ -296,5 +296,4 @@ ms.locfileid: "57204135"
 > [!div class="nextstepaction"]
 > [文本分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
 
-<!-- Update_Description: update metedata properties -->
-
+<!-- Update_Description: wording update -->

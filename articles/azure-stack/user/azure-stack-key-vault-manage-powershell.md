@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 1f40893b1ee6e10ba315090a83e112857d7df68f
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 426d4a8c4a88a07239db54581fe38cc8a5d31c2a
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218346"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988097"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的 Key Vault
 

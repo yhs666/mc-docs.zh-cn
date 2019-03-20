@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 5b0e8ff0eb2d29f0cc8b4e5014301599fa22d0e4
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 7d857c8b4a3eb8b876e8f392230707ddde7aeaf9
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905447"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987929"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -35,7 +35,14 @@ ms.locfileid: "56905447"
 
 ## <a name="build-reference"></a>内部版本参考
 
-Azure Stack 1901 更新内部版本号为 **1.1901.0.95**。
+Azure Stack 1901 更新内部版本号为 **1.1901.0.95**（在 2019 年 2 月 26 日以后则为 **1.1901.0.99**）。 请查看以下说明：
+
+> [!IMPORTANT]  
+> Azure 发现了一个可能影响从 1811 (1.1811.0.101) 更新到 1901 的客户的问题，并发布了一个可解决该问题的已更新的 1901 包：内部版本 1.1901.0.99（1.1901.0.95 的更新版本）。 已更新到 1.1901.0.95 的客户不需执行其他操作。
+>
+> 系统会在管理员门户中为使用 1811 的已连接客户自动显示新的已发布的 1901 (1.1901.0.99) 包，该包在做好准备的情况下即可安装。 断开连接的客户可以根据[此处所述](azure-stack-apply-updates.md)的相同过程下载和导入新的 1901 包。
+>
+> 不管使用哪一个版本的 1901，客户在安装下一个完整的包或修补程序包时都不会受影响。
 
 ## <a name="hotfixes"></a>修补程序
 
@@ -64,6 +71,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1901 之前将适用于 Azure Stack 的管理包更新到版本 10.0.3.11。
 
 ## <a name="new-features"></a>新增功能
 
@@ -107,7 +116,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 <!-- 16523695 – IS, ASDK -->
 - 修复了以下问题：在将虚拟网络的 DNS 设置从“使用 Azure Stack DNS”更新为“自定义 DNS”之后，不使用新设置更新实例。
 
-- <!-- 3235634 – IS, ASDK -->修复了以下问题：部署包含 **v2** 后缀大小的 VM（例如 **Standard_A2_v2**）需要将后缀指定为 **Standard_A2_v2**（小写 v）。 使用全球 Azure 时，现在可以使用 **Standard_A2_V2**（大写 V）。
+- <!-- 3235634 – IS, ASDK -->
+修复了以下问题：部署其大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**）时，需要将后缀指定为 **Standard_A2_v2**（小写 v）。 使用全球 Azure 时，现在可以使用 **Standard_A2_V2**（大写 V）。
 
 <!-- 2869209 – IS, ASDK --> 
 - 修复了以下问题：使用 [Add-AzsPlatformImage cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) 时必须使用 **-OsUri** 参数作为存储帐户 URI（磁盘将上传到该存储帐户）。 现在还可以使用磁盘的本地路径。
@@ -169,33 +179,6 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
    ```
 
-- 目前，Azure Stack 中的某些扩展无需显式通过市场联合下载即可成功部署。 我们即将删除这些扩展的以下版本。 Azure Stack 操作员现在必须显式从 Azure Stack 市场联合这些扩展：
-
-   | 类型                     | 版本        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   建议 Azure Stack 用户在部署扩展时，将 `autoUpgradeMinorVersion` 设置为 **true**。 例如：
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
-   ```
-
 - 准确规划 Azure Stack 容量时需要考虑一个新的因素。 使用 1901 更新时，现在可创建的虚拟机总数有限制。  此限制是暂时性的，目的是避免解决方案不稳定。 我们已解决大量 VM 的稳定性问题根源，但尚未确定补救措施的具体时间表。 使用 1901 更新时，现在每台服务器存在 60 个 VM 的限制，解决方案总体限制为 700 个。  例如，8 个服务器的 Azure Stack VM 数目限制是 480 (8 * 60)。  对于包含 12 到 16 个服务器的 Azure Stack 解决方案，限制为 700 个 VM。 确定此限制时，我们考虑到了所有计算容量，例如复原能力，以及运营商想要在阵列上保持的虚拟与物理 CPU 之比。 有关详细信息，请参阅新版容量规划器。  
 如果达到了 VM 规模限制，将返回以下错误代码：VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。 
  
@@ -242,7 +225,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 时，会显示基板管理控制器 (BMC) 中的一条警告消息。 可以放心地忽略此警告。
 
-- <!-- 2468613 - IS -->在安装此更新的过程中，可能会看到标题为 `Error – Template for FaultType UserAccounts.New is missing.` 的警报。可以放心忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
+- <!-- 2468613 - IS --> 在安装此更新的过程中，可能会看到标题为 `Error – Template for FaultType UserAccounts.New is missing.` 的警报。可以放心忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
 
 ## <a name="post-update-steps"></a>更新后步骤
 

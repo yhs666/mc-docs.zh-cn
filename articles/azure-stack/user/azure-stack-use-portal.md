@@ -10,16 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/23/2018
-ms.date: 12/31/2018
+origin.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ce62047a583cf225999149640b617e4403c0fd7
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: aed15b214d64870173dbcfcbc54c23635f97c956
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814660"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987918"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 
@@ -40,6 +41,10 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 仪表板包含一组默认磁贴。 可以选择“编辑仪表板”来修改默认仪表板，或者选择“新建仪表板”来创建自定义仪表板。 通过添加或删除磁贴来轻松自定义仪表板。 例如，若要添加“计算”磁贴，请选择“+ 创建资源”。 右键单击“计算”，然后选择“固定到仪表板”。
 
 ![Azure Stack 用户门户的屏幕截图](media/azure-stack-use-portal/userportal.png)
+
+若要将仪表板还原成原始设置，请执行以下操作：
+1.  选择“编辑仪表板”。 
+2.  单击右键并选择“重置为默认状态”。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>创建订阅和浏览可用资源
 

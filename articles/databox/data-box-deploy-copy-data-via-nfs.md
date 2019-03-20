@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 01/28/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 194580e4c163ac11bbf3a9f74d58345cd58a5603
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: b8521eba271de45e2160e1ceac75bdf829a9570c
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905290"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990181"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教程：通过 NFS 将数据复制到 Azure Data Box
 
@@ -41,9 +41,10 @@ ms.locfileid: "56905290"
 
 根据选择的存储帐户，Data Box 将会：
 - 为每个关联的 GPv1 和 GPv2 存储帐户最多创建三个共享。
-- 为高级或 Blob 存储帐户创建一个共享。 
+- 一个共享用于高级存储。 
+- 为 Blob 存储帐户创建一个共享。 
 
-块 Blob 和页 Blob 共享下的一级实体为容器，二级实体为 Blob。 在 Azure 文件共享下，一级实体为共享，二级实体为文件。
+在块 blob 和页 blob 共享下，一级实体为容器，二级实体为 blob。 在 Azure 文件共享下，一级实体为共享，二级实体为文件。
 
 下表显示了 Data Box 上共享的 UNC 路径以及上传数据的 Azure 存储路径 URL。 最终的 Azure 存储路径 URL 可以从 UNC 共享路径派生。
  
@@ -127,6 +128,9 @@ ms.locfileid: "56905290"
 
      我们建议从 16 个并行副本开始，并根据可用的资源增加线程数。
 
+> [!IMPORTANT]
+> 不支持以下 Linux 文件类型：符号链接、字符文件、块文件、套接字、管道。 在执行“准备交付”步骤时，这些文件类型会导致故障。
+
 - 为确保数据完整性，复制数据时将以内联方式计算校验和。 复制完成后，检查设备上的已用空间和可用空间。
     
    ![在仪表板上检查可用空间和已用空间](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
@@ -145,5 +149,5 @@ ms.locfileid: "56905290"
 请继续学习下一篇教程，了解如何将 Data Box 寄回 Microsoft。
 
 > [!div class="nextstepaction"]
-> [将 Azure Data Box 寄送到 Microsoft](./data-box-deploy-picked-up.md)
+> [将 Azure Data Box 寄送到 Azure](./data-box-deploy-picked-up.md)
 

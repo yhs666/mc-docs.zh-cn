@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/11/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e4596a4e67e91433042e0278eeef6d3675808848
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 046b384396ff6c2d72de9423ba737bc3d19d437d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218229"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988065"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -34,8 +34,8 @@ ms.locfileid: "56218229"
 
 需要先实施几个先决条件，然后才能部署 Azure Stack MySQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成本文中的步骤。
 
-* 向 Azure [注册 Azure Stack](.\azure-stack-registration.md)（如果尚未执行此操作），以便可以下载 Azure 市场项。
-* 必须在将运行此安装的系统上安装 Azure 和 Azure Stack PowerShell 模块。 该系统必须是具有最新版本的 .NET 运行时的 Windows 10 或 Windows Server 2016 映像。 请参阅[安装适用于 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
+* 向 Azure [注册 Azure Stack](./azure-stack-registration.md)（如果尚未执行此操作），以便可以下载 Azure 市场项。
+* 必须在将运行此安装的系统上安装 Azure 和 Azure Stack PowerShell 模块。 该系统必须是具有最新版本的 .NET 运行时的 Windows 10 或 Windows Server 2016 映像。 请参阅[安装适用于 Azure Stack 的 PowerShell](./azure-stack-powershell-install.md)。
 * 下载 **Windows Server 2016 Datacenter - Server Core** 映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack 市场。
 
 * 下载 MySQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。
@@ -63,7 +63,7 @@ ms.locfileid: "56218229"
 
 ### <a name="certificates"></a>证书
 
-_仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求](.\azure-stack-pki-certs.md#optional-paas-certificates)中的“可选 PaaS 证书”部分所述的 SQL PaaS PKI 证书。 将 .pfx 文件放在 **DependencyFilesLocalPath** 参数指定的位置。 对于 ASDK 系统，请不要提供证书。
+_仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求](./azure-stack-pki-certs.md#optional-paas-certificates)中的“可选 PaaS 证书”部分所述的 SQL PaaS PKI 证书。 将 .pfx 文件放在 **DependencyFilesLocalPath** 参数指定的位置。 对于 ASDK 系统，请不要提供证书。
 
 ## <a name="deploy-the-resource-provider"></a>部署资源提供程序
 

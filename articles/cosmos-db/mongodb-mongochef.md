@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 4c214ffcd478d9c7785e045b976e665e6b07ad07
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 15d7a8ecd6285faf22a83367c215c37c8f0a3e88
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987988"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004718"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>使用 Studio 3T 连接到 Cosmos 帐户
 

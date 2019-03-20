@@ -7,15 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.custom: devcenter, vs-azure
-ms.openlocfilehash: db2a568f32c6bd7c3c6daba9b089838a8382495b
-ms.sourcegitcommit: bbd2a77feeb7e5b7b4c6161687d60cc2b7315b5b
+ms.openlocfilehash: e557b9c79988afd8b5a24c170b92870200e4ed74
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857414"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004560"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：使用 Azure Cosmos DB 进行 Web 应用程序开发
@@ -70,14 +69,14 @@ ms.locfileid: "54857414"
 
 2. 在“项目类型”窗格中，依次展开“模板”、“Visual C#”、“Web”，并选择“ASP.NET Web 应用程序”。
 
-      ![屏幕截图：突出显示 ASP.NET Web 应用程序项目类型的“新建项目”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![“新建项目”对话框的屏幕截图，突出显示了 ASP.NET Web 应用程序项目类型](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. 在“名称”框中，键入项目的名称。 本教程使用名称“todo”。 如果选择使用其他名称，则每当本教程提及 todo 命名空间时，必须调整所提供的代码示例，以便使用为应用程序命名的名称。 
 4. 单击“浏览”导航到要在其中创建项目的文件夹，并单击“确定”。
 
       将出现“新建 ASP.NET Web 应用程序”对话框。
 
-    ![“新建 ASP.NET Web 应用程序”对话框屏幕截图，其中突出显示了 MVC 应用程序模板](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![“新建 ASP.NET Web 应用程序”对话框的屏幕截图，突出显示了 MVC 应用程序模板](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. 在模板窗格中，选择“MVC”。
 
 6. 单击“确定”，让 Visual Studio 围绕空白 ASP.NET MVC 模板基架的搭建执行操作。 
@@ -90,18 +89,18 @@ ms.locfileid: "54857414"
 ## <a name="step-3-add-azure-cosmos-db-to-your-mvc-web-application-project"></a>步骤 3：将 Azure Cosmos DB 添加到 MVC Web 应用程序项目
 完成此解决方案的大部分 ASP.NET MVC 琐事后，可以开始本教程的真正目的，也就是将 Azure Cosmos DB 添加到 MVC Web 应用程序。
 
-1. Azure Cosmos DB .NET SDK 将打包并以 NuGet 包的形式分发。 要在 Visual Studio 中获取 NuGet 包，请使用 Visual Studio 中的 NuGet 包管理器，方法是右键单击“解决方案资源管理器”中的项目，并单击“管理 NuGet 包”。
+1. Azure Cosmos DB .NET SDK 将打包并以 NuGet 包的形式分发。 若要在 Visual Studio 中获取 NuGet 包，请使用 Visual Studio 中的 NuGet 包管理器，方法是右键单击“解决方案资源管理器”中的项目，并单击“管理 NuGet 包”。
 
-    ![屏幕截图：解决方案资源管理器中 Web 应用程序项目的右键单击选项，其中突出显示了“管理 NuGet 程序包”。](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![屏幕截图：解决方案资源管理器中 Web 应用程序项目的右键单击选项，突出显示了“管理 NuGet 包”。](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
 
-    此时会显示“管理 NuGet 包”对话框。
+    此时显示“管理 NuGet 包”对话框  。
 2. 在 NuGet“浏览”框中，键入 ***Azure DocumentDB***。 （包名称尚未更新为 Azure Cosmos DB。）
 
     从结果中安装“Microsoft 提供的 Microsoft.Azure.DocumentDB”包。 这会下载并安装 Azure Cosmos DB 程序包，以及所有依赖项（例如 Newtonsoft.Json）。 在“预览”窗口中单击“确定”，并在“许可证接受”窗口中单击“我接受”，以完成安装。
 
-    ![屏幕截图：突出显示了 Azure Cosmos DB 客户端库的“管理 NuGet 包”窗口](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![“管理 NuGet 包”窗口的屏幕截图，突出显示了 Azure Cosmos DB 客户端库](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
 
-      或者，也可以使用程序包管理器控制台来安装程序包。 为此，请在“工具”菜单中，单击“NuGet 包管理器”，并单击“包管理器控制台”。 在提示符处键入以下命令。
+     或者，也可以使用程序包管理器控制台来安装程序包。 为此，请在“工具”菜单中，单击“NuGet 包管理器”，并单击“包管理器控制台”。 在提示符处键入以下命令。
 
         Install-Package Microsoft.Azure.DocumentDB
 
@@ -164,14 +163,14 @@ ms.locfileid: "54857414"
     此时会显示“添加基架”对话框。
 2. 选择“MVC 5 控制器 - 空”，并单击“添加”。
 
-    ![屏幕截图：突出显示“MVC 5 控制器 - 空”选项的“添加基架”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+    ![“添加基架”对话框的屏幕截图，突出显示了“MVC 5 控制器 - 空”选项](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. 将新控制器命名为 **ItemController**。
 
     ![屏幕截图：“添加控制器”对话框](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
 
     创建文件之后，Visual Studio 解决方案应该类似于下列在“解决方案资源管理器”中包含有新 ItemController.cs 文件的解决方案。 系统还会显示先前创建的新 Item.cs 文件。
 
-    ![屏幕截图：Visual Studio 解决方案 — 突出显示新 ItemController.cs 文件和 Item.cs 文件的解决方案资源管理器](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
+    ![“Visual Studio 解决方案 - 解决方案资源管理器”的屏幕截图，突出显示了新的 ItemController.cs 文件和 Item.cs 文件](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
 
     可以关闭 ItemController.cs，我们稍后会回头使用此文件。 
 
@@ -187,7 +186,7 @@ ms.locfileid: "54857414"
 #### <a name="add-an-item-index-view"></a>添加“项索引”视图
 1. 在“解决方案资源管理器”中，展开“视图”文件夹，右键单击先前在添加 **ItemController** 时 Visual Studio 创建的空白“项”文件夹，单击“添加”，并单击“视图”。
 
-    ![屏幕截图：显示 Visual Studio 使用突出显示的“添加视图”命令创建的 Item 文件夹的解决方案资源管理器](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+    ![解决方案资源管理器的屏幕截图，显示 Visual Studio 创建的 Item 文件夹，并且突出显示了“添加视图”命令](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. 在“添加视图”对话框中，执行以下操作： 
 
    * 在“视图名称”框中，键入“索引”。
@@ -515,7 +514,7 @@ ms.locfileid: "54857414"
 
     ![屏幕截图：本数据库教程创建的待办事项列表 Web 应用程序](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
 
-2. 单击“新建”链接，并在“名称”和“描述”字段中添加值。 将“已完成”复选框保持为未选中状态，否则，新**项**将以已完成状态添加，不会出现在初始列表中。
+2. 单击“新建”链接，并在“名称”和“说明”字段中添加值。 将“已完成”复选框保持为未选中状态，否则，新**项**将以已完成状态添加，不会出现在初始列表中。
 
     ![屏幕截图：“创建”视图](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. 单击“创建”，随后将重定向回到“索引”视图，创建的**项**会出现在列表中。
@@ -533,7 +532,7 @@ ms.locfileid: "54857414"
 ## <a name="step-7-deploy-the-application-to-azure-app-service"></a>步骤 7：将应用程序部署到 Azure 应用服务 
 现在，已经拥有了可以使用 Azure Cosmos DB 正常工作的完整应用程序，接下来我们要将此 Web 应用部署到 Azure 应用服务。  
 
-1. 要发布此应用程序，只需要右键单击“解决方案资源管理器”中的项目，单击“发布”即可。
+1. 若要发布此应用程序，只需要右键单击“解决方案资源管理器”中的项目，并单击“发布”即可。
 
     ![屏幕截图：解决方案资源管理器中的“发布”选项](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 60240fac8fd4f719e868233721b7c44efd6a89c4
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 66a58107547fdb98db42c650755b4da76c061880
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988006"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004539"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     * 直接模式
 
-        直接模式支持通过 TCP 和 HTTPS 协议的连接。 目前，.NET Standard 2.0 支持直接模式。 使用直接模式时，有两个可用的协议选项：
+        直接模式支持通过 TCP 和 HTTPS 协议的连接。 如果使用最新版的 .Net SDK，则 .NET Standard 2.0 和 .Net Framework 中支持直接连接模式。 使用直接模式时，有两个可用的协议选项：
 
         * TCP
         * HTTPS
@@ -49,11 +49,11 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
         |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
         |---------|---------|---------|---------|
-        |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)    |
+        |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(10350)、Graph(443)    |
         |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 范围内的端口    |
         |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
-        
-        <!--Not Available on Table(443), Cassandra(443), Graph(443)--> Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
+
+    Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
 
     连接模式是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 如果使用直接模式，则也可以在 ConnectionPolicy 参数中设置协议。
 

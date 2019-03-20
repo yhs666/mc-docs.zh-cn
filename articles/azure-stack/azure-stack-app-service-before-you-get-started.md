@@ -12,17 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2019
-ms.date: 03/04/2019
+origin.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: c00d885be9e1dad70a6cc78207a654c6ccbb18bf
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: cdca634af27c0924c534f499c1718b480ceb0c24
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905448"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987977"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -31,7 +31,7 @@ ms.locfileid: "56905448"
 在 Azure Stack 上部署 Azure 应用服务之前，必须完成本文中的先决条件步骤。
 
 > [!IMPORTANT]
-> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.4。
+> 请将 1901 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.5。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下载安装程序与帮助器脚本
 
@@ -50,15 +50,7 @@ ms.locfileid: "56905448"
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>从市场合成自定义脚本扩展版本
 
-Azure Stack 上的 Azure 应用服务需要自定义脚本扩展 v1.9.0。  开始部署或升级 Azure Stack 上的 Azure 应用服务之前，必须先[从市场合成](/azure-stack/azure-stack-download-azure-marketplace-item)该扩展
-
-## <a name="high-availability"></a>高可用性
-
-Azure Stack 1802 更新增加了对容错域的支持。 Azure Stack 上新的 Azure 应用服务部署将分配到各个容错域并提供容错功能。
-
-对于 Azure Stack 上现有的 Azure 应用服务部署（部署时间在 1802 更新以前），请参阅[跨容错域重新均衡应用服务资源提供程序](azure-stack-app-service-fault-domain-update.md)一文。
-
-另外，请在高可用性配置中部署所需的文件服务器和 SQL Server 实例。
+Azure Stack 上的 Azure 应用服务需要自定义脚本扩展 v1.9.1。  开始部署或升级 Azure Stack 上的 Azure 应用服务之前，必须先[从市场合成](/azure-stack/azure-stack-download-azure-marketplace-item)该扩展
 
 ## <a name="get-certificates"></a>获取证书
 
@@ -405,5 +397,3 @@ GO
 ## <a name="next-steps"></a>后续步骤
 
 [安装应用服务资源提供程序](azure-stack-app-service-deploy.md)
-
-<!-- Update_Description: wording update -->

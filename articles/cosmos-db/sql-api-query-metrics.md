@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 11/02/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 386c66f24856b218afc46917bc727d9b211a3f9f
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: d5b6535edbea8d6a2b5cf2d89a931efe2d10ad95
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309163"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004559"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
@@ -215,6 +215,8 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 
 ### <a name="indexing-policy"></a>索引策略
 若要了解索引编制路径、种类和模式以及它们对查询执行有何影响，请参阅[配置索引编制策略](index-policy.md)。 默认情况下，索引编制策略为字符串使用哈希索引编制，字符串比较适合进行等式查询，但不适合进行范围查询/order by 查询。 如果需要对字符串使用范围查询，建议为所有字符串指定范围索引类型。 
+
+默认情况下，Azure Cosmos DB 会对所有数据应用自动索引。 对于高性能插入方案，考虑排除路径，因为这会降低每项插入操作的 RU 成本。 
 
 ## <a name="query-execution-metrics"></a>查询执行指标
 可以通过传入可选的 `x-ms-documentdb-populatequerymetrics` 标头（在 .NET SDK 中为 `FeedOptions.PopulateQueryMetrics`）获取有关查询执行的详细指标。 `x-ms-documentdb-query-metrics` 中返回的值具有适用于对查询执行进行高级故障排除的以下键-值对。 

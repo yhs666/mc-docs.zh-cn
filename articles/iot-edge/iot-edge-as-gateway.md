@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure IoT Edge 设备作为网关 | Microsoft Docs
+title: 用于下游设备的网关 - Azure IoT Edge
 description: 使用 Azure IoT Edge 创建一个透明、不透明或代理网关设备，以将数据从多个下游设备发送到云或在本地对其进行处理。
 author: kgremban
 manager: philmea
 ms.author: kgremban
-origin.date: 11/01/2017
-ms.date: 12/10/2018
+origin.date: 02/25/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b373123ce0f90d1822e3a99a92797c507dedc8a1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6984967067951c9dcfa4817ebbcaa7c31cb73445
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675327"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988056"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>如何将 IoT Edge 设备用作网关
 
@@ -27,7 +27,7 @@ IoT 解决方案中的网关为 IoT 设备提供了设备连接和边缘分析�
 * **协议转换** - 也称为不透明网关模式，不支持 MQTT、AMQP 或 HTTP 的设备可以使用网关设备以它们的名义将数据发送到 IoT 中心。 网关理解下游设备使用的协议；然而，它是唯一一个在 loT 中心拥有标识的设备。 所有信息好像都来自一台设备，即网关。 如果云应用程序想要以设备位单位分析数据，则下游设备就必须在其消息中嵌入额外的标识信息。 此外，IoT 中心基元（例如孪生和方法）仅适用于网关设备，而不适用于下游设备。
 * **标识转换** - 无法连接到 IoT 中心的设备可以改为连接到网关设备。 网关代表下游设备提供 IoT 中心标识和协议转换。 网关非常智能，它能够理解下游设备使用的协议，为其提供标识，并转换 IoT 中心基元。 下游设备作为一流设备出现在 IoT 中心，随附克隆和方法。 用户可以与 IoT 中心的设备进行交互，但并觉察不到中间网关设备。
 
-![网关模式关系图](./media/iot-edge-as-gateway/edge-as-gateway.png)
+![关系图 - 透明、协议和标识网关模式](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>用例
 所有网关模式提供以下优势：
@@ -54,9 +54,4 @@ IoT 解决方案中的网关为 IoT 设备提供了设备连接和边缘分析�
 使用不透明网关（协议转换）模式时，通过该网关连接的所有设备共享同一个可包含最多 50 条消息的云到设备的队列。 它遵循的原则是，仅当很少设备通过各字段网关进行连接以及云到设备的流量较低时，才使用不透明网关模式。
 
 ## <a name="next-steps"></a>后续步骤
-了解如何将 IoT Edge 设备配置为[透明网关](how-to-create-transparent-gateway-linux.md)。
-
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-
-[1]: ./media/iot-edge-as-gateway/edge-as-gateway.png
+了解如何将 IoT Edge 设备配置为[透明网关](how-to-create-transparent-gateway.md)。

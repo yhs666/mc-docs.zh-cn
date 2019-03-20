@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 11/28/2018
-ms.date: 01/21/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4fd3f4d2a553dc213a8d9015294854533c9d693f
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: ab2f5113d197dc6e21754c4dadfe401ef8134591
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216286"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987948"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>准备在生产环境中部署 IoT Edge 解决方案
 
@@ -145,16 +145,16 @@ timeToLiveSecs 参数的默认值为 7200 秒，即 2 小时。
 
 * **有用提示**
     * 检查出站/入站配置
-    * 将连接加入白名单
+    * 将连接加入允许列表
     * 配置为通过代理进行通信
 
 ### <a name="review-outboundinbound-configuration"></a>检查出站/入站配置
 
 Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大多数 IoT Edge 方案，只需建立三个连接。 容器引擎需要连接到保存模块映像的一个或多个容器注册表。 IoT Edge 运行时需要连接到 IoT 中心，以检索设备配置信息，以及发送消息和遥测数据。 如果使用自动预配，则 IoT Edge 守护程序需要连接到设备预配服务。 有关详细信息，请参阅[防火墙和端口配置规则](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment)。
 
-### <a name="whitelist-connections"></a>将连接加入白名单
+### <a name="whitelist-connections"></a>将连接加入允许列表
 
-如果网络设置要求显式将从 IoT Edge 设备建立的连接加入白名单，请查看以下 IoT Edge 组件列表：
+如果网络设置要求显式将从 IoT Edge 设备建立的连接加入允许列表，请查看以下 IoT Edge 组件列表：
 
 * **IoT Edge 代理**可能通过 WebSocket 来与 IoT 中心建立持久性 AMQP/MQTT 连接。 
 * **IoT Edge 中心**可能通过 WebSocket 来与 IoT 中心建立一个持久性 AMQP 连接或多个 MQTT 连接。 
@@ -187,7 +187,7 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
 
 ### <a name="set-up-logs-and-diagnostics"></a>设置日志和诊断
 
-在 Linux 上，IoT Edge 守护程序使用 journald 作为默认的日志记录驱动程序。 可以使用命令行工具 `journalctl` 查询守护程序日志。 在 Windows 上，IoT Edge 守护程序使用 PowerShell 诊断。 使用 `Get-WinEvent` 可以查看守护程序的日志。 IoT Edge 模块使用 JSON 驱动程序（Docker 默认设置）进行日志记录。  
+在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 可以使用命令行工具 `journalctl` 查询守护程序日志。 在 Windows 上，IoT Edge 守护程序使用 PowerShell 诊断。 使用 `Get-WinEvent` 可以查看守护程序的日志。 IoT Edge 模块使用 JSON 驱动程序（Docker 默认设置）进行日志记录。  
 
 测试 IoT Edge 部署时，通常可以访问设备来检索日志和进行故障排除。 在部署方案中，可能做不到这一点。 考虑如何收集有关生产环境中设备的信息。 一种做法是使用日志记录模块从其他模块收集信息，然后将其发送到云中。 日志记录模块的一个示例是 [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics)，你也可以设计自己的模块。 
 
@@ -195,7 +195,7 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
 
 * 具体而言，可以在 Docker 守护程序本身中限制所有 Docker 日志文件的大小。 对于 Linux，可在 `/etc/docker/daemon.json` 中配置守护程序。 对于 Windows，可在 `C:\ProgramData\docker\confige\daemon.json` 中配置守护程序。 
 * 可在每个模块的 CreateOptions 中调整每个容器的日志文件大小。 
-* 通过将 journald 设置为 Docker 的默认日志记录驱动程序，将 Docker 配置为自动管理日志。 
+* 通过将日志设置为 Docker 的默认日志记录驱动程序，将 Docker 配置为自动管理日志。 
 * 安装适用于 Docker 的 logrotate 工具，以便从设备中定期删除旧日志。 使用以下文件规范： 
 
    ```

@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 01/24/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 2fb517c47ea368c5d2c7fd913cac434691d34942
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 07e2ed99f77d38f33db374b41a30aed8cb09f492
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905244"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990154"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>教程：使用数据复制服务将数据复制到 Azure Data Box（预览）
 
@@ -144,5 +144,5 @@ ms.locfileid: "56905244"
 请继续学习下一篇教程，了解如何将 Data Box 设备寄回 Microsoft。
 
 > [!div class="nextstepaction"]
-> [将 Azure Data Box 寄送到 Azure](./data-box-deploy-picked-up.md)
+> [将 Azure Data Box 设备寄送到 Azure](./data-box-deploy-picked-up.md)
 

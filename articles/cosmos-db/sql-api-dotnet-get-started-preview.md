@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/01/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9353c75168b9f94f12865b5f5a494bec411c5724
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 84fd07d6ece92f1cba1d34ad9b19681701a6663a
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987982"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004726"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用（SDK 版本 3 预览）
 
@@ -63,10 +63,10 @@ ms.locfileid: "56987982"
 1. 在计算机上打开 **Visual Studio 2017**。
 1. 在“文件”菜单中，选择“新建”，并选择“项目”。
 1. 在“新建项目”对话框中，选择“Visual C#” / “控制台应用(.NET Framework)”，为项目命名，并单击“确定”。
-    ![“新建项目”窗口屏幕截图](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+    ![“新建项目”窗口的屏幕截图](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序，并单击“管理 NuGet 包...”
 
-    ![“项目”右键菜单屏幕截图](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
+    ![项目的右键菜单的屏幕截图](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
 1. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中键入 **Microsoft.Azure.Cosmos**。 请务必选中“包括预发行版”，以便查找预览版。
 1. 在结果中找到“Microsoft.Azure.Cosmos”，并单击“安装”。
    Azure Cosmos DB SQL API 客户端库的包 ID 是 [Azure Cosmos DB 客户端库](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)。
@@ -177,7 +177,7 @@ ms.locfileid: "56987982"
 祝贺你！ 已成功连接到 Azure Cosmos DB 帐户。 
 
 ## <a name="step-4-create-a-database"></a>步骤 4：创建数据库
-可以使用 ``CosmosDatabases`` 类的 [**CreateDatabaseIfNotExistsAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cosmos.cosmosdatabases?view=azure-dotnet) 或 [**CreateDatabaseAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cosmos.cosmosdatabases?view=azure-dotnet) 函数创建一个数据库。 数据库是跨容器分区的项的逻辑容器。
+可以使用 ``CosmosDatabases`` 类的 [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases?view=azure-dotnet) 或 [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases?view=azure-dotnet) 函数创建一个数据库。 数据库是跨容器分区的项的逻辑容器。
 
 1. 将 **CreateDatabase** 方法复制并粘贴到 **GetStartedDemoAsync** 方法下面。 **createDatabase** 会使用通过 ``databaseId`` 字段指定的 ID ``FamilyDatabase`` 来创建新数据库（如果不存在）。 
 
@@ -295,7 +295,7 @@ ms.locfileid: "56987982"
 > 
 > 
 
-可以使用 **CosmosContainers** 类中的 [**CreateContainerIfNotExistsAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cosmos.cosmoscontainers?view=azure-dotnet) 或 [**CreateContainerAsync**](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cosmos.cosmoscontainers?view=azure-dotnet) 函数创建容器。 容器包含项（在使用 SQL API 的情况下为 JSON 文档）和关联的 JavaScript 服务器端应用程序逻辑，例如存储过程、用户定义的函数以及触发器。
+可以使用 **CosmosContainers** 类中的 [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers?view=azure-dotnet) 或 [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers?view=azure-dotnet) 函数创建容器。 容器包含项（在使用 SQL API 的情况下为 JSON 文档）和关联的 JavaScript 服务器端应用程序逻辑，例如存储过程、用户定义的函数以及触发器。
 
 1. 将 **CreateContainer** 方法复制并粘贴到 **CreateDatabase** 方法下面。 **CreateContainer** 会使用通过 ``containerId`` 字段指定的 ID ``FamilyContainer`` 来创建新容器（如果不存在）。 
 
@@ -332,7 +332,7 @@ ms.locfileid: "56987982"
 
 <a name="CreateDoc"></a>
 ## <a name="step-6-add-items-to-the-container"></a>步骤 6：向容器添加项
-可以使用“CosmosItems”类的 [CreateItemAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cosmos.cosmositems?view=azure-dotnet) 函数创建项。 使用 SQL API 时，项会投射为文档，后者是用户定义的（任意）JSON 内容。 现在，可以将项插入到 Azure Cosmos DB 容器中。
+可以使用“CosmosItems”类的 [CreateItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems?view=azure-dotnet) 函数创建项。 使用 SQL API 时，项会投射为文档，后者是用户定义的（任意）JSON 内容。 现在，可以将项插入到 Azure Cosmos DB 容器中。
 
 在本例中，首先需要创建 Family 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。 
 1. 选择 **Ctrl+Shift+A** 以打开“添加新项”对话框。 向你的项目添加一个新类 **Family.cs**。 

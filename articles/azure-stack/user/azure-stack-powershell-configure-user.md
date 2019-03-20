@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/11/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: ca8e55479b6dce1d620a540a62ec1f8054debfe6
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 0024dfae1e7fcb951230b0c46a4ee8f8f483f6a9
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905293"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987997"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack
 
@@ -95,6 +95,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [为 Azure Stack 开发模板](azure-stack-develop-templates.md)
-- [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+- [为 Azure Stack 开发模板](azure-stack-develop-templates.md)  
+- [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)  
+- [Azure Stack 模块参考](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
 - 若要为云操作员环境设置 PowerShell，请参阅[配置 Azure Stack 操作员的 PowerShell 环境](../azure-stack-powershell-configure-admin.md)一文。

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/07/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 14e7c35c1d2f346d0793eb42b62a0ec24cba121a
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: ab81e6d366680d4ea89cc2a13da2c35f24fd5a73
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905253"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988066"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -29,7 +29,24 @@ ms.locfileid: "56905253"
 
 请订阅 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [源](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，随时了解 ASDK 的新增功能。
 
+## <a name="build-11902069"></a>内部版本 1.1902.0.69
+
+### <a name="changes"></a>更改
+
+- 1902 版本在 Azure Stack 管理员门户上引入了新的用户界面用于创建计划、套餐、配额和附加计划。 有关详细信息（包括屏幕截图），请参阅[创建计划、套餐和配额](../azure-stack-create-plan.md)。
+
+<!-- ### New features
+
+- For a list of new features in this release, see [this section](../azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
+
+### Fixed and known issues
+
+- For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
+- Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
 ## <a name="build-11901095"></a>内部版本 1.1901.0.95
+
+请参阅 [Azure Stack 发行说明中的重要版本信息](../azure-stack-update-1901.md#build-reference)。
 
 ### <a name="changes"></a>更改
 
@@ -62,17 +79,3 @@ ms.locfileid: "56905253"
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
 如需此版本中已修复问题的列表，请参阅 Azure Stack 发行说明的[此部分](../azure-stack-update-1811.md#fixed-issues)。 如需已知问题的列表，请参阅[此部分](../azure-stack-update-1811.md#known-issues-post-installation)。
-
-## <a name="build-11809090"></a>内部版本 1.1809.0.90
-
-### <a name="new-features"></a>新增功能
-
-如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../azure-stack-update-1809.md#new-features)。
-
-### <a name="fixed-issues"></a>修复的问题
-
-如需此版本中已修复问题的列表，请参阅[此部分](../azure-stack-update-1809.md#fixed-issues)。
-
-### <a name="known-issues"></a>已知问题
-
-如需此版本中已知问题的列表，请参阅[此部分](../azure-stack-update-1809.md#known-issues-post-installation)。

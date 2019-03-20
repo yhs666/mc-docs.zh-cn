@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1593f3bea5d89d9fe65ff3c3412ecd1be9fe573e
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 75b88226b8d944075ca3937e334ac06794af0fc8
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905420"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987934"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "56905420"
 根据本文中的指南在 Azure Stack 中部署应用服务。
 
 > [!IMPORTANT]  
-> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.4。
+> 请将 1901 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.5。
 
 可以让用户能够创建 Web 应用程序和 API 应用程序。 若要让用户创建这些应用程序，必须：
 
@@ -39,7 +39,7 @@ ms.locfileid: "56905420"
  - 安装应用服务资源提供程序后，可以将其包括在套餐和计划中。 然后，用户可以订阅以获取服务并开始创建应用程序。
 
 > [!IMPORTANT]  
-> 在运行资源提供程序安装程序之前，请确保已按照[准备工作](azure-stack-app-service-before-you-get-started.md)中的指南进行操作。
+> 在运行资源提供程序安装程序之前，请确保已按照[准备工作](azure-stack-app-service-before-you-get-started.md)中的指南进行操作，并已阅读版本 1.5 随附的[发行说明](azure-stack-app-service-release-notes-update-five.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
@@ -100,7 +100,7 @@ ms.locfileid: "56905420"
 
    ![应用服务安装程序][4]
 
-8. 输入文件共享的信息，然后选择“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名 (FQDN) 或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。
+8. 输入文件共享的信息，然后选择“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名 (FQDN) 或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。  如果使用已加入域的文件服务器，则必须提供包含域的完整用户名，例如 myfileserverdomain\FileShareOwner。
 
    >[!NOTE]
    >在继续下一步之前，安装程序会尝试测试与文件共享的连接。 不过，如果是部署到现有的虚拟网络，此连接测试可能会失败。 系统会发出警告，并提示你继续操作。 如果文件共享信息是正确的，请继续部署。
@@ -185,6 +185,11 @@ ms.locfileid: "56905420"
 
     ![应用服务安装程序][17]
 
+## <a name="post-deployment-steps"></a>部署后步骤
+
+> [!IMPORTANT]  
+> 如果已经为应用服务 RP 提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>验证 Azure Stack 上的应用服务安装
 
 1. 在 Azure Stack 管理员门户中，转到“管理 - 应用服务”。
@@ -198,7 +203,7 @@ ms.locfileid: "56905420"
     - 源：任意
     - 源端口范围：*
     - 目标：IP 地址
-    - 目标 IP 地址范围：你的文件服务器的 IP 范围
+    - 目标 IP 地址范围：文件服务器的 IP 范围
     - 目标端口范围：445
     - 协议：TCP
     - 操作：允许

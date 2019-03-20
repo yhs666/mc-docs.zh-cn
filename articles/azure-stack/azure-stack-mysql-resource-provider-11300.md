@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/10/2018
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.reviewer: georgel
-ms.openlocfilehash: 671cbab3097e27ed737de3497a726a202d52ff7d
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: jiahan
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 3035cbdda8e2443a37a2d0ce7ac4d5965694d6f5
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814652"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988093"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 资源提供程序 1.1.30.0 发行说明
 

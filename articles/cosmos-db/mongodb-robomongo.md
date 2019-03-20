@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 5cb4cc6a687f2f0ea0676933b39a2e0809058d6a
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: cbc24ef969779df92c1290838c7e8295f1f353fa
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309061"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004548"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>将 Robo 3T 与 Azure Cosmos DB 的用于 MongoDB 的 API 配合使用
 

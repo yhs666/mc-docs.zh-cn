@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 02/23/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0db4c347bf168704ff9ba9ec8a42ee5417d5f5ac
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: b6a977d5ff80d7991fb6ab9714232cececa07dde
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309205"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004697"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 
@@ -35,7 +35,7 @@ ms.locfileid: "54309205"
 3. 从 Web 应用程序连接并使用 Azure Cosmos DB。
 4. 将 Web 应用程序部署到 Azure 应用服务。
 
-通过学习本教程，将可以构建一个可对轮询进行投票的简单投票应用程序。
+通过学习本教程，你将可以构建一个可对轮询进行投票的简单投票应用程序。
 
 ![屏幕截图：本数据库教程创建的投票应用程序](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
@@ -79,10 +79,10 @@ ms.locfileid: "54309205"
     ![Visual Studio 中“新建项目”窗口的屏幕截图，截图上包括左侧突出显示的 Python、中间已选中的 Python Flask Web 项目以及“名称”框中的名称“教程”](./media/sql-api-python-application/image9.png)
 4. 在“Python Tools for Visual Studio”窗口中，单击“安装到虚拟环境中”。 
 
-    ![数据库教程 - Python Tools for Visual Studio 窗口的屏幕截图](./media/sql-api-python-application/python-install-virtual-environment.png)
+    ![数据库教程 -“针对 Visual Studio 的 Python 工具”窗口的屏幕截图](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. 在“添加虚拟环境”窗口中选择“Python 2.7”或“Python 3.5”，在“选择解释器”框中接受其他默认值，并单击“创建”。 此操作将设置项目所需的 Python 虚拟环境。
 
-    ![数据库教程 - Python Tools for Visual Studio 窗口的屏幕截图](./media/sql-api-python-application/image10_A.png)
+    ![数据库教程 -“针对 Visual Studio 的 Python 工具”窗口的屏幕截图](./media/sql-api-python-application/image10_A.png)
 
     成功安装环境后，输出窗口会显示 `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`
 
@@ -108,7 +108,7 @@ ms.locfileid: "54309205"
 
     ![显示 env (Python 2.7) 已选中的屏幕截图，其中突出显示了列表中的“使用 requirements.txt 安装”](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
 
-    安装成功后，输出窗口会显示以下信息：
+    安装成功后，输出窗口显示以下信息：
 
         Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
@@ -351,7 +351,7 @@ def vote():
     ![在 Web 浏览器中显示的 Python + Azure Cosmos DB 投票应用程序的屏幕截图](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. 单击“创建/清除投票数据库”  以生成数据库。
 
-    ![Web 应用程序的创建页面 — 开发详细信息的屏幕截图](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+    ![Web 应用程序的创建页面 - 开发详细信息的屏幕截图](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
 4. 然后，单击“投票”并选择选项。
 
     ![提出了一个投票问题的 Web 应用程序的屏幕截图](./media/sql-api-python-application/cosmos-db-vote.png)

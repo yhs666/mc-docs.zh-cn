@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 7dfcdc2a1ba4db29089874ca38d25f3940914506
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 0bf160cc674f924b8c4ac39defe64db00296653d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905434"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987981"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
@@ -107,8 +107,8 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     ```
 
     > [!Note]  
-    > Azure Stack 模块版本 1.7.0 是一项重大更改。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration170)。
-
+    > Azure Stack 模块版本 1.7.0 是一个包含中断性变更的版本。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration170)。
+    > AzureRm 模块版本 2.4.0 包含对 cmdlet Remove-AzureRmStorageAccount 的中断性变更。 此 cmdlet 要求指定 -Force 参数，这样就可以在不确认的情况下删除存储帐户。
 - Azure Stack 1811：
 
     ```PowerShell
@@ -217,6 +217,12 @@ Get-Module -Name "Azs*" -ListAvailable
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ```
+
+    > [!NOTE]  
+    >在没有 Internet 连接的计算机上，建议执行以下 cmdlet 以禁用遥测数据收集功能。 在不禁用遥测数据收集功能的情况下，可能会遇到 cmldet 性能降级的问题。 这仅适用于没有 Internet 连接的计算机。
+    ```PowerShell
+    Disable-AzureRmDataCollection
     ```
 
 ### <a name="enable-additional-storage-features"></a>启用其他存储功能

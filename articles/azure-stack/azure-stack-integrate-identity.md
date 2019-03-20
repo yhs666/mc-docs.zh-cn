@@ -6,30 +6,20 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 01/23/2019
-ms.date: 03/04/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 0af4d2fb9277083ae41b4214168d9bc048a7cf3c
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: fd9bc5f4af0863878d501ece269ed23fea4d33cc
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905343"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988026"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
-可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
-
-下表显示了这两个标识之间的差别：
-
-||从 Internet 断开连接|连接到 Internet|
-|---------|---------|---------|
-|计费|必须是“容量”<br> 仅限企业协议 (EA)|“容量”或“即用即付”<br>“EA”或“云解决方案提供商”(CSP)|
-|标识|必须是“AD FS”|“Azure AD”或“AD FS”|
-|市场 |支持<br>BYOL 许可|支持<br>BYOL 许可|
-|注册|必需选项，需要使用可移动媒体<br> 和独立的连接设备。|自动|
-|修补和更新|必需选项，需要使用可移动媒体<br> 和独立的连接设备。|可以直接从 Internet<br> 将更新包下载到 Azure Stack。|
+可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 在连接的情况下，可以选择 Azure AD 或 AD FS。 在断开连接的情况下，只支持 AD FS。
 
 > [!IMPORTANT]
 > 如果不重新部署整个 Azure Stack 解决方案，则无法切换标识提供者。
@@ -44,7 +34,7 @@ ms.locfileid: "56905343"
 
 现有 AD FS 是将声明发送到 Azure Stack AD FS（资源 STS）的帐户安全令牌服务 (STS)。 在 Azure Stack 中，自动化功能将与现有 AD FS 的元数据终结点建立声明提供程序信任关系。
 
-在现有 AD FS 中，必须配置信赖方信任。 此步骤不是由自动化执行的，而必须由操作员配置。 Azure Stack 元数据终结点在 AzureStackStampDeploymentInfo.JSON 文件中阐述，或者可以运行命令 `Get-AzureStackInfo` 通过特权终结点来阐述。
+在现有 AD FS 中，必须配置信赖方信任。 此步骤不是由自动化执行的，而必须由操作员配置。 可以使用 `https://adfs.<Region>.<ExternalFQDN>/` 模式创建适用于 AD FS 的 Azure Stack VIP 终结点。
 
 配置信赖方信任还需要配置 Microsoft 提供的声明转换规则。
 

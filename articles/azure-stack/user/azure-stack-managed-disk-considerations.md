@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 078fe5dd4923c92f9ae6d4ebf8ded8ef8e41cb90
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 0cb43c776fc5abe00ac44737048c7837f34a84af
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905384"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988009"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异和注意事项
 
@@ -66,6 +66,67 @@ Azure Stack 托管磁盘支持以下 API 版本：
 
 - 2017-03-30
 - 2017-12-01
+
+## <a name="convert-to-managed-disks"></a>转换为托管磁盘
+
+可以使用以下脚本将当前预配的 VM 从非托管磁盘转换为托管磁盘。 将占位符替换成自己的值：
+
+```powershell
+$subscriptionId = 'subid'
+
+# The name of your resource group
+$resourceGroupName ='rgmgd'
+
+# The name of the managed disk
+$diskName = 'unmgdvm'
+
+# The size of the disks in GB. It should be greater than the VHD file size.
+$diskSize = '50'
+
+# The URI of the VHD file that will be used to create the managed disk.
+# The VHD file can be deleted as soon as the managed disk is created.
+$vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm20181109013817.vhd' 
+
+# The storage type for the managed disk; PremiumLRS or StandardLRS.
+$accountType = 'StandardLRS'
+
+# The Azure Stack location where the managed disk is located.
+# The location should be the same as the location of the storage account in which VHD file is stored.
+$location = 'local'
+$virtualMachineName = 'mgdvm'
+$virtualMachineSize = 'Standard_D1'
+$pipname = 'unmgdvm-ip'
+$virtualNetworkName = 'rgmgd-vnet'
+$nicname = 'unmgdvm295'
+
+# Set the context to the subscription ID in which the managed disk will be created
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
+
+# Create managed disk
+New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+$disk = get-azurermdisk -DiskName $diskName -ResourceGroupName $resourceGroupName
+$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+
+# Use the managed disk resource ID to attach it to the virtual machine.
+# Change the OS type to Linux if the OS disk has Linux OS.
+$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -CreateOption Attach -Linux
+
+# Create a public IP for the VM
+$publicIp = Get-AzureRmPublicIpAddress -Name $pipname -ResourceGroupName $resourceGroupName 
+
+# Get the virtual network where the virtual machine will be hosted
+$vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+
+# Create NIC in the first subnet of the virtual network
+$nic = Get-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $resourceGroupName
+
+$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+
+# Create the virtual machine with managed disk
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+```
 
 ## <a name="managed-images"></a>托管映像
 

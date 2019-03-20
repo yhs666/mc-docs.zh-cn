@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/10/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 85e9e825ba3ced77beb45b72bfbce1bce1a712f9
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 354eac0ceb2cce1765cd6822d0116c2564d350f5
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988007"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004709"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 
@@ -104,7 +104,7 @@ ms.locfileid: "56988007"
     npm install async --save
     ```
 
-2. 通过 npm 安装 **@azure/cosmos** 模块。 
+2. 通过 npm 安装 **\@azure/cosmos** 模块。 
 
     ```bash
     npm install @azure/cosmos

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 origin.date: 01/03/2019
-ms.date: 02/20/2019
+ms.date: 03/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: ac43da98940787bf9b5d37e42921541cfecc323a
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 34e2950b4fa05667a3ae10178554bcfaef373aef
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582785"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964484"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教程：使用计算机视觉在 Azure 存储中生成图像元数据
 
@@ -152,3 +152,4 @@ ms.locfileid: "56582785"
 > [!div class="nextstepaction"]
 > [向应用添加搜索](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)
 
+<!-- Update_Description: wording update -->

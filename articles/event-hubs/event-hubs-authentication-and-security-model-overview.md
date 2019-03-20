@@ -1,10 +1,10 @@
 ---
-title: Azure 事件中心身份验证和安全模型概述 | Azure
-description: 事件中心身份验证和安全模型概述。
+title: 身份验证和安全模型 - Azure事件中心 | Azure Docs
+description: 本文介绍 Azure 事件中心的身份验证和安全模型。
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: 049abfdb2cb43929a4fddf4d21adfcf91b2c34c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/25/2019
+ms.author: v-biyu
+ms.openlocfilehash: bbd25ae7fe287866831962ff0ee1c31058fc381b
+ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663026"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57787312"
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>事件中心身份验证和安全模型概述
+# <a name="azure-event-hubs---authentication-and-security-model"></a>Azure 事件中心 - 身份验证和安全模型
 
 Azure 事件中心安全模型满足以下要求：
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>生成令牌
 
-可以使用 SAS 密钥生成令牌。 对于每个客户端只能生成一个令牌。 然后，可以使用以下方法生成令牌。 所有令牌都使用 **EventHubSendKey** 密钥生成。 为每个令牌分配一个唯一 URI。
+可以使用 SAS 密钥生成令牌。 对于每个客户端只能生成一个令牌。 然后，可以使用以下方法生成令牌。 所有令牌都使用 **EventHubSendKey** 密钥生成。 为每个令牌分配一个唯一 URI。 'resource' 参数对应于服务（在此示例中为事件中心）的 URI 终结点。
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-调用此方法时，应将 URI 指定为 `//<NAMESPACE>.servicebus.chinacloudapi.cn/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`。 所有令牌的 URI 都是相同的，但每个令牌的 `PUBLISHER_NAME` 应该不同。 `PUBLISHER_NAME` 最好是表示接收该令牌的客户端 ID。
+调用此方法时，应将 URI 指定为 `https://<NAMESPACE>.servicebus.chinacloudapi.cn/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`。 所有令牌的 URI 都是相同的，但每个令牌的 `PUBLISHER_NAME` 应该不同。 `PUBLISHER_NAME` 最好是表示接收该令牌的客户端 ID。
 
 此方法会生成具有以下结构的令牌：
 
@@ -120,4 +120,3 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 [使用事件中心的示例应用程序]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [共享访问签名概述]: ../service-bus-messaging/service-bus-sas.md
 
-<!--Update_Description: update meta properties -->

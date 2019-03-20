@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 02/26/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3ae29e9426677f04438d479da8fa842bca81b1bb
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 8077ecee5843a590483a0ff7e2c677978a7b196c
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56837010"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788693"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 门户创建和配置托管多个网站的应用程序网关
 
@@ -95,6 +95,8 @@ ms.locfileid: "56837010"
 
 ### <a name="install-iis"></a>安装 IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 在 PowerShell 中使用以下命令登录到 Azure 门户：
 
     ```powershell
@@ -105,7 +107,7 @@ ms.locfileid: "56837010"
 
     ```azurepowershell
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location chinanorth `
       -ExtensionName IIS `
@@ -116,7 +118,7 @@ ms.locfileid: "56837010"
       -Settings $publicSettings
     ```
 
-3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 在 Set-AzureRmVMExtension 中输入 *fabrikamVM* 作为名称，并输入 VMName 值。
+3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 在 Set-AzVMExtension 中输入 *fabrikamVM* 作为名称，并输入 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>使用虚拟机创建后端池
 
@@ -184,4 +186,4 @@ ms.locfileid: "56837010"
 
 [使用应用程序网关配置应用服务](create-web-app.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

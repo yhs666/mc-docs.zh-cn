@@ -7,19 +7,19 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 01/15/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 8a6860b8952fede9a392f1d4f6a5614827db826a
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 083952d0b5eede02ed6fdc266bc307eccc5bf820
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303051"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988022"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
-本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 可以在将来的任何时候添加这些管理解决方案，以便对 Runbook 作业进行高级监视。 
+本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，无需使用其他管理解决方案，也无需与 Azure Monitor 日志集成。 以后随时可以添加这些管理解决方案或者与 Azure Monitor 日志集成，以获得高级的 Runbook 作业监视。
 
 使用自动化帐户，可以对在 Azure 资源管理器部署或经典部署中管理资源的 Runbook 进行身份验证。 一个自动化帐户可以跨所有区域和订阅管理给定租户的资源。
 

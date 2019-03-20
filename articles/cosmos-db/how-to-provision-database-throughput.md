@@ -5,18 +5,18 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b220e6c8386fb4a7e7fab77f1575ffed70492d97
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: e192b460ef53d3e0354a761aaabe150acc0c6b08
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987898"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004554"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中为数据库预配吞吐量
 
-本文介绍如何在 Azure Cosmos DB 中为数据库预配吞吐量。 可以为单个[容器](how-to-provision-container-throughput.md)预配吞吐量，也可以为数据库预配吞吐量，并在数据库中的容器之间共享吞吐量。 可以使用 Azure 门户或 Azure Cosmos DB SDK 来预配数据库级别吞吐量。
+本文介绍如何在 Azure Cosmos DB 中为数据库预配吞吐量。 可以为单个[容器](how-to-provision-container-throughput.md)预配吞吐量，也可以为数据库预配吞吐量，并在数据库中的容器之间共享吞吐量。 若要了解何时使用容器级和数据库级吞吐量，请参阅[在容器和数据库上预配吞吐量的用例](set-throughput.md)一文。 可以使用 Azure 门户或 Azure Cosmos DB SDK 来预配数据库级别吞吐量。
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 门户预配吞吐量
 

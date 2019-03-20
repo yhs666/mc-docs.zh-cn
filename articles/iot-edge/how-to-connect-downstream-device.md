@@ -1,20 +1,20 @@
 ---
-title: 连接下游设备 - Azure IoT Edge | Microsoft Docs
+title: 连接下游设备 - Azure IoT Edge
 description: 如何将下游或叶设备配置为通过 Azure IoT Edge 网关设备进行连接。
 author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 11/01/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 68f124513628749c54843701b923ad54485b0888
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f66456671a21c15984f2736bc851a854a6a13bfd
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665479"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987925"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 
@@ -40,7 +40,10 @@ Azure IoT Edge 可实现透明网关方案，其中，一个或多个设备可�
 2. 在 IoT 中心具有设备标识的下游设备。 
     不能使用 IoT Edge 设备作为下游设备。 应使用已在 IoT 中心注册为常规 IoT 设备的设备。 可在门户的“IoT 设备”部分注册新设备。 也可以使用 Azure CLI [注册设备](../iot-hub/quickstart-send-telemetry-c.md#register-a-device)。 复制连接字符串，以便在后续部分使用。 
 
-    目前，只有使用对称密钥身份验证的下游设备可以通过 IoT Edge 网关进行连接。 目前不支持 X.509 证书颁发机构和自签名的 X.509 证书。 
+    目前，只有使用对称密钥身份验证的下游设备可以通过 IoT Edge 网关进行连接。 目前不支持 X.509 证书颁发机构和自签名的 X.509 证书。
+    
+> [!NOTE]
+> 在此说明中用于创建证书的“网关名称”必须与 IoT Edge 的 config.yaml 文件中用作主机名的名称以及在下游设备的连接字符串中用作 GatewayHostName 的名称相同。 “网关名称”必须能够解析成 IP 地址，不管是使用 DNS 还是主机文件条目。 必须能够在下游设备和透明 IoT Edge 之间进行基于所使用协议 (MQTTS:8883/AMQPS:5671/HTTPS:433) 的通信。 如果中间有防火墙，则需打开相应的端口。
 
 ## <a name="prepare-a-downstream-device"></a>准备下游设备
 

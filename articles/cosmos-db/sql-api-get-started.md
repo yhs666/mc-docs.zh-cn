@@ -7,20 +7,22 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/16/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4ab437045f20463e628e326a9ace005ba49e6b4f
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 57b4e1c762f43be1c90fb6a1c881e59dbe2b5ef1
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309175"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004540"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入门教程
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET（预览版）](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core（预览版）](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -62,10 +64,10 @@ ms.locfileid: "54309175"
 1. 在计算机上打开 **Visual Studio 2017**。
 2. 在“文件”菜单中，选择“新建”，并选择“项目”。
 3. 在“新建项目”对话框中，选择“模板” / “Visual C#” / “控制台应用程序”，为项目命名，并单击“确定”。
-   ![“新建项目”窗口屏幕截图](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
+   ![“新建项目”窗口的屏幕截图](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
 4. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序，并单击“管理 NuGet 包...”
 
-    ![“项目”右键菜单屏幕截图](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+    ![项目的右键菜单的屏幕截图](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中键入 **azure documentdb**。
 6. 在结果中找到 **Microsoft.Azure.DocumentDB**，并单击“安装”。
    Azure Cosmos DB SQL API 客户端库的包 ID 是 [Azure Cosmos DB 客户端库](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)。
@@ -109,7 +111,7 @@ ms.locfileid: "54309175"
 
 从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URL>`。 然后从门户中复制“主密钥”并将它粘贴到 `<your primary key>`。
 
-![NoSQL 教程用于创建 C# 控制台应用程序的 Azure 门户的屏幕截图。 显示一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”页上突出显示“活动”中心、“密钥”按钮，在“密钥”页上突出显示 URI、主密钥和辅助密钥的值][keys]
+![NoSQL 教程用于创建 C# 控制台应用程序的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”页上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”页上突出显示了 URI、主密钥、辅助密钥的值][keys]
 
 接下来，我们开始使用应用程序时，请首先创建一个新的 **DocumentClient** 实例。
 

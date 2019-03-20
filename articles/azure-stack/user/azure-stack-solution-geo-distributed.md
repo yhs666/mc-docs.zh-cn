@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 01/14/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 734f6daceb647d740722fe9d81dd3d59ad548e46
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: c9befa6d47182f82a4cce13b80b2ba6898576602
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218287"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987967"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 创建异地分布式应用解决方案
 
@@ -506,7 +506,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 2.  在“SSL 类型”中，选择是要使用[**服务器名称指示 (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication) 还是使用基于 IP 的 SSL。
 
--   **基于 SNI 的 SSL** - 可添加多个基于 SNI 的 SSL 绑定。 选择此选项可以使用多个 SSL 证书来保护同一 IP 地址上的多个域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（可以在[服务器名称指示](http://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。
+-   **基于 SNI 的 SSL** - 可添加多个基于 SNI 的 SSL 绑定。 选择此选项可以使用多个 SSL 证书来保护同一 IP 地址上的多个域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（可以在[服务器名称指示](https://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。
 
 -   **基于 IP 的 SSL** - 只能添加一个基于 IP 的 SSL 绑定。 选择此选项只能使用一个 SSL 证书来保护专用公共 IP 地址。 若要保护多个域，请使用同一个 SSL 证书来保护所有这些域。 这是 SSL 绑定的传统选项。
 

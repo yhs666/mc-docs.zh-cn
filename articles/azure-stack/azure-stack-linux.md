@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/15/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 635452681d9c9542310d5a500038c4cec5057327
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 64df5dece037a882eff5fece44b8ea82696ba7e1
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905369"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988089"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>将 Linux 映像添加到 Azure Stack
 
@@ -39,7 +39,7 @@ ms.locfileid: "56905369"
 
 只要有可能，请下载通过市场管理提供的映像，这些映像已针对 Azure Stack 进行了准备和测试。
 
-Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用版本 2.2.20 或更高版本。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
+Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用最新版本的 WALA 或版本 2.2.20。 请注意，2.2.20 和 2.2.35.1（不含）之间的版本不能在 Azure Stack 上使用。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
 可以按照以下说明准备自己的 Linux 映像：
 

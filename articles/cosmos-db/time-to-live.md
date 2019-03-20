@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: f3635abe5f738501be04d6111ed5afd70fb0c89d
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: ed589d437978c1c0445212086fa0bac4c0b3528b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987907"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004526"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 
 
@@ -31,7 +31,7 @@ ms.locfileid: "56987907"
 
    - 如果存在且值设置为某个数字（“n”），则项将在上次修改“n”秒后过期。
 
-2. **项的生存时间**（使用 `TimeToLive` 设置）：
+2. **项的生存时间**（使用 `ttl` 设置）：
 
    - 仅当父容器的 `DefaultTimeToLive` 存在且不是设置为 null 时，此属性才适用。
 

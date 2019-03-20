@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 7a59ba9b8968e6dd7525398fb1ba0c23be707ae8
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: c8a64740108b752fd1218f9df20c46c63a8d4b23
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309102"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004523"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>监视 Azure Cosmos DB 中的性能和存储指标
 
@@ -48,7 +48,21 @@ ms.locfileid: "54309102"
 3. 单击“请求”磁贴右上角的双箭头将打开详细的“指标”页。
 4. “指标”页显示有关请求总数的详细信息。 
 
-<!-- Not Available on ## Set up alerts in the portal-->
+## <a name="set-up-alerts-in-the-portal"></a>在门户中设置警报
+1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“所有服务”、“Azure Cosmos DB”，并单击要设置性能指标警报的 Azure Cosmos DB 帐户的名称。
+2. 在资源菜单中，单击“警报规则”打开“警报规则”页。  
+    ![所选的警报规则部件的屏幕截图](./media/monitor-accounts/madocdb10.5.png)
+3. 在“警报规则”页中，单击“添加警报”。  
+    ![“添加警报”按钮突出显示的“警报规则”页的屏幕截图](./media/monitor-accounts/madocdb11.png)
+4. 在“添加警报规则”页中，指定：
+
+    * 正在设置的警报规则的名称。
+    * 新的警报规则的说明。
+    * 警报规则指标。
+    * 确定何时激活警报的条件、阈值和时间段。 例如，在过去的 15 分钟服务器错误计数大于 5。
+    * 当警报触发时，服务管理员和协同管理员是否会通过电子邮件得到通知。
+    * 警报通知的其他电子邮件地址。  
+        ![“添加警报规则”页的屏幕截图](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>以编程方式监视 Azure Cosmos DB
 门户中可用的帐户级别指标（如帐户存储使用情况和请求总数）不可通过 SQL API 使用。 但是，可以使用 SQL API 在集合级别检索使用情况数据。 若要检索集合级别的数据，请执行以下操作：

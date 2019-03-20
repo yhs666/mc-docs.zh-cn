@@ -7,16 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/11/2019
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53d87b0ca0a5c8f4152d3145757cad6016715135
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 8881e5ee9f6f02b78a7a231f9364aaaee747022e
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836924"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788712"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>常规
 
@@ -43,9 +45,9 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 默认情况下，HTTP/2 支持处于禁用状态。 以下 Azure PowerShell 代码片段示例展示了如何启用该支持：
 
 ```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>目前支持在后端池中添加哪些资源？
@@ -72,6 +74,10 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 使用公共 IP 地址作为终结点时，可在公共 IP 地址资源中，或者在门户中应用程序网关的“概述”页上找到此信息。 对于内部 IP 地址，可在“概述”页上找到此信息。
 
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>应用程序网关上的 Keep-Alive 超时和 TCP 空闲超时的设置是什么？
+
+v1 SKU 上的 Keep-Alive 超时为 120 秒。在应用程序网关的前端 VIP 上，TCP 空闲超时默认为 4 分钟。
+
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>在应用程序网关的生存期内，其 IP 或 DNS 名称是否会变化？
 
 如果停止再启动应用程序网关，则 VIP 可能会变化。 与应用程序网关关联的 DNS 名称在网关的整个生命周期内不会变化。 出于此原因，建议使用 CNAME 别名并使其指向应用程序网关的 DNS 地址。
@@ -92,6 +98,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>问： 是否可将多个应用程序网关资源部署到单个子网？
 
 是，除了提供给定应用程序网关部署的多个实例以外，还可以在包含不同应用程序网关资源的现有子网中预配另一个唯一的应用程序网关资源。
+
+不支持在同一子网上混合使用 Standard_v2 和标准应用程序网关。 另外，如果启用了自动缩放，则一个子网只能有一个应用程序网关。
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>应用程序网关是否支持 x-forwarded-for 标头？
 
@@ -121,11 +129,11 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 应用程序网关子网支持网络安全组 (NSG)，但存在以下限制：
 
-- 对于应用程序网关，必须为端口 65503-65534 上的传入流量设置例外。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
+* 对于应用程序网关，必须为端口 65503-65534 上的传入流量设置例外。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
-- 不能阻止出站 Internet 连接。
+* 不能阻止出站 Internet 连接。 NSG 中的默认出站规则已经允许 Internet 连接。 建议不要删除默认的出站规则，且不要创建其他拒绝出站 Internet 连接的出站规则。
 
-- 必须允许来自 AzureLoadBalancer 标记的流量。
+* 必须允许来自 AzureLoadBalancer 标记的流量。
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>应用程序网关子网是否支持用户定义的路由？
 
@@ -169,15 +177,15 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 对应用程序网关子网使用 NSG 可以完成此方案。 应按列出的优先顺序对子网采取以下限制：
 
-- 允许来自源 IP/IP 范围的传入流量。
+* 允许来自源 IP/IP 范围的传入流量。
 
-- 允许来自所有源的请求传入端口 65503-65534，进行[后端运行状况通信](application-gateway-diagnostics.md)。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
+* 允许来自所有源的请求传入端口 65503-65534，进行[后端运行状况通信](application-gateway-diagnostics.md)。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
-- 允许 [NSG](../virtual-network/security-overview.md) 上的传入 Azure 负载均衡器探测（AzureLoadBalancer 标记）和入站虚拟网络流量（VirtualNetwork 标记）。
+* 允许 [NSG](../virtual-network/security-overview.md) 上的传入 Azure 负载均衡器探测（AzureLoadBalancer 标记）和入站虚拟网络流量（VirtualNetwork 标记）。
 
-- 使用“全部拒绝”规则阻止其他所有传入流量。
+* 使用“全部拒绝”规则阻止其他所有传入流量。
 
-- 允许发往 Internet 的所有目标的出站流量。
+* 允许发往 Internet 的所有目标的出站流量。
 
 ### <a name="can-the-same-port-be-used-for-both-public-and-private-facing-listeners"></a>能否对面向公共和面向私人的侦听器使用相同的端口？
 
@@ -213,7 +221,7 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>应用程序网关支持哪些证书？
 
-支持自签名证书、CA 证书和通配符证书。 不支持 EV 证书。
+支持自签名证书、CA 证书、EV 证书和通配符证书。
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>应用程序网关支持哪些最新的加密套件？
 
@@ -260,12 +268,12 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 是，支持[配置密码套件](application-gateway-ssl-policy-overview.md)。 定义自定义策略时，必须至少启用以下其中一个密码套件。 应用程序网关使用 SHA256 进行后端管理。
 
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA256
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>支持多少个 SSL 证书？
 
@@ -305,19 +313,19 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 和 CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)，这些规则针对开放 Web 应用程序安全项目 (OWASP) 识别到的 10 大漏洞中的大多数漏洞提供基准安全要求，相关信息请参阅 [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)（OWASP 10 大漏洞）
 
-- SQL 注入保护
+* SQL 注入保护
 
-- 跨站点脚本保护
+* 跨站点脚本保护
 
-- 常见 Web 攻击保护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含攻击
+* 常见 Web 攻击保护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含攻击
 
-- 防止 HTTP 协议违反行为
+* 防止 HTTP 协议违反行为
 
-- 防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
+* 防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
 
-- 防止自动程序、爬网程序和扫描程序
+* 防止自动程序、爬网程序和扫描程序
 
-- 检测常见应用程序错误配置（即 Apache、IIS 等）
+* 检测常见应用程序错误配置（即 Apache、IIS 等）
 
 ### <a name="does-waf-also-support-ddos-prevention"></a>WAF 是否也支持 DDoS 防护？
 
@@ -329,13 +337,13 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 应用程序网关可以使用三种日志。 有关这些日志和其他诊断功能的详细信息，请参阅[应用程序网关的后端运行状况、诊断日志和指标](application-gateway-diagnostics.md)。
 
-- **ApplicationGatewayAccessLog**：访问日志包含提交到应用程序网关前端的每个请求。 数据包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。
-- **ApplicationGatewayPerformanceLog**：性能日志捕获每个实例的性能信息，包括提供的请求总数、吞吐量（以字节为单位）、失败的请求计数、正常和不正常的后端实例计数。
-- **ApplicationGatewayFirewallLog**：防火墙日志包含通过应用程序网关（配置有 Web 应用程序防火墙）的检测或阻止模式记录的请求。
+* **ApplicationGatewayAccessLog**：访问日志包含提交到应用程序网关前端的每个请求。 数据包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。
+* **ApplicationGatewayPerformanceLog**：性能日志捕获每个实例的性能信息，包括提供的请求总数、吞吐量（以字节为单位）、失败的请求计数、正常和不正常的后端实例计数。
+* **ApplicationGatewayFirewallLog**：防火墙日志包含通过应用程序网关（配置有 Web 应用程序防火墙）的检测或阻止模式记录的请求。
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>如何知道后端池成员是否正常？
 
-可以使用 PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth`，或者在门户中访问[应用程序网关诊断](application-gateway-diagnostics.md)来验证运行状况
+可以使用 PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth`，或者在门户中访问[应用程序网关诊断](application-gateway-diagnostics.md)来验证运行状况
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>什么是诊断日志的保留策略？
 

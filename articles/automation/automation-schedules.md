@@ -3,19 +3,19 @@ title: Azure 自动化中的计划
 description: 自动化计划用于安排自动启动 Azure 自动化中的 Runbook。 介绍如何创建和管理计划，以便在特定的时间或按重复计划自动启动 Runbook。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 09/18/2018
-ms.date: 11/05/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: d414bbc174421e3143602c83cbfac5a8ebc5f204
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 6870f7158c8c4ae3fbaef02cfe8a9f89e7089816
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302997"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988088"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -129,3 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>后续步骤
 
 * 若要在 Azure 自动化中开始使用 Runbook，请参阅 [在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)
+

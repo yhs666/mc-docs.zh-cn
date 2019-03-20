@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/23/2018
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8307d78cbb7c127a69828fd16cc559a4da6b9338
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 45720c9e8a422ff8205a622fed68e430722bbde2
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836877"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788731"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>创建具有内部负载均衡器 (ILB) 的应用程序网关
 
@@ -30,17 +30,19 @@ ms.locfileid: "56836877"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
-2. 将为应用程序网关创建虚拟网络和子网。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. 按照[安装说明](https://docs.microsoft.com/powershell/azure/install-az-ps)安装最新版本的 Azure PowerShell 模块。
+2. 为应用程序网关创建虚拟网络和子网。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>创建应用程序网关需要什么？
 
-- **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网但位于应用程序网关的不同子网中，或者是公共 IP/VIP。
-- **后端服务器池设置：** 每个池均具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器。
-- **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
-- **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
-- **规则：** 规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到哪个后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分布模式。
+* **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网但位于应用程序网关的不同子网中，或者是公共 IP/VIP。
+* **后端服务器池设置：** 每个池均具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器。
+* **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
+* **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+* **规则：** 规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到哪个后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分布模式。
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -61,7 +63,7 @@ ms.locfileid: "56836877"
 ### <a name="step-1"></a>步骤 1
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 ```
 
 ### <a name="step-2"></a>步骤 2
@@ -69,7 +71,7 @@ Connect-AzureRmAccount -Environment AzureChinaCloud
 检查该帐户的订阅。
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 系统会提示使用凭据进行身份验证。
@@ -79,7 +81,7 @@ Get-AzureRmSubscription
 选择要使用的 Azure 订阅。
 
 ```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>步骤 4
@@ -87,7 +89,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 创建新的资源组（如果要使用现有的资源组，请跳过此步骤）。
 
 ```powershell
-New-AzureRmResourceGroup -Name appgw-rg -location "China North"
+New-AzResourceGroup -Name appgw-rg -location "China North"
 ```
 
 Azure Resource Manager 要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 请确保用于创建应用程序网关的所有命令都使用相同的资源组。
@@ -101,7 +103,7 @@ Azure Resource Manager 要求所有资源组指定一个位置。 此位置用�
 ### <a name="step-1"></a>步骤 1
 
 ```powershell
-$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+$subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
 此步骤会将地址范围 10.0.0.0/24 分配给用于创建虚拟网络的子网变量。
@@ -109,7 +111,7 @@ $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPre
 ### <a name="step-2"></a>步骤 2
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "China North" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "China North" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
 此步骤会使用前缀 10.0.0.0/16 和子网 10.0.0.0/24，在中国北部区域的“appgw-rg”资源组中创建名为“appgwvnet”的虚拟网络。
@@ -127,7 +129,7 @@ $subnet = $vnet.subnets[0]
 ### <a name="step-1"></a>步骤 1
 
 ```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
 此步骤会创建名为“gatewayIP01”的应用程序网关 IP 配置。 当应用程序网关启动时，它会从配置的子网获取 IP 地址，再将网络流量路由到后端 IP 池中的 IP 地址。 请记住，每个实例需要一个 IP 地址。
@@ -135,7 +137,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 ### <a name="step-2"></a>步骤 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
+$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
 此步骤配置名为“pool01”、IP 地址为“10.1.1.8, 10.1.1.9, 10.1.1.10”的后端 IP 地址池。 这些 IP 地址接收来自前端 IP 终结点的网络流量。 替换上述 IP 地址，添加自己的应用程序 IP 地址终结点。
@@ -143,7 +145,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPA
 ### <a name="step-3"></a>步骤 3
 
 ```powershell
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+$poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
 此步骤会为后端池中进行了负载均衡的网络流量配置应用程序网关设置“poolsetting01”。
@@ -151,7 +153,7 @@ $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsettin
 ### <a name="step-4"></a>步骤 4
 
 ```powershell
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+$fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
 此步骤会为 ILB 配置名为“frontendport01”的前端 IP 端口。
@@ -159,7 +161,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ### <a name="step-5"></a>步骤 5
 
 ```powershell
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
 此步骤会创建名为“fipconfig01”的前端 IP 配置，并将其与当前虚拟网络子网中的某个专用 IP 相关联。
@@ -167,7 +169,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Su
 ### <a name="step-6"></a>步骤 6
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+$listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
 此步骤会创建名为“listener01”的侦听器，并将前端端口与前端 IP 配置相关联。
@@ -175,7 +177,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protoco
 ### <a name="step-7"></a>步骤 7
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 此步骤会创建名为“rule01”的负载均衡器路由规则，用于配置负载均衡器的行为。
@@ -183,7 +185,7 @@ $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType B
 ### <a name="step-8"></a>步骤 8
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
 此步骤会配置应用程序网关的实例大小。
@@ -196,7 +198,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 创建包含上述步骤中所有配置项目的应用程序网关。 示例中的应用程序网关名为“appgwtest”。
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 此步骤会创建包含上述步骤中所有配置项目的应用程序网关。 示例中的应用程序网关名为“appgwtest”。
@@ -205,8 +207,8 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 若要删除应用程序网关，请按顺序执行以下步骤：
 
-1. 使用 `Stop-AzureRmApplicationGateway` cmdlet 停止该网关。
-2. 使用 `Remove-AzureRmApplicationGateway` cmdlet 删除该网关。
+1. 使用 `Stop-AzApplicationGateway` cmdlet 停止该网关。
+2. 使用 `Remove-AzApplicationGateway` cmdlet 删除该网关。
 3. 使用 `Get-AzureApplicationGateway` cmdlet 验证是否已删除该网关。
 
 ### <a name="step-1"></a>步骤 1
@@ -214,15 +216,15 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 获取应用程序网关对象，并将其关联到变量“$getgw”。
 
 ```powershell
-$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+$getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ### <a name="step-2"></a>步骤 2
 
-使用 `Stop-AzureRmApplicationGateway` 停止应用程序网关。 此示例在第一行显示 `Stop-AzureRmApplicationGateway` cmdlet，接着显示输出。
+使用 `Stop-AzApplicationGateway` 停止应用程序网关。 此示例在第一行显示 `Stop-AzApplicationGateway` cmdlet，接着显示输出。
 
 ```powershell
-Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
+Stop-AzApplicationGateway -ApplicationGateway $getgw  
 ```
 
 ```
@@ -233,10 +235,10 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-在应用程序网关进入停止状态后，使用 `Remove-AzureRmApplicationGateway` cmdlet 删除该服务。
+在应用程序网关进入停止状态后，使用 `Remove-AzApplicationGateway` cmdlet 删除该服务。
 
 ```powershell
-Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+Remove-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 ```
 
 ```
@@ -250,10 +252,10 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 > [!NOTE]
 > 可以使用 **-force** 开关来禁止显示该删除的确认消息。
 
-若要验证是否已删除服务，可以使用 `Get-AzureRmApplicationGateway` cmdlet。 此步骤不是必需的。
+若要验证是否已删除服务，可以使用 `Get-AzApplicationGateway` cmdlet。 此步骤不是必需的。
 
 ```powershell
-Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ```
@@ -270,8 +272,8 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 如需大体上更详细地了解负载均衡选项，请参阅：
 
-- [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
-- [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
+* [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
+* [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

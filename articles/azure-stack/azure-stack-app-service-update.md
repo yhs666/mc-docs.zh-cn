@@ -11,29 +11,29 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 03/04/2019
+origin.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 5a94cd93d1787e4113551efdf00aaa8dbde5bca9
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: d2b10e484fdb90d5a985a14600f3547d3bdb5109
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905213"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988099"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]  
-> 请将 1809 更新或更高版本应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。 在更新资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
+> 请将 1901 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.5。
 
 遵循本文中的说明可以升级部署在已连接到 Internet 的 Azure Stack 环境中的[应用服务资源提供程序](azure-stack-app-service-overview.md)。
 
 > [!IMPORTANT]  
-> 在运行升级之前，请确保已完成[部署 Azure Stack 上的 Azure 应用服务资源提供程序](azure-stack-app-service-deploy.md)
+> 在运行升级之前，请确保已完成[部署 Azure Stack 上的 Azure 应用服务资源提供程序](azure-stack-app-service-deploy.md)，并已阅读版本 1.5 随附的[发行说明](azure-stack-app-service-release-notes-update-five.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 

@@ -3,19 +3,19 @@ title: Azure 自动化中的 Runbook 输出和消息
 description: 介绍如何创建和检索 Azure 自动化中 Runbook 的输出和错误消息。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 12/04/2018
-ms.date: 12/24/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3f505135cfd9611ceabd0100cfb26d04ce8e561c
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: 0ff679f03d9c40c98737439a5bfda4ffd458e019
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615177"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988027"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自动化中的 Runbook 输出和消息
 大多数 Azure 自动化 runbook 都有某种形式的输出。 此输出可能是发给用户的错误消息，也可能是你打算用于另一个 runbook 的复杂对象。 Windows PowerShell 提供 [多个流](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_redirection) ，以便从脚本或工作流发送输出。 Azure 自动化以不同方式处理每个流。 在创建 runbook 时，应遵循如何使用每种方法的最佳实践。
@@ -221,8 +221,19 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
    
    ![“图形创作日志记录和跟踪”页面](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
+### <a name="azure-monitor-logs"></a>Azure Monitor 日志
+自动化可以将 Runbook 作业状态和作业流发送到 Log Analytics 工作区。 可以使用 Azure Monitor 日志进行以下操作：
+
+* 获取有关自动化作业的见解 
+* 基于 Runbook 作业状态（例如失败或暂停）触发电子邮件或警报 
+* 针对所有作业流编写高级查询 
+* 跨自动化帐户关联作业 
+* 可视化不同时间段的作业历史记录    
+
+有关如何配置与 Azure Monitor 日志的集成以收集、关联和处理作业数据的详细信息，请参阅[将作业状态和作业流从自动化转发到 Azure Monitor 日志](automation-manage-send-joblogs-log-analytics.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解 Runbook 执行方式、如何监视 Runbook 作业和其他技术详细信息，请参阅[跟踪 Runbook 作业](automation-runbook-execution.md)
 * 若要了解如何设计和使用子 Runbook，请参阅 [Azure 自动化中的子 Runbook](automation-child-runbooks.md)
+
 

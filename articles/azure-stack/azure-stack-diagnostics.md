@@ -8,15 +8,16 @@ cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 origin.date: 11/20/2018
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: adshar
-ms.openlocfilehash: c7809c6c2fcbae7b9f43a440348944d4d7479387
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: 7ae66772c98cc19e5427562d7c9a6d56c838a049
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814613"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987984"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -163,7 +164,7 @@ if($s)
     -   ACS 日志收集在“存储”角色和 *ACS* 角色中。
 
 > [!NOTE]
-> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，从而确保该空间不会充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志可能因为这些限制而不再存在了。 因此，**强烈建议**你每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 另外，请确保该存储位置已加密。
+> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，从而确保该空间不会充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志可能因为这些限制而不再存在了。 因此，**强烈建议**每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 另外，请确保该存储位置已加密。
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 故障排除](azure-stack-troubleshooting.md)

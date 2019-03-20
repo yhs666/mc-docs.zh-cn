@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/19/2019
-ms.date: 03/04/2019
+origin.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 7dbe3372966555569f0136f17eaa8d641cbc3a38
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 7905acc30834b81d423bf867ec550fbd0161953b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905426"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988035"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
@@ -198,15 +198,15 @@ ms.locfileid: "56905426"
 **单元**：GB\*月      
 **注释**：高级托管磁盘的磁盘实际大小 
 
-**计量 ID**：75d4b707-1027-4403-9986-6ec7c05579c8  
+**计量 ID**：108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **计量名称**：ActualStandardSnapshotSize   
 **单元**：GB\*月   
 **注释**：托管标准快照的磁盘实际大小。  
 
-**计量 ID**：5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**计量 ID**：578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **计量名称**：ActualPremiumSnapshotSize   
 **单元**：GB\*月   
-**注释**：高级托管磁盘的实际大小。   
+**注释**：高级托管磁盘的实际大小快照。   
 
 **计量 ID**：5d76e09f-4567-452a-94cc-7d1f097761f0   
 **计量名称**：S4   
@@ -286,7 +286,11 @@ ms.locfileid: "56905426"
 **计量 ID**：95b0c03f-8a82-4524-8961-ccfbf575f536   
 **计量名称**：ActualPremiumSnapshotSize   
 **单元**：字节\*小时   
-**注释**：高级托管磁盘的实际大小（已弃用） 
+**注释**：高级托管磁盘的实际大小（已弃用）快照 
+
+**计量 ID**：75d4b707-1027-4403-9986-6ec7c05579c8 **计量名称**：ActualStandardSnapshotSize **单位**：GB\*月**说明**：托管标准快照的磁盘实际大小（已弃用）  
+
+**计量 ID**：5ca1cbb9-6f14-4e76-8be8-1ca91547965e **计量名称**：ActualPremiumSnapshotSize **单位**：GB\*月**说明**：高级托管磁盘的实际大小（已弃用）快照  
 
 ### <a name="sql-rp"></a>Sql RP
   
@@ -403,6 +407,10 @@ ms.locfileid: "56905426"
 | 400/错误的请求 |*SubscriptionIdMissingInRequest* |缺少调用方的订阅 ID。 |
 | 400/错误的请求 |*InvalidAggregationGranularity* |请求的聚合粒度无效。 有效值为 daily 和 hourly。 |
 | 503 |*ServiceUnavailable* |由于服务繁忙或调用受到限制，发生了可重试的错误。 |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>VM 收费政策是什么？
+
+正在运行的和已停止的 VM 会生成使用情况数据。 与 Azure 一致的是，必须解除分配才能停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，则会发出使用情况数据。
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 中的客户计费和退款](azure-stack-billing-and-chargeback.md)

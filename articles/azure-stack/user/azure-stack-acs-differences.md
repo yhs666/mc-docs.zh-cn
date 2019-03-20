@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 01/30/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 4f3ef256c24b4aff6cce9c2c2dc1731cb1146d67
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 125c4a99a5c32f451509862a75c87909e52530f7
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905309"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988002"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -45,6 +45,7 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 |块 Blob 大小上限|4.75 TB（100 MB X 50,000 块）|4.75 TB（100 MB x 50,000 块），适用于 1802 更新或更高版本。 50,000 X 4 MB（约 195 GB），适用于以前的版本。
 |页 Blob 快照复制|支持备份已附加到运行中 VM 的 Azure 非托管 VM 磁盘|尚不支持。
 |页 Blob 增量快照复制|支持高级和标准 Azure 页 Blob|尚不支持。
+|页 Blob 计费|唯一页面不管是在 Blob 中还是快照中都会产生费用。 在更新基 Blob 之前，不会对与 Blob 关联的快照额外收费。|收费针对基 Blob 及关联的快照。 会对每个单独的快照额外收费。
 |适用于 Blob 存储的存储层|热存储层、冷存储层和存档存储层。|尚不支持。
 |适用于 Blob 存储的软删除|公开发布|尚不支持。
 |页 Blob 大小上限|8 TB|1 TB

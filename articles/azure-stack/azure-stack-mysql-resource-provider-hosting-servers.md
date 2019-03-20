@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: b6cde1e51d3cfd9e260de01a345c0a07ec3019a7
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 7d28eb9514749f8c0b73f76c715244ac42aa752e
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905317"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988001"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>为 MySQL 资源提供程序添加托管服务器
 
@@ -45,7 +45,9 @@ ms.locfileid: "56905317"
 4. 提供 MySQL 服务器实例的连接详细信息。
 
    * 对于“MySQL 宿主服务器名称”，请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
-   * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
+   - Azure Stack 市场中提供的 Bitnami MySQL 映像的默认管理员**用户名**为 *root*。 
+   - 如果不知道 root 的**密码**，请参阅 [Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)，了解如何获取它。 
+   - 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
    * 保留“订阅”的默认设置。
    * 对于“资源组”，请创建新组或使用现有组。
 

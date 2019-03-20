@@ -6,24 +6,22 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 6a8f35180a2d2d2b72eb15a24d389700034c13cf
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: cb3c1f013208f932a383d7466d2f45c736024662
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987965"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004578"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>将 Node.js Mongoose 应用程序连接到 Azure Cosmos DB
 
 本教程演示在 Cosmos DB 中存储数据时如何使用 [Mongoose 框架](https://mongoosejs.com/)。 本演练使用 Azure Cosmos DB 的用于 MongoDB 的 API。 不熟悉该接口的读者应知道，Mongoose 是 Node.js 中适用于 MongoDB 的对象建模框架，提供简单直接的、基于架构的解决方案来为应用程序数据建模。
 
-Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，所有这些数据库受益于 Cosmos DB 核心的多区域分布和水平缩放功能。
-
-<!--Not Available on key/value, and graph databases-->
+Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。
 
 ## <a name="prerequisites"></a>先决条件
 

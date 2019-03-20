@@ -6,15 +6,15 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ae9b87f8982a9835b54c4be639dd8bb0f9c5bbc1
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 3cad646a73820c3f612914034d3e58681393137b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988030"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004686"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的更改源 - 概述
 
@@ -34,16 +34,12 @@ Azure Cosmos DB 非常适合用于 IoT、游戏、零售和操作日志记录应
 
 目前，以下 Azure Cosmos DB API 和客户端 SDK 支持此功能。
 
-<!-- Not Available on **Cassandra API** **Gremlin API**  **Table API**-->
-
-| **客户端驱动程序** | **Azure CLI** | **SQL API** | **Azure Cosmos DB 的 API for MongoDB** |
-| --- | --- | --- | --- |
-| .NET | 不可用 | 是 | 否 |
-|Java|不可用|是|否|
-|Python|不可用|是|否|
-|Node/JS|不可用|是|否|
-
-<!-- Not Available on **Cassandra API** **Gremlin API**  **Table API**-->
+| **客户端驱动程序** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB 的 API for MongoDB** | **Gremlin API**|**表 API** |
+| --- | --- | --- | --- | --- | --- | --- |
+| .NET | 不可用 | 是 | 否 | 否 | 是 | 否 |
+|Java|不可用|是|否|否|是|否|
+|Python|不可用|是|否|否|是|否|
+|Node/JS|不可用|是|否|否|是|否|
 
 ## <a name="change-feed-and-different-operations"></a>更改源和不同操作
 
@@ -89,10 +85,8 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 
 以下是一些可通过更改源轻松实现的方案：
 
-* 在移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或其位置的所有更改），并触发特定操作（例如，使用 [Azure Functions](change-feed-functions.md) 向客户的设备发送推送通知）。
+* 在[无服务器](https://azure.microsoft.com/solutions/serverless/) Web 应用或移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或其位置的更改），并触发特定的操作（例如，使用 [Azure Functions](change-feed-functions.md) 向客户的设备发送推送通知）。
 
-    <!-- Not Available on [serverless](http://azure.com/serverless)-->
-    
 * 例如，若要使用 Azure Cosmos DB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。
 
 ## <a name="working-with-change-feed"></a>使用更改源

@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/03/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe81de4c16a300ed03208fd6958941e10e006361
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: b7a474b5173b01647f847e76a2217ffb598d1028
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309255"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004722"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>教程：通过 .Net 预览版 SDK 开发使用 Azure Cosmos DB 的 ASP.NET MVC Web 应用程序 
 
@@ -95,9 +95,9 @@ ms.locfileid: "54309255"
 
 1. Azure Cosmos DB .NET SDK 将打包并以 NuGet 包的形式分发。 若要在 Visual Studio 中获取 NuGet 包，请使用 Visual Studio 中的 NuGet 包管理器，方法是右键单击“解决方案资源管理器”中的项目，然后选择“管理 NuGet 包”。
 
-   ![屏幕截图：解决方案资源管理器中 Web 应用程序项目的右键单击选项，其中突出显示了“管理 NuGet 程序包”。](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
+   ![屏幕截图：解决方案资源管理器中 Web 应用程序项目的右键单击选项，突出显示了“管理 NuGet 包”。](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
 
-2. 此时会显示“管理 NuGet 包”对话框。 在 NuGet 的“浏览”框中，键入 **Microsoft.Azure.Cosmos**。 安装结果中显示的 **Microsoft.Azure.Cosmos** 3.0.0.1-preview 版本。 它会下载并安装 Azure Cosmos DB 包及其依赖项，例如 Newtonsoft.Json。 在“预览”窗口中选择“确定”，在“接受许可证”窗口中选择“我接受”，以完成安装。
+2. 此时显示“管理 NuGet 包”对话框  。 在 NuGet 的“浏览”框中，键入 **Microsoft.Azure.Cosmos**。 安装结果中显示的 **Microsoft.Azure.Cosmos** 3.0.0.1-preview 版本。 它会下载并安装 Azure Cosmos DB 包及其依赖项，例如 Newtonsoft.Json。 在“预览”窗口中选择“确定”，在“接受许可证”窗口中选择“我接受”，以完成安装。
 
    也可使用包管理器控制台来安装 NuGet 包。 为此，请在“工具”菜单中选择“NuGet 包管理器”，然后选择“包管理器控制台”。 在提示符处键入以下命令：
 
@@ -147,7 +147,7 @@ ms.locfileid: "54309255"
             [JsonProperty(PropertyName = "category")]
             public string Category { get; set; }
         }
-     }
+    }
     ```
 
    Azure Cosmos DB 中存储的数据都会通过线路传递，并存储为 JSON。 若要控制通过 JSON.NET 进行的对象序列化/反序列化方式，可以使用已创建的 **TodoItem** 类中展示的 **JsonProperty** 属性。 不但可以控制进入 JSON 的属性名称的格式，而且可以像命名 **Description** 属性一样重命名 .NET 属性。 
@@ -159,113 +159,113 @@ ms.locfileid: "54309255"
 
 1. 选择“MVC 5 控制器 - 空”，然后选择“添加”。
 
-   ![屏幕截图：突出显示“MVC 5 控制器 - 空”选项的“添加基架”对话框](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![“添加基架”对话框的屏幕截图，突出显示了“MVC 5 控制器 - 空”选项](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. 将新控制器命名为 **ItemController，并将该文件中的代码替换为以下代码：
 
-   ```csharp
-   namespace todo.Controllers
-{
-    using System.Net;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
-    using Models;
-
-    public class ItemController : Controller
+    ```csharp
+    namespace todo.Controllers
     {
-        [ActionName("Index")]
-        public async Task<ActionResult> IndexAsync()
+        using System.Net;
+        using System.Threading.Tasks;
+        using System.Web.Mvc;
+        using Models;
+
+        public class ItemController : Controller
         {
-            var items = await TodoItemService.GetOpenItemsAsync();
-            return View(items);
-        }
+            [ActionName("Index")]
+            public async Task<ActionResult> IndexAsync()
+            {
+                var items = await TodoItemService.GetOpenItemsAsync();
+                return View(items);
+            }
         
-        [ActionName("Create")]
-        public async Task<ActionResult> CreateAsync()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ActionName("Create")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
-        {
-            if (ModelState.IsValid)
+            [ActionName("Create")]
+            public async Task<ActionResult> CreateAsync()
             {
-                await TodoItemService.CreateItemAsync(item);
+                return View();
+            }
+
+            [HttpPost]
+            [ActionName("Create")]
+            [ValidateAntiForgeryToken]
+            public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
+            {
+                if (ModelState.IsValid)
+                {
+                    await TodoItemService.CreateItemAsync(item);
+                    return RedirectToAction("Index");
+                }
+
+                return View(item);
+            }
+
+            [HttpPost]
+            [ActionName("Edit")]
+            [ValidateAntiForgeryToken]
+            public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
+            {
+                if (ModelState.IsValid)
+                {
+                    await TodoItemService.UpdateItemAsync(item);
+                    return RedirectToAction("Index");
+                }
+
+                return View(item);
+            }
+
+            [ActionName("Edit")]
+            public async Task<ActionResult> EditAsync(string id, string category)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+                if (item == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(item);
+            }
+
+            [ActionName("Delete")]
+            public async Task<ActionResult> DeleteAsync(string id, string category)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+                if (item == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(item);
+            }
+
+            [HttpPost]
+            [ActionName("Delete")]
+            [ValidateAntiForgeryToken]
+            public async Task<ActionResult> DeleteConfirmedAsync([Bind(Include = "Id, Category")] string id, string category)
+            {
+                await TodoItemService.DeleteItemAsync(id, category);
                 return RedirectToAction("Index");
             }
 
-            return View(item);
-        }
-
-        [HttpPost]
-        [ActionName("Edit")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed,Category")] TodoItem item)
-        {
-            if (ModelState.IsValid)
+            [ActionName("Details")]
+            public async Task<ActionResult> DetailsAsync(string id, string category)
             {
-                await TodoItemService.UpdateItemAsync(item);
-                return RedirectToAction("Index");
+                TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
+                return View(item);
             }
-
-            return View(item);
-        }
-
-        [ActionName("Edit")]
-        public async Task<ActionResult> EditAsync(string id, string category)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(item);
-        }
-
-        [ActionName("Delete")]
-        public async Task<ActionResult> DeleteAsync(string id, string category)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(item);
-        }
-
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmedAsync([Bind(Include = "Id, Category")] string id, string category)
-        {
-            await TodoItemService.DeleteItemAsync(id, category);
-            return RedirectToAction("Index");
-        }
-
-        [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(string id, string category)
-        {
-            TodoItem item = await TodoItemService.GetTodoItemAsync(id, category);
-            return View(item);
         }
     }
-}
-   ```
+    ```
 
    此处使用的 **ValidateAntiForgeryToken** 属性可帮助此应用程序防止跨站点请求伪造攻击。 不仅需添加此属性，还应确保视图也适用于此防伪令牌。 有关此主题的详细信息以及如何正确实施此操作的示例，请参阅[防止跨站点请求伪造][Preventing Cross-Site Request Forgery]。 [GitHub][GitHub] 上提供的源代码已有完整实现。
 
@@ -285,7 +285,7 @@ ms.locfileid: "54309255"
 
 1. 在“解决方案资源管理器”中，展开“视图”文件夹，右键单击先前在添加 **ItemController** 时 Visual Studio 创建的空白“项”文件夹，单击“添加”，然后单击“视图”。
 
-   ![屏幕截图：显示 Visual Studio 使用突出显示的“添加视图”命令创建的 Item 文件夹的解决方案资源管理器](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
+   ![解决方案资源管理器的屏幕截图，显示 Visual Studio 创建的 Item 文件夹，并且突出显示了“添加视图”命令](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. 在“添加视图”对话框中，更新以下值：
 
@@ -346,8 +346,8 @@ ms.locfileid: "54309255"
 
 1. 将以下代码添加到 **TodoItemService** 类，并将该文件中的代码替换为以下代码：
 
-   ```csharp
-   using todo.Models;
+    ```csharp
+    using todo.Models;
 
     namespace todo
     {
@@ -467,7 +467,7 @@ ms.locfileid: "54309255"
 
    ![屏幕截图：本数据库教程创建的待办事项列表 Web 应用程序](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
 
-2. 单击“新建”链接，并在“名称”和“描述”字段中添加值。 让“已完成”复选框保持未选中状态，否则，新项会以已完成状态添加，不出现在初始列表中。
+2. 单击“新建”链接，并在“名称”和“说明”字段中添加值。 让“已完成”复选框保持未选中状态，否则，新项会以已完成状态添加，不出现在初始列表中。
 
 3. 单击“创建”，此时会重定向回“索引”视图，创建的项会出现在列表中。 可以向待办事项列表添加更多项。
 
@@ -501,7 +501,7 @@ ms.locfileid: "54309255"
 本教程介绍了如何生成能够访问 Azure Cosmos DB 中存储的数据的 ASP.NET MVC Web 应用程序。 你现在可以继续学习下一篇文章：
 
 > [!div class="nextstepaction"]
-> [生成 Java 应用程序以访问在 Azure Cosmos DB 的 SQL API 帐户中存储的数据]( sql-api-java-application.md)
+> [生成 Java 应用程序以访问在 Azure Cosmos DB 的 SQL API 帐户中存储的数据](sql-api-java-application.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx

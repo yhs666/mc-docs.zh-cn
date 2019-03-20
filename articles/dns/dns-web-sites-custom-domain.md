@@ -6,14 +6,14 @@ author: WenJason
 ms.service: dns
 ms.topic: tutorial
 origin.date: 2/19/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: c8210e434d4cf2a517b4e59337fbc759b6198b3e
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 50c5063ae7be14fdff354691ee5d5e56bc7f28b3
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836956"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987927"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教程：为 Web 应用在自定义域中创建 DNS 记录 
 
@@ -81,9 +81,12 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 应用服务仅在配置时使用此记录来验证你是否拥有自定义域。 自定义域经过验证并且在应用服务中配置后，可以删除此 TXT 记录。
 
+> [!NOTE]
+> 若要验证域名但不将生产流量路由到 Web 应用，则只需为验证步骤指定 TXT 记录。  验证不需要除 TXT 记录之外的 A 记录或 CNAME 记录。
+
 ```powershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
- -Name `"@" -RecordType "txt" -Ttl 600 `
+ -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.chinacloudsites.cn")
 ```
 

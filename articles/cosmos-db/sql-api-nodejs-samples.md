@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 09/24/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: cab0fbc92086c0b8e2af01413c4ca23d96499497
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: c17c6f8ca60beebd129c72a44f831c76fef63ead
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987977"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004531"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.locfileid: "56987977"
    > 
 
 ## <a name="database-examples"></a>数据库示例
-[DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) 文件演示如何执行以下任务。
+[DatabaseManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/DatabaseManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement/app.js) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -57,7 +57,7 @@ ms.locfileid: "56987977"
 | [删除数据库](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/DatabaseManagement/app.js#L57-L60) |[Database.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/database?view=azure-node-latest) |
 
 ## <a name="container-examples"></a>容器示例
-[ContainerManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) 文件演示如何执行以下任务。
+[ContainerManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement/app.js) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -67,7 +67,7 @@ ms.locfileid: "56987977"
 | [删除容器](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ContainerManagement/app.js#L54-L55) |[Container.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/container?view=azure-node-latest) |
 
 ## <a name="item-examples"></a>项示例
-[ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) 文件演示如何执行以下任务。
+[ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement/app.js) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -81,7 +81,7 @@ ms.locfileid: "56987977"
 | [删除项](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L162-L164) |[Item.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/item?view=azure-node-latest) |
 
 ## <a name="indexing-examples"></a>索引示例
-[IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) 文件演示如何执行以下任务。
+[IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) 文件演示如何执行以下任务。  若要在运行以下示例之前了解如何在 Azure Cosmos DB 中进行索引编制，请参阅概念文章：[索引策略](index-policy.md)、[索引类型](index-types.md)和[索引路径](index-paths.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -93,10 +93,8 @@ ms.locfileid: "56987977"
 | [在字符串路径上创建范围索引](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L281-L346) |[IndexKind.Range](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexkind?view=azure-node-latest)、[IndexingPolicy](https://docs.microsoft.com/javascript/api/%40azure/cosmos/indexingpolicy?view=azure-node-latest)、[Items.query](https://docs.microsoft.com/javascript/api/%40azure/cosmos/items?view=azure-node-latest) |
 | [使用默认 indexPolicy 创建容器，然后对其进行联机更新](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L435-L507) |[Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest)
 
-有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
-
 ## <a name="server-side-programming-examples"></a>服务器端编程示例
-[ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) 文件演示如何执行以下任务。
+[ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) 项目的 [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) 文件演示如何执行以下任务。 若要在运行以下示例之前了解如何在 Azure Cosmos DB 中进行服务器端编程，请参阅概念文章：[存储过程、触发器和用户定义的函数](stored-procedures-triggers-udfs.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |

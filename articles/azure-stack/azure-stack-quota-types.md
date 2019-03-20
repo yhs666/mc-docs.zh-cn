@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/07/2018
-ms.date: 01/14/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 622e7f4725e52fc93b96ba5c83ed9f9722af68f3
-ms.sourcegitcommit: f9da1fd49933417cf75de8649af92fe27876da64
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: 920e72474eebe222b23d5ae37e80326cdb6b16ab
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54059011"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987959"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -44,7 +45,7 @@ ms.locfileid: "54059011"
 
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
-| 最大容量 (GB) |2048 |可供此位置的订阅使用的总存储容量。 |
+| 最大容量 (GB) |2048 |可供此位置的订阅使用的总存储容量（包括 Blob 以及所有相关联的快照、表、队列）。 |
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]  
@@ -74,7 +75,7 @@ ms.locfileid: "54059011"
 3.  在打开的边栏选项卡中，选择“服务和配额”。
 4.  在“名称”列中单击要查看的配额，将其选中。
 
-    [ ![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>资源提供程序
 
@@ -92,7 +93,7 @@ ms.locfileid: "54059011"
 2.  单击要编辑其配额的计划的名称，将其选中。
 3.  在打开的边栏选项卡中，选择“服务和配额”。
 4.  在“名称”列中单击要编辑的配额，将其选中。
-    [ ![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  在打开的边栏选项卡中，选择“在计算中编辑”、“在网络中编辑”或“在存储中编辑”。
     ![配额](media/azure-stack-quota-types/quotas3.png "查看配额")    

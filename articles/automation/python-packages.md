@@ -3,19 +3,19 @@ title: 管理 Azure 自动化中的 Python 2 程序包
 description: 本文介绍了如何管理 Azure 自动化中的 Python 2 程序包。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 09/11/2018
-ms.date: 10/01/2018
+origin.date: 02/25/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimonbile
-ms.openlocfilehash: 2b5dfe79f86c46e64bef8689f385836ce1de8012
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 75d64e32002fdc7a96f19dde72dedbb37fa037de
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658859"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988046"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>管理 Azure 自动化中的 Python 2 程序包
 
@@ -31,13 +31,27 @@ ms.locfileid: "52658859"
 
 ![添加 Python 程序包](media/python-packages/upload-package.png)
 
-在导入程序包后，它将在你的自动化帐户的“Python 2 程序包”页面上列出。 如果需要删除某个程序包，请在程序包页面上选择该程序包并选择“删除”。
+导入包之后，该包将在自动化帐户中的“Python 2 包”页中列出。 如果需要删除某个程序包，请在程序包页面上选择该程序包并选择“删除”。
 
 ![程序包列表](media/python-packages/package-list.png)
 
+## <a name="import-packages-with-dependencies"></a>导入带依赖项的包
+
+Azure 自动化不在导入过程中解析 Python 包的依赖项。 可以通过两种方式导入包及其所有依赖项。 只需使用下述步骤之一将包导入自动化帐户中。
+
+### <a name="manually-download"></a>手动下载
+
+在安装了 [python2.7](https://www.python.org/downloads/release/latest/python2) 和 [pip](https://pip.pypa.io/en/stable/) 的 Windows 64 位计算机上运行以下命令，以便下载包及其所有依赖项：
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+等到这些包下载以后，即可将其导入自动化帐户中。
+
 ## <a name="use-a-package-in-a-runbook"></a>在 runbook 中使用程序包
 
-导入程序包之后，现在可以在 runbook 中使用它。 下面的示例使用了 [ Azure 自动化实用工具程序包](https://github.com/WenJason/azure_automation_utility)。 有了此程序包，可以更轻松地通过 Azure 自动化使用 Python。 若要使用此程序包，请遵循 GitHub 存储库中的说明并将其添加到 runbook，例如，使用 `from azure_automation_utility import get_automation_runas_credential` 导入用于检索运行方式帐户的函数。
+导入包之后，即可在 Runbook 中使用它。 下面的示例使用了 [ Azure 自动化实用工具程序包](https://github.com/WenJason/azure_automation_utility)。 有了此程序包，可以更轻松地通过 Azure 自动化使用 Python。 若要使用此程序包，请遵循 GitHub 存储库中的说明并将其添加到 runbook，例如，使用 `from azure_automation_utility import get_automation_runas_credential` 导入用于检索运行方式帐户的函数。
 
 ```python
 import azure.mgmt.resource

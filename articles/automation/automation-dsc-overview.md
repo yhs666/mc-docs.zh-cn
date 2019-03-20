@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 98ecb1accfa9e7aaa0246882561cc2a332da8b63
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 50a85499745bc62872f4c45a1c916571d48750a0
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987109"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988091"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 
@@ -37,6 +37,42 @@ Azure Automation State Configuration 向 [PowerShell Desired State Configuration
 从 Azure 门户，或从 PowerShell，你可以管理所有的 DSC 配置、资源和目标节点。
 
 ![“Azure 自动化”页的屏幕截图](./media/automation-dsc-overview/azure-automation-blade.png)
+
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>将报表数据导入到 Azure Monitor 日志中
+
+使用 Azure Automation State Configuration 进行管理的节点将详细的报表状态数据发送到内置拉取服务器。 可以将 Azure Automation State Configuration 配置为将此数据发送到 Log Analytics 工作区。 若要了解如何将 State Configuration 状态数据发送到 Log Analytics 工作区，请参阅[将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志](automation-dsc-diagnostics.md)。
+
+## <a name="prerequisites"></a>先决条件
+
+在使用 Azure Automation State Configuration (DSC) 时，请考虑以下要求。
+
+### <a name="operating-system-requirements"></a>操作系统要求
+
+运行 Windows 的节点支持以下版本：
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+运行 Linux 的节点支持以下发行版/版本：
+
+DSC Linux 扩展支持所有[在 Azure 上认可的](/virtual-machines/linux/endorsed-distros) Linux 发行版，除了以下这些：
+
+分发 | 版本
+-|-
+Debian  | 所有版本
+Ubuntu  | 18.04
+
+### <a name="dsc-requirements"></a>DSC 要求
+
+对于在 Azure 中运行的所有 Windows 节点，[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) 将在载入时安装。  对于运行 Windows Server 2012 和 Windows 7 的节点，[将会启用 WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)。
+
+对于在 Azure 中运行的所有 Linux 节点，[PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 将在载入时安装。
 
 ## <a name="next-steps"></a>后续步骤
 

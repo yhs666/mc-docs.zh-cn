@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 02/22/2017
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 54bb0c684aac53843cece754ad3b5cf93c1f9f44
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 5ef94db5745d2d5c3fab2c6d7e3efa98601c9000
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309218"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004534"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 .NET 示例
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "54309218"
 > 
 
 ## <a name="database-examples"></a>数据库示例
-DatabaseManagement 项目示例的 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) 方法演示如何执行以下任务。
+DatabaseManagement 项目示例的 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -60,7 +60,7 @@ DatabaseManagement 项目示例的 [RunDatabaseDemo](https://github.com/Azure/az
 | [删除数据库](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>集合示例
-CollectionManagement 项目示例的 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) 方法演示如何执行以下任务。
+CollectionManagement 项目示例的 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -72,7 +72,7 @@ CollectionManagement 项目示例的 [RunCollectionDemo](https://github.com/Azur
 | [删除集合](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>文档示例
-DocumentManagement 项目示例的 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) 方法演示如何执行以下任务。
+DocumentManagement 项目示例的 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -88,7 +88,7 @@ DocumentManagement 项目示例的 [RunDocumentsDemo](https://github.com/Azure/a
 | [仅当文档已更改时读取文档](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>索引示例
-IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) 方法演示如何执行以下任务。
+IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) 方法演示如何执行以下任务。 若要在运行以下示例之前了解如何在 Azure Cosmos DB 中进行索引编制，请参阅概念文章：[索引策略](index-policy.md)、[索引类型](index-types.md)和[索引路径](index-paths.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -103,7 +103,7 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="geospatial-examples"></a>地理空间示例
-地理空间示例文件 [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)演示如何执行以下任务。  
+地理空间示例文件 [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)演示如何执行以下任务。  若要在运行以下示例之前了解 GeoJSON 和地理空间数据，请参阅概念文章：[如何使用地理空间和 GeoJSON 位置数据](geospatial.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -117,7 +117,7 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 有关使用地理空间数据的详细信息，请参阅[使用 Azure Cosmos DB 中的地理空间数据](geospatial.md)。  
 
 ## <a name="query-examples"></a>查询示例
-查询文档文件 [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)演示如何通过 SQL 查询语法以及使用查询和 Lambda 的 LINQ 提供程序执行以下各项任务。
+查询文档文件 [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)演示如何通过 SQL 查询语法以及使用查询和 Lambda 的 LINQ 提供程序执行以下各项任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅概念文章：[SQL 查询示例](how-to-sql-query.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -139,7 +139,7 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 有关编写查询的详细信息，请参阅 [Azure Cosmos DB 中的 SQL 查询](how-to-sql-query.md)。
 
 ## <a name="change-feed-examples"></a>更改源示例 
-更改源示例，[azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs) 演示如何执行以下任务。 
+更改源示例，[azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs) 演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的更改源，请参阅概念文章：[用于读取更改源的选项](read-change-feed.md)和[更改源处理器](change-feed-processor.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -149,7 +149,7 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 更改源处理器示例：[更改源迁移工具](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool)演示如何使用更改源处理器库将数据复制到另一个 Cosmos DB 集合。   
 
 ## <a name="server-side-programming-examples"></a>服务器端编程示例
-服务器端编程文件 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)演示如何执行以下任务。
+服务器端编程文件 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)演示如何执行以下任务。 若要在运行以下示例之前了解如何在 Azure Cosmos DB 中进行服务器端编程，请参阅概念文章：[存储过程、触发器和用户定义的函数](stored-procedures-triggers-udfs.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |

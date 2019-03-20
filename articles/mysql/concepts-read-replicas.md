@@ -5,27 +5,23 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 01/30/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 0a3999cace0cddb1e40b63e673ae7b3f722847fc
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/26/2019
+ms.date: 03/18/2019
+ms.openlocfilehash: f83dd1ad35185fde7c7c2851f70116edc2da6479
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663702"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990156"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-> [!IMPORTANT]
-> 只读副本功能目前以公共预览版提供。
-
 使用只读副本功能，可以将数据从 Azure Database for MySQL 服务器（主）复制到同一 Azure 区域中最多五个只读服务器（副本）。 使用 MySQL 引擎的基于本机二进制日志 (binlog) 文件位置的复制技术以异步方式更新只读副本。 若要了解有关 binlog 复制的详细信息，请参阅 [MySQL binlog 复制概述](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)。
 
-Azure Database for MySQL 服务中创建的副本是新服务器，可以像常规/独立 MySQL 服务器一样进行管理。 每个只读副本按照预配计算资源的 vCore 数量以及预配的每月 GB 存储量计费。 
-
+Azure Database for MySQL 服务中创建的副本是新服务器，可以像常规/独立 MySQL 服务器一样进行管理。 每个只读副本按照预配计算资源的 vCore 数量以及预配的每月 GB 存储量计费。
 
 如需了解有关 MySQL 复制功能和问题的详细信息，请参阅 [MySQL 复制文档](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)。
 
@@ -43,7 +39,7 @@ Azure Database for MySQL 服务中创建的副本是新服务器，可以像常�
 
 ### <a name="master-server-restart"></a>主服务器重启
 
-在此预览期间，如果为没有现有副本的主服务器创建副本，主服务器将首先重启以便为复制准备自身。 请考虑这一点并在非高峰期执行这些操作。
+如果为没有现有副本的主服务器创建副本，主服务器将首先重启以便为复制准备自身。 请考虑这一点并在非高峰期执行这些操作。
 
 ### <a name="stopping-replication"></a>停止复制
 

@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
 origin.date: 02/08/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: dce7f179d74e15a569791327f6362a63ee8867ac
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 3985953902240dbd3b0d3b19131ce96f65542b83
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309333"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004570"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 Java 示例
 
@@ -89,7 +89,7 @@ $ cd azure-documentdb-java
    > 
 
 ## <a name="database-examples"></a>数据库示例
-[DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java) 文件演示如何执行以下任务：
+[DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -98,7 +98,7 @@ $ cd azure-documentdb-java
 | [创建和查询数据库](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L96-L111) | [DocumentClient.queryDatabases](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.querydatabases) |
 
 ## <a name="collection-examples"></a>集合示例
-[CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 文件演示如何执行以下任务：
+[CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -107,7 +107,7 @@ $ cd azure-documentdb-java
 | [删除集合](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L97-L99) | [DocumentClient.deleteCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.deletecollection) |
 
 ## <a name="document-examples"></a>文档示例
-[DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) 文件演示如何执行以下任务：
+[DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -115,7 +115,7 @@ $ cd azure-documentdb-java
 | [使用可编程文档定义创建文档](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java#L126-L147) | [文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.resource.setid) |
 
 ## <a name="indexing-examples"></a>索引示例
-[CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 文件演示如何执行以下任务：
+[CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解如何在 Azure Cosmos DB 中进行索引编制，请参阅概念文章：[索引策略](index-policy.md)、[索引类型](index-types.md)和[索引路径](index-paths.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -124,7 +124,7 @@ $ cd azure-documentdb-java
 有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="query-examples"></a>查询示例
-[DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) 文件演示如何执行以下任务：
+[DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅概念文章：[SQL 查询示例](how-to-sql-query.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -138,11 +138,11 @@ $ cd azure-documentdb-java
 
 | 任务 | API 参考 |
 | --- | --- |
-| [创建集合并设置吞吐量](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L76-L102) | [DocumentClient.createCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.createcollection)<br>[RequestOptions.setOfferThroughput ](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.requestoptions.setofferthroughput) |
+| [创建集合并设置吞吐量](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L76-L102) | [DocumentClient.createCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.requestoptions.setofferthroughput) |
 | [读取集合以找到相关的优惠](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L108-L132) | [Offer.getContent](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.queryoffers) |
 
 ## <a name="partition-key-examples"></a>分区键示例
-[SinglePartitionCollectionDocumentCrudSample](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java) 文件演示如何执行以下任务：
+[SinglePartitionCollectionDocumentCrudSample](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的分区和分区键，请参阅概念文章：[分区](partitioning-overview.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -150,7 +150,7 @@ $ cd azure-documentdb-java
 | [更改单分区集合的吞吐量优惠](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.replaceoffer) |
 
 ## <a name="stored-procedure-examples"></a>存储过程示例
-[StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) 文件演示如何执行以下任务：
+[StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解如何在 Azure Cosmos DB 中进行服务器端编程，请参阅概念文章：[存储过程、触发器和用户定义的函数](stored-procedures-triggers-udfs.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |

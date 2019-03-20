@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 41fdb650e23c8ca9a7ed8e7403a27db59ad86d7a
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 0e93e6d24b47744dcc011535f301db7d24707e80
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309267"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004532"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 创建 Node.js Express 应用
 
@@ -101,48 +101,48 @@ ms.locfileid: "54309267"
     * 提供 dist 文件夹中将会成为静态内容的所有内容
     * 为应用程序提供服务，为服务器上找不到的任何 GET 请求提供 index.html（用于深层链接）
     * 通过 app.listen 启动服务器
-    * 使用 arow 函数来记录端口处于活动状态这一情况
+    * 使用箭头函数来记录端口处于活动状态这一情况
 
-   ```node
-   const express = require('express');
-   const bodyParser = require('body-parser');
-   const path = require('path');
-   const routes = require('./routes');
+    ```node
+    const express = require('express');
+    const bodyParser = require('body-parser');
+    const path = require('path');
+    const routes = require('./routes');
 
-   const root = './';
-   const port = process.env.PORT || '3000';
-   const app = express();
+    const root = './';
+    const port = process.env.PORT || '3000';
+    const app = express();
 
-   app.use(bodyParser.json());
-   app.use(bodyParser.urlencoded({ extended: false }));
-   app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
-   app.use('/api', routes);
-   app.get('*', (req, res) => {
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
+    app.use('/api', routes);
+    app.get('*', (req, res) => {
      res.sendFile('dist/angular-cosmosdb/index.html', {root});
-   });
+    });
 
-   app.listen(port, () => console.log(`API running on localhost:${port}`));
-   ```
+    app.listen(port, () => console.log(`API running on localhost:${port}`));
+    ```
 
 5. 在 Visual Studio Code 的“资源管理器”窗格中，右键单击 server 文件夹，然后单击“新建文件”。 将新文件命名为 routes.js。 
 
 6. 将以下代码复制到 routes.js 中。 此代码：
-   * 引用 Express 路由器
-   * 获取 hero
-   * 发送回适用于已定义 hero 的 JSON
+    * 引用 Express 路由器
+    * 获取 hero
+    * 发送回适用于已定义 hero 的 JSON
 
-   ```node
-   const express = require('express');
-   const router = express.Router();
+    ```node
+    const express = require('express');
+    const router = express.Router();
 
-   router.get('/heroes', (req, res) => {
+    router.get('/heroes', (req, res) => {
     res.send(200, [
        {"id": 10, "name": "Starlord", "saying": "oh yeah"}
     ])
-   });
+    });
 
-   module.exports=router;
-   ```
+    module.exports=router;
+    ```
 
 7. 保存所有修改过的文件。 
 

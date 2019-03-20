@@ -4,19 +4,19 @@ description: 基于角色的访问控制 (RBAC) 可用于对 Azure 资源进行�
 keywords: 自动化 rbac, 基于角色的访问控制, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/17/2018
-ms.date: 11/05/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: da8aac4c817a06a98822c77b8bcc989bca50850e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 24883155028845328da47dede271fdc171844a0a
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646122"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987938"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -34,6 +34,10 @@ ms.locfileid: "52646122"
 | 自动化运算符 |自动化操作员角色允许针对某个自动化帐户中的所有 Runbook 查看 Runbook 名称和属性，以及为其创建和管理作业。 如果想要防止他人查看或修改自动化帐户资源（例如凭据资产和 Runbook），但仍允许所在组织的成员执行这些 Runbook，则可使用此角色。 |
 |自动化作业操作员|自动化作业操作员角色允许针对某个自动化帐户中的所有 Runbook 创建和管理作业。|
 |自动化 Runbook 操作员|自动化 Runbook 操作员角色允许查看某个 Runbook 的名称和属性。|
+| Log Analytics 参与者 | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志集合、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。|
+| Log Analytics 读者 | Log Analytics 读取者可以读取所有监视数据并编辑监视设置。 这包括查看 Azure 诊断在所有 Azure 资源上的配置。 |
+| 监视参与者 | 监视参与者可以读取所有监视数据并更新监视设置。|
+| 监视读取者 | 监视读取者角色，可以读取所有监视数据。 |
 | 用户访问管理员 |“用户访问管理员”角色允许管理用户对 Azure 自动化帐户的访问。 |
 
 ## <a name="role-permissions"></a>角色权限
@@ -126,6 +130,75 @@ ms.locfileid: "52646122"
 |Microsoft.Insights/alertRules/*      | 创建和管理警报规则。        |
 |Microsoft.Support/*      | 创建和管理支持票证。        |
 
+### <a name="log-analytics-contributor"></a>Log Analytics 参与者
+
+Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志集合、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。 下表显示了授予角色的权限：
+
+|**操作**  |**说明**  |
+|---------|---------|
+|*/read|读取除密码外的所有类型的资源。|
+|Microsoft.Automation/automationAccounts/*|管理自动化帐户。|
+|Microsoft.ClassicCompute/virtualMachines/extensions/*|创建和管理虚拟机扩展。|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|列出经典存储帐户密钥。|
+|Microsoft.Compute/virtualMachines/extensions/*|创建和管理经典虚拟机扩展。|
+|Microsoft.Insights/alertRules/*|读取/写入/删除警报规则。|
+|Microsoft.Insights/diagnosticSettings/*|读取/写入/删除诊断设置。|
+|Microsoft.OperationalInsights/*|管理 Azure Monitor 日志。|
+|Microsoft.OperationsManagement/*|管理工作区中的解决方案。|
+|Microsoft.Resources/deployments/*|创建和管理资源组部署。|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|创建和管理资源组部署。|
+|Microsoft.Storage/storageAccounts/listKeys/action|列出存储帐户密钥。|
+|Microsoft.Support/*|创建和管理支持票证。|
+
+### <a name="log-analytics-reader"></a>Log Analytics 读者
+
+Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 下表显示了授予或拒绝角色的权限：
+
+|**操作**  |**说明**  |
+|---------|---------|
+|*/read|读取除密码外的所有类型的资源。|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Azure Monitor 日志中的查询。|
+|Microsoft.OperationalInsights/workspaces/search/action|搜索 Azure Monitor 日志数据。|
+|Microsoft.Support/*|创建和管理支持票证。|
+|**无操作**| |
+|Microsoft.OperationalInsights/workspaces/sharedKeys/read|无法读取共享访问密钥。|
+
+### <a name="monitoring-contributor"></a>监视参与者
+
+监视参与者可以读取所有监视数据并更新监视设置。 下表显示了授予角色的权限：
+
+|**操作**  |**说明**  |
+|---------|---------|
+|*/read|读取除密码外的所有类型的资源。|
+|Microsoft.AlertsManagement/alerts/*|管理警报。|
+|Microsoft.AlertsManagement/alertsSummary/*|管理警报仪表板。|
+|Microsoft.Insights/AlertRules/*|管理警报规则。|
+|Microsoft.Insights/components/*|管理 Application Insights 组件。|
+|Microsoft.Insights/DiagnosticSettings/*|管理诊断设置。|
+|Microsoft.Insights/eventtypes/*|列出订阅中的活动日志事件（管理事件）。 此权限适用于对活动日志的编程和门户访问。|
+|Microsoft.Insights/LogDefinitions/*|需要通过门户访问活动日志的用户必须拥有此权限。 列出活动日志中的日志类别。|
+|Microsoft.Insights/MetricDefinitions/*|读取指标定义（资源的可用指标类型的列表）。|
+|Microsoft.Insights/Metrics/*|读取资源的指标。|
+|Microsoft.Insights/Register/Action|注册 Microsoft.Insights 提供程序。|
+|Microsoft.Insights/webtests/*|管理 Application Insights Web 测试。|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Azure Monitor 日志解决方案包。|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Azure Monitor 日志保存的搜索。|
+|Microsoft.OperationalInsights/workspaces/search/action|搜索 Log Analytics 工作区。|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|列出 Log Analytics 工作区的键。|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Azure Monitor 日志存储见解配置。|
+|Microsoft.Support/*|创建和管理支持票证。|
+|Microsoft.WorkloadMonitor/workloads/*|管理工作负荷。|
+
+### <a name="monitoring-reader"></a>监视读取者
+
+监视读取者可以读取所有监视数据。 下表显示了授予角色的权限：
+
+|**操作**  |**说明**  |
+|---------|---------|
+|*/read|读取除密码外的所有类型的资源。|
+|Microsoft.OperationalInsights/workspaces/search/action|搜索 Log Analytics 工作区。|
+|Microsoft.Support/*|创建和管理支持票证|
+
 ### <a name="user-access-administrator"></a>用户访问管理员
 
 用户访问管理员可管理 Azure 资源的用户访问权限。 下表显示了授予角色的权限：
@@ -144,12 +217,13 @@ ms.locfileid: "52646122"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)，然后从“自动化帐户”页打开自动化帐户。  
 2. 单击右上角的“访问控制(IAM)”控件。 此时会打开“访问控制(IAM)”页，可以在其中添加新的用户、组和应用程序，以便管理自动化帐户并查看可以为自动化帐户配置的现有角色。
+3. 单击“角色分配”选项卡。
 
    ![访问按钮](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>添加新用户并分配角色
 
-1. 在“访问控制(IAM)”页中，单击“添加”打开“添加权限”页，以便添加用户、组或应用程序并向其分配角色。
+1. 在“访问控制(IAM)”页中，单击“+ 添加角色分配”打开“添加角色分配”页，以便添加用户、组或应用程序并向其分配角色。
 
 2. 从可用角色列表中选择一个角色。 可以选择自动化帐户所支持的任何可用的内置角色，或者定义的任何自定义角色。
 
@@ -297,3 +371,4 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runb
 * 有关为 Azure 自动化配置 RBAC 的不同方式的信息，请参阅 [使用 Azure PowerShell 管理 RBAC](../role-based-access-control/role-assignments-powershell.md)。
 * 有关以不同方式启动 Runbook 的详细信息，请参阅 [启动 Runbook](automation-starting-a-runbook.md)
 * 有关不同 Runbook 类型的信息，请参阅 [Azure 自动化 Runbook 类型](automation-runbook-types.md)
+

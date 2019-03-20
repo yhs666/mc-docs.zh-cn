@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 02/13/2019
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: d48047d4d854012bc054e71485ed9687ce23ca47
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: d8eb78850b384bf85ef6fd5e0ba82ee80b89a682
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204070"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964436"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何调用文本分析 REST API
 
-对文本分析 API 的调用为 HTTP POST/GET 调用，可以用任何语言表示。 在本文中，我们将使用 REST 和 [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) 来演示这些关键概念。
+对文本分析 API 的调用为 HTTP POST/GET 调用，可以用任何语言表示。 在本文中，我们将使用 REST 和 Postman 来演示这些关键概念。
 
 每个请求必须包括访问密钥和 HTTP 终结点。 终结点指定你在注册期间选择的区域、服务 URL 和在请求上使用的资源：`sentiment`、`keyphrases`、`languages` 和 `entities`。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "57204070"
 | 元素 | 有效值 | 必需？ | 使用情况 |
 |---------|--------------|-----------|-------|
 |`id` |数据类型为字符串，但实际上文档 ID 往往是整数。 | 必须 | 系统使用你提供的 ID 来构建输出。 为请求中的每个 ID 生成语言代码、关键短语和情绪分数。|
-|`text` | 非结构化原始文本，最多 5,000 个字符。 | 必须 | 对于语言检测，可以使用任何语言来表示文本。 对于情绪分析、关键短语提取和实体标识，此文本必须使用[支持的语言](../text-analytics-supported-languages.md)。 |
+|`text` | 非结构化原始文本，最多 5,120 个字符。 | 必须 | 对于语言检测，可以使用任何语言来表示文本。 对于情绪分析、关键短语提取和实体标识，此文本必须使用[支持的语言](../text-analytics-supported-languages.md)。 |
 |`language` | [支持语言](../text-analytics-supported-languages.md)的 2 字符 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 代码 | 多种多样 | 需要情绪分析、关键短语提取、实体链接；语言检测为可选。 排除语言检测不会有任何错误，但没有它会削弱分析。 语言代码应对应你提供的 `text`。 |
 
 有关限制的详细信息，请参阅[文本分析概述 > 数据限制](../overview.md#data-limits)。 

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: a48e0af7cbbb994aad3426f2ebc220a5e0ccb8ff
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.date: 03/18/2019
+ms.openlocfilehash: 8899633b27dc4ecb6ab25564198570c525837ad7
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988018"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004530"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 使数据过期
 
@@ -73,7 +73,8 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>如何激活按文档 TTL 功能
 
-<!-- Verify successfully on mongodb TTL--> 可以使用 Azure Cosmos DB 的用于 MongoDB 的 API 激活按文档 TTL 功能。
+<!-- Verify successfully on mongodb TTL-->
+可以使用 Azure Cosmos DB 的用于 MongoDB 的 API 激活每个文档的 TTL 功能。
 
 ![在门户中激活按文档 TTL 功能的屏幕截图](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 

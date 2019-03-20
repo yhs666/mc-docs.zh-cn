@@ -1,26 +1,27 @@
 ---
-title: Azure 事件中心功能概述 | Azure
-description: 有关 Azure 事件中心功能的概述和详细信息
+title: Azure 事件中心功能概述 | Azure Docs
+description: 本文详细介绍 Azure 事件中心的功能和术语。
 services: event-hubs
 documentationcenter: .net
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: c178990eb8af182d4fdac0e31023832b200a9948
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/25/2019
+ms.author: v-biyu
+ms.openlocfilehash: fd848638faab5b5bef0eb9be55691bd2b17be6dc
+ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661071"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57787315"
 ---
-# <a name="event-hubs-features-overview"></a>事件中心功能概述
+# <a name="features-and-terminology-in-azure-event-hubs"></a>Azure 事件中心的功能和术语
 
 Azure 事件中心是可缩放的事件处理服务，它引入并处理大量事件和数据，具有低延迟和高可靠性。 有关简要概述，请参阅[什么是事件中心？](event-hubs-what-is-event-hubs.md)。
 
@@ -103,6 +104,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 每个使用者组的分区上最多可以有 5 个并发读取者，但是**建议每个使用者组的分区上只有一个活动接收者**。 在单个分区中，每个读取者接收所有消息。 如果在同一分区上有多个读取者，则处理重复消息。 需在代码中处理此问题，这并非易于处理的。 但是，在某些情况下，这是一种有效的方法。
 
+
 以下是使用者组 URI 约定的示例：
 
 ```http
@@ -164,7 +166,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 可以联系 Azure 支持部门来购买更多吞吐量单位（以块的形式购买，每个块 20 个单位，最多可购买 100 个单位）。 你可以超出该限制购买包含 100 个吞吐量单位的块级元素。
 
-建议权衡吞吐量单位和分区数目，实现最佳缩放。 一个分区最多只能缩放一个吞吐量单位。 吞吐量单位数应小于或等于事件中心内的分区数。
+建议权衡吞吐量单位和分区数目，实现最佳缩放。 一个分区最多具有一个吞吐量单位。 吞吐量单位数应小于或等于事件中心内的分区数。
 
 如需事件中心的详细定价信息，请参阅[事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。
 
@@ -180,5 +182,3 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [事件中心示例]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-
-<!--Update_Description: update meta properties, wording update -->

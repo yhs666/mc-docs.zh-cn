@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/08/2018
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3d530af8c4ec8d56126ee69cbbd2f69177cffebf
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: ac95fe25d30da848804609aa53b9e7a65eb605cf
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303041"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987989"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 
@@ -105,6 +105,18 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
+也可使用凭据通过 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 向 Azure 进行身份验证。 大多数情况下，应使用[运行方式帐户](manage-runas-account.md)并使用 [Get-AutomationConnection](automation-connections.md) 来检索它。
+
+```azurepowershell
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
+$userName = $myCred.UserName
+$securePassword = $myCred.Password
+
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$securePassword)
+
+Login-AzureRmAccount -Credential $myPsCred
+```
+
 ### <a name="graphical-runbook-sample"></a>图形 Runbook 示例
 
 通过在图形编辑器的“库”窗格中右键单击凭据并选择“添加到画布”，将 **Get-AutomationPSCredential** 活动添加到图形 Runbook。
@@ -140,5 +152,3 @@ print cred["password"]
 * 若要开始使用图形 Runbook，请参阅 [My first graphical runbook](automation-first-runbook-graphical.md)
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md) 
 * 若要开始使用 Python2 Runbook，请参阅[第一个 Python2 Runbook](automation-first-runbook-textual-python2.md) 
-
-

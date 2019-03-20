@@ -3,19 +3,19 @@ title: 管理 Azure 自动化数据
 description: 本文包含有关管理 Azure 自动化环境的多个主题。  Azure 自动化目前包括数据保留和备份 Azure 自动化灾难恢复。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 09/10/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: b5704c5240f14487f8a8c1f6e91ee029aed3f67f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a4e34619b62c670ddc066d5ad158a5dd849f18b8
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646090"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987961"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文包含有关管理 Azure 自动化环境的多个主题。
@@ -40,6 +40,8 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 
 保留策略应用于所有用户并且当前无法自定义。
 
+但是，如果需要将数据保留更长一段时间，可以将 Runbook 作业日志转发到 Azure Monitor 日志。  有关详细信息，请参阅[将 Azure 自动化作业数据转发到 Azure Monitor 日志](automation-manage-send-joblogs-log-analytics.md)。   
+
 ## <a name="backing-up-azure-automation"></a>备份 Azure 自动化
 删除 Azure 中的某个自动化帐户时，该帐户中的所有对象都会被删除，包括 Runbook、模块、配置、设置、作业和资产。 在删除帐户后，这些对象不可恢复。  在删除自动化帐户之前，可以参考以下信息来备份该帐户的内容。 
 
@@ -63,12 +65,6 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 
 ## <a name="geo-replication-in-azure-automation"></a>Azure 自动化中的异地复制
 Azure 自动化帐户中标配的异地复制可将帐户数据备份到其他地理区域以实现冗余。 用户可以在设置帐户时选择主要区域，会自动向它分配次要区域。 从主要区域复制的辅助数据会持续更新，以防数据丢失。  
-
-下表显示了可用的主要区域和次要区域配对。
-
-| 主要 | 次要 |
-| --- | --- |
-| 中国北部 |中国东部 |
 
 如果主要区域发生数据丢失（这种情况很少见），Azure 将尝试恢复数据。 如果无法恢复主数据，则执行异地故障转移，并通过受影响用户的订阅向其通知此项操作。
 

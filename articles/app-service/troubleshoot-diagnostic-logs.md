@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: f2756ca70a8bb6890429ddcb5ff134d1a887a0ad
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 12b3e6559c0e69f498004b6134b343101896cc4b
+ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222608"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57787316"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -35,8 +35,8 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 ### <a name="web-server-diagnostics"></a>Web 服务器诊断
 可以启用或禁用以下种类的日志：
 
-* **详细错误日志记录** - 指示故障的 HTTP 状态代码（状态代码 400 或更大数字）的详细错误消息。 其中可能包含有助于确定服务器返回错误代码的原因的信息。
-* **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用的时间的跟踪。 如果要提高站点性能或隔离特定的 HTTP 错误，这将非常有用。
+* **详细错误日志记录** - 任何会生成 HTTP 状态代码 400（或更大数字）的请求的详细信息。 其中可能包含有助于确定服务器返回错误代码的原因的信息。 会为应用的文件系统中的每个错误生成一个 HTML 文件，并可保留最多 50 个错误（文件）。 当 HTML 文件的数目超出 50 时，最旧的 26 个文件会自动删除。
+* **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用的时间的跟踪。 如果要提高站点性能或隔离特定的 HTTP 错误，这将非常有用。 会在应用的文件系统中为每个错误生成一个文件夹。 文件保留策略与上述详细错误日志记录的相同。
 * **Web 服务器日志记录** - 使用 [W3C 扩展日志文件格式](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 事务信息。 这在确定整体站点指标（如处理的请求数量或来自特定 IP 地址的请求数）时非常有用。
 
 ### <a name="application-diagnostics"></a>应用程序诊断

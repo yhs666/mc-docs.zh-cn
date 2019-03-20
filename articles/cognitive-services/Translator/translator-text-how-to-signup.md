@@ -1,22 +1,23 @@
 ---
-title: 如何注册文本翻译 - 文本翻译 API
+title: 开始使用 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 了解如何注册文本翻译 API 并获取订阅密钥。
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 06/15/2018
-ms.date: 11/27/2018
+origin.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 024d5731cc0e7f7de1199f57af1b92c0bdb03c31
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.custom: seodec18
+ms.openlocfilehash: 385c468aebd3205231c6f8954cd0dab0c80eab45
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673461"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57964399"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>如何注册文本翻译 API
 
@@ -50,14 +51,12 @@ ms.locfileid: "52673461"
 - [GitHub 上的代码示例](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator 支持论坛](https://www.aka.ms/TranslatorForum)
 
+Microsoft Translator 通常会在验证订阅帐户状态前允许通过前几个请求。 如果前几个 Microsoft Translator API 请求成功，则调用失败，错误响应将指示问题。 请记录 API 响应，以便你能够查看原因。
+
 ## <a name="pricing-options"></a>定价选项
 
-- [文本翻译 API](https://www.azure.cn/pricing/details/cognitive-services/)
-
-## <a name="customization"></a>自定义
-
-使用自定义翻译以自定义翻译并创建符合自己的术语和风格的翻译系统，可从泛型 Microsoft Translator 神经机器翻译系统开始。 [了解详细信息](customization.md)
+- [文本翻译 API](https://www.azure.cn/pricing/details/cognitive-services)
 
 ## <a name="additional-resources"></a>其他资源
 
-- [Azure 入门（3 分钟视频）](https://www.azure.cn/pricing/1rmb-trial/)
+- [Azure 入门（3 分钟视频）](https://www.azure.cn/pricing/1rmb-trial/?b=16.24)

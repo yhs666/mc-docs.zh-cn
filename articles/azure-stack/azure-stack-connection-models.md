@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: beef2896a729c1f09f02d012768e66b95b980dbd
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: 1fd2c9b242d6a56d7b50e06ed6e7b6414afd0e44
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905245"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988047"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 集成系统连接模型
 如果你有兴趣购买 Azure Stack 集成系统，则需要了解[几个数据中心集成注意事项](azure-stack-datacenter-integration.md)，以便 Azure Stack 部署确定系统将如何适应数据中心。 此外，还需要确定如何将 Azure Stack 集成到混合云环境。 本文概述了这些主要决策，包括 Azure 连接决策、标识存储决策和计费模型决策。
@@ -39,12 +39,14 @@ ms.locfileid: "56905245"
 
 
 |选项|已连接到 Azure|已与 Azure 断开连接|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![支持](media/azure-stack-connection-models/check.png)| |
 |AD FS|![支持](media/azure-stack-connection-models/check.png)|![支持](media/azure-stack-connection-models/check.png)|
 |基于使用的计费|![支持](media/azure-stack-connection-models/check.png)| |
 |基于容量的计费|![支持](media/azure-stack-connection-models/check.png)|![支持](media/azure-stack-connection-models/check.png)|
-|将更新包直接下载到 Azure Stack|![支持](media/azure-stack-connection-models/check.png)|  |
+|许可| 企业协议或云解决方案提供商 | 企业协议 |
+|修补和更新|可以直接从 Internet 将更新包下载到 Azure Stack |  必须<br><br>还需要可移动媒体<br> 和独立的连接设备 |
+| 注册 | 自动 | 必须<br><br>还需要可移动媒体<br> 和独立的连接设备 |
 
 选定 Azure Stack 部署要使用的 Azure 连接模型后，必须对标识存储和计费方法做出其他与连接相关的决策。 
 

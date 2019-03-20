@@ -1,49 +1,47 @@
 ---
-title: 在 Azure IoT Edge 上部署 Modbus | Microsoft Docs
+title: 使用网关转换 modbus 协议 - Azure IoT Edge
 description: 通过创建 IoT Edge 网关设备，允许设备使用 Modbus TCP 与 Azure IoT 中心通信
 author: kgremban
 manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 06/07/2018
-ms.date: 12/10/2018
+origin.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5df052baf13c5b5f960b019a708f7fc6641c1908
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c9c7a52d6a65dd29abd7446d216d8d6a66afb0d2
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674416"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987921"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>通过 IoT Edge 设备网关连接 Modbus TCP 设备
 
 若要将使用 Modbus TCP 或 RTU 协议的 IoT 设备连接到 Azure IoT 中心，请使用 IoT Edge 设备作为网关。 此网关设备从 Modbus 设备读取数据，然后使用支持的协议将该数据传送到云。 
 
-![Modbus 设备通过 Edge 网关连接到 IoT 中心](./media/deploy-modbus-gateway/diagram.png)
+![Modbus 设备通过 IoT Edge 网关连接到 IoT 中心](./media/deploy-modbus-gateway/diagram.png)
 
 本文介绍如何针对 Modbus 模块创建自己的容器映像（也可使用预构建的示例），然后将其部署到会充当网关的 IoT Edge 设备。 
 
 本文假定你使用的是 Modbus TCP 协议。 若要详细了解如何配置支持 Modbus RTU 的模块，请参阅 Github 上的 [Azure IoT Edge Modbus 模块](https://github.com/Azure/iot-edge-modbus)项目。 
 
 ## <a name="prerequisites"></a>先决条件
-* Azure IoT Edge 设备。 若要详细了解如何设置一个，请参阅[在 Windows 中将 Azure IoT Edge 部署到模拟的设备](quickstart.md)或[在 Linux 中将 Azure IoT Edge 部署到模拟的设备](quickstart-linux.md)。 
+* Azure IoT Edge 设备。 若要详细了解如何设置一个，请参阅[在 Windows 中部署 Azure IoT Edge](quickstart.md) 或[在 Linux 中部署 Azure IoT Edge](quickstart-linux.md)。
 * IoT Edge 设备的主键连接字符串。
 * 支持 Modbus TCP 的物理或模拟 Modbus 设备。
 
 ## <a name="prepare-a-modbus-container"></a>准备 Modbus 容器
 
-若要测试 Modbus 网关功能，可以使用 Microsoft 提供的示例模块。 若要使用示例模块，请转到[运行解决方案](#run-the-solution)部分，输入以下内容作为“映像 URI”： 
+若要测试 Modbus 网关功能，可以使用 Microsoft 提供的示例模块。 可以通过 Azure 市场 [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview) 或映像 URI **mcr.microsoft.com/azureiotedge/modbus:1.0** 访问模块。
 
-```URL
-mcr.microsoft.com/azureiotedge/modbus:1.0
-```
+如果需要创建自己的模块并根据环境对其自定义，可以使用 GitHub 上的开源 [Azure IoT Edge Modbus 模块](https://github.com/Azure/iot-edge-modbus)项目。 按照该项目中的指南创建自己的容器映像。 如果创建自己的容器映像，请参阅[在 Visual Studio 中开发 C# 模块](how-to-visual-studio-develop-csharp-module.md)或[在 Visual Studio Code 中开发模块](how-to-vs-code-develop-module.md)。 这些文章说明了如何创建新模块并将容器映像发布到注册表。
 
-如果需要创建自己的模块并根据环境对其自定义，可以使用 Github 上的开源 [Azure IoT Edge Modbus 模块](https://github.com/Azure/iot-edge-modbus)项目。 按照该项目中的指南创建自己的容器映像。 如果创建自己的容器映像，请参阅[开发和部署 C# IoT Edge 模块](tutorial-csharp-module.md)，了解如何将容器映像发布到注册表，以及如何将自定义模块部署到设备。 
+## <a name="try-the-solution"></a>试用此解决方案
 
+此部分详述如何将 Microsoft 的示例 Modbus 模块部署到 IoT Edge 设备。
 
-## <a name="run-the-solution"></a>运行解决方案
-1. 在 [Azure 门户](https://portal.azure.com/)中转到 IoT 中心。
+1. 在 [Azure 门户](https://portal.azure.cn/)中转到 IoT 中心。
 2. 转到“IoT Edge”，然后单击 IoT Edge 设备。
 3. 选择“设置模块”。
 4. 添加 Modbus 模块：
@@ -77,7 +75,8 @@ mcr.microsoft.com/azureiotedge/modbus:1.0
 
    6. 选择“其他安全性验证” 。
 5. 返回到“添加模块”步骤，选择“下一步”。
-7. 在“指定路由”步骤中，将以下 JSON 复制到文本框中。 此路由将 Modbus 模块收集的所有消息发送到 IoT 中心。 在此路由中，“modbusOutput”是 Modbus 模块用于输出数据的终结点，“upstream”则是一个特殊目标，告知 Edge 中心将消息发送到 IoT 中心。 
+
+7. 在“指定路由”步骤中，将以下 JSON 复制到文本框中。 此路由将 Modbus 模块收集的所有消息发送到 IoT 中心。 在此路由中，“modbusOutput”是 Modbus 模块用于输出数据的终结点，“upstream”则是一个特殊目标，告知 IoT Edge 中心将消息发送到 IoT 中心。
    ```JSON
    {
     "routes": {
@@ -93,10 +92,10 @@ mcr.microsoft.com/azureiotedge/modbus:1.0
 ## <a name="view-data"></a>查看数据
 查看通过 modbus 模块发送过来的数据：
 ```cmd/sh
-docker logs -f modbus
+iotedge logs modbus
 ```
 
-也可使用 [Visual Studio Code 的 Azure IoT Toolkit 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)查看设备正发送的遥测数据。 
+也可使用[适用于 Visual Studio Code 的 Azure IoT 中心工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)（以前称为 Azure IoT 工具包扩展）查看设备正发送的遥测数据。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 10/25/2018
-ms.date: 03/04/2019
+origin.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 43b18b75cfcefd8d96359d53044cf24d0b131855
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 5d48d34f6f8a27e5c95d5b98b3345cbc4871862c
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905267"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988037"
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 
@@ -42,7 +42,7 @@ Microsoft [Azure Stack 开发工具包 (ASDK)](./asdk/asdk-what-is.md) 是 Azure
 ASDK 具有以下限制：
 
 * ASDK 与单个 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 标识提供者相关联。 可在此目录中创建多个用户，并将订阅分配给每个用户。
-* 由于 Azure Stack 组件部署在一台主机上，可用作租户资源的物理资源有限。 此配置不适用于规模或性能评估。
+* 由于 Azure Stack 组件部署在一台主机上，可用作租户资源的物理资源有限。 此配置不适用于缩放或性能评估。
 * 由于只有一台主机和 NIC 部署要求方面的原因，网络方案会受到限制。
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack 集成系统

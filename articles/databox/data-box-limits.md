@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 12/20/2018
-ms.date: 02/25/2019
+origin.date: 02/22/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 3608e2ad610f60354f0e0439c92c77dcb45304e5
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ac5fd4f94a6fba772db755a97d1a973a6cfe5981
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666503"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990149"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box 限制
 
@@ -23,7 +23,7 @@ ms.locfileid: "56666503"
 
 ## <a name="data-box-service-limits"></a>Data Box 服务限制
 
- - 如果通过 Data Box 服务使用多个存储帐户，则所有存储帐户仅需属于同一 Azure 区域即可。
+ - 如果通过 Data Box 服务使用多个存储帐户，则所有存储帐户应属于同一 Azure 区域。
  - 我们建议使用不超过三个存储帐户。 使用更多存储帐户可能影响性能。
 
 ## <a name="data-box-limits"></a>Data Box 限制
@@ -45,12 +45,12 @@ ms.locfileid: "56666503"
 
 ## <a name="data-upload-caveats"></a>数据上传注意事项
 
-- 不要直接在任何预创建的共享下复制数据。 需要在共享下创建文件夹，然后将数据复制到该文件夹。
+- 不要直接将文件复制到任何预创建的共享。 需要在共享下创建文件夹，然后将文件复制到该文件夹。
 - StorageAccount_BlockBlob 和 StorageAccount_PageBlob 下的文件夹为容器。 例如，容器创建为 StorageAccount_BlockBlob/container 和 StorageAccount_PageBlob/container。
 - 直接在 StorageAccount_AzureFiles 下创建的每个文件夹都将转换为 Azure 文件共享。
 - 如果云中存在与正在复制的对象同名的现有 Azure 对象（例如 blob 或文件），则 Data Box 将覆盖云中的文件。
 - 写入到 StorageAccount_BlockBlob 和 StorageAccount_PageBlob 共享中的每个文件将分别上传为块 blob 和页 blob。
-- Azure blob 存储不支持目录。 如果在 StorageAccount_BlockBlob 文件夹下创建文件夹，将以 blob 的名义创建虚拟文件夹。 对于 Azure 文件，将维护实际的目录结构。
+- Azure Blob 存储不支持目录。 如果在 StorageAccount_BlockBlob 文件夹下创建文件夹，将以 blob 的名义创建虚拟文件夹。 对于 Azure 文件，将维护实际的目录结构。
 - 在 StorageAccount_BlockBlob 和 StorageAccount_PageBlob 文件夹下创建的任何空目录层次结构（没有任何文件）都不会上传。
 - 如果将数据上传到 Azure 时发生任何错误，则会在目标存储帐户中创建一个错误日志。 当上传完成时，可以找到此错误日志的路径，并且可以查看此日志来采取纠正措施。 在验证上传的数据之前，不要删除源中的数据。
 
@@ -72,6 +72,7 @@ ms.locfileid: "56666503"
 | 块 blob        | ~ 4.75 TiB                                                 |
 | 页 blob         | 8 TiB <br> 以页 Blob 格式上传的文件都必须是 512 字节对齐（整数倍），否则上传失败。 <br> VHD 和 VHDX 为 512 字节对齐。 |
 | Azure 文件        | 1 TiB                                                      |
+| 托管磁盘     | 4 TiB <br> 有关大小和限制的详细信息，请参阅： <li>[标准 SSD 的可伸缩性目标](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[高级 SSD 的可伸缩性目标](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[标准 HDD 的可伸缩性目标](../virtual-machines/windows/disks-types.md)</li><li>[托管磁盘的定价和计费](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure 块 blob、页 blob 和文件命名约定
 

@@ -6,14 +6,14 @@ author: WenJason
 ms.service: dns
 ms.topic: article
 origin.date: 1/18/2019
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 44b456443c0f47c783aac513255a42a01409460a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 1a763d374622f87eb71d4fd0864164cf9f59121e
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663442"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987964"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 
@@ -55,7 +55,7 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 
 ## <a name="public-ip-address"></a>公共 IP 地址
 
-若要为使用公共 IP 地址资源（例如应用程序网关、负载均衡器、云服务、资源管理器 VM 和经典 VM）的服务配置自定义域，需使用 CNAME 记录。
+若要为使用公共 IP 地址资源（例如应用程序网关、负载均衡器、云服务、资源管理器 VM 和经典 VM）的服务配置自定义域，请使用 A 记录。
 
 导航到“网络” > “公共 IP 地址”，选择“公共 IP 资源”，单击“配置”。 记下显示的 IP 地址。
 

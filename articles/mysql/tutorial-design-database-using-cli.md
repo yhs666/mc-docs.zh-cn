@@ -1,28 +1,25 @@
 ---
 title: 教程：使用 Azure CLI 设计 Azure Database for MySQL
 description: 本教程介绍如何使用 Azure CLI 从命令行创建和管理 Azure Database for MySQL 服务器和数据库。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 04/01/2018
-ms.date: 11/09/2018
+ms.date: 03/18/2019
 ms.custom: mvc
-ms.openlocfilehash: 735912afaac17358116068d7747e17fa178bb8dc
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 719e4c9c412141b60f6c27dc24e3a6773d260067
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396996"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990174"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 Azure Database for MySQL 是 Azure 中基于 MySQL 社区版数据库引擎的一种关系数据库服务。 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
 
@@ -35,9 +32,13 @@ Azure Database for MySQL 是 Azure 中基于 MySQL 社区版数据库引擎的�
 > * 更新数据
 > * 还原数据
 
-本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-如果有多个订阅，请选择资源所在的相应订阅或对资源进行计费的订阅。 使用 [az account set](/cli/account#az_account_set) 命令选择帐户下的特定订阅 ID。
+可以在自己的计算机上[安装 Azure CLI]( /cli/azure/install-azure-cli) 来运行本教程中的代码块。
+
+本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
+
+如果有多个订阅，请选择资源所在的相应订阅或对资源进行计费的订阅。 使用 [az account set](/cli/account#az-account-set) 命令选择帐户下的特定订阅 ID。
 ```cli
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```

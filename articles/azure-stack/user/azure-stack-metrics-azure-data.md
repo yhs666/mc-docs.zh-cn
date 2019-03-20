@@ -15,12 +15,12 @@ origin.date: 12/01/2018
 ms.date: 02/18/2019
 ms.author: v-jay
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 78ea8bc109ae1b627da13c3504822c129ff9c342
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 4e33fbae7c1f821a6421a3adaa94030b9ca8e45d
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218245"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988020"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack 中的 Azure Monitor
 
@@ -28,7 +28,7 @@ ms.locfileid: "56218245"
 
 本文概述了 Azure Stack 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack 中的 Azure Monitor 的其他信息。 
 
-有关 Azure Monitor 的介绍、概述以及如何开始使用它的信息，请参阅 Azure 文章 [Azure Monitor 入门](https://docs.azure.cn/monitoring-and-diagnostics/monitoring-get-started)。
+有关 Azure Monitor 的介绍、概述以及如何开始使用它的信息，请参阅 Azure 文章：[Azure Stack 上的 Azure Monitor 入门](https://docs.azure.cn/monitoring-and-diagnostics/monitoring-get-started)。
 
 ![Azure Stack Monitor 边栏选项卡](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -37,7 +37,7 @@ Azure Monitor 是一项平台服务，可提供单个源用于监视 Azure 资�
 > [!Note]  
 指标和诊断日志不可用于 Azure Stack 开发工具包。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 的先决条件
 
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
@@ -47,13 +47,13 @@ Azure Monitor 是一项平台服务，可提供单个源用于监视 Azure 资�
 4. 在“设置”下，选择“资源提供程序”。 
 5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”。
 
-## <a name="overview"></a>概述
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 概述
 
 与 Azure 上的 Azure Monitor 一样，Azure Stack 上的 Azure Monitor 针对大多数服务提供基本级别的基础结构指标和日志。
 
-## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor 源 ：计算子集
+## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor 源：计算子集
 
-![Azure Monitor 源 - 计算子集](media/azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Stack 上的 Azure Monitor 源 - 计算子集](media/azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
  - 虚拟机 
@@ -87,7 +87,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor 源：所有其他项
 
-![Azure Monitor 源 - 所有其他项](media/azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Stack 上的 Azure Monitor 源 - 所有其他项](media/azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>资源 - 指标和诊断日志
 

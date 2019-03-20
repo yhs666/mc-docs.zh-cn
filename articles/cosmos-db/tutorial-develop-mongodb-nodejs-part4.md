@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/06/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 4453d117b2eff0ad072cdddc9d09a2d9891db70e
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 3ebd1dc22e25a3eabd5ed3cac4c65ed707cb7811
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309029"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004690"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>使用 Azure Cosmos DB 的 API for MongoDB 创建 Angular 应用 - 创建 Cosmos 帐户
 
@@ -36,6 +36,8 @@ ms.locfileid: "54309029"
 开始教程的此部分之前，请确保已完成教程[第 3 部分](tutorial-develop-mongodb-nodejs-part3.md)的步骤。 
 
 在教程的此部分，可以使用本地安装的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+
+<!--MOONCAKE: Not Available on Azure Cloud Shell-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -66,9 +68,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 
     ![Azure 门户中的新 Azure Cosmos DB 帐户](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
 
-4. 在左侧导航中向下滚动，单击“以全局方式复制数据”选项卡。此时会显示一个映射，可以在其中看到允许将数据复制到其中的不同区域。 例如，可以单击“中国北部”或“中国东部”，并将数据复制到“中国”。 若要详细了解多区域复制，可参阅[如何使用 Azure Cosmos DB 在多个区域分配数据](distribute-data-globally.md)。 至于现在，我们只需保留这一个实例，这样在需要复制时，我们就知道如何去做。
-    <!-- Select the correct replicate data region -->
-    <!-- Change Australia to China East-->
+4. 在左侧导航中向下滚动，单击“以多区域方式复制数据”选项卡。此时会显示一个映射，可以在其中看到允许将数据复制到其中的不同区域。 例如，可以单击“中国北部”或“中国东部”，并将数据复制到“中国”。 若要详细了解多区域复制，可参阅[如何使用 Azure Cosmos DB 在多个区域分配数据](distribute-data-globally.md)。 至于现在，我们只需保留这一个实例，这样在需要复制时，我们就知道如何去做。
 
     ![Azure 门户中的新 Azure Cosmos DB 帐户](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 

@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 10/03/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: c0c03ee044d5470ba113a2efb5c708ab70004f52
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+origin.date: 02/28/2019
+ms.date: 03/18/2019
+ms.openlocfilehash: 07b9b0bbdf221a3c5b85212b209e5d6a21771e91
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836856"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990139"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器日志
 
@@ -49,7 +49,10 @@ ms.locfileid: "56836856"
 有关慢查询日志参数的完整说明，请参阅 MySQL [慢查询日志文档](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
 ## <a name="diagnostic-logs"></a>诊断日志
-Azure Database for MySQL 与 Azure Monitor 诊断日志集成。 在 MySQL 服务器上启用慢查询日志后，便可以选择将这些日志发送到事件中心或 Azure 存储。 若要了解有关如何启用诊断日志的详细信息，请参阅[诊断日志文档](../azure-monitor/platform/diagnostic-logs-overview.md)的“操作方法”部分。
+Azure Database for MySQL 与 Azure Monitor 诊断日志集成。 在 MySQL 服务器上启用慢查询日志后，可以选择将它们发送到 Azure Monitor 日志、事件中心或 Azure 存储。 若要了解有关如何启用诊断日志的详细信息，请参阅[诊断日志文档](../azure-monitor/platform/diagnostic-logs-overview.md)的“操作方法”部分。
+
+> [!IMPORTANT]
+> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
 
 下表介绍了每个日志中的内容。 根据输出方法，包含的字段以及这些字段出现的顺序可能会有所不同。
 

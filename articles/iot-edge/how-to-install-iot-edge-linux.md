@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上安装 Azure IoT Edge | Microsoft Docs
+title: 在 Linux 上安装 Azure IoT Edge
 description: 在运行 Ubuntu 的 Linux AMD64 设备上安装 Azure IoT Edge 的相关说明
 author: kgremban
 manager: philmea
@@ -7,49 +7,56 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 01/25/2019
-ms.date: 03/11/2019
+origin.date: 03/01/2019
+ms.date: 03/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: aabaec12ace180d326aa8b9a5475efb571c7c186
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 48c9c3e1f60b0139d860d8dfc235ec4600c8e346
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196634"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988052"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux 上安装 Azure IoT Edge 运行时 (x64)
 
 使用 Azure IoT Edge 运行时可将设备转变为 IoT Edge 设备。 该运行时可以部署在像 Raspberry Pi 一样小的设备上，也可以部署在像工业服务器一样大的设备上。 使用 IoT Edge 运行时配置设备后，即可开始从云中部署业务逻辑。 
 
-若要了解有关 IoT Edge 运行时如何工作以及包含哪些组件的详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
+若要了解详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-本文列出了在 Linux x64 (Intel/AMD) Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关当前支持的 AMD64 操作系统列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。 
+本文列出了在 Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
 
 >[!NOTE]
 >Linux 软件存储库中的包受到每个包中的许可条款限制 (/usr/share/doc/*package-name*)。 使用程序包之前请阅读许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用包。
 
 ## <a name="register-microsoft-key-and-software-repository-feed"></a>注册 Microsoft 密钥和软件存储库源
 
-准备设备以进行IoT Edge运行时安装，将 ```<release>``` 替换为适用于 Ubuntu 版本的 **16.04** 或 **18.04**。
+准备设备，以便安装 IoT Edge 运行时。
 
-```bash
-# Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 
-# Install Microsoft GPG public key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+安装存储库配置。 根据 Ubuntu 的版本，将 **\<release\>** 替换为 **16.04** 或 **18.04**。
 
-# Perform apt update
-sudo apt-get update
-```
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   ```
+
+复制生成的列表。
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+安装 Microsoft GPG 公钥
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
 
 ## <a name="install-the-container-runtime"></a>安装容器运行时 
 
-Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器运行时。 对于生产方案，强烈建议使用下面提供的[基于 Moby](https://mobyproject.org/) 的引擎。 这是官方唯一支持用于 Azure IoT Edge 的容器引擎。 Docker CE/EE 容器映像与 Moby 运行时兼容。
+Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器运行时。 对于生产方案，建议使用下面提供的[基于 Moby](https://mobyproject.org/) 的引擎。 这是官方唯一支持用于 Azure IoT Edge 的容器引擎。 Docker CE/EE 容器映像与 Moby 运行时兼容。
 
-更新 apt-get。
+执行 apt 更新。
 
 ```bash
 sudo apt-get update
@@ -69,11 +76,11 @@ sudo apt-get install moby-cli
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>安装 Azure IoT Edge 安全守护程序
 
-**IoT Edge 安全守护程序**提供和维护 Edge 设备上的安全标准。 守护程序在每次开机时启动，并通过启动 IoT Edge 运行时的其余部分来启动设备。 
+**IoT Edge 安全守护程序**提供和维护 IoT Edge 设备上的安全标准。 守护程序在每次开机时启动，并通过启动 IoT Edge 运行时的其余部分来启动设备。
 
 安装命令还会安装标准版本的 **iothsmlib**（如果尚未存在）。
 
-更新 apt-get。
+执行 apt 更新。
 
 ```bash
 sudo apt-get update
@@ -104,7 +111,7 @@ sudo apt-get install iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-找到文件的 provisioning 节并取消注释 **manual** 预配模式。 使用 IoT Edge 设备的连接字符串更新 **device_connection_string** 的值。
+找到文件的 provisioning 节。 取消注释 **manual** 预配模式，并确保注释掉 dps 预配模式。使用 IoT Edge 设备的连接字符串更新 **device_connection_string** 的值。
 
    ```yaml
    provisioning:
@@ -130,7 +137,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>选项 2：自动预配
 
-若要自动预配设备，请设置设备预配服务并检索设备注册 ID。 自动预配仅适用于具有受信任的平台模块 (TPM) 芯片的设备。 例如，默认情况下，Raspberry Pi 设备未附带 TPM。 
+若要自动预配设备，请[设置设备预配服务并检索设备注册 ID](how-to-auto-provision-simulated-device-linux.md)。 自动预配仅适用于具有受信任的平台模块 (TPM) 芯片的设备。 例如，默认情况下，Raspberry Pi 设备未附带 TPM。
 
 打开配置文件。 
 
@@ -138,7 +145,7 @@ sudo systemctl restart iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-找到文件的预配部分并取消注释 **dps** 预配模式。 使用 IoT 中心设备预配服务中的值更新 **scope_id** 和 **registration_id** 的值，并使用 TPM 更新 IoT Edge 设备。 
+找到文件的 provisioning 节。 取消注释 **dps** 预配模式，并注释掉 manual 节。 使用 IoT 中心设备预配服务中的值更新 **scope_id** 和 **registration_id** 的值，并使用 TPM 更新 IoT Edge 设备。
 
    ```yaml
    # provisioning:
@@ -164,7 +171,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>验证是否成功安装
 
-如果使用了上一部分中的**手动配置**步骤，则应在设备上成功预配并运行 IoT Edge 运行时。 如果使用了**自动配置**步骤，则需要完成一些额外的步骤，以便运行时可以代表你向 IoT 中心注册你的设备。 
+如果使用了上一部分中的**手动配置**步骤，则应在设备上成功预配并运行 IoT Edge 运行时。 如果使用了**自动配置**步骤，则需要完成一些额外的步骤，以便运行时可以代表你向 IoT 中心注册你的设备。 有关后续步骤，请参阅[在 Linux 虚拟机上创建和预配模拟 TPM IoT Edge 设备](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
 
 使用以下命令检查 IoT Edge 守护程序的状态：
 
@@ -225,6 +232,6 @@ sudo apt-get remove --purge moby-engine
 
 预配了安装运行时的 IoT Edge 设备后，现在可以[部署 IoT Edge 模块](how-to-deploy-modules-portal.md)。
 
-如果无法正确安装 Edge 运行时，请参阅[故障排除](troubleshoot.md)页。
+如果无法正确安装 IoT Edge 运行时，请参阅[故障排除](troubleshoot.md)页。
 
 若要将现有安装更新到最新版本的 IoT Edge，请参阅[更新 IoT Edge 安全守护程序和运行时](how-to-update-iot-edge.md)。

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-origin.date: 01/09/2019
-ms.date: 02/25/2019
+origin.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: cdae2b65a8eeab27beaaaa2966ae2ea54abe2cfd
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 7c9936615e7a651209d401d402a91858f6eea687
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666692"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990141"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什么是 Azure Data Box 磁盘？
 
@@ -52,7 +52,7 @@ A.  若要获取 Azure Data Box Disk，请登录到 Azure 门户并创建磁盘�
 A. 如果使用 5 个磁盘，并且磁盘具有 8 TB 容量（7 TB 可用容量），则最大可用容量为 35 TB。 因此，可在一个实例中传输 35 TB 数据。 若要传输更多数据，需订购更多的磁盘。
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>问： 如何检查 Data Box 磁盘是否在我的区域中可用？ 
-A.  中国东部、中国东部 2、中国北部、中国北部 2 目前提供 Data Box 磁盘。
+A.  若要查看目前提供 Data Box Disks 的区域，请转到[区域可用性](data-box-disk-overview.md#)。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>问： 使用 Data Box 磁盘可在哪些区域存储数据？
 A. 中国东部、中国东部 2、中国北部、中国北部 2 的所有区域都支持 Data Box 磁盘。 仅支持 Azure 公有云区域。
@@ -127,7 +127,7 @@ A.  否。 Data Box 磁盘目前仅支持一个存储帐户（常规或经典帐
 A. 随 Data Box Disk 提供的工具集包含三个工具：
  - **Data Box Disk 解锁工具**：可以使用此工具来解锁 Azure 寄送的已加密磁盘。 使用此工具解锁磁盘时，需要提供从 Azure 门户中的 Data Box Disk 订单中获得的密钥。 
  - **Data Box Disk 验证工具**：可以使用此工具根据 Azure 命名约定来验证大小、格式和 Blob 名称。 它还生成复制的数据的校验和，然后使用校验和来验证上传到 Azure 的数据。
- - **Data Box Disk 拆分复制工具**：如果使用多个磁盘，并且需要拆分大型数据集并将其复制到所有磁盘中，请使用此工具。 此工具当前可用于 Windows。
+ - **Data Box Disk 拆分复制工具**：如果使用多个磁盘，并且需要拆分大型数据集并将其复制到所有磁盘中，请使用此工具。 此工具当前可用于 Windows。 托管磁盘不支持此工具。 此工具还会在复制数据时进行验证，因此可以在使用此工具时跳过验证步骤。
 
 此工具集可用于 Windows 和 Linux。 可以从以下位置下载此工具集：
  - [下载适用于 Windows 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolswin) 
@@ -140,10 +140,10 @@ A. 随 Data Box Disk 提供的工具集包含三个工具：
 A.  一旦“数据复制”的订单状态显示为已完成，应该立即就能访问数据。
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>问： 上传后，我的数据位于 Azure 中的哪个位置？
-A.  复制磁盘中 *BlockBlob* 和 *PageBlob* 文件夹下的数据时，系统会针对 *BlockBlob* 和 *PageBlob* 文件夹下的每个子文件夹，在 Azure 存储帐户中创建一个容器。 如果直接复制了 *BlockBlob* 和 *PageBlob* 文件夹下的文件，则这些文件将位于 Azure 存储帐户下的默认容器 *$root* 中。
+A.  复制磁盘中 *BlockBlob* 和 *PageBlob* 文件夹下的数据时，系统会针对 *BlockBlob* 和 *PageBlob* 文件夹下的每个子文件夹，在 Azure 存储帐户中创建一个容器。 如果直接复制了 *BlockBlob* 和 *PageBlob* 文件夹下的文件，则这些文件将位于 Azure 存储帐户下的默认容器 *$root* 中。 将数据复制到 *AzureFile* 文件夹下的某个文件夹时，会创建文件共享。
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>问： 我刚刚发现，我并未遵循容器的 Azure 命名要求。 我的数据是否无法上传到 Azure？
-A. 如果容器名称包含大写字母，这些字母会自动转换为小写。 如果名称存在其他方面的不合规情况（包含特殊字符、采用其他语言，等等），则上传将会失败。 有关详细信息，请转到 [Azure 命名约定](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。
+A. 如果容器名称包含大写字母，这些字母会自动转换为小写。 如果名称存在其他方面的不合规情况（包含特殊字符、采用其他语言，等等），则上传将会失败。 有关详细信息，请转到 [Azure 命名约定](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>问： 如何验证已复制到多个 Data Box 磁盘的数据？
 A.  数据复制完成后，可以运行 *DataBoxDiskImport* 文件夹中提供的 `DataBoxDiskValidation.cmd` 来生成校验和，以用于验证。 如果有多个磁盘，则需要针对每个磁盘打开命令窗口，并运行此命令。 请注意，根据具体的数据大小，此操作可能需要花费很长时间（大约数小时数）。
@@ -158,7 +158,13 @@ A.  Data Box 磁盘采用 AES-128 BitLocker 加密进行加密。 这种加密�
 A. 是的。 将更多数据添加到 Data Box 磁盘后，如果你确定要验证数据（我们不建议这样做！），则需要重新运行验证。
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>问： 我已将所有的磁盘用于传输数据，现在需要订购更多的磁盘。 是否有某种方法可让我快速下单？
-A. 可以克隆以前的订单。 克隆操作会创建与以前相同的订单，并允许编辑订单详细信息（仅限这些信息），而无需键入地址、联系人和通知详细信息。 
+A. 可以克隆以前的订单。 克隆操作会创建与以前相同的订单，并允许编辑订单详细信息（仅限这些信息），而无需键入地址、联系人和通知详细信息。
+
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>问： 我将数据复制到了 ManagedDisk 文件夹。 我没有看到任何指定了资源组的托管磁盘。 我的数据是否已上传到 Azure？如何才能找到它？
+A. 是的。 你的数据已上传到 Azure，但如果你看不到任何指定了资源组的托管磁盘，则可能是因为该数据无效。 如果页 Blob、块 Blob、Azure 文件存储以及托管磁盘无效，系统会将它们置于以下文件夹中：
+ - 页 Blob 会进入以 *databoxdisk-invalid-pb-* 开头的块 Blob 容器。
+ - Azure 文件存储会进入以 *databoxdisk-invalid-af-* 开头的块 Blob 容器。
+ - 托管磁盘会进入以 *databoxdisk-invalid-md-* 开头的块 Blob 容器。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,14 +10,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 01/15/2019
+ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 03e0aae47190253f7aeeedcc01f37c44a58527d7
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: fbc830726043164277caea93db445fb650fe8cdf
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333911"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788718"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关
 
@@ -31,6 +31,8 @@ ms.locfileid: "54333911"
 > * 创建存储帐户和配置诊断
 
 ![Web 应用程序防火墙示例](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -104,7 +106,7 @@ ms.locfileid: "54333911"
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -115,7 +117,7 @@ ms.locfileid: "54333911"
       -Location ChinaNorth
     ```
 
-3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 输入 *myVM2* 作为其名称，并将其用于 Set-AzureRmVMExtension 中的 VMName。
+3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 输入 *myVM2* 作为其名称，并将其用于 Set-AzVMExtension 中的 VMName。
 
 ### <a name="add-backend-servers"></a>添加后端服务器
 
@@ -172,4 +174,4 @@ ms.locfileid: "54333911"
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

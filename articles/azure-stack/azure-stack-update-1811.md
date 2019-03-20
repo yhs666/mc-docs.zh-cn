@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
+origin.date: 02/28/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6fb941f643e0cc3dab4947f6da50a68da62b6260
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: e0ebb66451bc53f5f8ffaf3b2e7f2652d07865f2
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905446"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988025"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -87,6 +87,8 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
     正确导入必需的扩展主机证书后，可以从管理员门户恢复 1811 更新。 我们建议 Azure Stack 操作员在更新过程中安排维护时段，但因缺少扩展主机证书而造成的失败不应影响现有的工作负荷或服务。  
 
     在安装此更新的过程中，配置扩展主机时 Azure Stack 用户门户将不可用。 扩展主机的配置最长可能需要花费 5 小时。 在此期间，你可以检查更新状态，或者使用 [Azure Stack 管理员 PowerShell 或特权终结点](azure-stack-monitor-update.md)继续执行某个失败的更新安装。
+
+- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1811 之前将适用于 Azure Stack 的管理包更新到版本 10.0.3.11。
 
 ## <a name="new-features"></a>新增功能
 
@@ -219,9 +221,9 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 
 - 运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 时，会显示基板管理控制器 (BMC) 中的一条警告消息。 可以放心地忽略此警告。
 
-- <!-- 2468613 - IS -->在安装此更新的过程中，可能会看到标题为 `Error – Template for FaultType UserAccounts.New is missing.` 的警报。可以放心忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
+- <!-- 2468613 - IS --> 在安装此更新的过程中，可能会看到标题为 `Error – Template for FaultType UserAccounts.New is missing.` 的警报。可以放心忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
 
-- <!-- 3139614 | IS -->如果已从 OEM 应用 Azure Stack 更新，则“有可用的更新”通知可能不会显示在 Azure Stack 管理员门户中。 若要安装 Microsoft 更新，请遵照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的说明手动下载并导入该更新。
+- <!-- 3139614 | IS --> 如果已从 OEM 应用 Azure Stack 更新，则“有可用的更新”通知可能不会显示在 Azure Stack 管理员门户中。 若要安装 Microsoft 更新，请遵照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的说明手动下载并导入该更新。
 
 ## <a name="post-update-steps"></a>更新后步骤
 
@@ -365,7 +367,7 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 
 - **New-AzureRmIpSecPolicy** PowerShell cmdlet 不支持为 `DHGroup` 参数设置 **DHGroup24**。
 
-- 网络安全组 (NSG) 无法像在 Azure 中一样在 Azure Stack 中运行。 在 Azure 中，可以在一个 NSG 规则中设置多个端口（使用门户、PowerShell 和资源管理器模板）。 在 Azure Stack 中，无法通过门户在一个 NSG 规则中设置多个端口。 若要解决此问题，请使用资源管理器模板设置这些附加的规则。
+- 网络安全组 (NSG) 无法像在全球 Azure 中一样在 Azure Stack 中运行。 在 Azure 中，可以在一个 NSG 规则中设置多个端口（使用门户、PowerShell 和资源管理器模板）。 在 Azure Stack 中，无法通过门户在一个 NSG 规则中设置多个端口。 若要解决此问题，请使用资源管理器模板设置这些附加的规则。
 
 ### <a name="infrastructure-backup"></a>基础结构备份
 

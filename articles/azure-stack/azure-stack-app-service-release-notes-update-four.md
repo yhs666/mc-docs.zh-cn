@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/13/2018
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 33f41eaf8e0ec76c679813f5f97327053c0dda61
-ms.sourcegitcommit: 98142af6eb83f036d72e26ebcea00e2fceb673af
+ms.reviewer: anwestg
+ms.lastreviewed: 11/13/2018
+ms.openlocfilehash: 00ed89093765c47c7ee5766d5de76f090a1df48f
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53396320"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987926"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Azure Stack 上的应用服务 Update 4 发行说明
 
@@ -95,6 +96,11 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 - 当资源提供程序控制平面无法连接到配置的 SQL Server 实例时，应用服务管理员门户体验中会显示错误消息
 
 - 确保在新的函数应用程序中指定终结点时，也会在自定义存储连接字符串中指定终结点
+
+### <a name="post-deployment-steps"></a>部署后步骤
+
+> [!IMPORTANT]  
+> 如果已经为应用服务 RP 提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
 
 ### <a name="post-update-steps-optional"></a>更新后的步骤（可选）
 

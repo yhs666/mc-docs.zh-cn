@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: b928cf7605382d0f9851ae027de8b31ac2e6a276
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 83793bbf1d78a18fea14d7a053574136484076a8
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905425"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988062"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
 
@@ -672,6 +672,6 @@ ms.locfileid: "56905425"
 
 ## <a name="next-steps"></a>后续步骤
 
-现在，可以使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure Stack 中创建新的虚拟机。 如果这是你第一次将 VHD 文件上传到 Azure Stack，请参阅[使用市场工具包创建和发布市场项](azure-stack-marketplace-publisher.md)。
+现在，可以使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure Stack 中创建新的虚拟机。 如果这是你第一次将 VHD 文件上传到 Azure Stack，请参阅[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)。
 
 有关经认证可运行 Red Hat Enterprise Linux 的虚拟机监控程序的详细信息，请参阅 [Red Hat 网站](https://access.redhat.com/certified-hypervisors)。

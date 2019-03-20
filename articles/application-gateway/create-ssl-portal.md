@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 origin.date: 05/15/2018
-ms.date: 01/15/2019
+ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 54cf1960952bfb83efd3db0b68951e49280d372c
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: ef40f7f83e11380c97f4d30354c4a63f727209ca
+ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333856"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788702"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -30,6 +30,8 @@ ms.locfileid: "54333856"
 > * 创建用作后端服务器的虚拟机
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -135,7 +137,7 @@ Export-PfxCertificate `
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -146,7 +148,7 @@ Export-PfxCertificate `
       -Location ChinaNorth
     ```
 
-3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 输入 *myVM2* 作为其名称，并将其用于 Set-AzureRmVMExtension 中的 VMName。
+3. 使用刚刚完成的步骤创建第二个虚拟机并安装 IIS。 输入 *myVM2* 作为其名称，并将其用于 Set-AzVMExtension 中的 VMName。
 
 ### <a name="add-backend-servers"></a>添加后端服务器
 
@@ -183,4 +185,4 @@ Export-PfxCertificate `
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

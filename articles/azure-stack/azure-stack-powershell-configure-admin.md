@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d4909007a68343402053f8026b2315bc6e9708e7
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 70c4a1222ce73bc79514290258e0e889e00f83d5
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905396"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987965"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
 
@@ -83,5 +83,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
  - [为 Azure Stack 开发模板](user/azure-stack-develop-templates.md)
  - [通过 PowerShell 部署模板](user/azure-stack-deploy-template-powershell.md)
-
-<!-- Update_Description: wording update -->
+- [Azure Stack 模块参考](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  

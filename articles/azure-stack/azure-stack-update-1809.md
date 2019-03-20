@@ -17,12 +17,12 @@ ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1696ab4a85995615b518f45a7c14496137ac0b2c
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 41634bd0dee05cddcdb2c1147fa5ac232b9e429b
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218279"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57987944"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -43,7 +43,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - 在此版本中，Azure Stack 集成系统支持 4-16 个节点的配置。 可以使用 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) 来帮助规划 Azure Stack 容量与配置。
 
-- <!--  2712869   | IS  ASDK --> **Azure Stack syslog 客户端（正式版）** 此客户端允许将与 Azure Stack 基础结构相关的审核、警报和安全日志转发到 Azure Stack 外部的 syslog 服务器或安全信息与事件管理 (SIEM) 软件。 syslog 客户端现在支持指定 syslog 服务器侦听的端口。
+- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 客户端（正式版）** 此客户端允许将与 Azure Stack 基础结构相关的审核、警报和安全日志转发到 Azure Stack 外部的 syslog 服务器或安全信息与事件管理 (SIEM) 软件。 syslog 客户端现在支持指定 syslog 服务器侦听的端口。
 
    此版本意味着 syslog 客户端已正式发布，可以用于生产环境。
 
@@ -73,12 +73,12 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - <!-- 2702741 -  IS, ASDK --> 修复了在发出“停止-解除分配”命令后，无法保证系统会保留使用动态分配方法部署的公共 IP 的问题。 它们现在已保留。
 
-- <!-- 3078022 - IS, ASDK -->如果 VM 在 1808 之前已停止-解除分配，则该 VM 在 1808 更新之后无法重新分配。  此问题已在 1809 中解决。 处于这种状态且无法启动的实例可以在已应用此修复的 1809 中启动。 此修复还可以防止该问题反复发生。
+- <!-- 3078022 - IS, ASDK --> 如果 VM 在 1808 之前已停止-解除分配，则该 VM 在 1808 更新之后无法重新分配。  此问题已在 1809 中解决。 处于这种状态且无法启动的实例可以在已应用此修复的 1809 中启动。 此修复还可以防止该问题反复发生。
 
 ### <a name="changes"></a>更改
 
 <!-- 2635202 - IS, ASDK -->
-- 基础结构备份服务已从[公共基础结构网络](/azure-stack/azure-stack-network#public-infrastructure-network)转移到[公共 VIP 网络](/azure-stack/azure-stack-network#public-vip-network)。 客户需确保该服务有权访问公共 VIP 网络中的备份存储位置。  
+- 基础结构备份服务已从[公共基础结构网络](/azure-stack/azure-stack-network)转移到[公共 VIP 网络](/azure-stack/azure-stack-network#public-vip-network)。 客户需确保该服务有权访问公共 VIP 网络中的备份存储位置。  
 
 > [!IMPORTANT]  
 > 如果防火墙不允许从公共 VIP 网络连接到文件服务器，此项更改会导致基础结构备份因“错误 53: 找不到网络路径”而失败。 这是一项中断性更改，没有合理的解决方法。 Azure 将根据客户的反馈，在修补程序中还原此项更改。 请查看[更新后的步骤部分](#post-update-steps)，以获取有关 1809 可用的修补程序的详细信息。 发布修补程序后，请确保只在网络策略不允许公共 VIP 网络访问基础结构资源的情况下，才在更新到 1809 之后应用该修补程序。 在 1811 中，此项更改将应用到所有系统。 如果在 1809 中应用该修补程序，则无需采取进一步的措施。  
@@ -148,7 +148,9 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+  ```
+
+- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1809 之前将适用于 Azure Stack 的管理包更新到版本 10.0.3.11。
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
 
@@ -158,7 +160,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - <!-- 2489559 - IS --> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md#plan-for-updates)。
 
-- <!-- 3139614 | IS -->如果已从 OEM 应用 Azure Stack 更新，则“有可用的更新”通知可能不会显示在 Azure Stack 管理员门户中。 若要安装该更新，请遵照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的说明手动下载并导入该更新。
+- <!-- 3139614 | IS --> 如果已从 OEM 应用 Azure Stack 更新，则“有可用的更新”通知可能不会显示在 Azure Stack 管理员门户中。 若要安装该更新，请遵照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的说明手动下载并导入该更新。
 
 ### <a name="post-update-steps"></a>更新后步骤
 
@@ -257,7 +259,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 - 创建 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 时，可以通过 D11-14v2 VM 分别创建 4 个、8 个、16 个和 32 个数据磁盘。 不过，“创建 VM”窗格会显示 8 个、16 个、32 个和 64 个数据磁盘。
 
 <!-- 3235634 – IS, ASDK -->
-- 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**），请将后缀指定为 **Standard_A2_v2**（小写 v）。 请勿使用 **Standard_A2_V2**（大写 V）。 这适用于 Azure，在 Azure Stack 上有不一致的问题。
+- 若要部署大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**），请将后缀指定为 **Standard_A2_v2**（小写 v）。 请勿使用 **Standard_A2_V2**（大写 V）。 这适用于全球 Azure，在 Azure Stack 上有不一致的问题。
 
 <!-- 3099544 – IS, ASDK --> 
 - 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。

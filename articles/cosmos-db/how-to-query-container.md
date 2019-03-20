@@ -5,20 +5,18 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 51e7db48c843c1e509e3c590139574bc80d5cb1c
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 3a1b60d5f1ea6c2fe8c413148d51318d2f73974e
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988044"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "58004565"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查询 Azure Cosmos 容器
 
-本文介绍如何在 Azure Cosmos DB 中查询容器（集合）。
-
-<!-- Not Available on , graph, table-->
+本文介绍如何在 Azure Cosmos DB 中查询容器（集合、图形或表）。
 
 ## <a name="in-partition-query"></a>分区中查询
 
@@ -35,7 +33,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 下面的查询在分区键 (`DeviceId`) 上没有筛选器，并且以扇形展开到针对分区索引运行该查询的所有分区。 若要跨分区运行查询，请将 `EnableCrossPartitionQuery` 设置为 true（如果是在 REST API 中，则设置为 `x-ms-documentdb-query-enablecrosspartition` ）。
 
-EnablecrossPartitionQuery 属性接受布尔值。 当设置为 true 时，如果你的查询没有分区键，则 Azure Cosmos DB 将跨分区分布查询。 分布是通过向所有分区发出单独的查询来完成的。 若要读取查询结果，客户端应用程序应使用 FeedResponse 中的结果并检查 ContinuationToken 属性。 若要读取所有结果，请循环访问数据，直到 ContinuationToken 为 null。 
+EnableCrossPartitionQuery 属性接受布尔值。 当设置为 true 时，如果你的查询没有分区键，则 Azure Cosmos DB 将跨分区分布查询。 分布是通过向所有分区发出单独的查询来完成的。 若要读取查询结果，客户端应用程序应使用 FeedResponse 中的结果并检查 ContinuationToken 属性。 若要读取所有结果，请循环访问数据，直到 ContinuationToken 为 null。 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading
@@ -66,7 +64,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 - **MaxBufferedItemCount**：权衡查询延迟与客户端内存利用率。 如果省略此选项或将其设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
-使用相同状态的集合时，并行查询会以与串行执行相同的顺序返回结果。 执行包含排序运算符（ORDER BY、TOP）的跨分区查询时，Azure Cosmos DB SDK 会跨分区发出并行查询。 它会合并客户端中的部分排序结果，以生成全局范围内有序的结果。
+使用相同状态的集合时，并行查询会以与串行执行相同的顺序返回结果。 执行包含排序运算符（ORDER BY、TOP）的跨分区查询时，Azure Cosmos DB SDK 会跨分区发出并行查询。 它会合并客户端中的部分排序结果，以生成多区域范围内有序的结果。
 
 ## <a name="next-steps"></a>后续步骤
 

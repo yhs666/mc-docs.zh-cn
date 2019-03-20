@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 02/08/2019
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 646311dbb0bc90746eefc27d0ef3a5e589ac4238
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 72734e00b59882888606d5c31cf8ccf002252301
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666650"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990123"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教程：为 Azure Data Box 连接电缆并连接到它
 
@@ -41,7 +41,7 @@ ms.locfileid: "56666650"
     - 连接到高速网络。 强烈建议你至少建立一个 10-GbE 连接。 如果 10-GbE 连接不可用，则可使用 1-GbE 数据链路，但复制速度会受影响。 
 6. 必须找到一个可以放置 Data Box 的平面。 如需将设备置于标准的机架上，则需要数据中心机架中的一个 7U 槽。 可以将设备平放或直放在机架中。
 7. 你已经采购了以下电缆，用于将 Data Box 连接到主机。
-    - 一根或多根 10-GbE SFP+ Twinax 铜线或 SFP+ 光纤电缆（用于 DATA 1、DATA 2 网络接口）。 Data Box 使用带 PCI Express 3.0 网络接口的 Mellanox ConnectX®-3 Pro EN 双端口 10GBASE-T 适配器，因此与该接口兼容的电缆都可以用。 例如，使用 CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 电缆进行内部测试。
+    - 一根或多根 10-GbE SFP+ Twinax 铜线或 SFP+ 光纤电缆（用于 DATA 1、DATA 2 网络接口）。 Data Box 使用带 PCI Express 3.0 网络接口的 Mellanox ConnectX®-3 Pro EN 双端口 10GBASE-T 适配器，因此与该接口兼容的电缆都可以用。 例如，使用 CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 电缆进行内部测试。 有关详细信息，请参阅 [Mellanox 提供的支持的电缆和交换机的列表](http://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)。
     - 一根 RJ-45 CAT 6 网线（用于 MGMT 网络接口）
     - 一根 RJ-45 CAT 6A 网线或一根 RJ-45 CAT 6 网线（用于 DATA 3 网络接口，分别配置为 10 Gbps 或 1 Gbps）
 

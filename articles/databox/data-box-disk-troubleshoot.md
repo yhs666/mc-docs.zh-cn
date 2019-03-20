@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: article
 origin.date: 02/06/2019
-ms.date: 02/25/2019
+ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: ddf4077aba3aad4ee7ef9d192e67c0cb3dab1d32
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c5a24a57709f3949c2855f69ac224434aaf982c5
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666568"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990170"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>排查 Azure Data Box Disk 中的问题
 

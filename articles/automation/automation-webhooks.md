@@ -7,19 +7,19 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 02/13/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ff9208174600fb125996377880e99217e6ed9d8d
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 78b4bc916419e74e85c46eb12fcc6d28acd608a0
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987120"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988083"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
-*Webhook* 可以用来在 Azure 自动化中通过单个 HTTP 请求来启动特定的 Runbook。 这样，外部服务（例如 GitHub 或自定义应用程序）就可以在不通过 Azure 自动化 API 实现完整解决方案的情况下启动 Runbook。  
+*Webhook* 可以用来在 Azure 自动化中通过单个 HTTP 请求来启动特定的 Runbook。 这样，外部服务（例如 GitHub、Azure Monitor 日志或自定义应用程序）就可以在不通过 Azure 自动化 API 实现完整解决方案的情况下启动 Runbook。  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 可以将 Webhook 与 [在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)

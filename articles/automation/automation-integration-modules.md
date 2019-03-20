@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 01/24/2019
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: dd20f80b5e2139e7906eafcfe3613b4ed8e3a9a4
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: d3480d7045783ad400a3ca2de3aca7ae017f0bf6
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987124"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57988084"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure 自动化集成模块
 
@@ -228,10 +228,9 @@ PowerShell 的所有功能都通过 cmdlet 和 DSC 资源公开。 每个 cmdlet
     }
     ```
 
-6. 该模块应完全包含在能够进行 Xcopy 操作的包中。 需要执行 runbook 时，Azure 自动化模块将分发到自动化沙盒中。 这些模块需要独立于它们在其上运行的​​主机工作。 你应能够压缩并移动模块包，并在导入到其他主机的 PowerShell 环境时使其正常运行。 为了实现这一点，模块不应该依赖于模块文件夹以外的任何文件。 此文件夹是将模块导入 Azure 自动化时压缩的文件夹。 该模块还不应依赖于主机上的任何唯一注册表设置，例如安装产品时设置的那些设置。 如果不遵循此最佳做法，则无法在 Azure 自动化中使用该模块。  
+6. 该模块应完全包含在能够进行 Xcopy 操作的包中。 需要执行 Runbook 时，Azure 自动化模块将分发到自动化沙盒中。 这些模块需要独立于它们在其上运行的​​主机工作。 你应能够压缩并移动模块包，并在导入到其他主机的 PowerShell 环境时使其正常运行。 为了实现这一点，模块不应该依赖于模块文件夹以外的任何文件。 此文件夹是将模块导入 Azure 自动化时压缩的文件夹。 该模块还不应依赖于主机上的任何唯一注册表设置，例如安装产品时设置的那些设置。 如果不遵循此最佳做法，则无法在 Azure 自动化中使用该模块。  
 
 ## <a name="next-steps"></a>后续步骤
 
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 * 若要详细了解如何创建 PowerShell 模块，请参阅 [编写 Windows PowerShell 模块](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
-
