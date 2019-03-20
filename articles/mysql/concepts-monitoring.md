@@ -1,21 +1,18 @@
 ---
 title: 在 Azure Database for MySQL 中进行监视
 description: 本文介绍了用于对 Azure Database for MySQL 进行监视并发出警报的指标，包括 CPU、存储和连接统计信息。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 704d1025d001818180a7a4fd2fcbd3b37942ec78
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 03/18/2019
+ms.openlocfilehash: dcab7158efbd4a8b4924cb928d64c303fad1c436
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672526"
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990152"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 
@@ -49,7 +46,7 @@ ms.locfileid: "52672526"
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。|
 
 ## <a name="server-logs"></a>服务器日志
-可以在服务器上启用慢查询日志记录。 这些日志也可通过事件中心和存储帐户获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。
+可以在服务器上启用慢查询日志记录。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
