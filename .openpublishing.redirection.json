@@ -13858,7 +13858,19 @@
       "source_path": "articles/azure-stack/azure-stack-update-1808.md",
       "redirect_url": "/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-long-term-backup-retention-configure-vault.md",
+      "redirect_url": "/sql-database/sql-database-long-term-backup-retention-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-quickstart-guide.md",
+      "redirect_url": "/sql-database/sql-database-single-database-quickstart-guide",
+      "redirect_document_id": false
     }
+
+
 
 
 
