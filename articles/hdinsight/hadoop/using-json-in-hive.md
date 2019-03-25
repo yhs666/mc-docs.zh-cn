@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
+title: 在 Azure HDInsight 中使用 Apache Hive 分析和处理 JSON 文档
 description: 了解如何使用 JSON 文档，以及如何使用 Azure HDInsight 中的 Apache Hive 来分析这些文档
 services: hdinsight
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/16/2018
-ms.date: 06/25/2018
+origin.date: 02/27/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: a3932e4c52ce163701f30f52cbd7c946f4230532
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 166a7961564e089710083debce026be652c73f69
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029191"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348642"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 

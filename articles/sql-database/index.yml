@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ba9639030cf03c2d5634d11d242c3bb19b74d155
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: a9704f64ce5d6f2db31a70d9f7d81616b04f3ac7
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663770"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318978"
 documentType: LandingData
 title: Azure SQL 数据库文档
 metadata:
@@ -19,8 +19,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  origin.date: 01/25/2019
-  ms.date: 02/25/2019
+  origin.date: 03/04/2019
+  ms.date: 03/25/2019
   ms.author: v-jay
 abstract:
   description: Azure SQL 数据库是基于最新稳定版 Microsoft SQL Server 数据库引擎的通用关系数据库即服务 (DBaaS)。 SQL 数据库是高性能、可靠且安全的云数据库，可用于以所选编程语言构建数据驱动的应用程序和网站，而无需管理基础结构。 使用我们的快速入门、教程和示例了解如何使用 SQL 数据库。
@@ -132,7 +132,7 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell（弹性 DB）</a></p><p><a href="/cli/sql">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/Az.Sql">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell（弹性 DB）</a></p><p><a href="/cli/sql">Azure CLI</a></p>
     - title: 语言
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST
