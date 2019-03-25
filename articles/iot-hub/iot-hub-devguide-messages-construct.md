@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 08/13/2018
 ms.author: v-yiso
-ms.date: 03/18/2019
-ms.openlocfilehash: a09511aff8a16aeb850c75ffc8e0e8944c0acb28
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.date: 04/01/2019
+ms.openlocfilehash: 5c8b8502e986aea04b1cacb3f4edff5b97a4e4ca
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560490"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348604"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
@@ -30,7 +30,7 @@ IoT 中心消息由以下部分组成：
 * 一组 *应用程序属性*。 应用程序可以定义的字符串属性字典，而不需将消息正文反序列化即可进行访问。 IoT 中心永不修改这些属性。
 * 不透明的二进制正文。
 
-使用 HTTPS 协议发送设备到云的消息或发送云到设备的消息时，属性名称和值只能包含 ASCII 字母数字字符加上 `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`。
+使用 HTTPS 协议发送设备到云的消息或发送云到设备的消息时，属性名称和值只能包含 ASCII 字母数字字符加上 ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``。
 
 使用 IoT 中心进行的设备到云的消息传送具有以下特征：
 

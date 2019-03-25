@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/27/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c900522cebc9851ac8d43b889cd5de7f1e3e5f5
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 709f981a1062f37cd5e088601780d0077b1a4317
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303054"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348548"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -67,7 +67,7 @@ ms.locfileid: "56303054"
 
 3. 选择“我同意上述条款和条件”，并选择“购买”。 你将收到一条通知，指出你的部署正在进行。  创建群集大约需要 20 分钟时间。
 
-4. 创建群集后，将收到“部署成功”的通知，通知中附有“转到资源组”链接。  **资源组**页面将列出新的 HDInsight 群集以及与此群集关联的默认存储。 每个群集都有一个 [Azure 存储帐户](../hdinsight-hadoop-use-blob-storage.md)依赖项。 该帐户称为默认存储帐户。 HDInsight 群集与默认存储帐户必须位于同一 Azure 区域。 删除群集不会删除存储帐户。
+4. 创建群集后，将收到“部署成功”的通知，通知中附有“转到资源组”链接。  “资源组”页面将列出新的 HDInsight 群集以及与该群集关联的默认存储。 每个群集都有一个 [Azure 存储帐户](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake Storage 帐户](../hdinsight-hadoop-use-data-lake-storage-gen2.md)依赖项。 该帐户称为默认存储帐户。 HDInsight 群集与默认存储帐户必须位于同一 Azure 区域。 删除群集不会删除存储帐户。
     
 
 > [!NOTE]
@@ -252,6 +252,7 @@ ms.locfileid: "56303054"
 
 * 有关 HDInsight 如何使用 Azure 存储的信息，请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 * 若要了解如何将数据上传到 HDInsight，请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md)。
+* [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 有关如何使用 HDInsight 分析数据的详细信息，请参阅以下文章：
 

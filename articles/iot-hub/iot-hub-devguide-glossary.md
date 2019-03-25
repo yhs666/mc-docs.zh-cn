@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 01/15/2019
 ms.author: v-yiso
-ms.date: 03/04/2019
-ms.openlocfilehash: 945ee6391fa019f1bee23de75f71c6a932d9461c
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.date: 04/01/2019
+ms.openlocfilehash: e249ac0c010c5944d78f885d6ccc8da74943d749
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665539"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348641"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -180,11 +180,22 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 ## <a name="job"></a>作业
 解决方案后端可以使用[作业](iot-hub-devguide-jobs.md)来计划和跟踪在 IoT 中心注册的一组设备上的活动。 活动包括更新设备孪生[所需的属性](#desired-properties)、更新设备孪生[标记](#tags)，以及调用[直接方法](#direct-method)。 [IoT 中心](#iot-hub)还用于在[标识注册表](#identity-registry)中[导入和导出](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)内容。
 
+## <a name="modules"></a>模块
+在设备端，可以使用 IoT 中心设备 SDK 创建[模块](iot-hub-devguide-module-twins.md)，其中每个模块都与 IoT 中心单独建立连接。 通过此功能，可对设备上的不同组件使用不同的命名空间。
+
+模块标识和模块孪生提供的功能与[设备标识](#device-identity)和[设备孪生](#device-twin)相同，但前者的粒度更细。 这种更高的粒度级可让有能力的设备（例如基于操作系统的设备，或管理多个组件的固件设备）隔离其中每个组件的配置和状态。
+
+## <a name="module-identity"></a>模块标识
+模块标识是分配给设备所属的每个模块的唯一标识符。 模块标识也注册到[标识注册表](#identity-registry)中。
+
+## <a name="module-twin"></a>模块孪生
+与设备孪生类似，模块孪生是存储模块状态信息（如元数据、配置和条件）的 JSON 文档。 IoT 中心为在 IoT 中心的设备标识下预配的每个模块实体保留一个模块孪生。 可以借助模块孪生在模块和解决方案后端之间同步模块条件和配置。 可以通过查询模块孪生来定位特定模块和查询长时间运行的操作状态。
+
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) 是 [IoT 中心](#iot-hub)支持的与设备进行通信的消息传递协议之一。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
+[MQTT](https://mqtt.org/) 是 [IoT 中心](#iot-hub)支持的与设备进行通信的消息传递协议之一。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](iot-hub-devguide-messaging.md)。
 
 ## <a name="operations-monitoring"></a>操作监视
-使用 IoT 中心[操作监视](./iot-hub-operations-monitoring.md)可实时监视其 IoT 中心上的操作状态。 [IoT 中心](#iot-hub) 可以跨多个类别的操作跟踪事件。 可以选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
+使用 IoT 中心[操作监视](iot-hub-operations-monitoring.md)可实时监视其 IoT 中心上的操作状态。 [IoT 中心](#iot-hub) 可以跨多个类别的操作跟踪事件。 可以选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
 
 ## <a name="physical-device"></a>物理设备
 物理设备是真实的设备，如连接到 IoT 中心的 Raspberry Pi。 为方便起见，许多 IoT 中心教程使用 [模拟设备](#simulated-device) ，以便在本地计算机上运行示例。
