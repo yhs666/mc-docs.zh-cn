@@ -1,26 +1,20 @@
 ---
-title: 如何部署 Azure 文件 | Azure
+title: 如何部署 Azure 文件 | Microsoft Docs
 description: 了解如何从头至尾部署 Azure 文件。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: db82b8e9d33dbb6a85654adbbedd2e0ab2b7d361
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.subservice: files
+ms.openlocfilehash: 934dfde34b95a41a7e42e686766c9c459be17d82
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650866"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253933"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
@@ -79,7 +73,7 @@ ms.locfileid: "52650866"
     
     有关详细信息，请参阅[准备驱动器集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)。
 
-6. 使用 [WAImportExport 工具](https://www.microsoft.com/en-us/download/details.aspx?id=55280)将数据复制到一个或多个硬盘驱动器。
+6. 使用 [WAImportExport 工具](https://www.microsoft.com/download/details.aspx?id=55280)将数据复制到一个或多个硬盘驱动器。
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

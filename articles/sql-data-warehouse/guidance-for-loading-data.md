@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: c0ae6f207b7e7ab8115f5ca92fa6c2d954400ec5
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 2390b13ee3cadc1ec43e3463ee636ef397ea97f7
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192869"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348140"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。 
@@ -24,13 +24,13 @@ ms.locfileid: "54192869"
 - 若要详细了解 PolyBase 以及如何设计提取、加载和转换 (ELT) 过程，请参阅[为 SQL 数据仓库设计 ELT](design-elt-data-loading.md)。
 - 如需加载教程，请参阅[使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)。
 
+
 ## <a name="preparing-data-in-azure-storage"></a>在 Azure 存储中准备数据
 若要尽量减少延迟，请将存储层和数据仓库并置。
 
 将数据导出为 ORC 文件格式时，如果存在较大的文本列，可能会收到“Java 内存不足”错误。 若要解决此限制方面的问题，请仅导出列的一个子集。
 
-PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置于 Azure Blob 存储的文本文件中时，这些数据必须少于 1,000,000 字节。 无论表架构如何，都有此字节限制。
-<!-- Not Avaiable on  Azure Data Lake Store -->
+PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置于 Azure Blob 存储或 Azure Data Lake Store 的文本文件中时，这些数据必须少于 1,000,000 字节。 无论表架构如何，都有此字节限制。
 
 所有文件格式有不同的性能特征。 为实现最快加载，请使用压缩的分隔文本文件。 UTF-8 和 UTF-16 之间的性能差异是最小的。
 
@@ -74,6 +74,7 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 现在 user_A 和 user_B 被锁在其他部门的架构之外。
 
+
 ## <a name="loading-to-a-staging-table"></a>加载到临时表
 
 若要尽量提高将数据移到数据仓库表中的加载速度，请将数据加载到临时表中。  将临时表定义为堆，并将轮循机制用于分发选项。 
@@ -86,6 +87,7 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 - 若要确保加载用户有足够的内存来实现最大压缩率，请使用属于中大型资源类的加载用户。 
 - 加载足够的行，以便完全填充新的行组。 在大容量加载期间，数据会以 1,048,576 行为一个完整的行组直接压缩到列存储中。 不到 102,400 行的加载会将行发送到增量存储中以 B 树索引的形式保存。 如果加载的行太少，这些行可能会全部进入增量存储中，不会立即压缩成列存储格式。
+
 
 ## <a name="handling-loading-failures"></a>处理加载失败
 

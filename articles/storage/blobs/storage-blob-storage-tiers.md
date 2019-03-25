@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 01/09/2018
-ms.date: 02/25/2019
+origin.date: 03/06/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: aa120af593f31321d3b1e63da04c996941fbb74f
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 159499c70cd0ea1aff578bcdbac88b004e90c6da
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665639"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253915"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 存储：热存储层、冷存储层和存档存储层
 
@@ -192,7 +192,7 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 **在哪些区域提供热、冷、存档存储层？**
 
-所有区域均提供热存储层和冷存储层以及 Blob 级别的分层。 存档存储一开始只会在选定区域提供。
+所有区域均提供热存储层和冷存储层以及 Blob 级别的分层。 存档存储一开始只会在选定区域提供。 如需完整列表，请参阅 [Azure 产品（按区域）](https://azure.microsoft.com/en-us/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
 
 **冷存储层中 Blob 的行为方式是否与热存储层中的不同？**
 

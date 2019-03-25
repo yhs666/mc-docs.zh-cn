@@ -2,29 +2,35 @@
 title: 构建可缩放的云数据库 | Microsoft 文档
 description: 使用弹性数据库客户端库构建可缩放的 .NET 数据库应用
 services: sql-database
-manager: digimobile
-author: yunan2016
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: 1a04e2d8c25d51d45a5f5e6efdcf5d15c79060b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/25/2018
+ms.date: 03/25/2019
+ms.openlocfilehash: c1cf72d8f87c7d52dd1477e5641e61490ac0fe87
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645107"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318923"
 ---
 # <a name="building-scalable-cloud-databases"></a>构建可缩放的云数据库
+
 使用 Azure SQL 数据库的可缩放工具和功能，可以轻松扩大数据库。 特别是，可以使用 **弹性数据库客户端库** 来创建和管理扩大的数据库。 此功能可让你使用成百上千个 Azure SQL 数据库，轻松地开发分片应用程序。
 
 若要下载：
+
 * Java 版本的库，请参阅 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)。
 * .NET 版本的库，请参阅 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
 ## <a name="documentation"></a>文档
+
 1. [弹性数据库工具入门](sql-database-elastic-scale-get-started.md)
 2. [弹性数据库功能](sql-database-elastic-scale-introduction.md)
 3. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
@@ -42,6 +48,7 @@ ms.locfileid: "52645107"
 16. [弹性数据库工具常见问题](sql-database-elastic-scale-faq.md)
 
 ## <a name="client-capabilities"></a>客户端功能
+
 无论对于开发人员还是管理员，使用 *分片* 扩大应用程序都存在挑战。 客户端库通过提供工具让开发人员和管理员管理扩大的数据库，简化了管理任务。 在典型的示例中，有许多称为“分片”的数据库要管理。 客户归置于同一数据库，并且每个客户一个数据库（单租户方案）。 客户端库包含下列功能：
 
 - **分片映射管理**：创建一个称为“分片映射管理器”的特殊数据库。 分片映射管理是一种使应用程序能够管理其分片相关元数据的功能。 开发人员可使用此功能将数据库注册为分片（描述各个分片键或键范围到这些数据库的映射），并随着数据库的数量和组成发展来维护此元数据，以反映容量更改。 如果不使用弹性数据库客户端库，实现分片时你必须花费大量时间来编写管理代码。 有关详细信息，请参阅[分片映射管理](sql-database-elastic-scale-shard-map-management.md)。

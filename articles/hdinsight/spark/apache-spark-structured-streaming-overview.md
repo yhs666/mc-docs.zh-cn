@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 orgin.date: 02/05/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1ef2ac899d9f63c7d3f1e6e94a2986b4866ee6f3
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: c44e40b6c622e2173eb8428a2d771133e932d4e0
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806624"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348680"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 结构化流的概述
 
 [Apache Spark](https://spark.apache.org/) 结构化流可以实现可缩放、高吞吐量、容错的应用程序来处理数据流。 结构化流构建在 Spark SQL 引擎的基础之上，从 Spark SQL 数据帧和数据集方面改进了构造，因此，我们可以像编写批处理查询一样编写流查询。  
 
-结构化流应用程序在 HDInsight Spark 群集上运行，可从 [Apache Kafka](https://kafka.apache.org/)、TCP 套接字（调试时）、Azure 存储或 Azure Data Lake Store 连接到流数据。 后两个选项依赖于外部存储服务，可用于观察添加到存储中的新文件，以及处理其内容，如同这些文件经过流式处理一样。 
+结构化流应用程序在 HDInsight Spark 群集上运行，可从 [Apache Kafka](https://kafka.apache.org/)、TCP 套接字（调试时）、Azure 存储或 Azure Data Lake Storage 连接到流数据。 后两个选项依赖于外部存储服务，可用于观察添加到存储中的新文件，以及处理其内容，如同这些文件经过流式处理一样。 
 
-结构化流创建长时间运行的查询，在此期间，可对输入数据应用操作，例如选择、投影、聚合、开窗，以及将流数据帧与引用数据帧相联接。 接下来，可以使用自定义代码（例如 SQL 数据库或 Power BI）将结果输出到文件存储（Azure 存储 Blob 或 Data Lake Store）或任何数据存储。 结构化流可向控制台提供输出以用于本地调试，还可以向内存中表提供输出，以便可以在 HDInsight 中查看用于调试的生成数据。 
+结构化流创建长时间运行的查询，在此期间，可对输入数据应用操作，例如选择、投影、聚合、开窗，以及将流数据帧与引用数据帧相联接。 接下来，可以使用自定义代码（例如 SQL 数据库或 Power BI）将结果输出到文件存储（Azure 存储 Blob 或 Data Lake Storage）或任何数据存储。 结构化流可向控制台提供输出以用于本地调试，还可以向内存中表提供输出，以便可以在 HDInsight 中查看用于调试的生成数据。 
 
 ![使用 HDInsight 和 Spark 结构化流进行流处理 ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
@@ -125,11 +125,11 @@ Spark 结构化流以表的形式表示数据流，该表的深度受限，即�
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-有关 Spark 结构化流 API 及其支持的输入数据源、操作和输出接收器的详细信息，请参阅 [Apache Spark 结构化流编程指南](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)。
+有关 Spark 结构化流 API 及其支持的输入数据源、操作和输出接收器的详细信息，请参阅 [Apache Spark 结构化流编程指南](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)。
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>检查点和预写日志
 
-为提供复原和容错功能，结构化流依赖检查点，确保即使出现节点故障，流处理仍可以不间断地继续。 在 HDInsight 中，Spark 会创建持久存储（Azure 存储或 Data Lake Store）的检查点。 这些检查点存储有关流查询的进度信息。 此外，结构化流使用预写日志 (WAL)。 WAL 捕获已收到的、但尚未由查询处理的引入数据。 如果发生故障并从 WAL 重新开始处理，从源收到的任何事件不会丢失。
+为提供复原和容错功能，结构化流依赖检查点，确保即使出现节点故障，流处理仍可以不间断地继续。 在 HDInsight 中，Spark 会创建持久存储（Azure 存储或 Data Lake Storage）的检查点。 这些检查点存储有关流查询的进度信息。 此外，结构化流使用预写日志 (WAL)。 WAL 捕获已收到的、但尚未由查询处理的引入数据。 如果发生故障并从 WAL 重新开始处理，从源收到的任何事件不会丢失。
 
 ## <a name="deploying-spark-streaming-applications"></a>部署 Spark 流式处理应用程序
 
@@ -142,5 +142,5 @@ Spark 结构化流以表的形式表示数据流，该表的深度受限，即�
 ## <a name="next-steps"></a>后续步骤
 
 * [在 HDInsight 中创建 Apache Spark 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark 结构化流编程指南](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache Spark 结构化流编程指南](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [使用 Apache LIVY 远程启动 Apache Spark 作业](apache-spark-livy-rest-interface.md)

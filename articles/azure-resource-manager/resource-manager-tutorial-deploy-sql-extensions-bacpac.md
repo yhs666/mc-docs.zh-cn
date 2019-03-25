@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 12/06/2018
-ms.date: 02/18/2019
+origin.date: 02/25/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: c378d66fd535c9c4ed432dda4ccf321e2889001e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: b1ec41046f2cfcf11484f1e23eb17aa884028b51
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306180"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348048"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件
@@ -36,8 +36,6 @@ ms.locfileid: "56306180"
 > * 验证部署
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -73,7 +71,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * `Microsoft.SQL/servers/securityAlertPolicies`。
     * `Microsoft.SQL.servers/databases`。
 
-    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers)--> <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/securityalertpolicies)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/securityalertpolicies)-->
     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
     
     在自定义模板之前，不妨对其进行一些基本的了解。
@@ -144,6 +143,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * **administratorLoginPassword**：SQL 管理员的密码。 使用生成的密码。 请参阅[先决条件](#prerequisites)。
 
 ## <a name="deploy-the-template"></a>部署模板
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)部分。 改用以下 PowerShell 部署脚本：
 

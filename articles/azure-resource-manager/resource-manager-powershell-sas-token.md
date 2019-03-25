@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/19/2017
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f942eced59e9b642c8eb2831ef29982758428a2d
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 0212aeeefdaf3f9fc6c94879e9107c03af8bb76b
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306173"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348159"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>使用 SAS 令牌和 Azure PowerShell 部署专用 Resource Manager 模板
 
@@ -46,8 +46,8 @@ New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Ty
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
-New-AzureStorageContainer -Name templates -Permission Off
-Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
+New-AzStorageContainer -Name templates -Permission Off
+Set-AzStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
 ```
 
 ## <a name="provide-sas-token-during-deployment"></a>在部署期间提供 SAS 令牌
@@ -57,7 +57,7 @@ Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.js
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
-$templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
+$templateuri = New-AzStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment

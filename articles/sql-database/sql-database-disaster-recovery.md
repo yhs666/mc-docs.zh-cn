@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: d83ec196dc23410dfe920757372429dac8b99b6a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 25c3855b67dc6a138eff5b1a2cd44857af3dd996
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663764"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318915"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 
@@ -104,6 +104,7 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 
 需确保更新现有的警报规则设置，以便映射到恢复的数据库和不同的服务器。
 
+有关数据库警报规则的详细信息，请参阅[接收警报通知](/azure-monitor/platform/alerts-overview)和[跟踪服务运行状况](/azure-monitor/platform/service-notifications)。
 
 ### <a name="enable-auditing"></a>启用审核
 

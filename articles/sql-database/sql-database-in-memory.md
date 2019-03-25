@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 558e57dc7267ec71343093d069dc853d521517f1
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 18566f3a11a843f915d305bee7130a0b8d1ae8fc
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663746"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318952"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
@@ -89,7 +89,7 @@ Azure SQL 数据库采用以下内存中技术：
 深入介绍这些技术的视频：
 
 - [Azure SQL 数据库中的内存中 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)（包含性能优势的演示和自行重现这些结果的步骤）
-- [内存中 OLTP 视频：定义及其使用时机和用法](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [内存中 OLTP 视频：定义及其使用时机和用法](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 可通过编程方式了解给定的数据库是否支持内存中 OLTP。 可执行以下 Transact-SQL 查询：
 ```
@@ -151,7 +151,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 有关该技术的深入介绍视频：
 
-- [列存储索引：Ignite 2016 大会中发布的内存中分析视频](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [列存储索引：Ignite 2016 大会中发布的内存中分析视频](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>列存储索引的数据大小和存储
 

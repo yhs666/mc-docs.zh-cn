@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/22/2018
 ms.author: v-yiso
-ms.date: 01/14/2019
-ms.openlocfilehash: 289e13e56f4b48240903e05d05caa7f4f3f434cf
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.date: 04/01/2019
+ms.openlocfilehash: c86190ec6747013ef74121beff7a248cd536015d
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029217"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348587"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>在 HDInsight 上为 Apache HBase 和 Apache Phoenix 设置备份与复制
 
@@ -83,9 +83,10 @@ HDInsight 中的 HBase 使用创建群集时选择的默认存储：Azure 存储
 
     wasbs://<containername>@<accountname>.blob.core.chinacloudapi.cn/<path>
 
-在 Azure Data Lake Storage 中，语法为：
+在 Azure Data Lake Storage Gen2 中，语法为：
 
-    adl://<accountName>.azuredatalakestore.net:443/<path>
+    abfs://<containername>@<accountname>.dfs.core.chinacloudapi.cn/<path>
+
 
 此方法提供表级粒度。 还可以指定日期范围以包含相应的行，这样，便能以递增方式执行该过程。 每个日期从 Unix 时期开始算起，以毫秒为单位。
 

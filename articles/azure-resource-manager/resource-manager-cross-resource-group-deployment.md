@@ -12,16 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2018
-ms.date: 07/09/2018
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 689a6daad5b5b0801a7f02f7f657cbf5851e4bc6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 963c3099cb42816a9823a5f75c00b295bff72d5f
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657198"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348031"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>将 Azure 资源部署到多个订阅或资源组
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 通常情况下，将模板中的所有资源部署到单个[资源组](resource-group-overview.md)。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 例如，你可能希望将 Azure Site Recovery 的备份虚拟机部署到一个单独的资源组和位置。 资源管理器允许使用嵌套的模板将不同于父模板所用订阅和资源组的多个不同订阅和资源组作为目标。
 
@@ -33,6 +35,7 @@ ms.locfileid: "52657198"
 若要将其他资源作为目标，请使用嵌套模板或链接模板。 `Microsoft.Resources/deployments` 资源类型提供 `subscriptionId` 和 `resourceGroup` 的参数。 使用这些属性可为嵌套部署指定不同的订阅和资源组。 在运行部署之前，所有资源组都必须存在。 如果未指定订阅 ID 或资源组，将使用父模板中的订阅和资源组。
 
 用于部署模板的帐户必须有权部署到指定的订阅 ID。 
+
 <!-- Not Available on [add guest users from another directory](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -->
 
 若要指定其他资源组和订阅，请使用：
@@ -182,10 +185,10 @@ ms.locfileid: "52657198"
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
-New-AzureRmResourceGroup -Name $firstRG -Location chinaeast
-New-AzureRmResourceGroup -Name $secondRG -Location chinaeast
+New-AzResourceGroup -Name $firstRG -Location chinaeast
+New-AzResourceGroup -Name $secondRG -Location chinaeast
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -202,13 +205,13 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location chinaeast
+Select-AzSubscription -Subscription $secondSub
+New-AzResourceGroup -Name $secondRG -Location chinaeast
 
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location chinaeast
+Select-AzSubscription -Subscription $firstSub
+New-AzResourceGroup -Name $firstRG -Location chinaeast
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -220,11 +223,11 @@ New-AzureRmResourceGroupDeployment `
 对于 PowerShell，若要测试**资源组对象**如何针对父模板、内联模板和链接的模板进行解析，请使用：
 
 ```powershell
-New-AzureRmResourceGroup -Name parentGroup -Location chinaeast
-New-AzureRmResourceGroup -Name inlineGroup -Location chinaeast
-New-AzureRmResourceGroup -Name linkedGroup -Location chinaeast
+New-AzResourceGroup -Name parentGroup -Location chinaeast
+New-AzResourceGroup -Name inlineGroup -Location chinaeast
+New-AzResourceGroup -Name linkedGroup -Location chinaeast
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```

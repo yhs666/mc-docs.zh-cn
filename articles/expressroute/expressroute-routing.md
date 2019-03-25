@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 01/11/2019
 ms.author: v-yiso
 ms.date: 02/25/2019
-ms.openlocfilehash: 99764d278d6dcc0d18e26da27f8880ba8dc66d8a
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 4a2c286abfe4ecfcee7ae6fafd1a933a40cbd38b
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302981"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348553"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -110,7 +110,7 @@ Azure 公共对等互连路径使用户能够通过其公共 IP 地址连接到 
 公共对等互连允许使用专用 AS 编号。
 
 ## <a name="dynamic-route-exchange"></a>动态路由交换
-路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 有关配置 BGP 会话的信息，请参阅[配置路由](how-to-routefilter-portal.md)及[线路预配工作流和线路状态](expressroute-workflows.md)。
+路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 
 
 ## <a name="autonomous-system-numbers"></a>自治系统编号
 Microsoft 使用 AS 12076 进行 Azure 公共、Azure 专用和 Microsoft 对等互连。 我们保留了 ASN 65515-65520 供内部使用。 支持 16 和 32 位 AS 编号。

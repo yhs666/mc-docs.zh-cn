@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 02/18/2019
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1db9ffc97d42c1e9723aabeb72c9239443ea3405
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: d63316e2eae11d2e48c1c68cb6a28e8005629689
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254074"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256374"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 绑定表达式模式
 
@@ -26,12 +26,12 @@ ms.locfileid: "57254074"
 
 绑定表达式的类型
 
-- [应用设置](#app-settings)
-- [触发器文件名](#trigger-file-name)
-- [触发器元数据](#trigger-metadata)
-- [JSON 有效负载](#json-payloads)
-- [新 GUID](#create-guids)
-- [当前日期和时间](#current-time)
+* [应用设置](#binding-expressions---app-settings)
+* [触发器文件名](#trigger-file-name)
+* [触发器元数据](#trigger-metadata)
+* [JSON 有效负载](#json-payloads)
+* [新 GUID](#create-guids)
+* [当前日期和时间](#current-time)
 
 ## <a name="binding-expressions---app-settings"></a>绑定表达式 - 应用设置
 
@@ -145,13 +145,13 @@ public static void Run(
 
 例如，Azure 队列存储触发器支持以下属性：
 
-- QueueTrigger - 如果字符串有效，将触发消息内容
-- DequeueCount
-- ExpirationTime
-- ID
-- InsertionTime
-- NextVisibleTime
-- PopReceipt
+* QueueTrigger - 如果字符串有效，将触发消息内容
+* DequeueCount
+* ExpirationTime
+* ID
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
 
 这些元数据值可在 function.json 文件属性中访问。 例如，假设使用队列触发器，且队列消息中包含要读取的 blob 的名称。 在 function.json 文件中，可在 blob `path` 属性中使用 `queueTrigger` 元数据属性，如下面的示例中所示：
 
@@ -315,3 +315,4 @@ public class BlobName
 > [!div class="nextstepaction"]
 > [使用 Azure 函数返回值](./functions-bindings-return-value.md)
 
+<!-- Update_Description: link update -->

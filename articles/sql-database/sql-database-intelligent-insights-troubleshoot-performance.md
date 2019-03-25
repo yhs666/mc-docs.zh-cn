@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 571f050e57ef4a991798d58bc8dce3fe9c7aeb78
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 1b5e1b9290237b791a840d1e8a6217c742d73287
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347191"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318958"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 排查 Azure SQL 数据库性能问题
 
@@ -74,7 +74,7 @@ SQL 数据库上的资源通常称为 [DTU](sql-database-what-is-a-dtu.md) 或 [
 
 如果已达到可用会话限制，可以通过减少数据库登录次数来优化应用程序。 如果无法减少从应用程序到数据库的登录数，可以考虑提高数据库的定价层。 也可以将数据库拆分成多个数据库并进行移动，使工作负荷的分配更为均衡。
 
-有关解决会话限制的更多建议，请参阅 [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)（如何处理 SQL 数据库最大登录数的限制）。 有关服务器和订阅级别限制的信息，请参阅 [SQL 数据库服务器上的资源限制概述](sql-database-resource-limits-database-server.md)。
+有关解决会话限制的更多建议，请参阅 [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)（如何处理 SQL 数据库最大登录数的限制）。 有关服务器和订阅级别限制的信息，请参阅 [SQL 数据库服务器上的资源限制概述](sql-database-resource-limits-database-server.md)。
 
 ## <a name="workload-increase"></a>工作负载增加
 
@@ -110,7 +110,7 @@ SQL 数据库上的资源通常称为 [DTU](sql-database-what-is-a-dtu.md) 或 [
 
 还可以减少工作负荷，方法是对其进行优化，或者将其分配到多个数据库。 也可将工作负荷分配到多个数据库中。 如果此类解决方案不可行，可以考虑提高 SQL 数据库订阅的定价层，以增加可供数据库使用的内存资源量。
 
-有关其他故障排除建议，请参阅 [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)（内存授予探幽：有多个名称的神秘 SQL Server 内存消耗者）。
+有关其他故障排除建议，请参阅 [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)（内存授予探幽：有多个名称的神秘 SQL Server 内存消耗者）。
 
 ## <a name="locking"></a>锁定
 
@@ -260,7 +260,7 @@ SQL 数据库可以确定查询执行开销最低的查询执行计划。 由于
 
 新计划回归状况表示这样一种状态：SQL 数据库开始执行不如旧计划那么有效的新查询执行计划。 旧计划回归状况表示这样一种状态：SQL 数据库弃用更有效的新计划，改用不如新计划那么有效的旧计划。 现有计划更改的工作负荷回归表示这样一种状态：不断交替使用旧计划和新计划，天平逐渐倾向于性能不佳的计划。
 
-有关计划回归的详细信息，请参阅 [What is plan regression in SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/)（SQL Server 中的计划回归是什么？）。 
+有关计划回归的详细信息，请参阅 [What is plan regression in SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)（SQL Server 中的计划回归是什么？）。 
 
 ### <a name="troubleshooting"></a>故障排除
 
@@ -268,7 +268,7 @@ SQL 数据库可以确定查询执行开销最低的查询执行计划。 由于
 
 可以使用提供的查询哈希来分析哪个计划对于可识别的特定查询而言性能更好。 确定哪个计划更适合自己的查询后，可以手动强制该计划。 
 
-有关详细信息，请参阅 [Learn how SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)（了解 SQL Server 如何阻止计划回归）。
+有关详细信息，请参阅 [Learn how SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)（了解 SQL Server 如何阻止计划回归）。
 
 > [!TIP]
 > 是否知道，SQL 数据库内置智能可以自动管理数据库的最佳性能查询执行计划？

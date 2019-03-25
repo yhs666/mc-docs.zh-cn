@@ -3,7 +3,7 @@ title: CLI 示例 - 创建 Azure SQL 数据库 | Microsoft Docs
 description: 使用此 Azure CLI 示例脚本创建 SQL 数据库。
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,14 +11,14 @@ author: WenJason
 manager: digimobile
 ms.author: v-jay
 ms.reviewer: ''
-origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 5172d5c6f938a54e057dea832435bc83c0f3233e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/08/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: 368f5dc4e3c65779bbc55fcfc8e7488400d348ba
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663618"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318947"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 

@@ -42,6 +42,9 @@ items:
     - name: 使用 Azure 存储
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
+    - name: 使用 Azure Data Lake Storage Gen2
+      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+      maintainContext: true
   - name: 使用 Apache Hadoop 执行批量查询
     items:
     - name: 将 Apache Hive 与 Apache Hadoop 配合使用
@@ -452,9 +455,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 6c6086032eb9436bdec7ddf710da63df62eb25cf
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: f16122d10156a65d2eb4c9b0aa05b80ac980fe62
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560469"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348597"

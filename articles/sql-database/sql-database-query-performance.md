@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: f223dc30755b16c7f3e707e9c390997e7c159b05
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 03/25/2019
+ms.openlocfilehash: 91a841b8e039db2b0db7a6ee8c791374cb0fd8dd
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363801"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318956"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Query Performance Insight
 
@@ -281,4 +281,5 @@ Query Performance Insight 可帮助你了解查询工作负荷的影响，以及
 
     ![“建议”选项卡](./media/sql-database-query-performance/ia.png)
 
-* 考虑针对常见的数据库性能问题启用[自动优化](sql-database-automatic-tuning.md)。
+* 考虑针对常见数据库性能问题启用 [自动调整](sql-database-automatic-tuning.md)。
+* 了解[智能见解](sql-database-intelligent-insights.md)可如何帮助自动排除数据库性能问题。

@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/03/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 0028a77b35283dc6130c5956bc0e493c594fe544
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 61ffeca3d33027097bacd1d37166e037a380ba61
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663678"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318879"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 

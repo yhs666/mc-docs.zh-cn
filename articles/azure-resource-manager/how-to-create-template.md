@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 12/27/2018
 ms.date: 01/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: e36ef6c0df2969bcdf4dc5d0ca5fba52a77d35d2
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 3edebdaf7231d04aa4edd29ba4a2fab3cd1274cb
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085719"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348102"
 ---
 # <a name="create-azure-resource-manager-template"></a>创建 Azure 资源管理器模板
 
@@ -39,19 +39,19 @@ ms.locfileid: "55085719"
 
 让我们查看模板的各个组成部分，以了解模板的工作原理。 你的模板可能不包含此处所示的每个节。 要关注的节包括：
 
-* [parameters](resource-manager-templates-parameters.md) 节：显示在部署期间可以指定的、用于自定义所要部署的基础结构的值。 
+* [parameters](resource-group-authoring-templates.md#parameters) 节：显示在部署期间可以指定的、用于自定义所要部署的基础结构的值。 
 
-* [variables](resource-manager-templates-variables.md) 节：显示在整个模板中使用的值。
+* [variables](resource-group-authoring-templates.md#variables) 节：显示在整个模板中使用的值。
 
 * [functions](resource-group-authoring-templates.md#functions) 节：显示在模板中使用的自定义模板表达式。
 
-* [resources](resource-manager-templates-resources.md) 节：显示要部署到订阅的 Azure 资源。
+* [resources](resource-group-authoring-templates.md#resources) 节：显示要部署到订阅的 Azure 资源。
 
-* [outputs](resource-manager-templates-outputs.md) 节：显示部署完成后返回的值。
+* [outputs](resource-group-authoring-templates.md#outputs) 节：显示部署完成后返回的值。
 
 ## <a name="look-for-similar-templates"></a>查找类似的模板
 
-通常，可以查找一个现有模板用于部署与所需解决方案类似的解决方案。 [Azure 快速入门模板](https://azure.microsoft.com/en-us/resources/templates/)包含社区参与者提供的数百个模板。
+通常，可以查找一个现有模板用于部署与所需解决方案类似的解决方案。 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)包含社区参与者提供的数百个模板。
 
 ![模板快速入门存储库](./media/how-to-create-template/template-quickstart-repo.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "55085719"
 }
 ```
 
-也可以从参数动态应用标记。 有关详细信息，请参阅[模板中的标记](resource-manager-templates-resources.md#tags)。
+也可以从参数动态应用标记。 有关详细信息，请参阅[模板中的标记](resource-group-using-tags.md#templates)。
 
 ## <a name="review-template-functions"></a>查看模板函数
 
@@ -177,7 +177,7 @@ ms.locfileid: "55085719"
 }
 ```
 
-有关详细信息，请参阅 [condition 元素](resource-manager-templates-resources.md#condition)。
+有关详细信息，请参阅 [condition 元素](resource-group-authoring-templates.md#condition)。
 
 ## <a name="review-dependencies"></a>查看依赖项
 
@@ -230,5 +230,4 @@ ms.locfileid: "55085719"
 * 有关创建模板的循序渐进快速入门，请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](resource-manager-quickstart-create-templates-use-visual-studio-code.md)。
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
 
-<!-- Update_Description: new articles on how to create template -->
-<!--ms.date: 01/27/2019-->
+<!-- Update_Description: wording update -->

@@ -6,15 +6,15 @@ author: WenJason
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-origin.date: 10/19/2018
-ms.date: 12/10/2018
+origin.date: 02/22/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 76066361352ca66f8f86e2c515b7b1f9715d697c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 7f2a5c6ab4a696a4730c7c93daec55ebb73f39ed
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028981"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348110"
 ---
 # <a name="what-is-vpn-gateway"></a>什么是 VPN 网关？
 
@@ -153,8 +153,7 @@ ExpressRoute 是从 WAN （不通过公共 Internet）到 Microsoft 服务（包
 
 ## <a name="next-steps"></a>后续步骤
 
-- 规划 VPN 网关配置。 请参阅 [VPN 网关规划和设计](vpn-gateway-plan-design.md)。
 - 有关更多信息，请查看 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
 - 查看[订阅和服务限制](../azure-subscription-service-limits.md#networking-limits)。
-- 了解 Azure 的一些其他关键[网络功能](../virtual-network/virtual-networks-overview.md)。
+- 了解 Azure 的一些其他关键[网络功能](../networking/networking-overview.md)。
 <!--Update_Description: wording update-->

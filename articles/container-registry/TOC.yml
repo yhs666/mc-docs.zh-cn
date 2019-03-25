@@ -40,6 +40,8 @@ items:
       href: container-registry-upgrade.md
     - name: 使用 ACR webhook
       href: container-registry-webhook.md
+    - name: Helm 图表存储库（预览版）
+      href: container-registry-helm-repos.md
   - name: 身份验证
     items:
     - name: 身份验证概述
@@ -73,12 +75,12 @@ items:
   - name: 定价
     href: https://www.azure.cn/pricing/details/container-registry/
   - name: 提供产品反馈
-    href: https://support.azure.cn/zh-cn/support/support-azure/
+    href: https://www.azure.cn/support/contact/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: b3026bb28f66029169a83bcb54de2b5b9667c083
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 86f05988c0da780ee572ab09eac08e0bfdf5e6bf
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440035"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352510"

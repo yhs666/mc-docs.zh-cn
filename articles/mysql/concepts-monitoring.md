@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 origin.date: 11/05/2018
 ms.date: 03/18/2019
-ms.openlocfilehash: dcab7158efbd4a8b4924cb928d64c303fad1c436
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: ac760c7b8a4c0c87bce1bced0547df2821a83759
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990152"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318920"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 06/15/2018
-ms.date: 03/11/2019
+origin.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 166a4a17872ca6a3f736e9a847dd6a1116a27cbc
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 1599bcafc6b10663ac206025acb6188ea738b69c
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196628"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348683"
 ---
 # <a name="transform-and-protect-your-api"></a>转换和保护 API 
 
@@ -151,7 +151,8 @@ ms.locfileid: "57196628"
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
-            <find-and-replace from="://conferenceapi.azurewebsites.cn" to="://apiphany.azure-api.cn/conference"/>
+                <find-and-replace from="://conferenceapi.azurewebsites.cn:443" to="://apiphany.azure-api.cn/conference"/>
+                <find-and-replace from="://conferenceapi.azurewebsites.cn" to="://apiphany.azure-api.cn/conference"/>
             <base />
         </outbound>
         <on-error>

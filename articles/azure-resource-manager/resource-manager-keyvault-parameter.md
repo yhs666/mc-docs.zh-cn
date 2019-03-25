@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd2cabde4eb71f15db08b552fdd2b178c11583ed
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 192ae6de7c1364d1b4275b5cd0692773e365ff44
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306177"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348181"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
@@ -300,7 +300,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关密钥保管库的一般信息，请参阅 [Azure 密钥保管库入门](../key-vault/key-vault-get-started.md)。
+- 有关密钥保管库的一般信息，请参阅[什么是 Azure 密钥保管库？](../key-vault/key-vault-overview.md)。
 - 有关引用密钥机密的完整示例，请参阅 [密钥保管库示例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
 
 <!--Update_Description: update meta properties, wording update, update cmdlet sample-->

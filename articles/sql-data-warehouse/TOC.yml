@@ -154,6 +154,8 @@ items:
       href: backup-and-restore.md
     - name: 建议
       href: sql-data-warehouse-concept-recommendations.md
+    - name: 维护计划
+      href: maintenance-scheduling.md
     - name: 故障排除
       href: sql-data-warehouse-troubleshoot.md
   - name: 维护计划
@@ -264,9 +266,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
-ms.openlocfilehash: 8a1f243f534cc30fc786179bb89d598a54274711
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: ed99c57d96f0156bc913dcfd66e7906ff0319f34
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833303"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348057"

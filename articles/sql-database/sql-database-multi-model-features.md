@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/17/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: baa68c39499eb767fb64589a8163f3676e8cb1fa
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 37074e906fead65359d75be5a90aa49f99770d5e
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663513"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318895"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL 数据库的多模型功能
 
@@ -125,7 +125,7 @@ CREATE TABLE Collection (
 
 可根据需求，不受约束地自定义此键值结构。 例如，值可以是 XML 文档而不是 `nvarchar(max)` 类型，如果值为 JSON 文档，则你可以施加 `CHECK` 约束用于验证 JSON 内容的有效性。 可在附加的列中放置与某个键相关的任意数目的值、添加计算列与索引来简化和优化数据访问、将表定义为内存表/优化的仅限架构表以提高性能，等等。
 
-请参阅 [BWin 如何使用内存中 OLTP 实现前所未有的性能和处理规模](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)，其中提到 BWin 的 ASP.NET 缓存解决方案每秒可以实现 1.200.000 次批处理，并举例说明如何在实践中有效地将关系模型用作键值对解决方案。
+请参阅 [BWin 如何使用内存中 OLTP 实现前所未有的性能和处理规模](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/)，其中提到 BWin 的 ASP.NET 缓存解决方案每秒可以实现 1.200.000 次批处理，并举例说明如何在实践中有效地将关系模型用作键值对解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 Azure SQL 数据库中的多模型功能也是 Azure SQL 数据库和 SQL Server 之间共享的核心 SQL Server 数据库引擎功能。 有关这些功能的更多详细信息，请访问 SQL 关系数据库文档页：

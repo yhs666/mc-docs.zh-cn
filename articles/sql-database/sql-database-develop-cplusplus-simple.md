@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/12/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 815895d43ff181fd6b45925b41a806329daf053e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: db0e0e21e3454a9162ff92925de37a4824759db9
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663552"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318887"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 
@@ -38,7 +38,7 @@ Azure SQL 基于 Microsoft SQL Server 构建，旨在提供高可用性、高性
 Azure 目前有两个选项可用于托管 SQL Server 工作负载：Azure SQL 数据库（数据库即服务）和虚拟机 (VM) 上的 SQL Server。 我们不会详细介绍两者之间的差异，但需要了解的是，如果想要利用云服务提供的成本节省和性能优化，那么 Azure SQL 数据库是使用新的基于云的应用程序的最佳选择。 如果正在考虑将本地应用程序迁移或扩展到云中，Azure 虚拟机上的 SQL Server 可能更适合。 为简单起见，让我们创建一个 Azure SQL 数据库。
 
 ## <a id="ODBC"></a>数据访问技术：ODBC 和 OLE DB
-连接到 Azure SQL DB 没有任何差别，目前有两种方法可以连接到数据库：ODBC（开放式数据库连接）和 OLE DB（对象链接与嵌入数据库）。 最近几年，Microsoft 已在使用 [ODBC 进行本地关系数据访问](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相对简单，并且比 OLE DB 快得多。 唯一需要说明的是，ODBC 使用的是旧的 C 样式 API。
+连接到 Azure SQL DB 没有任何差别，目前有两种方法可以连接到数据库：ODBC（开放式数据库连接）和 OLE DB（对象链接与嵌入数据库）。 最近几年，Microsoft 已在使用 [ODBC 进行本地关系数据访问](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相对简单，并且比 OLE DB 快得多。 唯一需要说明的是，ODBC 使用的是旧的 C 样式 API。
 
 ## <a id="Create"></a>步骤 1：创建 Azure SQL 数据库
 请参阅[入门页](sql-database-single-database-get-started.md)，以了解如何创建示例数据库。
@@ -79,7 +79,7 @@ Azure 目前有两个选项可用于托管 SQL Server 工作负载：Azure SQL �
 祝贺！ 现在已成功在 Windows 上使用 C++和 ODBC 连接到 Azure SQL。 可以继续阅读如何为 Linux 平台执行相同操作的内容。
 
 ## <a id="Linux"></a>步骤 5：从 Linux C/C++ 应用程序连接
-也许你还不知道，Visual Studio 现在也允许开发 C++ Linux 应用程序。 可以在 [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) （用于 Linux 开发的 Visual C++）博客中阅读关于此新方案的信息。 若要为 Linux 生成，需要运行 Linux 分发的远程计算机。 如果没有可用的远程计算机，可以使用 [Linux Azure 虚拟机](../virtual-machines/linux/quick-create-cli.md)快速设置。 
+也许你还不知道，Visual Studio 现在也允许开发 C++ Linux 应用程序。 可以在 [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) （用于 Linux 开发的 Visual C++）博客中阅读关于此新方案的信息。 若要为 Linux 生成，需要运行 Linux 分发的远程计算机。 如果没有可用的远程计算机，可以使用 [Linux Azure 虚拟机](../virtual-machines/linux/quick-create-cli.md)快速设置。 
 
 对于本教程，我们假设已设置好 Ubuntu 16.04 Linux 分发。 此处的步骤还适用于 Ubuntu 15.10、Red Hat 6 和 Red Hat 7。
 
@@ -134,5 +134,5 @@ Azure 目前有两个选项可用于托管 SQL Server 工作负载：Azure SQL �
 * [ODBC API 参考](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>其他资源
-* 浏览所有 [SQL 数据库功能](https://www.azure.cn/home/features/sql-database/)
+* 浏览所有 [SQL 数据库的功能](https://www.azure.cn/home/features/sql-database/)。
 <!--Update_Description: update metadata-->

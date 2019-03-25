@@ -3,7 +3,7 @@ title: 在扩展云数据库之间移动数据 | Microsoft Docs
 description: 介绍如何使用弹性数据库 API 通过自托管服务来操作分片和移动数据。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/15/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 347538fec6e6811ce7312fd4613d7d6802506f7e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+origin.date: 12/04/2018
+ms.date: 03/25/2019
+ms.openlocfilehash: c7c35f69cd71840d9c5a66a0ea4a0a46954439e5
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673126"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318994"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 
@@ -213,16 +213,18 @@ ms.locfileid: "52673126"
 
 ### <a name="azure-diagnostics"></a>Azure 诊断
 
-拆分/合并服务使用基于 Azure SDK 2.5 的 Azure Diagnostics 进行监视与诊断。 可以根据此处所述控制诊断配置：[在 Azure 云服务和虚拟机器中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下载包包含两个诊断配置 - 一个用于 Web 角色，另一个用于辅助角色。 它包括用于记录性能计数器、IIS 日志、Windows 事件日志和拆分/合并应用程序事件日志的定义。
+拆分/合并服务使用基于 Azure SDK 2.5 的 Azure Diagnostics 进行监视与诊断。 可以按照此处的说明控制诊断配置：[在 Azure 云服务和虚拟机中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md) 下载包包含两个诊断配置 - 一个用于 Web 角色，另一个用于辅助角色。 它包括用于记录性能计数器、IIS 日志、Windows 事件日志和拆分/合并应用程序事件日志的定义。
 
 ## <a name="deploy-diagnostics"></a>部署诊断
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 针对 NuGet 包所提供的 Web 和辅助角色，若要使用诊断配置启用监视和诊断，请使用 Azure PowerShell 运行以下命令：
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"
@@ -231,7 +233,7 @@ ms.locfileid: "52673126"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-可以在此处找到有关如何配置和部署诊断设置的详细信息：[在 Azure 云服务和虚拟机中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)。
+可以在此处找到有关如何配置和部署诊断设置的详细信息：[在 Azure 云服务和虚拟机中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 ## <a name="retrieve-diagnostics"></a>检索诊断
 

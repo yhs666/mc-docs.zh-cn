@@ -13,14 +13,14 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4c460224fff0b7cbd16da2f1596091ac4014096e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: ac1a77be16b92b304a23f6e55ec8a524aec5c792
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306171"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348164"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -182,7 +182,9 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 ### <a name="example"></a>示例
 
-以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)演示如何从 outputs 节中的存储帐户返回主密钥和辅助密钥。 它还为存储帐户返回 SAS 令牌。 然后将对象传递给 listAccountSas 函数以获取该令牌。 此示例旨在演示如何使用列表函数。 通常情况下，在资源值中使用 SAS 令牌，而不是将其作为输出值返回。 输出值存储在部署历史记录中并不安全。 必须指定将来的到期时间部署才能成功。
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)演示如何从 outputs 节中的存储帐户返回主密钥和辅助密钥。 它还为存储帐户返回 SAS 令牌。 
+
+若要获取 SAS 令牌的令牌，请针对到期时间传递对象。 到期时间必须是将来的时间。 此示例旨在演示如何使用列表函数。 通常情况下，在资源值中使用 SAS 令牌，而不是将其作为输出值返回。 输出值存储在部署历史记录中并不安全。
 
 ```json
 {
@@ -728,8 +730,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
       }
   },
   "variables": {
-      "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-      "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
   {

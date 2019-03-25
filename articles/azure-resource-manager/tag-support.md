@@ -4,58 +4,80 @@ description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 01/24/2019
-ms.date: 02/18/2019
+origin.date: 02/13/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c4ccfa3fa13f5ad51a6182b73bab8d7a18814b00
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 222b18600c5fa8c551fb62e0b63f33a67d6cb6f9
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306271"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348167"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
 本文介绍某一资源类型是否支持[标记](resource-group-using-tags.md)。
 
-## <a name="aad-domain-services"></a>AAD 域服务
+<!--Not Match to MOONCAKE on [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv)-->
+## <a name="microsoftaad"></a>Microsoft.AAD
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| domains | 否 | 
+| DomainServices | 是 | 
+| DomainServices/oucontainer | 否 | 
 
-## <a name="ad-hybrid-health-service"></a>AD 混合运行状况服务
+<!--Not Available on ## microsoft.aadiam-->
+<!--Not Available on ## Microsoft.Addons-->
+<!--Not Available on ## Microsoft.ADHybridHealthService-->
+
+## <a name="microsoftadvisor"></a>Microsoft.Advisor
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| addsservices | 否 |
-| aadsupportcases | 否 | 
-| 代理 | 否 | 
-| anonymousapiusers | 否 | 
 | 配置 | 否 | 
-| 日志 | 否 | 
-| 报表 | 否 | 
-| services | 否 | 
-| servicehealthmetrics | 否 | 
+| generateRecommendations | 否 | 
+| 建议 | 否 | 
+| 禁止显示 | 否 | 
 
-## <a name="analysis-services"></a>Analysis Services
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| actionRules | 否 | 
+| alerts | 否 | 
+| alertsList | 否 | 
+| alertsSummary | 否 | 
+| alertsSummaryList | 否 | 
+| smartDetectorAlertRules | 否 | 
+| smartDetectorRuntimeEnvironments | 否 | 
+| smartGroups | 否 | 
+
+## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | servers | 是 | 
 
-## <a name="api-hubs"></a>API 中心
+## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| apiManagementAccounts | 否 | 
-| apiManagementAccounts/apis | 否 | 
-| apiManagementAccounts/connectionAcls | 否 | 
-| apiManagementAccounts/connectionProviders | 否 | 
-| apiManagementAccounts/connectionProviderAcls | 否 | 
-| apiManagementAccounts/connections | 否 | 
-
-## <a name="api-management"></a>API 管理
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
+| reportFeedback | 否 | 
 | 服务 | 是 | 
+| validateServiceName | 否 | 
 
-## <a name="automation"></a>自动化
+<!--Not Available on ## Microsoft.Attestation-->
+
+## <a name="microsoftauthorization"></a>Microsoft.Authorization
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| classicAdministrators | 否 | 
+| denyAssignments | 否 | 
+| elevateAccess | 否 | 
+| 锁定 | 否 | 
+| 权限 | 否 | 
+| policyAssignments | 否 | 
+| policyDefinitions | 否 | 
+| policySetDefinitions | 否 | 
+| providerOperations | 否 | 
+| roleAssignments | 否 | 
+| roleDefinitions | 否 | 
+
+## <a name="microsoftautomation"></a>Microsoft.Automation
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | automationAccounts | 是 | 
@@ -65,57 +87,36 @@ ms.locfileid: "56306271"
 | automationAccounts/softwareUpdateConfigurations | 否 | 
 | automationAccounts/webhooks | 否 | 
 
-## <a name="azure-database-for-mariadb"></a>Azure Database for MariaDB
+<!--Not Avaialble on ## Microsoft.Azure.Geneva-->
+<!--Not Avaialble on ## Microsoft.AzureActiveDirectory-->
+
+
+## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| servers | 是 | 
-| servers/configurations | 否 |
-| servers/databases | 否 |
-| servers/firewallRules | 否 |
-| servers/recoverableServers | 否 | 
-| servers/securityAlertPolicies | 否 |
-| servers/virtualNetworkRules | 否 | 
+| registrations | 是 | 
+| registrations/customerSubscriptions | 否 | 
+| registrations/products | 否 | 
 
-## <a name="azure-database-for-mysql"></a>Azure Database for MySQL
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| servers | 是 | 
-| servers/configurations | 否 |
-| servers/databases | 否 |
-| servers/firewallRules | 否 |
-| servers/recoverableServers | 否 | 
-| servers/securityAlertPolicies | 否 |
-| servers/virtualNetworkRules | 否 | 
-
-## <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| servers | 是 | 
-| servers/advisors | 否 | 
-| servers/configurations | 否 |
-| servers/databases | 否 |
-| servers/firewallRules | 否 |
-| servers/queryTexts | 否 | 
-| servers/recoverableServers | 否 | 
-| servers/securityAlertPolicies | 否 |
-| servers/topQueryStatistics | 否 | 
-| servers/virtualNetworkRules | 否 | 
-| servers/waitStatistics | 否 | 
-
-## <a name="batch"></a>批处理
+## <a name="microsoftbatch"></a>Microsoft.Batch
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | batchAccounts | 是 | 
 
-<!--Not Available on ## Bing Maps-->
-<!--Not Available on ## Biztalk Services-->
+<!--Not Available on ## Microsoft.Billing -->
+<!--Not Available on ## Microsoft.BingMaps-->
+<!--Not Available on ## Microsoft.BizTalkServices-->
+<!--Not Available on ## Microsoft.Blueprint-->
+<!--Not Available on ## Microsoft.BotService-->
 
-## <a name="cache"></a>缓存
+## <a name="microsoftcache"></a>Microsoft.Cache
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | Redis | 是 | 
+| RedisConfigDefinition | 否 | 
 
-## <a name="cdn"></a>CDN
+<!--Not Available on ## Microsoft.Capacity-->
+## <a name="microsoftcdn"></a>Microsoft.Cdn
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | edgenodes | 否 | 
@@ -125,36 +126,69 @@ ms.locfileid: "56306271"
 | profiles/endpoints/origins | 否 | 
 | validateProbe | 否 | 
 
-## <a name="classic-compute"></a>经典计算
+<!--Not Available on ## Microsoft.CertificateRegistration-->
+
+## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
+| capabilities | 否 | 
 | domainNames | 否 | 
+| domainNames/capabilities | 否 | 
+| domainNames/internalLoadBalancers | 否 | 
+| domainNames/serviceCertificates | 否 | 
 | domainNames/slots | 否 | 
 | domainNames/slots/roles | 否 | 
+| moveSubscriptionResources | 否 | 
+| operatingSystemFamilies | 否 | 
+| operatingSystems | 否 | 
+| quotas | 否 | 
+| resourceTypes | 否 | 
+| validateSubscriptionMoveAvailability | 否 | 
 | virtualMachines | 否 | 
 | virtualMachines/diagnosticSettings | 否 | 
-| virtualMachines/metricDefinitions | 否 | 
-| virtualMachines/metrics | 否 | 
 
-## <a name="classic-infrastructure-migrate"></a>经典的基础结构迁移
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | classicInfrastructureResources | 否 | 
 
-## <a name="classic-network"></a>经典网络
+## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
+| capabilities | 否 | 
+| expressRouteCrossConnections | 否 | 
+| expressRouteCrossConnections/peerings | 否 | 
+| gatewaySupportedDevices | 否 | 
+| networkSecurityGroups | 否 | 
+| quotas | 否 | 
+| reservedIps | 否 | 
 | virtualNetworks | 否 | 
 | virtualNetworks/remoteVirtualNetworkPeeringProxies | 否 | 
 | virtualNetworks/virtualNetworkPeerings | 否 | 
 
-## <a name="classic-storage"></a>经典存储
+## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
+| capabilities | 否 | 
+| disks | 否 | 
+| images | 否 | 
+| osImages | 否 | 
+| osPlatformImages | 否 | 
+| publicImages | 否 | 
+| quotas | 否 | 
+| storageAccounts | 否 | 
 | storageAccounts/services | 否 | 
 | storageAccounts/services/diagnosticSettings | 否 | 
+| storageAccounts/vmImages | 否 | 
+| vmImages | 否 | 
 
-## <a name="compute"></a>计算
+## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| accounts | 是 | 
+
+<!--Not Available on ## Microsoft.Commerce-->
+## <a name="microsoftcompute"></a>Microsoft.Compute
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | availabilitySets | 是 | 
@@ -168,7 +202,6 @@ ms.locfileid: "56306271"
 | virtualMachines | 是 | 
 | virtualMachines/diagnosticSettings | 否 | 
 | virtualMachines/extensions | 是 | 
-| virtualMachines/metricDefinitions | 否 | 
 | virtualMachineScaleSets | 是 | 
 | virtualMachineScaleSets/extensions | 否 | 
 | virtualMachineScaleSets/networkInterfaces | 否 | 
@@ -176,64 +209,172 @@ ms.locfileid: "56306271"
 | virtualMachineScaleSets/virtualMachines | 否 | 
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | 否 | 
 
-<!--Not Available on ## Container-->
-<!--Not Available on ## Container Instance-->
+<!--Not Available on ## Microsoft.Consumption -->
+<!--Not Available on ## Microsoft.ContainerInstance-->
 
-## <a name="container-registry"></a>容器注册表
+## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | registries | 是 | 
-| registries/replications | 是 |
-| registries/tasks | 是 |
-| registries/webhooks | 是 |
+| registries/builds | 否 | 
+| registries/builds/cancel | 否 | 
+| registries/builds/getLogLink | 否 | 
+| registries/buildTasks | 是 | 
+| registries/buildTasks/steps | 否 | 
+| registries/eventGridFilters | 否 | 
+| registries/getBuildSourceUploadUrl | 否 | 
+| registries/GetCredentials | 否 | 
+| registries/importImage | 否 | 
+| registries/queueBuild | 否 | 
+| registries/regenerateCredential | 否 | 
+| registries/regenerateCredentials | 否 | 
+| registries/replications | 是 | 
+| registries/runs | 否 | 
+| registries/runs/cancel | 否 | 
+| registries/scheduleRun | 否 | 
+| registries/tasks | 是 | 
+| registries/updatePolicies | 否 | 
+| registries/webhooks | 是 | 
+| registries/webhooks/getCallbackConfig | 否 | 
+| registries/webhooks/ping | 否 | 
 
-<!--Not Available on ## Container Service-->
-<!--Not Available on ## Cortana Analytics-->
-## <a name="cosmos-db"></a>Cosmos DB
+## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| databaseAccounts | 是 | 
-| databaseAccountNames | 否 | 
+| containerServices | 是 | 
+| managedClusters | 是 | 
 
-<!--Not Available on ## Cost Management-->
-<!--Not Available on ## Data Box Edge-->
-<!--Not Available on ## Data Catalog-->
-<!--Not Available on ## Data Connect-->
-<!--Not Available on ## Data Factory-->
-## <a name="devices"></a>设备
+<!--Not Available on ## Microsoft.ContentModerator -->
+<!--Not Available on ## Microsoft.CortanaAnalytics-->
+
+<!--Not Available on  ## Microsoft.CostManagement-->
+<!--Not Available on  ## Microsoft.CustomerInsights-->
+<!--Not Available on  ## Microsoft.DataBox-->
+<!--Not Available on  ## Microsoft.Databricks-->
+<!--Not Available on  ## Microsoft.DataCatalog-->
+<!--Not Available on  ## Microsoft.DataConnect-->
+<!--Not Available on  ## Microsoft.DataFactory-->
+<!--Not Available on  ## Microsoft.DataLakeAnalytics-->
+<!--Not Available on  ## Microsoft.DataLakeStore-->
+<!--Not Available on  ## Microsoft.DataMigration-->
+<!--Not Available on ## Microsoft.DBforMariaDB-->
+
+## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| servers | 是 | 
+| servers/recoverableServers | 否 | 
+| servers/virtualNetworkRules | 否 | 
+
+## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| servers | 是 | 
+| servers/advisors | 否 | 
+| servers/queryTexts | 否 | 
+| servers/recoverableServers | 否 | 
+| servers/topQueryStatistics | 否 | 
+| servers/virtualNetworkRules | 否 | 
+| servers/waitStatistics | 否 | 
+
+## <a name="microsoftdevices"></a>Microsoft.Devices
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | IotHubs | 是 | 
 | IotHubs/eventGridFilters | 否 | 
 | ProvisioningServices | 是 | 
+| usages | 否 | 
 
-<!--Not Available on ## Devspaces-->
-<!--Not Available on ## Devtest Lab-->
-<!--Not Available on ## Dynamics LCS-->
-<!--Not Available on ## Event Grid-->
+<!--Not Available on ## Microsoft.DevSpaces-->
+<!--Not Available on ## Microsoft.DevTestLab-->
 
-## <a name="event-hub"></a>事件中心
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| databaseAccountNames | 否 | 
+| databaseAccounts | 是 | 
+
+<!--Not Available on ## Microsoft.DomainRegistration-->
+<!--Not Available on ## Microsoft.DynamicsLcs-->
+<!--Not Available on ## Microsoft.EventGrid-->
+
+## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | clusters | 是 | 
 | namespaces | 是 | 
-| namespaces/AuthorizationRules | 否 |
-| namespaces/disasterRecoveryConfigs | 否 |
-| namespaces/eventhubs | 否 |
-| namespaces/eventhubs/authorizationRules | 否 |
-| namespaces/eventhubs/consumergroups | 否 |
+| namespaces/authorizationrules | 否 | 
+| namespaces/disasterrecoveryconfigs | 否 | 
+| namespaces/eventhubs | 否 | 
+| namespaces/eventhubs/authorizationrules | 否 | 
+| namespaces/eventhubs/consumergroups | 否 | 
 
-<!--Not Available on ## Hana on Azure-->
-## <a name="hdinsight"></a>HDInsight
+## <a name="microsoftfeatures"></a>Microsoft.Features
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| features | 否 | 
+| providers | 否 | 
+
+<!--Not Available on ## Microsoft.Gallery-->
+
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| guestConfigurationAssignments | 否 | 
+| software | 否 |
+
+<!--Not Available on  ## Microsoft.HanaOnAzure-->
+
+## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | clusters | 是 | 
 | clusters/applications | 否 | 
 
-<!--Not Available on ## Import Export-->
-<!--Not Available on ## Insights-->
+## <a name="microsoftimportexport"></a>Microsoft.ImportExport
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| jobs | 是 |
 
-## <a name="key-vault"></a>密钥保管库
+<!--Not Available on ## Microsoft.InformationProtection-->
+
+## <a name="microsoftinsights"></a>microsoft.insights
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| actiongroups | 是 | 
+| activityLogAlerts | 是 | 
+| alertrules | 是 | 
+| automatedExportSettings | 否 | 
+| autoscalesettings | 是 | 
+| baseline | 否 | 
+| calculatebaseline | 否 | 
+| components | 是 | 
+| components/events | 否 | 
+| components/pricingPlans | 否 | 
+| components/query | 否 | 
+| diagnosticSettings | 否 | 
+| diagnosticSettingsCategories | 否 | 
+| eventCategories | 否 | 
+| eventtypes | 否 | 
+| extendedDiagnosticSettings | 否 | 
+| logDefinitions | 否 | 
+| logprofiles | 否 | 
+| 日志 | 否 | 
+| metricAlerts | 是 |
+| migrateToNewPricingModel | 否 | 
+| myWorkbooks | 否 | 
+| 查询 | 否 | 
+| rollbackToLegacyPricingModel | 否 | 
+| scheduledqueryrules | 是 | 
+| vmInsightsOnboardingStatuses | 否 | 
+| webtests | 是 | 
+| workbooks | 是 | 
+
+<!--Not Available on  ## Microsoft.Intune-->
+<!--Not Available on  ## Microsoft.IoTCentral-->
+<!--Not Available on  ## Microsoft.IoTSpaces-->
+
+## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | deletedVaults | 否 | 
@@ -241,29 +382,50 @@ ms.locfileid: "56306271"
 | vaults/accessPolicies | 否 | 
 | vaults/secrets | 否 | 
 
-<!--Not Available on ## Log Analytics-->
-## <a name="logic"></a>逻辑
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| clusters | 是 | 
+| clusters/databases | 否 | 
+| clusters/databases/dataconnections | 否 | 
+| clusters/databases/eventhubconnections | 否 | 
+
+<!--Not Available on  ## Microsoft.LabServices-->
+<!--Not Available on  ## Microsoft.LocationBasedServices-->
+<!--Not Available on  ## Microsoft.LocationServices-->
+<!--Not Available on  ## Microsoft.LogAnalytics-->
+
+## <a name="microsoftlogic"></a>Microsoft.Logic
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | integrationAccounts | 是 | 
 | workflows | 是 | 
 
-<!--Not Available on ## Machine Learning Services-->
-<!--Not Available on ## Managed Identity-->
-
-
-## <a name="marketplace-apps"></a>市场应用
+<!--Not Available on ## Microsoft.MachineLearning-->
+<!--Not Available on ## Microsoft.MachineLearningExperimentation-->
+<!--Not Available on ## Microsoft.MachineLearningModelManagement-->
+<!--Not Available on ## Microsoft.MachineLearningServices-->
+## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| classicDevServices | 是 | 
+| 标识 | 否 | 
+| userAssignedIdentities | 是 | 
 
-## <a name="marketplace-ordering"></a>市场订购
+## <a name="microsoftmanagement"></a>Microsoft.Management
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| 协议 | 否 | 
-| offertypes | 否 | 
+| getEntities | 否 | 
+| managementGroups | 否 | 
+| 资源 | 否 | 
+| startTenantBackfill | 否 | 
+| tenantBackfillStatus | 否 | 
 
-## <a name="media"></a>媒体
+<!--Not Available on  ## Microsoft.Maps-->
+<!--Not Available on  ## Microsoft.Marketplace-->
+<!--Not Available on  ## Microsoft.MarketplaceApps-->
+<!--Not Available on  ## Microsoft.MarketplaceOrdering-->
+
+## <a name="microsoftmedia"></a>Microsoft.Media
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | mediaservices | 是 | 
@@ -276,27 +438,50 @@ ms.locfileid: "56306271"
 | mediaservices/liveEvents | 是 | 
 | mediaservices/liveEvents/liveOutputs | 否 | 
 | mediaservices/liveOutputOperations | 否 | 
-| mediaservices/streamingEndpoints | 是 | 
 | mediaservices/streamingEndpointOperations | 否 | 
+| mediaservices/streamingEndpoints | 是 | 
 | mediaservices/streamingLocators | 否 | 
 | mediaservices/streamingPolicies | 否 | 
 | mediaservices/transforms | 否 | 
 | mediaservices/transforms/jobs | 否 | 
 
-## <a name="network"></a>网络
+<!--Not Available on  ## Microsoft.Migrate-->
+
+## <a name="microsoftnetwork"></a>Microsoft.Network
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | applicationGateways | 是 | 
 | applicationSecurityGroups | 是 | 
+| azureFirewallFqdnTags | 否 | 
 | azureFirewalls | 是 | 
+| bgpServiceCommunities | 否 | 
 | connections | 是 | 
+| ddosCustomPolicies | 是 | 
 | ddosProtectionPlans | 是 | 
+| dnsOperationStatuses | 否 | 
+| dnszones | 是 | 
+| dnszones/A | 否 | 
+| dnszones/AAAA | 否 | 
+| dnszones/all | 否 | 
+| dnszones/CAA | 否 | 
+| dnszones/CNAME | 否 | 
+| dnszones/MX | 否 | 
+| dnszones/NS | 否 | 
+| dnszones/PTR | 否 | 
+| dnszones/recordsets | 否 | 
+| dnszones/SOA | 否 | 
+| dnszones/SRV | 否 | 
+| dnszones/TXT | 否 | 
 | expressRouteCircuits | 是 | 
+| expressRouteServiceProviders | 否 | 
 | frontdoors | 是 | 
 | frontdoorWebApplicationFirewallPolicies | 是 | 
+| getDnsResourceReference | 否 | 
 | interfaceEndpoints | 是 | 
+| internalNotify | 否 | 
 | loadBalancers | 是 | 
 | localNetworkGateways | 是 | 
+| natGateways | 是 | 
 | networkIntentPolicies | 是 | 
 | networkInterfaces | 是 | 
 | networkProfiles | 是 | 
@@ -311,76 +496,144 @@ ms.locfileid: "56306271"
 | routeFilters | 是 | 
 | routeTables | 是 | 
 | serviceEndpointPolicies | 是 | 
+| trafficManagerGeographicHierarchies | 否 | 
+| trafficmanagerprofiles | 是 | 
+| trafficmanagerprofiles/heatMaps | 否 | 
 | virtualHubs | 是 | 
-| virtualNetworks | 是 | 
 | virtualNetworkGateways | 是 | 
+| virtualNetworks | 是 | 
 | virtualNetworkTaps | 是 | 
 | virtualWans | 是 | 
 | vpnGateways | 是 | 
 | vpnSites | 是 | 
 | webApplicationFirewallPolicies | 是 | 
 
-## <a name="notification-hubs"></a>通知中心
+## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | namespaces | 是 | 
 | namespaces/notificationHubs | 是 | 
 
-<!--Not Available on ## Operational Insights-->
-<!--Not Available on ## Operations Management-->
-
-## <a name="portal"></a>门户
+## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
+| devices | 否 | 
+| linkTargets | 否 | 
+| storageInsightConfigs | 否 | 
+| workspaces | 是 | 
+| workspaces/dataSources | 否 | 
+| workspaces/linkedServices | 否 | 
+| workspaces/query | 否 | 
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| managementassociations | 否 | 
+| managementconfigurations | 是 | 
+| solutions | 是 | 
+| 视图 | 是 | 
+
+## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| policyEvents | 否 | 
+| policyStates | 否 | 
+| policyTrackedResources | 否 | 
+| remediations | 否 | 
+
+## <a name="microsoftportal"></a>Microsoft.Portal
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| consoles | 否 | 
 | dashboards | 是 | 
+| userSettings | 否 | 
 
-## <a name="portal-sdk"></a>门户 SDK
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| rootResources | 是 | 
-
-## <a name="power-bi"></a>Power BI
+## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | workspaceCollections | 是 | 
 
-## <a name="recovery-services"></a>恢复服务
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| capacities | 是 | 
+
+<!--Not Available on  ## Microsoft.ProjectOxford-->
+
+## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | backupProtectedItems | 否 | 
 | vaults | 是 | 
 
-## <a name="relay"></a>中继
+## <a name="microsoftrelay"></a>Microsoft.Relay
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | namespaces | 是 | 
+| namespaces/authorizationrules | 否 | 
+| namespaces/hybridconnections | 否 | 
+| namespaces/hybridconnections/authorizationrules | 否 | 
+| namespaces/wcfrelays | 否 | 
+| namespaces/wcfrelays/authorizationrules | 否 | 
 
-## <a name="resources"></a>资源
+<!--Not Available on  ## Microsoft.ResourceGraph-->
+
+## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| resourceGroups | 是 | 
-| subscriptions/resourceGroups | 是 | 
+| availabilityStatuses | 否 | 
+| childAvailabilityStatuses | 否 | 
+| childResources | 否 | 
+| events | 否 | 
+| impactedResources | 否 | 
+| 通知 | 否 | 
 
-## <a name="scheduler"></a>计划程序
+## <a name="microsoftresources"></a>Microsoft.Resources
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| jobcollections | 是 | 
+| deployments | 否 | 
+| deployments/operations | 否 | 
+| links | 否 | 
+| notifyResourceJobs | 否 | 
+| providers | 否 | 
+| resourceGroups | 否 | 
+| 资源 | 否 | 
+| subscriptions | 否 | 
+| subscriptions/providers | 否 | 
+| subscriptions/resourceGroups | 否 | 
+| subscriptions/resourcegroups/resources | 否 | 
+| subscriptions/resources | 否 | 
+| subscriptions/tagnames | 否 | 
+| subscriptions/tagNames/tagValues | 否 | 
+| tenants | 否 | 
+
+<!--Not Available on  ## Microsoft.SaaS-->
+
+## <a name="microsoftscheduler"></a>Microsoft.Scheduler
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
 | flows | 是 | 
+| jobcollections | 是 |
 
 <!--Not Available on ## Search-->
-
-## <a name="security"></a>安全性
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| dataCollectionAgents | 否 | 
-
-## <a name="service-bus"></a>服务总线
+<!--Not Available on ## Microsoft.Security-->
+<!--Not Available on  ## Microsoft.SecurityGraph-->
+## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | namespaces | 是 | 
+| namespaces/authorizationrules | 否 | 
+| namespaces/disasterrecoveryconfigs | 否 | 
 | namespaces/eventgridfilters | 否 | 
+| namespaces/queues | 否 | 
+| namespaces/queues/authorizationrules | 否 | 
+| namespaces/topics | 否 | 
+| namespaces/topics/authorizationrules | 否 | 
+| namespaces/topics/subscriptions | 否 | 
+| namespaces/topics/subscriptions/rules | 否 | 
+| premiumMessagingRegions | 否 | 
 
-## <a name="service-fabric"></a>Service Fabric
+## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | clusters | 是 | 
@@ -389,19 +642,21 @@ ms.locfileid: "56306271"
 <!--Not Available on ## Service Fabric Mesh-->
 <!--Not Available on ## SignalR Service-->
 
-## <a name="site-recovery"></a>站点恢复
+
+## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| SiteRecoveryVault | 是 | 
+| applianceDefinitions | 是 | 
+| appliances | 是 | 
+| applicationDefinitions | 是 | 
+| applications | 是 | 
+| jitRequests | 是 | 
 
-<!--Not Available on ## Solutions-->
-
-## <a name="sql"></a>SQL
+## <a name="microsoftsql"></a>Microsoft.SQL
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| locations/instanceFailoverGroups | 否 |
 | managedInstances | 是 |
-| managedInstances/databases | 是 |
+| managedInstances/databases | 是（见下方备注） |
 | managedInstances/databases/backupShortTermRetentionPolicies | 否 |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | 否 |
 | managedInstances/databases/vulnerabilityAssessments | 否 |
@@ -410,56 +665,28 @@ ms.locfileid: "56306271"
 | managedInstances/keys | 否 |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | 否 |
 | managedInstances/vulnerabilityAssessments | 否 |
-| servers | 是 |
-| servers/administrators | 否 |
-| servers/advisors | 否 |
-| servers/auditingSettings | 否 |
-| servers/backupLongTermRetentionVaults | 否 |
-| servers/communicationLinks | 否 |
-| servers/connectionPolicies | 否 |
-| servers/databases | 是 |
-| servers/databases/advisors | 否 |
-| servers/databases/auditingSettings | 否 |
-| servers/databases/backupLongTermRetentionPolicies | 否 |
-| servers/databases/backupShortTermRetentionPolicies | 否 |
-| servers/databases/connectionPolicies | 否 |
-| servers/databases/dataMaskingPolicies | 否 |
-| servers/databases/dataMaskingPolicies/rules | 否 |
-| servers/databases/extendedAuditingSettings | 否 |
-| servers/databases/extensions | 否 |
-| servers/databases/geoBackupPolicies | 否 |
-| servers/databases/schemas/tables/columns/sensitivityLabels | 否 |
-| servers/databases/securityAlertPolicies | 否 |
-| servers/databases/syncGroups | 否 |
-| servers/databases/syncGroups/syncMembers | 否 |
-| servers/databases/transparentDataEncryption | 否 |
-| servers/databases/vulnerabilityAssessments | 否 |
-| servers/databases/vulnerabilityAssessments/rules/baselines | 否 |
-| servers/disasterRecoveryConfiguration | 否 |
-| servers/dnsAliases | 否 |
-| servers/elasticPools | 是 |
-| servers/encryptionProtector | 否 |
-| servers/extendedAuditingSettings | 否 |
-| servers/failoverGroups | 是 |
-| servers/firewallRules | 否 |
-| servers/jobAgents | 是 |
-| servers/jobAgents/credentials | 否 |
-| servers/jobAgents/jobs | 否 |
-| servers/jobAgents/jobs/executions | 否 |
-| servers/jobAgents/jobs/steps | 否 |
-| servers/jobAgents/targetGroups | 否 |
-| servers/keys | 否 |
-| servers/securityAlertPolicies | 否 |
-| servers/syncAgents | 否 |
-| servers/virtualNetworkRules | 否 |
-| servers/vulnerabilityAssessments | 否 |
+| servers | 是 | 
+| servers/administrators | 否 | 
+| servers/communicationLinks | 否 | 
+| servers/databases | 是（见下方备注） | 
+| servers/encryptionProtector | 否 | 
+| servers/firewallRules | 否 | 
+| servers/keys | 否 | 
+| servers/restorableDroppedDatabases | 否 | 
+| servers/serviceobjectives | 否 | 
+| servers/tdeCertificates | 否 | 
 
-## <a name="sql-virtual-machine"></a>SQL 虚拟机
+> [!NOTE]
+> Master 数据库不支持标记，但其他数据库（包括 Azure SQL 数据仓库数据库）支持标记。 Azure SQL 数据仓库数据库必须处于活动（而非暂停）状态。
+
+## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| DWVM | 是 | 
+| SqlVirtualMachineGroups | 是 | 
+| SqlVirtualMachineGroups/AvailabilityGroupListeners | 否 | 
+| SqlVirtualMachines | 是 | 
 
-## <a name="storage"></a>存储
+## <a name="microsoftstorage"></a>Microsoft.Storage
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | storageAccounts | 是 | 
@@ -467,47 +694,28 @@ ms.locfileid: "56306271"
 | storageAccounts/fileServices | 否 | 
 | storageAccounts/queueServices | 否 | 
 | storageAccounts/services | 否 | 
-| storageAccounts/services/metricDefinitions | 否 | 
 | storageAccounts/tableServices | 否 | 
+| usages | 否 | 
 
-## <a name="storage-sync"></a>存储同步
+<!--Not Available on  ## Microsoft.StorageSync-->
+<!--Not Available on ## Microsoft.StorSimple-->
+
+## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
-| storageSyncServices | 是 | 
-| storageSyncServices/registeredServers | 否 | 
-| storageSyncServices/syncGroups | 否 | 
-| storageSyncServices/syncGroups/cloudEndpoints | 否 | 
-| storageSyncServices/syncGroups/serverEndpoints | 否 | 
-| storageSyncServices/workflows | 否 | 
-
-<!--Not Available on ## Storsimple-->
-
-## <a name="stream-analytics"></a>流分析
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| streamingjobs | 是 | 
+| streamingjobs | 是（见下方备注） | 
 | streamingjobs/diagnosticSettings | 否 | 
-| streamingjobs/metricDefinitions | 否 | 
 
-## <a name="subscription"></a>订阅
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| SubscriptionDefinitions | 否 | 
-| SubscriptionOperations | 否 | 
+> [!NOTE]
+> Streamingjobs 运行时无法添加标记。 停止要添加标记的资源。
 
-## <a name="support"></a>支持
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| supporttickets | 否 | 
+<!--Not Available on ## Microsoft.Subscription-->
+<!--Not Available on ## microsoft.support-->
+<!--Not Available on ## Microsoft.TerraformOSS-->
+<!--Not Available on ## Microsoft.TimeSeriesInsights-->
+<!--Not Available on ## microsoft.visualstudio-->
 
-## <a name="visual-studio"></a>Visual Studio
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| 帐户 | 是 | 
-| account/extension | 是 | 
-| account/project | 是 | 
-
-## <a name="web"></a>Web
+## <a name="microsoftweb"></a>Microsoft.Web
 | 资源类型 | 支持标记 |
 | ------------- | ----------- |
 | apiManagementAccounts | 否 | 
@@ -528,10 +736,14 @@ ms.locfileid: "56306271"
 | deletedSites | 否 | 
 | functions | 否 | 
 | hostingEnvironments | 是 | 
-| hostingEnvironments/metrics | 否 | 
 | hostingEnvironments/multiRolePools | 否 | 
+| hostingEnvironments/multiRolePools/instances | 否 | 
 | hostingEnvironments/workerPools | 否 | 
+| hostingEnvironments/workerPools/instances | 否 | 
 | publishingUsers | 否 | 
+| 建议 | 否 | 
+| resourceHealthMetadata | 否 | 
+| runtimes | 否 | 
 | serverFarms | 是 | 
 | serverFarms/workers | 否 | 
 | sites | 是 | 
@@ -539,21 +751,20 @@ ms.locfileid: "56306271"
 | sites/hostNameBindings | 否 | 
 | sites/instances | 否 | 
 | sites/instances/extensions | 否 | 
-| sites/metrics | 否 | 
 | sites/premieraddons | 是 | 
+| sites/recommendations | 否 | 
+| sites/resourceHealthMetadata | 否 | 
 | sites/slots | 是 | 
 | sites/slots/hostNameBindings | 否 | 
 | sites/slots/instances | 否 | 
 | sites/slots/instances/extensions | 否 | 
-| sites/slots/metrics | 否 | 
 | sourceControls | 否 | 
 | validate | 否 | 
 | verifyHostingEnvironmentVnet | 否 | 
 
-## <a name="xrm"></a>XRM
-| 资源类型 | 支持标记 |
-| ------------- | ----------- |
-| 组织 | 否 | 
+<!--Not Available on  ## Microsoft.WindowsDefenderATP-->
+<!--Not Available on  ## Microsoft.WindowsIoT-->
+<!--Not Available on  ## Microsoft.WorkloadMonitor-->
 
 ## <a name="next-steps"></a>后续步骤
 若要了解如何将标记应用于资源，请参见[使用标记来组织 Azure 资源](resource-group-using-tags.md)。

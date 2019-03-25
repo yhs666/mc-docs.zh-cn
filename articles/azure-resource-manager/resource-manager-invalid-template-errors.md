@@ -1,7 +1,7 @@
 ---
 title: Azure 无效模板错误 | Azure
 description: 说明如何解决无效模板错误。
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 origin.date: 03/08/2018
-ms.date: 03/26/2018
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e137dc27cad7106af012215c4a2e78362e0b151d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 00f40b355f1c762b4a6993bbf85ef503b202ccf4
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655116"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348033"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解决无效模板错误
 
@@ -135,7 +135,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-请仔细检查模板中的允许值，并提供在部署过程中提供这些值之一。 有关允许参数值的详细信息，请参阅 [Azure 资源管理器模板的参数部分](resource-manager-templates-parameters.md)。
+请仔细检查模板中的允许值，并提供在部署过程中提供这些值之一。 有关允许参数值的详细信息，请参阅 [Azure 资源管理器模板的参数部分](resource-group-authoring-templates.md#parameters)。
 
 <a name="too-many-resource-groups"></a>
 
@@ -173,4 +173,4 @@ part of the allowed values
 3. webapp1 的配置依赖于 webapp1 和 webapp2。 它包含应用设置，其值来自 webapp2。
 4. webapp2 的配置依赖于 webapp1 和 webapp2。 它包含应用设置，其值来自 webapp1。
 
-<!-- Update_Description: update meta properties, add the content of circular dependency detected -->
+<!-- Update_Description: update meta properties, wording update -->

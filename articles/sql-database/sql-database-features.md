@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: a65c219be679246776e8cdcc3195ddc6c8c62198
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 120c9d230b5d8439c12e96ab4cd123182dad0813
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347204"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318993"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server
 

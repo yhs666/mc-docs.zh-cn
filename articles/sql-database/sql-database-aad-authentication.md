@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 02/20/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: e4a3a6685b44697dcb4f4774ba95b00f392ddee4
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 0cfe2061d99960051e1bb0fa744671ca9993543e
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347231"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318959"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -81,7 +81,7 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 - 可以在 Azure SQL Server 或 SQL 数据仓库中预配以下 Azure AD 成员：
 
   - 本机成员：在托管域或客户域中的 Azure AD 中创建的成员。 有关详细信息，请参阅[将自己的域名添加到 Azure AD](../active-directory/fundamentals/add-custom-domain.md)。
-  - 联合域成员：在联合域的 Azure AD 中创建的成员。 有关详细信息，请参阅 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
+  - 联合域成员：在联合域的 Azure AD 中创建的成员。 有关详细信息，请参阅 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)。
   - 作为本机或联合域成员从其他 Azure AD 导入的成员。
   - 以安全组形式创建的 Active Directory 组。
 

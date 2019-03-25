@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 05/21/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 81663ddda0910ceebe90ab8cff2289d75722315f
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 00a81058b5d491e100d767cb2f547ea5e964aebc
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216271"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348639"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 配合使用
 
@@ -136,7 +136,7 @@ Apache Storm 提供了多个组件以便与 Apache Kafka 配合使用。 此教�
     >
     > 如果不使用本文档中的模板创建 Storm 群集，则必须手动将脚本操作应用于群集。
     >
-    > 脚本操作位于 `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` 并应用于 Storm 群集的 supervisor 和 nimbus 节点。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文档。
+    > 脚本操作位于 `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` 并应用于 Storm 群集的 supervisor 和 nimbus 节点。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文档。
 
 拓扑是使用 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)定义的。 Storm 0.10.x 中引入了 Flux，允许从代码分离拓扑配置。 对于使用 Flux 框架的拓扑，该拓扑在 YAML 文件中进行定义。 YAML 文件可以作为拓扑的一部分包括在内。 它也可以是提交拓扑时使用的独立文件。 Flux 还支持在运行时进行变量替换，本示例中使用了该变量替换。
 
@@ -380,7 +380,7 @@ streams:
 | `kafka.broker.hosts` | Kafka 代理主机（辅助角色节点）。 |
 | `kafka.topic` | 拓扑使用的 Kafka 主题。 |
 | `hdfs.write.dir` | Kafka 读取器拓扑写入的目录。 |
-| `hdfs.url` | Storm 群集使用的文件系统。 对于 Azure 存储帐户，使用值 `wasb:///`。 对于 Azure Data Lake Storage，使用值 `adl:///`。 |
+| `hdfs.url` | Storm 群集使用的文件系统。 对于 Azure 存储帐户，使用值 `wasb:///`。 对于 Azure Data Lake Storage Gen2，使用值 `abfs:///`。 |
 
 ## <a name="create-the-clusters"></a>创建群集
 
@@ -520,12 +520,12 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
         kafka.topic: stormtopic
 
     > [!IMPORTANT]
-    > `hdfs.url` 条目为使用 Azure 存储帐户的群集而进行配置。 若要将此拓扑与使用 Data Lake Store 的 Storm 群集结合使用，请将此值从 `wasb` 更改为 `adl`。
+    > `hdfs.url` 条目为使用 Azure 存储帐户的群集而进行配置。 若要将此拓扑与使用 Data Lake Storage 的 Storm 群集结合使用，请将此值从 `wasb` 更改为 `adl`。
 
 4. 保存 `dev.properties` 文件，然后使用以下命令将其上传到 Storm 群集：
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     将 USERNAME 替换为群集的 SSH 用户名。 将 BASENAME 替换为创建群集时使用的基名称。

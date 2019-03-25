@@ -14,12 +14,12 @@ origin.date: 11/13/2018
 ms.date: 02/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 24f7419fb117dd4bf462e9a8f284ba2d9cef2878
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 1321a4758d69363964199f21ae6db83733e5a63f
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306131"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348136"
 ---
 <!-- Verify Successfully-->
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板部署虚拟机扩展
@@ -65,11 +65,8 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 Azure 快速入门模板是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本教程中使用的模板称为[部署简单的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/)。
 
 1. 在 Visual Studio Code 中，选择“文件” > “打开文件”。
-1. 在“文件名”框中粘贴以下 URL： 
+1. 在“文件名”框中粘贴以下 URL：https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
-    ```
 1. 若要打开该文件，请选择“打开”。  
     该模板定义五个资源：
 
@@ -79,7 +76,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * `Microsoft.Network/networkInterfaces`。 
     * `Microsoft.Compute/virtualMachines`。 
     
-    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->

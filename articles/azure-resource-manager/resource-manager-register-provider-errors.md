@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 12/10/2018
-ms.date: 02/18/2019
+origin.date: 02/15/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6dcfdffcc8f1c5ee7750f8e8d7e52770c7fe537
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: c06048a2a618456ee167d6fc2f97636cae96ebee
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306078"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348104"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 
@@ -46,13 +46,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 错误消息应提供有关支持的位置和 API 版本的建议。 可以将模板更改为建议的值之一。 Azure 门户或正在使用的命令行接口会自动注册大多数提供程序；但非全部。 如果以前未使用特定的资源提供程序，则可能需要注册该提供程序。
 
+或者，禁用虚拟机的自动关闭功能时，可能会收到类似如下的错误消息：
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>原因
 
-可能由于下三种原因之一而收到此错误：
+可能会由于以下原因之一而收到这些错误：
 
-* 尚未为订阅注册资源提供程序
+* 尚未为订阅注册所需的资源提供程序
 * 资源类型不支持该 API 版本
 * 资源类型不支持该位置
+* 对于 VM 的自动关闭，必须注册 Microsoft.DevTestLab 资源提供程序。
 
 ## <a name="solution-1---powershell"></a>解决方案 1 - PowerShell
 

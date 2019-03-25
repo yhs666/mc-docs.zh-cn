@@ -12,15 +12,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 01/14/2019
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: d1785f018c20a7145453fb952224cdb881890c60
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 6c9dd92d1bf8b416038216eb4081974eb24ee430
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836922"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318907"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什么是 Azure 资源的基于角色的访问控制 (RBAC)？
 
@@ -80,7 +80,7 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 
 范围是访问权限适用于的资源集。 分配角色时，可以通过定义范围来进一步限制允许的操作。 如果你想要将某人分配为[网站参与者](built-in-roles.md#website-contributor)，但只针对一个资源组执行此分配，则使用范围就很有帮助。
 
-在 Azure 中，可在多个级别指定范围：[管理组](../azure-resource-manager/management-groups-overview.md)、订阅、资源组或资源。 范围采用父子关系结构。
+在 Azure 中，可在多个级别指定范围：[管理组](../governance/management-groups/index.md)、订阅、资源组或资源。 范围采用父子关系结构。
 
 ![角色分配的范围](./media/overview/rbac-scope.png)
 
@@ -108,7 +108,7 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 
 ## <a name="deny-assignments"></a>拒绝分配
 
-以前，RBAC 是一种仅允许模型，没有拒绝功能，但 RBAC 现在以有限方式支持拒绝分配。 拒绝分配类似于角色分配，可将一组拒绝操作附加到特定范围内的用户、组、服务主体，以便拒绝访问。 角色分配定义了一组允许的操作，而拒绝分配定义了一组不允许的操作。 换而言之，即使角色分配授予用户访问权限，拒绝分配也会阻止用户执行指定的操作。 拒绝分配优先于角色分配。 当前，拒绝分配为“只读”，且只能由 Azure 设置。 有关详细信息，请参阅[了解 Azure 资源的拒绝分配](deny-assignments.md)。
+以前，RBAC 是一种仅允许模型，没有拒绝功能，但 RBAC 现在以有限方式支持拒绝分配。 拒绝分配类似于角色分配，可将一组拒绝操作附加到特定范围内的用户、组、服务主体，以便拒绝访问。 角色分配定义了一组允许的操作，而拒绝分配定义了一组不允许的操作。 换而言之，即使角色分配授予用户访问权限，拒绝分配也会阻止用户执行指定的操作。 拒绝分配优先于角色分配。 当前，拒绝分配为“只读”，且只能由 Azure 设置。 
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC 如何确定用户是否有权访问资源
 
@@ -136,4 +136,4 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 - [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

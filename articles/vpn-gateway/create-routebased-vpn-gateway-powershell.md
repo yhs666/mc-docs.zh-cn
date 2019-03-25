@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 10/18/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 3ff13df35a9ab9160136962f2f061a0fd291b985
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: d2127a897476182e4cb7c332179bfc69288a33b7
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833198"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348038"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>使用 PowerShell 创建基于路由的 VPN 网关
 
@@ -28,7 +28,7 @@ ms.locfileid: "56833198"
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 ```azurepowershell
-New-AzureRmResourceGroup -Name TestRG1 -Location ChinaNorth
+New-AzResourceGroup -Name TestRG1 -Location ChinaNorth
 ```
 
 ## <a name="vnet"></a>创建虚拟网络

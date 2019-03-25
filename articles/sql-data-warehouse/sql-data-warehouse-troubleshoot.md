@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 origin.date: 12/04/2018
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: e48fdada68f9b7e42e4cbf0212dee0f2b485e331
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.openlocfilehash: dc27cde80f989d043ff8a71f6738fd2fc760fa96
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858196"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348145"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -53,7 +53,7 @@ ms.locfileid: "54858196"
 | 消息 40847：无法执行操作，因为服务器将超过 45000 这一允许的数据库事务单元配额。 | 请减少要尝试创建的数据库的 [DWU][DWU]，或者[请求增加配额][request a quota increase]。 |
 | 调查空间使用率                              | 请参阅 [表大小][Table sizes] ，了解系统的空间使用率。 |
 | 管理表的帮助                                    | 有关管理表的帮助，请参阅[表概述][Overview]一文。  本文还包含指向更详细主题的链接，如[表数据类型][Data types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]、[维护表统计信息][Statistics]和[临时表][Temporary]。 |
-| 在 Azure 门户中，透明数据加密 (TDE) 进度栏不更新 | 可以通过 [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) 查看 TDE 的状态。 |
+| 在 Azure 门户中，透明数据加密 (TDE) 进度栏不更新 | 可以通过 [powershell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) 查看 TDE 的状态。 |
 
 ## <a name="polybase"></a>Polybase
 | 问题                                           | 解决方法                                                   |

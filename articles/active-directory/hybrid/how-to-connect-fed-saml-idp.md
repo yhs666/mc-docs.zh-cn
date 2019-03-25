@@ -3,23 +3,24 @@ title: Azure AD Connect：使用 SAML 2.0 标识提供者进行单一登录 | Mi
 description: 本文档介绍使用符合 SAML 2.0 的 Idp 进行单一登录。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 01/02/2019
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: ccfa2f3f64c775eade2315da61fa7aa77c71d604
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: df24ef4617e338b32aacf03e1b75e8f71693ebdb
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186669"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
@@ -302,4 +303,4 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 - [Azure AD 联合身份验证兼容性列表](how-to-connect-fed-compatibility.md)
 - [Azure AD Connect 自定义安装](how-to-connect-install-custom.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

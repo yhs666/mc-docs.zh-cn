@@ -9,22 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: jrasnick, carlrab
 manager: digimobile
-origin.date: 02/11/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: d8040a475349d6189e0e42dd8d0c0ecd0e175f86
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/07/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: 3ddd1955af7822a587f5d4f6a59ccef348f4d6f9
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347203"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318944"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>管理 Azure SQL 数据库中的单一和池化数据库的文件空间
 
 本文介绍了 Azure SQL 数据库中单一和池化数据库的各种类型的存储空间，以及当需要显式管理分配给数据库和弹性池的文件空间时可以执行的步骤。
 
 ## <a name="overview"></a>概述
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 使用 Azure SQL 数据库中的单一和池化数据库时，可能存在如下所述的工作负荷模式：其中数据库基础数据文件的分配可能会大于已使用数据页的数量。 如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。 这是因为分配的文件空间不会自动回收。
 
@@ -38,7 +40,7 @@ ms.locfileid: "57347203"
 
 Azure 门户和以下 API 中显示的大多数存储空间指标仅度量已用数据页面的大小：
 
-- 基于 Azure 资源管理器的指标 API，包括 PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+- 基于 Azure 资源管理器的指标 API，包括 PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
 - T-SQL：[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 但是，以下 API 还度量分配给数据库和弹性池的空间大小：
@@ -160,7 +162,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName

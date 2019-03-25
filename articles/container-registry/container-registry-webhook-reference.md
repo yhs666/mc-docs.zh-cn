@@ -6,18 +6,18 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 12/02/2017
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: f17fea34d7fb8eb05cb2719b7de5c22c592a786e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1dd79f78dc41332194d0bb8865b8b8607f70604b
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659251"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352507"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure 容器注册表 Webhook 参考
 
-可以为容器注册表[配置 Webhook](container-registry-webhook.md)，以便对其执行某些操作时生成相应事件。 例如，可以启用在容器映像 `push` 和 `delete` 操作上触发的 Webhook。 触发 Webhook 后，Azure 容器注册表向指定的终结点发出 HTTP 或 HTTPS 请求并包含有关此事件的信息。 然后终结点处理相应的 Webhook 和操作。
+可以为容器注册表[配置 Webhook](container-registry-webhook.md)，以便对其执行某些操作时生成相应事件。 例如，启用在容器映像 `push` 和 `delete` 操作上触发的 Webhook。 触发 Webhook 后，Azure 容器注册表向指定的终结点发出 HTTP 或 HTTPS 请求并包含有关此事件的信息。 然后终结点处理相应的 Webhook 和操作。
 
 以下各部分详细介绍由受支持的事件生成的 Webhook 请求的架构。 事件部分包括事件类型的有效负载架构、示例请求有效负载以及触发 Webhook 的一个或多个示例命令。
 
@@ -157,10 +157,10 @@ docker push myregistry.azurecr.cn/hello-world:v1
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -6,14 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/26/2018
-ms.date: 09/10/2018
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 343c7efd68ace7b2256aacc01c50918a279d6a6e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 47cc464d8d63b821e2bc88ab2df59c83f4a59b7c
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651990"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253926"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 
@@ -51,6 +52,37 @@ sudo ./install.sh
 
 在 Linux 上安装 AzCopy 后，可以删除提取的文件。 另外，如果你没有超级用户特权，也可以在提取的文件夹中使用 shell 脚本 azcopy 运行 `azcopy`。
 
+### <a name="alternative-installation-on-ubuntu"></a>Ubuntu 上的其他安装
+
+Ubuntu 14.04
+
+为 Microsoft Linux 产品存储库添加 apt 源并安装 AzCopy：
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+sudo apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+为 Microsoft Linux 产品存储库添加 apt 源并安装 AzCopy：
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+sudo apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## <a name="writing-your-first-azcopy-command"></a>编写第一条 AzCopy 命令
 AzCopy 命令的基本语法是：
@@ -326,7 +358,7 @@ azcopy \
     --dest-key <key>
 ```
 
-不使用 --sync-copy 选项复制 blob 时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
+不使用 --sync-copy 选项复制 blob 时，将执行[服务器端复制](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>跨存储帐户复制单个 blob
 
@@ -338,7 +370,7 @@ azcopy \
     --dest-key <key2>
 ```
 
-不使用 --sync-copy 选项复制 blob 时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
+不使用 --sync-copy 选项复制 blob 时，将执行[服务器端复制](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>将单个 blob 从次要区域复制到主要区域
 
@@ -457,7 +489,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-跨文件共享复制某个文件时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
+跨文件共享复制某个文件时，将执行[服务器端复制](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
 
 ### <a name="copy-from-file-share-to-blob"></a>从文件共享复制到 blob
 
@@ -469,7 +501,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-将文件从文件共享复制到 Blob 时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
+将文件从文件共享复制到 Blob 时，将执行[服务器端复制](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
 
 ### <a name="copy-from-blob-to-file-share"></a>从 blob 复制到文件共享
 
@@ -481,7 +513,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-将文件从 Blob 复制到文件共享时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
+将文件从 Blob 复制到文件共享时，将执行[服务器端复制](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
 
 ### <a name="synchronously-copy-files"></a>同步复制文件
 可以指定选项 `--sync-copy`，将数据从文件存储复制到文件存储、从文件存储复制到 Blob 存储以及从 Blob 存储复制到文件存储，同步进行。 AzCopy 通过将源数据下载到本地内存，然后再将其上传到目标来运行此操作。 在这种情况下，将采用标准数据传出费用。
@@ -675,19 +707,19 @@ azcopy \
 * [Azure 存储简介](../storage-introduction.md)
 * [创建存储帐户](../storage-create-storage-account.md)
 * [使用存储资源管理器管理 Blob](https://docs.azure.cn/vs-azure-tools-storage-explorer-blobs)
-* [将 Azure CLI 2.0 用于 Azure 存储](../storage-azure-cli.md)
+* [将 Azure CLI 用于 Azure 存储](../storage-azure-cli.md)
 * [如何通过 C++ 使用 Blob 存储](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何通过 Java 使用 Blob 存储](../blobs/storage-java-how-to-use-blob-storage.md)
 * [如何通过 Node.js 使用 Blob 存储](../blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [如何通过 Python 使用 Blob 存储](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure 存储博客文章：
-* [Announcing AzCopy on Linux Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)（宣布推出 Linux 上的 AzCopy 预览版）
+* [Announcing AzCopy on Linux Preview](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)（宣布推出 Linux 上的 AzCopy 预览版）
 * [Introducing Azure Storage Data Movement Library Preview（Azure 存储数据移动库预览版简介）](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introducing synchronous copy and customized content type（AzCopy：引入了同步复制和自定义内容类型）](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support（AzCopy：宣布公开发行支持表和文件的 AzCopy 3.0 增强预览版本 AzCopy 4.0）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)（AzCopy：优化大规模复制的方案）
-* [AzCopy: Support for read-access geo-redundant storage（AzCopy：支持读取访问异地冗余存储）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)（AzCopy：使用可重启的模式和 SAS 令牌传输数据）
-* [AzCopy: Using cross-account Copy Blob（AzCopy：使用跨帐户复制 Blob）](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploading/downloading files for Azure Blobs（AzCopy：为 Azure Blob 上传/下载文件）](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy:Introducing synchronous copy and customized content type](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)（AzCopy：同步复制和自定义内容类型简介）
+* [AzCopy:Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)（AzCopy：宣布公开发行支持表和文件的 AzCopy 3.0 增强预览版本 AzCopy 4.0）
+* [AzCopy:Optimized for Large-Scale Copy Scenarios](https://go.microsoft.com/fwlink/?LinkId=507682)（AzCopy：针对大规模复制方案进行优化）
+* [AzCopy:Support for read-access geo-redundant storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)（AzCopy：支持读取访问异地冗余存储）
+* [AzCopy:Transfer data with restartable mode and SAS token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)（AzCopy：使用可重启的模式和 SAS 令牌传输数据）
+* [AzCopy:Using cross-account Copy Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)（AzCopy：使用跨帐户复制 Blob）
+* [AzCopy:Uploading/downloading files for Azure Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)（AzCopy：为 Azure Blob 上传/下载文件）

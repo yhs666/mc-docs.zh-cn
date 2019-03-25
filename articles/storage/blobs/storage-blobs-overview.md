@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: overview
 origin.date: 11/19/2018
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.component: blobs
-ms.openlocfilehash: 89da18a054cd502acd7a8df0712b740998d6312b
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: blobs
+ms.openlocfilehash: 69a6abd4af7147e7004fdd24c21203185f21530a
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192951"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253893"
 ---
 # <a name="what-is-azure-blob-storage"></a>什么是 Azure Blob 存储？ 
 
@@ -23,3 +23,4 @@ ms.locfileid: "54192951"
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Blob 存储简介](storage-blobs-introduction.md)
+- [Azure Data Lake Storage Gen2 预览版简介](../blobs/data-lake-storage-introduction.md)

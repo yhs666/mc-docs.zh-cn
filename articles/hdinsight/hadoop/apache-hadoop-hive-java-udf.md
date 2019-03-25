@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/15/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: eb2bc116c48caad138a420bb0012f516f21c769a
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 8b5194512679ae22143693a953a657c37cb48666
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560488"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348560"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>将 Java UDF 与 HDInsight 中的 Apache Hive 配合使用
 
@@ -214,12 +214,15 @@ ms.locfileid: "57560488"
 
     该命令假定你使用默认的群集登录帐户 **admin**。
 
-2. 显示 `jdbc:hive2://localhost:10001/>` 提示符后，输入以下代码将 UDF 添加到 Hive，并将其作为函数公开。
+2. 当到达 `jdbc:hive2://localhost:10001/>` 提示符时，输入以下代码将 UDF 添加到 Hive，并将其作为函数公开。
 
     ```hiveql
     ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
+
+    > [!NOTE]
+    > 此示例假定 Azure 存储为群集的默认存储。 如果群集改用 Data Lake Storage Gen2，请将 `wasb:///` 值更改为 `abfs:///`。 
 
 3. 使用该 UDF 将从表中检索的值转换为小写字符串。
 

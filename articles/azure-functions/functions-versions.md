@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/03/2018
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2ef39711f2a1f3649fd3be5dea3b8fbc26e79b45
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 80c9e511f9dd4445fe78100c9248a7ef3b1a99df
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254038"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256358"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 
@@ -50,7 +50,7 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 
 ### <a name="changes-in-triggers-and-bindings"></a>触发器和绑定的更改
 
-版本 2.x 要求为应用中的函数所用的特定触发器和绑定安装扩展。 唯一的例外是 HTTP 和计时器触发器，它们不需要扩展。  有关详细信息，请参阅[注册和安装绑定扩展](./functions-bindings-expressions-patterns.md)。
+版本 2.x 要求为应用中的函数所用的特定触发器和绑定安装扩展。 唯一的例外是 HTTP 和计时器触发器，它们不需要扩展。  有关详细信息，请参阅[注册和安装绑定扩展](./functions-bindings-register.md)。
 
 此外，在不同的版本中，函数的 `function.json` 或属性存在几处更改。 例如，事件中心的 `path` 属性现在为 `eventHubName`。 请参阅[现有绑定表](#bindings)，以获取每个绑定的文档链接。
 
@@ -60,17 +60,17 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 
 在版本 2.x 中做出了以下更改：
 
-- 用于调用 HTTP 终结点的密钥始终以加密方式存储在 Azure Blob 存储中。 在版本 1.x 中，密钥默认存储在 Azure 文件存储中。 将应用从版本 1.x 升级到版本 2.x 时，会重置文件存储中的现有机密。
+* 用于调用 HTTP 终结点的密钥始终以加密方式存储在 Azure Blob 存储中。 在版本 1.x 中，密钥默认存储在 Azure 文件存储中。 将应用从版本 1.x 升级到版本 2.x 时，会重置文件存储中的现有机密。
 
-- 2.x 版运行时不包含对 Webhook 提供程序的内置支持。 做出此项更改的目的是提高性能。 仍可以使用 HTTP 触发器作为 Webhook 的终结点。
+* 2.x 版运行时不包含对 Webhook 提供程序的内置支持。 做出此项更改的目的是提高性能。 仍可以使用 HTTP 触发器作为 Webhook 的终结点。
 
-- 主机配置文件 (host.json) 应该为空或包含字符串 `"version": "2.0"`。
+* 主机配置文件 (host.json) 应该为空或包含字符串 `"version": "2.0"`。
 
-- 函数应用中的所有函数必须共享相同的语言。 创建函数应用时，必须选择该应用的运行时堆栈。 运行时堆栈由应用程序设置中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 值指定。 增加此项要求的目的是减少占用空间和启动时间。 进行本地开发时，还必须在 [local.settings.json 文件](functions-run-local.md#local-settings-file)中包含此设置。
+* 函数应用中的所有函数必须共享相同的语言。 创建函数应用时，必须选择该应用的运行时堆栈。 运行时堆栈由应用程序设置中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 值指定。 增加此项要求的目的是减少占用空间和启动时间。 进行本地开发时，还必须在 [local.settings.json 文件](functions-run-local.md#local-settings-file)中包含此设置。
 
-- 应用服务计划中函数的默认超时已更改为 30 分钟。 可以使用 host.json 中的 [functionTimeout](functions-host-json.md#functiontimeout) 设置，将超时手动改回到无限。
+* 应用服务计划中函数的默认超时已更改为 30 分钟。 可以使用 host.json 中的 [functionTimeout](functions-host-json.md#functiontimeout) 设置，将超时手动改回到无限。
 
-- 由于 [.NET Core 的限制](https://github.com/Azure/azure-functions-host/issues/3414)，已删除对 F# 脚本 (.fsx) 函数的支持。 编译的 F# 函数 (.fs) 仍受支持。
+* 由于 [.NET Core 的限制](https://github.com/Azure/azure-functions-host/issues/3414)，已删除对 F# 脚本 (.fsx) 函数的支持。 编译的 F# 函数 (.fs) 仍受支持。
 
 ### <a name="migrating-a-locally-developed-application"></a>迁移本地开发的应用程序
 
@@ -90,7 +90,7 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 ##### <a name="version-2x"></a>版本 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -110,11 +110,11 @@ Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EX
 
 2.x 版运行时使用新的[绑定扩展性模型](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)，该模型具有以下优势：
 
-- 支持第三方绑定扩展。
+* 支持第三方绑定扩展。
 
-- 运行时和绑定分离。 此项更改允许对绑定扩展进行版本控制和单独发布操作。 例如，可以选择升级到依赖于基础 SDK 的较新版本的扩展版本。
+* 运行时和绑定分离。 此项更改允许对绑定扩展进行版本控制和单独发布操作。 例如，可以选择升级到依赖于基础 SDK 的较新版本的扩展版本。
 
-- 更轻便的执行环境，其中运行时仅知道和加载正在使用的绑定。
+* 更轻便的执行环境，其中运行时仅知道和加载正在使用的绑定。
 
 除 HTTP 和计时器触发器外，其他所有绑定必须显式添加到函数应用项目，或者在门户中注册。 有关详细信息，请参阅[注册绑定扩展](./functions-bindings-expressions-patterns.md)。
 
@@ -122,12 +122,15 @@ Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EX
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
+
 ## <a name="next-steps"></a>后续步骤
 
 有关详细信息，请参阅以下资源：
 
-- [在本地对 Azure Functions 进行编码和测试](functions-run-local.md)
-- [如何面向 Azure Functions 运行时版本](set-runtime-version.md)
-- [发行说明](https://github.com/Azure/azure-functions-host/releases)
+* [在本地对 Azure Functions 进行编码和测试](functions-run-local.md)
+* [如何面向 Azure Functions 运行时版本](set-runtime-version.md)
+* [发行说明](https://github.com/Azure/azure-functions-host/releases)
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: wording update -->

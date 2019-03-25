@@ -5,16 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 07/31/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8876ca8ca5ed4cea1b0e765ed43abd67533322fd
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: e19e7e7f8997f4fac7f8ec0639f0fcdfb7f8685c
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135506"
 ---
 # <a name="what-is-azure-policy"></a>什么是 Azure Policy？
 
@@ -59,6 +59,9 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - **不允许的资源类型**：禁止部署资源类型的列表。
 
 若要实现这些策略定义（包括内置定义和自定义定义），需将其分配出去。 可通过 Azure 门户、PowerShell 或 Azure CLI 来分配上述任意策略。
+
+策略评估采用多种不同的操作，例如策略分配或策略更新。 有关完整列表，请参阅[策略评估触发器](./how-to/get-compliance-data.md#evaluation-triggers)。
+
 若要了解有关策略定义结构的详细信息，请查看[策略定义结构](./concepts/definition-structure.md)。
 
 ## <a name="policy-assignment"></a>策略分配
@@ -132,12 +135,6 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - 创建计划分配后，添加到该计划中的策略定义也将成为该计划分配的一部分。
 
 - 评估计划分配后，还会评估计划内的所有策略。 如果需要单独评估某个策略，最好不要将其包含在计划中。
-
-## <a name="video-overview"></a>视频概述
-
-以下 Azure Policy 概述来自 Build 2018。 若要下载幻灯片或视频，请访问第 9 频道的 [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)（通过 Azure Policy 治理 Azure 环境）。
-
-
 
 ## <a name="next-steps"></a>后续步骤
 

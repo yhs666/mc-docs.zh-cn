@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 650b681763c1d558830a6064385e6722cc5794e4
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 61483043447b6e65b4a1147105ac180c246c7eda
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663579"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318968"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？
 
@@ -108,6 +108,8 @@ Azure 行业领先的 99.99% 可用性服务级别协议 [(SLA)](https://azure.c
 ### <a name="automatic-performance-monitoring-and-tuning"></a>自动性能监视和优化
 
 SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库会学习用户的数据库模式，使用户能够根据工作负荷调整数据库架构。 SQL 数据库[提供性能优化建议](sql-database-advisor.md)，可在其中查看并应用优化操作。
+
+然而，持续监视数据库是一项艰巨且乏味的任务，尤其是在处理多个数据库时。 [Intelligent Insights](sql-database-intelligent-insights.md) 通过大规模地自动监视 SQL 数据库性能并就性能下降问题发出通知来为你完成此作业，它确定问题的根本原因并在可能的情况下提供性能改进建议。
 
 可能无法高效管理大量数据库，即使使用 SQL 数据库和 Azure 门户提供的所有可用工具和报表也一样。 可考虑使用[自动优化](sql-database-automatic-tuning.md)将某些监视和优化操作委派给 SQL 数据库，而不是手动监视和优化数据库。 SQL 数据库自动应用建议、测试，并验证每个优化操作，确保性能持续提升。 这样一来，SQL 数据库将以受控且安全的方式自动适应工作负荷。 自动优化是指在每次优化操作前后仔细监视和比较数据库性能，如果性能未得到提升，则还原优化操作。
 

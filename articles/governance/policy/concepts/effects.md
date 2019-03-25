@@ -5,17 +5,17 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 010db8e87e462d8eacb720a7985aa7df864949b6
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 33a00c52b695a7cba15202aa71ae41ed399445af
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903308"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135496"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -46,7 +46,7 @@ Policy 首先评估通过 Azure 资源管理器创建或更新资源的请求。
 
 ### <a name="append-evaluation"></a>“附加”评估
 
-在创建或更新资源期间，会在资源提供程序处理请求之前进行“附加”评估。 当满足策略规则的 **if** 条件时，“附加”会向资源添加字段。 如果“附加”效果使用其他值替代原始请求中的值，则它会充当拒绝效果并拒绝该请求。
+在创建或更新资源期间，会在资源提供程序处理请求之前进行“附加”评估。 当满足策略规则的 **if** 条件时，“附加”会向资源添加字段。 如果“附加”效果使用其他值替代原始请求中的值，则它会充当拒绝效果并拒绝该请求。 若要将新值附加到现有数组，请使用别名的 **[\*]** 版本。
 
 当使用附加效果的策略定义作为评估周期的一部分运行时，它不会更改已存在的资源。 相反，它会将符合 if 条件的任意资源标记为不符合。
 
@@ -267,6 +267,11 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
   - 如果任何匹配的相关资源评估结果为 true，该效果就会得到满足并且不会触发部署。
   - 可以使用 [field()] 检查 if 条件中的值的等效性。
   - 例如，可用于验证父资源（位于 if 条件中）与匹配的相关资源位于相同的资源位置。
+- **DeploymentScope**（可选）
+  - 允许的值为 Subscription 和 ResourceGroup。
+  - 设置要触发的部署类型。 _Subscription_ 指示[在订阅级别部署](../../../azure-resource-manager/deploy-to-subscription.md)，_ResourceGroup_ 指示部署到资源组。
+  - 使用订阅级别部署时，必须在 _Deployment_ 中指定 _location_ 属性。
+  - 默认值是 ResourceGroup。
 - **Deployment** [必选]
   - 该属性应包含完整的模板部署，因为它将传递给 `Microsoft.Resources/deployments` PUT API。 有关详细信息，请参阅[部署 REST API](https://docs.microsoft.com/rest/api/resources/deployments)。
 
@@ -328,7 +333,7 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
 
 ## <a name="layering-policies"></a>分层策略
 
-资源可能会受到多个分配的影响。 这些分配可能处于相同范围（特定资源、资源组、订阅或管理组）或处于不同范围内。 每个不同的范围。 这些分配中的每一个也可能具有不同的定义效果。 将单独评估每个策略的条件和效果。 例如：
+资源可能会受到多个分配的影响。 这些分配可能处于相同或不同的范围。 这些分配中的每一个也可能具有不同的定义效果。 将单独评估每个策略的条件和效果。 例如：
 
 - 策略 1
   - 将资源位置限制为“chinanorth”

@@ -11,14 +11,14 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0a5071bbdb9fcf5b5e7e272df498f9a89499c16d
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 3815d184beed0bba52e75cb4d133c6d7cf666fc3
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569282"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348589"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Hive 查询
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
 在 Azure HDInsight 中，有多种群集类型和技术可以运行 Apache Hive 查询。 创建 HDInsight 群集时，选择适当的群集类型有助于根据工作负荷的需求优化性能。 
 
@@ -40,9 +40,9 @@ ms.locfileid: "53569282"
 
 有关缩放 HDInsight 的详细信息，请参阅[缩放 HDInsight 群集](hdinsight-scaling-best-practices.md)
 
-## <a name="use-tez-instead-of-map-reduce"></a>使用 Tez 而不是映射化简
+## <a name="use-apache-tez-instead-of-map-reduce"></a>使用 Apache Tez 而不是 Map Reduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) 是 MapReduce 引擎的替代执行引擎。 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
+[Apache Tez](https://hortonworks.com/hadoop/tez/) 是 MapReduce 引擎的替代执行引擎。 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -54,7 +54,7 @@ Tez 速度更快，因为：
 * **重复使用容器**。 Tez 会尽可能地重复使用容器，以确保降低由于启动容器而产生的延迟。
 * **连续优化技术**。 传统上，优化是在编译阶段完成的。 但是，由于可以提供有关输入的详细信息，因此可以在运行时更好地进行优化。 Tez 使用连续优化技术，从而可以在运行时阶段进一步优化计划。
 
-有关这些概念的详细信息，请参阅 [Apache TEZ](http://hortonworks.com/hadoop/tez/)。
+有关这些概念的详细信息，请参阅 [Apache TEZ](https://hortonworks.com/hadoop/tez/)。
 
 可以使用以下 set 命令设置查询的前缀，来执行 Tez 支持的任何 Hive 查询：
 
@@ -172,7 +172,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
     FROM lineitem;
    ```
    
-可在 [Hive 语言手册](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)中阅读有关 ORC 格式的详细信息。
+可在 [Apache Hive 语言手册](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)中阅读有关 ORC 格式的详细信息。
 
 ## <a name="vectorization"></a>向量化
 
@@ -197,9 +197,9 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 在本文中，学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
 * [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
-* [使用 HDInsight 中的 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
-* [使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据](hadoop/apache-hive-analyze-sensor-data.md)
-* [将 Hive 与 HDInsight 配合使用来分析来自网站的日志](hadoop/apache-hive-analyze-website-log.md)
+* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
+* [使用 HDInsight 中 Apache Hadoop上的 Apache Hive 查询控制台分析传感器数据](hadoop/apache-hive-analyze-sensor-data.md)
+* [将 Apache Hive 与 HDInsight 配合使用来分析来自网站的日志](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 56f1cd87f8246c7ef4fb4c0b34a71de640b4d764
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: e6ce9584b4b562122a0e8c393a1925f693f56fca
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665408"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253919"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -134,7 +134,7 @@ SKU 名称指示用于存储帐户的复制类型，如 LRS（本地冗余存储
 
 * SKU 是存储帐户的复制设置，例如 LRS（对于本地冗余存储）。 例如，可能会从标准\_LRS 更改为标准\_GRS 或标准\_RAGRS。 请注意，无法将 Standard\_ZRS 或 Premium\_LRS 更改为其他 SKU，反之亦然。
 
-* Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热存储层和冷存储层](../blobs/storage-blob-storage-tiers.md)。
+* Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热、冷存储层和存档存储层](../blobs/storage-blob-storage-tiers.md)。
 
 * 仅允许 HTTPS 流量。 
 

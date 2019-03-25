@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 origin.date: 11/27/2018
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d6f2cd70f8790d9f7f6e224d32c7d7863926c9af
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: fb8a0629e737e332c5fc0978a051438c54da0180
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192816"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348171"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用维护计划管理服务更新和维护
 
@@ -50,6 +50,8 @@ ms.locfileid: "54192816"
 
 - [详细了解](viewing-maintenance-schedule.md)如何查看维护计划。 
 - [详细了解](changing-maintenance-schedule.md)如何更改维护计划。
+- [详细了解](/azure-monitor/platform/alerts-metric)如何使用 Azure Monitor 创建、查看和管理警报。
+- [详细了解](/azure-monitor/platform/alerts-log-webhook)用于日志警报规则的 Webhook 操作。
 - [深入了解](/monitoring-and-diagnostics/monitoring-action-groups)创建和管理操作组。
 - [详细了解](/service-health/service-health-overview) Azure 服务运行状况。
 

@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/20/2019
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 8cae129f580e0b1784431dd9d08c7f27187b3e70
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 38c9a554ded9bd124ad9c810842e26aef3a80d5c
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836989"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318878"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 资源创建自定义角色
 
@@ -93,6 +93,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Support/*"

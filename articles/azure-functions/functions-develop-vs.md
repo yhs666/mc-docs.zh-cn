@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 origin.date: 10/08/2018
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 648e27a13487623a80a6bc21db34b1e67785f97a
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 568a5298141737f0c210825019d407327c506773
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254044"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256370"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -24,11 +24,11 @@ ms.locfileid: "57254044"
 
 Azure Functions 工具提供以下优势： 
 
-- 在本地开发计算机上编辑、生成和运行函数。 
-- 将 Azure Functions 项目直接发布到 Azure。 
-- 使用 Web 作业属性在 C# 代码中直接声明函数绑定，而无需单独维护绑定定义的 function.json。
-- 开发和部署预先编译的 C# 函数。 与基于 C# 脚本的函数相比，预先编译的函数的冷启动性能更好。 
-- 可以在 C# 中编写函数的代码，同时利用 Visual Studio 开发环境的所有优势。 
+* 在本地开发计算机上编辑、生成和运行函数。 
+* 将 Azure Functions 项目直接发布到 Azure。 
+* 使用 Web 作业属性在 C# 代码中直接声明函数绑定，而无需单独维护绑定定义的 function.json。
+* 开发和部署预先编译的 C# 函数。 与基于 C# 脚本的函数相比，预先编译的函数的冷启动性能更好。 
+* 可以在 C# 中编写函数的代码，同时利用 Visual Studio 开发环境的所有优势。 
 
 本文详细介绍了如何使用 Azure Functions Tools for Visual Studio 2017 开发 C# 函数并将其发布到 Azure。 在阅读本文之前，应先完成 [Visual Studio 的函数快速入门](functions-create-your-first-function-visual-studio.md)。 
 
@@ -47,9 +47,9 @@ Azure Functions 工具包含在 [Visual Studio 2017 版本 15.5](https://www.vis
 
 若要创建和部署函数，还需要：
 
-- 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-- 一个 Azure 存储帐户。 若要创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
+* 一个 Azure 存储帐户。 若要创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
 
 ### <a name="check-your-tools-version"></a>检查工具版本
 
@@ -79,9 +79,9 @@ Azure Functions 工具包含在 [Visual Studio 2017 版本 15.5](https://www.vis
 
 此项目模板创建 C# 项目，安装 `Microsoft.NET.Sdk.Functions` NuGet 包，并设置目标框架。 Functions 1.x 面向 .NET Framework，而 Functions 2.x 则面向 .NET Standard。 新项目包含以下文件：
 
-- **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行时，都会应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
+* **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行时，都会应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
 
-- **local.settings.json**：维护本地运行函数时使用的设置。 Azure 不使用这些设置，它们由 [Azure Functions 核心工具](functions-run-local.md)使用。 使用此文件为函数所需的变量指定应用设置。 针对项目中的函数绑定所需的每个连接，将新项添加到 **Values** 数组。 有关详细信息，请参阅“Azure Functions 核心工具”一文中的[本地设置文件](functions-run-local.md#local-settings-file)。
+* **local.settings.json**：维护本地运行函数时使用的设置。 Azure 不使用这些设置，它们由 [Azure Functions 核心工具](functions-run-local.md)使用。 使用此文件为函数所需的变量指定应用设置。 针对项目中的函数绑定所需的每个连接，将新项添加到 **Values** 数组。 有关详细信息，请参阅“Azure Functions 核心工具”一文中的[本地设置文件](functions-run-local.md#local-settings-file)。
 
     >[!IMPORTANT]
     >由于 local.settings.json 文件可能包含机密，因此必须将其从项目源代码管理中排除。 此文件的“复制到输出目录”设置应始终为“如果较新则复制”。 
@@ -202,16 +202,14 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 还可以采用以下这些其他方法之一来管理应用程序设置：
 
-- [使用 Azure 门户](functions-how-to-use-azure-function-app-settings.md#settings)。
-- [使用 `--publish-local-settings` 发布 Azure Functions Core Tools 中的选项](functions-run-local.md#publish)。
-- [使用 Azure CLI](/cli/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。
+* [使用 Azure 门户](functions-how-to-use-azure-function-app-settings.md#settings)。
+* [使用 `--publish-local-settings` 发布 Azure Functions Core Tools 中的选项](functions-run-local.md#publish)。
+* [使用 Azure CLI](/cli/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。
 
 ## <a name="next-steps"></a>后续步骤
-
-有关 Azure Functions 工具的详细信息，请参阅 [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/)（用于 Azure Functions 的 Visual Studio 2017 工具）博客文章中的“Common Questions”（常见问题）部分。
 
 若要详细了解 Azure Functions 核心工具，请参阅[在本地编写 Azure 函数代码并对其进行测试](functions-run-local.md)。
 
 若要了解有关以 .NET 类库开发函数的详细信息，请参阅 [Azure Functions C# 开发人员参考](functions-dotnet-class-library.md)。 本文还举例说明了如何使用属性来声明 Azure Functions 支持的各种类型的绑定。    
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

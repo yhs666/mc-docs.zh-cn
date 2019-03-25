@@ -7,15 +7,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 06/13/2018
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: queues
-ms.openlocfilehash: 29fc8c8d6ec860cf63cff2fa1733ac3f4bb5a194
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 92feb25dcd6baf7ebd731c457ba5a82d9400eba4
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665687"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253929"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

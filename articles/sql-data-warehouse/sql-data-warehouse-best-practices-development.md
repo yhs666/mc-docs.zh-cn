@@ -6,16 +6,16 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 10/15/2018
+ms.subservice: implement
+origin.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a2f85664bfd56cd3e24743b3fa7ec6a6ffa7beb1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d68a3199ac20687fc5b6cca6a3502f11e28c19df
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663261"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348044"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库开发最佳做法
 本文介绍在开发数据仓库解决方案时的指导和最佳做法。 
@@ -108,4 +108,4 @@ ms.locfileid: "52663261"
 [Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
+[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/

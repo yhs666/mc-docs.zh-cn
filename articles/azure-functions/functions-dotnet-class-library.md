@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/12/2018
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 312b30e09267fc4fb53ae27ef7f8d12fa77e48a6
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 35eb28cbed0c7fd8bde6f172ff9037c6f55f592c
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254047"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256377"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -29,15 +29,15 @@ Azure Functions 支持 C# 和 C# 脚本编程语言。 如果要寻找有关[在
 
 本文假设你已阅读了以下文章：
 
-- [Azure Functions 开发人员指南](functions-reference.md)
-- [Azure Functions Visual Studio 2017 工具](functions-develop-vs.md)
+* [Azure Functions 开发人员指南](functions-reference.md)
+* [Azure Functions Visual Studio 2017 工具](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions 类库项目
 
 在 Visual Studio 中，**Azure Functions** 项目模板会创建一个 C# 类库项目，它包含以下文件：
 
-- [host.json](functions-host-json.md) - 存储着在本地或者在 Azure 中运行时会影响项目中的所有函数的配置设置。
-- [local.settings.json](functions-run-local.md#local-settings-file) - 存储着在本地运行时使用的应用设置和连接字符串。 此文件包含机密且不会发布到 Azure 中的函数应用中。 必须[向函数应用添加应用设置](functions-develop-vs.md#function-app-settings)。
+* [host.json](functions-host-json.md) - 存储着在本地或者在 Azure 中运行时会影响项目中的所有函数的配置设置。
+* [local.settings.json](functions-run-local.md#local-settings-file) - 存储着在本地运行时使用的应用设置和连接字符串。 此文件包含机密且不会发布到 Azure 中的函数应用中。 必须[向函数应用添加应用设置](functions-develop-vs.md#function-app-settings)。
 
 生成项目时，在生成输出目录中生成如下所示的文件夹结构：
 
@@ -81,10 +81,10 @@ public static class SimpleExample
 
 方法签名可能包含不与触发器属性一起使用的参数。 下面是可以包括的一些其他参数：
 
-- [输入和输出绑定](functions-triggers-bindings.md)通过使用属性修饰来进行此类标记。  
-- 用于[日志](#logging)的 `ILogger` 或 `TraceWriter`（仅限[版本 1.x](functions-versions.md#creating-1x-apps)）参数。
-- 用于[正常关闭](#cancellation-tokens)的 `CancellationToken` 参数。
-- 用于获取触发器元数据的[绑定表达式](./functions-bindings-expressions-patterns.md)参数。
+* [输入和输出绑定](functions-triggers-bindings.md)通过使用属性修饰来进行此类标记。  
+* 用于[日志](#logging)的 `ILogger` 或 `TraceWriter`（仅限[版本 1.x](functions-versions.md#creating-1x-apps)）参数。
+* 用于[正常关闭](#cancellation-tokens)的 `CancellationToken` 参数。
+* 用于获取触发器元数据的[绑定表达式](./functions-bindings-expressions-patterns.md)参数。
 
 函数签名中的参数顺序并不重要。 例如，可以在其他绑定之前或之后放置触发器参数，也可以在触发器或绑定参数之前或之后添加记录器参数。
 
@@ -174,7 +174,7 @@ Functions 运行时的 1.x 版本和 2.x 版本使用相同的包。 1.x 项目�
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -409,4 +409,5 @@ public static class IBinderExampleMultipleAttributes
 > [!div class="nextstepaction"]
 > [详细了解有关 Azure Functions 的最佳做法](functions-best-practices.md)
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: wording update -->

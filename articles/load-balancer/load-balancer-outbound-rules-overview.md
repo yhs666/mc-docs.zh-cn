@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/19/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 35126dfd3c526db27c1b0f190ebbec10df65cd32
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 5edbd07657d9724b35be8b96b6bc6a43ce48ebc3
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836914"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348690"
 ---
 # <a name="load-balancer-outbound-rules"></a>负载均衡器出站规则
 
@@ -198,6 +198,7 @@ disableOutboundSNAT 参数默认为 false，这意味着，负载均衡规则**�
 - 可配置的出站空闲超时范围为 4 到 120 分钟（240 到 7200 秒）。
 - 负载均衡器不支持将 ICMP 用于出站 NAT。
 - 不能使用门户来配置或查看出站规则。  请改为使用模板、REST API、Az CLI 2.0 或 PowerShell。
+- 出站规则只能应用于主 NIC 和主 IP 配置。
 
 ## <a name="next-steps"></a>后续步骤
 

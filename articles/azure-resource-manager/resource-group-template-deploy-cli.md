@@ -10,15 +10,15 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/30/2019
-ms.date: 02/18/2019
+origin.date: 02/14/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67a7a54fc4180027e63a548899b41922cf1a005e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 52f0e6317f881e3b8e8a0e58beef5112c6f5c177
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306190"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348028"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -93,7 +93,9 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-对于失败的部署，可以指定从部署历史记录自动重新部署以前的部署。 若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
+部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `--rollback-on-error` 参数。
+
+若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
 
 若要重新部署最后一个成功的部署，请将 `--rollback-on-error` 参数添加为标志。
 

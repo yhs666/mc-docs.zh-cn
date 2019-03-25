@@ -12,14 +12,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/28/2019
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7531d81fd6562d541fa3a01be1820af66a385cab
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 02c2eabc1734688344131216c05a4cbe59e593a1
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302958"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348658"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Apache Hadoop 技术堆栈
 

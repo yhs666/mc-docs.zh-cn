@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/15/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 3cd862263a716165eab74198196a840bf018655f
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: db4de24220b771201fec7fd492a6da62db217544
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663738"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318919"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
 使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。 以下 JSON 方案在 Azure SQL 数据库中可用：
@@ -191,7 +191,7 @@ END
 ## <a name="next-steps"></a>后续步骤
 要了解如何将 JSON 集成到应用程序中，请参阅以下资源：
 
-* [TechNet 博客](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [TechNet 博客](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN 文档](https://msdn.microsoft.com/library/dn921897.aspx)
 * [第 9 频道视频](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

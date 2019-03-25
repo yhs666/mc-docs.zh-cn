@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/05/2018
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 010c77b23935f29ccc84cf9099451c2bec4504c5
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/01/2019
+ms.openlocfilehash: 2628bdde756ba6e0d0f5b76abea252f7f09b7c9d
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906071"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348535"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 读取和写入 Apache HBase 数据
 
@@ -229,9 +229,9 @@ ms.locfileid: "54906071"
 
 3. 将新数据数组保存到 HBase：
 
-        sc.parallelize(newData).toDF.write
-        .options(Map(HBaseTableCatalog.tableCatalog -> catalog))
-        .format("org.apache.spark.sql.execution.datasources.hbase").save()
+    ```scala
+    sc.parallelize(newData).toDF.write.options(Map(HBaseTableCatalog.tableCatalog -> catalog)).format("org.apache.spark.sql.execution.datasources.hbase").save()
+    ```
 
 4. 检查结果：
     

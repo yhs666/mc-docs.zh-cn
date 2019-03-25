@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 99785d264259d2df60a4024ebf1dd6b34f933604
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 03/04/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: 2076b0c837472b7ec4bb0d722565709eb37cb6e8
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663606"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319001"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -58,8 +58,8 @@ DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段�
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>使用 Powershell cmdlet 为数据库设置动态数据屏蔽
 
-请参阅 [Azure SQL 数据库 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql)。
+请参阅 [Azure SQL 数据库 Cmdlet](https://docs.microsoft.com/powershell/module/az.sql)。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
 
-请参阅[对 Azure SQL 数据库的操作](https://msdn.microsoft.com/library/dn505719.aspx)。
+请参阅[对 Azure SQL 数据库的操作](https://docs.microsoft.com/rest/api/sql/)。

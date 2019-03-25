@@ -10,12 +10,12 @@ origin.date: 05/15/2017
 ms.date: 02/25/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: bedb88c3f0f0f5da49089bd6ebf74cddbd437f5f
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 8d6781debc365729a13b32231f1cd4f01e5de8f8
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665525"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253930"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共享访问签名，第 2 部分：创建 SAS 并将其用于 Blob 存储
 
@@ -34,7 +34,7 @@ ms.locfileid: "56665525"
 **应用程序 2**：客户端应用程序。 使用第一个应用程序创建的共享访问签名访问容器和 Blob 资源。 仅使用共享访问签名访问容器和 Blob 资源--它不包括存储帐户访问密钥。
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>第 1 部分：创建控制台应用程序以便生成共享访问签名
-首先，确保安装了 Azure .NET 存储客户端库。 可以安装 [NuGet 包](https://www.nuget.org/packages/WindowsAzure.Storage/)，其中包含客户端库的最新程序集。 这是确保具有最新修补程序的建议方法。 还可以通过下载包含该客户端库的最新 [Azure SDK for .NET](/downloads/)版本来下载该客户端库。
+首先，确保安装了 Azure .NET 存储客户端库。 可以安装包含该客户端库最新程序集的 [NuGet 包](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 包")。 这是确保具有最新修补程序的建议方法。 还可以通过下载包含该客户端库的最新 [Azure SDK for .NET](/downloads/)版本来下载该客户端库。
 
 在 Visual Studio 中，创建一个新的 Windows 控制台应用程序并将其命名为 **GenerateSharedAccessSignatures**。 使用以下方法之一添加对 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 和 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 的引用：
 

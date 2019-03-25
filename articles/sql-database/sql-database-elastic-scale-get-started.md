@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sstein
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 53f61ff8b4f378a3b3a921e1dade60663fe6e008
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: c6d06acee40724ff9b3e7844b8bdf51140aff7a9
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663745"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319016"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
 
@@ -132,7 +132,7 @@ ms.locfileid: "56663745"
   * 弹性数据库工具（[.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)）
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)（Azure SQL 的弹性数据库工具 - 实体框架集成）
   * [脚本中心上的分片弹性](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* 博客：[弹性缩放公告](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+* 博客：[弹性缩放公告](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * 第 9 频道：[弹性缩放概述视频](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * 讨论论坛：[Azure SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)
 * 衡量性能：[分片映射管理器的性能计数器](sql-database-elastic-database-client-library.md)

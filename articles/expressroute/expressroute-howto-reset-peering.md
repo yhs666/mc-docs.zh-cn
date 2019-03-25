@@ -1,5 +1,5 @@
 ---
-title: 重置 Azure ExpressRoute 对等互连 | Microsoft Docs
+title: 重置线路对等互连 - ExpressRoute：Azure
 description: 如何禁用和启用 ExpressRoute 线路的对等互连。
 services: expressroute
 author: charwen
@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 08/15/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 39734d52eb14da21f275da44fb063d1a9c9a2135
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/01/2018
+ms.openlocfilehash: 3307453e69f38bfa07f1796ab54bc728c34e8041
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646089"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348520"
 ---
-# <a name="reset-expressroute-peerings"></a>重置 ExpressRoute 对等互连
+# <a name="reset-expressroute-circuit-peerings"></a>重置 ExpressRoute 线路对等互连
 
 本文介绍如何使用 PowerShell 禁用和启用 ExpressRoute 线路的对等互连。 禁用对等互连后，ExpressRoute 线路的主连接和辅助连接上的 BGP 会话都将关闭。 你将无法通过此对等互连连接到 Microsoft。 启用对等互连后，ExpressRoute 线路的主连接和辅助连接上的 BGP 会话都将启动。 你将能够通过此对等互连再次连接到 Microsoft。 可单独对 ExpressRoute 线路启用和禁用 Microsoft 对等互连和 Azure 专用对等互连。 在 ExpressRoute 线路上初次配置对等互连时，将默认启用对等互连。 
 
@@ -23,30 +23,30 @@ ms.locfileid: "52646089"
 * 测试灾难恢复设计和实现。 例如，你有两条 ExpressRoute 线路。 可以禁用一条线路的对等互连，并强制网络流量故障转移到另一条线路。
 * 对 ExpressRoute 线路的 Azure 专用对等互连启用双向转发检测 (BFD)。 如果 ExpressRoute 线路在 2018 年 8 月 1 日之后创建，将默认启用 BFD。 如果线路在此之前创建，则未启用 BFD。 可以通过禁用对等互连并重新启用它来启用 BFD。 应注意，BFD 仅在 Azure 专用对等互连上受支持。
 
+### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 ## <a name="reset-a-peering"></a>重置对等互连
 
-1. 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。
-
-2. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
+1. 如果在本地运行 PowerShell，请使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
 
   ```powershell
-  Connect-AzureRmAccount -Environment AzureChinaCloud
+  Connect-AzAccount -Environment AzureChinaCloud
   ```
 3. 如果有多个 Azure 订阅，请查看该帐户的订阅。
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 4. 指定要使用的订阅。
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 5. 运行以下命令，检索 ExpressRoute 线路。
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 6. 标识要禁用或启用的对等互连。 对等互连是一个数组。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Azure 公共对等互连。
 
@@ -135,7 +135,7 @@ GatewayManagerEtag               :
 
   ```powershell
   $ckt.Peerings[0].State = "Disabled"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 对等互连应处于设定的某种状态。 
 

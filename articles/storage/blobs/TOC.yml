@@ -38,6 +38,8 @@ items:
         href: storage-quickstart-blobs-python.md
       - name: JS/HTML
         href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: Go
+        href: storage-quickstart-blobs-go.md
       - name: Ruby
         href: storage-quickstart-blobs-ruby.md
   - name: 教程
@@ -58,6 +60,8 @@ items:
         href: storage-blob-scalable-app-upload-files.md
       - name: 3 - 从 Azure 存储帐户下载大型数据
         href: storage-blob-scalable-app-download-files.md
+      - name: 4 - 验证吞吐量和延迟指标
+        href: storage-blob-scalable-app-verify-metrics.md
     - name: 设计应用程序以提供高可用性
       items:
       - name: 1 - 使应用程序具有高可用性
@@ -112,6 +116,8 @@ items:
         href: ../common/storage-network-security.md?toc=%2fstorage%2fblobs%2ftoc.json
       - name: 静态数据加密
         href: ../common/storage-service-encryption.md?toc=%2fstorage%2fblobs%2ftoc.json
+      - name: 使用客户密钥进行静态加密
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fstorage%2fblobs%2ftoc.json
       - name: 为 Azure 存储客户端启用安全 TLS
         href: ../common/storage-security-tls.md?toc=%2fstorage%2fblobs%2ftoc.json
       - name: 需要安全传输
@@ -249,7 +255,7 @@ items:
       items:
       - name: 使用 Azure AD 进行身份验证
         items:
-        - name: 使用 RBAC 管理访问权限
+        - name: 在 Azure 门户中使用 RBAC 管理访问权限
           href: ../common/storage-auth-aad-rbac.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 将 Azure AD 标识与 CLI 或 PowerShell 配合使用
           href: ../common/storage-auth-aad-script.md?toc=%2fstorage%2fblobs%2ftoc.json
@@ -459,6 +465,8 @@ items:
         href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fstorage%2fblobs%2ftoc.json
       - name: 静态数据加密
         href: ../common/storage-service-encryption.md?toc=%2fstorage%2fblobs%2ftoc.json
+      - name: 使用客户密钥对数据进行静态加密
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fstorage%2fblobs%2ftoc.json
       - name: Access Control
         href: data-lake-storage-access-control.md
   - name: 如何
@@ -485,9 +493,9 @@ items:
       href: https://azure.cn/pricing/details/storage/
     - name: 定价计算器
       href: https://azure.cn/pricing/calculator/
-ms.openlocfilehash: 95f70f45f4c96b51a27a8c1752b11c7e18d08c51
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 3a9715e54b0049df97cca49c977a86c38281d6b8
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665706"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253931"

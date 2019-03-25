@@ -5,24 +5,25 @@ keywords: Azure AD Connect 安装向导允许在第二次运行它时配置维�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 67cc85a3c459b59741b7c7ce4b45886498ca6e83
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0d4a52fcb662a5efe7090f28cbef90ad71d3ee60
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186658"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：再次运行安装向导
 首次运行 Azure AD Connect 安装向导时，该向导将逐步引导配置安装。 如果再次运行安装向导，它会提供维护选项。
@@ -54,16 +55,16 @@ ms.locfileid: "53131768"
 ## <a name="customize-synchronization-options"></a>自定义同步选项
 此选项可用于更改同步配置。 会在自定义配置安装路径中看到一部分选项。 即使最初使用的是快速安装，也会看到此选项。
 
-- [添加更多目录](how-to-connect-install-custom.md#connect-your-directories)。 若要删除目录，请参阅[删除连接器](how-to-connect-sync-service-manager-ui-connectors.md#delete)。
-- [更改域和 OU 筛选](how-to-connect-install-custom.md#domain-and-ou-filtering)。
-- 删除组筛选。
-- [更改可选功能](how-to-connect-install-custom.md#optional-features)。
+* [添加更多目录](how-to-connect-install-custom.md#connect-your-directories)。 若要删除目录，请参阅[删除连接器](how-to-connect-sync-service-manager-ui-connectors.md#delete)。
+* [更改域和 OU 筛选](how-to-connect-install-custom.md#domain-and-ou-filtering)。
+* 删除组筛选。
+* [更改可选功能](how-to-connect-install-custom.md#optional-features)。
 
 初始安装中的其他选项既无法更改，也不能使用。 这些选项包括：
 
-- 更改用于 userPrincipalName 和 sourceAnchor 的属性。
-- 更改不同林中对象的联接方法。
-- 启用基于组的筛选。
+* 更改用于 userPrincipalName 和 sourceAnchor 的属性。
+* 更改不同林中对象的联接方法。
+* 启用基于组的筛选。
 
 ## <a name="refresh-directory-schema"></a>刷新目录架构
 如果已更改其中一个本地 AD DS 林中的架构，则应使用此选项。 例如，可能已安装 Exchange，或升级到包含设备对象的 Windows Server 2012 架构。 在这种情况下，需指示 Azure AD Connect 从 AD DS 再次读取架构并更新其缓存。 此操作还会重新生成同步规则。 举例来说，如果添加 Exchange 架构，配置中就会添加 Exchange 的同步规则。
@@ -73,7 +74,7 @@ ms.locfileid: "53131768"
 ![列出环境中所有目录的页面](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>配置暂存模式
-使用此选项可启用和禁用服务器上的暂存模式。 暂存模式及其使用方式的详细信息可在[操作](how-to-connect-sync-operations.md#staging-mode)中找到。
+使用此选项可启用和禁用服务器上的暂存模式。 暂存模式及其使用方式的详细信息可在[操作](how-to-connect-sync-staging-server.md)中找到。
 
 此选项显示暂存模式当前是已启用还是已禁用：  
 ![同时显示暂存模式当前状态的选项](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
@@ -84,13 +85,14 @@ ms.locfileid: "53131768"
 ## <a name="change-user-sign-in"></a>更改用户登录
 通过此选项，可将用户登录方式改为密码哈希同步或联合。 但不能更改为“不配置”。
 
-有关此选项的详细信息，请参阅[用户登录](plan-connect-user-signin.md#changing-user-sign-in-method)。
+有关此选项的详细信息，请参阅[用户登录](plan-connect-user-signin.md#changing-the-user-sign-in-method)。
 
 ## <a name="next-steps"></a>后续步骤
-- 在[了解声明性设置](concept-azure-ad-connect-sync-declarative-provisioning.md)中了解 Azure AD Connect 同步使用的配置模型的详细信息。
+* 在[了解声明性设置](concept-azure-ad-connect-sync-declarative-provisioning.md)中了解 Azure AD Connect 同步使用的配置模型的详细信息。
 
 **概述主题**
 
-- [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
+<!-- Update_Description: link update -->

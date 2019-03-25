@@ -11,19 +11,19 @@ ms.topic: conceptual
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 12/31/2018
-ms.openlocfilehash: c6a9f713e51d24601bb096578910dea48ec86143
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 04/01/2019
+ms.openlocfilehash: 064cc39f4f34057b136e17da4ca22b37d6f7e6a8
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736686"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348588"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](https://www.windowsondevices.com/)。
 
 还没有工具包？ 试用 [Raspberry Pi 联机模拟器](./iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)购买新工具包。
 
@@ -86,7 +86,7 @@ ms.locfileid: "53736686"
 
 1. 下载 Raspbian。
 
-   a. [下载 Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)（.zip 文件）。
+   a. [下载 Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)（.zip 文件）。
 
    > [!WARNING]
    > 请使用上面的链接来下载 `raspbian-2017-07-5` zip 映像。 Raspbian 映像的最新版本具有与接线 Pi 节点相关的已知问题，这可能会导致在接下来的步骤中发生故障。
@@ -166,7 +166,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    
    **Windows 用户**
   
-   a. 下载并安装 [PuTTY](http://www.putty.org/) for Windows。 
+   a. 下载并安装 [PuTTY](https://www.putty.org/) for Windows。 
 
    b. 将 Pi 的 IP 地址复制到主机名（或 IP 地址）部分，并选择 SSH 作为连接类型。
    
@@ -242,7 +242,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
 
 ## <a name="next-steps"></a>后续步骤
 
-此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息或向 Raspberry Pi 发送消息，请参阅[使用用于 Visual Studio Code 的 Azure IoT 中心工具包扩展在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息或向 Raspberry Pi 发送消息，请参阅[使用用于 Visual Studio Code 的 Azure IoT 工具在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

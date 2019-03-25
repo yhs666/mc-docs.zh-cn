@@ -6,17 +6,17 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 09/25/2018
-ms.date: 10/19/2018
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: a4ca0c9a8fa7dfa5fe18263eedd9209595765553
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a6d6bc58abb1569eb61886a69c43890911d52c38
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648592"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261340"
 ---
-1. 选择 Azure 门户左上角的“新建”按钮，然后选择“计算” > “Function App”。
+1. 选择 Azure 门户左上角的“新建资源”按钮，然后选择“计算” > “Function App”。
 
     ![在 Azure 门户中创建函数应用](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -44,4 +44,3 @@ ms.locfileid: "52648592"
 > [!TIP]
 > 如果在门户中找不到函数应用，请尝试[将 Function App 添加到 Azure 门户中的收藏夹](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)。
 
-<!-- ms.date: 10/19/2018 -->

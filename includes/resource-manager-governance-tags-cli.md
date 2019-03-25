@@ -3,21 +3,20 @@ title: include 文件
 description: include 文件
 services: azure-resource-manager
 author: rockboyfor
-manager: digimobile
 ms.service: azure-resource-manager
 ms.topic: include
 origin.date: 02/20/2018
-ms.date: 04/10/2018
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: df52d275857bfeee8432cef6c0cc34b005c2f8ee
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d1700e3cdee741778d4930f120c96e943c433127
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648681"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352431"
 ---
-若要为资源组添加两个标记，请使用 [az group update](https://docs.microsoft.com/cli/azure/group#az_group_update) 命令：
+若要为资源组添加两个标记，请使用 [az group update](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-update) 命令：
 
 ```azurecli
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT
@@ -86,4 +85,3 @@ az group update -n myResourceGroup --set tags.CostCenter='{"Dept":"IT","Environm
 ```azurecli
 az group update -n myResourceGroup --remove tags
 ```
-<!--ms.date: 04/10/2018-->

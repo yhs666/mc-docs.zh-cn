@@ -12,14 +12,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/15/2017
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 23a35498277a1c906648a18c842313a5c404815f
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 89b5e2921323c74968c082b0fb3fad5d2df28b25
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306256"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348075"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure 资源管理器和经典部署：了解部署模型和资源状态
 
@@ -49,6 +49,7 @@ Azure 在 2014 年引入了 Resource Manager，增加了资源组这一概念。
 添加 Resource Manager 时，所有资源都追溯性地添加到默认资源组。 如果现在通过经典部署创建资源，无论部署时指定资源组与否，资源都会在该服务默认的资源组中自动创建。 但是，资源位于资源组内并不意味着其已转换为 Resource Manager 模型。
 
 ## <a name="understand-support-for-the-models"></a>了解对模型的支持
+
 下面是需要了解的三种情况：
 
 1. 云服务不支持资源管理器部署模型。

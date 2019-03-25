@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 11/14/2018
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: ad74ff2961d6e41fb73a1f232087d651ec33b789
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 75cd26bc653aa74a074f46200acec5767f5b6c9d
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396928"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253923"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入门：使用 .NET 在对象存储中创建 blob
 
@@ -163,6 +163,7 @@ Press any key to delete the sample files and example container.
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -197,7 +198,7 @@ else
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

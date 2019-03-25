@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: cb1b30d6d3d7cd0742c98e0c1a42abffdf09bcbb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bd274f87e1e53c4f13ee71a228c2ac5db5244ced
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651979"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352500"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure 容器注册表中的容器映像存储
 
@@ -54,7 +54,7 @@ Azure 使用异地冗余存储方案来防止容器映像丢失。 Azure 容器�
 
 <!-- LINKS - External -->
 [portal]: https://portal.azure.cn
-[pricing]: http://aka.ms/acr/pricing
+[pricing]: https://www.azure.cn/zh-cn/pricing/details/container-registry/
 
 <!-- LINKS - Internal -->
 

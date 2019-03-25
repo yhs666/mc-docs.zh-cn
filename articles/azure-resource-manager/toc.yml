@@ -23,14 +23,17 @@ items:
   - name: 移动资源
     href: resource-manager-tutorial-move-resources.md
   - name: 设置资源部署顺序
+    displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: 使用条件
     href: resource-manager-tutorial-use-conditions.md
   - name: 集成 Key Vault
+    displayName: secrets
     href: resource-manager-tutorial-use-key-vault.md
   - name: 创建链接模板
     href: resource-manager-tutorial-create-linked-templates.md
   - name: 部署 VM 扩展
+    displayName: virtual machine extensions
     href: resource-manager-tutorial-deploy-vm-extensions.md
   - name: 部署 SQL 扩展
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
@@ -46,26 +49,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: 概念
   items:
-  - name: 模板
-    items:
-    - name: 模板文件结构
-      href: resource-group-authoring-templates.md
-    - name: parameters
-      href: resource-manager-templates-parameters.md
-    - name: 变量
-      href: resource-manager-templates-variables.md
-    - name: 函数
-      href: resource-group-authoring-templates.md#functions
-    - name: 资源
-      href: resource-manager-templates-resources.md
-    - name: Outputs
-      href: resource-manager-templates-outputs.md
-  - name: 指南
-    items:
-    - name: 模板最佳实践
-      href: template-best-practices.md
-    - name: 用于提供云一致性的模板
-      href: templates-cloud-consistency.md
+  - name: 模板文件结构
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
+  - name: 模板最佳实践
+    href: template-best-practices.md
+  - name: 用于提供云一致性的模板
+    href: templates-cloud-consistency.md
   - name: 资源提供程序和类型
     href: resource-manager-supported-services.md
   - name: 管理组
@@ -90,49 +80,58 @@ items:
       href: resource-group-linked-templates.md
     - name: 管理机密
       href: resource-manager-keyvault-parameter.md
+      displayname: key vault
     - name: 创建多个实例
       href: resource-group-create-multiple.md
+    - name: 使用模板扩展
+      href: resource-manager-use-extensions.md
   - name: 部署模板
     items:
-    - name: 使用 Azure 门户进行部署
+    - name: 部署 - 门户
       href: resource-group-template-deploy-portal.md
-    - name: 使用 Azure CLI 进行部署
+    - name: 部署 - CLI
       href: resource-group-template-deploy-cli.md
-    - name: 使用 Azure PowerShell 进行部署
+    - name: 部署 - PowerShell
       href: resource-group-template-deploy.md
-    - name: 使用 REST API 进行部署
+    - name: 部署 - REST API
       href: resource-group-template-deploy-rest.md
-    - name: 导出模板
-      items:
-      - name: 使用门户
-        href: resource-manager-export-template.md
-      - name: 使用 Azure CLI
-        href: resource-manager-export-template-cli.md
-      - name: 使用 Azure PowerShell
-        href: resource-manager-export-template-powershell.md
     - name: 使用 SAS 令牌保护模板
       items:
       - name: 使用 Azure CLI
         href: resource-manager-cli-sas-token.md
-      - name: 使用 PowerShell
+      - name: 使用 Azure PowerShell
         href: resource-manager-powershell-sas-token.md
     - name: 部署到多个资源组或订阅
       href: resource-manager-cross-resource-group-deployment.md
       maintainContext: true
-  - name: 管理资源
+  - name: 管理
     items:
-    - name: 使用 Azure 门户进行管理
-      href: resource-group-portal.md
-    - name: 使用 Azure PowerShell 进行管理
-      href: powershell-azure-resource-manager.md
-    - name: 使用 Azure CLI 进行管理
-      href: cli-azure-resource-manager.md
+    - name: 管理资源组
+      items:
+      - name: 使用 Azure 门户
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-portal.md
+      - name: 使用 Azure CLI
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-cli.md
+      - name: 使用 Azure PowerShell
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-powershell.md
+    - name: 管理资源
+      items:
+      - name: 使用 Azure 门户
+        displayName: open,delete,deploy,move,lock,tag,monitor
+        href: manage-resources-portal.md
+      - name: 使用 Azure CLI
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-cli.md
+      - name: 使用 Azure PowerShell
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-powershell.md
     - name: 移动资源
       href: resource-group-move-resources.md
-      items:
-      - name: 根据资源类型移动支持
-        href: move-support-resources.md
-    - name: 使用标记组织资源
+    - name: 组织资源
+      displayName: tags
       href: resource-group-using-tags.md
     - name: 锁定资源
       href: resource-group-lock-resources.md
@@ -199,8 +198,14 @@ items:
       href: resource-group-template-functions-resource.md
     - name: 字符串函数
       href: resource-group-template-functions-string.md
-  - name: 标记支持
-    href: tag-support.md
+  - name: 资源功能
+    items:
+    - name: 完整模式删除
+      href: complete-mode-deletion.md
+    - name: 移动支持
+      href: move-support-resources.md
+    - name: 标记支持
+      href: tag-support.md
   - name: REST - 资源管理器
     href: https://docs.microsoft.com/rest/api/resources/
   - name: REST - 部署管理器
@@ -213,6 +218,8 @@ items:
     href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.resourcemanager?view=azure-dotnet
   - name: Java
     href: https://docs.azure.cn/java/api/com.microsoft.azure.management.resources
+  - name: Python
+    href: https://docs.microsoft.com/python/api/overview/azure/resources?view=azure-python
 - name: 资源
   items:
   - name: 定价计算器
@@ -222,10 +229,10 @@ items:
   - name: 管理个人数据
     href: resource-manager-personal-data.md
   - name: 视频
-    href: https://www.azure.cn/video-center/
-ms.openlocfilehash: c3dcfe7666934a8ca0255a71c236953340736fa2
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+    href: https://www.azure.cn/zh-cn/video-center/
+ms.openlocfilehash: b1cd68adcf0248c40ae6375d3dd9e3e8a71b6abc
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306239"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348138"

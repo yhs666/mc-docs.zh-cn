@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 78c82a31e7d1d32750aa0966eb1719380eeb30ad
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 88eef3847615316c0cb124bdbf9ee6becd2c8e44
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254051"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256376"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -47,15 +47,15 @@ ms.locfileid: "57254051"
 
 参阅语言特定的示例：
 
-- [C# 读取一个实体](#input---c-example---one-entity)
-- [C# 绑定到 IQueryable](#input---c-example---iqueryable)
-- [C# 绑定到 CloudTable](#input---c-example---cloudtable)
-- [C# 脚本读取一个实体](#input---c-script-example---one-entity)
-- [C# 脚本绑定到 IQueryable](#input---c-script-example---iqueryable)
-- [C# 脚本绑定到 CloudTable](#input---c-script-example---cloudtable)
-- [F#](#input---f-example)
-- [JavaScript](#input---javascript-example)
-- [Java](#input---java-example)
+* [C# 读取一个实体](#input---c-example---one-entity)
+* [C# 绑定到 IQueryable](#input---c-example---iqueryable)
+* [C# 绑定到 CloudTable](#input---c-example---cloudtable)
+* [C# 脚本读取一个实体](#input---c-script-example---one-entity)
+* [C# 脚本绑定到 IQueryable](#input---c-script-example---iqueryable)
+* [C# 脚本绑定到 CloudTable](#input---c-script-example---cloudtable)
+* [F#](#input---f-example)
+* [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example---one-entity"></a>输入 - C# 示例 - 一个实体
 
@@ -423,7 +423,7 @@ module.exports = function (context, myQueueItem) {
 @FunctionName("getallcount")
 public int run(
    @HttpTrigger(name = "req",
-                 methods = {"get"},
+                 methods = {HttpMethod.GET},
                  authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
    @TableInput(name = "items",
                 tableName = "mytablename",  partitionKey = "myparkey",
@@ -438,7 +438,7 @@ public int run(
  
 在 [C# 类库](functions-dotnet-class-library.md)中，请使用以下属性来配置表输入绑定：
 
-- [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
   该特性的构造函数采用表名称、分区键和行键。 可对函数的 out 参数或返回值使用该特性，如以下示例中所示：
 
@@ -468,7 +468,7 @@ public int run(
 
   有关完整示例，请参阅“输入 - C#”示例。
 
-- [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   提供另一种方式来指定要使用的存储帐户。 构造函数采用包含存储连接字符串的应用设置的名称。 可以在参数、方法或类级别应用该特性。 以下示例演示类级别和方法级别：
 
@@ -486,11 +486,11 @@ public int run(
 
 要使用的存储帐户按以下顺序确定：
 
-- `Table` 特性的 `Connection` 属性。
-- 作为 `Table` 特性应用到同一参数的 `StorageAccount` 特性。
-- 应用到函数的 `StorageAccount` 特性。
-- 应用到类的 `StorageAccount` 特性。
-- 函数应用的默认存储帐户（“AzureWebJobsStorage”应用设置）。
+* `Table` 特性的 `Connection` 属性。
+* 作为 `Table` 特性应用到同一参数的 `StorageAccount` 特性。
+* 应用到函数的 `StorageAccount` 特性。
+* 应用到类的 `StorageAccount` 特性。
+* 函数应用的默认存储帐户（“AzureWebJobsStorage”应用设置）。
 
 ## <a name="input---java-annotations"></a>输入 - Java 注释
 
@@ -518,18 +518,18 @@ public int run(
 
 表存储输入绑定支持以下方案：
 
-- **在 C# 或 C# 脚本中读取一行**
+* **在 C# 或 C# 脚本中读取一行**
 
   设置 `partitionKey` 和 `rowKey`。 使用方法参数 `T <paramName>` 访问表数据。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 `T` 通常是实现 `ITableEntity` 或派生自 `TableEntity` 的类型。 此方案中不使用 `filter` 和 `take` 属性。 
 
-- **在 C# 或 C# 脚本中读取一行或多行**
+* **在 C# 或 C# 脚本中读取一行或多行**
 
   使用方法参数 `IQueryable<T> <paramName>` 访问表数据。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 `T` 必须是实现 `ITableEntity` 或派生自 `TableEntity` 的类型。 可以使用 `IQueryable` 方法执行任何所需的筛选。 此方案中不使用 `partitionKey`、`rowKey`、`filter` 和 `take` 属性。  
 
   > [!NOTE]
   > [Functions v2 运行时](functions-versions.md)不支持 `IQueryable`。 一种替代方法是[使用 CloudTable paramName 方法参数](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)通过 Azure 存储 SDK 来读取表。 如果在尝试绑定到 `CloudTable` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
-- **在 JavaScript 中读取一行或多行**
+* **在 JavaScript 中读取一行或多行**
 
   设置 `filter` 和 `take` 属性。 不要设置 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<name>` 访问输入一个或多个输入表实体。 反序列化的对象具有 `RowKey` 和 `PartitionKey` 属性。
 
@@ -544,10 +544,10 @@ public int run(
 
 参阅语言特定的示例：
 
-- [C#](#output---c-example)
-- [C# 脚本 (.csx)](#output---c-script-example)
-- [F#](#output---f-example)
-- [JavaScript](#output---javascript-example)
+* [C#](#output---c-example)
+* [C# 脚本 (.csx)](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -776,17 +776,17 @@ public static MyPoco TableOutput(
 
 表存储输出绑定支持以下方案：
 
-- **以任何语言编写一行**
+* **以任何语言编写一行**
 
   在 C# 和 C# 脚本中，可以使用 `out T paramName` 等方法参数或函数返回值访问输出表实体。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 如果 *function.json* 文件或 `Table` 特性提供了分区键和行键，则 `T` 可以是任何可序列化类型。 否则，`T` 必须是包含 `PartitionKey` 和 `RowKey` 属性的类型。 在此方案中，`T` 通常实现 `ITableEntity` 或派生自 `TableEntity`，但不一定非要这样。
 
-- **用 C# 或 C# 脚本写入一行或多行**
+* **用 C# 或 C# 脚本写入一行或多行**
 
   在 C# 和 C# 脚本中，可以使用方法参数 `ICollector<T> paramName` 或 `IAsyncCollector<T> paramName` 访问输出表实体。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 `T` 指定要添加的实体的架构。 通常，`T` 派生自 `TableEntity` 或实现 `ITableEntity`，但不一定非要这样。 此方案不使用 *function.json* 中的分区键和行键值，也不使用 `Table` 特性构造函数。
 
   一种替代方法是使用 `CloudTable` 方法参数通过 Azure 存储 SDK 来写入表。 如果在尝试绑定到 `CloudTable` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。 有关绑定到 `CloudTable` 的代码的示例，请参阅本文前面的 [C#](#input---c-example---cloudtable) 或 [C# 脚本](#input---c-script-example---cloudtable)的输入绑定示例。
 
-- **在 JavaScript 中写入一行或多行**
+* **在 JavaScript 中写入一行或多行**
 
   在 JavaScript 函数中，可以使用 `context.bindings.<name>` 访问表输出。
 
@@ -803,4 +803,4 @@ public static MyPoco TableOutput(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

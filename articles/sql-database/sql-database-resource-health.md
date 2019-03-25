@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: a0aacd697d228959b1272de1930f825e60b6734c
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+origin.date: 02/26/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: d9ed8856c61fbd82ce429360135712e30ee99cab
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363753"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318888"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用资源运行状况排查 Azure SQL 数据库的连接问题
 
@@ -54,9 +54,9 @@ ms.locfileid: "54363753"
 
 ### <a name="unknown"></a>Unknown
 
-运行状况为“未知”指示资源运行状况未收到此资源的相关信息已超过 10 分钟。 尽管此状态不是资源状态的最终指示，但它是故障排除过程中一个重要的数据点。
-如果资源正在按预期方式运行，资源状态会在几分钟后更改为“可用”。
-如果资源遇到问题，“未知”运行状态可能暗示平台中的事件正在影响资源。
+运行状况为“未知”指示资源运行状况未收到此资源的相关信息已超过 10 分钟。 尽管此状态不是资源状态的最终指示，但它是故障排除过程中一个重要的数据点。 如果资源正在按预期方式运行，资源状态会在几分钟后更改为“可用”。 如果资源遇到问题，“未知”运行状态可能暗示平台中的事件正在影响资源。
+
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>历史信息
 
@@ -78,5 +78,6 @@ Azure 基础结构定期执行计划内维护 - 升级数据中心内的硬件�
 
 - 详细了解[针对暂时性错误的重试逻辑](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [排查、诊断和预防 SQL 连接错误](./sql-database-connectivity-issues.md)
+- 详细了解如何[配置资源运行状况警报](../service-health/resource-health-alert-arm-template-guide.md)
 - 获取[资源运行状况](../service-health/resource-health-overview.md)的概述
 - [资源运行状况常见问题解答](../service-health/resource-health-faq.md)

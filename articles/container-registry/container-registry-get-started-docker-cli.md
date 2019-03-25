@@ -7,19 +7,19 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/23/2019
-ms.date: 02/18/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 3f090009cb2c235f29e3268fd58dd11a87295e93
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 55883649a20d163c2647a34490ac3f5e2f9718ae
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440045"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352508"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
-Azure 容器注册表存储和管理专用 [Docker](http://hub.docker.com) 容器映像，其方式类似于 [Docker Hub](https://hub.docker.com/) 存储公共 Docker 映像。 可以使用 [Docker 命令行接口](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) 对容器注册表执行[登录](https://docs.docker.com/engine/reference/commandline/login/)、[推送](https://docs.docker.com/engine/reference/commandline/push/)、[提取](https://docs.docker.com/engine/reference/commandline/pull/)和其他操作。
+Azure 容器注册表存储和管理专用 [Docker](https://hub.docker.com) 容器映像，其方式类似于 [Docker Hub](https://hub.docker.com/) 存储公共 Docker 映像。 可以使用 [Docker 命令行接口](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) 对容器注册表执行[登录](https://docs.docker.com/engine/reference/commandline/login/)、[推送](https://docs.docker.com/engine/reference/commandline/push/)、[提取](https://docs.docker.com/engine/reference/commandline/pull/)和其他操作。
 
 以下步骤从公共 Docker 中心注册表下载正式的 [Nginx 映像](https://store.docker.com/images/nginx)，为专用 Azure 容器注册表标记该映像，将其推入到注册表，然后从注册表提取。
 
@@ -117,18 +117,20 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.cn/samples/nginx
 docker rmi myregistry.azurecr.cn/samples/nginx
 ```
 
-若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete)。 例如，以下命令删除标记引用的清单、所有关联的层数据，以及引用清单的其他所有标记。
+若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete)。 例如，以下命令删除 `samples/nginx:latest` 标记引用的清单、所有唯一的层数据以及引用此清单的其他所有标记。
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-了解基础知识后，便可以开始使用注册表了！
+了解基础知识后，便可以开始使用注册表了！ 例如，将容器映像从注册表部署到：
 
 <!-- Not Available on  Deploy container images from your registry to:-->
-<!-- Not Available on * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)-->
+
+* [Azure Kubernetes 服务 (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+
 <!-- Not Available on * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)-->
 <!-- Not Available on * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)-->
 <!-- Update_Description: update meta properties, wording update -->

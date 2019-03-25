@@ -4,24 +4,25 @@ description: 介绍如何对 Azure AD Connect 同步中的配置进行更改。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/30/2018
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 179e4097cdd2b622125d5372e4f0b4a4e1b68c96
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 31dd78d45a00e248e028d630c9a3692addd02ec4
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186683"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：更改默认配置
 本文旨在介绍如何对 Azure Active Directory (Azure AD) Connect 同步中的默认配置进行更改。其中提供了一些常见方案的步骤。 了解这些知识后，用户应该能够根据自己的业务规则对自己的配置进行简单的更改。
@@ -60,13 +61,13 @@ ms.locfileid: "53996277"
 1. 单击“添加新规则” 。
 2. 在“说明”页上输入以下内容：  
    ![入站规则筛选](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   - **名称**：为规则提供说明性名称。
-   - **说明**：提供一些说明以便他人可以理解规则的用途。
-   - **连接的系统**：这是可从中找到对象的系统。 在本例中，请选择“Active Directory 连接器”。
-   - **连接的系统/Metaverse 对象类型**：分别选择“用户”和“人员”。
-   - **链接类型**：将该值更改为“联接”。
-   - **优先级**：提供在系统中唯一的值。 较低的数值表示较高的优先级。
-   - **标记**：将此项留空。 只有 Microsoft 中现成可用的规则应该会要求在此框中填入值。
+   * **名称**：为规则提供说明性名称。
+   * **说明**：提供一些说明以便他人可以理解规则的用途。
+   * **连接的系统**：这是可从中找到对象的系统。 在本例中，请选择“Active Directory 连接器”。
+   * **连接的系统/Metaverse 对象类型**：分别选择“用户”和“人员”。
+   * **链接类型**：将该值更改为“联接”。
+   * **优先级**：提供在系统中唯一的值。 较低的数值表示较高的优先级。
+   * **标记**：将此项留空。 只有 Microsoft 中现成可用的规则应该会要求在此框中填入值。
 3. 在“范围筛选器”页上，输入“givenName ISNOTNULL”。  
    ![入站规则范围筛选器](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    此部分用于定义规则应该应用到哪些对象。 如果留空，该规则会应用到所有用户对象。 但也可包括会议室、服务帐户和其他非个人用户对象。
@@ -294,7 +295,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
     | 流类型 | 目标属性 | 源 | 应用一次 | 合并类型 |
     | --- | --- | --- | --- | --- |
-    | 直接 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | 未选中 | 更新 |
+    | 表达式 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | 未选中 | 更新 |
 
 7. 单击“添加”创建入站规则。
 
@@ -397,12 +398,12 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
 
 ## <a name="next-steps"></a>后续步骤
-- 在 [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
-- 在[了解声明性预配表达式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)中阅读有关表达式语言的详细信息。
+* 在 [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
+* 在[了解声明性预配表达式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)中阅读有关表达式语言的详细信息。
 
 **概述主题**
 
-- [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
 <!-- Update_Description: wording update -->

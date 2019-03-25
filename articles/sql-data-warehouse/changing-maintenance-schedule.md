@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-origin.date: 10/15/2018
-ms.date: 11/26/2018
+ms.subservice: design
+origin.date: 11/14/2018
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 9389549b5493b7ee304a5c2c422fb27330fc5195
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: c050c1ffb58d95cd65b01d94d8d77d8d34a27180
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397068"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348098"
 ---
 # <a name="change-a-maintenance-schedule"></a>更改维护计划 
 
@@ -54,6 +54,7 @@ ms.locfileid: "54397068"
    ![有关区域可用性的消息](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
 
 ## <a name="next-steps"></a>后续步骤
+- [详细了解](/azure-monitor/platform/alerts-log-webhook)用于日志警报规则的 Webhook 操作。
 - [详细了解](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure 服务运行状况。
 
 

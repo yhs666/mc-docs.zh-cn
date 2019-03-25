@@ -10,17 +10,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 02/16/2019
-ms.date: 03/05/2019
+ms.date: 03/19/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d5de4b52a2bb4dafb68f23b2064850889576b8
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 8838876c82ef9e1dea75e79b666aee700b842088
+ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187484"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -206,7 +206,6 @@ ms.locfileid: "57462383"
 | **操作** | **说明** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | 更新 Azure Active Directory 中组织的基本属性。 |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | 更新 Azure Active Directory 中的 organization.trustedCAsForPasswordlessAuth 属性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 读取和配置 Azure 服务运行状况。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 创建和管理 Azure 支持票证。 |
 | microsoft.commerce.billing/allEntities/allTasks | 管理 Office 365 计费的各个方面。 |
@@ -306,14 +305,12 @@ ms.locfileid: "57462383"
 | microsoft.azure.supportTickets/allEntities/allTasks | 创建和管理 Azure 支持票证。 |
 | microsoft.commerce.billing/allEntities/allTasks | 管理 Office 365 计费的各个方面。 |
 | microsoft.intune/allEntities/allTasks | 管理 Intune 的各个方面。 |
-| microsoft.office365.webPortal/allEntities/basic/read | 读取 microsoft.office365.webPortal 中所有资源的基本属性。 |
 | microsoft.office365.complianceManager/allEntities/allTasks | 管理 Office 365 合规性管理器的各个方面 |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | 管理桌面分析的各个方面。 |
 | microsoft.office365.exchange/allEntities/allTasks | 管理 Exchange Online 的各个方面。 |
 | microsoft.office365.lockbox/allEntities/allTasks | 管理 Office 365 客户密码箱的各个方面 |
 | microsoft.office365.messageCenter/messages/read | 读取 microsoft.office365.messageCenter 中的消息。 |
 | microsoft.office365.messageCenter/securityMessages/read | 读取 microsoft.office365.messageCenter 中的安全消息。 |
-| microsoft.powerApps.powerBI/allEntities/allTasks | 管理 Power BI 的各个方面。 |
 | microsoft.office365.protectionCenter/allEntities/allTasks | 管理 Office 365 防护中心的各个方面。 |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | 创建和删除所有资源，然后读取和更新 microsoft.office365.securityComplianceCenter 中的标准属性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 读取和配置 Office 365 服务运行状况。 |
@@ -321,7 +318,9 @@ ms.locfileid: "57462383"
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | 管理 Skype for Business Online 的各个方面。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 创建和管理 Office 365 支持票证。 |
 | microsoft.office365.usageReports/allEntities/read | 阅读 Office 365 使用情况报告。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 读取 microsoft.office365.webPortal 中所有资源的基本属性。 |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | 管理 Dynamics 365 的各个方面。 |
+| microsoft.powerApps.powerBI/allEntities/allTasks | 管理 Power BI 的各个方面。 |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | 读取 microsoft.windows.defenderAdvancedThreatProtection 中的所有资源。 |
 
 ### <a name="compliance-administrator"></a>符合性管理员

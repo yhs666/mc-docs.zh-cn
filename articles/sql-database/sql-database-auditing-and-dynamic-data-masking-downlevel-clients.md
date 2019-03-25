@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 01/14/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: f402b3f881c3573cf732d89fc60b6681688b258b
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/25/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: 64f2d10d5a336250aa3264329d4a3dc85942bc9e
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663700"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318960"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL 数据库 - 针对表审核的下层客户端支持和 IP 终结点更改
 
@@ -29,6 +29,7 @@ ms.locfileid: "56663700"
 对于支持 TDS 重定向的 SQL 客户端，可以自动使用[数据库审核](sql-database-auditing.md)。 请注意，使用 Blob 审核方法时，重定向不适用。
 
 ## <a id="subheading-1"></a>下层客户端支持
+
 任何实现了 TDS 7.4 的客户端同样应当支持重定向。 例外情况包括不完全支持重定向功能的 JDBC 4.0 以及未实现重定向的 Tedious（适用于 Node.JS）。
 
 对于“下层客户端”，即支持 TDS 7.3 版和更低版本的客户端 — 应修改连接字符串中的服务器 FQDN：
@@ -47,6 +48,7 @@ ms.locfileid: "56663700"
 **注释：** 上面的服务器 FQDN 修改可能还可用于应用 SQL Server 级别的审核策略，而无需在每个数据库中进行配置（临时缓解）。
 
 ## <a id="subheading-2"></a>IP 终结点在启用审核时更改
+
 请注意，启用表审核时，数据库的 IP 终结点将发生更改。 如果具有严格的防火墙设置，请相应地更新这些防火墙设置。
 
 新的数据库 IP 终结点取决于数据库区域：

@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 01/24/2019
-ms.date: 02/18/2019
+ms.date: 03/19/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 74e7863eee48789e4d90797957709a60244c10f3
-ms.sourcegitcommit: 791c712e00a5ee97aa71b20c3b94c92ce181dc16
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 902c7d6af949294ca97683321d7088e2a6bddff6
+ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187485"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 审核活动参考
 
@@ -62,7 +63,7 @@ Azure AD 中的报告体系结构由以下部分组成：
 |访问评审|更新 Azure AD 访问评审加入状态|
 |访问评审|更新访问评审邮件通知设置|
 |访问评审|更新访问评审再评计数设置|
-|访问评审|更新访问评审再评持续时间（天）设置|
+|访问评审|更新以天为单位的访问评审再评持续时间设置|
 |访问评审|更新访问评审再评结束类型设置|
 |访问评审|更新访问评审再评类型设置|
 |访问评审|更新访问评审提醒设置|

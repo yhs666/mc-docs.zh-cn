@@ -6,19 +6,19 @@ author: WenJason
 ms.service: storage
 ms.topic: quickstart
 origin.date: 02/01/2019
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: e886688d97389df94b2a000e80d1a5ae7c9ef066
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 7491e5e3ce1c6bdb61eb589e6f63bc9eaa16ba7a
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196553"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253899"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>快速入门：通过 Windows 虚拟机创建和管理 Azure 文件共享
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>快速入门：使用 Windows 虚拟机创建和管理 Azure 文件存储共享
 
-本文演示创建和使用 Azure 文件共享的基本步骤。 本快速入门重点介绍如何快速设置 Azure 文件共享，以便可以体验该服务的工作原理。 如需有关在自己环境中创建和使用 Azure 文件共享的更多详细说明，请参阅[在 Windows 中使用 Azure 文件共享](storage-how-to-use-files-windows.md)。
+本文演示创建和使用 Azure 文件存储共享的基本步骤。 本快速入门重点介绍如何快速设置 Azure 文件存储共享，以便可以体验该服务的工作原理。 如需有关在自己环境中创建和使用 Azure 文件共享的更多详细说明，请参阅[在 Windows 中使用 Azure 文件共享](storage-how-to-use-files-windows.md)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 

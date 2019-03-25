@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 09/24/2018
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: a36836b67d3c49790a698672a60f12f8dd32e617
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 89d2e1b766e7e90fb40c5b7a6226ef6057cc8f3f
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903274"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352504"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>使用 Azure 容器注册表作为应用程序图表的 Helm 存储库
 
@@ -24,9 +24,7 @@ ms.locfileid: "56903274"
 本文介绍如何使用 Azure 容器注册表中存储的 Helm 图表存储库。
 
 > [!IMPORTANT]
-> 此功能目前以预览版提供。 需同意补充使用条款才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。
-
-<!--Not Available on [supplemental terms of use][terms-of-use]-->
+> 此功能目前以预览版提供。 需同意[补充使用条款][terms-of-use]才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -142,7 +140,7 @@ $ helm inspect myacrhelm/wordpress
 appVersion: 4.9.8
 description: Web publishing platform for building blogs and websites.
 engine: gotpl
-home: http://www.wordpress.com/
+home: https://www.wordpress.com/
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
 - wordpress
@@ -232,7 +230,7 @@ az acr helm repo add
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [develop-helm-charts]: https://docs.helm.sh/developing_charts/
 [semver2]: https://semver.org/
-<!--Not Available on [terms-of-use]: https://www.azure.cn/support/legal/preview-supplemental-terms/-->
+[terms-of-use]: https://www.azure.cn/support/legal/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

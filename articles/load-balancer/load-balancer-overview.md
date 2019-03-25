@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/11/2019
-ms.date: 01/21/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 0fc345e2a0a4dbe093d9f50f7372b941eec9dbae
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 5f42838021e012902380c4dd186401eff6f313dd
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333854"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348613"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 

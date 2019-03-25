@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 origin.date: 11/06/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: e0ecb060484c07a602db0bf4d2cb75660c19965f
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 2b82bc56b6b0bbced7af5929d265329267ac9344
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806630"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348626"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询
 

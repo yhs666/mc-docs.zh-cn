@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 55a08b382a9a6c75fbc96a4358353d8d46bcb122
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 6b9b05fae0d91a86080de53f48402e7b3ccc803d
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029166"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348590"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>使用 REST 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业
 

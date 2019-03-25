@@ -6,18 +6,18 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/06/2017
-ms.date: 11/05/2018
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: b6219126971df0003d86002051e7431ce15b9c34
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 6d572d4b766b74627dd3ce1e49a00f865403d08e
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653603"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253892"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
-Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。
+Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在免费试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。
 
 我们只提供了可用的 Azure 存储客户端工具的快照。 这些工具的功能可能会不断改进和扩展。 如果有任何更正或更新，请发表评论告知我们。 同样，如果认为还应在此处列出其他工具，也请发表评论告知我们 - 我们会很乐意添加它们。
 
@@ -108,7 +108,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata：Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -122,7 +122,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Azure Explorer</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate：Azure 资源管理器</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -178,7 +178,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="http://clumsyleaf.com">ClumsyLeaf：AzureXplorer、CloudXplorer、TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

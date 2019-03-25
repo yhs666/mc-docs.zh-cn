@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 12/07/2018
-ms.date: 02/18/2019
+origin.date: 02/25/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: a9cb2d35d8bc7dc2f02858efbd779e850e4d25ec
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: f1da3e9b639903cba06ce5f35ad91bcf3bb337c8
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306247"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348035"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -37,8 +37,6 @@ ms.locfileid: "56306247"
 > * 验证部署
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -195,6 +193,8 @@ ms.locfileid: "56306247"
 ```
 
 ## <a name="deploy-the-template"></a>部署模板
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)部分。 改用以下 PowerShell 部署脚本：
 

@@ -5,23 +5,24 @@ services: active-directory
 keywords: 什么是 Azure AD Connect, 安装 Active Directory, Azure AD 所需的组件
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 10/04/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: bdcff5c7e490dd75e291cffa3cf8ab27d443c80a
-ms.sourcegitcommit: a3cde3b41ed4d3f39a30eb4e562d6436a3e4d9d5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b05dba023ecf83f1a6740037cd5db5c6fdefda40
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53131771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186681"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
@@ -190,9 +191,9 @@ Azure 中国区目前不支持单一登录 (SSO)。
 ## <a name="configuring-federation-with-ad-fs"></a>配置与 AD FS 的联合
 使用 Azure AD Connect 配置 AD FS 非常简单，只需单击几下鼠标即可。 配置之前需要做好以下准备。
 
-- 已启用远程管理的、用作联合服务器的 Windows Server 2012 R2 或更高版服务器
-- 已启用远程管理的、用作 Web 应用程序代理服务器的 Windows Server 2012 R2 或更高版服务器
-- 要使用的联合身份验证服务名称（例如 sts.contoso.com）的 SSL 证书
+* 已启用远程管理的、用作联合服务器的 Windows Server 2012 R2 或更高版服务器
+* 已启用远程管理的、用作 Web 应用程序代理服务器的 Windows Server 2012 R2 或更高版服务器
+* 要使用的联合身份验证服务名称（例如 sts.contoso.com）的 SSL 证书
 
 >[!NOTE]
 >可以使用 Azure AD Connect 更新 AD FS 场的 SSL 证书，即使不使用它来管理联合身份验证信任。
@@ -239,8 +240,8 @@ Azure 中国区目前不支持单一登录 (SSO)。
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>指定 AD FS 服务的服务帐户
 AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory 中查找用户信息。 它可以支持两种类型的服务帐户：
 
-- **组托管服务帐户** - Active Directory 域服务中随 Windows Server 2012 一起引入。 此类型的帐户提供 AD FS 之类的服务，让可以使用单个帐户，且不需要定期更新帐户密码。 如果 AD FS 服务器所属的域中已有 Windows Server 2012 域控制器，请使用此选项。
-- 域用户帐户 - 此类型的帐户会要求你提供密码，并在密码更改或过期时定期更新密码。 仅当 AD FS 服务器所属的域中没有 Windows Server 2012 域控制器时，才使用此选项。
+* **组托管服务帐户** - Active Directory 域服务中随 Windows Server 2012 一起引入。 此类型的帐户提供 AD FS 之类的服务，让可以使用单个帐户，且不需要定期更新帐户密码。 如果 AD FS 服务器所属的域中已有 Windows Server 2012 域控制器，请使用此选项。
+* 域用户帐户 - 此类型的帐户会要求你提供密码，并在密码更改或过期时定期更新密码。 仅当 AD FS 服务器所属的域中没有 Windows Server 2012 域控制器时，才使用此选项。
 
 如果选择了组托管的服务帐户且从未在 Active Directory 中使用过此功能，则系统会提示输入企业管理员凭据。 这些凭据用于启动密钥存储，以及在 Active Directory 中启用该功能。
 
@@ -295,7 +296,6 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 
 ### <a name="verify-federation-login"></a>验证联合登录
 最后，可以通过登录到联合域来验证新配置的联合登录流。 如果此操作成功，则说明已成功配置了使用 PingFederate 的联合身份验证。
-
 ![验证登录](./media/how-to-connect-install-custom/ping4.png)
 
 ## <a name="configure-and-verify-pages"></a>配置和验证页面
@@ -316,19 +316,19 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 
 在过渡模式下，可以对同步引擎进行所需的更改，并复查要导出的内容。 如果配置看起来正常，请再次运行安装向导，并禁用过渡模式。 现在，已将数据从此服务器导出到 Azure AD。 确保同时禁用其他服务器，以便只有一台服务器在主动导出。
 
-有关详细信息，请参阅[过渡模式](how-to-connect-sync-operations.md#staging-mode)。
+有关详细信息，请参阅[过渡模式](how-to-connect-sync-staging-server.md)。
 
 ### <a name="verify-your-federation-configuration"></a>验证联合配置
 单击“验证”按钮时，Azure AD Connect 会验证 DNS 设置。
 
 **Intranet 连接检查**
 
-- 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。 如果 Azure AD Connect 无法解析 FQDN，验证会失败。 确保提供联合身份验证服务 FQDN 的 DNS 记录，以便成功完成验证。
-- DNS A 记录：Azure AD Connect 会检查是否存在联合身份验证服务的 A 记录。 在没有 A 记录的情况下，验证会失败。 请为联合 FQDN 创建 A 记录而不是 CNAME 记录，以便成功完成验证。
+* 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。 如果 Azure AD Connect 无法解析 FQDN，验证会失败。 确保提供联合身份验证服务 FQDN 的 DNS 记录，以便成功完成验证。
+* DNS A 记录：Azure AD Connect 会检查是否存在联合身份验证服务的 A 记录。 在没有 A 记录的情况下，验证会失败。 请为联合 FQDN 创建 A 记录而不是 CNAME 记录，以便成功完成验证。
 
 **Extranet 连接检查**
 
-- 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。
+* 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。
 
 ![完成](./media/how-to-connect-install-custom/completed.png)
 

@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5c345ea25e5b96e0be83215e3b33f4d4bfeddeab
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 27c64ea2d4caebdf738ee7a247d60d185329191f
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306139"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348107"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在订阅级别创建资源组和资源
 
 通常情况下，你可将 Azure 资源部署到 Azure 订阅中的资源组。 但是，你还可以创建 Azure 资源组，并在订阅级别创建 Azure 资源。 若要在订阅级别部署模板，请使用 Azure CLI 和 Azure PowerShell。 Azure 门户不支持在订阅级别部署。
 
-若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。 可在订阅级别部署的资源包括：[策略](../azure-policy/azure-policy-introduction.md)和[基于角色的访问控制](../role-based-access-control/overview.md)。
+若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。 可以在订阅级别部署的资源包括：[策略](../governance/policy/overview.md)和[基于角色的访问控制](../role-based-access-control/overview.md)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -311,8 +311,6 @@ New-AzDeployment `
 ### <a name="define-and-assign-policy"></a>定义和分配策略
 
 可以在同一模板中[定义](../governance/policy/concepts/definition-structure.md)和分配策略。
-
-<!-- URL direct From ../azure-policy/policy-definition.md to ../governance/policy/concepts/definition-structure.md-->
 
 ```json
 {

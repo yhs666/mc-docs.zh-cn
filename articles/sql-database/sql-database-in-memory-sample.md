@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/18/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 25a650717b0d5c7364d8160644ec49b25192d781
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 67f50e434ebb3fe605e0237bca3eec24514dab89
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663741"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318974"
 ---
 # <a name="in-memory-sample"></a>内存中示例
 
@@ -184,7 +184,7 @@ end
 有关详细信息，请参阅：
 - [内存中 OLTP 的示例数据库](https://msdn.microsoft.com/library/mt465764.aspx)中的 ostress.exe 介绍。
 - [内存中 OLTP 的示例数据库](https://msdn.microsoft.com/library/mt465764.aspx)。
-- [有关安装 ostress.exe 的博客](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
+- [有关安装 ostress.exe 的博客](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
 
 ### <a name="run-the-inmem-stress-workload-first"></a>首先运行 _inmem 压力工作负荷
 

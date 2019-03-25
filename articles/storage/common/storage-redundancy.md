@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/18/2019
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 3cfb2ecd50c95356b0cc634c5a563949548b2dfd
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: ca12efe40dbee165d4b96583e9cbd16835bc8d09
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196530"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253909"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -38,8 +38,8 @@ ms.locfileid: "57196530"
 | 整个数据中心（区域性或非区域性）不可用                                           | 否                              | 是                              | 是                                  |
 | 区域范围的服务中断                                                                                     | 否                              | 是                              | 是                                  |
 | 整个区域不可用时对数据进行读取访问（远程异地复制区域中） | 否                              | 否                               | 是                                  |
-| 旨在给定年份为对象提供 ___ 的持续性                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） | 至少 99.99999999999999%（16 个 9） |
-| 支持的存储帐户类型                                                                   | GPv1、GPv2、Blob                | GPv1、GPv2、Blob                     | GPv1、GPv2、Blob                     |
+| 旨在给定年份为对象提供 \_\_ 的持续性                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） | 至少 99.99999999999999%（16 个 9） |
+| 支持的存储帐户类型                                                                   | GPv2、GPv1、Blob                | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
 | 读取请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.99%（冷访问层为 99.9%） |
 | 写入请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
 

@@ -8,22 +8,23 @@ services: active-directory
 editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/24/2018
-ms.date: 11/06/2018
+origin.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 977560cac3850cd7bb154e7603888062ae5d4a23
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b13054cef7907f9ea58c7cf7d678e34bd6b1ea2e
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186657"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的应用程序对象和服务主体对象
 
@@ -102,8 +103,8 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.cn
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

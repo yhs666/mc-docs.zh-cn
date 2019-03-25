@@ -7,6 +7,8 @@ items:
     href: sql-database-technical-overview.md
   - name: 选择 Azure SQL 版本
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: 发行说明
+    href: sql-database-release-notes.md
 - name: 快速入门
   items:
   - name: 单一数据库快速入门指南
@@ -201,12 +203,12 @@ items:
       href: sql-database-aad-authentication.md
     - name: 审核
       items:
-      - name: 审核 - 单一数据库和弹性池
+      - name: SQL 数据库审核入门
         href: sql-database-auditing.md
       - name: 审核 - 托管实例
         href: sql-database-managed-instance-auditing.md
-      - name: 表审核（已弃用）
-        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: 审核日志格式
+        href: sql-database-audit-log-format.md
     - name: 动态数据屏蔽
       href: sql-database-dynamic-data-masking-get-started.md
     - name: Always Encrypted
@@ -317,8 +319,6 @@ items:
       href: sql-database-insights-alerts-portal.md
     - name: 排查连接问题
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: 使用 Azure 保管库（已弃用）配置备份保留
-      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: 管理文件空间
       href: sql-database-file-space-management.md
     - name: 使用资源运行状况排查连接问题
@@ -464,7 +464,7 @@ items:
 - name: 参考
   items:
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.sql/#sql
+    href: https://docs.microsoft.com/powershell/module/az.sql
   - name: Azure CLI
     href: https://docs.azure.cn/cli/sql
   - name: .NET
@@ -516,9 +516,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: cadd5a7ab1b39b4071a3f1e5a4d8a78bf3234994
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 512fb822125efb8931b652961e3517d4522cd67f
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347117"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318927"

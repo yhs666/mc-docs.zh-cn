@@ -7,14 +7,15 @@ ms.service: storage
 ms.devlang: Java
 ms.topic: article
 origin.date: 02/28/2017
-ms.date: 09/24/2018
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: b42454a01ccf25c4813171d70fdcbc92283a048c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 9d056e2e0437e2ec1e0aed70c79f3d864134280c
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649379"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253918"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>将 Azure 存储用于 Hudson 持续集成解决方案
 ## <a name="overview"></a>概述
@@ -144,10 +145,10 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 ## <a name="components-used-by-the-blob-service"></a>Blob 服务使用的组件
 以下信息概述了 Blob 服务组件。
 
-* **存储帐户**：对 Azure 存储的所有访问都要通过存储帐户来完成。 存储帐户是访问 blob 的最高级别的命名空间。 一个帐户可以包含无限个容器，只要这些容器的总大小不超过 100 TB 即可。
-* **容器**：一个容器包含一组 blob 集。 所有 blob 必须位于相应的容器中。 一个帐户可以包含无限个容器。 一个容器可以存储无限个 Blob。
-* **Blob**：任何类型和大小的文件。 Azure 存储中可存储两类 Blob：块 Blob 和页 Blob。 大部分文件都是块 blob。 单个块 Blob 最大可以为 200 GB。 本教程使用的是块 Blob。 另一种 blob 类型为页 blob，其大小可达 1 TB，对文件中的一系列字节进行频繁修改时，这种 blob 更加高效。 有关 Blob 的详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx)（了解块 Blob、追加 Blob 和页 Blob）。
-* **URL 格式**：可使用以下 URL 格式对 Blob 寻址：
+* **存储帐户**：对 Azure 存储进行的所有访问都要通过存储帐户完成。 存储帐户是访问 blob 的最高级别的命名空间。 一个帐户可以包含无限个容器，只要这些容器的总大小不超过 100 TB 即可。
+* **容器**：一个容器包含一组 Blob 集。 所有 blob 必须位于相应的容器中。 一个帐户可以包含无限个容器。 一个容器可以存储无数个 Blob。
+* **Blob**：任何类型和大小的文件。 Azure 存储中可存储两类 Blob：块 Blob 和页 Blob。 大部分文件都是块 blob。 单个块 Blob 最大可以为 200 GB。 本教程使用的是块 Blob。 另一种 blob 类型为页 blob，其大小可达 1 TB，对文件中的一系列字节进行频繁修改时，这种 blob 更加高效。 有关 Blob 的详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx)（了解块 Blob、追加 Blob 和页 Blob）。
+* **URL 格式**：使用以下 URL 格式可对 Blob 寻址：
   
     `http://storageaccount.blob.core.chinacloudapi.cn/container_name/blob_name`
   
@@ -160,8 +161,8 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 ## <a name="next-steps"></a>后续步骤
 * [Hudson 简介](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [用于 Java 的 Microsoft Azure 存储 SDK](https://github.com/azure/azure-storage-java)
-* [Azure 存储客户端 SDK 参考](http://azure.github.io/azure-storage-java/)
+* [Azure 存储客户端 SDK 参考](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API（Azure 存储服务 REST API）](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。

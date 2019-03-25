@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 01/16/2019
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 6440752f32aa74fa47da113cc17d20eddc1f321c
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 3f28b56cf1720a2e51e059569fecd2f1295124c9
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306231"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348131"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
@@ -173,7 +173,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 > [!NOTE]
 > 脚本将 SAS 令牌限制为在八小时内使用。 如果需要更多时间来完成本教程，请将到期时间推后。
 
-```azurepowershell
+```powershell
 $projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 $location = Read-Host -Prompt "Enter a location (i.e. chinaeast)"
 
@@ -200,17 +200,17 @@ $storageAccount = New-AzStorageAccount `
 $context = $storageAccount.Context
 
 # Create a container
-New-AzureStorageContainer -Name $containerName -Context $context
+New-AzStorageContainer -Name $containerName -Context $context
 
 # Upload the linked template
-Set-AzureStorageBlobContent `
+Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
     -Blob $fileName `
     -Context $context
 
 # Generate a SAS token
-$templateURI = New-AzureStorageBlobSASToken `
+$templateURI = New-AzStorageBlobSASToken `
     -Context $context `
     -Container $containerName `
     -Blob $fileName `

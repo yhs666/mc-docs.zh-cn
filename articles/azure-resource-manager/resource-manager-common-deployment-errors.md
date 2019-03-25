@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/16/2018
-ms.date: 02/18/2019
+origin.date: 02/15/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9cc4b8c68767c3bf8ec0b012b6ad2a864e9ad02e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 936f1a852318ad406f069474a55b045dcd248e95
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306209"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348117"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -37,8 +37,8 @@ ms.locfileid: "56306209"
 | AccountPropertyCannotBeSet | 查看可用的存储帐户属性。 | [storageAccounts](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | 群集或区域没有可用的资源或无法支持所请求的 VM 大小。 稍后重试请求，或者请求不同的 VM 大小。 | [Linux 预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)、[Windows 预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)和[排查分配失败问题](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 等待并发操作完成。 | |
-| AuthorizationFailed | 帐户或服务主体没有足够的访问权限，无法完成部署。 请检查帐户所属的角色，及其与部署范围相对应的访问权限。 | [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md) |
-| BadRequest | 发送的部署值与资源管理器预期的值不匹配。 请检查内部状态消息，获取故障排除帮助。 | [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)和[支持的位置](resource-manager-templates-resources.md#location) |
+| AuthorizationFailed | 帐户或服务主体没有足够的访问权限，无法完成部署。 请检查帐户所属的角色，及其与部署范围相对应的访问权限。<br><br>所需的资源提供程序未注册时，可能会收到此错误。 | [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)<br><br>[解决注册问题](resource-manager-register-provider-errors.md) |
+| BadRequest | 发送的部署值与资源管理器预期的值不匹配。 请检查内部状态消息，获取故障排除帮助。 | [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)和[支持的位置](resource-group-authoring-templates.md#resource-location) |
 | 冲突 | 在资源的当前状态下不允许所请求的操作。 例如，仅当创建 VM 或该 VM 已取消分配时，才允许磁盘重设大小。 | |
 | DeploymentActive | 等待目标为此资源组的并发部署完成。 | |
 | DeploymentFailed | DeploymentFailed 错误为常规错误，未提供解决错误所需的详细信息。 请查看错误代码的错误详情，其中提供了详细信息。 | [查找错误代码](#find-error-code) |
@@ -59,7 +59,7 @@ ms.locfileid: "56306209"
 | InvalidTemplateCircularDependency | 删除不必要的依赖项。 | [解决循环依赖项](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | 检查帐户所属的租户是否与要部署到的资源组所属的租户相同。 | |
 | LinkedInvalidPropertyId | 无法正确解析资源的资源 ID。 请检查是否提供了资源 ID 的所有必需值，包括订阅 ID、资源组名称、资源类型、父资源名称（如果需要）、资源名称。 | |
-| LocationRequired | 提供资源的位置。 | [设置位置](resource-manager-templates-resources.md#location) |
+| LocationRequired | 提供资源的位置。 | [设置位置](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | 请确保嵌套资源的名称和类型中包含正确数量的段。 | [解决资源段](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 检查资源提供程序注册状态，以及支持的位置。 | [解决注册问题](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向资源提供程序注册订阅。 | [解决注册问题](resource-manager-register-provider-errors.md) |
@@ -114,7 +114,7 @@ ms.locfileid: "56306209"
 
 若要通过 PowerShell 查看部署错误代码和消息，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 

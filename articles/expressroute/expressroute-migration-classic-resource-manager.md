@@ -1,6 +1,6 @@
 ---
 title: 将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到资源管理器部署模型：Azure：PowerShell | Azure
-description: 本页介绍如何在移动线路后将关联的虚拟网络迁移到 Resource Manager 部署模型。
+description: 本页介绍如何在移动线路之后将 ExpressRoute 关联的虚拟网络迁移到 Resource Manager 部署模型。
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/06/2017
+origin.date: 01/17/2019
 ms.author: v-yiso
 ms.date: ''
-ms.openlocfilehash: 6ae57db7a43a3d19ddd28e37daf5ebbe4ce899be
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 54d33f67372c0fa6300f33c0ef6e1ba71eebe21d
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303068"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348673"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型
 
@@ -29,6 +29,9 @@ ms.locfileid: "56303068"
 
 
 ## <a name="before-you-begin"></a>准备阶段
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * 验证你是否有最新版本的 Azure PowerShell 模块。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 * 在开始配置之前，请务必查看[先决条件](expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
 * 查看[将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型](./expressroute-move.md)中提供的信息。 请确保对限制和局限性有全面的了解。
@@ -69,9 +72,9 @@ ms.locfileid: "56303068"
 3. 注册订阅，以便进行资源迁移。 若要针对资源迁移来注册订阅，请使用以下 PowerShell 代码片段：
 
   ```powershell 
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Select-AzSubscription -SubscriptionName <Your Subscription Name>
+  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
   ```
 4. 验证、准备和迁移。 若要转移虚拟网络，请使用以下 PowerShell 代码片段：
 

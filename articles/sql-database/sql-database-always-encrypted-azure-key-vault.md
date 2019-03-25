@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/03/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 790f2587b807bd3dd1cfe4189bc067e3d43a9a19
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 2354d417ef8337ea81049201dfdfc70bbbec207a
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347229"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318932"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保护敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
@@ -38,13 +38,16 @@ ms.locfileid: "57347229"
 * 创建一个可以从已加密列插入、选择和显示数据的应用程序。
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在本教程中，需要：
 
 * Azure 帐户和订阅。 如果没有，请注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 版本 13.0.700.242 或更高版本。
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更高版本（在客户端计算机上）。
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)。
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，版本 1.0 或更高版本。 键入 **(Get-Module azure -ListAvailable).Version** 可查看所运行的 PowerShell 版本。
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>使客户端应用程序可以访问 SQL 数据库服务
 首先必须通过设置 Azure Active Directory (AAD) 应用程序并复制对应用程序进行身份验证所需的应用程序 ID 和密钥，使客户端应用程序可以访问 SQL 数据库服务。
@@ -66,15 +69,15 @@ ms.locfileid: "57347229"
     $vaultName = 'AeKeyVault'
 
 
-    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+    Connect-AzAccount -EnvironmentName AzureChinaCloud
+    $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
 

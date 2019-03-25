@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 origin.date: 02/04/2019
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 96fe894b90bdb21889528778690290e06b31eab3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 545306116a79154ea8836d63396bf153db7a1f1c
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665419"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253900"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>如何使用适用于 Java v7 的客户端库上传、下载和列出 Blob
 
@@ -120,7 +120,7 @@ Deleting the source, and downloaded files
 
 在本部分中，将创建对象的实例、创建新容器，并对容器设置权限，使 blob 公开，只需 URL 即可对其进行访问。 容器名为 quickstartcontainer。 
 
-此示例使用 [CreateIfNotExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)，因为我们想要每次运行示例时都创建新容器。 在整个应用程序中使用同一容器的生产环境中，建议仅调用一次 **CreateIfNotExists**。 或者可以提前创建容器，这样就无需在代码中创建它。
+此示例使用 [CreateIfNotExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists)，因为我们想要每次运行示例时都创建新容器。 在生产环境中，应用程序从头至尾都使用相同的容器，因此建议仅调用一次 **CreateIfNotExists**。 或者可以提前创建容器，这样就无需在代码中创建它。
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage

@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8ab76460c3ffdbca950b2b0cd97d608c91514437
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ac939f60b4294688d37294611c9671f9c1bee92e
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675311"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348635"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>使用 Python 后端和 Python 设备创建 IoT 中心模块标识和模块孪生入门
 

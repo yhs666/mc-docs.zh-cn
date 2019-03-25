@@ -14,16 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 02/14/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 2b720a00dd264b8ae3a0a0399e02ea0f180d455b
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 890d8500fc19ee86165c7441538ef9baf4de2b5f
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262189"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186687"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>如何：使用多租户应用程序模式让任何 Azure Active Directory 用户登录
 
@@ -39,7 +40,7 @@ ms.locfileid: "56262189"
 1. [将应用程序注册更新为多租户](#update-registration-to-be-multi-tenant)
 2. [将代码更新为向 /common 终结点发送请求](#update-your-code-to-send-requests-to-common)
 3. [将代码更新为处理多个颁发者值](#update-your-code-to-handle-multiple-issuer-values)
-4. 了解用户和管理员的同意意向并进行适当的代码更改
+4. [了解用户和管理员的同意意向并进行适当的代码更改](#understand-user-and-admin-consent)
 
 让我们详细了解每个步骤。 也可以直接跳转到 [此多租户示例列表][AAD-Samples-MT]。
 
@@ -110,8 +111,8 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 
 这种同意体验受应用程序请求的权限的影响。 Azure AD 支持两种类型的权限：仅限应用的权限和委托的权限。
 
-- 委托的权限授权应用程序充当登录用户来执行该用户所能执行的一部分操作。 例如，可以向应用程序授予委托的权限来读取登录用户的日历。
-- 仅限应用的权限直接授予给应用程序的标识。 例如，可以向应用程序授予仅限应用的权限来读取租户中的用户列表，无论是谁登录此应用程序，该应用程序都能够执行此操作。
+* 委托的权限授权应用程序充当登录用户来执行该用户所能执行的一部分操作。 例如，可以向应用程序授予委托的权限来读取登录用户的日历。
+* 仅限应用的权限直接授予给应用程序的标识。 例如，可以向应用程序授予仅限应用的权限来读取租户中的用户列表，无论是谁登录此应用程序，该应用程序都能够执行此操作。
 
 有些权限可由普通用户同意，有些则需要租户管理员同意。 
 
@@ -179,13 +180,13 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 
 ## <a name="related-content"></a>相关内容
 
-- [Multi-tenant application samples（多租户应用程序示例）][AAD-Samples-MT]
-- [适用于应用程序的品牌准则][AAD-App-Branding]
-- [应用程序对象和服务主体对象][AAD-App-SP-Objects]
-- [将应用程序与 Azure Active Directory 集成][AAD-Integrating-Apps]
-- [同意框架概述][AAD-Consent-Overview]
-- [Microsoft Graph API 权限范围][MSFT-Graph-permission-scopes]
-- [Azure AD 图形 API 权限范围][AAD-Graph-Perm-Scopes]
+* [Multi-tenant application samples（多租户应用程序示例）][AAD-Samples-MT]
+* [适用于应用程序的品牌准则][AAD-App-Branding]
+* [应用程序对象和服务主体对象][AAD-App-SP-Objects]
+* [将应用程序与 Azure Active Directory 集成][AAD-Integrating-Apps]
+* [同意框架概述][AAD-Consent-Overview]
+* [Microsoft Graph API 权限范围][MSFT-Graph-permission-scopes]
+* [Azure AD 图形 API 权限范围][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-App-Branding]:howto-add-branding-in-azure-ad-apps.md

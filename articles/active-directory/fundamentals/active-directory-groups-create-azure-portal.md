@@ -3,22 +3,23 @@ title: 创建基本组并添成员 - Azure Active Directory | Microsoft Docs
 description: 介绍如何使用 Azure Active Directory 创建基本组。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: quickstart
-origin.date: 08/22/2018
-ms.date: 01/02/2019
+origin.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: a361cc784256da1ae67db4b443f9894f65b8b134
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 799a636d0c720adaefd741f70140d0f901699d50
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186647"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>使用 Azure Active Directory 创建基本组并添成员
 
@@ -79,4 +80,4 @@ ms.locfileid: "53996207"
 
 - [使用 PowerShell 命令管理组](../users-groups-roles/groups-settings-v2-cmdlets.md)
  
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

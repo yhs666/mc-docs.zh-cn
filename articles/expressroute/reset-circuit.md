@@ -14,18 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/28/2017
-ms.date: 02/25/2018
+ms.date: 04/01/2018
 ms.author: v-yiso
-ms.openlocfilehash: a393e2e766f6939fb9677593d3297d30faa78cec
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: d70be98eb21b97e90ae97b59b4c64e615ee40284
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302933"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348601"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>重置有故障的 ExpressRoute 线路
 
 针对 ExpressRoute 线路执行的某个操作未成功完成时，该线路可能进入“故障”状态。 本文帮助你重置有故障的 Azure ExpressRoute 线路。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="reset-a-circuit"></a>重置线路
 
@@ -34,24 +36,24 @@ ms.locfileid: "56302933"
 2. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
   ```powershell
-  Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+  Connect-AzAccount
   ```
 3. 如果有多个 Azure 订阅，请查看该帐户的订阅。
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 4. 指定要使用的订阅。
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 5. 运行以下命令可重置处于故障状态的线路：
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 现在，该线路应已恢复正常。 如果线路仍处于故障状态，请向 [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证。

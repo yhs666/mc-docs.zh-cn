@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/26/2018
-ms.date: 12/17/2018
+origin.date: 02/14/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 88ac4b069a4d9141de0bb68ad0c2943d2088a006
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.openlocfilehash: 4b9aa4168c991770b2f6ef07614a526bcbab903e
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286778"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348095"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 模板和 Resource Manager REST API 部署资源
 
@@ -81,11 +81,24 @@ ms.locfileid: "53286778"
 
     如果想要记录响应内容或/和请求内容，请在请求中包括 **debugSetting**。
 
-  ```json
-  "debugSetting": {
-    "detailLevel": "requestContent, responseContent"
-  }
-  ```
+    ```json
+    {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "debugSetting": {
+        "detailLevel": "requestContent, responseContent"
+      }
+    }
+    }
+    ```
 
     可以将存储帐户设置为使用共享访问签名 (SAS) 令牌。 有关详细信息，请参阅[使用共享访问签名委托访问权限](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)。
 
@@ -160,22 +173,50 @@ ms.locfileid: "53286778"
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-对于失败的部署，可以指定从部署历史记录自动重新部署以前的部署。 若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
+部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 要指定重新部署，请在请求正文中使用 `onErrorDeployment` 属性。
+
+若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
 
 若要在当前部署失败的情况下，重新部署上一个成功部署，请使用：
 
 ```json
-"onErrorDeployment": {
-  "type": "LastSuccessful",
-},
+{
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/template.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "mode": "Incremental",
+    "parametersLink": {
+      "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/parameters.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "onErrorDeployment": {
+      "type": "LastSuccessful",
+    }
+  }
+}
 ```
 
 若要在当前部署失败的情况下，重新部署特定部署，请使用：
 
 ```json
-"onErrorDeployment": {
-  "type": "SpecificDeployment",
-  "deploymentName": "<deploymentname>"
+{
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/template.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "mode": "Incremental",
+    "parametersLink": {
+      "uri": "http://mystorageaccount.blob.core.chinacloudapi.cn/templates/parameters.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "onErrorDeployment": {
+      "type": "SpecificDeployment",
+      "deploymentName": "<deploymentname>"
+    }
+  }
 }
 ```
 
@@ -220,6 +261,6 @@ ms.locfileid: "53286778"
 * 若要了解如何处理异步 REST 操作，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 * 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/windows/csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 若要在模板中定义参数，请参阅[创作模板](resource-group-authoring-templates.md#parameters)。
-<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
+<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 <!--Update_Description: update meta properties, wording update -->

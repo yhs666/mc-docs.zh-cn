@@ -14,12 +14,12 @@ origin.date: 11/13/2018
 ms.date: 02/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 3c78c95352e1b2cff3d46f196cebacbb8c9e55aa
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 95373c9b57901d330745412a0f2093a5df3a517d
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306048"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348182"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
 
@@ -33,8 +33,6 @@ ms.locfileid: "56306048"
 > * 部署模板
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -125,6 +123,8 @@ ms.locfileid: "56306048"
 ## <a name="deploy-the-template"></a>部署模板
 
 有关部署过程，请参阅 Visual Studio Code 快速入门中的[部署模板](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template)部分。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要列出所有三个存储帐户，请省略 --name 参数：
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/20/2018
-ms.date: 03/04/2019
+origin.date: 02/27/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 134375504f0a87ff42bb356bbc5bffe4c33912a2
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: f6409e0e33b9dbdfd2f6f96023df12d044ef7372
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836918"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348624"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>教程：通过 Azure 门户对从 Internet 到 VM 的流量进行负载均衡
 
@@ -46,21 +46,21 @@ ms.locfileid: "56836918"
 在本部分，请创建一个公共负载均衡器，以帮助对虚拟机进行负载均衡。 标准负载均衡器仅支持标准公共 IP 地址。 创建标准负载均衡器时，还必须为该标准负载均衡器创建一个配置为前端（默认情况下命名为 *LoadBalancerFrontend*）的新的标准公用 IP 地址。 
 
 1. 在屏幕的左上方，单击“创建资源” > “网络” > “负载均衡器”。
-2. 在“创建负载均衡器”页中输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
-    
+2. 在“创建负载均衡器”页的“基本”选项卡中输入或选择以下信息，接受其余的默认设置，然后选择“查看 + 创建”：
+
     | 设置                 | 值                                              |
     | ---                     | ---                                                |
+    | 订阅               | 选择订阅。    |    
+    | 资源组         | 选择“新建”并在文本框中键入 MyResourceGroupSLB。|
     | Name                   | *myLoadBalancer*                                   |
-    | 类型          | 公共                                        |
-    | SKU           | 标准                          |
-    | 公共 IP 地址 | 选择“新建”并在文本框中键入 *myPublicIP*。 默认情况下公共 IP 地址的标准 SKU 处于选中状态。 |
-    | 订阅               | 选择订阅。    |
-    |资源组 | 选择“新建”，然后键入 *myResourceGroupSLB*。    |
-    | 位置           | 选择“ChinaNorth”。                          |
-    
+    | 区域         | 选择“中国东部 2”。                                        |
+    | 类型          | 选择“公共”。                                        |
+    | SKU           | 选择“标准”。                          |
+    | 公共 IP 地址 | 选择“新建”。 |
+    | 公共 IP 地址名称              | 在文本框中键入 myPublicIP。   |
+3. 在“查看 + 创建”选项卡中，单击“创建”。   
 
-![创建负载均衡器](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>创建后端服务器
 
 在本部分中，创建一个虚拟网络，为负载均衡器的后端池创建三台虚拟机，然后在虚拟机上安装 IIS，以便对负载均衡器进行测试。

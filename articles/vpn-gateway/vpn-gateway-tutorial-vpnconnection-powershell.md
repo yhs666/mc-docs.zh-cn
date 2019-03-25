@@ -6,15 +6,15 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
 origin.date: 02/11/2019
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 98b9b5951467a1c0f7eb69496fec51d199bfb719
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: cb89b3d91c967e0a6b756e60649451172164943e
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833187"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348040"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>教程：使用 PowerShell 创建和管理 S2S VPN 连接
 
@@ -221,10 +221,11 @@ Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $
 
 ```azurepowershell
 Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+```
 
-## Clean up resources
+## <a name="clean-up-resources"></a>清理资源
 
-If this configuration is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+如果此配置是某个原型、测试或概念证明部署的一部分，则可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令来删除资源组、VPN 网关和所有相关资源。
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $RG1

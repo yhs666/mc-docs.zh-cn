@@ -3,26 +3,23 @@ title: 将 Active Directory 与 Azure Active Directory 连接。 | Microsoft 文
 description: Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序提供一个通用标识。
 keywords: Azure AD Connect 介绍, Azure AD Connect 概述, 什么是 Azure AD Connect, 安装 active directory
 services: active-directory
-documentationcenter: ''
 author: billmath
-manager: mtillman
-editor: ''
+manager: daveba
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-origin.date: 11/02/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.topic: overview
+origin.date: 11/28/2018
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 166dae723f7538844255c4b26ee6ae561455e03c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28df6c4079df58fef7d731773227c90566290695
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186664"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>混合标识和 Microsoft 标识解决方案
 使用 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 混合标识解决方案可将本地目录与 Azure AD 同步，同时仍可在本地管理用户。 如果计划将本地 Windows Server Active Directory 与 Azure AD 进行同步，首先需要决定是使用托管标识还是使用联合标识。 
@@ -86,7 +83,7 @@ Azure AD Connect 专用于满足和完成混合标识目标的 Microsoft 工具�
 - [版本历史记录](reference-connect-version-history.md)
 - [Azure AD Connect 常见问题解答](reference-connect-faq.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->
 
 
 

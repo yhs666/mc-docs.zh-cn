@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2018
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778a791f87e8ef9541490e2ee3e7d49757424db5
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: edaa32da5e44da53eabc2e9145e48a0836977ca8
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186672"
 ---
 # <a name="id-tokens"></a>ID 令牌
 
@@ -87,12 +87,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlH
 
 若要手动验证令牌，请参阅[验证访问令牌](access-tokens.md#validating-tokens)中详述的步骤。 验证令牌上的签名以后，应验证 id_token 中的以下声明（这些也可以由令牌验证库来完成）：
 
-- 时间戳：`iat`、`nbf` 和 `exp` 时间戳全都应位于当前时间之前或之后（具体取决于需要）。 
-- 受众：`aud` 声明应该与应用程序的应用 ID 匹配。
-- Nonce：有效负载中的 `nonce` 声明必须与进行初始请求时传递到 /authorize 终结点中的 nonce 参数匹配。
+* 时间戳：`iat`、`nbf` 和 `exp` 时间戳全都应位于当前时间之前或之后（具体取决于需要）。 
+* 受众：`aud` 声明应该与应用程序的应用 ID 匹配。
+* Nonce：有效负载中的 `nonce` 声明必须与进行初始请求时传递到 /authorize 终结点中的 nonce 参数匹配。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解 [Azure AD 访问令牌](access-tokens.md)
+* 了解 [Azure AD 访问令牌](access-tokens.md)
 
 <!-- Update_Description: wording update -->

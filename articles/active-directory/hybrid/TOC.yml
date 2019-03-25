@@ -122,8 +122,8 @@ items:
       href: how-to-connect-fed-saml-idp.md
   - name: 管理 Azure AD Connect Sync
     items:
-    - name: 管理操作任务
-      href: how-to-connect-sync-operations.md
+    - name: 暂存服务器和灾难恢复
+      href: how-to-connect-sync-staging-server.md
     - name: 更改默认配置的最佳做法
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: 更改默认配置
@@ -200,9 +200,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools 参考
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 86523544383fec03e093ae082f30ce8346945991
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.openlocfilehash: c8a47cae16ed22b9081cd4d376760ebe26405649
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186660"

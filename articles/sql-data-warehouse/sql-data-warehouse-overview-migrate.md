@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 31ae273fff71f16d3505a58653e991e75146ae44
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1893b35aea749f81b8608cc1a9d7e0ac75e2ea9f
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653801"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348039"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>将解决方案迁移到 Azure SQL 数据仓库
 请参阅“将现有数据库解决方案迁移到 Azure SQL 数据仓库所涉及的内容”。 
@@ -61,6 +61,6 @@ CAT（客户顾问团队）也有一些很好的通过博客发布的 SQL 数据
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 <!--Update_Description: update meta properties, wording update-->

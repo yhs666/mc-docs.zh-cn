@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 07/27/2018
+origin.date: 12/11/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 0b11c6ce16ed5537cd18571e1c7eac9912d6ecbf
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 04/01/2019
+ms.openlocfilehash: 1d0f888ec34c42003a2356bab3f2ef7e185a420b
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029062"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348576"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "53029062"
 >
 
 
-本文指导执行相关步骤，以便使用 PowerShell 和经典部署模型创建和管理 ExpressRoute 线路的路由配置。 下面的步骤还会说明如何查看状态，以及如何更新、删除和取消预配 ExpressRoute 线路的对等互连。 可以为 ExpressRoute 线路配置一个或两个对等互连（Azure 专用、Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，必须确保一次只完成一个对等互连的配置。 
+本文指导执行相关步骤，以便使用 PowerShell 和经典部署模型创建和管理 ExpressRoute 线路的对等互连/路由配置。 下面的步骤还会说明如何查看状态，以及如何更新、删除和取消预配 ExpressRoute 线路的对等互连。 可以为 ExpressRoute 线路配置一个或两个对等互连（Azure 专用、Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，必须确保一次只完成一个对等互连的配置。 
 
 这些说明仅适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IPVPN，如 MPLS），则连接服务提供商会配置和管理路由。
 
@@ -33,7 +33,7 @@ ms.locfileid: "53029062"
 
 **关于 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
@@ -189,8 +189,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 
 1. **创建 ExpressRoute 线路**
 
-  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不管理路由，请在创建线路后遵循以下说明。
-  
+  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不管理路由，请在创建线路后遵循以下说明。
 2. **检查 ExpressRoute 线路以确认它已预配**
 
   首先，必须检查 ExpressRoute 线路是否已预配且已启用。

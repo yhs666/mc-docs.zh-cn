@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/07/2018
-ms.date: 02/18/2019
+origin.date: 02/13/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: cf1c1ff34c7105dfcd83800e19f5377e3b66f9ec
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 452b5fe3dab00e737822241a458940a899bc5e7e
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306115"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348130"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -32,7 +32,9 @@ ms.locfileid: "56306115"
 
 如需教程，请参阅[教程：创建链接的 Azure 资源管理器模板](./resource-manager-tutorial-create-linked-templates.md)。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> 对于链接模板或嵌套模板，只能使用[增量](deployment-modes.md)部署模式。
+>
 
 ## <a name="link-or-nest-a-template"></a>链接或嵌套模板
 
@@ -53,8 +55,6 @@ ms.locfileid: "56306115"
 ```
 
 为部署资源提供的属性将因要链接到外部模板，还是要将内联模板嵌套在主模板中而异。
-
-对于链接模板和嵌套模板，只能使用[增量](deployment-modes.md)部署模式。
 
 ### <a name="nested-template"></a>嵌套模板
 
@@ -406,7 +406,7 @@ ms.locfileid: "56306115"
 
 部署后，可使用以下 PowerShell 脚本检索输出值：
 
-```azurepowershell
+```powershell
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -466,10 +466,10 @@ done
 
 在 PowerShell 中，使用以下命令获取容器的令牌并部署模板。 注意，**containerSasToken** 参数是在模板中定义的。 它不是 **New-AzResourceGroupDeployment** 命令中的参数。
 
-```azurepowershell
+```powershell
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-$token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+$token = New-AzStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+$url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 

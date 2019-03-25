@@ -13,14 +13,14 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2ab098f043fadcd0c89d1720ca220731e2410797
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: fc87e8a452f5b484d4e6f1d97fd0a023766063ec
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560502"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348682"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -99,7 +99,7 @@ ms.locfileid: "57560502"
    
     ![HDInsight Linux 入门群集设置](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-cluster-settings.png "HDInsight 群集属性")    
     
-    每个群集都有一个 [Azure 存储帐户](../hdinsight-hadoop-use-blob-storage.md)依赖项。 该帐户称为默认存储帐户。 HDInsight 群集与其默认存储帐户必须一起放置在同一个 Azure 区域中。 删除群集不会删除存储帐户。
+    每个群集都有一个 [Azure 存储帐户](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帐户](../hdinsight-hadoop-use-data-lake-storage-gen2.md)依赖项。 该帐户称为默认存储帐户。 HDInsight 群集与其默认存储帐户必须一起放置在同一个 Azure 区域中。 删除群集不会删除存储帐户。
 
     > [!NOTE]
     > 如需其他群集创建方法或需了解本教程中使用的属性，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。       
@@ -123,11 +123,6 @@ ms.locfileid: "57560502"
         SHOW TABLES;
 
     ![HDInsight Hive 视图](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive 视图查询编辑器")
-   
-   > [!NOTE]
-   > Hive 要求使用分号。       
-   > 
-   > 
 
 5. 选择“执行”。 “结果”选项卡将显示在“查询”选项卡下面，并显示有关作业的信息。 
    
@@ -177,6 +172,7 @@ ms.locfileid: "57560502"
 
 * 有关 HDInsight 如何使用 Azure 存储的信息，请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 * 若要了解如何将数据上传到 HDInsight，请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md)。
+* [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 有关如何使用 HDInsight 分析数据的详细信息，请参阅以下文章：
 

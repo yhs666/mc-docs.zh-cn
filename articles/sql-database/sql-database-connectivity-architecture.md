@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/06/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: d782396b880c9ceb55819b259ebc12064ddabaaf
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/25/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: cbfafaeac8f5a8de7e44005aaa3b8d57dae496e7
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663593"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318983"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 连接体系结构
 
@@ -29,10 +29,12 @@ ms.locfileid: "56663593"
 > 建议客户创建新的服务器，并将现有服务器的连接类型显式设置为“重定向”（首选）或“代理”，具体取决于服务器的连接体系结构。
 >
 > 为了防止在进行此更改时在现有环境中通过服务终结点进行的连接中断，我们使用遥测执行以下操作：
+>
 > - 对于在更改前检测到的通过服务终结点进行过访问的服务器，我们将连接类型切换为 `Proxy`。
 > - 对于所有其他的服务器，我们会将连接类型切换为 `Redirect`。
 >
 > 在以下方案中，服务终结点用户可能仍会受影响：
+>
 > - 应用程序不常连接到现有的服务器，因此我们的遥测不捕获有关这些应用程序的信息。
 > - 自动部署逻辑创建 SQL 数据库服务器（假设服务终结点连接的默认行为是 `Proxy`）
 >
@@ -94,6 +96,8 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>通过 PowerShell 编写脚本以更改连接设置
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > 此脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
@@ -101,16 +105,16 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzureRmResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id).Properties.connectionType
 
 # Update connection policy
-Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
+Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>通过 Azure CLI 编写脚本以更改连接设置

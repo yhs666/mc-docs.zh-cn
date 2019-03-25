@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/01/2018
-ms.date: 11/05/2018
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 550994229b5b01d8753923ec0685dc25b03c6485
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 9ef8feef6b09b1df9123f27c0d857b1a77a55342
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647563"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253904"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 静态数据的 Azure 存储服务加密可帮助保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储平台可以先自动加密数据，然后将其保存到 Azure 托管磁盘、Azure Blob、队列、表存储或 Azure 文件，并在检索之前解密数据。 存储服务加密中的加密、静态加密、解密和密钥管理的处理对用户是透明的。 通过 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)加密所有写入 Azure 存储平台的数据，AES 加密是现在最强大的分组加密之一。
@@ -75,7 +75,7 @@ Azure 磁盘加密在基于 OS 的解决方案（例如 BitLocker、DM-Crypt 和
 存储服务加密已在所有区域推出。
 
 **存储服务加密是否符合 FIPS 140-2？**  
-是的，存储服务加密符合 FIPS 140-2。
+是的，存储服务加密符合 FIPS 140-2。 有关存储服务加密底层加密模块的更多信息，请参见[加密 API：下一代](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)。
 
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助开发人员构建安全的应用程序。 有关详细信息，请参阅[存储安全指南](../storage-security-guide.md)。
