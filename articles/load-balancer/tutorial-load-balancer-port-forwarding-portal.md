@@ -5,22 +5,23 @@ description: 本教程介绍了如何使用 Azure 负载均衡器配置端口转
 services: load-balancer
 documentationcenter: na
 author: WenJason
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/11/18
-ms.date: 12/31/2018
+origin.date: 02/26/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 05a9151483f050ae342f6a6f6fcfb536b1b2c917
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 88da6f731f5896b27bf1dd2b9facef6b3e8478ef
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806249"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348655"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教程：使用门户在 Azure 负载均衡器中配置端口转发
 
@@ -44,24 +45,25 @@ ms.locfileid: "53806249"
 
 首先，创建公共标准负载均衡器，以便均衡 VM 上的流量负载。 标准负载均衡器仅支持标准公共 IP 地址。 创建标准负载均衡器时，还要创建配置为负载均衡器前端且默认情况下命名为“LoadBalancerFrontEnd”的新的标准公用 IP 地址。 
 
-1. 在门户的左上方，选择“创建资源” > “网络” > “负载均衡器”。
-   
-1. 在“创建负载均衡器”窗格中，键入或选择以下值：
-   
-   - **名称**：键入 *MyLoadBalancer*。
-   - **类型**：选择“公共”。 
-   - **SKU**：选择“标准”。
-   - **公共 IP 地址**：选择“新建”并在字段中键入“MyPublicIP”。
-   - **ResourceGroup**：选择“新建”，输入“MyResourceGroupLB”，然后选择“确定”。 
-   - **位置**：选择“中国北部”。 
-     
-     >[!NOTE]
-     >确保在某个位置中创建负载均衡器及其所有资源。
-   
-1. 选择“创建” 。
-   
-![创建负载均衡器](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. 在屏幕的左上方，单击“创建资源” > “网络” > “负载均衡器”。
+2. 在“创建负载均衡器”页的“基本”选项卡中输入或选择以下信息，接受其余的默认设置，然后选择“查看 + 创建”：
 
+    | 设置                 | 值                                              |
+    | ---                     | ---                                                |
+    | 订阅               | 选择订阅。    |    
+    | 资源组         | 选择“新建”并在文本框中键入 MyResourceGroupLB。|
+    | Name                   | *myLoadBalancer*                                   |
+    | 区域         | 选择“中国东部 2”。                                        |
+    | 类型          | 选择“公共”。                                        |
+    | SKU           | 选择“标准”。                          |
+    | 公共 IP 地址 | 选择“新建”。 |
+    | 公共 IP 地址名称              | 在文本框中键入 myPublicIP。   |
+     
+    >[!NOTE]
+     >确保在某个位置中创建负载均衡器及其所有资源。
+
+3. 在“查看 + 创建”选项卡中，单击“创建”。  
+  
 ## <a name="create-and-configure-back-end-servers"></a>创建并配置后端服务器
 
 使用两台虚拟机创建虚拟网络，并将 VM 添加到负载均衡器的后端池。 
@@ -79,14 +81,6 @@ ms.locfileid: "53806249"
 1. 选择“创建” 。
 
    ![创建虚拟网络](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
-    
-### <a name="create-a-backend-address-pool"></a>创建后端地址池
-
-若要向 VM 分发流量，后端地址池需包含连接到负载均衡器的虚拟 NIC 的 IP 地址。 创建后端地址池 *MyBackendPool*。
-
-1. 单击左侧菜单中的“所有资源”，然后在资源列表中单击“MyLoadBalancer”。
-2. 在“设置”下单击“后端池”，然后单击“添加”。
-3. 在“添加后端池”页面上，对于名称，键入 *MyBackendPool* 作为后端池的名称，然后单击“确定”。
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>创建 VM 并将其添加到负载均衡器后端池
 
@@ -100,7 +94,7 @@ ms.locfileid: "53806249"
    - **密码**：键入“Azure1234567”。 
      在“确认密码”字段中，重新键入该密码。
    
-1. 选择“网络”选项卡，或选择“下一步:磁盘”，然后选择“下一步:网络”。 
+1. 选择“网络”选项卡，或选择“下一步:磁盘”，然后选择“下一步:网络”**。 
    
    确保选中以下项：
    - **虚拟网络**：**MyVNet**
@@ -115,23 +109,26 @@ ms.locfileid: "53806249"
    >[!NOTE]
    >请注意，默认情况下，NSG 已有打开端口 3389（远程桌面 (RDP) 端口）的传入规则。
    
-1. 选择“确定” 。
+1. 将 VM 添加到创建的负载均衡器后端池：
    
-1. 检查设置，验证成功后，选择“确定”。 
+   1. 在“负载均衡” > “将此虚拟机置于现有负载均衡解决方案之后？”下，选择“确定”。 
+   1. 对于“负载均衡选项”，下拉并选择“Azure 负载均衡器”。 
+   1. 对于“选择负载均衡器”，下拉并选择“MyLoadBalancer”。 
+   1. 在“选择后端池”下，选择“新建”，然后输入“MyBackendPool”，再选择“创建”。 
+   
+   ![创建虚拟网络](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
+   
+1. 选择“管理”选项卡，或者选择“下一步” > “管理”。 在“监视”下，将“启动诊断”设置为“关闭”。
+   
+1. 选择“查看 + 创建”。
+   
+1. 检查设置，验证成功后，选择“创建”。 
+
 1. 按步骤创建另一个 VM，其名称为 *MyVM2*，所有其他设置与 MyVM1 相同。 
    
    对于“网络安全组”，选择“高级”后，下拉并选择已创建的“MyNetworkSecurityGroup”。 
    
-## <a name="add-vms-to-the-backend-address-pool"></a>将 VM 添加到后端地址池
-
-若要将流量分配到各台 VM，请将虚拟机 *MyVM1* 和 *MyVM2* 添加到之前创建的后端地址池 *MyBackendPool*。 后端池包含连接到负载均衡器的虚拟 NIC 的 IP 地址。
-
-1. 单击左侧菜单中的“所有资源”，然后在资源列表中单击“MyLoadBalancer”。
-2. 在“设置”下，单击“后端池”，然后在后端池列表中单击 **myBackendPool**。
-3. 在 **myBackendPool** 页面上，执行以下操作：
-    - 单击“添加目标网络 IP 配置”将所创建的每台虚拟机（*myVM1* 和*myVM2*）添加到后端池。
-    - 单击 **“确定”**。
-4. 进行检查，确保负载均衡器后端池设置显示了 **VM1** 和 **VM2** 这两台 VM。
+   在“选择后端池”，确保选中“MyBackendPool”。 
 
 ### <a name="create-an-nsg-rule-for-the-vms"></a>为 VM 创建 NSG 规则
 
