@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5dba9fa296f35947a5f393bcd5dea24126e29897
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: c2ed42712f2060da7434b014ca47bd2b346dc666
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347189"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319002"
 documentType: LandingData
 title: Azure SQL 数据库：监视和优化
 metadata:
@@ -20,7 +20,7 @@ metadata:
   ms.devlang: 
   ms.topic: overview
   origin.date: 02/08/2019
-  ms.date: 03/11/2019
+  ms.date: 03/25/2019
   ms.author: v-jay
 sections:
 - items:
@@ -43,6 +43,9 @@ sections:
     - title: 性能建议
       href: /sql-database/sql-database-advisor
       html: <p>Azure SQL 数据库提供了可帮助优化 Azure 门户中的数据库的建议。</p>
+    - title: 指标和日志记录
+      href: /sql-database/sql-database-metrics-diag-logging
+      html: <p>将数据库诊断遥测数据流式传输到 Azure 事件中心或 Azure Blob 存储进行自定义集成。</p>
 - title: 更多资源
   items:
   - type: paragraph
