@@ -13971,6 +13971,11 @@
       "source_path": "articles/vpn-gateway/vpn-gateway-plan-design.md",
       "redirect_url": "/vpn-gateway/vpn-gateway-about-vpngateways",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-integration-modules.md",
+      "redirect_url": "/automation/shared-resources/modules",
+      "redirect_document_id": false
     }
 
 
