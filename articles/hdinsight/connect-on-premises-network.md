@@ -14,12 +14,12 @@ ms.workload: big-data
 origin.date: 12/28/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: f146512b9ce3d1c5225764faa591098cc26424d8
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 111823bb69bb16e9b4fcfe2b4422582b265aaca1
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906182"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348650"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 

@@ -6,23 +6,23 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 02/22/2019
-ms.date: 03/04/2019
+origin.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d4de88f7faee0662fc4fcb38e298ea4ada256757
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 324773a4590df8c6636a149576dbbdd5616febbe
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196532"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253898"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
 本文包含 Data Lake Storage Gen2 的已知问题和临时限制。
 
-## <a name="data-lake-storage-gen2-apis"></a>Data Lake Storage Gen2 API
+## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>针对 Data Lake Storage Gen2 帐户的 SDK 支持
 
-Data Lake Storage Gen2 帐户尚不支持这些 API。
+没有可用于 Data Lake Storage Gen2 帐户的 SDK。
 
 ## <a name="blob-storage-apis"></a>Blob 存储 API
 

@@ -8,20 +8,20 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/10/2018
-ms.date: 09/21/2018
+origin.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 96e622debd9848b09066073bb639266bfaf073a2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4e78bbff5ee3ba1d42a8ca547ee4eb8858d219c7
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657370"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256357"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>从包文件运行 Azure Functions
 
 > [!NOTE]
-> 本文所述的功能不适用于 Linux 上的 Functions。
+> 本文所述的功能不适用于[应用服务计划](functions-scale.md#app-service-plan)中在 Linux 上运行的函数应用。
 
 在 Azure 中，可以直接从函数应用中的部署包文件运行函数。 另一种做法是在函数应用的 `d:\home\site\wwwroot` 目录中部署文件。
 
@@ -45,8 +45,11 @@ ms.locfileid: "52657370"
 
 | 值  | 说明  |
 |---------|---------|
+| **`1`**  | 建议用于在 Windows 上运行的函数应用。 从函数应用的 `d:\home\data\SitePackages` 文件夹中的某个包文件运行。 如果不[使用 zip deploy 进行部署](#integration-with-zip-deployment]，则此选项要求该文件夹同时包含名为 `packagename.txt` 的文件。 此文件仅包含文件夹中包文件的名称（没有任何空白字符）。 |
 |**`<url>`**  | 要运行的特定包文件的位置。 使用 Blob 存储时，应通过[共享访问签名 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) 使用专用容器，使 Functions 运行时能够访问包。 可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)将包文件上传到 Blob 存储帐户。         |
-| **`1`**  | 从函数应用的 `d:\home\data\SitePackages` 文件夹中的某个包文件运行。 这种做法要求该文件夹同时包含名为 `packagename.txt` 的文件。 此文件仅包含文件夹中包文件的名称（没有任何空白字符）。 |
+
+> [!CAUTION]
+> 在 Windows 上运行函数应用时，外部 URL 选项会导致糟糕的冷启动性能。 将函数应用部署到 Windows 时，应将 `WEBSITE_RUN_FROM_PACKAGE` 设置为 `1` 并通过 zip 部署进行发布。
 
 下面显示了配置为从 Azure Blob 存储中托管的 .zip 文件运行的函数应用：
 
@@ -66,3 +69,4 @@ ms.locfileid: "52657370"
 
 [Zip deployment for Azure Functions]: deployment-zip-push.md
 
+<!-- Update_Description: wording update -->

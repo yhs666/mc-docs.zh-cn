@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4b3b99077eaebc04765d138e2d663b5d31b6c66a
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 1d9dce13a0f34434029b219ce69718406538e6d4
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806605"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348659"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
@@ -43,7 +43,7 @@ ms.locfileid: "53806605"
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 > [!IMPORTANT]
-> 基于 Linux 的群集上的 C# 拓扑必须使用 .NET 4.5，并使用 Mono 在 HDInsight 群集上运行。 请查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)，了解可能的不兼容性。
+> 基于 Linux 的群集上的 C# 拓扑必须使用 .NET 4.5，并使用 Mono 在 HDInsight 群集上运行。 请查看 [Mono 兼容性](https://www.mono-project.com/docs/about-mono/compatibility/)，了解可能的不兼容性。
 
 ## <a name="install-visual-studio"></a>安装 Visual Studio
 
@@ -65,7 +65,7 @@ ms.locfileid: "53806605"
 
 从 Visual Studio 提交 Storm 拓扑时，SCP.NET 会生成一个包含拓扑和依赖项的 zip 文件。 使用 Java 来创建这些 zip 文件是因为其采用的格式更兼容基于 Linux 的群集。
 
-1. 在开发环境中安装 Java 开发人员工具包 (JDK) 7 或更高版本。 可以从 [Oracle](https://aka.ms/azure-jdks) 获取 Oracle JDK。 也可使用[其他 Java 发行版](http://openjdk.java.net/)。
+1. 在开发环境中安装 Java 开发人员工具包 (JDK) 7 或更高版本。 可以从 [Oracle](https://aka.ms/azure-jdks) 获取 Oracle JDK。 也可使用[其他 Java 发行版](https://openjdk.java.net/)。
 
 2. `JAVA_HOME` 环境变量必须指向包含 Java 的目录。
 
@@ -122,8 +122,8 @@ namespace ConsoleApplication2
 | Storm 混合示例 |如何使用 Java 组件。 |
 | Storm 示例 |基本的字数统计拓扑。 |
 
-> [!WARNING]
-> 并非所有模板都可用于基于 Linux 的 HDInsight。 模板使用的 NuGet 程序包可能与 Mono 不兼容。 查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档并使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 确定潜在问题。
+> [!WARNING]  
+> 并非所有模板都可用于基于 Linux 的 HDInsight。 模板使用的 NuGet 程序包可能与 Mono 不兼容。 查看 [Mono 兼容性](https://www.mono-project.com/docs/about-mono/compatibility/)文档并使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 确定潜在问题。
 
 在本文档的步骤中，将使用基本 Storm 应用程序项目类型来创建拓扑。
 

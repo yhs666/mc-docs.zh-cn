@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/17/2018
-ms.date: 01/02/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dd0002999c37e0d47176c85e9f7b710ccc49d0ae
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49dd867f445209e0c7076ecdd597d9a08034e5f8
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996281"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186665"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 来授权访问 Web 应用程序
 
@@ -69,9 +70,9 @@ https://login.partner.microsoftonline.cn/{tenant}/.well-known/openid-configurati
 
 当 Web 应用程序需要对用户进行身份验证时，必须将用户定向到 `/authorize` 终结点。 此请求类似于 [OAuth 2.0 授权代码流](v1-protocols-oauth-code.md)的第一个阶段，不过有几个重要的区别：
 
-- 该请求必须在 `scope` 参数中包含范围 `openid`。
-- `response_type` 参数必须包含 `id_token`。
-- 请求必须在 `nonce` 。
+* 该请求必须在 `scope` 参数中包含范围 `openid`。
+* `response_type` 参数必须包含 `id_token`。
+* 请求必须在 `nonce` 。
 
 下面是一个示例请求：
 
@@ -93,9 +94,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。 允许值为租户标识符，例如独立于租户令牌的 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`、`contoso.partner.onmschina.cn` 或 `common` |
 | client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可在 Azure 门户中找到该值。 依次单击“Azure Active Directory”和“应用注册”，选择应用程序并在应用程序页上找到应用程序 ID。 |
 | response_type |必填 |必须包含 OpenID Connect 登录的 `id_token` 。 还可以包含其他 response_type，例如 `code` 或 `token`。 |
-| scope |必填 |范围的空格分隔列表。 对于 OpenID Connect，它必须包含范围 `openid`，该范围在同意 UI 中会转换为“将你登录”权限。 也可以在此请求中包含其他 scope，以请求同意。 |
+| scope | 建议 | OpenID Connect 规范要求范围 `openid`，该范围在许可 UI 中会转换为“将你登录”权限。 在 v1.0 终结点上，此范围和其他 OIDC 范围会被忽略，但对符合标准的客户端而言仍是最佳做法。 |
 | nonce |必填 |由应用生成且包含在请求中的值，以声明方式包含在生成的 `id_token` 中。 应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机的唯一字符串或 GUID，可用以识别请求的来源。 |
-| redirect_uri |建议 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 它必须完全符合在门户中注册的其中一个 redirect_uris，否则必须是编码的 url。 |
+| redirect_uri | 建议 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 它必须完全符合在门户中注册的其中一个 redirect_uris，否则必须是编码的 url。 如果缺失，则会将用户代理随机发送回某个为应用注册的重定向 URI。 |
 | response_mode |可选 |指定将生成的 authorization_code 送回到应用程序所应使用的方法。 HTTP 窗体发布支持的值为 `form_post`，URL 片段支持的值为 `fragment`。 对于 Web 应用程序，建议使用 `response_mode=form_post` ，确保以最安全的方式将令牌传输到应用程序。 包含 id_token 的任何流的默认值为 `fragment`。|
 | state |建议 |随令牌响应返回的请求中所包含的值。 可以是想要的任何内容的字符串。 随机生成的唯一值通常用于[防止跨站点请求伪造攻击](https://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 | prompt |可选 |表示需要的用户交互类型。 当前仅有的有效值为“login”、“none”和“consent”。 `prompt=login` 强制用户在该请求上输入其凭据，从而使单一登录无效。 `prompt=none` 完全相反，它会确保无论如何都不向用户显示任何交互提示。 如果请求无法通过单一登录静默完成，则终结点返回一个错误。 `prompt=consent` 在用户登录后触发 OAuth 许可对话框，要求用户向应用授予权限。 |
@@ -155,13 +156,13 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 仅接收 `id_token` 不足以对用户进行身份验证，必须验证签名，并按照应用的要求验证 `id_token` 中的声明。 Azure AD 终结点使用 JSON Web 令牌 (JWT) 和公钥加密对令牌进行签名并验证其是否有效。
 
-可以选择验证客户端代码中的 `id_token`，但常见的做法是将 `id_token` 发送到后端服务器，并在那里执行验证。 验证 `id_token`的签名后，需要验证一些声明。
+可以选择验证客户端代码中的 `id_token`，但常见的做法是将 `id_token` 发送到后端服务器，并在那里执行验证。 
 
 可能还希望根据自己的方案验证其他声明。 一些常见的验证包括：
 
-- 确保用户/组织已注册应用。
-- 确保用户拥有正确的授权/权限
-- 确保身份验证具有一定的强度，例如多重身份验证。
+* 确保用户/组织已注册应用。
+* 使用 `wids` 或 `roles` 声明，确保用户拥有正确的授权/权限。 
+* 确保身份验证具有一定的强度，例如多重身份验证。
 
 验证 `id_token` 后，即可开始与用户的会话，并使用 `id_token` 中的声明来获取应用中的用户相关信息。 此信息可用于显示、记录和个性化等。有关 `id_tokens` 和声明的详细信息，请阅读 [AAD id_tokens](id-tokens.md)。
 
@@ -253,7 +254,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解[访问令牌](access-tokens.md)。
-- 详细了解 [`id_token` 和声明](id-tokens.md)。
+* 详细了解[访问令牌](access-tokens.md)。
+* 详细了解 [`id_token` 和声明](id-tokens.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -4,19 +4,19 @@ description: 了解 Azure IoT 中心。 此 IoT 服务针对可缩放数据引�
 author: nberdy
 ms.author: v-yiso
 origin.date: 07/04/2018
-ms.date: 09/10/2018
+ms.date: 03/25/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: e01e92b7045b9d0930290fc51a8cdccaf1c9f0de
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1457861b3a06d9f9b328190a8f34bdbb1113a20c
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650595"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348531"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -96,7 +96,7 @@ IoT 中心和设备 SDK 支持用于连接设备的以下协议：
 
 ## <a name="quotas-and-limits"></a>配额和限制
 
-每个 Azure 订阅都有默认的配额限制以防止服务滥用，并且这些限制可能会影响 IoT 解决方案的作用域。 每个订阅的当前限制是每个订阅 10 个 IoT 中心。 可以通过联系支持人员，请求增加配额。 有关配额限制的更多详细信息，请参阅：
+每个 Azure 订阅都有默认的配额限制以防止服务滥用，并且这些限制可能会影响 IoT 解决方案的作用域。 每个订阅的当前限制是每个订阅 50 个 IoT 中心。 可以通过联系支持人员，请求增加配额。 有关配额限制的更多详细信息，请参阅：
 
 * [Azure 订阅服务限制](../azure-subscription-service-limits.md)
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)（IoT 中心限制和你）

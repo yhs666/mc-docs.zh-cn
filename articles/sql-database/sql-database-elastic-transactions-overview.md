@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 3c1cbff61d3d2138186c1d0d96249105b8f7c0a7
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 9cb735aaa4c4d645d837979b1b83c5f10e082683
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663672"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318905"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨云数据库的分布式事务
 
@@ -127,13 +127,15 @@ Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较�
 
 ## <a name="transactions-across-multiple-servers"></a>跨多个服务器的事务
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure SQL 数据库中支持跨不同 SQL 数据库服务器的弹性数据库事务。 当事务跨越 SQL 数据库服务器边界时，参与的服务器将首先需要进入相互通信关系。 一旦建立了通信关系，任意两个服务器中的任何数据库都可以与另一服务器的数据库参与弹性事务。 当事务跨越两个以上的 SQL 数据库服务器时，任意 SQL 数据库服务器对之间的通信关系需要准备就绪。
 
 使用以下 PowerShell cmdlet 来管理弹性数据库事务的跨服务器通信关系：
 
-* **New-AzureRmSqlServerCommunicationLink**：使用此 cmdlet 在 Azure SQL 数据库中的两个 SQL 数据库服务器之间创建新的通信关系。 这种通信关系是对称的，这意味着这两台服务器可以使用另一台服务器启动事务。
-* **Get-AzureRmSqlServerCommunicationLink**：使用此 cmdlet 来检索现有通信关系及其属性。
-* **Remove-AzureRmSqlServerCommunicationLink**：使用此 cmdlet 来删除现有通信关系。 
+* **New-AzSqlServerCommunicationLink**：使用此 cmdlet 在 Azure SQL 数据库中的两个 SQL 数据库服务器之间创建新的通信关系。 这种通信关系是对称的，这意味着这两台服务器可以使用另一台服务器启动事务。
+* **Get-AzSqlServerCommunicationLink**：使用此 cmdlet 来检索现有通信关系及其属性。
+* **Remove-AzSqlServerCommunicationLink**：使用此 cmdlet 来删除现有通信关系。 
 
 ## <a name="monitoring-transaction-status"></a>监视事务状态
 

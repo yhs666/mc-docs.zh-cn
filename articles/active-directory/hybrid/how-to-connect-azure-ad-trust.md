@@ -5,25 +5,26 @@ keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, Azure AD, 信任, AAD
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: mtillman
-ms.component: hybrid
+manager: daveba
+ms.subservice: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/28/2018
-ms.date: 11/08/2018
+ms.date: 03/15/2019
 ms.author: v-junlch
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: fc423b100ce49e1778df5b752cadf3e56b2b54f1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1cbe70e3404ebe163c0268d0cb8d1b851ef76254
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186686"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理 AD FS 与 Azure AD 之间的信任关系
 
@@ -31,9 +32,9 @@ ms.locfileid: "52659902"
 
 Azure AD Connect 可以管理本地 Active Directory 联合身份验证服务 (AD FS) 与 Azure AD 之间的联合。 本文提供以下方面的概述：
 
-- Azure AD Connect 针对信任配置的各种设置
-- Azure AD Connect 设置的颁发转换规则（声明规则）
-- 如何在备份和还原升级与配置更新之间的声明规则。 
+* Azure AD Connect 针对信任配置的各种设置
+* Azure AD Connect 设置的颁发转换规则（声明规则）
+* 如何在备份和还原升级与配置更新之间的声明规则。 
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Azure AD Connect 控制的设置
 
@@ -120,5 +121,6 @@ Azure AD Connect 确保始终使用适当的建议声明规则集来配置 Azure
 > 确保其他规则不与 Azure AD Connect 配置的规则相冲突。
 
 ## <a name="next-steps"></a>后续步骤
-- [使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务](how-to-connect-fed-management.md)
+* [使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务](how-to-connect-fed-management.md)
 
+<!-- Update_Description: wording update -->

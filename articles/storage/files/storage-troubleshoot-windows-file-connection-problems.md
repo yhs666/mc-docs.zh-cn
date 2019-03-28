@@ -7,15 +7,15 @@ tags: storage
 ms.service: storage
 ms.topic: article
 origin.date: 01/02/2019
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 8c50334893727632d5ffa700fdeffc7a4c927b22
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 3130ed673ee2a1fba9bf57ca39c2e5f544fd02eb
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665692"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253908"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -62,7 +62,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 若要检查防火墙或 ISP 是否阻止端口 445，请使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` cmdlet。 
 
-若要使用 `Test-NetConnection` cmdlet，则必须安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
+若要使用 `Test-NetConnection` cmdlet，则必须安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resource-group-name>` 替换为存储帐户的相关名称。
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -74,12 +74,11 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
     # The ComputerName, or host, is <storage-account>.file.core.chinacloudapi.cn for Azure China Regions.
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 如果连接成功，应会看到以下输出：
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -92,7 +91,12 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解决方案
 
-与 IT 部门配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
+#### <a name="solution-1---unblock-port-445-with-help-of-your-ispit-admin"></a>解决方案 1 - 在 ISP/IT 管理员的帮助下取消阻止端口 445
+与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
+
+#### <a name="solution-2---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解决方案 2 - 使用基于 REST API 的工具，例如存储资源管理器/Powershell
+除了 SMB，Azure 文件存储还支持 REST。 REST 访问可以通过端口 443 进行（标准 tcp）。 有许多工具是用 REST API 编写的，可以给用户带来丰富的 UI 体验。 [存储资源管理器](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，然后将其连接到 Azure 文件存储支持的文件共享。 也可使用 [PowerShell](/storage/files/storage-how-to-use-files-powershell)，此工具也使用 REST API。
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：NTLMv1 已启用
 

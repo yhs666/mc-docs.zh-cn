@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/01/2019
-ms.date: 02/18/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3c257ec6d7eca8407dfdbe1aa3f8aff524e4424c
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 10900a621aff97e41b3f1552eeff8286ff78f6ea
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306123"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348106"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 
 Azure 资源管理器是 Azure 的部署和管理服务。 它提供一致的管理层用于在 Azure 订阅中创建、更新和删除资源。 部署后，可以使用其访问控制、审核和标记功能来保护与组织资源。
 
-通过门户、PowerShell、Azure CLI、REST API 或客户端 SDK 执行操作时，Azure 资源管理器 API 将处理你的请求。 由于所有请求是通过同一个 API 处理的，因此在所有不同的工具中会看到一致的结果和功能。
+通过门户、PowerShell、Azure CLI、REST API 或客户端 SDK 执行操作时，Azure 资源管理器 API 将处理你的请求。 由于所有请求是通过同一个 API 处理的，因此在所有不同的工具中会看到一致的结果和功能。 在门户中提供的所有功能也可以通过 PowerShell、Azure CLI、REST API 和客户端 SDK 来提供。 最初通过 API 发布的功能将在初次发布后的 180 天内在门户中提供。
 
 下图显示各种工具如何与 Azure 资源管理器 API 交互。 API 将请求传递给 Resource Manager 服务，后者对请求进行身份验证和授权。 资源管理器随后将请求路由到相应的服务。
 
@@ -52,7 +52,16 @@ Resource Manager 提供多种优势：
 * 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 * 可以通过查看一组共享相同标记的资源的成本来明确组织的帐单。
 
+## <a name="understand-management-scope"></a>了解管理范围
+
+Azure 提供四个级别的管理范围：管理组、订阅、资源组和资源。 [管理组](../governance/management-groups/index.md)处于预览状态。 下图显示了一个这些层的示例。
+
+![作用域](./media/resource-group-overview/scope-levels.png)
+
+将在上述任何级别的作用域中应用管理设置。 所选的级别确定应用设置的广泛程度。 较低级别继承较高级别的设置。 例如，将[策略](../governance/policy/overview.md)应用于订阅时，该策略将应用于订阅中的所有资源组和资源。 在资源组上应用策略时，该策略将应用于资源组及其所有资源。 但是，其他资源组没有该策略分配。
+
 ## <a name="guidance"></a>指南
+
 以下建议将帮助你在使用解决方案时充分利用 Resource Manager。
 
 * 通过 Resource Manager 模板中的声明性语法而不是强制性的命令来定义和部署基础结构。
@@ -151,7 +160,7 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 
 如果需要其他操作（例如，安装未包含在安装程序中的特定软件）时，资源管理器可提供所需的扩展。 如果已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-从门户创建解决方案时，该解决方案自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 有关示例，请参阅[快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板](./resource-manager-quickstart-create-templates-use-the-portal.md)。 还可以通过导出资源组的当前状态或查看特定部署所用的模板来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
+从门户创建解决方案时，该解决方案自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 有关示例，请参阅[快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板](./resource-manager-quickstart-create-templates-use-the-portal.md)。 还可以通过导出资源组的当前状态或查看特定部署所用的模板来检索现有资源组的模板。 查看[导出的模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)是了解模板语法的有用方法。
 
 最后，该模板成为应用程序源代码的一部分。 可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 可以通过 Visual Studio 编辑模板。
 

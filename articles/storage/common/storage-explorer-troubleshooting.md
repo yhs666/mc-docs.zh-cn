@@ -1,26 +1,67 @@
 ---
 title: Azure 存储资源管理器故障排除指南 | Microsoft Docs
-description: Azure 两项调试功能的概述
+description: Azure 存储资源管理器调试方法概述
 services: virtual-machines
 author: WenJason
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 75c9718824e91388ddade9ed76fa204f04123720
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 26ece0a0c66626bb49be889b7f0c0d1088a5deac
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196544"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253924"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
 Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。 应用可连接到托管在 Azure、National Clouds 和 Azure Stack 上的存储帐户。
 
 本指南汇总了存储资源管理器中常见问题的解决方案。
+
+## <a name="role-based-access-control-permission-issues"></a>基于角色的访问控制权限问题
+
+[基于角色的访问控制 (RBAC)](/role-based-access-control/overview) 是通过将权限集组合成“角色”，来提供对 Azure 资源的精细访问管理。 可遵循以下建议在存储资源管理器中正常运行 RBAC。
+
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>需要满足哪些条件才能在存储资源管理器中查看我的资源？
+
+如果在使用 RBAC 访问存储资源时遇到问题，原因可能是你尚未获得相应的角色。 以下部分介绍了存储资源管理器目前要求提供哪些权限来访问存储资源。
+
+如果你不确定自己是否拥有相应的角色或权限，请联系 Azure 帐户管理员。
+
+#### <a name="read-listget-storage-accounts"></a>读取：列出/获取存储帐户
+
+必须有权列出存储帐户。 可以请求分配“读取者”角色来获取此权限。
+
+#### <a name="list-storage-account-keys"></a>列出存储帐户密钥
+
+存储资源管理器还可以使用帐户密钥对请求进行身份验证。 可以使用权限更高的角色（例如“参与者”角色）来获取密钥的访问权限。
+
+> [!NOTE]
+> 访问密钥向其任何持有者授予不受限制的权限。 因此，通常不建议将其分发给帐户用户。 如果需要撤消访问密钥，可以通过 [Azure 门户](https://portal.azure.cn/)重新生成访问密钥。
+
+#### <a name="data-roles"></a>数据角色
+
+必须至少拥有一个可以授予对资源中数据的读取访问权限的角色。 例如，如果需要列出或下载 Blob，则至少需要拥有“存储 Blob 数据读取者”角色。
+
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>为何需要管理层角色才能在存储资源管理器中查看我的资源？
+
+Azure 存储提供两个访问层：“管理”和“数据”。 订阅和存储帐户是通过管理层访问的。 容器、Blob 和其他数据资源是通过数据层访问的。 例如，若要从 Azure 获取存储帐户的列表，应向管理终结点发送请求。 若要列出帐户中的 Blob 容器，应向相应的服务终结点发送请求。
+
+RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读取者”角色授予对管理层资源的只读访问权限。
+
+严格地讲，“读取者”角色不提供数据层的权限，并非一定要有该角色才能访问数据层。
+
+在存储资源管理器中，可以通过收集连接到 Azure 资源所需的信息，来轻松访问资源。 例如，若要显示 Blob 容器，存储资源管理器会向 Blob 服务终结点发送“列出容器”请求。 若要获取该终结点，存储资源管理器会搜索你有权访问的订阅和存储帐户列表。 但是，若要查找订阅和存储帐户，存储资源管理器还需要有权访问管理层。
+
+如果你没有一个可以授予任何管理层权限的角色，则存储资源管理器无法获取连接到数据层所需的信息。
+
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我无法从管理员获取管理层权限，该怎么办？
+
+目前，我们尚未制定 RBAC 相关的解决方法。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)。
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>错误：证书链中的自签名证书（和类似错误）
 
@@ -39,11 +80,9 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 如果你不确定该证书来源于何处，可以尝试执行以下步骤来找到它：
 
 1. 安装 Open SSL
-
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html)（任何精简版本均可）
     * Mac 和 Linux：应包含在操作系统中
 2. 运行 Open SSL
-
     * Windows：打开安装目录，单击“/bin/”，然后双击“openssl.exe”。
     * Mac 和 Linux：从终端运行 penssl。
 3. 执行 `s_client -showcerts -connect microsoft.com:443`
@@ -55,28 +94,33 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 ## <a name="sign-in-issues"></a>登录问题
 
-### <a name="blank-sign-in-dialog"></a>空白“登录”对话框
-空白“登录”对话框通常是由于 ADFS 要求存储资源管理器执行 Electron 不支持的重定向引起的。 若要解决此问题，可以尝试使用设备代码流进行登录。 为此，请执行以下步骤：
+### <a name="blank-sign-in-dialog"></a>空白登录对话框
+
+出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解决此问题，可以尝试使用设备代码流进行登录。 为此，请执行以下步骤：
+
 1. “转到实验”->“使用设备代码登录”。
 2. 打开“连接”对话框（通过左侧垂直栏上的插头图标或“帐户”面板上的“添加帐户”）。
-3. 选择想要登录的环境。
+3. 选择要登录到的环境。
 4. 单击“登录”按钮。
 5. 按照下一个面板上的说明进行操作。
 
-注意：此功能目前仅适用于 1.7.0 预览版。
+如果在登录到要使用的帐户时，由于默认浏览器已登录到其他帐户而遇到问题，可通过以下方法解决：
 
-如果在登录要使用的帐户时，由于默认浏览器已经登录到其他帐户而遇到问题，可通过以下方法解决：
 1. 手动将链接和代码复制到浏览器的私有会话中。
 2. 手动将链接和代码复制到其他浏览器中。
 
 ### <a name="reauthentication-loop-or-upn-change"></a>重新验证循环或 UPN 更改
+
 如果你处于重新验证循环中，或者已更改其中一个帐户的 UPN，请尝试以下操作：
+
 1. 删除所有帐户，然后关闭存储资源管理器
 2. 从计算机中删除 .IdentityService 文件夹。 在 Windows 中，该文件夹位于 `C:\users\<username>\AppData\Local`。 对于 Mac 和 Linux，可以在用户目录的根目录中找到该文件夹。
 3. 如果使用的是 Mac 或 Linux，则还需要从 OS 的密钥存储中删除 Microsoft.Developer.IdentityService 条目。 在 Mac 上，密钥存储是“Gnome Keychain”应用程序。 对于 Linux，该应用程序通常称为“Keyring”，但名称可能会有所不同，具体取决于分发版。
 
 ## <a name="mac-keychain-errors"></a>Mac 密钥链错误
-有时，macOS 密钥链可能会进入导致存储资源管理器的身份验证库出现问题的状态。 要将密钥链摆脱此状态，请尝试执行以下步骤：
+
+有时，macOS 密钥链可能会进入导致存储资源管理器的身份验证库出现问题的状态。 若要使密钥链摆脱此状态，请尝试以下步骤：
+
 1. 关闭存储资源管理器。
 2. 打开密钥链（**cmd+space**、键入密钥链、按 Enter）。
 3. 选择“登录”密钥链。
@@ -89,11 +133,12 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 7. 请尝试登录。
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>常规登录故障排除步骤
-* 如果你在 macOS 上且“正在等待身份验证...”对话框上从不出现登录窗口，则尝试执行[这些步骤](#mac-keychain-errors)
+
+* 在 macOS 上操作时，如果登录窗口永远不会出现，而是一直显示“正在等待身份验证...”对话框，请尝试[这些步骤](#mac-keychain-errors)
 * 重启存储资源管理器
 * 如果身份验证窗口为空，请等待至少一分钟，然后关闭身份验证对话框。
 * 确保为计算机和存储资源管理器正确配置了代理和证书设置。
-* 如果在 Windows 中操作，有权访问同一台计算机上的 Visual Studio 2017 并且可以登录，请尝试登录到 Visual Studio 2017。 成功登录 Visual Studio 2017 后，应该可以打开存储资源管理器并在帐户面板中查看帐户。
+* 如果在 Windows 上操作，并且有权访问同一台计算机上的 Visual Studio 2017 且可以登录，请尝试登录到 Visual Studio 2017。 成功登录 Visual Studio 2017 后，应该可以打开存储资源管理器并在帐户面板中查看帐户。
 
 如果这些方法均不起作用，请[在 GitHub 上提出问题](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
@@ -116,10 +161,10 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 * Linux：`~/.config/StorageExplorer`
 
 > [!NOTE]
->  在删除上述文件夹之前关闭存储资源管理器。
+> 在删除上述文件夹之前关闭存储资源管理器。
 
 > [!NOTE]
->  如果曾经导入了任何 SSL 证书，请备份 `certs` 目录的内容。 以后，可以使用备份来重新导入 SSL 证书。
+> 如果曾经导入了任何 SSL 证书，请备份 `certs` 目录的内容。 以后，可以使用备份来重新导入 SSL 证书。
 
 ## <a name="proxy-issues"></a>代理问题
 
@@ -128,7 +173,8 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 * 代理 URL 和端口号
 * 用户名和密码（如果代理需要）
 
-请注意，存储资源管理器不支持使用 proxy auto-config 文件来配置代理设置。
+> [!NOTE]
+> 存储资源管理器不支持使用代理 auto-config 文件来配置代理设置。
 
 ### <a name="common-solutions"></a>常见解决方法
 
@@ -159,15 +205,16 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 ## <a name="unable-to-retrieve-children-error-message"></a>“无法检索子级”错误消息
 
-如果通过代理连接到 Azure，请确认代理设置正确无误。 如果已获得对订阅或帐户所有者的资源的访问权限，请确认具有读取或列出该资源的权限。
+如果通过代理连接到 Azure，请确认代理设置正确无误。 如果已获取以订阅或帐户所有者身份访问资源的权限，请验证是否对该资源拥有读取或列出权限。
 
 ## <a name="connection-string-does-not-have-complete-configuration-settings"></a>连接字符串没有完整的配置设置
 
-如果收到此错误消息，则表示你可能没有所需的权限来获取你的存储帐户的密钥。 若要确认是否如此，请转到门户并找到你的存储帐户。 可以通过右键单击你的存储帐户的节点并单击“在门户中打开”来快速执行此操作。 执行此操作后，转到“访问密钥”边栏选项卡。 如果你无权查看密钥，则会看到其中显示了消息“你没有访问权限”的页面。 若要解决此问题，可以从其他人那里获取帐户密钥并通过名称和密钥进行附加，还可以向某人索要存储帐户的 SAS 并使用它来附加存储帐户。
+如果收到此错误消息，则表示你可能没有所需的权限来获取你的存储帐户的密钥。 若要确认是否如此，请转到门户并找到你的存储帐户。 可以通过右键单击存储帐户的节点并单击“在门户中打开”来快速执行此操作。 执行此操作后，转到“访问密钥”边栏选项卡。 如果你无权查看密钥，则会看到其中显示了消息“你没有访问权限”的页面。 若要解决此问题，可以从其他某人获取帐户密钥并结合名称和密钥附加存储帐户，或者，向某人索要存储帐户的 SAS 并使用它来附加存储帐户。
 
-如果看到了帐户密钥，请在 GitHub 上记录问题，以便我们可以帮助你解决问题。
+如果看到了帐户密钥，请在 GitHub 上提出问题，使我们能够帮助你解决问题。
 
 ## <a name="issues-with-sas-url"></a>SAS URL 的问题
+
 如果使用 SAS URL 连接到服务并遇到以下错误：
 
 * 请确认 URL 提供了读取或列出资源所需的权限。
@@ -175,21 +222,31 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 * 如果 SAS URL 基于访问策略，请确认访问策略尚未吊销。
 
 如果意外附加了无效的 SAS URL，并且无法分离，请执行以下步骤：
-1.  运行存储资源管理器时，按 F12 打开开发人员工具窗口。
-2.  单击“应用程序”选项卡，然后单击左侧树中的“本地存储”> file://。
-3.  查找与有问题的 SAS URI 服务类型关联的键。 例如，如果用于 blob 容器的 SAS URI 错误，请查找名为 `StorageExplorer_AddStorageServiceSAS_v1_blob` 的键。
-4.  键的值应为 JSON 数组。 查找与错误 URI 关联的对象，并将其删除。
-5.  按 Ctrl+R 重新加载存储资源管理器。
+
+1. 运行存储资源管理器时，按 F12 打开开发人员工具窗口。
+2. 单击“应用程序”选项卡，然后单击左侧树中的“本地存储”> file://。
+3. 查找与有问题的 SAS URI 服务类型关联的键。 例如，如果用于 blob 容器的 SAS URI 错误，请查找名为 `StorageExplorer_AddStorageServiceSAS_v1_blob` 的键。
+4. 键的值应为 JSON 数组。 查找与错误 URI 关联的对象，并将其删除。
+5. 按 Ctrl+R 重新加载存储资源管理器。
 
 ## <a name="linux-dependencies"></a>Linux 依赖项
 
-对于 Ubuntu 16.04 以外的 Linux 发行版，可能需要手动安装某些依赖项。 一般情况下，以下包是必需的：
+对于除 Ubuntu 16.04 以外的 Linux 分发版，可能需要手动安装一些依赖项。 一般情况下，以下包是必需的：
+
 * [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * Up-to-date GCC
 
-可能还需要安装其他包，具体取决于你的发行版。 存储资源管理器[发行说明](https://docs.azure.cn/vs-azure-tools-storage-explorer-relnotes)包含用于某些发行版的特定步骤。
+根据所用的分发版，可能还需要安装其他包。 存储资源管理器[发行说明](https://docs.azure.cn/vs-azure-tools-storage-explorer-relnotes)中提供了适用于某些分发版的具体步骤。
+
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Azure 门户中的“在资源管理器中打开”不起作用
+
+如果在 Azure 门户上单击“在资源管理器中打开”按钮不起作用，请确保使用兼容的浏览器。 以下浏览器已通过兼容性测试。
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## <a name="next-steps"></a>后续步骤
 

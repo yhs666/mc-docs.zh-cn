@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 01/21/2019
+ms.date: 04/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: d493b700237ef3b1fae44333b3bcad6c88bb1bb4
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: f3214dab1cee42615318b8cb46a8c857567eb433
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985605"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348616"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集
 
@@ -72,9 +72,9 @@ ms.locfileid: "55985605"
 
 - **监视菜单**
   - **警报**：管理警报和操作。
-  - **指标**：监视 Azure Log Analytics 中的群集指标。
+  - **指标**：监视 Azure Monitor 日志中的群集指标。
   - **诊断设置**：存储诊断指标的位置设置。
-  - **Operations Management Suite**：监视 Azure Operations Management Suite (OMS) 和 Azure Log Analytics 中的群集。
+  - **Operations Management Suite**：监视 Azure Operations Management Suite (OMS) 和 Azure Monitor 日志中的群集。
 
 - **支持 + 故障排除菜单**
   - **资源运行状况**：参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。

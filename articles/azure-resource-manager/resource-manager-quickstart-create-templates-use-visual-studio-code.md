@@ -10,24 +10,26 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 01/11/2019
-ms.date: 02/18/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 84c58257e5dabd98d7de5de5a6d029eced1f4474
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 19f4059864fb7d4b4512eb2982f32f26f6a3a415
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306181"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348034"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板
 
 了解如何使用 Visual Studio Code 和 Azure 资源管理器工具扩展创建和编辑 Azure 资源管理器模板。 可以在 Visual Studio Code 中不使用扩展创建资源管理器模板，但是该扩展提供自动完成选项，可以简化模板开发。 若要了解与部署和管理 Azure 解决方案相关联的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+在本教程中，你将部署存储帐户：
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+![资源管理器模板快速入门 visual studio 代码关系图](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,6 +55,7 @@ ms.locfileid: "56306181"
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. 选择“打开”以打开该文件。
 4. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
 
@@ -94,6 +97,8 @@ ms.locfileid: "56306181"
 
 可通过多种方法来部署模板。  在本快速入门中，使用 Azure 本地 Shell 或 Azure PowerShell 部署模板。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 <!--Not Available on Cloud Shell-->
 1. 从 Azure 本地 shell 运行以下命令。 选择用于显示 PowerShell 代码或 CLI 代码的选项卡。
 
@@ -125,7 +130,7 @@ ms.locfileid: "56306181"
 
     ---
 
-    如果将模板文件保存到了 **azuredeploy.json** 之外的其他文件中，其更新其名称。
+    如果将模板文件保存到了 **azuredeploy.json** 之外的其他文件中，其更新其名称。 
 
     以下屏幕截图显示了示例部署：
 

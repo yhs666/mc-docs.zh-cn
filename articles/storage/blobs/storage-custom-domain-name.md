@@ -9,12 +9,12 @@ origin.date: 06/26/2018
 ms.date: 03/04/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 6ba6b0ce9354efb9281a05b9066d45e3ede3594e
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 67ae435932c899268be2172ac64885c8ec0d42dc
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196543"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253932"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>为 Azure 存储帐户配置自定义域名
 
@@ -27,7 +27,7 @@ ms.locfileid: "57196543"
 > [!NOTE]  
 > 暂仅支持为每个存储帐户配置一个自定义域名。 无法将自定义域名映射到 Web 和 Blob 服务终结点。
 
-下表显示了 *mystorageaccount* 存储帐户中的 Blob 数据的一些示例 URL。 为存储帐户注册的自定义域是 *www.contoso.com*：
+下表显示了 *mystorageaccount* 存储帐户中的 Blob 数据的一些示例 URL。 为存储帐户注册的自定义子域是 *www.contoso.com*：
 
 | 资源类型 | 默认 URL | 自定义域 URL |
 | --- | --- | --- | --- |
@@ -39,9 +39,9 @@ ms.locfileid: "57196543"
 > [!NOTE]  
 > 如以下部分中所示，Blob 服务终结点的所有示例同样适用于 Web 服务终结点。
 
-## <a name="direct-vs-intermediary-domain-mapping"></a>直接域映射与中间域映射
+## <a name="direct-vs-intermediary-cname-mapping"></a>直接 CNAME 映射与中间 CNAME 映射
 
-可通过两种方法之一将自定义域指向存储帐户的 Blob 终结点： 
+可通过两种方法之一将带有子域（例如 www.contoso.com）前缀的自定义域指向存储帐户的 Blob 终结点： 
 * 使用直接 CNAME 映射。
 * 使用 *asverify* 中间子域。
 

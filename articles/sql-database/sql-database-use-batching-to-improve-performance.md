@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: genemi
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 7adc29d98de0b54ed03650757dc00f1fff8a4e8a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 51215bdace97539428331e9d741049ba54ff556e
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663546"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318999"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 

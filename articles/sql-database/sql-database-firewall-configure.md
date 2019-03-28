@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 1d4be4f13f1b1bcb29e62ac991c7dd716e4f755d
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 03/04/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: e5730a2477f846c4c534b8c0d221c87e3c06f41b
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663526"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319000"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库 IP 防火墙规则
 
@@ -148,17 +148,19 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>使用 Azure PowerShell 管理服务器级别 IP 防火墙规则
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | 级别 | 说明 |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |服务器 |返回当前服务器级别 IP 防火墙规则 |
-| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |服务器 |新建服务器级别 IP 防火墙规则 |
-| [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |服务器 |更新现有服务器级别 IP 防火墙规则的属性 |
-| [Remove-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |服务器 |删除服务器级别 IP 防火墙规则 |
+| [Get-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverfirewallrule) |服务器 |返回当前的服务器级防火墙规则 |
+| [New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule) |服务器 |新建服务器级防火墙规则 |
+| [Set-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverfirewallrule) |服务器 |更新现有服务器级防火墙规则的属性 |
+| [Remove-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverfirewallrule) |服务器 |删除服务器级防火墙规则 |
 
 下面的示例使用 PowerShell 设置服务器级别 IP 防火墙规则：
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```
@@ -166,7 +168,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > [!TIP]
 > 若要查看快速入门上下文中的 PowerShell 示例，请参阅[创建 DB - PowerShell](sql-database-powershell-samples.md)，以及[使用 PowerShell 创建单一数据库并配置 SQL 数据库服务器级别 IP 防火墙规则](scripts/sql-database-create-and-configure-database-powershell.md)
 
-## <a name="manage-firewall-rules-using-azure-cli"></a>使用 Azure CLI 管理防火墙规则
+## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>使用 Azure CLI 管理服务器级别 IP 防火墙规则
 
 | Cmdlet | 级别 | 说明 |
 | --- | --- | --- |

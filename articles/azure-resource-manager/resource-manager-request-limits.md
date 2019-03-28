@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/09/2018
-ms.date: 02/18/2019
+origin.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 181db1c0b0a567bb96f447a6c0cc275409afee51
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 42b2255a5e4d4d6dc69e4a6126179d0bcb645131
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306108"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348137"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 
@@ -36,7 +36,7 @@ ms.locfileid: "56306108"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>剩余请求数
-可以通过检查响应标头确定剩余请求数。 每个请求都包含剩余读取和写入请求数的值。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
+可以通过检查响应标头确定剩余请求数。 读取请求在标头中返回一个值，表示剩余读取请求的数目。 写入请求包含的值表示剩余写入请求的数目。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
 
 | 响应标头 | 说明 |
 | --- | --- |
@@ -83,7 +83,7 @@ OK
 
 Headers:
 Pragma                        : no-cache
-x-ms-ratelimit-remaining-subscription-reads: 14999
+x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
 若要获取写入限制，请使用写入操作： 
@@ -122,7 +122,7 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Content-Encoding': 'gzip'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'Vary': 'Accept-Encoding'
-msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
 若要获取写入限制，请使用写入操作： 

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 08/30/2018
-ms.date: 12/24/2018
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 058a554284d5c503908cb1f7b30bad8f125d55ea
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 625187dded011c46a60acd2c7d7c7464d90732d2
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569301"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352503"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -106,11 +106,12 @@ az acr update --name myregistry --sku Premium
 <!-- LINKS - External -->
 [acr-roadmap]: https://aka.ms/acr/roadmap
 [container-registry-pricing]: https://www.azure.cn/pricing/details/container-registry/
-[container-registry-uservoice]: https://support.azure.cn/zh-cn/support/support-azure/
+[container-registry-uservoice]: https://www.azure.cn/support/contact/
 
 <!-- LINKS - Internal -->
 [az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
-<!--Not Avaialble on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-upgrade]: container-registry-upgrade.md [container-registry-storage]: container-registry-storage.md [container-registry-webhook]: container-registry-webhook.mdd
+<!--Not Avaialble on [container-registry-geo-replication]: container-registry-geo-replication.md-->
+[container-registry-upgrade]: container-registry-upgrade.md [container-registry-storage]: container-registry-storage.md [container-registry-webhook]: container-registry-webhook.md
 
 <!-- Update_Description: update meta properties, wording update -->
 

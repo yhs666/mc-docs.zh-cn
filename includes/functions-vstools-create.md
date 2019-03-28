@@ -5,16 +5,16 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-origin.date: 05/22/2018
-ms.date: 12/26/2018
+origin.date: 03/05/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 0ca44e5637c53cec09497a5975659e82011039b4
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: f7090841c314d63371050a01470c596068b919a7
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806729"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261478"
 ---
 Visual Studio 中的 Azure Functions 项目模板创建一个项目，该项目可发布到 Azure 中的函数应用。 函数应用可将函数分组为一个逻辑单元，以用于管理、部署和共享资源。
 
@@ -34,6 +34,9 @@ Visual Studio 中的 Azure Functions 项目模板创建一个项目，该项目�
     | **模板** | HTTP 触发器 | 这会创建由 HTTP 请求触发的函数。 |
     | **存储帐户**  | 存储模拟器 | HTTP 触发器不使用存储帐户连接。 所有其他触发器类型需要有效的存储帐户连接字符串。 |
     | **访问权限** | 匿名 | 在未提供密钥的情况下，任何客户端都可以触发创建的函数。 通过此授权设置可以轻松测试新函数。 有关密钥和授权的详细信息，请参阅 [HTTP 和 Webhook 绑定](../articles/azure-functions/functions-bindings-http-webhook.md)中的[授权密钥](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys)。 |
+    
+    > [!NOTE]
+    > 确保将“访问权限”设置为 `Anonymous`。 选择默认级别 `Function` 时，需要在请求中提供[函数密钥](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys)才能访问函数终结点。
+    
 4. 单击“确定”以创建函数项目和 HTTP 触发的函数。
 
-<!-- ms.date: 12/26/2018 -->

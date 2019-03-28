@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 02/20/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: ea82490ff3ca806fa973301a079df6bf4c9f3a2d
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 82b4b92547c23d79cf997dc3fb4fd187ade4fc78
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560492"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348547"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>如何升级 IoT 中心
 
@@ -46,7 +46,9 @@ ms.locfileid: "57560492"
 4. 若要更改中心的单元数，请在“IoT 中心单元数”下输入新值。 
 5. 选择“保存”以保存更改。 
 
-现在，IoT 中心已进行调整，但配置未更改。 基本层 IoT 中心的最大分区限制为 8，标准层的为 32。 大多数 IoT 中心只需要 4 个分区。 分区限制是在创建 IoT 中心时选择的，它将设备到云消息关联到这些消息的并行读取器的数目。 从基本层迁移到标准层时，此值保持不变。 
+现在，IoT 中心已进行调整，但配置未更改。 
+
+基本层 IoT 中心和标准层 IoT 中心的最大分区限制为 32。 大多数 IoT 中心只需要 4 个分区。 分区限制是在创建 IoT 中心时选择的，它将设备到云消息关联到这些消息的并行读取器的数目。 从基本层迁移到标准层时，此值保持不变。 
 
 ## <a name="next-steps"></a>后续步骤
 

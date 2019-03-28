@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2018
-ms.date: 12/31/2018
+origin.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: e4b5da6dbba5f027f27c08702222f0b36eee93a5
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 8b6e828130e26b757bc78e089eeb3c1758ab4f78
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736660"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348674"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>在 Azure API 管理中管理协议和密码
 
@@ -40,14 +40,9 @@ Azure API 管理支持同时用于客户端和后端的多个 TLS 协议版本�
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>如何管理 TLS 协议和 3DES 密码
 
 1. 在 Azure 门户中导航到自己的 **API 管理实例**。
-2. 从菜单中选择 **SSL**。 
- 
-    ![在 APIM 中管理协议和密码 - 菜单](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
-    
+2. 从菜单中选择“协议设置”。  
 3. 启用或禁用所需的协议或密码。
 4. 单击“保存” 。 更改将在一小时内应用。  
-
-    ![在 APIM 中管理协议和密码 - 保存](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## <a name="next-steps"></a>后续步骤
 

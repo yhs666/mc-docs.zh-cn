@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 01/02/2019
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 21c28f688ea2ebbab72991972d3cddaba5be8fa8
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 5841867697e754260c812156ad9848e24a5ca6f9
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906234"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348686"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
 
@@ -1314,6 +1314,16 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 ## <a name="known-issues"></a>已知问题
 
+-   **HDInsight 与 ADLS Gen 2 集成** 使用 Azure Data Lake Storage Gen 2 的 HDInsight ESP 群集在用户目录和权限上存在两个问题：
+   
+   1. 用户的主目录未在头节点 1 上创建。 解决方法是，手动创建目录并将所有权更改为相应用户的 UPN。
+   
+   2. /hdp 目录的权限当前未设置为 751。 这需要设置为该值 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
+
 -   **Spark 2.3**
 
     -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] 规则 OptimizeMetadataOnlyQuery 导致了错误结果
@@ -1417,7 +1427,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 ## <a name="deprecation"></a>弃用
 
--   **OMS 门户：** 我们已从指向 OMS 门户的 HDInsight 资源页中删除该链接。 Log Analytics 一开始使用其自己的门户（称为 OMS 门户）来管理其配置并分析收集的数据。 此门户的所有功能已移至 Azure 门户，在其中继续进行开发。 HDInsight 已弃用 OMS 门户支持。 客户将在 Azure 门户中使用 HDInsight Log Analytics 集成。
+-   **OMS 门户：** 我们已从指向 OMS 门户的 HDInsight 资源页中删除该链接。 Azure Monitor 日志一开始使用其自己的门户（称为 OMS 门户）来管理其配置并分析收集的数据。 此门户的所有功能已移至 Azure 门户，在其中继续进行开发。 HDInsight 已弃用 OMS 门户支持。 客户将在 Azure 门户中使用 HDInsight Azure Monitor 日志集成。
 
 -   **Spark 2.3**
 

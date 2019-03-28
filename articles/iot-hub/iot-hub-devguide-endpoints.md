@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 5ec442da033e82e78c18995546cc9d1d06a296dc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 04/01/2019
+ms.openlocfilehash: 836932566f123f774dbc9d68388ffaee4ed31460
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675484"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348557"
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 
@@ -80,6 +80,15 @@ IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 * 服务总线主题
 
 有关可添加的终结点的数量限制，请参阅[配额和限制](iot-hub-devguide-quotas-throttling.md)。
+
+可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的运行状况状态。 当终结点运行状况为故障或不正常时，建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来标识并调试错误。
+
+|运行状况状态|说明|
+|---|---|
+|healthy|终结点按预期方式接受消息。|
+|不正常|终结点未按预期方式接受消息，IoT 中心正重试将数据发送到此终结点。 当 IoT 中心建立了最终一致的运行状况状态以后，系统会将不正常终结点的状态更新为正常。|
+|未知|IoT 中心尚未建立与该终结点的连接。 尚未向该终结点传送任何消息，也未拒绝该终结点发送的任何消息。|
+|不活动|重试期间，在 IoT 中心重试发送消息以后，终结点不接受消息。|
 
 ## <a name="field-gateways"></a>现场网关
 

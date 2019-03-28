@@ -11,14 +11,14 @@ ms.workload: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: adf44e0cc3ae44cf6846eac281e1c2c3a4224379
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 2b9ca3ba6823f66de1f429d0a63d78baf164f700
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665620"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256372"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何排查“Azure Functions 运行时无法访问”的问题
 
@@ -63,9 +63,9 @@ ms.locfileid: "56665620"
 
 ### <a name="guidance"></a>指南
 
-- 对于这些设置中的任何设置，不要选中“插槽设置”。 当交换部署槽位时，函数会会中断。
-- 如果使用自动部署，则不要设置这些设置。
-- 必须在创建时提供这些设置并使其生效。 不包含这些设置的自动部署会导致应用无法运行，即使事后添加了这些设置也是如此。
+* 对于这些设置中的任何设置，不要选中“插槽设置”。 当交换部署槽位时，函数会会中断。
+* 在自动部署过程中，请勿修改这些设置。
+* 必须在创建时提供这些设置并使其生效。 不包含这些设置的自动部署会导致应用无法运行，即使事后添加了这些设置也是如此。
 
 ## <a name="storage-account-credentials-invalid"></a>存储帐户凭据无效
 
@@ -75,30 +75,30 @@ ms.locfileid: "56665620"
 
 Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐户的常见问题是：
 
-- Function App 在部署到应用服务环境时，没有正确的网络规则来允许在存储帐户中传入和传出流量
-- 存储帐户防火墙已启用，但未配置为允许在 Functions 中传入和传出流量。 [在此处阅读有关存储帐户防火墙配置的详细信息](/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* Function App 在部署到应用服务环境时，没有正确的网络规则来允许在存储帐户中传入和传出流量
+* 存储帐户防火墙已启用，但未配置为允许在 Functions 中传入和传出流量。 [在此处阅读有关存储帐户防火墙配置的详细信息](/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 ## <a name="daily-execution-quota-full"></a>每日执行配额已满
 
 如果你配置了每日执行配额，则会暂时禁用 Function App，并且许多门户控件将不可用。 
 
-- 若要进行验证，请在门户中检查“平台功能”>“Function App 设置”。 如果超过配额，则将看到以下消息
-    - `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-- 删除配额并重启应用可解决此问题。
+* 若要进行验证，请在门户中检查“平台功能”>“Function App 设置”。 如果超过配额，则将看到以下消息
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* 删除配额并重启应用可解决此问题。
 
 ## <a name="next-steps"></a>后续步骤
 
 现在，Function App 已恢复，请查看快速入门和开发人员参考，以便重新启动并运行！
 
-- [创建第一个 Azure 函数](functions-create-first-azure-function.md)  
+* [创建第一个 Azure 函数](functions-create-first-azure-function.md)  
   使用 Azure Functions 快速入门立即投入并创建第一个函数。 
-- [Azure Functions 开发人员参考](functions-reference.md)  
+* [Azure Functions 开发人员参考](functions-reference.md)  
   提供有关 Azure Functions 运行时的更多技术信息，并为编码函数及定义触发器和绑定提供参考。
-- [测试 Azure Functions](functions-test-a-function.md)  
+* [测试 Azure Functions](functions-test-a-function.md)  
   介绍可用于测试函数的各种工具和技巧。
-- [如何缩放 Azure Functions](functions-scale.md)  
+* [如何缩放 Azure Functions](functions-scale.md)  
   讨论在 Azure Functions 中可用的服务计划以及如何选择适当的计划。 
-- [详细了解 Azure 应用服务](../app-service/app-service-web-overview.md)  
+* [详细了解 Azure 应用服务](../app-service/app-service-web-overview.md)  
   Azure Functions 利用 Azure 应用服务执行核心功能，例如部署、环境变量和诊断。 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

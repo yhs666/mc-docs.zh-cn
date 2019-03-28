@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 7e80d3a94be8bb727ec88cdd4f412feab53e2d09
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: d2573c8ec512baabd62a4178f55f0550d886b0ac
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347160"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318906"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -31,6 +31,8 @@ ms.locfileid: "57347160"
 
 > [!NOTE] 
 > 本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a id="subheading-1"></a>Azure SQL 数据库审核概述
@@ -128,7 +130,7 @@ ms.locfileid: "57347160"
 
     4. 合并的文件会在 SSMS 中打开，可在其中进行查看和分析，以及将其作为 XEL 或 CSV 文件导出或导出到表中。
 
-- 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 如需详细信息并访问可下载的模板，请参阅[在 Power BI 中分析审核日志数据](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
+- 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 如需详细信息并访问可下载的模板，请参阅[在 Power BI 中分析审核日志数据](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/)。
 - 通过门户或使用 [Azure 存储资源管理器](http://storageexplorer.com/)等工具从 Azure 存储 blob 容器下载日志文件。
   - 在本地下载日志文件后，可双击打开文件，然后在 SSMS 中查看和分析日志。
   - 也可通过 Azure 存储资源管理器同时下载多个文件。 为此，请右键单击特定子文件夹，然后选择“另存为”，以便在本地文件夹中进行保存。
@@ -138,8 +140,8 @@ ms.locfileid: "57347160"
   - 下载多个文件或包含日志文件的子文件夹后，可以按照前述 SSMS 合并审核文件说明在本地合并它们。
   - 以编程方式查看 blob 审核日志：
 
-    - 使用[扩展事件读取器](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# 库。
-    - 使用 PowerShell [查询扩展事件文件](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/)。
+    - 使用[扩展事件读取器](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# 库。
+    - 使用 PowerShell [查询扩展事件文件](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)。
 
 ## <a id="subheading-5"></a>生产做法
 
@@ -193,28 +195,28 @@ ms.locfileid: "57347160"
 
 **PowerShell cmdlet（包括支持使用 WHERE 子句进行其他筛选）**：
 
-- [创建或更新数据库 Blob 审核策略 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [创建或更新服务器 Blob 审核策略 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [创建或更新数据库审核策略 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [创建或更新服务器审核策略 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [获取数据库审核策略 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [获取服务器 Blob 审核策略 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [获取服务器审核策略 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 有关脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
 ## <a id="subheading-9"></a>使用 REST API 管理 SQL 数据库审核
 
-**REST API - Blob 审核**：
+**REST API**：
 
-- [创建或更新数据库 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [创建或更新服务器 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [获取数据库 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [获取服务器 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [创建或更新数据库审核策略](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [创建或更新服务器审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [获取数据库审核策略](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [获取服务器审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 支持使用 WHERE 子句执行附加筛选的扩展策略：
 
-- [创建或更新数据库扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [创建或更新服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [获取数据库扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [获取服务器扩展 Blob 审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [创建或更新数据库扩展审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [创建或更新服务器扩展审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [获取数据库扩展审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [获取服务器扩展审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>使用 ARM 模板管理 SQL 数据库审核
 

@@ -1,26 +1,20 @@
 ---
-title: 为 Azure 导入/导出的导入作业准备硬盘驱动器 - v1 | Azure
+title: 为 Azure 导入/导出的导入作业准备硬盘驱动器 - v1 | Microsoft Docs
 description: 了解如何使用 WAImportExport v1 工具准备硬盘驱动器，以便为 Azure 导入/导出服务创建导入作业。
-author: hayley244
-manager: digimobile
-editor: tysonn
+author: WenJason
 services: storage
-documentationcenter: ''
-ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9a74f56084203827d8027eaa278c4096aeb208e3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 01ebda826cd6fbc405f8c43ada9a68ba4c92aacb
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659878"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253940"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 若要为导入作业准备一个或多个硬盘驱动器，请执行以下步骤：

@@ -11,112 +11,82 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: c45327a258a3639d147a3d0c36f3da8e3d3d2324
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/07/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: 5a00bfbfba6e77acf41fff31dfa52f3e9df98b6f
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347087"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318881"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>使用 PowerShell 通过备份还原 Azure SQL 单一数据库
 
 此 PowerShell 脚本示例从异地冗余备份还原 Azure SQL 数据库，根据最新备份还原已删除的 Azure SQL 数据库，并将 Azure SQL 数据库还原到特定的时间点。  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+本教程需要 AZ PowerShell 1.4.0 或更高版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Connect-AzAccount -Environment AzureChinaCloud
+$SubscriptionId = ''
 # Set the resource group name and location for your server
-$resourcegroupname = "myResourceGroup-$(Get-Random)"
-$location = "China North"
+$resourceGroupName = "myResourceGroup-$(Get-Random)"
+$location = "chinaeast"
 # Set an admin login and password for your server
-$adminlogin = "ServerAdmin"
+$adminSqlLogin = "SqlAdmin"
 $password = "ChangeYourAdminPassword1"
 # Set server name - the logical server name has to be unique in the system
-$servername = "server-$(Get-Random)"
+$serverName = "server-$(Get-Random)"
 # The sample database name
-$databasename = "mySampleDatabase"
+$databaseName = "mySampleDatabase"
 # The restored database names
-$georestoredatabasename = "MySampleDatabase_GeoRestore"
-$pointintimerestoredatabasename = "MySampleDatabase_10MinutesAgo"
-$deleteddatabaserestorename = "MySampleDatabase_DeletedRestore"
+$restoreDatabaseName = "MySampleDatabase_GeoRestore"
+$pointInTimeRestoreDatabaseName = "MySampleDatabase_10MinutesAgo"
 # The ip address range that you want to allow to access your server
-$startip = "0.0.0.0"
-$endip = "0.0.0.0"
+$startIp = "0.0.0.0"
+$endIp = "0.0.0.0"
+
+# Set subscription 
+Set-AzContext -SubscriptionId $subscriptionId 
 
 # Create a resource group
-$resourcegroup = New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
+$resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # Create a server with a system wide unique server name
-$server = New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
+$server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
     -Location $location `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # Create a server firewall rule that allows access from the specified IP range
-$firewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
-    -FirewallRuleName "AllowedIPs" -StartIpAddress $startip -EndIpAddress $endip
+$firewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
 
 # Create a blank database with an S0 performance level
-$database = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
-    -DatabaseName $databasename `
+$database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -DatabaseName $databaseName `
     -RequestedServiceObjectiveName "S0" 
 
-# Restore database from latest geo-redundant backup into existing server 
-# Note: Check to see that backups are created and ready to restore from geo-redundant backup
-# Important: If no backup exists, you will get an error indicating that no backups exist for the server specified
-Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName $resourcegroupname -ServerName $servername 
-Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename
-# Do not continue until a backup exists
-Restore-AzureRmSqlDatabase `
-    -FromGeoBackup `
-    -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
-    -TargetDatabaseName $georestoredatabasename `
-    -ResourceId $database.ResourceID `
-    -Edition "Standard" `
-    -ServiceObjectiveName "S0"
+Start-Sleep -second 600
 
-# Restore database to its state 10 minutes ago
+# Restore database to its state 7 minutes ago
 # Note: Point-in-time restore requires database to be at least 5 minutes old
-Restore-AzureRmSqlDatabase `
+Restore-AzSqlDatabase `
       -FromPointInTimeBackup `
-      -PointInTime (Get-Date).AddMinutes(-10) `
-      -ResourceGroupName $resourcegroupname `
-      -ServerName $servername `
-      -TargetDatabaseName $pointintimerestoredatabasename `
+      -PointInTime (Get-Date).AddMinutes(-2) `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -TargetDatabaseName $pointInTimeRestoreDatabaseName `
       -ResourceId $database.ResourceID `
       -Edition "Standard" `
       -ServiceObjectiveName "S0"
-
-# Delete original database
-Remove-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename
-
-# Restore deleted database 
-# Note: Check to see that the Get-AzureRmSqlDeletedDatabaseBackup cmdlet returns a deletion date (may take a few minutes). 
-# Important: If no backup exists, no value will be returned.
-$deleteddatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename
-$deleteddatabase
-# Do not continue until the cmdlet returns information about the deleted database.
-Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup `
-    -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
-    -TargetDatabaseName $deleteddatabaserestorename `
-    -ResourceId $deleteddatabase.ResourceID `
-    -DeletionDate $deleteddatabase.DeletionDate `
-    -Edition "Standard" `
-    -ServiceObjectiveName "S0"
-
-# Clean up deployment 
-# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -124,7 +94,7 @@ Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup `
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -133,13 +103,14 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在 SQL 数据库服务器中创建数据库作为单一数据库或入池数据库。 |
-| [Get-AzureRmSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | 获取单一数据库或入池数据库的异地冗余备份。 |
-| [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) | 还原 SQL 单一数据库或入池数据库。 |
-| [Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabase) | 删除 Azure SQL 单一数据库或入池数据库。 |
-| [Get-AzureRmSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 获取可以还原的已删除的单一数据库或入池数据库。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 | 
+| [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 在 SQL 数据库服务器中创建数据库作为独立数据库或入池数据库。 |
+| [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) | 获取独立数据库或入池数据库的异地冗余备份。 |
+| [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) | 还原 SQL 独立数据库或入池数据库。 |
+| [Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase) | 删除 Azure SQL 独立数据库或入池数据库。 |
+| [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 获取可以还原的已删除的独立数据库或入池数据库。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

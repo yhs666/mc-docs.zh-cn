@@ -10,24 +10,28 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4efe98925641235dcc9e733ade54cf0d97ec63f0
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 6ca90787cb9a1db11105142256065a5782a37cb2
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665665"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256364"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+Azure Functions 运行时支持 [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)。
+
+本指南包含有关使用 Java 编写 Azure Functions 的复杂性的信息。
+
+Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 修饰。 此方法定义 java 函数的条目，必须在给定包中独一无二。 
+
+本文假定你已阅读 [Azure Functions 开发人员参考](functions-reference.md)。 此外，应该完成有关如何使用 [Visual Studio Code](functions-create-first-function-vs-code.md) 或[使用 maven](functions-create-first-java-maven.md) 创建第一个函数的 Functions 快速入门。
 
 ## <a name="programming-model"></a>编程模型 
 
 [触发器和绑定](functions-triggers-bindings.md)是 Azure Functions 的基本概念。 触发器启动代码的执行。 绑定可让你向函数传递数据以及从函数返回数据，而无需编写自定义的数据访问代码。
-
-函数应是处理输入和生成输出的无状态方法。 函数不应依赖于类的任何实例字段。 所有函数方法的性质应该是 `public`，带有 @FunctionName 注释的方法必须是唯一的，因为方法名称定义函数的项。
 
 ## <a name="folder-structure"></a>文件夹结构
 
@@ -385,11 +389,11 @@ public class Function {
 
 有关 Azure 函数 Java 开发的详细信息，请参阅以下资源：
 
-- [Azure Functions 最佳实践](functions-best-practices.md)
-- [Azure Functions 开发人员参考](functions-reference.md)
-- [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+* [Azure Functions 最佳实践](functions-best-practices.md)
+* [Azure Functions 开发人员参考](functions-reference.md)
+* [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 - 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 的本地开发和调试。 
-- [使用 Visual Studio Code 远程调试 Java Azure Functions](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
-- [适用于 Azure Functions 的 Maven 插件](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - 通过 `azure-functions:add` 目标简化函数创建并准备临时目录以用于 [ZIP 文件部署](deployment-zip-push.md)。
+* [使用 Visual Studio Code 远程调试 Java Azure Functions](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [适用于 Azure Functions 的 Maven 插件](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - 通过 `azure-functions:add` 目标简化函数创建并准备临时目录以用于 [ZIP 文件部署](deployment-zip-push.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 11/26/2018
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 411b06b70806ea722004537d89dda1525833d9cc
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.openlocfilehash: 4dee6a4d6e0a31b81282ed13332222518b8a7524
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858194"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348054"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可帮助你从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
@@ -53,7 +53,7 @@ SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载�
 另请参阅 [Guide for using PolyBase][Guide for using PolyBase]
 
 ## <a name="hash-distribute-large-tables"></a>哈希分布大型表
-默认情况下，表是以轮循机制分布的。  这可让用户更容易开始创建表，而不必确定应该如何分布其表。  轮循机制表在某些工作负荷中执行良好，但大多数情况下，选择分布列的执行性能将更好。  按列分布表的性能远远高于轮循机制表的最常见例子是联接两个大型事实表。  例如，如果有一个依 order_id 分布的订单表，以及一个也是依 order_id 分布的事务表，如果将订单数据联接到事务表上的 order_id，此查询将变成传递查询，也就是数据移动操作将被消除。  减少步骤意味着加快查询速度。  更少的数据移动也会让查询更快。  这种解释较为粗略。 加载分布的表时，请确保传入数据的分布键没有排序，因为这会拖慢加载速度。  有关选择分布列如何能提升性能，以及如何在 CREATE TABLES 语句的 WITH 子句中定义分布表的详细信息，请参阅以下链接。
+默认情况下，表是以轮循机制分布的。  这可让用户更容易开始创建表，而不必确定应该如何分布其表。  轮循机制表在某些工作负荷中执行良好，但大多数情况下，选择分布列的执行性能将更好。  按列分布表的性能远远高于轮循机制表的最常见例子是联接两个大型事实表。  例如，如果有一个依 order_id 分布的订单表，以及一个也是依 order_id 分布的事务表，如果将订单数据联接到事务表上的 order_id，此查询将变成传递查询，也就是数据移动操作将被消除。  减少步骤意味着加快查询速度。  更少的数据移动也会让查询更快。  这种解释较为粗略。 加载分布的表时，请确保传入数据的分布键没有排序，因为这会拖慢加载速度。  有关选择分布列如何能提升性能，以及如何在 CREATE TABLE 语句的 WITH 子句中定义分布表的详细信息，请参阅以下链接。
 
 另请参阅[表概述][Table overview]、[表分布][Table distribution]、[Selecting table distribution][Selecting table distribution]（选择表分布）、[CREATE TABLE][CREATE TABLE]、[CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
@@ -125,7 +125,8 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 <!-- Not Available on [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md -->
-<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md --> [使用 bcp 加载数据]: https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 加载数据]: ./load-data-wideworldimportersdw.md [使用 DMV 监视工作负荷]: ./sql-data-warehouse-manage-monitor.md [暂停计算资源]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk [恢复计算资源]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk [缩放计算资源]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute [了解事务]: ./sql-data-warehouse-develop-transactions.md [优化事务]: ./sql-data-warehouse-develop-best-practices-transactions.md [故障排除]: ./sql-data-warehouse-troubleshoot.md [标签]: ./sql-data-warehouse-develop-label.mdd
+<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md -->
+[使用 bcp 加载数据]: https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 加载数据]: ./load-data-wideworldimportersdw.md [使用 DMV 监视工作负荷]: ./sql-data-warehouse-manage-monitor.md [暂停计算资源]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk [恢复计算资源]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk [缩放计算资源]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute [了解事务]: ./sql-data-warehouse-develop-transactions.md [优化事务]: ./sql-data-warehouse-develop-best-practices-transactions.md [故障排除]: ./sql-data-warehouse-troubleshoot.md [标签]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
@@ -147,9 +148,9 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
+[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/
+[Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/
 
 <!--Update_Description: update meta properties, wording update, update link -->

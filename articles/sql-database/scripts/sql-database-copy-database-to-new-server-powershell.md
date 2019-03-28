@@ -12,85 +12,87 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 8a162b15a20225501b709ffb2e0e2bbdacb8b7fe
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: fcc9830e376f9de553b6558d055d3e0fb9a1cffa
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663419"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318898"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>使用 PowerShell 将 SQL 数据库复制到新服务器
 
 此 PowerShell 脚本示例在新服务器中创建现有数据库的副本。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+本教程需要 AZ PowerShell 1.4.0 或更高版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="copy-a-database-to-a-new-server"></a>将数据库复制到新服务器
 
 ```powershell
-# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Connect-AzAccount -Environment AzureChinaCloud
+# The SubscriptionId in which to create these objects
+$SubscriptionId = ''
 # Set the resource group name and location for your source server
-$sourceresourcegroupname = "mySourceResourceGroup-$(Get-Random)"
-$sourcelocation = "China East"
+$sourceResourceGroupName = "mySourceResourceGroup-$(Get-Random)"
+$sourceResourceGroupLocation = "chinaeast"
 # Set the resource group name and location for your target server
-$targetresourcegroupname = "myTargetResourceGroup-$(Get-Random)"
-$targetlocation = "China East"
+$targetResourceGroupname = "myTargetResourceGroup-$(Get-Random)"
+$targetResourceGroupLocation = "chinanorth"
 # Set an admin login and password for your server
-$adminlogin = "ServerAdmin"
+$adminSqlLogin = "SqlAdmin"
 $password = "ChangeYourAdminPassword1"
 # The logical server names have to be unique in the system
-$sourceservername = "source-server-$(Get-Random)"
-$targetservername = "target-server-$(Get-Random)"
+$sourceServerName = "source-server-$(Get-Random)"
+$targetServerName = "target-server-$(Get-Random)"
 # The sample database name
-$sourcedatabasename = "mySampleDatabase"
-$targetdatabasename = "CopyOfMySampleDatabase"
+$sourceDatabaseName = "mySampleDatabase"
+$targetDatabaseName = "CopyOfMySampleDatabase"
 # The ip address range that you want to allow to access your servers
-$sourcestartip = "0.0.0.0"
-$sourceendip = "0.0.0.0"
-$targetstartip = "0.0.0.0"
-$targetendip = "0.0.0.0"
+$sourceStartIp = "0.0.0.0"
+$sourceEndIp = "0.0.0.0"
+$targetStartIp = "0.0.0.0"
+$targetEndIp = "0.0.0.0"
+
+# Set subscription 
+Set-AzContext -SubscriptionId $subscriptionId 
 
 # Create two new resource groups
-$sourceresourcegroup = New-AzureRmResourceGroup -Name $sourceresourcegroupname -Location $sourcelocation
-$targetresourcegroup = New-AzureRmResourceGroup -Name $targetresourcegroupname -Location $targetlocation
+$sourceResourceGroup = New-AzResourceGroup -Name $sourceResourceGroupName -Location $sourceResourceGroupLocation
+$targetResourceGroup = New-AzResourceGroup -Name $targetResourceGroupname -Location $targetResourceGroupLocation
 
 # Create a server with a system wide unique server name
-$sourceresourcegroup = New-AzureRmSqlServer -ResourceGroupName $sourceresourcegroupname `
-    -ServerName $sourceservername `
-    -Location $sourcelocation `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-$targetresourcegroup = New-AzureRmSqlServer -ResourceGroupName $targetresourcegroupname `
-    -ServerName $targetservername `
-    -Location $targetlocation `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+$sourceResourceGroup = New-AzSqlServer -ResourceGroupName $sourceResourceGroupName `
+    -ServerName $sourceServerName `
+    -Location $sourceResourceGroupLocation `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+$targetResourceGroup = New-AzSqlServer -ResourceGroupName $targetResourceGroupname `
+    -ServerName $targetServerName `
+    -Location $targetResourceGroupLocation `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # Create a server firewall rule that allows access from the specified IP range
-$sourceserverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $sourceresourcegroupname `
-    -ServerName $sourceservername `
-    -FirewallRuleName "AllowedIPs" -StartIpAddress $sourcestartip -EndIpAddress $sourceendip
-$targetserverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $targetresourcegroupname `
-    -ServerName $targetservername `
-    -FirewallRuleName "AllowedIPs" -StartIpAddress $targetstartip -EndIpAddress $targetendip
+$sourceServerFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $sourceResourceGroupName `
+    -ServerName $sourceServerName `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $sourcestartip -EndIpAddress $sourceEndIp
+$targetServerFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $targetResourceGroupname `
+    -ServerName $targetServerName `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $targetStartIp -EndIpAddress $targetEndIp
 
 # Create a blank database in the source-server with an S0 performance level
-$sourcedatabase = New-AzureRmSqlDatabase  -ResourceGroupName $sourceresourcegroupname `
-    -ServerName $sourceservername `
-    -DatabaseName $sourcedatabasename -RequestedServiceObjectiveName "S0"
+$sourceDatabase = New-AzSqlDatabase  -ResourceGroupName $sourceResourceGroupName `
+    -ServerName $sourceServerName `
+    -DatabaseName $sourceDatabaseName -RequestedServiceObjectiveName "S0"
 
 # Copy source database to the target server 
-$databasecopy = New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceresourcegroupname `
-    -ServerName $sourceservername `
-    -DatabaseName $sourcedatabasename `
-    -CopyResourceGroupName $targetresourcegroupname `
-    -CopyServerName $targetservername `
-    -CopyDatabaseName $targetdatabasename 
-
-# Clean up deployment 
-# Remove-AzureRmResourceGroup -ResourceGroupName $sourceresourcegroupname
-# Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
+$databaseCopy = New-AzSqlDatabaseCopy -ResourceGroupName $sourceResourceGroupName `
+    -ServerName $sourceServerName `
+    -DatabaseName $sourceDatabaseName `
+    -CopyResourceGroupName $targetResourceGroupname `
+    -CopyServerName $targetServerName `
+    -CopyDatabaseName $targetDatabaseName 
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -98,8 +100,8 @@ $databasecopy = New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceresourcegro
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $sourceresourcegroupname
-Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $sourceresourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $targetresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -108,11 +110,11 @@ Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | 创建单一数据库或弹性池。 |
-| [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) | 创建当前使用快照的数据库副本。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 创建单一数据库或弹性池。 |
+| [New-AzSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasecopy) | 创建当前使用快照的数据库副本。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤

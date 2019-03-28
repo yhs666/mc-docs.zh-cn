@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 54a3780d8966c719b07bfea013fb0528177c9896
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: f67e0c5cb3dc6f2a05f5e218a8ba04d936543e9e
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676889"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348151"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>SQL 数据仓库中的透明数据加密 (TDE) 入门
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "52676889"
 > 
 > 
 
-## <a name="required-permssions"></a>所需权限
+## <a name="required-permissions"></a>所需权限
 若要启用透明数据加密 (TDE)，用户必须是管理员或 dbmanager 角色的成员。
 
 ## <a name="enabling-encryption"></a>启用加密

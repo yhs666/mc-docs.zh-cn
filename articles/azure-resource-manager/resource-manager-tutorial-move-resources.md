@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 12/19/2018
-ms.date: 02/18/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: d59435559db6912d611909591ab1641da7050b94
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: fa643738482b39bdf4330578c7f6c20b9dec6022
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306310"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348089"
 ---
 <!--Verify successfully-->
-# <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>教程：将 Azure 资源移到另一个资源组或订阅中
+# <a name="tutorial-move-azure-resources-to-another-resource-group"></a>教程：将 Azure 资源移动到其他资源组
 
 了解有关如何将 Azure 资源在资源组之间移动。 此外还可以将 Azure 资源在订阅间移动。 在本教程中，使用资源管理器模板来部署两个资源组和一个存储帐户。 然后，将存储帐户从一个资源组移动到另一个资源组。
+
+![“Azure 资源管理器移动资源”示意图](./media/resource-manager-tutorial-move-resources/resource-manager-template-move-resources.png)
 
 本教程涵盖以下任务：
 
@@ -37,8 +39,6 @@ ms.locfileid: "56306310"
 > * 清理资源。
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>准备资源
 
@@ -76,7 +76,7 @@ ms.locfileid: "56306310"
 
 <!--Not Available on Select **Try it** to open the Cloud shell, and then execute the PowerShell script inside the Cloud shell:-->
 
-```azurepowershell
+```powershell
 $projectName = Read-Host -prompt "Enter a project name"
 New-AzDeployment `
     -Name $projectname `
@@ -110,7 +110,9 @@ New-AzDeployment `
 
 存储帐户位于源资源组 (rg1) 内，运行以下 PowerShell 脚本将资源移动到目标资源组 (rg2)。 确保使用的项目名称与部署资源时使用的相同。
 
-```azurepowershell
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+```powershell
 $projectName = Read-Host -prompt "Enter a project name"
 $resourceGroupSource = $projectName + "rg1"
 $resourceGroupDestination = $projectName + "rg2"
@@ -142,5 +144,4 @@ Move-AzResource -DestinationResourceGroupName $resourceGroupDestination -Resourc
 > [!div class="nextstepaction"]
 > [创建依赖资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
-<!--Update_Description: new articles on resource manager tutorial move resources -->
-<!--ms.date: 02/18/2019-->
+<!--Update_Description: wording update -->

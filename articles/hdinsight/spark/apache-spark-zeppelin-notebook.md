@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/21/2018
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: e85378a18b5178018868773d3ef979b9c6ac0e3a
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 50208cc4a20eeac6aef3d67e311551b48a0ca6bd
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303032"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348591"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本
 
@@ -105,11 +105,12 @@ HDInsight Spark 群集包括可用于运行 [Apache Spark](https://spark.apache.
 7. 重启 Livy 解释器以退出应用程序。 如果要执行此操作，请单击右上角的登录用户名，打开解释器设置，并单击“解释器” 。
    
     ![启动解释程序](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive 输出")
+    
 8. 滚动到 Livy 解释器设置，并单击“重启” 。
    
     ![重启 Livy 解释程序](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "重启 Zeppelin 解释程序")
 
-## <a name="how-do-i-use-external-packages-with-the-notebook"></a>如何将外部包与笔记本配合使用？
+## <a name="how-do-i-use-external-packages-with-the-notebook"></a>如何在笔记本中使用外部包？
 可在 HDInsight (Linux) 上的 Apache Spark 群集中配置 Zeppelin notebook，以使用未现成包含在群集中的、由社区贡献的外部包。 可以搜索 [Maven 存储库](https://search.maven.org/)获取可用包的完整列表。 也可以从其他源获取可用包的列表。 例如， [Spark 包](https://spark-packages.org/)中提供了社区贡献包的完整列表。
 
 本文介绍如何在 Jupyter 笔记本中使用 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 包。

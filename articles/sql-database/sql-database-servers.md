@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 9ed230ecc0fa4442b91581111c6ee61981f4e4f1
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 805c28394abdccf30372e88422ddd5e43c07079e
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347197"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319011"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL 数据库服务器及其管理
 
@@ -81,24 +81,26 @@ SQL 数据库服务器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>使用 PowerShell 管理 Azure SQL 服务器、数据库和防火墙
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 若要使用 Azure PowerShell 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 若要创建并管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)|创建数据库 |
-|[Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase)|获取一个或多个数据库|
-|[Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)|设置数据库的属性，或将现有数据库移到弹性池中|
-|[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabase)|删除数据库|
-|[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)|创建资源组|
-|[New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver)|创建服务器|
-|[Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserver)|返回服务器的相关信息|
-|[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|修改服务器的属性|
-|[Remove-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserver)|删除服务器|
-|[New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule)|创建服务器级防火墙规则 |
-|[Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|获取服务器的防火墙规则|
-|[Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|修改服务器中的防火墙规则|
-|[Remove-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|从服务器中删除防火墙规则。|
-| New-AzureRmSqlServerVirtualNetworkRule | 基于作为虚拟网络服务终结点的子网创建[*虚拟网络规则*](sql-database-vnet-service-endpoint-rule-overview.md)。 |
+|[New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)|创建数据库 |
+|[Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)|获取一个或多个数据库|
+|[Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)|设置数据库的属性，或将现有数据库移到弹性池中|
+|[Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)|删除数据库|
+|[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)|创建资源组|
+|[New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver)|创建服务器|
+|[Get-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserver)|返回服务器的相关信息|
+|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|修改服务器的属性|
+|[Remove-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserver)|删除服务器|
+|[New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule)|创建服务器级防火墙规则 |
+|[Get-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverfirewallrule)|获取服务器的防火墙规则|
+|[Set-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverfirewallrule)|修改服务器中的防火墙规则|
+|[Remove-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverfirewallrule)|从服务器中删除防火墙规则。|
+| New-AzSqlServerVirtualNetworkRule | 基于作为虚拟网络服务终结点的子网创建[*虚拟网络规则*](sql-database-vnet-service-endpoint-rule-overview.md)。 |
 
 > [!TIP]
 > 有关 PowerShell 快速入门，请参阅[使用 PowerShell 创建 Azure SQL 单一数据库](sql-database-single-database-get-started.md)。 有关 PowerShell 示例脚本，请参阅[使用 PowerShell 创建 Azure SQL 单一数据库和配置防火墙规则](scripts/sql-database-create-and-configure-database-powershell.md)和[使用 PowerShell 监视和缩放 Azure SQL 单一数据库](scripts/sql-database-monitor-and-scale-database-powershell.md)。

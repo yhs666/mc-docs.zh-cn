@@ -3,22 +3,23 @@ title: Azure AD Connect 安装路线图。 | Microsoft Docs
 description: 本文档概述可用于安装 Azure AD Connect 的安装选项和路径。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 09/18/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: eee13f34fed61fe90e6870b3b27655f4b3cccea7
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e1e6fcbec042ece172b08e9528ff3a124860d50d
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186654"
 ---
 # <a name="azure-ad-connect-installation-roadmap"></a>Azure AD Connect 安装路线图
 
@@ -33,7 +34,7 @@ ms.locfileid: "53028652"
 | --- | --- |
 | 开始之前 - [硬件和先决条件](how-to-connect-install-prerequisites.md) |<li>开始安装 Azure AD Connect 之前所要完成的步骤。</li> |
 | [快速设置](how-to-connect-install-express.md) |<li>如果只有一个林 AD，我们建议使用此选项。</li> <li>使用密码同步以同一密码进行用户登录。</li> |
-| [自定义设置](how-to-connect-install-custom.md) |<li>有多个林时使用。 支持许多本地[拓扑](plan-connect-topologies.md)。</li> <li>自定义登录选项，例如用于联合身份验证的 ADFS，或使用第三方标识提供者。</li> <li>自定义同步功能，例如筛选和写回。</li> |
+| [自定义设置](how-to-connect-install-custom.md) |<li>有多个林时使用。 支持许多本地[拓扑](plan-connect-topologies.md)。</li> <li>自定义登录选项，例如用于联合身份验证的 ADFS，或使用第三方标识提供者。</li> <li>自定义同步功能，例如筛选。</li> |
 | [从 DirSync 升级](how-to-dirsync-upgrade-get-started.md) |<li>在已有 DirSync 服务器运行的情况下使用。</li> |
 | [从 Azure AD Sync 或 Azure AD Connect 升级](how-to-upgrade-previous-version.md) |<li>可以根据偏好选择多种不同的方法。</li> |
 
@@ -46,10 +47,10 @@ ms.locfileid: "53028652"
 |使用快速设置安装 | [Azure AD Connect 的快速安装](./how-to-connect-install-express.md)|
 |使用自定义设置安装 | [Azure AD Connect 的自定义安装](./how-to-connect-install-custom.md)|
 |从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./how-to-dirsync-upgrade-get-started.md)|
-|安装后 | [验证安装并分配许可证 ](how-to-connect-post-installation.md)|
+|安装后 | [验证安装并分配许可证](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>了解有关安装 Azure AD Connect 的详细信息
-还要预先了解 [操作](how-to-connect-sync-operations.md) 注意事项。 可能要部署一台待机服务器，以便在发生[灾难](how-to-connect-sync-operations.md#disaster-recovery)时轻松进行故障转移。 如果要频繁进行配置更改，应该计划部署一台[暂存模式](how-to-connect-sync-operations.md#staging-mode)服务器。
+还要预先了解 [操作](how-to-connect-sync-operations.md) 注意事项。 可能要部署一台待机服务器，以便在发生[灾难](how-to-connect-sync-staging-server.md#disaster-recovery)时轻松进行故障转移。 如果要频繁进行配置更改，应该计划部署一台[暂存模式](how-to-connect-sync-staging-server.md)服务器。
 
 |主题 |链接|  
 | --- | --- |

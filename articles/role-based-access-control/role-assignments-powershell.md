@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/20/2019
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 2af41a621c4f68423acd7b45007f4c24ee1ee5ae
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 9f639fdc4ca1c764e5ae0ebc035d1917f29c455b
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836928"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318837"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理对 Azure 资源的访问权限
 
@@ -32,7 +32,7 @@ ms.locfileid: "56836928"
 
 若要管理访问，需要具有以下任一项：
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ## <a name="list-roles"></a>列出角色
 
@@ -330,4 +330,4 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 - [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](tutorial-custom-role-powershell.md)
 - [使用 Azure PowerShell 管理资源](../azure-resource-manager/powershell-azure-resource-manager.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

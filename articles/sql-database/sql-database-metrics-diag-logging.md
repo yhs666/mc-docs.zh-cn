@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 3db74beaf9fc2e5d94d74694a3b79c337d22989b
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 03/06/2019
+ms.date: 03/25/2019
+ms.openlocfilehash: b7121c8817bf6626c63661e17e6ff7a503efb3bd
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663848"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318948"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
@@ -51,17 +51,14 @@ ms.locfileid: "56663848"
 
 可预配新的 Azure 资源或选择现有资源。 使用“诊断设置”选项选择资源之后，指定要收集的数据。
 
-> [!NOTE]
-> 如果还使用弹性池，建议也为这些资源启用诊断遥测。 弹性池中的数据库容器具有自身的独立诊断遥测。
-
-## <a name="enable-logging-for-azure-sql-databases"></a>为 Azure SQL 数据库启用日志记录
+## <a name="supported-diagnostic-logging-for-azure-sql-databases"></a>支持用于 Azure SQL 数据库的诊断日志记录
 
 对 SQL 数据库启用指标与诊断日志记录 - 默认未启用此功能。
 
 可将 Azure SQL 数据库设置为收集以下诊断遥测数据：
 
 | 数据库的监视遥测 | 单一数据库和入池数据库支持 |
-| :------------------- | ------------------- | ------------------- |
+| :------------------- | ----- |
 | [所有指标](#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、物理数据读取百分比、日志写入百分比、成功/失败/防火墙阻止的连接数、会话百分比、辅助角色百分比、存储、存储百分比和 XTP 存储百分比。 | 是 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含有关查询运行时统计信息的信息，例如 CPU 使用率、查询持续时间统计信息。 | 是 |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含有关查询等待统计信息的信息（查询正在等待什么），例如 CPU、日志和锁定。 | 是 |
@@ -71,11 +68,39 @@ ms.locfileid: "56663848"
 | [Blocks](#blockings-dataset)：包含有关数据库发生的阻塞事件的信息。 | 是 |
 | [SQLInsights](#intelligent-insights-dataset)：包含性能的智能见解。 有关详细信息，请参阅[智能见解](sql-database-intelligent-insights.md)。 | 是 |
 
-### <a name="azure-portal"></a>Azure 门户
+> [!IMPORTANT]
+> 弹性池将自己的诊断遥测数据与所包含的数据库隔开。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
 
-在 Azure 门户中使用每个单一数据库或入池数据库的“诊断设置”菜单，为 Azure SQL 数据库配置诊断遥测数据的流式传输。 可设置以下目标：Azure 存储和 Azure 事件中心。
+## <a name="azure-portal"></a>Azure 门户
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-or-pooled"></a>为单一或入池数据库配置诊断遥测数据的流式传输
+可以在 Azure 门户中使用每个单一数据库或共用数据库的“诊断设置”菜单，配置诊断遥测数据的流式传输。 另外，也可为数据库容器（弹性池）单独配置诊断遥测数据。 可设置以下目标来流式传输诊断遥测数据：Azure 存储和 Azure 事件中心。
+
+### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>配置弹性池的诊断遥测流
+
+   ![弹性池图标](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
+
+可将弹性池资源设置为收集以下诊断遥测数据：
+
+| 资源 | 监视遥测数据 |
+| :------------------- | ------------------- |
+| **弹性池** | [所有指标](sql-database-metrics-diag-logging.md#all-metrics)包含 eDTU/CPU 百分比、eDTU/CPU 限制、物理数据读取百分比、日志写入百分比、会话百分比、辅助角色百分比、存储、存储百分比、存储限制，以及 XTP 存储百分比。 |
+
+若要为弹性池资源启用诊断遥测流，请执行以下步骤：
+
+1. 在 Azure 门户中转到弹性池资源。
+1. 选择“诊断设置”。
+1. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置
+
+   ![为弹性池启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
+
+1. 输入设置名称供自己参考。
+1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”或“流式传输到事件中心”。
+1. 选中弹性池诊断遥测对应的复选框：**AllMetrics**。
+1. 选择“其他安全性验证” 。
+> [!NOTE]
+> 除了为弹性池配置诊断遥测数据，还需为弹性池中的每个数据库配置诊断遥测数据，如下所述。 
+
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
 
    ![SQL 数据库图标](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
@@ -100,6 +125,63 @@ ms.locfileid: "56663848"
 > 无法从数据库诊断设置启用安全审核日志。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
 > [!TIP]
 > 针对要监视的每个 Azure SQL 数据库重复上述步骤。
+
+### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+可以使用 PowerShell 启用指标和诊断日志记录。
+
+- 若要允许在存储帐户中存储诊断日志，请使用以下命令：
+
+   ```powershell
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   ```
+
+   存储帐户 ID 是目标存储帐户的资源 ID。
+
+- 要允许将诊断日志流式传输到事件中心，请使用以下命令：
+
+   ```powershell
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   ```
+
+   Azure 服务总线规则 ID 是以下格式的字符串：
+
+   ```powershell
+   {service bus resource ID}/authorizationrules/{key name}
+   ```
+
+可以结合这些参数启用多个输出选项。
+
+### <a name="azure-cli"></a>Azure CLI
+
+可以使用 Azure CLI 启用指标和诊断日志记录。
+
+> [!NOTE]
+> Azure CLI v1.0 支持通过脚本来启用诊断日志记录。 请注意，目前不支持 CLI v2.0。
+
+- 若要启用在存储帐户中存储诊断日志，请使用以下命令：
+
+   ```azurecli
+   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   ```
+
+   存储帐户 ID 是目标存储帐户的资源 ID。
+
+- 若要启用将诊断日志流式传输到事件中心，请使用以下命令：
+
+   ```azurecli
+   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   ```
+
+   服务总线规则 ID 是以下格式的字符串：
+
+   ```azurecli-interactive
+   {service bus resource ID}/authorizationrules/{key name}
+   ```
+
+可以结合这些参数启用多个输出选项。
 
 ### <a name="rest-api"></a>REST API
 
@@ -180,9 +262,10 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |---|---|
 |Azure SQL 数据库|DTU 百分比、已用 DTU、DTU 限制、CPU 百分比、物理数据读取百分比、日志写入百分比、成功/失败/防火墙阻止的连接数、会话百分比、辅助角色百分比、存储、存储百分比、XTP 存储百分比和死锁 |
 
-## <a name="logs-for-single-and-pooled-databases"></a>单一数据库和入池数据库的日志
+## <a name="all-logs"></a>所有日志
 
-请参阅下面这些表来详细了解 Azure SQL 单一数据库或入池数据库的日志。
+适用于所有日志的遥测数据详见下面的表。 请参阅[支持的诊断日志记录](#supported-diagnostic-logging-for-azure-sql-databases)，了解特定的数据库类型（Azure SQL 单一数据库或共用数据库）支持哪些日志。
+
 
 ### <a name="query-store-runtime-statistics"></a>查询数据存储运行时统计信息
 

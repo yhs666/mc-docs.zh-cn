@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3f928e711b1273ed8a7a7d1db784abe373e4bd7b
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 479e99bceb6c65f87d5470b12a97a9bdd0e06187
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560483"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348603"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 中将 Apache Sqoop 与 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -84,9 +84,9 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
     - **群集登录名和密码**：默认登录名是“admin”。
     - **SSH 用户名和密码**。
     - **SQL 数据库服务器登录名和密码**。
-    - **_artifacts 位置**：使用默认值（除非想要在其他位置使用自己的 backpac 文件）。
+    - **_artifacts 位置**：使用默认值（除非想要在其他位置使用自己的 bacpac 文件）。
     - **_artifacts 位置 Sas 令牌**：将此字段留空。
-    - **Bacpac 文件名**：使用默认值（除非想要使用自己的 backpac 文件）。
+    - **Bacpac 文件名**：使用默认值（除非想要使用自己的 bacpac 文件）。
      
         以下值在变量部分中硬编码：
         

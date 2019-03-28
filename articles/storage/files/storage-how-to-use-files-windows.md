@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: get-started-article
 origin.date: 06/07/2018
-ms.date: 01/14/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 6b73d827aaadee532862221a735bab2042e2e8f9
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: c821e8dc4ac7d875d7233c67ccbd51892b98e201
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665650"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253911"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -46,7 +46,9 @@ ms.locfileid: "56665650"
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已被阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 以下 PowerShell 代码假设已安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resource-group-name>` 替换为存储帐户的相关名称。
+* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已被阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
+
+    以下 PowerShell 代码假设已安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resource-group-name>` 替换为存储帐户的相关名称。
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"

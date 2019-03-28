@@ -2,21 +2,21 @@
 title: 使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 description: 使用 Microsoft.Azure.Services.AppAuthentication 库通过 .NET 向 Azure Key Vault 进行身份验证。
 keywords: azure key-vault 身份验证本地凭据
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 services: key-vault
 ms.author: v-biyu
 origin.date: 11/15/2017
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 2eb787d3ddf05642550b44214eec72b391a28e47
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: fb69c81efcee42fc53d27ca34d6b69ab1929281a
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135489"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
@@ -57,7 +57,6 @@ ms.locfileid: "56903036"
 `GetAccessTokenAsync` 方法需要资源标识符。
 
 
-<a name="samples"></a>
 ## <a name="samples"></a>示例
 
 以下示例显示操作中的 `Microsoft.Azure.Services.AppAuthentication` 库：
@@ -68,17 +67,12 @@ ms.locfileid: "56903036"
 
 3. [Use .NET Core sample and a managed identity to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/)（使用 .NET Core 示例和托管标识从 Azure Linux VM 调用 Azure 服务）。
 
-
-<a name="local"></a>
 ## <a name="local-development-authentication"></a>本地开发身份验证
 
 对于本地开发，有两种主要的身份验证方案：
 
 - [向 Azure 服务进行身份验证](#authenticating-to-azure-services)
 - [向自定义服务进行身份验证](#authenticating-to-custom-services)
-
-在这里，请了解每个方案和受支持工具的要求。
-
 
 ### <a name="authenticating-to-azure-services"></a>向 Azure 服务进行身份验证
 
@@ -88,17 +82,17 @@ ms.locfileid: "56903036"
 
 ### <a name="authenticating-with-visual-studio"></a>使用 Visual Studio 进行身份验证
 
-若要使用 Visual Studio，请验证以下事项：
+使用 Visual Studio 进行身份验证包含以下先决条件：
 
-1. 已安装 [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) 或更高版本。
+1. [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) 或更高版本。
 
-2. 已安装 [Visual Studio 的应用身份验证扩展](https://go.microsoft.com/fwlink/?linkid=862354)。
+2. [Visual Studio 的应用身份验证扩展](https://go.microsoft.com/fwlink/?linkid=862354)以 Visual Studio 2017 Update 5 的独立扩展形式发布，与 Update 6 及更高版本中的产品绑定在一起。 使用 Update 6 或更高版本时，可以验证是否安装了应用身份验证扩展，方法是在 Visual Studio 安装程序中选择 Azure 开发工具。
  
-3. 已登录到 Visual Studio 并选择用于本地开发的帐户。 请转到“工具”&nbsp;>&nbsp;“选项”&nbsp;>&nbsp;“Azure 服务身份验证”，然后选择本地开发帐户。 
+登录到 Visual Studio，通过“工具”&nbsp;>&nbsp;“选项”&nbsp;>&nbsp;“Azure 服务身份验证”选择一个用于本地开发的帐户。 
 
 如果在使用 Visual Studio 时遇到问题，例如有关令牌提供程序文件的错误，请仔细查看这些步骤。 
 
-可能还需对开发人员令牌重新进行身份验证。  为此，请转到“工具”&nbsp;>&nbsp;“选项”>**&nbsp;&nbsp;**“Azure 服务身份验证”，查找所选帐户下的“重新进行身份验证”链接。  选择该链接进行身份验证。 
+可能还需对开发人员令牌重新进行身份验证。 为此，请转到“工具”&nbsp;>&nbsp;“选项”>**&nbsp;&nbsp;**“Azure 服务身份验证”，查找所选帐户下的“重新进行身份验证”链接。  选择该链接进行身份验证。 
 
 ### <a name="authenticating-with-azure-cli"></a>使用 Azure CLI 进行身份验证
 
@@ -163,8 +157,7 @@ az account list
 
 这仅适用于本地开发。 当解决方案部署到 Azure 时，该库会切换到托管标识以进行身份验证。
 
-<a name="msi"></a>
-## <a name="running-the-application-using-managed-identity"></a>使用托管标识运行应用程序 
+## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>使用托管标识或用户分配标识运行应用程序 
 
 在启用托管标识的 Azure 应用服务或 Azure VM 上运行代码时，库自动使用托管标识。 不需更改代码。 
 
@@ -213,7 +206,6 @@ az account list
 
 一切正确设置以后，不需进一步更改代码。  `AzureServiceTokenProvider` 使用环境变量和证书向 Azure AD 进行身份验证。 
 
-<a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>连接字符串支持
 
 默认情况下，`AzureServiceTokenProvider` 使用多种方法来检索令牌。 
@@ -226,11 +218,12 @@ az account list
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 本地开发 | AzureServiceTokenProvider 使用 AzureCli 来获取令牌。 |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 本地开发 | AzureServiceTokenProvider 使用 Visual Studio 来获取令牌。 |
-| `RunAs=CurrentUser;` | 本地开发 | AzureServiceTokenProvider 使用 Azure AD 集成身份验证来获取令牌。 |
+| `RunAs=CurrentUser` | 本地开发 | AzureServiceTokenProvider 使用 Azure AD 集成身份验证来获取令牌。 |
 | `RunAs=App;` | Azure 资源的托管标识 | AzureServiceTokenProvider 使用托管标识来获取令牌。 |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | 服务主体 | `AzureServiceTokenProvider` 使用证书从 Azure AD 获取令牌。 |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | 服务主体 | `AzureServiceTokenProvider` 使用证书从 Azure AD 获取令牌|
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | 服务主体 | `AzureServiceTokenProvider` 使用证书从 Azure AD 获取令牌。 |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | 服务主体 | `AzureServiceTokenProvider` 使用证书从 Azure AD 获取令牌|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | 服务主体 |`AzureServiceTokenProvider` 使用机密从 Azure AD 获取令牌。 |
+
 
 
 ## <a name="next-steps"></a>后续步骤

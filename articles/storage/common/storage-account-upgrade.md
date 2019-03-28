@@ -5,25 +5,24 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 10/18/2018
-ms.date: 02/25/2019
+origin.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: f446ff93abd3659d7a2adf8ac6d437249a2f1b6d
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 30d3580209e95dbf73f945a353c5b862a5747b75
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665440"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253907"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
 常规用途 v2 存储帐户支持最新的 Azure 存储功能，并纳入了常规用途 v1 存储帐户和 Blob 存储帐户的所有功能。 建议将常规用途 v2 帐户用于大多数存储方案。 常规用途 v2 帐户提供适用于 Azure 存储的最低每 GB 容量价格，以及具有行业竞争力的事务价格。
 
-从常规用途 v1 帐户或 Blob 存储帐户升级到常规用途 v2 存储帐户的过程很简单。 可以使用 Azure 门户、PowerShell 或 Azure CLI 升级。 
+从常规用途 v1 帐户或 Blob 存储帐户升级到常规用途 v2 存储帐户的过程很简单。 可以使用 Azure 门户、PowerShell 或 Azure CLI 升级。
 
-> [!NOTE]
-> 将存储帐户升级到常规用途 v2 帐户是免费的。
-> 更改存储访问层可能会导致帐单更改。 有关详细信息，请参阅[定价和计费](#pricing-and-billing)部分。
+> [!IMPORTANT]
+> 将 v1 存储帐户升级到常规用途 v2 是永久性的，不能撤消。
 
 ## <a name="upgrade-using-the-azure-portal"></a>使用 Azure 门户升级
 
@@ -69,8 +68,10 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 在这两种情况下，首要任务都是估算对存储在常规用途 v2 存储帐户中的数据进行存储、访问和操作所需的成本，并将该成本与当前成本进行比较。
 
-
 ## <a name="pricing-and-billing"></a>定价和计费
+
+将 v1 存储帐户升级到常规用途 v2 帐户是免费的。 但是，更改存储访问层可能会导致帐单更改。 
+
 所有存储帐户使用的定价模型都适用于 Blob 存储，具体取决于每个 Blob 的层。 使用存储帐户时，需要考虑到以下计费因素：
 
 * **存储成本**：除了存储的数据量，存储数据的成本将因存储访问层而异。 层越冷，单 GB 成本越低。

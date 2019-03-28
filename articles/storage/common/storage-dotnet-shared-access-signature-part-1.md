@@ -1,26 +1,20 @@
 ---
-title: 在 Azure 存储中使用共享访问签名 (SAS) | Azure
+title: 在 Azure 存储中使用共享访问签名 (SAS) | Microsoft Docs
 description: 了解使用共享访问签名 (SAS) 委派对 Azure 存储资源（包括 Blob、队列、表和文件）的访问权限。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/18/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: abf39531575b53870a44b4f457c2baceb5b9efa1
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: f6f0295e21907c2fd741405025afc0b39cd5eb27
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028340"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253935"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -346,7 +340,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -366,7 +360,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -393,7 +387,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
@@ -430,6 +424,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ## <a name="next-steps"></a>后续步骤
 * [共享访问签名第 2 部分：创建 SAS 并将其用于 Blob 存储](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [管理对容器和 blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)
-* [使用共享访问签名委托访问](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)（使用共享访问签名委托访问）
 * [介绍表和队列 SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 <!--Update_Description:add one link next step-->

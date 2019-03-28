@@ -3,7 +3,7 @@ title: Azure Key Vault 概述 - Azure Key Vault | Azure Docs
 description: Azure Key Vault 是一项云服务，用作安全的机密存储。
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.custom: mvc
 origin.date: 05/08/2018
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: df539c07054d820c4f144af724849c28d42ff4d8
-ms.sourcegitcommit: ae1b73a4248509f7afa6ffa466f53e59449f47d5
+ms.openlocfilehash: 5466f998bc7fbed6a528bf6bdfa77db2ff43bf92
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/21/2019
-ms.locfileid: "54417350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135514"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 
@@ -55,7 +55,7 @@ Azure Key Vault 有助于解决以下问题：
 
 - 存档到存储帐户。
 - 流式传输到事件中心。
-- 将日志发送到 Log Analytics。
+- 将日志发送到 Azure Monitor 日志。
 
 可以控制自己的日志，可以通过限制访问权限来确保日志的安全，还可以删除不再需要的日志。
 

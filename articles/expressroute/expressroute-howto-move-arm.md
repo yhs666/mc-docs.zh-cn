@@ -8,15 +8,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/07/2019
-ms.date: 02/04/2019
+origin.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: a95ae4e11300c5624f46e085e112874d74590b9b
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 0a01ae701636f612e782fb55f234286d735741a6
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906051"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348545"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型
 
@@ -24,7 +24,9 @@ ms.locfileid: "54906051"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-* 确认具有最新版本的 Azure PowerShell 模块（至少 1.0 版）。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* 验证是否已在本地计算机上安装经典模块和 Az Azure PowerShell 模块。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 * 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
 * 查看[将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型](./expressroute-move.md)中提供的信息。 请确保对限制和局限性有全面的了解。
 * 验证线路在经典部署模型中可完全正常运行。
@@ -66,19 +68,19 @@ ms.locfileid: "54906051"
 1. 登录 Azure Resource Manager 环境。
 
   ```powershell
-  Connect-AzureRmAccount -Environment AzureChinaCloud
+  Connect-AzAccount -Environment AzureChinaCloud
   ```
 
 2. 选择相应的 Azure 订阅。
 
   ```powershell
-  Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
+  Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
   ```
 
 3. 如果还没有资源组，请修改下面的片段，创建新的资源组。
 
   ```powershell
-  New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
+  New-AzResourceGroup -Name "DemoRG" -Location "China East"
   ```
 
 ### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>步骤 3：将 ExpressRoute 线路转移到 Resource Manager 部署模型
@@ -87,10 +89,10 @@ ms.locfileid: "54906051"
 若要移动线路，请修改并运行以下代码片段：
 
 ```powershell
-Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
+Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "China East" -ServiceKey "<Service-key>"
 ```
 
-在经典模式下，ExpressRoute 线路没有绑定到区域的概念。 但是，在资源管理器中，每个资源都需要映射到 Azure 区域。 从技术上来讲，Move-AzureRmExpressRouteCircuit cmdlet 中指定的区域可以是任何区域。 对组织来说，建议选择一个最能代表对等位置的区域。
+在经典模式下，ExpressRoute 线路没有绑定到区域的概念。 但是，在资源管理器中，每个资源都需要映射到 Azure 区域。 从技术上来讲，Move-AzExpressRouteCircuit cmdlet 中指定的区域可以是任何区域。 对组织来说，建议选择一个最能代表对等位置的区域。
 
 > [!NOTE]
 > 转移完成之后，列在前一个 cmdlet 中的新名称用于处理资源。 线路实质上已重命名。
@@ -104,7 +106,7 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 1. 获取线路详细信息。
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. 将“允许经典操作”设置为“TRUE”。
@@ -116,7 +118,7 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 3. 更新线路。 成功完成此操作后，可以在经典部署模型中查看线路。
 
   ```powershell
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 4. 运行以下 cmdlet 获取 ExpressRoute 线路的详细信息。 服务密钥必须已列出。 
@@ -136,7 +138,7 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 1. 获取 ExpressRoute 线路的详细信息。
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. 将“允许经典操作”设置为“FALSE”。
@@ -148,7 +150,7 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 3. 更新线路。 成功完成此操作后，你无法在经典部署模型中查看线路。
 
   ```powershell
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 ## <a name="next-steps"></a>后续步骤

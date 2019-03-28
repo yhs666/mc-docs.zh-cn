@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 02/27/2019
+ms.date: 03/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7685c91b4939f70f9cad03c9e585413a0ef93231
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 2149e2fddd8e528ab46241248afaffdb37f47658
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903076"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318950"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何监视用于 Redis 的 Azure 缓存
 用于 Redis 的 Azure 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
@@ -37,8 +37,8 @@ ms.locfileid: "56903076"
 
 “概述”边栏选项卡中提供以下预配置的监视图表。
 
-- [监视图表](#monitoring-charts)
-- [图表使用情况](#usage-charts)
+* [监视图表](#monitoring-charts)
+* [图表使用情况](#usage-charts)
 
 ### <a name="monitoring-charts"></a>监视图表
 “概述”边栏选项卡中的“监视”部分包含“命中数和未命中数”、“获取数和设置数”、“连接数”以及“总命令数”图表。
@@ -62,7 +62,7 @@ ms.locfileid: "56903076"
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>导出缓存指标
-默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，并指定“保留期（天）”策略。 
+默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../azure-monitor/platform/data-collection.md#metrics)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md)，并指定“保留期（天）”策略。 
 
 若要配置缓存指标的存储帐户，请执行以下操作：
 
@@ -76,11 +76,11 @@ ms.locfileid: "56903076"
 ![Redis 诊断](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->除了将缓存指标存档到存储中外，还可以[将缓存指标流式传输到事件中心](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values)。
+>除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Azure Monitor 日志](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values)。
 >
 >
 
-若要访问指标，可按前文所述在 Azure 门户中查看它们，还可以使用 [Azure Monitor 指标 REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) 对其进行访问。
+若要访问指标，可按前文所述在 Azure 门户中查看它们，还可以使用 [Azure Monitor 指标 REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) 对其进行访问。
 
 > [!NOTE]
 > 如果更改存储帐户，以前配置的存储帐户中的数据仍可供下载，但并不会显示在 Azure 门户中。  
@@ -123,9 +123,9 @@ ms.locfileid: "56903076"
 ## <a name="alerts"></a>警报
 可配置为基于指标和活动日志接收警报。 通过 Azure Monitor 可配置警报，使警报触发时执行以下操作：
 
-- 发送电子邮件通知
-- 调用 Webhook
-- 调用 Azure 逻辑应用
+* 发送电子邮件通知
+* 调用 Webhook
+* 调用 Azure 逻辑应用
 
 若要配置缓存的预警规则，从“资源菜单”单击“预警规则”。
 
@@ -143,8 +143,16 @@ ms.locfileid: "56903076"
 
 若要查看缓存的活动日志，从“资源菜单”单击“活动日志”。
 
-有关活动日志的详细信息，请参阅 [Azure 活动日志概述](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+有关活动日志的详细信息，请参阅 [Azure 活动日志概述](../azure-monitor/platform/activity-logs-overview.md)。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->
+
+
+
+
+
+
+
+
 

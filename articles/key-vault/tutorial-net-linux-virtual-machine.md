@@ -1,5 +1,5 @@
 ---
-title: 教程 - 如何将 Azure Key Vault 与通过 .NET 编写的 Azure Linux 虚拟机配合使用 | Azure Docs
+title: 教程 - 如何将 Azure Key Vault 与通过 .NET 编写的 Azure Linux 虚拟机配合使用 - Azure Key Vault | Azure Docs
 description: 教程：将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密
 services: key-vault
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 835e8195b940399c994babd8fe1bba070be1dec9
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: c7ee6912bcf1bba1575562200756cb56f7df0dd9
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135503"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>教程：如何将 Azure Key Vault 与通过 .NET 编写的 Azure Linux 虚拟机配合使用
 
@@ -179,13 +179,6 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 ### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>根据操作系统设置所需版本主机包源
 
 ```
-# Ubuntu 17.10
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 17.04
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
  
 # Ubuntu 16.04 / Linux Mint 18
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'

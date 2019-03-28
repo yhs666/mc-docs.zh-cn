@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: billing
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 03/25/2019
+ms.author: v-yeche
+ms.openlocfilehash: 25e8e966986b388c5eb561e83e2a3580cfb16405
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352418"
+---
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
 | 每个[资源组](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)的资源数（按资源类型） |800 |因资源类型而有所不同 |
@@ -23,5 +37,5 @@
 
 通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](../articles/azure-resource-manager/resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 
 
-<!-- Not Available on Microsoft Azure content  [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).--> 如果达到每个资源组的部署数限制 800，则会从历史记录中删除不再需要的部署。 可以使用 Azure CLI 的 [az group deployment delete](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_delete) 或 PowerShell 中的 [Remove-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) 删除历史记录中的条目。 从部署历史记录中删除条目不会影响部署资源。
-<!-- ms.date: 11/27/2017 -->
+<!-- Not Available on Microsoft Azure content  [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).-->
+如果达到每个资源组的部署数限制 800，则会从历史记录中删除不再需要的部署。 可以使用 Azure CLI 的 [az group deployment delete](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-delete) 删除历史记录中的条目。 也可使用 PowerShell 中的 [Remove-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment)。 从部署历史记录中删除条目不会影响部署资源。

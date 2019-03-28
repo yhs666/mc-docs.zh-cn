@@ -3,52 +3,53 @@ title: 快速入门：Azure AD 自助服务密码重置
 description: 在本快速入门中，将快速配置 Azure AD 自助服务密码重置来允许用户重置其自己的密码
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: quickstart
 origin.date: 07/17/2018
-ms.date: 09/05/2018
+ms.date: 03/18/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: d8687e497e0bc06cc3f4a31b19a214eca46e5692
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1419956a79c68e78e6b1bdaccc27f9066af8d510
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649599"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186649"
 ---
-# <a name="quickstart-self-service-password-reset"></a>快速入门：自助服务密码重置
+# <a name="quickstart-self-service-password-reset"></a>快速入门：自助密码重置
 
 本快速入门分步展示了 IT 管理员如何配置自助服务密码重置 (SSPR)，通过这种简单方法使用户能够重置其密码或解锁其帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个至少启用了试用版许可证的有效 Azure AD 租户。
-- 一个具有全局管理员权限的帐户。
-- 一个你知道其密码的非管理员测试用户，如果需要创建用户，请参阅[快速入门：向 Azure Active Directory 添加新用户](../add-users-azure-active-directory.md)一文。
-- 非管理员测试用户所属的用于测试的一个试点组，如果需要创建组，请参阅[在 Azure Active Directory 中创建组并添加成员](../active-directory-groups-create-azure-portal.md)一文。
+* 一个至少启用了试用版许可证的有效 Azure AD 租户。
+* 一个具有全局管理员权限的帐户。
+* 一个你知道其密码的非管理员测试用户，如果需要创建用户，请参阅[快速入门：向 Azure Active Directory 添加新用户](../add-users-azure-active-directory.md)。
+* 非管理员测试用户所属的用于测试的一个试点组，如果需要创建组，请参阅[在 Azure Active Directory 中创建组并添加成员](../active-directory-groups-create-azure-portal.md)一文。
 
 ## <a name="enable-self-service-password-reset"></a>启用自助服务密码重置
 
 1. 在现有的 Azure AD 租户（位于 **Azure 门户**的 **Azure Active Directory** 下）中选择“密码重置”。
 
 2. 在“属性”页中，在“启用自助密码重置”选项下，选择“选定”。
-    - 在“选择组”中，选择在本文的先决条件部分中创建的试点组。
-    - 单击“保存” 。
+    * 在“选择组”中，选择在本文的先决条件部分中创建的试点组。
+    * 单击“保存” 。
 
 3. 在“身份验证方法”页中，进行以下选择：
-   - 重置所需的方法数：**1**
-   - 用户可以使用的方法：
-      - **移动电话**
-      - **办公电话**
-   - 单击“保存” 。
+   * 重置所需的方法数：**1**
+   * 用户可以使用的方法：
+      * **电子邮件**
+      * **移动应用代码（预览版）**
+   * 单击“保存” 。
 
     ![身份验证][Authentication]
 
 4. 在“注册”页上，进行以下选择：
-   - 要求用户在登录时注册：**是**
-   - 设置用户必须在几天后重新确认其身份验证信息：**365**
+   * 要求用户在登录时注册：**是**
+   * 设置用户必须在几天后重新确认其身份验证信息：365
 
 ## <a name="test-self-service-password-reset"></a>测试自助服务密码重置
 
@@ -71,3 +72,4 @@ ms.locfileid: "52649599"
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "可用的 Azure AD 身份验证方法和所需数量"
 
+<!-- Update_Description: wording update -->

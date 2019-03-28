@@ -4,24 +4,25 @@ description: 此页是与使用 Azure AD Connect 进行 AD FS 操作相关的所
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/09/2018
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 1c90af9c59221ea980de6b50e2db8dd581ea9e6a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a9189fe8b1dcb4a59a256e7bba7c9739b9a7584e
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186644"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和联合身份验证
 Azure Active Directory (Azure AD) Connect 可让你配置使用本地 Active Directory 联合身份验证服务 (AD FS) 和 Azure AD 进行的联合身份验证。 通过联合身份验证登录，可以让用户能够使用本地密码登录基于 Azure AD 的服务；使用公司网络时，无需再次输入密码就可登录服务。 使用 AD FS 的联合身份验证选项，可以部署 AD FS 的新安装，也可以在 Windows Server 2012 R2 场中指定现有安装。
@@ -52,7 +53,8 @@ Azure Active Directory (Azure AD) Connect 可让你配置使用本地 Active Dir
 
 
 ## <a name="additional-resources"></a>其他资源
-- [联合两个 Azure AD 与单个 AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
-- [Azure 中的 AD FS 部署](how-to-connect-fed-azure-adfs.md)
-- [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [联合两个 Azure AD 与单个 AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
+* [Azure 中的 AD FS 部署](how-to-connect-fed-azure-adfs.md)
+* [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
+<!-- Update_Description: update metedata properties -->

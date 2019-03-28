@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 01/28/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7cfbb371c823b9f0ed19864c51f102dc767662a0
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: c25d763d7b69948527bf4d182dd7483229056347
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085688"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348149"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -46,7 +46,9 @@ ms.locfileid: "55085688"
 
 ### <a name="powershell"></a>PowerShell
 
-将服务主体与 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 模块配合使用以进行资源管理操作时，请使用 `Login-AzureRmAccount -Environment AzureChinaCloud` cmdlet。 将服务主体与 [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 模块配合使用以进行服务器操作时，请使用 `Add-AzureAnalysisServicesAccount` cmdlet。 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+将服务主体与 [Az.AnalysisServices](https://docs.microsoft.com/powershell/module/az.analysisservices) 模块配合使用以进行资源管理操作时，请使用 `Connect-AzAccount -Environment AzureChinaCloud` cmdlet。 将服务主体与 [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 模块配合使用以进行服务器操作时，请使用 `Add-AzAnalysisServicesAccount` cmdlet。 
 
 以下示例使用 appID 和密码执行模型数据库刷新操作：
 
@@ -61,7 +63,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Add-AzureAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "chinaeast.asazure.chinacloudapi.cn"
+Add-AzAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "chinaeast.asazure.chinacloudapi.cn"
 
 Invoke-ProcessTable -Server "asazure://chinaeast.asazure.chinacloudapi.cn/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
 ```

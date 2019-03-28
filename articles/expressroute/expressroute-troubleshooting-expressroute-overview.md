@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 967a58d9e0e5d1df3980b0da7b1858ae26ffe796
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/01/2018
+ms.openlocfilehash: 2eda61d92a10928d0e4cba76f8b0923cdffd027f
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663099"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348623"
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
-ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
+本文可帮助验证 ExpressRoute 连接并对其进行故障排除。 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
 
 -   客户网络
 -   提供商网络
@@ -36,6 +36,8 @@ ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络�
 >
 >
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>概述
 下图显示了客户网络通过 ExpressRoute 连接到 Microsoft 网络时的逻辑连接。
 [![1]][1]
@@ -46,8 +48,8 @@ ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络�
 
 1. 客户计算设备（例如服务器或电脑）
 2. CE：客户边缘路由器 
-3.  PE（面向 CE）：面向客户边缘路由器的提供商边缘路由器/交换机。 本文档中称为“PE-CE”。
-4.  PE（面向 MSEE）：面向 MSEE 的提供商边缘路由器/交换机。 本文档中称为“PE-MSEE”。
+3.  PE（面向 CE）：提供商边缘路由器/交换机，面向客户边缘路由器。 本文档中称为“PE-CE”。
+4.  PE（面向 MSEE）：提供商边缘路由器/交换机，面向 MSEE。 本文档中称为“PE-MSEE”。
 5. MSEE：Microsoft 企业边缘 (MSEE) ExpressRoute 路由器
 6. 虚拟网络 (VNet) 网关
 7. Azure VNet 上的计算设备
@@ -95,7 +97,7 @@ ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络�
 ###<a name="verification-via-powershell"></a>通过 PowerShell 进行验证
 若要列出资源组中的所有 ExpressRoute 线路，请使用以下命令：
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
 >可通过 Azure 获取资源组名称。 请参阅本文档的上一小节，另请注意，资源组名称已在示例屏幕截图中列出。
@@ -104,7 +106,7 @@ ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络�
 
 若要选择资源组中的特定 ExpressRoute 线路，请使用以下命令：
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
 示例响应如下：
 
@@ -172,7 +174,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-若要确认 ExpressRoute 线路是否正常运行，请特别注意以下字段：ServiceProviderProvisioningState：已预配 状态：已启用
+若要确认 ExpressRoute 线路是否正常运行，请特别注意以下字段：ServiceProviderProvisioningState：预配状态：Enabled
 
 >[!NOTE]
 >如果“状态”不是“已启用”，请与 [Microsoft 支持部门][Support]联系。 如果“ServiceProviderProvisioningState”不是“已预配”，请与服务提供商联系。
@@ -180,7 +182,7 @@ Status                           : Enabled
 >
 
 ##<a name="validate-peering-configuration"></a>验证对等互连配置
-在服务提供商完成对 ExpressRoute 线路的预配以后，即可基于 MSEE-PR (4) 和 MSEE (5) 之间的 ExpressRoute 线路创建路由配置。 每个 ExpressRoute 线路可以启用一个、两个或三个路由上下文：Azure 专用对等互连（流量通往 Azure 中的专用虚拟网络）、Azure 公共对等互连（流量通往 Azure 中的公共 IP 地址）、以及 Microsoft 对等互连（流量通往 Office 365 和 Dynamics 365）。 有关如何创建和修改路由配置的详细信息，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]一文。
+在服务提供商完成对 ExpressRoute 线路的预配以后，即可基于 MSEE-PR (4) 和 MSEE (5) 之间的 ExpressRoute 线路创建路由配置。 每条 ExpressRoute 线路可以启用一个、两个或三个路由上下文：Azure 专用对等互连（流量通往 Azure 中的专用虚拟网络）、Azure 公共对等互连（流量通往 Azure 中的公共 IP 地址）、以及 Microsoft 对等互连（流量通往 Office 365 和 Dynamics 365）。 有关如何创建和修改路由配置的详细信息，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]一文。
 
 ###<a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
 
@@ -204,8 +206,8 @@ Status                           : Enabled
 若要获取 Azure 专用对等互连配置详细信息，请使用以下命令：
 
 ```
-$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 已成功配置的专用对等互连的示例响应如下：
@@ -231,23 +233,23 @@ ProvisioningState          : Succeeded
 
 若要获取 Azure 公共对等互连配置详细信息，请使用以下命令：
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 若要获取 Microsoft 对等互连配置详细信息，请使用以下命令：
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+     Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 如果未配置对等互连，则会出现错误信息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时，示例的响应如下：
 
 ```
-Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
-At line:1 char:1
-    + Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
-    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
-        + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
+    Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+    At line:1 char:1
+        + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+        + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
+            + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 ```
 
 

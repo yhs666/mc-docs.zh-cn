@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 06/18/2018
-ms.date: 12/31/2018
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1af74471dce31539b4642143ac35c817a92ae2b4
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 7dce06794b80ea2d509f895953d8effe552d41b0
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736671"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348539"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理实例的容量
 

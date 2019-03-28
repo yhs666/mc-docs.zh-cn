@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 354ea6931022fd47197eb6f9cd1189cde874c322
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: a3b3493f787fee8aeb8b32a95127fd8698dbce49
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196561"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253903"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：
@@ -123,7 +123,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 导入/导出支持的最大块 Blob 和页 Blob 大小是多少？
 
 最大块 Blob 大小约为 4.768 TB 或 5,000,000 MB。
-最大页 Blob 大小为 1 TB。
+最大页 Blob 大小为 8 TB。
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure 导入/导出是否支持 AES-256 加密？

@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: b449dd7bc720eada175b54fc356233a3c738b74f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d10736c1ff2d116f6522755b9640da12c7de4cb0
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647485"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253939"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -63,11 +63,11 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 让我们看一下 REST API 参考中的 [ListContainers](https://docs.microsoft.com/rest/api/storageservices/List-Containers2) 操作页面，以便了解请求中某些字段的出处，并在下一部分中使用代码进行响应。
 
-请求方法：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
+**请求方法**：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
 
-**请求 URI**： https://myaccount.blob.core.chinacloudapi.cn/?comp=list 它是从 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
+**请求 URI**： https://myaccount.blob.core.chinacloudapi.cn/?comp=list 这是基于 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
 
-[URI 参数](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时可以使用的其他查询参数。 其中有些参数为调用超时（以秒计）和前缀，后者用于筛选。
+[URI 参数](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时还可以使用其他查询参数。 其中有些参数为调用超时（以秒计）和前缀，后者用于筛选。
 
 另一个有用参数是 maxresults:，如果可用容器超过此值，则响应正文将包含一个 NextMarker 元素，指示要在下一个请求中返回的下一个容器。 若要使用此功能，可提供 NextMarker 值，作为发出下一个请求时 URI 中的 marker 参数。 使用此功能时，它类似于通过结果进行分页。 
 
@@ -83,7 +83,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 [响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](https://docs.microsoft.com/rest/api/storageservices/common-rest-api-error-codes)
 
-[响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：其中包括 Content Type；x-ms-request-id（传入的请求ID，如适用）；x-ms-version（指示所使用的 Blob 服务的版本）和 Date（UTC，告知发出请求的时间）。
+[响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：其中包括 Content Type；x-ms-request-id（传入的请求ID，如适用）；x-ms-version（指示所使用的 BLOB 服务的版本）和 Date（UTC，告知发出请求的时间）。
 
 [响应正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-body)：此字段是提供请求数据的 XML 结构。 在此示例中，响应是容器及其属性的列表。
 
@@ -205,7 +205,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-响应正文 (XML)：对于 ListContainers，将显示容器及其属性列表。
+**响应正文 (XML)：** 对于 ListContainers，将显示容器及其属性列表。
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -266,6 +266,9 @@ Content-Length: 1511
 
 ## <a name="creating-the-authorization-header"></a>创建授权标头
 
+> [!TIP]
+> 现在，Azure 存储支持针对存储服务（预览版）的 Azure Active Directory (Azure AD) 集成。 Azure AD 提供更简单的 Azure 存储请求授权体验。 有关使用 Azure AD 授权 REST 操作的详细信息，请参阅 [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)（使用 Azure Active Directory（预览版）进行身份验证）。 有关 Azure AD 与 Azure 存储集成的概述，请参阅[使用 Azure Active Directory（预览版）对 Azure 存储的访问权限进行身份验证](storage-auth-aad.md)。
+
 有一篇文章从概念上（无代码）介绍了如何执行 [Azure 存储服务的身份验证](https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)。
 让我们就基于此篇文章准确提取所需的内容并显示代码。
 
@@ -298,7 +301,7 @@ StringToSign = VERB + "\n" +
 
 其中大部分字段都很少用到。 对于 Blob 存储，你可以指定谓词、md5、内容长度、规范化标头和规范化资源。 可以将其他内容留空（但将其置于 `\n` 中，使其知道它们为空）。
 
-规范化标头和规范化资源有哪些？ 问得好。 事实上，规范化究竟是什么意思？ Microsoft Word 甚至无法将其作为一个词识别。 下面是 [Wikipedia 有关规范化的介绍](http://en.wikipedia.org/wiki/Canonicalization)：在计算机科学中，规范化（有时称为标准化或正则化）是将有多种可能表示形式的数据转换为“标准”、“常规”，或规范格式的过程。 在正常情况下，这意味着获取项目列表（例如，在规范化标头情况下的标头），并将它们标准化为所需的格式。 总的来说，Azure 决定使用一种格式，而你需要匹配它。
+规范化标头和规范化资源有哪些？ 问得好。 事实上，规范化究竟是什么意思？ Microsoft Word 甚至无法将其作为一个词识别。 下面是 [Wikipedia 有关标准化的介绍](http://en.wikipedia.org/wiki/Canonicalization)：在计算机科学中，标准化（有时称为规范化或正则化）是将有多种可能表示形式的数据转换为“标准”、“常规”，或规范格式的过程。 在正常情况下，这意味着获取项目列表（例如，在规范化标头情况下的标头），并将它们标准化为所需的格式。 总的来说，Azure 决定使用一种格式，而你需要匹配它。
 
 让我们从这两个规范化字段开始，因为需要它们来创建授权标头。
 
@@ -510,7 +513,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-响应正文 (XML)：此 XML 响应显示 blob 及其属性列表。 
+**响应正文 (XML)：** 此 XML 响应显示 blob 及其属性列表。 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

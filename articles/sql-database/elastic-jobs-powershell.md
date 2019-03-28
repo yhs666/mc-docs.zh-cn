@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviwer: sstein
 manager: digimobile
 origin.date: 01/03/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 0e1269ee7b7b226f36d1f74d639b2cc041e941e3
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: d5f466aa63dd7cef39f4fca26070ccf7bdb93179
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663570"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318989"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -37,6 +37,8 @@ ms.locfileid: "56663570"
 > * 监视作业
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 如果还没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -68,19 +70,19 @@ ms.locfileid: "56663570"
 
 创建弹性作业代理需要一个用作[作业数据库](sql-database-job-automation-overview.md#job-database)的数据库（S0 或更高级别）。 
 
-*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
+下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。
 
-弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 Azure 要求即可。
+弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 [Azure 要求](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)即可。
 
 ```powershell
 # Sign in to your Azure account
-Connect-AzureRmAccount -EnvironmentName AzureChinaCLoud
+Connect-AzAccount -EnvironmentName AzureChinaCLoud
 
 # Create a resource group
 Write-Output "Creating a resource group..."
 $ResourceGroupName = Read-Host "Please enter a resource group name"
 $Location = Read-Host "Please enter an Azure Region"
-$Rg = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+$Rg = New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 $Rg
 
 # Create a server
@@ -91,17 +93,17 @@ $AdminLogin = Read-Host "Please enter the server admin name"
 $AdminPassword = Read-Host "Please enter the server admin password"
 $AdminPasswordSecure = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
 $AdminCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AdminLogin, $AdminPasswordSecure
-$AgentServer = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$AgentServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
 
 # Set server firewall rules to allow all Azure IPs
 Write-Output "Creating a server firewall rule..."
-$AgentServer | New-AzureRmSqlServerFirewallRule -AllowAllAzureIPs
+$AgentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
 $AgentServer
 
 # Create the job database
 Write-Output "Creating a blank SQL database to be used as the Job Database..."
 $JobDatabaseName = "JobDatabase"
-$JobDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $JobDatabaseName -RequestedServiceObjectiveName "S0"
+$JobDatabase = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $JobDatabaseName -RequestedServiceObjectiveName "S0"
 $JobDatabase
 ```
 
@@ -110,17 +112,17 @@ $JobDatabase
 Write-Output "Creating target server..."
 $TargetServerName = Read-Host "Please enter a target server name"
 $TargetServerName = $TargetServerName + "-" + [guid]::NewGuid()
-$TargetServer = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$TargetServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
 
 # Set target server firewall rules to allow all Azure IPs
-$TargetServer | New-AzureRmSqlServerFirewallRule -AllowAllAzureIPs
-$TargetServer | New-AzureRmSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
+$TargetServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
+$TargetServer | New-AzSqlServerFirewallRule -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255 -FirewallRuleName AllowAll
 $TargetServer
 
 # Create some sample databases to execute jobs against...
-$Db1 = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb1"
+$Db1 = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb1"
 $Db1
-$Db2 = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb2"
+$Db2 = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $TargetServerName -DatabaseName "TargetDb2"
 $Db2
 ```
 
@@ -129,19 +131,19 @@ $Db2
 若要使用弹性作业，请运行以下命令（此命令只需在每个需要在其中使用弹性作业的订阅中运行一次），以便在 Azure 订阅中注册此功能：
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
+Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
 ```
 
 ## <a name="create-the-elastic-job-agent"></a>创建弹性作业代理
 
 弹性作业代理是用于创建、运行和管理作业的 Azure 资源。 此代理执行的作业是按计划的，或者是一次性的。
 
-**New-AzureRmSqlElasticJobAgent** cmdlet 要求存在 Azure SQL 数据库，因此 *ResourceGroupName*、*ServerName* 和 *DatabaseName* 参数必须都指向现有的资源。
+**New-AzSqlElasticJobAgent** cmdlet 要求存在 Azure SQL 数据库，因此 *ResourceGroupName*、*ServerName* 和 *DatabaseName* 参数必须都指向现有的资源。
 
 ```powershell
 Write-Output "Creating job agent..."
 $AgentName = Read-Host "Please enter a name for your new Elastic Job agent"
-$JobAgent = $JobDatabase | New-AzureRmSqlElasticJobAgent -Name $AgentName
+$JobAgent = $JobDatabase | New-AzSqlElasticJobAgent -Name $AgentName
 $JobAgent
 ```
 
@@ -203,10 +205,10 @@ Write-Output "Creating job credentials..."
 $LoginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
 
 $MasterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $LoginPasswordSecure
-$MasterCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "masteruser" -Credential $MasterCred
+$MasterCred = $JobAgent | New-AzSqlElasticJobCredential -Name "masteruser" -Credential $MasterCred
 
 $JobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "jobuser", $LoginPasswordSecure
-$JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Credential $JobCred
+$JobCred = $JobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $JobCred
 ```
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>定义需对其运行作业的目标数据库
@@ -218,13 +220,13 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 ```powershell
 Write-Output "Creating test target groups..."
 # Create ServerGroup target group
-$ServerGroup = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroup'
-$ServerGroup | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+$ServerGroup = $JobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroup'
+$ServerGroup | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
 
 # Create ServerGroup with an exclusion of Db2
-$ServerGroupExcludingDb2 = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
-$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
-$ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
+$ServerGroupExcludingDb2 = $JobAgent | New-AzSqlElasticJobTargetGroup -Name 'ServerGroupExcludingDb2'
+$ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -RefreshCredentialName $MasterCred.CredentialName
+$ServerGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $TargetServerName -Database $Db2.DatabaseName -Exclude
 ```
 
 ## <a name="create-a-job"></a>创建作业
@@ -232,7 +234,7 @@ $ServerGroupExcludingDb2 | Add-AzureRmSqlElasticJobTarget -ServerName $TargetSer
 ```powershell
 Write-Output "Creating a new job"
 $JobName = "Job1"
-$Job = $JobAgent | New-AzureRmSqlElasticJob -Name $JobName -RunOnce
+$Job = $JobAgent | New-AzSqlElasticJob -Name $JobName -RunOnce
 $Job
 ```
 
@@ -245,8 +247,8 @@ Write-Output "Creating job steps"
 $SqlText1 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step1Table')) CREATE TABLE [dbo].[Step1Table]([TestId] [int] NOT NULL);"
 $SqlText2 = "IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id('Step2Table')) CREATE TABLE [dbo].[Step2Table]([TestId] [int] NOT NULL);"
 
-$Job | Add-AzureRmSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
-$Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
+$Job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText1
+$Job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
 ```
 
 
@@ -256,7 +258,7 @@ $Job | Add-AzureRmSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupE
 
 ```powershell
 Write-Output "Start a new execution of the job..."
-$JobExecution = $Job | Start-AzureRmSqlElasticJob
+$JobExecution = $Job | Start-AzSqlElasticJob
 $JobExecution
 ```
 
@@ -274,13 +276,13 @@ $JobExecution
 
 ```powershell
 # Get the latest 10 executions run
-$JobAgent | Get-AzureRmSqlElasticJobExecution -Count 10
+$JobAgent | Get-AzSqlElasticJobExecution -Count 10
 
 # Get the job step execution details
-$JobExecution | Get-AzureRmSqlElasticJobStepExecution
+$JobExecution | Get-AzSqlElasticJobStepExecution
 
 # Get the job target execution details
-$JobExecution | Get-AzureRmSqlElasticJobTargetExecution -Count 2
+$JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
 ## <a name="schedule-the-job-to-run-later"></a>计划要在以后运行的作业
@@ -289,7 +291,7 @@ $JobExecution | Get-AzureRmSqlElasticJobTargetExecution -Count 2
 
 ```powershell
 # Run every hour starting from now
-$Job | Set-AzureRmSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
+$Job | Set-AzSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (Get-Date) -Enable
 ```
 
 ## <a name="clean-up-resources"></a>清理资源
@@ -301,7 +303,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType Hour -IntervalCount 1 -StartTime (
 >
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
 ```
 
 

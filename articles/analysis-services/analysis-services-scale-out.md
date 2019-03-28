@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 01/18/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e7742a49bcefd7167da0d18580978f0bae61af3
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 359e87778dd4d48c9f8d894ae1d09fb054a62177
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085720"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348127"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 横向扩展
 
@@ -26,7 +26,7 @@ ms.locfileid: "55085720"
 
 通过横向扩展，可创建查询池，最多可添加一个附加的查询副本资源（总共两个，包括你的服务器）。 可减少查询副本的数量以满足关键时刻对 QPU 的需求，还可随时将处理服务器与查询池分开。 将在服务器所在的同一区域中创建所有查询副本。
 
-<!--Notice: Scale out to ONE, TWO total-->
+<!--MOONCAKE: Scale out to ONE, TWO total-->
 
 不论查询池中查询副本的数量如何，处理工作负载都不会分布在查询副本中。 一台服务器用作处理服务器。 查询副本在查询池中仅向针对在每个查询副本之间同步的模型的查询提供服务。 
 
@@ -90,11 +90,13 @@ ms.locfileid: "55085720"
 
 ### <a name="powershell"></a>PowerShell
 
-在使用 PowerShell 之前，请[安装或更新最新的 AzureRM 模块](https://github.com/Azure/azure-powershell/releases)。 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要设置查询副本数，请使用 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)。 指定可选的 `-ReadonlyReplicaCount` 参数。
+在使用 PowerShell 之前，请[安装或更新最新的 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
 
-若要运行同步，请使用 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)。
+若要设置查询副本数，请使用 [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定可选的 `-ReadonlyReplicaCount` 参数。
+
+若要运行同步，请使用 [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)。
 
 ## <a name="connections"></a>连接
 
@@ -110,12 +112,11 @@ ms.locfileid: "55085720"
 
 **问题：** 用户收到错误“在连接模式 "ReadOnly" 下找不到服务器“\<服务器名称>”实例”。
 
-**解决方案：** 选择“从查询池分离处理服务器”选项时，使用默认连接字符串（不带 :rw）的客户端连接将重定向到查询池副本。 如果查询池中的副本因尚未完成同步而尚未联机，则重定向的客户端连接可能会失败。 若要防止连接失败，在完成横向扩展和同步操作之前，请不要选择从查询池分离处理服务器。 可以使用内存和 QPU 指标来监视同步状态。
+**解决方案：** 选择“从查询池分离处理服务器”选项时，使用默认连接字符串（不带 :rw）的客户端连接将重定向到查询池副本。 如果查询池中的副本因尚未完成同步而尚未联机，则重定向的客户端连接可能会失败。 若要防止连接失败，执行同步时查询池中必须至少有两个服务器。 每个服务器单独同步，而其他服务器保持联机。 如果在处理期间选择在查询池中没有处理服务器，则可以选择将其从池中删除以进行处理，然后在处理完成后但在同步之前将其添加回池中。 可以使用内存和 QPU 指标来监视同步状态。
 
 ## <a name="related-information"></a>相关信息
 
 [监视服务器指标](analysis-services-monitor.md)   
 [管理 Azure Analysis Services](analysis-services-manage.md)
 
-<!-- Update_Description: new articles on analysis service scale out-->
-<!--ms.date: 01/27/2019-->
+<!-- Update_Description: wording update -->

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2018
 ms.author: sasolank
-ms.date: 03/11/2019
-ms.openlocfilehash: 4b7084f00a7e744f07c7dfbcf04e9da432147784
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.date: 04/01/2019
+ms.openlocfilehash: f4327ccb720543f9b2f612c5df64bfe002d15e63
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196644"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348572"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -348,7 +348,7 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> 摘要
+## <a name="summary"> </a> 摘要
 VNET 中配置的 Azure API 管理为配置的所有 API 提供单个网关接口，无论这些 API 是托管在本地还是云中。 将应用程序网关与 API 管理集成可以灵活地、有选择性地允许从 Internet 上访问特定 API，以及向 API 管理实例提供 Web 应用程序防火墙作为前端。
 
 ##<a name="next-steps"></a>后续步骤

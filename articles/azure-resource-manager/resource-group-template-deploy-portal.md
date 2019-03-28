@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/03/2018
-ms.date: 11/19/2018
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86b215c612bad904464c103033d7f7c7529d0bd9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 643413bfe75c022ce7fa492c70fbcc1dce496c5c
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648616"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348141"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
-本文说明如何将 [Azure 门户](https://portal.azure.cn)与 [Azure 资源管理器](resource-group-overview.md)配合使用来部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过门户管理 Azure 资源](resource-group-portal.md)。
+本文说明如何将 [Azure 门户](https://portal.azure.cn)与 [Azure 资源管理器](resource-group-overview.md)配合使用来部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过 Azure 门户管理 Azure 资源](manage-resources-portal.md)。
 
 ## <a name="create-resource-group"></a>创建资源组
 
@@ -137,7 +137,7 @@ ms.locfileid: "52648616"
 ## <a name="next-steps"></a>后续步骤
 * 若要查看审核日志，请参阅[使用 Resource Manager 进行审核操作](resource-group-audit.md)。
 * 若要排查部署错误，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
-* 若要从部署或资源组中检索模板，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
-<!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
+* 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](manage-resource-groups-portal.md#export-resource-groups-to-templates)。
 
+<!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
 <!--Update_Description: update meta properties, update link -->

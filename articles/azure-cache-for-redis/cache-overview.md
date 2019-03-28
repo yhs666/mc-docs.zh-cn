@@ -12,15 +12,15 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/26/2018
-ms.date: 02/27/2019
+ms.date: 03/21/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: bc2bd946fb6766d7dcf5aa227f711bd457ebecfa
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 1ead54ee4f52faa27e32ad509863b70bf9d7f4d7
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903167"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318904"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>什么是 Azure Redis 缓存
 
@@ -58,7 +58,7 @@ Azure Redis 缓存在下述层中提供：
 
 可以在缓存创建以后将其提升到更高的层。 不允许降到更低的层。 有关缩放的分步说明，请参阅[如何缩放 Azure Redis 缓存](cache-how-to-scale.md)和[如何自动执行缩放操作](cache-how-to-scale.md#how-to-automate-a-scaling-operation)。
 
-### <a name="feature-comparision"></a>功能比较
+### <a name="feature-comparison"></a>功能比较
 
 [Azure Redis 缓存定价](https://www.azure.cn/pricing/details/redis-cache/)页对每个层进行了详细比较。 下表介绍了每个层支持的部分功能：
 
@@ -76,11 +76,11 @@ Azure Redis 缓存在下述层中提供：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [ASP.NET Web 应用快速入门](cache-web-app-howto.md)创建简单的使用 Azure Redis 缓存的 ASP.NET Web 应用。
-- [.NET 快速入门](cache-dotnet-how-to-use-azure-redis-cache.md)创建使用 Azure Redis 缓存的 .NET 应用。
-- [.NET Core 快速入门](cache-dotnet-core-quickstart.md)创建使用 Azure Redis 缓存的 .NET Core 应用。
-- [Node.js 快速入门](cache-nodejs-get-started.md)创建简单的使用 Azure Redis 缓存的 Node.js 应用。
-- [Java 快速入门](cache-java-get-started.md)创建使用 Azure Redis 缓存的简单 Java 应用。
-- [Python 快速入门](cache-python-get-started.md)创建使用 Azure Redis 缓存的简单 Python 应用。
+* [ASP.NET Web 应用快速入门](cache-web-app-howto.md)创建简单的使用 Azure Redis 缓存的 ASP.NET Web 应用。
+* [.NET 快速入门](cache-dotnet-how-to-use-azure-redis-cache.md)创建使用 Azure Redis 缓存的 .NET 应用。
+* [.NET Core 快速入门](cache-dotnet-core-quickstart.md)创建使用 Azure Redis 缓存的 .NET Core 应用。
+* [Node.js 快速入门](cache-nodejs-get-started.md)创建简单的使用 Azure Redis 缓存的 Node.js 应用。
+* [Java 快速入门](cache-java-get-started.md)创建使用 Azure Redis 缓存的简单 Java 应用。
+* [Python 快速入门](cache-python-get-started.md)创建使用 Azure Redis 缓存的简单 Python 应用。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

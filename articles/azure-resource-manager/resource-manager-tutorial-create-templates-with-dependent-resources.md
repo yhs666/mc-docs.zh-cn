@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 11/13/2018
-ms.date: 02/18/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 44d62cd44a222c2eafbc19ca9f3ed88499e9b8e9
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 643f4ba6d032fdeccf4957a112c6f7dd19d411c4
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306088"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348166"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
@@ -29,6 +29,8 @@ ms.locfileid: "56306088"
 
 本教程介绍如何创建存储帐户、虚拟机、虚拟网络以及一些其他的依赖资源。 某些资源的部署依赖于另一资源的存在。 例如，创建虚拟机的前提是其存储帐户和网络接口存在。 可通过将一个资源标记为依赖于其他资源来定义此关系。 Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](./resource-group-define-dependencies.md)。
 
+![资源管理器模板依赖资源部署顺序图](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+
 本教程涵盖以下任务：
 
 > [!div class="checklist"]
@@ -37,8 +39,6 @@ ms.locfileid: "56306088"
 > * 部署模板
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -86,7 +86,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * `Microsoft.Network/networkInterfaces`。
     * `Microsoft.Compute/virtualMachines`。
     
-    <!-- Not Available on template --> 在自定义模板之前，不妨对其进行一些基本的了解。
+    <!-- Not Available on template -->
+    在自定义模板之前，不妨对其进行一些基本的了解。
 
 2. 展开第一个资源。 它是一个存储帐户。 
     
@@ -121,9 +122,11 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="deploy-the-template"></a>部署模板
 
-可通过多种方法来部署模板。  在本教程中，你将从本地电脑使用 Azure CLI 和 PowerShell。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+可通过多种方法来部署模板。 在本教程中，你将从本地电脑使用 Azure CLI 和 PowerShell。
 
 <!--Not Available on Cloud Shell-->
+
 1. 在本地 Shell 中运行以下命令，以验证 JSON 文件的内容。
 
     ```bash

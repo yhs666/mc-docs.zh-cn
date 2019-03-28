@@ -1,5 +1,5 @@
 ---
-title: 删除 Azure Active Directory 租户目录 | Microsoft Docs
+title: 删除租户目录 - Azure Active Directory | Microsoft Docs
 description: 介绍如何准备要删除的 Azure AD 租户目录
 services: active-directory
 documentationcenter: ''
@@ -7,19 +7,20 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 06/13/2018
-ms.date: 07/31/2018
+origin.date: 03/05/2019
+ms.date: 03/19/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2610957462d4344ecc11f0a0af4d345a917b17d3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9050ca41974d7c58f7d2bd4777049221a4e902e2
+ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647136"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187478"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>删除 Azure Active Directory 租户
 删除租户时，也会删除包含在该租户中的所有资源。 必须对租户进行准备，尽量减少关联的资源，然后才能将其删除。 只有 Azure Active Directory (Azure AD) 全局管理员可以从门户中删除 Azure AD 租户。
@@ -52,3 +53,4 @@ ms.locfileid: "52647136"
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 文档](/active-directory/)
 
+<!-- Update_Description: wording update -->

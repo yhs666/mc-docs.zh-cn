@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 02/27/2019
+ms.date: 03/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7ca5909c345077de19cbf31814e951f924cb8ac6
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 0402f5035627eed09cc4a23b47e3ecc49e6e88c9
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903098"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318979"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -39,36 +39,36 @@ ms.locfileid: "56903098"
 
 可使用“资源菜单”查看和配置以下设置。
 
-- [概述](#overview)
-- [活动日志](#activity-log)
-- [访问控制 (IAM)](#access-control-iam)
-- [标记](#tags)
-- [诊断和解决问题](#diagnose-and-solve-problems)
-- [设置](#settings)
- - [访问密钥](#access-keys)
- - [高级设置](#advanced-settings)
- - [Azure Redis 缓存顾问](#azure-cache-for-redis-advisor)
- - [缩放](#scale)
- - [Redis 群集大小](#cluster-size)
- - [Redis 数据持久性](#redis-data-persistence)
- - [计划更新](#schedule-updates)
- - [异地复制](#geo-replication)
- - [虚拟网络](#virtual-network)
- - [防火墙](#firewall)
- - [属性](#properties)
- - [锁定](#locks)
- - [自动化脚本](#automation-script)
-- 管理
- - [导入数据](#importexport)
- - [导出数据](#importexport)
- - [重新启动](#reboot)
-- [监视](#monitoring)
- - [Redis 指标](#redis-metrics)
- - [警报规则](#alert-rules)
- - [诊断](#diagnostics)
-- 支持和故障排除设置
- - [资源运行状况](#resource-health)
- - [新建支持请求](#new-support-request)
+* [概述](#overview)
+* [活动日志](#activity-log)
+* [访问控制 (IAM)](#access-control-iam)
+* [标记](#tags)
+* [诊断和解决问题](#diagnose-and-solve-problems)
+* [设置](#settings)
+    * [访问密钥](#access-keys)
+    * [高级设置](#advanced-settings)
+    * [Azure Redis 缓存顾问](#azure-cache-for-redis-advisor)
+    * [缩放](#scale)
+    * [Redis 群集大小](#cluster-size)
+    * [Redis 数据持久性](#redis-data-persistence)
+    * [计划更新](#schedule-updates)
+    * [异地复制](#geo-replication)
+    * [虚拟网络](#virtual-network)
+    * [防火墙](#firewall)
+    * [属性](#properties)
+    * [锁定](#locks)
+    * [自动化脚本](#automation-script)
+* 管理
+    * [导入数据](#importexport)
+    * [导出数据](#importexport)
+    * [重新启动](#reboot)
+* [监视](#monitoring)
+    * [Redis 指标](#redis-metrics)
+    * [警报规则](#alert-rules)
+    * [诊断](#diagnostics)
+* 支持和故障排除设置
+    * [资源运行状况](#resource-health)
+    * [新建支持请求](#new-support-request)
 
 
 ## <a name="overview"></a>概述
@@ -97,19 +97,19 @@ ms.locfileid: "56903098"
 ## <a name="settings"></a>设置
 “设置”部分用于访问和配置缓存的下列设置。
 
-- [访问密钥](#access-keys)
-- [高级设置](#advanced-settings)
-- [Azure Redis 缓存顾问](#azure-cache-for-redis-advisor)
-- [缩放](#scale)
-- [Redis 群集大小](#cluster-size)
-- [Redis 数据持久性](#redis-data-persistence)
-- [计划更新](#schedule-updates)
-- [异地复制](#geo-replication)
-- [虚拟网络](#virtual-network)
-- [防火墙](#firewall)
-- [属性](#properties)
-- [锁定](#locks)
-- [自动化脚本](#automation-script)
+* [访问密钥](#access-keys)
+* [高级设置](#advanced-settings)
+* [Azure Redis 缓存顾问](#azure-cache-for-redis-advisor)
+* [缩放](#scale)
+* [Redis 群集大小](#cluster-size)
+* [Redis 数据持久性](#redis-data-persistence)
+* [计划更新](#schedule-updates)
+* [异地复制](#geo-replication)
+* [虚拟网络](#virtual-network)
+* [防火墙](#firewall)
+* [属性](#properties)
+* [锁定](#locks)
+* [自动化脚本](#automation-script)
 
 
 
@@ -121,9 +121,9 @@ ms.locfileid: "56903098"
 ### <a name="advanced-settings"></a>高级设置
 在“高级设置”边栏选项卡上配置以下设置。
 
-- [访问端口](#access-ports)
-- [内存策略](#memory-policies)
-- [密钥空间通知（高级设置）](#keyspace-notifications-advanced-settings)
+* [访问端口](#access-ports)
+* [内存策略](#memory-policies)
+* [密钥空间通知（高级设置）](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>访问端口
 默认情况下，为新缓存禁用非 SSL 访问。 要启用非 SSL 端口，请对“高级设置”边栏选项卡中的“仅允许通过 SSL 访问”单击“否”，并单击“保存”。
@@ -141,12 +141,12 @@ ms.locfileid: "56903098"
 
 “Maxmemory policy”用于为缓存配置逐出策略，并允许你从以下逐出策略中进行选择：
 
-- `volatile-lru` - 这是默认逐出策略。
-- `allkeys-lru`
-- `volatile-random`
-- `allkeys-random`
-- `volatile-ttl`
-- `noeviction`
+* `volatile-lru` - 这是默认逐出策略。
+* `allkeys-lru`
+* `volatile-random`
+* `allkeys-random`
+* `volatile-ttl`
+* `noeviction`
 
 有关 `maxmemory` 策略的详细信息，请参阅 [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies)（逐出策略）。
 
@@ -304,9 +304,9 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![管理](./media/cache-configure/redis-cache-administration.png)
 
-- [导入数据](#importexport)
-- [导出数据](#importexport)
-- [重新启动](#reboot)
+* [导入数据](#importexport)
+* [导出数据](#importexport)
+* [重新启动](#reboot)
 
 
 ### <a name="importexport"></a>导入/导出
@@ -344,9 +344,9 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![诊断](./media/cache-configure/redis-cache-diagnostics.png)
 
-- [Redis 指标](#redis-metrics)
-- [警报规则](#alert-rules)
-- [诊断](#diagnostics)
+* [Redis 指标](#redis-metrics)
+* [警报规则](#alert-rules)
+* [诊断](#diagnostics)
 
 ### <a name="redis-metrics"></a>Redis 指标
 单击“Redis 指标”可[查看度量值](cache-how-to-monitor.md#view-cache-metrics)（用于缓存的）。
@@ -357,10 +357,10 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ### <a name="diagnostics"></a>诊断
 
-默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)，然后被删除。 若要保留缓存指标的时间超过 30 天，请单击“诊断”[配置用于存储缓存诊断的存储帐户](cache-how-to-monitor.md#export-cache-metrics)。
+默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../azure-monitor/platform/data-collection.md#metrics)，然后被删除。 若要保留缓存指标的时间超过 30 天，请单击“诊断”[配置用于存储缓存诊断的存储帐户](cache-how-to-monitor.md#export-cache-metrics)。
 
 >[!NOTE]
->除了将缓存指标存档到存储中外，还可以[将缓存指标流式传输到事件中心](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。
+>除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Azure Monitor 日志](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 >
 >
 
@@ -369,8 +369,8 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![支持 + 疑难解答](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-- [资源运行状况](#resource-health)
-- [新建支持请求](#new-support-request)
+* [资源运行状况](#resource-health)
+* [新建支持请求](#new-support-request)
 
 ### <a name="resource-health"></a>资源运行状况
 “资源运行状况”会监视资源，并告知资源是否按预期运行。 有关 Azure 资源运行状况服务的详细信息，请参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。
@@ -412,20 +412,20 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 <a name="databases"></a>
 <sup>1</sup>每个 Azure Redis 缓存定价层的 `databases` 限制是不同的，可以在创建缓存时进行设置。 如果在创建缓存期间未指定 `databases` 设置，则默认值为 16。
 
-- 基本缓存和标准缓存
-  - C0 (250 MB) 缓存 - 最多支持 16 个数据库
-  - C1 (1 GB) 缓存 - 最多支持 16 个数据库
-  - C2 (2.5 GB) 缓存 - 最多支持 16 个数据库
-  - C3 (6 GB) 缓存 - 最多支持 16 个数据库
-  - C4 (13 GB) 缓存 - 最多支持 32 个数据库
-  - C5 (26 GB) 缓存 - 最多支持 48 个数据库
-  - C6 (53 GB) 缓存 - 最多支持 64 个数据库
-- 高级缓存
-  - P1 (6 GB - 60 GB) - 最多支持 16 个数据库
-  - P2 (13 GB - 130 GB) - 最多支持 32 个数据库
-  - P3 (26 GB - 260 GB) - 最多支持 48 个数据库
-  - P4 (53 GB - 530 GB) - 最多支持 64 个数据库
-  - 所有启用了 Redis 群集的高级缓存 - Redis 群集仅支持使用数据库 0，因此任何启用了 Redis 群集的高级缓存的 `databases` 限制实际上是 1，并且不允许使用 [Select](https://redis.io/commands/select) 命令。 有关详细信息，请参阅[使用群集功能时，是否需要对客户端应用程序进行更改？](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+* 基本缓存和标准缓存
+  * C0 (250 MB) 缓存 - 最多支持 16 个数据库
+  * C1 (1 GB) 缓存 - 最多支持 16 个数据库
+  * C2 (2.5 GB) 缓存 - 最多支持 16 个数据库
+  * C3 (6 GB) 缓存 - 最多支持 16 个数据库
+  * C4 (13 GB) 缓存 - 最多支持 32 个数据库
+  * C5 (26 GB) 缓存 - 最多支持 48 个数据库
+  * C6 (53 GB) 缓存 - 最多支持 64 个数据库
+* 高级缓存
+  * P1 (6 GB - 60 GB) - 最多支持 16 个数据库
+  * P2 (13 GB - 130 GB) - 最多支持 32 个数据库
+  * P3 (26 GB - 260 GB) - 最多支持 48 个数据库
+  * P4 (53 GB - 530 GB) - 最多支持 64 个数据库
+  * 所有启用了 Redis 群集的高级缓存 - Redis 群集仅支持使用数据库 0，因此任何启用了 Redis 群集的高级缓存的 `databases` 限制实际上是 1，并且不允许使用 [Select](https://redis.io/commands/select) 命令。 有关详细信息，请参阅[使用群集功能时，是否需要对客户端应用程序进行更改？](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 有关数据库的详细信息，请参阅[什么是 Redis 数据库？](cache-faq.md#what-are-redis-databases)
 
@@ -437,19 +437,19 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 <a name="maxclients"></a>
 <sup>2</sup>`maxclients` 对于每个 Azure Redis 缓存定价层都是不同的。
 
-- 基本缓存和标准缓存
-  - C0 (250 MB) 缓存 - 最多支持 256 个连接
-  - C1 (1 GB) 缓存 - 最多支持 1,000 个连接
-  - C2 (2.5 GB) 缓存 - 最多支持 2,000 个连接
-  - C3 (6 GB) 缓存 - 最多支持 5,000 个连接
-  - C4 (13 GB) 缓存 - 最多支持 10,000 个连接
-  - C5 (26 GB) 缓存 - 最多支持 15,000 个连接
-  - C6 (53 GB) 缓存 - 最多支持 20,000 个连接
-- 高级缓存
-  - P1 (6 GB - 60 GB) - 最多支持 7,500 个连接
-  - P2 (13 GB - 130 GB) - 最多支持 15,000 个连接
-  - P3 (26 GB - 260 GB) - 最多支持 30,000 个连接
-  - P4 (53 GB - 530 GB) - 最多支持 40,000 个连接
+* 基本缓存和标准缓存
+  * C0 (250 MB) 缓存 - 最多支持 256 个连接
+  * C1 (1 GB) 缓存 - 最多支持 1,000 个连接
+  * C2 (2.5 GB) 缓存 - 最多支持 2,000 个连接
+  * C3 (6 GB) 缓存 - 最多支持 5,000 个连接
+  * C4 (13 GB) 缓存 - 最多支持 10,000 个连接
+  * C5 (26 GB) 缓存 - 最多支持 15,000 个连接
+  * C6 (53 GB) 缓存 - 最多支持 20,000 个连接
+* 高级缓存
+  * P1 (6 GB - 60 GB) - 最多支持 7,500 个连接
+  * P2 (13 GB - 130 GB) - 最多支持 15,000 个连接
+  * P3 (26 GB - 260 GB) - 最多支持 30,000 个连接
+  * P4 (53 GB - 530 GB) - 最多支持 40,000 个连接
 
 > [!NOTE]
 > 虽然每个缓存大小*最多*允许一定数量的连接，但与 Redis 的每个连接都具有其关联的开销。 此类开销的一个示例是，由于 TLS/SSL 加密而导致的 CPU 和内存使用。 给定缓存大小的最大连接限制假定轻负载缓存。 如果连接开销的负载*和*客户端操作的负载超出了系统容量，那么即使未超出当前缓存大小的连接限制，缓存也可能会遇到容量问题。
@@ -518,7 +518,6 @@ shard1>get myKey
 有关在资源组之间以及订阅之间移动资源的信息，请参阅[将资源移到新的资源组或订阅](../azure-resource-manager/resource-group-move-resources.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 有关使用 Redis 命令的详细信息，请参阅[如何运行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
+* 有关使用 Redis 命令的详细信息，请参阅[如何运行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 
-<!-- Update_Description: link update -->
 

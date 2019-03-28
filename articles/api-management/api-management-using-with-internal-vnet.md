@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/29/2017
+origin.date: 03/01/2019
 ms.author: v-yiso
-ms.date: 03/11/2019
-ms.openlocfilehash: db3d0eb4d49992b384c0d1553a22c9fe213b522a
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.date: 04/01/2019
+ms.openlocfilehash: 7bf53b2f2ccedbcdcdfd15066a7a7b20a3e7fbe5
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196636"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348614"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -60,7 +60,7 @@ ms.locfileid: "57196636"
 
 4. 选择“其他安全性验证” 。
 
-部署成功后，就会在仪表板上看到服务的内部虚拟 IP 地址。
+部署成功后，应该可以在概览边栏选项卡上看到 API 管理服务的**专用**虚拟 IP 地址和**公共**虚拟 IP 地址。 **专用**虚拟 IP 地址是 API 管理委托的子网中经负载均衡的 IP 地址，可以通过该子网访问 `gateway`、`portal`、`management` 和 `scm` 终结点。 **公共**虚拟 IP 地址**仅**用于经端口 3443 发往 `management` 终结点的控制平面流量，并且可以锁定到 [ApiManagement][ServiceTags] servicetag。
 
 ![包含已配置的内部虚拟网络的 Azure API 管理仪表板][api-management-internal-vnet-dashboard]
 
@@ -75,7 +75,7 @@ ms.locfileid: "57196636"
 
 * 在虚拟网络中创建 API 管理服务：使用 cmdlet [New-AzApiManagement](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/new-azapimanagement) 在虚拟网络中创建 Azure API 管理服务，并将其配置为使用内部虚拟网络类型。
 
-* 在虚拟网络中部署现有的 API 管理服务：使用 cmdlet [Update-AzApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/update-azapimanagementdeployment) 将现有 API 管理服务移到虚拟网络内，并将其配置为使用内部虚拟网络类型。
+* 在虚拟网络中更新 API 管理服务的现有部署：使用 cmdlet [Update-AzApiManagementRegion](https://docs.microsoft.com/en-us/powershell/module/az.apimanagement/update-azapimanagementregion) 将现有 API 管理服务移到虚拟网络内，并将其配置为使用内部虚拟网络类型。
 
 ## <a name="apim-dns-configuration"></a>DNS 配置
 如果 API 管理采用外部虚拟网络模式，则 DNS 由 Azure 管理。 使用内部虚拟网络模式时，必须管理自己的路由。
@@ -84,25 +84,25 @@ ms.locfileid: "57196636"
 > API 管理服务不会侦听来自 IP 地址的请求， 它只响应到发往其服务终结点上配置的主机名的请求。 这些终结点包括网关、Azure 门户和开发人员门户、直接管理终结点和 Git。
 
 ### <a name="access-on-default-host-names"></a>基于默认主机名的访问权限
-创建 API 管理服务（例如“contoso”）时，将默认配置以下服务终结点：
+创建 API 管理服务（例如“contosointernalvnet”）时，将默认配置以下服务终结点：
 
-   * 网关或代理：contoso.azure-api.net
+   * 网关或代理：contosointernalvnet.azure-api.net
 
-   * Azure 门户和开发人员门户：contoso.portal.azure-api.net
+   * Azure 门户和开发人员门户：contosointernalvnet.portal.azure-api.net
 
-   * 直接管理终结点：contoso.management.azure-api.net
+   * 直接管理终结点：contosointernalvnet.management.azure-api.net
 
-   * Git：contoso.scm.azure-api.net
+   * Git：contosointernalvnet.scm.azure-api.net
 
-若要访问这些 API 管理服务终结点，可以在连接到虚拟网络（其中部署了 API 管理）的子网中创建虚拟机。 假设服务的内部虚拟 IP 地址为 10.0.0.5，则可映射 hosts 文件 (%SystemDrive%\drivers\etc\hosts)，如下所示：
+若要访问这些 API 管理服务终结点，可以在连接到虚拟网络（其中部署了 API 管理）的子网中创建虚拟机。 假设服务的内部虚拟 IP 地址为 10.1.0.5，则可映射 hosts 文件 (%SystemDrive%\drivers\etc\hosts)，如下所示：
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.1.0.5     contosointernalvnet.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.1.0.5     contosointernalvnet.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
 然后即可从创建的虚拟机访问所有服务终结点。 如果在虚拟网络中使用自定义 DNS 服务器，则还可创建 DNS 记录并从虚拟网络中的任何位置访问这些终结点。 
 
@@ -126,7 +126,7 @@ ms.locfileid: "57196636"
 * [虚拟网络常见问题解答](../virtual-network/virtual-networks-faq.md)
 * [在 DNS 中创建记录](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 

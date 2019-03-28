@@ -3,8 +3,8 @@ title: 验证到达 Azure 虚拟网络的 VPN 吞吐量 | Microsoft Docs
 description: 本文旨在帮助用户验证从本地资源到达 Azure 虚拟机的网络吞吐量。
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: jasmc
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/15/2018
-ms.date: 07/10/2018
-ms.author: v-junlch
-ms.openlocfilehash: d6527b0761ab6a3000271da1320ecafbd5f093d6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.openlocfilehash: 6e9424f7ae9d258c00b2bf13120ca3596e2dd497
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661497"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348176"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -50,7 +50,7 @@ VPN 网关连接涉及以下组件：
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>计算最大的预期流入/流出量
 
 1.  确定应用程序的基准吞吐量需求。
-2.  确定 Azure VPN 网关的吞吐量限制。 有关帮助，请参阅[规划和设计 VPN 网关](vpn-gateway-plan-design.md)的“按 SKU 和 VPN 类型列出的聚合吞吐量”部分。
+2.  确定 Azure VPN 网关的吞吐量限制。 如需帮助，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md#gwsku)的“网关 SKU”部分。
 3.  确定与 VM 大小相应的 [Azure VM 吞吐量指南](../virtual-machines/virtual-machines-windows-sizes.md)。
 4.  确定 Internet 服务提供商 (ISP) 的带宽。
 5.  计算预期吞吐量 -（VM、网关、ISP）的最小带宽 * 0.8。
@@ -78,7 +78,7 @@ VPN 网关连接涉及以下组件：
 
 2. 在两个节点上，为端口 5001 启用防火墙例外。
 
-    **Windows：** 以管理员身份运行以下命令：
+    **Windows:** 以管理员身份运行以下命令：
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001

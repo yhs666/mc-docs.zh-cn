@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 09/14/2018
 ms.author: v-yiso
-ms.date: 10/22/2018
-ms.openlocfilehash: bed71a39e4fe1be6cd2cd78c06058034dc68d21b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/01/2019
+ms.openlocfilehash: b9b1bb4087099c5b072618fb2657c612b8bc47b6
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643953"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348609"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>使用外部元数据存储 - Azure HDInsight
 
-HDInsight 中的 Hive 元存储是 Hadoop 体系结构的必备部分。 元存储是可供其他大数据访问工具（例如 Spark、交互式查询 (LLAP)、Presto 或 Pig）使用的集中型架构知识库。 HDInsight 使用 Azure SQL 数据库作为 Hive 元存储。
+HDInsight 中的 Apache Hive 元存储是 Apache Hadoop 体系结构的必备部分。 元存储是可供其他大数据访问工具（例如 Apache Spark、交互式查询 (LLAP)、Presto 或 Apache Pig）使用的中央架构存储库。 HDInsight 使用 Azure SQL 数据库作为 Hive 元存储。
 
 ![HDInsight Hive 元数据存储体系结构](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -76,16 +76,16 @@ HDInsight 还支持自定义元存储，建议对生产群集使用此项：
 - 如果你希望多个 HDInsight 群集访问单独的数据，请对每个群集上的元存储使用单独的数据库。 如果在多个 HDInsight 群集之间共享元存储，则意味着这些群集将使用相同的元数据和底层用户数据文件。
 - 请定期备份自定义元存储。 Azure SQL 数据库会自动生成备份，但备份保留时间范围会有所不同。 有关详细信息，请参阅[了解 SQL 数据库自动备份](../sql-database/sql-database-automated-backups.md)。
 - 使元存储和 HDInsight 群集位于同一区域中，以获得最高性能和最低网络出口费用。
-- 使用 Azure SQL 数据库监视工具（例如 Azure 门户或 Azure Log Analytics）监视元存储的性能和可用性。
+- 使用 Azure SQL 数据库监视工具（例如 Azure 门户或 Azure Monitor 日志）监视元存储的性能和可用性。
 - 当针对现有的自定义元存储数据库创建一个新的更高版本的 Azure HDInsight 时，系统将升级元存储的架构，该架构在不从备份中还原数据库的情况下是不可逆的。
 - 如果在多个群集之间共享元存储，请确保所有群集都具有相同的 HDInsight 版本。 不同的 Hive 版本使用不同的元存储数据库架构。 例如，不能在具有 Hive 1.2 版本的群集和具有 Hive 2.1 版本的群集之间共享元存储。 
 
-## <a name="oozie-metastore"></a>Oozie 云存储
+##  <a name="apache-oozie-metastore"></a>Apache Oozie 元存储
 
 Apache Oozie 是一个管理 Hadoop 作业的工作流协调系统。  Oozie 支持对 Apache MapReduce、Pig 和 Hive 等模型执行 Hadoop 作业。  Oozie 使用元存储来存储当前工作流及历史工作流的相关详细信息。 可使用 Azure SQL 数据库作为自定义元存储，提高使用 Oozie 时的性能。 删除群集后，还可通过云存储访问 Oozie 作业数据。
 
-若要了解如何使用 Azure SQL 数据库创建 Oozie 元存储，请参阅[使用 Oozie 处理工作流](hdinsight-use-oozie-linux-mac.md)。
+若要了解如何使用 Azure SQL 数据库创建 Oozie 元存储，请参阅[使用 Apache Oozie 处理工作流](hdinsight-use-oozie-linux-mac.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](./hdinsight-hadoop-provision-linux-clusters.md)
+- [使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集](./hdinsight-hadoop-provision-linux-clusters.md)

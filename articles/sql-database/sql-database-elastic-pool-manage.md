@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: e7a658c4e1505fbc34b68c341f26adbb5d6272d8
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 03/25/2019
+ms.openlocfilehash: 8f09b63b4f0aa811066415142af8f4b6fbf1ca7b
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663495"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318970"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理弹性池
 
@@ -40,6 +40,8 @@ ms.locfileid: "56663495"
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理弹性池和共用数据库
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 若要使用 Azure PowerShell 创建并管理 SQL 数据库弹性池和入池数据库，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 若要创建和管理弹性池的 SQL 数据库服务器，请参阅[创建和管理 SQL 数据库服务器](sql-database-servers.md)。 若要创建和管理防火墙规则，请参阅[使用 PowerShell 创建和管理防火墙规则](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell)。
 
 > [!TIP]
@@ -48,15 +50,15 @@ ms.locfileid: "56663495"
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|创建弹性池。|
-|[Get-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|获取弹性池及其属性值。|
-|[Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|修改弹性池的属性。例如，使用“StorageMB”属性修改弹性池的最大存储。|
-|[Remove-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|删除弹性池。|
-|[Get-AzureRmSqlElasticPoolActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|获取弹性池的运行状态|
-|[New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)|在现有池中创建新数据库或将其创建为单一数据库。 |
-|[Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase)|获取一个或多个数据库。|
-|[Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)|设置数据库的属性，将现有数据库移入、移出弹性池或在其之间移动。|
-|[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabase)|删除数据库。|
+|[New-AzSqlElasticPool](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlelasticpool)|创建弹性池。|
+|[Get-AzSqlElasticPool](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlelasticpool)|获取弹性池及其属性值。|
+|[Set-AzSqlElasticPool](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlelasticpool)|修改弹性池的属性。例如，使用“StorageMB”属性修改弹性池的最大存储。|
+|[Remove-AzSqlElasticPool](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlelasticpool)|删除弹性池。|
+|[Get-AzSqlElasticPoolActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlelasticpoolactivity)|获取弹性池的运行状态|
+|[New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)|在现有池中创建新数据库或将其创建为单一数据库。 |
+|[Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)|获取一个或多个数据库。|
+|[Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)|设置数据库的属性，将现有数据库移入、移出弹性池或在其之间移动。|
+|[Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)|删除数据库。|
 
 > [!TIP]
 > 使用门户或每次只能创建一个单一数据库的 PowerShell cmdlet 在弹性池中创建多个数据库可能需要一段时间。 若要自动创建到弹性池中，请参阅 [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)。

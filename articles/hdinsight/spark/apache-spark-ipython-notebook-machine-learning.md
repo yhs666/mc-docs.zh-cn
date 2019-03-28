@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/06/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: d65c44c0d724b8ec77fa674fad49a2fba9058db9
-ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
+ms.openlocfilehash: 45282b6dfc0d84ccdbe614f437ba18fbab8572fa
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186250"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348687"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Apache Spark 机器学习应用程序 
 
@@ -39,6 +39,8 @@ ms.locfileid: "54186250"
 ## <a name="understand-the-data-set"></a>了解数据集
 
 应用程序默认使用所有群集提供的 HVAC.csv 数据示例。 该文件位于 \HdiSamples\HdiSamples\SensorSampleData\hvac。 数据显示了安装有 HVAC 系统的一些建筑物的目标温度和实际温度。 **System** 列代表系统 ID，**SystemAge** 列代表建筑物安装 HVAC 系统的年数。 在指定系统 ID 和系统年数的情况下，可使用这些数据来预测建筑物的温度比目标温度高还是低。
+
+![用于 Spark 机器学习示例的数据的快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用于 Spark 机器学习示例的数据的快照")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>使用 Spark MLlib 开发 Spark 机器学习应用程序
 
@@ -97,7 +99,7 @@ ms.locfileid: "54186250"
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    有关管道及其工作原理的详细信息，请参阅 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 机器学习管道</a>。
+    有关管道及其工作原理的详细信息，请参阅 <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark 机器学习管道</a>。
 
 5. 将管道拟合到培训文档中。
    
@@ -140,9 +142,11 @@ ms.locfileid: "54186250"
     +----------+----------+-----+
     ```
 
-    将输出与原始 CSV 文件进行比较。 
+    将输出与原始 CSV 文件进行比较。 例如，CSV 文件中第一行包含此数据：
 
-    请注意，实际温度比目标温度低表示建筑物处于低温状态。 因此在训练输出中，第一行中的 **label** 值为 **0.0**，表示建筑物并非处于高温状态。
+    ![Spark 机器学习示例的输出数据快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 机器学习示例的输出数据快照")
+
+    请注意，实际温度比目标温度低的情况表示建筑物处于低温状态。 因此在训练输出中，第一行中的 **label** 值为 **0.0**，表示建筑物并非处于高温状态。
 
 7. 准备要对其运行训练模型的数据集。 为此，将传递系统 ID 和系统年数（以训练输出中的 **SystemInfo** 表示），模型将预测具有该系统 ID 和系统年数的建筑物的温度是较高（以 1.0 表示）还是较低（以 0.0 表示）。
    
@@ -182,7 +186,7 @@ ms.locfileid: "54186250"
 10. 关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中选择“关闭并停止”。 此操作会关闭 Notebook。
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>将 Anaconda scikit-learn 库用于 Spark 机器学习
-HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于机器学习的 scikit-learn 库。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
+HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于机器学习的 scikit-learn 库。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)。
 
 ## <a name="next-steps"></a>后续步骤
 

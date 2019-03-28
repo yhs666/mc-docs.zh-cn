@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2018
-ms.date: 02/18/2019
+origin.date: 03/11/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: bd8caa52dc638ede66e047e190fa320c6f79b3ed
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 6ce491cbfd051620963d4396c8a02aae13ba8280
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306272"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348180"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的字符串函数
 
@@ -41,11 +41,12 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
+* [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
 * [split](#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
+* [startsWith](#startswith)
 * [字符串](#string)
 * [substring](#substring)
 * [take](#take)
@@ -54,14 +55,12 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [trim](#trim)
 * [uniqueString](#uniquestring)
 * [uri](#uri)
-* [uriComponent](resource-group-template-functions-string.md#uricomponent)
-* [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
-
-<a name="base64" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* [uriComponent](#uricomponent)
+* [uriComponentToString](#uricomponenttostring)
+* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
+
 `base64(inputString)`
 
 返回输入字符串的 base64 表示形式。
@@ -125,21 +124,8 @@ Resource Manager 提供以下用于处理字符串的函数：
 | toStringOutput | String | one, two, three |
 | toJsonOutput | 对象 | {"one": "a", "two": "b"} |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a name="base64tojson" />
-
 ## <a name="base64tojson"></a>base64ToJson
+
 `base64tojson`
 
 将 base64 表示形式转换为 JSON 对象。
@@ -203,21 +189,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | toStringOutput | String | one, two, three |
 | toJsonOutput | 对象 | {"one": "a", "two": "b"} |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a name="base64tostring" />
-
 ## <a name="base64tostring"></a>base64ToString
+
 `base64ToString(base64Value)`
 
 将 base64 表示形式转换为字符串。
@@ -281,21 +254,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | toStringOutput | String | one, two, three |
 | toJsonOutput | 对象 | {"one": "a", "two": "b"} |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a name="concat" />
-
 ## <a name="concat"></a>concat
+
 `concat (arg1, arg2, arg3, ...)`
 
 合并多个字符串值并返回串联的字符串，或合并多个数组并返回串联的数组。
@@ -340,18 +300,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)演示如何组合两个数组。
 
 ```json
@@ -393,21 +341,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-<a name="contains" />
-
 ## <a name="contains"></a>contains
+
 `contains (container, itemToFind)`
 
 检查数组是否包含某个值、某个对象是否包含某个键，或者某个字符串是否包含某个子字符串。 字符串比较区分大小写。 但在测试某个对象是否包含某个键时，该比较不区分大小写。
@@ -487,21 +422,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-<a name="datauri" />
-
 ## <a name="datauri"></a>dataUri
+
 `dataUri(stringToConvert)`
 
 将值转换为数据 URI。
@@ -555,21 +477,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a name="datauritostring" />
-
 ## <a name="datauritostring"></a>dataUriToString
+
 `dataUriToString(dataUriToConvert)`
 
 将采用数据 URI 格式的值转换为字符串。
@@ -623,21 +532,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a name="empty" /> 
-
 ## <a name="empty"></a>empty
+
 `empty(itemToTest)`
 
 确定数组、对象或字符串是否为空。
@@ -701,21 +597,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-<a name="endswith" />
-
 ## <a name="endswith"></a>endsWith
+
 `endsWith(stringToSearch, stringToFind)`
 
 确定某个字符串是否以某个值结尾。 比较不区分大小写。
@@ -780,21 +663,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a name="first" />
-
 ## <a name="first"></a>first
+
 `first(arg1)`
 
 返回字符串的第一个字符，或数组的第一个元素。
@@ -845,18 +715,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
 ## <a name="guid"></a>GUID
 
 `guid (baseString, ...)`
@@ -874,7 +732,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 当需要以全局唯一标识符格式创建值时，此功能十分有用。 提供参数值，这些值用于限制结果的唯一性范围。 可以指定该名称对于订阅、资源组或部署是否唯一。
 
-返回的值不是随机字符串，而是哈希函数的结果。 返回的值长度为 36 个字符。 并非全局唯一。
+返回的值不是随机字符串，而是参数中哈希函数的结果。 返回的值长度为 36 个字符。 并非全局唯一。 若要创建不是基于该参数哈希值的新 GUID，请使用 [newGuid](#newguid) 函数。
 
 以下示例演示如何使用 guid 创建常用级别唯一值。
 
@@ -928,21 +786,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-<a name="indexof" />
-
 ## <a name="indexof"></a>indexOf
+
 `indexOf(stringToSearch, stringToFind)`
 
 返回字符串中某个值的第一个位置。 比较不区分大小写。
@@ -1002,21 +847,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | lastString | int | 0 |
 | notFound | int | -1 |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a name="last" />
-
 ## <a name="last"></a>last
+
 `last (arg1)`
 
 返回字符串的最后一个字符，或数组的最后一个元素。
@@ -1067,21 +899,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | String | three |
 | stringOutput | String | e |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-<a name="lastindexof" />
-
 ## <a name="lastindexof"></a>lastIndexOf
+
 `lastIndexOf(stringToSearch, stringToFind)`
 
 返回字符串中某个值的最后一个位置。 比较不区分大小写。
@@ -1141,21 +960,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | lastString | int | 0 |
 | notFound | int | -1 |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a name="length" />
-
 ## <a name="length"></a>length
+
 `length(string)`
 
 返回字符串中的字符数，或数组中的元素数。
@@ -1213,21 +1019,104 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
 
-要使用 Azure CLI 部署此示例模板，请使用：
+## <a name="newguid"></a>newGuid
 
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+`newGuid()`
+
+以全局唯一标识符的格式返回一个值。 **此函数只能在参数的默认值中使用。**
+
+### <a name="remarks"></a>备注
+
+只能在表达式中对参数的默认值使用此函数。 在模板中的其他任何位置使用此函数都会返回错误。 不允许在模板的其他部分使用该函数，因为每次调用该函数，都会返回不同的值。 使用相同的参数部署同一模板不能可靠地生成相同的结果。
+
+newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。 每次结合相同的参数调用 guid 都会返回相同的标识符。 需要为特定的环境可靠地生成相同的 GUID 时，请使用 guid。 如果每次需要不同的标识符（例如，将资源部署到测试环境），请使用 newGuid。
+
+如果[使用相应的选项来重新部署以前已成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而以前的部署包含一个使用 newGuid 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
+
+在测试环境中，可能需要重复部署生存期较短的资源。 无需构造唯一的名称，可以结合 [uniqueString](#uniquestring) 使用 newGuid 来创建唯一的名称。
+
+重新部署依赖于 newGuid 函数提供默认值的模板时请保持谨慎。 如果重新部署且不提供参数的值，则会重新评估该函数。 若要更新现有的资源而不是新建资源，请传入以前部署中的参数值。
+
+### <a name="return-value"></a>返回值
+
+包含 36 个字符的全局唯一标识符格式的字符串。
+
+### <a name="examples"></a>示例
+
+以下示例模板演示一个带有新标识符的参数。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "guidOutput": {
+            "type": "string",
+            "value": "[parameters('guidValue')]"
+        }
+    }
+}
 ```
 
-要使用 PowerShell 部署此示例模板，请使用：
+上述示例的输出根据每个部署的不同而异，但类似于：
 
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| guidOutput | 字符串 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
+以下示例使用 newGuid 函数创建存储帐户的唯一名称。 此模板可能适用于其中的存储帐户生存期较短且未重新部署的测试环境。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "China North",
+            "apiVersion": "2018-07-01",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "nameOutput": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        }
+    }
+}
 ```
 
-<a name="padleft" />
+上述示例的输出根据每个部署的不同而异，但类似于：
+
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| nameOutput | 字符串 | storagenziwvyru7uxie |
 
 ## <a name="padleft"></a>padLeft
+
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
 通过向左侧添加字符直至到达指定的总长度返回右对齐的字符串。
@@ -1276,21 +1165,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-<a name="replace" />
-
 ## <a name="replace"></a>replace
+
 `replace(originalString, oldString, newString)`
 
 返回其中某个字符串的所有实例均替换为另一个字符串的新字符串。
@@ -1342,21 +1218,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-<a name="skip" />
-
 ## <a name="skip"></a>skip
+
 `skip(originalValue, numberToSkip)`
 
 返回一个字符串，其中包含指定字符数后面的所有字符；或者返回一个数组，其中包含指定元素数后面的所有元素。
@@ -1423,21 +1286,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-<a name="split" />
-
 ## <a name="split"></a>split
+
 `split(inputString, delimiter)`
 
 返回包含输入字符串的子字符串的字符串数组，其中的子字符串使用指定的分隔符进行分隔。
@@ -1495,21 +1345,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | firstOutput | Array | ["one", "two", "three"] |
 | secondOutput | Array | ["one", "two", "three"] |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-<a name="startswith" />
-
 ## <a name="startswith"></a>startsWith
+
 `startsWith(stringToSearch, stringToFind)`
 
 确定某个字符串是否以某个值开头。 比较不区分大小写。
@@ -1574,21 +1411,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a name="string" />
-
 ## <a name="string"></a>字符串
+
 `string(valueToConvert)`
 
 将指定的值转换为字符串。
@@ -1658,21 +1482,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | String | ["a","b","c"] |
 | intOutput | String | 5 |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-<a name="substring" />
-
 ## <a name="substring"></a>substring
+
 `substring(stringToParse, startIndex, length)`
 
 返回从指定的字符位置开始且包含指定数量的字符的子字符串。
@@ -1732,21 +1543,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-<a name="take" />
-
 ## <a name="take"></a>take
+
 `take(originalValue, numberToTake)`
 
 返回一个字符串，其中包含从字符串开头位置算起的指定数目的字符；或返回一个数组，其中包含从数组开头位置算起的指定数目的元素。
@@ -1813,21 +1611,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-<a name="tolower" />
-
 ## <a name="tolower"></a>toLower
+
 `toLower(stringToChange)`
 
 将指定的字符串转换为小写。
@@ -1877,21 +1662,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a name="toupper" />
-
 ## <a name="toupper"></a>toUpper
+
 `toUpper(stringToChange)`
 
 将指定的字符串转换为大写。
@@ -1941,21 +1713,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a name="trim" />
-
 ## <a name="trim"></a>trim
+
 `trim (stringToTrim)`
 
 从指定的字符串中删除所有前导和尾随空白字符。
@@ -2000,21 +1759,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | return | String | one two three |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-<a name="uniquestring" />
-
 ## <a name="uniquestring"></a>uniqueString
+
 `uniqueString (baseString, ...)`
 
 根据作为参数提供的值创建确定性哈希字符串。 
@@ -2063,6 +1809,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
     ...
 ```
 
+如果每次部署模板都需要创建新的唯一名称并且不希望更新资源，可以结合 uniqueString 使用 [utcNow](#utcnow) 函数。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcNow)。
+
 ### <a name="return-value"></a>返回值
 
 包含 13 个字符的字符串。
@@ -2089,21 +1837,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-<a name="uri" />
-
 ## <a name="uri"></a>uri
+
 `uri (baseUri, relativeUri)`
 
 通过组合 baseUri 和 relativeUri 字符串来创建绝对 URI。
@@ -2166,21 +1901,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a name="uricomponent" />
-
 ## <a name="uricomponent"></a>uriComponent
+
 `uricomponent(stringToEncode)`
 
 将 URI 编码。
@@ -2234,21 +1956,8 @@ URI 编码值的字符串。
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a name="uricomponenttostring" />
-
 ## <a name="uricomponenttostring"></a>uriComponentToString
+
 `uriComponentToString(uriEncodedString)`
 
 返回 URI 编码值的字符串。
@@ -2302,22 +2011,119 @@ URI 编码值的解码后字符串。
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-要使用 Azure CLI 部署此示例模板，请使用：
+## <a name="utcnow"></a>utcNow
 
-```azurecli
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+`utcNow(format)`
+
+以指定的格式返回当前的 (UTC) 日期时间值。 如果未提供格式，则使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函数只能在参数的默认值中使用。**
+
+### <a name="parameters"></a>parameters
+
+| 参数 | 必须 | 类型 | 说明 |
+|:--- |:--- |:--- |:--- |
+| 格式 |否 |字符串 |要转换为字符串的 URI 编码值。 使用[标准格式字符串](https://docs.azure.cn/zh-cn/dotnet/standard/base-types/standard-date-and-time-format-strings?view=azure-dotnet)或[自定义格式字符串](https://docs.azure.cn/zh-cn/dotnet/standard/base-types/custom-date-and-time-format-strings?view=azure-dotnet)。 |
+
+### <a name="remarks"></a>备注
+
+只能在表达式中对参数的默认值使用此函数。 在模板中的其他任何位置使用此函数都会返回错误。 不允许在模板的其他部分使用该函数，因为每次调用该函数，都会返回不同的值。 使用相同的参数部署同一模板不能可靠地生成相同的结果。
+
+如果[使用相应的选项来重新部署以前已成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而以前的部署包含一个使用 utcNow 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
+
+重新部署依赖于 utcNow 函数提供默认值的模板时请保持谨慎。 如果重新部署且不提供参数的值，则会重新评估该函数。 若要更新现有的资源而不是新建资源，请传入以前部署中的参数值。
+
+### <a name="return-value"></a>返回值
+
+当前的 UTC 日期时间值。
+
+### <a name="examples"></a>示例
+
+以下示例模板演示日期时间值的不同格式。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcValue": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
+        },
+        "utcShortValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "utcCustomValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('M d')]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "utcOutput": {
+            "type": "string",
+            "value": "[parameters('utcValue')]"
+        },
+        "utcShortOutput": {
+            "type": "string",
+            "value": "[parameters('utcShortValue')]"
+        },
+        "utcCustomOutput": {
+            "type": "string",
+            "value": "[parameters('utcCustomValue')]"
+        }
+    }
+}
 ```
 
-要使用 PowerShell 部署此示例模板，请使用：
+上述示例的输出根据每个部署的不同而异，但类似于：
 
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| utcOutput | 字符串 | 20190305T175318Z |
+| utcShortOutput | 字符串 | 03/05/2019 |
+| utcCustomOutput | 字符串 | 3 5 |
+
+以下示例演示在设置标记值时如何使用函数中的值。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "chinanorth",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
+            },
+            "properties":{}
+        }
+    ],
+    "outputs": {
+        "utcShort": {
+            "type": "string",
+            "value": "[parameters('utcShort')]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>后续步骤
 * 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
-* 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+* 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
 <!--Update_Description: update meta properties, wording update, update powershell az cmdlet -->

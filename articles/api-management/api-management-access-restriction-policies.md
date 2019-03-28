@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/28/2017
+origin.date: 02/28/2019
 ms.author: v-yiso
-ms.date: 02/25/2019
-ms.openlocfilehash: 43f7c3e566cdbc22c00c000aff252d1e7f8f04f7
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 04/01/2019
+ms.openlocfilehash: cc7bcdb93ab5a3f64b608b0a7682214abf28a1df
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303057"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348565"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -366,6 +366,7 @@ ms.locfileid: "56303057"
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
+    token-value="expression returning JWT token as a string"
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"   
@@ -400,20 +401,20 @@ ms.locfileid: "56303057"
 ```  
   
 ### <a name="examples"></a>示例  
-  
-#### <a name="azure-mobile-services-token-validation"></a>Azure 移动服务令牌验证  
-  
-```xml  
-<validate-jwt header-name="x-zumo-auth" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Supplied access token is invalid.">  
-    <issuers>  
-        <issuer>urn:microsoft:windows-azure:zumo</issuer>  
-    </issuers>  
-    <audiences>  
-        <audience>Facebook</audience>  
-    </audiences>  
-    <issuer-signing-keys>  
-        <zumo-master-key id="0">insert key here</zumo-master-key>  
-    </issuer-signing-keys>  
+
+#### <a name="simple-token-validation"></a>简单的令牌验证
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
+    </audiences>
+    <issuers>
+        <issuer>http://contoso.com/</issuer>
+    </issuers>
 </validate-jwt>  
 ```  
   
@@ -491,6 +492,21 @@ ms.locfileid: "56303057"
 </choose>  
 ```  
   
+#### <a name="azure-mobile-services-token-validation"></a>Azure 移动服务令牌验证
+
+```xml
+<validate-jwt header-name="x-zumo-auth" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Supplied access token is invalid.">
+    <issuers>
+        <issuer>urn:microsoft:windows-azure:zumo</issuer>
+    </issuers>
+    <audiences>
+        <audience>Facebook</audience>
+    </audiences>
+    <issuer-signing-keys>
+        <zumo-master-key id="0">insert key here</zumo-master-key>
+    </issuer-signing-keys>
+</validate-jwt>
+```
 ### <a name="elements"></a>元素  
   
 |元素|说明|必须|  
@@ -511,10 +527,11 @@ ms.locfileid: "56303057"
 |clock-skew|时间跨度。 用于指定令牌颁发者的系统时钟与 API 管理实例之间的最大预期时间差。|否|0 秒|  
 |failed-validation-error-message|JWT 未通过验证时会在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。|否|默认错误消息取决于验证问题，例如“JWT 不存在”。|  
 |failed-validation-httpcode|JWT 未通过验证时会返回的 HTTP 状态代码。|否|401|  
-|header-name|包含令牌的 HTTP 标头的名称。|必须指定 `header-name` 或 `query-parameter-name`，但不能将二者都指定。|不适用|  
+| header-name                     | 包含令牌的 HTTP 标头的名称。                                                                                                                                                                                                                                                                                                                                                                                                         | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | 不适用                                                                               |
+| query-parameter-name            | 包含令牌的查询参数的名称。                                                                                                                                                                                                                                                                                                                                                                                                     | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | 不适用                                                                               |
+| token-value                     | 一个表达式，返回的字符串包含 JWT 令牌                                                                                                                                                                                                                                                                                                                                                                                                     | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | 不适用                                                                               |
 |id|使用 `key` 元素的 `id` 属性可以指定一个字符串，该字符串将与令牌中的 `kid` 声明（如果存在）进行比较，以便找出进行签名验证时需要使用的适当密钥。|否|不适用|  
 |match|`claim` 元素的 `match` 属性用于指定：是否策略中的每个声明值都必须存在于令牌中验证才会成功。 可能的值包括：<br /><br /> -                          `all` - 策略中的每个声明值都必须存在于令牌中才会使验证成功。<br /><br /> -                          `any` - 至少一个声明值必须存在于令牌中才会使验证成功。|否|all|  
-|query-parameter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-parameter-name`，但不能将二者都指定。|不适用|  
 |require-expiration-time|布尔值。 指定令牌中是否需要到期声明。|否|是|
 |require-scheme|令牌方案的名称，例如“Bearer”。 设置了此属性时，策略将确保 Authorization 标头值中存在指定的方案。|否|不适用|
 |require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|是|  

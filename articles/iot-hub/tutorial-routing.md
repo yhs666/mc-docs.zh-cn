@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 origin.date: 09/11/2018
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 6018500e7e7a1e350f527f493e35934c3f90d8ee
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: cd30d894bf5f9b8acfcc5cd4b99dc4f8bbba82d0
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560493"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348586"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
@@ -275,7 +275,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 现在为存储帐户设置路由。 你转到“消息路由”窗格，然后添加路由。 添加路由时，请为路由定义新的终结点。 此设置完成后，“级别”属性设置为“storage”的消息将自动写入存储帐户。
 
-数据以 Avro 格式写入 Blob 存储。
+默认情况下，数据以 Avro 格式写入 Blob 存储。
 1. 在 [Azure 门户](https://portal.azure.cn)中，单击“资源组”，然后选择你的资源组。 本教程使用 ContosoResources。 
 
 2. 在资源列表下单击 IoT 中心。 本教程使用 ContosoTestHub。 
@@ -299,7 +299,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    > 
    > 例如，使用默认 Blob 文件名格式时，如果中心名称为 ContosoTestHub，日期/时间为 2018 年 10 月 30 日上午 10:56，则 Blob 名称将类似于：`ContosoTestHub/0/2018/10/30/10/56`。
    > 
-   > Blob 以 Avro 格式写入。
+   > 默认情况下，Blob 以 Avro 格式写入。 你可选择按 JSON 格式写入文件。
    >
 
 8. 单击“创建”以创建存储终结点并将其添加到路由。 随即返回到“添加路由”窗格。

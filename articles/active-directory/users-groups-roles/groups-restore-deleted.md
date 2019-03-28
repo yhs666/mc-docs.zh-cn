@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 中还原已删除的 Office 365 组 | Microsoft Docs
+title: 还原已删除的 Office 365 组 - Azure AD | Microsoft Docs
 description: 如何在 Azure Active Directory 中还原已删除的组、查看可还原的组，以及永久删除组
 services: active-directory
 author: curtand
@@ -9,17 +9,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/05/2019
+ms.date: 03/19/2019
 ms.author: v-junlch
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c232baf8b8d92cf772413e1f9e2a327438934475
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 7b71bf14a5862cffc8c63adfb4a1759f91d0f74b
+ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187479"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中还原已删除的 Office 365 组
 在 Azure Active Directory (Azure AD) 中删除某个 Office 365 组后，删除的组会保留，但从删除日期开始算起的 30 天内将不可见。 此行为是为了在需要时可以还原组及其内容。 此功能仅适用于 Azure AD 中的 Office 365 组， 而不适用于安全组和分发组。
@@ -41,13 +41,13 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
 可以使用以下 cmdlet 查看已删除的组，确认尚未永久清除的、想要还原的一个或多个组。 这些 cmdlet 属于 [Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0) 一文中介绍了此模块的详细信息。
 
 1.  运行以下 cmdlet，显示租户中所有已删除的但仍可还原的 Office 365 组。
-    
+   
     ```
     Get-AzureADMSDeletedGroup
     ```
 
 2.  或者，如果知道特定组的 objectID（可通过步骤 1 中的 cmdlet 来获取该 ID），可运行以下 cmdlet 来确认已删除的但尚未永久清除的特定组。
-  
+
     ```
     Get-AzureADMSDeletedGroup -Id <objectId>
     ```
@@ -62,6 +62,7 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
     ``` 
 
 2. 或者，可运行以下 cmdlet 永久清除已删除的组。
+    
     ```
     Remove-AzureADMSDeletedDirectoryObject -Id <objectId>
     ```
@@ -83,4 +84,4 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
 - [管理组的成员](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

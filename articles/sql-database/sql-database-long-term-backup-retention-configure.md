@@ -13,12 +13,12 @@ ms.reviewer: mathoma, carlrab
 manager: digimobile
 origin.date: 01/07/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: 7bb95cc8fefb0588f51eb12cd13dbff4e8dcb4f0
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 7d46ee69ab33a0a1b1adc807422ee5fada36e8d6
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663515"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319020"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 
@@ -72,13 +72,10 @@ ms.locfileid: "56663515"
 
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 PowerShell 配置长期保留策略并还原备份
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 以下各部分展示了如何使用 PowerShell 配置长期备份保留、查看 Azure SQL 存储中的备份，以及从 Azure SQL 存储中的备份进行还原。
 
-> [!IMPORTANT]
-> 以下 PowerShell 版本支持 LTR V2 API：
-- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) 或更高版本
-- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) 或更高版本
-> 
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>用于管理长期保留的 RBAC 角色
 
@@ -89,11 +86,11 @@ ms.locfileid: "56663515"
 
 如果需要更精细的控制，可以创建自定义 RBAC 角色并在**订阅**范围内分配它们。 
 
-对于 **Get-AzureRmSqlDatabaseLongTermRetentionBackup** 和 **Restore-AzureRmSqlDatabase**，角色需要具有以下权限：
+对于 **Get-AzSqlDatabaseLongTermRetentionBackup** 和 **Restore-AzSqlDatabase**，角色需要具有以下权限：
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
  
-对于 **Remove-AzureRmSqlDatabaseLongTermRetentionBackup**，角色需要具有以下权限：
+对于 **Remove-AzSqlDatabaseLongTermRetentionBackup**，角色需要具有以下权限：
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -107,17 +104,17 @@ Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/long
 # $resourceGroup = "{resource-group-name}" 
 # $dbName = "{database-name}"
 
-Connect-AzureRmAccount -Environment AzureChinaCloud
-Select-AzureRmSubscription -SubscriptionId $subId
+Connect-AzAccount -Environment AzureChinaCloud
+Select-AzSubscription -SubscriptionId $subId
 
 # get the server
-$server = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
+$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
 
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
 
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
 ### <a name="view-ltr-policies"></a>查看 LTR 策略
@@ -125,16 +122,16 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Dat
 
 ```powershell
 # Get all LTR policies within a server
-$ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzureRmSqlDatabaseLongTermRetentionPolicy -Current 
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzSqlDatabaseLongTermRetentionPolicy -Current 
 
 # Get the LTR policy of a specific database 
-$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
 ```
 ### <a name="clear-an-ltr-policy"></a>清除 LTR 策略
 此示例展示了如何从数据库中清除 LTR 策略
 
 ```powershell
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### <a name="view-ltr-backups"></a>查看 LTR 备份
@@ -146,20 +143,20 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Dat
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### <a name="delete-ltr-backups"></a>删除 LTR 备份
@@ -169,7 +166,7 @@ $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Lo
 ```powershell
 # remove the earliest backup 
 $ltrBackup = $ltrBackups[0]
-Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
+Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
 > 删除 LTR 备份操作是不可逆的。 可以通过筛选“删除长期保留备份”操作来在 Azure Monitor 中设置有关每次删除的通知。 活动日志包含有关发出请求的人员和时间的信息。 有关详细说明，请参阅[创建活动日志警报](../azure-monitor/platform/alerts-activity-log.md)。
@@ -180,7 +177,7 @@ Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resource
 
 ```powershell
 # Restore LTR backup as an S3 database
-Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
 ```
 
 > [!NOTE]

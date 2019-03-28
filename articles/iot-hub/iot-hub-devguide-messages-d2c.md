@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/13/2018
 ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2018212d7c13cf5379c8b330a28e5dc11f07c9f4
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 5aa5715756b4131f87223ac6f2327d60f1411a53
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665564"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348584"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用消息路由将设备到云的消息发送到不同的终结点
 
@@ -36,19 +36,39 @@ IoT 中心有一个默认的内置终结点（消息/事件），此终结点与
 
 ### <a name="built-in-endpoint"></a>内置终结点
 
-可以使用标准[事件中心集成和 SDK](iot-hub-devguide-messages-read-builtin.md) 接收来自内置终结点（消息/事件）的设备到云的消息。 请注意，在创建一个路由后，数据将停止流向内置终结点，除非创建了到该终结点的路由。
+可以使用标准[事件中心集成和 SDK](iot-hub-devguide-messages-read-builtin.md) 接收来自内置终结点（消息/事件）的设备到云的消息。 在创建一个路由后，数据将停止流向内置终结点，除非创建了到该终结点的路由。
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 
-IoT 中心仅支持将数据以 [Apache Avro](http://avro.apache.org/) 格式写入 Azure Blob 存储。 IoT 中心将在消息达到特定大小或在经过一定的事件后，对消息进行批处理并将数据写入 Blob。
+IoT 中心支持将数据以 [Apache Avro](https://avro.apache.org/) 和 JSON 格式写入 Azure Blob 存储。 默认值为 AVRO。 只有在配置 Blob 存储终结点时才能设置编码格式。 不能编辑现有终结点的格式。 使用 JSON 编码时，必须在消息[系统属性](iot-hub-devguide-routing-query-syntax.md#system-properties)中将 contentType 设置为 JSON，将 contentEncoding 设置为 UTF-8。 可以使用 IoT 中心的创建或更新 REST API（具体说来就是 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties)、Azure 门户、[Azure CLI](/cli/iot/hub/routing-endpoint?view=azure-cli-latest) 或 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)）选择编码格式。 下图说明如何在 Azure 门户中选择编码格式。
 
-IoT 中心默认为以下文件命名约定：
+![Blob 存储终结点编码](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+IoT 中心将在消息达到特定大小或在经过一定的事件后，对消息进行批处理并将数据写入 Blob。 IoT 中心默认为以下文件命名约定：
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
 你可以使用任何文件命名约定，但必须使用所有列出的令牌。 如果没有要写入的数据，IoT 中心会写入到一个空 blob。
+
+在路由到 blob 存储时，请列出 blob，再循环访问它们，以确保读取所有容器而不进行任何分区假设。 可以使用 [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 来枚举 Blob 的列表。 请将以下示例作为指南来查看。
+
+   ```csharp
+        public void ListBlobsInContainer(string containerName, string iothub)
+        {
+            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+            if (cloudBlobContainer.Exists())
+            {
+                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+                foreach (IListBlobItem item in results)
+                {
+                    Console.WriteLine(item.Uri);
+                }
+            }
+        }
+   ```
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>服务总线队列和服务总线主题
 
@@ -57,8 +77,6 @@ IoT 中心默认为以下文件命名约定：
 ### <a name="event-hubs"></a>事件中心
 
 除了与事件中心兼容的内置终结点外，还可以将数据路由到事件中心类型的自定义终结点。 
-
-使用路由和自定义终结点时，如果消息不与任何规则匹配，则只会将其传送到内置终结点。 若要将消息传送到内置终结点和自定义终结点，请添加一个将消息发送到事件终结点的路由。
 
 ## <a name="reading-data-that-has-been-routed"></a>读取已路由的数据
 
@@ -77,7 +95,7 @@ IoT 中心默认为以下文件命名约定：
 
 ## <a name="fallback-route"></a>回退路由
 
-回退路由将所有不满足任何现有路由上的查询条件的消息发送到与[事件中心](/event-hubs/)兼容的内置事件中心（消息/事件）。 如果已启用消息路由，则可以启用此回退路由功能。 请注意，在创建一个路由后，数据将停止流向内置终结点，除非已向该终结点创建了一个路由。 如果没有到内置终结点的路由并且已启用回退路由，则仅与路由上的任何查询条件不匹配的消息将被发送到内置终结点。 此外，如果已删除现有路由，必须启用回退路由才能接收内置终结点处的所有数据。 
+回退路由将所有不满足任何现有路由上的查询条件的消息发送到与[事件中心](/event-hubs/)兼容的内置事件中心（消息/事件）。 如果已启用消息路由，则可以启用此回退路由功能。 在创建一个路由后，数据将停止流向内置终结点，除非创建了到该终结点的路由。 如果没有到内置终结点的路由并且已启用回退路由，则仅与路由上的任何查询条件不匹配的消息将被发送到内置终结点。 此外，如果已删除现有路由，必须启用回退路由才能接收内置终结点处的所有数据。 
 
 可以在 Azure 门户->“消息路由”边栏选项卡中启用/禁用回退路由。 还可以将 Azure 资源管理器用于 [FallbackRouteProperties](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) 来为回退路由使用自定义终结点。
 
@@ -100,7 +118,9 @@ IoT 中心默认为以下文件命名约定：
 
 IoT 中心提供了多个与路由和终结点相关的指标，使你能够大致了解你的中心的运行状况和已发送的消息数。 你可以组合来自多项指标的信息来确定问题的根本原因。 例如，使用指标路由：已删除的遥测消息数或 d2c.telemetry.egress.dropped 来确定当消息与任何路由上的查询不匹配并且已禁用回退路由时已删除的消息数。 [IoT 中心指标](iot-hub-metrics.md)列出了默认为 IoT 中心启用的所有指标。
 
-通过使用 Azure Monitor [诊断设置](../iot-hub/iot-hub-monitor-resource-health.md)中的路由诊断日志，可以跟踪发生在路由查询和终结点运行状况的评估期间、由 IoT 中心所察觉到的错误，例如某个终结点已失效。 可以将这些诊断日志发送到 Log Analytics、事件中心或 Azure 存储进行自定义处理。
+可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的[运行状况状态](iot-hub-devguide-endpoints.md#custom-endpoints)。 当终结点运行状况为故障或不正常时，建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来标识并调试错误。 例如，对于终结点类型“事件中心”，可以监视 **d2c.endpoints.latency.eventHubs**。 当 IoT 中心建立了最终一致的运行状况状态以后，系统会将不正常终结点的状态更新为正常。
+
+通过使用 Azure Monitor [诊断设置](../iot-hub/iot-hub-monitor-resource-health.md)中的路由诊断日志，可以跟踪发生在路由查询和终结点运行状况的评估期间、由 IoT 中心所察觉到的错误，例如某个终结点已失效。 可以将这些诊断日志发送到 Azure Monitor 日志、事件中心或 Azure 存储进行自定义处理。
 
 ## <a name="next-steps"></a>后续步骤
 

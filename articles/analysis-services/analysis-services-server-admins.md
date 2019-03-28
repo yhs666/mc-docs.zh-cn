@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 09/13/2018
-ms.date: 09/24/2018
+origin.date: 12/19/2018
+ms.date: 03/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f700bf837543fd811e7a0b16eb50a7292055bcc4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4ef84327096ddd0a5e10be5c4f95e27757a682d
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658449"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348177"
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
 
@@ -41,8 +41,10 @@ ms.locfileid: "52658449"
 
 ## <a name="powershell"></a>PowerShell
 
-创建新服务器时，使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) cmdlet 指定 Administrator 参数。 <br>
-使用 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet 修改现有服务器的 Administrator 参数。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+创建新服务器时，使用 [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet 指定 Administrator 参数。 <br>
+使用 [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet 修改现有服务器的 Administrator 参数。
 
 ## <a name="rest-api"></a>REST API
 
@@ -55,4 +57,4 @@ ms.locfileid: "52658449"
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [基于角色的访问控制](../role-based-access-control/overview.md)
 
-<!--Update_Description: update meta properties, wording update, add content of powershell and REST API reference link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -10,62 +10,39 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/10/2018
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5457813d5a0ebf1f6a3033665dc43834162cf5a
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 60af53523d4fe73921f0d2131ee1d5ed2f74f672
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665471"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256356"
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
+# <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 创建你的第一个函数
 
-> [!NOTE] 
-> 用于 Azure Functions 的 Java 当前为预览版。
-
-本快速入门可指导通过 Maven 创建[无服务器](https://azure.microsoft.com/solutions/serverless/)函数项目，在本地对其进行测试，并将其部署到 Azure。 完成后，你的 Java 函数代码将在云中运行，并可以通过 HTTP 请求触发。
-
-![通过 cURL 从命令行中访问 Hello World 函数](./media/functions-create-java-maven/hello-azure.png)
+本文将指导你使用 Maven 命令行工具生成 Java 函数并将该函数发布到 Azure Functions。 
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
-若要通过 Java 开发函数应用，必须安装以下软件：
 
--  [Java 开发人员工具包](https://www.azul.com/downloads/zulu/)，版本 8。
--  [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
--  [Azure CLI](/cli)
+若要使用 Java 开发函数，必须安装以下软件：
 
-> [!IMPORTANT] 
+- [Java 开发人员工具包](https://www.azul.com/downloads/zulu/)，版本 8。
+- [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
+- [Azure CLI](/cli)
+- [Azure Functions Core Tools](functions-run-local.md#v2)（需要 .NET Core 2.x SDK）
+
+> [!IMPORTANT]
 > JAVA_HOME 环境变量必须设置为 JDK 的安装位置，以完成本快速入门。
-
-## <a name="install-the-azure-functions-core-tools"></a>安装 Azure Functions Core Tools
-
-[Azure Functions 核心工具 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 为编写、运行和调试 Azure Functions 提供了本地开发环境。 
-
-若要进行安装，请访问 Azure Functions Core Tools 项目的[安装](https://github.com/azure/azure-functions-core-tools#installing)部分，找到操作系统的具体说明。
-
-也可以在安装以下必备组件后，使用 [Node.js](https://nodejs.org/) 随附的 [npm](https://www.npmjs.com/) 手动安装此工具：
-
--  最新版本的 [.NET Core](https://www.microsoft.com/net/core)。
--  [Node.js](https://nodejs.org/download/) 8.6 或更高版本。
-
-若要继续进行基于 npm 的安装，请运行：
-
-```
-npm install -g azure-functions-core-tools
-```
-
-> [!NOTE]
-> 如果在安装 Azure Functions 核心工具版本 2.0 时遇到问题，请参阅[版本 2.x 运行时](/azure-functions/functions-run-local)。
 
 ## <a name="generate-a-new-functions-project"></a>生成新的 Functions 项目
 
 在空的文件夹中，运行以下命令以从 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) 生成 Functions 项目。
 
-### <a name="linuxmacos"></a>Linux/MacOS
+### <a name="linuxmacos"></a>Linux/macOS
 
 ```bash
 mvn archetype:generate \
@@ -73,7 +50,14 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### <a name="windows-cmd"></a>Windows (CMD)
+### <a name="windows"></a>Windows
+
+```powershell
+mvn archetype:generate `
+    "-DarchetypeGroupId=com.microsoft.azure" `
+    "-DarchetypeArtifactId=azure-functions-archetype"
+```
+
 ```cmd
 mvn archetype:generate ^
     -DarchetypeGroupId=com.microsoft.azure ^
@@ -183,6 +167,9 @@ mvn azure-functions:deploy
 ```
 
 使用 `cURL` 测试在 Azure 上运行的函数应用。 需更改以下示例中的 URL，使之与前一步骤中你自己的函数应用的已部署 URL 匹配。
+
+> [!NOTE]
+> 确保将“访问权限”设置为 `Anonymous`。 选择默认级别 `Function` 时，需要在请求中提供[函数密钥](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)才能访问函数终结点。
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.chinacloudsites.cn/api/hello -d AzureFunctions

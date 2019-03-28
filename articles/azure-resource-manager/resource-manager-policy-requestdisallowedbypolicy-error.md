@@ -1,5 +1,5 @@
 ---
-title: Azure 资源策略的 RequestDisallowedByPolicy 错误 | Microsoft Docs
+title: Azure 资源策略的 RequestDisallowedByPolicy 错误 | Azure
 description: 说明 RequestDisallowedByPolicy 错误的原因。
 services: azure-resource-manager
 documentationcenter: ''
@@ -12,21 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 02/18/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2edf6094fa4118d20612b5576be6a598c119b99f
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 83cb3bdb2121f228ef01b5ce826fa650fa4cb406
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306302"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348108"
 ---
 <!--Verified Successfully-->
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 资源策略的 RequestDisallowedByPolicy 错误
 
 本文说明了 RequestDisallowedByPolicy 错误的原因，它还提供了此错误的解决方案。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>症状
 
@@ -47,6 +46,8 @@ ms.locfileid: "56306302"
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在 PowerShell 中，提供该策略标识符作为 `Id` 参数，检索有关阻止部署的策略的详细信息。
 
 ```PowerShell
@@ -56,6 +57,8 @@ ms.locfileid: "56306302"
 ### <a name="azure-cli"></a>Azure CLI
 
 在 Azure CLI 中，提供策略定义的名称：
+
+<!--MOONCAKE: Get all the policy definition name-->
 
 ```azurecli
 az policy definition list --query [*].name  #get all the name collection with Azure CLI
@@ -69,8 +72,7 @@ az policy definition show --name {region_Policy_Assignment}
 
 有关详细信息，请参阅以下文章：
 
-- [什么是 Azure Policy？](../azure-policy/azure-policy-introduction.md)
-- [创建和管理策略以强制实施符合性](../azure-policy/create-manage-policy.md)
+- [什么是 Azure Policy？](../governance/policy/overview.md)
+- [创建和管理策略以强制实施符合性](../governance/policy/tutorials/create-and-manage.md)
 
-<!--Update_Description: new articles on resource manager policy requestdisallowedbypolicy error -->
-<!--ms.date: 02/18/2019-->
+<!--Update_Description: wording update -->

@@ -6,20 +6,20 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 origin.date: 04/17/2018
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: bfcf7ce04b76b74f880e4d75ad5415bbd88fc661
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: cf8b994d188d292a8d36fcad4614af749d53ae3c
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673009"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348179"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
-此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
+此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
 
 下图显示了设计数据仓库的过程：
 
@@ -36,7 +36,8 @@ ms.locfileid: "52673009"
 
 ## <a name="data-migration"></a>数据迁移
 
-首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入 SQL 数据仓库的临时表中。 使用以下配置：<!-- Not Available on [Azure Data Lake Store](/data-factory/connector-azure-data-lake-store) -->
+首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入 SQL 数据仓库的临时表中。 使用以下配置：
+<!-- Not Available on [Azure Data Lake Store](/data-factory/connector-azure-data-lake-store) -->
 
 | 设计 | 建议 |
 |:--- |:--- |
@@ -129,7 +130,7 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 
 建议考虑在中心辐射型体系结构中使用 SQL 数据库和 Azure Analysis Services。 该解决方案可以在不同的用户组之间提供工作负荷隔离，同时还能使用 SQL 数据库和 Azure Analysis Services 的高级安全功能。 这也是一种向用户提供无限并发的方式。
 
-详细了解[利用 SQL 数据仓库的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/)。
+详细了解[利用 SQL 数据仓库的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
 
 
 <!--Image references-->
@@ -151,6 +152,7 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [数据迁移]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-<!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store --> [sys.dm_pdw_nodes_db_partition_stats]： https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]： https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sqll
+<!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store -->
+[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
 
 <!-- Update_Description: update meta properties, wording update -->

@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 11/08/2018
-ms.date: 02/18/2019
+origin.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9d4605dc9cf832eb6f16ede9f2f3d3e9271dcda4
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 8ccca3361e5b4eb4b089d393593f0c6927d8c56e
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306052"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348168"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -37,7 +37,7 @@ ms.locfileid: "56306052"
 
 与基于角色的访问控制不同，可以使用管理锁来对所有用户和角色应用限制。 若要了解如何为用户和角色设置权限，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 
-Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到 `https://management.chinacloudapi.cn`的操作。 锁不会限制资源如何执行各自的函数。 资源更改将受到限制，但资源操作不受限制。 例如，SQL 数据库上的 ReadOnly 锁将阻止删除或修改该数据库，但不会阻止创建、更新或删除该数据库中的数据。 允许数据事务，因为这些操作不会发送到 `https://management.chinacloudapi.cn`。
+Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到 `https://management.chinacloudapi.cn`的操作。 这类锁不会限制资源如何执行各自的函数。 资源更改将受到限制，但资源操作不受限制。 例如，SQL 数据库上的 ReadOnly 锁将阻止删除或修改该数据库，但不会阻止创建、更新或删除该数据库中的数据。 允许数据事务，因为这些操作不会发送到 `https://management.chinacloudapi.cn`。
 
 应用 **ReadOnly** 可能会导致意外结果，因为看起来好像读取操作的某些操作实际上需要其他操作。 例如，在存储帐户上放置 **ReadOnly** 锁会阻止所有用户列出密钥。 列出密钥操作通过 POST 请求进行处理，因为返回的密钥可用于写入操作。 另举一例，在应用服务资源上放置 **ReadOnly** 锁将阻止 Visual Studio 服务器资源管理器显示资源文件，因为该交互需要写访问权限。
 
@@ -48,6 +48,19 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>模板
+
+使用资源管理器模板来部署某个锁定时，请根据锁定范围对名称和类型使用不同的值。
+
+对**资源**应用锁定时，请使用以下格式：
+
+* name - `{resourceName}/Microsoft.Authorization/{lockName}`
+* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+对**资源组**或**订阅**应用锁定时，请使用以下格式：
+
+* name - `{lockName}`
+* type - `Microsoft.Authorization/locks`
+
 以下示例演示可创建应用服务计划、网站和网站上的锁的模板。 锁的资源类型是要锁定的资源的资源类型和 **/providers/locks**。 锁名是通过将包含 **/Microsoft.Authorization/** 的资源名称与锁名连接起来创建的。
 
 ```json
@@ -105,56 +118,44 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 }
 ```
 
-要使用 PowerShell 部署此示例模板，请使用：
-
-```azurepowershell
-New-AzResourceGroup -Name sitegroup -Location chinaeast
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-要使用 Azure CLI 部署此示例模板，请使用：
-
-```azurecli
-az group create --name sitegroup --location chinaeast
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+如需在资源组上设置锁定的示例，请参阅[创建资源组并将其锁定](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)。
 
 ## <a name="powershell"></a>PowerShell
 可以通过 Azure PowerShell 使用 [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) 命令锁定已部署的资源。
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
-```azurepowershell
+```powershell
 New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 若要锁定某个资源组，请提供该资源组的名称。
 
-```azurepowershell
+```powershell
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 若要获取有关某个锁的信息，请使用 [Get-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock)。 若要获取订阅中的所有锁，请使用：
 
-```azurepowershell
+```powershell
 Get-AzResourceLock
 ```
 
 若要获取某个资源的所有锁，请使用：
 
-```azurepowershell
+```powershell
 Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 若要获取某个资源组的所有锁，请使用：
 
-```azurepowershell
+```powershell
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 若要删除锁，请使用：
 
-```azurepowershell
+```powershell
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
@@ -207,7 +208,7 @@ az lock delete --ids $lockid
 
     PUT https://management.chinacloudapi.cn/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-作用域可能是订阅、资源组或资源。 锁名称可以是想要对该锁使用的任何称谓。 对于 api 版本，请使用 **2015-01-01**。
+作用域可能是订阅、资源组或资源。 锁名称可以是要对该锁使用的任何称谓。 对于 api 版本，请使用 **2016-09-01**。
 
 在请求中，包括指定锁属性的 JSON 对象。
 
@@ -220,8 +221,7 @@ az lock delete --ids $lockid
 
 ## <a name="next-steps"></a>后续步骤
 * 有关使用逻辑方式组织资源的信息，请参阅[使用标记来组织资源](resource-group-using-tags.md)
-* 若要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
-* 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../azure-policy/azure-policy-introduction.md)。
+* 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../governance/policy/overview.md)。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 <!--Update_Description: update meta properties, update az cmdlet -->

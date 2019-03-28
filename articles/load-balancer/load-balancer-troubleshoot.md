@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/09/2018
-ms.date: 12/31/2018
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: c70c26436c5f05df010709423c507abf2e14238d
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: c4da418398e91b9436c4bb0ea6f11c32ad08cc18
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806253"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348550"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>对 Azure 负载均衡器进行故障排除
 

@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 11/14/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 270fce8704ad66622182a4666c0867c654d34996
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.date: 03/25/2019
+ms.openlocfilehash: f88947bf0ad12a057a6f608b615985bc06fc5a46
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672890"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318981"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>处理 SQL 数据库连接问题和暂时性错误
 
@@ -92,7 +92,7 @@ ms.locfileid: "52672890"
 可以测试重试逻辑的一种方法是在程序运行时断开客户端计算机与网络的连接。 错误为：
 
 - **SqlException.Number** = 11001
-- 消息：“不存在已知的这种主机”
+- 消息：“此主机不存在”
 
 在首次重试过程中，程序可以更正拼写错误，并尝试连接。
 
@@ -110,7 +110,7 @@ ms.locfileid: "52672890"
 在首次连接尝试之前，程序可以故意拼错用户名。 错误为：
 
 - **SqlException.Number** = 18456
-- 消息：“用户‘WRONG_MyUserName’的登录失败。”
+- 消息：“用户 'WRONG_MyUserName' 的登录失败。”
 
 在首次重试过程中，程序可以更正拼写错误，并尝试连接。
 
@@ -126,7 +126,7 @@ ms.locfileid: "52672890"
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>连接重试的 .NET SqlConnection 参数
 
-如果客户端程序使用 .NET Framework 类 **System.Data.SqlClient.SqlConnection** 连接到 SQL 数据库，请使用 .NET 4.6.1 或更高版本（或 .NET Core），以便利用其连接重试功能。 有关此功能的详细信息，请参阅[此网页](https://go.microsoft.com/fwlink/?linkid=393996)。
+如果客户端程序使用 .NET Framework 类 **System.Data.SqlClient.SqlConnection** 连接到 SQL 数据库，请使用 .NET 4.6.1 或更高版本（或 .NET Core），以便利用其连接重试功能。 有关此功能的详细信息，请参阅[此网页](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection)。
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -138,7 +138,7 @@ ms.locfileid: "52672890"
 - **ConnectRetryInterval**：&nbsp;&nbsp;默认值为 1 秒。 范围为 1 到 60。
 - **Connection Timeout**：&nbsp;&nbsp;默认值为 15 秒。 范围为 0 到 2147483647。
 
-具体而言，所选的值应使以下等式成立：Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
+具体而言，所选的值应使以下等式成立：连接超时值 = ConnectRetryCount * ConnectionRetryInterval
 
 例如，如果计数等于 3 且间隔等于 10 秒，超时值仅为 29 秒未给系统足够的时间进行其第三次也是最后一次连接重试，因为 29 < 3 * 10。
 
@@ -163,7 +163,7 @@ ms.locfileid: "52672890"
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>连接：连接字符串
+### <a name="connection-connection-string"></a>连接:连接字符串
 
 连接到 SQL 数据库所需的连接字符串与连接到 SQL Server 所需的字符串稍有不同。 可以通过 [Azure 门户](https://portal.azure.cn/)复制数据库的连接字符串。
 
@@ -171,7 +171,7 @@ ms.locfileid: "52672890"
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-### <a name="connection-ip-address"></a>连接：IP 地址
+### <a name="connection-ip-address"></a>连接:IP 地址
 
 必须将 SQL 数据库服务器配置为接受来自托管客户端程序的计算机 IP 地址的通信。 若要设置此配置，可以通过 [Azure 门户](https://portal.azure.cn/)编辑防火墙设置。
 
@@ -182,7 +182,7 @@ ms.locfileid: "52672890"
 有关详细信息，请参阅[在 SQL 数据库上配置防火墙设置](sql-database-configure-firewall-settings.md)。
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>连接：端口
+### <a name="connection-ports"></a>连接:端口
 
 通常，只需确保在托管客户端程序的计算机上已打开端口 1433 进行出站通信。
 
@@ -197,7 +197,7 @@ ms.locfileid: "52672890"
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>连接：ADO.NET 4.6.2 或更高版本
+### <a name="connection-adonet-462-or-later"></a>连接:ADO.NET 4.6.2 或更高版本
 
 如果程序使用 **System.Data.SqlClient.SqlConnection** 等 ADO.NET 类来连接到 SQL 数据库，我们建议使用 .NET Framework 4.6.2 或更高版本。
 
@@ -212,7 +212,7 @@ ms.locfileid: "52672890"
 
 若要从连接池使用连接对象，我们建议，如果程序未立即使用连接，应暂时关闭连接。 重新打开连接的开销并不高，但要创建新连接。
 
-如果使用 ADO.NET 4.0 或更低版本，我们建议升级到最新的 ADO.NET。 从 2018 年 8 月开始，可以[下载 ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/)。
+如果使用 ADO.NET 4.0 或更低版本，我们建议升级到最新的 ADO.NET。 从 2018 年 8 月开始，可以[下载 ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/)。
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

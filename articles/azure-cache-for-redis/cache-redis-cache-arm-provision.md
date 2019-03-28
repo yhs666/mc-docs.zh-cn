@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 02/27/2019
+ms.date: 03/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 82fcf81e21f132c19f8e448e75e188a35f98fe4c
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 1a9e6e82f3d0f8a8d6898a037fd99af4c3414489
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903202"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318969"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>使用模板创建 Azure Redis 缓存
 
@@ -38,8 +38,8 @@ ms.locfileid: "56903202"
 > 适用于新[高级层](cache-premium-tier-intro.md)的 Resource Manager 模板现已推出。 
 > 
 > * [通过群集创建高级 Azure Redis 缓存](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [通过数据暂留创建高级 Azure Redis 缓存](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * 通过 VNet 和可选群集创建高级 Azure Redis 缓存
+> * [通过数据暂留创建高级 Azure Redis 缓存](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [Create Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)（创建部署到虚拟网络中的高级 Redis 缓存）
 > 
 > 若要检查最新模板，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/)并搜索 `Azure Cache for Redis`。
 > 
@@ -138,5 +138,5 @@ Azure Redis 缓存的位置。 为获得最佳性能，请使用要与缓存配�
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
 

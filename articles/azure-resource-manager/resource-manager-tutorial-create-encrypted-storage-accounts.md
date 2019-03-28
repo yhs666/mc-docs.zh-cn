@@ -10,23 +10,25 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 12/06/2018
-ms.date: 01/21/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 2658045d04e3167e35bd1be93bdd5c5609704c1f
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 237eeecc772acf848d4ccbc4a231f46d5f58a093
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193031"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348016"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教程：利用 Azure 资源管理器模板参考
 
 了解如何查找模板架构信息，以及如何使用该信息创建 Azure 资源管理器模板。
 
 在本教程中，请使用 Azure 快速入门模板中提供的基础模板。 根据模板参考文档自定义模板，以便创建加密的存储帐户。
+
+![资源管理器模板参考部署加密的存储帐户](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 本教程涵盖以下任务：
 
@@ -75,7 +77,8 @@ ms.locfileid: "54193031"
 
     ![资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-    <!-- Not Available on ## Find the template reference--> 加密对象应如下所示：
+    <!-- Not Available on ## Find the template reference-->
+    加密对象应如下所示：
 
     ```json
     "encryption": {

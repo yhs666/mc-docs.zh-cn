@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 origin.date: 04/17/2018
-ms.date: 09/17/2018
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e947b341e76fcd78dc20fb79d8c0ef7cb39acbb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 64c39ca338d5c94e9348d27d59b25d79de28be01
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654336"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348017"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>还原 Azure SQL 数据仓库 (PowerShell)
 > [!div class="op_single_selector"]
@@ -30,14 +30,16 @@ ms.locfileid: "52654336"
 本文会介绍如何使用 PowerShell 还原 Azure SQL 数据仓库。
 
 ## <a name="before-you-begin"></a>准备阶段
-**验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 
-<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+**验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。
 
 ### <a name="install-powershell"></a>安装 PowerShell
-若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell 1.0 或更高版本。  可以通过运行 **Get-Module -ListAvailable -Name AzureRM**来检查版本。  可通过 [Microsoft Web 平台安装程序][Microsoft Web Platform Installer]安装最新版本。  有关安装最新版本的详细信息，请参阅[如何安装和配置 Azure PowerShell][如何安装和配置 Azure PowerShell]。
+若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell。  可以通过运行 **Get-Module -ListAvailable -Name Az** 来检查版本。  有关安装最新版本的详细信息，请参阅[如何安装和配置 Azure PowerShell][如何安装和配置 Azure PowerShell]。
 
 ## <a name="restore-an-active-or-paused-database"></a>还原活动或暂停的数据库
-若要从快照还原数据库，请使用 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet。
+若要从快照还原数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet。
 
 1. 打开 Windows PowerShell。
 2. 连接到 Azure 帐户，并列出与帐户关联的所有订阅。
@@ -55,24 +57,24 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.chinac
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount -Environment AzureChinaCloud
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
+((Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
-Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Get the specific database to restore
-$Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+$Database = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzSqlDatabase -FromPointInTimeBackup -PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -85,7 +87,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-a-deleted-database"></a>还原已删除的数据库
-若要还原已删除的数据库，请使用 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet。
+若要还原已删除的数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
 
 1. 打开 Windows PowerShell。
 2. 连接到 Azure 帐户，并列出与帐户关联的所有订阅。
@@ -101,15 +103,15 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.chinac
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount -Environment AzureChinaCloud
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Get the deleted database to restore
-$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+$DeletedDatabase = Get-AzSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
-$RestoredDatabase = Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $DeletedDatabase.ResourceID
+$RestoredDatabase = Restore-AzSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $DeletedDatabase.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -121,7 +123,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>从 Azure 地理区域还原
-若要恢复数据库，请使用 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet。
+若要恢复数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
 
 > [!NOTE]
 > 可以异地还原到“计算优化”性能层！ 若要执行此操作，请将一个“计算优化”ServiceObjectiveName 指定为可选参数。 
@@ -136,15 +138,15 @@ $RestoredDatabase.status
 6. 验证异地还原的数据库的状态。
 
 ```Powershell
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Connect-AzAccount -Environment AzureChinaCloud
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase -FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" -ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
+$GeoRestoredDatabase = Restore-AzSqlDatabase -FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" -ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
@@ -164,11 +166,11 @@ $GeoRestoredDatabase.status
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-<!-- Not available for support ticket[Request a DTU quota change]: sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change--> [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery [如何安装和配置 Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs [概述]: ./sql-data-warehouse-restore-database-overview.md [门户]: ./sql-data-warehouse-restore-database-portal.md [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md [REST]: ./sql-data-warehouse-restore-database-rest-api.md [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recoveryy
+<!-- Not available for support ticket[Request a DTU quota change]: sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
+[在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery [如何安装和配置 Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs [概述]: ./sql-data-warehouse-restore-database-overview.md [门户]: ./sql-data-warehouse-restore-database-portal.md [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md [REST]: ./sql-data-warehouse-restore-database-rest-api.md [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
+[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-Azsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

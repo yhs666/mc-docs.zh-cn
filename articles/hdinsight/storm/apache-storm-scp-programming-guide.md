@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2016
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: f97f71b7bfd324e0e7d336bfa2a65ccb59a2be31
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 96c498041c248b8cbb260f479a9610c822336dc7
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303067"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348689"
 ---
 # <a name="scp-programming-guide"></a>SCP 编程指南
 SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](https://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](https://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
@@ -353,7 +353,7 @@ SCPRuntime 提供以下两种方法：
         }
 
 ## <a name="topology-specification-language"></a>拓扑规范语言
-SCP 拓扑规范是一种特定于域的语言，用于描述和配置 SCP 拓扑。 它基于 Storm 的 Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) 并通过 SCP 进行扩展。
+SCP 拓扑规范是一种特定于域的语言，用于描述和配置 SCP 拓扑。 它基于 Storm 的 Clojure DSL (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) 并通过 SCP 进行扩展。
 
 拓扑规范可通过 runspec 命令直接提交到 Storm 群集进行执行。
 

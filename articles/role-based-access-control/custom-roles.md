@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/20/2019
-ms.date: 02/26/2019
+origin.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d3bcc6471757dfb54b0e96b27f55f10942b367
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: e5b929539b3dd48375fe6b9ab44226b4e8c3f232
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836971"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318910"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure 资源的自定义角色
 
@@ -73,8 +73,7 @@ ms.locfileid: "56836971"
 
 1. 确定所需的权限
 
-    创建自定义角色时，需要知道可用于定义权限的资源提供程序操作。 若要查看操作列表，可以使用 [Get-AzProviderOperation](https://docs.microsoft.com/powershell/module/az.resources/get-azprovideroperation) 或 [az provider operation list](/cli/provider/operation#az-provider-operation-list) 命令。
-    你将操作添加到[角色定义](role-definitions.md)的 `Actions` 或 `NotActions` 属性。 如果有数据操作，请将这些操作添加到 `DataActions` 或 `NotDataActions` 属性。
+    创建自定义角色时，需要知道可用于定义权限的资源提供程序操作。 若要查看操作列表，请参阅 [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)。 你将操作添加到[角色定义](role-definitions.md)的 `Actions` 或 `NotActions` 属性。 如果有数据操作，请将这些操作添加到 `DataActions` 或 `NotDataActions` 属性。
 
 1. 创建自定义角色
 
@@ -100,7 +99,7 @@ ms.locfileid: "56836971"
 | `NotActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `Actions` 中排除的管理操作。 有关详细信息，请参阅 [NotActions](role-definitions.md#notactions)。 |
 | `DataActions` | 否 | String[] | 一个字符串数组，指定该角色允许对该对象中的数据执行的数据操作。 有关详细信息，请参阅 [DataActions（预览）](role-definitions.md#dataactions-preview)。 |
 | `NotDataActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `DataActions` 中排除的数据操作。 有关详细信息，请参阅 [NotDataActions（预览）](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | 是 | String[] | 一个字符串数组，指定自定义角色的可分配范围。 当前不能设置为根范围 (`"/"`) 或管理组范围。 有关详细信息，请参阅 [AssignableScopes](role-definitions.md#assignablescopes)。 |
+| `AssignableScopes` | 是 | String[] | 一个字符串数组，指定自定义角色的可分配范围。 当前不能设置为根范围 (`"/"`) 或管理组范围。 有关详细信息，请参阅 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理组来组织资源](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)。 |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>谁可以创建、删除、更新或查看自定义角色
 

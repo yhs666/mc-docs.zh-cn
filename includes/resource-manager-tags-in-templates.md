@@ -2,20 +2,20 @@
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: include
-origin.date: 11/25/2018
-ms.date: 01/21/2019
+origin.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 19c8fc6c7724c8435c1d94b74c409940cea8c980
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: f08dc86fd87df5851747d78bfb83680a54892cb4
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193172"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348184"
 ---
-要在部署过程中标记资源，请将 `tags` 元素添加到要部署的资源。 提供标记名称和值。
+若要在部署过程中标记资源，请将 `tags` 元素添加到要部署的资源。 提供标记名称和值。
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>将文本值应用到标记名称
-以下示例显示了一个带两个标记（`Dept` 和 `Environment`）的存储帐户，这两个标记设置为文本值：
+以下示例显示了具有设置为文本值的两个标记（`Dept` 和 `Environment`）的存储帐户：
 
 ```json
 {
@@ -40,6 +40,8 @@ ms.locfileid: "54193172"
     ]
 }
 ```
+
+若要设置日期/时间值的标记，请使用 [utcNow 函数](../articles/azure-resource-manager/resource-group-template-functions-string.md#utcnow)。
 
 ### <a name="apply-an-object-to-the-tag-element"></a>将对象应用到标记元素
 可以定义一个存储多个标记的对象参数，并将该对象应用于标记元素。 对象中的每个属性会成为资源的单独标记。 以下示例有一个名为 `tagValues` 的参数，该标记应用于标记元素。

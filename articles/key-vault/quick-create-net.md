@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 32aad509cd99ea2f373905c14df4eeb7dfa8ffc2
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 83fc0313b4ac5bf98d3274da77560409bb7c63b3
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135494"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>快速入门：使用 .NET Web 应用在 Azure Key Vault 中设置和检索机密
 

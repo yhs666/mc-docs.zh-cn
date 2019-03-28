@@ -1,5 +1,5 @@
 ---
-title: 使用双重验证的 Azure MFA 登录 | Microsoft 文档
+title: 使用双重验证进行 Azure MFA 登录 - Azure Active Directory | Microsoft Docs
 description: 本页提供有关在何处查看 Azure MFA 支持的各种登录方法的指导。
 keywords: 用户身份验证, 登录体验, 使用手机登录, 使用办公电话登录
 services: active-directory
@@ -11,15 +11,17 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 origin.date: 04/02/2017
-ms.date: 02/15/2019
+ms.date: 03/19/2019
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: 8e0fad685d21abfab27144d9672c32a9ecde9bd3
-ms.sourcegitcommit: 0138c7eeedbb2990879dae1b8dc8a26642de29c2
+ms.custom: end-user, seo-update-azuread-jan
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d53be190f0a73b049ec4dbd69db9904a02289752
+ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334250"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187480"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]
@@ -32,8 +34,8 @@ ms.locfileid: "56334250"
 | --- |
 | [通过拨打我的手机或办公电话](#signing-in-with-a-phone-call) |
 | [通过向我的手机发送短信](#signing-in-with-a-text-message)
-| 使用来自 Microsoft Authenticator 应用的通知 |
-| 使用来自 Microsoft Authenticator 应用的验证码 |
+| [使用来自 Microsoft 验证器应用的通知](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| [使用来自 Microsoft 验证器应用的验证代码](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
 | [使用备用方法，因为我暂时无法使用首选方法](#signing-in-with-an-alternate-method) |
 
 ## 电话登录 <a name="signing-in-with-a-phone-call"></a>
@@ -83,11 +85,10 @@ ms.locfileid: "56334250"
   ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>后续步骤
+- 如果使用双重验证登录时遇到问题，请在[使用 Azure 多重身份验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)中获取详细信息。
 
-如果使用双重验证登录时遇到问题，请在[使用 Azure 多重身份验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)中获取详细信息。
+- 了解如何[管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)。
 
-了解如何[管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)。
-
-了解如何[开始使用 Microsoft 验证器应用](microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。
+- 了解如何[开始使用 Microsoft 验证器应用](microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。
 
 <!-- Update_Description: link update -->

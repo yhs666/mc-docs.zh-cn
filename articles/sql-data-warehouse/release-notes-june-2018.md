@@ -8,26 +8,28 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 07/23/2018
-ms.date: 10/15/2018
+ms.date: 02/25/2019
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 897129b75375068496b0b0febe9827f8b572c517
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5e25d9e2365729c76b577f865c372b3433cbaee9
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658610"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348139"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 数据仓库中的新增功能 2018 年 6 月
 Azure SQL 数据仓库持续得到改进。 本文介绍了 2018 年 6 月发行的版本中所引入的新功能和所做的更改。 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>用户定义的还原点
 SQL 数据仓库每 8 小时就会自动拍摄数据仓库的快照，从而保证八小时恢复点目标 (RPO)。 虽然此自动化快照减轻了运行数据仓库的管理负担，但仍需要根据业务需求在关键时间拍摄快照。 例如，在数据仓库中加载重要的数据或部署新的脚本之前拍摄快照，以在操作前启用恢复点。 
 
-SQL 数据仓库现在通过 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet 支持[用户定义的还原点](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)。
+SQL 数据仓库现在通过 [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet 支持[用户定义的还原点](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)。
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName

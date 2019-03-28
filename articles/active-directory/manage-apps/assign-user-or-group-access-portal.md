@@ -1,26 +1,27 @@
 ---
-title: 在 Azure Active Directory 中向企业应用分配用户或组 | Microsoft Docs
-description: 如何选择企业应用，在 Azure Active Directory 中向其分配用户或组
+title: 在 Azure Active Directory 中向企业应用分配用户 | Microsoft Docs
+description: 如何选择企业应用，在 Azure Active Directory 中向其分配用户
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/15/2018
-ms.date: 12/10/2018
+ms.date: 03/19/2019
 ms.author: v-junlch
 ms.reviewer: luleon
-ms.openlocfilehash: d9304aacd861861fffb812837976ca45a3f2f4e5
-ms.sourcegitcommit: 833865e1f1e99b3acd10781451eed636cc7cc810
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3301ed05c4d3a90bc6643522133dad6fd7ad182b
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53157431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186652"
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
-若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
+# <a name="assign-a-user-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户
+若要将用户分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
 
 > [!NOTE]
 > 有关本文中讨论的功能的许可要求，请参阅 [Azure Active Directory 定价页](https://www.azure.cn/pricing/details/active-directory)。
@@ -41,14 +42,14 @@ ms.locfileid: "53157431"
 
     ![选择“所有应用程序”命令](./media/assign-user-or-group-access-portal/select-app-users.png)
 7. 在“***appname*** - 用户和组分配”边栏选项卡中，选择“添加”命令。
-8. 在“添加分配”边栏选项卡中，选择“用户和组”。
+8. 在“添加分配”边栏选项卡中，选择“用户”。
 
-    ![将用户或组分配给应用](./media/assign-user-or-group-access-portal/assign-users.png)
-9. 在“用户和组”边栏选项卡的列表中选择一个或多个用户或组，并选择边栏选项卡底部的“选择”按钮。
-10. 在“添加分配”边栏选项卡中，选择“角色”。 然后，在“选择角色”边栏选项卡中选择一个需要应用到所选用户或组的角色，再选择边栏选项卡底部的“确定”按钮。
-11. 在“添加分配”边栏选项卡中，选择边栏选项卡底部的“分配”按钮。 已分配用户或组的权限将是该企业应用的选定角色所定义的权限。
+    ![将用户分配到应用](./media/assign-user-or-group-access-portal/assign-users.png)
+9. 在“用户”边栏选项卡的列表中选择一个或多个用户，并选择边栏选项卡底部的“选择”按钮。
+10. 在“添加分配”边栏选项卡中，选择“角色”。 然后，在“选择角色”边栏选项卡中选择一个需要应用到所选用户的角色，再选择边栏选项卡底部的“确定”按钮。
+11. 在“添加分配”边栏选项卡中，选择边栏选项卡底部的“分配”按钮。 已分配用户的权限将是该企业应用的选定角色所定义的权限。
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>如何使用 PowerShell 将用户分配到企业应用？
+## <a name="assign-a-user-to-an-app---powershell"></a>将用户分配到应用 - PowerShell
 
 1. 以提升的权限打开 Windows PowerShell 命令提示符。
 
@@ -74,8 +75,6 @@ ms.locfileid: "53157431"
     ```     
 
 有关如何将用户分配到应用程序角色的详细信息，请访问 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0) 的文档
-
-若要将组分配到企业应用，需要将 `Get-AzureADUser` 替换为 `Get-AzureADGroup`。
 
 ### <a name="example"></a>示例
 
@@ -117,9 +116,9 @@ ms.locfileid: "53157431"
     ```
 
 ## <a name="next-steps"></a>后续步骤
-- [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
-- [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
-- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+* [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [删除企业应用的用户分配](remove-user-or-group-access-portal.md)
+* [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
+* [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
 
 <!-- Update_Description: wording update -->

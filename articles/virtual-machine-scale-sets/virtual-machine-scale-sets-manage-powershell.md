@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6629ea5fe7fd08969424957229a4afc77d0bbe59
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: c407b50a1f0d9d17fcd6cf917389f8f18138981d
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101578"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256360"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机规模集
 
@@ -93,7 +93,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>重启规模集中的 VM
-若要重启规模集中的一个或多个 VM，请使用 [Retart-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/restart-azvmss)。 通过 `-InstanceId` 参数，可指定要重启的一个或多个 VM。 若不指定实例 ID，则重启规模集中的所有 VM。 要重启多个 VM，请用逗号分隔每个实例 ID。
+若要重启规模集中的一个或多个 VM，请使用 [Restart-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/restart-azvmss)。 通过 `-InstanceId` 参数，可指定要重启的一个或多个 VM。 若不指定实例 ID，则重启规模集中的所有 VM。 要重启多个 VM，请用逗号分隔每个实例 ID。
 
 以下示例将重启 myScaleSet 规模集和 myResourceGroup 资源组中的实例“0”。 请按照如下所示，提供值：
 
@@ -115,4 +115,5 @@ Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure PowerShell 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
-<!-- Update_Description: code and link update -->
+
+<!-- Update_Description: wording update -->

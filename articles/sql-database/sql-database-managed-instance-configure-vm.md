@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab, srbozovi, bonova
 manager: digimobile
 origin.date: 02/18/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 199dbbb5cafeb682a5f5e4261175f2ab96236317
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: e2fe00040a5964b8c07de72e0ba021d98361b626
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347071"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318860"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入门：配置 Azure VM，以便连接到 Azure SQL 数据库托管实例
 

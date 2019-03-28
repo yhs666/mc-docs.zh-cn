@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto, genemi
 manager: digimobile
 origin.date: 02/20/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 16720a8a823c23d55fac0d19236d0359b122171b
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 532c6f7ffbc8adec638bd42d3676ac9ee1af4153
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347201"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318997"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>为数据库服务器使用虚拟网络服务终结点和规则
 
@@ -159,6 +159,74 @@ Azure SQL 数据库查询编辑器部署在 Azure 中的 VM 上。 这些 VM 不
 
 Azure SQL 数据库具有数据同步功能，可使用 Azure IP 连接到数据库。 使用服务终结点时，很可能会禁用对 SQL 数据库服务器的“允许 Azure 服务访问服务器”访问权限。 这将中断数据同步功能。
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>将 VNet 服务终结点与 Azure 存储配合使用的影响
+
+Azure 存储已实现相同的功能，允许限制到 Azure 存储帐户的连接。 如果选择将此功能与某个 Azure 存储帐户配合使用，而该帐户正由 Azure SQL Server 使用，则可能会出现问题。 接下来会列出受此影响的 Azure SQL 数据库和 Azure SQL 数据仓库功能并对其进行讨论。
+
+### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL 数据仓库 PolyBase
+
+PolyBase 通常用于将数据从 Azure 存储帐户加载到 Azure SQL 数据仓库中。 如果正从 Azure 存储帐户加载数据，而该帐户只允许一组 VNet-子网的访问，则会断开从 PolyBase 到该帐户的连接。 对于连接到 Azure 存储（已通过安全方式连接到 VNet）的 Azure SQL 数据仓库，若要启用 PolyBase 导入和导出方案，请执行如下所示的步骤：
+
+#### <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1.  按照此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安装 Azure PowerShell。
+2.  如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户升级到常规用途 v2 帐户。
+3.  必须在 Azure 存储帐户的“防火墙和虚拟网络”设置菜单下启用“允许受信任的 Microsoft 服务访问此存储帐户”。 有关详细信息，请参阅此[指南](/storage/common/storage-network-security#exceptions)。
+ 
+#### <a name="steps"></a>步骤
+1.  在 PowerShell 中，向 Azure Active Directory (AAD) 注册 SQL 数据库服务器：
+
+    ```powershell
+    Connect-AzAccount -Environment AzureChinaCloud
+    Select-AzSubscription -SubscriptionId your-subscriptionId
+    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+    ```
+    
+ 1. 按照此[指南](/storage/common/storage-quickstart-create-account)创建**常规用途 v2 存储帐户**。
+
+    > [!NOTE]
+    > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户**升级到 v2** 帐户。
+    > - 若要了解 Azure Data Lake Storage Gen2 的已知问题，请参阅此[指南](/storage/data-lake-storage/known-issues)。
+    
+1.  在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。 向 SQL 数据库服务器分配“存储 Blob 数据参与者(预览版)”RBAC 角色。
+
+    > [!NOTE] 
+    > 只有具有“所有者”特权的成员能够执行此步骤。 若要了解 Azure 资源的各种内置角色，请参阅此[指南](/role-based-access-control/built-in-roles)。
+  
+1.  **通过 Polybase 连接到 Azure 存储帐户：**
+
+    1. 创建数据库**[主密钥](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)**（如果此前尚未创建）：
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
+    1. 使用 **IDENTITY = '托管服务标识'** 创建数据库范围的凭据：
+
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用托管标识。
+        > - 使用 Azure 存储帐户以安全方式连接到 VNet 时，IDENTITY 名称应该为 **'托管服务标识'**，以便通过 PolyBase 进行连接。    
+    
+    1. 使用 abfss:// 方案创建外部数据源，以便通过 PolyBase 连接到常规用途 v2 存储帐户：
+
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.chinacloudapi.cn', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - 如果已经有外部表关联到常规用途 v1 或 Blob 存储帐户，则应先删除这些外部表，然后删除相应的外部数据源。 然后，使用 abfss:// 方案按照上面的步骤创建连接到常规用途 v2 存储帐户的外部数据源，并使用该新建的外部数据源重新创建所有外部表。 可以通过[生成和发布脚本向导](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017)为所有外部表生成 create-script，以方便使用。
+        > - 有关 abfss:// 方案的详细信息，请参阅此[指南](/storage/data-lake-storage/introduction-abfs-uri)。
+        > - 有关 CREATE EXTERNAL DATA SOURCE 的详细信息，请参阅此[指南](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)。
+        
+    1. 使用[外部表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)进行正常查询。
+
+### <a name="azure-sql-database-blob-auditing"></a>Azure SQL 数据库 Blob 审核
+
+Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储帐户使用 VNet 服务终结点功能，则会断开从 Azure SQL 数据库到存储帐户的连接。
+
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在未打开 VNet 服务终结点的情况下，将 VNet 防火墙规则添加到服务器
 
 早在增强此功能以前，就要求你先打开 VNet 服务终结点，然后才能在防火墙中实施实时 VNet 规则。 这些终结点已将给定的 VNet 子网关联到 Azure SQL 数据库。 但现在从 2018 年 1 月开始，可以通过设置 **IgnoreMissingVNetServiceEndpoint** 标志来避开此要求。
@@ -202,7 +270,7 @@ Azure SQL 数据库具有数据同步功能，可使用 Azure IP 连接到数据
 
 ## <a name="powershell-alternative"></a>PowerShell 备用
 
-PowerShell 脚本也可创建虚拟网络规则。 重要的 cmdlet New-AzureRmSqlServerVirtualNetworkRule。 如果有兴趣，可以参阅[使用 PowerShell 创建 Azure SQL 数据库的虚拟网络服务终结点和规则][sql-db-vnet-service-endpoint-rule-powershell-md-52d]。
+PowerShell 脚本也可创建虚拟网络规则。 重要的 cmdlet New-AzSqlServerVirtualNetworkRule。 如果有兴趣，可以参阅[使用 PowerShell 创建 Azure SQL 数据库的虚拟网络服务终结点和规则][sql-db-vnet-service-endpoint-rule-powershell-md-52d]。
 
 ## <a name="rest-api-alternative"></a>REST API 替代项
 

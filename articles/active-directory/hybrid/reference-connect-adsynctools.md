@@ -2,19 +2,21 @@
 title: Azure AD Connect：ADSyncTools PowerShell 参考 | Microsoft Docs
 description: 本文档提供 ADSyncTools.psm1 PowerShell 模块的参考信息。
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 origin.date: 10/19/2018
-ms.date: 01/21/2019
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 07aec102f72db32e4807637c640a7d8a75881fbc
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.topic: reference
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3247ffa56547cbd4d5107c97e68f952d05ab4f7f
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186679"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 参考
 以下文档提供了 Azure AD Connect 随附的 ADSyncTools.psm1 PowerShell 模块的参考信息。

@@ -5,15 +5,15 @@ services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-origin.date: 07/27/2018
-ms.date: 11/12/2018
+origin.date: 01/04/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: be42a2fa09c3c7472ce4a6f82c948a08c8ffaefa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8cfaf43bac2ea2a8812db80284999f2d2739657a
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643723"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352511"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>删除 Azure 容器注册表中的容器映像
 
@@ -61,7 +61,7 @@ product-returns/legacy-integrator:20180715
 myregistry.azurecr.cn/marketing/campaign10-18/web:v2
 ```
 
-有关映像标记最佳实践的讨论，请参阅 MSDN 上的 [Docker 标记：标记和版本控制 Docker 映像的最佳实践][tagging-best-practices]博客文章。
+关于映像标记最佳做法的讨论，请参阅 MSDN 上的 [Docker 标记：标记和版本控制 docker 映像的最佳做法][tagging-best-practices]博客文章。
 
 ### <a name="layer"></a>层
 
@@ -240,20 +240,20 @@ Are you sure you want to continue? (y/n): y
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-正如序列中上一步骤的输出中所示，现在存在一个 `"tags"` 属性为 `null` 的孤立清单。 此清单仍与其引用的任何唯一层数据一起位于注册表中。 要删除此类孤立映像及其层数据，必须按清单摘要删除。
+正如上一步骤的输出中所示，现在存在一个 `"tags"` 属性为空列表的孤立清单。 此清单仍与其引用的任何唯一层数据一起位于注册表中。 要删除此类孤立映像及其层数据，必须按清单摘要删除。
 
 ### <a name="list-untagged-images"></a>列出无标记的映像
 
 可使用以下 Azure CLI 命令列出存储库中所有无标记的映像。 将 `<acrName>` 和 `<repositoryName>` 替换为适合环境的值。
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>删除所有无标记的映像
@@ -284,7 +284,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -311,7 +311,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

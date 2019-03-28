@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/19/2018
-ms.date: 02/18/2019
+origin.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: c630bdfb1d6319ba4e0e18dbbf2e0fb8cc84731b
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 637b747c27a75456d30e35550a7b9c33956027a0
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306095"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348029"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法
 
@@ -27,10 +27,28 @@ ms.locfileid: "56306095"
 
 有关如何生成在所有 Azure 云环境中工作的模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>模板限制
+
+将模板大小限制为 1 MB 以内，每个参数文件大小限制为 64 KB 以内。 通过迭代资源定义及变量和参数的值扩展模板后，1 MB 的限制适用于模板的最终状态。 
+
+还将受限于：
+
+* 256 个参数
+* 256 个变量
+* 800 个资源（包括副本计数）
+* 64 个输出值
+* 模板表达式中不超过 24,576 个字符
+
+通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 上获取。
+
+## <a name="resource-group"></a>资源组
+
+将资源部署到资源组时，资源组会存储与资源有关的元数据。 元数据存储在资源组的位置中。
+
+如果资源组的区域临时不可用，则不能更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍可按预期运行，但你不能更新它们。 为了尽量降低风险，请将资源组和资源放入同一个区域。
 
 ## <a name="parameters"></a>参数
-使用[参数](resource-manager-templates-parameters.md)时，本部分中的信息可以提供帮助。
+使用[参数](resource-group-authoring-templates.md#parameters)时，本部分中的信息可以提供帮助。
 
 ### <a name="general-recommendations-for-parameters"></a>有关参数的一般建议
 
@@ -132,7 +150,7 @@ ms.locfileid: "56306095"
 
 ## <a name="variables"></a>变量
 
-使用[变量](resource-manager-templates-variables.md)时，以下信息可以提供帮助：
+使用[变量](resource-group-authoring-templates.md#variables)时，以下信息可以提供帮助：
 
 * 针对需要在模板中多次使用的值使用变量。 如果一次只使用一个值，则硬编码值可使模板更易于阅读。
 
@@ -156,7 +174,7 @@ ms.locfileid: "56306095"
 
 * 将子资源设置为依赖于其父资源。
 
-* 会自动从依赖项顺序中删除 [condition 元素](resource-manager-templates-resources.md#condition)设置为 false 的资源。 像始终部署了资源那样设置依赖项。
+* 会自动从依赖项顺序中删除 [condition 元素](resource-group-authoring-templates.md#condition)设置为 false 的资源。 像始终部署了资源那样设置依赖项。
 
 * 让依赖项级联，无需对其进行显式设置。 例如，虚拟机依赖于虚拟网络接口，虚拟网络接口依赖于虚拟网络和公共 IP 地址。 因此，虚拟机在所有这三个资源之后部署，但请勿将虚拟机显式设置为依赖于所有这三个资源。 此方法阐明了依赖顺序，在以后更改模板会更容易。
 
@@ -164,7 +182,7 @@ ms.locfileid: "56306095"
 
 ## <a name="resources"></a>资源
 
-使用[资源](resource-manager-templates-resources.md)时，以下信息可以提供帮助：
+使用[资源](resource-group-authoring-templates.md#resources)时，以下信息可以提供帮助：
 
 * 为了帮助其他参与者理解该资源的用途，请为模板中的每个资源指定**注释**：
 
@@ -278,7 +296,7 @@ ms.locfileid: "56306095"
 
 ## <a name="outputs"></a>Outputs
 
-如果使用模板创建公共 IP 地址，请包含 [outputs 节](resource-manager-templates-outputs.md)，用于返回 IP 地址和完全限定域名 (FQDN) 的详细信息。 部署后，可以使用输出值轻松检索有关公共 IP 地址和 FQDN 的详细信息。
+如果使用模板创建公共 IP 地址，请包含 [outputs 节](resource-group-authoring-templates.md#outputs)，用于返回 IP 地址和完全限定域名 (FQDN) 的详细信息。 部署后，可以使用输出值轻松检索有关公共 IP 地址和 FQDN 的详细信息。
 
 ```json
 "outputs": {

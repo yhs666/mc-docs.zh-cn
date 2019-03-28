@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 02/15/2019
-ms.date: 03/04/2019
+origin.date: 02/27/2019
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: c8dbef6b505dd4136af75f8a58ac70da847f760a
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 32d2ba4be03ad7722088941f7f5a9f1781ea233f
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833174"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348129"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>创建并安装适用于 P2S RADIUS 身份验证的 VPN 客户端配置文件
 
@@ -48,6 +48,19 @@ P2S RADIUS 身份验证的配置工作流如下：
 配置用户名/密码身份验证时，只能针对 EAP-MSCHAPv2 用户名/密码身份验证协议创建配置。 在命令中，`-AuthenticationMethod` 是 `EapMSChapv2`。
 
 ### <a name="usernamefiles"></a> 1.生成 VPN 客户端配置文件
+
+可使用 Azure 门户或 PowerShell 生成 VPN 客户端配置文件。
+
+#### <a name="azure-portal"></a>Azure 门户
+
+1. 导航到虚拟网关。
+2. 单击“点到站点配置”。
+3. 单击“下载 VPN 客户端”。
+4. 选择客户端，并填充请求的任何信息。
+5. 单击“下载”，生成 .zip 文件。
+6. .zip 文件通常下载到 Downloads 文件夹。
+
+#### <a name="azure-powershell"></a>Azure PowerShell
 
 生成 VPN 客户端配置文件来用于用户名/密码身份验证。 可以使用以下命令生成 VPN 客户端配置文件：
 

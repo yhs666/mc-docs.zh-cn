@@ -2,27 +2,20 @@
 title: 在基于 Linux 的 Azure HDInsight 中使用 Hadoop Oozie 工作流 | Azure
 description: 在基于 Linux 的 HDInsight 中使用 Hadoop Oozie。 了解如何定义 Oozie 工作流，并提交 Oozie 作业。
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 06/26/2018
-ms.date: 02/04/2019
+origin.date: 02/28/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: b0d94f782698dd2322883d23196a79a40b5ba39e
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: b797ffc36a34ed318a0058ca9465d78af060d2dc
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906152"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348685"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
-
-[!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 了解如何将 Apache Oozie 与 Azure HDInsight 上的 Apache Hadoop 配合使用。 Oozie 是一个管理 Hadoop 作业的工作流和协调系统。 Oozie 与 Hadoop 堆栈集成，并支持以下作业：
 
@@ -35,10 +28,19 @@ ms.locfileid: "54906152"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个常规 HDInsight 群集**：请参阅 [Linux 上的 HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **HDInsight 上的 Hadoop 群集**。 请参阅 [Linux 上的 HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-> [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+* **SSH 客户端**。 请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+* **Azure SQL 数据库**。  请参阅[在 Azure 门户中创建 Azure SQL 数据库](../sql-database/sql-database-get-started.md)。  本文使用名为 `oozietest` 的数据库。
+
+* **对存储配置所做的可能更改。**  如果使用 `BlobStorage` 类型的存储帐户，请参阅[存储配置](#storage-configuration)。
+
+## <a name="storage-configuration"></a>存储配置
+如果使用 `Storage (general purpose v1)` 或 `StorageV2 (general purpose v2)` 类型的存储帐户，则不需要执行任何操作。  本文中的过程至少向 `/mapreducestaging` 生成输出。  默认的 Hadoop 配置将在 `core-site.xml` 中的 `fs.azure.page.blob.dir` 配置变量内包含服务 `HDFS` 的 `/mapreducestaging`。  此配置会导致将页 Blob 输出到目录，而 `BlobStorage` 类型的存储帐户不支持页 Blob。  若要在本文中使用 `BlobStorage`，请删除 `fs.azure.page.blob.dir` 配置变量中的 `/mapreducestaging`。  可以通过 [Ambari UI](hdinsight-hadoop-manage-ambari.md) 访问配置。  否则，会收到错误消息：`Page blob is not supported for this account type.`
+
+> [!NOTE]  
+> 本文中使用的存储帐户已启用[安全传输](../storage/common/storage-require-secure-transfer.md)，因此，本文通篇使用 `wasbs` 而不是 `wasb`。
 
 ## <a name="example-workflow"></a>示例工作流
 
@@ -46,7 +48,7 @@ ms.locfileid: "54906152"
 
 ![工作流关系图][img-workflow-diagram]
 
-1. Hive 操作运行 HiveQL 脚本，以从 HDInsight 随附的 **hivesampletable** 中提取记录。 每个数据行描述特定移动设备的访问。 显示的记录格式如下文所示：
+1. Hive 操作运行 HiveQL 脚本，以从 HDInsight 随附的 `hivesampletable` 中提取记录。 每个数据行描述特定移动设备的访问。 显示的记录格式如下文所示：
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -63,15 +65,13 @@ ms.locfileid: "54906152"
 
 ## <a name="create-the-working-directory"></a>创建工作目录
 
-Oozie 希望将作业所需的所有资源存储在同一个目录中。 此示例使用 wasb:///tutorials/useoozie。 若要创建此目录，请完成以下步骤：
+Oozie 希望将作业所需的所有资源存储在同一个目录中。 本示例使用 `wasbs:///tutorials/useoozie`。 若要创建此目录，请完成以下步骤：
 
-1. 使用 SSH 连接到 HDInsight 群集：
+1. 编辑以下代码，将 `sshuser` 替换为群集的 SSH 用户名，将 `clustername` 替换为群集名称。  然后输入相应的代码，以[使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 连接到 HDInsight 群集。  
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.cn
     ```
-
-    将 `sshuser` 替换为群集的 SSH 用户名。 将 `clustername` 替换为群集的名称。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 若要创建此目录，请使用以下命令：
 
@@ -79,18 +79,16 @@ Oozie 希望将作业所需的所有资源存储在同一个目录中。 此示�
     hdfs dfs -mkdir -p /tutorials/useoozie/data
     ```
 
-    > [!NOTE]
-    > `-p` 参数用于在路径中创建所有目录。 **data** 目录用于保存 **useooziewf.hql** 脚本使用的数据。
+    > [!NOTE]  
+    > `-p` 参数用于在路径中创建所有目录。 `data` 目录用于保存 `useooziewf.hql` 脚本使用的数据。
 
-3. 若要确保 Oozie 可以模拟用户帐户，请使用以下命令：
+3. 编辑以下代码，将 `username` 替换为你的 SSH 用户名。  若要确保 Oozie 可以模拟用户帐户，请使用以下命令：
 
     ```bash
     sudo adduser username users
     ```
 
-    将 `username` 替换为 SSH 用户名。
-
-    > [!NOTE]
+    > [!NOTE]  
     > 可以忽略指出用户已是 `users` 组的成员的错误。
 
 ## <a name="add-a-database-driver"></a>添加数据库驱动程序
@@ -98,11 +96,11 @@ Oozie 希望将作业所需的所有资源存储在同一个目录中。 此示�
 由于此工作流使用 Sqoop 将数据导出到 SQL 数据库，因此必须提供用来与 SQL 数据库交互的 JDBC 驱动程序的副本。 若要将 JDBC 驱动程序复制到工作目录，请在 SSH 会话中使用以下命令：
 
 ```bash
-hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
+hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]
-> 可能会收到消息，指出“该文件已存在”。
+> [!IMPORTANT]  
+> 验证 `/usr/share/java/` 中是否实际存在 JDBC 驱动程序。
 
 如果工作流使用了其他资源，例如包含 MapReduce 应用程序的 jar，则还需要添加这些资源。
 
@@ -133,9 +131,9 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
     工作流定义文件（本教程中的 workflow.xml）在运行时会这些值传递到此 HiveQL 脚本。
 
-4. 若要退出编辑器，请按 Ctrl+X。 出现提示时，请选择 `Y` 保存文件，输入 `useooziewf.hql` 作为文件名，并按 **Enter**。
+4. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。  
 
-5. 使用以下命令将 `useooziewf.hql` 复制到 `wasb:///tutorials/useoozie/useooziewf.hql`：
+5. 使用以下命令将 `useooziewf.hql` 复制到 `wasbs:///tutorials/useoozie/useooziewf.hql`：
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -196,7 +194,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
             <arg>1</arg>
             <arg>--input-fields-terminated-by</arg>
             <arg>"\t"</arg>
-            <archive>sqljdbc41.jar</archive>
+            <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
             </sqoop>
         <ok to="end"/>
         <error to="fail"/>
@@ -216,7 +214,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
      工作流包含多个条目，例如 `${jobTracker}`。 这些条目将替换为在作业定义中使用的值。 稍后会在本文档中创建作业定义。
 
-     另请注意 Sqoop 节中的 `<archive>sqljdbc4.jar</archive>` 条目。 该条目指示在运行此操作时 Oozie 要将此存档提供给 Sqoop 使用。
+     另请注意 Sqoop 节中的 `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` 条目。 该条目指示在运行此操作时 Oozie 要将此存档提供给 Sqoop 使用。
 
 3. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。 
 
@@ -226,11 +224,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## <a name="create-the-database"></a>创建数据库
-
-若要创建 SQL 数据库，请遵循[创建 SQL 数据库](../sql-database/sql-database-get-started.md)文档中的步骤操作。 创建数据库时，请使用 `oozietest` 作为数据库名称。 此外请记下数据库服务器的名称。
-
-### <a name="create-the-table"></a>创建表
+## <a name="create-a-table"></a>创建表
 
 > [!NOTE]
 > 有多种方法可连接到 SQL 数据库以创建表。 以下步骤从 HDInsight 群集中使用 [FreeTDS](http://www.freetds.org/)。
@@ -242,10 +236,10 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. 安装 FreeTDS 后，使用以下命令连接到先前创建的 SQL 数据库服务器：
+2. 编辑以下代码，将 `<serverName>` 替换为 Azure SQL 服务器名称，将 `<sqlLogin>` 替换为 Azure SQL 服务器登录名。  输入相应的命令以连接到必备的 SQL 数据库。  在提示符下输入密码。
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     会收到类似于以下文本的输出：
@@ -283,7 +277,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
     oozietest       dbo     mobiledata      BASE TABLE
     ```
 
-4. 若要退出 tsql 实用工具，请在 `1>` 提示符下输入 `exit`。
+4. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
 
 ## <a name="create-the-job-definition"></a>创建作业定义
 
@@ -303,17 +297,19 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
     ```
 
     > [!NOTE]
-    > 如果 HDInsight 群集使用 Azure 存储作为默认存储，则 `<value>` 元素内容以 `wasb://` 开头。
+    > 如果 HDInsight 群集使用 Azure 存储作为默认存储，则 `<value>` 元素内容以 `wasbs://` 开头。 如果使用 Azure Data Lake Storage Gen2，则以 `abfs://` 开头。
 
     保存 `<value>` 元素的内容，因为下一个步骤中将使用该内容。
 
-2. 若要创建 Oozie 作业定义配置，请使用以下命令：
+2. 按如下所示编辑以下 xml：
 
-    ```bash
-    nano job.xml
-    ```
-
-3. 打开 nano 编辑器后，使用以下 XML 作为该文件的内容：
+    |占位符值| 替换的值|
+    |---|---|
+    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| 从步骤 1 获取的值。|
+    |admin| HDInsight 群集的登录名（如果不是 admin）。|
+    |serverName| Azure SQL 数据库服务器名称。|
+    |sqlLogin| Azure SQL 数据库服务器登录名。|
+    |sqlPassword| Azure SQL 数据库服务器登录密码。|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -356,7 +352,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
         <property>
         <name>sqlDatabaseConnectionString</name>
-        <value>"jdbc:sqlserver://serverName.database.chinacloudapi.cn;user=adminLogin;password=adminPassword;database=oozietest"</value>
+        <value>"jdbc:sqlserver://serverName.database.chinacloudapi.cn;user=sqlLogin;password=sqlPassword;database=oozietest"</value>
         </property>
 
         <property>
@@ -366,7 +362,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
         <property>
         <name>user.name</name>
-        <value>YourName</value>
+        <value>admin</value>
         </property>
 
         <property>
@@ -376,18 +372,15 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
     </configuration>
     ```
 
-   * 将 **wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** 的所有实例替换为前面收到的默认存储的值。
+    此文件中的大多数信息用于填充 workflow.xml 或 ooziewf.hql 文件中使用的值（例如 `${nameNode}`）。  如果该路径是 `wasbs` 路径，则必须使用完整路径。 不要将其缩短为 `wasbs:///`。 `oozie.wf.application.path` 条目定义查找 workflow.xml 文件的位置。 此文件包含此作业运行的工作流。
 
-     > [!WARNING]
-     > 如果该路径是 `wasb` 路径，则必须使用完整路径。 不要将其缩短为 `wasb:///`。
+3. 若要创建 Oozie 作业定义配置，请使用以下命令：
 
-   * 将 `YourName` 替换为 HDInsight 群集的登录名。
-   * 将 `serverName`、`adminLogin` 和 `adminPassword` 替换为 SQL 数据库的信息。
+    ```bash
+    nano job.xml
+    ```
 
-     此文件中的大多数信息用于填充 workflow.xml 或 ooziewf.hql 文件中使用的值（例如 `${nameNode}`）。
-
-     > [!NOTE]
-     > `oozie.wf.application.path` 条目定义查找 workflow.xml 文件的位置。 此文件包含此作业运行的工作流。
+4. 打开 nano 编辑器后，粘贴编辑后的 XML 作为文件内容。
 
 5. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。
 
@@ -414,13 +407,12 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:11000/oozie` 部分是要配合 Oozie 命令使用的 URL。
 
-2. 若要创建 URL 的环境变量，请使用以下命令，这样就不需要为每个命令输入该 URL：
+2. 编辑代码，将 URL 替换为前面收到的 URL。 若要创建 URL 的环境变量，请使用以下命令，这样就不需要为每个命令输入该 URL：
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    将 URL 替换为前面收到的 URL。
 3. 若要提交作业，请使用以下命令：
 
     ```bash
@@ -431,14 +423,11 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     命令完成后，应返回作业的 ID，例如 `0000005-150622124850154-oozie-oozi-W`。 此 ID 用于管理作业。
 
-4. 若要查看作业的状态，请使用以下命令：
+4. 编辑以下代码，将 `<JOBID>` 替换为上一步骤返回的 ID。  若要查看作业的状态，请使用以下命令：
 
     ```bash
     oozie job -info <JOBID>
     ```
-
-    > [!NOTE]
-    > 将 `<JOBID>` 替换为上一步骤返回的 ID。
 
     此命令返回类似于以下文本的信息：
 
@@ -461,21 +450,18 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     此作业的状态为 `PREP`。 此状态指示作业已创建，但是未启动。
 
-5. 若要启动作业，请使用以下命令：
+5. 编辑以下代码，将 `<JOBID>` 替换为前面返回的 ID。  若要启动作业，请使用以下命令：
 
     ```bash
     oozie job -start JOBID
     ```
 
-    > [!NOTE]
-    > 将 `<JOBID>` 替换为之前返回的 ID。
+    如果在运行此命令后检查状态，会发现作业处于正在运行状态，并且返回了作业中操作的信息。  该作业可能需要几分钟时间才能完成。
 
-    如果在运行此命令后检查状态，会发现作业处于正在运行状态，并且返回了作业中操作的信息。
-
-6. 任务成功完成后，可以使用以下命令验证是否已生成数据并且已将导出到 SQL 数据库表：
+6. 编辑以下代码，将 `<serverName>` 替换为 Azure SQL 服务器名称，将 `<sqlLogin>` 替换为 Azure SQL 服务器登录名。  任务成功完成后，可使用以下命令验证是否已生成数据并且已将导出到 SQL 数据库表。  在提示符下输入密码。
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     在 `1>` 提示符下，输入以下查询：
@@ -528,7 +514,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 1. 与 HDInsight 群集建立 SSH 隧道。 有关详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-2. 创建隧道后，请在 Web 浏览器中打开 Ambari Web UI。 Ambari 网站的 URI 是 `https://CLUSTERNAME.azurehdinsight.cn`。 请将 `CLUSTERNAME` 替换为基于 Linux 的 HDInsight 群集的名称。
+2. 创建隧道后，在 Web 浏览器中使用 URI `http://headnodehost:8080` 打开 Ambari Web UI。
 
 3. 在页面左侧，选择“Oozie” > “快速链接” > “Oozie Web UI”。
 
@@ -597,9 +583,9 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. 若要修改 `job.xml` 文件，请使用以下命令：
+4. 若要修改前面创建的 `job.xml` 文件，请使用以下命令：
 
-    ```
+    ```bash
     nano job.xml
     ```
 
@@ -612,23 +598,23 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie</value>
+            <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie</value>
         </property>
         ```
 
-       将 `wasb://mycontainer@mystorageaccount.blob.core.windows` 文本替换为 job.xml 文件中的其他条目使用的值。
+       将 `wasbs://mycontainer@mystorageaccount.blob.core.windows` 文本替换为 job.xml 文件中的其他条目使用的值。
 
    * 若要定义协调器的开始时间、结束时间和频率，请添加以下 XML：
 
         ```xml
         <property>
             <name>coordStart</name>
-            <value>2017-05-10T12:00Z</value>
+            <value>2018-05-10T12:00Z</value>
         </property>
 
         <property>
             <name>coordEnd</name>
-            <value>2017-05-12T12:00Z</value>
+            <value>2018-05-12T12:00Z</value>
         </property>
 
         <property>
@@ -642,17 +628,15 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
         </property>
         ```
 
-       这些值将开始时间设置为 2017 年 5 月 10 日中午 12:00，将结束时间设置为 2017 年 5 月 12 日。 此作业的运行时间间隔已设置为“每日”。 频率以分钟为单位，因此 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
+       这些值将开始时间设置为 2018 年 5 月 10 日中午 12:00，将结束时间设置为 2018 年 5 月 12 日。 此作业的运行时间间隔已设置为“每日”。 频率以分钟为单位，因此 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
 
 5. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。
 
-6. 若要运行作业，请使用以下命令：
+6. 若要提交并启动该作业，请使用以下命令：
 
-    ```
+    ```bash
     oozie job -config job.xml -run
     ```
-
-    此命令将提交并启动作业。
 
 7. 如果转到 Oozie Web UI 并选择“协调器作业”选项卡，会看到下图所示的信息：
 
@@ -691,7 +675,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 **解决方法**：更改作业使用的 Blob 存储地址。
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002:不允许 Oozie 模拟&lt;用户>
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002:不允许 Oozie 模拟 &lt;USER&gt;
 
 **症状**：作业状态变为“SUSPENDED”。 作业详细信息中的 `RunHiveScript` 状态显示为“START_MANUAL”。 选择操作会显示以下错误消息：
 
@@ -718,16 +702,16 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 例如，可以针对本文档中的作业使用以下步骤：
 
-1. 将 `sqljdbc4.1.jar` 文件复制到 **/tutorials/useoozie** 目录：
+1. 将 `mssql-jdbc-7.0.0.jre8.jar` 文件复制到 **/tutorials/useoozie** 目录：
 
     ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
+    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
     ```
 
 2. 修改 `workflow.xml`，在 `</sqoop>` 上方的新行中添加以下 XML：
 
     ```xml
-    <archive>sqljdbc41.jar</archive>
+    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
 
 ## <a name="next-steps"></a>后续步骤

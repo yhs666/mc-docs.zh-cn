@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 02/16/2019
-ms.date: 02/26/2019
+origin.date: 02/24/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b167a3f9063e2719da2ecb9bfa4971257fc18c7d
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: d15e2e135ae99826c6a7a455a350b2eaaec1954c
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836934"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319014"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -45,6 +45,8 @@ ms.locfileid: "56836934"
 | [自动化作业操作员](#automation-job-operator) | 使用自动化 Runbook 创建和管理作业。 |
 | [自动化运算符](#automation-operator) | 自动化操作员能够启动、停止、暂停和恢复作业 |
 | [自动化 Runbook 操作员](#automation-runbook-operator) | 读取 Runbook 属性 - 以能够创建 runbook 的作业。 |
+| [Azure Kubernetes 服务群集管理员角色](#azure-kubernetes-service-cluster-admin-role) | 列出群集管理员凭据操作。 |
+| [Azure Kubernetes 服务群集用户角色](#azure-kubernetes-service-cluster-user-role) | 列出群集用户凭据操作。 |
 | [Azure Stack 注册所有者](#azure-stack-registration-owner) | 允许管理 Azure Stack 注册。 |
 | [备份参与者](#backup-contributor) | 允许管理备份服务，但不允许创建保管库以及授予其他人访问权限 |
 | [备份操作员](#backup-operator) | 允许管理备份服务，但删除备份、创建保管库以及授予其他人访问权限除外 |
@@ -70,6 +72,8 @@ ms.locfileid: "56836934"
 | [HDInsight 域服务参与者](#hdinsight-domain-services-contributor) | 可以读取、创建、修改和删除 HDInsight 企业安全性套餐所需的域服务相关操作 |
 | [Intelligent Systems 帐户参与者](#intelligent-systems-account-contributor) | 允许管理智能系统帐户，但不允许访问这些帐户。 |
 | [密钥保管库参与者](#key-vault-contributor) | 允许管理密钥保管库，但不允许对其进行访问。 |
+| [Log Analytics 参与者](#log-analytics-contributor) | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志集合、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。 |
+| [Log Analytics 读者](#log-analytics-reader) | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 |
 | [逻辑应用参与者](#logic-app-contributor) | 允许管理逻辑应用，但不允许对其进行访问。 |
 | [逻辑应用操作员](#logic-app-operator) | 允许读取、启用和禁用逻辑应用。 |
 | [托管应用程序操作员角色](#managed-application-operator-role) | 可让你在托管应用程序资源上读取和执行操作 |
@@ -84,7 +88,7 @@ ms.locfileid: "56836934"
 | [网络参与者](#network-contributor) | 允许管理网络，但不允许访问这些网络。 |
 | [New elic APM 帐户参与者](#new-relic-apm-account-contributor) | 允许管理 New Relic 应用程序性能管理帐户和应用程序，但不允许访问它们。 |
 | [读取器和数据访问](#reader-and-data-access) | 允许查看所有内容，但不允许删除或创建存储帐户或包含的资源。 它还允许使用存储帐户密钥对存储帐户中包含的所有数据进行读/写访问。 |
-| [Redis 缓存参与者](#redis-cache-contributor) | 允许管理 Azure Redis 缓存，但不能访问它们。 |
+| [Redis 缓存参与者](#redis-cache-contributor) | 允许管理 Redis 缓存，但不允许访问这些缓存。 |
 | [资源策略参与者（预览）](#resource-policy-contributor-preview) | （预览）通过 EA 回填的 用户，具有创建/修改资源策略、创建支持票证和读取资源/层次结构的权限。 |
 | [计划程序作业集合参与者](#scheduler-job-collections-contributor) | 允许管理计划程序作业集合，但不允许访问这些集合。 |
 | [安全管理员](#security-admin) | 仅在安全中心内：可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议、关闭警报和建议 |
@@ -311,6 +315,36 @@ ms.locfileid: "56836934"
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes 服务群集管理员角色
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 列出群集管理员凭据操作。 |
+> | Id | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **操作** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 列出托管群集的 clusterAdmin 凭据 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes 服务群集用户角色
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 列出群集用户凭据操作。 |
+> | Id | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **操作** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 列出托管群集的 clusterUser 凭据 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -966,6 +1000,51 @@ ms.locfileid: "56836934"
 > | **NotDataActions** |  |
 > | *无* |  |
 
+## <a name="log-analytics-contributor"></a>Log Analytics 参与者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志集合、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。 |
+> | Id | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
+> | **操作** |  |
+> | */read | 读取除密码外的所有类型的资源。 |
+> | Microsoft.Automation/automationAccounts/* |  |
+> | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
+> | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出存储帐户的访问密钥。 |
+> | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Insights/diagnosticSettings/* | 创建、更新或读取 Analysis Server 的诊断设置 |
+> | Microsoft.OperationalInsights/* |  |
+> | Microsoft.OperationsManagement/* |  |
+> | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Storage/storageAccounts/listKeys/action | 返回指定存储帐户的访问密钥。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+## <a name="log-analytics-reader"></a>Log Analytics 读者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 |
+> | Id | 73c42c96-874c-492b-b04d-ab87d138a893 |
+> | **操作** |  |
+> | */read | 读取除密码外的所有类型的资源。 |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 使用新引擎进行搜索。 |
+> | Microsoft.OperationalInsights/workspaces/search/action | 执行搜索查询 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 检索工作区的共享密钥。 这些密钥用于将 Microsoft Operational Insights 代理连接到工作区。 |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
 ## <a name="logic-app-contributor"></a>逻辑应用参与者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1039,6 +1118,7 @@ ms.locfileid: "56836934"
 > | **操作** |  |
 > | */read | 读取除密码外的所有类型的资源。 |
 > | Microsoft.Solutions/applications/read | 检索应用程序列表。 |
+> | Microsoft.Solutions/*/action |  |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -1161,8 +1241,11 @@ ms.locfileid: "56836934"
 > | Microsoft.Insights/Metrics/* | 读取资源的指标。 |
 > | Microsoft.Insights/Register/Action | 注册 Microsoft Insights 提供程序 |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 读取/写入/删除日志分析解决方案包。 |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | 读取/写入/删除日志分析保存的搜索。 |
 > | Microsoft.OperationalInsights/workspaces/search/action | 执行搜索查询 |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | 检索工作区的共享密钥。 这些密钥用于将 Microsoft Operational Insights 代理连接到工作区。 |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 读取/写入/删除日志分析存储见解配置。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1269,11 +1352,11 @@ ms.locfileid: "56836934"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **说明** | 允许管理 Azure Redis 缓存，但不能访问它们。 |
+> | **说明** | 允许管理 Redis 缓存，但不允许访问这些缓存。 |
 > | Id | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **操作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
-> | Microsoft.Cache/redis/* | 创建和管理 Azure Redis 缓存 |
+> | Microsoft.Cache/redis/* | 创建和管理 Redis 缓存 |
 > | Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
@@ -1340,6 +1423,7 @@ ms.locfileid: "56836934"
 > | Microsoft.Authorization/policySetDefinitions/* | 创建和管理策略集 |
 > | Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
 > | Microsoft.Management/managementGroups/read | 列出已通过身份验证的用户的管理组。 |
+> | Microsoft.operationalInsights/workspaces/*/read | 查看日志分析数据 |
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Security/*/read | 读取安全组件和策略 |
@@ -1394,6 +1478,7 @@ ms.locfileid: "56836934"
 > | **操作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
+> | Microsoft.operationalInsights/workspaces/*/read | 查看日志分析数据 |
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Security/*/read | 读取安全组件和策略 |

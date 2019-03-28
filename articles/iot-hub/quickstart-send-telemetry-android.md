@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 11/05/2018
-ms.date: 12/31/2018
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: b02c313588aef732801f952b7b9619adf37ad0cb
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: e738c7cb9a3c0f4ba8456c1eba4f8d4bfdc47cbf
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736732"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348554"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>快速入门：从 Android 设备发送 IoT 遥测数据
 
@@ -85,6 +85,12 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
     ```
 
 3. 在 Android Studio 中，单击“文件” > “将项目与 Gradle 文件同步”。 验证生成是否已完成。
+
+   > [!NOTE]
+   > 如果项目同步失败，可能是由于以下某个原因：
+   >
+   > * 项目中引用的 Android Gradle 插件和 Gradle 的版本对于 Android Studio 版本来说已经过时。 请按照[这些说明](https://developer.android.com/studio/releases/gradle-plugin)操作，以引用并安装正确版本的插件和 Gradle 以进行安装。
+   > * Android SDK 的许可协议尚未签署。 请按照 Build 输出中的说明签署许可协议并下载 SDK。
 
 4. 生成完成以后，请单击“运行” > “运行‘应用’”。 将应用配置为在物理 Android 设备或 Android 模拟器上运行。 若要详细了解如何在物理设备或模拟器上运行 Android 应用，请参阅[运行您的应用](https://developer.android.com/training/basics/firstapp/running-app)。
 

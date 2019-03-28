@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 07/19/2018
-ms.date: 12/31/2018
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9ca315175918b351d8ce4116fdffe53ad8feaec9
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 68a2d2504513c7f554e0aaa1e89ce1a2cd1d24ad
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736654"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348678"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>检测和排查 Azure IoT 中心的连接断开问题
 
@@ -55,7 +55,7 @@ ms.locfileid: "53736654"
 
 ## <a name="resolve-connectivity-errors"></a>解决连接错误
 
-为联网设备启用诊断日志和警报后，如果出错，则会收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假设已经在 Azure Log Analytics 中设置了诊断日志。
+为联网设备启用诊断日志和警报后，如果出错，则会收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假设已经在 Azure Monitor 日志中设置了诊断日志。
 
 1. 在 Azure 门户中转到 Log Analytics 的工作区。
 1. 选择 **“日志搜索”**。

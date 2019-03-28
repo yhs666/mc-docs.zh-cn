@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 02/27/2019
+ms.date: 03/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5f2378cdb57f9f7b8edaae36f83204a6bab5ab2d
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 2c94972ccc648cd5065801d104efce2ba6ba05b8
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903245"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318980"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>如何为 Azure Redis 缓存配置异地复制
 
@@ -185,4 +185,4 @@ ms.locfileid: "56903245"
 
 了解有关 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

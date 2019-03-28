@@ -10,15 +10,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/29/2019
-ms.date: 02/18/2019
+origin.date: 02/28/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a01b3cae41ea12c40b063e0def88d990d4882441
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 7cd5722f93a4cb23e3b4bf4dd9e5de832aa58212
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306260"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348073"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -29,7 +29,7 @@ ms.locfileid: "56306260"
 移动资源仅能够将其移动到新的资源组。 移动操作不能更改该资源的位置。 新的资源组可能有不同的位置，但这不会更改该资源的位置。
 
 > [!NOTE]
-> 本文介绍如何在现有 Azure 帐户产品/服务中移动资源。 如果确实想要更改 Azure 帐户产品/服务（例如从免费升级到标准预付费产品/服务），则需要转换订阅。
+> 本文介绍如何在现有 Azure 订阅之间移动资源。 如果确实想要升级 Azure 订阅（例如从免费切换到标准的预先支付套餐），则需要转换订阅。
 > 
 > * 如果无法转换订阅，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”作为问题类型。
 
@@ -58,21 +58,25 @@ ms.locfileid: "56306260"
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书 - 请参阅[应用服务证书限制](#app-service-certificate-limitations)
-* 自动化 <!-- Not Available * Azure Active Directory B2C-->
-* Azure Cosmos DB <!--Verify successfully-->
+* 自动化 - Runbook 必须与自动化帐户存在于同一资源组中。
+<!-- Not Available * Azure Active Directory B2C-->
+* Azure Redis 缓存 - 如果 Azure Redis 缓存实例配置了虚拟网络，则实例无法被移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
+* Azure Cosmos DB
 * Azure Database for MySQL
-* Azure Database for PostgreSQL <!--Verify successfully-->
+* Azure Database for PostgreSQL
 <!-- Not Available * Azure DevOps-->
 <!-- Not Available * Azure Maps-->
 <!-- Not Available * Azure Relay-->
 * Azure Stack - 注册
-* Batch <!-- Not Available * BizTalk Services-->
+* 批处理
+<!-- Not Available * BizTalk Services-->
 <!-- Not Available * Bot Service-->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
 * 容器注册表 - 启用异地复制后无法移动容器注册表。
-* 内容审查器 <!-- Not Available * Cost Management-->
+* 内容审查器
+<!-- Not Available * Cost Management-->
 <!-- Not Available * Customer Insights-->
 <!-- Not Available * Data Catalog-->
 <!-- Not Available * Data Factory-->
@@ -80,28 +84,32 @@ ms.locfileid: "56306260"
 <!-- Not Available * Data Lake Store-->
 <!-- Not Available * DNS-->
 <!-- Not Available * Event Grid-->
-* 事件中心 <!-- Not Available * Front Door-->
+* 事件中心
+<!-- Not Available * Front Door-->
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 <!-- Not Available * Iot Central-->
 * IoT 中心
 * Key Vault - 用于磁盘加密的 Key Vault 不能移动到同一订阅中的资源组，也不能跨订阅移动。
 * 负载均衡器 - 可以移动基本 SKU 负载均衡器。 不能移动标准 SKU 负载均衡器。
 <!-- Not Available * Log Analytics-->
-* 逻辑应用 <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+* Logic Apps
+<!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
 <!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
 <!-- Not Available * Managed Identity - user-assigned-->
 * 媒体服务
 * 监视器 - 确保移动到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#monitor-limits)
-* 通知中心 <!-- Not Available * Operational Insights-->
+* 通知中心
+<!-- Not Available * Operational Insights-->
 <!-- Not Available * Operations Management-->
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 可以移动基本 SKU 公共 IP。 不能移动标准 SKU 公共 IP。
-* 恢复服务保管库 - 必须注册专用预览版。 请参阅[恢复服务限制](#recovery-services-limitations)。
-* Azure Redis 缓存 - 如果 Azure Redis 缓存实例配置了虚拟网络，则实例无法被移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
-* 计划程序 <!-- Not Available * Search-->
+<!--MOONCAKE: Not Available on * Recovery Services vault - enroll in a [preview](#recovery-services-limitations)-->
+* 计划程序
+<!-- Not Available * Search-->
 * 服务总线
-* Service Fabric <!-- Not Available * Service Fabric Mesh-->
+* Service Fabric
+<!-- Not Available * Service Fabric Mesh-->
 <!-- Not Available * SignalR Service-->
 * 存储 - 不同区域的存储帐户无法通过同一操作进行移动。 请改为对每个区域使用单独的操作。
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -109,7 +117,7 @@ ms.locfileid: "56306260"
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
 <!-- Not Available * Time Series Insights-->
 * 流量管理器
-* 虚拟机 - 针对使用托管磁盘的虚拟机，请参阅[虚拟机限制](#virtual-machines-limitations)
+* 虚拟机 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 虚拟机规模集 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟网络 - 请参阅[虚拟网络限制](#virtual-networks-limitations)
@@ -121,24 +129,28 @@ ms.locfileid: "56306260"
 
 <!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
-* 应用程序网关 <!-- Not Available * Azure Database Migration-->
+* 应用程序网关
+<!-- Not Available * Azure Database Migration-->
 <!-- Not Available * Azure Databricks-->
 <!-- Not Available * Azure Firewall-->
 <!-- Not Available * Azure Migrate-->
+<!-- Not Available * Azure NetApp Files-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
 <!-- Not Available * Container Instances-->
 <!-- Not Available * Container Service-->
 <!-- Not Available * Data Box-->
 <!-- Not Available * Dev Spaces-->
 <!-- Not Available * Dynamics LCS-->
-* Express Route <!-- Not Available * Kubernetes Service-->
+* Express Route
+<!-- Not Available * Kubernetes Service-->
 <!-- Not Available * Lab Services-->
 <!-- Not Available * Managed Applications-->
 <!-- Not Available * Azure Genomics-->
 <!-- Not Available * NetApp-->
 <!-- Not Available * SAP HANA on Azure-->
 * 安全性
-* Site Recovery <!-- Not Available * StorSimple Device Manager-->
+* 站点恢复
+<!-- Not Available * StorSimple Device Manager-->
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
 ## <a name="limitations"></a>限制
@@ -155,7 +167,9 @@ ms.locfileid: "56306260"
 
 ### <a name="virtual-machines-limitations"></a>虚拟机限制
 
-从 2018 年 9 月 24 日起，可以移动托管磁盘。 此支持意味着，可以移动包含托管磁盘、托管映像和托管快照的虚拟机，以及移动所含虚拟机使用托管磁盘的可用性集。
+可以移动包含托管磁盘、托管映像和托管快照的虚拟机，以及移动所含虚拟机使用托管磁盘的可用性集。
+
+<!--MOONCAKE: Not Available on  Managed Disks in Availability Zones can't be moved to a different subscription.-->
 
 以下方案尚不受支持：
 
@@ -163,7 +177,7 @@ ms.locfileid: "56306260"
 
 <!--Not Availabl on Availability Zones-->
 
-* 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集
+* 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集。
 * 无法跨资源组或订阅移动基于附加了计划的市场资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
 
 若要移动使用 Azure 备份配置的虚拟机，请使用以下解决方法：
@@ -181,6 +195,8 @@ ms.locfileid: "56306260"
 ### <a name="virtual-networks-limitations"></a>虚拟网络限制
 
 移动虚拟网络时，还必须移动其从属资源。 对于 VPN 网关，必须移动 IP 地址、虚拟网络网关和所有关联的连接资源。 本地网络网关可以位于不同的资源组中。
+
+若要移动带网络接口卡的虚拟机，必须移动所有依赖的资源。 必须移动与该网络接口卡对应的虚拟网络、该虚拟网络的所有其他网络接口卡，以及 VPN 网关。
 
 若要移动对等的虚拟网络，必须首先禁用虚拟网络对等互连。 在禁用后，可以移动虚拟网络。 在移动后，重新启用虚拟网络对等互连。
 
@@ -302,17 +318,19 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 ### <a name="#recovery-services-limitations"></a>恢复服务限制
 
-若要移动恢复服务保管库，你必须注册[受限公共预览版](/backup/backup-azure-recovery-services-vault-overview)。
+<!--MOONCAKE: Not Available on To move a Recovery Services vault, you must enroll in the [limited public preview](/backup/backup-azure-recovery-services-vault-overview)-->
 
 <!--URL direct to backup-azure-recovery-services-vault-overview-->
 
-目前，每个区域一次可以移动一个恢复服务保管库。 不能移动在 IaaS 虚拟机中备份 Azure 文件、Azure 文件同步或 SQL 的保管库。
+<!--MOONCAKE: Not Available on Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.-->
 
-如果虚拟机不随保管库移动，则当前虚拟机恢复点会保留在保管库中，直至过期。 不管虚拟机是否随保管库移动，均可根据保管库的备份历史记录还原虚拟机。
+<!--MOONCAKE: Not Available on If a virtual machine doesn't move with the vault, the current virtual machine recovery points stay in the vault until they expire. Whether the virtual machine moved with the vault or not, you can restore the virtual machine from the backup history in the vault.-->
 
-恢复服务保管库不支持跨订阅备份。 如果跨订阅移动保管库和虚拟机备份数据，则必须将虚拟机移到同一订阅，并使用同一目标资源组来继续备份。
+恢复服务保管库不支持跨订阅备份。 
 
-在保管库移动后，会保留为保管库定义的备份策略。 在移动后，必须再次为保管库设置报告和监视功能。
+<!--MOONCAKE: Not Available on If you move a vault with virtual machine backup data across subscriptions, you must move your virtual machines to the same subscription, and use the same target resource group to continue backups.-->
+
+<!--MOONCAKE: Not Available on Backup policies defined for the vault are kept after the vault moves. Reporting and monitoring must be set up again for the vault after the move.-->
 
 若要将虚拟机移到新的订阅而不移动恢复服务保管库，请执行以下操作：
 
@@ -339,7 +357,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
   对于 Azure PowerShell，请使用：
 
-  ```azurepowershell
+  ```powershell
   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -357,36 +375,36 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
 
-  对于 PowerShell，请使用以下命令来获取注册状态：
+    对于 PowerShell，请使用以下命令来获取注册状态：
 
-  ```azurepowershell
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+    ```powershell
+    Set-AzContext -Subscription <destination-subscription-name-or-id>
+    Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+    ```
 
-  若要注册资源提供程序，请使用：
+    若要注册资源提供程序，请使用：
 
-  ```azurepowershell
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    ```
 
-  对于 Azure CLI，请使用以下命令来获取注册状态：
+    对于 Azure CLI，请使用以下命令来获取注册状态：
 
-  ```azurecli
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+    ```azurecli
+    az account set -s <destination-subscription-name-or-id>
+    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+    ```
 
-  若要注册资源提供程序，请使用：
+    若要注册资源提供程序，请使用：
 
-  ```azurecli
-  az provider register --namespace Microsoft.Batch
-  ```
+    ```azurecli
+    az provider register --namespace Microsoft.Batch
+    ```
 
 1. 移动资源的帐户至少需要具备下列权限：
 
-   * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
-   * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
+    * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
+    * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
 
 1. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
@@ -474,7 +492,7 @@ Authorization: Bearer <access-token>
 
 要将现有资源移到另一个资源组或订阅，请使用 [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) 命令。 下面的示例演示了如何将多个资源移动到新的资源组。
 
-```azurepowershell
+```powershell
 $webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
@@ -508,8 +526,8 @@ POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/
 
 ## <a name="next-steps"></a>后续步骤
 
-* 要了解管理订阅所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与 Resource Manager 配合使用](powershell-azure-resource-manager.md)。
-* 若要了解管理订阅所需的 Azure CLI 命令，请参阅[将 Azure CLI 与资源管理器配合使用](xplat-cli-azure-resource-manager.md)。
+* 若要了解管理资源所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与资源管理器配合使用](manage-resources-powershell.md)。
+* 若要了解管理资源所需的 Azure CLI 命令，请参阅[将 Azure CLI 与资源管理器配合使用](manage-resources-cli.md)。
 * 若要了解管理订阅所需的门户功能，请参阅[使用 Azure 门户管理资源](resource-group-portal.md)。
 * 若要了解如何向资源应用逻辑组织，请参阅[使用标记组织资源](resource-group-using-tags.md)。
 

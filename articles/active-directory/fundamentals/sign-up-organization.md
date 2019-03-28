@@ -1,24 +1,25 @@
 ---
-title: 注册你的组织以使用 Azure Active Directory | Microsoft Docs
+title: 注册组织 - Azure Active Directory | Microsoft Docs
 description: 有关如何注册你的组织以使用 Azure 和 Azure Active Directory 的说明。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 01/21/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
-ms.openlocfilehash: 95aa6bd1a4334fa80f7b430bb8c77284210722f2
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b967d2c74a3f2f8c8cc40b5ac73b88bde1008124
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440331"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186645"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>注册你的组织以使用 Azure Active Directory
 使用以下任一项注册 Azure Active Directory (Azure AD) 或新的 Azure 订阅：
@@ -38,4 +39,4 @@ ms.locfileid: "54440331"
 
 - [访问 Azure 博客](https://azure.microsoft.com/blog/)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

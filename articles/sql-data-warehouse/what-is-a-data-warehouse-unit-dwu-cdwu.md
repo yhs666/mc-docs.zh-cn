@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: af32bc40aff25d781847938101283f25f30292fc
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 4c94b213ddc3ed161f333b5513d369343903bf25
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833357"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348042"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。 
@@ -67,7 +67,7 @@ WITH
 
 DWU 和 cDWU 都支持增加或减少计算，以及在无需使用数据仓库时暂停计算。 这些操作均可按需进行。 第 2 代还会在计算节点上使用基于本地磁盘的缓存以提高性能。 缩放或暂停系统时，缓存将失效，因此在达到最佳性能前，缓存需要预热一段时间。  
 
-增加数据库单位时，将以线性方式增加计算资源。 第 2 代可提供最佳查询性能和最大规模，但入门价格也更高。 它专为对性能有持续需求的企业而设计。 这些系统最大限度利用缓存。 
+增加数据库单位时，将以线性方式增加计算资源。 第 2 代可提供最佳查询性能和最大规模。 这些系统最大限度利用缓存。
 
 ### <a name="capacity-limits"></a>容量限制
 每个 SQL Server（例如 myserver.database.chinacloudapi.cn）都有一个[数据库事务单位 (DTU)](../sql-database/sql-database-what-is-a-dtu.md) 配额，允许使用特定的数据仓库单位数。 有关详细信息，请参阅[工作负荷管理容量限制](sql-data-warehouse-service-capacity-limits.md#workload-management)。
@@ -123,10 +123,13 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 3. 单击“保存” 。 此时会显示确认消息。 单击“是”确认，或者单击“否”取消。
 
 ### <a name="powershell"></a>PowerShell
-若要更改 DWU 或 cDWU，请使用 [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的服务级别目标设置为 DW1000。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+若要更改 DWU 或 cDWU，请使用 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的服务级别目标设置为 DW1000。
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 有关详细信息，请参阅[适用于 SQL 数据仓库的 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)

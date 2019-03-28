@@ -5,29 +5,29 @@ services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-origin.date: 12/17/2018
-ms.date: 02/18/2019
+origin.date: 02/20/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 033e654b4f6b69cc3c239aac059a816ab3b4a447
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 28d86a14be769cfa2e7f9c372ec1ff581aff329c
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440664"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352506"
 ---
 <!--Verify successfully-->
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure 容器注册表角色和权限
 
 Azure 容器注册表服务支持一组 Azure 角色，这些角色提供访问 Azure 容器注册表所需的不同级别的权限。 使用 Azure [基于角色的访问控制](../role-based-access-control/index.yml) (RBAC)，为需要与注册表交互的用户或服务主体分配特定的权限。
 
-| 角色/权限       | 访问资源管理器| 创建/删除注册表 | [推送映像](#push-image) | [拉取映像](#pull-image) | 更改策略 |   [对映像签名](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| 所有者 | X | X | X | X | X |  |  
-| 参与者 | X | X | X | X | X |  |  
-| 读取器 | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| 角色/权限       | [访问资源管理器](#access-resource-manager) | [创建/删除注册表](#create-and-delete-registry) | [推送映像](#push-image) | [拉取映像](#pull-image) | [删除映像数据](#delete-image-data) | [更改策略](#change-policies) |   [对映像签名](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| 所有者 | X | X | X | X | X | X |  |  
+| 参与者 | X | X | X |  X | X | X |  |  
+| 读取器 | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>区分用户和服务
 
@@ -47,19 +47,23 @@ Azure 容器注册表服务支持一组 Azure 角色，这些角色提供访问 
 
 ## <a name="access-resource-manager"></a>访问资源管理器
 
-Azure 资源管理器访问权限是 Azure 门户和 [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 所需的。 例如，若要通过 `az acr list` 命令获取一系列注册表，需要此权限集。 
+Azure 资源管理器访问权限是 Azure 门户和使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 进行注册表管理所需的。 例如，若要通过 `az acr list` 命令获取一系列注册表，需要此权限集。 
 
-## <a name="createdelete-registry"></a>创建/删除注册表
+## <a name="create-and-delete-registry"></a>创建和删除注册表
 
 创建和删除 Azure 容器注册表的功能。
 
 ## <a name="push-image"></a>推送映像
 
-通过 `docker push` 将映像推送到注册表的功能，或者将其他受支持的项目推送到注册表的功能。 要求使用授权的标识通过注册表进行[身份验证](container-registry-authentication.md)。 
+通过 `docker push` 将映像推送到注册表的功能，或者将其他[受支持的项目](container-registry-image-formats.md)（例如 Helm 图表）推送到注册表的功能。 要求使用授权的标识通过注册表进行[身份验证](container-registry-authentication.md)。 
 
 ## <a name="pull-image"></a>拉取映像
 
-通过 `docker pull` 从注册表拉取非隔离映像的功能，或者从注册表拉取其他受支持的项目的功能。 要求使用授权的标识通过注册表进行[身份验证](container-registry-authentication.md)。
+通过 `docker pull` 从注册表拉取非隔离映像的功能，或者从注册表拉取其他[受支持的项目](container-registry-image-formats.md)（例如 Helm 图表）的功能。 要求使用授权的标识通过注册表进行[身份验证](container-registry-authentication.md)。
+
+## <a name="delete-image-data"></a>删除映像数据
+
+[删除容器映像或存储库](container-registry-delete.md)的功能。
 
 ## <a name="change-policies"></a>更改策略
 

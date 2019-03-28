@@ -4,26 +4,27 @@ description: 介绍升级到 Azure Active Directory Connect 最新版本的不�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 07/18/2018
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: c33e2011cbe32a07c6076cc6c07dd8fc7012dc7d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 286a5d2f248e7ade4757c3328a932298b7450d02
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662779"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186668"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：从旧版升级到最新版本
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：从以前版本升级到最新版本
 本主题介绍可将 Azure Active Directory (Azure AD) Connect 安装升级到最新版本的不同方法。 建议使用最新版本的 Azure AD Connect。 进行重大配置更改时，也可以使用[交叉迁移](#swing-migration)部分所述的步骤。
 
 如果要从 DirSync 升级，请参阅[从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)。
@@ -62,7 +63,7 @@ ms.locfileid: "52662779"
 ![暂存服务器](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> 对于这种方案，有些客户更愿意使用三到四台服务器进行交叉迁移。 升级过渡服务器后，将没有备份服务器用于[灾难恢复](how-to-connect-sync-operations.md#disaster-recovery)。 如果使用三到四台服务器，就可以准备一组装有新版本的主服务器/待机服务器，确保始终都有用于接管的过渡服务器。
+> 对于这种方案，有些客户更愿意使用三到四台服务器进行交叉迁移。 升级过渡服务器后，将没有备份服务器用于[灾难恢复](how-to-connect-sync-staging-server.md#disaster-recovery)。 如果使用三到四台服务器，就可以准备一组装有新版本的主服务器/待机服务器，确保始终都有用于接管的过渡服务器。
 
 以下步骤也适用于从 Azure AD Sync 进行的迁移，或者从使用 FIM + Azure AD 连接器的解决方案进行的迁移。 这些步骤不适用于 DirSync，但是，可以在[升级 Azure Active Directory 同步 (DirSync)](how-to-dirsync-upgrade-get-started.md) 一文中找到适用于 DirSync 的相同交叉迁移（也称为并行部署）方法的步骤。
 
@@ -71,8 +72,8 @@ ms.locfileid: "52662779"
 2. 如果创建了自定义配置，但过渡服务器没有该配置，请执行[将自定义配置从活动服务器移到过渡服务器](#move-a-custom-configuration-from-the-active-server-to-the-staging-server)部分的步骤。
 3. 如果要从旧版 Azure AD Connect 升级，请将过渡服务器升级到最新版本。 如果要从 Azure AD Sync 迁移，请在过渡服务器上安装 Azure AD Connect。
 4. 让同步引擎在过渡服务器上运行完全导入和完全同步。
-5. 使用[验证服务器的配置](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server)部分“验证”下面列出的步骤，验证新配置是否不会造成任何意外的更改。 如果出现异常，请按照相关步骤进行纠正，运行导入和同步，并对数据进行验证，直到一切正常。
-6. 将过渡服务器切换为活动服务器。 这是[验证服务器的配置](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server)中的最后一个步骤，即“切换活动服务器”。
+5. 使用[验证服务器的配置](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)部分“验证”下面列出的步骤，验证新配置是否不会造成任何意外的更改。 如果出现异常，请按照相关步骤进行纠正，运行导入和同步，并对数据进行验证，直到一切正常。
+6. 将过渡服务器切换为活动服务器。 这是[验证服务器的配置](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server)中的最后一个步骤，即“切换活动服务器”。
 7. 要升级 Azure AD Connect，请将现在处于过渡模式的服务器升级到最新版本。 按照与前面相同的步骤来升级数据和配置。 如果已从 Azure AD Sync 升级，现在可以关闭并解除旧服务器。
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>将自定义配置从活动服务器移到过渡服务器
@@ -82,9 +83,9 @@ ms.locfileid: "52662779"
 
 需在两个服务器上使用同一方式配置以下内容：
 
-- 与相同林的连接
-- 任何域和 OU 筛选
-- 相同的可选功能，例如密码同步和密码写回
+* 与相同林的连接
+* 任何域和 OU 筛选
+* 相同的可选功能，例如密码同步
 
 **移动自定义同步规则**  
 若要移动自定义同步规则，请执行以下操作：
@@ -167,3 +168,4 @@ PowerShell cmdlet 将报告错误“找不到指定的 MA”。
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: link update -->

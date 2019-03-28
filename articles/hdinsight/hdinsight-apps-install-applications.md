@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2018
-ms.date: 01/21/2019
+origin.date: 03/01/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 521f495d9c710eefa3e2550e5d4392040e151a53
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: e9b20b15bc1da83cf2c7c84b3c34c24d9708e7ae
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216261"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348583"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装第三方 Apache Hadoop 应用程序
 
@@ -27,21 +27,24 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 
 以下列表显示已发布的应用程序：
 
-* **AtScale 智能平台**可将 HDInsight 群集变为横向扩展 OLAP 服务器。 使用此应用程序可通过 BI 工具（包括 Microsoft Excel、PowerBI、Tableau Software 和 QlikView）以交互方式查询几十亿行数据。
-* **Cask CDAP for HDInsight** 为大数据提供首个统一的集成平台，可将数据应用程序和 Data Lake 的生产时间缩短 80%。 此应用程序仅支持标准 HBase 3.4 群集。
-* **DATAIKU DDS on HDInsight**，利用此应用程序，数据专家可以对针对性很强的服务进行原型、生成和部署方面的操作，将原始数据转换成有影响力的业务预测。
-* **Datameer** 是一个自助的可缩放平台，用于准备、浏览和管理要分析的数据，可以加速将复杂的多源数据转变为有价值的可用于业务的信息，在企业级别提供更快更智能的见解。
-* **用于 HDInsight 的 H2O 人工智能（Beta 版本）**：H2O Sparkling Water 支持以下分布式算法：GLM、Naïve Bayes、分布式随机森林、梯度增强机、深度神经网络、深度学习、K-means、PCA、广义低阶模型、异常情况检测和自编码器。
-* **Kyligence Enterprise** 由 Apache Kylin 提供支持，可为业务用户和数据分析师针对大型数据集提供即时见解。 凭借领先的机器学习技术和智能数据建模功能，它极大地提高了大数据分析的工作效率。 
-* **Paxata 自助服务数据准备**
-* **Spark Job Server for KNIME Spark Executor** Spark Job Server for KNIME Spark Executor 用于将 KNIME Analytics Platform 连接到 HDInsight 群集。
-* **Starburst Presto** Presto 是一个快速的可缩放分布式 SQL 查询引擎。 Presto 针对存储和计算的分离进行了架构设计，非常适用于查询 Azure Data Lake Storage、Azure Blob 存储、SQL 和 NoSQL 数据库以及其他数据源中的数据。
-* **Streamsets Data Collector for HDnsight** 提供一个全功能的集成开发环境 (IDE)，可在其中设计、测试、部署和管理汇合流和批处理数据的全面互通引入管道，并提供各种流中转换 - 所有这一切都无需编写自定义代码。 
-* **Striim**（读作“stream”）是一个端到端流式处理数据集成 + 智能平台，可用于实现不同数据流的持续引入、处理和分析。
-* **[Trifacta](http://www.trifacta.com/)** 利用机器学习来提供突破性的用户体验、工作流和体系结构，使得数据工程师和分析师能够更高效地探究和编制当今的各种数据。
-* **Unifi Data Platform** 是一个无缝集成的自助服务数据工具套件，设计用来使业务用户能够解决推动收入增长、降低成本或运营复杂性的数据难题。 
-* **WANdisco Fusion HDI App** 可随数据更改（无论数据位于何处）提供到数据的连续一致连接。 它支持用户随时随地访问数据，不会出现任何停机或中断情况。
-* **Waterline** 使用 AI 来编录、组织和管理数据以使用业务术语自动标记数据。 Waterline 的商业文献目录是一个用于自助分析、合规性和管理，以及 IT 管理计划的关键成功组件。
+|应用程序 |群集类型 | 说明 |
+|---|---|---|
+|AtScale 智能平台 |Hadoop |AtScale 可将 HDInsight 群集转换成 OLAP 横向扩展服务器，使你能够使用熟悉的、自有的或偏好的 BI 工具（包括 Microsoft Excel、PowerBI、Tableau Software、QlikView 等等）以交互方式查询数十亿行数据。 |
+|适用于 HDInsight 的 CDAP 4.2、4.3 |HBase |CDAP 是第一款用于处理大数据的统一集成平台，可以加速的 Hadoop 的价值实现，使 IT 人员能够提供自助服务数据。 CDAP 采用开源设计并且可扩展，消除了创新所面临的障碍。 要求：4 个区域节点，至少需要安装 D3 v2。 |
+|Datameer |Hadoop |Datameer 是一个可缩放的自助服务平台，用于准备、浏览和管理要分析的数据，可以加速将复杂多源数据转变为随时可在业务中使用的宝贵信息，以企业规模提供更快、更智能的见解。 |
+|HDInsight 上的 Dataiku DSS |Hadoop、Spark |企业数据科学平台中的 Dataiku DSS，可让数据科学家和数据分析师更有效地协作设计和运行新的数据产品与服务，将原始数据转变为有影响力的预测结果。 |
+|WANdisco Fusion HDI 应用 - 2.12.3、2.12.1、2.11.2 |Hadoop、Spark、HBase、Storm、Kafka |在分布式环境中保持数据一致性是一个很大的数据操作难题。 企业级的软件平台 WANdisco Fusion 可在任一环境中实现非结构化数据的一致性，从而可以解决此问题。 |
+|适用于 HDInsight 的 H2O SparklingWater |Spark |H2O Sparkling Water 支持以下分布式算法：GLM、朴素贝叶斯、分布式随机森林、梯度提升机、深度神经网络、深度学习、K 平均、PCA、广义低秩模型、异常情况检测和自编码器。 |
+|用于将实时数据与 HDInsight 集成的 Striim |Hadoop、HBase、Storm、Spark、Kafka |Striim（读作“stream”）是一个端到端流式处理数据集成和智能平台，可用于实现不同数据流的持续引入、处理和分析。 |
+|适用于 HDInsight 的 Jumbune |Hadoop、Spark |在较高层面，Jumbune 可通过以下方式为企业提供辅助：1. 加速基于 Tez、MapReduce 和 Spark 引擎的 Hive、Java 和 Scala 工作负荷性能。 2. 主动监视 Hadoop 群集。3. 在分布式文件系统中建立数据质量管理。 |
+|Kyligence Enterprise |Hadoop、HBase、Spark |Kyligence Enterprise 以 Apache Kylin 为后盾，可以基于大数据实现商业智能 (BI)。 作为 Hadoop 上的企业级 OLAP 引擎，Kyligence Enterprise 可让业务分析师使用行业标准的数据仓库和 BI 方法在 Hadoop 上构建 BI。 |
+|适用于 KNIME Spark 执行器的 Spark 作业服务器 |Spark |适用于 KNIME Spark 执行器的 Spark 作业服务器用于将 KNIME Analytics Platform 连接到 HDInsight 群集。 |
+|Azure HDInsight 上的 Starburst Presto、Starburst Presto (v0.213-e) |Hadoop |Presto 是一个快速的可缩放分布式 SQL 查询引擎。 Presto 针对存储和计算的分离进行了架构设计，非常适用于查询 Azure Data Lake Storage、Azure Blob 存储、SQL 和 NoSQL 数据库以及其他数据源中的数据。 |
+|适用于 HDInsight 云的 StreamSets 数据收集器 |Hadoop、HBase、Spark、Kafka |StreamSets 数据收集器是一个轻量的强大引擎，可以实时流式传输数据。 使用数据收集器可以路由和处理数据流中的数据。 该产品附带 30 天试用许可证。 |
+|[Trifacta Wrangler Enterprise](https://www.trifacta.com/) |Hadoop、Spark、HBase |Trifacta Wrangler Enterprise for HDInsight 支持对任何规模的数据进行企业级的数据整理。 在 Azure 上运行 Trifacta 的成本包括 Trifacta 订阅成本加上虚拟机的 Azure 基础结构成本。 |
+|Unifi Data Platform 3.1 |Hadoop、HBase、Storm、Spark |Unifi Data Platform 是一个无缝集成的自助服务数据工具套件，旨在帮助企业用户解决推动收入增长、降低成本或运营复杂性的数据难题。 |
+|Unraveldata APM |Spark |适用于 HDInsight Spark 群集的 Unravel Data 应用。 |
+|Waterline 数据目录 |Spark |Waterline 使用 AI 来编录、组织和管理数据以使用业务术语自动标记数据。 Waterline 的商业文献目录是一个用于自助分析、合规性和管理，以及 IT 管理计划的关键成功组件。 |
 
 本文提供的说明将使用 Azure 门户。 也可以从门户导出 Azure 资源管理器模板或从供应商处获取 Resource Manage 模板的副本，并使用 Azure PowerShell 和 Azure 经典 CLI 部署模板。  请参阅[使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
@@ -54,17 +57,17 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 **安装 HDInsight 应用程序**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中单击“HDInsight 群集”  。
-3. 单击某个 HDInsight 群集。  如果没有群集，必须先创建一个。  请参阅 [创建群集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
-4. 单击“配置”类别下的“应用程序”。 可以看到已安装的应用程序列表。 如果找不到“应用程序”，则意味着此版本的 HDInsight 群集没有任何应用程序。
+2. 在左侧菜单中，导航到“所有服务” > “分析” > “HDInsight 群集”。
+3. 在列表中选择一个 HDInsight 群集。  如果没有群集，必须先创建一个。  请参阅 [创建群集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
+4. 在“设置”类别下，选择“应用程序”。 主窗口中会显示已安装的应用程序列表。 
 
     ![HDInsight 应用程序门户菜单](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. 单击菜单中的“添加”。 可以看到现有 HDInsight 应用程序的列表。
+5. 在菜单中选择“+添加”。 此时会显示可用应用程序的列表。  如果“+添加”灰显，则表示没有任何应用程序适用于此版本的 HDInsight 群集。
    
     ![HDInsight 应用程序可用应用程序](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. 单击某个可用的应用程序，然后按照说明进行操作以接受法律条款。
+6. 选择某个可用的应用程序，然后遵照说明接受法律条款。
 
-可以通过门户通知查看安装状态（单击门户顶部的铃铛图标）。 安装应用程序后，应用程序会出现在“已安装的应用”列表中。
+可以通过门户通知查看安装状态（选择门户顶部的铃铛图标）。 安装应用程序后，应用程序会出现在“已安装的应用”列表中。
 
 ## <a name="install-applications-during-cluster-creation"></a>在群集创建期间安装应用程序
 可以选择在创建群集时安装 HDInsight 应用程序。 在此过程中，HDInsight 应用程序会在群集创建并处于运行状态后安装。 若要在群集创建过程中使用 Azure 门户安装应用程序，请使用“自定义”选项而不是默认的“快速创建”选项。
@@ -75,18 +78,22 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 **列出 HDInsight 应用程序并显示属性**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中单击“HDInsight 群集”  。 
-3. 单击某个 HDInsight 群集。
-4. 在“设置”中，单击“配置”类别下的“应用程序”。 “已安装的应用”在右侧列出。 
+2. 在左侧菜单中，导航到“所有服务” > “分析” > “HDInsight 群集”。
+3. 在列表中选择一个 HDInsight 群集。
+4. 在“设置”类别下，选择“应用程序”。 主窗口中会显示已安装的应用程序列表。 
    
     ![HDInsight 应用程序已安装的应用](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
-5. 单击其中一个已安装的应用程序，以显示属性。 属性列表：
-   
-   * 应用名称：应用程序名称。
-   * 状态：应用程序状态。 
-   * 网页：已部署到边缘节点的 Web 应用程序的 URL。 此凭据与你针对群集配置的 HTTP 用户凭据相同。
-   * HTTP 终结点：此凭据与你针对群集配置的 HTTP 用户凭据相同。 
-   * SSH 终结点：可以使用 SSH 连接到边缘节点。 SSH 凭据与你针对群集配置的 SSH 用户凭据相同。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    
+5. 选择某个已安装的应用程序以显示属性。 属性列表：
+
+    |属性 | 说明 |
+    |---|---|
+    |应用程序名称 |应用程序名称。 |
+    |状态 |应用程序状态。 |
+    |网页 |已部署到边缘节点的 Web 应用程序的 URL。 此凭据与你针对群集配置的 HTTP 用户凭据相同。 |
+    |SSH 终结点 |可以使用 SSH 连接到边缘节点。 SSH 凭据与你针对群集配置的 SSH 用户凭据相同。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
+    |说明 | 应用程序说明。 |
+
 6. 若要删除应用程序，请右键单击应用程序，并单击上下文菜单中的“删除”。
 
 ## <a name="connect-to-the-edge-node"></a>连接到边缘节点

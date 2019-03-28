@@ -5,25 +5,26 @@ keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/18/2017
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: bab0b8bc8718132bfd33f9c48fd372d57f0430dd
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 90e35be179fbc67b78c0713b7d580b8c213f01a1
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186663"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -195,7 +196,7 @@ ms.locfileid: "53028369"
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> *TargetName* 参数是必需参数。 随 AD FS 一起发布的默认主题名为“默认”。
+> *TargetName* 参数是必填参数。 随 AD FS 一起发布的默认主题名为“默认”。
 
 ## <a name="addsignindescription"></a>添加登录说明 
 若要将登录页说明添加到“登录”页，请使用以下 Windows PowerShell cmdlet 和语法。
@@ -253,4 +254,4 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
 ## <a name="next-steps"></a>后续步骤
 了解有关[用户登录选项](plan-connect-user-signin.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -4,24 +4,25 @@ description: 本主题介绍 Azure AD Connect 同步中的内置自动升级功�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/26/2018
-ms.date: 11/09/2018
-ms.component: hybrid
+origin.date: 02/26/2019
+ms.date: 03/15/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 61250b9c76797a08992be9cba6f3b9d3871468b3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 987ffd1d10ab822dba5a009a2ddcfab6fdf813a1
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186675"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 [1.1.105.0（于 2016 年 2 月发布）](reference-connect-version-history.md#111050)一起推出的。  此功能已在[内部版本 1.1.561](reference-connect-version-history.md#115610) 中更新，现在支持以前不支持的其他方案。
@@ -30,10 +31,10 @@ ms.locfileid: "52660358"
 使用 **自动升级** 功能是确保 Azure AD Connect 安装始终保持最新状态的最简单方法。 系统默认启用此功能，以便进行快速安装和 DirSync 升级。 发布新版本时，安装会自动升级。
 默认情况下，针对以下方案启用自动升级：
 
-- 快速设置安装和 DirSync 升级。
-- 使用 SQL Express LocalDB，这是快速设置始终使用的选项。 使用 SQL Express 的 DirSync 也会使用 LocalDB。
-- AD 帐户是快速设置和 DirSync 创建的默认 MSOL_ 帐户。
-- Metaverse 中的对象少于 100,000 个。
+* 快速设置安装和 DirSync 升级。
+* 使用 SQL Express LocalDB，这是快速设置始终使用的选项。 使用 SQL Express 的 DirSync 也会使用 LocalDB。
+* AD 帐户是快速设置和 DirSync 创建的默认 MSOL_ 帐户。
+* Metaverse 中的对象少于 100,000 个。
 
 可以使用 PowerShell cmdlet `Get-ADSyncAutoUpgrade`来查看当前的自动升级状态。 状态包括：
 
@@ -43,7 +44,7 @@ ms.locfileid: "52660358"
 | 已挂起 |只能由系统设置。 系统**目前没有**资格接收自动升级。 |
 | 已禁用 |自动升级已禁用。 |
 
-可以使用 `Set-ADSyncAutoUpgrade` 在“已启用”与“已禁用”之间切换。 只有系统才能设置“暂停”状态。
+可以使用 `Set-ADSyncAutoUpgrade` 在“已启用”与“已禁用”之间切换。 只有系统才能设置“暂停”状态。  在 1.1.750.0 之前，如果自动升级状态设置为“已暂停”，则 Set-ADSyncAutoUpgrade cmdlet 会阻止自动升级。 此功能现已更改，不阻止自动升级。
 
 如果服务器上正在运行 **同步服务管理器** UI，则会暂停升级，直到 UI 关闭为止。
 
@@ -94,9 +95,9 @@ ms.locfileid: "52660358"
 | UpgradeNotSupportedNonLocalDbInstall |使用的不是 SQL Server Express LocalDB 数据库。 |
 | UpgradeNotSupportedNonMsolAccount |[AD DS 连接器帐户](reference-connect-accounts-permissions.md#ad-ds-connector-account)不再是默认的 MSOL_ 帐户。 |
 | UpgradeNotSupportedNotConfiguredSignInMethod | 在设置 AAD Connect 期间，请在选择登录方法时选择“不配置”。 | 
-| UpgradeNotSupportedPtaSignInMethod | 已选择“直通身份验证”作为登录方法。 |
-| UpgradeNotSupportedStagingModeEnabled |服务器已设置为[暂存模式](how-to-connect-sync-operations.md#staging-mode)。 |
+| UpgradeNotSupportedStagingModeEnabled |服务器已设置为[暂存模式](how-to-connect-sync-staging-server.md)。 |
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

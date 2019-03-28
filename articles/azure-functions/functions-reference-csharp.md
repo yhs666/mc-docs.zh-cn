@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 12/12/2017
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4b5c9036879b41934c27b75e1d69a00e0494ede0
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 7447f9341f24581ee072f7cd9c0d404eb46015ca
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254060"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256379"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
@@ -217,15 +217,15 @@ public class Order
 
 可以使用相对路径与 `#load` 指令：
 
-- `#load "mylogger.csx"` 加载函数文件夹中的文件。
-- `#load "loadedfiles\mylogger.csx"` 加载文件函数文件夹中的文件夹。
-- `#load "..\shared\mylogger.csx"` 在同一级别（即 *wwwroot* 的正下方）加载文件夹中的文件，使其成为函数文件夹。
+* `#load "mylogger.csx"` 加载函数文件夹中的文件。
+* `#load "loadedfiles\mylogger.csx"` 加载文件函数文件夹中的文件夹。
+* `#load "..\shared\mylogger.csx"` 在同一级别（即 *wwwroot* 的正下方）加载文件夹中的文件，使其成为函数文件夹。
 
 `#load` 指令仅适用于 *.csx* 文件，不适用于 *.cs* 文件。
 
 ## <a name="binding-to-method-return-value"></a>绑定到方法返回值
 
-可通过在 *function.json* 中使用名称 `$return` 将方法返回值用于输出绑定。 有关示例，请参阅[触发器和绑定](functions-bindings-return-value.md)。
+可通过在 *function.json* 中使用名称 `$return` 将方法返回值用于输出绑定。 有关示例，请参阅[触发器和绑定](./functions-bindings-return-value.md)。
 
 仅当成功的函数执行始终将返回值传递给输出绑定时，才使用返回值。 否则，请使用 `ICollector` 或 `IAsyncCollector`，如以下部分所示。
 
@@ -313,14 +313,14 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 会自动导入以下命名空间，而且是可选的：
 
-- `System`
-- `System.Collections.Generic`
-- `System.IO`
-- `System.Linq`
-- `System.Net.Http`
-- `System.Threading.Tasks`
-- `Microsoft.Azure.WebJobs`
-- `Microsoft.Azure.WebJobs.Host`
+* `System`
+* `System.Collections.Generic`
+* `System.IO`
+* `System.Linq`
+* `System.Net.Http`
+* `System.Threading.Tasks`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
 
 ## <a name="referencing-external-assemblies"></a>引用外部程序集
 
@@ -339,33 +339,33 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 由 Azure 函数主机环境自动添加以下程序集：
 
-- `mscorlib`
-- `System`
-- `System.Core`
-- `System.Xml`
-- `System.Net.Http`
-- `Microsoft.Azure.WebJobs`
-- `Microsoft.Azure.WebJobs.Host`
-- `Microsoft.Azure.WebJobs.Extensions`
-- `System.Web.Http`
-- `System.Net.Http.Formatting`
+* `mscorlib`
+* `System`
+* `System.Core`
+* `System.Xml`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Extensions`
+* `System.Web.Http`
+* `System.Net.Http.Formatting`
 
 可通过简单名称（例如 `#r "AssemblyName"`）引用以下程序集：
 
-- `Newtonsoft.Json`
-- `Microsoft.WindowsAzure.Storage`
-- `Microsoft.ServiceBus`
-- `Microsoft.AspNet.WebHooks.Receivers`
-- `Microsoft.AspNet.WebHooks.Common`
-- `Microsoft.Azure.NotificationHubs`
+* `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
+* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNet.WebHooks.Common`
+* `Microsoft.Azure.NotificationHubs`
 
 ## <a name="referencing-custom-assemblies"></a>引用自定义程序集
 
 若要引用自定义程序集，可使用共享程序集或私有程序集：
 
-- 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到[函数应用根文件夹`bin` (wwwroot) 中名为 ](functions-reference.md#folder-structure) 的文件夹。
+* 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到[函数应用根文件夹`bin` (wwwroot) 中名为 ](functions-reference.md#folder-structure) 的文件夹。
 
-- 私有程序集是给定函数上下文的一部分，支持不同版本的旁加载。 私有程序集应上传到函数目录中的 `bin` 文件夹。 使用文件名（例如 `#r "MyAssembly.dll"`）引用程序集。
+* 私有程序集是给定函数上下文的一部分，支持不同版本的旁加载。 私有程序集应上传到函数目录中的 `bin` 文件夹。 使用文件名（例如 `#r "MyAssembly.dll"`）引用程序集。
 
 有关如何将文件上传到函数文件夹的信息，请参阅有关[程序包管理](#using-nuget-packages)的部分。
 
@@ -374,7 +374,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 自动监视包含函数脚本文件的目录的程序集更改。 若要监视其他目录中的程序集更改，请将其添加到 [host.json](functions-host-json.md) 中的 `watchDirectories` 列表中。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 包
-若要在 C# 函数中使用 NuGet 包，请将 *function.proj* 文件上传到函数应用的文件系统中的函数文件夹。 下面是示例 *function.proj* 文件，它添加了对 Microsoft.ProjectOxford.Face 1.1.0 版的引用：
+若要在 2.x C# 函数中使用 NuGet 包，请将 *function.proj* 文件上传到函数应用的文件系统中的函数文件夹。 下面是示例 *function.proj* 文件，它添加了对 Microsoft.ProjectOxford.Face 1.1.0 版的引用：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,17 +390,34 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 若要使用自定义 NuGet 源，请在 Function App 根中指定“Nuget.Config”文件中的源。 有关详细信息，请参阅[配置 NuGet 行为](https://docs.microsoft.com/nuget/consume-packages/configuring-nuget-behavior)。
 
-### <a name="using-a-extensionscsproj-file"></a>使用 extensions.csproj 文件
+> [!NOTE]
+> 在 1.x C# 函数中，NuGet 包是通过 *project.json* 文件而非 *function.proj* 文件引用的。
+
+对于 1.x 函数，请改用 *project.json* 文件。 下面是 *project.json* 文件示例： 
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+### <a name="using-a-functionproj-file"></a>使用 function.proj 文件
 
 1. 在 Azure 门户中打开函数。 日志选项卡显示包安装输出。
-2. 若要上传 extensions.csproj 文件，请使用 Azure Functions 开发人员参考主题的[如何更新函数应用文件](functions-reference.md#fileupdate)中所述的方法之一。
-3. 上传完 *extensions.csproj* 文件后，将在函数的流日志中看到类似以下示例的输出：
+2. 若要上传 *function.proj* 文件，请使用 Azure Functions 开发人员参考主题中[如何更新函数应用文件](functions-reference.md#fileupdate)部分描述的方法之一。
+3. 上传完 *function.proj* 文件后，将在函数的流日志中看到类似以下示例的输出：
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
 2018-12-14T22:00:48.681 [Information] Starting packages restore
 2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\function.proj...
 2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
 2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
 2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.

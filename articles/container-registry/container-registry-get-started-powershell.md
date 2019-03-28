@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 02/18/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2bd2dd92c9bb8bb9640e74e05634c1ab8f0ff4c2
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: fef5b3e7afe34fbe250c4aa26a02b75a37ca7f2d
+ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440039"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352509"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建专用容器注册表
 
@@ -22,7 +22,9 @@ Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可确定已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+本快速入门需要 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可确定已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 还必须在本地安装 Docker。 Docker 提供的包适用于 [macOS][docker-mac]、[Windows][docker-windows] 和 [Linux][docker-linux] 系统。
 
@@ -30,38 +32,38 @@ Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Connect-AzureRmAccount][Connect-AzureRmAccount] 命令登录到 Azure 订阅，然后按屏幕说明操作。
+使用 [Connect-AzAccount -Environment AzureChinaCloud][Connect-AzAccount -Environment AzureChinaCloud] 命令登录到 Azure 订阅，并按屏幕说明操作。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 ```
 
 ## <a name="create-resource-group"></a>创建资源组
 
-通过 Azure 进行身份验证以后，请使用 [New-AzureRmResourceGroup][New-AzureRmResourceGroup] 创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+通过 Azure 进行身份验证以后，请使用 [New-AzResourceGroup][New-AzResourceGroup] 创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
+New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
 
 ## <a name="create-container-registry"></a>创建容器注册表
 
-接下来，请使用 [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry] 命令在新的资源组中创建容器注册表。
+接下来，请使用 [New-AzContainerRegistry][New-AzContainerRegistry] 命令在新的资源组中创建容器注册表。
 
 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例创建名为“myContainerRegistry007”的注册表。 替换以下命令中的 *myContainerRegistry007*，然后运行该命令以创建注册表：
 
 ```powershell
-$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 本快速入门将创建一个“基本”注册表。该注册表已针对成本进行优化，是可供开发人员了解 Azure 容器注册表的选项。 有关可用服务层的详细信息，请参阅[容器注册表 SKU][container-registry-skus]。
 
 ## <a name="log-in-to-registry"></a>登录到注册表
 
-在推送和拉取容器映像之前，必须登录到注册表。 在生产方案中，应该使用个人标识或服务主体进行容器注册表访问，但为了简洁起见，本快速入门使用 [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] 命令在注册表上启用管理员用户：
+在推送和拉取容器映像之前，必须登录到注册表。 在生产方案中，应该使用个人标识或服务主体进行容器注册表访问，但为了简洁起见，本快速入门使用 [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] 命令在注册表上启用管理员用户：
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
+$creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
 接下来，运行用于登录的 [docker login][docker-login] 命令：
@@ -78,15 +80,15 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 
 ## <a name="clean-up-resources"></a>清理资源
 
-用完在本快速入门中创建的资源后，请通过 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 命令删除资源组、容器注册表以及其中存储的容器映像：
+用完在本快速入门中创建的资源后，请通过 [Remove-AzResourceGroup][Remove-AzResourceGroup] 命令删除资源组、容器注册表以及其中存储的容器映像：
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 Azure PowerShell 创建 Azure 容器注册表、推送容器映像，以及提取和运行注册表中的映像。
+本快速入门介绍了如何使用 Azure PowerShell 创建 Azure 容器注册表、推送容器映像，以及提取和运行注册表中的映像。 请继续阅读 Azure 容器注册表教程，以更深入地了解 ACR。
 
 <!--Not Available on  Continue to the Azure Container Registry tutorials for a deeper look at ACR.-->
 <!--Not Available on  > [!div class="nextstepaction"]-->
@@ -101,12 +103,15 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Connect-AzureRmAccount]: https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount
-[Get-AzureRmContainerRegistryCredential]: https://docs.microsoft.com/powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
+[Connect-AzAccount -Environment AzureChinaCloud]: https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount
+[Get-AzContainerRegistryCredential]: https://docs.microsoft.com/powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-module
-[New-AzureRMContainerRegistry]: https://docs.microsoft.com/powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
-[New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
-[Remove-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup
-<!--Not Available on  [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md--> [container-registry-skus]: container-registry-skus.mdd
+[New-AzContainerRegistry]: https://docs.microsoft.com/powershell/module/az.containerregistry/New-AzContainerRegistry
+[New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup
+[Remove-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup
+
+<!--Not Available on [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md-->
+
+[container-registry-skus]: container-registry-skus.md
 
 <!-- Update_Description: wording update, update meta properties -->

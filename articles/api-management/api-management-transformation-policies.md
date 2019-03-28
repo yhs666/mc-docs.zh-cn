@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 0b1d32cb0686ee470186c5735804f8d287e23744
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/01/2019
+ms.openlocfilehash: d2cd23f7692c5f6e6194a85901e1e271c0512969
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906174"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348676"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -319,7 +319,7 @@ ms.locfileid: "54906174"
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>示例：访问 JObject 形式的正文。 请注意，由于我们不保留原始请求正文，稍后在管道进行访问会产生异常。  
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>示例：访问 JObject 形式的正文。 请注意，由于我们不保留原始请求正文，因此稍后在管道进行访问将产生异常。
   
 ```xml  
 <set-body>   
@@ -377,7 +377,7 @@ ms.locfileid: "54906174"
 </set-body>
 ```
 
-#### <a name="tranform-json-using-a-liquid-template"></a>使用 Liquid 模板转换 JSON
+#### <a name="transform-json-using-a-liquid-template"></a>使用 Liquid 模板转换 JSON
 ```xml
 {
 "order": {

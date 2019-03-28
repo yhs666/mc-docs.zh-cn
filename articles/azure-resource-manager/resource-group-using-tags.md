@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 11/20/2018
-ms.date: 02/18/2019
+origin.date: 03/11/2019
+ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6e17b783efeebde7263f0ae56ef28d8048cf04f3
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 85ed57a891fe1cbc743c4e423b21473a5abda5e2
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306106"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348026"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -42,7 +42,7 @@ ms.locfileid: "56306106"
 
 若要查看*资源组*的现有标记，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResourceGroup -Name examplegroup).Tags
 ```
 
@@ -57,31 +57,31 @@ Environment                    Test
 
 若要查看具有指定资源 ID 的资源的现有标记，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 或者，若要查看具有指定名称和资源组的资源的现有标记，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
 若要获取具有特定标记的资源组，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 若要获取具有特定标记的资源，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
 若要获取具有特定标记名称的资源，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResource -TagName Dept).Name
 ```
 
@@ -89,13 +89,13 @@ Environment                    Test
 
 若要将标记添加到*不包含现有标记的资源组*，请使用：
 
-```azurepowershell
+```powershell
 Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 若要将标记添加到包含现有标记的资源组，请检索现有标记，添加新标记，然后重新应用标记：
 
-```azurepowershell
+```powershell
 $tags = (Get-AzResourceGroup -Name examplegroup).Tags
 $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
@@ -103,22 +103,22 @@ Set-AzResourceGroup -Tag $tags -Name examplegroup
 
 若要将标记添加到*不包含现有标记的资源*，请使用：
 
-```azurepowershell
+```powershell
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
 Set-AzResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 若要将标记添加到包含现有标记的资源，请使用：
 
-```azurepowershell
+```powershell
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
 $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-要将资源组中的所有标记应用于其资源，并且*不保留资源上的现有标记*，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记，请使用以下脚本：
 
-```azurepowershell
+```powershell
 $groups = Get-AzResourceGroup
 foreach ($g in $groups)
 {
@@ -126,9 +126,9 @@ foreach ($g in $groups)
 }
 ```
 
-要将资源组中的所有标记应用于其资源，并且*保留资源上不重复的现有标记*，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且保留资源上不重复的现有标记，请使用以下脚本：
 
-```azurepowershell
+```powershell
 $group = Get-AzResourceGroup "examplegroup"
 if ($null -ne $group.Tags) {
     $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
@@ -156,7 +156,7 @@ if ($null -ne $group.Tags) {
 
 若要删除所有标记，请传递一个空哈希表：
 
-```azurepowershell
+```powershell
 Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
@@ -223,7 +223,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-要将资源组中的所有标记应用于其资源，并且 *不保留资源上的现有标记*，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -239,7 +239,7 @@ do
 done
 ```
 
-若要将资源组中的所有标记应用于其资源，并且*保留资源上的现有标记*，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且保留资源上的现有标记，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -283,6 +283,6 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 ## <a name="next-steps"></a>后续步骤
 
 * 并非所有资源类型都支持标记。 若要确定是否可以将标记应用到资源类型，请参阅 [Azure 资源的标记支持](tag-support.md)。
-* 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](resource-group-portal.md)。
+* 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](manage-resource-groups-portal.md)。
 
 <!--Update_Description: update meta properties, wording update, update link, udpate powershell az cmdlet -->

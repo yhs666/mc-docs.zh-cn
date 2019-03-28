@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: reference
 origin.date: 12/19/2018
-ms.date: 01/28/2019
+ms.date: 03/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6fa8a73930e9d018f0fc5888b02e7b8d808144a0
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 141535e41971fecc5ecc6ced7513466f551f0abc
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085694"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348082"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -22,27 +22,29 @@ ms.locfileid: "55085694"
 
 服务器管理任务，如创建或删除服务器、挂起或恢复服务器操作，或更改服务级别（层），都要使用 Azure 资源管理器（资源）cmdlet 和 Analysis Services（服务器）cmdlet。 用于管理数据库的其他任务（如添加或删除角色成员、处理或分区）使用与 SQL Server Analysis Services 相同的 SqlServer 模块中包含的 cmdlet。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="permissions"></a>权限
 
 大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户或服务主体必须具有对 Analysis Services 服务器的管理权限。 
 
-对于使用 AzureRm cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
+对于使用 Azure PowerShell cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
 
 ## <a name="resource-management-operations"></a>资源管理操作 
 
-模块 - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
+模块 - [Az.AnalysisServices](https://docs.microsoft.com/powershell/module/az.analysisservices)
 
 |Cmdlet|说明| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|获取服务器实例的详细信息。|  
-|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|创建服务器实例。|   
-|[New-AzureRmAnalysisServicesFirewallConfig](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|创建新的 Analysis Services 防火墙配置。|   
-|[New-AzureRmAnalysisServicesFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|创建新的 Analysis Services 防火墙规则。|   
-|[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|删除服务器实例。|  
-|[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|恢复服务器实例。|  
-|[Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|暂停服务器实例。| 
-|[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|修改服务器实例。|   
-|[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|测试服务器实例是否存在。| 
+|[Get-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/get-azanalysisservicesserver)|获取服务器实例的详细信息。|  
+|[New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver)|创建服务器实例。|   
+|[New-AzAnalysisServicesFirewallConfig](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|创建新的 Analysis Services 防火墙配置。|   
+|[New-AzAnalysisServicesFirewallRule](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|创建新的 Analysis Services 防火墙规则。|   
+|[Remove-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|删除服务器实例。|  
+|[Resume-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|恢复服务器实例。|  
+|[Suspend-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|暂停服务器实例。| 
+|[Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)|修改服务器实例。|   
+|[Test-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/test-azanalysisservicesserver)|测试服务器实例是否存在。| 
 
 ## <a name="server-management-operations"></a>服务器管理操作
 
@@ -50,10 +52,10 @@ ms.locfileid: "55085694"
 
 |Cmdlet|说明| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|添加要用于 Azure Analysis Services 服务器 cmdlet 请求的经过身份验证帐户。| 
-|[Export-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，从 Analysis Services 服务器实例中导出日志|  
-|[Restart-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
-|[Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，将指定的 Analysis Services 服务器实例上的指定数据库同步到所有查询横向扩展实例|  
+|[Add-AzAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|添加要用于 Azure Analysis Services 服务器 cmdlet 请求的经过身份验证帐户。| 
+|[Export-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|在 Add-AzAnalysisServicesAccount 命令指定的当前登录环境中，从 Analysis Services 服务器实例中导出日志|  
+|[Restart-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzAnalysisServicesAccount 命令中指定。|  
+|[Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|在 Add-AzAnalysisServicesAccount 命令指定的当前登录环境中，将指定的 Analysis Services 服务器实例上的指定数据库同步到所有查询横向扩展实例|  
 
 ## <a name="database-operations"></a>数据库操作
 

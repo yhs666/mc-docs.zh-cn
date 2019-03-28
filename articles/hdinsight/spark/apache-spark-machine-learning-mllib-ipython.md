@@ -9,24 +9,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 01/14/2019
+origin.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 218132af612b30f4ef6adf1943d0562503fc6e7f
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 38a9f744d24503df7e05a09bc7b4b4f58bfd3975
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806601"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348542"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Apache Spark MLlib 生成机器学习应用程序并分析数据集
 
 了解如何使用 Apache Spark [MLlib](https://spark.apache.org/mllib/) 创建机器学习应用程序，以便对打开的数据集执行简单预测分析。 本示例摘自 Spark 的内置机器学习库，它通过逻辑回归使用分类。 
-
-> [!TIP]
-> 本示例也适用于在 HDInsight 中创建的 Spark (Linux) 群集上的 [Jupyter 笔记本](https://jupyter.org/)。 笔记本体验允许通过笔记本本身运行 Python 代码段。 若要在 Notebook 中执行本教程，请创建 Spark 群集并启动 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)。 然后，运行 **Python** 文件夹下的 Notebook“Spark 机器学习 - 使用 MLlib.ipynb 对食品检测数据进行预测分析”。
->
->
 
 MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务的实用工具，包括适用于以下任务的实用工具：
 
@@ -53,7 +48,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
 1. 使用 PySpark 内核创建 Jupyter Notebook。 有关说明，请参阅[创建 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。
 
-2. 导入此应用程序所需的类型。 将以下代码复制并粘贴到空白单元格中，然后按 **SHIRT + ENTER**。
+2. 导入此应用程序所需的类型。 将以下代码复制并粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -177,7 +172,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     后接 `-o countResultsdf` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头节点）。 输出将保存为具有指定名称 [countResultsdf](http://pandas.pydata.org/) 的 **Pandas**数据帧。 有关 `%%sql` magic 以及可在 PySpark 内核中使用的其他 magic 的详细信息，请参阅[包含 Apache Spark HDInsight 群集的 Jupyter Notebook 上可用的内核](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)。
@@ -204,14 +199,6 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
     输出为：
 
     ![Spark 机器学习应用程序输出 - 包含五种不同检测结果的饼图](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark 机器学习结果输出")
-
-    一项检测可以包含 5 个不同结果：
-
-    - 未找到企业
-    - 失败
-    - 通过
-    - 有条件通过
-    - 停业
 
     若要预测食物检测结果，需要基于违规行为开发一个模型。 由于逻辑回归是二元分类方法，因此有必要将结果数据分为两个类别：“失败”和“通过”：
 
@@ -276,7 +263,7 @@ model = pipeline.fit(labeledData)
 1. 运行以下代码创建新的数据帧 **predictionsDf**，其中包含由模型生成的预测。 该代码段还基于数据帧创建名为 **Predictions** 的临时表。
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -288,10 +275,6 @@ model = pipeline.fit(labeledData)
     应该看到如下输出：
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -325,10 +308,6 @@ model = pipeline.fit(labeledData)
     输出如下所示：
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -381,7 +360,7 @@ model = pipeline.fit(labeledData)
     在该图中，“正”的结果指未通过食品检验，而“负”的结果指通过检验。
 
 ## <a name="shut-down-the-notebook"></a>关闭笔记本
-完成运行应用程序之后，应该要关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中，单击“关闭并停止”。 这会关闭 Notebook。
+完成运行应用程序之后，应该要关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中选择“关闭并停止”。 这会关闭 Notebook。
 
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)

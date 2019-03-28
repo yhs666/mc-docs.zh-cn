@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/30/2019
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 3fdb6d4ed24b7e8a83589a6c6f1cab46716c862e
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 45c032a04338f1a760e1c54d7ef94b7fb314dfe7
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101607"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256382"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -38,11 +38,11 @@ ms.locfileid: "56101607"
 
 **A.** 是的。 规模集可以定义适用于集中所有 VM 的附加数据磁盘配置。 有关详细信息，请参阅 [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md)（Azure 规模集和附加的数据磁盘）。 可用于存储数据的其他选项包括：
 
-- Azure 文件（SMB 共享驱动器）
-- OS 驱动器
-- 临时驱动器（本地，不是以 Azure 存储为基础）
-- Azure 数据服务（例如 Azure 表、Azure Blob）
-- 外部数据服务（例如远程数据库）
+* Azure 文件（SMB 共享驱动器）
+* OS 驱动器
+* 临时驱动器（本地，不是以 Azure 存储为基础）
+* Azure 数据服务（例如 Azure 表、Azure Blob）
+* 外部数据服务（例如远程数据库）
 
 **问：** 哪些 Azure 区域支持规模集？
 
@@ -363,7 +363,11 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 ```
 
 可以在 `$vmss` 中找到 extensionName 值。
-   
+
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>与 Azure Monitor 日志集成的虚拟机规模集模板是否有任何示例可供参考？
+
+有关与 Azure Monitor 日志集成的虚拟机规模集模板示例，请参阅[部署 Azure Service Fabric 群集，并通过使用 Azure Monitor 日志来启用监视](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二个示例。
+
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>扩展似乎在虚拟机规模集上并行运行。 这导致我的自定义脚本扩展失败。 如何进行修复？
 
 若要了解虚拟机规模集中的扩展序列，请参阅 [Extension sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)（Azure 虚拟机规模集中的扩展序列）。
@@ -644,6 +648,18 @@ IP 地址是从指定的子网中选择的。
 
 有关详细信息，请参阅[管理虚拟机规模集中的所有 VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)。
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以将规模集与 Azure Monitor 日志集成？
+
+可以，可在规模集 VM 上安装 Azure Monitor 扩展。 Azure CLI 示例如下：
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+可在 Azure 门户的 Log Analytics 工作区中查找所需的 workspaceId 和 workspaceKey。 在“概述”页面上，单击“设置”磁贴。 单击顶部的“相连的源”选项卡。
+
+> [!NOTE]
+> 如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>故障排除
 

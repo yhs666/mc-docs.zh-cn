@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 01/25/2019
-ms.date: 02/18/2019
+origin.date: 03/04/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: d4b9d22d7109e1a34a74d7e598bdc3da4ad893db
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: f0b7db48c7a5e7cf69cd90c408236e8bedcd4171
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306242"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348061"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教程：在资源管理器模板部署中集成 Azure Key Vault
@@ -28,6 +28,8 @@ ms.locfileid: "56306242"
 了解如何在资源管理器部署期间从 Azure Key Vault 检索机密，并将机密作为参数传递。 值永远不会公开，因为仅引用其密钥保管库 ID。 有关详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](./resource-manager-keyvault-parameter.md)。
 
 [设置资源部署顺序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教程介绍如何创建虚拟机、虚拟网络以及其他一些依赖资源。 在本教程中，我们将自定义模板，以便从 Key Vault 检索虚拟机管理员密码。
+
+![资源管理器模板 Key Vault 集成关系图](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 本教程涵盖以下任务：
 
@@ -68,18 +70,26 @@ ms.locfileid: "56306242"
 
 1. 运行以下 Azure PowerShell 或 Azure CLI 命令。  
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```
-    ```azurepowershell
-    $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
+    ```   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    ```powershell
+    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
     (Get-AzADUser -UserPrincipalName $upn).Id
     ```
     
-    <!-- cmdlet is correct on Line 63 (Get-AzureRmADUser -UserPrincipalName $upn).Id-->
+    <!--MOONCAKE: correct on (Get-AzADUser -UserPrincipalName $upn).Id-->
     
+    或
+    ```powershell
+    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
+    (Get-AzADUser -DisplayName $displayName).Id
+    ```
+    ---
 2. 请记下对象 ID， 稍后在本教程中需要用到。
 
 创建 Key Vault：
@@ -88,12 +98,14 @@ ms.locfileid: "56306242"
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="http://azuredeploy.net/deploybutton.png" alt="deploy to azure"/></a>
     
-    <!-- Notice: URL is correct on Farmtutorials.blob.core.windows.net--> <!--MOONCAKE CUSTOMIZE: ADD NEW PAGE due to Mooncake template is different with global-->
+    <!-- Notice: URL is correct on Farmtutorials.blob.core.windows.net-->
+    <!--MOONCAKE CUSTOMIZE: ADD NEW PAGE due to Mooncake template is different with global-->
     
 1. 从左窗格选择“编辑模板”，在第 93 行中将 **centralus** 替换为 **chinanorth**，然后单击“保存”。
     ![资源管理器模板 Key Vault 集成部署门户](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal-chenye-edit-template.png)
     
-    <!--MOONCAKE CUSTOMIZE: ADD NEW PAGE due to Mooncake template is different with global--> <!--MOONCAKE CUSTOMIZE: We update **Create** due to Mooncake template is different with global-->
+    <!--MOONCAKE CUSTOMIZE: ADD NEW PAGE due to Mooncake template is different with global-->
+    <!--MOONCAKE CUSTOMIZE: We update **Create** due to Mooncake template is different with global-->
     
 2. 选择或输入以下值。  输入值后不要选择“创建”。
     
@@ -167,7 +179,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * `Microsoft.Network/networkInterfaces`。
     * `Microsoft.Compute/virtualMachines`。
 
-    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)--> <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
@@ -196,6 +209,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
         }
     },
     ```
+
     将 **id** 替换为在上一过程中创建的 Key Vault 的资源 ID。  
 
     ![集成 Key Vault 和资源管理器模板虚拟机部署参数文件](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
@@ -211,7 +225,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 <!--Not Available on You need to upload both **azuredeploy.json** and **azuredeploy.parameters.json** to the Cloud shell-->
 
-```azurepowershell
+```powershell
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"

@@ -1,19 +1,20 @@
 ---
 title: 为 Azure 导入/导出创建导入作业 | Microsoft Docs
 description: 了解如何为 Microsoft Azure 导入/导出服务创建导入作业。
-author: muralikk
+author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: muralikk
+origin.date: 01/23/2017
+ms.date: 03/25/2019
+ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: bb88b90ab6fefabcf323ec2113328256b1e7f4a6
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 32df8509a39facd6293f19c7ee09087245a4fdc3
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665422"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253910"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导入作业
 
@@ -35,7 +36,7 @@ ms.locfileid: "56665422"
 
 无论是通过门户还是 REST API 创建作业，为导入作业准备驱动器的步骤都是相同的。
 
-下面是驱动器准备工作的简要概述。 有关完整说明，请参阅 [Azure 导入/导出工具参考](storage-import-export-tool-how-to-v1.md)。 可从[此处](http://go.microsoft.com/fwlink/?LinkID=301900)下载 Azure 导入/导出工具。
+下面是驱动器准备工作的简要概述。 有关完整说明，请参阅 [Azure 导入/导出工具参考](storage-import-export-tool-how-to-v1.md)。 可从[此处](https://go.microsoft.com/fwlink/?LinkID=301900)下载 Azure 导入/导出工具。
 
 准备驱动器的过程包括以下步骤：
 
@@ -61,14 +62,14 @@ ms.locfileid: "56665422"
 
  遵循以下步骤获取寄送位置：
 
--   指定存储帐户位置的名称。 可在 Azure 门户中存储帐户的“仪表板”上的“位置”字段下找到该值，或者使用服务管理 API 操作[获取存储帐户属性](https://docs.microsoft.com/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)来查询该值。
+-   指定存储帐户位置的名称。 可在 Azure 门户中存储帐户的“仪表板”上的“位置”字段下找到该值，或者使用服务管理 API 操作[获取存储帐户属性](https://docs.microsoft.com/rest/api/storagerp/storageaccounts)来查询该值。
 
 -   通过调用“`Get Location`”操作来检索可用于处理此存储帐户的位置。
 
 -   如果位置的 `AlternateLocations` 属性包含位置本身，则可以使用此位置。 否则，请使用某个备用位置再次调用“ `Get Location` ”操作。 原始位置可能会出于维护目的而暂时关闭。
 
 ## <a name="creating-the-import-job"></a>创建导入作业
-若要创建导入作业，请调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作。 需要提供以下信息：
+若要创建导入作业，请调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs)操作。 需要提供以下信息：
 
 -   作业的名称。
 

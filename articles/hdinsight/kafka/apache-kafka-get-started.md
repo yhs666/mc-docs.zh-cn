@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/12/2018
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 10713cfc65e21cf4bd919d4b83fe3e7bfcfb658a
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: c292b079e26bd2a91838b24f99c33b720faf54de
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906233"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348580"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -176,6 +176,9 @@ ssuhuser@hn0-mykafk:~$
     ```
 
 2. 若要将环境变量设置为群集名称，请使用以下命令：
+
+    > [!Important]
+    > 全部以小写字母输入此命令的群集名称，即使名称中使用大写字母进行预配。 Zookeeper 或中转站信息不能使用大写的名称。
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

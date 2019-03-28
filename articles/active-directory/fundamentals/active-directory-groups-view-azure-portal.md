@@ -1,24 +1,25 @@
 ---
-title: 快速入门：查看组织的组和成员 - Azure Active Directory | Microsoft Docs
+title: 快速入门：查看组和成员 - Azure Active Directory | Microsoft Docs
 description: 介绍如何搜索和查看组织的组及其分配的成员。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 01/02/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
-ms.openlocfilehash: 8cf35e44107efc424674c90804f9d3e50b33d219
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a7f2b0230067f323d5ecf6c6da1afdfdc1ab0b21
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186674"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 

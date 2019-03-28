@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 08/10/2018
-ms.date: 03/06/2019
+ms.date: 03/15/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22f39b15009e7555b27ad6175cdee4082f455cf
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 06fa55844b366460d226ce18e7e6591ed9fb1e6e
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462381"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186684"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本文档旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本文档是特定领域的深入探讨，其他文档中也简要描述了这些概念。
@@ -158,7 +158,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
 
 ![为现有部署启用 ConsistencyGuid - 错误](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearchcontact”的情况下重启 Azure AD Connect 向导来取消显示该错误。 为此，请在命令提示符下运行以下命令：
+ 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearch”开关的情况下重启 Azure AD Connect 向导来取消显示该错误。 为此，请在命令提示符下运行以下命令：
 
 ```
 "c:\Program Files\Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -172,7 +172,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-Consiste
 ![第三方联合身份验证配置](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>向现有部署添加新目录
-假设你在部署 Azure AD Connect 时启用了 ConsistencyGuid 功能，现在要将另一目录添加到部署中。 尝试添加目录时，Azure AD Connect 向导会检查目录中 ms-DS-ConsistencyGuid 属性的状态。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定现有应用程序不使用该属性，则可以通过使用前文所述的指定 /SkipLdapSearchcontact 的情况下重启 Azure AD Connect 向导来取消显示该错误或者需要联系支持人员以获得更多信息。
+假设你在部署 Azure AD Connect 时启用了 ConsistencyGuid 功能，现在要将另一目录添加到部署中。 尝试添加目录时，Azure AD Connect 向导会检查目录中 ms-DS-ConsistencyGuid 属性的状态。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定现有应用程序不使用该属性，则可以通过使用前文所述的指定 /SkipLdapSearch 开关的情况下重启 Azure AD Connect 向导来取消显示该错误或者需要联系支持人员以获得更多信息。
 
 ![向现有部署添加新目录](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

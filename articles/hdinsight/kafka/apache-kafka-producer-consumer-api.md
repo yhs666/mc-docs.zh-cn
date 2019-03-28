@@ -14,12 +14,12 @@ ms.topic: tutorial
 origin.date: 11/06/2018
 ms.author: v-yiso
 ms.date: 01/14/2019
-ms.openlocfilehash: d713b481fee84293b7d00d0111cdcb570af4d641
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: b260aaf3fe4a3f7b7aebe3cf1be78cbe112d4628
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029170"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348544"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 
@@ -138,6 +138,8 @@ consumer = new KafkaConsumer<>(properties);
 [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) 文件提供了命令行接口，可运行生成者或使用者代码。 必须提供 Kafka 代理主机信息作为参数。 可以选择包括组 ID 值，该值由使用者进程使用。 如果使用相同的组 ID 创建多个使用者实例，它们将对主题的读取进行负载均衡。
 
 ## <a name="build-and-deploy-the-example"></a>生成并部署示例
+
+可以跳过用于构建的步骤 1 和步骤 2，并从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars) 下载预构建的 jar (kafka-producer-consumer.jar)。 然后可以将此 jar 复制到 HDInsight 群集。
 
 1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下载示例。
 

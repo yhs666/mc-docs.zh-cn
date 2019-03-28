@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 02/13/2019
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1049d26612e4cdfb2982ab543a4e9967f76b32bb
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 96b6594cf7d57dad76c85f352dcb92e3828c2dff
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186678"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -69,7 +69,7 @@ ms.locfileid: "57462382"
 | AADSTS50032 | WeakRsaKey - 指示错误的用户尝试使用弱 RSA 密钥。 |
 | AADSTS50033 | RetryableError - 指示与数据库操作不相关的暂时性错误。 |
 | AADSTS50034 | UserAccountNotFound - 若要登录到此应用程序，必须将帐户添加到目录中。 |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - 主体中缺少用于生成成对标识符的盐。 请联系租户管理员。 |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - 原则中缺少用于生成成对标识符的盐。 请联系租户管理员。 |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - 使用者与客户端断言中的颁发者声明不匹配。 请联系租户管理员。 |
 | AADSTS50049 | NoSuchInstanceForDiscovery - 未知或无效的实例。 |
@@ -266,6 +266,6 @@ ms.locfileid: "57462382"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 遇到了问题或者找不到所需的内容？ 请创建 GitHub 问题，或查看[面向开发人员的支持和帮助选项](active-directory-develop-help-support.md)来了解其他可以获得帮助和支持的方法。
+* 遇到了问题或者找不到所需的内容？ 请创建 GitHub 问题，或查看[面向开发人员的支持和帮助选项](active-directory-develop-help-support.md)来了解其他可以获得帮助和支持的方法。
 
 <!-- Update_Description: wording update -->

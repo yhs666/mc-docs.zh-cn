@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 2ca4b021b7f2c5974b8059b7995befeba564e5f2
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 70913bae42f38771fa1863b517a76269cda81725
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347090"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318972"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL 数据库数据发现和分类
 

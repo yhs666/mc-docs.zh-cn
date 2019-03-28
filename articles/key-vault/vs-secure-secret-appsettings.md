@@ -1,5 +1,5 @@
 ---
-title: 安全地保存 Web 应用程序的机密应用程序设置 | Azure
+title: 安全地保存 Web 应用程序的机密应用程序设置 - Azure 密钥保管库 | Azure Docs
 description: 如何使用 ASP.NET Core 密钥保管库提供程序、用户密钥或 .NET 4.7.1 配置生成器来安全地保存密钥应用程序设置（如 Azure 凭据或第三方 API 密钥）
 services: visualstudio
 documentationcenter: ''
@@ -7,34 +7,33 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
-ms.service: ''
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/09/2017
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 18f7e90700ba21381e44c75cc95cb4ad66034619
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: a1a8e5b00d21476df1af9b3b47ef7ee4463d9d4f
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135519"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
 ## <a name="overview"></a>概述
 本文介绍如何安全地保存 Azure 应用程序的密钥应用程序配置设置。
 
-传统上，所有 Web 应用配置设置都保存在配置文件（如 Web.config）中。这一做法会导致将密钥设置（如云凭据）签入到公共源代码管理系统（如 Github）。 同时，因为更改源代码和重新配置开发设置都需要开销，因此会难以遵循安全最佳实践。
+传统上，所有 Web 应用配置设置都保存在配置文件（如 Web.config）中。这一做法会导致将密钥设置（如云凭据）签入到公共源代码管理系统（如 GitHub）中。 同时，因为更改源代码和重新配置开发设置都需要开销，因此会难以遵循安全最佳实践。
 
 为了确保开发过程的安全性，创建了工具和框架库，以安全地保存应用程序密钥设置，并最大程度地减少对源代码的更改或不对其进行更改。
 
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 应用程序
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>将密钥设置保存在源代码管理文件夹外部的用户密钥存储中。
-如果你正在快速建立原型或无法访问 Internet，请先将源代码管理文件夹外部的密钥设置移动到用户密钥存储。 用户密钥存储是保存在用户探查器文件夹下的一个文件，因此密钥不会签入到源代码管理。 下图演示了[用户密钥](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager)的工作原理。
+如果你正在快速建立原型或无法访问 Internet，请先将源代码管理文件夹外部的密钥设置移动到用户密钥存储。 用户密钥存储是保存在用户探查器文件夹下的一个文件，因此密钥不会签入到源代码管理。 下图演示了[用户密钥](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)的工作原理。
 
 ![用户密钥将密钥设置保持在源代码管理外部](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -107,14 +106,13 @@ ms.locfileid: "52676921"
 2. 创建类似于以下的文件。 将其保存在你的项目文件夹外部的某个位置下。
 
     ```xml
-
-       <root>
-              <secrets ver="1.0">
-                     <secret name="secret1" value="foo_one" />
-                        <secret name="secret2" value="foo_two" />
-                       </secrets>
-      </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. 将密钥文件定义为 Web.config 文件中的配置生成器。 将该部分置于 appSettings 部分前。
 
@@ -175,5 +173,3 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
     ```
 
 4. 开始调试项目。 它应已成功运行。
-
-<!--Update_Description: code update -->

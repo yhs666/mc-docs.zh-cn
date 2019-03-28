@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: b5ab8a9125587376824437bc9988078daa292114
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: b4eaa1bc9954dae9bf1a0f9928c52c80afffccfa
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560452"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348652"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -50,11 +50,6 @@ ms.locfileid: "57560452"
 
 使用资源管理器可利用不同工具从订阅中的现有资源导出资源管理器模板。 可以使用该生成的模板了解模板语法，或根据需要自动重新部署解决方案。
 
-- Azure 门户：请参阅[从现有资源导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template.md)。
-- Azure PowerShell：请参阅[使用 PowerShell 导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template-powershell.md)。
-- Azure 经典 CLI：请参阅[使用 Azure 经典 CLI 导出 Azure 资源管理器模板](../azure-resource-manager/resource-manager-export-template-cli.md)。
-
-
 ## <a name="deploy-using-the-portal"></a>使用门户进行部署
 
 可以使用 Azure 门户部署资源管理器模板。 有关详细信息，请参阅[从自定义模板部署资源](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)。
@@ -63,7 +58,6 @@ ms.locfileid: "57560452"
 
 可以使用 Azure PowerShell 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure PowerShell 部署资源](../azure-resource-manager/resource-group-template-deploy.md)和[使用 SAS 令牌和 Azure PowerShell 部署专用资源管理器模板](../azure-resource-manager/resource-manager-powershell-sas-token.md)。
 
-<a name="deploy-using-cli"></a>
 ## <a name="deploy-using-azure-cli"></a>使用 Azure CLI 进行部署
 
 可以使用经典 CLI 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 令牌和 Azure CLI 部署专用资源管理器模板](../azure-resource-manager/resource-manager-cli-sas-token.md)。

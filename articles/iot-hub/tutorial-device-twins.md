@@ -11,16 +11,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/14/2018
-ms.date: 09/10/2018
+origin.date: 01/18/2019
+ms.date: 04/01/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 054e85d7f762595aa79bdfbd83be4bb47e2b882d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b2d4b2bd44090bd1e4d43e0d3ab2da4e5175426b
+ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664454"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348610"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 

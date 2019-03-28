@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 09/13/2018
-ms.date: 03/04/2019
+origin.date: 03/06/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 65d7b47b724cd0be336b79e4ace7c3d8427b36df
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 6d78a48c819d348434ecd1e298e27b85de9e0cf9
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196558"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253936"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 
@@ -39,7 +39,7 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 > [!NOTE]
 > 大多数情况下，建议使用常规用途 v2 存储帐户。 可以轻松将常规用途 v1 或 Blob 存储帐户升级到常规用途 v2 帐户，无需停机且无需复制数据。
 >
-> 若要详细了解如何升级到常规用途 v2 帐户，请参阅[升级到常规用途 v2 存储帐户](storage-account-upgrade.md)。 
+> 若要详细了解如何升级到常规用途 v2 帐户，请参阅[升级到常规用途 v2 存储帐户](storage-account-upgrade.md)。
 
 常规用途 v2 存储帐户提供多个访问层用于根据使用模式存储数据。 有关详细信息，请参阅[块 Blob 数据的访问层](#access-tiers-for-block-blob-data)。
 
@@ -61,11 +61,9 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 * 使用早于 2014-02-14 的[存储服务 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 的版本或使用版本低于 4.x 的客户端库，并且无法升级应用程序。
 
-### <a name="blob-storage-accounts"></a>Blob 存储帐户
+### <a name="block-blob-storage-accounts"></a>块 Blob 存储帐户
 
-Blob 存储帐户是一种专用存储帐户，可以将非结构化对象数据作为块 Blob 存储。 Blob 存储帐户提供的持久性、可用性、可伸缩性和性能特性与常规用途 v2 存储帐户提供的相同。 Blob 存储帐户支持存储块 Blob和追加 Blob，但不支持存储页 Blob。
-
-Blob 存储帐户提供多个访问层用于根据使用模式存储数据。 有关详细信息，请参阅[块 Blob 数据的访问层](#access-tiers-for-block-blob-data)。
+块 Blob 存储帐户是一种专用存储帐户，可以将非结构化对象数据作为块 Blob 或追加 Blob 存储。 块 Blob 存储帐户提供多个访问层，可以根据使用模式来存储数据。 有关详细信息，请参阅[块 Blob 数据的访问层](#access-tiers-for-block-blob-data)。
 
 ## <a name="naming-storage-accounts"></a>为存储帐户命名
 

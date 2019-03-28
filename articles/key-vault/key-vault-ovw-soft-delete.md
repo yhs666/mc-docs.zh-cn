@@ -1,19 +1,19 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault 软删除 | Microsoft Docs
+title: Azure Key Vault 软删除 | Azure Docs
 ms.service: key-vault
 ms.topic: conceptual
-author: bryanla
+author: msmbaldwin
 ms.author: v-biyu
-manager: mbaldwin
+manager: barbkess
 origin.date: 09/25/2017
-ms.date: 11/05/2018
-ms.openlocfilehash: 9ced02a0e2396c427be7adab12b3763335f6c879
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/01/2019
+ms.openlocfilehash: 1e2a5e272cfc9b568c64b7ed15ddd05b73504cdb
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647653"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135488"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 软删除概述
 
@@ -45,7 +45,9 @@ Azure Key Vault 是由 Azure Resource Manager 管理的跟踪资源。 Azure Res
 ### <a name="purge-protection--flag"></a>清除保护标志
 默认情况下，清除保护（Azure CLI 中的 --enable-purge-protection）标志处于禁用状态。 启用此标志时，在长达 90 天的保留期到期之前，不能清除处于已删除状态的保管库或对象。 仍可以恢复此类保管库或对象。 此标志可为客户增加保障，在保留期到期之前，永远不会永久删除保管库或对象。 仅当启用了软删除标志或在创建保管库时启用软删除和清除保护时，才能启用清除保护标志。
 
-[!NOTE] 启用清除保护的先决条件是必须已启用软删除。 Azure CLI 2 中可实现此目的的命令是
+> [!NOTE] 
+   启用清除保护的先决条件是必须已启用软删除。
+Azure CLI 2 中可实现此目的的命令是
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location chinanorth --enable-soft-delete true --enable-purge-protection true
@@ -95,4 +97,3 @@ az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --loc
 - [如何将 Key Vault 软删除与 PowerShell 配合使用](key-vault-soft-delete-powershell.md) 
 - [如何将 Key Vault 软删除与 CLI 配合使用](key-vault-soft-delete-cli.md)
 
-<!-- Update_Description: wording update -->

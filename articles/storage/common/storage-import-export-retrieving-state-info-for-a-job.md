@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: e04c06b3e93c6c7ed1110858b182b089f0762f3f
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f9a450b8411b59eb2695b0f3961ff254a75bc46f
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665664"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253905"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>检索导入/导出作业的状态信息
 可以调用[获取作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs)操作来检索有关导入和导出作业的信息。 返回的信息包括：

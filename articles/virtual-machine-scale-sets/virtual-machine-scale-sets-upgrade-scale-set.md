@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/14/2018
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 908f8f6c2d593062885e33ae7560d12595d679e3
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: b208ed2dc9cf6afdfdc700581a47c422024bad96
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101599"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256373"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虚拟机规模集
 
@@ -459,4 +459,5 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="next-steps"></a>后续步骤
 还可以使用 [Azure CLI](virtual-machine-scale-sets-manage-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md) 对规模集执行常见的管理任务。
 
-<!-- Update_Description: code and link update -->
+
+<!-- Update_Description: wording update -->

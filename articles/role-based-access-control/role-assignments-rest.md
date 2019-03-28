@@ -13,15 +13,15 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/20/2018
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: e260908418e15b1f2bf9f8790d6b9f02dea48572
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 8503e8448fbbb726e805d379f5c8597072207b06
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836927"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318901"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理对 Azure 资源的访问权限
 
@@ -120,4 +120,4 @@ ms.locfileid: "56836927"
 - [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)
 - [使用 REST API 为 Azure 资源创建自定义角色](custom-roles-rest.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

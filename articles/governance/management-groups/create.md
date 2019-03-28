@@ -1,6 +1,6 @@
 ---
-title: 创建管理组来组织 Azure 资源 | Azure
-description: 了解如何创建 Azure 管理组来管理多个资源。
+title: 创建管理组以组织 Azure 资源 - Azure 治理
+description: 了解如何使用门户、Azure PowerShell 和 Azure CLI 创建 Azure 管理组以管理多个资源。
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -8,14 +8,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2018
-ms.date: 01/28/2019
+ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: e0914d78e7b7c5977ff3c1c653e839260b7174c4
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.topic: conceptual
+ms.openlocfilehash: a560ca0a575df3a6995b2d12a46de376287c13af
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135501"
 ---
 <!--Verify successfully-->
 # <a name="create-management-groups-for-resource-organization-and-management"></a>创建用来组织和管理资源的管理组
@@ -23,6 +24,8 @@ ms.locfileid: "54307618"
 管理组是一些容器，可以帮助你跨多个订阅管理访问权限、策略和符合性。 可以创建这些容器来构建可以与 [Azure Policy](../policy/overview.md) 和 [Azure 基于角色的访问控制](../../role-based-access-control/overview.md)配合使用的有效且高效的层次结构。 若要详细了解管理组，请参阅[使用 Azure 管理组整理资源](index.md)。
 
 在目录中创建的第一个管理组可能需要最多 15 分钟才能完成。 一些进程会首次运行以在 Azure 中为目录设置管理组服务。 在进程完成后将显示通知。
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-management-group"></a>创建管理组
 
@@ -49,10 +52,10 @@ ms.locfileid: "54307618"
 
 ### <a name="create-in-powershell"></a>在 PowerShell 中创建
 
-在 PowerShell 中，使用 New-AzureRmManagementGroup cmdlet：
+在 PowerShell 中，使用 New-AzManagementGroup cmdlet：
 
 ```PowerShell
-New-AzureRmManagementGroup -GroupName 'Contoso'
+New-AzManagementGroup -GroupName 'Contoso'
 ```
 
 **GroupName** 是要创建的唯一标识符。 此 ID 由其他命令用来引用此组，并且以后无法更改。
@@ -60,7 +63,7 @@ New-AzureRmManagementGroup -GroupName 'Contoso'
 如果希望管理组在 Azure 门户中显示一个不同的名称，则通过字符串添加 **DisplayName** 参数。 例如，如果希望创建一个 GroupName 为 Contoso 且显示名称为“Contoso Group”的管理组，需要使用以下 cmdlet：
 
 ```PowerShell
-New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId 'ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
 ```
 
 可以使用 **ParentId** 参数将此管理组创建到另一个管理组下。

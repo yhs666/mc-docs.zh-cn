@@ -10,13 +10,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: bc9c2e9f74e35396c1785307f3c3a58d238194ef
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 03/25/2019
+ms.openlocfilehash: 6257193f86b8de59e0024f3b60f22530eab67300
+ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347194"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318973"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教程：保护单一数据库或入池数据库
 
@@ -88,7 +88,7 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
 
 ### <a name="setup-database-firewall-rules"></a>设置数据库防火墙规则
 
-数据库级防火墙规则仅适用于单个数据库。 这些规则可以移植，在服务器故障转移过程中会随数据库一起迁移。 数据库级防火墙规则只能使用 Transact-SQL (T-SQL) 语句进行配置，而且只能在配置了服务器级防火墙规则后进行配置。
+数据库级防火墙规则仅适用于单个数据库。 数据库在服务器故障转移期间会保留这些规则。 数据库级防火墙规则只能使用 Transact-SQL (T-SQL) 语句进行配置，而且只能在配置了服务器级防火墙规则后进行配置。
 
 若要设置数据库级防火墙规则，请执行以下操作：
 
@@ -140,7 +140,7 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
 
 - [将本地标识与 Azure AD 集成](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [将自己的域名添加到 Azure AD](../active-directory/fundamentals/add-custom-domain.md)
-- [Azure 现在支持与 Windows Server AD 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Azure 现在支持与 Windows Server AD 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [管理 Azure AD 目录](../active-directory/fundamentals/active-directory-administer.md)
 - [使用 PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)
 - [混合标识所需的端口和协议](../active-directory/hybrid/reference-connect-ports.md)

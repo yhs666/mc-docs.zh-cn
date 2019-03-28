@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/30/2017
-ms.date: 09/24/2018
+ms.date: 03/25/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 25e6207996957ddaba69db9f0df4bb9398b29e82
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.subservice: common
+ms.openlocfilehash: 39c841ecd52be0a2867b2f0722430bc532c95958
+ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662212"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58253895"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>结合使用 Azure 经典 CLI 与 Azure 存储
 
@@ -36,8 +36,9 @@ Azure 经典 CLI 提供了一组开源且跨平台的命令，可结合 Azure �
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>在 5 分钟内开始使用 Azure 存储和 Azure 经典 CLI
 本指南使用 Ubuntu 作为示例，但其他 OS 平台的操作应与此类似。
 
-**Azure 新用户：** 获取一个 Azure 订阅以及与该订阅关联的 Azure 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
+**第一次使用 Azure：** 获取一个 Azure 订阅以及与该订阅关联的 Azure 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
+请参阅[在 Azure Active Directory (Azure AD) 中分配管理员角色](/active-directory/active-directory-assign-admin-roles-azure-portal)，以了解有关 Azure 订阅的更多信息。
 
 **创建 Azure 订阅和帐户之后：**
 
@@ -78,7 +79,7 @@ Azure 经典 CLI 提供了一组开源且跨平台的命令，可结合 Azure �
 5. 在本地计算机中，打开首选的文本编辑器（例如 vim）。 在文本编辑器中键入上述脚本。
 6. 现在，需要基于配置设置更新脚本变量。
 
-   * <storage_account_name>：使用脚本中给定的名称，或输入存储帐户的新名称。 **重要提示：** 在 Azure 中，存储帐户的名称必须是唯一的。 它还必须为小写！
+   * <storage_account_name>：使用脚本中给定的名称，或输入存储帐户的新名称。 **重要提示：** 在 Azure 中，存储帐户名必须是唯一的。 它还必须为小写！
    * <storage_account_key>：存储帐户的访问密钥。
    * <container_name>：使用脚本中给定的名称，或输入容器的新名称。
    * <image_to_upload>：输入本地计算机上图片的路径，例如：“~/images/HelloWorld.png”。
@@ -122,7 +123,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## <a name="create-and-manage-blobs"></a>创建并管理 blob
-Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本部分假设已熟悉 Azure Blob 存储的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服务概念](http://msdn.microsoft.com/library/azure/dd179376.aspx)。
+Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本部分假设已熟悉 Azure Blob 存储的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服务概念](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ### <a name="create-a-container"></a>创建容器
 Azure 存储中的每个 Blob 都必须在容器中。 可以使用 `azure storage container create` 命令创建专用容器：
@@ -132,12 +133,12 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> 有三种级别的匿名读取访问权限：**Off**、**Blob** 和 **Container**。 要防止对 Blob 进行匿名访问，请将 Permission 参数设置为 **Off**。 默认情况下，新容器是专用容器，只能由帐户所有者访问。 要允许对 Blob 资源进行匿名公共读取访问，但不允许访问容器元数据或容器中的 Blob 列表，请将 Permission 参数设置为 **Blob**。 要允许对 Blob 资源、容器元数据和容器中的 Blob 列表进行完全公开读取访问，请将 Permission 参数设置为 **Container**。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)。
+> 有三种级别的匿名读取访问：“关”、“Blob”和“容器”。 要防止对 Blob 进行匿名访问，请将 Permission 参数设置为 **Off**。 默认情况下，新容器是专用容器，只能由帐户所有者访问。 要允许对 Blob 资源进行匿名公共读取访问，但不允许访问容器元数据或容器中的 Blob 列表，请将 Permission 参数设置为 **Blob**。 要允许对 Blob 资源、容器元数据和容器中的 Blob 列表进行完全公开读取访问，请将 Permission 参数设置为 **Container**。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)。
 >
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>将 Blob 上传到容器中
-Azure Blob 存储支持块 Blob 和页 Blob。 有关详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+Azure Blob 存储支持块 Blob 和页 Blob。 有关详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 要将 blob 上传到容器，可使用 `azure storage blob upload`。 默认情况下，此命令会将本地文件上传到块 Blob。 若要指定 Blob 的类型，可以使用 `--blobtype` 参数。
 

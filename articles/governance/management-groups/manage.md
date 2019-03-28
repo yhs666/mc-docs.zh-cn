@@ -1,30 +1,29 @@
 ---
-title: 如何在 Azure 中更改、删除或管理管理组
-description: 了解如何维护和更新管理组层次结构。
+title: 如何在 Azure 中更改、删除或管理管理组 - Azure 治理
+description: 了解如何查看、维护、更新和删除管理组层次结构。
 author: rthorn17
-manager: rithorn
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 09/18/2018
-ms.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: cb05e26c47a78654db3cd24790776b7382210dde
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.topic: conceptual
+ms.openlocfilehash: fe4c5c5bdc37d287daff7150271bee787823ceb6
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996317"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135516"
 ---
 <!--Verify successfully-->
 # <a name="manage-your-resources-with-management-groups"></a>使用管理组管理资源
 
-管理组是一些容器，可以帮助跨多个订阅管理访问权限、策略和符合性。 可以更改、删除和管理这些容器来构建可与 [Azure Policy](../policy/overview.md) 和 [Azure 基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 配合使用的层次结构。 有关管理组的详细信息，请参阅[使用 Azure 管理组整理资源](index.md)。
+如果你的组织有多个订阅，则可能需要一种方法来高效地管理这些订阅的访问权限、策略和符合性。 Azure 管理组提供订阅上的作用域级别。 可将订阅组织到名为“管理组”的容器中，并将管理条件应用到管理组。 管理组中的所有订阅都将自动继承应用于管理组的条件。
 
-若要对管理组进行更改，必须在管理组中拥有“所有者”或“参与者”角色。 若要查看自己拥有哪些权限，请选择管理组，然后选择“IAM”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。
+不管使用什么类型的订阅，管理组都能提供大规模的企业级管理。  有关管理组的详细信息，请参阅[使用 Azure 管理组整理资源](index.md)。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>更改管理组的名称
 
@@ -40,20 +39,20 @@ ms.locfileid: "53996317"
 
 1. 选择页面顶部的“重命名组”选项。
 
-   ![重命名组](./media/detail_action_small.png)
+   ![“重命名组”选项](./media/detail_action_small.png)
 
 1. 菜单打开后，请输入要显示的新名称。
 
-   ![重命名组](./media/rename_context.png)
+   ![“重命名组”窗格](./media/rename_context.png)
 
 1. 选择“其他安全性验证” 。
 
 ### <a name="change-the-name-in-powershell"></a>在 PowerShell 中更改名称
 
-若要更新显示名称，请使用 **Update-AzureRmManagementGroup**。 例如，若要将管理组的名称从“Contoso IT”更改为“Contoso Group”，可运行以下命令：
+若要更新显示名称，请使用 **Update-AzManagementGroup**。 例如，若要将管理组的显示名称从“Contoso IT”更改为“Contoso Group”，请运行以下命令：
 
 ```PowerShell
-Update-AzureRmManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### <a name="change-the-name-in-azure-cli"></a>在 Azure CLI 中更改名称
@@ -70,11 +69,11 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 该管理组下面没有任何子管理组或订阅。
 
-    - 若要将订阅移出管理组，请参阅[将订阅移到另一个管理组](#Move-subscriptions-in-the-hierarchy)。
+   - 若要将订阅移出管理组，请参阅[将订阅移到另一个管理组](#Move-subscriptions-in-the-hierarchy)。
 
-    - 若要将管理组移到另一个管理组，请参阅[在层次结构中移动管理组](#Move-management-groups-in-the-hierarchy)。
+   - 若要将管理组移到另一个管理组，请参阅[在层次结构中移动管理组](#Move-management-groups-in-the-hierarchy)。
 
-1. 在管理组中拥有管理组“所有者”或“参与者”角色的写入权限。 若要查看自己拥有哪些权限，请选择管理组，然后选择“IAM”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。  
+1. 你在管理组（“所有者”、“参与者”或“管理组参与者”）中拥有写入权限。 若要查看自己拥有哪些权限，请选择管理组，然后选择“IAM”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。  
 
 ### <a name="delete-in-the-portal"></a>在门户中删除
 
@@ -86,22 +85,23 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 选择“删除”
 
-   - 如果该图标已禁用，将鼠标指针悬停在该图标上可显示原因。
+    > [!TIP]
+    > 如果该图标已禁用，将鼠标指针悬停在该图标上可显示原因。
 
-   ![删除组](./media/delete.png)
+   ![“删除组”选项](./media/delete.png)
 
 1. 此时会打开一个窗口，让你确认是否要删除该管理组。
 
-   ![删除组](./media/delete_confirm.png)
+   ![“确认删除组”窗口](./media/delete_confirm.png)
 
 1. 请选择“是”。
 
 ### <a name="delete-in-powershell"></a>在 PowerShell 中删除
 
-在 PowerShell 中使用 **Remove-AzureRmManagementGroup** 命令删除管理组。
+在 PowerShell 中使用 **Remove-AzManagementGroup** 命令删除管理组。
 
 ```PowerShell
-Remove-AzureRmManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupName 'Contoso'
 ```
 
 ### <a name="delete-in-azure-cli"></a>在 Azure CLI 中删除
@@ -122,24 +122,59 @@ az account management-group delete --name 'Contoso'
 
 1. 选择“所有服务” > “管理组”。
 
-1. 此时将加载“管理组”层次结构页，可以在其中浏览有权访问的所有管理组和订阅。 选择组名会将你带到层次结构中的下一级别。 导航的工作方式与文件资源管理器一样。
+1. 此时会加载管理组层次结构页。 可以在该页中浏览你有权访问的所有管理组和订阅。 选择组名会将你带到层次结构中的下一级别。 导航的工作方式与文件资源管理器一样。
+
+1. 若要查看管理组的详细信息，请选择管理组标题旁边的“(详细信息)”链接。 如果此链接不可用，则表示你无权查看该管理组。
 
    ![主要](./media/main.png)
 
-1. 若要查看管理组的详细信息，请选择管理组标题旁边的“(详细信息)”链接。 如果此链接不可用，则表示你无权查看该管理组。  
-
 ### <a name="view-in-powershell"></a>在 PowerShell 中查看
 
-使用 Get-AzureRmManagementGroup 命令可检索所有组。  
+使用 Get-AzManagementGroup 命令检索所有组。  如需管理组 GET Powershell 命令的完整列表，请查看 [Az.Resources](https://docs.microsoft.com/powershell/module/az.resources/Get-AzManagementGroup) 模块。  
 
-```PowerShell
-Get-AzureRmManagementGroup
+```azurepowershell
+Get-AzManagementGroup
 ```
 
 若要查看单个管理组的信息，请使用 -GroupName 参数
 
-```PowerShell
-Get-AzureRmManagementGroup -GroupName 'Contoso'
+```azurepowershell
+Get-AzManagementGroup -GroupName 'Contoso'
+```
+
+若要返回特定的管理组以及其下所有级别的层次结构，请使用 **-Expand** 和 **-Recurse** 参数。  
+
+```azurepowershell
+PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response
+
+Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
+Type              : /providers/Microsoft.Management/managementGroups
+Name              : TestGroupParent
+TenantId          : 00000000-0000-0000-0000-000000000000
+DisplayName       : TestGroupParent
+UpdatedTime       : 2/1/2018 11:15:46 AM
+UpdatedBy         : 00000000-0000-0000-0000-000000000000
+ParentId          : /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000
+ParentName        : 00000000-0000-0000-0000-000000000000
+ParentDisplayName : 00000000-0000-0000-0000-000000000000
+Children          : {TestGroup1DisplayName, TestGroup2DisplayName}
+
+PS C:\> $response.Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestGroup1
+Name        : TestGroup1
+DisplayName : TestGroup1DisplayName
+Children    : {TestRecurseChild}
+
+PS C:\> $response.Children[0].Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestRecurseChild
+Name        : TestRecurseChild
+DisplayName : TestRecurseChild
+Children    :
 ```
 
 ### <a name="view-in-azure-cli"></a>在 Azure CLI 中查看
@@ -149,23 +184,32 @@ Get-AzureRmManagementGroup -GroupName 'Contoso'
 ```azurecli
 az account management-group list
 ```
+
 若要查看单个管理组的信息，请使用 show 命令
 
 ```azurecli
 az account management-group show --name 'Contoso'
 ```
 
+若要返回特定的管理组以及其下所有级别的层次结构，请使用 **-Expand** 和 **-Recurse** 参数。
+
+```azurecli
+az account management-group show --name 'Contoso' -e -r
+```
+
 ## <a name="move-subscriptions-in-the-hierarchy"></a>在层次结构中移动订阅
 
 创建管理组的原因之一是将订阅捆绑在一起。 只能将管理组和订阅设置为另一个管理组的子级。 移到管理组的订阅从父管理组继承所有用户访问权限和策略。
 
-若要移动订阅，必须拥有几项权限：
+若要移动订阅，则下述所有 RBAC 权限都必须为 true：
 
 - 子订阅中的“所有者”角色。
-- 新父管理组中的“所有者”或“参与者”角色。
-- 旧父管理组中的“所有者”或“参与者”角色。
+- 目标父管理组上的“所有者”、“参与者”或“管理组参与者”角色。*
+- 现有父管理组上的“所有者”、“参与者”或“管理组参与者”角色。*
 
-若要查看自己拥有哪些权限，请选择管理组，然后选择“IAM”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。
+*：除非目标父管理组或现有父管理组为根管理组。 由于根管理组是所有新管理组和订阅的默认登陆点，因此用户不需其上的权限即可移动项。
+
+若要在 Azure 门户中查看自己拥有哪些权限，请选择管理组，然后选择“标识和访问管理”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。
 
 ### <a name="move-subscriptions-in-the-portal"></a>在门户中移动订阅
 
@@ -195,28 +239,28 @@ az account management-group show --name 'Contoso'
 
 1. 在列表中，选择要移动的订阅所在行末尾的椭圆。
 
-   ![移动](./media/move_small.png)
+   ![“移动”选项](./media/move_small.png)
 
 1. 选择“移动”。
 
 1. 在打开的菜单中，选择“父管理组”。
 
-   ![移动](./media/move_small_context.png)
+   ![“移动”窗格](./media/move_small_context.png)
 
 1. 选择“其他安全性验证” 。
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移动订阅
 
-若要在 PowerShell 中移动订阅，请使用 New-AzureRmManagementGroupSubscription 命令。  
+若要在 PowerShell 中移动订阅，请使用 New-AzManagementGroupSubscription 命令。  
 
 ```PowerShell
-New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-若要删除订阅与管理组之间的链接，请使用 Remove-AzureRmManagementGroupSubscription 命令。
+若要删除订阅与管理组之间的链接，请使用 Remove-AzManagementGroupSubscription 命令。
 
 ```PowerShell
-Remove-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>在 Azure CLI 中移动订阅
@@ -235,7 +279,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>在层次结构中移动管理组  
 
-移动某个父管理组时，包含管理组、订阅、资源组和资源的所有子资源会连同父级一起移动。
+移动父管理组时，该组下的层次结构会随之移动。
 
 ### <a name="move-management-groups-in-the-portal"></a>在门户中移动管理组
 
@@ -258,10 +302,10 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-powershell"></a>在 PowerShell 中移动管理组
 
-在 PowerShell 中使用 Update-AzureRmManagementGroup 命令将管理组移到不同的组下面。
+在 PowerShell 中使用 Update-AzManagementGroup 命令将管理组移到不同的组下面。
 
 ```PowerShell
-Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>在 Azure CLI 中移动管理组
@@ -269,22 +313,34 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 在 Azure CLI 中使用 update 命令移动管理组。
 
 ```azurecli
-az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
+az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>使用活动日志审核管理组
 
-若要通过此 API 跟踪管理组，请使用[租户活动日志 API](https://docs.microsoft.com/zh-cn/rest/api/monitor/tenantactivitylogs)。 目前不可以使用 PowerShell、CLI 或 Azure 门户跟踪管理组活动。
+[Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)支持管理组。 可以查询与其他 Azure 资源相同的中心位置中的管理组发生的所有事件。  例如，可以看到对特定管理组所做的所有角色分配或策略分配更改。
 
-1. Azure AD 租户的租户管理员可以[提升访问权限](../../role-based-access-control/elevate-access-global-admin.md)，然后将一个“读者”角色分配给 `/providers/microsoft.insights/eventtypes/management` 范围内的审核用户。
-1. 以审核用户身份调用[租户活动日志 API](https://docs.microsoft.com/zh-cn/rest/api/monitor/tenantactivitylogs) 来查看管理组活动。 需要按资源提供程序 **Microsoft.Management** 对所有管理组活动进行筛选。  示例：
+![将活动日志与管理组配合使用](media/al-mg.png)
 
-```xml
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+如果要在 Azure 门户外针对管理组进行查询，管理组的目标范围将如下所示：**"/providers/Microsoft.Management/managementGroups/{yourMgID}"**。
+
+## <a name="referencing-management-groups-from-other-resource-providers"></a>引用其他资源提供程序的管理组
+
+引用其他资源提供程序的操作中的管理组时，请使用以下路径作为范围。 此路径在使用 PowerShell、Azure CLI 和 REST API 时使用。  
+
+>"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+
+例如，在将新角色分配到 PowerShell 中的管理组时，使用此路径
+
+```powershell
+New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-> [!NOTE]
-> 若要快速从命令行调用此 API，请尝试使用 [ARMClient](https://github.com/projectkudu/ARMClient)。
+在管理组中检索策略定义时，使用同一范围路径。
+
+```http
+GET https://management.chinacloudapi.cn/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+```
 
 ## <a name="next-steps"></a>后续步骤
 

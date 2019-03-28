@@ -14,19 +14,19 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/29/2018
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 24e94e34c014e02b4ad1c77c7f57a4a712092714
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 14cc8971c2fb3f5d38a87604d7fb47642a2932b2
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101576"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256362"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 创建完整的虚拟机规模集
 
-此脚本创建运行 Windows Server 2016 的虚拟机规模集。 单个资源是配置和创建的，不使用 [New-AzVmss 中提供的内置资源创建选项](powershell-sample-create-simple-scale-set.md)。 运行脚本后，可通过 RDP 访问 VM 实例。
+此脚本创建运行 Windows Server 2016 的虚拟机规模集。 单个资源是配置和创建的，而不是使用 [New-AzVmss 中提供的内置资源创建选项](powershell-sample-create-simple-scale-set.md)。 运行脚本后，可通过 RDP 访问 VM 实例。
 
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。

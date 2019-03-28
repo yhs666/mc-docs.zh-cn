@@ -1,6 +1,6 @@
 ---
-title: Durable Functions 的函数类型和功能概述 - Azure
-description: 了解允许作为 Durable Function 业务流程的一部分进行函数到函数通信的函数类型和角色。
+title: Azure Functions 的 Durable Functions 扩展中的函数类型和功能
+description: 了解 Azure Functions 的 Durable Functions 业务流程中用于支持函数间通信的函数类型和角色。
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -9,80 +9,96 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3bff246d9ccf22a5609acb82629efdde5904c2ba
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 7331b54e2b70687fc8eb50c5a6164fcb7ecf87e8
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254034"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256368"
 ---
-# <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Durable Functions 的函数类型和功能概述 (Azure Functions)
+# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 类型和功能 (Azure Functions)
 
-Durable Functions 提供函数执行的有状态业务流程。 Durable Function 是由不同 Azure Functions 组成的解决方案。 每一个函数都可以在业务流程中扮演不同的角色。 以下文档概述了 Durable Function 业务流程中涉及的函数类型。 还介绍了一些将函数连接在一起的常见模式。  若要立即开始使用，请用 [C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md) 创建第一个 Durable Function。
+Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩展。 可将 Azure Functions 用于函数执行的有状态业务流程。 持久函数是由不同 Azure 函数构成的解决方案。 函数可在持久函数业务流程中扮演不同的角色。 
 
-![Durable Functions 的类型][1]  
+本文将会概述可在 Durable Functions 业务流程中使用的函数类型。 本文包括一些可用于连接函数的常用模式。 了解 Durable Functions 有助于解决应用开发中遇到的难题。
 
-## <a name="types-of-functions"></a>函数类型
+![显示 Durable Functions 类型的插图][1]  
+
+## <a name="types-of-durable-functions"></a>Durable Functions 的类型
+
+可在 Azure Functions 中使用三种持久函数类型：活动、业务流程协调程序和客户端。
 
 ### <a name="activity-functions"></a>活动函数
 
-活动函数是持久业务流程中的基本工作单元。  活动函数是流程中安排的函数和任务。  例如，可以创建一个 Durable Function 来处理订单，这包括检查库存、向客户收费和创建装运作业。  以上每一个任务都是一个活动函数。  活动函数对于可在其中执行的工作类型没有任何限制。  可以使用 [Durable Functions 支持的任何语言](durable-functions-overview.md#language-support)编写这类函数。 持久任务框架可保证在业务流程期间每个调用的活动函数至少执行一次。
+活动函数是持久函数业务流程中的基本工作单元。 活动函数是在过程中协调的函数和任务。 例如，可以创建一个持久函数来处理订单。 任务涉及到检查库存、向客户收费和创建发货单。 每个任务都是一个活动函数。 
 
-活动函数必须由[活动触发器](durable-functions-bindings.md#activity-triggers)触发。  .NET 函数将接收 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 作为参数。 还可以将触发器绑定到任何其他对象，从而将输入传递给函数。 在 JavaScript 中，可以通过 [`context.bindings` 对象](../functions-reference-node.md#bindings)上的 `<activity trigger binding name>` 属性访问输入。
+活动函数对于可在其中执行的工作类型没有限制。 可以使用 [Durable Functions 支持的任何语言](durable-functions-overview.md#language-support)编写活动函数。 持久任务框架可保证在业务流程期间每个调用的活动函数至少执行一次。
 
-活动函数还可以将值返回到业务流程协调程序。  如果从活动函数发送或返回多个值，则可以[利用元组或数组](durable-functions-bindings.md#passing-multiple-parameters)。  只能从业务流程实例触发活动函数。  虽然某些代码可以在活动函数和另一个函数（如 HTTP 触发器函数）之间共享，但每个函数只能有一个触发器。
+使用[活动触发器](durable-functions-bindings.md#activity-triggers)触发活动函数。 .NET 函数接收 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 作为参数。 还可以将触发器绑定到任何其他对象，从而将输入传递给函数。 在 JavaScript 中，可以通过 [`context.bindings` 对象](../functions-reference-node.md#bindings)中的 `<activity trigger binding name>` 属性访问输入。
 
-可参阅 [Durable Functions 绑定文章](durable-functions-bindings.md#activity-triggers)了解更多信息和示例。
+活动函数还可以将值返回给业务流程协调程序。 如果从活动函数发送或返回大量的值，可以使用[元组或数组](durable-functions-bindings.md#passing-multiple-parameters)。 只能从业务流程实例触发活动函数。 虽然某个活动函数和另一个函数（例如 HTTP 触发的函数）可以共享一些代码，但每个函数只能有一个触发器。
+
+有关详细信息和示例，请参阅[活动函数](durable-functions-bindings.md#activity-triggers)。
 
 ### <a name="orchestrator-functions"></a>业务流程协调程序函数
 
-业务流程协调程序函数是 Durable Function 的核心。  业务流程协调程序函数描述执行操作的方式和顺序。  业务流程协调程序函数描述了代码（C# 或 JavaScript）中的业务流程，如 [Durable Functions 模式和技术概念](durable-functions-concepts.md)中所示。  业务流程可以有许多不同类型的操作，例如[活动函数](#activity-functions)、[子业务流程](#sub-orchestrations)、[等待外部事件](#external-events)和[计时器](#durable-timers)。  
+业务流程协调程序函数描述操作的执行方式和操作的执行顺序。 业务流程协调程序函数描述代码（C# 或 JavaScript）中的业务流程，如 [Durable Functions 模式和技术概念](durable-functions-concepts.md)中所述。 业务流程可以包含许多不同类型的操作，包括[活动函数](#activity-functions)、[子业务流程](#sub-orchestrations)、[等待外部事件](#external-events)和[计时器](#durable-timers)。 
 
 必须由[业务流程触发器](durable-functions-bindings.md#orchestration-triggers)触发业务流程协调程序函数。
 
-业务流程协调程序由[业务流程协调程序客户端](#client-functions)启动，该客户端本身可以从任何源（HTTP、队列、事件流）触发。  业务流程的每个实例都有一个实例标识符，该标识符可以自动生成（推荐）或用户生成。  此标识符可用于[管理业务流程的实例](durable-functions-instance-management.md)。
+业务流程协调程序由[业务流程协调程序客户端](#client-functions)启动。 可以从任何源（HTTP、队列、事件流）触发业务流程协调程序。 业务流程的每个实例都有一个实例标识符。 可以自动生成（推荐）或者由用户生成实例标识符。 可以使用实例标识符[管理业务流程的实例](durable-functions-instance-management.md)。
 
-可参阅 [Durable Functions 绑定文章](durable-functions-bindings.md#orchestration-triggers)了解更多信息和示例。
+有关详细信息和示例，请参阅[业务流程触发器](durable-functions-bindings.md#orchestration-triggers)。
 
 ### <a name="client-functions"></a>客户端函数
 
-客户端函数是触发器函数，可创建新的业务流程实例。  它们是创建持久业务流程实例的入口点。  客户端函数可以由任何触发器（HTTP、队列、事件流等）触发，并能以应用支持的任何语言编写。  除了触发器之外，客户端函数还具有[业务流程客户端](durable-functions-bindings.md#orchestration-client)绑定，允许其创建和管理持久业务流程。  客户端函数的最基本示例是 HTTP 触发器函数，该函数启动业务流程协调程序函数并返回检查状态响应，如[以下示例所示](durable-functions-http-api.md#http-api-url-discovery)。
+客户端函数是触发的函数，可以创建业务流程的新实例。 客户端函数是用于创建 Durable Functions 业务流程实例的入口点。 可以从任何源（HTTP、队列、事件流）触发客户端函数。 可以使用应用支持的任何语言编写客户端函数。 
 
-可参阅 [Durable Functions 绑定文章](durable-functions-bindings.md#orchestration-client)了解更多信息和示例。
+客户端函数还具有[业务流程客户端](durable-functions-bindings.md#orchestration-client)绑定。 客户端函数可以使用业务流程客户端绑定来创建和管理持久业务流程。 
+
+客户端函数的最基本示例是 HTTP 触发的函数，该函数启动业务流程协调程序函数，然后返回检查状态响应。 有关示例，请参阅 [HTTP API URL 发现](durable-functions-http-api.md#http-api-url-discovery)。
+
+有关详细信息和示例，请参阅[业务流程客户端](durable-functions-bindings.md#orchestration-client)。
 
 ## <a name="features-and-patterns"></a>功能和模式
 
+后续部分介绍 Durable Functions 类型的功能和模式。
+
 ### <a name="sub-orchestrations"></a>子业务流程
 
-除了调用活动函数之外，业务流程协调程序函数还可以调用其他业务流程协调程序函数。 例如，可以基于业务流程协调程序函数库构建更大的业务流程。 或者，你可以并行运行某个业务流程协调程序函数的多个实例。
+业务流程协调程序函数可以调用活动函数，但除此之外，还可以调用其他业务流程协调程序函数。 例如，可以基于业务流程协调程序函数库构建更大的业务流程。 或者，可以并行运行某个业务流程协调程序函数的多个实例。
 
-可参阅[子业务流程文章](durable-functions-sub-orchestrations.md)了解更多信息和示例。
+有关详细信息和示例，请参阅[子业务流程](durable-functions-sub-orchestrations.md)。
 
 ### <a name="durable-timers"></a>持久计时器
 
-[Durable Functions](durable-functions-overview.md) 提供了供在业务流程协调程序函数中使用的“持久计时器”，这些计时器用来为异步操作实现延迟或设置超时。 在业务流程协调程序函数中应当使用持久计时器，而不是使用 `Thread.Sleep` 和 `Task.Delay` (C#) 或 `setTimeout()` 和 `setInterval()` (JavaScript)。
+[Durable Functions](durable-functions-overview.md) 提供持久计时器，在业务流程协调程序函数中使用这些计时器可以针对异步操作实现延迟或设置超时。 在业务流程协调程序函数中应使用持久计时器，而不要使用 `Thread.Sleep` 和 `Task.Delay` (C#) 或 `setTimeout()` 和 `setInterval()` (JavaScript)。
 
-可参阅[持久计时器文章](durable-functions-timers.md)了解有关持久计时器的更多信息和示例
+有关详细信息和示例，请参阅[持久计时器](durable-functions-timers.md)。
 
 ### <a name="external-events"></a>外部事件
 
-业务流程协调程序函数可以等待外部事件来更新业务流程实例。 Durable Functions 的此功能对于处理人机交互或其他外部回调通常比较有用。
+业务流程协调程序函数可以等待外部事件来更新业务流程实例。 此项 Durable Functions 功能通常用于处理人机交互或其他外部回调。
 
-可参阅[外部事件文章](durable-functions-external-events.md)了解更多信息和示例。
+有关详细信息和示例，请参阅[外部事件](durable-functions-external-events.md)。
 
 ### <a name="error-handling"></a>错误处理。
 
-Durable Function 业务流程采用代码实现，并可使用编程语言的错误处理功能。  这意味着可在业务流程中使用诸如“try/catch”这样的模式。  Durable Functions 还内置有一些重试策略。  操作可以在异常时自动延迟和重试活动。  重试使你能够处理暂时性异常，而无需放弃业务流程。
+使用代码实现 Durable Functions 业务流程。 可以使用编程语言的错误处理功能。 在业务流程中可以运行诸如 `try`/`catch` 的模式。 
 
-可参阅[错误处理文章](durable-functions-error-handling.md)了解更多信息和示例。
+Durable Functions 还有内置的重试策略。 发生异常时，某项操作可以自动延迟和重试活动。 可以使用重试来处理暂时性的异常，而无需丢弃业务流程。
+
+有关详细信息和示例，请参阅[错误处理](durable-functions-error-handling.md)。
 
 ### <a name="cross-function-app-communication"></a>跨函数应用通信
 
-虽然持久业务流程通常位于单个函数应用的上下文中，但可通过某些模式跨多个函数应用协调业务流程。  尽管可以通过 HTTP 进行跨应用通信，但为每个活动使用持久框架意味着还可以跨两个应用维护持久进程。
+虽然持久业务流程在单个函数应用的上下文中运行，但你可以使用模式来跨多个函数应用协调业务流程。 跨应用通信可以通过 HTTP 进行，但是，为每个活动使用持久框架意味着还可以跨两个应用保持持久过程。
 
-下面提供了 C# 和 JavaScript 中的跨函数应用业务流程示例。  一项活动将启动外部业务流程。 然后，另一个活动检索并返回状态。  业务流程协调程序将等待状态完成后再继续。
+以下示例演示了 C# 和 JavaScript 中的跨函数应用业务流程。 在每个示例中，有一个活动启动外部业务流程。 另一个活动检索并返回状态。 业务流程协调程序等待状态变为 `Complete`，然后继续。
+
+下面是跨函数应用业务流程的一些示例：
 
 #### <a name="c"></a>C#
 
@@ -93,11 +109,11 @@ public static async Task RunRemoteOrchestrator(
 {
     // Do some work...
 
-    // Call a remote orchestration
+    // Call a remote orchestration.
     string statusUrl = await context.CallActivityAsync<string>(
         "StartRemoteOrchestration", "OrchestratorB");
 
-    // Wait for the remote orchestration to complete
+    // Wait for the remote orchestration to complete.
     while (true)
     {
         bool isComplete = await context.CallActivityAsync<bool>("CheckIsComplete", statusUrl);
@@ -109,7 +125,7 @@ public static async Task RunRemoteOrchestrator(
         await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(1), CancellationToken.None);
     }
 
-    // B is done. Now go do more work...
+    // B is done. Now, go do more work...
 }
 
 [FunctionName("StartRemoteOrchestration")]
@@ -144,10 +160,10 @@ const moment = require("moment");
 module.exports = df.orchestrator(function*(context) {
     // Do some work...
 
-    // Call a remote orchestration
+    // Call a remote orchestration.
     const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
 
-    // Wait for the remote orchestration to complete
+    // Wait for the remote orchestration to complete.
     while (true) {
         const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
         if (isComplete) {
@@ -158,7 +174,7 @@ module.exports = df.orchestrator(function*(context) {
         yield context.df.createTimer(waitTime);
     }
 
-    // B is done. Now go do more work...
+    // B is done. Now, go do more work...
 });
 ```
 
@@ -195,10 +211,12 @@ module.exports = async function(context, statusUrl) {
 
 ## <a name="next-steps"></a>后续步骤
 
+若要开始体验，请在 [C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md) 中创建第一个持久函数。
+
 > [!div class="nextstepaction"]
-> [继续阅读 Durable Functions 文档](durable-functions-bindings.md)
+> [详细了解 Durable Functions](durable-functions-bindings.md)
 
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

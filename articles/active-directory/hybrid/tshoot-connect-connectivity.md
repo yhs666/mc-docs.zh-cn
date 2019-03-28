@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 02/13/2019
+ms.date: 03/15/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 2483faa748faeadf92e2126dd1615d6848adeccf
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 52a30e1a0a29dc8ca00674675e0ebb5d18719224
+ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58186661"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>使用 Azure AD Connect 排查连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
@@ -61,8 +62,8 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 当向导本身无法访问代理时，会出现此错误。  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
-- 如果看到此错误，请检查是否已正确配置 [machine.config](how-to-connect-install-prerequisites.md#connectivity)。
-- 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
+* 如果看到此错误，请检查是否已正确配置 [machine.config](how-to-connect-install-prerequisites.md#connectivity)。
+* 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
 
 ### <a name="a-microsoft-account-is-used"></a>使用 Microsoft 帐户
 如果使用的是 Microsoft 帐户而不是学校或组织帐户，将会看到一个常规错误。  
@@ -72,13 +73,13 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 如果无法访问终结点 **https://secure.aadcdn.parter.microsoftonline-p.cn**，并且全局系统管理员启用了 MFA，则会出现此错误。  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
-- 如果看到此错误，请验证是否已将 **secure.aadcdn.parter.microsoftonline-p.cn** 终结点添加到代理。
+* 如果看到此错误，请验证是否已将 **secure.aadcdn.parter.microsoftonline-p.cn** 终结点添加到代理。
 
 ### <a name="the-password-cannot-be-verified"></a>无法验证密码
 如果安装向导已成功连接到 Azure AD，但无法验证密码本身，则会看到此错误：  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![密码不正确。](./media/tshoot-connect-connectivity/badpassword.png)
 
-- 密码是否为临时密码并且必须更改？ 它是否确实为正确的密码？ 请尝试登录到 https://login.partner.microsoftonline.cn （在 Azure AD Connect 服务器以外的另一台计算机上），并验证该帐户是否可用。
+* 密码是否为临时密码并且必须更改？ 它是否确实为正确的密码？ 请尝试登录到 https://login.partner.microsoftonline.cn （在 Azure AD Connect 服务器以外的另一台计算机上），并验证该帐户是否可用。
 
 ### <a name="verify-proxy-connectivity"></a>验证代理连接
 要验证 Azure AD Connect 服务器是否确实与代理和 Internet 建立了连接，可使用一些 PowerShell 来查看代理是否允许 Web 请求。 在 PowerShell 命令提示符下运行 `Invoke-WebRequest -Uri https://adminwebservice.partner.microsoftonline.cn/ProvisioningService.svc`。 （从技术上讲，第一个调用是对 https://login.partner.microsoftonline.cn 发出的并且此 URI 也能正常运行，但另一个 URI 的响应速度更快。）
@@ -104,9 +105,9 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 与 Azure AD 之间的通信模式
 如果已按上述步骤操作但仍无法连接，现在可以开始查看网络日志。 本部分说明正常且成功的连接模式。 此外，还会列出用户在阅读网络日志时可能会忽略的常见辅助信息。
 
-- 有向 https://dc.services.visualstudio.com 发出的调用。 不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
-- 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 partner.microsoftonline.cn 下的其他命名空间。 但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
-- 终结点 adminwebservice 和 provisioningapi 是发现终结点，用于找出要使用的实际终结点。 这些终结点根据区域而有所不同。
+* 有向 https://dc.services.visualstudio.com 发出的调用。 不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
+* 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 partner.microsoftonline.cn 下的其他命名空间。 但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
+* 终结点 adminwebservice 和 provisioningapi 是发现终结点，用于找出要使用的实际终结点。 这些终结点根据区域而有所不同。
 
 ### <a name="reference-proxy-logs"></a>引用代理日志
 下面是实际代理日志中的转储以及获取此转储的安装向导页（已删除同一终结点的重复条目）。 可以使用此部分作为自己的代理和网络日志的参考。 环境中的实际终结点可能有所不同（尤其是以斜体显示的 URL）。
@@ -188,13 +189,6 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 ### <a name="azure-ad-global-admin-role-needed"></a>需要 Azure AD 全局管理员角色
 用户已成功完成身份验证。 但用户未分配有全局管理员角色。 此处介绍[如何将全局管理员角色分配给](../users-groups-roles/directory-assign-admin-roles.md)用户。 
 
-<div id="privileged-identity-management">
-<!--
-  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
-  because we used the mentioned id in the code to jump to this section.
--->
-</div>
-
 ### <a name="company-information-unavailable"></a>公司信息不可用
 身份验证成功。 无法从 Azure AD 检索公司信息。
 
@@ -221,9 +215,9 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 当登录助理无法访问代理或代理不允许该请求时，将出现此错误。
 ![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
 
-- 如果看到此错误，请在 [netsh](how-to-connect-install-prerequisites.md#connectivity) 中查看代理配置并确认配置是否正确。
+* 如果看到此错误，请在 [netsh](how-to-connect-install-prerequisites.md#connectivity) 中查看代理配置并确认配置是否正确。
   ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
-- 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
+* 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
