@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: d4819cd858d31d5e892ba659fcadf459299c8a8b
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 98ef103130e722176a51164a37427a5f5aa5d837
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833329"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626253"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知（旧版）
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 
 
 运行编码作业时，通常需要采用某种方式来跟踪作业进度。 可以配置媒体服务将通知传送到 [Azure 队列存储](../../storage/storage-dotnet-how-to-use-queues.md)。 然后可以通过从队列存储获取通知来监视作业进度。 
 

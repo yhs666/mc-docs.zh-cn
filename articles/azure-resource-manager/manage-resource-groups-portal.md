@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 02/11/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7cbbc8441864088f33fdfe4b1f13ee222b164d72
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 621e384cf80ceb5664e3f8ce44ed61ad6da3ed43
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626381"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -47,11 +47,11 @@ ms.locfileid: "58005150"
 3. 选择“设置” （应用程序对象和服务主体对象）。
 4. 输入以下值：
 
-    - **订阅**：选择 Azure 订阅。 
-    - **资源组**：输入新的资源组名称。 
-    - **区域**：选择某个 Azure 位置，例如“中国北部”。
+   - **订阅**：选择 Azure 订阅。 
+   - **资源组**：输入新的资源组名称。 
+   - **区域**：选择某个 Azure 位置，例如“中国北部”。
 
-    ![创建资源组](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+     ![创建资源组](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. 选择“查看 + 创建”
 6. 选择“创建” 。 创建资源组需要几秒钟的时间。
 7. 在顶部菜单中选择“刷新”以刷新资源组列表，然后选择新建的资源组将其打开。 或者，选择顶部的“通知”（钟形图标），然后选择“转到资源组”打开新建的资源组
@@ -131,14 +131,14 @@ ms.locfileid: "58005150"
 3. 从列表中选择一个部署。
 4. 在左窗格中选择“模板”。 Resource Manager 检索以下六个文件：
 
-    - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-    - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-    - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-    - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-    - **.NET** - 可用于部署该模板的 .NET 类。
-    - **Ruby** - 可用于部署模板的 Ruby 类。
+   - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
+   - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
+   - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
+   - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
+   - **.NET** - 可用于部署该模板的 .NET 类。
+   - **Ruby** - 可用于部署模板的 Ruby 类。
 
-    默认情况下，门户会显示模板。
+     默认情况下，门户会显示模板。
 
 5. 选择“下载”，将模板导出到本地计算机。
 
@@ -152,14 +152,14 @@ ms.locfileid: "58005150"
 1. 打开要删除的资源组。  参阅[打开资源组](#open-resource-groups)。
 2. 在左窗格中选择“自动化脚本”。 Resource Manager 检索以下六个文件：
 
-    - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-    - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-    - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-    - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-    - **.NET** - 可用于部署该模板的 .NET 类。
-    - **Ruby** - 可用于部署模板的 Ruby 类。
+   - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
+   - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
+   - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
+   - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
+   - **.NET** - 可用于部署该模板的 .NET 类。
+   - **Ruby** - 可用于部署模板的 Ruby 类。
 
-    默认情况下，门户会显示模板。
+     默认情况下，门户会显示模板。
 3. 选择“下载”，将模板导出到本地计算机。
 
 导出的某些模板需要经过一些编辑才能使用。 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。

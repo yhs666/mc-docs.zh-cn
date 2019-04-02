@@ -8,12 +8,12 @@ ms.topic: tutorial
 origin.date: 11/15/2017
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0e930af50036ea85b6296b59c5c4421b8ed07fa8
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 3b36e7e1a5a7404d88007a124545721b56512845
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309109"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626701"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 * 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 对所有单区域帐户和具有松散一致性的所有多区域帐户采用 99.99% 的可用性 SLA，对所有多区域数据库帐户采用 99.999% 的读取可用性。
 * 无限规模。 Azure Cosmos DB 集合[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
 * 多区域分布。 移动应用用户的特点是经常在中国不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
-<!-- Notice: 全球 to 多个区域 -->
+  <!-- Notice: 全球 to 多个区域 -->
 * 内置丰富授权。 有了 Azure Cosmos DB，无需使用复杂的自定义授权代码，就能轻松实现常用的模式，例如，[每个用户的数据](https://aka.ms/documentdb-xamarin-todouser)，或者多个共享用户的数据。
 * 地理空间查询。 许多移动应用现在可以提供区分地理环境的体验。 凭借对[地理空间类型](geospatial.md)的一流支持，Azure Cosmos DB 可轻松创建这些体验。
 * 二进制附件。 应用数据通常包含二进制 Blob。 Azure Cosmos DB 原生支持附件，因此可以更轻松地用作应用数据的一站式存储库。

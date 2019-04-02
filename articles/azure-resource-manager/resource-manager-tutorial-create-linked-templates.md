@@ -14,12 +14,12 @@ origin.date: 01/16/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 3f28b56cf1720a2e51e059569fecd2f1295124c9
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: d33004c8e3e275b9e91cd73f7fb13b586d727d4a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348131"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625628"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
@@ -69,15 +69,15 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 选择“打开”以打开该文件。
 4. 有五个通过此模板定义的资源：
 
-    * `Microsoft.Storage/storageAccounts`。
-    * `Microsoft.Network/publicIPAddresses`。
-    * `Microsoft.Network/virtualNetworks`。
-    * `Microsoft.Network/networkInterfaces`。
-    * `Microsoft.Compute/virtualMachines`。
+   * `Microsoft.Storage/storageAccounts`。
+   * `Microsoft.Network/publicIPAddresses`。
+   * `Microsoft.Network/virtualNetworks`。
+   * `Microsoft.Network/networkInterfaces`。
+   * `Microsoft.Compute/virtualMachines`。
     
-    <!-- Not Available on templates reference-->
+     <!-- Not Available on templates reference-->
     
-    在自定义模板之前，不妨对其进行一些基本的了解。
+     在自定义模板之前，不妨对其进行一些基本的了解。
 5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 6. 选择“文件”>“另存为”，创建名为 **linkedTemplate.json** 的另一文件副本。
 
@@ -88,78 +88,78 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 1. 在 Visual Studio Code 中打开 linkedTemplate.json（如果此文件尚未打开）。
 2. 进行以下更改：
 
-    * 删除除存储帐户之外的所有资源。 删除总共四项资源。
-    * 将存储帐户资源的 **name** 元素的值更新为：
+   * 删除除存储帐户之外的所有资源。 删除总共四项资源。
+   * 将存储帐户资源的 **name** 元素的值更新为：
 
-        ```json
-          "name": "[parameters('storageAccountName')]",
-        ```
-    * 删除 **variables** 元素以及所有变量定义。
-    * 删除除 **location** 之外的所有参数。
-    * 添加名为 **storageAccountName** 的参数。 存储帐户名称作为参数从主模板传递给链接模板。
+       ```json
+         "name": "[parameters('storageAccountName')]",
+       ```
+   * 删除 **variables** 元素以及所有变量定义。
+   * 删除除 **location** 之外的所有参数。
+   * 添加名为 **storageAccountName** 的参数。 存储帐户名称作为参数从主模板传递给链接模板。
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
-    * 更新 **outputs** 元素，使之如下所示：
+       ```json
+       "storageAccountName":{
+       "type": "string",
+       "metadata": {
+           "description": "Azure Storage account name."
+       }
+       },
+       ```
+   * 更新 **outputs** 元素，使之如下所示：
 
-        ```json
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
-        }
-        ```
-        **storageUri** 在主模板中是虚拟机资源定义所需要的。  请将值作为输出值传回主模板。
+       ```json
+       "outputs": {
+           "storageUri": {
+               "type": "string",
+               "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+             }
+       }
+       ```
+       **storageUri** 在主模板中是虚拟机资源定义所需要的。  请将值作为输出值传回主模板。
 
-    完成后，模板应如下所示：
+     完成后，模板应如下所示：
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
-            }
-          },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
-            }
-          }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
-        }
-    }
-    ```
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+         "storageAccountName":{
+           "type": "string",
+           "metadata": {
+             "description": "Azure Storage account name."
+           }
+         },
+         "location": {
+           "type": "string",
+           "defaultValue": "[resourceGroup().location]",
+           "metadata": {
+             "description": "Location for all resources."
+           }
+         }
+       },
+       "resources": [
+         {
+           "type": "Microsoft.Storage/storageAccounts",
+           "name": "[parameters('storageAccountName')]",
+           "apiVersion": "2016-01-01",
+           "location": "[parameters('location')]",
+           "sku": {
+             "name": "Standard_LRS"
+           },
+           "kind": "Storage",
+           "properties": {}
+         }
+       ],
+       "outputs": {
+           "storageUri": {
+               "type": "string",
+               "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+             }
+       }
+     }
+     ```
 3. 保存更改。
 
 ## <a name="upload-the-linked-template"></a>上传链接模板

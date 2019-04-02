@@ -15,12 +15,12 @@ origin.date: 01/18/2019
 ms.date: 04/01/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: b2d4b2bd44090bd1e4d43e0d3ab2da4e5175426b
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: b9c86342ef0c486deccff3b042fa1769705c3396
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348610"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625558"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -77,7 +77,6 @@ az iot hub create --name $hubname --location $location --resource-group tutorial
 
 # Make a note of the service connection string, you need it later:
 az iot hub show-connection-string --hub-name $hubname -o table
-
 ```
 
 本教程使用名为 **MyTwinDevice** 的模拟设备。 以下脚本将此设备添加到标识注册表，并检索其连接字符串：
@@ -91,7 +90,6 @@ az iot hub device-identity create --device-id MyTwinDevice --hub-name $hubname -
 
 # Retrieve the device connection string, you need this later:
 az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
-
 ```
 
 ## <a name="send-state-information"></a>发送状态信息
@@ -477,4 +475,4 @@ az group delete --name tutorial-iot-hub-rg
 在本教程中，你已学习了如何在设备与 IoT 中心之间同步状态信息。 请继续学习下一篇教程，了解如何使用设备孪生实现固件更新过程。
 
 > [!div class="nextstepaction"]
-[实现设备固件更新过程](tutorial-firmware-update.md)
+> [实现设备固件更新过程](tutorial-firmware-update.md)

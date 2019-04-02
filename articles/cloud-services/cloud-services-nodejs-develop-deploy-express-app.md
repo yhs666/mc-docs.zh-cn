@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/17/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 077e43104b24aae10d85b62e7d6b80e99e4b1a01
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 46fc5e1e9d8ef01bdfa99915c02a53c4702a10ff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653044"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627743"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>使用 Express 在 Azure 云服务中构建并部署 Node.js Web 应用程序
 
@@ -31,7 +31,7 @@ Node.js 包含核心运行时中最小的一个功能集。
 
 ![显示“Welcome to Express in Azure”的 Web 浏览器](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-##<a name="create-a-cloud-service-project"></a>创建云服务项目
+## <a name="create-a-cloud-service-project"></a>创建云服务项目
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
 执行下列步骤可新建一个名为“expressapp”的云服务项目：
@@ -53,7 +53,7 @@ Node.js 包含核心运行时中最小的一个功能集。
     > 
     > 
 
-##<a name="install-express"></a>安装 Express
+## <a name="install-express"></a>安装 Express
 
 1. 通过发出以下命令安装 Express 生成器：
 
@@ -117,29 +117,29 @@ Node.js 包含核心运行时中最小的一个功能集。
 
 现在，修改视图以显示消息“Welcome to Express in Azure”。
 
-1.  请输入以下命令来打开 index.jade 文件：
+1. 请输入以下命令来打开 index.jade 文件：
 
-    ```
-    PS C:\node\expressapp\WebRole1> notepad views/index.jade
-    ```
+   ```
+   PS C:\node\expressapp\WebRole1> notepad views/index.jade
+   ```
 
-    ![index.jade 文件的内容。](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![index.jade 文件的内容。](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-    Jade 是 Express 应用程序使用的默认视图引擎。 有关 Jade 视图引擎的详细信息，请参阅 [http://jade-lang.com][http://jade-lang.com]。
+   Jade 是 Express 应用程序使用的默认视图引擎。 有关 Jade 视图引擎的详细信息，请参阅 [http://jade-lang.com][http://jade-lang.com]。
 
-2.  通过追加 **in Azure**来修改最后一行文本。
+2. 通过追加 **in Azure**来修改最后一行文本。
 
-    ![index.jade 文件，最后一行的内容为：p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+   ![index.jade 文件，最后一行的内容为：p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 
-3.  保存文件并退出记事本。
+3. 保存文件并退出记事本。
 
-4.  刷新浏览器即可看到所做的更改。
+4. 刷新浏览器即可看到所做的更改。
 
-    ![浏览器窗口，其中的页面包含 Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
+   ![浏览器窗口，其中的页面包含 Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
 测试应用程序后，请使用 **Stop-AzureEmulator** cmdlet 停止模拟器。
 
-##<a name="publishing-the-application-to-azure"></a>将应用程序发布到 Azure
+## <a name="publishing-the-application-to-azure"></a>将应用程序发布到 Azure
 
 在 Azure PowerShell 窗口中，可使用 **Publish-AzureServiceProject** cmdlet 将应用程序部署到云服务
 

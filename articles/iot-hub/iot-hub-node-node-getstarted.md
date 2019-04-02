@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/31/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 09dd9d8fb8ac0281c618a11031e3ef803d13a575
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c383a4e4a663e78d0f6fd7ccc1f403162fe85261
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654140"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626098"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>使用 Node 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "52654140"
 
 * Node.js 版本 4.0.x 或更高版本。
 
-+ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 

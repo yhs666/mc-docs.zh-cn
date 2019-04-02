@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: conceptual
 origin.date: 04/01/2018
 ms.date: 02/18/2019
-ms.openlocfilehash: 94e40a2888ef15415bd342eed64a6a9d6fe054af
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: f6ca1f1937a5b6911dbc3ade84cafe17c8ca191c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303044"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626167"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器
 
@@ -65,9 +65,10 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` 命令需要以下参数：
-| 设置 | 建议的值 | 说明  |
+
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  源服务器所在的资源组。  |
+| resource-group |  myresourcegroup |  源服务器所在的资源组。  |
 | name | mydemoserver-restored | 通过还原命令创建的新服务器的名称。 |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 选择要还原到的时间点。 此日期和时间必须在源服务器的备份保留期限内。 使用 ISO8601 日期和时间格式。 例如，可以使用自己的本地时区，如 `2018-03-13T05:59:00-08:00`。 也可以使用 UTC Zulu 格式，如 `2018-03-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要从其还原的源服务器的名称或 ID。 |
@@ -100,11 +101,11 @@ az postgres server georestore --resource-group myresourcegroup --name mydemoserv
 
 ```cli
 az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location chinaeast --sku-name GP_Gen4_8
-
 ```
 
 `az postgres server georestore` 命令需要以下参数：
-| 设置 | 建议的值 | 说明  |
+
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新服务器将属于的资源组的名称。|
 |name | mydemoserver-georestored | 新服务器的名称。 |

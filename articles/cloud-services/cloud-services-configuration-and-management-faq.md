@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 07/23/2018
 ms.author: v-yiso
 ms.date: 02/04/2019
-ms.openlocfilehash: 7d43e96f45a31a6a0db1f837b9b190e5cc0d5c5c
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: d30019ebfef03fc177529ca67a56ef0fb96f079c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906091"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625532"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务配置和管理问题：常见问题 (FAQ)
 
@@ -110,7 +110,7 @@ CSR 只是一个文本文件。 无需从最终使用此证书的计算机中创
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>“用于 MachineKey 的 Microsoft Azure 服务管理”证书的用途是什么？
 
-此证书用于加密 Azure Web 角色的计算机密钥。 若要了解详细信息，请查看此公告 [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731]。
+此证书用于加密 Azure Web 角色的计算机密钥。 若要了解详细信息，请查看此公告 [<https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731>]。
 
 有关详细信息，请参阅以下文章：
 - [如何配置和运行云服务的启动任务](./cloud-services-startup-tasks.md)

@@ -16,12 +16,12 @@ origin.date: 03/26/2018
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: c468603600d92104ff77c46a67a9ed5b971f4aea
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 20d49b5360ff52e720e266a33634454b513a414b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083565"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626793"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中创建第一个 Java Web 应用
 
@@ -126,7 +126,7 @@ ms.locfileid: "54083565"
   * **位置**：选择“中国北部”或你附近的位置。
   * **定价层**：选择免费选项。 有关功能，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 
-   ![“创建应用服务”对话框](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+    ![“创建应用服务”对话框](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 

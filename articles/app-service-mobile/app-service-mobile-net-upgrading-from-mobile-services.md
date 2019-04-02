@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 86c12ddcb0c1e094ddf3597a29575b948c634711
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 3f8c465882e10c18a9189bcf5cf6b2c47be01cbc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785239"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626254"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 
@@ -30,23 +30,23 @@ ms.locfileid: "53785239"
 
 将某个移动后端升级到 Azure 应用服务后，该后端即可访问所有应用服务功能，同时会根据[应用服务定价]而不是移动服务定价进行计费。
 
-##<a name="migrate-vs-upgrade"></a>迁移与升级
+## <a name="migrate-vs-upgrade"></a>迁移与升级
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-###<a name="improvements-in-mobile-apps-net-server-sdk"></a>移动应用 .NET 服务器 SDK 改进
+### <a name="improvements-in-mobile-apps-net-server-sdk"></a>移动应用 .NET 服务器 SDK 改进
 
 升级到新 [移动应用 SDK](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) 可获得以下好处：
 
 - NuGet 依赖项有更大的灵活性。 宿主环境不再提供其自身的 NuGet 包版本，因此可以使用替代的兼容版本。 但是，如果移动服务器 SDK 或依赖项有新的关键 Bug 修复或安全更新，则必须手动更新服务。
 
-* 移动 SDK 有更大的灵活性。 可以明确控制要设置哪些功能和路由，例如身份验证、表 API 和推送注册终结点。 若要了解详细信息，请参阅[如何使用适用于 Azure 移动应用的 .NET 服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+- 移动 SDK 有更大的灵活性。 可以明确控制要设置哪些功能和路由，例如身份验证、表 API 和推送注册终结点。 若要了解详细信息，请参阅[如何使用适用于 Azure 移动应用的 .NET 服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 - 支持其他 ASP.NET 项目类型和路由。 现在，可以在与移动后端项目相同的项目中托管 MVC 和 Web API 控制器。
 
 - 支持新的应用服务身份验证功能，允许跨 Web 应用和移动应用使用常见的身份验证配置。
 
-##<a name="overview"></a>基本升级概述
+## <a name="overview"></a>基本升级概述
 
 在许多情况下，只需切换到新的移动应用服务器 SDK 并将代码重新发布到新的移动应用实例，即可完成升级。 但在某些情况下则需要一些额外的配置，例如高级身份验证方案和使用计划作业。 后续部分逐一介绍。
 
@@ -66,7 +66,7 @@ ms.locfileid: "53785239"
 3. 发布新版客户端应用程序
 4. （可选）删除已迁移的原始实例
 
-##<a name="mobile-app-version"></a>创建第二个应用程序实例
+## <a name="mobile-app-version"></a>创建第二个应用程序实例
 升级的第一个步骤是创建用于托管新版应用程序的移动应用资源。 如果已迁移现有移动服务，则需要在同一个托管计划中创建此版本。 打开 [Azure 门户] ，导航到已迁移的应用程序。 记下运行该应用程序的应用服务计划。
 
 接下来，根据 [.NET 后端创建说明](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)创建第二个应用程序实例。 当系统提示选择应用服务计划或“托管计划”时，请选择已迁移的应用程序的计划。
@@ -103,7 +103,6 @@ HttpConfiguration config = new HttpConfiguration();
 new MobileAppConfiguration()
     .UseDefaultConfiguration()
 .ApplyTo(config);
-
 ```
 
 >[!NOTE]
@@ -263,7 +262,7 @@ string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 
 如果应用程序使用自定义的身份验证解决方案，需要确保已升级的站点有权访问系统。 遵循 [.NET 服务器 SDK 概述] 中适用于自定义身份验证的新说明来集成解决方案。 请注意，自定义身份验证组件仍以预览版提供。
 
-##<a name="updating-clients"></a>更新客户端
+## <a name="updating-clients"></a>更新客户端
 在获得可正常运行的移动应用后端之后，可以在使用它的新版客户端应用程序上操作。 移动应用还包含新版客户端 SDK。与上述服务器升级类似，需先删除对移动服务 SDK 的所有引用，然后再安装移动应用版本。
 
 版本间的其中一个主要更改是构造函数不再需要应用程序密钥。 现在只需传入移动应用的 URL。 例如，在 .NET 客户端中， `MobileServiceClient` 构造函数现在是：

@@ -5,17 +5,17 @@ services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/22/2018
-ms.date: 03/11/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 898246fdb17c107c640be257f7ae797f2e414479
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 15281558f104d3e3667671d229089e78f5efd6bd
+ms.sourcegitcommit: dbabe5365653ce222005b2b666dddbfed2270063
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903247"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58760024"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -39,6 +39,7 @@ ms.locfileid: "56903247"
 
 2. 选择“Azure Policy”页左侧的“分配”。 分配即为在特定范围内分配策略以供执行。
    ![选择分配](../media/create-and-manage/select-assignments.png)
+
 3. 在“策略 - 分配”页的顶部选择“分配策略”。
 
    ![分配策略定义](../media/create-and-manage/select-assign-policy.png)
@@ -83,32 +84,32 @@ ms.locfileid: "56903247"
       - 策略规则/条件，此示例中为 - VM SKU 大小等于 G 系列
       - 策略效果，此示例中为“拒绝”。
 
-    json 应如下所示。 将修改后的代码粘贴到 Azure 门户。
+   JSON 应如下所示。 将修改后的代码粘贴到 Azure 门户。
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    策略规则中 *field* 属性的值必须是以下值之一：Name、Type、Location、Tags 或某个别名。 例如，别名为 `"Microsoft.Compute/VirtualMachines/Size"`。
+   策略规则中的 *field* 属性必须采用以下值之一：Name、Type、Location、Tags 或某个别名。 例如，别名为 `"Microsoft.Compute/VirtualMachines/Size"`。
 
-    若要查看其他 Azure Policy 示例，请参阅 [Azure Policy 示例](../samples/index.md)。
+   若要查看其他 Azure Policy 示例，请参阅 [Azure Policy 示例](../samples/index.md)。
 
 4. 选择“其他安全性验证” 。
 
@@ -117,7 +118,7 @@ ms.locfileid: "56903247"
 可以通过用于策略定义的 REST API 来创建策略。 REST API 可让你创建和删除策略定义，以及获取现有定义的信息。 若要创建策略定义，请使用以下示例：
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
 包括类似于以下示例的请求正文：
@@ -317,7 +318,7 @@ az policy definition list
 
 ## <a name="create-and-assign-an-initiative-definition"></a>创建并分配计划定义
 
-通过计划定义，可以组合某些策略定义以实现首要目标。 创建计划定义，确保定义范围内的资源符合构成计划定义的策略定义。  有关计划定义的详细信息，请参阅 [Azure Policy 概述](../overview.md)。
+通过计划定义，可以组合某些策略定义以实现首要目标。 计划对分配范围内的资源进行评估，以确定其是否符合所包括的策略。 有关计划定义的详细信息，请参阅 [Azure Policy 概述](../overview.md)。
 
 ### <a name="create-an-initiative-definition"></a>创建计划定义
 
@@ -384,7 +385,7 @@ az policy definition list
 
 1. 选择“Azure Policy”页左侧的“符合性”。
 
-1. 找到“获取源”计划。 很可能仍处于“未启动”符合性状态。 单击计划，获取有关分配进度的完整详细信息。
+1. 找到“获取源”计划。 可能仍处于“未启动”符合性状态。 单击计划，获取有关分配进度的完整详细信息。
 
    ![符合性 - 未启动](../media/create-and-manage/compliance-status-not-started.png)
 

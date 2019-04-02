@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: v-yiso
-ms.openlocfilehash: 3ebe9d32bc8b02862905e23cd157ec9d20bbfaa3
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 6a7bd4a812cd78705643e18cf2c15a1298160641
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906223"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626477"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>为 Xamarin.iOS 移动应用启用脱机同步
 
@@ -78,8 +78,8 @@ ms.locfileid: "54906223"
 
 4. 在应用程序中，单击要在本地存储区中完成的几个项旁边的复选框。
 
-  `CompleteItemAsync` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。
-  每当对客户端已更改的表执行拉取操作时，始终先对客户端同步上下文自动执行推送操作。 隐式推送可确保本地存储中的所有表以及关系都保持一致。 有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
+   `CompleteItemAsync` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。
+   每当对客户端已更改的表执行拉取操作时，始终先对客户端同步上下文自动执行推送操作。 隐式推送可确保本地存储中的所有表以及关系都保持一致。 有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
 
 ## <a name="review-the-client-sync-code"></a>查看客户端同步代码
 

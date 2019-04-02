@@ -9,19 +9,19 @@ ms.topic: article
 origin.date: 02/05/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 361f4361271249815e392e6d280c0799de291e46
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 21587bbbde882e2a0ac271b05bbd8326a3efca50
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463672"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625745"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
 使用 [Azure Site Recovery](site-recovery-overview.md) 进行 VMware VM 和物理服务器到 Azure 的灾难恢复时，需要部署本地配置服务器。 配置服务器协调本地 VMware 与 Azure 之间的通信。 它还管理数据复制。 将 VMware VM 复制到 Azure 时，本文可引导你完成部署配置服务器所需的步骤。 如果需要为物理服务器复制设置配置服务器，[请按此文中的说明进行操作](physical-azure-set-up-source.md)。
 
->[!TIP]
-可以在[此处](vmware-azure-architecture.md)了解配置服务器角色，它是 Azure Site Recovery 体系结构的一部分。
+> [!TIP]
+> 可以在[此处](vmware-azure-architecture.md)了解配置服务器角色，它是 Azure Site Recovery 体系结构的一部分。
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>通过 OVA 模板进行的配置服务器部署
 
@@ -71,11 +71,11 @@ ms.locfileid: "57463672"
 3. 在“添加服务器”中，检查“VMware 的配置服务器”是否已显示在“服务器类型”中。
 4. 下载配置服务器的开放虚拟应用程序 (OVA) 模板。
 
-  > [!TIP]
->另外，还可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
+   > [!TIP]
+   >另外，还可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
->[!NOTE]
-通过 OVA 模板提供的许可证是有效期为 180 天的评估许可证。 超过有效期之后，客户需要使用购买的许可证来激活 Windows。
+> [!NOTE]
+> 通过 OVA 模板提供的许可证是有效期为 180 天的评估许可证。 超过有效期之后，客户需要使用购买的许可证来激活 Windows。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 

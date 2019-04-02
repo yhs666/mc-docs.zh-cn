@@ -1,13 +1,13 @@
 ---
 title: 策略示例索引
-description: Azure Policy 的示例索引
+description: Azure Policy 的示例索引。 类别包括命名、标记、Key Vault、网络、存储，等等。
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/17/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-biyu
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 示例

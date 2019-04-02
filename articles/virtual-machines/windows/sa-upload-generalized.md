@@ -17,12 +17,12 @@ origin.date: 05/18/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede30cb7f75bb30264730b41989ab01668d98d43
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: e67a921886f15e9cfaaf3b6f47ac3992839ea275
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665825"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626989"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>将通用化 VHD 上传到 Azure 以创建新 VM
 
@@ -154,7 +154,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 ### <a name="set-the-uri-of-the-vhd"></a>设置 VHD 的 URI
 
-VHD 使用的 URI 采用以下格式： https://**mystorageaccount**.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
+VHD 使用的 URI 采用以下格式： https://<strong>mystorageaccount</strong>.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myVhd.vhd"

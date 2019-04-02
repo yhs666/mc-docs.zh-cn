@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 origin.date: 07/07/2017
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 07efe04da63306a09f6afaa68096e223e66b16a8
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 152328a74b4ac8b5e03a05dcf73c7b1142ecbd6a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785295"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627676"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>筛选入站和出站 VM 网络流量
 
@@ -32,17 +32,18 @@ ms.locfileid: "53785295"
 
 ## <a name="sample-script"></a>示例脚本
 
+```bash
+# !/bin/bash
 
-#<a name="binbash"></a>!/bin/bash
+RgName="MyResourceGroup"
+Location="chinaeast"
 
-RgName="MyResourceGroup" Location="chinaeast"
-
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 az group create \
   --name $RgName \
   --location $Location
 
-# <a name="create-a-virtual-network-and-a-front-end-subnet"></a>创建虚拟网络和前端子网。
+# Create a virtual network and a front-end subnet.
 az network vnet create \
   --resource-group $RgName \
   --name MyVnet \
@@ -51,20 +52,20 @@ az network vnet create \
   --subnet-name MySubnet-FrontEnd \
   --subnet-prefix 10.0.1.0/24
 
-# <a name="create-a-back-end-subnet"></a>创建后端子网。
+# Create a back-end subnet.
 az network vnet subnet create \
   --address-prefix 10.0.2.0/24 \
   --name MySubnet-BackEnd \
   --resource-group $RgName \
   --vnet-name MyVnet
 
-# <a name="create-a-network-security-group-nsg-for-the-front-end-subnet"></a>为前端子网创建网络安全组 (NSG)。
+# Create a network security group (NSG) for the front-end subnet.
 az network nsg create \
   --resource-group $RgName \
   --name MyNsg-FrontEnd \
   --location $Location
 
-# <a name="create-nsg-rules-to-allow-http--https-traffic-inbound"></a>创建允许 HTTP 和 HTTPS 入站流量的 NSG 规则。
+# Create NSG rules to allow HTTP & HTTPS traffic inbound.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-FrontEnd \
@@ -74,7 +75,8 @@ az network nsg rule create \
   --direction Inbound \
   --priority 100 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 80
 
 az network nsg rule create \
@@ -86,10 +88,11 @@ az network nsg rule create \
   --direction Inbound \
   --priority 200 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 443
 
-# <a name="create-an-nsg-rule-to-allow-ssh-traffic-in-from-the-internet-to-the-front-end-subnet"></a>创建允许 SSH 流量从 Internet 流入到前端子网的 NSG 规则。
+# Create an NSG rule to allow SSH traffic in from the Internet to the front-end subnet.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-FrontEnd \
@@ -99,47 +102,49 @@ az network nsg rule create \
   --direction Inbound \
   --priority 300 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 22
 
-# <a name="associate-the-front-end-nsg-to-the-front-end-subnet"></a>将前端 NSG 关联到前端子网。
+# Associate the front-end NSG to the front-end subnet.
 az network vnet subnet update \
   --vnet-name MyVnet \
   --name MySubnet-FrontEnd \
   --resource-group $RgName \
   --network-security-group MyNsg-FrontEnd
 
-# <a name="create-a-network-security-group-for-the-back-end-subnet"></a>为后端子网创建网络安全组。
+# Create a network security group for the back-end subnet.
 az network nsg create \
   --resource-group $RgName \
   --name MyNsg-BackEnd \
   --location $Location
 
-# <a name="create-an-nsg-rule-to-block-all-outbound-traffic-from-the-back-end-subnet-to-the-internet-inbound-blocked-by-default"></a>创建一项 NSG 规则，阻止从后端子网流向 Internet 的所有出站流量（默认情况下会阻止入站流量）。
+# Create an NSG rule to block all outbound traffic from the back-end subnet to the Internet (inbound blocked by default).
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-BackEnd \
   --name Deny-Internet-All \
   --access Deny --protocol Tcp \
   --direction Outbound --priority 100 \
-  --source-address-prefix "*" \ --source-port-range "*" \
+  --source-address-prefix "<em>" \
+  --source-port-range "</em>" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
 
-# <a name="associate-the-back-end-nsg-to-the-back-end-subnet"></a>将后端 NSG 关联到后端子网。
+# Associate the back-end NSG to the back-end subnet.
 az network vnet subnet update \
   --vnet-name MyVnet \
   --name MySubnet-BackEnd \
   --resource-group $RgName \
   --network-security-group MyNsg-BackEnd
 
-# <a name="create-a-public-ip-address-for-the-vm-front-end-network-interface"></a>为 VM 前端网络接口创建公共 IP 地址。
+# Create a public IP address for the VM front-end network interface.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIp-FrontEnd \
   --allocation-method Dynamic
 
-# <a name="create-a-network-interface-for-the-vm-attached-to-the-front-end-subnet"></a>为附加到前端子网的 VM 创建网络接口。
+# Create a network interface for the VM attached to the front-end subnet.
 az network nic create \
   --resource-group $RgName \
   --vnet-name MyVnet \
@@ -147,14 +152,14 @@ az network nic create \
   --name MyNic-FrontEnd \
   --public-ip-address MyPublicIp-FrontEnd
 
-# <a name="create-a-network-interface-for-the-vm-attached-to-the-back-end-subnet"></a>为附加到后端子网的 VM 创建网络接口。
+# Create a network interface for the VM attached to the back-end subnet.
 az network nic create \
   --resource-group $RgName \
   --vnet-name MyVnet \
   --subnet MySubnet-BackEnd \
   --name MyNic-BackEnd
 
-# <a name="create-the-vm-with-both-the-frontend-and-backend-nics"></a>创建带 FrontEnd NIC 和 BackEnd NIC 的 VM。
+# Create the VM with both the FrontEnd and BackEnd NICs.
 az vm create \
   --resource-group $RgName \
   --name MyVm \
@@ -162,7 +167,7 @@ az vm create \
   --image UbuntuLTS \
   --admin-username azureadmin \
   --generate-ssh-keys
-
+```
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行以下命令来删除资源组、VM 和所有相关资源。

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/26/2017
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8cb1f84e82e7b42e551dc461c525edb8e55b18a2
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: cab7372739c52b00f6aee24e23a64fee6fd0a546
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788734"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626783"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用适用于 Azure Resource Manager 的 PowerShell 创建 Azure 应用程序网关的自定义探测
 
@@ -42,27 +42,27 @@ ms.locfileid: "57788734"
 
 1. 使用 `Connect-AzAccount` 进行身份验证。
 
-  ```powershell
-  Connect-AzAccount -Environment AzureChinaCloud
-  ```
+   ```powershell
+   Connect-AzAccount -Environment AzureChinaCloud
+   ```
 
-1. 获取该帐户的订阅。
+2. 获取该帐户的订阅。
 
-  ```powershell
-  Get-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 
-1. 选择要使用的 Azure 订阅。
+3. 选择要使用的 Azure 订阅。
 
-  ```powershell
-  Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
-  ```
+   ```powershell
+   Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
+   ```
 
-1. 创建资源组。 如果已有资源组，可跳过此步骤。
+4. 创建资源组。 如果已有资源组，可跳过此步骤。
 
-  ```powershell
-  New-AzResourceGroup -Name appgw-rg -Location 'China North'
-  ```
+   ```powershell
+   New-AzResourceGroup -Name appgw-rg -Location 'China North'
+   ```
 
 Azure Resource Manager 要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 请确保用于创建应用程序网关的所有命令都使用相同的资源组。
 

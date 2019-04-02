@@ -10,12 +10,12 @@ origin.date: 12/10/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 354eac0ceb2cce1765cd6822d0116c2564d350f5
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: dd634f937ce5945d1777d0d6a044d02855b3e473
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004709"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627242"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 
@@ -66,32 +66,32 @@ ms.locfileid: "58004709"
 
 1. 打开首选终端，例如 Node.js 命令提示符。
 
-1. 导航到要在其中存储新应用程序的目录。
+2. 导航到要在其中存储新应用程序的目录。
 
-1. 使用 Express 生成器生成名叫 **todo**的新应用程序。
+3. 使用 Express 生成器生成名叫 **todo**的新应用程序。
 
     ```bash
     express todo
     ```
 
-1. 打开 **todo** 目录并安装依赖项。
+4. 打开 **todo** 目录并安装依赖项。
 
     ```bash
     cd todo
     npm install
     ```
 
-1. 运行新应用程序。
+5. 运行新应用程序。
 
     ```bash
     npm start
     ```
 
-1. 在浏览器中导航到 [http://localhost:3000](http://localhost:3000) 即可查看新应用程序。
+6. 在浏览器中导航到 [http://localhost:3000](http://localhost:3000) 即可查看新应用程序。
 
     ![了解 Node.js - 浏览器窗口中 Hello World 应用程序的屏幕截图](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- 停止应用程序的方法是先在终端窗口中按 CTRL+C，然后选择“y”终止批处理作业。
+   停止应用程序的方法是先在终端窗口中按 CTRL+C，然后选择“y”终止批处理作业。
 
 <a name="_Toc395783179"></a>
 ## <a name="install-the-required-modules"></a>安装所需的模块
@@ -189,7 +189,7 @@ ms.locfileid: "58004709"
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -249,9 +249,9 @@ ms.locfileid: "58004709"
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. 保存并关闭 **tasklist.js** 文件。

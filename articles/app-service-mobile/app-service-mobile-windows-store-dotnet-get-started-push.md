@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/12/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: e76aa3085a79b074d051fe74355cb4b614fdaa58
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bf3e4964aadee759c4adbeff4dba238fdd551c15
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658704"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627139"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 
@@ -55,11 +55,11 @@ ms.locfileid: "52658704"
    >
    >
 
-##<a name="configure-the-backend-to-send-push-notifications"></a>配置后端以发送推送通知
+## <a name="configure-the-backend-to-send-push-notifications"></a>配置后端以发送推送通知
 
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-##<a id="update-service"></a>更新服务器以发送推送通知
+## <a id="update-service"></a>更新服务器以发送推送通知
 
 使用下面与后端项目类型 &mdash;[.NET 后端](#dotnet)或 [Node.js 后端](#nodejs)匹配的过程。
 
@@ -167,7 +167,7 @@ ms.locfileid: "52658704"
 
 2. 编辑本地计算机上的文件时，重新发布服务器项目。
 
-##<a id="update-app"></a>向应用程序添加推送通知
+## <a id="update-app"></a>向应用程序添加推送通知
 下一步，应用必须在启动时注册推送通知。 已启用身份验证时，请确保用户先登录，再尝试注册推送通知。
 
 1. 打开 **App.xaml.cs** 项目文件并添加以下 `using` 语句：
@@ -208,11 +208,11 @@ ms.locfileid: "52658704"
 
 4. 重新生成 UWP 应用项目。 应用现在已能够接收 toast 通知。
 
-##<a id="test"></a>在应用程序中测试推送通知
+## <a id="test"></a>在应用程序中测试推送通知
 
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-##<a id="more"></a>后续步骤
+## <a id="more"></a>后续步骤
 
 了解有关推送通知的详细信息：
 

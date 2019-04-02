@@ -11,12 +11,12 @@ origin.date: 03/27/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 960a33a7660d3d4bf0e9e60c843640fbf3855c7e
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 85a83b13c9c01f06958cf6faf7e3db0dc698e494
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785169"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625751"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中用于保证业务连续性的自动区域性故障转移
 Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化多区域数据分布。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性、个位数的毫秒延迟、[妥善定义的一致性级别](consistency-levels.md)、使用多宿主 API 实现透明的区域性故障转移，以及在中国范围内弹性缩放吞吐量和存储。 
@@ -42,7 +42,8 @@ Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故�
 
 * 应用程序部署在“中国北部”区域（例如，使用 Azure 应用服务） 
 * 配置了“ `China North` ”作为第一个首选区域，确保读取时的低延迟性
-* 配置了 `China East` 作为第二个首选区域（确保区域故障时的高可用性）<!-- Notice: West US to North Europe VS China North to China East-->
+* 配置了“`China East`”作为第二个首选区域（确保出现区域性故障时的高可用性）
+<!-- Notice: West US to North Europe VS China North to China East-->
 
 在 SQL API 中，此配置类似于以下代码片段：
 
@@ -144,7 +145,7 @@ do
 <a name="NextSteps"></a>
 ## <a name="next-steps"></a>后续步骤
 * 了解 Cosmos DB 如何支持[多区域分布](distribute-data-globally.md)
-<!-- Notice: 全球 to 多个区域 -->
+  <!-- Notice: 全球 to 多个区域 -->
 * 了解 [Azure Cosmos DB 的全局一致性](consistency-levels.md)
 * 使用 Azure Cosmos DB 的 [SQL API](tutorial-global-distribution-sql-api.md) 在使用多个区域的情况下进行开发
 * 了解如何使用 Azure Cosmos DB 构建[多区域编写器体系结构](multi-region-writers.md)

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-biyu
 ms.date: 01/07/2019
-ms.openlocfilehash: 654775e285ceb4e018150942cd2ccb85e419bc19
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: fc2e053163675b7d86aacf0ed5145d682efd43d2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906127"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626095"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -50,7 +50,7 @@ ms.locfileid: "54906127"
 - 在 Android Studio 中， [更新 Gradle 生成文件](#gradle-build)。
 - [启用 Internet 权限](#enable-internet)。
 
-###<a name="gradle-build"></a>更新 Gradle 生成文件
+### <a name="gradle-build"></a>更新 Gradle 生成文件
 
 更改以下两个 **build.gradle** 文件：
 
@@ -72,7 +72,7 @@ ms.locfileid: "54906127"
 
     目前的最新版本为 3.4.0。 [bintray][14] 中列出了支持的版本。
 
-###<a name="enable-internet"></a>启用 Internet 权限
+### <a name="enable-internet"></a>启用 Internet 权限
 
 若要访问 Azure，应用中必须已启用 Internet 权限。 如果尚未启用，请将以下代码行添加到 **AndroidManifest.xml** 文件：
 
@@ -676,7 +676,7 @@ ToDoItem result = mToDoTable
                     .get();
 ```
 
-##<a name="untyped"></a>如何：处理非类型化数据
+## <a name="untyped"></a>如何：处理非类型化数据
 
 使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表包含很多列，并且只需引用列的子集。  类型化模型需要在数据类中定义移动应用后端中定义的所有列。  用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
 

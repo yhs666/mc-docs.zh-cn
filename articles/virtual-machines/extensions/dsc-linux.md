@@ -1,5 +1,5 @@
 ---
-title: 适用于 Linux 的 DSC 扩展
+title: 适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 description: 安装 OMI 和 DSC 包，以便能够使用 Desired State Configuration 来配置 Azure Linux VM。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 915b687b754fc6a9237dcfb18b31be54bdbafc00
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 1e878e2c590482c2804212462b60a5f3b24263ee
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666284"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625860"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 Login-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
-单击[**此处**](../../azure-resource-manager/powershell-azure-resource-manager.md)详细了解如何将 Azure PowerShell 与 Azure 资源管理器配合使用。
+单击[**此处**](../../azure-resource-manager/manage-resources-powershell.md)详细了解如何将 Azure PowerShell 与 Azure 资源管理器配合使用。
 
 可运行以下命令部署 DSCForLinux 扩展：
 
@@ -421,7 +421,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.windowsazure.cn/support/support-azure)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Not Available on [MSDN Azure and CSDN Azure](https://www.azure.cn/support/community/)-->
 

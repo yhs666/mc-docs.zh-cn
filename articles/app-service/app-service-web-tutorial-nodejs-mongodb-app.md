@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 860fd4af8f1f687f5f8d4e8c73093cd96ed693e2
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 9abc4c6e008c6b2f25995a27e1701549961a07a2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906055"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627327"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>教程：在 Azure 中生成 Node.js 和 MongoDB 应用
 
@@ -132,8 +132,8 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 
 > [!NOTE]
 > 在本教程中，在你自己的 Azure 订阅中创建 Azure Cosmos DB 数据库需付费。 若要使用七天免费的 Azure Cosmos DB 帐户，可以使用[试用 Azure Cosmos DB](https://www.azure.cn/zh-cn/home/features/cosmos-db/) 体验。 直接单击 MongoDB 磁贴中的“创建”按钮即可在 Azure 上创建试用的 MongoDB 数据库。 创建数据库以后，请在门户中导航到“连接字符串”，然后检索 Azure Cosmos DB 连接字符串，以便在本教程的后面使用。
->
-使用 [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令创建 Cosmos DB 帐户。
+> 
+> 使用 [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令创建 Cosmos DB 帐户。
 
 在下面的命令中，用唯一 Cosmos DB 名称替换 *\<cosmosdb_name>* 占位符。 此名称将用作 Cosmos DB 终结点 `https://<cosmosdb_name>.documents.azure.cn/` 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos DB 帐户中具有唯一性。 此名称只能包含小写字母、数字以及连字符 (-)，同时长度必须为 3 到 50 个字符。
 
@@ -304,7 +304,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 可能已注意到，部署过程先运行 `npm install`，再运行 [Gulp](https://gulpjs.com/)。 应用服务在部署期间不会运行 Gulp 或 Grunt 任务，因此该示例存储库的根目录中有两个额外文件用于启用它： 
@@ -343,7 +343,7 @@ http://<app_name>.chinacloudsites.cn
 在 `ArticleSchema` 中，添加名为 `comment` 的 `String` 类型。 完成后，架构代码应该如下所示：
 
 ```javascript
-var ArticleSchema = new Schema({
+const ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,

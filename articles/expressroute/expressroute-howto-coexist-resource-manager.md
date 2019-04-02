@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2019
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: 43e68aa3e1d9583b9a71dce6e13100efc9e7ff31
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 04/08/2019
+ms.openlocfilehash: 0208b85706ac71844cba589458e99b4a11d2f367
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348621"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627018"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 和站点到站点共存连接
 > [!div class="op_single_selector"]
@@ -87,6 +87,9 @@ ms.locfileid: "58348621"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
+
+
 ## <a name="new"></a>创建新的虚拟网络和并存连接
 本过程将指导你创建 VNet 以及将共存的站点到站点连接和 ExpressRoute 连接。 针对此配置使用的 cmdlet 可能与你熟悉的 cmdlet 稍有不同。 请务必使用说明内容中指定的 cmdlet。
 
@@ -94,11 +97,11 @@ ms.locfileid: "58348621"
 
 
 2. 设置变量。
-  ```azurepowershell
-  $location = "China North"
-  $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65515
-  ```
+   ```azurepowershell
+   $location = "China North"
+   $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
+   $VNetASN = 65515
+   ```
 3. 创建包括网关子网的虚拟网络。 有关创建虚拟网络的详细信息，请参阅[创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 有关创建子网的详细信息，请参阅[创建子网](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)。
    
    > [!IMPORTANT]
@@ -108,65 +111,65 @@ ms.locfileid: "58348621"
    
     创建新的 VNet。
 
-  ```azurepowershell
-  $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
-  ```
+   ```azurepowershell
+   $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
+   ```
    
     添加子网。
 
-  ```azurepowershell
-  Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
-  Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
-  ```
+   ```azurepowershell
+   Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
+   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
+   ```
    
     保存 VNet 配置。
 
-  ```powershell
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```powershell
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 4. <a name="vpngw"></a>接下来，创建站点到站点 VPN 网关。 有关 VPN 网关配置的详细信息，请参阅[使用站点到站点连接配置 VNet](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。 只有 *VpnGw1*、*VpnGw2*、*VpnGw3*、*标准*和*高性能* VPN 网关支持 GatewaySku。 基本 SKU 不支持 ExpressRoute-VPN 网关共存配置。 VpnType 必须为 *RouteBased*。
 
-  ```azurepowershell
-  $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-  $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
-  New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1"
-  ```
+   ```azurepowershell
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1"
+   ```
    
     Azure VPN 网关支持 BGP 路由协议。 通过在以下命令中添加 -Asn 开关，可为该虚拟网络指定 ASN（AS 编号）。 若未指定该参数，将默认为 AS 编号 65515。
 
-  ```azurepowershell
-  $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
-  ```
+   ```azurepowershell
+   $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
+   ```
    
     可以在 $azureVpn.BgpSettings.BgpPeeringAddress 和 $azureVpn.BgpSettings.Asn 中找到 Azure 用于 VPN 网关的 BGP 对等 IP 和 AS 编号。 有关详细信息，请参阅为 [Azure VPN 网关配置 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md)。
 
-7. 创建一个本地站点 VPN 网关实体。 此命令不会配置本地 VPN 网关， 而是允许提供本地网关设置（如公共 IP 和本地地址空间），以便 Azure VPN 网关可以连接到它。
+5. 创建一个本地站点 VPN 网关实体。 此命令不会配置本地 VPN 网关， 而是允许提供本地网关设置（如公共 IP 和本地地址空间），以便 Azure VPN 网关可以连接到它。
    
     如果本地 VPN 设备仅支持静态路由，可按以下方式配置静态路由：
 
-  ```azurepowershell
-  $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
-  $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
-  ```
+   ```azurepowershell
+   $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
+   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
+   ```
    
     如果本地 VPN 设备支持 BGP，并且想要启用动态路由，那么需要知道本地 VPN 设备使用的 BGP 对等 IP 和 AS 编号。
 
-  ```azurepowershell
-  $localVPNPublicIP = "<Public IP>"
-  $localBGPPeeringIP = "<Private IP for the BGP session>"
-  $localBGPASN = "<ASN>"
-  $localAddressPrefix = $localBGPPeeringIP + "/32"
-  $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
-  ```
-8. 配置本地 VPN 设备以连接到新的 Azure VPN 网关。 有关 VPN 设备配置的详细信息，请参阅 [VPN 设备配置](../vpn-gateway/vpn-gateway-about-vpn-devices.md)。
+   ```azurepowershell
+   $localVPNPublicIP = "<Public IP>"
+   $localBGPPeeringIP = "<Private IP for the BGP session>"
+   $localBGPASN = "<ASN>"
+   $localAddressPrefix = $localBGPPeeringIP + "/32"
+   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
+   ```
+6. 配置本地 VPN 设备以连接到新的 Azure VPN 网关。 有关 VPN 设备配置的详细信息，请参阅 [VPN 设备配置](../vpn-gateway/vpn-gateway-about-vpn-devices.md)。
 
-9. 将 Azure 上的站点到站点 VPN 网关连接到本地网关。
+7. 将 Azure 上的站点到站点 VPN 网关连接到本地网关。
 
-  ```azurepowershell
-  $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-  New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
-  ```
+   ```azurepowershell
+   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
+   New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
+   ```
 
 8. 如果连接到现有 ExpressRoute 线路，请跳过步骤 8 和 9，并跳到步骤 10。 配置 ExpressRoute 线路。 有关配置 ExpressRoute 线路的详细信息，请参阅[创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md)。
 
@@ -175,53 +178,53 @@ ms.locfileid: "58348621"
 
 10. <a name="gw"></a>创建 ExpressRoute 网关。 有关 ExpressRoute 网关配置的详细信息，请参阅 [ExpressRoute 网关配置](expressroute-howto-add-gateway-resource-manager.md)。 GatewaySKU 必须是 *Standard*、*HighPerformance* 或 *UltraPerformance*。
 
-  ```azurepowershell
-  $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-  $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
-  $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
-  ```
+    ```azurepowershell
+    $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+    $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+    $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+    $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
+    ```
 11. 将 ExpressRoute 网关连接到 ExpressRoute 线路。 完成此步骤后，则已通过 ExpressRoute 建立本地网络与 Azure 之间的连接。 有关链接操作的详细信息，请参阅 [将 VNet 链接到 ExpressRoute](expressroute-howto-linkvnet-arm.md)。
 
-  ```azurepowershell
-  $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
-  New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
-  ```
+    ```azurepowershell
+    $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
+    New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
+    ```
 
 ## <a name="add"></a>为现有的 VNet 配置并存连接
 如果你的虚拟网络只有一个虚拟网络网关（例如，站点到站点 VPN 网关），并且你想要添加另一个不同类型的网关（例如，ExpressRoute 网关），请检查网关子网大小。 如果网关子网为 /27 或更大，则可以跳过以下步骤并按照上一部分中的步骤添加站点到站点 VPN 网关或 ExpressRoute 网关。 如果网关子网为 /28 或 /29，则必须先删除虚拟网络网关，然后增加网关子网大小。 本部分的步骤说明如何这样做。
 
 针对此配置使用的 cmdlet 可能与你熟悉的 cmdlet 稍有不同。 请务必使用说明内容中指定的 cmdlet。
 
-2. 删除现有的 ExpressRoute 或站点到站点 VPN 网关。 
+1. 删除现有的 ExpressRoute 或站点到站点 VPN 网关。 
 
-  ```powershell 
-  Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
-  ```
-3. 删除网关子网。
+   ```powershell 
+   Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+   ```
+2. 删除网关子网。
 
     ```powershell
     $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
     Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
     ```
 
-4. 添加为 /27 或更大的网关子网。
+3. 添加为 /27 或更大的网关子网。
     >[!NOTE]
     > 如果因为虚拟网络中没有剩余足够的 IP 地址而无法增加网关子网大小，则需增加 IP 地址空间。
     > 
     > 
 
     ```powershell
-  $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-  Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
+   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
     ```
 
     保存 VNet 配置。
 
-  ```powershell
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
-5. 此时，已有不带网关的虚拟网络。 若要创建新网关并设置连接，请按照上一部分中的步骤操作。
+   ```powershell
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
+4. 此时，已有不带网关的虚拟网络。 若要创建新网关并设置连接，请按照上一部分中的步骤操作。
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>将点到站点配置添加到 VPN 网关
 
@@ -229,10 +232,10 @@ ms.locfileid: "58348621"
 
 1. 添加 VPN 客户端地址池。 
 
-  ```powershell
-  $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-  Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
-  ```
+   ```powershell
+   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
+   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
+   ```
 2. 为你的 VPN 网关将 VPN 根证书上传到 Azure。 在此示例中，假定根证书存储在运行以下 PowerShell cmdlet 的本地计算机中，并且你在本地运行 PowerShell。 也可使用 Azure 门户来上传证书。
 
     ```powershell

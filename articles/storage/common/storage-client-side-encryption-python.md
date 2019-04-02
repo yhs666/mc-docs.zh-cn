@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 58a58d8f3052c7dee12460ae92349e0d3eb0773f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 15fda5e3f3d3191199158f6d8033834a3a825358
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653371"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627364"
 ---
 # <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -97,9 +97,9 @@ ms.locfileid: "52653371"
 2. 客户端库为每个实体生成 16 个字节的随机初始化向量 (IV) 和 32 个字节的随机内容加密密钥 (CEK)，并通过为每个属性派生新的 IV 对要加密的单独属性执行信封加密。 加密的属性存储为二进制数据。
 3. 然后，已包装的 CEK 和一些附加加密元数据将存储为两个附加保留属性。 第一个保留属性 (\_ClientEncryptionMetadata1) 是一个字符串属性，保存有关 IV、版本和已包装密钥的信息。 第二个保留属性 (\_ClientEncryptionMetadata2) 是一个二进制属性，保存有关已加密属性的信息。 第二个属性 (\_ClientEncryptionMetadata2) 中的信息本身是加密的。
 4. 由于加密需要这两个附加保留属性，用户现在可能只有 250 个自定义属性，而不是 252 个。 实体的总大小必须小于 1MB。
-   
+
    请注意，只有字符串属性可以加密。 如果要对其他类型的属性进行加密，必须将它们转换为字符串。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串（原始字符串，不是 EdmType.STRING 类型的 EntityProperties）。
-   
+
    对于表，除了加密策略以外，用户还必须指定要加密的属性。 为此，可将这些属性存储在 type 设置为 EdmType.STRING 且 encrypt 设置为 true 的 TableEntity 对象中，或者在 tableservice 对象中设置 encryption_resolver_function。 加密解析程序是一个函数，它接受分区键、行键和属性名称并返回一个布尔值以指示是否应加密该属性。 在加密过程中，客户端库会使用此信息来确定是否应在写入到网络时加密属性。 该委托还可以围绕如何加密属性实现逻辑的可能性。 （例如，如果 X，则加密属性 A，否则加密属性 A 和 B。）请注意，在读取或查询实体时，不需要提供此信息。
 
 ### <a name="batch-operations"></a>批处理操作
@@ -111,9 +111,9 @@ ms.locfileid: "52653371"
 > [!NOTE]
 > 由于实体已加密，因此不能运行根据已加密属性进行筛选的查询。  如果尝试运行，结果将会不正确，因为该服务会尝试将已加密的数据与未加密的数据进行比较。
 > 
->
-若要执行查询操作，必须指定一个能够解析结果集中的所有密钥的密钥解析程序。 如果查询结果中包含的实体不能解析为提供程序，则客户端库会引发错误。 对于执行服务器端投影的任何查询，在默认情况下，客户端库将为所选列添加特殊的加密元数据属性（\_ClientEncryptionMetadata1 和 \_ClientEncryptionMetadata2）。
-
+> 
+> 若要执行查询操作，必须指定一个能够解析结果集中的所有密钥的密钥解析程序。 如果查询结果中包含的实体不能解析为提供程序，则客户端库会引发错误。 对于执行服务器端投影的任何查询，在默认情况下，客户端库将为所选列添加特殊的加密元数据属性（\_ClientEncryptionMetadata1 和 \_ClientEncryptionMetadata2）。
+> 
 > [!IMPORTANT]
 > 使用客户端加密时，请注意以下要点：
 > 
@@ -121,8 +121,6 @@ ms.locfileid: "52653371"
 > * 对于表，存在类似的约束。 请注意，不要在未更新加密元数据的情况下更新已加密的属性。
 > * 如果在已加密的 Blob 上设置元数据，则可能会覆盖解密所需的与加密相关的元数据，因为设置元数据不是累加性的。 这也适用于快照；避免在创建已加密的 Blob 的快照时指定元数据。 如果必须设置元数据，务必调用 **get_blob_metadata** 方法首先获取当前加密元数据，并在设置元数据时避免并发写入。
 > * 对于只处理加密数据的用户，请在服务对象中启用 **require_encryption** 标志。 有关详细信息，请参阅下文。
-> 
-> 
 
 存储客户端库要求提供的 KEK 和密钥解析程序实现以下接口。 用于 Python KEK 管理的 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)支持正在筹备中，开发完成后会集成到此库中。
 
@@ -135,17 +133,17 @@ KEK 必须实现以下方法才能成功加密数据：
 * get_key_wrap_algorithm()：返回用于包装密钥的算法。
 * get_kid()：返回此 KEK 的字符串密钥 ID。
   KEK 必须实现以下方法才能成功解密数据：
-* unwrap_key(cek, algorithm)：使用字符串指定的算法返回解包形式的指定 CEK。
+* unwrap_key(cek, algorithm)：使用字符串指定的算法返回指定 CEK 的解包形式。
 * get_kid()：返回此 KEK 的字符串密钥 ID。
 
 密钥解析程序必须至少实现一个方法，以便在指定密钥 ID 的情况下，返回用于实现上述接口的相应 KEK。 只会将此方法分配到服务对象中的 key_resolver_function 属性。
 
 * 对于加密，始终使用该密钥，而没有密钥会导致错误。
 * 对于解密：
-  
+
   * 如果指定为获取密钥，则调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则会引发错误。
   * 如果未指定解析程序，但指定了密钥，则在该密钥的标识符与所需密钥标识符匹配时使用该密钥。 如果标识符不匹配，则会引发错误。
-    
+
     azure.storage.samples <fix URL> 中的加密示例演示了针对 blob、队列和表的更详细端到端方案。
       KEK 和密钥解析程序的示例实现在示例文件中分别以 KeyWrapper 和 KeyResolver 提供。
 

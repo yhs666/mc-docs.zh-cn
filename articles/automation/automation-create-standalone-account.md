@@ -10,12 +10,12 @@ origin.date: 01/15/2019
 ms.date: 03/18/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 083952d0b5eede02ed6fdc266bc307eccc5bf820
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: e611e39233afbf156a6e071acc5d1192f88274cd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988022"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627289"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
@@ -56,35 +56,35 @@ ms.locfileid: "57988022"
 若要在 Azure 门户中创建 Azure 自动化帐户，请完成以下步骤：
 
 1. 使用帐户登录到 Azure 门户，该帐户应当是订阅管理员角色的成员并且是订阅的共同管理员。
-1. 选择“+ 创建资源”。
-1. 搜索“自动化”。 在搜索结果中，选择“自动化”。
+2. 选择“+ 创建资源”。
+3. 搜索“自动化”。 在搜索结果中，选择“自动化”。
 
    ![在 Azure 市场中搜索并选择“自动化和控制”](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
-1. 在下一个屏幕上选择“创建”。
+4. 在下一个屏幕上选择“创建”。
 
-  ![添加自动化帐户](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![添加自动化帐户](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > 如果“添加自动化帐户”边栏选项卡中显示以下消息，则表示你的帐户不是订阅管理员角色成员和订阅的共同管理员。
-  >
-  > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > 如果“添加自动化帐户”边栏选项卡中显示以下消息，则表示你的帐户不是订阅管理员角色成员和订阅的共同管理员。
+   >
+   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。已删除的自动化帐户的名称可能无法立即可用。
-1. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅。
-1. 对于“资源组”，请输入或选择新的或现有的资源组。
-1. 对于“位置”，请选择一个 Azure 数据中心位置。
-1. 对于“创建 Azure 运行方式帐户”选项，请确保选择“是”，并选择“创建”。
+5. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。 每个区域和资源组的自动化帐户名称都是唯一的。已删除的自动化帐户的名称可能无法立即可用。
+6. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅。
+7. 对于“资源组”，请输入或选择新的或现有的资源组。
+8. 对于“位置”，请选择一个 Azure 数据中心位置。
+9. 对于“创建 Azure 运行方式帐户”选项，请确保选择“是”，并选择“创建”。
 
-  > [!NOTE]
-  > 如果对“创建 Azure 运行方式帐户”选择“否”以选择不创建运行方式帐户，则“添加自动化帐户”窗格中会显示一条消息。 尽管该帐户是在 Azure 门户中创建的，但它在经典部署模型订阅或 Azure 资源管理器订阅目录服务中没有对应的身份验证标识。 因此，自动化帐户无法访问订阅中的资源。 这会导致引用此帐户的任何 Runbook 无法进行身份验证，也无法针对这些部署模型中的资源执行任务。
-  >
-  > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > 未创建服务主体时不会分配参与者角色。
-  >
+   > [!NOTE]
+   > 如果对“创建 Azure 运行方式帐户”选择“否”以选择不创建运行方式帐户，则“添加自动化帐户”窗格中会显示一条消息。 尽管该帐户是在 Azure 门户中创建的，但它在经典部署模型订阅或 Azure 资源管理器订阅目录服务中没有对应的身份验证标识。 因此，自动化帐户无法访问订阅中的资源。 这会导致引用此帐户的任何 Runbook 无法进行身份验证，也无法针对这些部署模型中的资源执行任务。
+   >
+   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > 未创建服务主体时不会分配参与者角色。
+   >
 
-1. 若要跟踪自动化帐户的创建进度，请在菜单中选择“通知”。
+10. 若要跟踪自动化帐户的创建进度，请在菜单中选择“通知”。
 
 ### <a name="resources-included"></a>包含的资源
 

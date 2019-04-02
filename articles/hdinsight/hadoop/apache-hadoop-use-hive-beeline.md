@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 04/20/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 007aeaa639ceca75f850abbdb049eeab7fd48c16
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 2606ea14c989ef4baccb7a99cec0aa3465b7ea00
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560497"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626274"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>将 Apache Beeline 客户端与 Apache Hive 配合使用
 
@@ -147,10 +147,10 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive 会尝试向目录中的所有文件应用架构。 在此示例中，目录包含与架构不匹配的文件。 为防止结果中包含垃圾数据，此语句指示 Hive 应当仅返回以 .log 结尾的文件中的数据。
 
-  > [!NOTE]
-  > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
-  >
-  > 删除外部表**不会**删除数据，只会删除表定义。
+   > [!NOTE]
+   > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
+   >
+   > 删除外部表**不会**删除数据，只会删除表定义。
 
     此命令的输出类似于以下文本：
 
@@ -199,12 +199,12 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     这些语句执行以下操作：
 
-    * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表尚不存在）。 因为未使用 **EXTERNAL** 关键字，此语句创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 全权管理。
-    * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度优化且有效的 Hive 数据存储格式。
-    * **INSERT OVERWRITE ...SELECT**- 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
+   * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表尚不存在）。 因为未使用 **EXTERNAL** 关键字，此语句创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 全权管理。
+   * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度优化且有效的 Hive 数据存储格式。
+   * **INSERT OVERWRITE ...SELECT**- 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
 
-    > [!NOTE]
-    > 与外部表不同，删除内部表会同时删除基础数据。
+     > [!NOTE]
+     > 与外部表不同，删除内部表会同时删除基础数据。
 
 3. 如果要保存文件，请使用 **Ctrl**+**_X**，并输入 **Y**，最后按 **Enter**。
 

@@ -9,12 +9,12 @@ origin.date: 06/07/2018
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: c821e8dc4ac7d875d7233c67ccbd51892b98e201
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 5c8daf11dab0aa11e8d3515a535333d95aa8de1a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627293"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -299,5 +299,5 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 ## <a name="next-steps"></a>后续步骤
 请参阅以下链接，获取有关 Azure 文件的更多信息：
 - [规划 Azure 文件部署](storage-files-planning.md)
-* [常见问题](../storage-files-faq.md)
-* [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
+- [常见问题](../storage-files-faq.md)
+- [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      

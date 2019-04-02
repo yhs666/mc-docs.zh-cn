@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 14037c88cf0432af2f6d373dace7c05944e2beed
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 1d03785cb8feeaab459707edeb4adc29d2c3ba84
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905371"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627435"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
@@ -70,19 +70,19 @@ ms.locfileid: "56905371"
 
 10. 将 **My Marketplace Items** 替换为你的市场项应当显示在其中的类别的列表：
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. 若要进一步编辑 Manifest.json，请参阅[参考：市场项 manifest.json](#reference-marketplace-item-manifestjson)。
 
 12. 若要将文件夹打包到 .azpkg 文件，请打开命令提示符并运行以下命令：
 
-   ```shell
-   AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 C:\MarketPlaceItem 必须存在。

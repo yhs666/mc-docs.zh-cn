@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 02/13/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ac1b47a89d414e28285d52107473916fec38fd19
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: eef23f4b2da359b712de16ad1ee0f2d56f504cd2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463580"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627053"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>将 VMware VM 和物理服务器灾难恢复到 Azure 时的支持矩阵
 
@@ -160,6 +160,7 @@ Azure 虚拟网络服务终结点<br/> （不带 Azure 存储防火墙） | 是
 
 <a name="support-for-storage"></a>
 ## <a name="storage"></a>存储
+
 **组件** | **支持**
 --- | ---
 动态磁盘 | 操作系统磁盘必须是基本磁盘。 <br/><br/>数据磁盘可以是动态磁盘
@@ -187,7 +188,7 @@ Docker 磁盘配置 | 否
 
 > [!NOTE]
 > 运行 Windows Server 2012 或更高版本的 UEFI 引导 VMware 虚拟机可迁移到 Azure。 存在以下限制：
-
+> 
 > - 仅支持到 Azure 的迁移。 不支持故障回复到本地 VMware 站点。
 > - 服务器在 OS 磁盘上不应具有四个以上分区。
 > - 需要移动服务 9.13 版或更高版本。

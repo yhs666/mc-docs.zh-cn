@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 1561179c64b1c6aaf7ccc3b47df1937fe9645f0e
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 7692bbb97c65398f8ea43a335f9565155dbee378
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141740"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627315"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何使用 Azure Monitor 警报触发复杂操作
 
@@ -275,19 +275,19 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
 - 步骤 9 和 10 相同。
 - 对于步骤 11 到 14，请使用以下过程：
 
-   1. 依次选择“+ 新建步骤”、“添加条件”。 设置以下条件，以便逻辑应用仅在输入数据与下面的值匹配时执行。 在文本框中输入版本值时，请在其周围加上引号 ("2.0") 以确保它被评估为字符串而不是数字类型。  如果返回到该页，系统不会显示引号，但底层代码仍然保持字符串类型。 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. 依次选择“+ 新建步骤”、“添加条件”。 设置以下条件，以便逻辑应用仅在输入数据与下面的值匹配时执行。 在文本框中输入版本值时，请在其周围加上引号 ("2.0") 以确保它被评估为字符串而不是数字类型。  如果返回到该页，系统不会显示引号，但底层代码仍然保持字符串类型。 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        ![“指标警报有效负载条件”](media/action-groups-logic-app/metric-alert-payload-condition.png "指标警报有效负载条件")
 
-   1. 在 **if true** 条件中，添加 **For each** 循环和 Microsoft Teams 操作。 使用 HTML 和动态内容的组合定义消息。
+  2. 在 **if true** 条件中，添加 **For each** 循环和 Microsoft Teams 操作。 使用 HTML 和动态内容的组合定义消息。
 
-       ![“指标警报 true 件下的发布操作”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "指标警报 true 件下的发布操作")
+      ![“指标警报 true 件下的发布操作”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "指标警报 true 件下的发布操作")
 
-   1. 在 **If false** 条件中定义一个 Microsoft Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
+  3. 在 **If false** 条件中定义一个 Microsoft Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
 
-       ![“指标警报 false 条件下的发布操作”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "指标警报 false 条件下的发布操作")
+      ![“指标警报 false 条件下的发布操作”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "指标警报 false 条件下的发布操作")
 
 - 步骤 15 相同。 遵照说明保存逻辑应用并更新操作组。
 

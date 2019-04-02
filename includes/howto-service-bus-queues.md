@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a8c084b3a7d479c3a471c19d05a4bcc81a055227
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627769"
+---
 ## <a name="what-are-service-bus-queues"></a>什么是 Service Bus 队列？
 
 服务总线队列支持中转消息传送通信模型。 在使用队列时，分布式应用程序的组件不会直接相互通信，而是通过充当中介（代理）的队列交换消息。 消息创建方（发送方）将消息传送到队列，并继续对其进行处理。 消息使用方（接收方）以异步方式从队列中提取消息并对其进行处理。 创建方不必等待使用方的答复即可继续处理并发送更多消息。 队列为一个或多个竞争使用方提供**先入先出 (FIFO)** 消息传递方式。 也就是说，接收方通常会按照消息添加到队列中的顺序来接收并处理消息，并且每条消息仅由一个消息使用方接收并处理。
@@ -43,7 +51,7 @@
 
 若要在新命名空间上执行管理操作（如创建队列），则必须获取该命名空间的管理凭据。 可以从 [Azure 经典门户][]中获取这些凭据。
 
-###<a name="to-obtain-management-credentials-from-the-portal"></a>从门户中获取管理凭据
+### <a name="to-obtain-management-credentials-from-the-portal"></a>从门户中获取管理凭据
 
 1.  在左侧导航窗格中，单击“服务总线”节点以显示可用命名空间的列表：   
     ![](./media/howto-service-bus-queues/sb-queues-13.png)

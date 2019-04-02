@@ -10,12 +10,12 @@ origin.date: 07/11/2018
 ms.date: 03/04/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 4afc725ea7f5df62bfc580972f01a8ce3def5125
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f7e079904d405aba51c97517a01ad26727fe228a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665423"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627681"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教程：为 IoT 中心执行手动故障转移（公共预览版）
 
@@ -136,4 +136,4 @@ ms.locfileid: "56665423"
 转到下一教程，了解如何管理 IoT 设备的状态。 
 
 > [!div class="nextstepaction"]
-[管理 IoT 设备的状态](tutorial-device-twins.md)
+> [管理 IoT 设备的状态](tutorial-device-twins.md)

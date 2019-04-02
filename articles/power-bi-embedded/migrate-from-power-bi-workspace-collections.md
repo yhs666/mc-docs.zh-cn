@@ -15,12 +15,12 @@ ms.workload: powerbi
 origin.date: 09/28/2017
 ms.date: 07/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 39071c9d99b2c86a6f076236c6d5ef99238429df
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 784d9197f488314a5a86820bb22be31ae7052f81
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649699"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626882"
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>如何将 Power BI 工作区集合内容迁移到 Power BI Embedded
 
@@ -41,14 +41,14 @@ ms.locfileid: "52649699"
 
     要使用哪个租户？
 
-    - 使用现有企业 Power BI 租户？
-    - 对应用程序使用单独租户？
-    - 对每个客户使用单独租户？
+   - 使用现有企业 Power BI 租户？
+   - 对应用程序使用单独租户？
+   - 对每个客户使用单独租户？
 
-    如果决定为应用程序或每个客户创建新租户，请参阅以下内容之一：
+     如果决定为应用程序或每个客户创建新租户，请参阅以下内容之一：
 
-    - [创建 Azure Active Directory 租户](https://powerbi.microsoft.com/documentation/powerbi-developer-create-an-azure-active-directory-tenant/)
-    - [如何获取 Azure Active Directory 租户](/active-directory/develop/active-directory-howto-tenant)。
+   - [创建 Azure Active Directory 租户](https://powerbi.microsoft.com/documentation/powerbi-developer-create-an-azure-active-directory-tenant/)
+   - [如何获取 Azure Active Directory 租户](/active-directory/develop/active-directory-howto-tenant)。
 
 2. 在此新租户中创建充当应用程序“主”帐户的用户。 该帐户需要注册 Power BI，并需要分配有 Power BI Pro 许可证。
 

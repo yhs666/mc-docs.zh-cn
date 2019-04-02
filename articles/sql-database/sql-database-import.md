@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 03/05/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 53742d4668ebee12eb7748375c7afefd2ab6177a
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: e5fa83d50c6cefcff2c6671986cc5946fae93133
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318937"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626689"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入门：将 BACPAC 文件导入 Azure SQL 数据库中的数据库
 
@@ -91,7 +91,6 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
     -ServiceObjectiveName "P6" `
     -AdministratorLogin "<your_server_admin_account_user_id>" `
     -AdministratorLoginPassword $(ConvertTo-SecureString -String "<your_server_admin_account_password>" -AsPlainText -Force)
-
  ```
 
  可以使用 [Get-AzSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet 检查导入的进度。 如果在提交请求后立即运行此 cmdlet，通常会返回“状态: 正在进行”。 显示“状态: 成功”时，表示导入完毕。
@@ -110,7 +109,7 @@ $importStatus
 ```
 
 > [!TIP]
-有关另一个脚本示例，请参阅[从 BACPAC 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)。
+> 有关另一个脚本示例，请参阅[从 BACPAC 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)。
 
 ## <a name="limitations"></a>限制
 

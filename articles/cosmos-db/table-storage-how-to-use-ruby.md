@@ -11,12 +11,12 @@ origin.date: 04/05/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 451073784c50bfa9c39773c2940dd7857f44873c
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 27cc342af33021f3ec6109f8b0681794b2d49c91
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309242"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627475"
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
@@ -36,7 +36,8 @@ ms.locfileid: "54309242"
 <!-- Not Avaiable on ### Create an Azure Cosmos DB Table API account -->
 
 ## <a name="add-access-to-storage"></a>添加对存储的访问权限
-<!-- Not Available on Azure Cosmos DB --> 若要使用 Azure 存储，必须下载和使用 Ruby Azure 包，其中包括一组便于与表 REST 服务进行通信的库。
+<!-- Not Available on Azure Cosmos DB -->
+若要使用 Azure 存储，必须下载和使用 Ruby Azure 包，其中包括一组便于与表 REST 服务进行通信的库。
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>使用 RubyGems 获取该程序包
 1. 使用命令行接口，例如 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix)。
@@ -168,7 +169,7 @@ azure_table_service.delete_table("testtable")
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
-<!-- Notice: Remove from Microsoft -->
+  <!-- Notice: Remove from Microsoft -->
 * [Ruby 开发人员中心](https://docs.azure.cn/zh-cn/develop/ruby)
 * [适用于 Ruby 的 Azure 存储表客户端库](https://github.com/azure/azure-storage-ruby/tree/master/table)
 

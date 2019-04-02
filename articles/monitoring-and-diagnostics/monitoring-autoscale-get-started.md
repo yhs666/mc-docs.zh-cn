@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 07/07/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 42bed75aa3c1ccd7624e507703ffe40b55e870c6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e35c034ee0040b418a3ed5252642489c44cfdd98
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662615"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627545"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。
@@ -26,19 +26,19 @@ Azure Monitor 自动缩放功能仅适用于虚拟机规模集、云服务、Azu
 1. 打开 [Azure 门户。][1]
 2. 单击左窗格中的“Azure Monitor”图标。
 
-  ![打开 Azure Monitor][2]
+   ![打开 Azure Monitor][2]
   
 3. 单击“自动缩放”以查看自动缩放适用的所有资源及其当前的自动缩放状态。
 
-  ![了解 Azure Monitor 中的自动缩放][3]
+   ![了解 Azure Monitor 中的自动缩放][3]
 
 可使用顶部的筛选器窗格缩小列表的范围，以选择特定资源组中的资源、特定的资源类型或特定资源。
 
 对于每个资源，将会看到其当前实例计数和自动缩放状态。 自动缩放状态可以是：
 
-- 未配置：尚未对此资源启用自动缩放功能。
-- 已启用：已对此资源启用自动缩放功能。
-- 已禁用：已对此资源禁用自动缩放功能。
+- **未配置**：尚未对此资源启用自动缩放功能。
+- **已启用**：已对此资源启用自动缩放功能。
+- **已禁用**：已对此资源禁用自动缩放功能。
 
 ## <a name="create-your-first-autoscale-setting"></a>创建第一个自动缩放设置
 
@@ -47,11 +47,11 @@ Azure Monitor 自动缩放功能仅适用于虚拟机规模集、云服务、Azu
 1. 在 Azure Monitor 中打开“自动缩放”边栏选项卡，然后选择要缩放的资源。 （以下步骤使用与某 Web 应用关联的应用服务计划。 [仅需 5 分钟，就可在 Azure 中创建首个 ASP.NET Web 应用。][4]）
 2. 请注意当前实例计数为 1。 单击“启用自动缩放”。
 
-  ![新 Web 应用的缩放设置][5]
+   ![新 Web 应用的缩放设置][5]
   
 3. 提供缩放设置的名称，然后单击“添加规则”。 请注意右侧以上下文窗格形式打开的缩放规则选项。 默认情况下，这将选项设置为当资源的 CPU 百分比超过 70% 时，将实例计数缩放 1 个单位。 请将此选项保留默认值，并单击“添加”。
 
-  ![为 Web 应用创建缩放设置][6]
+   ![为 Web 应用创建缩放设置][6]
   
 4. 现已创建第一个缩放规则。 请注意，UX 建议了最佳做法，并指出“建议至少在规则中包含一个缩放设置”。 为此，请执行以下操作：
   

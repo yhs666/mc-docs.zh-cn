@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: cf614480b79a8fa433327d05fed6da4eab1e954e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632760"
+---
 ## <a name="virtual-network"></a>虚拟网络
 虚拟网络 (VNET) 和子网资源可帮助定义 Azure 中运行的工作负载的安全边界。 VNet 的特征包括一个地址空间（定义为 CIDR 块）的集合。 
 
@@ -74,5 +82,5 @@ JSON 格式的示例 VNet：
 
 ### <a name="additional-resources"></a>其他资源
 * 获取有关 [VNet](../articles/virtual-network/virtual-networks-overview.md) 的详细信息。
-<!-- URL not Avaialbe in Global * Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets. -->
+  <!-- URL not Avaialbe in Global * Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets. -->
 * 阅读子网的 [REST API 参考文档](https://msdn.microsoft.com/library/azure/mt163618.aspx)。

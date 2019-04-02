@@ -18,12 +18,12 @@ ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcbb21df74d06ac2616d2e0408c9a6f6a22654de
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: f45136483ac879c5fad3122e661a47ffad15784c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462373"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627246"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中更新应用程序
 
@@ -71,10 +71,10 @@ ms.locfileid: "57462373"
         - 选择“其他安全性验证” 。 保存配置更改后，最右边的列将包含密钥值。 **请务必复制密钥**以便在客户端应用程序代码中使用，因为退出此页后无可访问此密钥。
 
 5. 添加从客户端访问资源 API 的权限
-  1. 在“设置”页上，选择“所需权限”部分，然后选择“添加”。
-  1. 单击“选择 API”，以选择要从中进行选取的资源类型。
-  1. 浏览可用 API 列表，或使用搜索框从公开 Web API 的目录中的可用资源应用程序中进行选择。 选择感兴趣的资源，然后单击“选择”。
-  1. 在“启用访问权限”页面上，选择应用程序在访问 API 时所需的应用程序权限和/或委托权限。
+   1. 在“设置”页上，选择“所需权限”部分，然后选择“添加”。
+   1. 单击“选择 API”，以选择要从中进行选取的资源类型。
+   1. 浏览可用 API 列表，或使用搜索框从公开 Web API 的目录中的可用资源应用程序中进行选择。 选择感兴趣的资源，然后单击“选择”。
+   1. 在“启用访问权限”页面上，选择应用程序在访问 API 时所需的应用程序权限和/或委托权限。
    
       ![更新应用程序的注册 - 权限 API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 

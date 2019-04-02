@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 02/15/2019
 ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6ff37caa5ddf2c874bc16aadb9538aa283a65643
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 0295c223c62537940151a4b68c97f714d203fd7e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560489"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627056"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -58,10 +58,10 @@ ms.locfileid: "57560489"
 3. 在主窗口中选择“Spark 项目(Scala)”。
 
 4. 在“生成工具”下拉列表中选择下列其中一项：
-      * **Maven**：支持 Scala 项目创建向导。
-      * **SBT**：用于管理依赖项和生成 Scala 项目。
+   * **Maven**：支持 Scala 项目创建向导。
+   * **SBT**：用于管理依赖项和生成 Scala 项目。
 
-    ![“新建项目”对话框](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![“新建项目”对话框](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. 选择“**下一步**”。
 

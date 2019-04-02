@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 02/27/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: d3820604afc5dd46e7148559d7ec577f2fcd8649
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: bf57b284c52fb730627759c8a76157cf252bebc1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985621"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626600"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建 HDInsight 群集
 
@@ -80,8 +80,8 @@ ms.locfileid: "55985621"
 
         azure storage account keys list -g groupname storagename
 
-    * 将 `groupname` 替换为资源组名称。
-    * 将 `storagename` 替换为存储帐户的名称。
+   * 将 `groupname` 替换为资源组名称。
+   * 将 `storagename` 替换为存储帐户的名称。
 
      在返回的数据中，保存 `key1` 的 `key` 值。
 
@@ -89,31 +89,31 @@ ms.locfileid: "55985621"
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.chinacloudapi.cn --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * 将 `groupname` 替换为资源组名称。
+   * 将 `groupname` 替换为资源组名称。
 
-    * 将 `Hadoop` 替换为要创建的群集类型。 例如，`Hadoop`、`HBase`、`Kafka`、`Spark` 或 `Storm`。
+   * 将 `Hadoop` 替换为要创建的群集类型。 例如，`Hadoop`、`HBase`、`Kafka`、`Spark` 或 `Storm`。
 
      > [!IMPORTANT]
      > HDInsight 群集具有各种不同的类型，与该群集进行优化的工作负荷或技术相对应。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。
 
-    * 将 `location` 替换为前面步骤中使用的同一个位置。
+   * 将 `location` 替换为前面步骤中使用的同一个位置。
 
-    * 将 `storagename` 替换为存储帐户名称。
+   * 将 `storagename` 替换为存储帐户名称。
 
-    * 将 `storagekey` 替换为上一步骤中获取的密钥。
+   * 将 `storagekey` 替换为上一步骤中获取的密钥。
 
-    * 对于 `--defaultStorageContainer` 参数，请使用为群集使用的同一个名称。
+   * 对于 `--defaultStorageContainer` 参数，请使用为群集使用的同一个名称。
 
-    * 将 `admin` 和 `httppassword` 替换为通过 HTTPS 访问群集时要使用的用户名和密码。
+   * 将 `admin` 和 `httppassword` 替换为通过 HTTPS 访问群集时要使用的用户名和密码。
 
-    * 将 `sshuser` 和 `sshuserpassword` 替换为通过 SSH 访问群集时要使用的用户名和密码
+   * 将 `sshuser` 和 `sshuserpassword` 替换为通过 SSH 访问群集时要使用的用户名和密码
 
-    > [!IMPORTANT]
-    > 此示例创建一个具有两个辅助角色节点的群集。 还可以在创建群集后，通过执行缩放操作更改工作节点数。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14-GB RAM 的头节点大小。 在创建群集期间，可以使用 `--headNodeSize` 参数设置头节点大小。
-    >
-    > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+     > [!IMPORTANT]
+     > 此示例创建一个具有两个辅助角色节点的群集。 还可以在创建群集后，通过执行缩放操作更改工作节点数。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14-GB RAM 的头节点大小。 在创建群集期间，可以使用 `--headNodeSize` 参数设置头节点大小。
+     >
+     > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
-    可能需要几分钟时间才能完成群集创建过程。 通常大约为 15 分钟。
+     可能需要几分钟时间才能完成群集创建过程。 通常大约为 15 分钟。
 
 ## <a name="troubleshoot"></a>故障排除
 

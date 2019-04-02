@@ -15,12 +15,12 @@ origin.date: 10/29/2018
 ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 0ce45fca4d9aa713ec00dd0c930992f853a9d0e1
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: c01e155572bd856a883137b6e5547acb6f430649
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028970"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625533"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
@@ -70,19 +70,19 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 
 #### <a name="example-case"></a>案例：
 1. **Bob Smith** 是 Azure Active Directory 中的一个用户，该用户已从 *contoso.com*
-2. Bob Smith 的 **UserPrincipalName** 设置为 **bobs@contoso.com**。
+2. Bob Smith 的 **UserPrincipalName** 设置为 <strong>bobs@contoso.com</strong>。
 3. **"abcdefghijklmnopqrstuv=="** 是 Azure AD Connect 使用 Bob Smith 在本地 Active Directory 中的 **objectGUID**（在 Azure Active Directory 中，Bob Smith 的该属性为 **immutableId**）计算得出的 **SourceAnchor**。
 4. Bob 还具有以下 **proxyAddresses** 属性值：
    - smtp: bobs@contoso.com
    - smtp: bob.smith@contoso.com
-   - **smtp: bob@contoso.com**
+   - <strong>smtp: bob@contoso.com</strong>
 5. 已将新用户 **Bob Taylor**添加到本地 Active Directory。
-6. Bob Taylor 的 **UserPrincipalName** 设置为 **bobt@contoso.com**。
+6. Bob Taylor 的 **UserPrincipalName** 设置为 <strong>bobt@contoso.com</strong>。
 7. **"abcdefghijkl0123456789==""** 是 Azure AD Connect 使用 Bob Taylor 在本地 Active Directory 中的 **objectGUID** 计算得出的 **sourceAnchor**。 Bob Taylor 的对象尚未同步到 Azure Active Directory。
 8. Bob Taylor 还具有以下 proxyAddresses 属性值
    - smtp: bobt@contoso.com
    - smtp: bob.taylor@contoso.com
-   - **smtp: bob@contoso.com**
+   - <strong>smtp: bob@contoso.com</strong>
 9. 在同步期间，Azure AD Connect 会识别到在本地 Active Directory 中添加了 Bob Taylor，并要求 Azure AD 做出相同的更改。
 10. Azure AD 首先会执行硬匹配。 也就是说，它会搜索 immutableId 等于 "abcdefghijkl0123456789==" 的任何对象。 如果 Azure AD 中没有任何其他对象具有该 immutableId，硬匹配会失败。
 11. 然后，Azure AD 将尝试对 Bob Taylor 进行软匹配。 也就是说，它将搜索 proxyAddresses 等于上述三个值（包括 smtp: bob@contoso.com）的任何对象
@@ -112,8 +112,8 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 - 在 Office 365 中创建了一个支持邮件的安全组。 管理员在本地 AD 中添加了一个新用户或联系人（尚未同步到 Azure AD），并且该对象的 ProxyAddresses 属性值与 Office 365 组的该属性值相同。
 
 #### <a name="example-case"></a>案例
-1. 管理员在 Office 365 中为税务部门创建一个支持邮件的新安全组，并提供了电子邮件地址 tax@contoso.com。 此组分配的 ProxyAddresses 属性值为 **smtp: tax@contoso.com**
-2. 有一个新用户加入了 Contoso.com，管理员在本地为该用户创建了 proxyAddress 为 **smtp: tax@contoso.com** 的帐户
+1. 管理员在 Office 365 中为税务部门创建一个支持邮件的新安全组，并提供了电子邮件地址 tax@contoso.com。 此组分配的 ProxyAddresses 属性值为 <strong>smtp: tax@contoso.com</strong>
+2. 有一个新用户加入了 Contoso.com，管理员在本地为该用户创建了 proxyAddress 为 <strong>smtp: tax@contoso.com</strong> 的帐户
 3. 当 Azure AD Connect 同步新用户帐户时，会出现“ObjectTypeMismatch”错误。
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>如何解决 ObjectTypeMismatch 错误
@@ -139,16 +139,16 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 
 #### <a name="example-case"></a>案例：
 1. **Bob Smith** 是 Azure Active Directory 中的一个用户，该用户已从 contoso.com 本地 Active Directory 同步
-2. Bob Smith 在本地的 **UserPrincipalName** 设置为 **bobs@contoso.com**。
+2. Bob Smith 在本地的 **UserPrincipalName** 设置为 <strong>bobs@contoso.com</strong>。
 3. Bob 还具有以下 **proxyAddresses** 属性值：
    - smtp: bobs@contoso.com
    - smtp: bob.smith@contoso.com
-   - **smtp: bob@contoso.com**
+   - <strong>smtp: bob@contoso.com</strong>
 4. 已将新用户 **Bob Taylor**添加到本地 Active Directory。
-5. Bob Taylor 的 **UserPrincipalName** 设置为 **bobt@contoso.com**。
+5. Bob Taylor 的 **UserPrincipalName** 设置为 <strong>bobt@contoso.com</strong>。
 6. **Bob Taylor** 还具有以下 **ProxyAddresses** 属性值 i. smtp: bobt@contoso.com ii。 smtp: bob.taylor@contoso.com
 7. Bob Taylor 的对象已成功与 Azure AD 同步。
-8. 管理员决定使用以下值更新 Bob Taylor 的 **ProxyAddresses** 属性：i. **smtp: bob@contoso.com**
+8. 管理员决定使用以下值更新 Bob Taylor 的 **ProxyAddresses** 属性：i. <strong>smtp: bob@contoso.com</strong>
 9. Azure AD 将尝试使用上述值更新 Bob Taylor 在 Azure AD 中的对象，但该操作会失败，因为 ProxyAddresses 值已分配给 Bob Smith，从而导致“AttributeValueMustBeUnique”错误。
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>如何解决 AttributeValueMustBeUnique 错误
@@ -182,7 +182,7 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 该事例导致“FederatedDomainChangeError”同步错误：用户的 UserPrincipalName 后缀已从一个联合域更改为另一个联合域。
 
 #### <a name="scenarios"></a>方案
-某个已同步用户的 UserPrincipalName 后缀已从一个联合域更改为本地的另一个联合域。 例如，*UserPrincipalName = bob@contoso.com* 已更改为 *UserPrincipalName = bob@fabrikam.com*。
+某个已同步用户的 UserPrincipalName 后缀已从一个联合域更改为本地的另一个联合域。 例如，<em>UserPrincipalName = bob@contoso.com</em> 已更改为 <em>UserPrincipalName = bob@fabrikam.com</em>。
 
 #### <a name="example"></a>示例
 1. 在 Active Directory 中，已将 Contoso.com 的帐户 Bob Smith 添加为新用户，其 UserPrincipalName 为 bob@contoso.com

@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 06/04/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 542356c06e6711c068962b8d7abcfcb12b9a3708
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 69e3f73c0e9081c35680654c6ad21a819e98b7d9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309316"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627682"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -26,7 +26,7 @@ ms.locfileid: "54309316"
 - [单区集合和分区集合与 S1、S2、S3 性能级别有哪些区别？](#compare)
 - [我需要做些什么才能确保不间断地访问我的数据？](#uninterrupted-access)
 - [迁移后，集合会发生怎样的变化？](#collection-change)
-<!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
+  <!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
 - [如果需要 10 GB 以上的存储，应该怎么做？](#more-storage-needed)
 - [在计划的迁移期限之前，是否可以在 S1、S2 和 S3 性能级别之间切换？](#change-before)
 - [如何自行从 S1、S2、S3 性能级别迁移到单区集合？](#migrate-diy)

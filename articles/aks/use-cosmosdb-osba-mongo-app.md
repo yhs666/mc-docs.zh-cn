@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: azure-dev-spaces
 ms.topic: article
 origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, 用于 Azure 的 Open Service Broker
-ms.openlocfilehash: 18473abc4c6e74d8273095308a0014a3d4706afe
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 247a472a368252c186ff43e239fcee1d53eced73
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903288"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627777"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>将现有的 MongoDB 应用程序与用于 MongoDB 的 Azure Cosmos DB API 和用于 Azure 的 Open Service Broker (OSBA) 集成
 
@@ -80,7 +80,7 @@ BUILD SUCCESSFUL in 10s
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-在浏览器中，导航到 http://localhost:8080。
+在浏览器中，导航到 `http://localhost:8080`。
 
 ![使用默认数据的 Spring Music 应用](media/music-app.png)
 
@@ -181,7 +181,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 注意，应用程序仍使用 *mongodb* 配置文件以及以 *mongodb://* 开头的 URI 来连接到 Cosmos DB 数据库。 [用于 MongoDB 的 Azure Cosmos DB API](../cosmos-db/mongodb-introduction.md) 提供此兼容性。 使用它，应用程序就可以继续运行，就像使用 MongoDB 数据库一样，但实际上它使用的是 Cosmos DB。
 
-在浏览器中，导航到 http://localhost:8080。 请注意，默认数据已还原。 与之交互：删除一些现有的专辑，并创建一些新的。 可通过以下方式验证所做的更改是否已持久保存：停止并重启应用程序，然后在浏览器中导航回到该应用程序。 注意所做的更改仍在该处。 所做的更改保存到使用 Open Service Broker for Azure 创建的 Cosmos DB。
+在浏览器中，导航到 `http://localhost:8080`。 请注意，默认数据已还原。 与之交互：删除一些现有的专辑，并创建一些新的。 可通过以下方式验证所做的更改是否已持久保存：停止并重启应用程序，然后在浏览器中导航回到该应用程序。 注意所做的更改仍在该处。 所做的更改保存到使用 Open Service Broker for Azure 创建的 Cosmos DB。
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>在 AKS 群集上运行应用程序
 

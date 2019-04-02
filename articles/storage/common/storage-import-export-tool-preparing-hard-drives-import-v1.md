@@ -9,25 +9,25 @@ origin.date: 01/15/2017
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 01ebda826cd6fbc405f8c43ada9a68ba4c92aacb
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: d24f83a7ae6807228d03c794815ccd2767cc9302
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253940"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625925"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 若要为导入作业准备一个或多个硬盘驱动器，请执行以下步骤：
 
--   确定要导入 Blob 服务中的数据
+- 确定要导入 Blob 服务中的数据
 
--   在 Blob 服务中确定目标虚拟目录和 Blob
+- 在 Blob 服务中确定目标虚拟目录和 Blob
 
--   确定所需的驱动器数
+- 确定所需的驱动器数
 
--   将数据复制到每个硬盘驱动器
+- 将数据复制到每个硬盘驱动器
 
- 有关示例工作流，请参阅[为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)。
+  有关示例工作流，请参阅[为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)。
 
 ## <a name="identify-the-data-to-be-imported"></a>确定要导入的数据
  创建导入作业的第一步是，确定要导入的目录和文件。 可以是目录列表、独特文件的列表或这两者的组合。 包含某个目录时，该目录及其子目录中的所有文件都会成为导入作业的一部分。
@@ -42,21 +42,22 @@ ms.locfileid: "58253940"
 
  下表显示了 Blob 目标的一些示例：
 
-|源文件或目录|目标 Blob 或虚拟目录|
-|------------------------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.chinacloudapi.cn/video|
-|H:\Photo|https://mystorageaccount.blob.core.chinacloudapi.cn/photo|
-|K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteVideo.ISO|
-|\\myshare\john\music|https://mystorageaccount.blob.core.chinacloudapi.cn/music|
+
+| 源文件或目录  |                     目标 Blob 或虚拟目录                      |
+|---------------------------|--------------------------------------------------------------------------------|
+|         H:\Video          |           https://mystorageaccount.blob.core.chinacloudapi.cn/video            |
+|         H:\Photo          |           https://mystorageaccount.blob.core.chinacloudapi.cn/photo            |
+| K:\Temp\FavoriteVideo.ISO | https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteVideo.ISO |
+|   \\myshare\john\music   |           https://mystorageaccount.blob.core.chinacloudapi.cn/music            |
 
 ## <a name="determine-how-many-drives-are-needed"></a>确定所需的驱动器数
  接下来，需要确定：
 
--   存储数据所需的硬盘驱动器数。
+- 存储数据所需的硬盘驱动器数。
 
--   将复制到每个硬盘驱动器中的目录和/或独立文件。
+- 将复制到每个硬盘驱动器中的目录和/或独立文件。
 
- 确保准备好所需数量的硬盘驱动器，以便能够存储所要传输的数据。
+  确保准备好所需数量的硬盘驱动器，以便能够存储所要传输的数据。
 
 ## <a name="copy-data-to-your-hard-drive"></a>将数据复制到硬盘驱动器
  本部分介绍如何调用 Azure 导入/导出工具，将数据复制到一个或多个硬盘驱动器。 每次调用 Azure 导入/导出工具都会创建一个新的复制会话。 需要为数据复制到的每个驱动器至少创建一个复制会话；在某些情况下，可能需要使用多个复制会话将所有数据复制到单个驱动器。 下面是可能需要多个复制会话的一些原因：
@@ -173,7 +174,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [设置 Azure 导入/导出工具](storage-import-export-tool-setup-v1.md)
 * [在导入过程中设置属性和元数据](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [常用命令快速参考](storage-import-export-tool-quick-reference-v1.md) 
+* [常用命令快速参考](storage-import-export-tool-quick-reference-v1.md) 
 * [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)
 * [修复导入作业](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修复导出作业](storage-import-export-tool-repairing-an-export-job-v1.md)

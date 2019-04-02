@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 04/10/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3c1c0e6351f61e9f628f350bc9e973b596101c92
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: d30d9a668b1de15b9e2825ade14d977fbb28b40b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029177"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627110"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 
@@ -301,7 +301,7 @@ switch ($defaultStoreageType)
 
    * **-output**：输出将写入到的目录。
 
-    当 MapReduce 作业运行时，将以百分比形式显示进程。
+     当 MapReduce 作业运行时，将以百分比形式显示进程。
 
         15/02/05 19:01:04 INFO mapreduce.Job:  映射 0% 化简 0%    15/02/05 19:01:16 INFO mapreduce.Job:  映射 100% 化简 0%    15/02/05 19:01:27 INFO mapreduce.Job:  映射 100% 化简 100%
 

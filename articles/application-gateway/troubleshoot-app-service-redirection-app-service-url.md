@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/22/2019
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: be01d58359beb5459b9366f0f56a05086bf190a5
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: be11c45166e206f3e5dbec2653fff855976aaa16
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788768"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626548"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service---redirection-to-app-services-url"></a>排查应用程序网关与应用服务的问题 - 重定向到应用服务的 URL
 
@@ -43,7 +43,7 @@ ms.locfileid: "57788768"
 
 为了在应用程序网关中实现此目的，我们在 HTTP 设置中使用了“从后端地址中选取主机名”开关；为了正常运行探测，我们在探测配置中使用了“从后端 HTTP 设置中选取主机名”。
 
-![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
+![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
 出于此原因，当应用服务执行重定向时，除非另有配置，否则，它会使用 Location 标头中的主机名“example.chinacloudsites.cn”，而不是原始主机名。 可以查看下面的示例请求和响应标头。
 ```
@@ -79,7 +79,7 @@ X-Powered-By: ASP.NET
 
 - 将该域注册到应用服务的自定义域列表。 为此，必须在自定义域中创建一个指向应用服务 FQDN 的 CNAME。 有关详细信息，请参阅[将现有的自定义 DNS 名称映射到 Azure 应用服务](/app-service/app-service-web-tutorial-custom-domain)。
 
-![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - 这样做后，应用服务已准备好接受主机名“www.contoso.com”。 现在，请更改 DNS 中的 CNAME 条目，使其重新指向应用程序网关的 FQDN。 例如“appgw.chinanorth.chinacloudapp.cn”。
 
@@ -95,7 +95,7 @@ X-Powered-By: ASP.NET
 - 将自定义探测重新关联到后端 HTTP 设置，并验证后端的运行状况是否正常。
 
 - 这样做后，应用程序网关应会将相同的主机名“www.contoso.com”转发到应用服务，并且同一个主机名上会发生重定向。 可以查看下面的示例请求和响应标头。
-```
+  ```
   ## Request headers to Application Gateway:
 
   Request URL: http://www.contoso.com/path
@@ -115,8 +115,8 @@ X-Powered-By: ASP.NET
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
   X-Powered-By: ASP.NET
-```
-## <a name="next-steps"></a>后续步骤
+  ```
+  ## <a name="next-steps"></a>后续步骤
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 

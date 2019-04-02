@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2016
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f2d42dd8820218cbde9631609e31036eaf387a9
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 33a6fd6a08f2930500403c03fc795632aef2d344
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306146"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626038"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -163,16 +163,17 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager 与经典部署之间的差异
 下面是 Resource Manager 和经典部署模型中的 IP 寻址功能的比较。
 
-|  | 资源 | 经典 | Resource Manager |
-| --- | --- | --- | --- |
-| **公共 IP 地址** |***VM*** |称为 ILPIP（仅限动态） |称为公共 IP（动态或静态） |
-|  ||分配到 IaaS VM 或 PaaS 角色实例 |与 VM 的 NIC 关联 | |
-|  |***面向 Internet 的负载均衡器*** |称为 VIP（动态）或保留 IP（静态） |称为公共 IP（动态或静态） | |
-|  ||分配到云服务 |与负载均衡器的前端配置关联 | |
-|  | | | |
-| **专用 IP 地址** |***VM*** |称为 DIP |称为专用 IP 地址 |
-|  ||分配到 IaaS VM 或 PaaS 角色实例 |分配到 VM 的 NIC | |
-|  |***内部负载均衡器 (ILB)*** |分配到 ILB（动态或静态） |分配到 ILB 的前端配置（动态或静态） | |
+
+|                        |              资源               |                       经典                        |                         Resource Manager                          |
+|------------------------|-------------------------------------|------------------------------------------------------|-------------------------------------------------------------------|
+| **公共 IP 地址**  |              ***VM***               |        称为 ILPIP（仅限动态）        |          称为公共 IP（动态或静态）           |
+|                        |                                     |    分配到 IaaS VM 或 PaaS 角色实例    |                    与 VM 的 NIC 关联                     |
+|                        | ***面向 Internet 的负载均衡器*** | 称为 VIP（动态）或保留 IP（静态） |          称为公共 IP（动态或静态）           |
+|                        |                                     |             分配到云服务              |        与负载均衡器的前端配置关联         |
+|                        |                                     |                                                      |                                                                   |
+| **专用 IP 地址** |              ***VM***               |                 称为 DIP                 |                称为专用 IP 地址                |
+|                        |                                     |    分配到 IaaS VM 或 PaaS 角色实例    |                     分配到 VM 的 NIC                      |
+|                        | ***内部负载均衡器 (ILB)***  |       分配到 ILB（动态或静态）        | 分配到 ILB 的前端配置（动态或静态） |
 
 ## <a name="next-steps"></a>后续步骤
 * 通过 Azure 门户[部署具有静态专用 IP 地址的 VM](virtual-networks-static-private-ip-classic-pportal.md)。

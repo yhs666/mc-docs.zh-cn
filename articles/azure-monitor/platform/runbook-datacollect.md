@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2c5b57976a0a560ff189f2b103e0d2ded6ab38a0
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 932ce882dfe2ed4e7cc7383140e673a2d8750270
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440772"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627287"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自动化 runbook 收集 Log Analytics 中的数据
 可以从各种源中收集 Log Analytics 中的大量数据，包括代理上的[数据源](../../azure-monitor/platform/agent-data-sources.md)以及[从 Azure 中收集的数据](../../azure-monitor/platform/collect-azure-metrics-logs.md)。 尽管某些情况下，需要收集无法通过这些标准源访问的数据。 这时，可以使用 [HTTP 数据收集器 API](../../azure-monitor/platform/data-collector-api.md) 将数据从任何 REST API 客户端写入到 Log Analytics。 一种执行此数据收集的常用方法是使用 Azure 自动化中的 runbook。
@@ -128,13 +128,13 @@ Azure 自动化包含用于[测试 runbook](../../automation/automation-testing-
 
 ![测试 runbook](media/runbook-datacollect/test-runbook.png)
 
-6. 单击“保存”保存 runbook。
-1. 单击“测试窗格”，在测试环境中打开 runbook。
+1. 单击“保存”保存 runbook。
+2. 单击“测试窗格”，在测试环境中打开 runbook。
 3. 由于 runbook 具有参数，所以系统会提示输入这些参数的值。 输入将从其中收集作业信息的的资源组的名称和自动化帐户。
 4. 单击“启动”以启动 runbook。
-3. runbook 启动时的状态为“已排队”，之后变为“正在运行”状态。
-3. runbook 应显示详细输出以及以 json 格式收集的作业。 如果未列出任何作业，则可能在过去一个小时内尚未在自动化帐户中创建任何作业。 尝试启动自动化帐户中的任何 runbook，然后再次执行测试。
-4. 确保所得输出未在对 Log Analytics 的 post 命令中显示任何错误。 应看到类似于下面的消息。
+5. runbook 启动时的状态为“已排队”，之后变为“正在运行”状态。
+6. runbook 应显示详细输出以及以 json 格式收集的作业。 如果未列出任何作业，则可能在过去一个小时内尚未在自动化帐户中创建任何作业。 尝试启动自动化帐户中的任何 runbook，然后再次执行测试。
+7. 确保所得输出未在对 Log Analytics 的 post 命令中显示任何错误。 应看到类似于下面的消息。
 
     ![发布输出](media/runbook-datacollect/post-output.png)
 

@@ -16,12 +16,12 @@ origin.date: 09/26/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8ad2e306b546dcd6d09d5d81a9e1677ef2c4d4b4
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: da1ead6f5213dc22edd8bca6a20b47b27dbefaaa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463558"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625741"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>在 Azure 中将 API 管理与 Service Fabric 集成
 
@@ -145,7 +145,7 @@ az account set --subscription <guid>
 
 * “displayName”可以是 API 的任意名称。 对于本文，请使用“Service Fabric App”。
 * “name”为 API 提供一个唯一且有描述性的名称，例如“service-fabric-app”。 它显示在开发人员和发布者门户中。
-* “serviceUrl”引用实现 API 的 HTTP 服务。 API 管理将请求转发到此地址。 对于 Service Fabric 后端，不使用此 URL 值。 可以在此处设置任何值。 例如，本文中设置了“http://servicefabric”。
+* “serviceUrl”引用实现 API 的 HTTP 服务。 API 管理将请求转发到此地址。 对于 Service Fabric 后端，不使用此 URL 值。 可以在此处设置任何值。 例如，本文中设置了“<http://servicefabric>”。
 * “path”附加到 API 管理服务的基础 URL。 基础 URL 是常见的由 API 管理服务实例托管的所有 API。 API 管理通过其后缀区分 API，因此后缀对给定发布者上的每个 API 必须唯一。
 * “protocols”确定可用于访问 API 的协议。 对于本文，列出 **http** 和 **https**。
 * “path”是 API 的后缀。 对于本文，请使用“myapp”。
@@ -197,18 +197,19 @@ az account set --subscription <guid>
 
 在部署的 apim.parameters.json 中填写以下空参数。
 
-|参数|值|
-|---|---|
-|apimInstanceName|sf-apim|
-|apimPublisherEmail|myemail@contosos.com|
-|apimSku|开发人员|
-|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
-|certificatePassword|q6D7nN%6ck@6|
-|serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
-|serviceFabricCertificate|&lt;base-64 编码字符串&gt;|
-|url_path|/api/values|
-|clusterHttpManagementEndpoint|https://mysfcluster.chinaeast.cloudapp.chinacloudapi.cn:19080|
-|inbound_policy|&lt;XML 字符串&gt;|
+
+|             参数              |                             值                             |
+|------------------------------------|---------------------------------------------------------------|
+|          apimInstanceName          |                            sf-apim                            |
+|         apimPublisherEmail         |                     myemail@contosos.com                      |
+|              apimSku               |                           开发人员                           |
+|    serviceFabricCertificateName    |             sfclustertutorialgroup320171031144217             |
+|        certificatePassword         |                         q6D7nN%6ck@6                          |
+| serviceFabricCertificateThumbprint |           C4C1E541AD512B8065280292A8BA6079C3F26F10            |
+|      serviceFabricCertificate      |                &lt;base-64 编码字符串&gt;                 |
+|              url_path              |                          /api/values                          |
+|   clusterHttpManagementEndpoint    | https://mysfcluster.chinaeast.cloudapp.chinacloudapi.cn:19080 |
+|           inbound_policy           |                      &lt;XML 字符串&gt;                       |
 
 “certificatePassword”和“serviceFabricCertificateThumbprint”必须与用于设置群集的群集证书匹配。
 

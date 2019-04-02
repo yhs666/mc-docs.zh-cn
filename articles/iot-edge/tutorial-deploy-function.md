@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 20cacb74e6353dcc0f5bca89405c4f51bbdce494
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: f5089892cc746c153a82e15ac077359f92d8eb0a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396793"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627312"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -28,7 +28,7 @@ ms.locfileid: "54396793"
 > * 查看筛选的数据。
 
 <center>
-![关系图 - 教程体系结构，暂存以及部署函数模块](./media/tutorial-deploy-function/functions-architecture.png)
+<img src="./media/tutorial-deploy-function/functions-architecture.png" alt="Diagram - Tutorial architecture, stage and deploy function module"/>
 </center>
 
 >[!NOTE]

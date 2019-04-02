@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7e1c7aefcccfbcac638553adf4276e7671e6403e
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 7e548a43cbe32199722d7d2cb67b26e6b57770be
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463633"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627579"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>监视和排查 Site Recovery 问题
 
@@ -147,19 +147,19 @@ Healthy | 复制正常进行。 未检测到任何错误或警告症状。
     ![Site Recovery 中“复制的项”列表视图](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. 在“复制的项”页上，可以查看和筛选器信息。 在顶部的操作菜单中，可以针对特定的计算机执行操作，包括运行测试故障转移，或查看特定的错误。
-3.  单击“列”可显示其他列，例如，显示 RPO、目标配置问题和复制错误。
+3. 单击“列”可显示其他列，例如，显示 RPO、目标配置问题和复制错误。
 4. 单击“筛选器”可以根据复制运行状况或特定复制策略等特定参数来查看信息。
 5. 右键单击某个计算机可以启动操作，例如，执行测试故障转移，或查看与它关联的特定错误详细信息。
 6. 单击某个计算机可以深入查看其更多详细信息。 详细信息包括：
-    - **复制信息**：计算机的当前状态和运行状况。
-    - **RPO**（恢复点目标）：虚拟机的当前 RPO，以及上次计算 RPO 的时间。
-    - **恢复点**：计算机的最新可用恢复点。
-    - **故障转移就绪性**：指示是否对该计算机运行了测试故障转移、计算机上运行的代理版本（适用于运行移动服务的计算机）和任何配置问题。
-    - **错误**：列出当前在计算机上观察到的复制错误症状，以及可能的原因/措施。
-    - **事件**：影响计算机的最近事件列表，按时间顺序列出。 错误详细信息显示当前可观测到的错误症状，而事件是影响了计算机的问题的历史记录。
-    - **基础结构视图**：显示将计算机复制到 Azure 时方案的基础结构状态。
+   - **复制信息**：计算机的当前状态和运行状况。
+   - **RPO**（恢复点目标）：虚拟机的当前 RPO，以及上次计算 RPO 的时间。
+   - **恢复点**：计算机的最新可用恢复点。
+   - **故障转移就绪性**：指示是否对该计算机运行了测试故障转移、计算机上运行的代理版本（适用于运行移动服务的计算机）和任何配置问题。
+   - **错误**：列出当前在计算机上观察到的复制错误症状，以及可能的原因/措施。
+   - **事件**：影响计算机的最近事件列表，按时间顺序列出。 错误详细信息显示当前可观测到的错误症状，而事件是影响了计算机的问题的历史记录。
+   - **基础结构视图**：显示将计算机复制到 Azure 时方案的基础结构状态。
 
-    ![Azure Site Recovery 中复制的项详细信息/概述](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Azure Site Recovery 中复制的项详细信息/概述](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 ### <a name="common-questions"></a>常见问题
 
@@ -187,8 +187,9 @@ Healthy | 复制正常进行。 未检测到任何错误或警告症状。
 订阅方式如下：
 
 在保管库中转到“监视和报告”部分，单击“Site Recovery 事件”。
-2. 单击“电子邮件通知”。
-3. 在“电子邮件通知”中，启用通知并指定收件人。 可向所有订阅管理员发送通知，并选择性地发送到特定的电子邮件地址。
+
+1. 单击“电子邮件通知”。
+2. 在“电子邮件通知”中，启用通知并指定收件人。 可向所有订阅管理员发送通知，并选择性地发送到特定的电子邮件地址。
 
     ![电子邮件通知](./media/site-recovery-monitor-and-troubleshoot/email.png)
     

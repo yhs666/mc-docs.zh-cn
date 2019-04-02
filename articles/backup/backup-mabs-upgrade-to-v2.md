@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/15/2017
 ms.date: 08/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: fd96704b04727fa641f410fe702debae336d643b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3a1f1454df8730b1385c521baed23a3b2160278b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649887"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627732"
 ---
 # <a name="install-azure-backup-server-v2"></a>安装 Azure 备份服务器 v2
 
@@ -102,9 +102,9 @@ Azure 备份服务器可帮助保护虚拟机 (VM)、工作负荷、文件和文
 
     ![“添加磁盘存储”向导 - 添加卷](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-  如果要添加磁盘，则磁盘必须属于具有旧存储的保护组。 这些磁盘只能用于这些保护组。 如果备份服务器没有具有旧保护的源，则不会列出磁盘。
+   如果要添加磁盘，则磁盘必须属于具有旧存储的保护组。 这些磁盘只能用于这些保护组。 如果备份服务器没有具有旧保护的源，则不会列出磁盘。
 
-  有关添加磁盘的详细信息，请参阅[添加磁盘以增大旧存储](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage)。 无法为磁盘提供友好名称。
+   有关添加磁盘的详细信息，请参阅[添加磁盘以增大旧存储](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage)。 无法为磁盘提供友好名称。
 
 
 ### <a name="assign-workloads-to-volumes"></a>将工作负荷分配给卷
@@ -135,7 +135,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 2. 在工具功能区中，选择“新建”。
 
-  此时会打开“创建新保护组”向导。
+   此时会打开“创建新保护组”向导。
 
     ![“创建新保护组”向导](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
@@ -161,13 +161,13 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
     ![“查看磁盘存储分配”页](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  存储卷基于工作负荷卷分配（使用 PowerShell 设置）和可用存储。 可以通过在下拉菜单中选择其他卷来更改存储卷。 如果更改“目标存储”的值，则“可用磁盘存储”的值会动态进行更改，以反映“可用空间”和“预配不足的空间”下的值。
+   存储卷基于工作负荷卷分配（使用 PowerShell 设置）和可用存储。 可以通过在下拉菜单中选择其他卷来更改存储卷。 如果更改“目标存储”的值，则“可用磁盘存储”的值会动态进行更改，以反映“可用空间”和“预配不足的空间”下的值。
 
-  如果数据源按计划增长，则“可用磁盘存储”中“预配不足的空间”列的值反映所需的额外存储量。 使用此值可帮助规划存储需求以实现平稳备份。 如果该值为零，则在可预见的将来没有潜在的存储问题。 如果该值为非零数字，则未分配足够存储（基于保护策略和受保护成员的数据大小）。
+   如果数据源按计划增长，则“可用磁盘存储”中“预配不足的空间”列的值反映所需的额外存储量。 使用此值可帮助规划存储需求以实现平稳备份。 如果该值为零，则在可预见的将来没有潜在的存储问题。 如果该值为非零数字，则未分配足够存储（基于保护策略和受保护成员的数据大小）。
 
-  ![分配不足的磁盘存储](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
+   ![分配不足的磁盘存储](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
-  若要完成保护组创建，请完成向导的操作。
+   若要完成保护组创建，请完成向导的操作。
 
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>将旧存储迁移到 Modern Backup Storage
 升级到或安装备份服务器 v2 并将操作系统升级到 Windows Server 2016 之后，可更新保护组以使用新式备份存储。 默认情况下，保护组不会进行更改。 它们会继续按照初始设置运行。 
@@ -226,14 +226,14 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 2. 在显示窗格中，选择要为其更新保护代理的客户端计算机。
 
-  > [!NOTE]
-  > “代理更新”列指示每个受保护计算机何时有保护代理更新可用。 在“操作”窗格中，“更新”操作在选择了受保护计算机时不可用，除非有更新可用。
+   > [!NOTE]
+   > “代理更新”列指示每个受保护计算机何时有保护代理更新可用。 在“操作”窗格中，“更新”操作在选择了受保护计算机时不可用，除非有更新可用。
 
 3. 若要在所选计算机上安装更新的保护代理，请选择“更新”。
 
 4. 对于未连接到网络的客户端计算机，在计算机连接到网络之前，“代理状态”列会显示“挂起更新”状态。
 
-  在客户端计算机连接到网络之后，客户端计算机的“代理更新”列会显示“正在更新”状态。
+   在客户端计算机连接到网络之后，客户端计算机的“代理更新”列会显示“正在更新”状态。
   
 ### <a name="move-legacy-protection-groups-from-the-old-version-and-sync-the-new-version-with-azure"></a>通过 Azure 将旧保护组从旧版本中移出并同步新版本
 
@@ -241,27 +241,27 @@ Azure 备份服务器和 OS 均更新后，便可以使用新式备份存储保�
 
 将数据源从旧式保护模式迁移到新式备份存储：
 
-1.  将新卷添加到 Data Protection Manager 存储池。 还可以分配友好名称并选择数据源标记。
+1. 将新卷添加到 Data Protection Manager 存储池。 还可以分配友好名称并选择数据源标记。
 
 2. 对于处于旧模式的每个数据源，请停止保护数据源。 然后选择“保留受保护的数据”。  这样，便可以在迁移后恢复旧恢复点。
 
 3. 创建新保护组。 然后，选择要使用新格式存储的数据源。
 
-  Data Protection Manager 将旧式备份存储中的副本存储在新式备份存储卷的本地。
+   Data Protection Manager 将旧式备份存储中的副本存储在新式备份存储卷的本地。
     > [!NOTE] 
     > 创建副本的操作如同恢复后的操作作业。
 
-  然后，所有新同步点和恢复点将存储在新式备份存储中。
+   然后，所有新同步点和恢复点将存储在新式备份存储中。
 
-  旧恢复点在过期后将被删除。 删除旧恢复点后，将释放磁盘空间。
+   旧恢复点在过期后将被删除。 删除旧恢复点后，将释放磁盘空间。
 
-  删除旧存储中的所有旧式卷后，可从 Azure 备份中删除磁盘。 然后可从系统中删除磁盘。
+   删除旧存储中的所有旧式卷后，可从 Azure 备份中删除磁盘。 然后可从系统中删除磁盘。
 
 4. 创建 Data Protection Manager 数据库的备份。
 
-  > [!IMPORTANT]
-  > - 新服务器的名称必须与原始 Azure 备份服务器实例的名称相同。 若要使用以前的存储池和 Data Protection Manager 数据库来保留恢复点，则不能更改新 Azure 备份服务器实例的名称。
-  > - 必须创建 Data Protection Manager 数据库的备份。 稍后需要还原数据库。
+   > [!IMPORTANT]
+   > - 新服务器的名称必须与原始 Azure 备份服务器实例的名称相同。 若要使用以前的存储池和 Data Protection Manager 数据库来保留恢复点，则不能更改新 Azure 备份服务器实例的名称。
+   > - 必须创建 Data Protection Manager 数据库的备份。 稍后需要还原数据库。
 
 5. 关闭原始 Azure 备份服务器实例，或使服务器脱机。
 
@@ -281,13 +281,13 @@ Azure 备份服务器和 OS 均更新后，便可以使用新式备份存储保�
 
 13. 在新服务器上的管理员命令行中，使用 `cd` 转到 Azure 备份安装位置和 bin 文件夹。  
 
-  示例：  
-  C:\windows\system32>cd "c:\Program Files\Azure Backup\DPM\DPM\bin\ 到 Azure 备份
+    示例：  
+    C:\windows\system32>cd "c:\Program Files\Azure Backup\DPM\DPM\bin\ 到 Azure 备份
 
 14. 运行 `DPMSYNC -SYNC`。
   
-  > [!NOTE]
-  > 如果已将新磁盘添加到 Data Protection Manager 存储池（而不是移动旧磁盘），请运行 `DPMSYNC -Reallocatereplica`。
+    > [!NOTE]
+    > 如果已将新磁盘添加到 Data Protection Manager 存储池（而不是移动旧磁盘），请运行 `DPMSYNC -Reallocatereplica`。
 
 ## <a name="new-powershell-cmdlets-in-backup-server-v2"></a>备份服务器 v2 中的新 PowerShell cmdlet
 

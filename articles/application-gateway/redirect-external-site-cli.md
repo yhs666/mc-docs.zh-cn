@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 01/24/2018
 ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: b39d5c046dc819cef574ae8fceb0389305bbd197
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 426a2e1fcac5b0bc1d7eddc18f34e75708fc33f6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079633"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626773"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持外部重定向的应用程序网关
 
@@ -92,7 +92,7 @@ az network application-gateway create `
 
 ### <a name="add-the-redirection-configuration"></a>添加重定向配置
 
-使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config) 将流量从 *www.consoto.org* 发送到 *www.contoso.com* 的侦听器的重定向配置添加到应用程序网关。
+使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config) 将流量从 <em>www.consoto.org</em> 发送到 <em>www.contoso.com</em> 的侦听器的重定向配置添加到应用程序网关。
 
 ```azurecli
 az network application-gateway redirect-config create `

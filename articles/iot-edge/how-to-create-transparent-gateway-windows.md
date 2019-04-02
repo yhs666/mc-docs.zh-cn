@@ -9,12 +9,12 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 10e236ec5fb321f52967b9239636b2726aa731d9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5e39dc1450f1737498f36fb3a5f7bf3797ca5cf9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643966"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627137"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>创建充当透明网关的 Windows IoT Edge 设备
 
@@ -94,13 +94,13 @@ ms.locfileid: "52643966"
    ```
 
 ## <a name="certificate-creation"></a>证书创建
-1.  创建所有者 CA 证书和一个中间证书。 这些证书都放置在 `$WRKDIR` 中。
+1. 创建所有者 CA 证书和一个中间证书。 这些证书都放置在 `$WRKDIR` 中。
 
-      ```PowerShell
-      New-CACertsCertChain rsa
-      ```
+     ```PowerShell
+     New-CACertsCertChain rsa
+     ```
 
-1.  使用以下命令创建 Edge 设备 CA 证书和私钥。
+2. 使用以下命令创建 Edge 设备 CA 证书和私钥。
 
    >[!NOTE]
    > 不要使用与网关的 DNS 主机名相同的名称。 这样做会导致客户端对这些证书的认证失败。
@@ -122,13 +122,13 @@ ms.locfileid: "52643966"
    * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## <a name="installation-on-the-gateway"></a>在网关上安装
-1.  从 Edge 设备上的 $WRKDIR 任意位置复制以下文件，我们将其称为 $CERTDIR。 如果已在 Edge 设备上生成证书，请跳过此步骤。
+1. 从 Edge 设备上的 $WRKDIR 任意位置复制以下文件，我们将其称为 $CERTDIR。 如果已在 Edge 设备上生成证书，请跳过此步骤。
 
    * 设备 CA 证书 - `$WRKDIR\certs\new-edge-device-full-chain.cert.pem`
    * 设备 CA 私钥 - `$WRKDIR\private\new-edge-device.key.pem`
    * 所有者 CA - `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2.  将安全守护程序配置 yaml 文件中的 `certificate` 属性设置为放置证书和密钥文件的路径。
+2. 将安全守护程序配置 yaml 文件中的 `certificate` 属性设置为放置证书和密钥文件的路径。
 
 ```yaml
 certificates:

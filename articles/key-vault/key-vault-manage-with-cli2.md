@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 06/22/2018
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 117c25d20555c8009e773a377d27d4ebc23b2bf6
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: ee433e6acfd8d8a93928216d7de96af22d61b0a6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903055"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627412"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
@@ -65,6 +65,7 @@ az account set -h
 
 - [安装 Azure CLI](/cli/install-azure-cli)
 - [Azure CLI 入门](/cli/get-started-with-azure-cli)
+
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>如何在 Azure 中创建强化的容器（保管库）
 
 保管库是由硬件安全模块支持的安全容器。 保管库可以集中存储应用程序机密，降低安全信息意外丢失的可能性。 Key Vault 还控制并记录外界对其所存储内容的访问。 Azure Key Vault 负责处理传输层安全性 (TLS) 证书的请求和续订事宜，其提供的功能是可靠的证书生命周期管理解决方案所必需的。 在后续步骤中，将创建一个保管库。
@@ -149,7 +150,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-现在，可以通过使用密钥的 URI，引用已创建或上传到 Azure 密钥保管库的密钥。 使用 **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey** 始终会获取当前版本。 使用 https://[keyvault-name].vault.azure.cn/keys/[keyname]/[key-unique-id] 获取此特定版本。 例如，**https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**。 
+现在，可以通过使用密钥的 URI，引用已创建或上传到 Azure 密钥保管库的密钥。 使用 **<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey>** 始终会获取当前版本。 使用 https://[keyvault-name].vault.azure.cn/keys/[keyname]/[key-unique-id] 获取此特定版本。 例如，**<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87>**。 
 
 将机密（名为 SQLPassword 的密码，其值为“hVFkk965BuUv”）添加到 Azure 密钥保管库。 
 
@@ -157,7 +158,7 @@ az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-使用此密码的 URI 引用此密码。 使用 **https://ContosoVault.vault.azure.cn/secrets/SQLPassword** 始终会获取当前版本，使用 https://[keyvault-name].vault.azure.cn/secret/[secret-name]/[secret-unique-id] 会获取此特定版本。 例如，**https://ContosoVault.vault.azure.cn/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**。
+使用此密码的 URI 引用此密码。 使用 **<https://ContosoVault.vault.azure.cn/secrets/SQLPassword>** 始终会获取当前版本，使用 https://[keyvault-name].vault.azure.cn/secret/[secret-name]/[secret-unique-id] 会获取此特定版本。 例如，**<https://ContosoVault.vault.azure.cn/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d>**。
 
 使用 .pem 或 .pfx 将证书导入保管库。
 

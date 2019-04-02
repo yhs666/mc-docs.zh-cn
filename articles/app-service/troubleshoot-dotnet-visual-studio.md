@@ -16,12 +16,12 @@ origin.date: 08/29/2016
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: c1fdaaa286ad94a84bd41ce7aded25d2e5540460
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 0df54137f14217345c2874c7c826e94a926803e9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083910"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627644"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的应用进行故障排除
 ## <a name="overview"></a>概述
@@ -159,12 +159,12 @@ public ActionResult About()
 
 10. 单击菜单中的“关于”。
 
-     Visual Studio 会在断点处停止，代码在 Azure 中运行，而不是在本地计算机上。
+    Visual Studio 会在断点处停止，代码在 Azure 中运行，而不是在本地计算机上。
 11. 将鼠标悬停在 `currentTime` 变量上查看时间值。
 
-     ![在运行于 Azure 中的调试模式下查看变量](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![在运行于 Azure 中的调试模式下查看变量](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     看到的时间是 Azure 服务器时间，可能与本地计算机所处时区不同。
+    看到的时间是 Azure 服务器时间，可能与本地计算机所处时区不同。
 12. 为 `currentTime` 变量输入一个新值，如“Now running in Azure”。
 13. 按 F5 继续运行。
 
@@ -464,7 +464,7 @@ Web 服务器日志将记录应用上所有的 HTTP 活动。 若要在“输出
    * Web 服务器日志位于 *LogFiles\http\RawLogs* 文件夹的 *.log* 文件中。 可以使用诸如 [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 之类的工具查看并处理这些文件。
    * 详细的错误消息日志位于 *LogFiles\DetailedErrors* 文件夹的 *.html* 文件中。
 
-    （*deployments* 文件夹内是由源代码管理发布创建的文件；其中没有任何有关 Visual Studio 发布的内容。 *Git* 文件夹内是与源代码管理发布以及日志文件流式传输服务相关的跟踪。）  
+     （*deployments* 文件夹内是由源代码管理发布创建的文件；其中没有任何有关 Visual Studio 发布的内容。 *Git* 文件夹内是与源代码管理发布以及日志文件流式传输服务相关的跟踪。）  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -520,33 +520,33 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 10. 在门户的“配置”选项卡中，单击“保存”。
 11. 在显示应用程序 Web 应用的浏览器窗口，依次单击“主页”、“关于”以及“联系人”。
 
-     浏览这些网页而生成的日志记录信息会写入存储帐户。
+    浏览这些网页而生成的日志记录信息会写入存储帐户。
 12. 在 Visual Studio 中的“Azure Web 应用”窗口的“日志”选项卡上，单击“诊断摘要”下的“刷新”。
 
-     ![单击刷新](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+    ![单击刷新](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-     “诊断摘要”部分默认显示过去 15 分钟的日志。 可以更改此时间以查看更多日志。
+    “诊断摘要”部分默认显示过去 15 分钟的日志。 可以更改此时间以查看更多日志。
 
-     （如果收到“表未找到”错误，请验证是否在启用“应用程序日志记录(存储)”，并随后单击“保存”之后已浏览至执行跟踪的页面。）
+    （如果收到“表未找到”错误，请验证是否在启用“应用程序日志记录(存储)”，并随后单击“保存”之后已浏览至执行跟踪的页面。）
 
-     ![存储日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
+    ![存储日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
-     请注意，在此视图中，可以看到每个日志的“进程 ID”和“线程 ID”，这在文件系统日志中是无法看到的。 通过直接查看 Azure 存储表可看到额外字段。
+    请注意，在此视图中，可以看到每个日志的“进程 ID”和“线程 ID”，这在文件系统日志中是无法看到的。 通过直接查看 Azure 存储表可看到额外字段。
 13. 单击“查看所有应用程序日志”。
 
-     跟踪日志表显示在 Azure 存储表查看器中。
+    跟踪日志表显示在 Azure 存储表查看器中。
 
-     （如果收到“序列未包含任何元素”错误，请打开“服务器资源管理器”，展开“Azure”节点下存储帐户节点，然后右键单击“表”并单击“刷新”。）
+    （如果收到“序列未包含任何元素”错误，请打开“服务器资源管理器”，展开“Azure”节点下存储帐户节点，然后右键单击“表”并单击“刷新”。）
 
-     ![表视图中的存储日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
+    ![表视图中的存储日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-     该视图会显示任何其他视图都没提供的额外字段。 该视图还支持使用特殊的 Query Builder UI 构建查询以筛选日志。 有关详细信息，请参阅[通过服务器资源管理器浏览存储资源](https://msdn.microsoft.com/library/ff683677.aspx)中的“使用表资源 - 筛选实体”。
+    该视图会显示任何其他视图都没提供的额外字段。 该视图还支持使用特殊的 Query Builder UI 构建查询以筛选日志。 有关详细信息，请参阅[通过服务器资源管理器浏览存储资源](https://msdn.microsoft.com/library/ff683677.aspx)中的“使用表资源 - 筛选实体”。
 14. 要查看单个行的详细信息，请双击其中一行。
 
-     ![服务器资源管理器中的跟踪表](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
- -->
-## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
-在出现诸如 URL 重写或身份验证问题之类的情况下，需要详细了解 IIS 如何处理 HTTP 请求时可求助于失败请求跟踪日志。
+    ![服务器资源管理器中的跟踪表](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
+   -->
+   ## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
+   在出现诸如 URL 重写或身份验证问题之类的情况下，需要详细了解 IIS 如何处理 HTTP 请求时可求助于失败请求跟踪日志。
 
 应用服务应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟踪功能。 IIS 设置经过配置可记录指定错误，但无法访问该设置。 启用失败请求跟踪后，所有错误都会纳入捕获范围内。
 

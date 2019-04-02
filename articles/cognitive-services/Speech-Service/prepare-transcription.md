@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/01/2018
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 809f8980eb955fb4f089c0d0cb330c8c98105751
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 5cde5ac88c49dbd31fa3f8404c0b227c40e063d3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348260"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626968"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>使用语音服务的听录指南
 
@@ -163,11 +163,12 @@ ms.locfileid: "58348260"
 
 下面是一些示例：
 
-| 原始文本 | 用户规范化后 | 系统规范化后
-|--------  | ----- | -------- |
-| Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
-| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
+
+|  原始文本   | 用户规范化后 |      系统规范化后       |
+|------------------|----------------------------|---------------------------------------|
+| Es ist 12.23 Uhr |      Es ist 12:23 Uhr      | es ist zwölf uhr drei und zwanzig uhr |
+|     {12.45}      |          {12,45}           |         zwölf komma vier fünf         |
+|    2 + 3 - 4     |      2 plus 3 minus 4      |       zwei plus drei minus vier       |
 
 ## <a name="next-steps"></a>后续步骤
 

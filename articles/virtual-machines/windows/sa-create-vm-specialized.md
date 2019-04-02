@@ -17,12 +17,12 @@ origin.date: 05/23/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb47125a41ef6dc9195bb8105b463f6c7c4ec5db
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: eb79b427f832fb5be5506eb83a240ac0660becb6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665835"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626953"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -103,7 +103,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 ```
 
 完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小。
-
+<a name="option-2-copy-an-existing-azure-vm"></a>
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>选项 2：从现有 Azure VM 复制 VHD
 
 可将 VHD 复制到另一个存储帐户，以便在创建新的重复 VM 时使用。
@@ -209,10 +209,10 @@ Elapsed time:            00.00:13:07
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
-若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 由于新 VM 的 VHD 是从现有专用 VM 创建的，因此在创建 VM 后，可以使用源虚拟机中有权通过 RDP 登录的现有帐户。
-这需要在创建与其关联的网络接口前完成。  
-本示例将 NSG 名称设置为 **myNsg**，将 RDP 规则名称设置为 **myRdpRule**。
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
+   若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 由于新 VM 的 VHD 是从现有专用 VM 创建的，因此在创建 VM 后，可以使用源虚拟机中有权通过 RDP 登录的现有帐户。
+   这需要在创建与其关联的网络接口前完成。  
+   本示例将 NSG 名称设置为 **myNsg**，将 RDP 规则名称设置为 **myRdpRule**。
 
 ```powershell
 $nsgName = "myNsg"
@@ -223,7 +223,6 @@ $rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow R
     -DestinationAddressPrefix * -DestinationPortRange 3389
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
-
 ```
 
 有关终结点和 NSG 规则的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
@@ -298,7 +297,6 @@ New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK   
-
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM

@@ -10,12 +10,12 @@ origin.date: 02/14/2019
 ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 00c0123d7a7b20dc19e27c49163aed9eff351338
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 457a28ab8d46bc6d3f41546eeccdc8318c33cb2c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987129"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626665"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -339,12 +339,12 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
    ```
 
-  系统会提示输入 Azure 凭据。
+   系统会提示输入 Azure 凭据。
 
-  > [!IMPORTANT]
-  > Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
+   > [!IMPORTANT]
+   > Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
 
-1. 获取 JSON 文件的内容并将其转换为字符串：
+2. 获取 JSON 文件的内容并将其转换为字符串：
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
@@ -352,13 +352,13 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
    `JsonPath` 是保存 JSON 文件的位置路径。
 
-1. 将 `$json` 的字符串内容转换为 PowerShell 对象：
+3. 将 `$json` 的字符串内容转换为 PowerShell 对象：
 
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
 
-1. 为 `Start-AzureRmAutomationRunbook` 的参数创建哈希表：
+4. 为 `Start-AzureRmAutomationRunbook` 的参数创建哈希表：
 
    ```powershell
    $RBParams = @{
@@ -370,7 +370,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
    ```
 
    请注意，你正在将 `Parameters` 的值设置为包含 JSON 文件中的值的 PowerShell 对象。
-1. 启动 Runbook
+5. 启动 Runbook
 
    ```powershell
    $job = Start-AzureRmAutomationRunbook @RBParams

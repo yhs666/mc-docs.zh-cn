@@ -10,12 +10,12 @@ origin.date: 02/21/2019
 ms.date: 03/18/2019
 ms.author: v-jay
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c65cd40dd907ed00eec6efe62b78f1541a928fb5
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7ad6a0ddcc0f794ca0d4ad49f7ee0a89b65b394b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990131"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627650"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教程：退回 Azure Data Box Disk 并验证到 Azure 的数据上传
 
@@ -71,22 +71,22 @@ ms.locfileid: "57990131"
 
 - Azure 存储帐户。 将数据复制到 Data Box 时，会根据类型将数据将上传到 Azure 存储帐户中的以下路径之一。
 
-    - 对于块 blob 和页 blob：`https://<storage_account_name>.blob.core.chinacloudapi.cn/<containername>/files/a.txt`
-    - 对于 Azure 文件：`https://<storage_account_name>.file.core.chinacloudapi.cn/<sharename>/files/a.txt`
+  - 对于块 blob 和页 blob：`https://<storage_account_name>.blob.core.chinacloudapi.cn/<containername>/files/a.txt`
+  - 对于 Azure 文件：`https://<storage_account_name>.file.core.chinacloudapi.cn/<sharename>/files/a.txt`
 
     或者，可以转到 Azure 门户中的 Azure 存储帐户并从那里导航。
 
 - 托管磁盘资源组。 创建托管磁盘时，会将 VHD 作为页 Blob 上传，然后将其转换为托管磁盘。 托管磁盘会附加到在创建订单时指定的资源组。
 
-    - 如果已成功复制到 Azure 中的托管磁盘，则可转到 Azure 门户中的“订单详细信息”，记下为托管磁盘指定的资源组。
+  - 如果已成功复制到 Azure 中的托管磁盘，则可转到 Azure 门户中的“订单详细信息”，记下为托管磁盘指定的资源组。
 
-        ![查看订单详细信息](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+      ![查看订单详细信息](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
-    转到记下的资源组，找到托管磁盘。
+    转到所记录的资源组，并找到你的托管磁盘。
 
-        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+      ![托管磁盘资源组](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-    - 如果复制了 VHDX 或动态/差分 VHD，则会将 VHDX/VHD 作为块 Blob 上传到临时存储帐户。 转到临时存储帐户 >“Blob”，然后选择适当的容器 - StandardSSD、StandardHDD 或 PremiumSSD。 VHDX/VHD 会在临时存储帐户中显示为块 Blob。
+  - 如果复制了 VHDX 或动态/差异 VHD，则 VHDX/VHD 会作为块 blob 上传到临时存储帐户。 转到临时存储帐户 >“Blob”，然后选择适当的容器 - StandardSSD、StandardHDD 或 PremiumSSD。 VHDX/VHD 会在临时存储帐户中显示为块 Blob。
 
 若要验证数据是否已上传到 Azure，请执行以下步骤：
 

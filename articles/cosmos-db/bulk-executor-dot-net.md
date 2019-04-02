@@ -10,12 +10,12 @@ origin.date: 10/16/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a0f59ea9aaa78a6238c28f0123ce2cf19c4c3690
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 9050e81d8fb90f0cea6011b667fbb7f3b8a2b70b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988000"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627679"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用 Bulk Executor .NET 库在 Azure Cosmos DB 中执行批量操作
 
@@ -200,7 +200,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 Nuget 包的详细信息以及 Bulk Executor .Net 库的发行说明，请参阅 [Bulk Executor SDK 详细信息](sql-api-sdk-bulk-executor-dot-net.md)。

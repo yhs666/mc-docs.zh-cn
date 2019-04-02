@@ -19,12 +19,12 @@ ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49dd867f445209e0c7076ecdd597d9a08034e5f8
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 1ca685184ffda0ea0ef8f6725dea088563b279a9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186665"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627116"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 来授权访问 Web 应用程序
 
@@ -175,7 +175,6 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 GET https://login.partner.microsoftonline.cn/common/oauth2/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-
 ```
 
 | 参数 |  | 说明 |

@@ -9,12 +9,12 @@ origin.date: 09/24/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 84192c0bde049a2a124f88b870c31ac6f2e6be5b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 7e2f84a2a6e6031b3fe80d696f687b6ae992b017
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676045"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632858"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 的高性能高级存储和托管磁盘
 
@@ -22,7 +22,8 @@ Azure 高级存储为运行输入/输出 (I/O) 密集型工作负荷的虚拟机
 
 在 Azure 中，可将多个高级存储磁盘附加到 VM。 使用多个磁盘可在每个 VM 上为应用程序提供高达 256 TB 的存储。 如果使用高级存储，每个 VM 上的应用程序可实现 80,000 次 I/O 操作/秒 (IOPS)，每个 VM 可实现高达 2,000 MB/秒的磁盘吞吐量。 执行读取操时延迟极低。
 
-<!--Not Available on if you use the preview sizes your application can have up to around 2 PiB of storage per VM--> 使用高级存储时，Azure 提供的功能可真正将要求苛刻的企业应用程序（例如 Dynamics AX、Dynamics CRM、Exchange Server、SAP Business Suite 和 SharePoint 场）直接迁移到云中。 可以在要求保持一贯高性能和低延迟的应用程序（例如 SQL Server、Oracle、MongoDB、MySQL 和 Redis）中运行性能密集型数据库工作负荷。
+<!--Not Available on if you use the preview sizes your application can have up to around 2 PiB of storage per VM-->
+使用高级存储时，Azure 提供的功能可真正将要求苛刻的企业应用程序（例如 Dynamics AX、Dynamics CRM、Exchange Server、SAP Business Suite 和 SharePoint 场）直接转移到云中。 可以在要求保持一贯高性能和低延迟的应用程序（例如 SQL Server、Oracle、MongoDB、MySQL 和 Redis）中运行性能密集型数据库工作负荷。
 
 > [!NOTE]
 > 为了实现应用程序的最佳性能，建议将需要高 IOPS 的 VM 磁盘迁移到高级存储。 如果磁盘不需要高 IOPS，可以通过将其保留在标准 Azure 存储中来帮助限制成本。 在标准存储中，VM 磁盘数据存储在硬盘驱动器 (HDD) 而不是 SSD 上。
@@ -53,9 +54,10 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **高级存储磁盘**
 
-    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持各种 Azure VM。 有 8 种 GA 磁盘大小可选：P4 (32 GiB)、P6 (64 GiB)、P10 (128 GiB)、P15 (256 GiB)、P20 (512 GiB)、P30 (1,024 GiB)、P40 (2,048 GiB)、P50 (4,095 GiB)。 目前，仅托管磁盘支持 P4、P6 和 P15 磁盘大小。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
+    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持各种 Azure VM。 有八种 GA 磁盘大小可供选择：P4 (32 GiB)、P6 (64 GiB)、P10 (128 GiB)、P15 (256 GiB)、P20 (512 GiB)、P30 (1,024 GiB)、P40 (2,048 GiB)、P50 (4,095 GiB)。 目前，仅托管磁盘支持 P4、P6 和 P15 磁盘大小。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
     
-    <!--Not Available on  As well as three preview disk sizes: P60 8,192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32,767 GiB (32 TiB).--> <!--Not Available on P60, P70, P80 -->
+    <!--Not Available on  As well as three preview disk sizes: P60 8,192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32,767 GiB (32 TiB).-->
+    <!--Not Available on P60, P70, P80 -->
 * **高级页 Blob**
 
     高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 不支持将 P60 高级页 Blob 作为 VM 磁盘进行连接。 
@@ -66,9 +68,9 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     若要开始使用高级存储，请为非托管磁盘创建一个高级存储帐户。 若要在 [Azure 门户](https://portal.azure.cn)中创建高级存储帐户，请选择“高级”性能层。 选择“本地冗余存储(LRS)”复制选项。 也可以通过将性能层设置为 **Premium_LRS** 来创建高级存储帐户。 若要更改性能层，请使用以下方法之一：
 
-    - [对 Azure 存储使用 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [对 Azure 存储使用 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure 存储资源提供程序 REST API](https://docs.microsoft.com/rest/api/storagerp)（适用于 Azure 资源管理器部署），或某个 Azure 存储资源提供程序客户端库
+  - [对 Azure 存储使用 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [对 Azure 存储使用 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [Azure 存储资源提供程序 REST API](https://docs.microsoft.com/rest/api/storagerp)（适用于 Azure 资源管理器部署），或某个 Azure 存储资源提供程序客户端库
 
     若要了解高级存储帐户的限制，请参阅[高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)。
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.custom: seodec18
-ms.openlocfilehash: 7b97f35650d9fb693d409434478aa4054a0bc9fa
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+ms.openlocfilehash: 6579db96497bbbc310421efc4441d598572d76ce
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363643"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625948"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -41,10 +41,10 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 ![Azure 流分析 Edge 作业](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
-![Edge 作业](media/stream-analytics-edge/ASAedge_job.png)
 
 ### <a name="installation-instructions"></a>安装说明
 下表描述了高级步骤： 下面的部分将进行详细说明。
+
 |      |步骤   | 注释   |
 | ---   | ---   |  ---      |
 | 1   | 创建存储容器   | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
@@ -130,7 +130,6 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
     "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")" 
 }
 }   
-
 ```
 此示例演示下图中所述的方案的路由。 它包含名为“ASA”的边缘作业，以及名为“temperature”的输入和和名为“alert”的输出。
 ![消息路由关系图示例](media/stream-analytics-edge/edge-message-routing-example.png)

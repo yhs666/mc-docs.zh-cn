@@ -10,16 +10,16 @@ origin.date: 07/13/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 72e1377d16c9fa98c3c0aeea7dd1236bc574100e
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: aa84867cee5fed6082a472e5799c4ecef7edeba9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627185"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>使用 Azure PowerShell 创建托管多个网站的应用程序网关
 
-创建[应用程序网关](overview.md)时，可以使用 Azure Powershell 配置[多个网站的托管](multiple-site-overview.md)。 本教程使用虚拟机规模集定义后端地址池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达池中的相应服务器。 本教程假定你拥有多个域，并使用示例 *www.contoso.com* 和 *www.fabrikam.com*。
+创建[应用程序网关](overview.md)时，可以使用 Azure Powershell 配置[多个网站的托管](multiple-site-overview.md)。 本教程使用虚拟机规模集定义后端地址池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达池中的相应服务器。 本教程假定你拥有多个域，并使用示例 <em>www.contoso.com</em> 和 <em>www.fabrikam.com</em>。
 
 本教程介绍如何执行下列操作：
 
@@ -121,7 +121,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>创建侦听器和规则
 
-应用程序网关需要侦听器才能适当地将流量路由到后端地址池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 *www.contoso.com* 和 *www.fabrikam.com* 创建侦听器。
+应用程序网关需要侦听器才能适当地将流量路由到后端地址池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 <em>www.contoso.com</em> 和 <em>www.fabrikam.com</em> 创建侦听器。
 
 使用 [New-AzApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayhttplistener) 以及前面创建的前端配置和前端端口创建第一个侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 创建一个名为 *contosoRule* 的基本规则。
 

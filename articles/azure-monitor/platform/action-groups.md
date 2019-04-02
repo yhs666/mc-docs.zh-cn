@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 57169df7e2d5fed0aeb0f470f34cf765aad66e13
-ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
+ms.openlocfilehash: 706c3b74806f504c804cfa4d03cf34bff2eaa517
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626840"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##
@@ -69,9 +69,9 @@ ms.locfileid: "56334186"
 **Azure 应用推送** - 一个操作组中最多可以有 10 个 Azure 应用操作。 目前，Azure 应用操作只支持 ServiceHealth 警报。 任何其他警报时间都会被忽略。 请参阅[配置每次发布服务运行状况通知时的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 
 **电子邮件** - 将从以下电子邮件地址发送电子邮件。 确保电子邮件筛选正确配置
-   - azure-noreply@microsoft.com
-   - azureemail-noreply@microsoft.com
-   - alerts-noreply@mail.windowsazure.com
+- azure-noreply@microsoft.com
+- azureemail-noreply@microsoft.com
+- alerts-noreply@mail.windowsazure.com
 
 一个操作组中最多可以有 1000 个电子邮件操作。 请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文
 
@@ -91,12 +91,13 @@ ms.locfileid: "56334186"
 **Webhook** - 一个操作组中最多可以有 10 个 Webhook 操作。 重试逻辑 - 响应的超时期限为 10 秒。 当返回的 HTTP 状态代码为 408、429、503、504 或者 HTTP 终结点未响应时，最多将重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。
 
 源 IP 地址范围
-    - 13.106.57.181
-    - 13.106.54.3
-    - 13.106.54.19
-    - 13.106.38.142
-    - 13.106.38.148
-    - 13.106.57.196
+
+- 13.106.57.181
+- 13.106.54.3
+- 13.106.54.19
+- 13.106.38.142
+- 13.106.38.148
+- 13.106.57.196
 
 若要接收有关这些 IP 地址更改的更新，我们建议你配置[服务运行状况警报](./../../azure-monitor/platform/service-notifications.md)，以监视有关操作组服务的信息通知。
 

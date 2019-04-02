@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 2/20/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 89e9e5ce01fb592d654c62ed69e945683beb0fcc
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 5ed735a55e13a9e975be276a3b9513531435ccaa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348234"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626668"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入门：在 Linux 上使用语音 SDK 通过 C++ 识别语音
 
@@ -165,13 +165,13 @@ int main(int argc, char **argv) {
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. 运行应用程序。
+2. 运行应用程序。
 
    ```sh
    ./helloworld
    ```
 
-1.  在控制台窗口中，会出现一个提示，请求你说点什么。 说一个英语短语或句子。 你的语音将传输到语音服务并转录为文本，该文本将显示在同一窗口中。
+3. 在控制台窗口中，会出现一个提示，请求你说点什么。 说一个英语短语或句子。 你的语音将传输到语音服务并转录为文本，该文本将显示在同一窗口中。
 
    ```text
    Say something...

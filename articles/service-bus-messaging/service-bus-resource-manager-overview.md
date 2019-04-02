@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/28/19
 ms.author: v-lingwu
-ms.openlocfilehash: 9af7105fca4fa3e5773a8a8c0e11264d34f967a1
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 9b8adddfacd37e016134957e141b04d0b16b6212
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625685"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -250,7 +250,6 @@ Parameters        :
                     serviceBusNamespaceName  String             <namespaceName>
                     serviceBusQueueName  String                 <queueName>
                     serviceBusApiVersion  String                2017-04-01
-
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -259,7 +258,7 @@ Parameters        :
 
 - [Azure Resource Manager 概述][Azure Resource Manager overview]
 - [使用 Resource Manager 模板和 Azure PowerShell 部署资源][Deploy resources with Azure Resource Manager templates]
-* [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
+- [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

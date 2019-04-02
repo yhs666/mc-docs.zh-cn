@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: b27afb9cec692cd97e59fdb9cc8c53906fd055be
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 0b74d400842e94ac045ff515b7794f1f1aeaad9c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833374"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626214"
 ---
-# <a name="publish-content-in-the-azure-portal-legacy"></a>在 Azure 门户中发布内容（旧版）
+# <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -90,6 +90,6 @@ URL 会添加到“已发布的 URL” 列表。
 请注意以下事项：
 
 * 确保视频已发布。
-* Azure 门户媒体播放器从默认的流式处理终结点播放。 若要从非默认流式处理终结点播放，请选择并复制该 URL，然后将其粘贴到其他播放器中。 例如，可以在 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 上测试视频。
+* Azure 门户媒体播放器从默认的流式处理终结点播放。 若要从非默认流式处理终结点播放，请选择并复制该 URL，然后将其粘贴到其他播放器中。 例如，可以在 [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) 上测试视频。
 * 用于进行流式处理的流式处理终结点必须处于运行状态。  
-<!--Update_Description: wording update-->
+  <!--Update_Description: wording update-->

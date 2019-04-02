@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bd99fb68a9cda1b839edf7e0498ae594705ec57c
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 612b3567b020dd8935baa36707880e7331e2dc44
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627694"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 Java IoT Edge 模块并将其部署到模拟设备
 
@@ -120,7 +120,7 @@ Azure IoT Edge 设备：
 
 1. 在 VS Code 资源管理器中，打开 **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**。
 
-5. 在该文件顶部添加以下代码，以便导入新的引用的类。
+2. 在该文件顶部添加以下代码，以便导入新的引用的类。
 
     ```java
     import java.io.StringReader;
@@ -137,14 +137,14 @@ Azure IoT Edge 设备：
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. 将以下定义添加到 **App** 类中。 此变量设置温度阈值。 在测量的机器温度超过此值之前，不会向 IoT 中心报告此温度。 
+3. 将以下定义添加到 **App** 类中。 此变量设置温度阈值。 在测量的机器温度超过此值之前，不会向 IoT 中心报告此温度。 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
     private static AtomicLong tempThreshold = new AtomicLong(25);
     ```
 
-7. 将 **MessageCallbackMqtt** 执行方法替换为以下代码。 每当模块从 IoT Edge 中心接收 MQTT 消息，就会调用此方法。 此方法筛选掉那些所报告温度低于温度阈值（通过孪生模块进行设置）的消息。
+4. 将 **MessageCallbackMqtt** 执行方法替换为以下代码。 每当模块从 IoT Edge 中心接收 MQTT 消息，就会调用此方法。 此方法筛选掉那些所报告温度低于温度阈值（通过孪生模块进行设置）的消息。
 
     ```java
         private int counter = 0;
@@ -176,7 +176,7 @@ Azure IoT Edge 设备：
         }
     ```
 
-8. 将下面的两个静态内部类添加到 **App** 类中。 当模块孪生的所需属性发生更改时，这些类将更新 tempThreshold 变量。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
+5. 将下面的两个静态内部类添加到 **App** 类中。 当模块孪生的所需属性发生更改时，这些类将更新 tempThreshold 变量。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -204,7 +204,7 @@ Azure IoT Edge 设备：
     }
     ```
 
-9. 将以下行添加到 **main** 方法的 **client.open()** 后面，以便订阅模块孪生更新。
+6. 将以下行添加到 **main** 方法的 **client.open()** 后面，以便订阅模块孪生更新。
 
     ```java
     client.startTwin(new DeviceTwinStatusCallBack(), null, new OnProperty(), null);
@@ -217,9 +217,9 @@ Azure IoT Edge 设备：
     client.getTwin();
     ```
 
-11. 保存 App.java 文件。
+7. 保存 App.java 文件。
 
-12. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **JavaModule**），并告知 IoT Edge 中心如何在它们之间路由消息。 Visual Studio Code 扩展会自动填充部署模板中所需的大部分信息，但确保解决方案的所有内容都是准确的： 
+8. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **JavaModule**），并告知 IoT Edge 中心如何在它们之间路由消息。 Visual Studio Code 扩展会自动填充部署模板中所需的大部分信息，但确保解决方案的所有内容都是准确的： 
 
    1. 在 VS Code 状态栏中将 IoT Edge 的默认平台设置为 **amd64**，这意味着将 **JavaModule** 设置为映像的 Linux amd64 版本。 在状态栏中将默认平台从 **amd64** 更改为 **arm32v7** 或 **windows-amd64**（如果这就是 IoT Edge 设备的体系结构）。 
 
@@ -231,19 +231,19 @@ Azure IoT Edge 设备：
 
    4. 如果想要了解有关部署清单的更多信息，请参阅[了解如何在 IoT Edge 中部署模块和建立路由](module-composition.md)。
 
-13. 将 **JavaModule** 模块孪生添加到部署清单。 在 **moduleContent** 节底部的 **$edgeHub** 模块孪生后面插入以下 JSON 内容： 
+9. 将 **JavaModule** 模块孪生添加到部署清单。 在 **moduleContent** 节底部的 **$edgeHub** 模块孪生后面插入以下 JSON 内容： 
 
    ```json
-       "JavaModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+      "JavaModule": {
+          "properties.desired":{
+              "TemperatureThreshold":25
+          }
+      }
    ```
 
    ![将模块孪生添加到部署模板](./media/tutorial-java-module/module-twin.png)
 
-14. 保存 deployment.template.json 文件。
+10. 保存 deployment.template.json 文件。
 
 ## <a name="build-your-iot-edge-solution"></a>生成 IoT Edge 解决方案
 

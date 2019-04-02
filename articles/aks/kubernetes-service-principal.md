@@ -8,12 +8,12 @@ ms.topic: get-started-article
 origin.date: 09/26/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 130725635f7a009656cf762187325eb16a07b403
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 1311d2ce2e724d1b702dae7ce488f6a31c074a6d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903198"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626258"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 的服务主体
 
@@ -144,8 +144,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 [acr-intro]: ../container-registry/container-registry-intro.md
 [az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
 [az-ad-app-list]: https://docs.azure.cn/zh-cn/cli/ad/app?view=azure-cli-latest#az-ad-app-list

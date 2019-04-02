@@ -14,12 +14,12 @@ origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: na
 ms.date: 12/18/2017
-ms.openlocfilehash: af14f4c81bc93bd991f3ba1b6e38878c0da250e7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b168268a69e01a3fda0cfdf7461741f816ac40b4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655382"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627337"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -40,9 +40,9 @@ ms.locfileid: "52655382"
 * 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
 * [Node.js 4.0 或更高版本][lnk-node-download]。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 这是安装 [IoT 中心资源管理器工具][lnk-iot-hub-explorer]所必需的。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
-> [!NOTE]
-> 适用于 `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 包目前仅供 Windows OS 使用。 对于 Linux/Mac OS，请参阅[准备适用于 Python 的开发环境][lnk-python-devbox]一文中特定于 Linux 和 Mac OS 的部分。
-> 
+  > [!NOTE]
+  > 适用于 `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 包目前仅供 Windows OS 使用。 对于 Linux/Mac OS，请参阅[准备适用于 Python 的开发环境][lnk-python-devbox]一文中特定于 Linux 和 Mac OS 的部分。
+  > 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 

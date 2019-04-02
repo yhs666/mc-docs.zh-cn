@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 12/06/2017
 ms.date: 12/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: a444ea88ab1bcd57404b873c71d4696ea37f7773
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 430c1d0dcea7e170dff8450d63b9203e84c20307
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901080"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626432"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 
@@ -69,8 +69,8 @@ ms.locfileid: "52901080"
 3. 确定要使用此方法部署的应用程序后，需要立即打包、压缩这些应用程序，并将它们上传到文件共享。 此共享必须可通过 REST 终结点进行访问，这样 Azure 资源管理器才能在部署期间使用它。
 4. 在资源管理器模板中的群集声明下，描述每个应用程序的属性。 这些属性包括副本或实例计数，以及资源（其他应用程序或服务）之间的任何依赖链。 有关完整属性列表，请参阅 [REST API Swagger 规范](https://aka.ms/sfrpswaggerspec)。请注意，这不会取代应用程序或服务清单，只是在群集的资源管理器模板中描述了清单的部分内容。 下面展示了示例模板，包括在 Application1 中部署无状态服务 Service1 和有状态服务 Service2：
 
-  ```json
-  {
+   ```json
+   {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
@@ -251,11 +251,11 @@ ms.locfileid: "52901080"
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > 必须将 apiVersion 设置为 `"2017-07-01-preview"`。 部署的此模板也可以与群集互不影响，只要群集已部署即可。
+   > [!NOTE] 
+   > 必须将 apiVersion 设置为 `"2017-07-01-preview"`。 部署的此模板也可以与群集互不影响，只要群集已部署即可。
 
 5. 部署！ 
 

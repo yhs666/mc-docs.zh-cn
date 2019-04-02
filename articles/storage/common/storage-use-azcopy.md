@@ -9,12 +9,12 @@ origin.date: 01/03/2019
 ms.date: 01/21/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 86439f9eb974cef67a87c7dda56df444974cbe88
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.openlocfilehash: 8d1919826cf2bec51067d0c5b90e4aceba6d80fa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627275"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
@@ -478,11 +478,11 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:ht
 
 `/XO` 和 `/XN` 参数分别用于阻止复制较早或较新的源资源。 如果只想复制目标中不存在的源资源，可以在 AzCopy 命令中指定这两个参数：
 
-/Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
+/Source:<http://myaccount.blob.core.chinacloudapi.cn/mycontainer> /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
-/Source:C:\myfolder /Dest:http://myaccount.file.core.chinacloudapi.cn/myfileshare /DestKey:<destkey> /S /XO /XN
+/Source:C:\myfolder /Dest:<http://myaccount.file.core.chinacloudapi.cn/myfileshare> /DestKey:<destkey> /S /XO /XN
 
-/Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:http://myaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+/Source:<http://myaccount.blob.core.chinacloudapi.cn/mycontainer> /Dest:<http://myaccount.blob.core.chinacloudapi.cn/mycontainer1> /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
 注意，当源或目标为表时，则不支持此操作。
 
@@ -496,7 +496,7 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
 假定有一个名为 `copyoperation.txt` 的响应文件，其中包含以下行： 可以在同一行或多行中指定
 
-/Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
+/Source:<http://myaccount.blob.core.chinacloudapi.cn/mycontainer> /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
 每个 AzCopy 参数：
 
@@ -515,7 +515,7 @@ http://myaccount.blob.core.chinacloudapi.cn/mycontainer C:\myfolder /sourcekey: 
 
 假定有一个名为 `source.txt` 的响应文件，该文件指定了一个源容器：
 
-/Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer
+/Source:<http://myaccount.blob.core.chinacloudapi.cn/mycontainer>
 
 有一个名为 `dest.txt` 的响应文件，该文件在文件系统中指定了一个目标文件夹：
 
@@ -978,7 +978,7 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 * 如果值为 True（默认值），AzCopy 会使用 .NET MD5 实现。
 * 如果值为 False，AzCopy 会使用 FIPS 兼容的 MD5 算法。
 
-Windows 中默认已禁用 FIPS 兼容的算法。 可在计算机上更改此策略设置。 在“运行”窗口（按 Windows 键 + R 键）中键入 secpol.msc 打开“本地安全策略”窗口。 在“安全设置”窗口中，导航到“安全设置” > “本地策略” > “安全选项”。 找到“系统加密:将 FIPS 兼容算法用于加密、哈希和签名”策略。** 双击该策略，查看“安全设置”列中显示的值。
+Windows 中默认已禁用 FIPS 兼容的算法。 可在计算机上更改此策略设置。 在“运行”窗口（按 Windows 键 + R 键）中键入 secpol.msc 打开“本地安全策略”窗口。 在“安全设置”窗口中，导航到“安全设置” > “本地策略” > “安全选项”。 找到“**系统加密:将 FIPS 兼容算法用于加密、哈希和签名”策略。** 双击该策略，查看“安全设置”列中显示的值。 
 
 ## <a name="next-steps"></a>后续步骤
 

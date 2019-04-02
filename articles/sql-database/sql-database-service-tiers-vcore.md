@@ -13,12 +13,12 @@ ms.reviewer: sashan, moslake
 manager: digimobile
 origin.date: 02/07/2019
 ms.date: 03/11/2019
-ms.openlocfilehash: 82e8837b4ecf2f93382109794cde70d9eadce681
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: fe74695cf839261107d4f4f9e7aa808e5a448974
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347196"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627359"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
 
@@ -79,6 +79,7 @@ vCore 模型提供了三个服务层：常规用途、超大规模和业务关�
 
   - [数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
   - [数据库 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)
+
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>从 DTU 模型迁移到 vCore 模型
 
 ### <a name="migration-of-a-database"></a>迁移数据库

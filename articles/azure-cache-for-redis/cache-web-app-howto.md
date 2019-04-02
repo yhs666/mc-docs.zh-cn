@@ -13,15 +13,15 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 03/26/2018
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a04ee64741263d5317fee15cee11391588243655
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 2cc05f73d4cd481deba5b6c45cc5d108163bf8d0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626488"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入门：创建 ASP.NET Web 应用 
 
@@ -36,8 +36,8 @@ ms.locfileid: "56903176"
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本快速入门，需使用以下环境安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
-- ASP.NET 和 Web 开发
-- Azure 开发
+* ASP.NET 和 Web 开发
+* Azure 开发
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
@@ -75,9 +75,9 @@ ms.locfileid: "56903176"
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>编辑 *CacheSecrets.config* 文件的步骤
 
-3. 在计算机上创建名为 *CacheSecrets.config* 的文件。将其放到不会连同示例应用程序的源代码一起签入的位置。 在本快速入门中，*CacheSecrets.config* 文件的路径为 *C:\AppSecrets\CacheSecrets.config*。
+1. 在计算机上创建名为 *CacheSecrets.config* 的文件。将其放到不会连同示例应用程序的源代码一起签入的位置。 在本快速入门中，*CacheSecrets.config* 文件的路径为 *C:\AppSecrets\CacheSecrets.config*。
 
-4. 编辑 *CacheSecrets.config* 文件。 然后添加以下内容：
+2. 编辑 *CacheSecrets.config* 文件。 然后添加以下内容：
 
     ```xml
     <appSettings>
@@ -85,23 +85,23 @@ ms.locfileid: "56903176"
     </appSettings>
     ```
 
-5. 将 `<cache-name>` 替换为缓存主机名。
+3. 将 `<cache-name>` 替换为缓存主机名。
 
-6. 将 `<access-key>` 替换缓存的主密钥。
+4. 将 `<access-key>` 替换缓存的主密钥。
 
     > [!TIP]
     > 在密钥轮换期间重新生成主访问密钥时，可以将辅助访问密钥用作备用密钥。
->
-7. 保存文件。
+   >
+5. 保存文件。
 
 ## <a name="update-the-mvc-application"></a>更新 MVC 应用程序
 
 在本部分，请对应用程序进行更新，使之支持一个新视图，该视图显示针对 Azure Redis 缓存执行的一项简单测试。
 
-- [使用缓存的应用设置更新 web.config 文件](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-- 将应用程序配置为使用 StackExchange.Redis 客户端
-- 更新 HomeController 和布局
-- 添加新的 RedisCache 视图
+* [使用缓存的应用设置更新 web.config 文件](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* 将应用程序配置为使用 StackExchange.Redis 客户端
+* 更新 HomeController 和布局
+* 添加新的 RedisCache 视图
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>使用缓存的应用设置更新 web.config 文件
 
@@ -116,8 +116,8 @@ ms.locfileid: "56903176"
 
 2. 在 *web.config* 文件中找到 `<appSetting>` 元素。 然后添加以下 `file` 属性。 如果使用了其他文件名或位置，请使用这些值来替换示例中显示的值。
 
-- 之前： `<appSettings>`
-- 之后： ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* 之前： `<appSettings>`
+* 之后： ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中的标记。 如果找不到指定的文件，运行时会忽略文件属性。 应用程序的源代码中将不包括机密（连接到缓存的连接字符串）。 将 Web 应用部署到 Azure 时，不会部署 CacheSecrets.config 文件。
 
@@ -340,5 +340,4 @@ ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中�
 > [!div class="nextstepaction"]
 > [在 ASP.NET 中创建缓存端排行榜](cache-web-app-cache-aside-leaderboard.md)
 
-<!-- Update_Description: update metedata properties -->
-
+<!-- Update_Description: wording update -->

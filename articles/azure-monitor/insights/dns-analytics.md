@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: b1fe65bbd30930266d0c58617aa993b8065f0eac
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 958b338b3e80edca3682787331c59da6eede453f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440895"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627466"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>使用 DNS Analytics 预览解决方案收集有关 DNS 基础结构的见解
 
@@ -66,7 +66,7 @@ DNS Analytics 可帮助：
 
 - **列入允许列表的域名**。 解决方案不会处理所有查找查询。 这样可保留域名后缀允许列表。 查找查询会解析为匹配此允许列表中域名后缀的域名，但不由解决方案处理。 不处理列入允许列表的域名有助于优化发送到 Azure Monitor 的数据。 默认允许列表包括常用的公共域名，例如 www.google.com 和 www.facebook.com。 可以滚动查看完整的默认列表。
 
- 可以修改列表，添加任何想要查看的域名后缀，从而查看查找见解。 还可以删除任何不感兴趣的域名后缀，从而查看查找见解。
+  可以修改列表，添加任何想要查看的域名后缀，从而查看查找见解。 还可以删除任何不感兴趣的域名后缀，从而查看查找见解。
 
 - **频繁通信的客户端阈值**。 DNS 客户端超出查找请求数的阈值时，将突出显示在“DNS 客户端”边栏选项卡中。 默认阈值为 1,000。 可以编辑该阈值。
 

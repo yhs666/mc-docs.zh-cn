@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8e84f52638b481e97897b8d1b795658e91b2525
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 65bfb828bbb2d4684463e16855fd8606a8a14534
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463654"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627607"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -165,15 +165,15 @@ ms.locfileid: "57463654"
 
 5. 查看是否存在包含 **disk.EnableUUID** 的行。
 
-    - 如果该值存在且设置为 **False**，请将它更改为 **True**。 （值不区分大小写。）
+   - 如果该值存在且设置为 **False**，请将它更改为 **True**。 （值不区分大小写。）
 
-    - 如果该值存在且设置为 **True**，请选择“取消”。
+   - 如果该值存在且设置为 **True**，请选择“取消”。
 
-    - 如果该值不存在，请选择“添加行”。
+   - 如果该值不存在，请选择“添加行”。
 
-    - 在名称列中添加 **disk.EnableUUID**，并将值设置为 **TRUE**。
+   - 在名称列中添加 **disk.EnableUUID**，并将值设置为 **TRUE**。
 
-    ![检查 disk.EnableUUID 是否存在](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![检查 disk.EnableUUID 是否存在](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>禁用内核升级
 

@@ -16,12 +16,12 @@ origin.date: 01/14/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 921749d73c9583d867e3e5336352d2a3e8f1949a
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: a7bec70a33d325c29772428de64be8be05d0ec2d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463679"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626499"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 
@@ -623,22 +623,22 @@ public class VotesController : Controller
 
 4. 返回到浏览器，再单击投票选项或添加新的投票选项。 点击 Web 前端 API 控制器中的第一个断点。
 
-    1. 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。
+   1. 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。
 
-    ![添加投票前端服务](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![添加投票前端服务](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. 首先，为后端服务构建 ReverseProxy 的 URL **(1)**。
-    3. 然后，向 ReverseProxy 发送 HTTP PUT 请求 **(2)**。
-    4. 最后，将后端服务的响应返回到客户端 **(3)**。
+   2. 首先，为后端服务构建 ReverseProxy 的 URL **(1)**。
+   3. 然后，向 ReverseProxy 发送 HTTP PUT 请求 **(2)**。
+   4. 最后，将后端服务的响应返回到客户端 **(3)**。
 
 5. 按 F5 以继续操作。
-    1. 此时，到达后端服务中的断点。
+   1. 此时，到达后端服务中的断点。
 
-    ![添加投票后端服务](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![添加投票后端服务](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. 方法 **(1)** 的第一行使用 `StateManager` 获取或添加 `counts` 可靠字典。
-    3. 与可靠字典中的值进行的所有交互都需要使用事务，这个 using 语句（图中标识为2）负责创建此事务。
-    4. 在事务中更新投票选项的相关键值，并提交操作 **(3)**。 提交方法返回后，便会更新字典中的数据，并将数据复制到群集中的其他节点。 数据现在安全地存储在群集中，并且后端服务可以故障转移到其他节点，同时数据仍可用。
+   2. 方法 **(1)** 的第一行使用 `StateManager` 获取或添加 `counts` 可靠字典。
+   3. 与可靠字典中的值进行的所有交互都需要使用事务，这个 using 语句（图中标识为2）负责创建此事务。
+   4. 在事务中更新投票选项的相关键值，并提交操作 **(3)**。 提交方法返回后，便会更新字典中的数据，并将数据复制到群集中的其他节点。 数据现在安全地存储在群集中，并且后端服务可以故障转移到其他节点，同时数据仍可用。
 6. 按 F5 以继续操作。
 
 若要停止调试会话，请按 Shift+F5。

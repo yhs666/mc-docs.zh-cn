@@ -14,12 +14,12 @@ origin.date: 08/15/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 57bd83ce6ae4598af12d2bb393f309924933b0c4
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: aa489f1e7ea4578cef311fc70a5de0d2007ebb3a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306261"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627019"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -140,7 +140,7 @@ ms.locfileid: "56306261"
 - 了解如何[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解如何[在虚拟网络中保护 Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fsql-data-warehouse%2ftoc.json)
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
-<!--Not Available on - Learn about [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->
--  快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
+  <!--Not Available on - Learn about [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->
+- 快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

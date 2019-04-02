@@ -5,18 +5,18 @@ services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-origin.date: 11/15/2018
-ms.date: 03/25/2019
+origin.date: 11/16/2018
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 3e2f5e5f2d4a4f99ba774a06c263e09bf3dcfbab
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 6c12128b3de9e77333ba858b8d6fd0ef02797fa7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348022"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627636"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和查询 Azure SQL 数据仓库
 
@@ -31,19 +31,19 @@ ms.locfileid: "58348022"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Add-AzAccount](https://docs.microsoft.com/powershell/module/az.profile/add-azaccount) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```powershell
-Add-AzAccount -EnvironmentName AzureChinaCloud
+Connect-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
-若要查看正在使用的订阅，请运行 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.profile/get-azsubscription)。
+若要查看正在使用的订阅，请运行 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)。
 
 ```powershell
 Get-AzSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.profile/set-azcontext)。
+如果需要使用与默认订阅不同的订阅，请运行 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext)。
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"

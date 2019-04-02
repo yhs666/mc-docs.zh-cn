@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 61fb210e9e5cbaf8c69b07d2600ac614d1c4419d
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: a9b945f0310b0accec91abbae0fa14ecb98ffa74
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141713"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626486"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>操作组中的短信通知行为
 ## <a name="overview"></a>概述 ##
@@ -28,7 +28,7 @@ ms.locfileid: "54141713"
 ## <a name="receiving-an-sms-alert"></a>接收短信警报
 警报被触发时，配置为操作组的一部分的短信接收方将收到短信。 短信包含以下信息：
 * 此警报发送到的操作组的短名称
-- 警报的标题
+* 警报的标题
 
 | 回复 | 说明 |
 | ----- | ----------- |

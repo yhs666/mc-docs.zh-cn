@@ -12,12 +12,12 @@ origin.date: 12/06/2018
 ms.date: 04/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 293fbf2fa59ceca6c7f249099878f4b1ba8f9a3a
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: a9ac3021c5163428c937581ec9eba8950d1e6a34
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348292"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626905"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>快速入门：使用语音 SDK 在 UWP 应用中识别语音
 
@@ -43,7 +43,8 @@ ms.locfileid: "58348292"
 
 1. 应用程序的用户界面使用 XAML 进行定义。 在解决方案资源管理器中打开 `MainPage.xaml`。 在设计器的 XAML 视图中，将以下 XAML 代码片段插入到 Grid 标记中（位于 `<Grid>` 和 `</Grid>` 之间）。
 
-``XML <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
+```XML
+<StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
     <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
     <Button x:Name="SpeechRecognitionButton" Content="Speech recognition with microphone input" Margin="0,10,10,0" Click="SpeechRecognitionFromMicrophone_ButtonClicked" Height="35"/>
     <StackPanel x:Name="StatusPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
@@ -52,14 +53,14 @@ ms.locfileid: "58348292"
             <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
                 <!-- Use LiveSetting to enable screen readers to announce the status update. -->
                 <TextBlock x:Name="StatusBlock" FontWeight="Bold" AutomationProperties.LiveSetting="Assertive"
-                MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  /> </ScrollViewer>
+                MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
+            </ScrollViewer>
         </Border>
     </StackPanel>
 </StackPanel>
 ```
 
-1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Replace all the code in it with the following.
-
+1. 打开代码隐藏源文件 `MainPage.xaml.cs`（可以发现它归在 `MainPage.xaml` 下）。 将其中的所有代码替换为以下内容。
 ```C#
 using System;
 using System.Text;

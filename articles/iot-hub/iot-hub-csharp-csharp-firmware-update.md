@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 10/19/2017
 ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 54a950c542de780186b9b011cfcb7fe284082b30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5fb98154b90996b9a55daa1a2b672c8c617564d8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650716"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626832"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>使用设备管理启动设备固件更新 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -225,26 +225,26 @@ ms.locfileid: "52650716"
     }
     ```
  
-9.  添加以下方法，以等待下载模拟固件映像。 将状态更新为 **waiting**，并清除孪生上的其他固件更新属性。 清除这些属性会删除先前固件更新中的所有现有值。 之所以需要执行此操作，是因为报告属性是作为 PATCH 操作（增量）而不是 PUT 操作（替换所有先前值的整组属性）发送的。 通常，设备会收到有关可用更新的通知，并且管理员定义的策略会使设备开始下载和应用更新。 此函数是用于启用该策略的逻辑应该运行的位置。 
+9. 添加以下方法，以等待下载模拟固件映像。 将状态更新为 **waiting**，并清除孪生上的其他固件更新属性。 清除这些属性会删除先前固件更新中的所有现有值。 之所以需要执行此操作，是因为报告属性是作为 PATCH 操作（增量）而不是 PUT 操作（替换所有先前值的整组属性）发送的。 通常，设备会收到有关可用更新的通知，并且管理员定义的策略会使设备开始下载和应用更新。 此函数是用于启用该策略的逻辑应该运行的位置。 
         
-    ```csharp   
-    static async Task waitToDownload(Twin twin, string fwUpdateUri)
-    {
-        var now = DateTime.Now;
-        TwinCollection status = new TwinCollection();
-        status["fwPackageUri"] = fwUpdateUri;
-        status["status"] = "waiting";
-        status["error"] = null;
-        status["startedWaitingTime"] = DateTime.Now;
-        status["downloadCompleteTime"] = null;
-        status["startedApplyingImage"] = null;
-        status["lastFirmwareUpdate"] = null;
+   ```csharp   
+   static async Task waitToDownload(Twin twin, string fwUpdateUri)
+   {
+       var now = DateTime.Now;
+       TwinCollection status = new TwinCollection();
+       status["fwPackageUri"] = fwUpdateUri;
+       status["status"] = "waiting";
+       status["error"] = null;
+       status["startedWaitingTime"] = DateTime.Now;
+       status["downloadCompleteTime"] = null;
+       status["startedApplyingImage"] = null;
+       status["lastFirmwareUpdate"] = null;
 
-        await reportFwUpdateThroughTwin(twin, status);
+       await reportFwUpdateThroughTwin(twin, status);
 
-        await Task.Delay(2000);
-    }
-    ```
+       await Task.Delay(2000);
+   }
+   ```
 
 10. 添加以下方法以执行下载。 此方法通过设备孪生将状态更新为 **downloading**，调用 simulate download 方法，并根据 download 操作的结果，通过孪生报告 **downloadComplete** 或 **downloadFailed** 状态。 
         
@@ -344,10 +344,10 @@ ms.locfileid: "52650716"
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
     ```
-> [!NOTE]
-> 此方法触发以**任务**形式运行的模拟更新，然后立即响应方法调用，告知服务已启动固件更新。 更新状态和完成进度将通过设备孪生的报告属性发送到服务。 我们会在启动更新时而不是在完成更新后响应此方法调用，因为：
-> * 实际的更新过程所花费的时间很可能比方法调用超时的时间要长。
-> * 实际的更新过程很可能要求重新启动，这会重新启动此应用，使 **MethodRequest** 对象不可用。 （但是，即使在重新启动之后，也能更新报告属性。） 
+    > [!NOTE]
+    > 此方法触发以**任务**形式运行的模拟更新，然后立即响应方法调用，告知服务已启动固件更新。 更新状态和完成进度将通过设备孪生的报告属性发送到服务。 我们会在启动更新时而不是在完成更新后响应此方法调用，因为：
+    > * 实际的更新过程所花费的时间很可能比方法调用超时的时间要长。
+    > * 实际的更新过程很可能要求重新启动，这会重新启动此应用，使 **MethodRequest** 对象不可用。 （但是，即使在重新启动之后，也能更新报告属性。） 
 
 14. 最后，将以下代码添加到 **Main** 方法，打开与 IoT 中心的连接并初始化方法侦听器：
    

@@ -17,12 +17,12 @@ origin.date: 09/24/2018
 ms.date: 03/05/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24ff9228a76d8ee1095fd915e4718d06894eb59
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 5cf48bd0178e1399cb31aff65c85857e22b1f311
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462370"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627393"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
@@ -148,16 +148,16 @@ ms.locfileid: "57462370"
                     ClientId = clientId,
                     Authority = authority,
                     RedirectUri = redirectUrl,
-                    
+
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUrl,
-                    
+
                     //Scope is the requested scope: OpenIdConnectScopes.OpenIdProfileis equivalent to the string 'openid profile': in the consent screen, this will result in 'Sign you in and read your profile'
                     Scope = OpenIdConnectScopes.OpenIdProfile,
-                    
+
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
                     ResponseType = OpenIdConnectResponseTypes.IdToken,
-                    
+
                     // ValidateIssuer set to false to allow work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name or Id (example: contoso.partner.onmschina.cn)
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
@@ -185,7 +185,7 @@ ms.locfileid: "57462370"
         }
     }
     ```
-    
+
 <!--start-collapse-->
 > [!NOTE]
 > 在 *OpenIDConnectAuthenticationOptions* 中提供的参数将充当应用程序与 Azure AD 通信时使用的坐标。 OpenID Connect 中间件会使用 Cookie，因此，还需要设置 Cookie 身份验证，如以上代码所示。 *ValidateIssuer* 值告知 OpenIdConnect 不要限制某个特定组织的访问权限。
@@ -238,7 +238,7 @@ ms.locfileid: "57462370"
             CookieAuthenticationDefaults.AuthenticationType);
     }
     ```
-    
+
 ## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>创建应用的主页，通过登录按钮来登录用户
 
 在 Visual Studio 中，创建新视图来添加登录按钮并在身份验证后显示用户信息：
@@ -283,7 +283,8 @@ ms.locfileid: "57462370"
     </html>
     ```
 
-<!--start-collapse--> 此页以 SVG 形式添加登录按钮，背景为黑色：<br/>![使用 Microsoft 登录](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 
+<!--start-collapse-->
+此页以 SVG 格式添加登录按钮，背景为黑色：<br/>![使用 Microsoft 登录](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>步骤 7：添加控制器来显示用户声明
@@ -367,7 +368,7 @@ ms.locfileid: "57462370"
     </body>
     </html>
     ```
-    
+
 <!--end-use-->
 
 <!--start-configure-->
@@ -479,12 +480,13 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
  此时应会显示一个表，其中包含已登录用户的基本属性：
 
-| 属性 | 值 | 说明 |
-|---|---|---|
-| Name | {用户全名} | 用户的名字和姓氏 |
-| 用户名 | <span>user@domain.com</span> | 用于标识已登录用户的用户名 |
-| 使用者| {使用者} |一个唯一标识 Web 上用户登录名的字符串 |
-| 租户 ID | {Guid} | 唯一表示用户的 Azure AD 组织的 guid |
+
+| 属性  |            值             |                           说明                           |
+|-----------|------------------------------|-----------------------------------------------------------------|
+|   Name    |       {用户全名}       |                 用户的名字和姓氏                  |
+| 用户名  | <span>user@domain.com</span> |          用于标识已登录用户的用户名          |
+|  使用者  |          {使用者}           |   一个唯一标识 Web 上用户登录名的字符串   |
+| 租户 ID |            {Guid}            | 唯一表示用户的 Azure AD 组织的 guid |
 
 此外还可看到一个表格，其中包含身份验证请求中的所有用户声明。 有关 ID 令牌和说明中所有声明的列表，请参阅 [ID 令牌中的声明列表](/active-directory/develop/active-directory-token-and-claims)。
 

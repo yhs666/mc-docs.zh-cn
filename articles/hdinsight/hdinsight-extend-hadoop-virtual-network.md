@@ -13,12 +13,12 @@ ms.workload: big-data
 origin.date: 11/06/2018
 ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 81cc6d07cef72574a80ddebcf0f932c64695fbe9
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 56a84be20160e8f71f10985668b4677ce5b8d9ef
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560498"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627621"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -119,8 +119,8 @@ ms.locfileid: "57560498"
     * [使用 Azure 经典 CLI 创建 HDInsight](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [使用 Azure 资源管理器模板创建 HDInsight](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]
-  > 向虚拟网络添加 HDInsight 是一项可选的配置步骤。 请确保在配置群集时选择虚拟网络。
+   > [!IMPORTANT]
+   > 向虚拟网络添加 HDInsight 是一项可选的配置步骤。 请确保在配置群集时选择虚拟网络。
 
 ## <a id="multinet"></a>连接多个网络
 
@@ -132,8 +132,8 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 * 同一 Azure 虚拟网络中能够使用资源的内部 DNS 名称连接的的任何资源。 例如，在使用默认的名称解析时，下面是分配给 HDInsight 工作节点的内部 DNS 名称示例：
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn
 
     这两个节点均可使用内部 DNS 名称直接相互通信，以及与 HDInsight 中的其他节点通信。
 
@@ -152,29 +152,29 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 4. 配置 DNS 服务器之间的转发。 此配置取决于远程网络的类型。
 
-    * 如果远程网络为本地网络，请将 DNS 配置如下：
+   * 如果远程网络为本地网络，请将 DNS 配置如下：
 
-        * 自定义 DNS（位于虚拟网络中）：
+     * 自定义 DNS（位于虚拟网络中）：
 
-            * 将虚拟网络 DNS 后缀的请求转发到 Azure 递归解析程序 (168.63.129.16)。 Azure 处理虚拟网络中资源的请求
+         * 将虚拟网络 DNS 后缀的请求转发到 Azure 递归解析程序 (168.63.129.16)。 Azure 处理虚拟网络中资源的请求
 
-            * 将其他所有请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他的名称解析请求，甚至包括 Internet 资源（例如 Microsoft.com）的请求。
+         * 将其他所有请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他的名称解析请求，甚至包括 Internet 资源（例如 Microsoft.com）的请求。
 
-        * __本地 DNS__：将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
+     * __本地 DNS__：将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
 
-        此配置将包含虚拟网络 DNS 后缀的完全限定的域名请求路由至自定义 DNS 服务器。 所有其他请求（甚至包括对公共 Internet 地址的请求）由本地 DNS 服务器处理。
+       此配置将包含虚拟网络 DNS 后缀的完全限定的域名请求路由至自定义 DNS 服务器。 所有其他请求（甚至包括对公共 Internet 地址的请求）由本地 DNS 服务器处理。
 
-    * 如果远程网络为另一 Azure 虚拟网络，请将 DNS 配置如下：
+   * 如果远程网络为另一 Azure 虚拟网络，请将 DNS 配置如下：
 
-        * 自定义 DNS（位于每个虚拟网络中）：
+     * 自定义 DNS（位于每个虚拟网络中）：
 
-            * 对虚拟网络 DNS 后缀的请求将转发到自定义 DNS 服务器。 每个虚拟网络中的 DNS 负责解析其网络中的资源。
+         * 对虚拟网络 DNS 后缀的请求将转发到自定义 DNS 服务器。 每个虚拟网络中的 DNS 负责解析其网络中的资源。
 
-            * 将所有其他请求转发到 Azure 递归解析程序。 递归解析程序负责解析本地资源和 Internet 资源。
+         * 将所有其他请求转发到 Azure 递归解析程序。 递归解析程序负责解析本地资源和 Internet 资源。
 
-        每个网络的 DNS 服务器根据 DNS 后缀将请求转发到其他服务器。 其他请求使用 Azure 递归解析程序进行解析。
+       每个网络的 DNS 服务器根据 DNS 后缀将请求转发到其他服务器。 其他请求使用 Azure 递归解析程序进行解析。
 
-    有关每个配置的示例，请参阅[示例：自定义 DNS](#example-dns) 部分。
+     有关每个配置的示例，请参阅[示例：自定义 DNS](#example-dns) 部分。
 
 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。
 
@@ -650,9 +650,9 @@ $vnet | Set-AzureRmVirtual Network
     };
     ```
 
-    * 将 `10.0.0.0/16` 和 `10.1.0.0/16` 值替换为虚拟网络的 IP 地址范围。 此项允许每个网络中的资源发出 DNS 服务器的请求。
+   * 将 `10.0.0.0/16` 和 `10.1.0.0/16` 值替换为虚拟网络的 IP 地址范围。 此项允许每个网络中的资源发出 DNS 服务器的请求。
 
-    任何不是针对虚拟网络 DNS 后缀的请求（例如，microsoft.com）均由 Azure 递归解析程序处理。
+     任何不是针对虚拟网络 DNS 后缀的请求（例如，microsoft.com）均由 Azure 递归解析程序处理。
 
 4. 若要使用此配置，请重启 Bind。 例如，两个 DNS 服务器上的 `sudo service bind9 restart`。
 

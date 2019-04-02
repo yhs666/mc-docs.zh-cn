@@ -10,12 +10,12 @@ origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: e4382d4f47945ecaebaac263514bb021ba4f2b12
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 38939f3e44443f18eefa5adec5bf51f6d479daa4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463659"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627673"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -151,10 +151,10 @@ ms.locfileid: "57463659"
 4. 检查 Azure VM 是否在 Azure 中按预期显示。
 5. 在“复制的项”中，右键单击服务器 >“完成迁移”。 这样会执行以下操作：
 
-    - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
-    - 此步骤清除复制数据。 它不删除迁移的 VM。
+   - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
+   - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-    ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+     ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 > [!WARNING]
 > **请勿取消正在进行的故障转移**：在故障转移开始前，服务器复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但服务器将不继续复制。

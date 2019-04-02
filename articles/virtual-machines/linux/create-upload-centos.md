@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: d0dcbaef391c48ca72b15a37eca8e506b08be4b4
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: c4a1420f9829fb3f3ef26b02737ae7a5f73eaf5d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736205"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626188"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 
@@ -305,11 +305,11 @@ ms.locfileid: "53736205"
 
 10. 如果从 VMware、VirtualBox 或 KVM 生成映像：请确保 initramfs 中包含 HYPER-V 驱动程序：
 
-   编辑 `/etc/dracut.conf`，添加内容：
+    编辑 `/etc/dracut.conf`，添加内容：
 
         add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
-   重新生成 initramfs：
+    重新生成 initramfs：
 
         # sudo dracut -f -v
 
@@ -320,7 +320,7 @@ ms.locfileid: "53736205"
 
 12. 不要在 OS 磁盘上创建交换空间。
 
-   Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是 *临时* 磁盘，并可能在取消设置虚拟机时被清空。 在安装 Azure Linux 代理（参见上一步）后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是 *临时* 磁盘，并可能在取消设置虚拟机时被清空。 在安装 Azure Linux 代理（参见上一步）后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

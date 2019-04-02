@@ -13,12 +13,12 @@ origin.date: 06/21/2018
 ms.date: 03/18/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 3016f6f80c606c40325648f9a006a34c8334ff98
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 2422a899dd61d330422b1c2840d2eea67e2d3a5e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560455"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627389"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
@@ -74,7 +74,6 @@ az iot hub create --name $hubname --location $location --resource-group tutorial
 
 # Make a note of the service connection string, you need it later
 az iot hub show-connection-string --hub-name $hubname -o table
-
 ```
 
 本教程使用名为 **MyFirmwareUpdateDevice** 的模拟设备。 以下脚本将此设备添加到设备标识注册表、设置标记值，并检索其连接字符串：
@@ -91,7 +90,6 @@ az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hub
 
 # Retrieve the device connection string, you need this later
 az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
-
 ```
 
 > [!TIP]
@@ -420,4 +418,4 @@ az group delete --name tutorial-iot-hub-rg
 本教程介绍了如何针对连接的设备实施固件更新过程。 转到下一教程，了解如何使用 Azure IoT 中心门户工具和 Azure CLI 命令来测试设备连接性。
 
 > [!div class="nextstepaction"]
-[使用模拟设备测试 IoT 中心的连接](tutorial-connectivity.md)
+> [使用模拟设备测试 IoT 中心的连接](tutorial-connectivity.md)

@@ -17,12 +17,12 @@ ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
-ms.openlocfilehash: 8d691e2696b34a0c587283164c1cdc7856e4e581
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: 7bbe2d57081a22fe8187b0222a5dab8d2f899ce7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440361"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625683"
 ---
 # <a name="national-clouds"></a>国家云
 
@@ -42,12 +42,13 @@ ms.locfileid: "54440361"
 
 下表列出了用于为每个国家云注册应用程序的 Azure Active Directory (Azure AD) 终结点的基 URL。
 
-| 国家云 | Azure AD 门户终结点
-| --- | --- |
-| 适用于美国政府的 Azure AD |https://portal.azure.us
-|Azure AD 德国 |https://portal.microsoftazure.de
-|由世纪互联运营的 Azure AD 中国 |https://portal.azure.cn
-|Azure AD（全局服务）|https://portal.azure.com
+
+|           国家云            |     Azure AD 门户终结点     |
+|-------------------------------------|----------------------------------|
+|     适用于美国政府的 Azure AD      |     https://portal.azure.us      |
+|          Azure AD 德国           | https://portal.microsoftazure.de |
+| 由世纪互联运营的 Azure AD 中国 |     https://portal.azure.cn      |
+|      Azure AD（全局服务）      |     https://portal.azure.com     |
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD 身份验证终结点
 
@@ -78,8 +79,8 @@ ms.locfileid: "54440361"
 
 
 
->[!IMPORTANT]
-全局服务的特定区域中的某些服务和功能可能无法在所有国家云中使用。 若要了解哪些服务可用，请访问[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)。
+> [!IMPORTANT]
+> 全局服务的特定区域中的某些服务和功能可能无法在所有国家云中使用。 若要了解哪些服务可用，请访问[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)。
 
 ## <a name="next-steps"></a>后续步骤
 

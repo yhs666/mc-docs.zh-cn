@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/14/2019
 ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 53a38fb3287176aecc3cb085d8485b7f6cccfc63
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 39d73712b72b8bf1e2e0721b59e52154e8ccaaa7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348046"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625651"
 ---
 # <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 
@@ -48,7 +48,7 @@ VPN 网关由在活动备用配置中运行的两个 VM 实例组成。 重置�
 1. 打开 [Azure 门户](https://portal.azure.cn)并导航到要重置的 Resource Manager 虚拟网络网关。
 2. 在虚拟网络网关的边栏选项卡上，单击“重置”。
 
-  ![“重置 VPN 网关”边栏选项卡](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![“重置 VPN 网关”边栏选项卡](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. 在“重置”边栏选项卡上，单击“重置”按钮。
 
 ## <a name="ps"></a>PowerShell

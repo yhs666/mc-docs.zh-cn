@@ -16,12 +16,12 @@ ms.workload: traffic-manager
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 2539d29d1ec3a2a1f12980278b21299b362f27fe
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 941dfe06e6432ff311109abff98569e6679e2e19
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903205"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626035"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>为实现应用程序的高可用性路由流量
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name $rgName1 -Location $location1
 New-AzResourceGroup -Name $rgName2 -Location $location2
 
 # <a name="create-a-website-deployed-from-github-in-both-regions-replace-with-your-own-github-url"></a>在两个区域中创建从 GitHub 部署的网站（请将其替换为你自己的 GitHub URL）。
-$gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
+$gitrepo="<https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>"
 
 # <a name="create-a-hosting-plan-and-website-and-deploy-it-in-location-one-requires-standard-1-minimum-sku"></a>创建托管计划和网站，并将其部署到位置 1（需要标准 1 最小 SKU）。
 

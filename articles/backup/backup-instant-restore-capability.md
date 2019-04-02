@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d722238d0a9e88778f8de1365fbef57790dc9b8e
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 9d081435d15e51373181157191237cebb8cce2bd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987053"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626827"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>使用 Azure 备份即时还原功能获得更高的备份和还原性能
 
@@ -51,10 +51,8 @@ ms.locfileid: "56987053"
 * 可以根据还原需求配置快照保留期。 根据要求，可以在备份策略边栏选项卡中将快照保留期设置为最少一天，如下所述。 如果不经常执行还原，这可帮助节省保留快照的成本。
 
 > [!NOTE]
->
-使用此即时还原升级功能时，所有客户 **（包括新客户和现有客户）** 的快照保留持续时间将设置为默认值两天。 但是，可根据要求将此持续时间设置为 1-5 天的任何值。
->
->
+> 
+> 使用此即时还原升级功能时，所有客户 **（包括新客户和现有客户）** 的快照保留持续时间将设置为默认值两天。 但是，可根据要求将此持续时间设置为 1-5 天的任何值。
 
 ## <a name="cost-impact"></a>成本影响
 

@@ -7,12 +7,12 @@ origin.date: 08/02/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: tutorial
-ms.openlocfilehash: f6b2041a53167605e532289f05d27af415dfe263
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 29f9e9c6364b7512172240d9bb42c938ba3ce2db
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646561"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627161"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教程：使用 Batch Explorer 渲染 Blender 场景
 
@@ -79,9 +79,9 @@ ms.locfileid: "52646561"
 
 - 选择“创建以后使用的池”按钮
   * 保留池名称“blender-windows”
-  - 将“专用 VM 计数”设置为“0”
-  - 将“低优先级 VM 计数”设置为“3”
-  - 将“节点大小”设置为“Standard_F16”- 可以选择其他 VM 大小，但渲染帧所需的时间将主要取决于核心数。
+  * 将“专用 VM 计数”设置为“0”
+  * 将“低优先级 VM 计数”设置为“3”
+  * 将“节点大小”设置为“Standard_F16”- 可以选择其他 VM 大小，但渲染帧所需的时间将主要取决于核心数。
 - 选择用于创建池的绿色按钮
   - 池差不多会立即创建，但分配和启动 VM 需要数分钟。
 

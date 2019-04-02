@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4d0f09d38854a8a1a83876670169febc989c64a3
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 444d06b9d490b1f76e94dc293d156e025301fb4c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463675"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627711"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -51,7 +51,7 @@ Site Recovery 门户中提供了配置服务器安装文件的最新版本。 �
 4. 在“添加服务器”页中，单击“下载”按钮下载注册密钥。 在安装配置服务器的过程中，需要使用此密钥将它注册到 Azure Site Recovery 服务。
 5. 单击“下载 Azure Site Recovery 统一安装程序”链接，下载最新版本的配置服务器。
 
-  ![“下载”页](./media/physical-manage-configuration-server/downloadcs.png)
+   ![“下载”页](./media/physical-manage-configuration-server/downloadcs.png)
 
 ## <a name="install-and-register-the-server"></a>安装并注册服务器
 
@@ -179,8 +179,8 @@ ProxyPassword="Password"
     net start obengine
     ```
 
-  >[!WARNING]
-  如果有多个进程服务器，则需要[重新注册它们](vmware-azure-manage-process-server.md#reregister-a-process-server)。
+   > [!WARNING]
+   > 如果有多个进程服务器，则需要[重新注册它们](vmware-azure-manage-process-server.md#reregister-a-process-server)。
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>将配置服务器注册到不同的保管库
 
@@ -239,7 +239,7 @@ ProxyPassword="Password"
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>卸载配置服务器及其依赖项
 > [!TIP]
-如果打算再次结合 Azure Site Recovery 重新使用该配置服务器，可以直接跳到步骤 4
+> 如果打算再次结合 Azure Site Recovery 重新使用该配置服务器，可以直接跳到步骤 4
 
 1. 以管理员身份登录到配置服务器。
 2. 打开“控制面板”>“程序”>“卸载程序”

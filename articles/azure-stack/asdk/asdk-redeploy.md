@@ -18,12 +18,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fdb9c546437abb706e8ed2f24df7faae184c0f74
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 3b04c7f956754c8ad1b06ef8e6bf98fe86c4682c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905399"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627406"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 也可随时根据需要从头开始重新部署 ASDK。
@@ -40,24 +40,24 @@ ms.locfileid: "56905399"
 
 2. 运行以下 PowerShell 命令，注销 ASDK 安装并从 Azure 订阅中删除 **azurestack** 资源组：
 
-  ```Powershell    
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   ```Powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  # Provide Azure subscription admin credentials
-  Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-  # Provide ASDK admin credentials
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
 
-  # Unregister Azure Stack
-  Remove-AzsRegistration `
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
-  # Remove the Azure Stack resource group
-  Remove-AzureRmResourceGroup -Name azurestack -Force
-  ```
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
 
 3. 当脚本运行时，系统会提示你登录 Azure 订阅和本地 ASDK 安装。
 4. 脚本完成后，会看到与以下示例类似的消息：

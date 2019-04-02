@@ -14,12 +14,12 @@ ms.topic: hero-article
 origin.date: 05/25/2018
 ms.author: v-biyu
 ms.date: 12/03/2018
-ms.openlocfilehash: bbece01ff7d00aedc425cd2e18e769d76ac52344
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ed00399c760a14e867bf772b302e53e06cb3dcac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675458"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626617"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -29,7 +29,7 @@ ms.locfileid: "52675458"
 
 只有在完成本教程后，才可学习有关 Xamarin.Forms 的所有其他移动应用教程。
 
-##<a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 要完成本教程，需要以下各项：
 
@@ -53,7 +53,7 @@ ms.locfileid: "52675458"
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-##<a name="download-and-run-the-xamarinforms-solution"></a>下载并运行 Xamarin.Forms 解决方案
+## <a name="download-and-run-the-xamarinforms-solution"></a>下载并运行 Xamarin.Forms 解决方案
 
 必须使用用于 Xamarin 的 Visual Studio Tools 来打开解决方案，详见 [Xamarin 安装说明][Install Xamarin]。 如果该工具已安装，请按以下步骤来下载并打开解决方案：
 

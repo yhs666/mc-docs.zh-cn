@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 01/22/2018
-ms.date: 02/22/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5cfef77265463b5370ee2cfc6e6927ee37f64e59
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a4e00612015a046cbaf59f163885c662a290844c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665642"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627277"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions 代理
 
@@ -81,23 +81,23 @@ ms.locfileid: "56665642"
 #### <a name="additional-request-parameters"></a>其他请求参数
 除了路由模板参数以外，还可以在配置值中使用以下值：
 
-- **{request.method}**：对原始请求使用的 HTTP 方法。
-- **{request.headers.\<HeaderName\>}**：从原始请求中读取的标头。 请将 *\<HeaderName\>* 替换为要读取的标头的名称。 如果该标头未包含在请求中，则该值为空字符串。
-- **{request.querystring.\<ParameterName\>}**：可从原始请求中读取的查询字符串参数。 请将 *\<ParameterName\>* 替换为要读取的参数的名称。 如果该参数未包含在请求中，则该值为空字符串。
+* **{request.method}**：对原始请求使用的 HTTP 方法。
+* **{request.headers.\<HeaderName\>}**：从原始请求中读取的标头。 请将 *\<HeaderName\>* 替换为要读取的标头的名称。 如果该标头未包含在请求中，则该值为空字符串。
+* **{request.querystring.\<ParameterName\>}**：可从原始请求中读取的查询字符串参数。 请将 *\<ParameterName\>* 替换为要读取的参数的名称。 如果该参数未包含在请求中，则该值为空字符串。
 
 ### <a name="response-parameters"></a>引用后端响应参数
 
 在修改返回给客户端的响应过程中，可以使用响应参数。 可以在配置值中使用以下值：
 
-- **{backend.response.statusCode}**：在后端响应中返回的 HTTP 状态代码。
-- **{backend.response.statusReason}**：在后端响应中返回的 HTTP 原因短语。
-- **{backend.response.headers.\<HeaderName\>}**：可以从后端响应中读取的标头。 请将 *\<HeaderName\>* 替换为要读取的标头的名称。 如果该标头未包含在响应中，则该值将为空字符串。
+* **{backend.response.statusCode}**：在后端响应中返回的 HTTP 状态代码。
+* **{backend.response.statusReason}**：在后端响应中返回的 HTTP 原因短语。
+* **{backend.response.headers.\<HeaderName\>}**：可以从后端响应中读取的标头。 请将 *\<HeaderName\>* 替换为要读取的标头的名称。 如果该标头未包含在响应中，则该值将为空字符串。
 
 ### <a name="use-appsettings"></a>引用应用程序设置
 
 还可以通过将设置名称括在百分号 (%) 之间来引用[针对 Function App 定义的应用程序设置](/azure-functions/functions-how-to-use-azure-function-app-settings)。
 
-例如，后端 URL *https://%ORDER_PROCESSING_HOST%/api/orders* 会将“%ORDER_PROCESSING_HOST%”替换为 ORDER_PROCESSING_HOST 设置的值。
+例如，后端 URL <em>https://%ORDER_PROCESSING_HOST%/api/orders</em> 会将“%ORDER_PROCESSING_HOST%”替换为 ORDER_PROCESSING_HOST 设置的值。
 
 > [!TIP] 
 > 当有多个部署或测试环境时，请为后端主机使用应用程序设置。 这样可以确保始终与该环境的正确后端进行通信。
@@ -140,12 +140,12 @@ Proxies.json 是由一个代理对象定义的，包括已命名的代理及其�
 
 每个代理都有一个友好名称，例如上例中的 *proxy1*。 对应的代理定义对象是由以下属性定义的：
 
-- **matchCondition**：必需 - 一个对象，用于定义触发此代理执行的请求。 它包含两个与 [HTTP 触发器]共享的属性：
-    - _methods_：代理响应的 HTTP 方法的数组。 如果未指定此属性，代理将响应路由上的所有 HTTP 方法。
-    - _route_：必需 - 定义路由模板，控制代理将响应哪些请求 URL。 与在 HTTP 触发器中不同，此处没有默认值。
-- **backendUri**：应当通过代理将请求发送到的后端资源的 URL。 此值可以引用应用程序设置和原始客户端请求中的参数。 如果未包括此属性，则 Azure Functions 以 HTTP 200 OK 进行响应。
-- **requestOverrides**：定义对后端请求执行的转换的对象。 请参阅[定义 requestOverrides 对象]。
-- **responseOverrides**：定义对客户端响应执行的转换的对象。 请参阅[定义 responseOverrides 对象]。
+* **matchCondition**：必需 - 一个对象，用于定义触发此代理执行的请求。 它包含两个与 [HTTP 触发器]共享的属性：
+    * _methods_：代理响应的 HTTP 方法的数组。 如果未指定此属性，代理将响应路由上的所有 HTTP 方法。
+    * _route_：必需 - 定义路由模板，控制代理将响应哪些请求 URL。 与在 HTTP 触发器中不同，此处没有默认值。
+* **backendUri**：应当通过代理将请求发送到的后端资源的 URL。 此值可以引用应用程序设置和原始客户端请求中的参数。 如果未包括此属性，则 Azure Functions 以 HTTP 200 OK 进行响应。
+* **requestOverrides**：定义对后端请求执行的转换的对象。 请参阅[定义 requestOverrides 对象]。
+* **responseOverrides**：定义对客户端响应执行的转换的对象。 请参阅[定义 responseOverrides 对象]。
 
 > [!NOTE] 
 > Azure Functions 代理中的 route 属性不接受 Function App 主机配置的 routePrefix 属性。 如果希望包括一个如 `/api` 等前缀，必须将其包括在 route 属性中。
@@ -172,8 +172,8 @@ Proxies.json 是由一个代理对象定义的，包括已命名的代理及其�
 
 代理行为可以通过多个应用程序设置进行控制。 [Functions App 设置参考](./functions-app-settings.md)中概述了所有这些设置
 
-- [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
-- [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
 
 ### <a name="reservedChars"></a> 保留字符（字符串格式设置）
 
@@ -189,9 +189,9 @@ Proxies.json 是由一个代理对象定义的，包括已命名的代理及其�
 
 requestOverrides 对象定义调用后端资源时对请求所做的更改。 该对象由以下属性定义：
 
-- **backend.request.method**：用于调用后端的 HTTP 方法。
-- **backend.request.querystring.\<ParameterName\>**：可为后端调用设置的查询字符串参数。 请将 *\<ParameterName\>* 替换为要设置的参数的名称。 如果提供空字符串，该参数不会包含在后端请求中。
-- **backend.request.headers.\<HeaderName\>**：可为后端调用设置的标头。 请将 *\<HeaderName\>* 替换为要设置的标头的名称。 如果提供空字符串，该标头不会包含在后端请求中。
+* **backend.request.method**：用于调用后端的 HTTP 方法。
+* **backend.request.querystring.\<ParameterName\>**：可为后端调用设置的查询字符串参数。 请将 *\<ParameterName\>* 替换为要设置的参数的名称。 如果提供空字符串，该参数不会包含在后端请求中。
+* **backend.request.headers.\<HeaderName\>**：可为后端调用设置的标头。 请将 *\<HeaderName\>* 替换为要设置的标头的名称。 如果提供空字符串，该标头不会包含在后端请求中。
 
 值可以引用应用程序设置和原始客户端请求中的参数。
 
@@ -220,10 +220,10 @@ requestOverrides 对象定义调用后端资源时对请求所做的更改。 �
 
 requestOverrides 对象定义对传回客户端的响应所做的更改。 该对象由以下属性定义：
 
-- **response.statusCode**：要返回给客户端的 HTTP 状态代码。
-- **response.statusReason**：要返回给客户端的 HTTP 原因短语。
-- **response.body**：要返回给客户端的正文的字符串表示形式。
-- **response.headers.\<HeaderName\>**：可为返回给客户端的响应设置的标头。 请将 *\<HeaderName\>* 替换为要设置的标头的名称。 如果提供空字符串，该标头不会包含在响应中。
+* **response.statusCode**：要返回给客户端的 HTTP 状态代码。
+* **response.statusReason**：要返回给客户端的 HTTP 原因短语。
+* **response.body**：要返回给客户端的正文的字符串表示形式。
+* **response.headers.\<HeaderName\>**：可为返回给客户端的响应设置的标头。 请将 *\<HeaderName\>* 替换为要设置的标头的名称。 如果提供空字符串，该标头不会包含在响应中。
 
 值可以引用应用程序设置、原始客户端请求中的参数和后端响应中的参数。
 

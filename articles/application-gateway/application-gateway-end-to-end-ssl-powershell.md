@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/10/2019
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1ea81c2df3e690ccd88ac24458c9624ee0122f1c
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: c5272664ebd7905341f315682d6ec461eb90da43
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788721"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627358"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 SSL
 
@@ -174,7 +174,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
 
    > [!NOTE]
    > 默认探测从后端的 IP 地址上的 *默认* SSL 绑定获取公钥，并将其收到的公钥值与用户在此处提供的公钥值进行比较。 
-   
+   > 
    > 如果正在后端使用主机头和服务器名称指示 (SNI)，则检索到的公钥可能不是流量预期流向的站点。 如有疑问，请访问后端服务器上的 https://127.0.0.1/，确认用于默认 SSL 绑定的证书。 本部分使用该请求中的公钥。 如果对 HTTPS 绑定使用主机头和 SNI，但未从后端服务器的 https://127.0.0.1/ 手动浏览器请求收到响应和证书，则必须在其上设置默认 SSL 绑定。 如果不这样做，探测会失败，后端不会列入允许名单。
 
    ```powershell
@@ -208,10 +208,10 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
 
       以下值是可以定义的协议版本的列表：
 
-      - **TLSV1_0**
-      - **TLSV1_1**
-      - **TLSV1_2**
-      
+    - **TLSV1_0**
+    - **TLSV1_1**
+    - **TLSV1_2**
+
       以下示例将最低协议版本设置为 TLSv1_2 并仅启用 TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256、TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 和 TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256。
 
       ```powershell
@@ -240,10 +240,9 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
-
    ```
 
-   3. 最后，更新网关。 最后一步是耗时较长的任务。 完成后，应用程序网关上即已配置端到端 SSL。
+3. 最后，更新网关。 最后一步是耗时较长的任务。 完成后，应用程序网关上即已配置端到端 SSL。
 
    ```powershell
    $gw | Set-AzApplicationGateway

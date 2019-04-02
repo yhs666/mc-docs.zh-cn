@@ -17,12 +17,12 @@ ms.date: 11/07/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e28b21fb588b0dd91b71757b969894d5d01e193a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 335d2841968d9a43cf402351ae8ff32cc819f57c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652898"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626165"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>快速入门：向 Azure Active Directory v1.0 终结点注册应用
 
@@ -41,26 +41,26 @@ ms.locfileid: "52652898"
 ## <a name="register-a-new-application-using-the-azure-portal"></a>使用 Azure 门户注册新应用程序
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中，选择“Azure Active Directory”服务。
-1. 选择“应用注册”并选择“新建应用程序注册”。
+2. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
+3. 在左侧导航窗格中，选择“Azure Active Directory”服务。
+4. 选择“应用注册”并选择“新建应用程序注册”。
 
     ![注册新应用程序](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration.png)
 
-1. 出现“创建”页后，请输入应用程序的注册信息： 
+5. 出现“创建”页后，请输入应用程序的注册信息： 
 
-    - **名称：** 输入一个有意义的应用程序名称
-    - **应用程序类型：**
-      - 为安装在设备本地的[客户端应用程序](developer-glossary.md#client-application)选择“本机”。 此设置用于 OAuth 公共[本机客户端](developer-glossary.md#native-client)。
-      - 为安装在安全服务器上的[客户端应用程序](developer-glossary.md#client-application)和[资源/API 应用程序](developer-glossary.md#resource-server)选择“Web 应用/API”。 此设置用于 OAuth 机密性 [Web 客户端](developer-glossary.md#web-client)和公共的[基于用户代理的客户端](developer-glossary.md#user-agent-based-client)。 相同的应用程序还可以公开客户端和资源/API。
-    - **登录 URL：** 对于“Web 应用/API”应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。 
-    - **重定向 URI：** 对于“本机”应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
+   - **名称：** 输入有意义的应用程序名称
+   - **应用程序类型：**
+     - 为安装在设备本地的[客户端应用程序](developer-glossary.md#client-application)选择“本机”。 此设置用于 OAuth 公共[本机客户端](developer-glossary.md#native-client)。
+     - 为安装在安全服务器上的[客户端应用程序](developer-glossary.md#client-application)和[资源/API 应用程序](developer-glossary.md#resource-server)选择“Web 应用/API”。 此设置用于 OAuth 机密性 [Web 客户端](developer-glossary.md#web-client)和公共的[基于用户代理的客户端](developer-glossary.md#user-agent-based-client)。 相同的应用程序还可以公开客户端和资源/API。
+   - **登录 URL：** 对于“Web 应用 / API”应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。 
+   - **重定向 URI：** 对于“本机”应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
 
-      ![注册新应用程序 - 创建](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
+     ![注册新应用程序 - 创建](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-    如需 Web 应用程序或本机应用程序的特定示例，请查看文档中的“快速入门”。
+     如需 Web 应用程序或本机应用程序的特定示例，请查看文档中的“快速入门”。
 
-1. 完成后，选择“创建”。
+6. 完成后，选择“创建”。
 
     Azure AD 会将唯一的应用程序 ID 分配给应用程序，同时你会转到应用程序的注册主页。 根据应用程序是 Web 应用程序还是本机应用程序，会提供不同的选项用于将更多功能添加到应用程序。
 

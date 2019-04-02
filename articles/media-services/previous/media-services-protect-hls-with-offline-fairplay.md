@@ -7,21 +7,20 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/01/2017
-ms.date: 12/24/2018
-ms.author: willzhan, dwgeo
-ms.openlocfilehash: 82c5c1bb0617e14c11b29df4e96abe1862f05970
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 876d55162e40498b2dd4d7945eef645af4500a63
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656595"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625525"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
 Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：
@@ -46,7 +45,7 @@ Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](http
 * 熟悉 FairPlay 的联机内容保护。 有关详细信息，请参阅以下文章和示例：
 
     - [Azure 媒体服务的 Apple FairPlay Streaming 正式发布](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-- [使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容](media-services-protect-hls-with-fairplay.md)
+* [使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容](media-services-protect-hls-with-fairplay.md)
     - [联机 FPS 流式处理的示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
 
 * 从 Apple Developer Network 获取 FPS SDK。 FPS SDK 包含两个组件：
@@ -211,7 +210,7 @@ func requestApplicationCertificate() throws -> Data {
 示例 boot.xml 文件：
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<HLSMoviePackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
+<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
   <Version>1.0</Version>
   <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
   <Streams>

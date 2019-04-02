@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/05/2019
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 7f11e65726cbb0e48877dc6ad16f74b648cdc9ee
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 423575b96fbb0a11609f54678b1390f0b12e2e4f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348562"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625280"
 ---
 # <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建标准负载均衡器
 
@@ -226,7 +226,7 @@ $nsg = New-AzNetworkSecurityGroup `
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'ChinaEast' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -236,7 +236,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'ChinaEast' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -277,17 +277,16 @@ for ($i=1; $i -le 2; $i++)
 
 1. 获取负载均衡器的公用 IP 地址。 使用 `Get-AzPublicIPAddress`，获取负载均衡器的公用 IP 地址。
 
-  ```powershell
+   ```powershell
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. 使用在上一步骤中获取的公用 IP 地址创建到 VM1 的远程桌面连接。 
 
-  ```powershell
+   ```powershell
 
       mstsc /v:PublicIpAddress:4221  
-  
    ```
 
 3. 输入 *VM1* 的凭据来启动 RDP 会话。
@@ -296,10 +295,10 @@ for ($i=1; $i -le 2; $i++)
     ```powershell
     # Install IIS
       Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
+
     # Remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
+
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host" + $env:computername)
     ```

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: 683a3bce798db43d484ecf11bf14f129b17336fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b352e8cf1e992a73fb8ea014b4cf7b7489c2f71a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666601"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626682"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型以及如何将其打包？
 云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 ServicePackage.cspkg 和 ServiceConfig.cscfg 两者创建云服务。
@@ -228,15 +228,15 @@ Azure 仅允许 Web 角色有一个入口点。 即所有通信都通过一个 I
 CSPack 位于  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
->[!NOTE]
-CSPack.exe（在 Windows 中）可通过运行随 SDK 一起安装的“Azure 命令提示符”快捷方式使用。  
->  
+> [!NOTE]
+> CSPack.exe（在 Windows 中）可通过运行随 SDK 一起安装的“Azure 命令提示符”快捷方式使用。  
+> 
 > 运行 CSPack.exe 程序本身来查看有关所有可能的开关和命令的文档。
 
 <p />
 
->[!TIP]
-在 Azure 计算模拟器中本地运行云服务时，使用“/copyonly”选项。此选项将应用程序的二进制文件复制到目录布局，以便在计算模拟器中运行。
+> [!TIP]
+> 在 Azure 计算模拟器中本地运行云服务时，使用“/copyonly”选项。此选项将应用程序的二进制文件复制到目录布局，以便在计算模拟器中运行。
 
 ### <a name="example-command-to-package-a-cloud-service"></a>打包云服务的示例命令
 以下示例创建包含 Web 角色信息的应用程序包。 该命令指定待使用的服务定义文件、可以找到二进制文件的目录以及包文件名称。

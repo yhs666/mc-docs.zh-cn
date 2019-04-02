@@ -15,14 +15,14 @@ ms.topic: hero-article
 origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 62e43077d72a620d1c9e58bbe4828e5a2408ddeb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d67c6fd9dbcabbb0e7788e6161d8ce445bce7542
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625918"
 ---
-#<a name="create-an-android-app"></a>创建 Android 应用
+# <a name="create-an-android-app"></a>创建 Android 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 

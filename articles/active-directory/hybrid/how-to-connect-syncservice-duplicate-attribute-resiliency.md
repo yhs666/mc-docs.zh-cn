@@ -16,12 +16,12 @@ origin.date: 01/15/2018
 ms.date: 02/13/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 95bd9ee7b8e953309ea8d2cad42da43b9f19e882
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.openlocfilehash: a8ec963a6d4a602bff88edd4246a8b7a66c55274
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222695"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626276"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 **UserPrincipalName** 和 **ProxyAddress** 冲突所造成的不便。
@@ -144,9 +144,9 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 1. 具有特定属性配置的对象继续收到导出错误，而不是重复属性被隔离。  
    例如：
    
-    a. 新用户在 AD 中创建，其 UPN 为 **Joe@contoso.com**，ProxyAddress 为 **smtp:Joe@contoso.com**。
+    a. 新用户在 AD 中创建，其 UPN 为 <strong>Joe@contoso.com</strong>，ProxyAddress 为 <strong>smtp:Joe@contoso.com</strong>。
    
-    b. 此对象的属性与现有 Group 发生冲突，其中 ProxyAddress 为 **SMTP:Joe@contoso.com**。
+    b. 此对象的属性与现有 Group 发生冲突，其中 ProxyAddress 为 <strong>SMTP:Joe@contoso.com</strong>。
    
     c. 导出时，将引发“ProxyAddress 冲突”错误，而非隔离冲突属性。 此操作在每个后续的同步周期中重试，就如同在启用复原功能之前一样。
 2. 如果在本地创建两个具有相同 SMTP 地址的组，则其中一个组在首次尝试预配时会失败并返回标准的重复 **ProxyAddress** 错误。 但是，重复值会在下一个同步周期被适当隔离。
@@ -156,13 +156,13 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 1. UPN 冲突集中两个对象的详细错误消息是相同的。 这意味着，它们的 UPN 都已更改/隔离，此时，实际上只有其中一个对象的数据发生更改。
 2. UPN 冲突的详细错误消息对已更改/隔离其 UPN 的用户显示不正确的 displayName。 例如：
    
-    a. **用户 A** 首先使用 **UPN = User@contoso.com** 同步。
+    a. **用户 A** 首先使用 <strong>UPN = User@contoso.com</strong> 同步。
    
-    b. 然后，尝试使用 **UPN = User@contoso.com** 同步**用户 B**。
+    b. 然后，尝试使用 <strong>UPN = User@contoso.com</strong> 同步**用户 B**。
    
-    c. **用户 B** 的 UPN 已更改为 **User1234@contoso.partner.onmschina.cn**，**User@contoso.com** 已添加到 **DirSyncProvisioningErrors**。
+    c. **用户 B** 的 UPN 已更改为 <strong>User1234@contoso.partner.onmschina.cn</strong>，<strong>User@contoso.com</strong> 已添加到 **DirSyncProvisioningErrors**。
    
-    d. **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 **User@contoso.com**，但却显示**用户 B** 自己的 displayName。
+    d. **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 <strong>User@contoso.com</strong>，但却显示**用户 B** 自己的 displayName。
 
 **标识同步错误报告**：
 

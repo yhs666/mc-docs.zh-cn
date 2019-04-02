@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 01/16/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4457c47e116b0fbf1a62908bcbae548199dd6272
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f0998ac803f3982fb9ef11106633d1b505dab660
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662749"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626216"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>针对 Azure IoT 中心设备管理，使用适用于 Azure CLI 的 IoT 扩展
 
@@ -64,7 +64,7 @@ ms.locfileid: "52662749"
 
 * Azure CLI。 如需进行安装，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。 Azure CLI 版本必须至少是 2.0.24 或更高版本。 请使用 `az –version` 验证版本。 
 
-- 安装 IoT 扩展。 最简单的方法是运行 `az extension add --name azure-cli-iot-ext`。 [IoT 扩展自述文件](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)介绍了该扩展的多种安装方法。
+* 安装 IoT 扩展。 最简单的方法是运行 `az extension add --name azure-cli-iot-ext`。 [IoT 扩展自述文件](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)介绍了该扩展的多种安装方法。
 
 
 ## <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户

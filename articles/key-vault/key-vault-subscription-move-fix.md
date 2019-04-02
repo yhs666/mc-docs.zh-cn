@@ -15,11 +15,11 @@ origin.date: 07/10/2018
 ms.date: 03/11/2019
 ms.author: v-biyu
 ms.openlocfilehash: eecf3cba70f6e89ef11f85734271750c9d834675
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903105"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625917"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>订阅移动后更改密钥保管库租户 ID
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 12/20/2017
 ms.date: 03/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0eeae542c99b2260f5c774bf9e279c766db0ee54
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: fa1d64d6f8a393856607d712c1ec1f8e5325a400
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254066"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627132"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions 的 Microsoft Graph 绑定
 
@@ -171,7 +171,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 该 JavaScript 代码使用此令牌向 Microsoft Graph 发出 HTTP 调用，并返回结果：
 
 ```js
-const rp = require('request-promise');
+const rp = require('request-promise');
 
 module.exports = function (context, req) {
     let token = "Bearer " + context.bindings.graphToken;
@@ -182,7 +182,7 @@ module.exports = function (context, req) {
             'Authorization': token
         }
     };
-    
+
     rp(options)
         .then(function(profile) {
             context.res = {
@@ -359,6 +359,7 @@ module.exports = function (context, req) {
 ### <a name="excel-input---usage"></a>Excel 输入 - 用法
 
 此绑定需要以下 Azure AD 权限：
+
 |资源|权限|
 |--------|--------|
 |Microsoft Graph|读取用户文件|
@@ -521,6 +522,7 @@ module.exports = function (context, req) {
 ### <a name="excel-output---usage"></a>Excel 输出 - 用法
 
 此绑定需要以下 Azure AD 权限：
+
 |资源|权限|
 |--------|--------|
 |Microsoft Graph|拥有对用户文件的完全访问权限|
@@ -663,6 +665,7 @@ module.exports = function (context, req) {
 ### <a name="file-input---usage"></a>文件输入 - 用法
 
 此绑定需要以下 Azure AD 权限：
+
 |资源|权限|
 |--------|--------|
 |Microsoft Graph|读取用户文件|
@@ -810,6 +813,7 @@ module.exports = function (context, req) {
 #### <a name="file-output---usage"></a>文件输出 - 用法
 
 此绑定需要以下 Azure AD 权限：
+
 |资源|权限|
 |--------|--------|
 |Microsoft Graph|拥有对用户文件的完全访问权限|
@@ -959,6 +963,7 @@ module.exports = function (context, req) {
 ### <a name="outlook-output---usage"></a>Outlook 输出 - 用法
 
 此绑定需要以下 Azure AD 权限：
+
 |资源|权限|
 |--------|--------|
 |Microsoft Graph|以用户身份发送邮件|
@@ -1365,7 +1370,7 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 该 JavaScript 代码注册一个 webhook，当调用者收到 Outlook 邮件时它将通知此函数应用：
 
 ```js
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = function (context, req) {
     context.bindings.clientState = uuidv4();

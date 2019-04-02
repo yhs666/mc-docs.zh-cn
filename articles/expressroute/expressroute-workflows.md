@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: adcf7cfce5000c74a1f393082634a56411c8d6aa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4e4cdab1a3bf6420a6cfd9ebb32d60028a4630a2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650887"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627693"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 线路预配工作流和线路状态
 本页从较高层面引导完成服务预配和路由配置工作流。 
@@ -34,11 +34,11 @@ ms.locfileid: "52650887"
 4. 配置路由域。 如果连接服务提供商管理第 3 层，他们将为你的线路配置路由。 如果连接服务提供商只提供第 2 层服务，必须根据[路由要求](./expressroute-routing.md)和[路由配置](./expressroute-howto-routing-classic.md)页中所述的每条指导原则来配置路由。
 
    * 启用 Azure 专用对等互连 - 启用此对等互连以连接到部署在虚拟网络中的 VM/云服务。
-    >[!IMPORTANT]
-    > 必须确保使用独立的代理/边缘，而不是用于 Internet 的 代理/边缘来连接 Microsoft。 对 ExpressRoute 和 Internet 使用相同的边缘会导致路由不对称，并造成网络连接中断。
-    > 
-    > 
-    ![](./media/expressroute-workflows/routing-workflow.png)
+     >[!IMPORTANT]
+     > 必须确保使用独立的代理/边缘，而不是用于 Internet 的 代理/边缘来连接 Microsoft。 对 ExpressRoute 和 Internet 使用相同的边缘会导致路由不对称，并造成网络连接中断。
+     > 
+     > 
+     ![](./media/expressroute-workflows/routing-workflow.png)
 
 5. 将虚拟网络链接到 ExpressRoute 线路 - 可以将虚拟网络链接到 ExpressRoute 线路。 请按照说明[将 VNet 链接](./expressroute-howto-linkvnet-arm.md)到你的线路。 这些 VNet 可以位于 ExpressRoute 线路所在的同一 Azure 订阅中，也可以位于不同的订阅中。
 

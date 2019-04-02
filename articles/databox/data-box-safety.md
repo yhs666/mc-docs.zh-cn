@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 09/24/2018
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 1ed8058429754853869caa285fbb68951be803fc
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: eb3cf36b09ac8e2ccb6921f9558ab28093dbaad3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666686"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626454"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>安全安装和运行 Azure Data Box
 ![警告图标](./media/data-box-safety/warning_icon.png)
@@ -143,7 +143,7 @@ Azure Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
 ![电池处置图标](./media/data-box-safety/battery_disposal_icon.png)
 
-本产品、其电池或包装上的此符号表示本产品包含的任何电池不可当作家庭垃圾进行处置。 你需要负责将此废弃物递送到适当的电池以及电力和电子设备回收点。 由于电池以及电力和电子设备中可能包含有害物质，这种独立的回收和循环利用有助于保护自然资源，并防止不当的处置可能对人类健康和环境造成的不利后果。 有关电池以及电力和电子废弃物投放点的详细信息，请联系当地的市政办公室、家庭垃圾处置服务部门，或销售本产品的商店。 联系 *erecycle@microsoft.com* 获取有关 WEEE 的更多信息。
+本产品、其电池或包装上的此符号表示本产品包含的任何电池不可当作家庭垃圾进行处置。 你需要负责将此废弃物递送到适当的电池以及电力和电子设备回收点。 由于电池以及电力和电子设备中可能包含有害物质，这种独立的回收和循环利用有助于保护自然资源，并防止不当的处置可能对人类健康和环境造成的不利后果。 有关电池以及电力和电子废弃物投放点的详细信息，请联系当地的市政办公室、家庭垃圾处置服务部门，或销售本产品的商店。 联系 <em>erecycle@microsoft.com</em> 获取有关 WEEE 的更多信息。
 
 本产品包含钮扣电池。
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/12/2016
 ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: bd79de1ad879b23ada8fa9d43d5b6edd4129e6ea
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6080bbe389cb2d68f33b95c1770c5d6663c9a87b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661152"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626447"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加推送通知
 
@@ -31,7 +31,7 @@ ms.locfileid: "52661152"
 
 如果不使用下载的快速入门服务器项目，则需要推送通知扩展包。 有关详细信息，请参阅 [使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 。
 
-##<a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 * 完成 [Xamarin.iOS 快速入门](./app-service-mobile-xamarin-ios-get-started.md)教程。
 
@@ -46,11 +46,11 @@ ms.locfileid: "52661152"
 ## <a name="update-the-server-project-to-send-push-notifications"></a>更新服务器项目以发送推送通知
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##<a name="configure-your-xamarinios-project"></a>配置 Xamarin.iOS 项目
+## <a name="configure-your-xamarinios-project"></a>配置 Xamarin.iOS 项目
 
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-##<a name="add-push-notifications-to-your-app"></a>向应用程序添加推送通知
+## <a name="add-push-notifications-to-your-app"></a>向应用程序添加推送通知
 
 1. 在 **QSTodoService** 中，添加以下属性使 **AppDelegate** 可以获取移动客户端：
 

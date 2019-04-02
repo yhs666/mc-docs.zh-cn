@@ -17,18 +17,18 @@ ms.topic: article
 origin.date: 04/30/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 326b45e2521154f7b1978db8049b79fe14d04b73
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b085e81ab2952b0f7f7f28b85bbfa352e5a06b92
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658376"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627290"
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>如何使用 VMAccess 扩展重置 Linux VM 密码或 SSH 密钥、修复 SSH 配置，以及检查磁盘一致性
 如果因为忘记密码、安全外壳 (SSH) 密钥不正确或 SSH 配置出现问题而不能连接到 Azure 上的 Linux 虚拟机，请使用 VMAccessForLinux 扩展通过 Azure CLI 重置密码或 SSH 密钥、修复 SSH 配置以及检查磁盘一致性。 
 
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)。
 
 借助 Azure CLI，可以从命令行接口（Bash、终端、命令提示符）使用 **azure vm extension set** 命令来访问各种命令。 运行 **azure help vm extension set** 可了解扩展的详细用法。
 
@@ -56,7 +56,7 @@ ms.locfileid: "52658376"
 
 <a name="pwresetcli"></a>
 ## <a name="reset-the-password"></a>重置密码
-1. 使用以下代码行在本地计算机上创建名为 PrivateConf.json 的文件。 将 **myUserName** 和 **myP@ssW0rd** 替换为自己的用户名和密码，并设置自己的到期日期。
+1. 使用以下代码行在本地计算机上创建名为 PrivateConf.json 的文件。 将 **myUserName** 和 <strong>myP@ssW0rd</strong> 替换为自己的用户名和密码，并设置自己的到期日期。
 
     ```   
         {
@@ -88,7 +88,7 @@ ms.locfileid: "52658376"
 
 <a name="resetbothcli"></a>
 ## <a name="reset-both-the-password-and-the-ssh-key"></a>重置密码和 SSH 密钥
-1. 使用以下内容创建名为 PrivateConf.json 的文件。 将 **myUserName**、**mySSHKey** 和 **myP@ssW0rd** 值替换为自己的信息。
+1. 使用以下内容创建名为 PrivateConf.json 的文件。 将 **myUserName**、**mySSHKey** 和 <strong>myP@ssW0rd</strong> 值替换为自己的信息。
 
     ``` 
         {

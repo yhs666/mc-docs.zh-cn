@@ -36,8 +36,7 @@ ms.author: v-junlch
             </div>
         </div>
         </a>
-    </li>   
-   <li>
+    </li><br/>   <li>
         <a href="/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
             <div class="cardPadding">

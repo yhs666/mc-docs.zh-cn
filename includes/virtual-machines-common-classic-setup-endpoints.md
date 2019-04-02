@@ -9,12 +9,12 @@ origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4f9d489b6693c6c4ddc2c6abe08fcc2b5ca05a58
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 2eb18da14815f4e49bb2db0f82ba6eb6891f44e7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675842"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632949"
 ---
 每个终结点都有一个公用端口和一个专用端口：
 
@@ -38,7 +38,7 @@ ms.locfileid: "52675842"
 3. 在“设置”组中选择“终结点”。 此时会显示“终结点”页，其中列出了虚拟机的所有当前终结点。 （本示例适用于 Windows VM。 Linux VM 将默认显示 SSH 终结点。）
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![终结点](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 4. 在终结点条目上方的命令栏中，选择“添加”。 此时会显示“添加终结点”页。
 
@@ -76,7 +76,7 @@ ms.locfileid: "52675842"
 
 4. 使用列表中的行为 ACL 添加、删除或编辑规则，并更改其顺序。 “远程子网”值是从 Internet 传入流量的 IP 地址范围，Azure 负载均衡器将使用该值根据流量的源 IP 地址允许或拒绝传入流量。 请务必以无类域间路由 (CIDR) 格式（也称为地址前缀格式）指定 IP 地址范围。 例如，`10.1.0.0/8`。
 
- ![新的 ACL 条目](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![新的 ACL 条目](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 可以使用规则只允许来自与 Internet 上计算机对应的特定计算机的流量，或拒绝来自特定已知地址范围的流量。
 

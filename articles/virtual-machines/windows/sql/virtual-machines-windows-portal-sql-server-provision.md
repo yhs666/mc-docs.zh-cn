@@ -16,12 +16,12 @@ origin.date: 05/04/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 1e0865c8bc373be32a06d5fc73cd24a65b6297bb
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 6ecb8acc08910216607e3c5cd69b65d6621e7ce9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666178"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627699"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -42,11 +42,11 @@ ms.locfileid: "56666178"
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在 Azure 门户中，单击“创建资源”。 该门户会打开“新建”窗口。
-    
+
     <!--MOONCAKE CUSTOMZIE: Virtual Machines-->
-    
+
 1. 在“新建”窗口中，单击“虚拟机”，然后单击“全部查看”。
-    
+
    ![“新建计算”窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 1. 在搜索字段中，键入“SQL Server 2017”，然后按 Enter。
@@ -58,7 +58,7 @@ ms.locfileid: "56666178"
    ![Azure 虚拟机窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
     <!--MOONCAKE CUSTOMZIE: Virtual Machines-->
-    
+
 1. 查看可用的 SQL Server 映像。 每个映像均可标识 SQL Server 版本和操作系统。
 
 1. 选择名为“免费 SQL Server 许可证：Windows Server 2016 上的 SQL Server 2017 Developer”的映像。
@@ -252,12 +252,13 @@ ms.locfileid: "56666178"
 
 下表列出了配置 Azure 密钥保管库集成所需的参数。
 
-| 参数 | 说明 | 示例 |
-| --- | --- | --- |
-| **密钥保管库 URL** |密钥保管库的位置。 |https://contosokeyvault.vault.azure.cn/ |
-| **主体名称** |Azure Active Directory 服务主体名称。 该名称也称为客户端 ID。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **主体密码** |Azure Active Directory 服务主体密码。 该密码也称为客户端密码。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **凭据名称** |**凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |mycred1 |
+
+|      参数       |                                                                           说明                                                                            |                   示例                    |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  **密钥保管库 URL**   |                                                                  密钥保管库的位置。                                                                  |   https://contosokeyvault.vault.azure.cn/    |
+|  **主体名称**  |                                  Azure Active Directory 服务主体名称。 该名称也称为客户端 ID。                                  |     fde2b411-33d5-4e11-af04eb07b669ccf2      |
+| **主体密码** |                              Azure Active Directory 服务主体密码。 该密码也称为客户端密码。                              | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **凭据名称**  | **凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |                   mycred1                    |
 
 有关详细信息，请参阅 [为 Azure VM 上的 SQL Server 配置 Azure 密钥保管库集成](virtual-machines-windows-ps-sql-keyvault.md)。
 

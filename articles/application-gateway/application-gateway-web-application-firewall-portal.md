@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 01/26/2018
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: fbc830726043164277caea93db445fb650fe8cdf
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: a84adefa3b45db9380205b3bdd0276db463941c3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788718"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627336"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关
 
@@ -46,20 +46,20 @@ ms.locfileid: "57788718"
 2. 选择“网络”，然后在“特色”列表中选择“应用程序网关”。
 3. 输入应用程序网关的以下值：
 
-    - *myAppGateway* - 应用程序网关的名称。
-    - *myResourceGroupAG* - 新资源组。
+   - *myAppGateway* - 应用程序网关的名称。
+   - *myResourceGroupAG* - 新资源组。
 
-    ![新建应用程序网关](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![新建应用程序网关](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. 接受其他设置的默认值，然后单击“确定”。
 5. 依次单击“选择虚拟网络”、“新建”，然后输入虚拟网络的以下值：
 
-    - *myVNet* - 虚拟网络的名称。
-    - *10.0.0.0/16* - 虚拟网络地址空间。
-    - *myAGSubnet* - 子网名称。
-    - *10.0.0.0/24* - 子网地址空间。
+   - *myVNet* - 虚拟网络的名称。
+   - *10.0.0.0/16* - 虚拟网络地址空间。
+   - *myAGSubnet* - 子网名称。
+   - *10.0.0.0/24* - 子网地址空间。
 
-    ![创建虚拟网络](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![创建虚拟网络](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. 单击“确定”创建虚拟网络和子网。
 7. 依次单击“选择公共 IP 地址”、“新建”，然后输入公共 IP 地址的名称。 在本示例中，公共 IP 地址名为 *myAGPublicIPAddress*。 接受其他设置的默认值，然后单击“确定”。

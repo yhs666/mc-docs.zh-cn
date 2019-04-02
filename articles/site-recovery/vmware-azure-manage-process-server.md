@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/05/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 507c67137f129ef134f5bfe026a74fe39df984c7
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: d25b3450886ed71b5658e509057a0b8864173031
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463653"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626077"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 
@@ -31,7 +31,7 @@ ms.locfileid: "57463653"
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  通常，使用 Azure 库映像在 Azure 中创建用于故障回复的进程服务器时，该进程服务器运行最新的可用版本。 Site Recovery 团队会定期发布修补程序和增强功能，因此我们建议你使进程服务器保持最新。
+>   通常，使用 Azure 库映像在 Azure 中创建用于故障回复的进程服务器时，该进程服务器运行最新的可用版本。 Site Recovery 团队会定期发布修补程序和增强功能，因此我们建议你使进程服务器保持最新。
 
 ## <a name="balance-the-load-on-process-server"></a>均衡进程服务器上的负载
 
@@ -98,7 +98,7 @@ ms.locfileid: "57463653"
     net stop obengine
     net start obengine
     ```
-2. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent**，并运行以下命令：
+3. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent**，并运行以下命令：
     ```
     cmd
     cdpcli.exe --registermt

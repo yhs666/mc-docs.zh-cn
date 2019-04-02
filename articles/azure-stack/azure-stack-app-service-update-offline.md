@@ -16,12 +16,12 @@ origin.date: 02/27/2019
 ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.openlocfilehash: e1db7a25f98cc56f34896de517682af967cd7531
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 2c832cc1c1e6978cf11b8ab502524f090842e709
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987945"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627084"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 
@@ -98,14 +98,14 @@ ms.locfileid: "57987945"
 7. 在下一页上执行以下操作：
 
    1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
-        * 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
-        * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，_cloudadmin@azurestack.local_。 输入密码，并单击“登录”。
+      * 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
+      * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，_cloudadmin@azurestack.local_。 输入密码，并单击“登录”。
    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
    3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
    4. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
    5. 按“下一步”查看升级摘要。
 
-    ![检测到应用服务安装][4]
+      ![检测到应用服务安装][4]
 
 8. 在摘要页上执行以下操作：
    1. 验证所做的选择。 若要进行更改，请使用“上一步”按钮访问前面的页面。

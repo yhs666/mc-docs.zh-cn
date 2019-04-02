@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 09/19/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ea73e67c98f046fb9526165ccf64fdbddf2be8df
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 601b3989f687d05b8160661ee327121a7732c6c5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675490"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626540"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -148,7 +148,7 @@ Logstash 用于将 JSON 格式的流日志平展到流元组级别。 平展流�
         }
     }
     ```
-提供的 Logstash 配置文件由三个部分组成：input、filter 和 output。 输入部分指定 Logstash 要处理的日志的输入源 - 在本例中，你将使用 Azure 博客输入插件（将在后续步骤中安装），允许我们访问 Blob 存储中存储的网络安全组流日志 JSON 文件。
+   提供的 Logstash 配置文件由三个部分组成：input、filter 和 output。 输入部分指定 Logstash 要处理的日志的输入源 - 在本例中，你将使用 Azure 博客输入插件（将在后续步骤中安装），允许我们访问 Blob 存储中存储的网络安全组流日志 JSON 文件。
 
 然后，filter 部分将平展每个流日志文件，以便使每个单独的流元组及其关联属性成为单独的 Logstash 事件。
 

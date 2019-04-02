@@ -9,12 +9,12 @@ ms.topic: get-started-article
 origin.date: 06/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 6ab38b59ff5b13d97e712f881a50a5b73659ed34
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 3e7c48fb74e71eab476a7d9ce39130dfe11d6ba5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987031"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625595"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -48,19 +48,21 @@ ms.locfileid: "56987031"
 
 通过用于 Batch 的 Azure Resource Manager API，可以编程方式访问批处理帐户。 可以使用这些 API 通过 Microsoft.Batch 提供程序以编程方式管理 Batch 帐户、配额、应用程序包和其他资源。  
 
-| API | API 参考 | 下载 | 教程 | 代码示例 |
-| --- | --- | --- | --- | --- |
-| **批次管理 REST** |[docs.microsoft.com][api_rest_mgmt] |不适用 |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [教程](batch-management-dotnet.md) |[GitHub][api_sample_net] |
-| **批次管理 Python** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
-| **批次管理 Node.js** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
-| **批次管理 Java** |- |[Maven][api_java_mgmt_jar] |- |- |
+
+|             API              |             API 参考             |           下载           |                教程                |                                 代码示例                                  |
+|------------------------------|---------------------------------------|------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
+|  **批次管理 REST**   |  [docs.microsoft.com][api_rest_mgmt]  |             不适用              |                   -                    | [GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+|  **Batch Management .NET**   |  [docs.microsoft.com][api_net_mgmt]   | [NuGet ][api_net_mgmt_nuget] | [教程](batch-management-dotnet.md) |                           [GitHub][api_sample_net]                            |
+| **批次管理 Python**  | [docs.microsoft.com][api_python_mgmt] | [PyPI][api_python_mgmt_pypi] |                   -                    |                                       -                                       |
+| **批次管理 Node.js** | [docs.microsoft.com][api_nodejs_mgmt] |  [npm][api_nodejs_mgmt_npm]  |                   -                    |                                       -                                       |
+|  **批次管理 Java**   |                   -                   |  [Maven][api_java_mgmt_jar]  |                   -                    |                                       -                                       |
+
 ## <a name="batch-command-line-tools"></a>批处理命令行工具
 
 这些命令行工具提供的功能与批处理服务和批处理管理 API 相同： 
 
 - [Batch PowerShell cmdlet][batch_ps]：[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 模块中的 Azure Batch cmdlet 可让用户使用 PowerShell 管理 Batch 资源。
-* [Azure CLI](/cli/azure)：Azure CLI 是一个跨平台工具集，提供用来与许多 Azure 服务（包括 Batch 服务和 Batch 管理服务）交互的 shell 命令。 请参阅[使用 Azure CLI 管理批处理资源](batch-cli-get-started.md)，详细了解如何将 Azure CLI 与批处理配合使用。
+- [Azure CLI](/cli/azure)：Azure CLI 是一个跨平台工具集，提供用来与许多 Azure 服务（包括 Batch 服务和 Batch 管理服务）交互的 shell 命令。 请参阅[使用 Azure CLI 管理批处理资源](batch-cli-get-started.md)，详细了解如何将 Azure CLI 与批处理配合使用。
 
 ## <a name="other-tools-for-application-development"></a>适合应用程序开发的其他工具
 

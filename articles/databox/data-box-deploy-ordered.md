@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 03/05/2019
 ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: d6fd9f6541f27d740239dd22c7ae162a062e0ddd
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5d9d97feb4f7f9f251659a46292cc1068e329e46
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990134"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626505"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教程：订购 Azure Data Box
 
@@ -55,25 +55,27 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 
 1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.com](https://portal.azure.cn)。
 2. 单击“+ 创建资源”并搜索 *Azure Data Box*。 单击“Azure Data Box”。
-    
+
    [![搜索“Azure Data Box 1”](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. 单击**创建**。
 
 4. 检查 Data Box 服务是否在你的区域可用。 输入或选择以下信息，然后单击“应用”。 
-    |设置  |值  |
-    |---------|---------|
-    |订阅     | 对于 Data Box 服务，选择一个 EA、CSP 或 Azure 赞助订阅。 <br> 该订阅将链接到计费帐户。       |
-    |传输类型     | 选择“导入到 Azure”。        |
-    |来源国家/地区     |   选择数据当前所在的国家/地区。         |
-    |目标 Azure 区域     |     选择要在其中传输数据的 Azure 区域。        |
+
+   |         设置          |                                                                值                                                                |
+   |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+   |       订阅       | 对于 Data Box 服务，选择一个 EA、CSP 或 Azure 赞助订阅。 <br> 该订阅将链接到计费帐户。 |
+   |      传输类型       |                                                     选择“导入到 Azure”。                                                     |
+   |      来源国家/地区      |                                        选择数据当前所在的国家/地区。                                        |
+   | 目标 Azure 区域 |                                      选择要在其中传输数据的 Azure 区域。                                       |
+
 
 5. 选择“Data Box”。 单次订购的最大可用容量为 786 TB。 可以创建多个订单，以增加数据大小。
 
       [![选择 Data Box 选项 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. 在“订单”中指定“订单详细信息”。 输入或选择以下信息，然后单击“下一步”。
-    
+
     |设置  |值  |
     |---------|---------|
     |Name     |  提供友好名称用于跟踪订单。 <br> 名称可以为 3 到 24 个字符，包括字母、数字和连字符。 <br> 名称必须以字母或数字开头和结尾。      |
@@ -130,7 +132,7 @@ Azure Data Box 是一个混合解决方案，可用于快速、方便、可靠�
 若要取消此订单，请在 Azure 门户中转到“概览”，然后在命令栏中单击“取消”。
 
 下单后，只要订单状态尚未标记为“已处理”，就可以随时取消订单。
- 
+
 若要删除已取消的订单，请转到“概况”，然后在命令栏中单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤

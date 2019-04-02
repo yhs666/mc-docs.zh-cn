@@ -10,12 +10,12 @@ ms.date: 03/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2a1c455d4fe3afcaf936303c74e1317a8140408a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: b2276fac3b1a6973df74835dee5be4bc54cdd92c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988032"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625950"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 C IoT Edge 模块并将其部署到模拟设备
 
@@ -121,7 +121,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 将代码添加到 C 模块，以便读取传感器中的数据、检查报告的计算机温度是否超出安全阈值，以及将该信息传递至 IoT 中心。 
 
-5. 在此场景中，来自传感器的数据采用 JSON 格式。 若要筛选 JSON 格式的消息，请导入用于 C 的 JSON 库。本教程使用 Parson。
+1. 在此场景中，来自传感器的数据采用 JSON 格式。 若要筛选 JSON 格式的消息，请导入用于 C 的 JSON 库。本教程使用 Parson。
 
    1. 下载 [Parson Github 存储库](https://github.com/kgabis/parson)。 将 **parson.c** 和 **parson.h** 文件复制到 **CModule** 文件夹中。
 
@@ -144,13 +144,13 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
       #include "parson.h"
       ```
 
-6. 在 **main.c** 文件中，在 include 节后面添加名为 `temperatureThreshold` 的全局变量。 此变量设置一个值，若要向 IoT 中心发送数据，测量的温度必须超出该值。 
+2. 在 **main.c** 文件中，在 include 节后面添加名为 `temperatureThreshold` 的全局变量。 此变量设置一个值，若要向 IoT 中心发送数据，测量的温度必须超出该值。 
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. 将整个 `CreateMessageInstance` 函数替换为以下代码。 此函数分配适用于回调的上下文。 
+3. 将整个 `CreateMessageInstance` 函数替换为以下代码。 此函数分配适用于回调的上下文。 
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -184,7 +184,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     }
     ```
 
-8. 将整个 `InputQueue1Callback` 函数替换为以下代码。 此函数实现实际的消息传送筛选器。 
+4. 将整个 `InputQueue1Callback` 函数替换为以下代码。 此函数实现实际的消息传送筛选器。 
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -246,7 +246,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     }
     ```
 
-9. 添加 `moduleTwinCallback` 函数。 此方法从孪生模块接收所需属性的更新，然后更新 **temperatureThreshold** 变量，使之匹配。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
+5. 添加 `moduleTwinCallback` 函数。 此方法从孪生模块接收所需属性的更新，然后更新 **temperatureThreshold** 变量，使之匹配。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
 
     ```c
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
@@ -264,35 +264,35 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     }
     ```
 
-10. 将 `SetupCallbacksForModule` 函数替换为以下代码。 
+6. 将 `SetupCallbacksForModule` 函数替换为以下代码。 
 
-    ```c
-    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
-    {
-        int ret;
+   ```c
+   static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
+   {
+       int ret;
 
-        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else
-        {
-            ret = 0;
-        }
+       if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else
+       {
+           ret = 0;
+       }
 
-        return ret;
-    }
-    ```
+       return ret;
+   }
+   ```
 
-11. 保存 main.c 文件。
+7. 保存 main.c 文件。
 
-12. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **CModule**），并告知 IoT Edge 中心如何在它们之间路由消息。 Visual Studio Code 扩展会自动填充部署模板中所需的大部分信息，但确保解决方案的所有内容都是准确的： 
+8. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **CModule**），并告知 IoT Edge 中心如何在它们之间路由消息。 Visual Studio Code 扩展会自动填充部署模板中所需的大部分信息，但确保解决方案的所有内容都是准确的： 
 
    1. IoT Edge 的默认平台在 VS Code 状态栏中设置为 **amd64**，这意味着 **CModule** 设置为映像的 Linux amd64 版本。 在状态栏中将默认平台从 **amd64** 更改为 **arm32v7**（如果这就是 IoT Edge 设备的体系结构）。 
 
@@ -304,19 +304,19 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
    4. 如果想要了解有关部署清单的更多信息，请参阅[了解如何在 IoT Edge 中部署模块和建立路由](module-composition.md)。
 
-13. 将 CModule 模块孪生添加到部署清单。 在 `moduleContent` 节底部 `$edgeHub` 模块孪生后插入以下 JSON 内容：
+9. 将 CModule 模块孪生添加到部署清单。 在 `moduleContent` 节底部 `$edgeHub` 模块孪生后插入以下 JSON 内容：
 
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
+   ```json
+       "CModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
 
    ![将 CModule 孪生添加到部署模板](./media/tutorial-c-module/module-twin.png)
 
-14. 保存 **deployment.template.json** 文件。
+10. 保存 **deployment.template.json** 文件。
 
 ## <a name="build-and-push-your-solution"></a>生成并推送解决方案
 

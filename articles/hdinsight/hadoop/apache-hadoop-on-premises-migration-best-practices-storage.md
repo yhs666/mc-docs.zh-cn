@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/25/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: cb07b0421c664d08396b82df460fc5def8534b6e
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 013c92c57af1d70cba79058d778fd34b8d6ca091
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302955"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625435"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 存储最佳做法
 
@@ -170,6 +170,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 有关详细信息，请参阅以下文章：
 
 - [Azure 存储复制](../../storage/common/storage-redundancy.md)
+
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>将其他 Azure 存储帐户附加到该群集
 
 在 HDInsight 创建过程中，将选择 Azure 存储帐户或者 Azure Data Lake Storage 作为默认文件系统。 除了此默认存储帐户，在群集创建过程中或群集创建完成后，还可以从同一 Azure 订阅或不同 Azure 订阅添加其他存储帐户。

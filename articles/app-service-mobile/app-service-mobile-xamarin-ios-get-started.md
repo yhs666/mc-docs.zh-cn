@@ -15,24 +15,24 @@ ms.topic: hero-article
 origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: c439d7dec4926256d09ac99792764d7f671ef2c1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0e5b2ab2a53f8349d368110d6210f8603c94fafa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661169"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627080"
 ---
-#<a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
+# <a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##<a name="overview"></a>概述
+## <a name="overview"></a>概述
 
 本教程说明如何使用 Azure 移动应用后端向 Xamarin.iOS 移动应用添加基于云的后端服务。  将创建一个新的移动应用后端以及一个简单的 *待办事项列表* Xamarin.iOS 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关使用 Azure 应用服务中的移动应用功能的所有其他 Xamarin.iOS 教程。
 
-##<a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，需要满足以下先决条件：
 
@@ -82,7 +82,7 @@ ms.locfileid: "52661169"
 >
 >
 
-##<a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 * [向应用添加脱机同步](./app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [向应用添加身份验证](./app-service-mobile-xamarin-ios-get-started-users.md)

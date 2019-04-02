@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3de641a602155788e7a38041939bda39979b5fad
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 892039f793090b25f4960e946cf1956432ee59d9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363566"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625749"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保护已故障转移到主要区域的 Azure VM
 
@@ -39,7 +39,7 @@ ms.locfileid: "54363566"
 2. 查看资源组、网络、存储和可用性集。 。 如果有任何资源标记为“新”，则表示它们是在重新保护过程中创建的。
 3. 重新保护作业使用最新数据植入目标站点。 完成该过程后，将发生增量复制。 然后，可以故障转移回到主要站点。 可以使用自定义选项，选择要在重新保护期间使用的存储帐户或网络。
 
-  ![自定义选项](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![自定义选项](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>自定义重新保护设置
 

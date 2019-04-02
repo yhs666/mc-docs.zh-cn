@@ -1,5 +1,5 @@
 ---
-title: 安装本地数据网关 - Azure 逻辑应用 | Microsoft 文档
+title: 安装本地数据网关 - Azure 逻辑应用
 description: 在从 Azure 逻辑应用访问本地数据之前，下载并安装本地数据网关
 services: logic-apps
 ms.service: logic-apps
@@ -9,13 +9,13 @@ ms.author: v-yiso
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 origin.date: 10/01/2018
-ms.date: 02/04/2019
-ms.openlocfilehash: ad5fe1be6c6679ea15d10e192eb9cbfbd65fe00e
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/08/2019
+ms.openlocfilehash: 738030c2583b2ac8266df1f2ffe6b9118ac9375e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906197"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627555"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -526,7 +526,7 @@ TcpTestSucceeded       : True
 
 ### <a name="trace-traffic-with-fiddler"></a>使用 Fiddler 跟踪流量
 
-[Fiddler](http://www.telerik.com/fiddler) 是 Telerik 提供的一种免费工具，可监视 HTTP 流量。 可在客户端计算机中查看 Power BI 服务发生的此流量。 此服务可能会显示错误和其他相关信息。
+[Fiddler](https://www.telerik.com/fiddler) 是 Telerik 提供的一种免费工具，可监视 HTTP 流量。 可在客户端计算机中查看 Power BI 服务发生的此流量。 此服务可能会显示错误和其他相关信息。
 
 ## <a name="next-steps"></a>后续步骤
     

@@ -8,12 +8,12 @@ ms.topic: overview
 origin.date: 01/02/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 511d3b7c53966b16673244f581ad67aad4206ef5
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: fe8a31d4b07bd039f765a2df96533e6ff8183c14
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988645"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627184"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 图形支持
@@ -154,42 +154,43 @@ GraphSON 为顶点使用的属性如下：
 ## <a name="gremlin-steps"></a>Gremlin 的步骤
 现在，让我们了解 Azure Cosmos DB 支持的 Gremlin 步骤。 有关 Gremlin 的完整参考信息，请参阅 [TinkerPop 参考](https://tinkerpop.apache.org/docs/current/reference)。
 
-| 步骤 | Description | TinkerPop 3.2 文档 |
-| --- | --- | --- |
-| `addE` | 在两个顶点之间添加边缘 | [addE 步骤](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | 将顶点添加到图形 | [addV 步骤](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | 确保所有遍历都返回值 | [and 步骤](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | 用于向步骤的输出分配变量的步骤调制器 | [as 步骤](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | 与 `group` 和 `order` 配合使用的步骤调制器 | [by 步骤](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | 返回第一个返回结果的遍历 | [coalesce 步骤](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | 返回常量值。 与 `coalesce` 配合使用| [constant 步骤](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | 从遍历返回计数 | [count 步骤](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | 返回已删除重复内容的值 | [dedup 步骤](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | 丢弃值（顶点/边缘） | [drop 步骤](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | 充当用于计算结果聚合值的屏障| [fold 步骤](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | 根据指定的标签将值分组| [group 步骤](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | 用于筛选属性、顶点和边缘。 支持 `hasLabel`、`hasId`、`hasNot` 和 `has` 变体。 | [has 步骤](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | 将值注入流中| [inject 步骤](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | 用于通过布尔表达式执行筛选器 | [is 步骤](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | 用于限制遍历中的项数| [limit 步骤](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | 本地包装遍历的某个部分，类似于子查询 | [local 步骤](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | 用于生成筛选器的求反结果 | [not 步骤](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | 如果生成了某个结果，则返回指定遍历的结果，否则返回调用元素 | [optional 步骤](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | 确保至少有一个遍历会返回值 | [or 步骤](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | 按指定的排序顺序返回结果 | [order 步骤](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | 返回遍历的完整路径 | [path 步骤](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | 将属性投影为映射 | [project 步骤](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | 返回指定标签的属性 | [properties 步骤](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | 根据指定的值范围进行筛选| [range 步骤](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | 将步骤重复指定的次数。 用于循环 | [repeat 步骤](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | 用于对遍历返回的结果采样 | [sample 步骤](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | 用于投影遍历返回的结果 |  [select 步骤](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | 用于遍历返回的非阻塞聚合 | [store 步骤](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | 将顶点中的路径聚合到树中 | [tree 步骤](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | 将迭代器作为步骤展开| [unfold 步骤](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | 合并多个遍历返回的结果| [union 步骤](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | 包括顶点与边缘之间的遍历所需的步骤：`V`、`E`、`out`、`in`、`both`、`outE`、`inE`、`bothE`、`outV`、`inV`、`bothV` 和 `otherV` | [vertex 步骤](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | 用于筛选遍历返回的结果。 支持 `eq`、`neq`、`lt`、`lte`、`gt`、`gte` 和 `between` 运算符  | [where 步骤](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
+
+|     步骤     |                                                                              Description                                                                               |                               TinkerPop 3.2 文档                               |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+|    `addE`    |                                                                   在两个顶点之间添加边缘                                                                    |     [addE 步骤](https://tinkerpop.apache.org/docs/current/reference/#addedge-step)      |
+|    `addV`    |                                                                       将顶点添加到图形                                                                       |    [addV 步骤](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step)     |
+|    `and`     |                                                             确保所有遍历都返回值                                                             |        [and 步骤](https://tinkerpop.apache.org/docs/current/reference/#and-step)        |
+|     `as`     |                                                     用于向步骤的输出分配变量的步骤调制器                                                      |         [as 步骤](https://tinkerpop.apache.org/docs/current/reference/#as-step)         |
+|     `by`     |                                                             与 `group` 和 `order` 配合使用的步骤调制器                                                             |         [by 步骤](https://tinkerpop.apache.org/docs/current/reference/#by-step)         |
+|  `coalesce`  |                                                           返回第一个返回结果的遍历                                                            |   [coalesce 步骤](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step)   |
+|  `constant`  |                                                             返回常量值。 与 `coalesce` 配合使用                                                             |   [constant 步骤](https://tinkerpop.apache.org/docs/current/reference/#constant-step)   |
+|   `count`    |                                                                  从遍历返回计数                                                                  |      [count 步骤](https://tinkerpop.apache.org/docs/current/reference/#count-step)      |
+|   `dedup`    |                                                             返回已删除重复内容的值                                                             |      [dedup 步骤](https://tinkerpop.apache.org/docs/current/reference/#dedup-step)      |
+|    `drop`    |                                                                     丢弃值（顶点/边缘）                                                                     |       [drop 步骤](https://tinkerpop.apache.org/docs/current/reference/#drop-step)       |
+|    `fold`    |                                                        充当用于计算结果聚合值的屏障                                                        |       [fold 步骤](https://tinkerpop.apache.org/docs/current/reference/#fold-step)       |
+|   `group`    |                                                            根据指定的标签将值分组                                                             |      [group 步骤](https://tinkerpop.apache.org/docs/current/reference/#group-step)      |
+|    `has`     |                              用于筛选属性、顶点和边缘。 支持 `hasLabel`、`hasId`、`hasNot` 和 `has` 变体。                               |        [has 步骤](https://tinkerpop.apache.org/docs/current/reference/#has-step)        |
+|   `inject`   |                                                                      将值注入流中                                                                       |     [inject 步骤](https://tinkerpop.apache.org/docs/current/reference/#inject-step)     |
+|     `is`     |                                                          用于通过布尔表达式执行筛选器                                                           |         [is 步骤](https://tinkerpop.apache.org/docs/current/reference/#is-step)         |
+|   `limit`    |                                                             用于限制遍历中的项数                                                             |      [limit 步骤](https://tinkerpop.apache.org/docs/current/reference/#limit-step)      |
+|   `local`    |                                                      本地包装遍历的某个部分，类似于子查询                                                       |      [local 步骤](https://tinkerpop.apache.org/docs/current/reference/#local-step)      |
+|    `not`     |                                                                用于生成筛选器的求反结果                                                                |        [not 步骤](https://tinkerpop.apache.org/docs/current/reference/#not-step)        |
+|  `optional`  |                                如果生成了某个结果，则返回指定遍历的结果，否则返回调用元素                                 |   [optional 步骤](https://tinkerpop.apache.org/docs/current/reference/#optional-step)   |
+|     `or`     |                                                         确保至少有一个遍历会返回值                                                         |         [or 步骤](https://tinkerpop.apache.org/docs/current/reference/#or-step)         |
+|   `order`    |                                                              按指定的排序顺序返回结果                                                               |      [order 步骤](https://tinkerpop.apache.org/docs/current/reference/#order-step)      |
+|    `path`    |                                                                 返回遍历的完整路径                                                                 |       [path 步骤](https://tinkerpop.apache.org/docs/current/reference/#path-step)       |
+|  `project`   |                                                                    将属性投影为映射                                                                    |    [project 步骤](https://tinkerpop.apache.org/docs/current/reference/#project-step)    |
+| `properties` |                                                            返回指定标签的属性                                                             | [properties 步骤](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+|   `range`    |                                                                根据指定的值范围进行筛选                                                                |      [range 步骤](https://tinkerpop.apache.org/docs/current/reference/#range-step)      |
+|   `repeat`   |                                                  将步骤重复指定的次数。 用于循环                                                  |     [repeat 步骤](https://tinkerpop.apache.org/docs/current/reference/#repeat-step)     |
+|   `sample`   |                                                               用于对遍历返回的结果采样                                                                |     [sample 步骤](https://tinkerpop.apache.org/docs/current/reference/#sample-step)     |
+|   `select`   |                                                               用于投影遍历返回的结果                                                               |     [select 步骤](https://tinkerpop.apache.org/docs/current/reference/#select-step)     |
+|   `store`    |                                                          用于遍历返回的非阻塞聚合                                                           |      [store 步骤](https://tinkerpop.apache.org/docs/current/reference/#store-step)      |
+|    `tree`    |                                                               将顶点中的路径聚合到树中                                                                |       [tree 步骤](https://tinkerpop.apache.org/docs/current/reference/#tree-step)       |
+|   `unfold`   |                                                                      将迭代器作为步骤展开                                                                      |     [unfold 步骤](https://tinkerpop.apache.org/docs/current/reference/#unfold-step)     |
+|   `union`    |                                                                 合并多个遍历返回的结果                                                                 |      [union 步骤](https://tinkerpop.apache.org/docs/current/reference/#union-step)      |
+|     `V`      | 包括顶点与边缘之间的遍历所需的步骤：`V`、`E`、`out`、`in`、`both`、`outE`、`inE`、`bothE`、`outV`、`inV`、`bothV` 和 `otherV` |    [vertex 步骤](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps)    |
+|   `where`    |                           用于筛选遍历返回的结果。 支持 `eq`、`neq`、`lt`、`lte`、`gt`、`gte` 和 `between` 运算符                           |      [where 步骤](https://tinkerpop.apache.org/docs/current/reference/#where-step)      |
 
 Azure Cosmos DB 提供的写入优化引擎默认支持自动对顶点和边缘中的所有属性编制索引。 因此，使用筛选器、范围查询、排序或聚合对任何属性执行的查询将从索引处理，并可有效完成。 有关 Azure Cosmos DB 中索引编制的工作原理的详细信息，请参阅有关[架构不可知的索引编制](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)的文章。
 

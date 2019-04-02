@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 7163bc42e8191bc9cd653971982d3569fe333dd1
-ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
+ms.openlocfilehash: 650b8f21b3937ac39f52f923e6d46186825d0d54
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409411"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627169"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中委托应用管理员角色
 
@@ -37,8 +37,8 @@ ms.locfileid: "56409411"
 1. 使用符合租户中全局管理员角色条件的帐户登录 [Azure AD 租户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 拥有足够权限后，打开[“角色和管理员”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)。
 3. 打开以下角色之一，以查看它的成员分配：
-  - **应用管理员**
-  - **云应用管理员**
+   - **应用管理员**
+   - **云应用管理员**
 4. 在角色的“成员”页上，选择“添加成员”。
 5. 选择一个或多个要添加到角色的成员。 <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ ms.locfileid: "56409411"
 
 1. 使用符合租户中全局管理员角色条件的帐户登录 [Azure AD 租户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 拥有足够权限后，执行以下一个或两个设置：
-  - 在[租户的“用户设置”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，将“用户可以注册应用”设置为“否”。
-  - 在[企业应用的“用户设置”](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，将“用户可以自行同意应用访问公司数据”设置为“否”。
+   - 在[租户的“用户设置”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，将“用户可以注册应用”设置为“否”。
+   - 在[企业应用的“用户设置”](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，将“用户可以自行同意应用访问公司数据”设置为“否”。
 3. 然后，根据需要，将需要此权限的用户分配为“应用开发人员”角色的成员。
 
 注册应用后，用户自动添加为应用的第一个所有者。

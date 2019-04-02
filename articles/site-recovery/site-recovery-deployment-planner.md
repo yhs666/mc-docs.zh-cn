@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 57076b651f6ce5ac8a9975305020231acee7f6db
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 5b5fa8de3a2fb7ac38497f39da4f8b90caa87d6e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463598"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627491"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>关于用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -105,14 +105,14 @@ ms.locfileid: "57463598"
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>更新至最新版本的部署规划器
 如果部署规划器为旧版，请执行以下操作之一：
- * 如果最新版不包含分析修补程序且分析已在当前版本的 Planner 上进行，请继续该分析。
- * 如果最新版本不包含分析修补程序，则建议停止在当前版本上进行分析，使用新版本重新开始分析。
+* 如果最新版不包含分析修补程序且分析已在当前版本的 Planner 上进行，请继续该分析。
+* 如果最新版本不包含分析修补程序，则建议停止在当前版本上进行分析，使用新版本重新开始分析。
 
- >[!NOTE]
- >
- >注意开始使用新版本进行分析以后，请传递相同的输出目录路径，以便工具将配置文件数据追加到现有文件。 使用完整的分析数据集来生成报告。 如果传递不同的输出目录，则会创建新文件，生成报告时不能使用旧的分析数据。
- >
- >每个新的部署规划器版本都是 .zip 文件的累积更新。 不需要将最新文件复制到旧文件夹。 可以创建和使用新文件夹。
+  >[!NOTE]
+  >
+  >注意开始使用新版本进行分析以后，请传递相同的输出目录路径，以便工具将配置文件数据追加到现有文件。 使用完整的分析数据集来生成报告。 如果传递不同的输出目录，则会创建新文件，生成报告时不能使用旧的分析数据。
+  >
+  >每个新的部署规划器版本都是 .zip 文件的累积更新。 不需要将最新文件复制到旧文件夹。 可以创建和使用新文件夹。
 
 ## <a name="version-history"></a>版本历史记录
 最新的 Site Recovery 部署规划器工具版本为 2.3。

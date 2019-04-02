@@ -7,14 +7,13 @@ ms.author: v-lingwu
 manager: digimobile
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 10/15/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 09318171a9d8dc0c46029908a4ceb63891ea45c2
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.date: 12/06/2018
+ms.openlocfilehash: dac0c1062b93c4dad0d2767c47653fca3826b4d4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219567"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626400"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -28,7 +27,7 @@ ms.locfileid: "53219567"
 
 请确保在更新兼容性级别之前停止作业。 如果作业处于运行状态，则无法更新兼容性级别。 
 
-![门户中的兼容性级别](media\stream-analytics-compatibility-level/image1.png)
+![门户中的兼容性级别](media/stream-analytics-compatibility-level/image1.png)
 
 在更新兼容性级别时，T-SQL 编译器会使用与所选兼容性级别相对应的语法来验证作业。 
 
@@ -40,11 +39,11 @@ ms.locfileid: "53219567"
 
   * **以前的版本：** Azure 流分析使用 DataContractSerializer，因此消息内容包括 XML 标记。 例如：
 
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "温度":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "温度":64\}\u0001 
 
   * **当前版本：** 消息内容只包含流，没有其他的标记。 例如：
 
-   { "SensorId":"1", "温度":64} 
+    { "SensorId":"1", "温度":64} 
 
 * **字段名称保留区分大小写的做法**  
 
@@ -68,7 +67,7 @@ ms.locfileid: "53219567"
   * **当前版本：** 不再将包含日期/时间/时区信息的字符串值自动向上转换为日期/时间类型。 因此会保留时区信息。 
 
 ## <a name="next-steps"></a>后续步骤
-* [对 Azure 流分析输入进行故障排除](stream-analytics-troubleshoot-input.md)
+* [Azure 流分析输入的故障排除](stream-analytics-troubleshoot-input.md)
 <!-- Update_Description: update meta properties -->
 
 <!--ms.date: 06/18/2018-->

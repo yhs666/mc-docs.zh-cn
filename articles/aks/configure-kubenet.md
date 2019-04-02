@@ -9,12 +9,12 @@ origin.date: 01/31/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: cf2faf266d3589f5fa7b3cc87b58a11770e2a834
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 90a0978dc11c19e4ed9c48a81664d909b6a29bd4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903260"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627338"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中结合自己的 IP 地址范围使用 kubenet 网络
 
@@ -194,8 +194,7 @@ az network vnet subnet update \
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [aks-network-concepts]: concepts-network.md
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [az-network-vnet-create]: https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create

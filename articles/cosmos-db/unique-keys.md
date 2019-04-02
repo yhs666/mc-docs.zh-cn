@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/30/2018
 ms.date: 03/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 017ae823343d80be1a593906a1ba7fa0f1d41871
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: bc52749707880b5420c7f056feb5824fb2064f48
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988017"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625459"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键约束
 
@@ -27,14 +27,15 @@ ms.locfileid: "56988017"
 
 例如，容器可以包含具有以下值的项，其中每个项遵循唯一键约束。
 
-|CompanyID|名字|姓氏|电子邮件地址|
-|---|---|---|---|
-|Contoso|Gaby|Duperre|gaby@contoso.com |
-|Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
-|Fabrkam|   |Duperre|gaby@fabraikam.com|
-|Fabrkam|   |   |gaby@fabraikam.com|
+
+| CompanyID | 名字 | 姓氏 |   电子邮件地址    |
+|-----------|------------|-----------|--------------------|
+|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
+|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
+|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
+|  Fabrkam  |            |           | gaby@fabraikam.com |
 
 如果你尝试使用上表中列出的组合插入另一个项，则会收到错误。 该错误指示不符合唯一键约束。 返回消息中会显示“具有指定 ID 或名称的资源已存在”或“具有指定 ID、名称或唯一索引的资源已存在”。 
 

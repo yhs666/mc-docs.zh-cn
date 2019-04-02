@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 06/15/2018
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 5796d7dc8b5a38595d215e153921dabe86f28656
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 3c0c1294fa5c4df1d687a1d2d9c2485e289ae8db
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196638"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627685"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -33,7 +33,7 @@ ms.locfileid: "57196638"
 > * 查看诊断日志
 > * 查看 API 的指标 
 > * 针对 API 收到的未经授权的调用设置警报规则
-## <a name="prerequisites"></a>先决条件
+>   ## <a name="prerequisites"></a>先决条件
 
 + 了解 [Azure API 管理术语](api-management-terminology.md)。
 + 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
@@ -169,46 +169,47 @@ API 管理当前提供有关单个 API 请求的诊断日志（每小时进行�
 }  
 ```
 
-| 属性  | 类型 | 说明 |
-| ------------- | ------------- | ------------- |
-| isRequestSuccess | 布尔值 | 如果 HTTP 请求完成时，响应状态代码在 2xx 或 3xx 范围内，则为 true |
-| time | 日期时间 | 网关接收 HTTP 请求的时间戳 |
-| operationName | 字符串 | 常量值“'Microsoft.ApiManagement/GatewayLogs” |
-| category | 字符串 | 常量值“GatewayLogs” |
-| durationMs | integer | 从网关收到请求到响应全部发送出去经过的时间（毫秒） |
-| callerIpAddress | 字符串 | 直接网关调用方（可以是中介）的 IP 地址 |
-| correlationId | 字符串 | 由 API 管理分配的唯一 http 请求标识符 |
-| location | 字符串 | 处理请求的网关所在 Azure 区域的名称 |
-| httpStatusCodeCategory | 字符串 | Http 响应状态代码的类别：成功（301 或以下，或者 304 或 307）、未授权（401、403、429）、错误（400、500 到 600）、其他 |
-| ResourceId | 字符串 | API 管理资源 /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> 的 ID |
-| properties | object | 当前请求的属性 |
-| method | 字符串 | 传入请求的 HTTP 方法 |
-| url | 字符串 | 传入请求的 URL |
-| clientProtocol | 字符串 | 传入请求的 HTTP 协议版本 |
-| responseCode | integer | 发送到客户端的 HTTP 响应的状态代码 |
-| backendMethod | 字符串 | 发送到后端的请求的 HTTP 方法 |
-| backendUrl | 字符串 | 发送到后端的请求的 URL |
-| backendResponseCode | integer | 从后端收到的 HTTP 响应代码 |
-| backendProtocol | 字符串 | 发送到后端的请求的 HTTP 协议版本 | 
-| requestSize | integer | 在请求处理过程中从客户端接收的字节数 | 
-| responseSize | integer | 在请求处理过程中发送到客户端的字节数 | 
-| cache | 字符串 | 在请求处理过程中涉及的 API 管理缓存的状态（即命中、未命中、无） | 
-| cacheTime | integer | 花在整个 API 管理缓存 IO（连接、发送和接收字节）上的时间（毫秒） | 
-| backendTime | integer | 花在整个后端 IO（连接、发送和接收字节）上的时间（毫秒） | 
-| clientTime | integer | 花在整个客户端 IO（连接、发送和接收字节）上的时间（毫秒） | 
-| apiId | 字符串 | 当前请求的 API 实体标识符 | 
-| operationId | 字符串 | 当前请求的操作实体标识符 | 
-| productId | 字符串 | 当前请求的产品实体标识符 | 
-| userId | 字符串 | 当前请求的用户实体标识符 | 
-| apimSubscriptionId | 字符串 | 当前请求的订阅实体标识符 | 
-| backendId | 字符串 | 当前请求的后端实体标识符 | 
-| LastError | object | 上一个请求处理错误 | 
-| 已用时间 | integer | 从网关收到请求到发生错误经过的时间（毫秒） | 
-| source | 字符串 | 导致错误的策略或内部处理程序的名称 | 
-| scope | 字符串 | 导致错误的策略所在策略文档的范围 | 
-| section | 字符串 | 导致错误的策略所在策略文档的节 | 
-| 原因 | 字符串 | 错误原因 | 
-| message | 字符串 | 错误消息 | 
+
+|        属性        |   类型    |                                                                       说明                                                                        |
+|------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    isRequestSuccess    |  布尔值  |                                   如果 HTTP 请求完成时，响应状态代码在 2xx 或 3xx 范围内，则为 true                                   |
+|          time          | 日期时间 |                                                  网关接收 HTTP 请求的时间戳                                                  |
+|     operationName      |  字符串   |                                                   常量值“'Microsoft.ApiManagement/GatewayLogs”                                                   |
+|        category        |  字符串   |                                                               常量值“GatewayLogs”                                                               |
+|       durationMs       |  integer  |                          从网关收到请求到响应全部发送出去经过的时间（毫秒）                          |
+|    callerIpAddress     |  字符串   |                                             直接网关调用方（可以是中介）的 IP 地址                                              |
+|     correlationId      |  字符串   |                                                由 API 管理分配的唯一 http 请求标识符                                                 |
+|        location        |  字符串   |                                    处理请求的网关所在 Azure 区域的名称                                     |
+| httpStatusCodeCategory |  字符串   | Http 响应状态代码的类别：成功（301 或以下，或者 304 或 307）、未授权（401、403、429）、错误（400、500 到 600）、其他 |
+|       ResourceId       |  字符串   |    API 管理资源 /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> 的 ID     |
+|       properties       |  object   |                                                            当前请求的属性                                                             |
+|         method         |  字符串   |                                                           传入请求的 HTTP 方法                                                            |
+|          url           |  字符串   |                                                               传入请求的 URL                                                                |
+|     clientProtocol     |  字符串   |                                                      传入请求的 HTTP 协议版本                                                       |
+|      responseCode      |  integer  |                                                    发送到客户端的 HTTP 响应的状态代码                                                     |
+|     backendMethod      |  字符串   |                                                       发送到后端的请求的 HTTP 方法                                                       |
+|       backendUrl       |  字符串   |                                                           发送到后端的请求的 URL                                                           |
+|  backendResponseCode   |  integer  |                                                    从后端收到的 HTTP 响应代码                                                     |
+|    backendProtocol     |  字符串   |                                                  发送到后端的请求的 HTTP 协议版本                                                  |
+|      requestSize       |  integer  |                                             在请求处理过程中从客户端接收的字节数                                             |
+|      responseSize      |  integer  |                                                在请求处理过程中发送到客户端的字节数                                                |
+|         cache          |  字符串   |                                 在请求处理过程中涉及的 API 管理缓存的状态（即命中、未命中、无）                                 |
+|       cacheTime        |  integer  |                        花在整个 API 管理缓存 IO（连接、发送和接收字节）上的时间（毫秒）                        |
+|      backendTime       |  integer  |                               花在整个后端 IO（连接、发送和接收字节）上的时间（毫秒）                               |
+|       clientTime       |  integer  |                               花在整个客户端 IO（连接、发送和接收字节）上的时间（毫秒）                                |
+|         apiId          |  字符串   |                                                        当前请求的 API 实体标识符                                                         |
+|      operationId       |  字符串   |                                                     当前请求的操作实体标识符                                                      |
+|       productId        |  字符串   |                                                      当前请求的产品实体标识符                                                       |
+|         userId         |  字符串   |                                                        当前请求的用户实体标识符                                                        |
+|   apimSubscriptionId   |  字符串   |                                                    当前请求的订阅实体标识符                                                    |
+|       backendId        |  字符串   |                                                      当前请求的后端实体标识符                                                       |
+|       LastError        |  object   |                                                              上一个请求处理错误                                                               |
+|        已用时间         |  integer  |                               从网关收到请求到发生错误经过的时间（毫秒）                               |
+|         source         |  字符串   |                                            导致错误的策略或内部处理程序的名称                                            |
+|         scope          |  字符串   |                                         导致错误的策略所在策略文档的范围                                         |
+|        section         |  字符串   |                                        导致错误的策略所在策略文档的节                                        |
+|         原因         |  字符串   |                                                                       错误原因                                                                       |
+|        message         |  字符串   |                                                                      错误消息                                                                       |
 
 ## <a name="next-steps"></a>后续步骤
 

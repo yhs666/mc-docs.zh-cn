@@ -16,12 +16,12 @@ origin.date: 06/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 01/15/2018
-ms.openlocfilehash: 1bad67a9dfc64ee62d50f347a26cbd6600adba12
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 56010e4819e5e24234b65da1b384f63566352843
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660642"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626685"
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>使用 Java 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "52660642"
       <version>1.7.23</version>
     </dependency>
     ```
-    
+
     > [!NOTE]
     > 可以使用 [Maven 搜索][lnk-maven-service-search]检查是否有最新版本的 **iot-service-client**。
 
@@ -81,7 +81,7 @@ ms.locfileid: "52660642"
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
     import com.microsoft.azure.sdk.iot.service.Device;
     import com.microsoft.azure.sdk.iot.service.RegistryManager;
-   
+
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -90,9 +90,8 @@ ms.locfileid: "52660642"
     ```java
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
-   
     ```
-[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 8. 修改 **main** 方法的签名，包含如下所示的异常：
 
@@ -233,12 +232,12 @@ ms.locfileid: "52660642"
       return client;
     }
     ```
-   
+
    > [!NOTE]
    > 在创建开始运行后只读取发送到 IoT 中心的消息的接收方时，此方法使用筛选器。 此方法很适合测试环境，因为这样可以看到当前的消息集。 在生产环境中，代码应确保它能处理所有消息。有关详细信息，请参阅[如何处理 IoT 中心设备到云的消息][lnk-process-d2c-tutorial]教程。
    > 
    > 
-   
+
 9. 修改 **main** 方法的签名，包含如下所示的异常：
 
     ```java
@@ -260,12 +259,12 @@ ms.locfileid: "52660642"
       System.exit(1);
     }
     ```
-    
+
     > [!NOTE]
     > 此代码假设已在 F1（免费）层创建 IoT 中心。 免费 IoT 中心有“0”和“1”这两个分区。
     > 
     > 
-    
+
 11. 保存并关闭 App.java 文件。
 12. 若要使用 Maven 生成 **read-d2c-messages** 应用，请在 read-d2c-messages 文件夹中的命令提示符下执行以下命令：
 
@@ -322,7 +321,7 @@ ms.locfileid: "52660642"
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
-   
+
     本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 可以使用 MQTT、AMQP 或 HTTPS 协议与 IoT 中心通信。
 
 8. 在 **App** 类中添加以下嵌套的 **TelemetryDataPoint** 类，以指定设备要发送到 IoT 中心的遥测数据：
@@ -332,7 +331,7 @@ ms.locfileid: "52660642"
       public String deviceId;
       public double temperature;
       public double humidity;
-   
+
       public String serialize() {
         Gson gson = new Gson();
         return gson.toJson(this);
@@ -340,12 +339,12 @@ ms.locfileid: "52660642"
     }
     ```
 9. 在 **App** 类中添加以下嵌套的 **EventCallback** 类，以显示 IoT 中心在处理来自设备应用的消息时返回的确认状态。 处理消息时，此方法还会通知应用中的主线程：
-   
+
     ```java
     private static class EventCallback implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
-   
+
         if (context != null) {
           synchronized (context) {
             context.notify();
@@ -358,13 +357,13 @@ ms.locfileid: "52660642"
 
     ```java
     private static class MessageSender implements Runnable {
-    
+
       public void run()  {
         try {
           double minTemperature = 20;
           double minHumidity = 60;
           Random rand = new Random();
-    
+
           while (true) {
             double currentTemperature = minTemperature + rand.nextDouble() * 15;
             double currentHumidity = minHumidity + rand.nextDouble() * 20;
@@ -372,17 +371,17 @@ ms.locfileid: "52660642"
             telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.temperature = currentTemperature;
             telemetryDataPoint.humidity = currentHumidity;
-    
+
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
             msg.setProperty("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
             msg.setMessageId(java.util.UUID.randomUUID().toString()); 
             System.out.println("Sending: " + msgStr);
-    
+
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-    
+
             synchronized (lockobj) {
               lockobj.wait();
             }
@@ -394,7 +393,7 @@ ms.locfileid: "52660642"
       }
     }
     ```
-    
+
     IoT 中心确认前面的消息一秒后，此方法将发送新的设备到云消息。 该消息包含一个具有设备 ID 的 JSON 序列化对象和一个随机生成的编号，用于模拟温度传感器和湿度传感器。
 11. 将 **main** 方法替换为以下代码，该代码创建用于向 IoT 中心发送设备到云消息的线程：
 
@@ -402,12 +401,12 @@ ms.locfileid: "52660642"
     public static void main( String[] args ) throws IOException, URISyntaxException {
       client = new DeviceClient(connString, protocol);
       client.open();
-    
+
       MessageSender sender = new MessageSender();
-    
+
       ExecutorService executor = Executors.newFixedThreadPool(1);
       executor.execute(sender);
-    
+
       System.out.println("Press ENTER to exit.");
       System.in.read();
       executor.shutdownNow();
@@ -434,17 +433,17 @@ ms.locfileid: "52660642"
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-   
+
     ![用于监视设备到云的消息的 Java IoT 中心服务应用][7]
 2. 在 simulated-device 文件夹的命令提示符处，运行以下命令将遥测数据发送到 IoT 中心：
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
-   
+
     ![用于发送设备到云消息的 Java IoT 中心设备应用][8]
 3. [Azure 门户][lnk-portal]中的“使用情况”磁贴显示发送到 IoT 中心的消息数：
-   
+
     ![显示发送到 IoT 中心的消息数的 Azure 门户“使用情况”磁贴][43]
 
 ## <a name="next-steps"></a>后续步骤

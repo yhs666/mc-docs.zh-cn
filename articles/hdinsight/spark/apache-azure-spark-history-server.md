@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 09/14/2018
 ms.date: 01/14/2019
-ms.openlocfilehash: 19aeb7b1732dcd37a61665e98a377358be72b48a
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: cb0905bacfbfb6ba3ca7228f7f729f3a72592b83
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806634"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626765"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用扩展的 Apache Spark History Server 调试和诊断 Apache Spark 应用程序
 
@@ -107,11 +107,11 @@ Spark History Server Web UI 如下所示：
 
 + 单击“播放”按钮可播放作业，单击“停止”按钮可随时停止播放。 彩色任务视图，其中显示了播放时的不同状态：
 
-    + 绿色表示已成功：作业已成功完成。
-    + 橙色表示已重试：失败的任务实例，但不影响作业的最终结果。 这些任务具有稍后可能成功的重复实例或重试实例。
-    + 蓝色表示正在运行：任务正在运行。
-    + 白色表示正在等待或已跳过：任务正在等待运行，或已跳过执行阶段。
-    + 红色表示已失败：任务已失败。
+  + 绿色表示已成功：作业已成功完成。
+  + 橙色表示已重试：失败的任务实例，但不影响作业的最终结果。 这些任务具有稍后可能成功的重复实例或重试实例。
+  + 蓝色表示正在运行：任务正在运行。
+  + 白色表示正在等待或已跳过：任务正在等待运行，或已跳过执行阶段。
+  + 红色表示已失败：任务已失败。
 
     ![图形颜色示例：正在运行](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -133,20 +133,20 @@ Spark History Server Web UI 如下所示：
     ![图形 - 工具提示](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + 在作业图形选项卡中，如果阶段的任务满足以下条件，则会显示该阶段的工具提示和小图标：
-    + 数据倾斜：数据读取大小 > 此阶段所有任务的平均数据读取大小 * 2 且数据读取大小 > 10 MB
-    + 时间倾斜：执行时间 > 此阶段所有任务的平均执行时间 * 2 且执行时间 > 2 分钟
+  + 数据倾斜：数据读取大小 > 此阶段所有任务的平均数据读取大小 * 2 且数据读取大小 > 10 MB
+  + 时间倾斜：执行时间 > 此阶段所有任务的平均执行时间 * 2 且执行时间 > 2 分钟
 
     ![图形倾斜图标](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + 作业图形节点显示每个阶段的以下信息：
-    + ID。
-    + 名称或说明。
-    + 任务总数。
-    + 读取的数据：输入大小和随机读取大小之和。
-    + 写入的数据：输出大小和随机写入大小之和。
-    + 执行时间：第一次尝试的开始时间与最后一次尝试的完成时间的间隔时间。
-    + 行计数：输入记录数、输出记录数、随机读取记录数和随机写入记录数之和。
-    + 进度。
+  + ID。
+  + 名称或说明。
+  + 任务总数。
+  + 读取的数据：输入大小和随机读取大小之和。
+  + 写入的数据：输出大小和随机写入大小之和。
+  + 执行时间：第一次尝试的开始时间与最后一次尝试的完成时间的间隔时间。
+  + 行计数：输入记录数、输出记录数、随机读取记录数和随机写入记录数之和。
+  + 进度。
 
     > [!NOTE]
     > 默认情况下，作业图形节点显示每个阶段的最后一次尝试的信息（阶段执行时间除外），但在播放期间，图形节点显示每次尝试的信息。
@@ -313,10 +313,10 @@ Spark History Server Web UI 如下所示：
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + 选中“头节点”和“工作节点”。
-    + **参数**：按照 bash 用法设置参数。
+   + 选中“头节点”和“工作节点”。
+   + **参数**：按照 bash 用法设置参数。
 
-    ![上传日志或升级修补程序](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![上传日志或升级修补程序](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>已知问题

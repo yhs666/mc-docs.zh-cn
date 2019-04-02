@@ -9,12 +9,12 @@ ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 33f70389d9063424170a3917f15521700953b83c
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: b5738c5555353983fed39d1def3dc47646909c05
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440051"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626436"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 
@@ -60,7 +60,7 @@ ms.locfileid: "56440051"
 2. 在默认配置文件中，确保已将“缩放模式”设置为“缩放为具体实例数”。
 3. 将实例计数设置为 1。 此设置将确保在没有其他配置文件处于活动状态或有效状态时，默认配置文件将实例计数返回到 1。
 
-  ![导航到自动缩放设置](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![导航到自动缩放设置](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>创建重复配置文件

@@ -9,12 +9,12 @@ origin.date: 06/15/2018
 ms.date: ''
 ms.author: v-junlch
 ms.reviewer: minewiskan
-ms.openlocfilehash: 36d7c50674ba4c46275151ddd989090f74aac027
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 009c5b01037d9e6c4ed597145c81d6e059bbf934
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785179"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626659"
 ---
 <!--Notice: Verify successfully-->
 # <a name="setup-diagnostic-logging"></a>设置诊断日志记录
@@ -81,19 +81,20 @@ ms.locfileid: "53785179"
 
 2. 在“诊断设置”中，指定以下选项： 
 
-    * **Name**。 为要创建的日志输入名称。
+   * **Name**。 为要创建的日志输入名称。
 
-    * **存档到存储帐户**。 要使用此选项，需要一个可连接到的现有存储帐户。 请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md)。 按照说明创建一个资源管理器常规用途帐户，然后返回到门户中的此页面来选择存储帐户。 新创建的存储帐户可能几分钟后才会显示在下拉菜单中。
-    * **流式传输到事件中心**。 要使用此选项，需要一个可连接到的现有事件中心命名空间和事件中心。 若要了解详细信息，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 然后在门户中返回到此页，选择事件中心命名空间和策略名称。
-    <!--Not Available on * **Send to Log Analytics** -->
+   * **存档到存储帐户**。 要使用此选项，需要一个可连接到的现有存储帐户。 请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md)。 按照说明创建一个资源管理器常规用途帐户，然后返回到门户中的此页面来选择存储帐户。 新创建的存储帐户可能几分钟后才会显示在下拉菜单中。
+   * **流式传输到事件中心**。 要使用此选项，需要一个可连接到的现有事件中心命名空间和事件中心。 若要了解详细信息，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 然后在门户中返回到此页，选择事件中心命名空间和策略名称。
+     <!--Not Available on * **Send to Log Analytics** -->
 
-    * **引擎** 选择此选项以记录 Xevent。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
-    * **服务**。 选择此选项以记录服务级别事件。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
-    * **指标** 选择此选项可在[指标](analysis-services-monitor.md#server-metrics)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
+   * **引擎** 选择此选项以记录 Xevent。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
+   * **服务**。 选择此选项以记录服务级别事件。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
+   * **指标** 选择此选项可在[指标](analysis-services-monitor.md#server-metrics)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
 
 3. 单击“保存” 。
 
-    <!-- Not Available on [Troubleshoot Azure Diagnostics](/log-analytics/log-analytics-azure-storage)--> 若要在将来的任意时间点更改诊断日志的保存方式，可以返回此页修改设置。
+    <!-- Not Available on [Troubleshoot Azure Diagnostics](/log-analytics/log-analytics-azure-storage)-->
+    若要更改在将来的任意时间点保存诊断日志的方式，可以随时返回此页以修改设置。
 
 ### <a name="powershell"></a>PowerShell
 

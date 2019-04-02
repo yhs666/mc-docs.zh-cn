@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 20f59da5db270afe99e8ac2c1e7dd65bf3fea0d3
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 51985e68e013e14f10f4bd88e832ae8659e4c58b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363358"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627262"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>在 VMware VM 和物理服务器上手动安装移动服务
 
@@ -65,77 +65,81 @@ ms.locfileid: "54363358"
 
 1. 将安装程序复制到要保护的服务器上的某个本地文件夹（例如 C:\Temp）。 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. 按如下所示进行安装：
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. 将代理注册到配置服务器。
 
-  ```
-  cd C:\Program Files (x86)\Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>安装设置
-**设置** | **详细信息**
---- | ---
-使用情况 | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform "VmWare" /Silent
-安装日志 | 位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 下。
-/Role | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
-/InstallLocation| 可选参数。 指定移动服务的安装位置（任意文件夹）。
-/Platform | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 
-/Silent| 可选。 指定是否以静默模式运行安装程序。
+
+|   **设置**    |                                                                  **详细信息**                                                                   |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+|      使用情况       |                                                           UnifiedAgent.exe /Role <MS                                                           |
+|    安装日志    |                                         位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 下。                                         |
+|      /Role       |            必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。            |
+| /InstallLocation |                             可选参数。 指定移动服务的安装位置（任意文件夹）。                             |
+|    /Platform     | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 |
+|     /Silent      |                                        可选。 指定是否以静默模式运行安装程序。                                        |
 
 #### <a name="registration-settings"></a>注册设置
-**设置** | **详细信息**
---- | ---
-使用情况 | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-代理配置日志 | 位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log 下。
-/CSEndPoint | 必需的参数。 指定配置服务器的 IP 地址。 使用任何有效的 IP 地址。
-/PassphraseFilePath |  必需。 通行短语的位置。 使用任何有效的 UNC 或本地文件路径。
+
+|       **设置**        |                                             **详细信息**                                              |
+|--------------------------|------------------------------------------------------------------------------------------------------|
+|          使用情况           |      UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>       |
+| 代理配置日志 |                  位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log 下。                   |
+|       /CSEndPoint        | 必需的参数。 指定配置服务器的 IP 地址。 使用任何有效的 IP 地址。 |
+|   /PassphraseFilePath    |             必需。 通行短语的位置。 使用任何有效的 UNC 或本地文件路径。             |
 
 ### <a name="on-a-linux-machine"></a>在 Linux 计算机上
 
 1. 将安装程序复制到要保护的服务器上的某个本地文件夹（例如 /tmp）。 在终端中，运行以下命令：
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. 按如下所示进行安装：
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. 安装完成后，必须将移动服务注册到配置服务器。 运行以下命令，将移动服务注册到配置服务器：
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 #### <a name="installation-settings"></a>安装设置
-**设置** | **详细信息**
---- | ---
-使用情况 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
--r | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
--d | 可选参数。 指定移动服务的安装位置：/usr/local/ASR。
--v | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 
--q | 可选。 指定是否以静默模式运行安装程序。
+
+| **设置** |                                                                  **详细信息**                                                                   |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+|    使用情况    |                                                     ./install -d <Install Location> -r <MS                                                     |
+|     -r      |            必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。            |
+|     -d      |                           可选参数。 指定移动服务的安装位置：/usr/local/ASR。                            |
+|     -v      | 必需。 指定一个平台，以便在其上安装移动服务。 对于 VMware VM/物理服务器，请指定 **VMware**；对于 Azure VM，请指定 **Azure**。 |
+|     -q      |                                        可选。 指定是否以静默模式运行安装程序。                                        |
 
 #### <a name="registration-settings"></a>注册设置
-**设置** | **详细信息**
---- | ---
-使用情况 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
--i | 必需的参数。 指定配置服务器的 IP 地址。 使用任何有效的 IP 地址。
--p |  必需。 通行短语所保存到的文件的完整文件路径。 使用任何有效文件夹
+
+| **设置** |                                             **详细信息**                                              |
+|-------------|------------------------------------------------------------------------------------------------------|
+|    使用情况    |   cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>   |
+|     -i      | 必需的参数。 指定配置服务器的 IP 地址。 使用任何有效的 IP 地址。 |
+|     -p      |     必需。 通行短语所保存到的文件的完整文件路径。 使用任何有效文件夹     |
 
 ## <a name="next-steps"></a>后续步骤
 - [为 VMware VM 设置灾难恢复](vmware-azure-tutorial.md)

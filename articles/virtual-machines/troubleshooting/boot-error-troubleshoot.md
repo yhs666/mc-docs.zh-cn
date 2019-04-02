@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 12/12/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee2354f66526294f6d0b6947661bdf4c8cd5ae78
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 15ce13dbfecbbb4f248c1aaab3cfd4cef2eeadc2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736118"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626304"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>对 Azure 虚拟机启动错误进行故障排除
 
@@ -38,7 +38,7 @@ ms.locfileid: "53736118"
 ## <a name="next-steps"></a>后续步骤
 
 - [启动诊断](boot-diagnostics.md)
-<!-- Not Available on - [VM Serial Console](../windows/serial-console.md)-->
+  <!-- Not Available on - [VM Serial Console](../windows/serial-console.md)-->
 - [通过将 OS 磁盘附加到恢复 VM 对 Windows VM 进行故障排除](../windows/troubleshoot-recovery-disks.md)
 
 <!-- Update_Description: wording update, update link -->

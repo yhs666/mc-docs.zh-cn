@@ -7,12 +7,12 @@ origin.date: 04/20/2018
 ms.date: 03/18/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 6fc17800c331680b19e592cf590602c9c218438f
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 0f805de38b556eb4ed9c7e7b866e441b1e2867d0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004536"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627659"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -56,7 +56,7 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
 
 * 软件要求
   * Windows Server 2012 R2、Windows Server 2016 或 Windows 10
-*   最低硬件要求
+* 最低硬件要求
   * 2-GB RAM
   * 10-GB 可用硬盘空间
 

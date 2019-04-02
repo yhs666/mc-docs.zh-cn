@@ -8,20 +8,19 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 16847e7ab89608071760cadde310b5ef1e41a87f
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: edd73ba6e3def7828baddf0f0f6477f84d717a46
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141719"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627224"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>使用 REST API 将 Azure 资源的自定义指标发送到 Azure Monitor 指标存储
 
 本文展示了如何通过 REST API 将 Azure 资源的自定义指标发送到 Azure Monitor 指标存储。 在这些指标位于 Azure Monitor 中之后，你可以像对标准指标一样对其执行所有操作。 示例包括绘制图标、发出警报以及将其路由到其他外部工具。  
 
 >[!NOTE]  
->REST API 仅允许为 Azure 资源发送自定义指标。 若要为其他环境中或本地的资源发送自定义指标，可以使用 [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md)。    
-
+>REST API 仅允许为 Azure 资源发送自定义指标。 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>创建服务主体并授权其发布指标 
 
@@ -39,7 +38,7 @@ ms.locfileid: "54141719"
 打开一个命令提示符并运行以下命令：
 
 ```shell
-curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 保存响应中的访问令牌。
 
@@ -77,16 +76,16 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
     } 
     ``` 
 
-1. 在命令提示符窗口中，发布指标数据： 
-    - **azureRegion**。 必须与你要为其发布指标的资源的部署区域相匹配。 
-    - **resourceID**。  你要跟踪其指标的 Azure 资源的资源 ID。  
-    - **AccessToken**。 粘贴你之前获取的令牌。
+2. 在命令提示符窗口中，发布指标数据： 
+   - **azureRegion**。 必须与你要为其发布指标的资源的部署区域相匹配。 
+   - **resourceID**。  你要跟踪其指标的 Azure 资源的资源 ID。  
+   - **AccessToken**。 粘贴你之前获取的令牌。
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
-1. 更改 JSON 文件中的时间戳和值。 
-1. 多次重复前两个步骤，以便获得几分钟的数据。
+     ```Shell 
+     curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
+3. 更改 JSON 文件中的时间戳和值。 
+4. 多次重复前两个步骤，以便获得几分钟的数据。
 
 ## <a name="troubleshooting"></a>故障排除 
 如果在过程的某个部分中收到错误消息，请考虑使用以下故障排除信息：

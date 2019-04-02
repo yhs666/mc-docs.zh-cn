@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 05/21/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 00a81058b5d491e100d767cb2f547ea5e964aebc
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: e74fafb09c0b996edb6336348ccd47aa8811dbca
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348639"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627417"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 配合使用
 
@@ -407,26 +407,26 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     * HDInsight 版本 3.6 上的 Kafka（三个辅助角色节点）
     * HDInsight 版本 3.6 上的 Storm（三个辅助角色节点）
 
-  > [!WARNING]
-  > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含 3 个辅助节点。 此模板创建的 Kafka 群集包含三个辅助角色节点。
+   > [!WARNING]
+   > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含 3 个辅助节点。 此模板创建的 Kafka 群集包含三个辅助角色节点。
 
 2. 使用以下指南填充“自定义部署”部分中的条目：
 
-    2. 使用以下信息填充“自定义模板”部分的条目：
+   1. 使用以下信息填充“自定义模板”部分的条目：
 
-    | 设置 | 值 |
-    | --- | --- |
-    | 订阅 | Azure 订阅 |
-    | 资源组 | 包含资源的资源组。 |
-    | 位置 | 创建资源时所在的 Azure 区域。 |
-    | Kafka 群集名称 | Kafka 群集的名称。 |
-    | Storm 群集名称 | Storm 群集的名称。 |
-    | 群集登录用户名 | 群集的管理员用户名。 |
-    | 群集登录密码 | 群集的管理员用户密码。 |
-    | SSH 用户名 | 要为群集创建的 SSH 用户。 |
-    | SSH 密码 | 用于 SSH 用户的密码。 |
+      | 设置 | 值 |
+      | --- | --- |
+      | 订阅 | Azure 订阅 |
+      | 资源组 | 包含资源的资源组。 |
+      | 位置 | 创建资源时所在的 Azure 区域。 |
+      | Kafka 群集名称 | Kafka 群集的名称。 |
+      | Storm 群集名称 | Storm 群集的名称。 |
+      | 群集登录用户名 | 群集的管理员用户名。 |
+      | 群集登录密码 | 群集的管理员用户密码。 |
+      | SSH 用户名 | 要为群集创建的 SSH 用户。 |
+      | SSH 密码 | 用于 SSH 用户的密码。 |
    
-    ![模板参数图片](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![模板参数图片](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. 阅读“条款和条件”，并选择“我同意上述条款和条件”。
 
@@ -441,17 +441,17 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 2. 从 **hdinsight-storm-java-kafka** 目录，使用以下命令来编译该项目并创建用于部署的包：
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     包过程会在 `target` 目录中创建名为 `KafkaTopology-1.0-SNAPSHOT.jar` 的文件。
 
 3. 使用以下命令将该包复制到 Storm on HDInsight 群集。 将 `sshuser` 替换为群集的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称。
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.cn:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.cn:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     出现提示时，请输入在创建群集时使用的密码。
 
@@ -584,9 +584,9 @@ Kafka 将数据存储在主题中。 启动 Storm 拓扑之前，必须创建主
 
 1. 与 Storm 群集建立 SSH 会话后，使用以下命令启动读取器拓扑：
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. 稍等片刻，然后使用以下命令来查看读取器拓扑创建的文件：
 

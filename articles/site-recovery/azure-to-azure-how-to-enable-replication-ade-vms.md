@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 400e7f712ce72b74eccf481a6b6e1d1c05cd1c11
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 7e4b3abade2b26b51972bfdf640fe05ada3744be
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463561"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627785"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>将启用了 Azure 磁盘加密 (ADE) 的虚拟机复制到另一个 Azure 区域
 
@@ -116,12 +116,12 @@ Azure Site Recovery 要求用户拥有在目标区域创建密钥保管库以及
     - 在“可用性集”中，可将可用性集设置添加到 VM（如果它们是源区域中可用性集的一部分）。
     - 在“目标存储帐户”中，选择要使用的帐户。
 
-2. 单击“加密设置”旁边的“自定义:”来修改以下默认设置：
-    - 在“目标磁盘加密密钥保管库”中，从订阅的目标位置中的所有密钥保管库的列表中选择目标磁盘加密密钥保管库。
-  - 在“目标密钥加密密钥保管库”中，从订阅的目标位置中的所有密钥保管库的列表中选择目标密钥加密密钥保管库。
+3. 单击“加密设置”旁边的“自定义:”来修改以下默认设置：
+   - 在“目标磁盘加密密钥保管库”中，从订阅的目标位置中的所有密钥保管库的列表中选择目标磁盘加密密钥保管库。
+     - 在“目标密钥加密密钥保管库”中，从订阅的目标位置中的所有密钥保管库的列表中选择目标密钥加密密钥保管库。
 
-3. 单击“创建目标资源” > “启用复制”。
-4. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况
+4. 单击“创建目标资源” > “启用复制”。
+5. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况
 
 >[!NOTE]
 >在初始复制期间，VM 状态刷新可能需要一段时间，但不显示进度。 单击“刷新”按钮可获取最新状态。

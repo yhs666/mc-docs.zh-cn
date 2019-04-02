@@ -16,12 +16,12 @@ origin.date: 04/26/2018
 ms.date: 12/31/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52674cca56e8aad48ed5045f444c65856fb31708
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 82c3a2d029e50a4c4e79d65605edc683006066e1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736694"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625947"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>在 IoT 中心内了解并使用模块孪生
 
@@ -174,7 +174,7 @@ ms.locfileid: "53736694"
 * **替换标记**。 解决方案后端可以使用此操作完全覆盖所有现有标记，并使用新 JSON 文档替代 `tags`。
 * **接收孪生通知**。 此操作允许解决方案后端在修改孪生时收到通知。 为此，IoT 解决方案需要创建一个路由，并且将“数据源”设置为等于 *twinChangeEvents*。 默认情况下，不会发送孪生通知，即，无此类路由预先存在。 如果更改速率太高，或由于其他原因（例如内部故障），IoT 中心可能会只发送一个包含所有更改的通知。 因此，如果应用程序需要可靠地审核和记录所有中间状态，则应使用设备到云消息。 孪生通知消息包括属性和正文。
 
-    - 属性
+  - 属性
 
     | Name | 值 |
     | --- | --- |
@@ -191,26 +191,26 @@ ms.locfileid: "53736694"
 
     消息系统属性以 `$` 符号作为前缀。
 
-    - 正文
+  - 正文
         
     本部分包括 JSON 格式的所有孪生更改。 它使用与修补程序相同的格式，不同的是它可以包含所有孪生节：标记、properties.reported、properties.desired，并且它包含“$metadata”元素。 例如，
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 

@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 07/10/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: e0b4a479ca1e082409d4f9f712c0497c033b7ca7
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 954041f46e32650d367a09cd245213f601e8def3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396711"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626092"
 ---
 # <a name="production-readiness-checklist"></a>生产就绪情况核对清单
 
@@ -69,10 +69,10 @@ ms.locfileid: "54396711"
 21. 计划应用程序的[缩放](service-fabric-concepts-scalability.md)。 
 
 如果使用 Service Fabric Reliable Services 或 Reliable Actors 编程模型，则需检查以下项目：
-22. 在本地开发期间升级应用程序，检查服务代码是否履行了 `RunAsync` 方法中的取消令牌，并关闭了自定义通信侦听器。
-23. 使用可靠集合时，避免出现[常见错误](service-fabric-work-with-reliable-collections.md)。
-24. 运行负载测试时监视 .NET CLR 内存性能计数器，并检查是否存在高垃圾回收率或堆增长是否失控。
-25. 维护 [Reliable Services 和 Reliable Actors](service-fabric-reliable-services-backup-restore.md) 的脱机备份，并测试恢复过程。 
+1. 在本地开发期间升级应用程序，检查服务代码是否履行了 `RunAsync` 方法中的取消令牌，并关闭了自定义通信侦听器。
+2. 使用可靠集合时，避免出现[常见错误](service-fabric-work-with-reliable-collections.md)。
+3. 运行负载测试时监视 .NET CLR 内存性能计数器，并检查是否存在高垃圾回收率或堆增长是否失控。
+4. 维护 [Reliable Services 和 Reliable Actors](service-fabric-reliable-services-backup-restore.md) 的脱机备份，并测试恢复过程。 
 
 ## <a name="optional-best-practices"></a>可选的最佳做法
 

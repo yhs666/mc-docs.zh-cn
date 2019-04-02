@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/28/2019
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: b797ffc36a34ed318a0058ca9465d78af060d2dc
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 10798569ec53ece0499900faf1e886e553c600ba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348685"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625707"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -114,7 +114,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
     nano useooziewf.hql
     ```
 
-3. 打开 GNU nano 编辑器后，使用以下查询作为该文件的内容：
+2. 打开 GNU nano 编辑器后，使用以下查询作为该文件的内容：
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -125,15 +125,15 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 
     脚本中使用了两个变量：
 
-    * `${hiveTableName}`：包含要创建的表的名称。
+   * `${hiveTableName}`：包含要创建的表的名称。
 
-    * `${hiveDataFolder}`：包含存储表数据文件的位置。
+   * `${hiveDataFolder}`：包含存储表数据文件的位置。
 
-    工作流定义文件（本教程中的 workflow.xml）在运行时会这些值传递到此 HiveQL 脚本。
+     工作流定义文件（本教程中的 workflow.xml）在运行时会这些值传递到此 HiveQL 脚本。
 
-4. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。  
+3. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。  
 
-5. 使用以下命令将 `useooziewf.hql` 复制到 `wasbs:///tutorials/useoozie/useooziewf.hql`：
+4. 使用以下命令将 `useooziewf.hql` 复制到 `wasbs:///tutorials/useoozie/useooziewf.hql`：
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -303,13 +303,14 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
 2. 按如下所示编辑以下 xml：
 
-    |占位符值| 替换的值|
-    |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| 从步骤 1 获取的值。|
-    |admin| HDInsight 群集的登录名（如果不是 admin）。|
-    |serverName| Azure SQL 数据库服务器名称。|
-    |sqlLogin| Azure SQL 数据库服务器登录名。|
-    |sqlPassword| Azure SQL 数据库服务器登录密码。|
+
+   |                     占位符值                      |                     替换的值                      |
+   |------------------------------------------------------------|---------------------------------------------------------|
+   | wasbs://mycontainer@mystorageaccount.blob.core.windows.net |               从步骤 1 获取的值。               |
+   |                           admin                            | HDInsight 群集的登录名（如果不是 admin）。 |
+   |                         serverName                         |             Azure SQL 数据库服务器名称。             |
+   |                          sqlLogin                          |            Azure SQL 数据库服务器登录名。             |
+   |                        sqlPassword                         |        Azure SQL 数据库服务器登录密码。        |
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

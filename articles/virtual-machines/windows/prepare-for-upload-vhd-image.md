@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 origin.date: 12/13/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1af86db07f0f5c483c787e0fc971bab3156803bd
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 60a8c5ec7c911e63cc73d796a2638e11f5d64728
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736178"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627657"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的**第 1 代 VM**。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
@@ -319,14 +319,14 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
 9. 检查以下 AD 策略，以确保没有删除以下任何所需的访问帐户：
 
-    - 计算机配置\Windows 设置\安全设置\本地策略\用户权限分配\从网络访问这台计算机
+   - 计算机配置\Windows 设置\安全设置\本地策略\用户权限分配\从网络访问这台计算机
 
-    此策略应列出以下组：
+     此策略应列出以下组：
 
-    - 管理员
-    - 备份操作员
-    - 所有人
-    - 用户
+   - 管理员
+   - 备份操作员
+   - 所有人
+   - 用户
 
 10. 重启 VM，确保 Windows 仍可正常运行，并可使用 RDP 连接来访问。 此时，可能需要在本地 Hyper-V 中创建一个 VM，确保该 VM 完全启动，然后测试是否可以通过 RDP 来访问它。
 
@@ -386,7 +386,8 @@ Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置
 - [从专用磁盘创建 VM](create-vm-specialized.md)
 - [Create a VM from a specialized VHD disk](/virtual-machines/windows/create-vm-specialized-portal)（从专用 VHD 磁盘创建 VM）
 
-<!--Notice: Replace the URL with actual create-vm-specialized-portal file--> 若要创建通用化映像，则需运行 sysprep。 有关 Sysprep 的更多信息，请参见[如何使用 Sysprep：简介](https://technet.microsoft.com/library/bb457073.aspx)。 
+<!--Notice: Replace the URL with actual create-vm-specialized-portal file-->
+若要创建通用化映像，则需运行 sysprep。 有关 Sysprep 的更多信息，请参见[如何使用 Sysprep：简介](https://technet.microsoft.com/library/bb457073.aspx)。 
 
 并非每个安装在基于 Windows 的计算机上的角色或应用程序都支持该通用化。 因此，在运行此过程之前，请参阅以下文章，确保该计算机的角色受 sysprep 的支持。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
 
@@ -414,12 +415,12 @@ Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置
     - [VM Agent and Extensions - Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)（VM 代理和扩展 - 第 1 部分）
     - [VM Agent and Extensions - Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)（VM 代理和扩展 - 第 2 部分）
 
-*  在 Azure 中创建 VM 以后，建议将 pagefile 置于“临时驱动器”卷以改进性能。 可以将其设置如下：
+* 在 Azure 中创建 VM 以后，建议将 pagefile 置于“临时驱动器”卷以改进性能。 可以将其设置如下：
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-如果有数据磁盘附加到了 VM，则临时驱动器卷的驱动器号通常为“D”。 此指定可能会有所不同，具体取决于可用驱动器数以及所做的设置。
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  如果有数据磁盘附加到了 VM，则临时驱动器卷的驱动器号通常为“D”。 此指定可能会有所不同，具体取决于可用驱动器数以及所做的设置。
 
 ## <a name="next-steps"></a>后续步骤
 * [将 Windows VM 映像上传到 Azure 以进行 Resource Manager 部署](upload-generalized-managed.md)

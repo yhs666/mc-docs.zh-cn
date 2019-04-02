@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/09/2018
-ms.date: 02/12/2019
+ms.date: 03/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: b515717eb04551ef050d15bb10eccd52e6e6851b
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: d45b31cf7c5eff1e95ccf2949cce2a5c8d9456a6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101606"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627299"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虚拟机规模集的计划内维护通知
 
@@ -55,7 +55,7 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 - 让 Azure 触发维护。 对于需要重启的维护，会按更新域依次执行维护。 更新域不一定按顺序接收维护。 更新域之间存在 30 分钟的暂停。
 - 如果担心暂时性丢失部分容量（1/更新域计数），通过在维护期间分配更多的实例即可轻松弥补容量丢失。
 - 对于无需重启的维护，将在容错域级别应用更新。 
-    
+
 以下情况**请勿**使用自助维护： 
 
 - 通过手动方式、开发测试实验室、自动关闭或按照一定时间计划频繁关闭虚拟机。 在这些情况下，自助维护可能还原维护状态和造成额外故障事件。
@@ -73,7 +73,7 @@ Azure 定期执行更新，以提高虚拟机 (VM) 的主机基础结构的可�
 - 需要控制维护顺序，例如，应用程序为多层应用程序，需要确保安全地进行恢复。
 - 在两个更新域之间，需要的 VM 恢复时间超出 30 分钟。 为了控制更新域之间的时间，一次只能在一个更新域的 VM 上触发维护。
 
- 
+
 ## <a name="view-virtual-machine-scale-sets-that-are-affected-by-maintenance-in-the-portal"></a>在门户中查看受维护影响的虚拟机规模集
 
 安排了大量计划内维护后，可以使用 Azure 门户查看受即将到来的大量维护影响的虚拟机规模集列表。 
@@ -104,10 +104,10 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
    - **事件类别**：选择“服务运行状况”。
    - **服务**：选择“虚拟机规模集和虚拟机”。
    - **类型**：选择“计划内维护”。 
-    
+
 要详细了解如何配置活动日志警报，请参阅[创建活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
-    
-    
+
+
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>从门户中开始维护虚拟机规模集
 
 在虚拟机规模集概述中可查看更多与维护相关的详细信息。 如果至少一个虚拟机规模集中的 VM 包括在大量的计划内维护中，则将会在页面顶部附近添加新的通知功能区。 选择通知功能区，转到“维护”页面。 
@@ -115,11 +115,11 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
 在“维护”页面上可以查看受计划内维护影响的 VM 实例。 要启动维护，请选择受影响 VM 对应的复选框。 然后选择“开始维护”。
 
 开始维护后，虚拟机规模集中受影响的 VM 将接受维护并暂时不可用。 如果错过了自助时段，则由 Azure 维护虚拟机规模集时，你将仍可以看到该时段。
- 
+
 ## <a name="check-maintenance-status-by-using-powershell"></a>使用 PowerShell 查看维护状态
 
 可以使用 Azure PowerShell 查看虚拟机规模集中的 VM 计划何时维护。 使用 `-InstanceView` 参数时可通过使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet 获得计划内维护信息。
- 
+
 仅当有计划内维护时，才会返回维护信息。 如果未计划影响 VM 实例的维护，则 cmdlet 不会返回任何维护信息。 
 
 ```powershell
@@ -127,16 +127,15 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 在 MaintenanceRedeployStatus 下返回以下属性： 
-| 值 | 说明   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护。 ||
-| PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点。 ||
-| PreMaintenanceWindowEndTime           | 可以在 VM 上启动维护的自助式维护时段的终点。 ||
-| MaintenanceWindowStartTime            | Azure 在 VM 上启动维护的计划内维护时段的起点。 ||
-| MaintenanceWindowEndTime              | Azure 在 VM 上启动维护的计划内维护时段的终点。 ||
-| LastOperationResultCode               | 上次尝试在 VM 上启动维护的结果。 ||
 
-
+|                 值                 |                                            说明                                             |
+|---------------------------------------|----------------------------------------------------------------------------------------------------|
+| IsCustomerInitiatedMaintenanceAllowed |                指示此时是否可以在 VM 上启动维护。                 |
+|     PreMaintenanceWindowStartTime     | 可以在 VM 上启动维护的自助式维护时段的起点。 |
+|      PreMaintenanceWindowEndTime      |    可以在 VM 上启动维护的自助式维护时段的终点。    |
+|      MaintenanceWindowStartTime       |    Azure 在 VM 上启动维护的计划内维护时段的起点。     |
+|       MaintenanceWindowEndTime        |    Azure 在 VM 上启动维护的计划内维护时段的终点。    |
+|        LastOperationResultCode        |                 上次尝试在 VM 上启动维护的结果。                  |
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>使用 PowerShell 在 VM 实例上启动维护
 
@@ -149,7 +148,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 ## <a name="check-maintenance-status-by-using-the-cli"></a>使用 CLI 查看维护状态
 
 可以使用 [az vmss list-instances](/cli/vmss?view=azure-cli-latest#az-vmss-list-instances) 查看计划内维护信息。
- 
+
 仅当有计划内维护时，才会返回维护信息。 如果未计划影响 VM 实例的维护，则该命令不会返回任何维护信息。 
 
 ```azure-cli
@@ -157,15 +156,15 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 在每个 VM 实例的 MaintenanceRedeployStatus 下返回以下属性： 
-| 值 | 说明   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护。 ||
-| PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点。 ||
-| PreMaintenanceWindowEndTime           | 可以在 VM 上启动维护的自助式维护时段的终点。 ||
-| MaintenanceWindowStartTime            | Azure 在 VM 上启动维护的计划内维护时段的起点。 ||
-| MaintenanceWindowEndTime              | Azure 在 VM 上启动维护的计划内维护时段的终点。 ||
-| LastOperationResultCode               | 上次尝试在 VM 上启动维护的结果。 ||
 
+|                 值                 |                                            说明                                             |
+|---------------------------------------|----------------------------------------------------------------------------------------------------|
+| IsCustomerInitiatedMaintenanceAllowed |                指示此时是否可以在 VM 上启动维护。                 |
+|     PreMaintenanceWindowStartTime     | 可以在 VM 上启动维护的自助式维护时段的起点。 |
+|      PreMaintenanceWindowEndTime      |    可以在 VM 上启动维护的自助式维护时段的终点。    |
+|      MaintenanceWindowStartTime       |    Azure 在 VM 上启动维护的计划内维护时段的起点。     |
+|       MaintenanceWindowEndTime        |    Azure 在 VM 上启动维护的计划内维护时段的终点。    |
+|        LastOperationResultCode        |                 上次尝试在 VM 上启动维护的结果。                  |
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>使用 CLI 在 VM 实例上启动维护
 
@@ -179,40 +178,40 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **问：为什么需要立即重新启动 VM？**
 
-**答：** 尽管 Azure 平台大多数更新和升级不会影响 VM 可用性，但是在某些情况下，无法避免重启 Azure 中托管的 VM。 我们累积了多个需要重启服务器的更改，这将导致重新启动 VM。
+**答:** 尽管 Azure 平台大多数更新和升级不会影响 VM 可用性，但是在某些情况下，无法避免重启 Azure 中托管的 VM。 我们累积了多个需要重启服务器的更改，这将导致重新启动 VM。
 
 **问：如果我按建议使用可用性集实现高可用性，我是否安全？**
 
-**答：** 可用性集或虚拟机规模集中部署的虚拟机使用更新域。 执行维护时，Azure 遵循更新域约束，不会从其他更新域（在同一可用性集中）重新启动 VM。 Azure 还会至少等待 30 分钟，然后才移到下一组 VM。 
+**答:** 可用性集或虚拟机规模集中部署的虚拟机使用更新域。 执行维护时，Azure 遵循更新域约束，不会从其他更新域（在同一可用性集中）重新启动 VM。 Azure 还会至少等待 30 分钟，然后才移到下一组 VM。 
 
 有关高可用性的详细信息，请参阅 [Azure 中虚拟机的区域和可用性](../virtual-machines/windows/regions-and-availability.md)。
 
 **问：如何收到有关计划内维护的通知？**
 
-**答：** 一次计划内维护是通过将计划设置到一个或多个 Azure 区域启动的。 不久以后，电子邮件通知将发送到订阅所有者（每个订阅一封电子邮件）。 你可以使用活动日志警报为此通知添加通道和收件人。 如果将 VM 部署到其中已经安排有计划内维护的区域，则无法接收通知。 此时而应查看 VM 的维护状态。
+**答:** 一次计划内维护是通过将计划设置到一个或多个 Azure 区域启动的。 不久以后，电子邮件通知将发送到订阅所有者（每个订阅一封电子邮件）。 你可以使用活动日志警报为此通知添加通道和收件人。 如果将 VM 部署到其中已经安排有计划内维护的区域，则无法接收通知。 此时而应查看 VM 的维护状态。
 
 **问：我在门户、PowerShell 或 CLI 中看不到任何计划内维护的指示。这是为何？**
 
-**答：** 在计划内维护批次期间，与计划内维护相关的信息仅适用于受此计划内维护影响的 VM。 如果未显示有数据，则维护批次可能已经结束（或尚未开始），或者 VM 可能已经托管在已更新的服务器上。
+**答:** 在计划内维护批次期间，与计划内维护相关的信息仅适用于受此计划内维护影响的 VM。 如果未显示有数据，则维护批次可能已经结束（或尚未开始），或者 VM 可能已经托管在已更新的服务器上。
 
 **问：有什么方法可以知道 VM 受影响的确切时间？**
 
-**答：** 设置计划时，我们定义了一个长达几天的时间段。 虽然服务器（和 VM）在此时段的确切重启顺序尚未可知， 如果要知道 VM 更新的确切时间，可使用[计划事件](../virtual-machines/windows/scheduled-events.md)。 如果使用计划事件，则可从 VM 内进行查询，并可在 VM 重启前 15 分钟内收到通知。
+**答:** 设置计划时，我们定义了一个长达几天的时间段。 虽然服务器（和 VM）在此时段的确切重启顺序尚未可知， 如果要知道 VM 更新的确切时间，可使用[计划事件](../virtual-machines/windows/scheduled-events.md)。 如果使用计划事件，则可从 VM 内进行查询，并可在 VM 重启前 15 分钟内收到通知。
 
 **问：重启 VM 需要多长时间？**
 
-**答：** 根据 VM 的大小，在自助维护时段内，重启最多可能需要几分钟时间。 当 Azure 在计划性维护时段内启动重启时，重启通常需要 25 分钟左右。 如果使用云服务（Web/辅助角色）、虚拟机规模集或可用性集，则在计划性维护时段内每组 VM（更新域）之间有 30 分钟的可用时间。 
+**答:** 根据 VM 的大小，在自助维护时段内，重启最多可能需要几分钟时间。 当 Azure 在计划性维护时段内启动重启时，重启通常需要 25 分钟左右。 如果使用云服务（Web/辅助角色）、虚拟机规模集或可用性集，则在计划性维护时段内每组 VM（更新域）之间有 30 分钟的可用时间。 
 
 **问：我在 VM 上看不到任何维护信息，是哪里出错了？**
 
-**答：** 有很多原因会导致在 VM 上看不到任何维护信息：
+**答:** 有很多原因会导致在 VM 上看不到任何维护信息：
    - 使用的是标记为“Microsoft 内部”的订阅。
    - VM 未计划进行维护。 可能是此次维护已结束、已取消或已修改，因此你的 VM 不再受其影响。
    - 未将“维护”列添加到 VM 列表视图。 虽然我们已向默认视图添加此列，但如果你将视图配置为查看非默认列，则仍需手动将“维护”列添加到 VM 列表视图。
 
 **问：我的 VM 已计划进行第二次维护，为什么？**
 
-**答：** 在多种用例下，在维护和重新部署已经完成后，会对 VM 计划维护：
+**答:** 在多种用例下，在维护和重新部署已经完成后，会对 VM 计划维护：
    - 我们已取消这次维护，并使用不同的有效负载重新启动它。 可能是我们已检测到出错的有效负载，只需部署其他有效负载。
    - 由于硬件故障，已在另一个节点上对 VM 进行服务修复。
    - 选择了停止（解除分配）VM 并将其重启。
@@ -222,4 +221,4 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 了解如何使用[计划事件](../virtual-machines/windows/scheduled-events.md)从 VM 内注册维护事件。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

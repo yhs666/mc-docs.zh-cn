@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3074c65fd1b8983b6badc7b6047badb88374f180
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 3d36fe15995f042c741e8c66fcc684ca2652fb00
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440310"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627164"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>将 Log Analytics 保存的搜索和警报添加到管理解决方案（预览版）
 
@@ -238,11 +238,12 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
 ##### <a name="emailnotification"></a>EmailNotification
  此部分为可选项。如果希望警报将邮件发送给一个或多个收件人，请将此部分包含在内。
 
-| 元素名称 | 必须 | 说明 |
-|:--|:--|:--|
-| 收件人 | 是 | 由逗号分隔的电子邮件地址列表，创建警报后向这些地址发送通知，示例如下。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| 使用者 | 是 | 邮件的主题行。 |
-| 附件 | 否 | 目前不支持附件。 如果包含此元素，则它应为“无”。 |
+
+| 元素名称 | 必须 | 说明                                                                                                                                                                               |
+|:-------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 收件人   | 是      | 由逗号分隔的电子邮件地址列表，创建警报后向这些地址发送通知，示例如下。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 使用者      | 是      | 邮件的主题行。                                                                                                                                                                 |
+| 附件   | 否       | 目前不支持附件。 如果包含此元素，则它应为“无”。                                                                                              |
 
 ##### <a name="remediation"></a>补救
 此部分为可选项。如果希望启动 runbook 以响应警报，请将此部分包含在内。 |

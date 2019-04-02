@@ -13,12 +13,12 @@ ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 03/06/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: b7121c8817bf6626c63661e17e6ff7a503efb3bd
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 90fbb7dc2595047a1f7c5050b154096b4b4d22c4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318948"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627631"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
@@ -88,17 +88,17 @@ ms.locfileid: "58318948"
 若要为弹性池资源启用诊断遥测流，请执行以下步骤：
 
 1. 在 Azure 门户中转到弹性池资源。
-1. 选择“诊断设置”。
-1. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置
+2. 选择“诊断设置”。
+3. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置
 
    ![为弹性池启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
-1. 输入设置名称供自己参考。
-1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”或“流式传输到事件中心”。
-1. 选中弹性池诊断遥测对应的复选框：**AllMetrics**。
-1. 选择“其他安全性验证” 。
-> [!NOTE]
-> 除了为弹性池配置诊断遥测数据，还需为弹性池中的每个数据库配置诊断遥测数据，如下所述。 
+4. 输入设置名称供自己参考。
+5. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”或“流式传输到事件中心”。
+6. 选中弹性池诊断遥测对应的复选框：**AllMetrics**。
+7. 选择“其他安全性验证” 。
+   > [!NOTE]
+   > 除了为弹性池配置诊断遥测数据，还需为弹性池中的每个数据库配置诊断遥测数据，如下所述。 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
 

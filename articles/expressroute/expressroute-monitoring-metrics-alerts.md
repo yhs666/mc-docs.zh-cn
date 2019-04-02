@@ -5,19 +5,23 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 09/21/2018
-ms.date: 12/10/2018
+origin.date: 11/30/2018
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 26bbff62cb8c04703c5bc7f465dab8a0ee016fdf
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3677814800f321a8e266ba94eb7069e9aec56d20
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676763"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627730"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 监视、指标和警报
 
- 本文可帮助你了解 ExpressRoute 监视、指标和警报。 Azure Monitor 是整个 Azure 中所有指标、警报和诊断日志的一站式商店。
+本文可帮助你使用 Azure Monitor 了解 ExpressRoute 监视、指标和警报。 Azure Monitor 是整个 Azure 中所有指标、警报和诊断日志的一站式商店。
+ 
+>[!NOTE]
+>建议不要使用**经典指标**。
+>
 
 ## <a name="circuit-metrics"></a>线路指标
 
@@ -39,19 +43,19 @@ ms.locfileid: "52676763"
 
 1. 若要配置警报，请导航到 **Azure Monitor**，然后单击“警报”。
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. 单击“+选择目标”，然后选择 ExpressRoute 网关连接资源。
 
-  ![目标]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![目标]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 定义警报详细信息。
 
-  ![操作组](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![操作组](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 
 4. 定义和添加操作组。
 
-  ![添加操作组](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![添加操作组](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>基于每个对等互连的警报
 

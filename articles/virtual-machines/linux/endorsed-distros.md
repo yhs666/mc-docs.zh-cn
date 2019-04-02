@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/21/2017
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed1ddca70e3c968b1fef687be1584e53fed4f5b9
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 089ccfaf225b670af4fd4656390a44bbf6888ea4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736117"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627734"
 ---
 # <a name="linux-distributions-endorsed-on-azure"></a>Azure 认可的 Linux 分发
 合作伙伴在 Azure 市场中提供了 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 在此期间，对于市场未提供的分发，用户始终可以按照[创建并上传包含 Linux 操作系统的虚拟硬盘](/virtual-machines/linux/create-upload-generic)中的准则安装自己的 Linux。
@@ -30,7 +30,9 @@ ms.locfileid: "53736117"
 下表列出了 Azure 支持的 Linux 分发和版本。 有关 Azure 中支持 Linux 和开源代码技术的更多详细信息，请参阅 [Azure 中对 Linux 映像的支持](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)。
 
 Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序是 Azure 直接为上游 Linux 内核提供的内核模块。  默认情况下，某些 LIS 驱动程序已内置在发行版的内核中。 [适用于 Hyper-V 和 Azure 的 Linux Integration Services 版本 4.2](https://www.microsoft.com/download/details.aspx?id=55106) 中提供了基于 CentOS 的旧式发行版供单独下载。 有关 LIS 驱动程序的详细信息，请参阅 [Linux 内核要求](create-upload-generic.md#linux-kernel-requirements)。
+
 <!-- Not Avaiable on Red Hat Enterprise (RHEL) -->
+
 Azure Linux 代理已预安装在 Azure 市场映像中，通常可从分发的包存储库中获得。 源代码可在 [GitHub](https://github.com/azure/walinuxagent)上找到。
 
 | 分发 | 版本 | 驱动程序 | Agent |
@@ -55,19 +57,19 @@ Azure Linux 代理已预安装在 Azure 市场映像中，通常可从分发的�
 *CoreOS 在设计时就已考虑到了安全性、一致性和可靠性。CoreOS 使用 Linux 容器在更高的抽象级别管理服务，而不是通过 yum 或 apt 来安装程序包。单个服务的代码和所有依赖项都打包在一个容器中，该容器可以在一个或多个 CoreOS 计算机上运行。*
 
 ### <a name="credativ"></a>Credativ
-[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ 是一家独立的咨询和服务公司，致力于通过免费软件开发和实施专业解决方案。 Credativ 是获得国际认可的开源领域专业先行者，为许多公司的 IT 部门提供支持。 Credativ 与 Azure 合作，目前正在为 Debian 8 (Jessie) 以及 Debian 7 (Wheezy) 之前的版本准备相应的 Debian 映像。 这些映像经过专门的设计，可以在 Azure 上运行并可通过该平台轻松进行管理。 Credativ 还会通过其开源支持中心为 Azure 的 Debian 映像的维护和更新提供长期支持。
 
 <!-- Not Available on ### Oracle -->
 <!-- Not Available on ### Red Hat -->
 ### <a name="suse"></a>SUSE
-[http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
+[https://www.suse.com/suse-linux-enterprise-server-on-azure](https://www.suse.com/suse-linux-enterprise-server-on-azure)
 
 Azure 上的 SUSE Linux Enterprise Server 是一个已验证的平台，该平台为云计算提供了高级可靠性和安全性。 SUSE 的通用 Linux 平台可与 Azure 云服务无缝集成，以便交付易于管理的云环境。 借助 1,800 多个独立软件供应商提供的适用于 SUSE Linux Enterprise Server 的 9,200 多个认证应用程序，SUSE 可确保满怀信心地在 Azure 上部署数据中心内支持的运行负载。
 
 ### <a name="canonical"></a>Canonical
-[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
+[https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
 
 Canonical 工程和开放社区监管对 Ubuntu 在客户端、服务器和云计算（包括用户的个人云服务）方面获得成功起到了推动作用。 Canonical 期望使用 Ubuntu 开发一个统一的免费平台（从手机到云），为手机、平板电脑、电视和台式机提供一致的接口系列。 这个愿景使得 Ubuntu 成为各种机构（从公有云提供商到消费类电子产品制造商）的首选以及各个技术专家的最爱。
 

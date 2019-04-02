@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 2/20/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 866688eb02f216338bec4e02de545a1f3b9947db
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 53c11132ae7e62f34d9edd4c7ecf5a4429de7b17
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348296"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627612"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>快速入门：在浏览器中使用语音 SDK 通过 JavaScript 识别语音
 
@@ -50,12 +50,12 @@ ms.locfileid: "58348296"
 
 1. 创建以下 HTML 框架：
 
-  ```html
-  <html>
-  <head>
+   ```html
+   <html>
+   <head>
       <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
+   </head>
+   <body>
     <!-- UI code goes here -->
 
     <!-- SDK reference goes here -->
@@ -63,11 +63,11 @@ ms.locfileid: "58348296"
     <!-- Optional authorization token request goes here -->
 
     <!-- Sample code goes here -->
-  </body>
-  </html>
-  ```
+   </body>
+   </html>
+   ```
 
-1. 将以下 UI 代码添加到文件，以下是第一个注释：
+2. 将以下 UI 代码添加到文件，以下是第一个注释：
 
    ```html
    <div id="warning">
@@ -100,14 +100,14 @@ ms.locfileid: "58348296"
    </div>
    ```
 
-1. 添加对语音 SDK 的引用
+3. 添加对语音 SDK 的引用
 
    ```HTML
    <!-- Speech SDK reference sdk. -->
    <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
    ```
 
-1. 连接“识别”按钮、识别结果和 UI 代码定义的订阅相关字段的处理程序：
+4. 连接“识别”按钮、识别结果和 UI 代码定义的订阅相关字段的处理程序：
 
    ```HTML
    <!-- Speech SDK USAGE -->

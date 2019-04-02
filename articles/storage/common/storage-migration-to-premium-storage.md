@@ -9,12 +9,12 @@ origin.date: 06/27/2017
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 77c436766a78115ce8127414f53b1a3329d5940b
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 187d4f723c6346e5176ed94f849c275a55cb02f2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196551"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627712"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -159,7 +159,7 @@ VM 必须完全关闭才能干净迁移。 在迁移完成之前会存在停机�
 对于数据磁盘，可以选择在标准存储帐户中保留一些数据磁盘（例如，具有冷却存储功能的磁盘），但我们强烈建议迁移所有数据，以便生产工作负荷使用高级存储。
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>步骤 3。 使用 AzCopy 或 PowerShell 复制 VHD
-需查找容器路径和存储帐户密钥，处理其中某个选项。 可在“Azure 门户” > “存储”中找到容器路径和存储帐户密钥。 容器 URL 类似于“https://myaccount.blob.core.chinacloudapi.cn/mycontainer/”。
+需查找容器路径和存储帐户密钥，处理其中某个选项。 可在“Azure 门户” > “存储”中找到容器路径和存储帐户密钥。 容器 URL 类似于“<https://myaccount.blob.core.chinacloudapi.cn/mycontainer/>”。
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>选项 1：使用 AzCopy 复制 VHD（异步复制）
 可使用 AzCopy 通过 Internet 轻松上传 VHD。 根据 VHD 的大小，这可能需要时间。 请记住，在使用此选项时，检查存储帐户传入/传出限制。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
@@ -256,7 +256,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-一个 <Uri> 的例子是 ***“https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd”***。 示例 <FileInfo> 可能是 ***"C:\path\to\upload.vhd"***。
+一个 <Uri> 的例子是 ***“<https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd>”***。 示例 <FileInfo> 可能是 ***"C:\path\to\upload.vhd"***。
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>选项 2：使用 AzCopy 上传 .vhd 文件
 可使用 AzCopy 通过 Internet 轻松上传 VHD。 根据 VHD 的大小，这可能需要时间。 请记住，在使用此选项时，检查存储帐户传入/传出限制。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。

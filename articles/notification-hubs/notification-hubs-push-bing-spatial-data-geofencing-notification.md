@@ -17,12 +17,12 @@ ms.custom: mvc
 origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 418fa03287ab87e88ab39f734bac895b6223aee1
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 84df2e99921cdf29054736cb2dcfccab1c2a920d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222616"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627741"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教程：使用 Azure 通知中心和必应空间数据推送基于位置的通知
 本教程介绍如何使用 Azure 通知中心和必应空间数据来传送基于位置的推送通知。 
@@ -65,12 +65,12 @@ ms.locfileid: "56222616"
     
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. 在“上传数据源”页中执行以下操作：
-    1. 为“数据格式”选择“管道”。
-    2. 浏览到在上一步骤中创建的 **NotificationHubGeofence.pipe** 文件并将其选中。 
-    3. 选择“上传”按钮。 
+   1. 为“数据格式”选择“管道”。
+   2. 浏览到在上一步骤中创建的 **NotificationHubGeofence.pipe** 文件并将其选中。 
+   3. 选择“上传”按钮。 
     
-    > [!NOTE]
-    > 系统可能会提示你为“主密钥”指定不同于“查询密钥”的新密钥。 只需通过仪表板创建新密钥，然后刷新数据源上传页。
+      > [!NOTE]
+      > 系统可能会提示你为“主密钥”指定不同于“查询密钥”的新密钥。 只需通过仪表板创建新密钥，然后刷新数据源上传页。
 6. 上传数据文件后，需确保发布数据源。 像前面一样，选择“数据源” -> “管理数据源”。 
 7. 在列表中选择自己的数据源，然后在“操作”列中选择“发布”。 
 
@@ -84,23 +84,23 @@ ms.locfileid: "56222616"
     ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
     此时，门户并未显示所创建的地理围栏的边界 - 你只需确认指定的位置位于适当的邻近范围内。
-8. 现在你已满足数据源的所有要求。 要获取有关 API 调用的请求 URL 的详细信息，请在必应地图开发人员中心内依次选择“数据源”、“数据源信息”。
+10. 现在你已满足数据源的所有要求。 要获取有关 API 调用的请求 URL 的详细信息，请在必应地图开发人员中心内依次选择“数据源”、“数据源信息”。
 
-    ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
+     ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-    “查询 URL”是可对其执行查询的终结点，用于检查设备目前是否在某个位置的边界内。 若要执行此检查，只需针对查询 URL 执行 GET 调用并追加以下参数：
+     “查询 URL”是可对其执行查询的终结点，用于检查设备目前是否在某个位置的边界内。 若要执行此检查，只需针对查询 URL 执行 GET 调用并追加以下参数：
 
-    ```
-    ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
-    ```
+     ```
+     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
+     ```
 
-    必应地图自动执行计算，以确定设备是否位于地域隔离区内。 通过浏览器（或 cURL）执行请求后，将收到标准 JSON 响应：
+     必应地图自动执行计算，以确定设备是否位于地域隔离区内。 通过浏览器（或 cURL）执行请求后，将收到标准 JSON 响应：
 
-    ![](./media/notification-hubs-geofence/bing-maps-json.png)
+     ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
-    仅当位置点确实位于指定边界内时，才出现此响应。 如果不在边界内，将收到空白的 **results** 桶：
+     仅当位置点确实位于指定边界内时，才出现此响应。 如果不在边界内，将收到空白的 **results** 桶：
 
-    ![](./media/notification-hubs-geofence/bing-maps-nores.png)
+     ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
 ## <a name="set-up-the-uwp-application"></a>设置 UWP 应用程序
 
@@ -114,11 +114,11 @@ ms.locfileid: "56222616"
 
     指定以下参数，使终结点正常工作：
 
-    - **数据源 ID** 和**数据源名称** – 在必应地图 API 中，数据源包含各种分门别类的元数据，例如营业地点和营业时间。  
-    - **实体名称** - 要用作通知引用点的实体。 
-    - **必应地图 API 密钥** - 前面在创建必应开发人员中心帐户时获取的密钥。
+   - **数据源 ID** 和**数据源名称** – 在必应地图 API 中，数据源包含各种分门别类的元数据，例如营业地点和营业时间。  
+   - **实体名称** - 要用作通知引用点的实体。 
+   - **必应地图 API 密钥** - 前面在创建必应开发人员中心帐户时获取的密钥。
 
-    现在我们已准备好数据源，接下来可以开始操作 UWP 应用程序。
+     现在我们已准备好数据源，接下来可以开始操作 UWP 应用程序。
 2. 启用应用程序的位置服务。 在“解决方案资源管理器”中打开 `Package.appxmanifest` 文件。
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

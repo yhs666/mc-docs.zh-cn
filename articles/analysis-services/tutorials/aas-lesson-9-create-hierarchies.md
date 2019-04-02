@@ -9,12 +9,12 @@ origin.date: 01/09/2019
 ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a5092b13a5ebadbddf1777d3433e5ab1b77e4b9
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: a499180658c869655a287042f87293c500abf741
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085673"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626243"
 ---
 # <a name="create-hierarchies"></a>创建层次结构
 
@@ -50,30 +50,30 @@ ms.locfileid: "55085673"
 
 #### <a name="to-create-hierarchies-in-the-dimdate-table"></a>在 DimDate 表中创建层次结构  
 
-1.  在 DimDate 表中，创建一个名为“Calendar”的层次结构。  
+1. 在 DimDate 表中，创建一个名为“Calendar”的层次结构。  
 
-3.  按顺序添加以下列：
+2. 按顺序添加以下列：
 
-    *  CalendarYear
-    *  CalendarSemester
-    *  CalendarQuarter
-    *  MonthCalendar
-    *  DayNumberOfMonth
+   *  CalendarYear
+   *  CalendarSemester
+   *  CalendarQuarter
+   *  MonthCalendar
+   *  DayNumberOfMonth
 
-4.  在“DimDate”表中，创建“Fiscal”层次结构。 按顺序包括以下列：  
+3. 在“DimDate”表中，创建“Fiscal”层次结构。 按顺序包括以下列：  
 
-    *  FiscalYear
-    *  FiscalSemester
-    *  FiscalQuarter
-    *  MonthCalendar
-    *  DayNumberOfMonth
+   *  FiscalYear
+   *  FiscalSemester
+   *  FiscalQuarter
+   *  MonthCalendar
+   *  DayNumberOfMonth
 
-5.  最后，在“DimDate”表中，创建“ProductionCalendar”层次结构。 按顺序包括以下列：  
-    *  CalendarYear
-    *  WeekNumberOfYear
-    *  DayNumberOfWeek
+4. 最后，在“DimDate”表中，创建“ProductionCalendar”层次结构。 按顺序包括以下列：  
+   *  CalendarYear
+   *  WeekNumberOfYear
+   *  DayNumberOfWeek
 
- ## <a name="whats-next"></a>后续步骤
-[第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
+   ## <a name="whats-next"></a>后续步骤
+   [第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
 
 <!--Update_Description: update meta properties -->

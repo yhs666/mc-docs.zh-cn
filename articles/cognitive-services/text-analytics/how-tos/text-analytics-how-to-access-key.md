@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 02/13/2019
-ms.date: 03/01/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7b387437982e79334e66f2009c0cd4d293ae2b18
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 81697ff6fdbbdc51455569589e040687f18ce695
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204014"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625348"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>如何查找文本分析认知服务的终结点和访问密钥
 
@@ -34,7 +34,7 @@ ms.locfileid: "57204014"
 
 4. 单击链接以打开服务边栏选项卡。 现在即可在“资源”>“密钥”中获得密钥，或通过概要窗格中的“展示访问密钥”。 终结点也会显示在概要窗格中。
 
- ![带有终结点和密钥的门户页](../media/portal-keys-endpoint.png)
+   ![带有终结点和密钥的门户页](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>另请参阅 
 
@@ -46,4 +46,4 @@ ms.locfileid: "57204014"
 > [!div class="nextstepaction"]
 > [调用文本分析 API](text-analytics-how-to-call-api.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

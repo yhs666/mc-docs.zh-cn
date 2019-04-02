@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 08/18/2018
 ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: cec7c2b46cd19aed211b18ee2b0bcfe14e0a71a6
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: b764749399100b79b8ea66b8f69344749611b5bf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736669"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625920"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升级和缩放 Azure API 管理实例  
 
@@ -40,8 +40,8 @@ ms.locfileid: "53736669"
 
 + 有一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 
-+ 了解 [Azure API 管理实例的容量] (api-management-capacity.md) 的概念。
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
++ 了解 [Azure API 管理实例容量](api-management-capacity.md)的概念。
+  [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="upgrade-and-scale"></a>升级和缩放  
 

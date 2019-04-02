@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 5f32844d6ee9d74240719abff1ba6493d2409d72
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 4d10b22cc5419d9eb89e66cc3809916c21641d46
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785290"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625586"
 ---
 # <a name="peer-two-virtual-networks"></a>对等互连两个虚拟网络
 
@@ -34,43 +34,45 @@ ms.locfileid: "53785290"
 
 ## <a name="sample-script"></a>示例脚本
 
-#<a name="binbash"></a>!/bin/bash
+```bash
+# !/bin/bash
 
-RgName="MyResourceGroup" Location="chinaeast"
+RgName="MyResourceGroup"
+Location="chinaeast"
 
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 az group create \
   --name $RgName \
   --location $Location
 
-# <a name="create-virtual-network-1"></a>创建虚拟网络 1。
+# Create virtual network 1.
 az network vnet create \
   --name Vnet1 \
   --resource-group $RgName \
   --location $Location \
   --address-prefix 10.0.0.0/16
 
-# <a name="create-virtual-network-2"></a>创建虚拟网络 2。
+# Create virtual network 2.
 az network vnet create \
   --name Vnet2 \
   --resource-group $RgName \
   --location $Location \
   --address-prefix 10.1.0.0/16
 
-# <a name="get-the-id-for-vnet1"></a>获取 VNet1 的 ID。
+# Get the id for VNet1.
 VNet1Id=$(az network vnet show \
   --resource-group $RgName \
   --name Vnet1 \
   --query id --out tsv)
 
-# <a name="get-the-id-for-vnet2"></a>获取 VNet2 的 ID。
+# Get the id for VNet2.
 VNet2Id=$(az network vnet show \
   --resource-group $RgName \
   --name Vnet2 \
   --query id \
   --out tsv)
 
-# <a name="peer-vnet1-to-vnet2"></a>将 VNet1 对等互连到 VNet2。
+# Peer VNet1 to VNet2.
 az network vnet peering create \
   --name LinkVnet1ToVnet2 \
   --resource-group $RgName \
@@ -78,13 +80,14 @@ az network vnet peering create \
   --remote-vnet-id $VNet2Id \
   --allow-vnet-access
 
-# <a name="peer-vnet2-to-vnet1"></a>将 VNet2 对等互连到 VNet1。
+# Peer VNet2 to VNet1.
 az network vnet peering create \
   --name LinkVnet2ToVnet1 \
   --resource-group $RgName \
   --vnet-name VNet2 \
   --remote-vnet-id $VNet1Id \
   --allow-vnet-access
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

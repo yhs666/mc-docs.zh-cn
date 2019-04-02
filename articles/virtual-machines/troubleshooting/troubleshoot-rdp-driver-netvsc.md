@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 11/19/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8051b6675901e5603fd3946c91304975a91e4330
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: 30fcb8051432e8ef8e0e27ffedc367bff57e51f2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480162"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625272"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>由于 netvsc.sys，无法在 Azure 中远程连接到 Windows 10 或 Windows Server 2016 VM
 
@@ -73,22 +73,22 @@ ms.locfileid: "55480162"
 
 12. 下载相应的更新：
 
-   - **10.0.14393.594**：[KB4073562](http://support.microsoft.com/help/4073562)  或更高版本的更新
-   - **10.0.15063.0**：[KB4016240](http://support.microsoft.com/help/4016240) 或更高版本的更新
+    - **10.0.14393.594**：[KB4073562](http://support.microsoft.com/help/4073562)  或更高版本的更新
+    - **10.0.15063.0**：[KB4016240](http://support.microsoft.com/help/4016240) 或更高版本的更新
 
 13. 将系统磁盘作为数据磁盘附加到可以下载更新的安全 VM 上。
 
 14. 运行以下命令以在 VM 上安装更新：
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. 运行以下命令来卸载配置单元：
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [拆离系统磁盘并重新创建 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 

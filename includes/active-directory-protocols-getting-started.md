@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 04/18/2018
 ms.date: 12/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: d6cebc45c7b73f29b40c815ef10a0364f43d7a24
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: ee6a3ae6293a098fbcd8d0d44219332bf661670f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029231"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627766"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>将应用程序注册到 AD 租户
 首先，需要将应用程序注册到 Azure Active Directory (Azure AD) 租户。 这会为应用程序分配一个应用程序 ID，并且使该应用程序可以接收令牌。
@@ -31,7 +31,7 @@ ms.locfileid: "53029231"
 - 单击“应用注册”并单击“新建应用程序注册”。
 - 根据提示创建新的应用程序。 本教程简要介绍了 Web 应用程序和本机应用程序的操作步骤，如果想要查看 Web 应用程序或本机应用程序的具体示例，请参阅[快速入门](../articles/active-directory/develop/v1-overview.md)。
   - 对于 Web 应用程序，请在用户登录页面（如 `http://localhost:12345`）提供“登录 URL”，即应用的基 URL。
-<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.partner.onmschina.cn/my-first-aad-app`-->
+    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.partner.onmschina.cn/my-first-aad-app`-->
   - 对于本机应用程序，请提供“重定向 URI”，Azure AD 将用其返回令牌响应。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
 - 完成注册后，Azure AD 将为应用程序分配一个唯一的客户端标识符，即应用程序 ID。 在后面的部分中会用到此值，因此，请从应用程序页复制此值。
 - 若要在 Azure 门户中找到应用程序，请依次单击“应用注册”、“查看所有应用程序”。

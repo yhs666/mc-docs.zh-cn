@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 02/13/2019
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: d8eb78850b384bf85ef6fd5e0ba82ee80b89a682
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f6c48ce228aa1830651c5868d4ab7ab339920853
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964436"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626554"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何调用文本分析 REST API
 
@@ -59,7 +59,7 @@ ms.locfileid: "57964436"
    + 粘贴从门户页中复制的终结点。
    + 附加资源。
 
-  资源终结点如下所示（你的区域可能有所不同）：
+   资源终结点如下所示（你的区域可能有所不同）：
 
    + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/sentiment`
    + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/keyPhrases`
@@ -72,25 +72,25 @@ ms.locfileid: "57964436"
    + `Content-Type`：application/json。
    + `Accept`：application/json。
 
-  请求应类似于以下屏幕截图，假设 /keyPhrases 资源。
+   请求应类似于以下屏幕截图，假设 /keyPhrases 资源。
 
    ![请求带终结点和标头的屏幕截图](../media/postman-request-keyphrase-1.png)
 
-4. 单击“正文”，然后选择“原始”格式。
+3. 单击“正文”，然后选择“原始”格式。
 
    ![请求具有正文设置的屏幕截图](../media/postman-request-body-raw.png)
 
-5. 采用对预期分析有效的格式粘贴某些 JSON 文档。 有关特定分析的详细信息，请参阅下面的主题：
+4. 采用对预期分析有效的格式粘贴某些 JSON 文档。 有关特定分析的详细信息，请参阅下面的主题：
 
-  + [语言检测](text-analytics-how-to-language-detection.md)  
-  + [关键短语提取](text-analytics-how-to-keyword-extraction.md)  
-  + [情绪分析](text-analytics-how-to-sentiment-analysis.md)  
-  + [实体识别（预览版）](text-analytics-how-to-entity-linking.md)  
+   + [语言检测](text-analytics-how-to-language-detection.md)  
+   + [关键短语提取](text-analytics-how-to-keyword-extraction.md)  
+   + [情绪分析](text-analytics-how-to-sentiment-analysis.md)  
+   + [实体识别（预览版）](text-analytics-how-to-entity-linking.md)  
 
 
-6. 单击“发送”以提交请求。 每分钟可以提交多达 100 个请求。 
+5. 单击“发送”以提交请求。 每分钟可以提交多达 100 个请求。 
 
-  在 Postman 中，响应会在下一个窗口中显示为单个 JSON 文档，请求中提供的每个文档 ID 对应一个条目。
+   在 Postman 中，响应会在下一个窗口中显示为单个 JSON 文档，请求中提供的每个文档 ID 对应一个条目。
 
 ## <a name="see-also"></a>另请参阅 
 

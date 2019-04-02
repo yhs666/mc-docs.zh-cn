@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: c681b572f392fc01b8efc1b6838c3c1fb3a20be0
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 00dd01f46e3dc020b1930272a3b00273180c65c7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349082"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625955"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建时序见解资源
 
 本文介绍如何使用 Azure 资源管理器模板、PowerShell 和时序见解资源提供程序创建并部署时序见解资源。
 
 时序见解支持以下资源：
+
    | 资源 | 说明 |
    | --- | --- |
    | 环境 | 时序见解环境是从事件中转站读取的、经存储的并可供查询使用的事件的逻辑分组。 有关详细信息，请参阅[规划 Azure 时序见解环境](time-series-insights-environment-planning.md) |

@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 2/20/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 3584b21c410cbe843061fbee44558da4705cb08c
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: f5615715cd91ac68cbccb42086713c99e1d56423
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348328"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626487"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入门：使用语音 SDK 在 Android 上的 Java 中识别语音
 
@@ -66,24 +66,24 @@ Android Studio 需要一定的时间来准备你的新 Android 项目。 接下�
 
 设置项目以使用语音 SDK。 打开“项目结构”窗口，方法是从 Android Studio 菜单栏中选择“文件” > “项目结构”。 在“项目结构”窗口中进行以下更改：
 
-1. 在窗口左侧的列表中，选择“项目”。 编辑“默认库存储库”设置，方法是附加用单引号引起来的逗号和 Maven 存储库 URL。 'https://csspeechstorage.blob.core.chinacloudapi.cn/maven/'
+1. 在窗口左侧的列表中，选择“项目”。 编辑“默认库存储库”设置，方法是附加用单引号引起来的逗号和 Maven 存储库 URL。 '<https://csspeechstorage.blob.core.chinacloudapi.cn/maven/>'
 
    ![“项目结构”窗口的屏幕截图](media/sdk/qs-java-android-06-add-maven-repository.png)
 
-1. 在同一屏幕的左侧选择“应用”。 然后在窗口顶部选择“依赖项”选项卡。 选择绿色加号 (+)，然后从下拉菜单中选择“库依赖项”。
+2. 在同一屏幕的左侧选择“应用”。 然后在窗口顶部选择“依赖项”选项卡。 选择绿色加号 (+)，然后从下拉菜单中选择“库依赖项”。
 
    ![“项目结构”窗口的屏幕截图](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 在出现的窗口中，输入适用于 Android 的语音 SDK 的名称和版本 (`com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`)。 然后选择“确定”。
+3. 在出现的窗口中，输入适用于 Android 的语音 SDK 的名称和版本 (`com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`)。 然后选择“确定”。
    现应将语音 SDK 添加到依赖项列表中，如下所示：
 
    ![“项目结构”窗口的屏幕截图](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-1. 选择“属性”选项卡。“源兼容性”和“目标兼容性”都选择 1.8。
+4. 选择“属性”选项卡。“源兼容性”和“目标兼容性”都选择 1.8。
 
    ![](media/sdk/qs-java-android-09-dependency-added.png)
 
-1. 选择“确定”，关闭“项目结构”窗口并应用对项目所做的更改。
+5. 选择“确定”，关闭“项目结构”窗口并应用对项目所做的更改。
 
 ## <a name="create-user-interface"></a>创建用户界面
 
@@ -104,10 +104,10 @@ Android Studio 需要一定的时间来准备你的新 Android 项目。 接下�
 <table>
 <tr>
 <td valign="top">
-![](media/sdk/qs-java-android-11-gui.png)
+<img src="media/sdk/qs-java-android-11-gui.png" alt=""/>
 </td>
 <td valign="top">
-[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
+<!-- Can not find reference ~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml -->
 </td>
 </tr>
 </table>

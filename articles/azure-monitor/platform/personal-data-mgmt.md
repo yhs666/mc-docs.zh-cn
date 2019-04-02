@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: dc2a9327220206093d231fcb55c50365bc712592
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 50d3178866c702e0471ef31355f7c07fc9d78430
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440889"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627114"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>存储在 Log Analytics 和 Application Insights 中的个人数据指南
 
@@ -53,7 +53,7 @@ Log Analytics 是十分灵活的存储，可在规定数据架构的同时允许
     ```
     search "[username goes here]"
     ```
-请记住，不仅要查找用户可读的用户名，还要查找可直接追溯到特定用户的 GUID！
+  请记住，不仅要查找用户可读的用户名，还要查找可直接追溯到特定用户的 GUID！
 * *设备 ID*：与用户 ID 一样，设备 ID 有时被视为“私人数据”。 可使用上面针对用户 ID 列出的方法来识别可能存在此问题的表。 
 * *自定义数据*：Log Analytics 允许使用各种方法进行收集：自定义日志和自定义字段、[HTTP 数据收集器 API](../../azure-monitor/platform/data-collector-api.md) 以及作为系统事件日志一部分收集的自定义数据。 所有这些数据都很有可能包含私人数据，应该进行检查以验证是否存在任何此类数据。
 * *解决方案捕获的数据*：由于解决方案机制是开放式的，因此建议查看解决方案生成的所有表以确保符合性。

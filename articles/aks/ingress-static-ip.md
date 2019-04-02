@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 08/30/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4b31a39b935495fec2f5dfa91963b324ea6c1cb0
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 72fb31f2c025f50ec9f9c2ca20add7db9c5ddbd8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903042"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627331"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用静态公共 IP 地址创建入口控制器
 
@@ -364,8 +364,7 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_chi
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [aks-ingress-internal]: ingress-internal-ip.md

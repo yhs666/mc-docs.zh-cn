@@ -14,12 +14,12 @@ origin.date: 03/04/2019
 ms.date: 03/18/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 866788bb58d30f35b999b859b10a8cd195bf55f7
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: d3ae7e047b9d64b60d67d3c6b93c24fe69b1f573
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348135"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625801"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
@@ -41,7 +41,7 @@ ms.locfileid: "58348135"
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 选择“创建资源” > “存储” > “存储帐户”。
   
-  <!--Not Available on - blob, file, table, queue-->
+   <!--Not Available on - blob, file, table, queue-->
   
     ![使用 Azure 门户创建 Azure 存储帐户](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 输入以下信息：
@@ -92,7 +92,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 4. 选择“创建” 。
 5. 选择“编辑模板”。
   
-  <!--MOONCAKE CUSTOMIZE: Correct on Edit template-->
+   <!--MOONCAKE CUSTOMIZE: Correct on Edit template-->
   
 6. 选择“加载文件”，然后按说明加载在上部分下载的 template.json。
 7. 添加一个变量，如以下屏幕截图所示：
@@ -157,11 +157,11 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
         "outputs": {}
     }
     ```
-7. 选择“其他安全性验证” 。
+10. 选择“其他安全性验证” 。
 
-  <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
+    <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
   
-8. 输入以下值：
+11. 输入以下值：
     - “部署解决方案模板”面板。
         - **资源组**：选择“新建”，然后使用唯一的名称为资源组命名。
         - **资源组位置**：选择资源组的位置。 例如，**中国北部**。 
@@ -173,20 +173,20 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
         - **启用仅限 Https 流量**。  对于本快速入门，请选择“true”。
         - 选择“确定” 。
 
-    下面是示例部署的屏幕截图：
+      下面是示例部署的屏幕截图：
 
-    ![Azure 资源管理器模板部署](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
+      ![Azure 资源管理器模板部署](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
 
-9. 选择“查看法律条款”，然后选择“创建”。
-10. 选择“创建” 。
+12. 选择“查看法律条款”，然后选择“创建”。
+13. 选择“创建” 。
 
-   <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
+    <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
    
-11. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
+14. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
 
     ![Azure 资源管理器模板部署通知](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
 
-12. 从通知窗格选择“转到资源组”。 将看到类似于以下的屏幕：
+15. 从通知窗格选择“转到资源组”。 将看到类似于以下的屏幕：
 
     ![Azure 资源管理器模板部署资源组](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 

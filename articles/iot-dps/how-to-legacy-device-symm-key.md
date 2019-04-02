@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8cd4c3e47265c4402e349857fb3a9d21d506fb27
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 000708769f079c9d25ed1941a7049a3044d2bbac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988650"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626553"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>使用对称密钥预配旧设备
 
@@ -120,17 +120,17 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
 
 3. 在“添加注册组”中输入以下信息，然后单击“保存”按钮。
 
-    - **组名**：输入 **mylegacydevices**。
+   - **组名**：输入 **mylegacydevices**。
 
-    - **证明类型**：选择“对称密钥”。
+   - **证明类型**：选择“对称密钥”。
 
-    - **自动生成密钥**：选中此框。
+   - **自动生成密钥**：选中此框。
 
-    - **选择要如何将设备分配到中心**：选择“静态配置”，以便可以分配到特定的中心。
+   - **选择要如何将设备分配到中心**：选择“静态配置”，以便可以分配到特定的中心。
 
-    - **选择此组可分配到的 IoT 中心**：选择你的中心之一。
+   - **选择此组可分配到的 IoT 中心**：选择你的中心之一。
 
-    ![为对称密钥证明添加注册组](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![为对称密钥证明添加注册组](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. 保存注册后，将生成“主要密钥”和“辅助密钥”，并将其添加到注册条目。 对称密钥注册组在“注册组”选项卡的“组名”栏下显示为“mylegacydevices”。 
 

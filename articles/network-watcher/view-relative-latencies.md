@@ -17,12 +17,12 @@ origin.date: 12/14/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 48a50c2c8731ee9e649488bf3aa7eecb8ebe6465
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1d8a6f0c21ae90ba181a32b80dd220caf4dc8e58
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675322"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625885"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>查看从特定位置到 Azure 区域的相对延迟
 
@@ -120,8 +120,8 @@ Get-AzureRmNetworkWatcherReachabilityReport `
   -EndTime "2017-12-15"
 ```
 
->[!NOTE]
-与指定单个位置时不同，如果未指定位置，或指定了多个位置（例如“中国北部 2”、“中国北部”），则运行该命令时，必须指定 Internet 服务提供商。 
+> [!NOTE]
+> 与指定单个位置时不同，如果未指定位置，或指定了多个位置（例如“中国北部 2”、“中国北部”），则运行该命令时，必须指定 Internet 服务提供商。 
 
 ## <a name="view-available"></a>查看可用的国家/地区、州/省、城市和提供商
 

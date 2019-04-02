@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a3d900523021d1acfffb0da971b6f4b59ee0b014
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 619e6726b6022b02e337d1035e2c038698145b3b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987033"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625694"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>将 SharePoint 场备份到 Azure
 使用 System Center Data Protection Manager (DPM) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用 DPM，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 进行经济高效的长期保留。
@@ -187,7 +187,7 @@ DPM 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
    * 如果 SharePoint 场未更改，并且与正在还原的恢复点相同，请选择“不使用恢复场进行恢复”  。
    * 如果 SharePoint 场自创建恢复点后已更改，请选择“使用恢复场进行恢复”  。
 
-    ![恢复过程](./media/backup-azure-backup-sharepoint/recovery-process.png)
+     ![恢复过程](./media/backup-azure-backup-sharepoint/recovery-process.png)
 
 9. 提供暂时恢复数据库的暂存 SQL Server 实例位置，并在要恢复该项的 DPM 服务器和运行 SharePoint 的服务器上提供暂存文件共享。
 

@@ -1,4 +1,12 @@
-###<a name="install-via-composer"></a>通过 Composer 安装
+---
+ms.openlocfilehash: 3b9618b434576acc6b628524e40f4e43f347d367
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632813"
+---
+### <a name="install-via-composer"></a>通过 Composer 安装
 
 1. [安装 Git][install-git]。 请注意，在 Windows 上，还需要向 PATH 环境变量添加 Git 可执行文件。 
 
@@ -29,7 +37,7 @@
     php composer.phar install
     ```
 
-###<a name="install-manually"></a>手动安装
+### <a name="install-manually"></a>手动安装
 
 若要手动下载并安装 Azure 的 PHP 客户端库，请执行下列步骤：
 

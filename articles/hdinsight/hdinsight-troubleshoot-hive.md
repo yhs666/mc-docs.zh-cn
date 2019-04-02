@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: b29c3080c37f7214c08cfbf968bbb7dca8a6c700
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 86008e0a2ad51176e9a39c6d4cec764af3199ed9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644164"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627664"
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Hive 进行故障排除
 
@@ -64,21 +64,21 @@ hive -f alltables.sql
 
 2. 若要查看 Hive 客户端日志，请使用以下命令：
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. 若要查看 Hive 元存储日志，请使用以下命令：
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. 若要查看 Hiveserver 日志，请使用以下命令：
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>其他阅读材料
 
@@ -91,21 +91,21 @@ hive -f alltables.sql
 
 1. 启动 Hive shell 时，请指定配置键值对。 有关详细信息，请参阅[其他阅读材料](#additional-reading-end)。
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. 若要在 Hive shell 中列出所有有效配置，请使用以下命令：
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  例如，在控制台上使用以下命令启动已启用调试日志记录的 Hive shell：
+   例如，在控制台上使用以下命令启动已启用调试日志记录的 Hive shell：
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>其他阅读材料
 
@@ -121,19 +121,19 @@ hive -f alltables.sql
 
 2. 请在命令提示符处运行以下命令：
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. 若要列出可用于分析 Tez DAG 的其他分析程序，请使用以下命令：
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  必须提供一个示例程序作为第一个参数。
+   必须提供一个示例程序作为第一个参数。
 
-  有效的程序名称包括：
+   有效的程序名称包括：
     - **ContainerReuseAnalyzer**：列显 DAG 中的容器重用详细信息
     - **CriticalPath**：查找 DAG 的关键路径
     - **LocalityAnalyzer**：列显 DAG 中的区域详细信息
@@ -144,7 +144,7 @@ hive -f alltables.sql
     - **SlowestVertexAnalyzer**：列显 DAG 中的最慢顶点详细信息
     - **SpillAnalyzer**：列显 DAG 中的溢出详细信息
     - **TaskConcurrencyAnalyzer**：列显 DAG 中的任务并发性详细信息
-    - **VertexLevelCriticalPathAnalyzer**：查找 DAG 中顶点级别的关键路径
+    - **VertexLevelCriticalPathAnalyzer**：在 DAG 中查找顶点级别的关键路径
 
 
 ### <a name="additional-reading"></a>其他阅读材料

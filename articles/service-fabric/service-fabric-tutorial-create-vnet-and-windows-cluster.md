@@ -16,12 +16,12 @@ origin.date: 02/19/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 90219ace2983ba0753476d7b3b696e22f54bf3e9
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: a2a5b9df8315716412139f3e51f0da5e78129298
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463660"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626518"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>教程：将 Service Fabric Windows 群集部署到 Azure 虚拟网络
@@ -162,15 +162,16 @@ ms.locfileid: "57463660"
 
 [azuredeploy.parameters.json][parameters] 参数文件声明用于部署群集和关联资源的多个值。 可能需要使用某些参数来修改部署：
 
-|参数|示例值|说明|
-|---|---||
-|adminUserName|vmadmin| 群集 VM 的管理员用户名。[VM 的用户名要求](/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
-|adminPassword|Password#1234| 群集 VM 的管理员密码。 [VM 的密码要求](/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
-|clusterName|mysfcluster123| 群集的名称。 仅可包含字母和数字。 长度可介于 3 到 23 个字符之间。|
-|location|chinaeast| 群集的位置。 |
-|certificateThumbprint|| <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”</p>。 |
-|certificateUrlValue|| <p>如果创建自签名证书或提供证书文件，则值应为空。 </p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如“https://mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”。</p>|
-|sourceVaultValue||<p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p>|
+
+|       参数       | 示例值  |                                                                                                                                                                          说明                                                                                                                                                                           |
+|-----------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     adminUserName     |    vmadmin     |                                                                                                  群集 VM 的管理员用户名。[VM 的用户名要求](/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm)                                                                                                  |
+|     adminPassword     | Password#1234  |                                                                                                 群集 VM 的管理员密码。 [VM 的密码要求](/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)                                                                                                  |
+|      clusterName      | mysfcluster123 |                                                                                                                          群集的名称。 仅可包含字母和数字。 长度可介于 3 到 23 个字符之间。                                                                                                                           |
+|       location        |   chinaeast    |                                                                                                                                                                 群集的位置。                                                                                                                                                                 |
+| certificateThumbprint |                |                                   <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”</p>。                                   |
+|  certificateUrlValue  |                |                <p>如果创建自签名证书或提供证书文件，则值应为空。 </p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如“<https://mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>”。</p>                 |
+|   sourceVaultValue    |                | <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p> |
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>设置 Azure Active Directory 客户端身份验证
 如果将 Service Fabric 群集部署在某个公共网络中，而该网络托管在 Azure 上，则对于客户端到节点型相互身份验证，建议如下：
@@ -351,7 +352,6 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
-
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>连接到安全群集

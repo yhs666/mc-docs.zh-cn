@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: ff6b482f6bdf1d1b05b0ea16b3dcb6515811e657
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 615c971ca784f82b4b0ac5395210bd69a91ed87e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905395"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627680"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack 数据中心集成
 
@@ -117,32 +117,32 @@ Azure Stack 客户应该为以下阶段做好准备：
 
 OEM 合作伙伴应执行的操作包括：
 
--   [运行 test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [运行 test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [注册到 Azure](azure-stack-registration.md)
+- [注册到 Azure](azure-stack-registration.md)
 
--   [市场联合](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [市场联合](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   备份交换机配置文件和 HLH 配置文件
+- 备份交换机配置文件和 HLH 配置文件
 
--   去除 DVM
+- 去除 DVM
 
--   为客户准备部署摘要
+- 为客户准备部署摘要
 
--   [检查更新以确保解决方案软件已更新到最新版本](.\azure-stack-updates.md)
+- [检查更新以确保解决方案软件已更新到最新版本](./azure-stack-updates.md)
 
 有几个步骤是必需或可选的，具体取决于安装类型。
 
--   如果部署是使用 [AD FS](azure-stack-integrate-identity.md) 完成的，则 Azure Stack 阵列需要与客户自己的 AD FS 相集成。
+- 如果部署是使用 [AD FS](azure-stack-integrate-identity.md) 完成的，则 Azure Stack 阵列需要与客户自己的 AD FS 相集成。
 
   > [!NOTE]
   > 此步骤由客户负责，不过，合作伙伴可以选择性地提供相关服务。
 
--   与相关合作伙伴的现有监视系统相集成。
+- 与相关合作伙伴的现有监视系统相集成。
 
-    -   [System Center Operations Manager 集成](azure-stack-integrate-monitor.md)也支持机群管理功能。
+  -   [System Center Operations Manager 集成](azure-stack-integrate-monitor.md)也支持机群管理功能。
 
-    -   [Nagios 集成](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios 集成](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>整体时间表
 

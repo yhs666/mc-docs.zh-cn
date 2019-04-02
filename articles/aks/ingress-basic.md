@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 08/30/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: cb5d5375477dc1d8028fb369089ddbc2dcd2df7a
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 2c41c127da0052c122e49b5a5a446bb3475ad357
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903120"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627476"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建入口控制器
 
@@ -183,8 +183,7 @@ kubectl delete -f hello-world-ingress.yaml
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md

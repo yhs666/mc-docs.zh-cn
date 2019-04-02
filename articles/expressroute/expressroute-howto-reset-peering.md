@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/15/2018
 ms.author: v-yiso
 ms.date: 04/01/2018
-ms.openlocfilehash: 3307453e69f38bfa07f1796ab54bc728c34e8041
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 58984a858b006645ee03392b5753f2c5100ea14c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348520"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627513"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>重置 ExpressRoute 线路对等互连
 
@@ -30,48 +30,48 @@ ms.locfileid: "58348520"
 
 1. 如果在本地运行 PowerShell，请使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
 
-  ```powershell
-  Connect-AzAccount -Environment AzureChinaCloud
-  ```
-3. 如果有多个 Azure 订阅，请查看该帐户的订阅。
+   ```powershell
+   Connect-AzAccount -Environment AzureChinaCloud
+   ```
+2. 如果有多个 Azure 订阅，请查看该帐户的订阅。
 
-  ```powershell
-  Get-AzSubscription
-  ```
-4. 指定要使用的订阅。
+   ```powershell
+   Get-AzSubscription
+   ```
+3. 指定要使用的订阅。
 
-  ```powershell
-  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-5. 运行以下命令，检索 ExpressRoute 线路。
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
+4. 运行以下命令，检索 ExpressRoute 线路。
 
-  ```powershell
-  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
-6. 标识要禁用或启用的对等互连。 对等互连是一个数组。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Azure 公共对等互连。
+   ```powershell
+   $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
+5. 标识要禁用或启用的对等互连。 对等互连是一个数组。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Azure 公共对等互连。
 
-  ```powershell
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : chinanorth
-Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
-ProvisioningState                : Succeeded
-Sku                              : {
+   ```powershell
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : chinanorth
+   Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                      "Name": "Standard_MeteredData",
                                      "Tier": "Standard",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             :
+   ServiceProviderProperties        : {
                                      "ServiceProviderName": "Coresite",
                                      "PeeringLocation": "Los Angeles",
                                      "BandwidthInMbps": 50
                                    }
-ServiceKey                       : ########-####-####-####-############
-Peerings                         : [
+   ServiceKey                       : ########-####-####-####-############
+   Peerings                         : [
                                      {
                                        "Name": "AzurePrivatePeering",
                                        "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
@@ -127,17 +127,17 @@ Peerings                         : [
                                        "Connections": []
                                      }
                                    ]
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag               :
-  ```
-7. 运行以下命令以更改对等互连状态。
+   Authorizations                   : []
+   AllowClassicOperations           : False
+   GatewayManagerEtag               :
+   ```
+6. 运行以下命令以更改对等互连状态。
 
-  ```powershell
-  $ckt.Peerings[0].State = "Disabled"
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
-对等互连应处于设定的某种状态。 
+   ```powershell
+   $ckt.Peerings[0].State = "Disabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   对等互连应处于设定的某种状态。 
 
 ## <a name="next-steps"></a>后续步骤
 如果需要帮助排查 ExpressRoute 问题，请查看以下文章：

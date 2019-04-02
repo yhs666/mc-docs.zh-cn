@@ -17,12 +17,12 @@ ms.custom: mvc
 origin.date: 04/14/2018
 ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: e7700e34c050cdb929099d9ad225541ee70ae00f
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 3ce6488ff76ecb63ff3a088f5fd7049185eb2515
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222591"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626860"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Windows Phone 应用推送通知
 
@@ -45,7 +45,7 @@ ms.locfileid: "56222591"
 ## <a name="prerequisites"></a>先决条件
 
 - **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
+- [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
 
 完成本教程是学习有关 Windows Phone 8 应用的所有其他通知中心教程的先决条件。
 

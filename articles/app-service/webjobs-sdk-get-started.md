@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 04/27/2018
 ms.date: 03/18/2019
 ms.author: v-biyu
-ms.openlocfilehash: f33dfd0139ee2fd5464cb9f2d242c9ac2a50ae55
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: be363fd3d1d971d8a7bd4130b053d1334c7add47
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347187"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626113"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -47,15 +47,15 @@ ms.locfileid: "57347187"
 
 1. 安装以下 NuGet 包的最新稳定版本 3.x 版：
 
-    * `Microsoft.Azure.WebJobs`
-    * `Microsoft.Azure.WebJobs.Extensions`
+   * `Microsoft.Azure.WebJobs`
+   * `Microsoft.Azure.WebJobs.Extensions`
 
-    下面是适用于版本 3.0.4 的**包管理器控制台**命令：
+     下面是适用于版本 3.0.4 的**包管理器控制台**命令：
 
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-    Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
-    ```
+     ```powershell
+     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     ```
 
 ## <a name="create-the-host"></a>创建主机
 
@@ -268,33 +268,33 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
     Content root path: C:\WebJobsSDKSample\WebJobsSDKSample\bin\Debug\netcoreapp2.1\
    ```
 
-1. 关闭控制台窗口。
+2. 关闭控制台窗口。
 
-1. 在 Visual Studio 的“服务器资源管理器”中，展开新存储帐户所在的节点，然后右键单击“队列”。
+3. 在 Visual Studio 的“服务器资源管理器”中，展开新存储帐户所在的节点，然后右键单击“队列”。
 
-1. 选择“创建队列”。
+4. 选择“创建队列”。
 
-1. 输入 *queue* 作为队列名称，然后选择“确定”。
+5. 输入 *queue* 作为队列名称，然后选择“确定”。
 
    ![创建队列](./media/webjobs-sdk-get-started/create-queue.png)
 
-1. 右键单击新队列所在的节点，然后选择“查看队列”。
+6. 右键单击新队列所在的节点，然后选择“查看队列”。
 
-1. 选择“添加消息”图标。
+7. 选择“添加消息”图标。
 
    ![创建队列](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. 在“添加消息”对话框中，输入 *Hello World!* 作为**消息正文**，然后选择“确定”。 现在，队列中会出现一条消息。
+8. 在“添加消息”对话框中，输入 *Hello World!* 作为**消息正文**，然后选择“确定”。 现在，队列中会出现一条消息。
 
    ![创建队列](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-1. 再次运行该项目。
+9. 再次运行该项目。
 
    由于在 `ProcessQueueMessage` 函数中使用了 `QueueTrigger` 特性，因此 WeJobs SDK 运行时会在启动时侦听队列消息。 它会在名为 *queue* 的队列中查找新队列消息，并调用函数。
 
    由于[队列轮询指数退让](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm)，运行时最长可能需要花费 2 分钟才能找到消息并调用函数。 以[开发模式](webjobs-sdk-how-to.md#host-development-settings)运行可以缩减此等待时间。
 
-  控制台输出如下所示：
+   控制台输出如下所示：
 
    ```console
     info: Function.ProcessQueueMessage[0]
@@ -307,9 +307,9 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
           Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=2c319369-d381-43f3-aedf-ff538a4209b8)
    ```
 
-1. 关闭控制台窗口。 
+10. 关闭控制台窗口。 
 
-1. 返回“队列”窗口并刷新。 该消息已消失，因为本地运行的函数已对其进行处理。 
+11. 返回“队列”窗口并刷新。 该消息已消失，因为本地运行的函数已对其进行处理。 
 
 ## <a name="deploy-as-a-webjob"></a>部署 WebJob
 

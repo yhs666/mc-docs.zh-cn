@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 361d31abb509ccd1bf29198259ca788d947fe9d2
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 6251766552071880f34b8934c2cbaef8930cbe81
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440696"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626155"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的联接
 
@@ -101,7 +101,7 @@ SecurityEvent
 
 - 在每个表上使用时间筛选器，减少为联接计算得出的最小记录量。
 - 使用 `where` 和 `project` 可减少联接前输入表中的行数和列数。
-* 如果某个表始终小于另一个表，则将其用作联接的左侧。
+- 如果某个表始终小于另一个表，则将其用作联接的左侧。
 
 
 ## <a name="next-steps"></a>后续步骤

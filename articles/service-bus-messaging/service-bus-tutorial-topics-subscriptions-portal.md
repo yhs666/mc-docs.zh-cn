@@ -9,12 +9,12 @@ ms.date: 01/28/19
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 59e17d3d6abe5149bbed113eeeb61101abb4e9b1
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f2118f514ba99e8e0aebb2d5bffac2eec890f116
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906121"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627374"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新清单
 
@@ -45,11 +45,10 @@ ms.locfileid: "54906121"
 
 每个[对主题的订阅](service-bus-messaging-overview.md#topics)都可以接收每条消息的副本。 主题在协议和语义方面与服务总线队列完全兼容。 服务总线主题支持一系列选择规则，这些规则具有筛选条件和用来设置或修改消息属性的可选操作。 规则每次匹配时，都会生成一条消息。 若要深入了解规则、筛选器和操作，请单击此[链接](topic-filters.md)。
 
-## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-首先转到 [Azure 门户][Azure portal]，使用 Azure 订阅登录。 第一步是创建类型为“消息传送”的服务总线命名空间。
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
 服务总线消息传送命名空间提供唯一的作用域容器，可以通过其[完全限定域名][]进行引用，而在该域名中，可以创建一个或多个队列、主题和订阅。 以下示例在新的或现有的[资源组](/azure/azure-resource-manager/resource-group-portal)中创建一个服务总线消息传送命名空间：
 
@@ -61,7 +60,7 @@ ms.locfileid: "54906121"
 6. 在“位置” 中，选择应在其中托管该命名空间的国家或地区。
 7. 单击**创建**。 系统现已创建命名空间并已将其启用。 可能需要等待几分钟，因为系统会为你的帐户配置资源。
 
-  ![命名空间](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
+   ![命名空间](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
 
 ### <a name="obtain-the-management-credentials"></a>获取管理凭据
 
@@ -126,7 +125,7 @@ ms.locfileid: "54906121"
    - 执行操作 2：添加自己的筛选器。
    - 执行操作 3：（可选）删除自己的筛选器。 请注意，这不会重新创建默认筛选器。
 
-    ![显示 2 的输出](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![显示 2 的输出](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. 创建筛选器以后，即可发送消息。 按 4 即可观察到 10 条消息发送到主题：
 

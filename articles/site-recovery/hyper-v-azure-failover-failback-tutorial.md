@@ -10,12 +10,12 @@ origin.date: 12/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 9ae77dc866280ad489365ca8f44f5ee9707d2553
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f8d8619ec2d2c5788fbf30a6103420fa59f062fd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363537"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626746"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复
 
@@ -50,13 +50,13 @@ ms.locfileid: "54363537"
 
 在“受保护的项”中，单击“复制的项”>“虚拟机”。
 
-2. “复制的项”窗格中具有 VM 信息、运行状况状态和最新可用恢复点的摘要。 单击“属性”，查看详细信息。
+1. “复制的项”窗格中具有 VM 信息、运行状况状态和最新可用恢复点的摘要。 单击“属性”，查看详细信息。
 
-3. 在“计算和网络”中，可修改 Azure 名称、资源组、目标大小、[可用性集](../virtual-machines/windows/tutorial-availability-sets.md)和托管的磁盘设置
+2. 在“计算和网络”中，可修改 Azure 名称、资源组、目标大小、[可用性集](../virtual-machines/windows/tutorial-availability-sets.md)和托管的磁盘设置
 
-4. 可查看和修改网络设置，包括在运行故障转移后 Azure VM 所在的网络/子网，以及将分配给它的 IP 地址。
+3. 可查看和修改网络设置，包括在运行故障转移后 Azure VM 所在的网络/子网，以及将分配给它的 IP 地址。
 
-5. 在“磁盘”中，可以查看操作系统和 VM 上数据磁盘的相关信息。
+4. 在“磁盘”中，可以查看操作系统和 VM 上数据磁盘的相关信息。
 
 ## <a name="failover-to-azure"></a>故障转移到 Azure
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 37f74d984bb66d49e340883bddb07bb9b8b9d538
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 64a6db4ce23a53a176e5d23796fe00cfaff62d48
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666428"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625723"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用门户将数据磁盘附加到 Linux VM 
 本文介绍如何通过 Azure 门户将新磁盘和现有磁盘附加到 Linux 虚拟机。 也可以[在 Azure 门户中将数据磁盘附加到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -30,11 +30,7 @@ ms.locfileid: "56666428"
 将磁盘附加到 VM 之前，请查看以下提示：
 
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要使用高级存储，需要一个 DS 系列虚拟机。 可以将高级磁盘和标准磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../windows/premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-
-<!-- Not Available on DG-series in Azure China -->
-
-* 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请参阅[关于虚拟机的磁盘和 VHD](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+* 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请查看[托管磁盘简介](managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 附加磁盘后，需要[连接到 Linux VM 以装载新磁盘](#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
 ## <a name="find-the-virtual-machine"></a>查找虚拟机
@@ -76,7 +72,7 @@ ms.locfileid: "56666428"
 
 4. 在 Azure 将磁盘附加到虚拟机之后，磁盘出现在“数据磁盘” 下的虚拟机磁盘设置中。
 
-<!-- Verify successfully on  The Connect to the Linux VM to mount the new disk-->
+    <!-- Verify successfully on  The Connect to the Linux VM to mount the new disk-->
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>连接到 Linux VM 以装入新磁盘
 若要对新磁盘进行分区、格式化和装载，以便 Linux VM 可以使用它，请通过 SSH 登录到 VM。 有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](mac-create-ssh-keys.md)。 以下示例使用公共 DNS 条目 *mypublicdns.chinanorth.cloudapp.chinacloudapi.cn* 和用户名 *azureuser* 连接到一个 VM： 

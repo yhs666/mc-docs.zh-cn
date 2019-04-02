@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 1918b12385309256e8b7243d2a322f6ae62a44d3
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 862e078430807f4ea8adbe29523209dd4f8f3ded
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440723"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626787"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure Key Vault 分析解决方案
 
@@ -136,13 +136,13 @@ Azure 密钥保管库解决方案可分析从 Azure 诊断中的 AuditEvent 日�
 1. [将诊断配置为直接从 Key Vault 发送到 Log Analytics](#enable-key-vault-diagnostics-in-the-portal)  
 2. 使用[从解决方案库中添加 Log Analytics 解决方案](../../azure-monitor/insights/solutions.md)中所述的过程，启用 Azure Key Vault 解决方案
 3. 更新所有已保存的查询、仪表板或警报，以使用的新数据类型
-  + 类型从KeyVaults 更改为 AzureDiagnostics。 可以使用 ResourceType 筛选 Key Vault 日志。
-  - 不要使用 `KeyVaults`，应使用 `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + 字段：（字段名称区分大小写）
-  - 对于名称中包含 \_s、\_d 或 \_g 后缀的任何字段，请将第一个字符更改为小写
-  - 对于名称中包含 \_o 后缀的任何字段，数据会根据嵌套的字段名称拆分为单个字段。 例如，调用方的 UPN 存储在字段 `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s` 中
-   - 字段 CallerIpAddress 已更改为 CallerIPAddress
-   - 字段 RemoteIPCountry 不再存在
+   + 类型从KeyVaults 更改为 AzureDiagnostics。 可以使用 ResourceType 筛选 Key Vault 日志。
+   + 不要使用 `KeyVaults`，应使用 `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + 字段：（字段名称区分大小写）
+   + 对于名称中包含 \_s、\_d 或 \_g 后缀的任何字段，请将第一个字符更改为小写
+   + 对于名称中包含 \_o 后缀的任何字段，数据会根据嵌套的字段名称拆分为单个字段。 例如，调用方的 UPN 存储在字段 `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s` 中
+   + 字段 CallerIpAddress 已更改为 CallerIPAddress
+   + 字段 RemoteIPCountry 不再存在
 4. 删除“Key Vault Analytics (已弃用)”解决方案。 如果使用的是 PowerShell，请使用 `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 在发生此项更改之前收集的数据不会显示在新解决方案中。 可以继续使用旧类型和字段名称查询此数据。

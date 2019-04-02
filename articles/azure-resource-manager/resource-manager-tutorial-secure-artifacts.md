@@ -14,12 +14,12 @@ origin.date: 02/25/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: f1da3e9b639903cba06ce5f35ad91bcf3bb337c8
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 4bf3d6fe2ba3a8ce120358275c5272af76ff13a6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348035"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625502"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -127,11 +127,11 @@ ms.locfileid: "58348035"
 3. 选择“生成 Blob SAS 令牌和 URL”。
 4. 复制“Blob SAS URL”。 URL 的中间是文件名 **SQLDatabaseExtension.bacpac**。  文件名将 URL 划分为三个部分：
 
-    - **项目位置**： https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/sqlbacpac/。 请确保位置以“/”结尾。
-    - **BACPAC 文件名**：SQLDatabaseExtension.bacpac。
-    - **项目位置 SAS 令牌**：请确保该令牌的前面带有“?”。
+   - **项目位置**： https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/sqlbacpac/。 请确保位置以“/”结尾。
+   - **BACPAC 文件名**：SQLDatabaseExtension.bacpac。
+   - **项目位置 SAS 令牌**：请确保该令牌的前面带有“?”。
 
-    [部署模板](#deploy-the-template)时需要使用这三个值。
+     [部署模板](#deploy-the-template)时需要使用这三个值。
 
 ## <a name="open-an-existing-template"></a>打开现有模板
 
@@ -147,13 +147,13 @@ ms.locfileid: "58348035"
 
     该模板中定义了五个资源：
 
-    * `Microsoft.Sql/servers`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers)。
-    * `Microsoft.SQL/servers/securityAlertPolicies`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)。
-    * `Microsoft.SQL/servers/filewallRules`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)。
-    * `Microsoft.SQL/servers/databases`。  请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)。
-    * `Microsoft.SQL/server/databases/extensions`。  请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)。
+   * `Microsoft.Sql/servers`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers)。
+   * `Microsoft.SQL/servers/securityAlertPolicies`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)。
+   * `Microsoft.SQL/servers/filewallRules`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)。
+   * `Microsoft.SQL/servers/databases`。  请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)。
+   * `Microsoft.SQL/server/databases/extensions`。  请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)。
 
-    在自定义模板之前，不妨对其进行一些基本的了解。
+     在自定义模板之前，不妨对其进行一些基本的了解。
 4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 
 ## <a name="edit-the-template"></a>编辑模板

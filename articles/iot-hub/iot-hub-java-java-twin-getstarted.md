@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
 ms.date: 12/31/2018
-ms.openlocfilehash: 6fc9a7c6bd536ed922ff26b71d285c576894060d
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: bb877831ed2eea6985875d6003f478c08c362c65
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736661"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626474"
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -218,9 +218,9 @@ ms.locfileid: "53736661"
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示符下，导航到 `simulated-device` 文件夹。
+2. 在命令提示符下，导航到 `simulated-device` 文件夹。
 
-1. 使用文本编辑器打开 `simulated-device` 文件夹中的 `pom.xml` 文件，在 **dependencies** 节点中添加以下依赖项。 通过此依赖项可以使用应用中的 **iot-device-client** 包来与 IoT 中心进行通信：
+3. 使用文本编辑器打开 `simulated-device` 文件夹中的 `pom.xml` 文件，在 **dependencies** 节点中添加以下依赖项。 通过此依赖项可以使用应用中的 **iot-device-client** 包来与 IoT 中心进行通信：
 
     ```xml
     <dependency>
@@ -233,7 +233,7 @@ ms.locfileid: "53736661"
     > [!NOTE]
     > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-device-client**。
 
-1. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
+4. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
 
     ```xml
     <build>
@@ -251,11 +251,11 @@ ms.locfileid: "53736661"
     </build>
     ```
 
-1. 保存并关闭 `pom.xml` 文件。
+5. 保存并关闭 `pom.xml` 文件。
 
-1. 使用文本编辑器打开 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
+6. 使用文本编辑器打开 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
 
-1. 在该文件中添加以下 **import** 语句：
+7. 在该文件中添加以下 **import** 语句：
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -266,7 +266,7 @@ ms.locfileid: "53736661"
     import java.util.Scanner;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值：
+8. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.cn;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -276,7 +276,7 @@ ms.locfileid: "53736661"
 
     本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 
 
-1. 将以下方法添加到 **App** 类以输出有关孪生更新的信息：
+9. 将以下方法添加到 **App** 类以输出有关孪生更新的信息：
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -287,66 +287,66 @@ ms.locfileid: "53736661"
       }
     ```
 
-9. 将以下代码添加到 **main** 方法，以便：
+10. 将以下代码添加到 **main** 方法，以便：
     * 创建用来与 IoT 中心通信的设备客户端。
     * 创建一个 **Device** 对象用于存储设备孪生属性。
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
-1. 将以下代码添加到 **main** 方法，创建 **connectivityType** 报告属性并将其发送到 IoT 中心：
+11. 将以下代码添加到 **main** 方法，创建 **connectivityType** 报告属性并将其发送到 IoT 中心：
 
-    ```java
-    try {
-      // Open the DeviceClient and start the device twin services.
-      client.open();
-      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
+     ```java
+     try {
+       // Open the DeviceClient and start the device twin services.
+       client.open();
+       client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
 
-      // Create a reported property and send it to your IoT hub.
-      dataCollector.setReportedProp(new Property("connectivityType", "cellular"));
-      client.sendReportedProperties(dataCollector.getReportedProp());
-    }
-    catch (Exception e) {
-      System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-      dataCollector.clean();
-      client.closeNow();
-      System.out.println("Shutting down...");
-    }
-    ```
+       // Create a reported property and send it to your IoT hub.
+       dataCollector.setReportedProp(new Property("connectivityType", "cellular"));
+       client.sendReportedProperties(dataCollector.getReportedProp());
+     }
+     catch (Exception e) {
+       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+       dataCollector.clean();
+       client.closeNow();
+       System.out.println("Shutting down...");
+     }
+     ```
 
-1. 将以下代码添加到 **main** 方法的末尾。 按 **Enter** 键，等待一段时间让 IoT 中心报告设备孪生操作的状态：
+12. 将以下代码添加到 **main** 方法的末尾。 按 **Enter** 键，等待一段时间让 IoT 中心报告设备孪生操作的状态：
 
-    ```java
-    System.out.println("Press any key to exit...");
+     ```java
+     System.out.println("Press any key to exit...");
 
-    Scanner scanner = new Scanner(System.in);
-    scanner.nextLine();
+     Scanner scanner = new Scanner(System.in);
+     scanner.nextLine();
 
-    dataCollector.clean();
-    client.close();
-    ```
+     dataCollector.clean();
+     client.close();
+     ```
 
-1. 修改 **main** 方法的签名，包含如下所示的异常：
+13. 修改 **main** 方法的签名，包含如下所示的异常：
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
-1. 保存并关闭 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
+14. 保存并关闭 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
 
-1. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 `simulated-device` 文件夹并运行以下命令：
+15. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 `simulated-device` 文件夹并运行以下命令：
 
-    `mvn clean package -DskipTests`
+     `mvn clean package -DskipTests`
 
 ## <a name="run-the-apps"></a>运行应用
 

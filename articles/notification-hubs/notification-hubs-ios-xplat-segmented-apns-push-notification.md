@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/14/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 86ed9d8925d2bf737386c0948dbd55cce79bf609
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f61d5e3456c9e61fd0c85fa676b36114093c79f9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662173"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626301"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定 iOS 设备推送通知
 
@@ -42,7 +42,7 @@ ms.locfileid: "52662173"
 
 ## <a name="prerequisites"></a>先决条件
 
-本主题基于在[教程：使用 Azure 通知中心将通知推送到 iOS 应用][get-started]中创建的应用。 在开始本教程前，必须已完成[教程：使用 Azure 通知中心将通知推送到 iOS 应用][get-started]。
+本主题基于以下教程中创建的应用：[教程：使用 Azure 通知中心将通知推送到 iOS 应用][get-started]。 在开始学习本教程之前，必须已完成[教程：使用 Azure 通知中心将通知推送到 iOS 应用][get-started]。
 
 ## <a name="add-category-selection-to-the-app"></a>向应用程序中添加类别选择
 
@@ -50,14 +50,14 @@ ms.locfileid: "52662173"
 
 1. 在 **MainStoryboard_iPhone.storyboard** 中，从对象库添加以下组件：
 
-    - 具有“Breaking News”文本的标签
-    - 具有“World”、“Politics”、“Business”、“Technology”、“Science”、“Sports”类别文本的标签
-    - 六个开关，每个类别一个。默认情况下，各开关的“状态”均设置为“关闭”。
-    - 一个标有“Subscribe”的按钮
+   - 具有“Breaking News”文本的标签
+   - 具有“World”、“Politics”、“Business”、“Technology”、“Science”、“Sports”类别文本的标签
+   - 六个开关，每个类别一个。默认情况下，各开关的“状态”均设置为“关闭”。
+   - 一个标有“Subscribe”的按钮
 
-    Storyboard 应类似于：
+     Storyboard 应类似于：
 
-    ![Xcode 接口生成器][3]
+     ![Xcode 接口生成器][3]
 
 2. 在助手编辑器中，为所有开关创建插座并称它们为“WorldSwitch”、“PoliticsSwitch”、“BusinessSwitch”、“TechnologySwitch”、“ScienceSwitch”、“SportsSwitch”
 3. 为名为“订阅”的按钮创建一个操作。 ViewController.h 应包含以下代码：
@@ -223,22 +223,22 @@ ms.locfileid: "52662173"
 
     此方法创建一个类别的 **NSMutableArray** 并使用 **Notifications** 类将该列表存储在本地存储中，将相应的标记注册到通知中心。 更改类别时，使用新类别重新创建注册。
 
-3. 在 ViewController.m 中，于 **viewDidLoad** 方法中添加以下代码，以根据前面保存的类别来设置用户界面。
+12. 在 ViewController.m 中，于 **viewDidLoad** 方法中添加以下代码，以根据前面保存的类别来设置用户界面。
 
-    ```objc
-    // This updates the UI on startup based on the status of previously saved categories.
+     ```objc
+     // This updates the UI on startup based on the status of previously saved categories.
 
-    Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
+     Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
-    NSSet* categories = [notifications retrieveCategories];
+     NSSet* categories = [notifications retrieveCategories];
 
-    if ([categories containsObject:@"World"]) self.WorldSwitch.on = true;
-    if ([categories containsObject:@"Politics"]) self.PoliticsSwitch.on = true;
-    if ([categories containsObject:@"Business"]) self.BusinessSwitch.on = true;
-    if ([categories containsObject:@"Technology"]) self.TechnologySwitch.on = true;
-    if ([categories containsObject:@"Science"]) self.ScienceSwitch.on = true;
-    if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
-    ```
+     if ([categories containsObject:@"World"]) self.WorldSwitch.on = true;
+     if ([categories containsObject:@"Politics"]) self.PoliticsSwitch.on = true;
+     if ([categories containsObject:@"Business"]) self.BusinessSwitch.on = true;
+     if ([categories containsObject:@"Technology"]) self.TechnologySwitch.on = true;
+     if ([categories containsObject:@"Science"]) self.ScienceSwitch.on = true;
+     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
+     ```
 
 应用程序现在可以在设备的本地存储区中存储一组类别，每当应用程序启动时，会使用这些类别注册到通知中心。 用户可以在运行时更改选择的类别，并单击 **subscribe** 方法来更新设备注册。 接下来，更新应用，直接从应用本身发送突发新闻通知。
 

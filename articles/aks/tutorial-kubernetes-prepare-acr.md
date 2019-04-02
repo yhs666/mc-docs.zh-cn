@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d470ac6034788189891a6ecee1c46af71ac0354b
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 1d27ea85a840e1183029b0873d40c4c86861ff86
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903062"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627614"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>教程：部署并使用 Azure 容器注册表
 
@@ -161,18 +161,13 @@ v1
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 
 <!-- LINKS - internal -->
-[az-acr-create]: https://docs.azure.cn/zh-cn/cli/acr
-?view=azure-cli-latest
-[az-acr-list]: https://docs.azure.cn/zh-cn/cli/acr
-?view=azure-cli-latest
+[az-acr-create]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
+[az-acr-list]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
 [az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
 [az-acr-list]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-list
-[az-acr-repository-list]: https://docs.azure.cn/zh-cn/cli/acr/repository
-?view=azure-cli-latest
-[az-acr-repository-show-tags]: https://docs.azure.cn/zh-cn/cli/acr/repository
-?view=azure-cli-latest
+[az-acr-repository-list]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest
+[az-acr-repository-show-tags]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

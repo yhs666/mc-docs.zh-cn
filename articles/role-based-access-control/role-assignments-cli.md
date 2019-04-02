@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/20/2019
-ms.date: 02/26/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 1eb758d9d5460787af6ab4a6c7f969acc9b4a6a6
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: a125d4f6ee164b630376b2bbf9e458901f548d80
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836973"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627472"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 和 Azure CLI 管理对 Azure 资源的访问权限
 
@@ -194,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 默认情况下，只会列出局限于订阅的分配。 若要查看按资源或组来确定范围的分配，请使用 `--all`。
 
-以下示例列出的角色分配是直接分配给 *patlong@contoso.com* 用户的：
+以下示例列出的角色分配是直接分配给 <em>patlong@contoso.com</em> 用户的：
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -252,7 +252,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-以下示例将“虚拟机参与者”角色分配给 *pharma-sales-projectforecast* 资源组范围内的 *patlong@contoso.com* 用户：
+以下示例将“虚拟机参与者”角色分配给 *pharma-sales-projectforecast* 资源组范围内的 <em>patlong@contoso.com</em> 用户：
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -300,7 +300,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-以下示例在 *pharma-sales-projectforecast* 资源组上从 *patlong@contoso.com* 用户删除“虚拟机参与者”角色分配：
+以下示例在 *pharma-sales-projectforecast* 资源组上从 <em>patlong@contoso.com</em> 用户删除“虚拟机参与者”角色分配：
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

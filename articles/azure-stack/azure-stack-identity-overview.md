@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d0c5235afb6b6f31eab3e175881d0b5282c27457
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 3932aef68eb56c63be379638f83d23c0e36a43f4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905394"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627272"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的标识概述
 
@@ -61,12 +61,12 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 在 Azure Stack 中，用户帐户：
 
-- 以 *username@domain* 格式创建。 尽管 AD FS 可将用户帐户映射到 Active Directory 实例，但 AD FS 不支持使用 *\\\<域>\\\<别名>* 格式。
+- 以 <em>username@domain</em> 格式创建。 尽管 AD FS 可将用户帐户映射到 Active Directory 实例，但 AD FS 不支持使用 *\\\<域>\\\<别名>* 格式。
 - 可以设置为使用多重身份验证。
 - 限制为它们首先注册到的目录，即其组织的目录。
 - 可从本地目录导入。 如需详细信息，请参阅[将本地目录与 Azure Active Directory 集成](/active-directory/connect/active-directory-aadconnect)。 
 
-登录到组织的租户门户时，请使用 *https://portal.local.azurestack.external* URL。 从用于注册 Azure Stack 的域以外的域登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 已注册到 fabrikam.partner.onmschina.cn 并且登录的用户帐户为 admin@contoso.com，则用于登录用户门户的 URL 将为： https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn。
+登录到组织的租户门户时，请使用 *<https://portal.local.azurestack.external>* URL。 从用于注册 Azure Stack 的域以外的域登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 已注册到 fabrikam.partner.onmschina.cn 并且登录的用户帐户为 admin@contoso.com，则用于登录用户门户的 URL 将为： https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn。
 
 ### <a name="guest-users"></a>来宾用户
 

@@ -12,12 +12,12 @@ origin.date: 12/13/2018
 ms.date: 04/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 987ddb370e876559461fb300dbaeb6b2c84cfae1
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 8312683a4b6cda422f791858db94bee85f67c575
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348451"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627002"
 ---
 # <a name="speech-service-rest-apis"></a>语音服务 REST API
 
@@ -85,7 +85,6 @@ $OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.m
 
 # show the token received
 $OAuthToken
-
 ```
 
 #### <a name="curl-sample"></a>cURL 示例

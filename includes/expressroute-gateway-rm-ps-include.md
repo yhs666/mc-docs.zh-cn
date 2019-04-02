@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 03824cca2ae86d7e2d595be22b4dc22225ec0f99
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632878"
+---
 此任务的步骤使用的 VNet 基于以下配置参考列表中的值。 此列表中也概述了其他设置和名称。 尽管我们确实基于此列表中的值添加变量，但是我们在任何步骤中不会直接使用此列表。 可以复制列表作为参考，并将列表中的值替换为自己的值。
 
 **配置参考列表**
@@ -7,7 +15,7 @@
 - 资源组 = “TestRG”
 - Subnet1 名称 = “FrontEnd” 
 - Subnet1 地址空间 =“192.168.1.0/24”
-- 网关子网名称：“GatewaySubnet” 必须始终将网关子网命名为 *GatewaySubnet*。
+- 网关子网名称：“GatewaySubnet”必须始终将网关子网命名为“GatewaySubnet”。
 - 网关子网地址空间 = “192.168.200.0/26”
 - 区域 =“China East”
 - 网关名称 = “GW”
@@ -28,7 +36,7 @@
 
 2. 声明此练习的变量。 请务必编辑此示例，使之反映想要使用的设置。
 
-  ```powershell 
+   ```powershell 
     $RG = "TestRG"
     $Location = "China East"
     $GWName = "GW"
@@ -39,46 +47,46 @@
 
 3. 将虚拟网络对象存储为变量。
 
-  ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  ```
+   ```powershell
+   $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   ```
 4. 将网关子网添加到虚拟网络中。 网关子网必须命名为“GatewaySubnet”。 应创建 /27 或更大（/26、/25 等）的网关子网。
 
-  ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
-  ```
+   ```powershell
+   Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
 5. 设置配置。
 
-  ```powershell
-  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```powershell
+   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+   ```
 6. 将网关子网存储为变量。
 
-  ```powershell
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-  ```
+   ```powershell
+   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+   ```
 7. 请求公共 IP 地址。 创建网关之前请求 IP 地址。 无法指定要使用的 IP 地址；它会进行动态分配。 后面的配置部分会用到此 IP 地址。 AllocationMethod 必须是动态的。
 
-  ```powershell
-  $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   ```powershell
+   $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
     ```
 
 8. 创建网关配置。 网关配置定义要使用的子网和公共 IP 地址。 在此步骤中，将指定创建网关时使用的配置。 此步骤不会实际创建网关对象。 使用下面的示例创建网关配置。 
 
-  ```powershell
-  $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```powershell
+   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
 9. 创建网关。 在此步骤中， **-GatewayType** 尤其重要。 必须使用值 **ExpressRoute**。 运行这些 cmdlet 后，可能需要 45 分钟或更长时间才能创建好网关。
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
-  ```
+   ```powershell
+   New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
 
 ## <a name="verify-the-gateway-was-created"></a>验证是否已创建网关
 使用以下命令验证是否已创建网关：
 
 ```powershell
-Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## <a name="resize-a-gateway"></a>重设网关大小
@@ -91,13 +99,13 @@ Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
 > 
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+$gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>删除网关
 使用以下命令删除网关：
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Remove-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 ```

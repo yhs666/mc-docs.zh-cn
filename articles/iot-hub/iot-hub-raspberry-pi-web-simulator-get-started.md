@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 12/03/2018
-ms.openlocfilehash: f4c9500f20f2e3325ea76a699d4c640b7a93f98e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f0137ae6d4ec311514c14b77356c820582b599a0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674331"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625468"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 联机模拟器连接到 Azure IoT 中心 (Node.js)
 
@@ -59,7 +59,7 @@ ms.locfileid: "52674331"
 单击用于启动 Raspberry Pi 联机模拟器的按钮。
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">启动 Raspberry Pi 模拟器</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">启动 Raspberry Pi 模拟器</a>
 
 Web 模拟器中有三个区域。
 1. 装配区 - 默认电路是 Pi 与 BME280 传感器和 LED 连接。 在预览版中该区域是锁定的，因此当前无法执行自定义操作。
@@ -69,8 +69,8 @@ Web 模拟器中有三个区域。
    * 重置 - 将编码区重置为默认示例应用程序。
    * 折叠/展开 - 按钮位于右侧，用于折叠/展开控制台窗口。
 
-> [!NOTE] 
-Raspberry Pi Web 模拟器现于预览版中提供。 我们希望通过 [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator) 听到你的建议。 [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator) 上公开了源代码。
+> [!NOTE]
+> Raspberry Pi Web 模拟器现于预览版中提供。 我们希望通过 [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator) 听到你的建议。 [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator) 上公开了源代码。
 
 ![Pi 联机模拟器概述](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

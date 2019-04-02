@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/08/2019
 ms.date: 03/11/2019
-ms.openlocfilehash: b934a20daa5759ce710feccb5a37bc28ff731033
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: c625491f6d79f22ba5538a75ead2f96ad307fc54
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347188"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627370"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>基于 DTU 的购买模型中的服务层
 
@@ -49,25 +49,26 @@ ms.locfileid: "57347188"
 
 单一数据库的计算大小以数据库事务单位 (DTU) 表示，弹性池则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的更多信息，请参阅[基于 DTU 的购买模型](sql-database-purchase-models.md#dtu-based-purchasing-model)？
 
-||基本|标准|高级|
-| :-- | --: | --: | --: | --: |
-| 最大存储大小 | 2 GB | 1 TB | 4 TB  |
-| 最大 DTU | 5 | 3000 | 4000 | 
-||||||
+
+|                      | 基本 | 标准 | 高级 |
+|:---------------------|------:|---------:|--------:|
+| 最大存储大小 |  2 GB |     1 TB |    4 TB |
+| 最大 DTU         |     5 |     3000 |    4000 |
+|                      |       |          |         |
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>弹性池 eDTU、存储和已共用数据库限制
 
-| | **基本** | **标准** | **高级** |
-| :-- | --: | --: | --: | --: |
-| 每个数据库的最大存储大小  | 2 GB | 1 TB | 1 TB |
-| 每个池的最大存储大小 | 156 GB | 4 TB | 4 TB |
-| 每个数据库的最大 eDTU 数 | 5 | 3000 | 4000 |
-| 每个池的最大 eDTU 数 | 1600 | 3000 | 4000 |
-| 每个池的数据库数目上限 | 500  | 500 | 100 |
-||||||
+|                                      | **基本** | **标准** | **高级** |
+|:-------------------------------------|----------:|-------------:|------------:|
+| 每个数据库的最大存储大小    |      2 GB |         1 TB |        1 TB |
+| 每个池的最大存储大小        |    156 GB |         4 TB |        4 TB |
+| 每个数据库的最大 eDTU 数           |         5 |         3000 |        4000 |
+| 每个池的最大 eDTU 数               |      1600 |         3000 |        4000 |
+| 每个池的数据库数目上限 |       500 |          500 |         100 |
+|                                      |           |              |             |
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。

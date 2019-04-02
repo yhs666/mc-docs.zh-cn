@@ -17,12 +17,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75b88226b8d944075ca3937e334ac06794af0fc8
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: fe0235d9111df0e0ae7e2c085c8f0d5cb041af47
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987934"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627037"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -45,13 +45,13 @@ ms.locfileid: "57987934"
 
 安装应用服务资源提供程序至少需要一小时。 所需时长取决于部署的角色实例数。 部署期间，安装程序运行以下任务：
 
- - 在指定的 Azure Stack 存储帐户中创建 blob 容器。
- - 为应用服务中创建 DNS 区域和条目。
- - 注册应用服务资源提供程序。
- - 注册应用服务库项。
+- 在指定的 Azure Stack 存储帐户中创建 blob 容器。
+- 为应用服务中创建 DNS 区域和条目。
+- 注册应用服务资源提供程序。
+- 注册应用服务库项。
 
- > [!IMPORTANT]
- > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
+  > [!IMPORTANT]
+  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 若要部署应用服务资源提供程序，请执行以下步骤：
 
@@ -75,8 +75,8 @@ ms.locfileid: "57987934"
 
     a. 选择“Azure Stack 订阅”旁边的“连接”。
 
-     - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 选择“登录”。
-     - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，然后选择“登录”。
+   - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 选择“登录”。
+   - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，然后选择“登录”。
 
    b. 在“Azure Stack 订阅”中，选择“默认提供程序订阅”。
 
@@ -244,7 +244,7 @@ ms.locfileid: "57987934"
 
 1. 在 Azure Stack 租户门户中选择“+”，转到 Azure 市场，部署 Django 网站，然后等待部署完成。 Django Web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
 
-2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1@Server1*（使用所选的用户名和服务器名称）。
+2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 <em>User1@Server1</em>（使用所选的用户名和服务器名称）。
 
 3. 如果还部署了 SQL Server 资源提供程序，则可从市场部署 DNN 网站。 当系统提示输入数据库参数时，请在运行 SQL Server 的计算机中选择连接到资源提供程序的数据库。
 

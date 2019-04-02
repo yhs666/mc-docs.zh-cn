@@ -13,12 +13,12 @@ ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 02/07/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: 94e8f928fb774edc1dea54ef4db44fd00aa40d3a
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 20e32dcd8afd093bdbab83224cc57f525766bf91
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347137"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626599"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异
 
@@ -135,10 +135,10 @@ WITH PRIVATE KEY (<private_key_options>)
     - 链接服务器
 - 不支持设置映射到作为数据库所有者的 Azure AD 组的 Azure AD 登录名。
 - 支持使用其他 Azure AD 主体模拟 Azure AD 服务器级主体，例如 [EXECUTE AS](https://docs.microsoft.com/sql/t-sql/statements/execute-as-transact-sql) 子句。 EXECUTE AS 限制：
-    - 当名称不同于登录名时，EXECUTE AS USER 不支持 Azure AD 用户。 例如，如果用户是通过语法 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] 创建的，则会尝试通过 EXEC AS USER = _myAadUser_ 进行模拟。 基于 Azure AD 服务器主体（登录名）创建 **USER** 时，请指定与 **LOGIN** 中的 login_name 相同的 user_name。
-    - 只有属于 `sysadmin` 角色的 SQL 服务器级主体（登录名）可以针对 Azure AD 主体执行以下操作： 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+  - 当名称不同于登录名时，EXECUTE AS USER 不支持 Azure AD 用户。 例如，如果用户是通过语法 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] 创建的，则会尝试通过 EXEC AS USER = *myAadUser* 进行模拟。 基于 Azure AD 服务器主体（登录名）创建 **USER** 时，请指定与 **LOGIN** 中的 login_name 相同的 user_name。
+  - 只有属于 `sysadmin` 角色的 SQL 服务器级主体（登录名）可以针对 Azure AD 主体执行以下操作： 
+      - EXECUTE AS USER
+      - EXECUTE AS LOGIN
 - Azure AD 服务器主体（登录名）的**公共预览版**限制：
     - 托管实例的 Active Directory 管理员限制：
         - 用于设置托管实例的 Azure AD 管理员不可用于在托管实例中创建 Azure AD 服务器主体（登录名）。 必须使用充当 `sysadmin` 的 SQL Server 帐户创建第一个 Azure AD 服务器主体（登录名）。 Azure AD 服务器主体（登录名）的正式版推出后，即会去除这种暂时性限制。 如果尝试使用 Azure AD 管理员帐户创建登录名，将会看到以下错误：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`

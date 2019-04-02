@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 07efb54ce10eba47e5c1d5a9e1577491d6811eaf
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b0d7887bfad122f0fe465b01e7f287db446f364d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665942"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627117"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 
@@ -33,7 +33,7 @@ ms.locfileid: "56665942"
 
 ## <a name="create-a-rules-file"></a>创建规则文件
 
-若要限制可以安装哪些扩展，需要使用[规则](/azure-policy/policy-definition#policy-rule)来提供用于识别扩展的逻辑。
+若要限制可以安装哪些扩展，需要使用[规则](../../governance/policy/concepts/definition-structure.md#policy-rule)来提供用于识别扩展的逻辑。
 
 本示例演示如何创建规则文件来拒绝“Microsoft.Compute”发布的扩展。如果在本地使用 PowerShell，也可以创建一个本地文件并将路径 ($home/clouddrive) 替换为计算机上本地文件的路径。
 
@@ -74,7 +74,7 @@ nano $home/clouddrive/rules.json
 
 ## <a name="create-a-parameters-file"></a>创建参数文件
 
-还需要一个[参数](/azure-policy/policy-definition#parameters)文件，以创建一个用于传入要阻止的扩展列表的结构。 
+还需要一个[参数](../../governance/policy/concepts/definition-structure.md#parameters)文件，以创建一个用于传入要阻止的扩展列表的结构。 
 
 本示例演示如何为 VM 创建参数文件。如果在本地使用 PowerShell，也可以创建一个本地文件并将路径 ($home/clouddrive) 替换为计算机上本地文件的路径。
 
@@ -169,6 +169,6 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [Azure Policy](../../azure-policy/azure-policy-introduction.md)。
+有关详细信息，请参阅 [Azure Policy](../../governance/policy/overview.md)。
 
 <!-- Update_Description: update meta properties, wording update -->

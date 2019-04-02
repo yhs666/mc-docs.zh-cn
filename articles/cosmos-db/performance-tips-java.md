@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 01/02/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 61ca5194ceeeb10f33484f0a68b8ab366a3ccc89
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: e7f38a385d7fc0ba89cb9a46913b6fa7bf633366
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988011"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626137"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>适用于 Azure Cosmos DB 和 Java 的性能提示
 
@@ -34,30 +34,30 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有一个密钥配置设置可用于配置客户端 [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy) - [ConnectionMode](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)。  有两种可用 ConnectionMode：
 
-    1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
-    2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
+   1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
+   2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
     
-    <!-- URL is valid on ._connection_mode without gateay and directhttps -->
+      <!-- URL is valid on ._connection_mode without gateay and directhttps -->
     
-    网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
+      网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
 
-    Java SDK 使用 HTTPS 作为传输协议。 HTTPS 使用 SSL 进行初始身份验证和加密通信。 使用 Java SDK 时，只需打开 HTTPS 端口 443。 
+      Java SDK 使用 HTTPS 作为传输协议。 HTTPS 使用 SSL 进行初始身份验证和加密通信。 使用 Java SDK 时，只需打开 HTTPS 端口 443。 
 
-    ConnectionMode 是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 
+      ConnectionMode 是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setConnectionMode(ConnectionMode.DirectHttps);
-        policy.setMaxPoolSize(1000);
-        return policy;
-    }
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
+       ConnectionPolicy policy = new ConnectionPolicy();
+       policy.setConnectionMode(ConnectionMode.DirectHttps);
+       policy.setMaxPoolSize(1000);
+       return policy;
+      }
 
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
 
-    ![Azure Cosmos DB 连接策略演示](./media/performance-tips-java/connection-policy.png)
+      ![Azure Cosmos DB 连接策略演示](./media/performance-tips-java/connection-policy.png)
 
    <a name="same-region"></a>
 2. **将客户端并置在同一 Azure 区域中以提高性能**
@@ -151,7 +151,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
     <a name="429"></a>
-1. **处理速率限制/请求速率太大**
+2. **处理速率限制/请求速率太大**
 
     客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
 

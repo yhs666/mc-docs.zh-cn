@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 4d302c32483d533e88eb7d1a067392e6d4f32407
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3a151cfc5b42ecd6a32358748d7a72a96a17771a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658607"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626485"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>还原 Azure SQL 数据仓库（门户）
 > [!div class="op_single_selector"]
@@ -24,9 +24,9 @@ ms.locfileid: "52658607"
 > * [门户][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
->
->
-本文介绍如何使用 Azure 门户还原 Azure SQL 数据仓库。
+> 
+> 
+> 本文介绍如何使用 Azure 门户还原 Azure SQL 数据仓库。
 
 ## <a name="before-you-begin"></a>准备阶段
 **验证 DTU 容量。** 每个 SQL 数据仓库实例都由一个具有默认数据吞吐量单位 (DTU) 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。 在还原 SQL 数据仓库之前，请验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。

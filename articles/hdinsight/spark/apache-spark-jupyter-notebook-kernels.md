@@ -18,12 +18,12 @@ ms.topic: article
 origin.date: 02/22/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9e8e25b2112b88b4a7b9c5126c9c8cc7185b2a1e
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 35846ef5f00ff04cd8f961ec927a4702d82159a9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806623"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627787"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 群集上的 Jupyter notebook 的内核 
 
@@ -68,8 +68,8 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
 - **预设上下文**。 使用 **PySpark**、**PySpark3** 或 **Spark** 内核时，无需首先显式设置 Spark 或 Hive 上下文，即可开始使用应用程序。 这些上下文默认可供使用。 这些上下文包括：
 
-   * **sc** - 表示 Spark 上下文
-   * **sqlContext** - 表示 Hive 上下文
+  * **sc** - 表示 Spark 上下文
+  * **sqlContext** - 表示 Hive 上下文
 
     因此，不需要运行如下语句来设置上下文：
 
@@ -99,7 +99,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
    > 除了 PySpark 内核添加的 magic 以外，还可以使用[内置的 IPython magic](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)（包括 `%%sh`）。 可以使用 `%%sh` magic 在群集头节点上运行脚本和代码块。
    >
    >
-2. **自动可视化**。 **Pyspark** 内核自动将 Hive 和 SQL 查询的输出可视化。 可以选择多种不同类型的视觉效果，包括表、饼图、折线图、分区图和条形图。
+- **自动可视化**。 **Pyspark** 内核自动将 Hive 和 SQL 查询的输出可视化。 可以选择多种不同类型的视觉效果，包括表、饼图、折线图、分区图和条形图。
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>%%sql magic 支持的参数
 `%%sql` magic 支持不同的参数，可以使用这些参数控制运行查询时收到的输出类型。 下表列出了输出。

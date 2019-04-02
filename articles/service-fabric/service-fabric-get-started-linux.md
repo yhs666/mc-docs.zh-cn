@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 02/23/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 60c95a1642e67f2808b7e96a8728156cb7880567
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: ad645655c6ab0a0a4e5d21b8e145217a31c2f739
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396706"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626925"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -128,14 +128,15 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   以下命令自动接受 Service Fabric 包的许可证：
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
-<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)--> SDK 安装随附的 Service Fabric 运行时包含下表中所述的包。 
+<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
+SDK 安装随附的 Service Fabric 运行时包含下表中所述的包。 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
@@ -206,7 +207,8 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     sdk install gradle 5.1
     ```
 
-<!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)--> 还需要为 Java 可执行文件安装 Service Fabric Yeo 生成器。 确保已安装 [Yeoman](#set-up-yeoman-generators-for-containers-and-guest-executables)，然后运行以下命令：
+<!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
+还需要为 Java 可执行文件安装 Service Fabric Yeo 生成器。 确保已安装 [Yeoman](#set-up-yeoman-generators-for-containers-and-guest-executables)，然后运行以下命令：
 
   ```bash
   npm install -g generator-azuresfjava

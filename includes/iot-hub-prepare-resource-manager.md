@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a17c6efd83468eb255568149623b6982619a4f4c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627773"
+---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>准备对 Azure Resource Manager 请求进行身份验证
 必须使用 [Azure Resource Manager][lnk-authenticate-arm] 配合 Azure Active Directory (AD) 来验证所有针对资源执行的操作。 最简单的配置方式是使用 PowerShell 或 Azure CLI。
 
@@ -29,8 +37,8 @@
    
    * **{Display name}**：应用程序的显示名称，例如 **MySampleApp**
    * **{Home page URL}：** 应用主页的 URL，例如 http://mysampleapp/home。 此 URL 不需要指向实际的应用程序。
-   * **{Application identifier}：** 唯一标识符，例如 http://mysampleapp。 此 URL 不需要指向实际的应用程序。
-   * **{Password}**：用于向应用进行身份验证的密码。
+   * **{Application identifier}：** 唯一的标识符，例如 **http://mysampleapp**。 此 URL 不需要指向实际的应用程序。
+   * **{Password}：** 用于向应用进行身份验证的密码。
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} �asplaintext �force

@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 12/06/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9b17b012c2871a8d68168a15c81d5e1b95191645
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: cbf06d3e16a563248eb07ba96fd4bd420aa85432
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906084"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627355"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop HDFS 进行故障排除
 
@@ -33,47 +33,47 @@ ms.locfileid: "54906084"
 
 1. 在命令提示符下，按原义使用 `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...`，如以下命令中所示：
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
-Found 3 items
-drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
-drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
-drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
-```
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    Found 3 items
+    drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
+    drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
+    drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
+    ```
 
 2. 从源代码按原义使用 URI `hdfs://mycluster/`，如以下示例应用程序中所示：
 
-```Java
-import java.io.IOException;
-import java.net.URI;
-import org.apache.commons.io.IOUtils;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
-
-public class JavaUnitTests {
-
-    public static void main(String[] args) throws Exception {
-
-        Configuration conf = new Configuration();
-        String hdfsUri = "hdfs://mycluster/";
-        conf.set("fs.defaultFS", hdfsUri);
-        FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
-        RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
-        while(fileStatusIterator.hasNext()) {
-            System.out.println(fileStatusIterator.next().getPath().toString());
+    ```Java
+    import java.io.IOException;
+    import java.net.URI;
+    import org.apache.commons.io.IOUtils;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.*;
+    
+    public class JavaUnitTests {
+    
+        public static void main(String[] args) throws Exception {
+    
+            Configuration conf = new Configuration();
+            String hdfsUri = "hdfs://mycluster/";
+            conf.set("fs.defaultFS", hdfsUri);
+            FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
+            RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
+            while(fileStatusIterator.hasNext()) {
+                System.out.println(fileStatusIterator.next().getPath().toString());
+            }
         }
     }
-}
-```
+    ```
 3. 使用以下命令在 HDInsight 群集上运行已编译的 .jar 文件（例如，名为 `java-unit-tests-1.0.jar` 的文件）：
 
-```apache
-hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
-```
+    ```apache
+    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
+    ```
 
 
 ## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>如何在群集中强制禁用 HDFS 安全模式？

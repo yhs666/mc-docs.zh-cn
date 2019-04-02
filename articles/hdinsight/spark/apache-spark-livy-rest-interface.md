@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 11/08/2018
 ms.date: 01/14/2019
-ms.openlocfilehash: 6405c034b88776037937875df491b8ab8e04bdf7
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: ca949626d5702994136777d7874fb2074cd43545
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806579"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626884"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 将远程作业提交到 HDInsight Spark 群集
 
@@ -37,13 +37,16 @@ ms.locfileid: "53806579"
 **示例**：
 
 * 如果 jar 文件位于群集存储 (WASB) 中
-  
-    curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
+
+    ```powershell
+    curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "<https://mysparkcluster.azurehdinsight.net/livy/batches>" -H "X-Requested-By: admin"
+    ```
     
 * 如果想要传递 jar 文件名和类名作为输入文件（在本示例中为 input.txt）的一部分
-  
-    curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.cn/livy/batches" -H "X-Requested-By: admin"
 
+    ```powershell
+    curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "<https://mysparkcluster.azurehdinsight.cn/livy/batches>" -H "X-Requested-By: admin"
+    ```
 ## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>获取在群集上运行的 Livy Spark 批处理的相关信息
 
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.cn/livy/batches"
@@ -159,7 +162,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是几个�
 
 HDInsight 3.5 群集及更高版本群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasb://` 路径访问群集中的 jar 或示例数据文件。 如果要使用本地路径，则必须相应地更新 Ambari 配置。 为此，请执行以下操作：
 
-1. 转到群集的 Ambari 门户。 Ambari Web UI 在 HDInsight 群集上提供，网址为 https://**CLUSTERNAME**.azurehdidnsight.net，其中 CLUSTERNAME 是群集的名称。
+1. 转到群集的 Ambari 门户。 Ambari Web UI 在 HDInsight 群集上提供，网址为 https://<strong>CLUSTERNAME</strong>.azurehdidnsight.net，其中 CLUSTERNAME 是群集的名称。
 
 2. 在左侧导航中，单击“Livy”，并单击“配置”。
 

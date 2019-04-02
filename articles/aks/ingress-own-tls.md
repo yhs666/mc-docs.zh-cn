@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/23/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4bfcc136807056fa2c36775c3899515a88e254c0
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 72ea5e1314bcf91db1defeb6f297d84b4d760827
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903152"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626611"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>创建 HTTPS 入口控制器并在 Azure Kubernetes 服务 (AKS) 中使用自己的 TLS 证书
 
@@ -269,8 +269,7 @@ kubectl delete secret aks-ingress-tls
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [aks-ingress-internal]: ingress-internal-ip.md

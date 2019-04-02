@@ -10,12 +10,12 @@ origin.date: 10/16/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 5845313aeada877c09d1c90a3819c4c7fa563ef9
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 68d2a32b484f1d6a425c463467537633be41ac4d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988005"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627651"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
@@ -33,7 +33,7 @@ ms.locfileid: "56988005"
 * 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)。 [对请求进行身份验证](local-emulator.md#authenticating-requests)中提供了主密钥。  
 
     <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
-    
+
 * [Java 开发工具包 (JDK) 1.7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)  
   - 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。  
 
@@ -92,13 +92,13 @@ ms.locfileid: "56988005"
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. 调用 importAll API，用于生成要批量导入 Azure Cosmos DB 容器的随机文档。 可以在 CmdLineConfiguration.java 文件中配置命令行配置。
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    批量导入 API 接受 JSON 序列化文档的集合并使用以下语法，有关更多详细信息，请参阅 [API 文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.bulkexecutor)：
 
    ```java
@@ -119,13 +119,15 @@ ms.locfileid: "56988005"
 
    **批量导入响应对象定义**批量导入 API 调用的结果包含以下 get 方法：
 
-   |**参数**  |**说明**  |
-   |---------|---------|
-   |int getNumberOfDocumentsImported()  |   从提供给批量导入 API 调用的文档中成功导入的文档总数。      |
-   |double getTotalRequestUnitsConsumed()   |  批量导入 API 调用消耗的请求单位 (RU) 总数。       |
-   |Duration getTotalTimeTaken()   |    批量导入 API 调用完成执行所花费的总时间。     |
-   |List<Exception> getErrors() |  如果分批提供给批量导入 API 调用的某些文档无法插入，则获取错误列表。       |
-   |List<Object> getBadInputDocuments()  |    未在批量导入 API 调用中成功导入的格式不当文档列表。 用户应修复返回的文档，并重试导入。 格式不当的文档包括其 ID 值不是字符串（null 或其他任何数据类型被视为无效）的文档。     |
+
+   |             **参数**             |                                                                                                                                     **说明**                                                                                                                                     |
+   |---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |  int getNumberOfDocumentsImported()   |                                                                                从提供给批量导入 API 调用的文档中成功导入的文档总数。                                                                                 |
+   | double getTotalRequestUnitsConsumed() |                                                                                                           批量导入 API 调用消耗的请求单位 (RU) 总数。                                                                                                            |
+   |     Duration getTotalTimeTaken()      |                                                                                                         批量导入 API 调用完成执行所花费的总时间。                                                                                                         |
+   |      List<Exception> getErrors()      |                                                                                 如果分批提供给批量导入 API 调用的某些文档无法插入，则获取错误列表。                                                                                 |
+   |  List<Object> getBadInputDocuments()  | 未在批量导入 API 调用中成功导入的格式不当文档列表。 用户应修复返回的文档，并重试导入。 格式不当的文档包括其 ID 值不是字符串（null 或其他任何数据类型被视为无效）的文档。 |
+
 
 5. 准备好批量导入应用程序后，请使用“mvn clean package”命令从源代码生成命令行工具。 此命令在目标文件夹中生成一个 jar 文件：  
 

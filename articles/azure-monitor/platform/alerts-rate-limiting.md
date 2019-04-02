@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: b62aeb9a70c9622f230a58422c64c5f3ee7dab9a
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 0f872b190bb596a5fc5c34dd39fff2a09bea6d67
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141735"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627653"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>语音、短信、电子邮件、Azure 应用推送通知和 webhook 帖子的速率限制
 速率限制是在发送给特定电话号码、电子邮件地址或设备的通知太多时发生的通知挂起。 通过速率限制，确保警报处于管理且可操作状态。
 
 速率限制阈值为：
 
- - **短信**：每 5 分钟最多 1 条短信。
- - **语音**：每 5 分钟最多 1 条语音呼叫。
- - **电子邮件**：一小时内最多 100 个电子邮件。
+- **短信**：每 5 分钟最多 1 条短信。
+- **语音**：每 5 分钟最多 1 条语音呼叫。
+- **电子邮件**：一小时内最多 100 个电子邮件。
  
- 其他操作没有速率限制。
+  其他操作没有速率限制。
 
 ## <a name="rate-limit-rules"></a>速率限制规则
 - 特定电话号码或电子邮件在收到超过阈值所允许消息数时会进行速率限制。

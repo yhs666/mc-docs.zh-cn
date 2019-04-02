@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/04/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 69a7dd13e2f46b8370569ad67fee82bfe0cb64e0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e4438084578d8fde79b4dba4864585fc5e19c446
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661764"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627174"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>为 Xamarin.Forms 移动应用启用脱机同步
 
@@ -125,7 +125,7 @@ ms.locfileid: "52661764"
 
     此示例使用默认同步处理程序的简单错误处理。 实际的应用程序使用自定义的 **IMobileServiceSyncHandler** 实现处理各种错误，如网络状况和服务器冲突。
 
-##<a name="offline-sync-considerations"></a>脱机同步注意事项
+## <a name="offline-sync-considerations"></a>脱机同步注意事项
 
 在此示例中，仅在启动和请求同步时才调用 **SyncAsync** 方法。  若要在 Android 或 iOS 应用中启动同步，请下拉项目列表；对于 Windows，请使用“同步”  按钮。 在实际的应用程序中，还可以在网络状态发生更改时触发此同步功能。
 

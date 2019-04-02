@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 71688d45d4d1d9bb9410d269c6886945604d06d2
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fbef0684fcac874d4c1556eeaaf612accd129662
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666391"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626390"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上配置软件 RAID
 一种比较常见的情况是，在 Azure 中的 Linux 虚拟机上使用软件 RAID 将多个附加的数据磁盘显示为单个 RAID 设备。 通常，与仅使用单个磁盘相比，使用此方法不但可改进性能，而且还可提高吞吐量。

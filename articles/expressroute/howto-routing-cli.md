@@ -1,6 +1,6 @@
 ---
-title: 如何为 Azure ExpressRoute 线路配置路由：CLI | Microsoft Docs
-description: 本文介绍如何创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。
+title: '如何配置线路的对等互连 - ExpresssRoute：Azure CLI '
+description: 本文介绍了如何创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/23/2018
 ms.author: v-yiso
-ms.date: 12/10/2018
-ms.openlocfilehash: dcb7280a9432f42b98c9803f4a3b74b80ac3e393
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 04/08/2019
+ms.openlocfilehash: 21e2f35d1d6322a9eba24f9085f25ecb0bb4fafd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675623"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627572"
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>使用 CLI 为 ExpressRoute 线路创建和修改路由
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>使用 CLI 创建和修改 ExpressRoute 线路的对等互连
 
-本文介绍了如何使用 CLI 在资源管理器部署模型中创建和管理 ExpressRoute 线路的路由配置。 还可以检查状态，以及更新、删除和取消预配 ExpressRoute 线路的对等互连。 如果想使用不同的方法处理线路，请从以下列表中选择一篇文章进行参阅：
+本文介绍如何使用 CLI 在资源管理器部署模型中创建和管理 ExpressRoute 线路的路由配置/对等互连。 还可以检查状态，以及更新、删除和取消预配 ExpressRoute 线路的对等互连。 如果想使用不同的方法处理线路，请从以下列表中选择一篇文章进行参阅：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md)
@@ -52,78 +52,78 @@ ms.locfileid: "52675623"
 
 1. 安装最新版本的 Azure CLI。 必须使用最新版本的 Azure 命令行接口 (CLI)。* 在开始配置前，请查看[先决条件](expressroute-prerequisites.md)和[工作流](expressroute-workflows.md)。
 
-  ```azurecli
-  az login
-  ```
+   ```azurecli
+   az login
+   ```
 
-  选择要创建 ExpressRoute 线路的订阅
+   选择要创建 ExpressRoute 线路的订阅
 
-  ```azurecli
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli
+   az account set --subscription "<subscription ID>"
+   ```
 2. 创建 ExpressRoute 线路。 请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
-  ```azurecli
-  az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
-  ```
+   ```azurecli
+   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
+   ```
 
-  其响应类似于如下示例：
+   其响应类似于如下示例：
 
-  ```azurecli
-  "allowClassicOperations": false,
-  "authorizations": [],
-  "circuitProvisioningState": "Enabled",
-  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-  "gatewayManagerEtag": null,
-  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-  "location": "chinanorth",
-  "name": "MyCircuit",
-  "peerings": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-  "serviceProviderNotes": null,
-  "serviceProviderProperties": {
-  "bandwidthInMbps": 200,
-  "peeringLocation": "Beijing",
-  "serviceProviderName": "Beijing Telecom Ethernet"
-  },
-  "serviceProviderProvisioningState": "Provisioned",
-  "sku": {
+   ```azurecli
+   "allowClassicOperations": false,
+   "authorizations": [],
+   "circuitProvisioningState": "Enabled",
+   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "gatewayManagerEtag": null,
+   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "location": "chinanorth",
+   "name": "MyCircuit",
+   "peerings": [],
+   "provisioningState": "Succeeded",
+   "resourceGroup": "ExpressRouteResourceGroup",
+   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceProviderNotes": null,
+   "serviceProviderProperties": {
+   "bandwidthInMbps": 200,
+   "peeringLocation": "Beijing",
+   "serviceProviderName": "Beijing Telecom Ethernet"
+   },
+   "serviceProviderProvisioningState": "Provisioned",
+   "sku": {
     "family": "UnlimitedData",
     "name": "Standard_MeteredData",
     "tier": "Standard"
-  },
-  "tags": null,
-  "type": "Microsoft.Network/expressRouteCircuits]
-  ```
+   },
+   "tags": null,
+   "type": "Microsoft.Network/expressRouteCircuits]
+   ```
 
 4. 配置线路的 Azure 专用对等互连。 在继续执行后续步骤之前，请确保已准备好以下各项：
 
-  * 主链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。
-  * 辅助链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。
-  * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。
-  * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。 可以将专用 AS 编号用于此对等互连。 请务必不要使用 65515。
-  * **可选** - MD5 哈希（如果选择使用）。
+   * 主链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。
+   * 辅助链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。
+   * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。
+   * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。 可以将专用 AS 编号用于此对等互连。 请务必不要使用 65515。
+   * **可选** - MD5 哈希（如果选择使用）。
 
-  使用以下示例为线路配置 Azure 专用对等互连：
+   使用以下示例为线路配置 Azure 专用对等互连：
 
-  ```azurecli
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
-  ```
+   ```azurecli
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
+   ```
 
-  如果选择使用 MD5 哈希，请使用以下示例：
+   如果选择使用 MD5 哈希，请使用以下示例：
 
-  ```azurecli
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
-  ```
+   ```azurecli
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > 请确保将 AS 编号指定为对等互连 ASN，而不是客户 ASN。
-  > 
-  > 
+   > [!IMPORTANT]
+   > 请确保将 AS 编号指定为对等互连 ASN，而不是客户 ASN。
+   > 
+   > 
 
 ### <a name="getprivate"></a>查看 Azure 专用对等互连详细信息
 
@@ -190,76 +190,76 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 1. 安装最新版本的 Azure CLI。 必须使用最新版本的 Azure 命令行接口 (CLI)。* 在开始配置前，请查看[先决条件](expressroute-prerequisites.md)和[工作流](expressroute-workflows.md)。
 
-  ```azurecli
-  az login
-  ```
+   ```azurecli
+   az login
+   ```
 
-  选择要为其创建 ExpressRoute 线路的订阅。
+   选择要为其创建 ExpressRoute 线路的订阅。
 
-  ```azurecli
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli
+   az account set --subscription "<subscription ID>"
+   ```
 2. 创建 ExpressRoute 线路。  请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
-  ```azurecli
-  az network express-route list
-  ```
+   ```azurecli
+   az network express-route list
+   ```
 
-  其响应类似于如下示例：
+   其响应类似于如下示例：
 
-  ```azurecli
-  "allowClassicOperations": false,
-  "authorizations": [],
-  "circuitProvisioningState": "Enabled",
-  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-  "gatewayManagerEtag": null,
-  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-  "location": "chinanorth",
-  "name": "MyCircuit",
-  "peerings": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-  "serviceProviderNotes": null,
-  "serviceProviderProperties": {
+   ```azurecli
+   "allowClassicOperations": false,
+   "authorizations": [],
+   "circuitProvisioningState": "Enabled",
+   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "gatewayManagerEtag": null,
+   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "location": "chinanorth",
+   "name": "MyCircuit",
+   "peerings": [],
+   "provisioningState": "Succeeded",
+   "resourceGroup": "ExpressRouteResourceGroup",
+   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceProviderNotes": null,
+   "serviceProviderProperties": {
     "bandwidthInMbps": 200,
     "peeringLocation": "Beijing",
     "serviceProviderName": "Beijing Telecom Ethernet"
-  },
-  "serviceProviderProvisioningState": "Provisioned",
-  "sku": {
+   },
+   "serviceProviderProvisioningState": "Provisioned",
+   "sku": {
     "family": "UnlimitedData",
     "name": "Standard_MeteredData",
     "tier": "Standard"
-  },
-  "tags": null,
-  "type": "Microsoft.Network/expressRouteCircuits]
-  ```
+   },
+   "tags": null,
+   "type": "Microsoft.Network/expressRouteCircuits]
+   ```
 
 4. 配置线路的 Azure 公共对等互连。 在继续下一步之前，请确保已准备以下信息。
 
-  * 主链路的 /30 子网。 这必须是有效的公共 IPv4 前缀。
-  * 辅助链路的 /30 子网。 这必须是有效的公共 IPv4 前缀。
-  * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。
-  * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。
-  * **可选** - MD5 哈希（如果选择使用）。
+   * 主链路的 /30 子网。 这必须是有效的公共 IPv4 前缀。
+   * 辅助链路的 /30 子网。 这必须是有效的公共 IPv4 前缀。
+   * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。
+   * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。
+   * **可选** - MD5 哈希（如果选择使用）。
 
-  运行以下示例为线路配置 Azure 公共对等互连：
+   运行以下示例为线路配置 Azure 公共对等互连：
 
-  ```azurecli
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
-  ```
+   ```azurecli
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
+   ```
 
-  如果选择使用 MD5 哈希，请使用以下示例：
+   如果选择使用 MD5 哈希，请使用以下示例：
 
-  ```azurecli
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
-  ```
+   ```azurecli
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > 请确保将 AS 编号指定为对等互连 ASN，而不是客户 ASN。
+   > [!IMPORTANT]
+   > 请确保将 AS 编号指定为对等互连 ASN，而不是客户 ASN。
 
 ### <a name="getpublic"></a>查看 Azure 公共对等互连详细信息
 

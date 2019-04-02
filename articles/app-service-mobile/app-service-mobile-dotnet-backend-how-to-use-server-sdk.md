@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 01/29/2018
-ms.openlocfilehash: c8dbece2889acdde274482110823637d88369180
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 75b0bff3413db75a33def1e0c9534c0a5eee027d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083717"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627024"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
 
@@ -82,11 +82,11 @@ ms.locfileid: "54083717"
 
 该 SDK 在 [NuGet.org]上提供。此包包含开始使用 SDK 所需的基本功能。 若要初始化该 SDK，需要对 **HttpConfiguration** 对象执行操作。
 
-###<a name="install-the-sdk"></a>安装 SDK
+### <a name="install-the-sdk"></a>安装 SDK
 
 若要安装该 SDK，请在 Visual Studio 中右键单击服务器项目，选择“管理 NuGet 包”，搜索 [Microsoft.Azure.Mobile.Server] 包，然后单击“安装”。
 
-###<a name="server-project-setup"></a> 初始化服务器项目
+### <a name="server-project-setup"></a> 初始化服务器项目
 
 初始化 .NET 后端服务器项目的方式类似其他 ASP.NET 项目，可通过包含 OWIN 启动类来完成。 确保已引用 NuGet 包 `Microsoft.Owin.Host.SystemWeb`。 若要在 Visual Studio 中添加此类，请右键单击服务器项目，选择 **“添加”** > 
  **“新建项”**，然后选择 **“Web”** > **“常规”** > **“OWIN 启动类”**。  将生成具有以下属性的类：
@@ -189,7 +189,7 @@ Azure 门户中的服务器快速启动调用 UseDefaultConfiguration()。 此�
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-##<a name="define-table-controller"></a>如何：定义表控制器
+## <a name="define-table-controller"></a>如何：定义表控制器
 
 定义表控制器，向移动客户端公开 SQL 表。  配置表控制器需要三个步骤：
 
@@ -374,7 +374,7 @@ config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "C
 >
 >
 
-###<a name="user-info"></a>如何：检索经过身份验证的用户信息
+### <a name="user-info"></a>如何：检索经过身份验证的用户信息
 
 当应用服务对用户进行身份验证时，可以访问分配的用户 ID 和 .NET 后端代码中的其他信息。 用户信息可用于在后端进行授权决策。 以下代码可获取与请求关联的用户 ID：
 
@@ -468,7 +468,7 @@ return Query().Where(t => t.UserId == sid);
 
 现在可以使用通知中心客户端将推送通知发送到已注册的设备。 有关详细信息，请参阅[向应用添加推送通知](./app-service-mobile-ios-get-started-push.md)。 若要了解通知中心的详细信息，请参阅[通知中心概述](../notification-hubs/notification-hubs-push-notification-overview.md)。
 
-##<a name="tags"></a>如何：使用标记启用目标推送
+## <a name="tags"></a>如何：使用标记启用目标推送
 
 通知中心允许使用标记将目标通知发送到特定的注册。 多个标记会自动创建：
 
@@ -493,7 +493,7 @@ hub.PatchInstallation("my-installation-id", new[]
 
 有关示例，请参阅应用服务移动应用已完成的快速入门示例中的 [客户端添加的推送通知标记][5] 。
 
-##<a name="push-user"></a>如何：将推送通知发送到经过身份验证的用户
+## <a name="push-user"></a>如何：将推送通知发送到经过身份验证的用户
 
 当经过身份验证的用户注册推送通知时，用户 ID 标记自动添加到注册中。 使用此标记可以向该用户注册的所有设备发送推送通知。 以下代码获取发出请求的用户的 SID，并将模板推送通知发送到该用户的每个设备注册：
 

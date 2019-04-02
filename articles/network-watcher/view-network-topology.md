@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/09/2018
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 98808723aaf71039cfd1d593f8bb772f1c26d888
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 184967db4a6fe4977854ecce72bda105d77c3580
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646118"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626211"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>查看 Azure 虚拟网络的拓扑
 
@@ -43,15 +43,16 @@ ms.locfileid: "52646118"
     - 与 *myVnet* 虚拟网络位于同一资源组和区域内。 例如，不会显示 *MyResourceGroup* 之外的资源组中存在的网络安全组，即使该网络安全组与 *MyVnet* 虚拟网络中的子网相关联。
     - 位于 *myVnet* 虚拟网络中，或与其中的资源相关联。 例如，不会显示与 *myVnet* 虚拟网络中的子网或网络接口不相关联的网络安全组，即使该网络安全组位于 *MyResourceGroup* 资源组中。
 
-  图中显示的拓扑对应的虚拟网络是在部署 **“通过网络虚拟设备路由流量”脚本示例**后创建的，该示例可以通过 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json) 部署。
+   图中显示的拓扑对应的虚拟网络是在部署 **“通过网络虚拟设备路由流量”脚本示例**后创建的，该示例可以通过 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json) 部署。
 
 6. 选择“下载拓扑”，以 svg 格式将映像下载为可编辑文件。
 
-图中所示资源是虚拟网络中的网络组件子集。 例如，在显示网络安全组时，其中的安全规则不在图中显示。 线条表示以下两种关系中的一种：包含或关联，不过并未在图中进行区分。 若要查看虚拟网络中资源的完整列表以及资源之间关系的类型，请使用 [PowerShell](#powershell) 或 [Azure CLI](#azure-cli) 生成拓扑。
+图中所示资源是虚拟网络中的网络组件子集。 例如，在显示网络安全组时，其中的安全规则不在图中显示。 虽然未在图中进行区分，线条表示以下两种关系中的一种：包含或关联。 若要查看虚拟网络中资源的完整列表以及资源之间关系的类型，请使用 [PowerShell](#powershell) 或 [Azure CLI](#azure-cli) 生成拓扑。
 
 ## <a name = "azure-cli"></a>查看拓扑 - Azure CLI
 
-可以运行后续步骤中的命令：<!-- Not Available on - In the Azure Cloud Shell-->
+可以运行后续步骤中的命令：
+<!-- Not Available on - In the Azure Cloud Shell-->
 - 通过在计算机中运行 CLI。 如果在计算机中运行 CLI，则本文中的步骤要求使用 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 所用帐户必须拥有所需的[权限](required-rbac-permissions.md)。
@@ -79,12 +80,13 @@ ms.locfileid: "52646118"
 
     仅为与 *MyResourceGroup* 资源组具有相同的资源组且与网络观察程序具有相同的区域的资源返回拓扑信息。 例如，不会显示 *MyResourceGroup* 之外的资源组中存在的网络安全组，即使该网络安全组与 *MyVnet* 虚拟网络中的子网相关联。
 
-  详细了解返回的输出中的[关系](#relationhips)和[属性](#properties)。 如果没有现有的可以查看其拓扑的虚拟网络，则可使用[通过网络虚拟设备路由流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json)脚本示例创建一个。 若要查看拓扑图并以可编辑文件的形式来下载它，请使用[门户](#azure-portal)。
+   详细了解返回的输出中的[关系](#relationhips)和[属性](#properties)。 如果没有现有的可以查看其拓扑的虚拟网络，则可使用[通过网络虚拟设备路由流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json)脚本示例创建一个。 若要查看拓扑图并以可编辑文件的形式来下载它，请使用[门户](#azure-portal)。
 
 ## <a name = "powershell"></a>查看拓扑 - PowerShell
 
-可以运行后续步骤中的命令：<!-- Not Available on - In the Azure Cloud Shell-->
-- 通过在计算机中运行 PowerShell。 如果在计算机中运行 PowerShell，则本文中的步骤要求使用 AzureRm 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+可以运行后续步骤中的命令：
+<!-- Not Available on - In the Azure Cloud Shell-->
+- 通过在计算机中运行 PowerShell。 如果在计算机中运行 PowerShell，则本文中的步骤要求使用 AzureRm 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 来创建与 Azure 的连接。
 
 所用帐户必须拥有所需的[权限](required-rbac-permissions.md)。
 
@@ -122,7 +124,7 @@ ms.locfileid: "52646118"
 
    仅为与 *MyResourceGroup* 资源组具有相同的资源组且与网络观察程序具有相同的区域的资源返回拓扑信息。 例如，不会显示 *MyResourceGroup* 之外的资源组中存在的网络安全组，即使该网络安全组与 *MyVnet* 虚拟网络中的子网相关联。
 
-  详细了解返回的输出中的[关系](#relationhips)和[属性](#properties)。 如果没有现有的可以查看其拓扑的虚拟网络，则可使用[通过网络虚拟设备路由流量](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json)脚本示例创建一个。 若要查看拓扑图并以可编辑文件的形式来下载它，请使用[门户](#azure-portal)。
+   详细了解返回的输出中的[关系](#relationhips)和[属性](#properties)。 如果没有现有的可以查看其拓扑的虚拟网络，则可使用[通过网络虚拟设备路由流量](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json)脚本示例创建一个。 若要查看拓扑图并以可编辑文件的形式来下载它，请使用[门户](#azure-portal)。
 
 ## <a name="relationships"></a>关系
 
@@ -137,8 +139,8 @@ ms.locfileid: "52646118"
 
 在拓扑中返回的所有资源具有以下属性：
 
-- **名称**：资源的名称。
-- **ID**：资源的 URI。
+- **名称**：资源的名称
+- **Id**：资源的 URI。
 - **位置**：资源所在的 Azure 区域。
 - **关联**：引用对象的关联列表。 每个关联包含以下属性：
     - **AssociationType**：引用子对象和父对象之间的关系。 有效值为 *Contains* 或 *Associated*。

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 97931938667039065b808101cbf32b1d1f9c9a54
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: 9222faabeaf400e2a4003d48c20e1b7705ca48d7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396452"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627434"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 中管理应用服务计划
 
@@ -42,7 +42,7 @@ ms.locfileid: "54396452"
 
    a. 选择“[+] 新建”。
 
- ![创建应用服务计划。][createASP]
+   ![创建应用服务计划。][createASP]
 
    b. 对于“应用服务计划”，输入计划的名称。
 

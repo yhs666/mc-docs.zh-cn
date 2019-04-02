@@ -13,12 +13,12 @@ ms.reviewer: mathoma, carlrab
 manager: digimobile
 origin.date: 02/08/2019
 ms.date: 03/11/2019
-ms.openlocfilehash: 897ca6c76672475c4f297449b5bf471e4dadb443
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 1ecd196f3934b9b6346dccb6071934c8ac522421
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347142"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626666"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>将 Azure SQL 数据库备份存储 10 年之久
 
@@ -53,22 +53,20 @@ W=12 周（84 天）、M=12 个月（365 天）、Y=10 年（3650 天）、WeekO
    ![ltr 示例](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 如果你打算修改以上策略并设置 W=0（无每周备份），则备份副本的节奏将更改，如上表中突出显示的日期所示。 保留这些备份所需的存储量将相应减少。 
 
 > [!NOTE]
-1. LTR 副本是由 Azure 存储服务创建的，因此，复制过程对现有数据库的性能没有影响。
-2. 将策略应用到将来的备份。 例如 如果配置策略时指定的 WeekOfYear 在过去，则将在明年创建第一个 LTR 备份。 
-3. 若要从 LTR 存储还原数据库，可以根据时间戳选择一个特定备份。   数据库可以还原到原始数据库所在的订阅中的任何现有服务器。 
-> 
+> 1. LTR 副本是由 Azure 存储服务创建的，因此，复制过程对现有数据库的性能没有影响。
+> 2. 将策略应用到将来的备份。 例如 如果配置策略时指定的 WeekOfYear 在过去，则将在明年创建第一个 LTR 备份。 
+> 3. 若要从 LTR 存储还原数据库，可以根据时间戳选择一个特定备份。   数据库可以还原到原始数据库所在的订阅中的任何现有服务器。 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>异地复制和长期备份保留
 
 如果使用活动异地复制或故障转移组作为业务连续性解决方案，应准备好最终故障转移，并在异地辅助数据库中配置相同的 LTR 策略。 这不会增大 LTR 存储成本，因为备份不是从辅助数据库生成的。 仅当辅助数据库变为主数据库时，才会创建备份。 这样就可以保证在触发故障转移以及在主数据库转移到次要区域时，不间断地生成 LTR 备份。 
 
 > [!NOTE]
-在发生导致故障转移的服务中断问题后恢复原始的主数据库时，该数据库将变成新的辅助数据库。 因此，在该数据库重新变成主数据库之前，备份创建操作不会恢复，并且现有的 LTR 策略不会生效。 
-> 
+> 在发生导致故障转移的服务中断问题后恢复原始的主数据库时，该数据库将变成新的辅助数据库。 因此，在该数据库重新变成主数据库之前，备份创建操作不会恢复，并且现有的 LTR 策略不会生效。 
 
 ## <a name="configure-long-term-backup-retention"></a>配置长期备份保留
 

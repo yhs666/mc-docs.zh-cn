@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/13/2018
 ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: a364566462dc45547efede5efbd3be5b16823666
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 36d69bd358d6249b6674e246ab7903ac568c2d0a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222594"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627528"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户推送通知
 
@@ -64,7 +64,7 @@ ms.locfileid: "56222594"
    * **APNS**：标签和开关，用于启用将通知发送到 Apple 平台通知服务。
    * **收件人用户名**：包含占位符文本“收件人用户名标记”的 UITextField，直接位于 GCM 标签下，受左右边距限制。
 
-    某些组件已在[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 教程中添加。
+     某些组件已在[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 教程中添加。
 
 3. 按 **Ctrl** 的同时从视图中的组件拖至 `ViewController.h` 并添加这些新插座。
 

@@ -8,12 +8,12 @@ origin.date: 11/15/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 3c5902640b29be0de5220f3a3840ff566a1e2d91
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a0dd3692301159da2a9d4994453d2750b5e6ba75
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626001"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联机备份和按需数据还原
 
@@ -82,7 +82,7 @@ Azure Cosmos DB 每四个小时拍摄一次数据快照。 在任何给定时间
 可通过以下方式将数据迁移回原始的 Azure Cosmos 帐户：
 
 * 使用 [Cosmos DB 数据迁移工具](import-data.md)
-<!--Not Available on * Using [Azure Data Factory]( ../data-factory/connector-azure-cosmos-db.md)-->
+  <!--Not Available on * Using [Azure Data Factory]( ../data-factory/connector-azure-cosmos-db.md)-->
 * 使用 Azure Cosmos DB 中的[更改源](change-feed.md) 
 * 编写自定义代码
 

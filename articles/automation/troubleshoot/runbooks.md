@@ -9,12 +9,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: 0f0a8ac54a75c2f8ae3511de17c542733e7c189a
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: e4a3739dbdf3e0b1389a6b5e888f6380626ceaab
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987126"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627630"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -135,7 +135,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 时的常见错误
 
-###<a name="child-runbook-object"></a>输出流包含对象而不是简单数据类型时，子 runbook 返回错误
+### <a name="child-runbook-object"></a>输出流包含对象而不是简单数据类型时，子 runbook 返回错误
 
 #### <a name="issue"></a>问题
 
@@ -360,6 +360,7 @@ Runbook 作业失败并显示错误：
 * 检查输入的 cmdlet 名称是否正确。  
 * 确保 cmdlet 存在于自动化帐户中，且没有冲突。 要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，并搜索希望在库中找到的 cmdlet，或者运行 `Get-Command <CommandName>`。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 runbook 中的有效参数集。  
 * 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName。  
+
 ### <a name="long-running-runbook"></a>场景：长时间运行的 Runbook 无法完成
 
 #### <a name="issue"></a>问题

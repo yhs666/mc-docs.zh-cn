@@ -13,17 +13,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 01/28/19
 ms.author: v-lingwu
-ms.openlocfilehash: dd8bcfe3a39edefcd122151618a95d40b099429b
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: ee71992f318aa3a5d4760ed287345d4f3d096a55
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906214"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625882"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本文介绍了如何使用服务总线队列。 这些示例用 Java 编写并使用 [用于 Java 的 Azure SDK][用于 Java 的 Azure SDK]。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
+本文介绍了如何使用服务总线队列。 这些示例采用 Java 编写，并且使用了 [Azure SDK for Java][Azure SDK for Java]。 涉及的任务包括创建队列、发送和接收消息以及删除队列。
 
 > [!NOTE]
 > 可在 [azure-service-bus 存储库](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)中的 GitHub 上找到 Java 示例。
@@ -37,7 +37,7 @@ ms.locfileid: "54906214"
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
-在生成本示例之前，请确保已安装 [用于 Java 的 Azure SDK][用于 Java 的 Azure SDK]。 如果使用的是 Eclipse，则可以安装包含用于 Java 的 Azure SDK 的[用于 Eclipse 的 Azure 工具包][用于 Eclipse 的 Azure 工具包]。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：
+在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用 Eclipse，则可以安装包含 Azure SDK for Java 的[用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -57,7 +57,6 @@ import java.util.*;
 import java.util.concurrent.*;
 
 import org.apache.commons.cli.*;
-
 ```
 
 ## <a name="send-messages-to-a-queue"></a>向队列发送消息
@@ -106,7 +105,6 @@ public void run() throws Exception {
         }
         return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
     }
-
 ```
 
 发送到服务总线队列以及从服务总线队列收到的消息是 [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) 类的实例。 Message 对象包含一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及大量任意应用程序数据。 应用程序可通过将任何可序列化对象传入到 Message 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。 或者，可提供 java.IO.InputStream 对象。
@@ -172,7 +170,6 @@ public void run() throws Exception {
         // 1 concurrent call, messages are auto-completed, auto-renew duration
         new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
     }
-
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
@@ -187,7 +184,9 @@ public void run() throws Exception {
 现在，已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
 
 有关详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
-[用于 Java 的 Azure SDK]： https://www.azure.cn/develop/java/ [用于 Eclipse 的 Azure 工具包]： https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
 
-  [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
-  [BrokeredMessage]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[Azure SDK for Java]: https://www.azure.cn/develop/java/
+[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
+
+[Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
+[BrokeredMessage]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage

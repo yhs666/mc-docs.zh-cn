@@ -7,12 +7,12 @@ ms.topic: tutorial
 origin.date: 02/22/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 993e17f34840bc01c8a04b654c26b43f986275eb
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 24652252932c42da835461ad1ed17e4ea9100a9c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004723"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627715"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
@@ -204,7 +204,7 @@ CSV 文件源导入程序选项可用于导入一个或多个 CSV 文件。 添�
 
 请注意 DomainInfo.Domain_Name 和 RedirectInfo.Redirecting 等别名。 通过指定嵌套分隔符“.”，导入工具会在导入过程中创建 DomainInfo 和 RedirectInfo 子文档。 下面是在 Azure Cosmos DB 中生成文档的示例：
 
-*{ "DomainInfo": { "Domain_Name":"ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency":"Administrative Conference of the United States", "RedirectInfo": { "Redirecting":"0", "Redirect_Destination": "" }, "id":"9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+<em>{ "DomainInfo": { "Domain_Name":"ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency":"Administrative Conference of the United States", "RedirectInfo": { "Redirecting":"0", "Redirect_Destination": "" }, "id":"9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }</em>
 
 导入工具会尝试针对 CSV 文件中不带引号的值推断类型信息（带引号的值始终作为字符串处理）。  按以下顺序标识类型︰数值、日期时间、布尔值。  
 

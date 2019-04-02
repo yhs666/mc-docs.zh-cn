@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/01/2018
 ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: a0f26001b53527408e67917b485d4a3e97f62066
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 0de610153f6571627d91d3729fbf7965424971ef
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560471"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627044"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支持
 
@@ -38,6 +38,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 有几个支持的平台。
 
 ### <a name="c-sdk"></a>C SDK
+
 | 操作系统                  | Arch | 编译器             | TLS 库       |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl  - 1.0.2g |
@@ -49,6 +50,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 | Debian 9 Stretch    | x64  | gcc-7.3              | Openssl – 1.1.0f  |
 
 ### <a name="python-sdk"></a>Python SDK
+
 | 操作系统                  | Arch | 编译器   | TLS 库 |
 |---------------------|------|------------|-------------|
 | Windows Server 2016 | x86  | Python 2.7 | openssl     |
@@ -60,6 +62,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 | MacOS High Sierra   | x64  | Python 2.7 | openssl     |
 
 ### <a name="net-sdk"></a>.NET SDK
+
 | 操作系统                  | Arch | Framework            | 标准          |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
@@ -68,12 +71,14 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 | Windows Server 2016 | X64  | .NET Framework 4.5.1 | 不适用               |
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
+
 | 操作系统                                           | Arch | Node 版本 |
 |----------------------------------------------|------|--------------|
 | Ubuntu 16.04 LTS（使用 node 6 docker 映像） | X64  | Node 6       |
 | Windows Server 2016                          | X64  | Node 6       |
 
 ### <a name="java-sdk"></a>Java SDK
+
 | 操作系统                  | Arch | Java 版本 |
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
@@ -83,6 +88,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 
 ## <a name="partner-supported-platforms"></a>合作伙伴支持的平台
 客户可以通过移植 Azure IoT C SDK 来扩展我们的平台支持，特别是创建 SDK 的平台抽象层 (PAL)。  Microsoft 与合作伙伴合作提供扩展支持。  合作伙伴列表已将 C SDK 移植到更多平台并维护 PAL。
+
 | 合作伙伴             | 设备                            | 链接                     | 支持 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  

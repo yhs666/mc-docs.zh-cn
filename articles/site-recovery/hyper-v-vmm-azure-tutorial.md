@@ -9,12 +9,12 @@ origin.date: 12/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 338187f969c29d0b92609aa78ba5b8ee9f97675d
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: c4d8540fe9cc43bc176997e14cdc671c2f3ba823
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463527"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626014"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 
@@ -120,7 +120,7 @@ Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网�
 4. 选择“contosovmsacct1910171607”存储帐户和“ContosoASRnet”Azure 网络。
 5. 在“虚拟机” > “选择”中，选择想要复制的 VM。 。
 
- 可以在“作业” > “Site Recovery 作业”中，跟踪“启用保护”操作的进度。 “最后完成保护”作业完毕后，初始复制即已完成，VM 可执行故障转移。
+   可以在“作业” > “Site Recovery 作业”中，跟踪“启用保护”操作的进度。 “最后完成保护”作业完毕后，初始复制即已完成，VM 可执行故障转移。
 
 ## <a name="next-steps"></a>后续步骤
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)

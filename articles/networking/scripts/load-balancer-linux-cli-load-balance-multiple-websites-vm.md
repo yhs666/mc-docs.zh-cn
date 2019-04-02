@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 07/07/2017
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 17025b985642543319761d5793da48b2e76317e7
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: d863696b0b12aaf5688a616c42953878eee6e3d1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785302"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627643"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 
@@ -33,17 +33,18 @@ ms.locfileid: "53785302"
 
 ## <a name="sample-script"></a>示例脚本
 
+```bash
+# !/bin/bash
 
-#<a name="binbash"></a>!/bin/bash
+RgName="MyResourceGroup"
+Location="chinaeast"
 
-RgName="MyResourceGroup" Location="chinaeast"
-
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 az group create \
   --name $RgName \
   --location $Location
 
-# <a name="create-an-availability-set-for-the-two-vms-that-host-both-websites"></a>为这两个托管了两个网站的 VM 创建可用性集。
+# Create an availability set for the two VMs that host both websites.
 az vm availability-set create \
   --resource-group $RgName \
   --location $Location \
@@ -51,7 +52,7 @@ az vm availability-set create \
   --platform-fault-domain-count 2 \
   --platform-update-domain-count 2
 
-# <a name="create-a-virtual-network-and-a-subnet"></a>创建虚拟网络和子网。
+# Create a virtual network and a subnet.
 az network vnet create \
   --resource-group $RgName \
   --name MyVnet \
@@ -60,19 +61,21 @@ az network vnet create \
   --subnet-name MySubnet \
   --subnet-prefix 10.0.0.0/24
 
-# <a name="create-three-public-ip-addresses-one-for-the-load-balancer-and-two-for-the-front-end-ip-configurations"></a>创建三个公共 IP 地址，一个用于负载均衡器，两个用于前端 IP 配置。
+# Create three public IP addresses; one for the load balancer and two for the front-end IP configurations.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIp-LoadBalancer \
-  --allocation-method Dynamic az network public-ip create \
+  --allocation-method Dynamic
+az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIp-Contoso \
-  --allocation-method Dynamic az network public-ip create \
+  --allocation-method Dynamic
+az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIp-Fabrikam \
   --allocation-method Dynamic
 
-# <a name="create-a-load-balancer"></a>创建负载均衡器。
+# Create a load balancer.
 az network lb create \
   --resource-group $RgName \
   --location $Location \
@@ -81,27 +84,29 @@ az network lb create \
   --backend-pool-name BackEnd \
   --public-ip-address MyPublicIp-LoadBalancer
 
-# <a name="create-two-front-end-ip-configurations-for-both-web-sites"></a>为两个网站创建两个前端 IP 配置。
+# Create two front-end IP configurations for both web sites.
 az network lb frontend-ip create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
   --public-ip-address MyPublicIp-Contoso \
-  --name FeContoso az network lb frontend-ip create \
+  --name FeContoso
+az network lb frontend-ip create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
   --public-ip-address MyPublicIp-Fabrikam \
   --name FeFabrikam
 
-# <a name="create-the-back-end-address-pools"></a>创建后端地址池。
+# Create the back-end address pools.
 az network lb address-pool create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
-  --name BeContoso az network lb address-pool create \
+  --name BeContoso
+az network lb address-pool create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
   --name BeFabrikam
 
-# <a name="create-a-probe-on-port-80"></a>在端口 80 上创建探测。
+# Create a probe on port 80.
 az network lb probe create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
@@ -109,7 +114,7 @@ az network lb probe create \
   --protocol Http \
   --port 80 --path /
 
-# <a name="create-the-load-balancing-rules"></a>创建负载均衡规则。
+# Create the load balancing rules.
 az network lb rule create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
@@ -119,7 +124,8 @@ az network lb rule create \
   --frontend-port 5000 \
   --backend-port 5000 \
   --frontend-ip-name FeContoso \
-  --backend-pool-name BeContoso az network lb rule create \
+  --backend-pool-name BeContoso
+az network lb rule create \
   --resource-group $RgName \
   --lb-name MyLoadBalancer \
   --name LBRuleFabrikam \
@@ -130,15 +136,15 @@ az network lb rule create \
   --frontend-ip-name FeFabrikam \
   --backend-pool-name BeFabrikam
 
-# <a name="-vm1"></a>############## VM1 ###############
+# ############## VM1 ###############
 
-# <a name="create-an-public-ip-for-the-first-vm"></a>为第一个 VM 创建公共 IP。
+# Create an Public IP for the first VM.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIp-Vm1 \
   --allocation-method Dynamic
 
-# <a name="create-a-network-interface-for-vm1"></a>为 VM1 创建网络接口。
+# Create a network interface for VM1.
 az network nic create \
   --resource-group $RgName \
   --vnet-name MyVnet \
@@ -146,20 +152,21 @@ az network nic create \
   --name MyNic-Vm1 \
   --public-ip-address MyPublicIp-Vm1
 
-# <a name="create-ip-configurations-for-contoso-and-fabrikam"></a>为 Contoso 和 Fabrikam 创建 IP 配置。
+# Create IP configurations for Contoso and Fabrikam.
 az network nic ip-config create \
   --resource-group $RgName \
   --name ipconfig2 \
   --nic-name MyNic-Vm1 \
   --lb-name MyLoadBalancer \
-  --lb-address-pools BeContoso az network nic ip-config create \
+  --lb-address-pools BeContoso
+az network nic ip-config create \
   --resource-group $RgName \
   --name ipconfig3 \
   --nic-name MyNic-Vm1 \
   --lb-name MyLoadBalancer \
   --lb-address-pools BeFabrikam
 
-# <a name="create-vm1"></a>创建 Vm1。
+# Create Vm1.
 az vm create \
   --resource-group $RgName \
   --name MyVm1 \
@@ -169,15 +176,15 @@ az vm create \
   --admin-username azureadmin \
   --generate-ssh-keys
 
-############### <a name="vm2"></a>VM2 ###############
+###### ######### VM2 ###############
 
-# <a name="create-an-public-ip-for-the-second-vm"></a>为第二个 VM 创建公共 IP。
+# Create an Public IP for the second VM.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIp-Vm2 \
   --allocation-method Dynamic
 
-# <a name="create-a-network-interface-for-vm2"></a>为 VM2 创建网络接口。
+# Create a network interface for VM2.
 az network nic create \
   --resource-group $RgName \
   --vnet-name MyVnet \
@@ -185,20 +192,21 @@ az network nic create \
   --name MyNic-Vm2 \
   --public-ip-address MyPublicIp-Vm2
 
-# <a name="create-ip-configs-for-contoso-and-fabrikam"></a>为 Contoso 和 Fabrikam 创建 IP-Configs。
+# Create IP-Configs for Contoso and Fabrikam.
 az network nic ip-config create \
   --resource-group $RgName \
   --name ipconfig2 \
   --nic-name MyNic-Vm2 \
   --lb-name MyLoadBalancer \
-  --lb-address-pools BeContoso az network nic ip-config create \
+  --lb-address-pools BeContoso
+az network nic ip-config create \
   --resource-group $RgName \
   --name ipconfig3 \
   --nic-name MyNic-Vm2 \
   --lb-name MyLoadBalancer \
   --lb-address-pools BeFabrikam
 
-# <a name="create-vm2"></a>创建 Vm2。
+# Create Vm2.
 az vm create \
   --resource-group $RgName \
   --name MyVm2 \
@@ -207,6 +215,7 @@ az vm create \
   --availability-set MyAvailabilitySet \
   --admin-username azureadmin \
   --generate-ssh-keys
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

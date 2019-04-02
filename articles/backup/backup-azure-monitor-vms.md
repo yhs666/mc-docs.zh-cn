@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f7b4290a2eaeacd08ed88f80c4aa8692bdd36e2d
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 1d6d526ab55a58833ce62af726dbd827377bc28b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996499"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627477"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>监视 Azure 虚拟机备份的警报
 警报是服务发出的响应，指出已达到或超过了某个事件阈值。 了解问题何时开始出现可能是控制业务成本的关键所在。 警报通常不会按计划发生，因此在警报发生后尽快知晓会很有用。 例如，当备份或还原作业失败时，在失败后的 5 分钟内发生警报。 在保管库仪表板中，“备份警报”磁贴显示了“关键”和“警告”级别的事件。 在“备份警报”设置中，可以查看所有事件。 但是，如果在处理某个单独的问题时发生警报，该怎么办呢？ 如果不知道警报何时发生，则无法确定相关的问题只是一个小小的麻烦，还是会导致数据透露。 为了确保适当的人员能够意识到发生了警报（何时发生警报），可以将服务配置为通过电子邮件发送警报通知。 有关设置电子邮件通知的详细信息，请参阅 [Configure notifications](backup-azure-monitor-vms.md#configure-notifications)（配置通知）。
@@ -63,6 +63,7 @@ ms.locfileid: "53996499"
 6. 单击“保存” 。
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 备份有哪些警报类型？
+
    | 警报级别 | 发送的警报 |
    | --- | --- |
    | 关键 | 适用于备份失败、恢复失败 |

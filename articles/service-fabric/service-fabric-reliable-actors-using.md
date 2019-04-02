@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 03/19/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d403a2186317f8471724cfcaf5f049bda8d9dc6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5bfd037a0a8b2e7716c1b65f04c82ba44cbae4e0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645714"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625806"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>在执行组件服务中实现服务级功能
 
@@ -160,13 +160,13 @@ public class Program
 
 需要进行以下更改才能使用远程处理 V2_1 堆栈：
 
- 1. 在执行组件接口上添加以下程序集属性。
+1. 在执行组件接口上添加以下程序集属性。
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. 构建并升级执行组件服务和执行组件客户端项目以开始使用 V2 堆栈。
+2. 构建并升级执行组件服务和执行组件客户端项目以开始使用 V2 堆栈。
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>在不影响服务可用性的情况下将执行组件服务升级到远程处理 V2（接口兼容）堆栈
 
@@ -174,12 +174,12 @@ public class Program
 
 1. 在执行组件接口上添加以下程序集属性。 此属性启动执行组件服务的两个侦听器：V1（现有的）和 V2_1 侦听器。 通过此项更改升级执行组件服务。
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. 在完成上一个升级后升级执行组件客户端。
-此步骤确保执行组件代理使用远程处理 V2_1 堆栈。
+   此步骤确保执行组件代理使用远程处理 V2_1 堆栈。
 
 3. 此步骤是可选的。 更改上面的属性来删除 V1 侦听器。
 
@@ -193,13 +193,13 @@ public class Program
 
 需要进行以下更改才能使用远程处理 V2 堆栈。
 
- 1. 在执行组件接口上添加以下程序集属性。
+1. 在执行组件接口上添加以下程序集属性。
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. 构建并升级执行组件服务和执行组件客户端项目以开始使用 V2 堆栈。
+2. 构建并升级执行组件服务和执行组件客户端项目以开始使用 V2 堆栈。
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>在不影响服务可用性的情况下将执行组件服务升级到远程处理 V2 堆栈。
 
@@ -207,12 +207,12 @@ public class Program
 
 1. 在执行组件接口上添加以下程序集属性。 此属性启动执行组件服务的两个侦听器：V1（现有的）和 V2 侦听器。 通过此项更改升级执行组件服务。
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. 在完成上一个升级后升级执行组件客户端。
-此步骤确保执行组件代理使用远程处理 V2 堆栈。
+   此步骤确保执行组件代理使用远程处理 V2 堆栈。
 
 3. 此步骤是可选的。 更改上面的属性来删除 V1 侦听器。
 

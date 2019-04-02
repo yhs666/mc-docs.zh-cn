@@ -9,12 +9,12 @@ origin.date: 02/07/2019
 ms.date: 03/25/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 37863c402de4ac6fc016bf34b737b87aeddc5e6e
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 913c91b160289fbf19baf671f824e067ec137b07
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352482"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632959"
 ---
 <a name="virtual-networking-limits-classic"></a>以下限制仅适用于每个订阅通过经典部署模型托管的网络资源。 了解如何[针对订阅限制查看当前资源使用情况](../articles/networking/check-usage-against-limits.md)。
 
@@ -42,33 +42,34 @@ ms.locfileid: "58352482"
 > [!NOTE]
 > 我们最近将所有默认限制提高到了最大限制。 如果没有最大限制列，则资源没有可调整的限制。 如果过去已通过客户支持提高了这些上限，因此在以下表中看不到更新的限制，可[免费提交联机客户支持请求](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| 资源 | 默认限制 | 
-| --- | --- |
-| 虚拟网络 |1,000 |
-| 每个虚拟网络的子网数 |3,000 |
-| 每个虚拟网络的虚拟网络对等互连数 |100 |
-| 每个虚拟网络的 DNS 服务器数 |20 个 |
-| 每个虚拟网络的专用 IP 地址数 |65,536 |
-| 每个网络接口的专用 IP 地址数 |256 |
-| 每个虚拟机的专用 IP 地址数 |256 |
-| 虚拟机或角色实例的单 NIC 并发 TCP 或 UDP 流数 |500,000 |
-| 网络接口卡数 |65,536 |
-| 网络安全组 |5,000 |
-| 每个 NSG 的 NSG 规则数 |1,000 |
-<!-- 不可用于 | 为安全规则中的源或目标指定的 IP 地址和范围数 |2000 |4000 | -->
-| 应用程序安全组 |3,000 |
-<!-- 不可用于 | 每个 IP 配置和每个 NIC 的应用程序安全组数 |10 个 |20 个 | -->
-<!-- 不可用于 | 每个应用程序安全组的 IP 配置数 |1000 |4000 | -->
-<!-- 不可用于 | 可在网络安全组的所有安全规则中指定的应用程序安全组数 |50 |100 | -->
-| 用户定义路由表数 |200 |
-| 每个路由表的用户定义的路由数 |400 |
-| 每个 Azure VPN 网关的点到站点根证书数 |20 个 |
+|                                 资源                                  |                                              默认限制                                              |
+|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+|                             虚拟网络                              |                                                  1,000                                                  |
+|                        每个虚拟网络的子网数                        |                                                  3,000                                                  |
+|               每个虚拟网络的虚拟网络对等互连数                |                                                   100                                                   |
+|                      每个虚拟网络的 DNS 服务器数                      |                                                   20 个                                                    |
+|                 每个虚拟网络的专用 IP 地址数                  |                                                 65,536                                                  |
+|                每个网络接口的专用 IP 地址数                 |                                                   256                                                   |
+|                 每个虚拟机的专用 IP 地址数                  |                                                   256                                                   |
+| 虚拟机或角色实例的单 NIC 并发 TCP 或 UDP 流数 |                                                 500,000                                                 |
+|                          网络接口卡数                          |                                                 65,536                                                  |
+|                          网络安全组                          |                                                  5,000                                                  |
+|                             每个 NSG 的 NSG 规则数                             |                                                  1,000                                                  |
+|                           <!-- 不可用于                           |             为安全规则中的源或目标指定的 IP 地址和范围数              |
+|                        应用程序安全组                        |                                                  3,000                                                  |
+|                           <!-- 不可用于                           |                        每个 IP 配置和每个 NIC 的应用程序安全组数                        |
+|                           <!-- 不可用于                           |                            每个应用程序安全组的 IP 配置数                             |
+|                           <!-- 不可用于                           | 可在网络安全组的所有安全规则中指定的应用程序安全组数 |
+|                         用户定义路由表数                         |                                                   200                                                   |
+|                    每个路由表的用户定义的路由数                    |                                                   400                                                   |
+|           每个 Azure VPN 网关的点到站点根证书数           |                                                   20 个                                                    |
 
 <!-- Not Available on | Virtual network TAPs |100 |-->
 <!-- Not Available on | Network interface TAP configurations per virtual network TAP |100 |-->
 
 <a name="publicip-address"></a>
 #### <a name="public-ip-address-limits"></a>公共 IP 地址限制
+
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
 | 公共 IP 地址数 - 动态 | 基本版为 1,000。 |请联系支持人员。 |
@@ -79,10 +80,12 @@ ms.locfileid: "58352482"
 #### <a name="load-balancer-limits"></a>负载均衡器限制
 以下限制仅适用于通过每个订阅的每个区域的 Azure Resource Manager 进行管理的网络资源。 了解如何[针对订阅限制查看当前资源使用情况](../articles/networking/check-usage-against-limits.md)。
 
-| 资源 | 默认限制 |
-| --- | --- |
-| 负载均衡器 | 1,000 | 
-| 每个资源的规则数，基本 | 250 |
+
+|         资源          | 默认限制 |
+|---------------------------|---------------|
+|      负载均衡器       |     1,000     |
+| 每个资源的规则数，基本 |      250      |
+
 <!-- Not Avaiable on Rules per resource, Standard  -->
 <!-- Not Avaiable on Rules per IP configuration -->
 | 前端 IP 配置，基本 | 200 |

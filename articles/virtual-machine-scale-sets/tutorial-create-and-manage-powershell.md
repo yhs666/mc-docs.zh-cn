@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/18/2018
-ms.date: 02/12/2019
+ms.date: 03/28/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 31fca116d652220b41f8190e8bfc3a136c405e5f
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 0a956baca6f68e19e9b94dc6a3f6c02e3c1dfabc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101588"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626873"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理虚拟机规模集
 
@@ -35,7 +35,7 @@ ms.locfileid: "56101588"
 > * 手动缩放规模集
 > * 执行常见的规模集管理任务
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
@@ -139,7 +139,7 @@ IpAddress
 52.168.121.216
 ```
 
-创建连接到第一个 VM 实例所需的远程连接。 指定所需 VM 实例的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据（在示例命令中，默认为 *azureuser* 和 *P@ssw0rd!*）。 以下示例连接到 VM 实例 *1*：
+创建连接到第一个 VM 实例所需的远程连接。 指定所需 VM 实例的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据（在示例命令中，默认为 *azureuser* 和 <em>P@ssw0rd!</em>）。 以下示例连接到 VM 实例 *1*：
 
 ```powershell
 mstsc /v 52.168.121.216:50001

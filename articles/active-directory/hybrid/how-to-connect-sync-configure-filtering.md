@@ -16,12 +16,12 @@ origin.date: 07/12/2017
 ms.date: 02/13/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 33ceaa4d5c3a912a2e36fc162b15782f5890d684
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.openlocfilehash: 7dff121e060fb7b6a908b9d834531d3f653143ac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222706"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626101"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：配置筛选
 使用筛选功能可以控制本地目录中的哪些对象应该出现在 Azure Active Directory (Azure AD) 中。 默认配置采用配置的林中所有域内的所有对象。 我们一般建议使用这种配置。 使用 Exchange Online 和 Skype for Business 等 Office 365 工作负荷的用户将受益于完整的全局地址列表，因为这样可以发送电子邮件和呼叫每个联系人。 使用默认配置时，用户获得的体验与使用 Exchange 或 Lync 的本地实现获得的相同。

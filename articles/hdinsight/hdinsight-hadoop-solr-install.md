@@ -15,12 +15,12 @@ origin.date: 02/05/2016
 ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb260a8dd4c1fdacb3e00e524d6d4b4511faa879
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 42f1214c65a066c81c393f9be97772ba01902305
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665556"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627462"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Apache Solr
 
@@ -51,12 +51,13 @@ ms.locfileid: "56665556"
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
 
-    |属性|值|
-    |---|---|
-    |Name|指定脚本操作的名称。 例如 Install Solr。|
-    |脚本 URI|指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 *https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
-    |节点类型|指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”。
-    |parameters|根据脚本的需要，请指定参数。 用于安装 Solr 的脚本不需要任何参数，因此，可将此项保留为空。|
+
+   |  属性  |                                                                                                      值                                                                                                       |
+   |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |    Name    |                                                                       指定脚本操作的名称。 例如 Install Solr。                                                                       |
+   | 脚本 URI | 指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 *<https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1>* |
+   | 节点类型  |                                     指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”。                                     |
+   | parameters |                                   根据脚本的需要，请指定参数。 用于安装 Solr 的脚本不需要任何参数，因此，可将此项保留为空。                                    |
 
     可以添加多个脚本操作，以在群集上安装多个组件。 在添加了脚本后，单击复选标记以开始创建群集。
 
@@ -144,7 +145,7 @@ ms.locfileid: "56665556"
            http://localhost:8983/solr/replication?command=backup
 
        应该看到如下所示的响应：
-            
+
       ```xml
       <?xml version="1.0" encoding="UTF-8"?>
           <response>
@@ -155,9 +156,9 @@ ms.locfileid: "56665556"
             <str name="status">OK</str>
           </response>
       ```
-      
+
    2. 在远程会话中，导航到 {SOLR_HOME}\{Collection}\data。 对于通过示例脚本创建的群集，此位置应为 `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`。 在此位置，应该会看到使用类似于 **snapshot.* timestamp*** 的名称创建的快照文件夹。
-   
+
    3. 压缩快照文件夹，并将其上传到 Azure Blob 存储。 从 Hadoop 命令行，通过使用以下命令导航到快照文件夹所在的位置：
 
       ```

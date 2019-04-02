@@ -17,12 +17,12 @@ origin.date: 01/23/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: eb72c7c368dec50cd839653ca0ea350fae9e3c05
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fe9768aa1b60ed3cb995dc14797f39d5e30a7f0d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666351"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626065"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动备份
 > [!div class="op_single_selector"]
@@ -68,18 +68,19 @@ ms.locfileid: "56666351"
 ## <a name="settings"></a>设置
 下表描述了可为自动备份配置的选项。 对于经典 VM，必须使用 PowerShell 配置以下设置。
 
-| 设置 | 范围（默认值） | 说明 |
-| --- | --- | --- |
-| **自动备份** |启用/禁用（已禁用） |为运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 启用或禁用自动备份。 |
-| **保留期** |1-30 天（30 天） |保留备份的天数。 |
-| **存储帐户** |Azure 存储帐户（为指定的 VM 创建的存储帐户） |用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。 |
-| **加密** |启用/禁用（已禁用） |启用或禁用加密。 启用加密时，用于还原备份的证书使用相同的命名约定存放在同一 automaticbackup 容器中的指定存储帐户内。 如果密码发生更改，则使用该密码生成新证书，但旧证书在备份之前仍会还原。 |
-| **密码** |密码文本（无） |加密密钥的密码。 仅当启用了加密时才需要此设置。 若要还原加密的备份，必须具有创建该备份时使用的正确密码和相关证书。 | **备份系统数据库** | 启用/禁用（已禁用） | 完整备份 Master、Model 和 MSDB |
-| **配置备份计划** | 手动/自动（自动） | 选择“自动”可根据日志增长自动进行完整备份和日志备份。  ，指定进行完整备份和日志备份的计划。 |
+
+|            设置            |                             范围（默认值）                              |                                                                                                                                                                            说明                                                                                                                                                                             |
+|-------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     **自动备份**      |                        启用/禁用（已禁用）                         |                                                                                                                                为运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 启用或禁用自动备份。                                                                                                                                |
+|     **保留期**      |                           1-30 天（30 天）                            |                                                                                                                                                               保留备份的天数。                                                                                                                                                               |
+|      **存储帐户**      | Azure 存储帐户（为指定的 VM 创建的存储帐户） |                                                                用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。                                                                 |
+|        **加密**         |                        启用/禁用（已禁用）                         | 启用或禁用加密。 启用加密时，用于还原备份的证书使用相同的命名约定存放在同一 automaticbackup 容器中的指定存储帐户内。 如果密码发生更改，则使用该密码生成新证书，但旧证书在备份之前仍会还原。 |
+|         **密码**          |                           密码文本（无）                           |                                                                加密密钥的密码。 仅当启用了加密时才需要此设置。 若要还原加密的备份，必须具有创建该备份时使用的正确密码和相关证书。                                                                 |
+| **配置备份计划** |                       手动/自动（自动）                       |                                                                                                      选择“自动”可根据日志增长自动进行完整备份和日志备份。  ，指定进行完整备份和日志备份的计划。                                                                                                      |
 
 ## <a name="configuration-with-powershell"></a>使用 PowerShell 进行配置
 下面的 PowerShell 示例为现有 SQL Server 2014 VM 配置自动备份。 **New-AzureVMSqlServerAutoBackupConfig** 命令可将自动备份设置配置为在 $storageaccount 变量指定的 Azure 存储帐户中存储备份。 这些备份将保留 10 天。 **Set-AzureVMSqlServerExtension** 命令可使用这些设置更新指定的 Azure VM。
-    
+
     Add-AzureAccount -Environment AzureChinaCloud
     $storageaccount = "<storageaccountname>"
     $storageaccountkey = (Get-AzureStorageKey -StorageAccountName $storageaccount).Primary

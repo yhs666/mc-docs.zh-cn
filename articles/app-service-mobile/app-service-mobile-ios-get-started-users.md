@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: ad086d6c3d10e05204ac0334b94a6eb59d9f84a6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 974e71050b1bb804fe7605cc83ce5b4d91dfd746
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666705"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626805"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Add authentication to your iOS app（将身份验证添加到 iOS 应用）
 
@@ -28,7 +28,7 @@ ms.locfileid: "52666705"
 
 本教程介绍如何使用支持的标识提供者向 [iOS 快速入门] 项目添加身份验证。 本教程基于 [iOS 快速入门] 教程，必须先完成该教程。
 
-##<a name="register"></a>注册应用以进行身份验证并配置应用服务
+## <a name="register"></a>注册应用以进行身份验证并配置应用服务
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>将应用添加到允许的外部重定向 URL

@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33eb638d21e806ad72263dbe0445b4bcab72d513
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f9896f6aebedb18ea395216832beb2cc91d67091
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666152"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627166"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -99,8 +99,8 @@ Get-Command Set-Az*Extension* -Module Az.Compute
 此命令的输出如下所示：
 
 ```powershell
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
+CommandType     Name                                          Version    Source
+-----------     ----                                          -------    ------
 Cmdlet          Set-AzVMAccessExtension                       1.2.0      Az.Compute
 Cmdlet          Set-AzVMADDomainExtension                     1.2.0      Az.Compute
 Cmdlet          Set-AzVMAEMExtension                          1.2.0      Az.Compute
@@ -137,7 +137,16 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 
 `Set-AzVMExtension` 命令可用于启动任何 VM 扩展。 有关详细信息，请参阅 [Set-AzVMExtension 参考](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)。
 
-<!-- Not Available on ### Azure portal-->
+<!--Verify successfully on Antimalware-->
+
+### <a name="azure-portal"></a>Azure 门户
+
+可通过 Azure 门户将 VM 扩展应用到现有 VM。 在门户中，依次选择该 VM、“扩展”、“添加”。 从可用扩展的列表中选择所需扩展，并按向导中的说明操作。
+
+以下示例演示如何从 Azure 门户安装 Microsoft 反恶意软件扩展。
+
+![安装反恶意软件扩展](./media/features-windows/installantimalwareextension.png)
+
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 
 VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过程中执行。 使用模板部署扩展时，可以创建完全配置的 Azure 部署。 例如，以下 JSON 取自一个资源管理器模板，该模板会在每个 VM 上部署一组负载均衡的 VM、一个 Azure SQL 数据库，然后安装一个 .NET Core 应用程序。 VM 扩展负责安装软件。
