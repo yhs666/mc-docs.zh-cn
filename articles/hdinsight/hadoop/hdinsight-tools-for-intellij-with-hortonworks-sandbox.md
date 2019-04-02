@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2cea76a208af302ffa7e65fbf9b213f28c9989f9
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 2b00b9df94b31ae563fdd4cfa2a709d88863eeaa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029253"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626000"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用
 
@@ -61,20 +61,20 @@ ms.locfileid: "54029253"
    1. 选择“HDInsight” > “Spark on HDInsight (Scala)”
    2. 在“生成工具”列表中，基于方案选择以下项之一：
 
-    * **Maven**：用于支持 Scala 项目创建向导。
-    * **SBT**：用于管理依赖项和生成 Scala 项目。
+      * **Maven**：用于支持 Scala 项目创建向导。
+      * **SBT**：用于管理依赖项和生成 Scala 项目。
 
    ![“新建项目”对话框](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. 选择“**下一步**”。
 3. 在接下来显示的“新建项目”对话框中，完成以下步骤：
 
-    1. 在“项目名称”框中输入项目名称。
-    2. 在“项目位置”框中输入项目位置。
-    3. 在“项目 SDK”下拉列表旁边，依次选择“新建”和“JDK”，并指定 Java JDK 1.7 或更高版本的文件夹。 为 Spark 2.x 群集选择 **Java 1.8**。 为 Spark 1.x 群集选择 **Java 1.7**。 默认位置为 C:\Program Files\Java\jdk1.8.x_xxx。
-    4. 在“Spark 版本”下拉列表中，Scala 项目创建向导集成了 Spark SDK 和 Scala SDK 的正确版本。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，请选择“Spark 2.x”。 本示例使用“Spark 1.6.2 (Scala 2.10.5)”。 请确保使用标记为 Scala 2.10.x 的存储库。 不要使用标记为 Scala 2.11.x 的存储库。
+   1. 在“项目名称”框中输入项目名称。
+   2. 在“项目位置”框中输入项目位置。
+   3. 在“项目 SDK”下拉列表旁边，依次选择“新建”和“JDK”，并指定 Java JDK 1.7 或更高版本的文件夹。 为 Spark 2.x 群集选择 **Java 1.8**。 为 Spark 1.x 群集选择 **Java 1.7**。 默认位置为 C:\Program Files\Java\jdk1.8.x_xxx。
+   4. 在“Spark 版本”下拉列表中，Scala 项目创建向导集成了 Spark SDK 和 Scala SDK 的正确版本。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，请选择“Spark 2.x”。 本示例使用“Spark 1.6.2 (Scala 2.10.5)”。 请确保使用标记为 Scala 2.10.x 的存储库。 不要使用标记为 Scala 2.11.x 的存储库。
     
-    ![创建 IntelliJ Scala 项目属性](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![创建 IntelliJ Scala 项目属性](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. 选择“完成”。

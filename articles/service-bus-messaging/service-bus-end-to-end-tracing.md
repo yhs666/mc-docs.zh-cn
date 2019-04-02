@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2019
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 509a7bbf525a622c945ccf55a88af1d4b777685e
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: a785cdf6375043f460f55b9e185a656c2b78cdcf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141682"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626927"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -203,7 +203,7 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 1. `IsEnabled(<OperationName>, string entity, null)`，例如 `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`。 请注意，末尾没有“Start”或“Stop”。 使用此语句可以筛选出特定的操作或队列。 如果回调返回 `false`，则表示未发送操作的事件
 
-  * 对于“Process”和“ProcessSession”操作，还会收到 `IsEnabled(<OperationName>, string entity, Activity activity)` 回调。 使用此回调可根据 `activity.Id` 或 Tags 属性筛选事件。
+   * 对于“Process”和“ProcessSession”操作，还会收到 `IsEnabled(<OperationName>, string entity, Activity activity)` 回调。 使用此回调可根据 `activity.Id` 或 Tags 属性筛选事件。
   
 2. `IsEnabled(<OperationName>.Start)`，例如 `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`。 检查是否应激发“Start”事件。 结果只影响“Start”事件，但其他检测不依赖于它。
 

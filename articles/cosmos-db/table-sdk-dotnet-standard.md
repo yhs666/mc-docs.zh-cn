@@ -9,17 +9,17 @@ ms.devlang: dotnet
 ms.topic: reference
 origin.date: 10/18/2018
 ms.date: 03/18/2019
-ms.openlocfilehash: d1cfec663faca7f6e502dafb526002acfe5f9644
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: ff02f25253cdefc2ca44fb8f896c1e99ab4dafbd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988567"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626232"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET Standard API：下载和发行说明
 > [!div class="op_single_selector"]
-
+> 
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)

@@ -5,22 +5,17 @@ services: media-services
 author: WenJason
 manager: digimobile
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 01/07/2019
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: d90532bc0fcbbe09ae6712a80960eb5c5fbe5377
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996298"
 ---
-# <a name="media-services-documentation"></a>媒体服务文档
+
+# <a name="media-services-documentation"></a>媒体服务文档  
 
 了解如何使用媒体服务（一个可缩放的云平台）流式传输广播质量的视频。 教程、API 参考和其他文档介绍了如何安全地向数百万用户传送可缩放的点播和直播视频或音频流。
 
@@ -43,7 +38,6 @@ ms.locfileid: "53996298"
         </div>
         </a>
     </li>
-
     <li>
         <a href="/media-services/media-services-portal-create-account">
         <div class="cardSize">

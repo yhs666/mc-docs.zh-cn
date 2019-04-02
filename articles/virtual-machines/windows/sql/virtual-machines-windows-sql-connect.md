@@ -16,12 +16,12 @@ origin.date: 12/12/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: c3574bc5d05dc540956c7b90473caf244e2e2176
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f5058b0bf00c63aad214ff573c40cda55b3c3735
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666022"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544773"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 
@@ -113,6 +113,7 @@ Server=mysqlvm;Integrated Security=true
    ![SQL VM 更新通知](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
 <a name="manualtcp"></a>
+<a name="manualTCP"></a>
 ##  <a name="enable-tcpip-for-developer-and-express-editions"></a>为 Developer Edition 和 Express Edition 启用 TCP/IP
 
 更改 SQL Server 连接性设置时，Azure 不会为 SQL Server Developer Edition 和 Express Edition 自动启用 TCP/IP 协议。 以下步骤说明了如何手动启用 TCP/IP，以便通过 IP 地址进行远程连接。
@@ -142,7 +143,7 @@ Server=mysqlvm;Integrated Security=true
 |---|---|
 | [启用 SQL Server 身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | 除非已在虚拟网络上配置 Active Directory，否则需要进行 SQL Server 身份验证才能连接到远程 VM。 |
 | [创建 SQL 登录名](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | 如果使用的是 SQL 身份验证，则需要提供 SQL 登录名，并且用户名和密码还有权访问目标数据库。 |
-| [启用 TCP/IP 协议](#manualTCP) | SQL Server 必须允许通过 TCP 连接。 |
+| [启用 TCP/IP 协议](#manualtcp) | SQL Server 必须允许通过 TCP 连接。 |
 | [启用 SQL Server 端口的防火墙规则](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM 上的防火墙必须允许 SQL Server 端口（默认为 1433）上的入站流量。 |
 | [创建 TCP 1433 的网络安全组规则](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | 如果希望通过 Internet 连接，必须允许 VM 接收 SQL Server 端口（默认为 1433）上的流量。 本地和仅虚拟网路连接对此无要求。 这是在 Azure 门户中所要求的唯一步骤。 |
 

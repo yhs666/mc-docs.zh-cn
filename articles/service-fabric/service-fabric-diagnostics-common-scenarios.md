@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 02/25/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 67b1b2e4cf26aa5250415e720fed6ae95e51adb4
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 18a813712d87739e3ac6b360f5f7604b7fe393b3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204282"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625752"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>使用 Service Fabric 诊断常见情况
 
@@ -71,15 +71,15 @@ ms.locfileid: "57204282"
 
 3. 单击“数据”>“Windows 性能计数器”（对于 Linux 计算机，则为“数据”>“Linux 性能计数器”），开始通过 Log Analytics 代理从节点收集特定计数器。 以下是要添加的计数器的格式示例
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    在快速入门中，VotingData 和 VotingWeb 是所用进程名称，因此，将按以下格式跟踪这些计数器
+     在快速入门中，VotingData 和 VotingWeb 是所用进程名称，因此，将按以下格式跟踪这些计数器
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Log Analytics 性能计数器](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Log Analytics 性能计数器](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. 这将允许你查看基础结构处理工作负荷的方式，并根据资源利用率设置相关警报。 例如，如果处理器总利用率高于 90% 或低于 5%，则可能需要设置警报。 此时将使用名为“处理器时间百分比”的计数器。 可通过为以下查询创建警报规则来执行此操作：
 

@@ -17,12 +17,12 @@ origin.date: 02/09/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ff1275081510639ee515269b423cc97ad4c798da
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 63dd18c2d6de4316719731a2c4bb813d66aebd8c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665938"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627366"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Windows 虚拟机上的 Web 服务器
 

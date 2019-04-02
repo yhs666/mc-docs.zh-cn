@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/12/2018
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 35eb28cbed0c7fd8bde6f172ff9037c6f55f592c
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 7c27dce437f94dd928f1c4be40d773858f393b9b
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256377"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408288"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 

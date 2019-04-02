@@ -15,17 +15,18 @@ ms.workload: multiple
 origin.date: 06/08/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba5a4f9bb93c5a19df514c491664f37f5146f434
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 1c7a354535522ff61f9dbf02b9084bd91587bcca
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463566"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625702"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器应用程序和服务清单示例
 下面以示例方式说明了多容器 Service Fabric 应用程序的应用程序和服务清单。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Windows Server 2016 容器示例](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows)清单。
 
 以下功能会显示：
+
 |清单|功能|
 |---|---|
 |[应用程序清单](#application-manifest)| [重写环境变量](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[配置容器端口到主机的映射](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)、[配置容器注册表身份验证](service-fabric-get-started-containers.md#configure-container-registry-authentication)、[资源调控](service-fabric-resource-governance.md)、[设置隔离模式](service-fabric-get-started-containers.md#configure-isolation-mode)、[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 

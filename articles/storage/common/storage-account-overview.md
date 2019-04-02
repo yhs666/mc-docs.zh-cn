@@ -9,12 +9,12 @@ origin.date: 03/06/2019
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 6d78a48c819d348434ecd1e298e27b85de9e0cf9
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: bfd2977ebd2ce75fa07ca0889219a5bc5add865c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253936"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625690"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 
@@ -113,15 +113,15 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 
 例如，如果常规用途存储帐户名为 *mystorageaccount*，则该帐户的默认终结点为：
 
-* Blob 存储： http://*mystorageaccount*.blob.core.chinacloudapi.cn
-* 表存储： http://*mystorageaccount*.table.core.chinacloudapi.cn
-* 队列存储： http://*mystorageaccount*.queue.core.chinacloudapi.cn
-* Azure 文件： http://*mystorageaccount*.file.core.chinacloudapi.cn
+* Blob 存储： http://<em>mystorageaccount</em>.blob.core.chinacloudapi.cn
+* 表存储： http://<em>mystorageaccount</em>.table.core.chinacloudapi.cn
+* 队列存储： http://<em>mystorageaccount</em>.queue.core.chinacloudapi.cn
+* Azure 文件： http://<em>mystorageaccount</em>.file.core.chinacloudapi.cn
 
 > [!NOTE]
 > Blob 存储帐户仅公开 Blob 服务终结点。
 
-用于访问存储帐户中某个对象的 URL 是通过将对象在存储帐户中的位置追加到终结点后面而构造的。 例如，Blob 地址可能具有以下格式： http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob*。
+用于访问存储帐户中某个对象的 URL 是通过将对象在存储帐户中的位置追加到终结点后面而构造的。 例如，Blob 地址可能具有以下格式： http://<em>mystorageaccount</em>.blob.core.chinacloudapi.cn/*mycontainer*/*myblob*。
 
 也可将存储帐户配置为对 Blob 使用自定义域。 有关详细信息，请参阅[为 Azure 存储帐户配置自定义域名](../blobs/storage-custom-domain-name.md)。  
 

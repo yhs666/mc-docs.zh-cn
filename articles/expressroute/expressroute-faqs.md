@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 08/29/2018
+origin.date: 03/19/2019
 ms.author: v-yiso
-ms.date: 11/12/2018
-ms.openlocfilehash: a1b159f545f03d1f4e861cf52800b5c380483f55
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 04/08/2019
+ms.openlocfilehash: 6bab423bbf2c95cde9c11569d0637111c581ee5b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348628"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627701"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -62,23 +62,21 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 * Power BI
 * Dynamics 365 for Finance and Operations（以前称为 Dynamics AX Online）
-* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br>
-  不支持以下服务：
+* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br><br>
+  **不支持以下服务**：
     * CDN
-    * Azure DevOps Services 负载测试
     * 多重身份验证
     * 流量管理器
 
 ### <a name="microsoft-peering"></a>Microsoft 对等互连
 
-* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
 * Azure DevOps Services 负载测试
 * 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br>不支持以下服务：
     * CDN
-    * Azure DevOps Services 负载测试
     * 多重身份验证
     * 流量管理器
 
@@ -156,7 +154,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多个包含虚拟网络的 Azure 订阅。 能否将不同订阅中的虚拟网络连接到单个 ExpressRoute 线路？
 
-是的。 最多可以授权其他 10 个 Azure 订阅使用单个 ExpressRoute 线路。 可以通过启用 ExpressRoute 高级功能来提高此限制。
+是的。 可以在同一订阅中最多链接 10 个虚拟网络作为线路，或在不同的订阅中使用单一 ExpressRoute 线路。 可以通过启用 ExpressRoute 高级功能增加此限制。
 
 有关详细信息，请参阅[在多个订阅之间共享 ExpressRoute 线路](expressroute-howto-linkvnet-arm.md)。
 
@@ -188,11 +186,8 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 是的。 连接到同一 ExpressRoute 线路的虚拟网络中部署的虚拟机可以彼此通信。
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>能否将站点到站点连接与 ExpressRoute 一起用于虚拟网络？
-是的。 ExpressRoute 可以与站点到站点 VPN 共存。
 
-### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>是否可以将虚拟网络从站点到站点/点到站点配置转为使用 ExpressRoute？
-
-是的。 必须在虚拟网络中创建 ExpressRoute 网关。 该过程会造成较短的停机时间。
+是的。 ExpressRoute 可以与站点到站点 VPN 共存。 请参阅[配置 ExpressRoute 和站点到站点并存连接](expressroute-howto-coexist-resource-manager.md)。
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>为什么有一个公共 IP 地址与虚拟网络上的 ExpressRoute 网关相关联？
 
@@ -286,7 +281,8 @@ ExpressRoute 高级版是以下功能的集合：
 是的。 可以将现有 ExpressRoute 线路配置为支持连接到 Office 365 服务。 确保容量足以连接到 Office 365 服务，并确保已启用高级版外接程序。 [针对 Office 365 的网络规划和性能优化](http://aka.ms/tune/)可帮助规划连接需求。 另外，请参阅[创建和修改 ExpressRoute 线路](expressroute-howto-circuit-classic.md)。
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>通过 ExpressRoute 连接可以访问哪些 Office 365 服务？
-如需可以通过 ExpressRoute 使用的服务的最新列表，请参阅 [Office 365 URL 和 IP 地址范围](http://aka.ms/o365endpoints)页。
+
+如需可以通过 ExpressRoute 使用的服务的最新列表，请参阅 [Office 365 URL 和 IP 地址范围](https://aka.ms/o365endpoints)页。
 
 ### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>用于 Office 365 服务的 ExpressRoute 的费用是多少？
 Office 365 服务要求启用高级版外接程序。 有关费用，请参阅[定价详细信息页](https://www.azure.cn/pricing/details/expressroute/)。

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2018
-ms.date: 12/24/2018
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 5137e6695cecc92c42209ae35afe65cb22b59fd7
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: b3b385b4609c1c3769d0a8b1dbd01886baf21c99
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656548"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624183"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -32,7 +32,7 @@ ms.locfileid: "53656548"
 
 * 本地实时编码器采用以下格式之一将单比特率流发送至能够使用媒体服务执行实时编码的频道：RTMP 或平滑流式处理（分片 MP4）。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
 * 本地实时编码器将多比特率 RTMP 或平滑流式处理（分片 MP4）发送到无法通过 AMS 进行实时编码的频道。 引入流会通过 “通道”，但不会进行任何进一步处理。 这种方法称为 **直通**。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 编码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
-  
+
   > [!NOTE]
   > 实时传送视频流时，使用直通方法是最经济的。
   > 
@@ -51,7 +51,7 @@ ms.locfileid: "53656548"
 > 
 
 ## <a name="billing-implications"></a>计费影响
-一旦通过 API 将实时编码通道的状态转换为“正在运行”，就会开始计费。   也可以在 Azure 门户或 Azure 媒体服务资源管理器工具 (http://aka.ms/amse) 中查看状态。
+一旦通过 API 将实时编码通道的状态转换为“正在运行”，就会开始计费。   也可以在 Azure 门户或 Azure 媒体服务资源管理器工具 (https://aka.ms/amse) 中查看状态。
 
 下表显示了通道状态如何映射到 API 和 Azure 门户中的计费状态。 API 与门户 UX 之间的状态略有不同。 一旦通过 API 将频道置于“正在运行”状态，或者在 Azure 门户中将其设置为“就绪”或“正在流式处理”状态，就会开始计费。
 若要阻止通道进一步计费，必须通过 API 或 Azure 门户停止通道。
@@ -90,29 +90,27 @@ ms.locfileid: "53656548"
 
 > [!NOTE]
 > 目前，实时事件的最大建议持续时间为 8 小时。 实时编码会影响计费，应该记住，将实时编码通道保持为“正在运行”状态会产生按小时计算的费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
-> 
-> 
 
 1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 
-   
+
     此步骤也可以在创建频道后执行。
 2. 创建并启动通道。 
 3. 检索通道引入 URL。 
-   
+
     实时编码器使用引入 URL 将流发送到频道。
 4. 检索频道预览 URL。 
-   
+
     使用此 URL 来验证频道是否正常接收实时流。
 5. 创建节目。 
-   
+
     使用 Azure 门户时，创建节目的同时还会创建资产。 
-   
+
     使用 .NET SDK 或 REST 时，需要创建一个资源并指定在创建节目时要使用该资源。 
 6. 发布与节目关联的资源。   
-   
+
     >[!NOTE]
     >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
-    
+
 7. 准备好开始流式传输和存档后，启动节目。
 8. （可选）可以向实时编码器发信号，以启动广告。 将广告插入到输出流中。
 9. 要停止对事件进行流式传输和存档时，停止节目。
@@ -216,6 +214,7 @@ ms.locfileid: "53656548"
 Default720p 会将视频编码为以下 6 层。
 
 #### <a name="output-video-stream"></a>输出视频流
+
 | 比特率 | 宽度 | 高度 | MaxFPS | 配置文件 | 输出流名称 |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |高 |Video_1280x720_3500kbps |
@@ -348,7 +347,7 @@ Default720p 会将视频编码为以下 6 层。
 [创建频道，通过 NET SDK 执行从单比特率到自适应比特率流的实时编码](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [媒体服务概念](media-services-concepts.md)
 
 [Azure 媒体服务零碎的 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)

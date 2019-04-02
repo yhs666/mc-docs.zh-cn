@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 09/26/2018
 ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: ae01541f44386ae9c1dfb2777875fd75297f9223
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 87c0fb35b09df82e419f3eff6bf75086575261f0
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347097"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408257"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中保存报表
 
@@ -139,7 +139,7 @@ var embedConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 
 <!-- Update_Description: update metedata properties -->

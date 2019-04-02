@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 05/29/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9fb044181d7adc3ceb9985dab4ec28273d9309f4
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: a5301c3b311018b56db3e0412f91c413147abda6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306217"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626266"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>诊断虚拟机网络流量筛选器问题
 
@@ -45,12 +45,12 @@ ms.locfileid: "56306217"
 
     上图中列出的规则适用于名为 **myVMVMNic** 的网络接口。 可以看到两个不同网络安全组中网络接口的“入站端口规则”：
 
-    - **mySubnetNSG**：已关联到网络接口所在的子网。
-    - **myVMNSG**：已关联到 VM 中名为 **myVMVMNic** 的网络接口。
+   - **mySubnetNSG**：已关联到网络接口所在的子网。
+   - **myVMNSG**：已关联到 VM 中名为 **myVMVMNic** 的网络接口。
 
-    如[场景](#scenario)中所述，名为 **DenyAllInBound** 的规则阻止端口 80 从 Internet 与 VM 进行入站通信。 规则中为“源”列出了 *0.0.0.0/0*，其中包括 Internet。 其他更高优先级（较小的数字）的规则都不允许端口 80 入站通信。 若要允许通过端口 80 从 Internet 与 VM 进行入站通信，请参阅[解决问题](#resolve-a-problem)。 若要详细了解安全规则以及 Azure 如何应用这些规则，请参阅[网络安全组](security-overview.md)。
+     如[场景](#scenario)中所述，名为 **DenyAllInBound** 的规则阻止端口 80 从 Internet 与 VM 进行入站通信。 规则中为“源”列出了 *0.0.0.0/0*，其中包括 Internet。 其他更高优先级（较小的数字）的规则都不允许端口 80 入站通信。 若要允许通过端口 80 从 Internet 与 VM 进行入站通信，请参阅[解决问题](#resolve-a-problem)。 若要详细了解安全规则以及 Azure 如何应用这些规则，请参阅[网络安全组](security-overview.md)。
 
-    在图片底部，还可以看到“出站端口规则”。 其下面是网络接口的出站端口规则。 尽管图片中仅显示了每个 NSG 的四个入站规则，但 NSG 包含的规则可能远远超过四个。 在图片中“源”和“目标”下面可以看到“VirtualNetwork”，在“源”下面可以看到“AzureLoadBalancer”。 **VirtualNetwork** 和 **AzureLoadBalancer** 是[服务标记](security-overview.md#service-tags)。 服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。
+     在图片底部，还可以看到“出站端口规则”。 其下面是网络接口的出站端口规则。 尽管图片中仅显示了每个 NSG 的四个入站规则，但 NSG 包含的规则可能远远超过四个。 在图片中“源”和“目标”下面可以看到“VirtualNetwork”，在“源”下面可以看到“AzureLoadBalancer”。 **VirtualNetwork** 和 **AzureLoadBalancer** 是[服务标记](security-overview.md#service-tags)。 服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。
 
 4. 确保 VM 处于运行状态，然后如上图所示选择“有效安全规则”，以查看下图所示的有效安全规则：
 

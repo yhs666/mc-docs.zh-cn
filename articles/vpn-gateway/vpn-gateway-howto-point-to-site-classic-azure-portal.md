@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/11/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 4451dc60c223bea8b8835deb7b67770b7074552c
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 15d4aee1c53213de8a891ce71398842f6d4547bc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833189"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627496"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用证书身份验证（经典）配置点到站点连接
 
@@ -70,9 +70,9 @@ ms.locfileid: "56833189"
    - **资源组**：输入 TestRG。 如果资源组不存在，选择“新建”。
    - **位置**：从列表中选择“中国北部”。
 
- - **VPN 连接设置**
-   - **连接类型**：选择“点到站点”。
-   - **客户端地址空间**：输入 172.16.201.0/24。 使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自指定池的 IP 地址。
+  - **VPN 连接设置**
+    - **连接类型**：选择“点到站点”。
+    - **客户端地址空间**：输入 172.16.201.0/24。 使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自指定池的 IP 地址。
 
 - **网关配置子网设置**
    - **名称**：自动填满 GatewaySubnet。
@@ -122,26 +122,26 @@ ms.locfileid: "56833189"
 
 2. 在虚拟网络页上，选择“概览”，在“VPN 连接”部分，选择“网关”。
 
-  ![选择以创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+   ![选择以创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. 在“新建 VPN 连接”页中，选择“点到站点”。
 
-  ![点到站点连接类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
+   ![点到站点连接类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. 对于“客户端地址空间”，添加 IP 地址范围，VPN 客户端连接时接收此范围中的 IP 地址。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与连接到其中的 VNet 重叠。 可以用要使用的专用 IP 地址范围覆盖自动填充的范围。 本示例演示自动填充的范围。 
 
-  ![客户端地址空间](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
+   ![客户端地址空间](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. 选择“立即创建网关”，然后选择“可选网关配置”打开“网关配置”页。
 
-  ![选择可选网关配置](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
+   ![选择可选网关配置](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
 6. 从“网关配置”页，选择“子网”，添加网关子网。 可以创建最小可为 /29 的网关子网。 但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关不再按预期方式工作。 选择“确定”以保存此设置。
 
-  ![添加网关子网](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
+   ![添加网关子网](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. 选择网关“大小”。 大小为虚拟网关的网关 SKU。 在 Azure 门户中，默认 SKU 为“默认”。 有关网关 SKU 的详细信息，请参阅[关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
-  ![网关大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
+   ![网关大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
 8. 选择网关的“路由类型”。 P2S 配置需要“动态”路由类型。 在此页中完成配置后，请选择“确定”。
 
-  ![配置路由类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
+   ![配置路由类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
 9. 在“新建 VPN 连接”页中，选择该页底部的“确定”开始创建虚拟网关。 VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选网关 SKU。
  
@@ -165,11 +165,11 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 1. 在 VNet 页的“VPN 连接”部分，选择客户端图形，打开“点到站点 VPN 连接”页。
 
-  ![客户端](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+   ![客户端](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
 2. 在“点到站点 VPN 连接”页中，选择“管理证书”，打开“证书”页。
 
-  ![“证书”页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
+   ![“证书”页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
 
 3. 在“证书”页中，选择“上传”，打开“上传证书”页。
 
@@ -177,7 +177,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 4. 选择文件夹图形浏览 .cer 文件。 选择该文件，然后选择“确定”。 上传的证书显示在“证书”页。
 
-  ![上传证书](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![上传证书](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>配置客户端
@@ -192,10 +192,10 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 2. 从“点到站点 VPN 连接”页，选择在其中进行安装的客户端操作系统所对应的下载包：
 
-  * 对于 64 位客户端，请选择“VPN 客户端（64 位）”。
-  * 对于 32 位客户端，请选择“VPN 客户端（32 位）”。
+   * 对于 64 位客户端，请选择“VPN 客户端（64 位）”。
+   * 对于 32 位客户端，请选择“VPN 客户端（32 位）”。
 
-  ![下载 VPN 客户端配置包](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
+   ![下载 VPN 客户端配置包](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
 3. 生成包后，下载该包并将其安装在客户端计算机上。 如果看到弹出 SmartScreen，选择“详细信息”，然后选择“仍要运行”。 也可将要安装的包保存在其他客户端计算机上。
 
@@ -227,7 +227,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 1. 验证 VPN 连接是否激活。 在客户端计算机上打开提升的命令提示符，并运行 ipconfig/all。
 2. 查看结果。 请注意，收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应类似于以下示例：
 
-  ```
+   ```
     PPP adapter VNet1:
         Connection-specific DNS Suffix .:
         Description.....................: VNet1
@@ -238,7 +238,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connect-to-a-virtual-machine"></a>连接到虚拟机
 

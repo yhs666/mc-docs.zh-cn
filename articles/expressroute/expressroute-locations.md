@@ -1,5 +1,5 @@
 ---
-title: 连接服务提供商及其位置：Azure ExpressRoute
+title: 连接提供商和位置：Azure ExpressRoute
 description: 本文详细介绍了提供服务的区域以及如何连接到 Azure 区域。 按连接服务提供商排序。
 services: expressroute
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/07/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: 7c3dac3e62a84e1976d9a4724167ee16596a56f0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 557ec7d890b984746fe21f22e664f861b5632238
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657930"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627471"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -121,9 +121,10 @@ ms.locfileid: "52657930"
 
 #### <a name="china"></a>中国
 
-| **服务提供商**  |**Microsoft Azure** | **Office 365** | **位置** |
-|-----------------------|--------------------|----------------|---------------|
-| **中国电信** | 支持 | 不支持 | 北京、上海|
+| **服务提供商** | **Microsoft Azure** | **Office 365** |   **位置**   |
+|----------------------|---------------------|----------------|-------------------|
+|  **中国电信**   |      支持      | 不支持  | 北京、上海 |
+
 若要了解详细信息，请参阅 [位于中国的 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)。
 
 #### <a name="germany"></a>德国

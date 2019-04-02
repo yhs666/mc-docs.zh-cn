@@ -166,6 +166,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
                                                     <li><a class="barLink" href="/azure-functions/">无服务器函数</a></li>
+                                                    <li><a class="barLink" href="/aks/">将微服务与 kubernetes 配合使用</a></li>
                                                     <li><a class="barLink" href="/service-fabric/">将微服务与 Service Fabric 配合使用</a></li>
                                                 </ul>
                                             </div>
@@ -182,6 +183,7 @@ Go</a>
                                                 <h4>关系数据库</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/sql-database/">SQL 数据库即服务</a></li>
+                                                    <li><a class="barLink" href="/virtual-machines/windows/sql/">Azure VM 上的 SQL Server</a></li>
                                                     <li><a class="barLink" href="/sql-data-warehouse/">SQL 数据仓库即服务</a></li>
                                                     <li><a class="barLink" href="/postgresql/">PostgreSQL 数据库即服务</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL 数据库即服务</a></li>
@@ -226,7 +228,6 @@ Azure PowerShell </a>
                                     </div>
                                 </div>
                             </li>
-
                             <li></li>
                             <li></li>
                             <li></li>
@@ -289,6 +290,12 @@ Azure PowerShell </a>
                                             <a href="/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>虚拟机规模集</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/aks/">
+                                                <img src="media/index/containerservice.svg" alt="" />
+                                                <p>Azure Kubernetes 服务 (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -384,6 +391,12 @@ Azure PowerShell </a>
                                             <a href="/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/aks/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Kubernetes 服务 (AKS)</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -687,6 +700,12 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/log-analytics/">
+                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                <p>Log Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/storage/blobs/data-lake-storage-introduction">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen2</p>
@@ -914,6 +933,12 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/log-analytics/">
+                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                <p>Log Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure Monitor</p>
@@ -1102,6 +1127,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>虚拟机规模集</h3>
                                                     <p>管理和缩放数千台 Linux 和 Windows 虚拟机</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/aks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Kubernetes 服务 (AKS)</h3>
+                                                    <p>简化 Kubernetes 的部署、管理和操作</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1760,6 +1804,25 @@ Azure PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/aks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Kubernetes 服务 (AKS)</h3>
+                                                    <p>简化 Kubernetes 的部署、管理和操作</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2094,6 +2157,25 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/log-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Log Analytics</h3>
+                                                    <p>从本地和云收集、搜索和呈现计算机数据</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/storage/blobs/data-lake-storage-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2139,33 +2221,6 @@ Azure PowerShell </a>
                                     </div>
                                 </a>
                             </li>
-                            <!--li class="fullSpan">
-                                <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
-                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Vision</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li-->
                         </ul>
                     </li>
                     <li>
@@ -2610,7 +2665,26 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/cli/index">
+                                <a href="/sdks/index">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SDK</h3>
+                                                    <p>使用熟悉的编程语言生成云应用</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cli/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2741,6 +2815,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>流量管理器</h3>
                                                     <p>根据高性能和高可用性要求路由传入流量</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/log-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Log Analytics</h3>
+                                                    <p>从本地和云收集、搜索和呈现计算机数据</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3085,7 +3178,6 @@ Azure PowerShell </a>
                             </li>
                         </ul>
                     </li>
-
                 </ul>
             </li>
             <li>

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 10/11/2016
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1435ffda8ee4cc0418ea300fd855df25897315f2
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: 836f2d1456b49808d6e5b127479a31073f87b190
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306715"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625999"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>将公司 Internet 域指向 Azure 流量管理器域
 
@@ -26,7 +26,7 @@ ms.locfileid: "56306715"
 
     www.contoso.com IN CNAME contoso.trafficmanager.cn
 
-对 *www.contoso.com* 发出的所有流量请求都会定向到 *contoso.trafficmanager.cn*。
+对 <em>www.contoso.com</em> 发出的所有流量请求都会定向到 *contoso.trafficmanager.cn*。
 
 > [!IMPORTANT]
 > 无法将第二级域（例如 *contoso.com*）指向流量管理器域。 DNS 协议标准不允许对二级域名使用 CNAME 记录。

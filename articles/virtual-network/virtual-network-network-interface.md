@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 07/24/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 38c8ee0e4661dfe6a0fc7a11589f7c14004b0bce
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: f51fb050b04203ea7fff5794e924b4a9c299b6cf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306208"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626971"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -59,7 +59,8 @@ ms.locfileid: "56306208"
     |资源组|是|选择现有的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建一个资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。|
     |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为区域）中。|
 
-    <!-- Not Available IPv6 --> <!-- Not Available IPv6 -->
+    <!-- Not Available IPv6 -->
+    <!-- Not Available IPv6 -->
    创建网络接口时，门户不会提供向接口分配公共 IP 地址的选项，但使用门户创建虚拟机时，门户会创建一个公共 IP 地址并将其分配到网络接口。 若要了解创建网络接口后如何向其添加公共 IP 地址，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)。 若要使用公共 IP 地址创建网络接口，必须使用 CLI 或 PowerShell 创建网络接口。
 
 创建网络接口时，门户不提供将网络接口分配给应用程序安全组的选项，但是 Azure CLI 和 PowerShell 提供。 但是，只要网络接口连接到虚拟机，就可以使用门户将现有网络接口分配给应用程序安全组。 要了解如何将网络接口分配给应用程序安全组，请参阅[添加到应用程序安全组或从中删除](#add-to-or-remove-from-application-security-groups)。

@@ -15,16 +15,16 @@ ms.topic: article
 origin.date: 04/11/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: dc1a2dcda08596adeed89701e51cdb84d263766d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ecf66f61575f97bdaa2b93cf159f208ca1228bda
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643610"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625579"
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Java 8 和 Tomcat 部署 webapp 的 Resource Manager 模板，请参阅[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Java 8 和 Tomcat 部署 webapp 的 Resource Manager 模板，请参阅[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 通过 Azure，可使用虚拟机提供服务器功能。 例如，在 Azure 上运行的虚拟机可配置为托管 Java 应用程序服务器，如 Apache Tomcat。
@@ -122,7 +122,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 10. 在“名称”屏幕上，指定规则的名称，如“HttpIn”（但是，规则名称无需与终结点名称匹配），并单击“完成”。  
     ![新建入站规则名称][NewRuleName]
 
-此时，应可从外部浏览器查看 Tomcat 网站。 在浏览器地址窗口中，以 **http://*your\_DNS\_name*.chinacloudapp.cn** 格式键入 URL，其中 ***your\_DNS\_name*** 是创建虚拟机时指定的 DNS 名称。
+此时，应可从外部浏览器查看 Tomcat 网站。 在浏览器地址窗口中，以 **http://<em>your\_DNS\_name</em>.chinacloudapp.cn** 格式键入 URL，其中 ***your\_DNS\_name*** 是创建虚拟机时指定的 DNS 名称。
 <!-- URL cloudapp.net Convert to chinacloudapp.cn -->
 
 ## <a name="application-lifecycle-considerations"></a>应用程序生命周期注意事项

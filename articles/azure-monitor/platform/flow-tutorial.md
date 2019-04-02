@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: cae685c423b675086289daae8b9a16ee7726dadc
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 9c2d073e7106dcbbae606ed213bb145c683cd73f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440780"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626893"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-azure-flow"></a>使用 Azure Flow 的连接器自动执行 Azure Monitor 日志流程
 [Microsoft Flow](https://ms.flow.microsoft.com) 支持使用数百种操作为不同服务创建自动化工作流。 来自一个操作的输出可以用作另一个操作的输入，从而在不同的服务之间创建集成。  可以借助用于 Azure Flow 的 Azure Log Analytics 连接器来构建工作流，以包括 Azure Monitor 中的 Log Analytics 工作区中的日志查询检索到的数据。
@@ -48,15 +48,15 @@ ms.locfileid: "56440780"
 
 1. 指定工作区详细信息，包括订阅 ID，资源组和工作区名称。
 2. 将以下日志查询添加到“查询”窗口中。  这只是一个示例查询，可将它替换为其他任何能返回数据的查询。
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
-2. 在“图表类型”中，选择“Html 表”。<br><br>![Log Analytics 操作](media/flow-tutorial/flow03.png)
+3. 在“图表类型”中，选择“Html 表”。<br><br>![Log Analytics 操作](media/flow-tutorial/flow03.png)
 
 ## <a name="step-5-configure-the-flow-to-send-email"></a>步骤 5：配置流以发送电子邮件
 

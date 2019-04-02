@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
 ms.date: 03/11/2019
-ms.openlocfilehash: adc35fbb53fc7421a2da9912fe24e55547295c8e
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 5ce6d360e1e53de7379a2fab20c059b811bb6ed5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196653"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625688"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -55,7 +55,7 @@ ms.locfileid: "57196653"
 可使用以下选项之一联系我们：
 
 * 在 [API 管理 MSDN 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt)中发布问题。
-* 向 <mailto:apimgmt@microsoft.com> 发送电子邮件。
+* 向 <apimgmt@microsoft.com> 发送电子邮件。
 * 在 [Azure 反馈论坛](https://feedback.azure.com/forums/248703-api-management)中向我们发送功能请求。
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>功能处于预览状态意味着什么？

@@ -7,19 +7,22 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 01/09/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 0193a361996ee743ddaf3cb55833f3582b96fb44
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 9f2ae11ac19589a2e60919ffc4b5fbb08bb12bc9
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990144"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503547"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>快速入门：使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
+
+> [!TIP]
+> 考虑使用更简单的 [az mysql up](https://docs.microsoft.com/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI 命令（当前处于预览状态）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
 
 本快速入门教程介绍如何使用 Azure CLI 在大约 5 分钟内在 Azure 资源组中为 MySQL 服务器创建 Azure 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。
 
@@ -48,7 +51,7 @@ az group create --name myresourcegroup --location chinaeast
 ---|---|---
 name | mydemoserver | 选择用于标识 Azure Database for MySQL 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
 resource-group | myresourcegroup | 提供 Azure 资源组的名称。
-sku-name | GP_Gen4_2 | SKU 的名称。 遵循约定“{定价层}_{计算代系}_{vCores}”的简写形式。 参阅下表详细了解 sku-name 参数。
+sku-name | GP_Gen4_2 | SKU 的名称。 遵循约定“{定价层}\_{计算代系}\_{vCores}”的简写形式。 参阅下表详细了解 sku-name 参数。
 backup-retention | 7 | 备份保留时间。 单位为天。 范围为 7-35。 
 geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。 允许的值：“Enabled”、“Disabled”。
 location | chinaeast | 服务器的 Azure 位置。
@@ -143,15 +146,15 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 键入下一命令： 
 
 1. 使用 **mysql** 命令行工具连接到服务器：
-```bash
- mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p
+   ```
 
 2. 查看服务器状态：
-```sql
- mysql> status
-```
-如果一切顺利，命令行工具应输出以下文本：
+   ```sql
+   mysql> status
+   ```
+   如果一切顺利，命令行工具应输出以下文本：
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p
@@ -197,9 +200,9 @@ mysql>
 > 有关其他命令，请参阅 [MySQL 5.7 参考手册 - 第 4.5.1 章](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)。
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>使用 MySQL Workbench GUI 工具连接到服务器
-1.  启动客户端计算机上的 MySQL Workbench 应用程序。 可以从[此处](https://dev.mysql.com/downloads/workbench/)下载并安装 MySQL Workbench。
+1. 启动客户端计算机上的 MySQL Workbench 应用程序。 可以从[此处](https://dev.mysql.com/downloads/workbench/)下载并安装 MySQL Workbench。
 
-2.  在“设置新连接”对话框的“参数”选项卡上，输入以下信息：
+2. 在“设置新连接”对话框的“参数”选项卡上，输入以下信息：
 
    ![设置新连接](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

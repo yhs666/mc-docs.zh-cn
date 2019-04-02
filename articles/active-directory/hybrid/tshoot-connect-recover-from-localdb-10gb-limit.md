@@ -16,12 +16,12 @@ origin.date: 07/17/2017
 ms.date: 12/05/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: e17d0ed994f169fc40bc65d9d63a0a76aee96e37
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: addc63016d38847212ee3483286ede5e5f9323c7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028728"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626180"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect：如何从 LocalDB 10 GB 的限制恢复
 Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 可以使用随 Azure AD Connect 一起安装的默认 SQL Server 2012 Express LocalDB，也可以使用自己的完整 SQL。 SQL Server Express 存在 10 GB 的大小限制。 使用 LocalDB 并达到此限制后，Azure AD Connect Synchronization Service 无法正常启动或同步。 本文提供了恢复步骤。
@@ -81,13 +81,13 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 可�
 ### 删除运行历史记录数据 <a name="delete-run-history-data"></a>
 默认情况下，Azure AD Connect 最多保留 7 天的运行历史记录数据。 在此步骤中，我们会通过删除运行历史记录数据来回收 DB 空间，这样 Azure AD Connect Synchronization Service 就可以重新开始同步。
 
-1.  转到“开始”→ Synchronization Service，以便启动 **Synchronization Service Manager**。
+1. 转到“开始”→ Synchronization Service，以便启动 **Synchronization Service Manager**。
 
-2.  转到“操作”选项卡。
+2. 转到“操作”选项卡。
 
-3.  在“操作”下面，选择“清除运行…”
+3. 在“操作”下面，选择“清除运行…”
 
-4.  可以选择“清除所有运行”或“清除 <date>之前的运行…”选项。 建议一开始清除超过两天的运行历史记录数据。 如果仍遇到 DB 大小问题，则选择“清除所有运行”选项。
+4. 可以选择“清除所有运行”或“清除 <date>之前的运行…”选项。 建议一开始清除超过两天的运行历史记录数据。 如果仍遇到 DB 大小问题，则选择“清除所有运行”选项。
 
 ### 缩短运行历史记录数据的保留期 <a name="shorten-retention-period-for-run-history-data"></a>
 此步骤是为了在多次同步周期后降低遇到 10 GB 限制问题的可能性。

@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 09/27/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: d31c0d6e3d8a56b28ddcc8cdb1f3f664bae297c9
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ca5213d8b38c59651868d643535afe0f647c7003
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666182"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625237"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -199,7 +199,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 ## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>从存储帐户中的 VHD 创建映像
 
-从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式如下： https://*mystorageaccount*.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer 的容器中的 mystorageaccount 中，且 VHD 文件名为 vhdfilename.vhd。
+从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式如下： https://<em>mystorageaccount</em>.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer 的容器中的 mystorageaccount 中，且 VHD 文件名为 vhdfilename.vhd。
 
 1.  创建一些变量。
 

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/29/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 33c5d56ce3672377a7b0f6471bf773b876cb370a
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 18e07bb11232f7ac35da2c71c041eb47c39491d2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903262"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626581"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>自动缩放群集以满足 Azure Kubernetes 服务 (AKS) 中的应用程序需求
 
@@ -166,8 +166,7 @@ az aks update \
 
 <!-- LINKS - internal -->
 [aks-upgrade]: upgrade-cluster.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [az-extension-add]: https://docs.azure.cn/zh-cn/cli/extension?view=azure-cli-latest#az-extension-add
 [aks-scale-apps]: tutorial-kubernetes-scale.md

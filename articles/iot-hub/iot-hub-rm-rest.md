@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: 1c21cfe96c1d40750f508d3057f5ac1aa282f956
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 8fc9ea513beb823ea4a49c8b61c2bc5ac115991c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560459"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627288"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -35,8 +35,8 @@ ms.locfileid: "57560459"
 要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-- 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个 [帐户][lnk-free-trial] 。
-- [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
+* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个 [帐户][lnk-free-trial] 。
+* [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -72,7 +72,7 @@ ms.locfileid: "57560459"
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 

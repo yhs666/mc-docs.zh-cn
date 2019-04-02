@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/20/2019
 ms.date: 03/11/2019
-ms.openlocfilehash: 222cac3b33e1ae258a28b2df593e6e3381c179d1
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 20ccbeb3b6eda53d39325bd8369356d6a71a7b03
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347114"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626475"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教程：使用 Azure AD 服务器主体（登录名）确保 Azure SQL 数据库中托管实例的安全性
 
@@ -127,9 +127,9 @@ ms.locfileid: "57347114"
 
 1. 再次登录到托管实例，或通过充当 `sysadmin` 的 SQL 主体使用现有连接。
 
-1. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
+2. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
 
-1. 使用以下 T-SQL 语法向 Azure AD 服务器主体（登录名）授予 `sysadmin` 服务器角色：
+3. 使用以下 T-SQL 语法向 Azure AD 服务器主体（登录名）授予 `sysadmin` 服务器角色：
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -149,20 +149,20 @@ ms.locfileid: "57347114"
 
 1. 在 SQL Server Management Studio 中使用 Azure AD 服务器主体（登录名）连接到托管实例。 输入托管实例主机名。 若要在 SSMS 中进行身份验证，可在使用 Azure AD 帐户登录时从三个选项中选择：
 
-    - Active Directory - 支持 MFA 的通用方法
-    - Active Directory - 密码
-    - Active Directory - 集成 </br>
+   - Active Directory - 支持 MFA 的通用方法
+   - Active Directory - 密码
+   - Active Directory - 集成 </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    有关详细信息，请参阅以下文章：[使用 SQL 数据库和 SQL 数据仓库进行通用身份验证（MFA 的 SSMS 支持）](sql-database-ssms-mfa-authentication.md)
+     有关详细信息，请参阅以下文章：[使用 SQL 数据库和 SQL 数据仓库进行通用身份验证（MFA 的 SSMS 支持）](sql-database-ssms-mfa-authentication.md)
 
-1. 选择“Active Directory - 支持 MFA 的通用方法”。 此时会打开“多重身份验证(MFA)登录”窗口。 使用 Azure AD 密码登录。
+2. 选择“Active Directory - 支持 MFA 的通用方法”。 此时会打开“多重身份验证(MFA)登录”窗口。 使用 Azure AD 密码登录。
 
     ![mfa-login-prompt.png](media/sql-database-managed-instance-security-tutorial/mfa-login-prompt.png)
 
-1. 在 SSMS 的“对象资源管理器”中右键服务器，然后选择“新建查询”。
-1. 在查询窗口中，使用以下语法为另一个 Azure AD 帐户创建登录名：
+3. 在 SSMS 的“对象资源管理器”中右键服务器，然后选择“新建查询”。
+4. 在查询窗口中，使用以下语法为另一个 Azure AD 帐户创建登录名：
 
     ```sql
     USE master
@@ -182,7 +182,7 @@ ms.locfileid: "57347114"
     GO
     ```
 
-1. 使用 [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 语法在托管实例中创建数据库。 在下一部分，此数据库将用于测试用户登录名。
+5. 使用 [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 语法在托管实例中创建数据库。 在下一部分，此数据库将用于测试用户登录名。
     1. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
     1. 在查询窗口中，使用以下语法创建名为 **MyMITestDB** 的数据库。
 
@@ -191,9 +191,9 @@ ms.locfileid: "57347114"
         GO
         ```
 
-1. 为 Azure AD 中的某个组创建托管实例登录名。 将该登录名添加到托管实例之前，该组需要在 Azure AD 中存在。 请参阅[使用 Azure Active Directory 创建基本组并添加成员](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 创建组 _mygroup_ 并在其中添加成员。
+6. 为 Azure AD 中的某个组创建托管实例登录名。 将该登录名添加到托管实例之前，该组需要在 Azure AD 中存在。 请参阅[使用 Azure Active Directory 创建基本组并添加成员](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 创建组 _mygroup_ 并在其中添加成员。
 
-1. 在 SQL Server Management Studio 中打开新的查询窗口。
+7. 在 SQL Server Management Studio 中打开新的查询窗口。
 
     此示例假设 Azure AD 中存在名为 _mygroup_ 的组。 运行以下命令：
 
@@ -204,14 +204,14 @@ ms.locfileid: "57347114"
     GO
     ```
 
-1. 为了进行测试，请使用新建的登录名或组登录到托管实例。 与托管实例建立新的连接，并在身份验证时使用新登录名。
-1. 在“对象资源管理器”中右键服务器，然后选择新连接对应的“新建查询”。
-1. 执行以下命令，检查新建的 Azure AD 服务器主体（登录名）的服务器权限：
+8. 为了进行测试，请使用新建的登录名或组登录到托管实例。 与托管实例建立新的连接，并在身份验证时使用新登录名。
+9. 在“对象资源管理器”中右键服务器，然后选择新连接对应的“新建查询”。
+10. 执行以下命令，检查新建的 Azure AD 服务器主体（登录名）的服务器权限：
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+     ```sql
+     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+     GO
+     ```
 
 > [!NOTE]
 > 对于 Azure AD 来宾用户，仅当已将其添加为 Azure AD 组的一部分时，才支持将其用于托管实例登录名。 Azure AD 来宾用户是指在另一个 Azure AD 中邀请其加入托管实例所属 Azure AD 的帐户。 例如，可将 joe@contoso.com（Azure AD 帐户）或 steve@outlook.com（MSA 帐户）添加到 Azure AD aadsqlmi 中的组。 将用户添加到组后，可以使用 **CREATE LOGIN** 语法在托管实例 **master** 数据库中为该组创建登录名。 属于此组的来宾用户可以使用其当前登录名（例如 joe@contoso.com 或 steve@outlook.com）连接到托管实例。
@@ -229,8 +229,8 @@ ms.locfileid: "57347114"
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>创建 Azure AD 用户并创建示例表
 
 1. 在 SQL Server Management Studio 中使用 `sysadmin` 帐户登录到托管实例。
-1. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
-1. 在查询窗口中，使用以下语法基于 Azure AD 服务器主体（登录名）创建 Azure AD 用户：
+2. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
+3. 在查询窗口中，使用以下语法基于 Azure AD 服务器主体（登录名）创建 Azure AD 用户：
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -248,7 +248,7 @@ ms.locfileid: "57347114"
     GO
     ```
 
-1. 也支持基于组的形式的 Azure AD 服务器主体（登录名）创建 Azure AD 用户。
+4. 也支持基于组的形式的 Azure AD 服务器主体（登录名）创建 Azure AD 用户。
 
     以下示例为 Azure AD 中的 Azure AD 组 _mygroup_ 创建登录名。
 
@@ -266,7 +266,7 @@ ms.locfileid: "57347114"
 
     有关详细信息，请参阅 [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current)。
 
-1. 在新查询窗口中，使用以下 T-SQL 命令创建测试表：
+5. 在新查询窗口中，使用以下 T-SQL 命令创建测试表：
 
     ```sql
     USE MyMITestDB
@@ -280,9 +280,9 @@ ms.locfileid: "57347114"
     );
     ```
 
-1. 使用创建的用户在 SSMS 中创建连接。 你会注意到，无法看到 `sysadmin` 在以前创建的表 **TestTable**。 我们需要向该用户提供读取数据库中的数据的权限。
+6. 使用创建的用户在 SSMS 中创建连接。 你会注意到，无法看到 `sysadmin` 在以前创建的表 **TestTable**。 我们需要向该用户提供读取数据库中的数据的权限。
 
-1. 可以执行以下命令来检查用户当前拥有的权限：
+7. 可以执行以下命令来检查用户当前拥有的权限：
 
     ```sql
     SELECT * FROM sys.fn_my_permissions('MyMITestDB','DATABASE')
@@ -295,9 +295,9 @@ ms.locfileid: "57347114"
 
 1. 在 SQL Server Management Studio 中使用 `sysadmin` 帐户登录到托管实例。
 
-1. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
+2. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
 
-1. 使用以下 T-SQL 语法向 Azure AD 用户授予 `db_datareader` 数据库角色：
+3. 使用以下 T-SQL 语法向 Azure AD 用户授予 `db_datareader` 数据库角色：
 
     ```sql
     Use <Database Name> -- provide your database name
@@ -305,7 +305,7 @@ ms.locfileid: "57347114"
     GO
     ```
 
-    以下示例为用户 bob@aadsqlmi.net 和组 _mygroup_ 提供对 **MyMITestDB** 数据库的 `db_datareader` 权限：
+    以下示例为用户 bob@aadsqlmi.net 和组 *mygroup* 提供对 **MyMITestDB** 数据库的 `db_datareader` 权限：
 
     ```sql
     USE MyMITestDB
@@ -316,19 +316,19 @@ ms.locfileid: "57347114"
     GO
     ```
 
-1. 执行以下命令，检查在数据库中创建的 Azure AD 用户是否存在：
+4. 执行以下命令，检查在数据库中创建的 Azure AD 用户是否存在：
 
     ```sql
     SELECT * FROM sys.database_principals
     GO
     ```
 
-1. 使用已添加到 `db_datareader` 角色的用户身份与托管实例建立新的连接。
-1. 在“对象资源管理器”中展开数据库，以查看表。
+5. 使用已添加到 `db_datareader` 角色的用户身份与托管实例建立新的连接。
+6. 在“对象资源管理器”中展开数据库，以查看表。
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
 
-1. 打开新查询窗口并执行以下 SELECT 语句：
+7. 打开新查询窗口并执行以下 SELECT 语句：
 
     ```sql
     SELECT *
@@ -347,9 +347,9 @@ ms.locfileid: "57347114"
 
 1. 在 SQL Server Management Studio 中使用 `sysadmin` 帐户登录到托管实例。
 
-1. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
+2. 在“对象资源管理器”中右键服务器，然后选择“新建查询”。
 
-1. 在查询窗口中，使用以下命令创建新的存储过程：
+3. 在查询窗口中，使用以下命令创建新的存储过程：
 
     ```sql
     USE MyMITestDB
@@ -361,13 +361,13 @@ ms.locfileid: "57347114"
     GO
     ```
 
-1. 使用以下命令来查看执行该存储过程时模拟的用户是否为 **bob@aadsqlmi.net**。
+4. 使用以下命令来查看执行该存储过程时模拟的用户是否为 <strong>bob@aadsqlmi.net</strong>。
 
     ```sql
     Exec dbo.usp_Demo
     ```
 
-1. 使用 EXECUTE AS LOGIN 语句测试模拟：
+5. 使用 EXECUTE AS LOGIN 语句测试模拟：
 
     ```sql
     EXECUTE AS LOGIN = 'bob@aadsqlmi.net'

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5d23874862dcc4c6e8f5a2ac56adfe5f2e1d2d72
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 0317349f1c77139d18c11fc1e3a90622252e6acb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306240"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625574"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>创建、更改或删除公共 IP 地址
 
@@ -61,7 +61,8 @@ ms.locfileid: "56306240"
     |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。|
     |位置|是|必须与要将公共 IP 地址关联到的资源位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为“区域”）。|
     
-    <!-- Not Available on |SKU on **Availability zone** --> <!-- Not Available on |IP Version|-->
+    <!-- Not Available on |SKU on **Availability zone** -->
+    <!-- Not Available on |IP Version|-->
     <!-- Not Avaialbe on Load Balancer Standard -->
     <!-- Line 49 Not Available on [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
     <!-- Not Available on Available zone -->
@@ -81,15 +82,15 @@ ms.locfileid: "56306240"
 1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“公共 IP 地址”。 当“公共 IP 地址”出现在搜索结果中时，请选择它。
 2. 选择要查看、更改其设置或从列表中删除的公共 IP 地址的名称。
 3. 根据是要查看、删除还是更改公共 IP 地址，完成以下选项之一。
-    - **视图**：“概述”部分显示公共 IP 地址的主要设置，例如与之关联的网络接口（如果地址与某个网络接口关联）。 若要查看版本信息，请使用 PowerShell 或 CLI 命令查看公共 IP 地址。 
+   - **视图**：“概述”部分显示公共 IP 地址的主要设置，例如与之关联的网络接口（如果地址与某个网络接口关联）。 若要查看版本信息，请使用 PowerShell 或 CLI 命令查看公共 IP 地址。 
     
-    <!-- Not Available on IPV6 -->
+     <!-- Not Available on IPV6 -->
     
-    - **删除**：若要删除公共 IP 地址，请在“概述”部分中选择“删除”。 如果该地址当前与 IP 配置关联，则无法删除。 如果该地址当前已关联到某个配置，请选择“取消关联”，从该 IP 配置中取消关联该地址。
-    - 更改：选择“配置”。 使用[创建公共 IP 地址](#create-a-public-ip-address)的步骤 4 中的信息更改设置。 要将 IPv4 地址的分配方法从静态更改为动态，必须先从该公共 IPv4 地址关联的 IP 配置中取消关联该地址。 然后，可将分配方法更改为动态，并选择“关联”将该 IP 地址关联到相同或不同的 IP 配置，或者让它保持取消关联状态。 若要取消关联公共 IP 地址，请在“概述”部分中选择“取消关联”。
+   - **删除**：若要删除公共 IP 地址，请在“概述”部分中选择“删除”。 如果该地址当前与 IP 配置关联，则无法删除。 如果该地址当前已关联到某个配置，请选择“取消关联”，从该 IP 配置中取消关联该地址。
+   - 更改：选择“配置”。 使用[创建公共 IP 地址](#create-a-public-ip-address)的步骤 4 中的信息更改设置。 要将 IPv4 地址的分配方法从静态更改为动态，必须先从该公共 IPv4 地址关联的 IP 配置中取消关联该地址。 然后，可将分配方法更改为动态，并选择“关联”将该 IP 地址关联到相同或不同的 IP 配置，或者让它保持取消关联状态。 若要取消关联公共 IP 地址，请在“概述”部分中选择“取消关联”。
 
-    >[!WARNING]
-    >将分配方法从静态更改为动态时，将丢失分配给公共 IP 地址的 IP 地址。 尽管 Azure 公共 DNS 服务器会保留静态或动态地址与任何 DNS 名称标签（若已定义）之间的映射，但如果虚拟机在处于停止（解除分配）状态之后启动，动态 IP 地址可能更改。 为防止地址变化，请分配静态 IP 地址。
+     >[!WARNING]
+     >将分配方法从静态更改为动态时，将丢失分配给公共 IP 地址的 IP 地址。 尽管 Azure 公共 DNS 服务器会保留静态或动态地址与任何 DNS 名称标签（若已定义）之间的映射，但如果虚拟机在处于停止（解除分配）状态之后启动，动态 IP 地址可能更改。 为防止地址变化，请分配静态 IP 地址。
 
 命令
 

@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: jerskine
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 09e00f9f6bb7df6086f0595fc280f1dc7166ddab
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 146c1d77fe46ce6d1744505efb20cfbc992abf13
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905443"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626448"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>验证 Azure Stack 的 AD FS 集成
 
@@ -48,7 +48,9 @@ ms.locfileid: "56905443"
 
 * 已建立域连接的 Windows 10 或 Windows Server 2016。
 * PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 **Active Directory 联合身份验证服务环境：**

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 671f576c66c54cf2ca0e72781b7025fe1368ed25
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 7521aa7bbcb3544e62dcdad6ebf17c000597b08f
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784614"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544687"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 

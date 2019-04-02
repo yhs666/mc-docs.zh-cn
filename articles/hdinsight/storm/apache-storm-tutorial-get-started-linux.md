@@ -17,14 +17,14 @@ origin.date: 02/27/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 4b70258c04d87ffb531afe0d17d4ca90a432e1e6
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: bf05795901a29a0c5194e6317302c5f20002396e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906151"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627420"
 ---
-#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>通过 storm-starter 示例开始使用 Apache Storm on HDInsight
+# <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>通过 storm-starter 示例开始使用 Apache Storm on HDInsight
 
 了解如何通过 storm-starter 示例在 HDInsight 中使用 [Apache Storm](http://storm.apache.org/)。
 
@@ -131,26 +131,26 @@ Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，HDInsight �
 
     此页提供以下信息：
 
-    * **拓扑统计信息** - 有关拓扑性能的基本信息，已组织到时间窗口中。
+   * **拓扑统计信息** - 有关拓扑性能的基本信息，已组织到时间窗口中。
 
-        > [!NOTE]
-        > 选择特定的时间窗口会更改页面其他部分中显示的信息的时间窗口。
+       > [!NOTE]
+       > 选择特定的时间窗口会更改页面其他部分中显示的信息的时间窗口。
 
-    * **Spout** - 有关 spout 的基本信息，包括每个 spout 返回的最后一个错误。
+   * **Spout** - 有关 spout 的基本信息，包括每个 spout 返回的最后一个错误。
 
-    * **Bolt** - 有关 bolt 的基本信息。
+   * **Bolt** - 有关 bolt 的基本信息。
 
-    * **拓扑配置** - 有关拓扑配置的详细信息。
+   * **拓扑配置** - 有关拓扑配置的详细信息。
 
-    此页还提供可对拓扑执行的操作：
+     此页还提供可对拓扑执行的操作：
 
-    * **激活** - 继续处理已停用的拓扑。
+   * **激活** - 继续处理已停用的拓扑。
 
-    * **停用** - 暂停正在运行的拓扑。
+   * **停用** - 暂停正在运行的拓扑。
 
-    * **重新平衡** - 调整拓扑的并行度。 更改群集中的节点数目之后，应该重新平衡正在运行的拓扑。 重新平衡可调整并行度，以弥补群集中增加/减少的节点数目。 有关详细信息，请参阅[了解 Apache Storm 拓扑的并行度](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+   * **重新平衡** - 调整拓扑的并行度。 更改群集中的节点数目之后，应该重新平衡正在运行的拓扑。 重新平衡可调整并行度，以弥补群集中增加/减少的节点数目。 有关详细信息，请参阅[了解 Apache Storm 拓扑的并行度](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
 
-    * **终止** - 在经过指定的超时之后终止 Storm 拓扑。
+   * **终止** - 在经过指定的超时之后终止 Storm 拓扑。
 
 3. 在此页中，从“Spout”或“Bolt”部分中选择一个条目。 将显示有关选定组件的信息。
 

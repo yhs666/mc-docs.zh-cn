@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/11/2018
 ms.date: 11/06/18
-ms.openlocfilehash: 09a03e731ec05e1e67a4d49a2ba4afa539e79f59
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8ab7449398130fa04c308cf925debdcc31042eab
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654911"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544684"
 ---
 # <a name="troubleshoot-input-connections"></a>排查输入连接问题
 
@@ -89,9 +89,9 @@ ms.locfileid: "52654911"
 
 每个分区的读取器数超过数据中心限制（5 个）的情况如下：
 
-* 多个 SELECT 语句：如果使用引用同一个事件中心输入的多个 SELECT 语句，则每个 SELECT 语句都将导致新建一个接收器。
-* UNION：使用 UNION 时，可能存在引用同一个事件中心或使用者组的多个输入。
-* SELF JOIN：使用 SELF JOIN 操作时，可能会多次引用同一个事件中心。
+* 多个 SELECT 语句：如果使用引用“同一个”事件中心输入的多个 SELECT 语句，则每个 SELECT 语句都将导致新建一个接收器。
+* UNION：使用 UNION 时，可能存在引用“同一个”事件中心或使用者组的多个输入。
+* SELF JOIN：使用 SELF JOIN 操作时，可能会多次引用“同一个”事件中心。
 
 下列最佳做法可帮助缓解每个分区的读取器数超过数据中心限制（5 个）的情况。
 
@@ -101,7 +101,7 @@ WITH 子句将指定可由查询中的 FROM 子句引用的临时命名结果集
 
 例如，与其使用此查询：
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +114,7 @@ FROM inputEventHub
 
 不如使用此查询：
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

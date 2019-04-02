@@ -8,12 +8,12 @@ origin.date: 12/12/2018
 ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 7ff37278272d00908daeeb9554ca0e2553050359
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: bc43222f866268b30225310b51fd324cb16abbbf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463667"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626587"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常见问题：Azure 到 Azure 的复制
 
@@ -38,7 +38,7 @@ ms.locfileid: "57463667"
 
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery 的免费层是如何工作的？
 每个使用 Azure Site Recovery 保护的实例在其保护期的前 31 天内均享受免费。 从第 32 天起，将按以上收费率对实例的保护进行计费。
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在前 31 天的期限内，会产生其他 Azure 费用吗？
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在前 31 天的期限内，会产生其他 Azure 费用吗？
 是，尽管受保护实例的 Azure Site Recovery 在前 31 天内为免费，但你可能会产生 Azure 存储器、存储事务和数据传输的费用。 恢复后的虚拟机也可能会产生 Azure 计算费用。 可以在[此处](https://www.azure.cn/pricing/details/site-recovery/)获取有关定价的完整详细信息
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>有关在 Azure VM 上配置 Site Recovery 的最佳做法是什么？
@@ -122,7 +122,7 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。 用户无法更�
 1. 在过去 1 小时内，以 5 分钟的频率创建了恢复点。
 2. 对于超出 1 小时的期限，Site Recovery 只保留了 1 个恢复点。
 
-  ![生成的恢复点列表](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![生成的恢复点列表](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 ### <a name="how-far-back-can-i-recover"></a>可以恢复到哪个最早的时间点？
 可以使用的最早恢复点是 72 小时。

@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/15/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: ef40f7f83e11380c97f4d30354c4a63f727209ca
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: ba89f802efd99ba2dbd74ef5e17cef3b15d5489a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788702"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626578"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -79,12 +79,12 @@ Export-PfxCertificate `
 4. 接受其他设置的默认值，然后单击“确定”。
 5. 依次单击“选择虚拟网络”、“新建”，然后输入虚拟网络的以下值：
 
-    - *myVNet* - 虚拟网络的名称。
-    - *10.0.0.0/16* - 虚拟网络地址空间。
-    - *myAGSubnet* - 子网名称。
-    - *10.0.0.0/24* - 子网地址空间。
+   - *myVNet* - 虚拟网络的名称。
+   - *10.0.0.0/16* - 虚拟网络地址空间。
+   - *myAGSubnet* - 子网名称。
+   - *10.0.0.0/24* - 子网地址空间。
 
-    ![创建虚拟网络](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![创建虚拟网络](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. 单击“确定”创建虚拟网络和子网。
 7. 依次单击“选择公共 IP 地址”、“新建”，然后输入公共 IP 地址的名称。 在本示例中，公共 IP 地址名为 *myAGPublicIPAddress*。 接受其他设置的默认值，然后单击“确定”。
@@ -152,13 +152,13 @@ Export-PfxCertificate `
 
 ### <a name="add-backend-servers"></a>添加后端服务器
 
-3. 单击“所有资源”，然后单击 **myAppGateway**。
-4. 单击“后端池”。 默认池已随应用程序网关自动创建。 单击 **appGatewayBackendPool**。
-5. 单击“添加目标”将所创建的每个虚拟机添加到后端池。
+1. 单击“所有资源”，然后单击 **myAppGateway**。
+2. 单击“后端池”。 默认池已随应用程序网关自动创建。 单击 **appGatewayBackendPool**。
+3. 单击“添加目标”将所创建的每个虚拟机添加到后端池。
 
     ![添加后端服务器](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. 单击“保存” 。
+4. 单击“保存” 。
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 

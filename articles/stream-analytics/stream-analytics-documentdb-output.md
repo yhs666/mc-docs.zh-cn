@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 03/28/2017
-ms.date: 11/26/2018
-ms.openlocfilehash: 1d3e9cfd6d2f06276148a8b0bf8ca4a94972e34f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 01/11/2019
+ms.custom: v-lingwu
+ms.openlocfilehash: b77a3eca7f0656f377ff70d58ed003cf8db7e400
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674241"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544805"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure 流分析输出  
 流分析可以针对 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档包括用于实现此配置的一些最佳做法。
@@ -60,12 +60,13 @@ ms.locfileid: "52674241"
 
 ![documentdb 流分析输出屏幕](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-字段           | 说明 
--------------   | -------------
-输出别名    | 用于在 ASA 查询中引用此输出的别名   
-帐户名    | Azure Cosmos DB 帐户的名称或终结点 URI 
-帐户密钥     | Azure Cosmos DB 帐户的共享访问密钥
-数据库        | Azure Cosmos DB 数据库名称
-集合名称 | 要使用的集合的集合名称。 `MyCollection` 是有效的输入示例 - 必须存在一个名为 `MyCollection` 的集合。  
-文档 ID     | 可选。 输出事件中用作唯一键的列名称，插入或更新操作必须基于该键。 如果留空，则插入所有事件，但不使用更新选项。
+|字段           | 说明|
+|-------------   | -------------|
+|输出别名    | 用于在 ASA 查询中引用此输出的别名。|
+|订阅    | 选择自己的 Azure 订阅。|
+|帐户 ID      | Azure Cosmos DB 帐户的名称或终结点 URI。|
+|帐户密钥     | Azure Cosmos DB 帐户的共享访问密钥。|
+|数据库        | Azure Cosmos DB 数据库名称。|
+|集合名称模式 | 要使用的集合的集合名称。 `MyCollection` 是有效的输入示例 - 必须存在一个名为 `MyCollection` 的集合。  |
+|文档 ID     | 可选。 输出事件中用作唯一键的列名称，插入或更新操作必须基于该键。 如果留空，则插入所有事件，但不使用更新选项。|
 <!--Update_Description: wording update, update meta properties -->

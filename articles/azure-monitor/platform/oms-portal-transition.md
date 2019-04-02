@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: cd99a397d2462be51335c08f1f203f10062d84b5
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 2dedef3607987d36237b056932b32ed72a6722b7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440793"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627396"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 门户即将转移到 Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "56440793"
 
 Azure 门户是所有 Azure 服务的中心，提供丰富的管理体验和功能，例如，为固定资源提供仪表板、为查找资源提供智能搜索，以及为资源管理提供标记。 用于整合和简化监视与管理工作流，我们已开始将 OMS 门户功能添加到 Azure 门户。 OMS 门户的所有功能现已并入 Azure 门户。 事实上，某些新功能（例如流量分析）只在 Azure 门户中提供。 使用 Azure 门户就能完成在 OMS 门户中所能完成的任何工作，而且 Azure 门户的功能更强大。 如果你尚未使用 Azure 门户，请立即开始使用！
 
-对于 Azure 商业云和 Azure 美国政府云，**OMS 门户将于 2019 年 1 月 15 日正式停用**，整个 OMS 门户**将于 2019 年 3 月 30 日正式停用**。 我们很高兴能够转移到 Azure 门户，并且希望实现轻松过渡。 但我们也知道，变化会带来一定的困扰。 欢迎向 **LAUpgradeFeedback@microsoft.com** 发送任何问题、反馈或忧虑。 本文的剩余部分介绍此项过渡的关键场景和路线图。
+对于 Azure 商业云和 Azure 美国政府云，**OMS 门户将于 2019 年 1 月 15 日正式停用**，整个 OMS 门户**将于 2019 年 3 月 30 日正式停用**。 我们很高兴能够转移到 Azure 门户，并且希望实现轻松过渡。 但我们也知道，变化会带来一定的困扰。 欢迎向 <strong>LAUpgradeFeedback@microsoft.com</strong> 发送任何问题、反馈或忧虑。 本文的剩余部分介绍此项过渡的关键场景和路线图。
 
 ## <a name="what-is-changing"></a>有什么变化？ 
 随着 OMS 门户的弃用，我们将宣布以下变化。 其中的每项变化将在下面的相应部分做出详细描述。

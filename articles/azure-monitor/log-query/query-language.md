@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 17de51e32f3a7c0989305b6f9bca1ca859de4dd4
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: c85a3f4a26034f324a157ecb7fd343d221892778
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440746"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544734"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 日志查询
 Azure Monitor 日志构建在 Azure 数据资源管理器的基础之上，Azure Monitor 日志查询使用同一 Kusto 查询语言的某个版本。 [Azure 数据资源管理器查询语言文档](/azure/kusto/query)提供了该语言的完整详细信息，在编写 Azure Monitor 日志查询时，应将此文档用作主要参考资源。 本页提供了用于学习编写查询，以及该语言的 Azure Monitor 实现差异的其他资源的链接。
@@ -51,7 +51,6 @@ Azure Monitor 日志构建在 Azure 数据资源管理器的基础之上，Azure
 - [在 Azure Monitor 日志查询中使用字符串](string-operations.md)介绍了如何使用字符串数据。
 - “在 Azure Monitor 日志查询中使用日期时间值”介绍了如何使用日期和时间数据。 
 - “Azure Monitor 日志查询中的聚合”和“Azure Monitor 日志查询中的高级聚合”介绍了如何聚合和汇总数据。
-- [Azure Monitor 日志查询中的联接](joins.md)介绍了如何联接多个表中的数据。
 - [在 Azure Monitor 日志查询中使用 JSON 和数据结构](json-data-structures.md)介绍了如何分析 JSON 数据。
 - [在 Azure Monitor 中编写高级日志查询](advanced-query-writing.md)介绍了创建复杂查询和重用代码的策略。
 - “通过 Azure Monitor 日志查询创建图表和关系图”介绍了如何将日志查询中的数据可视化。

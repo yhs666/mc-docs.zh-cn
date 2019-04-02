@@ -13,12 +13,12 @@ ms.reviewer: jrasnik
 manager: digimobile
 origin.date: 12/19/2018
 ms.date: 02/25/2019
-ms.openlocfilehash: 4c8b6adc6b647e34bcd3c903e11976faa45eec0e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 5f2f4bedd33bee76207ac8fd05c72a85f60c169b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663636"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626033"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL 数据库中的扩展事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -117,7 +117,7 @@ Azure SQL 数据库具有支持扩展事件的[动态管理视图 (DMV)](https:/
 - **sys.dm_xe_objects**
 - **sys.dm_xe_packages**
 
- <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## <a name="find-the-available-extended-events-actions-and-targets"></a>查找可用的扩展事件、操作和目标
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008e7a723db813182517629558b0ef2ce74d26c
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 45a279be0723ae88ab02158cdc9ad7223ea1abcd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349027"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627296"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>预配和管理 Azure 时序见解预览版
 
@@ -47,18 +47,18 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
 
    ![创建 Azure 时序见解实例。][1]
 
-1. 输入时序 ID。
+2. 输入时序 ID。
 
     >[!NOTE]
     > * 时序 ID 区分大小写且不可变。 （一经设置，不可更改。）
     > * 时序 ID 最多可以是三个键。
     > * 有关选择时序 ID 的详细信息，请阅读[选择时序 ID](./time-series-insights-update-how-to-id.md)。
 
-1. 创建一个 Azure 存储帐户，方法是选择存储帐户名称并指定复制选项。 这样做会自动创建 Azure 存储常规用途 v1 帐户。 该帐户将在之前选择的 Azure 时序见解预览版环境所在的区域中创建。
+3. 创建一个 Azure 存储帐户，方法是选择存储帐户名称并指定复制选项。 这样做会自动创建 Azure 存储常规用途 v1 帐户。 该帐户将在之前选择的 Azure 时序见解预览版环境所在的区域中创建。
 
     ![为实例创建 Azure 存储帐户][5]
 
-1. 可以选择添加事件源。
+4. 可以选择添加事件源。
 
    * 时序见解支持使用 [Azure IoT 中心](./time-series-insights-how-to-add-an-event-source-iothub.md)和 [Azure 事件中心](./time-series-insights-how-to-add-an-event-source-eventhub.md)作为选项。 虽然在创建环境时只能添加单个事件源，但可以在以后添加其他事件源。 最好创建唯一的使用者组，确保所有事件对 Azure 时序见解预览版实例可见。 在添加事件源时，可以选择现有的使用者组，也可以创建新的使用者组。
 
@@ -67,9 +67,9 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
      > [!TIP]
      > 在批处理事件或历史数据上传方案中，消息排队时间可能不是要使用的最佳配置设置。 确保验证在这种情况下你是决定使用还是不使用 Timestamp 属性。
 
-    ![“事件源”选项卡][2]
+     ![“事件源”选项卡][2]
 
-1. 确认环境是否已使用所需设置进行预配。
+5. 确认环境是否已使用所需设置进行预配。
 
     ![“查看 + 创建”选项卡][3]
 

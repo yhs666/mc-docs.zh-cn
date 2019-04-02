@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9ddb265d572127a09d34c519bdb6095e1be28799
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: dcb74993b141cefb8e473d9a086908327f510565
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665477"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626667"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>向 Azure IoT Edge 进行持续集成和持续部署
 
@@ -64,17 +64,17 @@ ms.locfileid: "56665477"
 
    2. 选择“空作业”而不是模板。 
 
-    ![从空进程开始](./media/how-to-ci-cd/start-with-empty.png)
+      ![从空进程开始](./media/how-to-ci-cd/start-with-empty.png)
 
 4. 创建管道后，将转到管道编辑器。 在管道描述中，根据目标平台选择正确的代理池： 
     
-    * 若要在用于 Linux 容器的 amd64 平台中生成模块，请选择“托管 Ubuntu 1604”
+   * 若要在用于 Linux 容器的 amd64 平台中生成模块，请选择“托管 Ubuntu 1604”
 
-    * 如果想在平台 amd64 中为 Windows 1809 容器生成模块，则需要[在 Windows 上设置自托管代理](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)。
+   * 如果想在平台 amd64 中为 Windows 1809 容器生成模块，则需要[在 Windows 上设置自托管代理](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)。
 
-    * 如果想在平台 arm32v7 中为 Linux 容器生成模块，则需要[在 Linux 上设置自托管代理](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)。
+   * 如果想在平台 arm32v7 中为 Linux 容器生成模块，则需要[在 Linux 上设置自托管代理](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)。
     
-    ![配置生成代理池](./media/how-to-ci-cd/configure-env.png)
+     ![配置生成代理池](./media/how-to-ci-cd/configure-env.png)
 
 5. 管道预先配置了名为“代理作业 1”的作业。 选择加号 (+)，向作业添加三个任务：“Azure IoT Edge”两次，“发布生成项目”一次。 （将鼠标悬停在每个任务的名称上，以查看“添加”按钮。）
 
@@ -157,11 +157,11 @@ ms.locfileid: "56665477"
 
 10. 选择新的 Azure IoT Edge 任务，并使用以下值对其进行配置：
 
-   * **显示名称**：操作字段更改时，显示名称会自动更新。 
-   * **操作**：使用下拉列表选择“部署到 IoT Edge 设备”。 更改操作值还会更新要匹配的任务显示名称。
-   * **Azure 订阅**：选择包含 IoT 中心的订阅。
-   * **IoT 中心名称**：选择 IoT 中心。 
-   * **选择单个/多个设备**：选择是否要将发布管道部署到一个设备或多个设备。 
+    * **显示名称**：操作字段更改时，显示名称会自动更新。 
+    * **操作**：使用下拉列表选择“部署到 IoT Edge 设备”。 更改操作值还会更新要匹配的任务显示名称。
+    * **Azure 订阅**：选择包含 IoT 中心的订阅。
+    * **IoT 中心名称**：选择 IoT 中心。 
+    * **选择单个/多个设备**：选择是否要将发布管道部署到一个设备或多个设备。 
       * 如果部署到单个设备，请输入“IoT Edge设备 ID”。 
       * 如果要部署到多个设备，请指定设备“目标条件”。 目标条件是用于在 IoT 中心匹配一组 Edge 设备的筛选器。 若想将设备标记用作条件，则需要使用 IoT 中心设备孪生更新对应的设备标记。 在高级设置中更新“IoT Edge 部署 ID”和“IoT Edge 部署优先级”。 有关为多个设备创建部署的详细信息，请参阅[了解 IoT Edge 自动部署](module-deployment-monitoring.md)。
 

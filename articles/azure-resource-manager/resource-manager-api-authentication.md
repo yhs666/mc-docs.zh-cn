@@ -15,12 +15,12 @@ ms.workload: identity
 origin.date: 07/12/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 73f872a2023fc23dc7701cad0c437ededd159c85
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: b1e157f1b41ec5f335dd5e8c9c6ad0e623d6918f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306160"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625452"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 
@@ -238,7 +238,7 @@ ASP.NET MVC 示例应用的 [UserCanManagerAccessForSubscription](https://github
 <a name="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>获取 Azure AD 图形 API 的仅限应用的访问令牌
-若要对应用进行身份验证并获取 Azure AD 图形 API 的令牌，请向 Azure AD 令牌终结点发出客户端凭据授予 OAuth2.0 流令牌请求 (**https://login.chinacloudapi.cn/{directory_domain_name}/OAuth2/Token**)。
+若要对应用进行身份验证并获取 Azure AD 图形 API 的令牌，请向 Azure AD 令牌终结点发出客户端凭据授予 OAuth2.0 流令牌请求 (<strong>https://login.chinacloudapi.cn/{directory_domain_name}/OAuth2/Token</strong>)。
 
 ASP.net MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 方法使用适用于 .NET 的 Active Directory 身份验证库来获取图形 API 的仅限应用的访问令牌。
 

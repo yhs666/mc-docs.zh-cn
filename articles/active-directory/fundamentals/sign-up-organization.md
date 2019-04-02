@@ -14,12 +14,12 @@ ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b967d2c74a3f2f8c8cc40b5ac73b88bde1008124
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 2d5ab2411fd15fdf991e0860d6de2674730d552d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186645"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626363"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>注册你的组织以使用 Azure Active Directory
 使用以下任一项注册 Azure Active Directory (Azure AD) 或新的 Azure 订阅：
@@ -28,8 +28,8 @@ ms.locfileid: "58186645"
 
 - **工作或学校帐户**。 使用与工作或学校相关的帐户可以访问 Microsoft 提供的所有小型、中型和企业级云服务，例如 Azure、Microsoft Intune 或 Office 365。 以组织身份注册其中一项服务后，Azure AD 会自动预配一个基于云的目录来代表该组织。 有关详细信息，请参阅[管理 Azure AD 目录](active-directory-administer.md)。
 
-    >[!Note]
-    如果已具有对 Azure AD 的访问权限，建议使用工作或学校帐户。 但是，应该使用与 Azure 订阅关联的任何类型的帐户。
+  > [!Note]
+  >   如果已具有对 Azure AD 的访问权限，建议使用工作或学校帐户。 但是，应该使用与 Azure 订阅关联的任何类型的帐户。
 
 ## <a name="next-steps"></a>后续步骤
 

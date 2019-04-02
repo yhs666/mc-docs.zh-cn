@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: f07a47a69db47d40739b48c5e7fbbc4e99e77a25
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 32b50dd75be2e0e1c24d42c5c5d9782cac68ff84
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348952"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627054"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教程：创建 Azure 时序见解单页 Web 应用
 
@@ -44,43 +44,44 @@ ms.locfileid: "58348952"
 在生成应用程序之前，需将其注册到 Azure AD。 注册为应用程序提供标识配置，让其可以使用 OAuth 支持进行单一登录。 OAuth 要求 SPA 使用“隐式”授权，后者可以在应用程序清单中进行更新。 应用程序清单是以 JSON 格式表示应用程序的标识配置。 
 
 1. 使用 Azure 订阅帐户登录到 [Azure 门户](https://portal.azure.com)。  
-1. 在左窗格中依次选择“Azure Active Directory”资源、“应用注册”、“+ 新建应用程序注册”：  
-   
+2. 在左窗格中依次选择“Azure Active Directory”资源、“应用注册”、“+ 新建应用程序注册”：  
+
    ![Azure 门户 Azure AD 应用程序注册](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-1. 在“创建”页中，填写必需的参数：
-   
-   参数|说明
-   ---|---
-   **名称** | 提供一个有意义的注册名称。  
-   **应用程序类型** | 由于生成的是 SPA Web 应用程序，因此请将其保留为“Web 应用/API”。
-   **登录 URL** | 输入应用程序的主页/登录页的 URL。 由于应用程序会在以后托管在 Azure 应用服务中，因此必须使用“https://azurewebsites.net”域中的 URL。 在本示例中，名称基于注册名称。
+3. 在“创建”页中，填写必需的参数：
+
+
+   |      参数       |                                                                                                                            说明                                                                                                                            |
+   |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |       **名称**       |                                                                                                              提供一个有意义的注册名称。                                                                                                              |
+   | **应用程序类型** |                                                                                               由于生成的是 SPA Web 应用程序，因此请将其保留为“Web 应用/API”。                                                                                               |
+   |   **登录 URL**    | 输入应用程序的主页/登录页的 URL。 由于应用程序会在以后托管在 Azure 应用服务中，因此必须使用“<https://azurewebsites.net>”域中的 URL。 在本示例中，名称基于注册名称。 |
 
    完成后请单击“创建”，创建新的应用程序注册。
 
    ![Azure 门户 Azure AD 应用程序注册 - 创建](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-1. 资源应用程序会提供可供其他应用程序使用的 REST API，并且还会注册到 Azure AD。 API 通过公开“作用域”提供对客户端应用程序的精细/安全的访问。 由于应用程序会调用“Azure 时序见解”API，因此需指定 API 和作用域，以便在运行时为其请求/授予权限。 依次选择“设置”、“所需权限”、“+ 添加”：
+4. 资源应用程序会提供可供其他应用程序使用的 REST API，并且还会注册到 Azure AD。 API 通过公开“作用域”提供对客户端应用程序的精细/安全的访问。 由于应用程序会调用“Azure 时序见解”API，因此需指定 API 和作用域，以便在运行时为其请求/授予权限。 依次选择“设置”、“所需权限”、“+ 添加”：
 
    ![Azure 门户 Azure AD 添加权限](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-1. 在“添加 API 访问权限”页中单击“1 选择 API”，以便指定 TSI API。 在“选择 API”页的搜索字段中输入“azure 时”。 然后在结果列表中选择“Azure 时序见解”API，再单击“选择”： 
+5. 在“添加 API 访问权限”页中单击“1 选择 API”，以便指定 TSI API。 在“选择 API”页的搜索字段中输入“azure 时”。 然后在结果列表中选择“Azure 时序见解”API，再单击“选择”： 
 
    ![Azure 门户 Azure AD 添加权限 - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-1. 现在请在 API 上指定作用域。 回到“添加 API 访问权限”页，单击“2 选择权限”。 在“启用访问权限”页上，选择“访问 Azure 时序见解服务”作用域。 单击“选择”，返回到“添加 API 访问权限”页，在其中单击“完成”：
+6. 现在请在 API 上指定作用域。 回到“添加 API 访问权限”页，单击“2 选择权限”。 在“启用访问权限”页上，选择“访问 Azure 时序见解服务”作用域。 单击“选择”，返回到“添加 API 访问权限”页，在其中单击“完成”：
 
    ![Azure 门户 Azure AD 添加权限 - 作用域](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-1. 返回到“所需权限”页后，会发现“Azure 时序见解”API 现在已列出。 此外还需为所有用户预许可应用程序访问 API 和作用域的权限。 单击顶部的“授予权限”按钮，然后选择“是”：
+7. 返回到“所需权限”页后，会发现“Azure 时序见解”API 现在已列出。 此外还需为所有用户预许可应用程序访问 API 和作用域的权限。 单击顶部的“授予权限”按钮，然后选择“是”：
 
    ![Azure 门户 Azure AD 所需权限 - 许可](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-1. 如前所述，还需要更新应用程序清单。 单击痕迹导航中的应用程序名称，返回到“已注册应用”页。 选择“清单”，将 `oauth2AllowImplicitFlow` 属性更改为 `true`，然后单击“保存”：
+8. 如前所述，还需要更新应用程序清单。 单击痕迹导航中的应用程序名称，返回到“已注册应用”页。 选择“清单”，将 `oauth2AllowImplicitFlow` 属性更改为 `true`，然后单击“保存”：
 
    ![Azure 门户 Azure AD 更新清单](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-1. 最后，单击痕迹导航再次返回到“已注册应用”页，复制应用程序的**主页** URL 和“应用程序 ID”属性。 将在后面的一个步骤中使用这些属性：
+9. 最后，单击痕迹导航再次返回到“已注册应用”页，复制应用程序的**主页** URL 和“应用程序 ID”属性。 将在后面的一个步骤中使用这些属性：
 
    ![Azure 门户 Azure AD 属性](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -93,7 +94,7 @@ ms.locfileid: "58348952"
 
    - **index.html** HTML 和 JavaScript 适合页面 https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css：** CSS 样式表： https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
-    
+
 1. 启动 Visual Studio 并登录到其中，以便创建适合 Web 应用程序的项目。 在“文件”菜单上，选择“打开”>“网站”选项。 在“打开网站”对话框中，选择存储了 HTML 和 CSS 文件的工作目录，然后单击“打开”：
 
    ![VS - 文件打开网站](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
@@ -105,7 +106,7 @@ ms.locfileid: "58348952"
 1. 发布应用程序之前，需在 **index.html** 中更新 JavaScript 代码的多个部分： 
 
    a. 首先，在 `<head>` 元素中更改 JavaScript 和样式表文件引用的路径。 打开 Visual Studio 解决方案中的 **index.html** 文件，找到以下 JavaScript 代码行。 取消注释“PROD RESOURCE LINKS”下的三行，注释掉“DEV RESOURCE LINKS”下的三行：
-   
+
       <!--[!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]-->
 
       更改后的代码应如以下示例所示：
@@ -153,7 +154,7 @@ ms.locfileid: "58348952"
       ![VS - 副本配置文件 - 应用服务](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)  
 
    d. 给“创建应用服务”对话框几秒钟时间来加载所有字段，然后修改以下字段：
-   
+
       字段 | 说明
       ---|---
       **应用名称** | 更改为在[将应用程序注册到 Azure AD](#register-the-application-with-azure-ad) 的步骤 3 中使用的 Azure AD 应用程序注册名称。 

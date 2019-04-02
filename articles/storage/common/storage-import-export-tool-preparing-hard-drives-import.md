@@ -9,12 +9,12 @@ origin.date: 06/29/2017
 ms.date: 02/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 5a968c752978f2fc4079e160ba66c658e8d1bfb6
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f9e64416c38af6b0ecb158f473517417e348be38
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626203"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 
@@ -152,12 +152,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 如果数据无法放入 InitialDriveset 中指定的驱动器，可以使用该工具将其他驱动器添加到同一个复制会话。 
 
->[!NOTE] 
->会话 ID 应与上一个会话 ID 匹配。日记文件应与上一个会话中指定的文件匹配。
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> 会话 ID 应与上一个会话 ID 匹配。日记文件应与上一个会话中指定的文件匹配。
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **示例：**
 

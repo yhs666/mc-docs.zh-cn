@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 11/09/2017
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: a1a8e5b00d21476df1af9b3b47ef7ee4463d9d4f
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 11982068d12222e16e7582f4e56573518161cbd9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135519"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625464"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -144,9 +144,9 @@ ms.locfileid: "58135519"
 按照 ASP.NET Core 部分中的说明为你的项目配置密钥保管库。
 
 1. 将以下 NuGet 包安装到你的项目
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. 定义 Web.config 中的密钥保管库配置生成器。将该部分置于 appSettings 部分前。 如果密钥保管库位于公共 Azure 中，则将 vaultName 替换为密钥保管库名称，如果正在使用 Sovereign 云，则将其替换为完整的 URI。
 
@@ -160,16 +160,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  指定 appSettings 部分使用密钥保管库配置生成器。 确保有任何含有虚拟值的密钥设置的条目。
+3. 指定 appSettings 部分使用密钥保管库配置生成器。 确保有任何含有虚拟值的密钥设置的条目。
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. 开始调试项目。 它应已成功运行。

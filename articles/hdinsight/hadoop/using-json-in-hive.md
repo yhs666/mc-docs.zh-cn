@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 02/27/2019
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 166a7961564e089710083debce026be652c73f69
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 3d6bb260765c541a5b69387c822740617178729f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348642"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625328"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 
@@ -90,7 +90,7 @@ ms.locfileid: "58348642"
     SELECT * FROM StudentsOneLine
 ```
 
-原始 JSON 文件位于 **wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/**。 **StudentsRaw** Hive 表指向未平展的原始 JSON 文档。
+原始 JSON 文件位于 <strong>wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/</strong>。 **StudentsRaw** Hive 表指向未平展的原始 JSON 文档。
 
 **StudentsOneLine** Hive 表将数据存储在 HDInsight 默认文件系统中的 **/json/students/** 路径下。
 

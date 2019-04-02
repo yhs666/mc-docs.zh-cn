@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 636fdbc32358cf78cb3d7de16e1159fdf4d5ce7c
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 2c1176b385550feb633971fc3c04b9ced462b906
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625997"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>对复制到辅助本地站点的 Hyper-V VM 进行故障转移和故障回复
 
@@ -47,7 +47,7 @@ ms.locfileid: "54363462"
 - 使用常规故障转移处理意外中断。 当运行此故障转移时，Site Recovery 会在辅助站点中创建一个 VM，并将其启动。 根据未同步的挂起数据，可能会丢失数据。
 - 可在维护或预期中断过程中使用计划内故障转移。 此选项保证无数据丢失。 触发计划内故障转移时，关闭源 VM。 同步未同步的数据，并触发故障转移。 
 - 
-本过程介绍如何运行常规故障转移。
+  本过程介绍如何运行常规故障转移。
 
 1. 在“设置” > “复制的项”中，单击“VM”>“故障转移”。
 2. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源 VM，请选择“在开始故障转移前关闭计算机”。 在触发故障转移前，Site Recovery 还会尝试同步尚未发送到辅助站点的本地数据。 请注意：即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。

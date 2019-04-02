@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 09/25/2017
 ms.date: 11/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 107f09d4b41ab6618ad9fcdaedf0b6c31882a6d2
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f806323e76ec81f8c2266135194c9ae5b2b0a9b7
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028972"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408304"
 ---
 # <a name="get-started-with-power-bi-workspace-collections"></a>Power BI 工作区集合入门
 
@@ -38,7 +38,7 @@ ms.locfileid: "53028972"
 
 以下让我们逐步完成使用 Azure 门户构建工作区集合的步骤。
 
-1. 打开 **Azure 门户** ([http://portal.azure.cn](http://portal.azure.cn)) 并登录到其中。
+1. 打开 **Azure 门户** ([https://portal.azure.cn](https://portal.azure.cn)) 并登录到其中。
 2. 在顶部面板上选择“+ 新建”。
    
    ![Azure 门户中的“+ 新建”](./media/get-started/create-workspace-1.png)
@@ -120,7 +120,7 @@ ms.locfileid: "53028972"
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 
 <!-- Update_Description: link update -->

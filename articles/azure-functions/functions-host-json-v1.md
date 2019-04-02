@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/19/2018
-ms.date: 11/08/2018
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: aa56225c38818ee0f8659e9bfebaeab33a432b6e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ce10954ee1d0e35ae7a9b1498f660dd82c7c360e
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658872"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408279"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -169,7 +169,25 @@ ms.locfileid: "52658872"
 
 [存储队列触发器和绑定](functions-bindings-storage-queue.md)的配置设置。
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+```json
+{
+    "queues": {
+      "maxPollingInterval": 2000,
+      "visibilityTimeout" : "00:00:30",
+      "batchSize": 16,
+      "maxDequeueCount": 5,
+      "newBatchThreshold": 8
+    }
+}
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|maxPollingInterval|60000|队列轮询的最大间隔时间，以毫秒为单位。| 
+|visibilityTimeout|0|消息处理失败时的重试间隔时间。| 
+|batchSize|16|Functions 运行时同时检索并并行处理的队列消息数。 当处理的数量下降到 `newBatchThreshold` 时，运行时可获取另一个批，并开始处理这些消息。 因此，每个函数处理的最大并发消息数是 `batchSize` 加上 `newBatchThreshold`。 此限制分别应用于各个队列触发的函数。 <br><br>如果要避免对队列上收到的消息并行执行，可以将 `batchSize` 设置为 1。 但是，只有在函数于单个虚拟机 (VM) 上运行时，此设置才可消除并发。 如果函数应用横向扩展到多个 VM，每个 VM 可运行每个队列触发的函数的一个实例。<br><br>`batchSize` 的最大值为 32。 | 
+|maxDequeueCount|5|在将某个消息移到有害队列之前，尝试处理该消息的次数。| 
+|newBatchThreshold|batchSize/2|只要同时处理的消息数下降到此数值，运行时即检索另一个批次。| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -239,3 +257,4 @@ ms.locfileid: "52658872"
 > [!div class="nextstepaction"]
 > [查看环境变量中的全局设置](functions-app-settings.md)
 
+<!-- Update_Description: wording update -->

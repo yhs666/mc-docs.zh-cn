@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/25/2017
 ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 36938f7e4316d0a89ec8ce42241ece47bce12432
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8bf466021f66613c970b725d96e5ac8a526324d0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674206"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625962"
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 
@@ -35,7 +35,7 @@ ms.locfileid: "52674206"
 
 * Node.js 版本 4.0.x 或更高版本。
 
-+ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 

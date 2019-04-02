@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/12/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 60803639f806a0287807df5995ba334aeb4112b8
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 8842e30ef530d3fac26c67b4ed360af576c5503f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463529"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626193"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>为 VMware VM 灾难恢复管理配置服务器
 
@@ -24,7 +24,7 @@ ms.locfileid: "57463529"
 可以访问配置服务器，如下所示：
 
 * 登录到部署了配置服务器的 VM，然后从桌面快捷方式启动 Azure Site Recovery 配置管理器。
-* 或者，可以从 https://*ConfigurationServerName*/:44315/ 远程访问配置服务器。 使用管理员凭据登录。
+* 或者，可以从 https://<em>ConfigurationServerName</em>/:44315/ 远程访问配置服务器。 使用管理员凭据登录。
 
 ## <a name="modify-vmware-server-settings"></a>修改 VMware 服务器设置
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 38a6a788cfa7fdc3e9f209f0dd287233ed783b4d
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 886de9b58e27ce197897687c9187ed8436412a36
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988043"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626425"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域成本
 
@@ -62,8 +62,8 @@ ms.locfileid: "56988043"
 
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
-* 详细了解[针对开发和测试进行优化](optimize-dev-test.md)
-<!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+* 详细了解[开发和测试优化](optimize-dev-test.md)
+  <!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)

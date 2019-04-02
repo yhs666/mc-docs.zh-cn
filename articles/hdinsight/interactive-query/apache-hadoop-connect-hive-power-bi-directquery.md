@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7a35c6df628efa50b2e8c9cdca1c3f78ac3d10aa
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 2e441570b4c8f79e597526b1c2721b3468d2c76e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806513"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626940"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Microsoft Power BI 通过直接查询直观显示交互式查询 Apache Hive 数据
 
@@ -48,11 +48,11 @@ ms.locfileid: "53806513"
 
 6. 在“HDInsight 交互式查询”中选择或输入以下信息：
 
-    - **服务器**：输入交互式查询群集名称，例如，myiqcluster.azurehdinsight.net。
-    - **数据库**：对于本教程，输入“默认”。
-    - **数据连接模式**：对于本教程，选择 **DirectQuery**。
+   - **服务器**：输入交互式查询群集名称，例如，myiqcluster.azurehdinsight.net。
+   - **数据库**：对于本教程，输入“默认”。
+   - **数据连接模式**：对于本教程，选择 **DirectQuery**。
 
-    ![HDInsight 交互式查询 power bi directquery 连接](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+     ![HDInsight 交互式查询 power bi directquery 连接](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
     
 7. 单击 **“确定”**。
 8. 输入 HTTP 用户凭据，然后单击“确定”。  默认用户名为“admin”

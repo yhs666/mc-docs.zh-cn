@@ -10,12 +10,12 @@ origin.date: 10/31/2018
 ms.date: 02/25/2019
 ms.author: v-jay
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: a7c28e4b4f2311cf4b0e1eaa085f1402b3d5d8d9
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f05364f5a767c527ed1654144447effe56aeade9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666575"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627030"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教程：打开包装、连接和解锁 Azure Data Box 磁盘
 
@@ -171,39 +171,39 @@ ms.locfileid: "56666575"
     
  
 5. 键入 `y` 继续安装。 脚本安装的包为： 
-    - **epel-release** - 包含以下三个包的存储库。 
-    - **dislocker 和 fuse-dislocker** - 此实用工具可帮助解密 BitLocker 加密的磁盘。 
-    - **ntfs-3g** - 帮助装载 NTFS 卷的包。 
+   - **epel-release** - 包含以下三个包的存储库。 
+   - **dislocker 和 fuse-dislocker** - 此实用工具可帮助解密 BitLocker 加密的磁盘。 
+   - **ntfs-3g** - 帮助装载 NTFS 卷的包。 
  
-    成功安装包后，终端将显示相关的通知。     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     成功安装包后，终端将显示相关的通知。     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. 运行 Data Box Disk 解锁工具。 在 Azure 门户中提供在[连接到磁盘并获取支持密钥](#Connect-to-disks-and-get-the-passkey)中获取的支持密钥。 （可选）指定要解锁 BitLocker 加密卷列表。 应在单引号中指定支持密钥和卷列表。 
 

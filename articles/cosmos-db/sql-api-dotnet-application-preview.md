@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 12/03/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b7a474b5173b01647f847e76a2217ffb598d1028
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 95458c0ede662e181e52a8f4570ec5c84b9bae00
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004722"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626284"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>教程：通过 .Net 预览版 SDK 开发使用 Azure Cosmos DB 的 ASP.NET MVC Web 应用程序 
 
@@ -342,9 +342,9 @@ ms.locfileid: "58004722"
 
 1. 在“解决方案资源管理器”的项目中创建名为 **Services** 的新文件夹。
 
-1. 右键单击 **Services** 文件夹，选择“添加”，然后选择“类”。 将新类命名为 **TodoItemService**，然后选择“添加”。
+2. 右键单击 **Services** 文件夹，选择“添加”，然后选择“类”。 将新类命名为 **TodoItemService**，然后选择“添加”。
 
-1. 将以下代码添加到 **TodoItemService** 类，并将该文件中的代码替换为以下代码：
+3. 将以下代码添加到 **TodoItemService** 类，并将该文件中的代码替换为以下代码：
 
     ```csharp
     using todo.Models;
@@ -425,7 +425,7 @@ ms.locfileid: "58004722"
     }
     ```
 
-1. 上面的代码从配置文件读取连接字符串值。 若要更新 Azure Cosmos 帐户的连接字符串值，请打开项目中的 **Web.config** 文件，然后在 `<AppSettings>` 节下面添加以下行：
+4. 上面的代码从配置文件读取连接字符串值。 若要更新 Azure Cosmos 帐户的连接字符串值，请打开项目中的 **Web.config** 文件，然后在 `<AppSettings>` 节下面添加以下行：
 
    ```csharp
     <add key="endpoint" value="<enter the URI from the Keys blade of the Azure Portal>" />
@@ -434,9 +434,9 @@ ms.locfileid: "58004722"
     <add key="container" value="Items" />
    ```
 
-1. 使用从 Azure 门户的“密钥”边栏选项卡中检索的值更新终结点和 primarykey 的值。 使用“密钥”边栏选项卡中的“URI”作为终结点设置的值，使用“密钥”边栏选项卡中的“主密钥”或“辅助密钥”作为密钥设置。 这样会将 Azure Cosmos DB 连接到应用程序，现在让我们添加应用程序逻辑。
+5. 使用从 Azure 门户的“密钥”边栏选项卡中检索的值更新终结点和 primarykey 的值。 使用“密钥”边栏选项卡中的“URI”作为终结点设置的值，使用“密钥”边栏选项卡中的“主密钥”或“辅助密钥”作为密钥设置。 这样会将 Azure Cosmos DB 连接到应用程序，现在让我们添加应用程序逻辑。
 
-1. 打开 **Global.asax.cs** 并将以下行添加到 **Application_Start** 方法 
+6. 打开 **Global.asax.cs** 并将以下行添加到 **Application_Start** 方法 
 
    ```csharp
    TodoItemService.Initialize().GetAwaiter().GetResult();
@@ -444,13 +444,13 @@ ms.locfileid: "58004722"
 
    此时，解决方案应该可以生成项目而不发生任何错误。 如果现在运行应用程序，则会打开 **HomeController** 以及该控制器的“索引”视图。 这是我们一开始就选定的 MVC 模板项目的默认行为。 让我们更改此 MVC 应用程序上的路由以改变此行为。
 
-1. 打开 ***App\_Start\RouteConfig.cs***，找到以“defaults:”开头的行，使用以下代码对其进行更新：
+7. 打开 ***App\_Start\RouteConfig.cs***，找到以“defaults:”开头的行，使用以下代码对其进行更新：
 
    ```csharp
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  若未在 URL 中指定控制路由行为的值，此代码会让 ASP.NET MVC 知道改用“项”（而不是“主页”）作为控制器，并使用“索引”作为视图。
+   若未在 URL 中指定控制路由行为的值，此代码会让 ASP.NET MVC 知道改用“项”（而不是“主页”）作为控制器，并使用“索引”作为视图。
 
 若运行应用程序，它现在会调用 **ItemController**，后者通过在下一部分定义的 TodoItemService 类调用 GetItems 方法。 
 

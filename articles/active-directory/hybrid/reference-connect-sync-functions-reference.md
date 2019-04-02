@@ -16,12 +16,12 @@ origin.date: 07/12/2017
 ms.date: 01/21/2019
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 24d6e660d567297b4895a4e3b25484251bea58e5
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: a8defdc5d355cc5d1af3959e5a13c32f87de6ccc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440371"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626633"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -51,6 +51,7 @@ ms.locfileid: "54440371"
 mvbin、mvstr 和 mvref 类型的函数只适用于多值属性。 bin、str 和 ref 类型的函数适用于单值和多值属性。
 
 ## <a name="functions-reference"></a>函数引用
+
 | 函数列表 |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
 | 证书 | | | | |

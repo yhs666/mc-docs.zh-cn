@@ -12,12 +12,12 @@ origin.date: 12/06/2018
 ms.date: 04/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 759508d03af640b037961e6d77ea97dab457bb32
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: ee886942e4be9ef56cb97f1c7e2e1589e3bf8d9b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348377"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627251"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>语音设备 SDK 许可协议
 
@@ -84,9 +84,9 @@ b)  加拿大。 如果您在加拿大购买的此软件，则可通过关闭自
 c)  德国和奥地利。
 
 > (i)  担保。 正确许可的软件将基本上按照软件随附的任何 Microsoft 材料中的描述执行。 但是，Microsoft 不提供与许可软件相关的任何合同规定的担保。
-
+> 
 > (ii)  责任限制。 如果出现故意行为、重大疏忽、基于《产品责任法》的索赔，以及在死亡或人身伤害的情况下，Microsoft 将根据成文法承担责任。
-
+> 
 > 根据上述条款 (ii)，如果 Microsoft 违反此类重大合同义务将仅承担轻微的疏忽责任：履行后有助于促成本协议正当履行，违反了则妨碍本协议的宗旨以及双方能够一直信赖的对合约的遵从性（所谓的“基本义务”）。 在其他轻微过失的情况下，Microsoft 将不承担轻微过失的责任。
 
 **15\. 免责声明。该软件按“原样”授予许可。使用该软件的风险需要自己承担。Microsoft 不提供任何明示的担保、保证或条件。在适用法律允许的范围内，MICROSOFT 排除任何默示保证，包括适销性、对于特定目的适用性和非侵权性。**

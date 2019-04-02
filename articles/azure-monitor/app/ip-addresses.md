@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 76a1ead9a0877b4e47224ea05205237117edccea
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 9095e8bbbc4a6f2815fbdaf241f57d0d9a00276c
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440806"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544792"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 地址
 Azure Application Insights 服务使用许多 IP 地址。 如果要监视的应用托管在防火墙后面，可能需要知道这些 IP 地址。
@@ -48,7 +48,7 @@ Azure Application Insights 服务使用许多 IP 地址。 如果要监视的应
 | 配置 |`management.core.windows.net` | |`443` |
 | 配置 |`management.chinacloudapi.cn` | |`443` |
 | 配置 |`login.windows.net` | |`443` |
-| 配置 |`login.microsoftonline.com` | |`443` |
+| 配置 |`login.partner.microsoftonline.cn` | |`443` |
 | 配置 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 配置 |`auth.gfx.ms` | |`443` |
 | 配置 |`login.live.com` | |`443` |

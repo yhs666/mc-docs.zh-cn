@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 12/18/2018
 ms.date: 03/25/2019
-ms.openlocfilehash: 67f50e434ebb3fe605e0237bca3eec24514dab89
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: ca6a7a60e22d007fcccdcf81d96d85b3b6e71d25
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318974"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625626"
 ---
 # <a name="in-memory-sample"></a>内存中示例
 
@@ -231,9 +231,9 @@ ostress.exe -n100 -r50 -S<servername>.database.chinacloudapi.cn -U<login> -P<pas
 
 
 1. 在 SSMS 中运行以下命令重置数据库，删除前面运行的命令所插入的所有数据：
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. 编辑 ostress.exe 命令行，将所有的 _inmem 替换为 _ondisk。
 
@@ -264,13 +264,13 @@ EXECUTE Demo.usp_DemoReset;
 
 
 1. 使用 Azure 门户基于示例创建全新的 AdventureWorksLT 数据库。
- - 使用相同的名称。
- - 选择任一高级服务层。
+   - 使用相同的名称。
+   - 选择任一高级服务层。
 
 2. 将 [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) 复制到剪贴板。
- - T-SQL 脚本在步骤 1 创建的 AdventureWorksLT 示例数据库中创建所需的内存中对象。
- - 该脚本将创建维度表和两个事实表。 每个事实表中填充了 350 万行。
- - 该脚本可能需要 15 分钟才能完成。
+   - T-SQL 脚本在步骤 1 创建的 AdventureWorksLT 示例数据库中创建所需的内存中对象。
+   - 该脚本将创建维度表和两个事实表。 每个事实表中填充了 350 万行。
+   - 该脚本可能需要 15 分钟才能完成。
 
 3. 将 T-SQL 脚本粘贴到 SSMS，并执行该脚本。 CREATE INDEX 语句中的 COLUMNSTORE 关键字至关重要，如下所示：<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

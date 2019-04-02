@@ -4,23 +4,25 @@ description: 了解如何使用适用于 Adobe Open Source Media Framework 的 A
 services: media-services
 documentationcenter: ''
 author: WenJason
-manager: dwrede
+manager: digimobile
 editor: ''
+ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
-ms.openlocfilehash: 231b1c26aed3463db51862bed58c509490c81002
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 674a1db445ae8030868e0ec83ceb2a44fcde71cc
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666541"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624189"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>如何使用适用于 Adobe Open Source Media Framework 的 Microsoft 平滑流式处理插件
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>如何使用适用于 Adobe Open Source Media Framework 的 Microsoft 平滑流式处理插件  
 ## <a name="overview"></a>概述
 适用于 Open Source Media Framework 2.0 (SS for OSMF) 的 Microsoft 平滑流式处理插件扩展了 OSMF 的默认功能，并在新的和现有的 OSMF 播放器中添加了 Microsoft 平滑流式处理内容播放功能。 该插件还为 Strobe Media Playback (SMP) 添加了平滑流式处理播放功能。
 
@@ -46,13 +48,13 @@ SS for OSMF 包括两个版本的插件：
 * 此版本仅支持 OSMF 2.0。
 
 ## <a name="supported-features-and-known-issues"></a>支持的功能和已知问题
-有关支持的功能、不支持的功能和已知问题的完整列表，请参阅 [本文档](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)。
+有关支持的功能、不支持的功能和已知问题的完整列表，请参阅 [本文档](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)。
 
 ## <a name="loading-the-plugin"></a>加载插件
 可静态（在编译时）或动态（在运行时）加载 OSMF 插件。 适用于 OSMF 的平滑流式处理插件的下载内容包括动态和静态版本。
 
-* 静态加载：若要静态加载，必须有一个静态库 (SWC) 文件。 静态插件会添加为对项目的引用，并在编译时合并到最终输出文件中。
-* 动态加载：若要动态加载，必须有一个预编译的 (SWF) 文件。 动态插件在运行时中加载，不包含在项目输出中。 （编译的输出）可以使用 HTTP 和 FILE 协议加载动态插件。
+* 静态加载：若要以静态方式加载，必须有一个静态库 (SWC) 文件。 静态插件会添加为对项目的引用，并在编译时合并到最终输出文件中。
+* 动态加载：若要以动态方式加载，必须有一个预编译的 (SWF) 文件。 动态插件在运行时中加载，不包含在项目输出中。 （编译的输出）可以使用 HTTP 和 FILE 协议加载动态插件。
 
 有关静态和动态加载的详细信息，请参阅官方的 [OSMF 插件页](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)。
 

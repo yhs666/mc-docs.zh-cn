@@ -16,12 +16,12 @@ ms.workload: traffic-manager
 origin.date: 06/26/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: bf7cff10f1a552ea953a979d8e7cc11240d494d5
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: b5029f99c19cfd2cc1fd04e6bb6c93cc5b986730
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906105"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625815"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>为实现应用程序的高可用性路由流量
 
@@ -32,67 +32,77 @@ ms.locfileid: "54906105"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
+```bash
+# !/bin/bash
 
-#<a name="binbash"></a>!/bin/bash
+RgName1="MyResourceGroup1"
+RgName2="MyResourceGroup2"
+Location1="chinaeast"
+Location2="chinaeast2"
 
-RgName1="MyResourceGroup1" RgName2="MyResourceGroup2" Location1="chinaeast" Location2="chinaeast2"
+# The values of the variables below must be unique (replace with your own names).
+WebApp="MyWebApp"
+WebAppL1="MyWebAppL1"
+WebAppL2="MyWebAppL2"
 
-# <a name="the-values-of-the-variables-below-must-be-unique-replace-with-your-own-names"></a>以下变量的值必须唯一（请将其替换为你自己的名称）。
-WebApp="MyWebApp" WebAppL1="MyWebAppL1" WebAppL2="MyWebAppL2"
-
-# <a name="create-a-resource-group-in-location-one"></a>在位置 1 中创建资源组。
+# Create a resource group in location one.
 az group create \
   --name $RgName1 \
   --location $Location1
 
-# <a name="create-a-resource-group-in-location-two"></a>在位置 2 中创建资源组。
+# Create a resource group in location two.
 az group create \
   --name $RgName2 \
   --location $Location2
 
-# <a name="create-a-website-deployed-from-github-in-both-regions-replace-with-your-own-github-url"></a>在两个区域中创建从 GitHub 部署的网站（请将其替换为你自己的 GitHub URL）。
-gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
+# Create a website deployed from GitHub in both regions (replace with your own GitHub URL).
+gitrepo="<https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>"
 
-# <a name="create-a-hosting-plan-and-website-and-deploy-it-in-location-one-requires-standard-1-minimum-sku"></a>创建托管计划和网站，并将其部署到位置 1（需要标准 1 最小 SKU）。
+# Create a hosting plan and website and deploy it in location one (requires Standard 1 minimum SKU).
 az appservice plan create \
   --name $WebAppL1 \
   --resource-group $RgName1 \
-  --sku S1 az webapp create \
+  --sku S1
+az webapp create \
   --name $WebAppL1 \
   --resource-group $RgName1 \
-  --plan $WebAppL1 az webapp deployment source config \
+  --plan $WebAppL1
+az webapp deployment source config \
   --name $WebAppL1 \
   --resource-group $RgName1 \
   --repo-url $gitrepo \
   --branch master \
   --manual-integration
 
-# <a name="create-a-hosting-plan-and-website-and-deploy-it-in-chinaeast-requires-standard-1-minimum-sku"></a>创建托管计划和网站，并将其部署到 chinaeast（需要标准 1 最小 SKU）。
+# Create a hosting plan and website and deploy it in chinaeast (requires Standard 1 minimum SKU).
 az appservice plan create \
   --name $WebAppL2 \
   --resource-group $RgName2 \
-  --sku S1 az webapp create \
+  --sku S1
+az webapp create \
   --name $WebAppL2 \
   --resource-group $RgName2 \
-  --plan $WebAppL2 az webapp deployment source config \
+  --plan $WebAppL2
+az webapp deployment source config \
   --name $WebAppL2 \
   --resource-group $RgName2 \
   --repo-url $gitrepo \
   --branch master --manual-integration
 
-# <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件。
+# Create a Traffic Manager profile.
 az network traffic-manager profile create \
   --name MyTrafficManagerProfile \
   --resource-group $RgName1 \
   --routing-method Priority \
   --unique-dns-name $WebApp
 
-# <a name="create-an-endpoint-for-the-location-one-website-deployment-and-set-it-as-the-priority-target"></a>为位置 1 网站部署创建终结点，并将其设置为优先目标。
+# Create an endpoint for the location one website deployment and set it as the priority target.
 L1Id=$(az appservice web show \
   --resource-group $RgName1 \
   --name $WebAppL1 \
   --query id \
-  --out tsv) az network traffic-manager endpoint create \
+  --out tsv)
+az network traffic-manager endpoint create \
   --name MyEndPoint1 \
   --profile-name MyTrafficManagerProfile \
   --resource-group $RgName1 \
@@ -100,18 +110,19 @@ L1Id=$(az appservice web show \
   --priority 1 \
   --target-resource-id $L1Id
 
-# <a name="create-an-endpoint-for-the-location-two-website-deployment-and-set-it-as-the-secondary-target"></a>为位置 2 网站部署创建终结点，并将其设置为辅助目标。
+# Create an endpoint for the location two website deployment and set it as the secondary target.
 L2Id=$(az appservice web show \
   --resource-group $RgName2 \
   --name $WebAppL2 \
-  --query id --out tsv) az network traffic-manager endpoint create \
+  --query id --out tsv)
+az network traffic-manager endpoint create \
   --name MyEndPoint2 \
   --profile-name MyTrafficManagerProfile \
   --resource-group $RgName1 \
   --type azureEndpoints \
   --priority 2 \
   --target-resource-id $L2Id
-
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

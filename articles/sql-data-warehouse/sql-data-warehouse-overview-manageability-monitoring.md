@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 08/27/2018
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: c46e0118cbf680cb8ab9f5340c2c75da9ef80ced
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: d4c762d403b31dc1ecfbc1efb9b02ba1905ebea3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348158"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625777"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的可管理性和监视
 
@@ -42,5 +42,5 @@ ms.locfileid: "58348158"
 [resource utilization]: ./sql-data-warehouse-concept-resource-utilization-query-activity.md
 [data protection]: ./backup-and-restore.md
 [recommendations]: ./sql-data-warehouse-concept-recommendations.md
-[maintenance]: ./maintenance-scheduling.md
+[maintenance]: ./service-maintenance.md
 [troubleshoot]: ./sql-data-warehouse-troubleshoot.md

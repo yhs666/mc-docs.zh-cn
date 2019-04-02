@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 49f31d4d7b80f7555ed27bb9fbc4076fc673d984
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2c330c18ae6af382f04822d556ec67e9a532e110
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652542"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626770"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：  
@@ -52,36 +52,36 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
   
 若要尝试修复某个已部分失败的导入，需要：  
   
--   复制日志文件  
+- 复制日志文件  
   
--   存储帐户密钥  
+- 存储帐户密钥  
   
   若要尝试修复某个已部分失败的导出，需要：  
   
--   复制日志文件  
+- 复制日志文件  
   
--   清单文件（可选）  
+- 清单文件（可选）  
   
--   存储帐户密钥  
+- 存储帐户密钥  
   
 ## <a name="installing-the-azure-importexport-tool"></a>安装 Azure 导入/导出工具  
  Azure 导入/导出工具由以下文件组成：  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- 请将这些文件复制到某个工作目录，如 `c:\WAImportExport`。 接下来，在管理员模式下打开命令行窗口，将上述目录设为当前目录。  
+  请将这些文件复制到某个工作目录，如 `c:\WAImportExport`。 接下来，在管理员模式下打开命令行窗口，将上述目录设为当前目录。  
   
- 若要输出命令帮助，请不带参数运行该工具：  
+  若要输出命令帮助，请不带参数运行该工具：  
   
 ```  
 WAImportExport, a client tool for Azure Import/Export service. Microsoft (c) 2013, 2014  

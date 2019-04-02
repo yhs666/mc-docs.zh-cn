@@ -14,12 +14,12 @@ origin.date: 05/25/2017
 ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc88ede3d0f58d0d5d346aa2ee846330e51e9f2b
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: e127524305370b93175fe878e6d973e34510f209
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665682"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625888"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>使用 HDInsight 中的 Apache Hive 分析航班延误数据
 [Apache Hive](https://hive.apache.org/) 提供了通过类似于 SQL 的脚本语言（称为 *[HiveQL][hadoop-hiveql]*）运行 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
@@ -71,13 +71,13 @@ PowerShell 脚本的一部分将数据从公共 blob 容器复制到群集的默
 
 下表列出了本教程中使用的文件：
 
-|文件|说明|  
-|----|----|   
-|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|Hive 作业所用的 HiveQL 脚本文件。 此脚本已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-b">附录 B</a> 提供了有关准备此文件以及将其上传到用户的 Azure Blob 存储帐户的说明。|
-|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Hive 作业的输入数据。 这些数据已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-a">附录 A</a> 提供了有关获取数据以及将数据上传到用户的 Azure Blob 存储帐户的说明。|
-|\tutorials\flightdelays\output|Hive 作业的输出路径。 默认容器用于存储输出数据。|
-|\tutorials\flightdelays\jobstatus|默认容器上的 Hive 作业状态文件夹。|
 
+|                                   文件                                   |                                                                                                                              说明                                                                                                                               |
+|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql | Hive 作业所用的 HiveQL 脚本文件。 此脚本已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-b">附录 B</a> 提供了有关准备此文件以及将其上传到用户的 Azure Blob 存储帐户的说明。 |
+|     wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data     |       Hive 作业的输入数据。 这些数据已上传到具有公共访问权限的 Azure Blob 存储帐户。 <a href="#appendix-a">附录 A</a> 提供了有关获取数据以及将数据上传到用户的 Azure Blob 存储帐户的说明。        |
+|                      \tutorials\flightdelays\output                       |                                                                                      Hive 作业的输出路径。 默认容器用于存储输出数据。                                                                                      |
+|                     \tutorials\flightdelays\jobstatus                     |                                                                                                          默认容器上的 Hive 作业状态文件夹。                                                                                                          |
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>创建群集并运行 Hive/Sqoop 作业
 Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益的方法是为作业创建群集，并在作业完成之后删除作业。 以下脚本覆盖了整个过程。

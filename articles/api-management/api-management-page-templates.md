@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/09/2018
 ms.author: v-yiso
 ms.date: 12/31/2018
-ms.openlocfilehash: ecdae32f82f88c6c473250317de4b7366affe8fc
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: afe359e58222fbeaf2397ce03acbb1ed9d68f5c2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736705"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625964"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的页模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -35,7 +35,7 @@ ms.locfileid: "53736705"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+> [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="SignIn"></a> 登录  
  **登录**模板用于自定义开发人员门户中的登录页面。  

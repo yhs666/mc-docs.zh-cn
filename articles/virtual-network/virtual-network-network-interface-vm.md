@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/15/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1f4adbe15993bf748c6218967c5a4043109b53f3
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: decbcabb90ab8caa1a2f6635773e5acb6c2ed85e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306114"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627199"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -62,8 +62,8 @@ ms.locfileid: "56306114"
 4. 选择“设置”下的“网络”。
 5. 选择“附加网络接口”。 在当前未附加到其他 VM 网络接口列表中，选择要附加的接口。 
 
-    >[!NOTE]
-    选择的网络接口无法启用加速网络，无法获得 IPv6 地址，并且必须位于包含当前附加到 VM 的网络接口的虚拟网络中。 
+   > [!NOTE]
+   >  选择的网络接口无法启用加速网络，无法获得 IPv6 地址，并且必须位于包含当前附加到 VM 的网络接口的虚拟网络中。 
 
     如果没有现有的网络接口，必须先创建一个。 为此，请选择“创建网络接口”。 若要详细了解如何创建网络接口，请参阅[创建网络接口](virtual-network-network-interface.md#create-a-network-interface)。 若要详细了解将网络接口添加到虚拟机时的约束，请参阅[约束](#constraints)。
 
@@ -102,8 +102,8 @@ ms.locfileid: "56306114"
 4. 选择“设置”下的“网络”。
 5. 选择“拆离网络接口”。 在当前已附加到虚拟机的网络接口列表中，选择要拆离的网络接口。 
 
-    >[!NOTE]
-    如果只列出了一个网络接口，则无法将它分离，因为虚拟机上必须始终至少附加一个网络接口。
+   > [!NOTE]
+   >  如果只列出了一个网络接口，则无法将它分离，因为虚拟机上必须始终至少附加一个网络接口。
 6. 选择“确定” 。
 
 ### <a name="commands"></a>命令

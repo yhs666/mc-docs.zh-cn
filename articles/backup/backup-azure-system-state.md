@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/23/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 01a7155af6b87a8f3b5d479107b1567abaa92785
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5f5c6821a735e0d36395e076909af73d13920575
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675628"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626279"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
 本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
@@ -52,7 +52,7 @@ ms.locfileid: "52675628"
     或
     * 选择“使用现有项”，并单击下拉菜单查看可用资源组列表  。
 
-  有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
+   有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 7. 单击“位置”，为保管库选择地理区域  。 此选项决定了备份数据要发送到的地理区域。
 
@@ -131,9 +131,9 @@ ms.locfileid: "52675628"
     保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存” 。 如果意外地单击了“打开”，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
 
     ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> 保管库凭据只能保存到打算使用代理的 Windows Server 的本地位置。 
->
+   > [!NOTE]
+   > 保管库凭据只能保存到打算使用代理的 Windows Server 的本地位置。 
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

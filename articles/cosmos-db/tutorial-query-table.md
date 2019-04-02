@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 11/15/2017
 ms.date: 03/18/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 473f9920ab7875e75c69e32961e73d7dfa2f6392
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 2a7e768b3ad403200fe80958e8fe547c89f888b0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988639"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627322"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>教程：使用表 API 查询 Azure Cosmos DB
@@ -28,11 +28,12 @@ Azure Cosmos DB [表 API](table-introduction.md) 支持针对键/值（表）数
 
 本文中的查询使用如下示例 `People` 表：
 
-| PartitionKey | RowKey | Email | PhoneNumber |
-| --- | --- | --- | --- |
-| Harp | Walter | Walter@contoso.com| 425-555-0101 |
-| Smith | Ben | Ben@contoso.com| 425-555-0102 |
-| Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
+
+| PartitionKey | RowKey |       Email        | PhoneNumber  |
+|--------------|--------|--------------------|--------------|
+|     Harp     | Walter | Walter@contoso.com | 425-555-0101 |
+|    Smith     |  Ben   |  Ben@contoso.com   | 425-555-0102 |
+|    Smith     |  Jeff  |  Jeff@contoso.com  | 425-555-0104 |
 
 有关如何使用表 API 执行查询的详细信息，请参阅[查询表和实体](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)。 
 
@@ -52,9 +53,10 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 ```
 **结果**
 
-| PartitionKey | RowKey | Email | PhoneNumber |
-| --- | --- | --- | --- |
-| Harp | Walter | Walter@contoso.com| 425-555-0104 |
+
+| PartitionKey | RowKey |       Email        | PhoneNumber  |
+|--------------|--------|--------------------|--------------|
+|     Harp     | Walter | Walter@contoso.com | 425-555-0104 |
 
 或者，可将这些属性指定为 `$filter` 选项的一部分，如以下部分中所示。 请注意，键属性名称和常量值区分大小写。 PartitionKey 和 RowKey 属性皆为 String 类型。 
 
@@ -78,9 +80,10 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 **结果**
 
-| PartitionKey | RowKey | Email | PhoneNumber |
-| --- | --- | --- | --- |
-| Ben |Smith | Ben@contoso.com| 425-555-0102 |
+
+| PartitionKey | RowKey |      Email      | PhoneNumber  |
+|--------------|--------|-----------------|--------------|
+|     Ben      | Smith  | Ben@contoso.com | 425-555-0102 |
 
 ## <a name="query-by-using-linq"></a>使用 LINQ 进行查询 
 还可使用 LINQ 进行查询，这会转换为相应的 OData 查询表达式。 以下示例演示如何使用 .NET SDK 生成查询。

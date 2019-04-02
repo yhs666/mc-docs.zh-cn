@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/22/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8a9caffffc1daebb533376b8b8cc8922718eee61
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6b383a344216e04ab6cf8f57dcf673330a96651c
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666825"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544798"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>服务总线事务处理概述
 
@@ -37,8 +37,8 @@ ms.locfileid: "52666825"
 
 可以在事务范围内执行的操作如下所示：
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**：Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**：Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient)、[MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender)、[TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**：Send、SendAsync、SendBatch、SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**：Complete、CompleteAsync、Abandon、AbandonAsync、Deadletter、DeadletterAsync、Defer、DeferAsync、RenewLock、RenewLockAsync 
 
 不包括接收操作，因为假定应用程序在某个接收循环内使用 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式或通过 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 回调获取消息，而且只有那时才打开用于处理消息的事务范围。
 
@@ -53,26 +53,47 @@ ms.locfileid: "52666825"
 若要设置此类传输，需创建通过传输队列以目标队列为目标的消息发送方。 还将设置接收方，以便从该同一队列拉取消息。 例如：
 
 ```csharp
-var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
-var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
+var connection = new ServiceBusConnection(connectionString);
+
+var sender = new MessageSender(connection, QueueName);
+var receiver = new MessageReceiver(connection, QueueName);
 ```
 
 简单事务处理随后使用这些元素，如以下示例所示：
 
 ```csharp
-var msg = receiver.Receive();
+var receivedMessage = await receiver.ReceiveAsync();
 
-using (scope = new TransactionScope())
+using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    // Do whatever work is required 
+    try
+    {
+        // do some processing
+        if (receivedMessage != null)
+            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
 
-    var newmsg = ... // package the result 
+        var myMsgBody = new MyMessage
+        {
+            Name = "Some name",
+            Address = "Some street address",
+            ZipCode = "Some zip code"
+        };
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+        // send message
+        var message = myMsgBody.AsMessage();
+        await sender.SendAsync(message).ConfigureAwait(false);
+        Console.WriteLine("Message has been sent");
 
-    scope.Complete(); // declare the transaction done
-} 
+        // complete the transaction
+        ts.Complete();
+    }
+    catch (Exception ex)
+    {
+        // This rolls back send and complete in case an exception happens
+        ts.Dispose();
+        Console.WriteLine(ex.ToString());
+    }
+}
 ```
 
 ## <a name="next-steps"></a>后续步骤

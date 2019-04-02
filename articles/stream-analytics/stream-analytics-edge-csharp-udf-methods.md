@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 11/06/18
-ms.openlocfilehash: dc8d12dd3ac35691715d4e2861a2c50abd7af457
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 94498b63c67045388f912f1563b2bf05727f8e4d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626785"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>为 Azure 流分析 Edge 作业开发 .NET Standard 用户定义函数（预览版）
 
@@ -36,16 +36,16 @@ Azure 流分析的 Visual Studio 工具可用于轻松编写 UDF、在本地（�
 
 ## <a name="supported-types-and-mapping"></a>支持的类型和映射
 
-|**UDF 类型 (C#)**  |**Azure 流分析类型**  |
-|---------|---------|
-|long  |  bigint   |
-|Double  |  Double   |
-|字符串  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|object  |  IRecord   |
-|Array<object>  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|     **UDF 类型 (C#)**      | **Azure 流分析类型** |
+|----------------------------|---------------------------------|
+|            long            |             bigint              |
+|           Double           |             Double              |
+|           字符串           |          nvarchar(max)          |
+|          dateTime          |            dateTime             |
+|           struct           |             IRecord             |
+|           object           |             IRecord             |
+|       Array<object>        |             IArray              |
+| dictionary<string, object> |             IRecord             |
 
 ## <a name="codebehind"></a>CodeBehind
 可以在 Script.sql CodeBehind 中编写用户定义的函数。 Visual Studio 工具会自动将 CodeBehind 文件编译为程序集文件。 将作业提交到 Azure 时，程序集将打包为 zip 文件并上传到存储帐户。 可以根据[流分析 Edge 作业的 UDF](stream-analytics-edge-csharp-udf.md) 教程执行操作，了解如何使用 CodeBehind 编写 C# UDF。 

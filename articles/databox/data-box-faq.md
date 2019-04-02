@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 01/25/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 889cc9867452e88c2eb3a3de8ecbd5e22d507127
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 3bed7150d9f471c695f0aa73237e494b9e8de5fa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905355"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625230"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box：常见问题解答
 
@@ -210,10 +210,10 @@ A.  一旦“数据复制”的订单状态显示为“已完成”，应该立�
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>问： 上传后，我的数据位于 Azure 中的哪个位置？
 A.  将数据复制到 Data Box 中时，数据将上传到 Azure 存储帐户中的以下一个路径，具体取决于数据是块 Blob、页 Blob 还是 Azure 文件。
- - `https://<storage_account_name>.blob.core.chinacloudapi.cn/<containername>` 
- -  `https://<storage_account_name>.file.core.chinacloudapi.cn/<sharename>`
+- `https://<storage_account_name>.blob.core.chinacloudapi.cn/<containername>` 
+- `https://<storage_account_name>.file.core.chinacloudapi.cn/<sharename>`
  
- 或者，可以转到 Azure 门户中的 Azure 存储帐户并从那里导航。
+  或者，可以转到 Azure 门户中的 Azure 存储帐户并从那里导航。
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>问： 我刚刚发现，我并未遵循容器的 Azure 命名要求。 我的数据是否无法上传到 Azure？
 A.  如果容器名称包含大写字母，这些名称会自动转换为小写。 如果名称存在其他方面的不合规情况（包含特殊字符、采用其他语言，等等），则上传将会失败。 有关命名共享、容器、文件的最佳做法的详细信息，请转到：

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 95a0f00c6738791dc897938d0c2460157a846a80
-ms.sourcegitcommit: 4d663e2f9a05574b71cf91ad14b05c43a58a857f
+ms.openlocfilehash: 0032bd3b2ac0c97ee9555da3c5a36a4202b7aa5a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625604"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中备份虚拟机
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
@@ -56,7 +56,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-如果 VM 与保管库不在同一个资源组中，则 myResourceGroup 引用创建保管库所在的资源组。 如下所示，请提供 VM ID 而不是 VM 名称。
+> 如果 VM 与保管库不在同一个资源组中，则 myResourceGroup 引用创建保管库所在的资源组。 如下所示，请提供 VM ID 而不是 VM 名称。
 
 ```azurecli 
 az backup protection enable-for-vm \

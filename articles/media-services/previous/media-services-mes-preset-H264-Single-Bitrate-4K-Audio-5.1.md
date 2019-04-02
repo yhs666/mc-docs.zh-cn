@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: ecc302c60a53b36b4bea908e3e20305c0bd56ca6
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 885fc59e1c82bd8c6f9a80e8bc2cfdddcebd8665
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673054"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625268"
 ---
 # <a name="h264-single-bitrate-4k-audio-51"></a>H264 单比特率 4K 音频 5.1
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
@@ -36,7 +36,7 @@ ms.locfileid: "52673054"
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

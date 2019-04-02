@@ -17,12 +17,12 @@ ms.custom: mvc
 origin.date: 04/14/2018
 ms.date: 03/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 156605bca170259503e9ce19a5d4978eab225505
-ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
+ms.openlocfilehash: dad40c137377b730c512ae4128690d051e56e4c3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57787311"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625796"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 应用推送通知
 
@@ -132,11 +132,11 @@ ms.locfileid: "57787311"
 
    - 通过将二进制文件复制到项目中进行集成
 
-       1. 下载以 zip 文件形式提供的 [Azure 通知中心 SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) 框架，然后将其解压缩。
+     1. 下载以 zip 文件形式提供的 [Azure 通知中心 SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) 框架，然后将其解压缩。
 
-       2. 在 Xcode 中，右键单击项目，然后单击“将文件添加到”选项，将 WindowsAzureMessaging.framework 文件夹添加到 Xcode 项目。 选择“选项”，确保选中“根据需要复制项目”，然后单击“添加”。
+     2. 在 Xcode 中，右键单击项目，然后单击“将文件添加到”选项，将 WindowsAzureMessaging.framework 文件夹添加到 Xcode 项目。 选择“选项”，确保选中“根据需要复制项目”，然后单击“添加”。
 
-       ![解压缩 Azure SDK][10]
+        ![解压缩 Azure SDK][10]
 
 6. 将新的标头文件添加到名为 `HubInfo.h` 的项目。 此文件保存着通知中心的常量。 添加以下定义，然后将字符串文本占位符替换为*中心名称*以及前面记下的 *DefaultListenSharedAccessSignature*。
 

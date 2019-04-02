@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: a9e1cbedfb68b677a6a298b3ae2cbe0aca7f7634
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 6281168174fdf59059a77604997e4e354330846f
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440370"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544801"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>排查 Application Insights 中的分析问题
 [Application Insights Analytics](analytics.md) 出现了问题？ 从此处开始。 Analytics 是 Azure Application Insights 的强大搜索工具。
@@ -68,7 +68,7 @@ ms.locfileid: "56440370"
      如果“网站”列表中包含以下任一 URL，请确保同时包含其他 URL：
      
      https://analytics.applicationinsights.io<br/>
-     https://login.microsoftonline.com<br/>
+     https://login.partner.microsoftonline.cn<br/>
      https://login.chinacloudapi.cn
 
 <a name="e-d"></a>

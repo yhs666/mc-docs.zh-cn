@@ -9,12 +9,12 @@ origin.date: 01/09/2019
 ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4c85307260e1077dd3fb4bb036106743b11bbba
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 30d0285f25329de0b409fdee2b4812f4ddf2b14f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085632"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625391"
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -31,7 +31,7 @@ ms.locfileid: "55085632"
 
 2. 在“服务器”中，输入服务器名称。 请务必包括完整的 URL，例如，asazure://chinanorth.asazure.chinacloudapi.cn/advworks。
 
-  <!-- Not Available on China East -->
+   <!-- Not Available on China East -->
 3. 在“数据库”中，如果知道要连接到的表格模型数据库或透视的名称，请将其粘贴在此处。 如果不知道，可以将此字段留空，并在稍后选择数据库或透视。
 
 4. 选择连接选项，然后按“连接”。 

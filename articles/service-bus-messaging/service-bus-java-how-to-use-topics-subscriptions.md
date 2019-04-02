@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/17/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d92025dc772418da6fe2e25a5afcb9eb75fc7631
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6482e85595a647145bf0d010af4622a864d9f579
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674509"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626094"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
@@ -47,9 +47,9 @@ ms.locfileid: "52674509"
 
 利用服务总线主题和订阅，可以进行扩展以处理跨大量用户和应用程序的许多消息。
 
-## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-服务总线消息传送命名空间提供唯一的作用域容器，可以通过其[完全限定域名](https://wikipedia.org/wiki/Fully_qualified_domain_name)进行引用，而在该域名中，可以创建一个或多个队列、主题和订阅。 以下示例在新的或现有的[资源组](/azure-resource-manager/resource-group-portal)中创建一个服务总线消息传送命名空间：
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 1. 在门户的左侧导航窗格中，依次单击“+ 创建资源”、“企业集成”和“服务总线”。
 2. 在“创建命名空间”  对话框中，输入命名空间名称。 系统会立即检查该名称是否可用。
@@ -59,7 +59,7 @@ ms.locfileid: "52674509"
 6. 在“位置” 中，选择应在其中托管该命名空间的国家或地区。
 7. 单击**创建**。 系统现已创建命名空间并已将其启用。 可能需要等待几分钟，因为系统会为你的帐户配置资源。
 
-  ![命名空间](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
+   ![命名空间](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
 
 ### <a name="obtain-the-management-credentials"></a>获取管理凭据
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/07/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 601ca99fa6416051891d6eeda93d243fa7cdefd6
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 06f6a70d898f4d7e86aa9af810028acf87e70cfa
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964396"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505526"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>快速入门：使用 Java 通过文本翻译 API 获取受支持语言的列表
 
@@ -173,6 +173,8 @@ gradle run
 
 ## <a name="sample-response"></a>示例响应
 
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+
 成功的响应以 JSON 格式返回，如以下示例所示：
 
 ```json
@@ -274,3 +276,4 @@ gradle run
 * [获取备用翻译](quickstart-java-dictionary.md)
 * [根据输入确定句子长度](quickstart-java-sentences.md)
 
+<!-- Update_Description: wording update -->

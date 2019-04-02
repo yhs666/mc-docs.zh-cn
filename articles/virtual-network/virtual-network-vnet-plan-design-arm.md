@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/16/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6a3b5ba7c5ed23be18400b24720dd2ec4cb94876
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 26b3578259339bb4a74d41175249092d2404ab21
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306127"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625930"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -38,9 +38,9 @@ ms.locfileid: "56306127"
 
 - 资源的使用者通常希望其资源的网络延迟最低。 若要确定指定位置与 Azure 区域之间的相对延迟，请参阅[查看相对延迟](../network-watcher/view-relative-latencies.md?toc=%2fvirtual-network%2ftoc.json)。
 - 是否有数据驻留、主权、符合性或复原能力需求？ 如果有，选择符合需求的区域至关重要。 
-<!-- Not Available on  [Azure geographies](https://www.azure.cn/global-infrastructure/geographies/) -->
+  <!-- Not Available on  [Azure geographies](https://www.azure.cn/global-infrastructure/geographies/) -->
 - 是否需要在部署资源的相同 Azure 区域内跨 Azure 可用性区域提供复原能力？ 可将资源（如虚拟机 (VM)）部署到相同虚拟网络中的不同可用性区域。 但并非所有 Azure 区域都支持可用性区域。
-<!-- Not Available on [Availability zones](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+  <!-- Not Available on [Availability zones](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="subscriptions"></a>订阅
 

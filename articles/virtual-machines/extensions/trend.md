@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: b3158b91a17c411a44d2045e7bac3a005916ee94
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fc70aef0861c060c59917273f86729eae720b80c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675004"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625894"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -33,13 +33,14 @@ ms.locfileid: "52675004"
 
 如果已经有针对本地解决方案的 Trend Micro 当前订阅，则可用它来帮助保护 Azure 虚拟机。 如果还不是客户，则可注册试用订阅。 有关此解决方案的详细信息，请参阅 Trend Micro 博客文章 [Azure VM Agent Extension For Deep Security](https://go.microsoft.com/fwlink/p/?LinkId=403945)（用于 Deep Security 的 Azure VM 代理扩展）。
 
-<!-- Not Available on ## Install the Deep Security Agent on a new VM-->
+
+<!--Verify Not Available on ## Install the Deep Security Agent on a new VM-->
 
 
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>在现有 VM 上安装 Deep Security Agent
 若要在现有 VM 上安装代理，需要以下各项：
 
-* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount` 登录到 Azure 订阅。
+* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount -Environment AzureChinaCloud` 登录到 Azure 订阅。
 * 在目标虚拟机上安装 VM 代理。
 
 首先，请验证是否已安装 VM 代理。 填写云服务名称和虚拟机名称，并在管理员级别的 Azure PowerShell 命令提示符下运行以下命令。 替换引号内的所有内容，包括 < and > 字符。

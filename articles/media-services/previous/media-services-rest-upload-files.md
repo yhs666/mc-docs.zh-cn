@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: bc0c98cad6cba84cf15e9fa9057410419e49877f
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: ee536fbc3f8fd2da04b74c04965c741e7131538e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833370"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626942"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户  
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "56833370"
 使用媒体服务 REST API 时，需注意以下事项：
  
 * 访问媒体服务 REST API 访问实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。 <br/>本教程中使用的 Postman 集合负责设置所有必要的标头。
-* 构建流内容的 URL 时，媒体服务会使用 IAssetFile.Name 属性的值（如 http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters。）出于这个原因，不允许使用百分号编码。 **Name** 属性的值不能含有任何以下[百分号编码保留字符](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，文件扩展名中只能含有一个“.”。
+* 构建流内容的 URL 时，媒体服务会使用 IAssetFile.Name 属性的值（如 http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters。）出于这个原因，不允许使用百分号编码。 **Name** 属性的值不能含有任何以下[百分号编码保留字符](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，文件扩展名中只能含有一个“.”。
 * 名称长度不应超过 260 个字符。
 * 在媒体服务中进行处理时，系统支持的最大文件大小存在限制。 有关文件大小限制的详细信息，请参阅[此文](media-services-quotas-and-limitations.md)。
 

@@ -1,28 +1,25 @@
 ---
 title: 通过 C++ 连接到 Azure Database for MySQL
 description: 本快速入门提供一个 C++ 代码示例，使用该示例可连接到 Azure Database for MySQL 并查询其中的数据。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
-ms.devlang: C++
+ms.devlang: cpp
 ms.topic: quickstart
 origin.date: 04/12/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 11b22fd68b79b5f5790dcfceacc91173f79beda1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/01/2019
+ms.openlocfilehash: 770e3cdabb404fcb000c9a267dbb0bb5e15d5825
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666980"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503569"
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Connector/C++ 进行连接并查询数据
+# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Connector/C++ 连接和查询数据
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本快速入门演示如何使用 C++ 应用程序连接到 Azure Database for MySQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本主题假设你熟悉如何使用 C++ 进行开发，但不太熟悉 Azure Database for MySQL 的用法。
 
@@ -35,7 +32,7 @@ ms.locfileid: "52666980"
 - 安装 [.NET Framework](https://www.microsoft.com/net/download)
 - 安装 [Visual Studio](https://www.visualstudio.com/downloads/)
 - 安装 [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-- 安装 [Boost](http://www.boost.org/)
+- 安装 [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>安装 Visual Studio 和 .NET
 本部分的步骤假定你熟悉如何使用 .NET 进行开发。
@@ -46,10 +43,10 @@ ms.locfileid: "52666980"
    2. 运行该安装程序，并遵照安装提示完成安装。
 
 ### <a name="configure-visual-studio"></a>配置 Visual Studio
-1. 在 Visual Studio 的“项目”->“属性”->“链接器”->“常规”>“其他库目录”中，添加 C++ 连接器的“lib\opt”目录（即 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt）。
+1. 从 Visual Studio 的“项目”->“属性”->“链接器”->“常规”>“其他库目录”中，添加 C++ 连接器的“lib\opt”目录（即：C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt）。
 2. 在 Visual Studio 的“项目”->“属性”->“C/C++”->“常规”->“其他 Include 目录”中：
-   - 添加 c++ 连接器的“\include”目录（即 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)。
-   - 添加 Boost 库的根目录（即 C:\boost_1_64_0\)。
+   - 添加 c++ 连接器的“\include”目录（即：C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)）。
+   - 添加 Boost 库的根目录（即：C:\boost_1_64_0\)）。
 3. 在 Visual Studio 的“项目”->“属性”->“链接器”->“输入”->“其他依赖项”中，将 **mysqlcppconn.lib** 添加到文本字段。
 4. 将 **mysqlcppconn.dll** 从步骤 3 中的 C++ 连接器库文件夹复制到应用程序可执行文件所在的目录，或者将其添加到环境变量，方便应用程序找到它。
 

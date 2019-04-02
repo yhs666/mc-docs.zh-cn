@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 02/14/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: d117fe9df86f30161aa6f2ceba0199b2fe2c7c5f
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 6ccaa710e7655d35ec2aaf749160d99407bfdfe6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833142"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625548"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>使用 PowerShell 创建具有站点到站点 VPN 连接的 VNet
 
@@ -38,7 +38,7 @@ ms.locfileid: "56833142"
 在开始配置之前，请验证你是否符合以下条件：
 
 * 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
-* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
+* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。
 * 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
 
 ### <a name="running-powershell-locally"></a>在本地运行 PowerShell
@@ -58,21 +58,20 @@ ms.locfileid: "56833142"
 
 VnetName                = VNet1
 ResourceGroup           = TestRG1
-Location                = China North 
-AddressSpace            = 10.1.0.0/16 
-SubnetName              = Frontend 
-Subnet                  = 10.1.0.0/24 
+Location                = China North 
+AddressSpace            = 10.1.0.0/16 
+SubnetName              = Frontend 
+Subnet                  = 10.1.0.0/24 
 GatewaySubnet           = 10.1.255.0/27
 LocalNetworkGatewayName = Site1
-LNG Public IP           = <On-premises VPN device IP address> 
+LNG Public IP           = <On-premises VPN device IP address> 
 Local Address Prefixes  = 10.101.0.0/24, 10.101.1.0/24
 Gateway Name            = VNet1GW
 PublicIP                = VNet1GWPIP
-Gateway IP Config       = gwipconfig1 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+Gateway IP Config       = gwipconfig1 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite1
-
 ```
 
 ## <a name="VNet"></a>1.创建虚拟网络和网关子网
@@ -104,16 +103,16 @@ New-AzResourceGroup -Name TestRG1 -Location 'China North'
 
 1. 设置变量。
 
-  ```azurepowershell
-  $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
-  $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
-  ```
+   ```azurepowershell
+   $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
+   $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
+   ```
 2. 创建 VNet。
 
-  ```azurepowershell
-  New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
-  -Location 'China North' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
-  ```
+   ```azurepowershell
+   New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
+   -Location 'China North' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
+   ```
 
 ### <a name="gatewaysubnet"></a>将网关子网添加到已创建的虚拟网络
 
@@ -121,19 +120,19 @@ New-AzResourceGroup -Name TestRG1 -Location 'China North'
 
 1. 设置变量。
 
-  ```azurepowershell
-  $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
-  ```
+   ```azurepowershell
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+   ```
 2. 创建网关子网。
 
-  ```azurepowershell
-  Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
-  ```
+   ```azurepowershell
+   Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+   ```
 3. 设置配置。
 
-  ```azurepowershell
-  Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell
+   Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 
 ## 2.<a name="localnet"></a>创建本地网关
 
@@ -141,7 +140,7 @@ New-AzResourceGroup -Name TestRG1 -Location 'China North'
 
 使用以下值：
 
-* *GatewayIPAddress* 是本地 VPN 设备的 IP 地址。 VPN 设备不能位于 NAT 之后。
+* *GatewayIPAddress* 是本地 VPN 设备的 IP 地址。
 * *AddressPrefix* 是本地地址空间。
 
 若要添加具有单个地址前缀的局域网网关：
@@ -221,17 +220,17 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 接下来，会在虚拟网络网关和 VPN 设备之间创建站点到站点 VPN 连接。 请务必替换成自己的值。 共享密钥必须与用于 VPN 设备配置的值匹配。 请注意，站点到站点的“-ConnectionType”为 IPsec。
 
 1. 设置变量。
-  ```azurepowershell
-  $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell
+   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 
 2. 创建连接。
-  ```azurepowershell
-  New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
-  -Location 'China North' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell
+   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
+   -Location 'China North' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 在一小段时间后建立该连接。
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: d82c434b93505cd5c70b626c9542e9d244351a27
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 852fe1f9bb175a96c4386718133541cfe9a81ec6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440523"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626902"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>在混合环境中为 Linux 计算机配置 Log Analytics 代理
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可将物理或虚拟 Linux 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Linux 计算机中配置或收集数据。  有关 Azure Linux VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](quick-collect-azurevm.md)。  
@@ -35,13 +35,13 @@ ms.locfileid: "56440523"
 1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”。<br><br> ![Azure 门户](media/quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. 单击“创建”，然后为以下各项选择选项：
 
-  * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 OMS 工作区现在称为 Log Analytics 工作区。   
-  * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
-  * 对于“资源组”，选择包含一个或多个 Azure 虚拟机的现有资源组。  
-  * 选择向其部署 VM 的“位置”。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。  
-  * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/log-analytics/)。
+   * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 OMS 工作区现在称为 Log Analytics 工作区。   
+   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
+   * 对于“资源组”，选择包含一个或多个 Azure 虚拟机的现有资源组。  
+   * 选择向其部署 VM 的“位置”。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。  
+   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/log-analytics/)。
 
-        ![Create Log Analytics resource blade](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
+        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. 在“Log Analytics 工作区”窗格上提供所需信息后，单击“确定”。  
 

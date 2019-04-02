@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 01/17/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 586766254774d5dd5bbeeb23c2130caeb383812a
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 3d62795ad06a364e94e0e0a9b968e66408759878
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987115"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503586"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自动化中的子 Runbook
 
@@ -100,11 +100,11 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzureRmAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
-    –Parameters $params –wait
+    -AzureRMContext $AzureContext `
+    -Parameters $params -wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>子 Runbook 调用方法的比较

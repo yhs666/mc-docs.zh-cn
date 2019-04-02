@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 03/04/0219
 ms.author: v-yiso
-ms.openlocfilehash: a640180a247ce540d7f4487a09978f8200880735
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 0367d7a4d43ec6a3f061ca84308f90b49a5a2897
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560501"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627271"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -521,9 +521,9 @@ Azure HDInsight 服务使用围绕 Apache Hadoop 形成的开源技术生态系�
 
 * **内置组件**。 这些组件预先安装在 HDInsight 群集上，并提供在群集的核心功能。 以下组件属于此类别：
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager。
-    * Hive 查询语言 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
-    * [Apache Mahout](https://mahout.apache.org/)。 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager。
+  * Hive 查询语言 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
+  * [Apache Mahout](https://mahout.apache.org/)。 
     
     [在 HDInsight 中可以使用哪些 Apache Hadoop 组件和版本？](hdinsight-component-versioning.md)中提供了群集组件的完整列表。
 

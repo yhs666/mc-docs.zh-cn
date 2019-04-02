@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 05a811f7883fd99b47489da7765a7edc1b248473
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b50222f5daa8e8e4770c5683da261b46aaa08bb5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666103"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625878"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure Policy 限制 Linux VM 上的扩展安装
 
@@ -31,7 +31,7 @@ ms.locfileid: "56666103"
 
 ## <a name="create-a-rules-file"></a>创建规则文件
 
-若要限制可以安装哪些扩展，需要使用[规则](/azure-policy/policy-definition#policy-rule)来提供用于识别扩展的逻辑。
+若要限制可以安装哪些扩展，需要使用[规则](../../governance/policy/concepts/definition-structure.md#policy-rule)来提供用于识别扩展的逻辑。
 
 此示例演示了如何通过创建规则文件来拒绝安装“Microsoft.OSTCExtensions”发布的扩展。 如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
 
@@ -72,7 +72,7 @@ vim ~/clouddrive/azurepolicy.rules.json
 
 ## <a name="create-a-parameters-file"></a>创建参数文件
 
-还需要一个[参数](/azure-policy/policy-definition#parameters)文件，以创建一个用于传入要阻止的扩展列表的结构。 
+还需要一个[参数](../../governance/policy/concepts/definition-structure.md#parameters)文件，以创建一个用于传入要阻止的扩展列表的结构。 
 
 此示例演示如何为 Linux VM 创建参数文件。 如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
 
@@ -102,7 +102,7 @@ vim ~/clouddrive/azurepolicy.parameters.json
 
 ## <a name="create-the-policy"></a>创建策略
 
-策略定义是用于存储想要使用的配置的对象。 策略定义使用规则和参数文件定义策略。 使用 [az policy definition create](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) 创建策略定义。
+策略定义是用于存储想要使用的配置的对象。 策略定义使用规则和参数文件定义策略。 使用 [az policy definition create](https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-policy-definition-create) 创建策略定义。
 
 在此示例中，规则和参数是在本地 shell 中创建并存储为 .json 文件的文件。
 
@@ -171,6 +171,7 @@ az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [Azure Policy](../../azure-policy/azure-policy-introduction.md)。
+
+有关详细信息，请参阅 [Azure Policy](../../governance/policy/overview.md)。
 
 <!-- Update_Description: wording update -->

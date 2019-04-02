@@ -3,7 +3,7 @@ title: 使用 Azure Media Video Thumbnails 创建视频摘要 | Microsoft Docs
 description: 视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 59103a281de5b18c2da0e17723b0c19cf928b26f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 3f86b7702901df84cf7b20125d03813d874a8b49
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651822"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624187"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要  
 ## <a name="overview"></a>概述
 通过 Azure Media Video Thumbnails 媒体处理器 (MP)，可创建视频摘要，这对于要预览长视频摘要的客户来说很有用。 例如，当客户将鼠标悬停在缩略图上时，他们可能希望看到一小段“摘要视频”。 使用配置预设值稍稍调整 **Azure 媒体视频缩略图** 的参数，就可使用 MP 的强大镜头检测和串联技术，以算法形式生成描述性子剪辑。  
 
@@ -38,10 +38,10 @@ ms.locfileid: "52651822"
 下面是 Azure 媒体视频缩略图媒体处理器可以执行的操作的一些示例：
 
 ### <a name="original-video"></a>原始视频
-[原始视频](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[原始视频](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>视频缩略图结果
-[视频缩略图结果](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[视频缩略图结果](https://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>任务配置（预设）
 使用 **Azure 媒体视频缩略图**创建视频缩略图时，必须指定配置预设值。 以上缩略图示例使用以下 JSON 基本配置创建：
@@ -56,14 +56,14 @@ ms.locfileid: "52651822"
 
 | Param | 说明 |
 | --- | --- |
-| outputAudio |指定生成的视频是否包含音频。 <br/>允许的值为：True 或 False。 默认值为 True。 |
-| fadeInFadeOut |指定单独动态缩略图之间是否使用淡入淡出转换。  <br/>允许的值为：True 或 False。  默认值为 True。 |
+| outputAudio |指定生成的视频是否包含音频。 <br/>允许值包括：True 或 False。 默认值为 True。 |
+| fadeInFadeOut |指定单独动态缩略图之间是否使用淡入淡出转换。  <br/>允许值包括：True 或 False。  默认值为 True。 |
 | maxMotionThumbnailDurationInSecs |指定生成的整个视频的时长的整数。  默认值取决于原始视频的持续时间。 |
 
 下表描述了当 **maxMotionThumbnailInSecs** 未使用时的默认持续时间。
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | 视频持续时间 |d < 3 分钟 |3 分钟 < d < 15 分钟 |
 | 缩略图持续时间 |15 秒（2-3 个场景） |30 秒（3-5 个场景） |
 
@@ -277,10 +277,10 @@ ms.locfileid: "52651822"
 ```
 
 ### <a name="video-thumbnail-output"></a>视频缩略图输出
-[视频缩略图输出](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[视频缩略图输出](https://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒体分析演示](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos（Azure 媒体分析演示）](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 <!--Update_Description: update code to use AAD token instead of ACS-->

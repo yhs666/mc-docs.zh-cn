@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 02/08/2019
 ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 72734e00b59882888606d5c31cf8ccf002252301
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 750b8c4c61da7c76b60dfa9ab4fea242b6381227
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990123"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625278"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教程：为 Azure Data Box 连接电缆并连接到它
 
@@ -84,10 +84,10 @@ ms.locfileid: "57990123"
     
 7. 提供你在上一步骤中从 Azure 门户获取的设备密码来登录到设备的本地 Web UI。 单击“登录” 。
 8. 在“仪表板”上，确保已配置了网络接口。 
-    - 如果你的环境中启用了 DHCP，则会自动配置网络接口。 
-    - 如果未启用 DHCP，请转到“设置网络接口”，并根据需要分配静态 IP。
+   - 如果你的环境中启用了 DHCP，则会自动配置网络接口。 
+   - 如果未启用 DHCP，请转到“设置网络接口”，并根据需要分配静态 IP。
 
-    ![设备仪表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![设备仪表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 配置数据网络接口以后，也可使用任何 DATA 1 - DATA 3 接口的 IP 地址来访问本地 Web UI `https://<IP address of a data network interface>`。 
 

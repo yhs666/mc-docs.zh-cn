@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d2a7273b9a00376ea4c5a4f7cac2c34bfa0f948f
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 5235f0934b21c60179fe5641a8c3ca6951988449
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987038"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625903"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>通过 Resource Manager 部署模型将 Windows Server 或客户端备份到 Azure
 本文介绍如何通过 Resource Manager 部署模型使用 Azure 备份将 Windows Server（或 Windows 客户端）文件和文件夹备份到 Azure。
@@ -52,17 +52,17 @@ ms.locfileid: "56987038"
     或
     * 如果要创建新的资源组，请选择“新建”  。
 
-  有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
+   有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 7. 单击“位置”，为保管库选择地理区域  。 此选项决定了备份数据要发送到的地理区域。
 
 8. 在“恢复服务保管库”边栏选项卡的底部，单击“创建” 。
 
-  创建恢复服务保管库可能需要数分钟。 可以在门户右上区域监视状态通知。 创建保管库后，它会显示在“恢复服务保管库”的列表中。 如果在几分钟后看不到保管库，请单击“刷新” 。
+   创建恢复服务保管库可能需要数分钟。 可以在门户右上区域监视状态通知。 创建保管库后，它会显示在“恢复服务保管库”的列表中。 如果在几分钟后看不到保管库，请单击“刷新” 。
 
-  ![单击“刷新”按钮](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
+   ![单击“刷新”按钮](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-  一旦在恢复服务保管库列表中看到保管库，即可设置存储冗余。
+   一旦在恢复服务保管库列表中看到保管库，即可设置存储冗余。
 
 ### <a name="set-storage-redundancy"></a>设置存储冗余
 首次创建恢复服务保管库时，需确定复制存储的方式。
@@ -77,17 +77,17 @@ ms.locfileid: "56987038"
 
 2. 在新保管库的“设置”部分中，转到“属性”。
 
-  此时“属性”边栏选项卡将打开。
+   此时“属性”边栏选项卡将打开。
 
 3. 在“属性”边栏选项卡中，单击“备份配置”边栏选项卡下的“更新”。 此时“备份配置”边栏选项卡将打开。
 
-  ![设置新保管库的存储配置](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+   ![设置新保管库的存储配置](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 4. 为保管库选择适当的存储复制选项，然后单击“保存”。
 
-  ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+   ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
+   默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 现在，你已创建了保管库，接下来请准备基础结构以备份文件和文件夹，方法是下载并安装世纪互联 Azure 恢复服务代理，下载保管库凭据，并使用这些凭据向保管库注册该代理。
 
@@ -95,47 +95,47 @@ ms.locfileid: "56987038"
 
 1. 在“恢复服务保管库”边栏选项卡（对应于刚创建的保管库）的“开始”部分单击“备份”，并在“开始使用备份”边栏选项卡上选择“备份目标”。
 
-  ![打开备份目标边栏选项卡](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+   ![打开备份目标边栏选项卡](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  此时会打开“备份目标”  边栏选项卡。 如果之前已配置了恢复服务保管库，在恢复服务保管库边栏选项卡上单击“备份”时，“备份目标”边栏选项卡将打开。
+   此时会打开“备份目标”  边栏选项卡。 如果之前已配置了恢复服务保管库，在恢复服务保管库边栏选项卡上单击“备份”时，“备份目标”边栏选项卡将打开。
 
-  ![打开备份目标边栏选项卡](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+   ![打开备份目标边栏选项卡](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. 从“工作负荷的运行位置?”下拉菜单中选择“本地”。
 
-  之所以选择“本地”  ，是因为 Windows Server 或 Windows 计算机是不在 Azure 中的物理计算机。
+   之所以选择“本地”  ，是因为 Windows Server 或 Windows 计算机是不在 Azure 中的物理计算机。
 
 3. 从“要备份的项?”菜单中选择“文件和文件夹”，并单击“确定”。
 
-  ![配置文件和文件夹](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
+   ![配置文件和文件夹](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-  单击“确定”后，会在“备份目标”旁边显示一个复选标记，并会打开“准备基础结构”边栏选项卡。
+   单击“确定”后，会在“备份目标”旁边显示一个复选标记，并会打开“准备基础结构”边栏选项卡。
 
-  ![配置备份目标以后，接下来准备基础结构](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
+   ![配置备份目标以后，接下来准备基础结构](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
 4. 在“准备基础结构”边栏选项卡上，单击“下载 Windows Server 或 Windows 客户端的代理”。
 
-  ![准备基础结构](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+   ![准备基础结构](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-  如果使用的是 Windows Server Essential，则选择下载 Windows Server Essential 的代理。 弹出菜单会提示用户运行或保存 MARSAgentInstaller.exe。
+   如果使用的是 Windows Server Essential，则选择下载 Windows Server Essential 的代理。 弹出菜单会提示用户运行或保存 MARSAgentInstaller.exe。
 
-  ![MARSAgentInstaller 对话框](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
+   ![MARSAgentInstaller 对话框](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
 5. 在下载弹出窗口中单击“保存” 。
 
-  默认情况下，**MARSagentinstaller.exe** 文件将保存到 Downloads 文件夹。 下载完安装程序以后，会显示一个弹出窗口，询问用户是要运行安装程序，还是要打开文件夹。
+   默认情况下，**MARSagentinstaller.exe** 文件将保存到 Downloads 文件夹。 下载完安装程序以后，会显示一个弹出窗口，询问用户是要运行安装程序，还是要打开文件夹。
 
-  ![准备基础结构](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+   ![准备基础结构](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-  此时还不需要安装代理。 下载保管库凭据之后，即可安装代理。
+   此时还不需要安装代理。 下载保管库凭据之后，即可安装代理。
 
 6. 在“准备基础结构”边栏选项卡上，单击“下载”。
 
-  ![下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
+   ![下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-  保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存” 。 如果意外地单击了“打开”，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
+   保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存” 。 如果意外地单击了“打开”，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
 
-  ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+   ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
@@ -147,33 +147,34 @@ ms.locfileid: "56987038"
 
 1. 在 Downloads 文件夹（或其他保存位置）中找到并双击 **MARSagentinstaller.exe**。
 
-  安装程序会在提取、安装和注册恢复服务代理时提供一系列消息。
+   安装程序会在提取、安装和注册恢复服务代理时提供一系列消息。
 
-  ![运行恢复服务代理安装程序凭据](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
+   ![运行恢复服务代理安装程序凭据](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
 2. 完成世纪互联 Azure 恢复服务代理安装向导。 若要完成该向导，需完成以下操作：
 
-  * 选择安装和缓存文件夹的位置。
-  * 如果使用代理服务器来连接 Internet，请提供代理服务器信息。
-  * 如果使用经过身份验证的代理，请提供用户名和密码详细信息。
-  * 提供已下载的保管库凭据
-  * 将加密通行短语保存在安全的位置。
+   * 选择安装和缓存文件夹的位置。
+   * 如果使用代理服务器来连接 Internet，请提供代理服务器信息。
+   * 如果使用经过身份验证的代理，请提供用户名和密码详细信息。
+   * 提供已下载的保管库凭据
+   * 将加密通行短语保存在安全的位置。
 
-  > [!NOTE]
-  > 如果丢失或忘记了通行短语，Azure 无法帮助你恢复备份数据。 请将文件保存在安全的位置。 还原备份时需要用到此文件。
-  >
-  >
+   > [!NOTE]
+   > 如果丢失或忘记了通行短语，Azure 无法帮助你恢复备份数据。 请将文件保存在安全的位置。 还原备份时需要用到此文件。
+   >
+   >
 
 现已安装代理，且已向保管库注册计算机。 接下来可以配置和计划备份。
 
 ## <a name="network-and-connectivity-requirements"></a>网络和连接要求
 
 如果计算机/代理具有有限的 internet 访问，请确保计算机/代理上的防火墙设置配置为允许以下 URL： <br>
-    1. www.msftncsi.com
-    2. *.Microsoft.com
-    3. *.WindowsAzure.cn
-    4. *.microsoftonline.cn
-    5. *.chinacloudapi.cn
+
+1. www.msftncsi.com
+2. *.Microsoft.com
+3. *.WindowsAzure.cn
+4. *.microsoftonline.cn
+5. *.chinacloudapi.cn
 
 
 ## <a name="create-the-backup-policy"></a>创建备份策略
@@ -192,7 +193,7 @@ ms.locfileid: "56987038"
 3. 在计划备份向导的“开始使用”页上，单击“下一步”。
 4. 在“选择要备份的项”页上，单击“添加项”。
 
-  “选择项”对话框随即打开。
+   “选择项”对话框随即打开。
 
 5. 选择要保护的文件和文件夹，并单击“确定”。
 6. 在“选择要备份的项”页上，单击“下一步”。

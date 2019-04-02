@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d86fc4136dd6c5407df1208581828c312ebd3376
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 36dfef26a2abf1ce308013987ef7c80cd4aace1a
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657642"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544688"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>如何通过 Ruby 使用服务总线队列
 
@@ -30,6 +29,7 @@ ms.locfileid: "52657642"
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]

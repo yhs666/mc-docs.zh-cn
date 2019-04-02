@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 563f96e523cfa202c1cc3382de4fa18148bc8200
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: f3204600510d4ab9f01cdda315fc7ceff9211e4a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440943"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626834"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>将 Azure Log Analytics 数据导入 Power BI
 
@@ -58,11 +58,11 @@ Power BI Desktop 是一个桌面应用程序，用于创建可发布到 Power BI
 ## <a name="publish-to-power-bi"></a>发布到 Power BI
 当你发布到 Power BI 时，将创建数据集和报表。  如果你是在 Power BI Desktop 中创建报表，则发布的报表将包含你的数据。  如果不是，则会创建一个空白报表。  你可以在 Power BI 中修改报表或基于数据集创建新报表。
 
-8. 基于你的数据创建报表。  请使用 [Power BI Desktop 文档](https://docs.microsoft.com/zh-cn/power-bi/desktop-report-view)（如果你不熟悉此应用程序）。  如果你已准备好将其发送到 Power BI，请单击“发布”。  出现提示时，请在 Power BI 帐户中选择目标。  除非你有特定的目标，否则请使用“我的工作区”。
+1. 基于你的数据创建报表。  请使用 [Power BI Desktop 文档](https://docs.microsoft.com/zh-cn/power-bi/desktop-report-view)（如果你不熟悉此应用程序）。  如果你已准备好将其发送到 Power BI，请单击“发布”。  出现提示时，请在 Power BI 帐户中选择目标。  除非你有特定的目标，否则请使用“我的工作区”。
 
     ![Power BI Desktop 发布](media/powerbi/desktop-publish.png)
 
-3. 发布完成后，单击“在 Power BI 中打开”，以在 Power BI 中打开新数据集。
+2. 发布完成后，单击“在 Power BI 中打开”，以在 Power BI 中打开新数据集。
 
 
 ### <a name="configure-scheduled-refresh"></a>配置计划的刷新

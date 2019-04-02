@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 01/11/2018
 ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 219cba2f9c54203ff47d72bd9827153df1c5c7ff
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 386b4a3d55bbbc7d2ffbcd379a0b20de5f2bf6ed
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653721"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626246"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 

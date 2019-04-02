@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 06/22/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5c94b77ce433e4f4f301d0f4946702cdd3fae56a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cb6a9261c451d5b07adef8d1c685980b792739c6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625816"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>有关 Azure Service Fabric 与 API 管理的概述
 
@@ -78,9 +78,9 @@ Azure API 管理可与无状态服务、有状态服务和任何分区方案的�
 
 在此示例中，使用以下公式为应用的每个用户新建一个无状态服务实例，名称动态生成：
 
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- 每个服务都有一个独一无二的名称，但这些名称并不是提前已知，因为服务是根据用户或管理员输入创建而成，无法硬编码到 APIM 策略或路由规则中。 相反，向其发送请求的服务的名称是根据 URL 请求路径中的 `name` 值在后端策略定义中生成。 例如：
+  每个服务都有一个独一无二的名称，但这些名称并不是提前已知，因为服务是根据用户或管理员输入创建而成，无法硬编码到 APIM 策略或路由规则中。 相反，向其发送请求的服务的名称是根据 URL 请求路径中的 `name` 值在后端策略定义中生成。 例如：
 
   - 对 `/api/users/foo` 发出的请求被路由到服务实例 `fabric:/app/users/foo`
   - 对 `/api/users/bar` 发出的请求被路由到服务实例 `fabric:/app/users/bar`
@@ -97,9 +97,9 @@ Azure API 管理可与无状态服务、有状态服务和任何分区方案的�
 
 在此示例中，使用以下公式为应用的每个用户新建一个有状态服务实例，名称动态生成：
 
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- 每个服务都有一个独一无二的名称，但这些名称并不是提前已知，因为服务是根据用户或管理员输入创建而成，无法硬编码到 APIM 策略或路由规则中。 相反，向其发送请求的服务的名称是根据 URL 请求路径中的 `name` 值在后端策略定义中生成的。 例如：
+  每个服务都有一个独一无二的名称，但这些名称并不是提前已知，因为服务是根据用户或管理员输入创建而成，无法硬编码到 APIM 策略或路由规则中。 相反，向其发送请求的服务的名称是根据 URL 请求路径中的 `name` 值在后端策略定义中生成的。 例如：
 
   - 对 `/api/users/foo` 发出的请求被路由到服务实例 `fabric:/app/users/foo`
   - 对 `/api/users/bar` 发出的请求被路由到服务实例 `fabric:/app/users/bar`

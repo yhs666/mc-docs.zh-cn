@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 12/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3815d184beed0bba52e75cb4d133c6d7cf666fc3
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 9fe0272a1c5094a22cc61868647e77335d87729b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348589"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626293"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
@@ -120,7 +120,7 @@ Hive 分区的实现方法是将原始数据重新组织成新目录。 每个�
          L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
          L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
-有关详细信息，请参阅[分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
+  有关详细信息，请参阅[分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
 Hive 支持不同的文件格式。 例如：

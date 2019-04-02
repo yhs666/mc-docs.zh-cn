@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 22867691d66bf22937c7885c1ee8221c807e67c9
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 355677b5702f90c4dd3815804dfffc5ff8bafc1f
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833375"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624180"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure 媒体包装器完成静态打包任务  
 > [!NOTE]
@@ -62,7 +62,7 @@ ms.locfileid: "56833375"
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
     <!-- Tells the server that these input files are MP4s – specific to Dynamic Packaging -->
         <meta name="formats" content="mp4" /> 
@@ -773,7 +773,7 @@ ms.locfileid: "56833375"
                 IAsset HLSEncryptedWithAESAsset = CreateHLSEncryptedWithAES(clearSmoothStreamAsset);
 
                 // You can use the following player to test the HLS with AES stream.
-                // http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
+                // https://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
                 string hlsWithAESURL = HLSEncryptedWithAESAsset.GetHlsUri().ToString();
                 Console.WriteLine("HLS with AES URL:");
                 Console.WriteLine(hlsWithAESURL);

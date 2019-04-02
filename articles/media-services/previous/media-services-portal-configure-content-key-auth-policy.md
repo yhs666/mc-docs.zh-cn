@@ -3,7 +3,7 @@ title: 使用 Azure 门户配置内容密钥授权策略 | Microsoft Docs
 description: 了解如何配置内容密钥的授权策略。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 05/28/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 0d40eb7e6a9f0d48ed0e8d28f256208876f81b4a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 8e058ce66f4a24482bc551cdec919859e6e38032
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657242"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624206"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -67,7 +67,7 @@ ms.locfileid: "52657242"
 ### <a name="playready"></a>PlayReady
 使用 PlayReady 保护内容时，需要在授权策略中指定的项目之一是用于定义 PlayReady 许可证模板的 XML 字符串。 默认情况下，已设置以下策略：
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
           <LicenseTemplates>
             <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
               <ContentKey i:type="ContentEncryptionKeyFromHeader" />

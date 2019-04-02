@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 7f1fcf14fefbac8772ca29d8309fb7676a726ff6
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 532a1f06c153cb105df60afbac3df70cd4f9b27c
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833400"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624118"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>使用 FMLE 编码器发送单比特率实时流（旧版）
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 编码器发送单比特率实时流 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -30,11 +30,11 @@ ms.locfileid: "56833400"
 >
 >
 
-本文说明了如何配置 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。 有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
+本文说明了如何配置 [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。 有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教程演示了如何通过 Azure 媒体服务浏览器 (AMSE) 工具管理 Azure 媒体服务 (AMS)。 此工具仅在 Windows 电脑上运行。 如果使用的是 Mac 或 Linux，则可使用 Azure 门户创建[频道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
-本教程介绍了如何使用 AAC。 但在默认情况下，FMLE 不支持 AAC。 需要购买一个进行 AAC 编码用的插件，例如由 MainConcept 提供的：[AAC 插件](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+本教程介绍了如何使用 AAC。 但在默认情况下，FMLE 不支持 AAC。 需要购买一个进行 AAC 编码用的插件，例如由 MainConcept 提供的：[AAC 插件](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>先决条件
 * [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)

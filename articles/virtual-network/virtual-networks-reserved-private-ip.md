@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 origin.date: 10/31/2018
 ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 679114b43a7056422e6f8c9feda508848e1b8829
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 6c063886ea53d2452a3236655a2cf7e8bdf58ec0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389376"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626635"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell（经典）设置静态内部专用 IP 地址
-大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 会自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
+大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在你的 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型。 Azure 建议大多数新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
 > 
 > 
-## <a name="install-the-azure-powershell-service-management-module"></a>安装 Azure PowerShell 服务管理模块
+> ## <a name="install-the-azure-powershell-service-management-module"></a>安装 Azure PowerShell 服务管理模块
 
 在运行以下命令之前，请确保计算机上已安装 [Azure PowerShell 服务管理模块](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
 )。 有关 Azure PowerShell 服务管理模块的版本历史记录，请参阅 [PowerShell 库中的 Azure 模块](https://www.powershellgallery.com/packages/Azure/5.3.0)。
@@ -46,7 +46,7 @@ ms.locfileid: "53389376"
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> 若要在安全环境中测试上面的命令，请遵循[创建虚拟网络（经典）](virtual-networks-create-vnet-classic-pportal.md)中的指南，创建名为“TestVnet”的 VNet，并确保它使用“10.0.0.0/8”地址空间。
+> 若要在安全环境中测试上面的命令，请按照[创建虚拟网络（经典）](virtual-networks-create-vnet-classic-pportal.md)中的指南，创建名为“TestVnet”的 VNet，并确保它使用“10.0.0.0/8”地址空间。
 > 
 > 
 

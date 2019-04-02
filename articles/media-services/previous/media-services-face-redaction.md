@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: c6ed37d4065aad465f913bf79bbbaa17c1d51c29
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 56bd32356ee9570f19869e876d24928a004bc700
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833315"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624137"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>使用 Azure 媒体分析进行面部修订（旧版）
+# <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订 
 ## <a name="overview"></a>概述
 **Azure 媒体修订器**是一种 [Azure 媒体分析](media-services-analytics-overview.md)媒体处理器 (MP)，可用于在云中进行可缩放的面部修订。 使用面部修订，可对视频进行修改，使所选个人的面部模糊显示。 用户可能想要在公共安全和新闻媒体场景中使用面部修订服务。 对于时长仅几分钟但包含多张面孔的镜头，进行手动面部修订可能需要几个小时，但使用此服务仅需几个简单步骤即可完成该过程。 有关详细信息，请参阅[此](https://azure.microsoft.com/blog/azure-media-redactor/)博客。
 
@@ -42,10 +42,10 @@ ms.locfileid: "56833315"
 | 输出资产 |foo_redacted.mp4 |进行了模糊处理的视频 |
 
 #### <a name="input-example"></a>输入示例：
-[观看此视频](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.chinacloudapi.cn%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[观看此视频](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.chinacloudapi.cn%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>输出示例：
-[观看此视频](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.chinacloudapi.cn%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[观看此视频](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.chinacloudapi.cn%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>分析模式
 双步工作流的 **分析** 步骤使用视频输入，并生成表示面部位置的 JSON 文件，以及显示每个检测到的面部的 jpg 图像。
@@ -126,7 +126,7 @@ ms.locfileid: "56833315"
 #### <a name="example-output"></a>示例输出
 这是来自选择了一个 ID 的 ID 列表的输出。
 
-[观看此视频](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.chinacloudapi.cn%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[观看此视频](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.chinacloudapi.cn%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 示例 foo_IDList.txt
  
@@ -367,6 +367,6 @@ namespace FaceRedaction
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos（Azure 媒体分析演示）](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 <!--Update_Description: wording update-->

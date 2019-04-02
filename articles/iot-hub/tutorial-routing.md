@@ -10,12 +10,12 @@ origin.date: 09/11/2018
 ms.date: 04/01/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: cd30d894bf5f9b8acfcc5cd4b99dc4f8bbba82d0
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: c223b54dc31cac111c573d24f8b1f6b227b51976
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348586"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627211"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
@@ -143,7 +143,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -161,7 +161,6 @@ az iot hub device-identity create --device-id $iotDeviceName \
 #   Notepad. You need this to run the device simulation during the testing phase.
 az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
-
 ```
 
 ### <a name="set-up-your-resources-using-azure-powershell"></a>使用 Azure PowerShell 设置资源
@@ -242,7 +241,6 @@ Write-Host "Service Bus queue name is " $serviceBusQueueName
 New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
     -Namespace $serviceBusNamespace `
     -Name $serviceBusQueueName 
-
 ```
 
 接下来，创建设备标识并保存其密钥供之后使用。 此设备标识由模拟应用程序用来发送消息到 IoT 中心。 PowerShell 不提供此功能，但可在 [Azure 门户](https://portal.azure.cn)中创建设备。
@@ -309,15 +307,15 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    **名称**：为路由查询输入名称。 本教程使用 StorageRoute。
 
    **终结点**：选择刚刚设置的终结点。 
-   
+
    **数据源**：从下拉列表选择“设备遥测消息”。
 
    **启用路由**：确保启用此选项。
-   
+
    **路由查询**：输入 `level="storage"` 作为查询字符串。 
 
    ![显示为存储帐户创建路由查询的屏幕截图。](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    单击“保存” 。 完成后，返回到“消息路由”窗格，可在其中看到存储的新路由查询。 关闭“路由”窗格，将返回到资源组页。
 
 ### <a name="routing-to-a-service-bus-queue"></a>路由到服务总线队列 
@@ -335,14 +333,14 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 4. 填写字段：
 
    **终结点名称**：为终结点输入名称。 本教程使用 CriticalQueue。
-   
+
    **服务总线命名空间**：单击此字段以显示下拉列表；选择你在准备步骤中设置的服务总线命名空间。 本教程使用 ContosoSBNamespace。
 
    **服务总线队列**：单击此字段以显示下拉列表；从下拉列表中选择服务总线队列。 本教程使用 contososbqueue。
 
 5. 单击“创建”添加服务总线队列终结点。 随即返回到“添加路由”窗格。 
 
-6.  现在完成余下的路由查询信息。 此查询指定将消息发送到刚刚添加为终结点的服务总线队列的条件。 填充屏幕上的字段。 
+6. 现在完成余下的路由查询信息。 此查询指定将消息发送到刚刚添加为终结点的服务总线队列的条件。 填充屏幕上的字段。 
 
    **名称**：为路由查询输入名称。 本教程使用 SBQueueRoute。 
 
@@ -399,7 +397,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    ![显示为服务总线队列设置连接的屏幕截图。](./media/tutorial-routing/logic-app-define-connection.png)
 
    单击“服务总线”命名空间。 本教程使用 ContosoSBNamespace。 选择该命名空间时，门户会查询该“服务总线”命名空间以检索密钥。 选择“RootManageSharedAccessKey”，并单击“创建”。 
-   
+
    ![显示完成设置连接的屏幕截图。](./media/tutorial-routing/logic-app-finish-connection.png)
 
 7. 在下一步屏幕上，从下拉列表选择队列名称（本教程使用 contososbqueue）。 其余字段可使用默认值。 
@@ -455,7 +453,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    **共享访问策略名称**：选择“iothubowner”。 门户将填充共享访问策略密钥。
 
    **使用者组**：选择之前创建的使用者组。 本教程使用 contosoconsumers。
-   
+
    其余字段接受默认值。 
 
    ![显示如何为流分析作业设置输入的屏幕截图。](./media/tutorial-routing/stream-analytics-job-inputs.png)
@@ -630,6 +628,6 @@ Remove-AzResourceGroup -Name $resourceGroup
 转到下一教程，了解如何管理 IoT 设备的状态。 
 
 > [!div class="nextstepaction"]
-[通过 IoT 中心设置和使用指标和诊断](tutorial-use-metrics-and-diags.md)
+> [通过 IoT 中心设置和使用指标和诊断](tutorial-use-metrics-and-diags.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/29/2019
-ms.date: 03/04/2019
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 6138c6eb196eb714bcbb3732e81a2d40c7ae096e
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 08668000144ba468c0854c358aae0d39c3a5ee32
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988072"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627737"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
@@ -32,15 +32,16 @@ ms.locfileid: "57988072"
 
 只要有所用虚拟机 (VM) 扩展的更新，就应下载它们。 随产品一起提供的扩展不会在普通的修补和更新过程中更新，因此请经常查看更新。 其他扩展只能通过市场管理获取。
 
-|  | 项名称 | 说明 | 发布者 | OS 类型 |
-| --- | --- | --- | --- | --- |
-| ![SQL IaaS 扩展](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 扩展](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。** | Microsoft | Windows |
-| ![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](/virtual-machines/windows/extensions-customscript)| **请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。** | Microsoft | Windows |
-| ![PowerShell DSC 扩展](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 扩展](/virtual-machines/windows/extensions-dsc-overview)| **请将此更新下载到 PowerShell DSC 扩展的内置版本。更新为支持 TLS v1.2。** | Microsoft | Windows |
-| ![Microsoft 反恶意软件扩展](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反恶意软件扩展](/security/azure-security-antimalware)| 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在在后台运行而无需人工干预。 **请将此更新下载到 Antimalware 扩展的内置版本。** | Microsoft | Windows |
-| ![Azure 诊断扩展](media/azure-stack-marketplace-azure-items/cse.png) | [Azure 诊断扩展](/virtual-machines/extensions/diagnostics-windows)| Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的功能。 **请下载此更新，此更新针对用于 Windows 的诊断扩展的内置版本。** | Microsoft | Windows || ![Microsoft Monitoring 扩展](./media/azure-stack-marketplace-azure-items/cse.png) | Microsoft Monitoring Agent 扩展 | Microsoft Monitoring Agent 扩展可以与 OMS 配合使用，提供虚拟机监视功能。 **请下载此更新，此更新针对用于 Windows 的 Monitoring Agent 扩展的内置版本。** | Microsoft | Windows |
-| ![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](/virtual-machines/windows/extensions-customscript)|**请将此更新下载到 Linux 的自定义脚本扩展的内置版本。此扩展有多个版本，应下载 1.5.2.1 和 2.0.x。** | Microsoft | Linux |
-| ![适用于 Linux 的 VM 访问权限](media/azure-stack-marketplace-azure-items/cse.png) | [适用于 Linux 的 VM 访问权限](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **请下载此更新，此更新针对适用于 Linux 的 VM 访问权限扩展的内置版本。如果计划使用 Debian Linux VM，此更新很重要。** | Microsoft | Linux |
+
+|                                                                                       |                                                         项名称                                                         |                                                                                                                   说明                                                                                                                   | 发布者 | OS 类型 |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|---------|
+|       ![SQL IaaS 扩展](media/azure-stack-marketplace-azure-items/cse.png)        |          [SQL IaaS 扩展](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)          |                                                                 **下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。**                                                                  | Microsoft | Windows |
+|     ![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png)     |                       [自定义脚本扩展](/virtual-machines/windows/extensions-customscript)                        |                                                                           **请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。**                                                                            | Microsoft | Windows |
+|    ![PowerShell DSC 扩展](media/azure-stack-marketplace-azure-items/dsc.png)     |                       [PowerShell DSC 扩展](/virtual-machines/windows/extensions-dsc-overview)                       |                                                                  **请将此更新下载到 PowerShell DSC 扩展的内置版本。更新为支持 TLS v1.2。**                                                                   | Microsoft | Windows |
+| ![Microsoft 反恶意软件扩展](media/azure-stack-marketplace-azure-items/cse.png) |                          [Microsoft 反恶意软件扩展](/security/azure-security-antimalware)                          | 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在在后台运行而无需人工干预。 **请将此更新下载到 Antimalware 扩展的内置版本。** | Microsoft | Windows |
+|   ![Azure 诊断扩展](media/azure-stack-marketplace-azure-items/cse.png)    |                      [Azure 诊断扩展](/virtual-machines/extensions/diagnostics-windows)                       |               Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的功能。 **请下载此更新，此更新针对用于 Windows 的诊断扩展的内置版本。**                | Microsoft | Windows |
+|     ![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png)     |                       [自定义脚本扩展](/virtual-machines/windows/extensions-customscript)                        |                             **请将此更新下载到 Linux 的自定义脚本扩展的内置版本。此扩展有多个版本，应下载 1.5.2.1 和 2.0.x。**                              | Microsoft |  Linux  |
+|       ![适用于 Linux 的 VM 访问权限](media/azure-stack-marketplace-azure-items/cse.png)       | [适用于 Linux 的 VM 访问权限](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |                                                **请下载此更新，此更新针对适用于 Linux 的 VM 访问权限扩展的内置版本。如果计划使用 Debian Linux VM，此更新很重要。**                                                | Microsoft |  Linux  |
 
 ## <a name="virtual-machine-images-and-solution-templates"></a>虚拟机映像和解决方案模板
 

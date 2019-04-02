@@ -3,7 +3,7 @@ title: 使用 REST 创建内容密钥 | Microsoft 文档
 description: 了解如何创建提供对资产进行安全访问的内容密钥。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: d1a40a4b85e7b057ccdbcfc556d0902a58c14210
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 46a33db9015d8a288dca06dc3094dad9edada3e4
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646355"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624092"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 创建内容密钥
 > [!div class="op_single_selector"]
@@ -31,9 +31,9 @@ ms.locfileid: "52646355"
 
 媒体服务允许传送加密的资产。 “ContentKey”提供对“资产”的安全访问。 
 
-创建新资产时（例如，[上传文件](media-services-rest-upload-files.md)之前），可以指定以下加密选项：“StorageEncrypted”、“CommonEncryptionProtected”或“EnvelopeEncryptionProtected”。 
+创建新资产时（例如，[上传文件](media-services-rest-upload-files.md)之前），可以指定以下加密选项：StorageEncrypted、CommonEncryptionProtected 或 EnvelopeEncryptionProtected。 
 
-将资产传送到客户端时，可以使用以下两个加密选项之一 [将资产配置为动态加密](media-services-rest-configure-asset-delivery-policy.md)：“DynamicEnvelopeEncryption”或“DynamicCommonEncryption”。
+将资产传送到客户端时，可以使用以下两个加密选项之一[将资产配置为动态加密](media-services-rest-configure-asset-delivery-policy.md)：DynamicEnvelopeEncryption 或 DynamicCommonEncryption。
 
 加密的资产必须与 **ContentKey**关联。 本文介绍如何创建内容密钥。
 
@@ -46,7 +46,7 @@ ms.locfileid: "52646355"
 3. 使用 X.509 证书的公钥来加密内容密钥。 
    
    媒体服务 .NET SDK 在加密时使用 RSA 和 OAEP。  可在 [EncryptSymmetricKeyData 函数](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)中查看示例。
-4. 创建一个使用密钥标识符和内容密钥计算得出的校验和值（基于 PlayReady AES 密钥校验和算法）。 有关详细信息，请参阅位于 [此处](http://www.microsoft.com/playready/documents/)的 PlayReady 标头对象文档的“PlayReady AES 密钥校验和算法”部分。
+4. 创建一个使用密钥标识符和内容密钥计算得出的校验和值（基于 PlayReady AES 密钥校验和算法）。 有关详细信息，请参阅位于 [此处](https://www.microsoft.com/playready/documents/)的 PlayReady 标头对象文档的“PlayReady AES 密钥校验和算法”部分。
    
    下面的 .NET 示例使用密钥标识符和明文内容密钥的 GUID 部分计算校验和。
    
@@ -72,9 +72,9 @@ ms.locfileid: "52646355"
 
 本文中未说明如何生成 AES 密钥、加密密钥以及计算校验和。 
 
->[!NOTE]
-
->访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+> [!NOTE]
+> 
+> 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 
 ## <a name="connect-to-media-services"></a>连接到媒体服务
 

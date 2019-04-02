@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 07/24/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: ad657b97de32e0694bd1f7315d3d362421ac1011
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 5e871a0aaae55363d45872372f2575fbbe5323d5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216278"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625881"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集
 
@@ -34,6 +34,7 @@ ms.locfileid: "54216278"
 * **Azure 订阅**：若要创建一个月试用帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial](https://www.azure.cn/pricing/1rmb-trial)。
 * 启用安全传输的 Azure 存储帐户。 有关说明，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)和[需要安全传输](../storage/common/storage-require-secure-transfer.md)。
 * 存储帐户中的 Blob 容器。 
+
 ## <a name="create-cluster"></a>创建群集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -46,12 +47,12 @@ ms.locfileid: "54216278"
 
 2. 按说明遵循以下规范创建群集： 
 
-    - 指定 HDInsight 版本 3.6。  3.6 或更高版本是必需的。
-    - 指定启用安全传输的存储帐户。
-    - 对存储帐户使用短名称。
-    - 必须事先创建存储帐户和 blob 容器。 
+   - 指定 HDInsight 版本 3.6。  3.6 或更高版本是必需的。
+   - 指定启用安全传输的存储帐户。
+   - 对存储帐户使用短名称。
+   - 必须事先创建存储帐户和 blob 容器。 
 
-    有关说明，请参阅[创建群集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 
+     有关说明，请参阅[创建群集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 
 
 如果使用脚本操作来提供自己的配置文件，则必须在以下设置中使用 wasbs：
 

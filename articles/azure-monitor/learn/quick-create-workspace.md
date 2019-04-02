@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 8c4106ed02cf7c1e5be6b48f81f1201618a6abf0
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 8e47077909194eaa3c76e9b14dac5eba5e074531
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440415"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625786"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 门户中创建 Log Analytics 工作区
 使用“Log Analytics 工作区”菜单通过 Azure 门户创建 Log Analytics 工作区。 Log Analytics 工作区是适用于 Azure Monitor 日志数据的唯一环境。 每个工作区都有其自己的数据存储库和配置，并且数据源和解决方案均配置为将其数据存储在特定工作区中。 如果打算从以下源收集数据，则需要 Log Analytics 工作区：
@@ -46,13 +46,13 @@ ms.locfileid: "56440415"
   
 2. 单击“添加”，然后为以下各项选择选项：
 
-  * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 
-  * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
-  * 对于**资源组**，选择要使用已设置的现有资源组，还是要创建一个新资源组。  
-  * 选择可用**位置**。  有关详细信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
-  * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有企业协议 (EA) 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的详细信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
+   * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 
+   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
+   * 对于**资源组**，选择要使用已设置的现有资源组，还是要创建一个新资源组。  
+   * 选择可用**位置**。  有关详细信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
+   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有企业协议 (EA) 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的详细信息，请参阅 [Log Analytics 定价详细信息](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
-        ![Create Log Analytics resource blade](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
+        ![创建 Log Analytics 资源边栏选项卡](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
 3. 在“Log Analytics 工作区”窗格上提供所需信息后，单击“确定”。  
 

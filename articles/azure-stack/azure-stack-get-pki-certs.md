@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d2ee8dd876839e161db03ac8267bf00a160400c0
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 8762ed0fdce62d07274c3490dcae68c553ba2255
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905397"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626349"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 
@@ -35,12 +35,12 @@ ms.locfileid: "56905397"
 
 在为 Azure Stack 部署生成 PKI 证书的 CSR 之前，系统应符合以下先决条件：
 
- - Azure Stack 就绪性检查器
-- 证书属性：
+- Azure Stack 就绪性检查器
+  - 证书属性：
   - 区域名称
   - 外部完全限定的域名 (FQDN)
   - 使用者
-- Windows 10 或 Windows Server 2016
+  - Windows 10 或 Windows Server 2016
 
   > [!NOTE]  
   > 从证书颁发机构收回证书时，需要在同一个系统上完成[准备 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤！

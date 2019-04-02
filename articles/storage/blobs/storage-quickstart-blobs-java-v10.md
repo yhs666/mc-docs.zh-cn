@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 11/14/2018
 ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 1e6e449cec2f2d6c0c7a972b32174c499b22ff92
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0d1fe231977b4c6df3de8358ed84f1def6f2a965
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028986"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625528"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>快速入门：使用 Java 存储 SDK V10 上传、下载和列出 Blob
 
@@ -167,11 +167,11 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 块 blob 是最常用的�
 1. 为了将文件上传到 blob，需获取对目标容器中 blob 的引用。 
 2. 获取 Blob 引用以后，即可使用下述 API 之一将一个文件上传到该 Blob：
 
-    * 低级别 API。 **BlockBlobURL** 实例中的示例包括 [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_)（也称 PutBlob）和 [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable)（也称 PutBLock）。 
+   * 低级别 API。 **BlockBlobURL** 实例中的示例包括 [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_)（也称 PutBlob）和 [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable)（也称 PutBLock）。 
 
-    * 在 [TransferManager class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable)（TransferManager 类）中提供的高级别 API。 例如，[TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) 方法。 
+   * 在 [TransferManager class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable)（TransferManager 类）中提供的高级别 API。 例如，[TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) 方法。 
 
-    此操作创建 Blob（如果该 Blob 尚不存在）， 或者覆盖 Blob（如果该 Blob 已存在）。
+     此操作创建 Blob（如果该 Blob 尚不存在）， 或者覆盖 Blob（如果该 Blob 已存在）。
 
 示例代码创建用于上传和下载的本地文件。 它将要上传的文件存储为 **sourceFile**，并在 **blob** 中存储 Blob 的 URL。 以下示例将文件上传到名为“quickstart”的容器。
 

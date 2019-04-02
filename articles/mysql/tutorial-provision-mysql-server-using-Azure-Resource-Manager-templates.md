@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 12/21/2018
 ms.date: 03/18/2019
 ms.custom: mvc
-ms.openlocfilehash: 24bfe01039eba105113ee5bf5bcf34a3a17062bf
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 3844c65b0b5a973d62709f0170b9fa6af922ce95
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990138"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625191"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -209,5 +209,5 @@ SELECT * FROM inventory;
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
-
+> 
 > [如何将应用程序连接到 Azure Database for MySQL](./howto-connection-string.md)

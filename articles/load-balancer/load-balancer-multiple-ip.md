@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 01/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 2eb8495c9421732f6b964c4fdb41faaa3c5c4159
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 8fef20a3bc6cb4bb89436b89f96813021586d19b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333926"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625901"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 
@@ -107,15 +107,15 @@ ms.locfileid: "54333926"
 
 2. 为两个网站（contoso.com 和 fabrikam.com）配置两个公共 IP 地址（**PublicIP1** 和 **PublicIP2**）：
 
-    1. 键入前端 IP 地址的名称。
+   1. 键入前端 IP 地址的名称。
 
-    2. 对于“资源组”，请选择 VM 的现有资源组（例如 **contosofabrikam**）。
+   2. 对于“资源组”，请选择 VM 的现有资源组（例如 **contosofabrikam**）。
 
-    3. 对于“位置”，请选择 VM 所在的同一位置。
+   3. 对于“位置”，请选择 VM 所在的同一位置。
 
-    4. 选择“确定” 。
+   4. 选择“确定” 。
 
-    创建公共 IP 地址后，它们会显示在“公共 IP 地址”下。
+      创建公共 IP 地址后，它们会显示在“公共 IP 地址”下。
 
 3. <a name="step3-3"></a>在门户中选择“更多服务”。 在筛选框中键入“负载均衡器”，选择“负载均衡器”。 
 

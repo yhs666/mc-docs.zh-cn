@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: a55683086a965da948ebb6a98480a4dc521886a0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: b9bf65f504f6c18bc60d2edacc1bcd068d595654
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964406"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505521"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>快速入门：通过 Node.js 使用双语字典查找字词
 
@@ -33,7 +33,7 @@ ms.locfileid: "57964406"
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
-使用最喜欢的 IDE 或编辑器创建新的项目。 然后，将此代码片段复制到项目的名为 `dictionary-lookup.js` 的文件中。
+使用喜欢的 IDE 或编辑器创建一个新项目，或在桌面上创建新的文件夹。 将此代码片段复制到项目/文件夹的 `alt-translations.js` 文件中。
 
 ```javascript
 const request = require('request');
@@ -115,7 +115,7 @@ request(options, function(err, res, body){
 就是这样，你已构建了一个简单的程序。该程序可以调用文本翻译 API 并返回 JSON 响应。 现在，可以运行该程序了：
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 如果希望将你的代码与我们的进行比较，请查看 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) 上提供的完整示例。
@@ -167,3 +167,4 @@ node dictionary-lookup.js
 * [获取支持的语言的列表](quickstart-nodejs-languages.md)
 * [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 
+<!-- Update_Description: wording update -->

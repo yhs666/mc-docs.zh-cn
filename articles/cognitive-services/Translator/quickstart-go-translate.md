@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: f171bf964a50231dd5c82ac91aa4802d6030e055
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8d0d963701efb5514d2c93ae459ce0e66f31cf3c
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964414"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505432"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>快速入门：使用 Go 通过文本翻译 API 来翻译字符串
 
@@ -61,7 +61,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -192,10 +192,10 @@ go run translate-text.go
 
 ## <a name="next-steps"></a>后续步骤
 
-从 GitHub 上的 [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) 中浏览认知服务 API 的 Go 程序包。
+有关认知服务 API 的 Go 示例，请在 GitHub 上查看 [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go)。
 
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 Go 程序包](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [查看 GitHub 上的 Go 示例](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>另请参阅
 
@@ -207,3 +207,4 @@ go run translate-text.go
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 
+<!-- Update_Description: wording update -->

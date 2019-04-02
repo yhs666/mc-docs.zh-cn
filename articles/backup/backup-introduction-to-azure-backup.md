@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 1cc97349e7a1bb24af003af73a7667e0f674860f
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 28ca46df153bc28fa5f6e725b772e9f7a9fb99f6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987027"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625727"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -52,6 +52,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | Azure IaaS VM 备份 |<li>应用程序感知快照 (VSS)<li>针对 Windows/Linux 的本地备份<li>无需安装特定代理<li>无需使用备份基础结构进行结构级备份 |<li>每天备份 VM 一次 <li>仅在磁盘级还原 VM<li>无法本地备份 |<li>VM、 <li>所有磁盘（使用 PowerShell） |<p>恢复服务保管库</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>每个组件适用于哪些部署方案？
+
 | 组件 | 可以在 Azure 中部署吗？ | 可以在本地部署吗？ | 支持的目标存储 |
 | --- | --- | --- | --- |
 | Azure 备份 (MARS) 代理 |<p>**是**</p> <p>Azure 备份代理可在 Azure 中运行的任意 Windows Server VM 上进行部署。</p> |<p>**是**</p> <p>备份代理可在任意 Windows Server VM 或物理计算机上进行部署。</p> |<p>恢复服务保管库</p> |
@@ -112,14 +113,15 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 以下部分提供了相关表格，总结了每个 Azure 备份组件中各种功能是否可用或受支持。 请参阅各表格后的额外支持信息或详细信息。
 
 ### <a name="storage"></a>存储
-| 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
-| --- | --- | --- | --- | --- |
-| 恢复服务保管库 |![是][green] |![是][green] |![是][green] |![是][green] |
-| 磁盘存储 | |![是][green] |![是][green] | |
-| 表存储 | |![是][green] | | |
-| 压缩 <br/>（在恢复服务保管库中） |![是][green] |![是][green] |![是][green] | |
-| 增量备份 |![是][green] |![是][green] |![是][green] |![是][green] |
-| 磁盘重复数据删除 | |![部分][yellow] |![部分][yellow] | | |
+
+|                    功能                    | Azure 备份代理 |  System Center DPM   | Azure 备份服务器  | Azure IaaS VM 备份 |
+|-----------------------------------------------|--------------------|----------------------|----------------------|----------------------|
+|            恢复服务保管库            |   ![是][green]    |    ![是][green]     |    ![是][green]     |    ![是][green]     |
+|                 磁盘存储                  |                    |    ![是][green]     |    ![是][green]     |                      |
+|                 表存储                  |                    |    ![是][green]     |                      |                      |
+| 压缩 <br/>（在恢复服务保管库中） |   ![是][green]    |    ![是][green]     |    ![是][green]     |                      |
+|              增量备份               |   ![是][green]    |    ![是][green]     |    ![是][green]     |    ![是][green]     |
+|              磁盘重复数据删除               |                    | ![部分][yellow] | ![部分][yellow] |                      |
 
 ![表键](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -153,6 +155,7 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 **增量备份**通过仅存储上次备份后更改的数据块，从而实现高存储效率和高网络效率。 采用增量备份，没有必要进行定期的完整备份。 在示例中，第一个月进行完整备份后，存储块 A2、A3、A4 和 A9 将标记为“已更改”，然后转移到第二个月。 在第三个月，仅标记已更改的存储块 A5，并进行传输。 移动较少的数据可以节省存储和网络资源，从而降低 TCO。
 
 ### <a name="security"></a>安全性
+
 | 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
 | --- | --- | --- | --- | --- |
 | 网络安全性<br/> （到 Azure） |![是][green] |![是][green] |![是][green] |![是][green] |
@@ -172,6 +175,7 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 备份 Azure VM 时，需要在虚拟机 *内部* 设置加密。 Azure 备份支持 Azure 磁盘加密，后者在 Windows 虚拟机上使用 BitLocker，在 Linux 虚拟机上使用 **dm-crypt**。 在后端，Azure 备份使用 [Azure 存储服务加密](../storage/common/storage-service-encryption.md)来保护静态数据。
 
 ### <a name="network"></a>网络
+
 | 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
 | --- | --- | --- | --- | --- |
 | 网络压缩 <br/>（到**备份服务器**） | |![是][green] |![是][green] | |

@@ -13,12 +13,12 @@ origin.date: 12/09/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 7b1c3db31d0fae0d336c1bb0598f67809b93e8e7
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: ca631c5e9e0dde5e08159d3c5aca633bf711ba3e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348099"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625232"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -60,18 +60,18 @@ Azure 资源管理器的功能始终会首先引入到全球 Azure。 使用以�
 
 1. 克隆 GitHub 存储库：[https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)
 
-1. 本地克隆存储库后，使用 PowerShell 连接到目标的 Azure 资源管理器。
+2. 本地克隆存储库后，使用 PowerShell 连接到目标的 Azure 资源管理器。
 
-1. 导入 psm1 模块并执行 Test-AzureRmTemplateFunctions cmdlet：
+3. 导入 psm1 模块并执行 Test-AzureRmTemplateFunctions cmdlet：
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone> chinanorth
-  ```
-  <!-- Notice: we should add ChinaNorth location for cmdlet of Test-AzureRmTemplateFunctions-->
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone> chinanorth
+   ```
+   <!-- Notice: we should add ChinaNorth location for cmdlet of Test-AzureRmTemplateFunctions-->
 
 该脚本部署多个最小化模板，每个模板仅包含唯一的模板函数。 脚本的输出报告受支持的和不可用的模板函数。
 
@@ -452,7 +452,7 @@ API 配置文件可确保 API 版本可跨位置使用，因此不需要手动�
 一般情况下，请避免在模板中使用硬编码终结点。 最佳做法是使用引用模板函数动态检索终结点。 例如，最常进行硬编码的终结点是存储帐户的终结点命名空间。 每个存储帐户均有唯一的 FQDN，它通过连接存储帐户的名称与终结点命名空间来构造。 名为 mystorageaccount1 的 blob 存储帐户会因为云的不同而产生不同的 FQDN：
 
 * 在全球 Azure 云上创建时会产生 mystorageaccount1.blob.core.windows.net。
-<!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
+  <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
 * 在 Azure 中国云中创建时会产生 mystorageaccount1.blob.core.chinacloudapi.cn。
 
 以下引用模板函数从存储资源提供程序中检索终结点命名空间：

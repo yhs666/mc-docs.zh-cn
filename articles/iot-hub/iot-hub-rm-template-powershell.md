@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: 0df236432a9af406dcb0d8ac8ff87455f2bc6459
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: bd8163f5cb30c649e39ce1733af22e3ee44557f8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560475"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626449"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 模板创建 IoT 中心 (PowerShell)
 
@@ -139,7 +139,7 @@ New-AzResourceGroup -Name MyIoTRG1 -Location "China East"
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
-  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 4. 输出会显示你创建的 IoT 中心的密钥。
 

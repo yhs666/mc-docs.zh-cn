@@ -6,24 +6,23 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 01/07/2019
-ms.date: 02/18/2019
+origin.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.lastreviewed: 01/07/2019
-ms.openlocfilehash: 8a6fe28b33bd65a2b9dcbf155f8d722ba109a836
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.reviewer: efemmano
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: a4dd10a94ae5642e708a13f69db0699a850317ae
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218223"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626704"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>快速入门：使用 Azure Stack 管理门户
 
@@ -35,11 +34,12 @@ Azure Stack 中有两种门户：管理门户和用户门户（有时称作租�
 
 若要访问管理员门户，请浏览到门户 URL，然后使用 Azure Stack 操作员的凭据登录。 对于集成系统，门户 URL 根据 Azure Stack 部署的区域名称和外部完全限定域名 (FQDN) 而有所不同。 Azure Stack 开发工具包 (ASDK) 部署的管理门户 URL 始终是相同的。 
 
-| 环境 | 管理员门户 URL |   
-| -- | -- | 
-| ASDK| https://adminportal.local.azurestack.external  |
-| 集成系统 | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
-| | |
+
+|    环境     |              管理员门户 URL               |
+|--------------------|-----------------------------------------------------|
+|        ASDK        |    https://adminportal.local.azurestack.external    |
+| 集成系统 | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; |
+|                    |                                                     |
 
 > [!TIP]
 > 对于 ASDK 环境，首先需确保可以通过远程桌面连接或虚拟专用网络 (VPN) [连接到开发工具包主机](azure-stack-connect-azure-stack.md)。

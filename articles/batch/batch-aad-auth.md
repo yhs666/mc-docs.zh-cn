@@ -16,12 +16,12 @@ ms.workload: big-compute
 origin.date: 04/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8bbd61f69571b0091cc4cc8144b838be3d71373b
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 6c6370f2ea22d67c851dca5833b57b07f9b34a3e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987023"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627220"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -374,7 +374,7 @@ credentials = ServicePrincipalCredentials(
 
 - 有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
 
-* 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
+- 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
 
 - 若要使用 Azure AD 对 Batch 应用程序进行验证，请参阅[使用 Active Directory 对 Batch 管理解决方案进行验证](batch-aad-auth-management.md)。
 

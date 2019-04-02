@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.author: v-junlch
 ms.custom: seodec18
 origin.date: 09/21/2017
-ms.date: 02/20/2019
-ms.openlocfilehash: 4eaab57d2ffa50065d50b2758fd9e413a482dc88
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.date: 03/27/2019
+ms.openlocfilehash: 9345dbdd034e569f81e01bc2be33cfb8691a1511
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582777"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505492"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教程：计算机视觉 API Java
 
@@ -515,10 +515,10 @@ getThumbnailImage 方法包装进行图像分析的 REST API 调用。 该方法
 
 ```java
      /**
-     - Encapsulates the Microsoft Cognitive Services REST API call to create a thumbnail for an image.
-     - @param imageUrl: The string URL of the image to process.
-     - @return: A BufferedImage containing the thumbnail, or null if a runtime error occurs. In the case
-     - of an error, the error message will be returned in the first element of the jsonError string array.
+     * Encapsulates the Microsoft Cognitive Services REST API call to create a thumbnail for an image.
+     * @param imageUrl: The string URL of the image to process.
+     * @return: A BufferedImage containing the thumbnail, or null if a runtime error occurs. In the case
+     * of an error, the error message will be returned in the first element of the jsonError string array.
      */
     private BufferedImage getThumbnailImage(String imageUrl, JSONObject[] jsonError) {
         try (CloseableHttpClient httpclient = HttpClientBuilder.create().build())
@@ -632,9 +632,9 @@ OcrImage 方法包装进行图像分析的 REST API 调用。 该方法返回从
 
 ```java
      /**
-     - Encapsulates the Microsoft Cognitive Services REST API call to read text in an image.
-     - @param imageUrl: The string URL of the image to process.
-     - @return: A JSONObject describing the image, or null if a runtime error occurs.
+     * Encapsulates the Microsoft Cognitive Services REST API call to read text in an image.
+     * @param imageUrl: The string URL of the image to process.
+     * @return: A JSONObject describing the image, or null if a runtime error occurs.
      */
     private JSONObject OcrImage(String imageUrl) {
         try (CloseableHttpClient httpclient = HttpClientBuilder.create().build())
@@ -745,9 +745,9 @@ HandwritingImage 方法包装两个进行图像分析所需的 REST API 调用�
 
 ```java
      /**
-     - Encapsulates the Microsoft Cognitive Services REST API call to read handwritten text in an image.
-     - @param imageUrl: The string URL of the image to process.
-     - @return: A JSONObject describing the image, or null if a runtime error occurs.
+     * Encapsulates the Microsoft Cognitive Services REST API call to read handwritten text in an image.
+     * @param imageUrl: The string URL of the image to process.
+     * @return: A JSONObject describing the image, or null if a runtime error occurs.
      */
     private JSONObject HandwritingImage(String imageUrl) {
         try (CloseableHttpClient textClient = HttpClientBuilder.create().build();
@@ -849,6 +849,7 @@ HandwritingImage 方法包装两个进行图像分析所需的 REST API 调用�
 
 ## <a name="next-steps"></a>后续步骤
 
+- [计算机视觉 API C&#35; 教程](CSharpTutorial.md)
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 
 <!-- Update_Description: wording update -->

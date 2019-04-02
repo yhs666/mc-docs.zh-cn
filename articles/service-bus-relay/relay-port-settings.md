@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/26/2018
-ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: b40e78a4f31129d044deef296080b33750487486
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 06/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: a5ba9fac7b25cb3b3ef05a74b93befc7eee3c8b3
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647179"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544711"
 ---
 # <a name="azure-relay-port-settings"></a>Azure 中继端口设置
 

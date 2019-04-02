@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 09/19/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 85234923e1ba9ae3788468993ee9084a74e0d3e6
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 31a83064d4889da08a0983f5e18148d6c80c4f8e
+ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784607"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58545271"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 
@@ -60,7 +59,7 @@ ms.locfileid: "53784607"
 
 因为示例应用程序是一个控制台应用程序，因此你必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。 本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目的地。 对于此示例请使用 `http://servicebus.microsoft.com`，因为示例代码已使用了该 URI。
 
-[此教程](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)中介绍了详细的注册步骤。 请按照那些步骤注册一个**本机**应用，然后按照更新说明将 **Microsoft.ServiceBus** API 添加到必需的权限。 执行那些步骤时，请记下 **TenantId** 和 **ApplicationId**，因为到时要使用这些值来运行应用程序。
+[此教程](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)中介绍了详细的注册步骤。 请按照那些步骤注册一个**本机**应用，然后按照更新说明将 **Microsoft.ServiceBus** API 添加到必需的权限。 执行那些步骤时，请记下 **TenantId** 和 **ApplicationId**，因为到时要使用这些值来运行应用程序。
 
 ### <a name="run-the-app"></a>运行应用程序
 

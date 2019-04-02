@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 01/04/2017
 ms.author: v-biyu
 ms.date: 01/07/2019
-ms.openlocfilehash: f45be973cff7e2d8f61e9f076a1c33e629ae76e0
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 0dcdd5b8aa6db62204950e0ecc4311d6f5699c44
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785246"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627731"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-##<a name="overview"></a>概述
+## <a name="overview"></a>概述
 
 本指南说明如何在 Windows 应用和 Xamarin 应用中使用 Azure 应用服务移动应用的托管客户端库执行常见方案。 如果是移动服务的新手，最好先完成 [Azure Mobile Apps quickstart][1] （Azure 移动应用快速入门）教程。 在本指南中，我们侧重于客户端托管的 SDK。 若要详细了解移动应用的服务器端 SDK，请参阅 [.NET 服务器 SDK][2] 或 [Node.js 服务器 SDK][3] 的文档。
 
@@ -47,7 +47,7 @@ ms.locfileid: "53785246"
 
 “服务器流”身份验证使用 WebView 显示 UI。  如果设备不能呈现 WebView UI，则需要其他身份验证方法。  因此，此 SDK 不适用于手表类型或类似的受限设备。
 
-##<a name="setup"></a>安装与先决条件
+## <a name="setup"></a>安装与先决条件
 
 假设已创建并发布移动应用后端项目（至少包含一个表）。  在本主题使用的代码中，表的名称为 `TodoItem`，其中包含以下列：`Id`、`Text` 和 `Complete`。 此表就是完成 [Azure 移动应用快速入门][1]时创建的表。
 
@@ -666,14 +666,14 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 
    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done*。
 
-    每个平台所需的代码如下：
+     每个平台所需的代码如下：
 
-    **Windows:**
+     **Windows:**
 
-    ```csharp
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
+     ```csharp
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync()
+     {
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
         string clientId = "INSERT-CLIENT-ID-HERE";
@@ -700,15 +700,15 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-    }
-    ```
+     }
+     ```
 
-    **Xamarin.iOS**
+     **Xamarin.iOS**
 
-    ```csharp
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
+     ```csharp
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync(UIViewController view)
+     {
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
         string clientId = "INSERT-CLIENT-ID-HERE";
@@ -727,15 +727,15 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
         {
             Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
         }
-    }
-    ```
+     }
+     ```
 
-    **Xamarin.Android**
+     **Xamarin.Android**
 
-    ```csharp
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
+     ```csharp
+     private MobileServiceUser user;
+     private async Task AuthenticateAsync()
+     {
         string authority = "INSERT-AUTHORITY-HERE";
         string resourceId = "INSERT-RESOURCE-ID-HERE";
         string clientId = "INSERT-CLIENT-ID-HERE";
@@ -757,13 +757,13 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
             builder.SetTitle("You must log in. Login Required");
             builder.Create().Show();
         }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
+     }
+     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+     {
         base.OnActivityResult(requestCode, resultCode, data);
         AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
-    ```
+     }
+     ```
 
 #### <a name="client-livesdk"></a>使用 Microsoft 帐户和 Live SDK 进行单一登录
 若要对用户进行身份验证，必须在 Microsoft 帐户开发人员中心注册应用。 在移动应用后端上配置注册详细信息。 要创建 Microsoft 帐户注册并将注册连接到移动应用后端，请完成 [注册应用以使用 Microsoft 帐户登录]中的步骤。 如果同时拥有 Windows 应用商店和 Windows Phone 8/Silverlight 版本的应用，请先注册 Windows 应用商店版本。
@@ -903,7 +903,7 @@ token.Add("access_token", "<your_access_token_value>");
 await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount, token);
 ```
 
-##<a name="pushnotifications"></a>推送通知
+## <a name="pushnotifications"></a>推送通知
 
 以下主题介绍了推送通知：
 
@@ -947,7 +947,7 @@ Xamarin 应用需要一些额外的代码才能注册 iOS 或 Android 平台上�
 
 * [Xamarin.iOS](./app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-###<a name="register-xplat"></a>如何：注册推送模板以发送跨平台通知
+### <a name="register-xplat"></a>如何：注册推送模板以发送跨平台通知
 
 若要注册模板，请结合模板使用 `RegisterAsync()` 方法，如下所示：
 
@@ -991,9 +991,9 @@ Xamarin 应用需要一些额外的代码才能注册 iOS 或 Android 平台上�
 
 若要使用这些注册的模板发送通知，请参阅 [Notification Hubs APIs]（通知中心 API）。
 
-##<a name="misc"></a>其他主题
+## <a name="misc"></a>其他主题
 
-###<a name="errors"></a>如何：处理错误
+### <a name="errors"></a>如何：处理错误
 
 后端发生错误时，客户端 SDK 会引发 `MobileServiceInvalidOperationException`。  以下示例演示如何处理后端返回的异常：
 
@@ -1016,7 +1016,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 
 有关处理错误条件的其他示例，可在 [Mobile Apps Files Sample]（移动应用文件示例）中找到。 [LoggingHandler] 示例提供日志记录委托处理程序，记录向后端发出的请求。
 
-###<a name="headers"></a>如何：自定义请求标头
+### <a name="headers"></a>如何：自定义请求标头
 
 若要支持特定的应用程序方案，可能需要自定义与移动应用后端之间的通信。 例如，可能需要将一个自定义标头添加到每个传出请求，甚至要更改响应状态代码。 可以使用自定义 [DelegatingHandler] 来实现此目的，如以下示例中所示：
 

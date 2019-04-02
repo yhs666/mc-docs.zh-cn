@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: f49a6333b552c9ac0c9667d019c203817a3f874d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 063cb0fb41adf34ad32a5ed71e8c3259ce4d9fef
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964388"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505384"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>快速入门：通过 Go 使用双语字典查找字词
 
@@ -33,7 +33,7 @@ ms.locfileid: "57964388"
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
-使用最喜欢的 IDE 或编辑器创建新的 Go 项目。 然后，将此代码片段复制到项目的名为 `alt-translations.go` 的文件中。
+使用喜欢的 IDE/编辑器创建新的 Go 项目，或在桌面上创建新的文件夹。 然后，将此代码片段复制到项目/文件夹的 `alt-translations.go` 文件中。
 
 ```go
 package main
@@ -61,7 +61,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. Then, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -228,10 +228,10 @@ go run alt-translations.go
 
 ## <a name="next-steps"></a>后续步骤
 
-从 GitHub 上的 [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) 中浏览认知服务 API 的 Go 程序包。
+有关认知服务 API 的 Go 示例，请在 GitHub 上查看 [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go)。
 
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 Go 程序包](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [查看 GitHub 上的 Go 示例](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>另请参阅
 
@@ -243,3 +243,4 @@ go run alt-translations.go
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 
+<!-- Update_Description: wording update -->

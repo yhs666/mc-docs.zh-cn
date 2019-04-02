@@ -12,12 +12,12 @@ ms.reviewer: v-masebo
 manager: digimobile
 origin.date: 02/12/2019
 ms.date: 03/11/2019
-ms.openlocfilehash: 69ca29c23c9bddde248e3fff36c26a84c21a210c
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 32bfa6174c851971e79b1e954c4f4e40afc05777
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347207"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626614"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>快速入门：使用 PHP 查询 Azure SQL 数据库
 
@@ -29,14 +29,16 @@ ms.locfileid: "57347207"
 
 - Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-  || 单一数据库 |
-  |:--- |:--- |
-  | 创建| [Portal](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
-  |加载数据|根据快速入门加载的 Adventure Works|
-  |||
+
+  |           | 单一数据库                                                                |
+  |:----------|:-------------------------------------------------------------------------------|
+  | 创建    | [Portal](sql-database-single-database-get-started.md)                          |
+  |           | [CLI](scripts/sql-database-create-and-configure-database-cli.md)               |
+  |           | [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)    |
+  | 加载数据 | 根据快速入门加载的 Adventure Works                                          |
+  |           |                                                                                |
+
 
 - 已为操作系统安装与 PHP 相关的软件：
 

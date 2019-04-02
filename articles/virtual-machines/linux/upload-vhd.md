@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/17/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: af077a1dcdb22f10a20e8b9095eb3070ac2e4638
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 2b6086b1959319e874d4b41a31cc8c05f93ea0c9
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666394"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544816"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
 
@@ -61,7 +61,7 @@ az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
 
 * 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
-!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
+<!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
 
 在以下示例中，请将示例参数名称（例如 *myResourceGroup*、*mystorageaccount* 和 *mydisks*）替换为自己的值。
 

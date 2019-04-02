@@ -11,15 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2018
-ms.date: 10/31/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 902bc25ff3a2029287dc5f337cae6c916ef8a3f3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c2c9aba0c1c54a7ec32bdfba4097f4b2bf4d0331
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658257"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544669"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暂停（禁用）和重新激活消息实体
 
@@ -39,8 +38,8 @@ ms.locfileid: "52658257"
 
 可以为队列设置如下状态：
 
--   **Active**：队列处于活动状态。
--   **Disabled**：队列处于暂停状态。
+-   **活动**：队列处于活动状态。
+-   **已禁用**：队列处于暂停状态。
 -   **SendDisabled**：队列部分处于暂停状态，允许执行接收操作。
 -   **ReceiveDisabled**：队列部分处于暂停状态，允许执行发送操作。
 

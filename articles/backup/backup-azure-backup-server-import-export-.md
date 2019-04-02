@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/08/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 88f76aebdcfb3fe2470495d82cc7412b6435ac5e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cbd6850f55649ba7458d049ba8ec004702263668
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650683"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626929"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 和 Azure 备份服务器的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，可在将数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。
@@ -75,12 +75,12 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 
     输入的说明如下：
 
-    - **暂存位置**- 初始备份副本写入到的临时存储位置。 暂存位置可以是在网络共享或本地计算机。 如果副本计算机与源计算机不同，建议指定暂存位置的完整网络路径。
-    - **Azure 导入作业名称**：Azure 导入服务和 Azure 备份在跟踪磁盘上发送到 Azure 的数据的传输活动时使用的唯一名称。
-    - **Azure 发布设置**：提供发布设置文件的本地路径。
-    - **Azure 订阅 ID**：下载 Azure 发布设置文件的订阅的 Azure 订阅 ID。 
-    - **Azure 存储帐户**：Azure 订阅中与 Azure 发布设置文件关联的存储帐户的名称。
-    - **Azure 存储容器**：Azure 存储帐户中导入备份数据的目标存储 Blob 的名称。
+   - **暂存位置**：初始备份副本写入到的临时存储位置。 暂存位置可以是在网络共享或本地计算机。 如果副本计算机与源计算机不同，建议指定暂存位置的完整网络路径。
+   - **Azure 导入作业名称**：Azure 导入服务和 Azure 备份在跟踪磁盘上发送到 Azure 的数据的传输活动时使用的唯一名称。
+   - **Azure 发布设置**：提供发布设置文件的本地路径。
+   - **Azure 订阅 ID**：下载 Azure 发布设置文件的订阅的 Azure 订阅 ID。 
+   - **Azure 存储帐户**：Azure 订阅中与 Azure 发布设置文件关联的存储帐户的名称。
+   - **Azure 存储容器**：Azure 存储帐户中导入备份数据的目标存储 Blob 的名称。
 
      保存提供的暂存位置和 Azure 导入作业名称，因为准备磁盘需要它们。  
      
@@ -103,14 +103,14 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 
 1. 转到该目录，将“AzureOfflineBackupDiskPrep”目录复制到 SATA 驱动器准备连接的副本计算机上。 确保满足以下与副本计算机相关的要求：
 
-    - 副本计算机可使用在 **启动脱机备份** 工作流中提供的相同网络路径，访问脱机种子设定工作流的暂存位置。
-    - 已在副本计算机上启用 BitLocker。
-    - 副本计算机可以访问 Azure 门户。
+   - 副本计算机可使用在 **启动脱机备份** 工作流中提供的相同网络路径，访问脱机种子设定工作流的暂存位置。
+   - 已在副本计算机上启用 BitLocker。
+   - 副本计算机可以访问 Azure 门户。
 
-    必要时，副本计算机可与源计算机相同。 
+     必要时，副本计算机可与源计算机相同。 
     
-    > [!IMPORTANT] 
-    > 如果源计算机是虚拟机，则它必须使用其他物理服务器或客户端计算机作为副本计算机。
+     > [!IMPORTANT] 
+     > 如果源计算机是虚拟机，则它必须使用其他物理服务器或客户端计算机作为副本计算机。
     
     
 2. 在副本计算机上打开提升的命令提示符，以 AzureOfflineBackupDiskPrep 实用工具的目录作为当前目录并运行以下命令：
@@ -150,7 +150,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
    > [!IMPORTANT] 
    > 两个 Azure 导入作业不能同时拥有相同的追踪号码。 确保使用一个包裹寄送实用工具在单次 Azure 导入作业中准备的驱动器，该包裹有一个唯一的追踪号码。 请勿在一个包裹中混合不同 Azure 导入作业中准备的驱动器。 
 
-5. 如果具有追踪号码信息，请转到正在等待导入作业完成的源计算机，然后在提升的命令提示符中运行以下命令，以 AzureOfflineBackupDiskPrep 实用工具的目录作为当前目录： 
+7. 如果具有追踪号码信息，请转到正在等待导入作业完成的源计算机，然后在提升的命令提示符中运行以下命令，以 AzureOfflineBackupDiskPrep 实用工具的目录作为当前目录： 
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
@@ -168,11 +168,11 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
     
     ![输入寄送信息](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
-6. 提供所有的输入后，请仔细查看详情，并通过键入“yes”提交提供的寄送信息。 
+8. 提供所有的输入后，请仔细查看详情，并通过键入“yes”提交提供的寄送信息。 
 
     ![查看寄送信息](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
 
-7. 成功更新寄送信息后，该实用工具提供你输入的寄送详情存储的本地位置，如下所示 
+9. 成功更新寄送信息后，该实用工具提供你输入的寄送详情存储的本地位置，如下所示 
 
     ![存储寄送信息](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 

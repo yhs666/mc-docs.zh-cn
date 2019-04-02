@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8064c85234ade6cb72711fd01da076e3ed2ab0c8
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 64cd9df7a1353064c7467600e5acb3ca679937c0
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964407"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505431"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>快速入门：通过 Java 使用双语字典查找字词
 
@@ -75,7 +75,7 @@ dependencies {
 为示例应用创建一个文件夹。 从工作目录中，运行：
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 接下来，在此文件夹中，创建一个名为 `AltTranslation.java` 的文件。
@@ -256,3 +256,4 @@ gradle run
 * [获取支持的语言的列表](quickstart-java-languages.md)
 * [根据输入确定句子长度](quickstart-java-sentences.md)
 
+<!-- Update_Description: code update -->

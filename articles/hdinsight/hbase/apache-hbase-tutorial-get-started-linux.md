@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 02/22/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 33554ab3f783e3585328b337d64ac7f4d6a39ecf
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 5095c6fd4c66784dbc4e93090a6a2e76b7532991
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029157"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627445"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -119,7 +119,7 @@ ms.locfileid: "54029157"
 
 HBase 提供了多种方法用于将数据载入表中。  有关详细信息，请参阅 [批量加载](https://hbase.apache.org/book.html#arch.bulk.load)。
 
-可在公共 Blob 容器 *wasb://hbasecontacts@hditutorialdata.blob.core.chinacloudapi.cn/contacts.txt* 中找到示例数据文件。  该数据文件的内容为：
+可在公共 Blob 容器 <em>wasb://hbasecontacts@hditutorialdata.blob.core.chinacloudapi.cn/contacts.txt</em> 中找到示例数据文件。  该数据文件的内容为：
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -253,15 +253,15 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 2. 在左侧菜单中，单击“HBase”  。
 3. 在页面顶部单击“快速链接”，指向活动 Zookeeper 节点链接，并单击“HBase Master UI”。  该 UI 会在另一个浏览器标签页中打开：
 
-  ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  HBase Master UI 包含以下部分：
+   HBase Master UI 包含以下部分：
 
-  - 区域服务器
-  - 备份主机
-  - 表
-  - 任务
-  - 软件属性
+   - 区域服务器
+   - 备份主机
+   - 表
+   - 任务
+   - 软件属性
 
 ## <a name="delete-the-cluster"></a>删除群集
 为了避免不一致，建议在删除群集之前先禁用 HBase 表。

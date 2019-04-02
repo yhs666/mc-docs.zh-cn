@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: vjay
-ms.openlocfilehash: cf5ecd96dab6a642b18e283e2ab25be7c1705696
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: fcd64278eb53950014b784cbe901c00c50650ce1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833412"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626045"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问媒体服务 API
 
@@ -59,18 +59,19 @@ ms.locfileid: "56833412"
 
 若要访问媒体服务 API，需要收集以下数据点。
 
-|设置|示例|说明|
-|---|-------|-----|
-|Azure Active Directory 租户域|microsoft.partner.onmschina.cn|作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的： https://login.partner.microsoftonline.cn/{your-ad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
-|REST API 终结点|https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/|这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。|
-|客户端 ID（应用程序 ID）|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。 |
-|客户端机密|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。|
+
+|               设置                |                               示例                               |                                                                                                                           说明                                                                                                                            |
+|--------------------------------------|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Active Directory 租户域 |                   microsoft.partner.onmschina.cn                    | 作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的： https://login.partner.microsoftonline.cn/{your-ad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。 |
+|          REST API 终结点           | https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/ |                                                                                这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。                                                                                |
+|      客户端 ID（应用程序 ID）      |                f7fbbb29-a02d-4d91-bbc6-59a2579259d2                 |                                                                                       Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。                                                                                       |
+|            客户端机密             |            +mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=             |                                                                                Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。                                                                                 |
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>从 Azure 门户获取 AAD 身份验证信息
 
 若要获取信息，请按照以下步骤操作：
 
-1. 登录到 [Azure 门户](http://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到 AMS 实例。
 3. 选择“API 访问”。
 4. 单击“通过服务主体连接到 Azure 媒体服务 API”。
@@ -83,36 +84,36 @@ ms.locfileid: "56833412"
     > 尝试访问媒体服务帐户时，调用用户的角色必须是**参与者**或**所有者**，这样 Azure 媒体 REST 请求才会成功。 如果出现“远程服务器返回错误:(401)未授权”的异常，请参阅[访问控制](media-services-use-aad-auth-to-access-ams-api.md#access-control)。
 
     如需创建新的 AD 应用，请执行以下步骤：
-    
-    1. 按“新建”。
-    2. 输入名称。
-    3. 再次按“新建”。
-    4. 按“保存” 。
 
-    ![API 访问](./media/connect-with-rest/new-app.png)
+   1. 按“新建”。
+   2. 输入名称。
+   3. 再次按“新建”。
+   4. 按“保存” 。
 
-    新应用显示在页面上。
+      ![API 访问](./media/connect-with-rest/new-app.png)
+
+      新应用显示在页面上。
 
 6. 获取“客户端 ID”（应用程序 ID）。
-    
-    1. 选择应用程序。
-    2. 从右侧的窗口获取“客户端 ID”。 
 
-    ![API 访问](./media/connect-with-rest/existing-client-id.png)
+   1. 选择应用程序。
+   2. 从右侧的窗口获取“客户端 ID”。 
 
-7.  获取应用程序的“密钥”（客户端机密）。 
+      ![API 访问](./media/connect-with-rest/existing-client-id.png)
 
-    1. 单击“Azure Active Directory”按钮。 
-    2. 按“应用注册”。
-    3. 按“testapp”。
-    4. 按“密钥”（请注意，客户端 ID 信息位于“应用程序 ID”下）。
-    
-        ![API 访问](./media/connect-with-rest/manage-app.png)
-    5. 生成应用密钥（客户端机密），方法是：填充“说明”和“过期时间”，然后按“保存”。
-    
-        按下“保存”按钮后，密钥值就会显示。 在离开边栏选项卡之前复制密钥值。
+7. 获取应用程序的“密钥”（客户端机密）。 
 
-    ![API 访问](./media/connect-with-rest/connect-with-rest03.png)
+   1. 单击“Azure Active Directory”按钮。 
+   2. 按“应用注册”。
+   3. 按“testapp”。
+   4. 按“密钥”（请注意，客户端 ID 信息位于“应用程序 ID”下）。
+
+       ![API 访问](./media/connect-with-rest/manage-app.png)
+   5. 生成应用密钥（客户端机密），方法是：填充“说明”和“过期时间”，然后按“保存”。
+
+       按下“保存”按钮后，密钥值就会显示。 在离开边栏选项卡之前复制密钥值。
+
+   ![API 访问](./media/connect-with-rest/connect-with-rest03.png)
 
 可以向 web.config 或 app.config 文件添加 AD 连接参数的值，供以后在代码中使用。
 

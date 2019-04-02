@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 03/27/18
-ms.date: 02/12/2019
+origin.date: 03/27/2018
+ms.date: 03/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2341d615c090bcc3bebfd545e545acdb3143095b
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: f47cbeb88747adfd2d160d79d51bb87a8af9bd05
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101589"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544817"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入门：使用 Azure 模板创建 Linux 虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure 资源管理器模板创建虚拟机规模集并部署一个示例应用程序。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -103,7 +103,7 @@ Azure 资源管理器模板允许部署成组的相关资源。 模板以 JavaSc
 - 配置或安装脚本的位置
 - 可在 VM 实例上执行的命令
 
-[基于 Linux 的 Python HTTP 服务器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)模板使用自定义脚本扩展来安装 [Bottle](http://bottlepy.org/docs/dev/)（Python Web 框架）和简单的 HTTP 服务器。 
+[基于 Linux 的 Python HTTP 服务器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)模板使用自定义脚本扩展来安装 [Bottle](https://bottlepy.org/docs/dev/)（Python Web 框架）和简单的 HTTP 服务器。 
 
 两个脚本在 **fileUris** - （*installserver.sh* 和 *workserver.py*）中定义。 从 GitHub 下载这些文件以后，*commandToExecute* 就可以运行 `bash installserver.sh` 来安装和配置应用：
 

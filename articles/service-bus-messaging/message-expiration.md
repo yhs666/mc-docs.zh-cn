@@ -11,15 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 97090f6a2f4a5fb46efce4e0468411b3526088c1
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: d27596f550a13d2f26511dc7c8c2cab4cd074f32
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784618"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544708"
 ---
 # <a name="message-expiration-time-to-live"></a>消息过期时间（生存时间）
 
@@ -27,7 +26,7 @@ ms.locfileid: "53784618"
 
 对于经常在应用程序或应用程序部件部分运行轮次的上下文中使用队列与主题的开发和测试环境，还需要对滞留的测试消息自动进行垃圾回收，使下一轮测试运行能够从新启动。
 
-可以通过设置 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 系统属性（指定相对持续时间）来控制任何一条消息的过期时间。 在实体中将消息排队后，过期时间即成为一个绝对时刻。 此时，[ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 属性取值为 [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)。
+可以通过设置 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 系统属性（指定相对持续时间）来控制任何一条消息的过期时间。 在实体中将消息排队后，过期时间即成为一个绝对时刻。 此时，[ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) 属性取值为 [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)。 当任何客户端都没有在主动侦听时，不强制实施中转消息的生存时间 (TTL) 设置。
 
 在 **ExpiresAtUtc** 时刻过后，消息不可检索。 过期时间不会影响当前已锁定等待传送的消息；这些消息仍会按正常方式得到处理。 如果锁已过期或者消息被丢弃，则过期时间立即生效。
 
@@ -51,9 +50,9 @@ ms.locfileid: "53784618"
  
 在动态创建实体并且由于测试或调试运行中断，导致用后不会清理实体的开发和测试方案中，自动清理功能十分有用。 当应用程序创建动态实体（例如回复队列）用于在 Web 服务器进程或者生存期相对较短的对象（对象实例消失时难以可靠清理这些实体）中接收响应时，此功能也很有用。
 
-可以使用 [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) 属性启用此功能：将此属性设置为自动删除某个实体之前，该实体必须处于空闲（未使用）状态的持续时间。 最短持续时间为 5 分钟。
+此功能是使用 [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) 属性启用的。 此属性设置为自动删除某个实体之前，该实体必须处于空闲（未使用）状态的持续时间。 此属性的最小值为 5。
  
-必须通过 Azure 资源管理器操作或 .NET Framework 客户端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API 设置此 autoDeleteOnIdle 属性。 不能通过门户设置此属性。
+必须通过 Azure 资源管理器操作或 .NET Framework 客户端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API 设置此 autoDeleteOnIdle 属性。 不能在门户中设置此属性。
 
 ## <a name="idleness"></a>空闲
 

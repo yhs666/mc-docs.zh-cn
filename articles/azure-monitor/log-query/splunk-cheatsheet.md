@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: cd42c627e52eb5ccbed132414bdef74c2f5dae02
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: db26012b9174a2554deb6f6319a4106cad75e2e4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441049"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625490"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>从 Splunk 到 Azure Monitor 日志查询
 
@@ -161,13 +161,12 @@ Splunk 似乎没有类似于 `project-away` 的运算符。 可以使用 UI 来�
 ### <a name="join"></a>Join
 Splunk 中的联接具有很强的限制。 子查询限制为 10000 条结果（在部署配置文件中设置），联接形式数目也有限制。
 
-| |  | |
-|:---|:---|:---|
-| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
-| | |
 
-
+|               |          |                                                                                                                                                                                                                                                                       |
+|:--------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Splunk        | **join** | <code>Event.Rule=120103\* &#124; stats by Client.Id, Data.Alias                                                                                                                                                                                                       |
+| Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code> |
+|               |          |                                                                                                                                                                                                                                                                       |
 
 ### <a name="sort"></a>排序
 在 Splunk 中，若要按升序排序，必须使用 `reverse` 运算符。 Azure Monitor 还支持定义 null 值的放置位置：开头或末尾。

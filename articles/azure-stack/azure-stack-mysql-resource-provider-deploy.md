@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/11/2019
-ms.date: 03/18/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: jiahan
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 046b384396ff6c2d72de9423ba737bc3d19d437d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: f919cb148ebf85689ccc661e53dac971d20c280e
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988065"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503541"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -110,10 +110,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。 更改 Azure Stack 部署所需的默认帐户信息和密码。
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+# Install the Azure and Azure Stack PowerShell modules as described in the prerequisites section above before running these commands.
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  

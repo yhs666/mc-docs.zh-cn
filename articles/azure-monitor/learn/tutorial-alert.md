@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 6cd71ea18402c762845e380e998f8f08fb86a8c3
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: b6402fff1a5d9f16783e1443331c6f21d4da3c42
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440526"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625373"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 监视和警报应用程序的运行状况
 
@@ -67,17 +67,17 @@ Azure Application Insights 可用于监视应用程序，并在其不可用、�
 ## <a name="create-an-alert-from-metrics"></a>从指标创建警报
 除了由可用性测试发送警报，还可由从应用程序收集的任何性能指标创建警报。
 
-2. 从“配置”菜单选择“警报”。  这将打开 Azure 警报面板。  此处可能有为其他服务配置的警报规则。
-3. 单击“添加指标警报”。  这将打开创建新警报规则的面板。
+1. 从“配置”菜单选择“警报”。  这将打开 Azure 警报面板。  此处可能有为其他服务配置的警报规则。
+2. 单击“添加指标警报”。  这将打开创建新警报规则的面板。
 
     ![添加指标警报](media/tutorial-alert/add-metric-alert.png)
 
-4. 键入警报规则的“名称”，然后在“资源”下拉列表中选择应用程序。
-5. 选择要采样的“指标”。  所示图表指示过去 24 小时内此请求的值。  这有可以帮助你为指标设置条件。
+3. 键入警报规则的“名称”，然后在“资源”下拉列表中选择应用程序。
+4. 选择要采样的“指标”。  所示图表指示过去 24 小时内此请求的值。  这有可以帮助你为指标设置条件。
 
     ![添加警报规则](media/tutorial-alert/add-alert-01.png)
 
-6. 指定警报的“条件”和“阈值”。 必须有这么多次超过指标，才会创建警报。 
+5. 指定警报的“条件”和“阈值”。 必须有这么多次超过指标，才会创建警报。 
 6. 在“通知方式”下，选中“电子邮件所有者、参与者和读者”框，并添加其他任何收件人的电子邮件地址，满足警报条件时，将向这些用户发送邮件。  还可以在此处指定满足条件时运行的 webhook 或逻辑应用。  可使用它们尝试缓解检测到的问题或 
 
     ![添加警报规则](media/tutorial-alert/add-alert-02.png)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 822076ea6aa2a81167c67c68299b2a9313da38bf
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 9a1d611d3ebe1f5a56d47eaa740a391ab1533e27
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440829"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626463"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服务映射与 System Center Operations Manager 的集成
 
@@ -67,11 +67,11 @@ ms.locfileid: "56440829"
 
     若要在集成中为某个服务器构建分布式应用程序关系图，该服务器必须：
 
-    * 由 Operations Manager 管理
-    * 由服务映射管理
-    * 已列在服务映射服务器组中
+   * 由 Operations Manager 管理
+   * 由服务映射管理
+   * 已列在服务映射服务器组中
 
-    ![Operations Manager 配置组](media/service-map-scom/scom-config-group.png)
+     ![Operations Manager 配置组](media/service-map-scom/scom-config-group.png)
 
 6. 可选：选择要与 Log Analytics 通信的管理服务器资源池，然后单击“添加工作区”。
 

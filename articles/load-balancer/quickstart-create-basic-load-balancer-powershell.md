@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 15d7afc2f19fb990bb3774014d7b9f9fda0ebabc
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 24c1baf9fd9591df78339c43459e016716e48889
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836900"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625185"
 ---
 # <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器
 
@@ -173,7 +173,7 @@ $vnet = New-AzVirtualNetwork `
 
 #### <a name="create-a-network-security-group-rule-for-port-3389"></a>为端口 3389 创建网络安全组规则
 
-使用 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 创建网络安全组规则以允许通过端口 3389 创建 RDP 连接。
+使用 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 创建网络安全组规则，以便通过端口 3389 创建 RDP 连接。
 
 ```powershell
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -191,7 +191,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig `
 
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>为端口 80 创建网络安全组规则
 
-使用 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 创建网络安全组规则以允许通过端口 80 建立入站连接。
+使用 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 创建网络安全组规则，以便通过端口 80 建立入站连接。
 
 ```powershell
 $rule2 = New-AzNetworkSecurityRuleConfig `
@@ -228,7 +228,7 @@ $nsg = New-AzNetworkSecurityGroup `
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'ChinaEast' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -238,7 +238,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'ChinaEast' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -267,7 +267,7 @@ $availabilitySet = New-AzAvailabilitySet `
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在下面的示例中，在 VM 创建期间，以前创建的 NIC 与这两台 VM 相关联，因为为它们分配了同一虚拟网络 (*myVnet*) 和子网 (*mySubnet*)：
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，上一步中创建的 NIC（VM1 和 VM2）将自动分配给虚拟机 VM1 和 VM2，因为它们具有相同的名称，并分配了相同的虚拟网络 (myVnet) 和子网 (mySubnet)。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
 
 ```powershell
 for ($i=1; $i -le 2; $i++)
@@ -289,32 +289,31 @@ for ($i=1; $i -le 2; $i++)
 `-AsJob` 参数以后台任务的方式创建 VM，因此 PowerShell 提示符会返回到你所在的位置。 可以通过 `Job` cmdlet 查看后台作业的详细信息。 创建和配置这两台 VM 需要几分钟的时间来完成。
 
 ### <a name="install-iis-with-custom-web-page"></a>安装具有自定义网页的 IIS
- 
+
 在两台后端 VM 上安装具有自定义网页的 IIS：
 
 1. 获取负载均衡器的公用 IP 地址。 使用 `Get-AzPublicIPAddress`，获取负载均衡器的公用 IP 地址。
 
-  ```powershell
+   ```powershell
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. 使用在上一步骤中获取的公用 IP 地址创建到 VM1 的远程桌面连接。 
 
-  ```powershell
+   ```powershell
 
       mstsc /v:PublicIpAddress:4221  
-  
-  ```
+   ```
 3. 输入 *VM1* 的凭据来启动 RDP 会话。
 4. 在 VM1 上启动 Windows PowerShell 并使用以下命令安装 IIS 服务器并更新默认的 htm 文件。
     ```powershell
     # Install IIS
       Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
+
     # Remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
+
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```

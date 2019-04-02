@@ -12,12 +12,12 @@ origin.date: 02/14/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 03/18/2019
-ms.openlocfilehash: 3588f0f2b6c3f660125433733bfb28ec0b22827b
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 4adacb80fdff17345563b725bd80631e33df8ae0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560494"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626808"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -107,8 +107,8 @@ ms.locfileid: "57560494"
 
    ![在 Raspberry Pi 上启用 SPI 和 SSH](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
-若要启用 SSH 和 SPI，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 中找到更多参考文档。
+> [!NOTE]
+> 若要启用 SSH 和 SPI，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 中找到更多参考文档。
 
 ### <a name="connect-the-sensor-to-pi"></a>将传感器连接到 Pi
 
@@ -157,8 +157,8 @@ ms.locfileid: "57560494"
    **Mac 和 Ubuntu 用户**
    
    使用 Ubuntu 或 macOS 上的内置 SSH 客户端。 可能需要运行 `ssh pi@<ip address of pi>`，以通过 SSH 连接 Pi。
-   > [!NOTE] 
-   默认用户名是 `pi`，密码是 `raspberry`。
+   > [!NOTE]
+   > 默认用户名是 `pi`，密码是 `raspberry`。
 
 
 ### <a name="configure-the-sample-application"></a>配置示例应用程序

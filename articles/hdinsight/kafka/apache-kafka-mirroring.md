@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 05/01/2018
 ms.date: an Apache
 ms.author: v-yiso
-ms.openlocfilehash: 08cdd31b9a2a22aa3af5eaa7c15aff05ecd720e6
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 90794e00ec4c6833113d8eaf9979ea4cc4f78099
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029230"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626032"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 
@@ -257,21 +257,21 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     本示例中使用的参数为：
 
-    * **--consumer.config**：指定包含使用者属性的文件。 这些属性用于创建可从 *源* Kafka 群集读取记录的使用者。
+   * **--consumer.config**：指定包含使用者属性的文件。 这些属性用于创建可从 *源* Kafka 群集读取记录的使用者。
 
-    * **--producer.config**：指定包含生成者属性的文件。 这些属性用于创建可向 *目标* Kafka 群集写入记录的生成者。
+   * **--producer.config**：指定包含生成者属性的文件。 这些属性用于创建可向 *目标* Kafka 群集写入记录的生成者。
 
-    * **--whitelist**：MirrorMaker 从源群集复制到目标的主题列表。
+   * **--whitelist**：MirrorMaker 从源群集复制到目标的主题列表。
 
-    * **--num.streams**：要创建的使用者线程数。
+   * **--num.streams**：要创建的使用者线程数。
 
-    启动后，MirrorMaker 返回类似于以下文本的信息：
+     启动后，MirrorMaker 返回类似于以下文本的信息：
 
-    ```json
-    {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
-    metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
-    metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
-    ```
+     ```json
+     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
+     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
+     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
+     ```
 
 2. 与 **源** 群集建立 SSH 连接后，使用以下命令启动生成者，并向主题发送消息：
 

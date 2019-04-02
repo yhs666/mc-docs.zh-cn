@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 10/30/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: e67506560c8bc29c5a87f149906ee09ba2798df9
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 7c7a7c5a197cdca2401b7294c2e5e09025830e64
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987922"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625114"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 
@@ -53,13 +53,13 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB。 每个 API 具有自�
 
 * **查询模式**：查询的复杂性会影响操作使用的 RU 数。 影响查询操作成本的因素： 
 
-    - 查询结果数。
-    - 谓词数。
-    - 谓词性质。
-    - 用户定义的函数数目。
-    - 源数据的大小。
-    - 结果集的大小。
-    - 投影数。
+  - 查询结果数。
+  - 谓词数。
+  - 谓词性质。
+  - 用户定义的函数数目。
+  - 源数据的大小。
+  - 结果集的大小。
+  - 投影数。
 
     Azure Cosmos DB 保证针对相同数据重复执行的相同查询所消耗的 RU 数相同。
 

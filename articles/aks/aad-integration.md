@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 08/09/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: bbe805a2649c74d580558a551e5ccb8bb821cfc1
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 63a0cb887f035f1ae1453f85cd04e4dbbcdbf2b2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903239"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625897"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>将 Azure Active Directory 与 Azure Kubernetes Service 集成
 
@@ -41,47 +41,47 @@ ms.locfileid: "56903239"
 
 1. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”。
 
-  为应用程序命名，选择“Web 应用/API”作为应用程序类型，然后为“登录 URL”输入采用 URI 格式的任何值。 完成后，选择“创建”。
+   为应用程序命名，选择“Web 应用/API”作为应用程序类型，然后为“登录 URL”输入采用 URI 格式的任何值。 完成后，选择“创建”。
 
-  ![创建 Azure AD 注册](media/aad-integration/app-registration.png)
+   ![创建 Azure AD 注册](media/aad-integration/app-registration.png)
 
 2. 选择“清单”，将 `groupMembershipClaims` 值编辑为 `"All"`。
 
-  完成后保存更新。
+   完成后保存更新。
 
-  ![将组成员身份更新为“所有”](media/aad-integration/edit-manifest.png)
+   ![将组成员身份更新为“所有”](media/aad-integration/edit-manifest.png)
 
 3. 返回 Azure AD 应用程序，选择“设置” > “密钥”。
 
-  添加密钥说明，选择过期截止时间，然后选择“保存”。 记下密钥值。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application secret`。
+   添加密钥说明，选择过期截止时间，然后选择“保存”。 记下密钥值。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application secret`。
 
-  ![获取应用程序私钥](media/aad-integration/application-key.png)
+   ![获取应用程序私钥](media/aad-integration/application-key.png)
 
 4. 返回 Azure AD 应用程序，选择“设置” > “所需的权限” > “添加” > “选择 API” > “Microsoft Graph” > “选择”。
 
-  ![选择图形 API](media/aad-integration/graph-api.png)
+   ![选择图形 API](media/aad-integration/graph-api.png)
 
 5. 在“应用程序权限”下，勾选“读取目录数据”。
 
-  ![设置应用程序 Graph 权限](media/aad-integration/read-directory.png)
+   ![设置应用程序 Graph 权限](media/aad-integration/read-directory.png)
 
 6. 在“委派权限”下，勾选“登录并读取用户个人资料”和“读取目录数据”。 完成后保存更新。
 
-  ![设置应用程序 Graph 权限](media/aad-integration/delegated-permissions.png)
+   ![设置应用程序 Graph 权限](media/aad-integration/delegated-permissions.png)
 
-  选择“完成” 。
+   选择“完成” 。
 
 7. 从 API 列表中选择“Microsoft Graph”，然后选择“授予权限”。 如果当前帐户不是租户管理员，此步骤将会失败。
 
-  ![设置应用程序 Graph 权限](media/aad-integration/grant-permissions.png)
+   ![设置应用程序 Graph 权限](media/aad-integration/grant-permissions.png)
 
-  成功授予权限后，门户中会显示以下通知：
+   成功授予权限后，门户中会显示以下通知：
 
-  ![权限授予成功的通知](media/aad-integration/permissions-granted.png)
+   ![权限授予成功的通知](media/aad-integration/permissions-granted.png)
 
 8. 返回应用程序并记下“应用程序 ID”。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application ID`。
 
-  ![获取应用程序 ID](media/aad-integration/application-id.png)
+   ![获取应用程序 ID](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>创建客户端应用程序
 
@@ -89,27 +89,27 @@ ms.locfileid: "56903239"
 
 1. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”。
 
-  为应用程序命名，选择“本机”作为应用程序类型，然后为“重定向 URI”输入采用 URI 格式的任何值。 完成后，选择“创建”。
+   为应用程序命名，选择“本机”作为应用程序类型，然后为“重定向 URI”输入采用 URI 格式的任何值。 完成后，选择“创建”。
 
-  ![创建 AAD 注册](media/aad-integration/app-registration-client.png)
+   ![创建 AAD 注册](media/aad-integration/app-registration-client.png)
 
 2. 在 Azure AD 应用程序中，选择“设置” > “所需的权限” > “添加” > “选择API”，并搜索本文档最后一个步骤中创建的服务器应用程序的名称。
 
-  ![配置应用程序权限](media/aad-integration/select-api.png)
+   ![配置应用程序权限](media/aad-integration/select-api.png)
 
 3. 勾选该应用程序，并单击“选择”。
 
-  ![选择 AKS AAD 服务器应用程序终结点](media/aad-integration/select-server-app.png)
+   ![选择 AKS AAD 服务器应用程序终结点](media/aad-integration/select-server-app.png)
 
-  选择“完成”
+   选择“完成”
 
 4. 从列表中选择服务器 API，然后选择“授予权限”：
 
-  ![授予权限](media/aad-integration/grant-permissions-client.png)
+   ![授予权限](media/aad-integration/grant-permissions-client.png)
 
 5. 返回 AD 应用程序并记下“应用程序 ID”。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Client application ID`。
 
-  ![获取应用程序 ID](media/aad-integration/application-id-client.png)
+   ![获取应用程序 ID](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>获取租户 ID
 

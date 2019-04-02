@@ -17,12 +17,12 @@ origin.date: 02/17/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: bca4197947ed7c30dab16ed0221268b4447cf1fc
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9ec56dcc892cda0572d56100dc201db1cd8e566f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666218"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625283"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）上配置 SQL Server 的 Azure Key Vault 集成
 > [!div class="op_single_selector"]
@@ -52,14 +52,15 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 ### <a name="understand-the-input-parameters"></a>了解输入参数
 下表列出在下一节中运行 PowerShell 脚本所需的参数。
 
-| 参数 | 说明 | 示例 |
-| --- | --- | --- |
-| **$akvURL** |**密钥保管库 URL** |"https://contosokeyvault.vault.azure.cn/" |
-| **$spName** |**服务主体名称** |“fde2b411-33d5-4e11-af04eb07b669ccf2” |
-| **$spSecret** |**服务主体密码** |“9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =” |
-| **$credName** |**凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |“mycred1” |
-| **$vmName** |**虚拟机名称**：以前创建的 SQL VM 的名称。 |“myvmname” |
-| **$serviceName** |**服务名称**：与 SQL VM 关联的云服务名称。 |“mycloudservicename” |
+
+|    参数     |                                                                           说明                                                                            |                    示例                     |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+|   **$akvURL**    |                                                                      **密钥保管库 URL**                                                                       |  "<https://contosokeyvault.vault.azure.cn/>"   |
+|   **$spName**    |                                                                    **服务主体名称**                                                                    |     “fde2b411-33d5-4e11-af04eb07b669ccf2”      |
+|  **$spSecret**   |                                                                   **服务主体密码**                                                                   | “9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =” |
+|  **$credName**   | **凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |                   “mycred1”                    |
+|   **$vmName**    |                                                **虚拟机名称**：以前创建的 SQL VM 的名称。                                                |                   “myvmname”                   |
+| **$serviceName** |                                           **服务名称**：与 SQL VM 关联的云服务名称。                                           |              “mycloudservicename”              |
 
 ### <a name="enable-akv-integration-with-powershell"></a>使用 PowerShell 启用 AKV 集成
 **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet 为 Azure 密钥保管库集成功能创建配置对象。 **Set-AzureVMSqlServerExtension** 通过 **KeyVaultCredentialSettings** 参数配置此集成。 以下步骤显示如何使用这些命令。

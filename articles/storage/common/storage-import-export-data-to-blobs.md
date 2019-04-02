@@ -9,12 +9,12 @@ origin.date: 12/11/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: bd9ea974de57231750abccd8f69705f70cc4f92c
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: f44c672337aa45b77e5e4aca182545bc85b600e6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192864"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625810"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -91,14 +91,14 @@ ms.locfileid: "54192864"
 
 4. 在“基本信息”中：
 
-    - 选择“导入到 Azure”。
-    - 输入导入作业的描述性名称。 可使用此名称来跟踪作业进度。
-        - 此名称可以包含大写和小写字母、数字、连字符。
-        - 此名称必须以字母开头，并且不得包含空格。
-    - 选择一个订阅。
-    - 输入或选择一个资源组。  
+   - 选择“导入到 Azure”。
+   - 输入导入作业的描述性名称。 可使用此名称来跟踪作业进度。
+       - 此名称可以包含大写和小写字母、数字、连字符。
+       - 此名称必须以字母开头，并且不得包含空格。
+   - 选择一个订阅。
+   - 输入或选择一个资源组。  
 
-    ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 5. 在“作业详细信息”中：
 
@@ -110,23 +110,23 @@ ms.locfileid: "54192864"
 
 6. 在“回寄信息”中：
 
-    - 从下拉列表中选择承运商。
-    - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 如果没有帐户编号，请创建一个 EMS 承运商帐户。
-    - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。 
+   - 从下拉列表中选择承运商。
+   - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 如果没有帐户编号，请创建一个 EMS 承运商帐户。
+   - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。 
         
-        > [!TIP] 
-        > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+       > [!TIP] 
+       > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
 
-    ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 7. 在“摘要”中：
 
-    - 在摘要中复查提供的作业信息。 记下作业名称和 Azure 数据中心送货地址，以便将将磁盘寄回 Azure。 稍后将在发货标签中使用此信息。
-    - 单击“确定”以创建导入作业。
+   - 在摘要中复查提供的作业信息。 记下作业名称和 Azure 数据中心送货地址，以便将将磁盘寄回 Azure。 稍后将在发货标签中使用此信息。
+   - 单击“确定”以创建导入作业。
 
-    ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
-    - 创建后，可以在设置部分下“管理发货信息”中再次查看数据中心的地址。
-    ![查看数据中心的地址](./media/storage-import-export-data-to-blobs/View-info.png)
+     ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+   - 创建后，可以在设置部分下“管理发货信息”中再次查看数据中心的地址。
+     ![查看数据中心的地址](./media/storage-import-export-data-to-blobs/View-info.png)
     
 ## <a name="step-3-ship-the-drives"></a>步骤 3：寄送驱动器 
 

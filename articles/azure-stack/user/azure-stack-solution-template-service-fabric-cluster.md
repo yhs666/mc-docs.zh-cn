@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 28af6fc3561f9747403a15c763386af7e094e080
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: ef4420fa5b0f06f9e195d5c798aa5c5a2f7226eb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905440"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626495"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
@@ -38,17 +38,17 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
    这是在部署 Service Fabric 时添加到 KeyVault 的 X.509 服务器证书。 
    - 此证书中的 **CN** 必须与创建的 Service Fabric 群集的完全限定域名 (FQDN) 匹配。 
    - 证书格式必须是 PFX，因为需要公钥和私钥。 
-   请参阅创建此服务器端证书所要满足的[要求](/service-fabric/service-fabric-cluster-security)。
+     请参阅创建此服务器端证书所要满足的[要求](/service-fabric/service-fabric-cluster-security)。
 
-    > [!NOTE]  
-    > 可以使用自签名的证书取代 X.509 服务器证书进行测试。 自签名的证书不需要与群集的 FQDN 匹配。
+     > [!NOTE]  
+     > 可以使用自签名的证书取代 X.509 服务器证书进行测试。 自签名的证书不需要与群集的 FQDN 匹配。
 
-2.  **管理客户端证书**这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](/service-fabric/service-fabric-cluster-security)。
+2. **管理客户端证书**这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](/service-fabric/service-fabric-cluster-security)。
 
-3.  **必须在 Azure Stack 市场中提供以下各项：**
-     - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
-     - **客户脚本扩展** - Microsoft 提供的虚拟机扩展。  
-     - **PowerShell Desired Stage Configuration** - Microsoft 提供的虚拟机扩展。
+3. **必须在 Azure Stack 市场中提供以下各项：**
+    - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
+    - **客户脚本扩展** - Microsoft 提供的虚拟机扩展。  
+    - **PowerShell Desired Stage Configuration** - Microsoft 提供的虚拟机扩展。
 
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
@@ -158,21 +158,21 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 
 ### <a name="use-service-fabric-explorer"></a>使用 Service Fabric Explorer
-1.  验证 Web 浏览器是否能够访问你的管理客户端证书，以及是否可在 Service Fabric 群集中进行身份验证。  
+1. 验证 Web 浏览器是否能够访问你的管理客户端证书，以及是否可在 Service Fabric 群集中进行身份验证。  
 
-    a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。
+   a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。
   
-    b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。 在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。
+   b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。 在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。
         
-       > [!NOTE]  
-       > 此证书不是先前已添加到 KeyVault 的群集证书。  
+      > [!NOTE]  
+      > 此证书不是先前已添加到 KeyVault 的群集证书。  
 
-    c. 确保在“文件资源管理器”窗口的扩展下拉列表中选择“个人信息交换”。  
+   c. 确保在“文件资源管理器”窗口的扩展下拉列表中选择“个人信息交换”。  
 
-       ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
+      ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. 在“证书存储”页上选择“个人”，然后完成向导。  
-       ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
+   d. 在“证书存储”页上选择“个人”，然后完成向导。  
+      ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 2. 若要查找 Service Fabric 群集的 FQDN：  
 
     a. 转到与 Service Fabric 群集关联的资源组，并找到“公共 IP 地址”资源。 选择与“公共 IP 地址”关联的对象，打开“公共 IP 地址”边栏选项卡。  
@@ -185,7 +185,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 3. 若要查找 Service Fabric Explorer 的 URL 和客户端连接终结点，请查看模板部署的结果。
 
-4. 在浏览器中转到 https://*FQDN*:19080。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
+4. 在浏览器中转到 https://<em>FQDN</em>:19080。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
    如果使用了自签名的证书，屏幕上会显示一条警告，指出连接不安全。 若要继续访问网站，请依次选择“更多信息”、“继续访问网页”。 
 
 5. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。 

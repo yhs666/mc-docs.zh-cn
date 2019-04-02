@@ -10,12 +10,12 @@ origin.date: 01/12/2017
 ms.date: 12/03/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: c20674989558f6c9a3b17c25450f3b772ffbe1c8
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 5a5b0eae4585c7dd49bed3f7ccd815085f77418c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028333"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626990"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 存储示例
 
@@ -80,12 +80,10 @@ ms.locfileid: "53028333"
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/SasTests.java">SAS 测试示例</a></td>
-</tr>   
-<tr> 
+</tr><br/><tr> 
 <td>服务属性</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr>           
-<tr> 
+</tr><br/><tr> 
 <td>快照 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
 </tr> 

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 07/10/2017
 ms.author: dkshir
 ms.date: 08/07/2017
-ms.openlocfilehash: 3831196763e6ba4dc515d92f41484828f977a8d3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 06b4cbab1d334621280a0c4d5d984e204615d196
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644220"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626720"
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -230,20 +230,20 @@ ms.locfileid: "52644220"
 1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **SetDesiredConfigurationAndQuery**。
    
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
-1. 在“解决方案资源管理器”中，右键单击“SetDesiredConfigurationAndQuery”项目，并单击“管理 NuGet 包...”。
-1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+2. 在“解决方案资源管理器”中，右键单击“SetDesiredConfigurationAndQuery”项目，并单击“管理 NuGet 包...”。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
    
     ![“NuGet 包管理器”窗口][img-servicenuget]
-1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
+4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-1. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
+5. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-1. 将以下方法添加到 **Program** 类：
+6. 将以下方法添加到 **Program** 类：
    
         static private async Task SetDesiredConfigurationAndQuery()
         {
@@ -284,16 +284,16 @@ ms.locfileid: "52644220"
    > 为了方便用户查看，此应用程序每 10 秒查询 IoT 中心一次。 使用查询跨多个设备生成面向用户的报表，而不检测更改。 如果解决方案需要设备事件的实时通知，请使用[孪生通知][lnk-twin-notifications]。
    > 
    > 
-1. 最后，在 **Main** 方法中添加以下行：
+7. 最后，在 **Main** 方法中添加以下行：
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         SetDesiredConfigurationAndQuery();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
-1. 在“解决方案资源管理器”中，打开“设置启动项目...”，并确保 **SetDesiredConfigurationAndQuery** 项目的“操作”为“启动”。 生成解决方案。
-1. 在运行 **SimulateDeviceConfiguration** 设备应用的情况下，使用 **F5** 从 Visual Studio 运行服务应用。 应会看到报告的配置从 **Pending** 更改为 **Success**，此时新的活动发送频率已变为 5 分钟而不是 24 小时。
+8. 在“解决方案资源管理器”中，打开“设置启动项目...”，并确保 **SetDesiredConfigurationAndQuery** 项目的“操作”为“启动”。 生成解决方案。
+9. 在运行 **SimulateDeviceConfiguration** 设备应用的情况下，使用 **F5** 从 Visual Studio 运行服务应用。 应会看到报告的配置从 **Pending** 更改为 **Success**，此时新的活动发送频率已变为 5 分钟而不是 24 小时。
 
- ![已成功配置设备][img-deviceconfigured]
+   ![已成功配置设备][img-deviceconfigured]
    
    > [!IMPORTANT]
    > 设备报告操作与查询结果之间最多存在一分钟的延迟。 这是为了使查询基础结构可以采用非常大的规模来工作。 若要检索单个设备孪生的一致视图，请使用 **Registry** 类中的 **getDeviceTwin** 方法。

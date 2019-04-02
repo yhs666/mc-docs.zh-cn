@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/03/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 2b52d7dbbe41ca008a1bb7dd139b92a77e71371e
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: c890425172108eb33a8ccd75853ed622c15638b0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833210"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626090"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
@@ -173,10 +173,10 @@ TestVNet1 和 TestVNet4 的虚拟网络网关都已完成后，便可以创建�
 
 1. 在 Azure 门户中选择“所有资源”，在搜索框中输入“虚拟网络网关”，然后导航到 VNet 的虚拟网络网关。 例如，“TestVNet1GW” 。 选择该网关打开“虚拟网络网关”页。
 
-  ![“连接”页](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "“连接”页")
+   ![“连接”页](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "“连接”页")
 2. 在“设置”下选择“连接”，然后选择“添加”打开“添加连接”页。
 
-  ![](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "添加连接")
+   ![](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "添加连接")
 3. 在“添加连接”页上，填写用于建立连接的值：
 
    - **名称**：输入连接的名称。 例如，*TestVNet1toTestVNet4*。
@@ -187,11 +187,11 @@ TestVNet1 和 TestVNet4 的虚拟网络网关都已完成后，便可以创建�
 
    - **第二个虚拟网络网关**：此字段是要连接到的 VNet 的虚拟网络网关。 选择“选择另一个虚拟网络网关”打开“选择虚拟网络网关”页。
 
-    - 查看此页上列出的虚拟网关。 请注意，只会列出订阅中的虚拟网络网关。 若要连接到订阅外部的虚拟网络网关，请使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)。
+     - 查看此页上列出的虚拟网关。 请注意，只会列出订阅中的虚拟网络网关。 若要连接到订阅外部的虚拟网络网关，请使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)。
 
-    - 选择要连接的虚拟网络网关。
+     - 选择要连接的虚拟网络网关。
 
-    - **共享密钥(PSK)**：在此字段中，输入连接的共享密钥。 可以自己生成或创建此密钥。 在站点到站点连接中，使用的密钥与本地设备和虚拟网络网关连接的密钥相同。 此处的概念大致相同，不过，此时不是连接到 VPN 设备，而是连接到另一个虚拟网络网关。
+     - **共享密钥(PSK)**：在此字段中，输入连接的共享密钥。 可以自己生成或创建此密钥。 在站点到站点连接中，使用的密钥与本地设备和虚拟网络网关连接的密钥相同。 此处的概念大致相同，不过，此时不是连接到 VPN 设备，而是连接到另一个虚拟网络网关。
     
 4. 选择“确定”保存更改。
 

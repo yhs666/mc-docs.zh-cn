@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 06/28/2017
 ms.author: jcline
 ms.date: 08/07/2017
-ms.openlocfilehash: c7d5a93a0ac88a0ab00c880b1eee3935060d256d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 433930940ecfbfb1c77c66135dc9f18c12430c6d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656329"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625175"
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>使用 C&#x23; 创建 Azure IoT Edge 模块
 
@@ -26,8 +26,8 @@ ms.locfileid: "52656329"
 
 本教程演练环境设置，以及如何使用最新的 `Azure IoT Edge NuGet` 包编写 [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) 数据转换器模块。 
 
->[!NOTE]
-本教程使用支持跨平台兼容性的 `.NET Core SDK`。 以下教程是使用 `Windows 10` 操作系统编写的。 根据所用的 `development environment`，本教程中的某些命令可能不同。 
+> [!NOTE]
+> 本教程使用支持跨平台兼容性的 `.NET Core SDK`。 以下教程是使用 `Windows 10` 操作系统编写的。 根据所用的 `development environment`，本教程中的某些命令可能不同。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -82,8 +82,8 @@ ms.locfileid: "52656329"
 
     b) `Visual Studio Code` 会自动在项目的 `obj` 文件夹中创建 `project.assets.json` 文件。 此文件包含项目中用于加速后续还原速度的依赖项的相关信息。
  
-    >[!NOTE]
-    `.NET Core Tools` 现在基于 MSBuild。 这意味着，将会创建 `.csproj` 项目文件而不是 `project.json`。
+   > [!NOTE]
+   >  `.NET Core Tools` 现在基于 MSBuild。 这意味着，将会创建 `.csproj` 项目文件而不是 `project.json`。
 
     - 如果 `Visual Studio Code` 未提示已成功创建该文件，我们可以手动执行此操作。 按 `Ctrl` + `backtick` 键或使用菜单 `View` -> `Integrated Terminal` 打开 `Visual Studio Code` 集成终端窗口。
     - 在 `Integrated Terminal` 窗口中键入 **dotnet restore**。
@@ -161,19 +161,19 @@ ms.locfileid: "52656329"
 
 11. 若要反序列化从 `BLE` 模拟设备收到的 `JSON` 对象，请将以下代码复制到 `Untitled-1` 文件代码编辑器窗口。 
 
-   ```csharp
-   using System;
-   using Newtonsoft.Json;
+    ```csharp
+    using System;
+    using Newtonsoft.Json;
 
-   namespace IoTEdgeConverterModule
-   {
+    namespace IoTEdgeConverterModule
+    {
        public class BleData
        {
            [JsonProperty(PropertyName = "temperature")]
            public string Temperature { get; set; }
        }
-   }
-   ```
+    }
+    ```
 
 12. 按 `Ctrl` + `Shift` + `S` 键将文件另存为 `BleData.cs`。
     - 在“另存为”对话框中的 `Save as Type` 下拉菜单内，选择 `C# (*.cs;*.csx)`，如下图所示：
@@ -184,17 +184,17 @@ ms.locfileid: "52656329"
 
 14. 将以下代码片段复制并粘贴到 `Untitled-1` 文件中。 此类是一个 `Azure IoT Edge` 模块，我们将使用它来输出从 `BleConverterModule` 收到的数据。
 
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Linq;
-   using System.Text;
-   using System.Threading.Tasks;
-   using Microsoft.Azure.Devices.Gateway;
-   using Newtonsoft.Json;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Devices.Gateway;
+    using Newtonsoft.Json;
    
-   namespace PrinterModule
-   {
+    namespace PrinterModule
+    {
        public class DotNetPrinterModule : IGatewayModule
        {
            private string configuration;
@@ -232,8 +232,8 @@ ms.locfileid: "52656329"
                Console.WriteLine();
            }
        }
-   }
-   ```
+    }
+    ```
 
 15. 按 `Ctrl` + `Shift` + `S` 将文件另存为 `DotNetPrinterModule.cs`。
     - 在“另存为”对话框中的 `Save as Type` 下拉菜单内，选择 `C# (*.cs;*.csx)`。
@@ -242,12 +242,12 @@ ms.locfileid: "52656329"
 
 17. 若要反序列化从 `BleConverterModule` 收到的 `JSON` 对象，请将以下代码片段复制并粘贴到 `Untitled-1` 文件。 
 
-   ```csharp
-   using System;
-   using Newtonsoft.Json;
+    ```csharp
+    using System;
+    using Newtonsoft.Json;
 
-   namespace PrinterModule
-   {
+    namespace PrinterModule
+    {
        public class BleConverterData
        {
            [JsonProperty(PropertyName = "deviceId")]
@@ -259,8 +259,8 @@ ms.locfileid: "52656329"
            [JsonProperty(PropertyName = "temperature")]
            public string Temperature { get; set; }
        }
-   }
-   ```
+    }
+    ```
 
 18. 按 `Ctrl` + `Shift` + `S` 将文件另存为 `BleConverterData.cs`。
     - 在“另存为”对话框中的 `Save as Type` 下拉菜单内，选择 `C# (*.cs;*.csx)`。
@@ -269,8 +269,8 @@ ms.locfileid: "52656329"
 
 20. 将以下代码片段复制并粘贴到 `Untitled-1` 文件中。
 
-   ```json
-   {
+    ```json
+    {
        "loaders": [
            {
                "type": "dotnetcore",
@@ -326,22 +326,22 @@ ms.locfileid: "52656329"
            {
                "source": "ble_converter_module", "sink": "printer_module"
            }
-   ]
-   }
-   ```
+    ]
+    }
+    ```
 
 21. 按 `Ctrl` + `Shift` + `S` 将文件另存为 `gw-config.json`。
     - 在“另存为”对话框中的 `Save as Type` 下拉菜单内，选择 `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`。
 
 22. 若要启用向输出目录复制配置文件，请使用以下 XML Blob 更新 `IoTEdgeConverterModule.csproj`：
 
-   ```xml
+    ```xml
      <ItemGroup>
        <None Update="gw-config.json" CopyToOutputDirectory="PreserveNewest" />
      </ItemGroup>
-   ```
+    ```
     
-   - 更新的 `IoTEdgeConverterModule.csproj` 应如下图所示：
+    - 更新的 `IoTEdgeConverterModule.csproj` 应如下图所示：
 
     ![Visual Studio Code 中已更新的 .csproj 文件](./media/iot-hub-iot-edge-create-module/vscode-update-csproj.png)
 
@@ -349,15 +349,15 @@ ms.locfileid: "52656329"
 
 24. 将以下代码片段复制并粘贴到 `Untitled-1` 文件中。
 
-   ```powershell
-   Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
-   Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.formatters\4.3.0\lib\netstandard1.4\* -Destination .\bin\Debug\netstandard1.3
-   Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.primitives\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-   Copy-Item -Path $env:userprofile\.nuget\packages\newtonsoft.json\10.0.2\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-   Copy-Item -Path $env:userprofile\.nuget\packages\system.componentmodel.typeconverter\4.3.0\lib\netstandard1.5\* -Destination .\bin\Debug\netstandard1.3
-   Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.nongeneric\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-   Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
-   ```
+    ```powershell
+    Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
+    Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.formatters\4.3.0\lib\netstandard1.4\* -Destination .\bin\Debug\netstandard1.3
+    Copy-Item -Path $env:userprofile\.nuget\packages\system.runtime.serialization.primitives\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+    Copy-Item -Path $env:userprofile\.nuget\packages\newtonsoft.json\10.0.2\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+    Copy-Item -Path $env:userprofile\.nuget\packages\system.componentmodel.typeconverter\4.3.0\lib\netstandard1.5\* -Destination .\bin\Debug\netstandard1.3
+    Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.nongeneric\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+    Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
+    ```
 
 25. 按 `Ctrl` + `Shift` + `S` 将文件另存为 `binplace.ps1`。
     - 在“另存为”对话框中的 `Save as Type` 下拉菜单内，选择 `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`。
@@ -374,7 +374,7 @@ ms.locfileid: "52656329"
 
     c) 单击 `.NET Core` 项在 `.vscode` 目录中创建 `tasks.json` 文件，然后在 `code editor` 窗口中打开该文件。 不需要修改此文件，因此请关闭选项卡。
 
-27.  按 `Ctrl` + `backtick` 键或使用菜单 `View` -> `Integrated Terminal` 打开 `Visual Studio Code` 集成终端窗口，然后在 `PowerShell` 命令提示符中键入 **.\binplace.ps1**。 此命令将我们的所有依赖项复制到输出目录。
+27. 按 `Ctrl` + `backtick` 键或使用菜单 `View` -> `Integrated Terminal` 打开 `Visual Studio Code` 集成终端窗口，然后在 `PowerShell` 命令提示符中键入 **.\binplace.ps1**。 此命令将我们的所有依赖项复制到输出目录。
 
 28. 键入 **cd .\bin\Debug\netstandard1.3**，在 `Integrated Terminal` 窗口中导航到 projects 输出目录。
 
@@ -385,6 +385,6 @@ ms.locfileid: "52656329"
     
     - 若要终止应用程序，请按 `<Enter>` 键。
 
->[!IMPORTANT]
-不建议使用 `Ctrl` + `C` 终止 `IoT Edge` 网关应用程序（即 **gw.exe**）， 因为此操作可能会导致该进程异常终止。
+> [!IMPORTANT]
+> 不建议使用 `Ctrl` + `C` 终止 `IoT Edge` 网关应用程序（即 **gw.exe**）， 因为此操作可能会导致该进程异常终止。
 

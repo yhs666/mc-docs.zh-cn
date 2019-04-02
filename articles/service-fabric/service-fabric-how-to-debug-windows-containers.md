@@ -14,12 +14,12 @@ ms.workload: NA
 origin.date: 02/14/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3d4a77ea0f1565b71f668620899fb544d90be6d1
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 2de73fd3a37deddf46b59a900ab28f3a62ecd18c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627368"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>如何：使用 Visual Studio 2017 在 Azure Service Fabric 中调试 Windows 容器
 
@@ -35,20 +35,20 @@ ms.locfileid: "57204166"
 
 1. 确保 Docker for Window 服务正在运行，然后再继续进行下一步。
 
-1. 为了支持容器之间的 DNS 解析，必须使用计算机名称来设置本地开发群集。 如果要通过反向代理寻址服务，则还需要执行这些步骤。
-    1. 以管理员身份打开 PowerShell
-    2. 导航到 SDK 群集安装文件夹，通常为 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
-    3. 运行脚本 `DevClusterSetup.ps1`
+2. 为了支持容器之间的 DNS 解析，必须使用计算机名称来设置本地开发群集。 如果要通过反向代理寻址服务，则还需要执行这些步骤。
+   1. 以管理员身份打开 PowerShell
+   2. 导航到 SDK 群集安装文件夹，通常为 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
+   3. 运行脚本 `DevClusterSetup.ps1`
 
-        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
-        ```
+       ``` PowerShell
+        C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
+       ```
 
-    > [!NOTE]
-    > 可以使用 `-CreateOneNodeCluster` 来设置单节点群集。 默认情况下将创建一个本地五节点群集。
-    >
+      > [!NOTE]
+      > 可以使用 `-CreateOneNodeCluster` 来设置单节点群集。 默认情况下将创建一个本地五节点群集。
+      >
 
-    若要详细了解 Service Fabric 中的 DNS 服务，请参阅 [Azure Service Fabric 中的 DNS 服务](/service-fabric/service-fabric-dnsservice)。 如需深入了解从容器中运行的服务使用 Service Fabric 反向代理，请参阅[对容器中运行的服务的反向代理特殊处理](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)。
+      若要详细了解 Service Fabric 中的 DNS 服务，请参阅 [Azure Service Fabric 中的 DNS 服务](/service-fabric/service-fabric-dnsservice)。 如需深入了解从容器中运行的服务使用 Service Fabric 反向代理，请参阅[对容器中运行的服务的反向代理特殊处理](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)。
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>在 Service Fabric 中调试容器时的已知限制
 

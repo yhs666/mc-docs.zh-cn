@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/10/2018
-ms.date: 01/15/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0d287445da3f50471300aa4bd23d02b5b98bfeeb
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: bf89c6f522c9a2cf575aaae738328e5b1cfc4b17
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334219"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408270"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -289,10 +289,10 @@ module.exports = {
 
 ```javascript
 module.exports = {
-    isPastDue: false
+    IsPastDue: false
 };
 ```
-此模块实现 `isPastDue` 属性，表示该实例是一个虚构的计时器实例。
+此模块实现 `IsPastDue` 属性，表示该实例是一个虚构的计时器实例。
 
 接下来，使用 VS Code Functions 扩展[创建新的 JavaScript HTTP 函数](https://code.visualstudio.com/tutorials/functions-extension/getting-started)，并将其命名为 *HttpTrigger*。 创建函数后，在名为 **index.test.js** 的同一文件夹中添加一个新文件，然后添加以下代码：
 
@@ -363,4 +363,4 @@ npm test
 - [Azure Functions 错误处理](./functions-bindings-error-pages.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

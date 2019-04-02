@@ -8,20 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 01/26/2017
-ms.date: 03/13/2019
+origin.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 7c8ffe2725ead9e06e1776f52195c8725566e678
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8074959c8e34ba7a4aa20f32224471b337da1130
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964473"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505417"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>计算机视觉 API 常见问题解答
 
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>如果在本“常见问题解答”中找不到问题的答案，请尝试在 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 中向计算机视觉 API 社区提问，或联系 [UserVoice 上的帮助和支持人员](https://cognitive.uservoice.com/)
+> [!TIP]
+> 如果在本“常见问题解答”中找不到问题的答案，请尝试在 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 中向计算机视觉 API 社区提问，或联系 [UserVoice 上的帮助和支持人员](https://cognitive.uservoice.com/)
 
 -----
 

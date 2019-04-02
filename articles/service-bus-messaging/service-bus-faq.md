@@ -6,15 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da5182acc55a33ec90f4dcd5eddab0011746050c
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 7ca04411dfc25fbc6a6438ab42d754b64df31957
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784615"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544826"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 
@@ -79,7 +78,13 @@ Azure 保留禁用在给定月份超过使用配额的客户帐户的权利，�
 
 至于 Azure 上的其他服务，服务总线会强制使用一组特定配额，以确保资源的公平使用。 可以在[服务总线配额概述][Quotas overview]中找到有关这些配额的更多详细信息。
 
+### <a name="how-to-handle-messages-of-size--1-mb"></a>如何处理大小 > 1 MB 的消息？
+服务总线消息服务（队列和主题/订阅）允许应用程序发送大小不超过 256 KB（标准层）或 1 MB（高级层）的消息。 若要处理大小超过 1 MB 的消息，请使用[此博客文章](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)中所述的声明检查模式。
+
 ## <a name="troubleshooting"></a>故障排除
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>为什么在从其他订阅中删除命名空间后无法创建该命名空间？ 
+从订阅中删除命名空间时，请等待 4 个小时，然后才能在另一个订阅中使用相同的名称重新创建它。 否则，可能会收到以下错误消息：`Namespace already exists`。 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure 服务总线 API 生成了哪些异常？建议采取什么操作？
 有关可能的服务总线异常的列表，请参阅[异常概述][Exceptions overview]。
 

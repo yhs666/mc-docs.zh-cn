@@ -9,12 +9,12 @@ origin.date: 12/27/2018
 ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 4280e34600cc296ed8d6c29436995fc75e6fc460
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 398873d5eb37ddd91156fca4309afa49c988545f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463628"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625250"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常见问题 - Hyper-V 到 Azure 的灾难恢复
 
@@ -63,10 +63,10 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正�
 ### <a name="what-do-i-need-on-premises"></a>需要在本地做好哪些准备？
 
 需要一个或多个在一个或多个独立或群集 Hyper-V 主机上运行的 VM。 还可以复制 System Center Virtual Machine Manager (VMM) 托管的主机上运行的 VM。
-    - 如果不运行 VMM，则在 Site Recovery 部署期间，将 Hyper-V 主机和群集收集到 Hyper-V 站点中。 在每个 Hyper-V 主机上安装 Site Recovery 代理（Azure Site Recovery 提供程序和 Recovery Services 代理）。
-    - 如果 Hyper-V 主机位于 VMM 云中，则在 VMM 中协调复制。 在 VMM 服务器上安装 Site Recovery 提供程序，在每个 Hyper-V 主机上安装恢复服务代理。 在 VMM 逻辑/VM 网络和 Azure VNet 之间进行映射。
-    - 
-[详细了解](hyper-v-azure-architecture.md) Hyper-V 到 Azure 的体系结构。
+
+- 如果不运行 VMM，则在 Site Recovery 部署期间，将 Hyper-V 主机和群集收集到 Hyper-V 站点中。 在每个 Hyper-V 主机上安装 Site Recovery 代理（Azure Site Recovery 提供程序和 Recovery Services 代理）。
+- 如果 Hyper-V 主机位于 VMM 云中，则在 VMM 中协调复制。 在 VMM 服务器上安装 Site Recovery 提供程序，在每个 Hyper-V 主机上安装恢复服务代理。 在 VMM 逻辑/VM 网络和 Azure VNet 之间进行映射。
+- [详细了解](hyper-v-azure-architecture.md) Hyper-V 到 Azure 的体系结构。
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>是否可以复制 Hyper-V 群集上的 VM？
 
@@ -137,7 +137,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 
 可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。
 
-###<a name="can-i-extend-replication"></a>是否可以扩展复制？
+### <a name="can-i-extend-replication"></a>是否可以扩展复制？
 不支持扩展扩展或链式复制。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？

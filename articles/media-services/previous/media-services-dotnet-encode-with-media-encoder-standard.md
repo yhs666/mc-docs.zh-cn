@@ -15,14 +15,15 @@ ms.topic: article
 origin.date: 10/30/2018
 ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: ef5e03df23aaf316de716f2b318c537507b010c7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: ae14edbfd989b876ff0b9e38f4b7a31385d0fff7
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672858"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624112"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码 
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码  
+
 编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 另外，也可以使用媒体服务合作伙伴提供的编码器；第三方编码器可通过 Azure 市场购得。 
 
 本文介绍如何使用 .NET 通过 Media Encoder Standard (MES) 对资产进行编码。 Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所述的其中一个编码器预设进行配置。

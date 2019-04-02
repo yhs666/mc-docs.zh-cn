@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 03/25/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: b16d7353255b72e0f5e72782e49dd39ea8aa4431
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c083020953534985b9120bf51cf452881d725872
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654006"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625203"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源
 通过 Cloud Explorer，可在 Visual Studio 中查看 Azure 资源和资源组、检查其属性，以及执行重要的开发人员诊断操作。 
@@ -76,14 +76,14 @@ ms.locfileid: "52654006"
 
     ![可选择所需资源视图的 Cloud Explorer 下拉列表](./media/vs-azure-tools-resources-managing-with-cloud-explorer/resources-view-dropdown.png)
 
-1. 从上下文菜单中，选择所需视图： 
+2. 从上下文菜单中，选择所需视图： 
 
-    - “资源类型”视图 - [Azure 门户](https://portal.azure.cn)中使用的常用视图，按类型来显示 Azure 资源，例如 Web 应用、存储帐户和虚拟机。 
-    - “资源组”视图 - 按关联的 Azure 资源组将 Azure 资源分类。 资源组是通常由特定应用程序使用的 Azure 资源组合。 若要了解有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](./azure-resource-manager/resource-group-overview.md)。
+   - “资源类型”视图 - [Azure 门户](https://portal.azure.cn)中使用的常用视图，按类型来显示 Azure 资源，例如 Web 应用、存储帐户和虚拟机。 
+   - “资源组”视图 - 按关联的 Azure 资源组将 Azure 资源分类。 资源组是通常由特定应用程序使用的 Azure 资源组合。 若要了解有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](./azure-resource-manager/resource-group-overview.md)。
 
-    下图比较了两个资源视图：
+     下图比较了两个资源视图：
 
-    ![Cloud Explorer 资源视图比较](./media/vs-azure-tools-resources-managing-with-cloud-explorer/resource-views-comparison.png)
+     ![Cloud Explorer 资源视图比较](./media/vs-azure-tools-resources-managing-with-cloud-explorer/resource-views-comparison.png)
 
 ## <a name="view-and-navigate-resources-in-cloud-explorer"></a>在 Cloud Explorer 中查看和导航资源
 如果要在 Cloud Explorer 中导航到 Azure 资源并查看其信息，请展开项的类型或关联的资源组，并选择该资源。 当选择资源时，信息会显示在 Cloud Explorer 底部的两个选项卡（“操作”和“属性”）中。 

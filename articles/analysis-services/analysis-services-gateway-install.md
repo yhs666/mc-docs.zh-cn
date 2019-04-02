@@ -9,12 +9,12 @@ origin.date: 01/08/2019
 ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 30d24bf71e0b1bfa24d2f8fd8e0691720a8cd6a6
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 40714a6ffc99a9adb9cc5997a80c61729fecd29f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085638"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627017"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 
@@ -94,19 +94,19 @@ ms.locfileid: "55085638"
 
 2. 在“创建连接网关”中，输入以下设置：
 
-    * **名称**：输入网关资源的名称。 
+   * **名称**：输入网关资源的名称。 
 
-    * **订阅**：选择要与网关资源关联的 Azure 订阅。 
+   * **订阅**：选择要与网关资源关联的 Azure 订阅。 
 
-      默认订阅取决于用来登录的 Azure 帐户。
+     默认订阅取决于用来登录的 Azure 帐户。
 
-    * **资源组**：创建资源组，或选择现有资源组。
+   * **资源组**：创建资源组，或选择现有资源组。
 
-    * **位置**：选择网关的注册区域。
+   * **位置**：选择网关的注册区域。
 
-    * **安装名称**：如果尚未选择网关安装，请选择注册的网关。 
+   * **安装名称**：如果尚未选择网关安装，请选择注册的网关。 
 
-    完成后，单击“创建”。
+     完成后，单击“创建”。
 
 <a name="connect-servers"></a>
 ## <a name="connect-servers-to-the-gateway-resource"></a>将服务器连接到网关资源

@@ -7,14 +7,13 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: v-junlch
-origin.date: 10/23/2018
-ms.date: 02/21/2019
+origin.date: 02/21/2019
+ms.date: 03/27/2019
 ms.topic: hub-page
 ---
-
+<div id="main" class="v2">
 <h1>Azure 认知服务文档</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何将智能算法构建到应用、网站和机器人中，从而使它们通过自然的沟通方式观察、倾听、说出和理解用户需求。 教程、快速入门、API 参考和示例演示了操作方法。</p>
-
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/cognitive-services/welcome/">
@@ -68,9 +67,9 @@ ms.topic: hub-page
                     </div>
                     <div class="cardText">
                         <h3>使用计算机视觉分析图像</h3>
-                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/CSharp">使用 C#</a></p>
-                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/Java">使用 Java</a></p>
-                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/Python">使用 Python</a></p>
+                        <p><a href="/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">使用 C#</a></p>
+                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/node-analyze">使用 Node.js</a></p>
+                        <p><a href="/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk">使用 Python</a></p>
                     </div>
                 </div>
             </div>
@@ -101,7 +100,7 @@ ms.topic: hub-page
 <h2>分步教程</h2>
 <ul class="cardsM panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
-        <a class="card" href="/cognitive-services/Computer-vision/tutorials/java-tutorial" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+        <a class="card" href="/cognitive-services/Computer-vision/tutorials/csharptutorial" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
             <div class="cardText">
                 <h3>使用计算机视觉 API 创建应用</h3>
             </div>
@@ -127,7 +126,18 @@ ms.topic: hub-page
                         <p><a href="/cognitive-services/computer-vision/">计算机视觉</a></p>
                         <p><a href="/cognitive-services/content-moderator/">内容审查器</a></p>
                         <p><a href="/cognitive-services/face/">人脸 API</a></p>
-                        <p><a href="/cognitive-services/emotion/home"><span>情感 API&nbsp;<sup style="font-size:70%">即将停用</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语音 API</h3>
+                <p><a href="/cognitive-services/speech-service">语音服务 API</a></p>
                     </div>
                 </div>
             </div>
@@ -140,10 +150,11 @@ ms.topic: hub-page
                     <div class="cardText">
                         <h3>语言 API</h3>
                         <p><a href="/cognitive-services/text-analytics/">文本分析</a></p>
+                        <p><a href="/cognitive-services/translator/">文本翻译</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
+</div>

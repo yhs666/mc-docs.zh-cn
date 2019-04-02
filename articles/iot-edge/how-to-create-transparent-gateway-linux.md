@@ -9,12 +9,12 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f01d051ee8926ec84efee96c99d7ec950685aab
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7480f457a650e75e6742bb778ca1087004d4f5c5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653592"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626272"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>创建充当透明网关的 Linux IoT Edge 设备
 
@@ -37,11 +37,11 @@ ms.locfileid: "52653592"
 以下步骤将演示创建证书并将它们安装在正确位置的过程。
 
 ## <a name="prerequisites"></a>先决条件
-1.  在要用作透明网关的 Linux 设备上安装 Azure IoT Edge 运行时。
+1. 在要用作透明网关的 Linux 设备上安装 Azure IoT Edge 运行时。
    * [Linux x64][lnk-install-linux-x64]
    * [Linux ARM32][lnk-install-linux-arm]
 
-2.  使用以下命令获取脚本以生成所需的非生产证书。 这些脚本可帮助创建必要的证书来设置透明网关。 
+2. 使用以下命令获取脚本以生成所需的非生产证书。 这些脚本可帮助创建必要的证书来设置透明网关。 
 
    ```cmd
    git clone https://github.com/Azure/azure-iot-sdk-c.git
@@ -62,7 +62,7 @@ ms.locfileid: "52653592"
       ```
 
 ## <a name="certificate-creation"></a>证书创建
-1.  创建所有者 CA 证书和一个中间证书。 这些证书都放置在 `$WRKDIR` 中。
+1. 创建所有者 CA 证书和一个中间证书。 这些证书都放置在 `$WRKDIR` 中。
 
    ```cmd
    ./certGen.sh create_root_and_intermediate
@@ -70,20 +70,20 @@ ms.locfileid: "52653592"
 
    脚本执行的输出是以下证书和密钥：
    * 证书
-      * `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
-      * `$WRKDIR/certs/azure-iot-test-only.intermediate.cert.pem`
+     * `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+     * `$WRKDIR/certs/azure-iot-test-only.intermediate.cert.pem`
    * 密钥
-      * `$WRKDIR/private/azure-iot-test-only.root.ca.key.pem`
-      * `$WRKDIR/private/azure-iot-test-only.intermediate.key.pem`
+     * `$WRKDIR/private/azure-iot-test-only.root.ca.key.pem`
+     * `$WRKDIR/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  使用以下命令创建 Edge 设备 CA 证书和私钥。
+2. 使用以下命令创建 Edge 设备 CA 证书和私钥。
 
    >[!NOTE]
    > 不要使用与网关的 DNS 主机名相同的名称。 这样做会导致客户端对这些证书的认证失败。
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+     ```cmd
+     ./certGen.sh create_edge_device_certificate "<gateway device name>"
+     ```
 
    脚本执行的输出是以下证书和密钥：
    * `$WRKDIR/certs/new-edge-device.*`
@@ -97,7 +97,7 @@ ms.locfileid: "52653592"
    ```
 
 ## <a name="installation-on-the-gateway"></a>在网关上安装
-1.  从 Edge 设备上的 $WRKDIR 任意位置复制以下文件，我们将其称为 $CERTDIR。 如果已在 Edge 设备上生成证书，请跳过此步骤。
+1. 从 Edge 设备上的 $WRKDIR 任意位置复制以下文件，我们将其称为 $CERTDIR。 如果已在 Edge 设备上生成证书，请跳过此步骤。
 
    * 设备 CA 证书 - `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * 设备 CA 私钥 - `$WRKDIR/private/new-edge-device.key.pem`
@@ -109,7 +109,7 @@ ms.locfileid: "52653592"
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3.  将 IoT Edge 守护程序配置 yaml 文件中的 `certificate` 属性设置为放置证书和密钥文件的路径。
+3. 将 IoT Edge 守护程序配置 yaml 文件中的 `certificate` 属性设置为放置证书和密钥文件的路径。
 
 ```yaml
 certificates:

@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: 17c091f1d2e3b8d99240f485d20a1184b75a5ac6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f4882080d1a33e1cfd3a67218c40bea99c5f2afc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655798"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626249"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Python)
 
@@ -66,8 +66,8 @@ ms.locfileid: "52655798"
 * 散射的 10 毫米 LED 灯。
 
 
-> [!NOTE] 
-上述项可选，因为代码示例支持模拟的传感器数据。
+> [!NOTE]
+> 上述项可选，因为代码示例支持模拟的传感器数据。
 
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -100,8 +100,8 @@ ms.locfileid: "52655798"
 
    ![在 Raspberry Pi 上启用 I2C 和 SSH](./media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
-若要启用 SSH 和 I2C，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 中找到更多参考文档。
+> [!NOTE]
+> 若要启用 SSH 和 I2C，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 中找到更多参考文档。
 
 ### <a name="connect-the-sensor-to-pi"></a>将传感器连接到 Pi
 
@@ -151,8 +151,8 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
    **Mac 和 Ubuntu 用户**
    
    使用 Ubuntu 或 macOS 上的内置 SSH 客户端。 可能需要运行 `ssh pi@<ip address of pi>`，以通过 SSH 连接 Pi。
-   > [!NOTE] 
-   默认用户名是 `pi`，密码是 `raspberry`。
+> [!NOTE]
+>    默认用户名是 `pi`，密码是 `raspberry`。
 
 
 ### <a name="configure-the-sample-application"></a>配置示例应用程序
@@ -184,20 +184,20 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
    sudo chmod u+x setup.sh
    sudo ./setup.sh
    ```
-   > [!NOTE] 
-   还可以通过运行 `sudo ./setup.sh [--python-version|-p] [2.7|3.4|3.5]` 指定所需版本。 如果运行不带参数的脚本，此脚本会自动检测安装的 python 的版本（搜索序列 2.7->3.4->3.5）。 请确保 Python 版本在生成和运行期间保持一致。 
+   > [!NOTE]
+   > 还可以通过运行 `sudo ./setup.sh [--python-version|-p] [2.7|3.4|3.5]` 指定所需版本。 如果运行不带参数的脚本，此脚本会自动检测安装的 python 的版本（搜索序列 2.7->3.4->3.5）。 请确保 Python 版本在生成和运行期间保持一致。 
+   > 
+   > [!NOTE]
+   > 在内存小于 1GB RAM 的 Linux 设备上生成 Python 客户端库 (iothub_client.so) 时，可能会看到在生成 iServ_client_python.cpp 时进度在 98% 处停滞，如下所示 `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`。 如果遇到此问题，在此期间，请在另一终端窗口中使用 `free -m command` 检查设备的内存使用情况。 如果在编译 iothub_client_python.cpp 文件时出现内存不足的情况，则必须临时增加交换空间以获得更多可用内存，才能成功生成 Python 客户端设备 SDK 库。
    
-   > [!NOTE] 
-   在内存小于 1GB RAM 的 Linux 设备上生成 Python 客户端库 (iothub_client.so) 时，可能会看到在生成 iServ_client_python.cpp 时进度在 98% 处停滞，如下所示 `[ 98%] Building CXX object python/src/CMakeFiles/iothub_client_python.dir/iothub_client_python.cpp.o`。 如果遇到此问题，在此期间，请在另一终端窗口中使用 `free -m command` 检查设备的内存使用情况。 如果在编译 iothub_client_python.cpp 文件时出现内存不足的情况，则必须临时增加交换空间以获得更多可用内存，才能成功生成 Python 客户端设备 SDK 库。
-   
-1. 通过运行以下命令，生成示例应用程序：
+2. 通过运行以下命令，生成示例应用程序：
 
    ```bash
    python app.py '<your Azure IoT hub device connection string>'
    ```
 
-   > [!NOTE] 
-   确保将设备连接字符串复制并粘贴到单引号中。 如果使用的是 python 3，则可以使用命令 `python3 app.py '<your Azure IoT hub device connection string>'`。
+   > [!NOTE]
+   > 确保将设备连接字符串复制并粘贴到单引号中。 如果使用的是 python 3，则可以使用命令 `python3 app.py '<your Azure IoT hub device connection string>'`。
 
 
    应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。

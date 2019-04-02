@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/28/19
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7d964ef499565e1e107bc6aee7336e8da5012926
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: c19bbbe938198322c7d69d1cdcc9c6c31ac75f08
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906096"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544717"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 

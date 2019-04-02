@@ -3,7 +3,7 @@ title: 在 Azure 门户中使用本地编码器实时传送流 | Microsoft Docs
 description: 本教程指导完成相关步骤，以便创建经配置后可以进行直通传递的“通道”。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: b8becd79a8a8a0d63f0f96566eddeb2fff58846d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 55f54dcb1e5877c4abe4b7a27f7e4b7a8bcc451d
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648661"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624129"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>如何通过 Azure 门户使用本地编码器实时传送视频流
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "52648661"
 
 * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
-* 网络摄像机。 例如， [Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
+* 网络摄像机。 例如， [Telestream Wirecast 编码器](https://www.telestream.net/wirecast/overview.htm)。
 
 强烈建议阅读以下文章：
 
@@ -51,7 +51,7 @@ ms.locfileid: "52648661"
 >[!NOTE]
 >确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
     
-1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4 流的本地实时编码器接收实时输入流。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4 流的本地实时编码器接收实时输入流。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
    
     此步骤也可以在创建频道后执行。
 2. 创建并启动直通通道。

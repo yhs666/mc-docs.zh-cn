@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: dc2683f641017a7e8a3a1b8b0bb3df3dbd16870f
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: d921bc26c9a4d72781bde147a8e852076c682dee
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004525"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626151"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的查询成本
 
@@ -106,11 +106,11 @@ Total Query Execution Time               :   �
 
 * 详细了解 [Azure Cosmos 定价的原理](how-pricing-works.md)
 * 详细了解[开发和测试优化](optimize-dev-test.md)
-<!-- Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+  <!-- Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
-<!-- Not Available on [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
+  <!-- Not Available on [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 
 <!-- Update_Description: update meta properties  -->

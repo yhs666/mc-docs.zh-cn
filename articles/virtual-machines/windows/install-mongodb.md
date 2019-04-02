@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/15/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a398dc38aced00c4dd91ee7a2b1997644f455f59
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f3a57eea35e2cd95d5189ab21a2d050bd0d28b8b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665877"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626576"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>在 Azure 中的 Windows VM 上安装和配置 MongoDB
 [MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文分步讲解了如何在 Azure 中的 Windows Server 2016 虚拟机 (VM) 上安装和配置 MongoDB。 也可以[在 Azure 中的 Linux VM 上安装 MongoDB](../linux/install-mongodb.md)。
@@ -43,7 +43,7 @@ ms.locfileid: "56665877"
 
    * 选择右上角的“工具”图标。
    * 在“Internet 选项”中，选择“安全”选项卡，然后选择“受信任的站点”图标。
-   * 单击“站点”按钮。 将 *https://\*.mongodb.com* 添加到受信任站点的列表，然后关闭对话框。
+   * 单击“站点”按钮。 将 <em>https://\*.mongodb.com</em> 添加到受信任站点的列表，然后关闭对话框。
 
      ![配置 Internet Explorer 安全设置](./media/install-mongodb/configure-internet-explorer-security.png)
 4. 请转到 [MongoDB - 下载](http://www.mongodb.com/downloads)页 (http://www.mongodb.com/downloads))。

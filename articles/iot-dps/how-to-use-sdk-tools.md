@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 4e269a23396bd148b8c99350716207f42e1318b8
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 7a95bd82455a790ec7dec846a3c53fd71531fc77
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988530"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625611"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>如何使用 SDK 中提供的工具来简化预配开发
 IoT 中心设备预配服务简化了预配过程，以安全且可缩放的方式实现零接触实时[自动预配](concepts-auto-provisioning.md)。  需要 X.509 证书形式的安全证明，或受信任的平台模块 (TPM)。  Microsoft 还与[其他安全硬件合作伙伴](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)携手合作，共同提高安全 IoT 部署的可信度。 对于开发者，了解硬件安全需求可能是一项大挑战。 我们提供了一组 Azure IoT 预配服务 SDK，因此，开发者可使用一个便捷的层来编写与预配服务通信的客户端。 这些 SDK 还提供了常用方案的示例，以及一组可简化开发安全证明的工具。
@@ -23,9 +23,9 @@ IoT 中心设备预配服务简化了预配过程，以安全且可缩放的方�
 
 使用 TPM 模拟器的步骤如下：
 1. [准备开发环境](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)并克隆 GitHub 存储库：
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. 导航到 ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/``` 下的 TPM 模拟器文件夹。
 3. 先运行 Simulator.exe，再运行任何客户端应用程序进行设备预配。
 4. 在整个预配过程中，在后台运行模拟器，以获取注册 ID 和认可密钥。  这两个值只对运行的一个实例有效。
@@ -47,18 +47,18 @@ SDK 提供带 DICE 仿真器的 X.509 证书生成器，位于 [Java SDK](https:
 
 使用此生成器生成 X.509 证书：
 1. [准备开发环境](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)并克隆 GitHub 存储库：
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. 将根目录更改为 azure-iot-sdk-java。
 3. 运行 ```mvn install -DskipTests=true```，下载所需的所有包，并编译 SDK
 4. 导航到 ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator``` 中 X.509 证书生成器的根目录。
 5. 使用 ```mvn clean install``` 生成
 6. 使用以下命令来运行工具：
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. 出现提示时，可以选择性地为证书输入“公用名称”。
 8. 此工具在本地生成“客户端证书”、“客户端证书私钥”、“中间证书”和“根证书”。
 

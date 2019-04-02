@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8e4285928b466e9896c142c6869db9778780ac4e
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: cbd7ba90ef3561205453a81b2ca10be66b5d036f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666403"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625515"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安装和配置 MongoDB
 
-[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 在 Linux VM 上安装和配置 MongoDB。 文中提供了一些示例，详细说明如何执行以下操作：
+[MongoDB](https://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 在 Linux VM 上安装和配置 MongoDB。 文中提供了一些示例，详细说明如何执行以下操作：
 
 * [手动安装和配置基本的 MongoDB 实例](#manually-install-and-configure-mongodb-on-a-vm)
 * [使用 Resource Manager 模板创建基本的 MongoDB 实例](#create-basic-mongodb-instance-on-centos-using-a-template)

@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 03/04/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 6602f59a21dc97e0a21d7dbce715785a9d0255a7
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: f9e617a0cfaf833ca51528ee1b0acd6d9496ea62
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319006"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626515"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -137,6 +137,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 ### <a name="cli"></a>CLI  
 
 也可以通过调用以下 CLI 命令来预配 Azure AD 管理员：
+
 | 命令 | 说明 |
 | --- | --- |
 |[az sql server ad-admin create](/cli/sql/server/ad-admin#az-sql-server-ad-admin-create) |为 Azure SQL Server 或 Azure SQL 数据仓库预配 Azure Active Directory 管理员。 （必须来自当前订阅。） |
@@ -243,7 +244,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 对于本机或联合身份验证 Azure AD 用户，请使用此方法通过 Azure AD 向 SQL DB/DW 进行身份验证。 本机用户是指以显式方式在 Azure AD 中创建并使用用户名和密码进行身份验证的用户，而联合用户则是指其域与 Azure AD 联合的 Windows 用户。 当用户需要使用其 Windows 凭据（例如使用远程访问），但其本地计算机未加入域时，可以使用后一方法（用户和密码）。 在这种情况下，Windows 用户可以指定其域帐户和密码，然后使用联合凭据向 SQL DB/DW 进行身份验证。
 
 1. 启动 Management Studio 或 Data Tools 后，在“连接到服务器”（或“连接到数据库引擎”）对话框的“身份验证”框中，选择“Active Directory - 密码”。
-2. 在“用户名”框中，以 **username@domain.com** 格式键入 Azure Active Directory 用户名。 用户名必须是来自 Azure Active Directory 的帐户或来自与 Azure Active Directory 联合的域的帐户。
+2. 在“用户名”框中，以 <strong>username@domain.com</strong> 格式键入 Azure Active Directory 用户名。 用户名必须是来自 Azure Active Directory 的帐户或来自与 Azure Active Directory 联合的域的帐户。
 3. 在“密码”框中，为 Azure Active Directory 帐户或联合域帐户键入用户密码。
 
     ![选择 AD 密码身份验证][12]

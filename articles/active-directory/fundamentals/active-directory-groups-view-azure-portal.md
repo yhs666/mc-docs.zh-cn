@@ -14,12 +14,12 @@ ms.author: v-junlch
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f2b0230067f323d5ecf6c6da1afdfdc1ab0b21
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: ef1d69d55f0695405b1e617bf3f6cd5c1abc9703
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186674"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626354"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -60,9 +60,9 @@ ms.locfileid: "58186674"
 
 2. 填写“用户”页：
 
-    - **名称：** 键入 Alain Charon。
+   - **名称：** 键入 Alain Charon。
 
-    - **用户名：** 键入 alain@contoso.com。
+   - **用户名：** 键入 alain@contoso.com。
 
 3. 复制“密码”框中提供的自动生成的密码，然后选择“创建”。
 

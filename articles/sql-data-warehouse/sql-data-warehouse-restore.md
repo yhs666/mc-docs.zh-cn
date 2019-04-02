@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 08/29/2018
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 412dd29b7390c785bd49d7d38e55d8a73e9234c8
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 5a91f70c35eb78d24c5c6e3194b18d2e4266de3e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348085"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627554"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>还原 Azure SQL 数据仓库 
 本文介绍如何在 Azure 门户和 PowerShell 中执行以下操作：
@@ -207,8 +207,10 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> 若要在完成还原后配置数据库，请参阅[恢复后配置数据库][Configure your database after recovery]。
+> 若要在完成还原后配置数据库，请参阅[在恢复后配置数据库][Configure your database after recovery]。
 >
+
+如果源数据库启用了 TDE，则已恢复的数据库会启用 TDE。
 
 ## <a name="restore-through-the-azure-portal"></a>通过 Azure 门户进行还原
 
@@ -269,7 +271,7 @@ $GeoRestoredDatabase.status
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-Azsqldatabase
+[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/

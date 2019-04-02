@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 09/26/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: c2dd3aa82113447ef764a3b48f1081ee22641b77
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 4f3d28842b18eb0684db70f1f5207bc10d1efe82
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627379"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的出口流量使用公用静态 IP 地址
 
@@ -130,8 +130,7 @@ $ curl -s checkip.dyndns.org
 [az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [az-network-public-ip-list]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
 [public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create

@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 01/04/2019
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d185ccad4d8243961cbf9014c47d657babd153c0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 895117e88c36275713054f4db2909f4a8c61aa83
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987968"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626476"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>教程：开发 Node.js IoT Edge 模块并将其部署到模拟设备
 
@@ -62,20 +62,23 @@ Azure IoT Edge 设备：
 
 2. 提供以下值，以便创建容器注册表：
 
-   | 字段 | 值 | 
-   | ----- | ----- |
-   | 注册表名称 | 提供唯一名称。 |
-   | 订阅 | 从下拉列表中选择“订阅”。 |
+
+   |     字段      |                                                                                       值                                                                                       |
+   |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | 注册表名称  |                                                                              提供唯一名称。                                                                               |
+   |  订阅  |                                                                  从下拉列表中选择“订阅”。                                                                   |
    | 资源组 | 建议对在 IoT Edge 快速入门和教程中创建的所有测试资源使用同一资源组。 例如，**IoTEdgeResources**。 |
-   | 位置 | 选择靠近你的位置。 |
-   | 管理员用户 | 设置为“启用”。 |
-   | SKU | 选择“基本”。 | **终端**
+   |    位置    |                                                                          选择靠近你的位置。                                                                          |
+   |   管理员用户   |                                                                                设置为“启用”。                                                                                 |
+   |      SKU       |                                                                                 选择“基本”。                                                                                 |
 
-5. 选择“创建” 。
 
-6. 创建容器注册表后，请浏览到其中，然后选择“访问密钥”。 
 
-7. 复制“登录服务器”、“用户名”和“密码”的值。 本教程后面会用到这些值来访问容器注册表。 
+3. 选择“创建”。
+
+4. 创建容器注册表后，请浏览到其中，然后选择“访问密钥”。 
+
+5. 复制“登录服务器”、“用户名”和“密码”的值。 本教程后面会用到这些值来访问容器注册表。 
 
 ## <a name="create-an-iot-edge-module-project"></a>创建 IoT Edge 模块项目
 以下步骤介绍如何使用 Visual Studio Code 和 Azure IoT 工具来创建 IoT Edge Node.js 模块。
@@ -105,7 +108,7 @@ Azure IoT Edge 设备：
    | 选择模块模板 | 选择“Node.js 模块”。 |
    | 提供模块名称 | 将模块命名为 **NodeModule**。 |
    | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是基于你在上一步中提供的名称预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br>最终的映像存储库看起来类似于 \<registry name\>.azurecr.cn/nodemodule。 |
- 
+
    ![提供 Docker 映像存储库](./media/tutorial-node-module/repository.png)
 
 VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作区包含五个顶级组件。 **modules** 文件夹包含模块的 Node.js 代码以及用于将模块构建为容器映像的 Dockerfile。 **\.env** 文件存储容器注册表凭据。 **deployment.template.json** 文件包含 IoT Edge 运行时用于在设备上部署模块的信息，**deployment.debug.template.json** 文件包含模块的调试版本。 你不会在本教程中编辑 **\.vscode** 文件夹或 **\.gitignore** 文件。 
@@ -130,14 +133,14 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 1. 在 VS Code 资源管理器中，打开 **modules** > **NodeModule** > **app.js**。
 
-5. 在所需的节点模块下面添加温度阈值变量。 温度阈值设置一个值，若要向 IoT 中心发送数据，测量的温度必须超出该值。
+2. 在所需的节点模块下面添加温度阈值变量。 温度阈值设置一个值，若要向 IoT 中心发送数据，测量的温度必须超出该值。
 
     ```javascript
     var temperatureThreshold = 25;
     ```
 
-6. 将整个 `PipeMessage` 函数替换为 `FilterMessage` 函数。
-    
+3. 将整个 `PipeMessage` 函数替换为 `FilterMessage` 函数。
+
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
     // It also adds the MessageType property to the message with the value set to Alert.
@@ -154,10 +157,9 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
             }
         }
     }
-
     ```
 
-7. 将函数名称 `pipeMessage` 替换为 `client.on()` 函数中的 `filterMessage`。
+4. 将函数名称 `pipeMessage` 替换为 `client.on()` 函数中的 `filterMessage`。
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
@@ -165,7 +167,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
         });
     ```
 
-8. 将以下代码片段复制到 `client.open()` 函数回调中，具体说来是在 `else` 语句中的 `client.on()` 后面。 更新所需属性时，会调用此函数。
+5. 将以下代码片段复制到 `client.open()` 函数回调中，具体说来是在 `else` 语句中的 `client.on()` 后面。 更新所需属性时，会调用此函数。
 
     ```javascript
     client.getTwin(function (err, twin) {
@@ -181,9 +183,9 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     });
     ```
 
-9. 保存 app.js 文件。
+6. 保存 app.js 文件。
 
-10. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **NodeModule**），并告知 IoT Edge 中心如何在它们之间路由消息。 Visual Studio Code 扩展会自动填充部署模板中所需的大部分信息，但确保解决方案的所有内容都是准确的： 
+7. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **NodeModule**），并告知 IoT Edge 中心如何在它们之间路由消息。 Visual Studio Code 扩展会自动填充部署模板中所需的大部分信息，但确保解决方案的所有内容都是准确的： 
 
    1. 在 VS Code 状态栏中将 IoT Edge 的默认平台设置为 **amd64**，这意味着将 **NodeModule** 设置为映像的 Linux amd64 版本。 在状态栏中将默认平台从 **amd64** 更改为 **arm32v7** 或 **windows-amd64**（如果这就是 IoT Edge 设备的体系结构）。 
 
@@ -195,19 +197,19 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
    4. 如果想要了解有关部署清单的更多信息，请参阅[了解如何在 IoT Edge 中部署模块和建立路由](module-composition.md)。
 
-11. 将 NodeModule 模块孪生添加到部署清单。 在 `moduleContent` 节底部 `$edgeHub` 模块孪生后插入以下 JSON 内容： 
+8. 将 NodeModule 模块孪生添加到部署清单。 在 `moduleContent` 节底部 `$edgeHub` 模块孪生后插入以下 JSON 内容： 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+      "NodeModule": {
+          "properties.desired":{
+              "TemperatureThreshold":25
+          }
+      }
    ```
 
    ![将模块孪生添加到部署模板](./media/tutorial-node-module/module-twin.png)
 
-12. 保存 deployment.template.json 文件。
+9. 保存 deployment.template.json 文件。
 
 
 ## <a name="build-your-iot-edge-solution"></a>生成 IoT Edge 解决方案
@@ -215,7 +217,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 在上一部分，你已经创建了一个 IoT Edge 解决方案并将代码添加到了 NodeModule，该函数会筛选出其中报告的计算机温度低于可接受阈值的消息。 现在需将解决方案生成为容器映像并将其推送到容器注册表。 
 
 1. 在 Visual Studio Code 集成终端输入以下命令，登录到 Docker，以便将模块映像推送到 ACR： 
-     
+
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```

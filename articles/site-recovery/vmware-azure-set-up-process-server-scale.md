@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f242a3835b06b5535031831ae54adee3ac5af3fc
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: a85fcc85a31e04229ff2f64a92e257097e6bb369
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463629"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625353"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>为故障回复使用更多进程服务器进行扩展
 
@@ -58,8 +58,8 @@ ms.locfileid: "57463629"
     ![“添加服务器”页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 5. 单击“下载 Azure Site Recovery 统一安装程序”。 这会下载最新版本的安装文件。
 
-    > [!WARNING]
-    进程服务器安装版本应低于所运行的配置服务器版本或与之相同。 确保版本兼容性的一种简单方法是使用最近用来安装或更新配置服务器的同一安装程序。
+   > [!WARNING]
+   >  进程服务器安装版本应低于所运行的配置服务器版本或与之相同。 确保版本兼容性的一种简单方法是使用最近用来安装或更新配置服务器的同一安装程序。
 
 ## <a name="install-from-the-ui"></a>从 UI 安装
 

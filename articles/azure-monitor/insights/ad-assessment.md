@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: b713a5ce5ddd12238c5a03ef75afe1702bd6f2e9
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: f558fd28411dc525d30107c4dd16398289ae3d3c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441040"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625605"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>使用 Azure Monitor 中的 Active Directory 运行状况检查解决方案优化 Active Directory 环境
 
@@ -111,10 +111,10 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>查看针对重点区域的建议并采取纠正措施
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. 在“概述”页上，单击“Active Directory 运行状况检查”磁贴。
-5. 在“运行状况检查”页上，查看某个重点区域边栏选项卡中的摘要信息，并单击其中一个查看针对该重点区域的建议。
-6. 在任何重点区域页上，均可以查看针对环境所做的优先级建议。 单击“**受影响的对象**”下的建议，以查看有关为何给出此建议的详细信息。<br><br> ![运行状况检查建议图像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. 可以采取“建议的操作”中建议的纠正操作。 解决该项后，以后的评估将记录已执行的建议操作，并且合规性分数将提高。 已更正的项会显示为“通过的对象”。
+1. 在“概述”页上，单击“Active Directory 运行状况检查”磁贴。
+2. 在“运行状况检查”页上，查看某个重点区域边栏选项卡中的摘要信息，并单击其中一个查看针对该重点区域的建议。
+3. 在任何重点区域页上，均可以查看针对环境所做的优先级建议。 单击“**受影响的对象**”下的建议，以查看有关为何给出此建议的详细信息。<br><br> ![运行状况检查建议图像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+4. 可以采取“建议的操作”中建议的纠正操作。 解决该项后，以后的评估将记录已执行的建议操作，并且合规性分数将提高。 已更正的项会显示为“通过的对象”。
 
 ## <a name="ignore-recommendations"></a>忽略建议
 如果有要忽略的建议，可以创建 Azure Monitor 用来防止建议出现在评估结果中的文本文件。

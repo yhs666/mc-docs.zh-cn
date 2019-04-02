@@ -15,12 +15,12 @@ origin.date: 01/15/2018
 ms.date: 11/08/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: d37176f4611317735893c7835ff5602da43b4159
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c542b35b3324ce910f9e2aa585834497dddd4b29
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644344"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625347"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步：了解用户、组和联系人
 有几个不同的原因导致有多个 Active Directory 林，并且有几个不同的部署拓扑。 常见的模型包括合并和收购之后的帐户-资源部署和 GAL 同步的林。 但即使有纯模型，混合模型也是常见的模型。 Azure AD Connect 同步中的默认配置不会假定任何特定模型，但根据安装指南中选择用户匹配的方式，可以观察到不同的行为。
@@ -45,15 +45,15 @@ ms.locfileid: "52644344"
 
 - 若要以启用邮件的组的形式将 Active Directory 组同步到 Azure AD：
 
-    - 如果该组的 *proxyAddress* 属性为空，则其 *mail* 属性必须包含一个值
+  - 如果该组的 *proxyAddress* 属性为空，则其 *mail* 属性必须包含一个值
 
-    - 如果组的 *proxyAddress* 属性为非空，则必须至少包含一个 SMTP 代理地址值。 下面是一些示例：
+  - 如果组的 *proxyAddress* 属性为非空，则必须至少包含一个 SMTP 代理地址值。 下面是一些示例：
     
-      - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 的 Active Directory 组在 Azure AD 中不会启用邮件。 它没有 SMTP 地址。
+    - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 的 Active Directory 组在 Azure AD 中不会启用邮件。 它没有 SMTP 地址。
       
-      - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "SMTP:johndoe@contoso.com"}* 的 Active Directory 组在 Azure AD 中会启用邮件。
+    - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "SMTP:johndoe@contoso.com"}* 的 Active Directory 组在 Azure AD 中会启用邮件。
       
-      - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* 的 Active Directory 组也会在 Azure AD 中启用邮件。
+    - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* 的 Active Directory 组也会在 Azure AD 中启用邮件。
 
 ## <a name="contacts"></a>联系人
 合并和收购（即 GALSync 解决方案对两个或多个 Exchange 林进行桥接）之后，不同林中具有代表一个用户的多个联系人很常见。 联系人对象始终使用邮件属性从连接器空间联接到 metaverse。 如果已存在具有相同邮件地址的联系人对象或用户对象，则会将这些对象联接在一起。 这在规则 **In from AD - Contact Join**中进行配置。 另外，还有一条名为 **In from AD - Contact Common** 的规则，该规则具有到包含常量 **Contact** 的 metaverse 属性 **sourceObjectType** 的属性流。 如果将任何用户对象联接到相同的 metaverse 对象，则此规则的优先级非常低，并且 **In from AD - User Common** 规则会为此属性提供值 User。 在使用此规则的情况下，如果没有联接任何用户，此属性则会具有值 Contact，如果至少找到了一个用户，则会具有值 User。

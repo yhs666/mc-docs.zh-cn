@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 02/12/2019
+ms.date: 03/28/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2ef8083ae9383f6d2573bae37964df1a4072bd8b
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 0e658f1a45471f5b1d0c924c2ab816f991caf537
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101594"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627280"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 自动缩放虚拟机规模集
 
@@ -189,7 +189,7 @@ IpAddress
 52.168.121.216
 ```
 
-创建连接到第一个 VM 实例所需的远程连接。 指定所需 VM 实例对应的你自己的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据（在示例命令中，默认为 *azureuser* 和 *P@ssw0rd!*）。 以下示例连接到 VM 实例 *0*：
+创建连接到第一个 VM 实例所需的远程连接。 指定所需 VM 实例对应的你自己的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据（在示例命令中，默认为 *azureuser* 和 <em>P@ssw0rd!</em>）。 以下示例连接到 VM 实例 *0*：
 
 ```powershell
 mstsc /v 52.168.121.216:50001

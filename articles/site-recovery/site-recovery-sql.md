@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 49ec64c9204a471ba0ebfc5fd32845fb2e151660
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: e27e980dd3bd491bdcc7ce19dfe07fc79033d6b9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363450"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626365"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>为 SQL Server 设置灾难恢复 
 
@@ -30,7 +30,7 @@ ms.locfileid: "54363450"
 * **SQL Server 故障转移群集实例 (AlwaysOn FCI)**：在一个 Windows 故障转移群集中配置两个或更多个运行带共享磁盘的 SQL Server 实例的节点。 如果某个节点关闭，群集可将 SQL Server 故障转移到其他实例。 此设置通常用于在主站点上实现高可用性。 此部署不能防止共享存储层中出现故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 vhdx 来实现。
 * **SQL Always On 可用性组**：使用同步复制与自动故障转移在可用性组中配置了 SQL Server 数据库时，将在不共享任何内容的群集中设置两个或更多节点。
 
- 本文利用以下本机 SQL 灾难恢复技术将数据库恢复到远程站点：
+  本文利用以下本机 SQL 灾难恢复技术将数据库恢复到远程站点：
 
 * SQL Always On 可用性组，针对 SQL Server 2012 或 2014 Enterprise Edition 提供灾难恢复。
 * SQL Server Standard Edition（任何版本）或 SQL Server 2008 R2 高安全性模式下的 SQL 数据库镜像。
@@ -40,12 +40,13 @@ ms.locfileid: "54363450"
 ### <a name="supported-scenarios"></a>支持的方案
 Site Recovery 可以保护下表中汇总的 SQL Server。
 
-**方案** | **到辅助站点** | **到 Azure**
---- | --- | ---
-**Hyper-V** | 是 | 是
-**VMware** | 是 | 是
-**物理服务器** | 是 | 是
-**Azure**|不可用| 是
+
+|    **方案**     | **到辅助站点** | **到 Azure** |
+|---------------------|-------------------------|--------------|
+|     **Hyper-V**     |           是           |     是      |
+|     **VMware**      |           是           |     是      |
+| **物理服务器** |           是           |     是      |
+|      **Azure**      |           不可用            |     是      |
 
 ### <a name="supported-sql-server-versions"></a>支持的 SQL Server 版本
 支持的方案支持以下 SQL Server 版本：
@@ -70,15 +71,16 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 
 下表汇总了有关将 SQL Server BCDR 技术与 Site Recovery 集成的建议。
 
-| **版本** | **版本** | **部署** | **本地到本地** | **本地到 Azure** |
-| --- | --- | --- | --- | --- |
-| SQL Server 2016、2014 或 2012 |Enterprise |故障转移群集实例 |Always On 可用性组 |Always On 可用性组 |
-|| Enterprise |用于实现高可用性的 Always On 可用性组 |Always On 可用性组 |Always On 可用性组 | |
-|| 标准 |故障转移群集实例 (FCI) |使用本地镜像进行 Site Recovery 复制 |使用本地镜像进行 Site Recovery 复制 | |
-|| Enterprise 或 Standard |独立 |Site Recovery 复制 |Site Recovery 复制 | |
-| SQL Server 2008 R2 或 2008 |Enterprise 或 Standard |故障转移群集实例 (FCI) |使用本地镜像进行 Site Recovery 复制 |使用本地镜像进行 Site Recovery 复制 |
-|| Enterprise 或 Standard |独立 |Site Recovery 复制 |Site Recovery 复制 | |
-| SQL Server（任何版本） |Enterprise 或 Standard |故障转移群集实例：DTC 应用程序 |Site Recovery 复制 |不支持 |
+
+|          **版本**          |      **版本**       |                   **部署**                    |           **本地到本地**            |            **本地到 Azure**             |
+|-------------------------------|------------------------|-----------------------------------------------------|---------------------------------------------|---------------------------------------------|
+| SQL Server 2016、2014 或 2012 |       Enterprise       |              故障转移群集实例              |        Always On 可用性组        |        Always On 可用性组        |
+|                               |       Enterprise       | 用于实现高可用性的 Always On 可用性组 |        Always On 可用性组        |        Always On 可用性组        |
+|                               |        标准        |           故障转移群集实例 (FCI)           | 使用本地镜像进行 Site Recovery 复制 | 使用本地镜像进行 Site Recovery 复制 |
+|                               | Enterprise 或 Standard |                     独立                      |          Site Recovery 复制          |          Site Recovery 复制          |
+|  SQL Server 2008 R2 或 2008   | Enterprise 或 Standard |           故障转移群集实例 (FCI)           | 使用本地镜像进行 Site Recovery 复制 | 使用本地镜像进行 Site Recovery 复制 |
+|                               | Enterprise 或 Standard |                     独立                      |          Site Recovery 复制          |          Site Recovery 复制          |
+|   SQL Server（任何版本）    | Enterprise 或 Standard |     故障转移群集实例：DTC 应用程序     |          Site Recovery 复制          |                不支持                |
 
 ## <a name="deployment-prerequisites"></a>部署先决条件
 

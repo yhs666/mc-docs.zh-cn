@@ -44,6 +44,8 @@ items:
     href: functions-create-serverless-api.md
   - name: 创建 OpenAPI 定义
     href: functions-openapi-definition.md
+  - name: IoT Edge 设备上的 Functions
+    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: 示例
   items:
   - name: 代码示例
@@ -53,6 +55,7 @@ items:
 - name: 概念
   items:
   - name: 比较版本 1.x 和 2.x
+    displayName: migrate, migration
     href: functions-versions.md
   - name: 缩放和托管
     href: functions-scale.md
@@ -87,7 +90,7 @@ items:
     - name: Python
       href: functions-reference-python.md
   - name: 诊断
-    href: ../app-service/app-service-diagnostics.md
+    href: ../app-service/overview-diagnostics.md
   - name: 性能注意事项
     href: functions-best-practices.md
   - name: Functions 代理
@@ -142,12 +145,20 @@ items:
       href: disable-function.md
   - name: 安全
     items:
+    - name: 对用户进行身份验证
+      items:
+      - name: 使用 Azure AD 进行身份验证
+        href: ../app-service/configure-authentication-provider-aad.md
+      - name: 使用 Microsoft 帐户进行身份验证
+        href: ../app-service/configure-authentication-provider-microsoft.md
     - name: 高级身份验证
       href: ../app-service/app-service-authentication-how-to.md
     - name: 限制 IP
       href: ../app-service/app-service-ip-restrictions.md
     - name: 使用托管标识
-      href: ../app-service/app-service-managed-service-identity.md
+      href: ../app-service/overview-managed-identity.md
+    - name: 从 Key Vault 引用机密
+      href: ../app-service/app-service-key-vault-references.md
   - name: 集成
     items:
     - name: 连接到 SQL 数据库
@@ -155,7 +166,7 @@ items:
     - name: 创建 Open API 2.0 定义
       href: functions-api-definition-getting-started.md
     - name: 使用托管标识
-      href: ../app-service/app-service-managed-service-identity.md
+      href: ../app-service/overview-managed-identity.md
   - name: 故障排除
     items:
     - name: 排查存储问题
@@ -231,9 +242,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 服务更新
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: abd41d4638189a627a169f1ae4f667727848b1cd
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 1ba1402c59e666782a97674251db2fd521bffb54
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256375"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408305"

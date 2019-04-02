@@ -9,12 +9,12 @@ ms.service: site-recovery
 origin.date: 12/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: aee03e10bb149dfa9f31d745f0a1754e821bc9c6
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: c7711f25a4b23deabc23feaec9cfb306f6e3a38a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363405"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626936"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>将 Azure Stack VM 复制到 Azure
 
@@ -184,7 +184,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 > [!NOTE]
 > 还可通过命令行安装配置服务器。 [了解详细信息](physical-manage-configuration-server.md#install-from-the-command-line)。
-
+> 
 > 帐户名出现在门户中可能需要 15 分钟或更长时间。 若要立即更新，请选择“配置服务器” > ***服务器名称*** > “刷新服务器”。
 
 ## <a name="step-4-set-up-the-target-environment"></a>步骤 4：设置目标环境
@@ -239,9 +239,9 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 > [!NOTE]
 > 为 VM 启用复制后，Site Recovery 会安装移动服务。
-
+> 
 > 可能要等 15 分钟或更长时间，更改才会生效并显示在门户中。
-
+> 
 > 若要监视添加的 VM，请在“配置服务器” > “上次联系时间”中查看上次发现 VM 的时间。 若要添加 VM 而不想要等待计划的发现，请突出显示配置服务器（不要选择它），然后选择“刷新”。
 
 ## <a name="step-6-run-a-disaster-recovery-drill"></a>步骤 6：运行灾难恢复演练

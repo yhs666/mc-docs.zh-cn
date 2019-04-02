@@ -12,15 +12,14 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 09/07/2018
-ms.date: 11/26/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c4bca51040fb282c0f46db2f96de1517a6ba7fbd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0bf8d10774b803c85b938ae446f11285c69f7385
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675412"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544746"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 
@@ -41,18 +40,7 @@ ms.locfileid: "52675412"
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="create-a-namespace-using-the-azure-portal"></a>使用 Azure 门户创建命名空间
-
-> [!NOTE] 
-> 也可使用 [PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) 创建服务总线命名空间和消息实体。 有关详细信息，请参阅[使用 PowerShell 管理服务总线资源](service-bus-manage-with-ps.md)。
-
-如果已创建服务总线消息传递命名空间，请跳转到[使用 Azure 门户创建队列](#2-create-a-queue-using-the-azure-portal)部分。
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-## <a name="create-a-queue-using-the-azure-portal"></a>使用 Azure 门户创建队列
-
-如果已创建服务总线队列，请跳转到[将消息发送到队列](#3-send-messages-to-the-queue)部分。
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
@@ -214,7 +202,7 @@ ms.locfileid: "52675412"
    
       ![消息大小][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4.从队列接收消息
+## <a name="receive-messages-from-the-queue"></a>从队列接收消息
 
 若要接收刚发送的消息，请创建另一 .NET Core 控制台应用程序并安装 **Microsoft.Azure.ServiceBus** NuGet 包，类似于前面的发件人应用程序。
 

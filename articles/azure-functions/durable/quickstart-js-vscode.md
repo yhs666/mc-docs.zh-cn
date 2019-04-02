@@ -12,12 +12,12 @@ ms.topic: quickstart
 origin.date: 11/07/2018
 ms.date: 02/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5472422371ef1c93b167b5c014ae6e25347af04c
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 91afe38b502393c2205d7f294db241de5eadd5a2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665398"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625523"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
@@ -108,7 +108,7 @@ ms.locfileid: "56665398"
         ]
     }
     ```
-我们现在已创建了我们的持久函数的一个入口点。 让我们添加一个业务流程协调程序。
+   我们现在已创建了我们的持久函数的一个入口点。 让我们添加一个业务流程协调程序。
 
 ## <a name="create-an-orchestrator-function"></a>创建一个业务流程协调程序函数
 
@@ -130,7 +130,6 @@ ms.locfileid: "56665398"
 
     return output;
     });
-
     ```
 3. 打开 function.json 文件并将其替换为以下 JSON：
 
@@ -145,7 +144,7 @@ ms.locfileid: "56665398"
         ]
     }
     ```
-我们已添加了一个业务流程协调程序来协调活动函数。 现在让我们添加一个引用的活动函数。
+   我们已添加了一个业务流程协调程序来协调活动函数。 现在让我们添加一个引用的活动函数。
 
 ## <a name="create-an-activity-function"></a>创建一个活动函数
 
@@ -171,7 +170,7 @@ ms.locfileid: "56665398"
     ]
     }
     ```
-我们已添加了启动业务流程并将活动函数链接在一起所需的所有组件。
+   我们已添加了启动业务流程并将活动函数链接在一起所需的所有组件。
 
 ## <a name="test-the-function-locally"></a>在本地测试函数
 

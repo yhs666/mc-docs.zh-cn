@@ -9,12 +9,12 @@ origin.date: 01/28/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 884bc35d1fa1218b53a1c8726edf8d4fc401c326
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 7a0d18260859e06d930c82b3e197efaff82d6e41
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463544"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625721"
 ---
 # <a name="move-azure-vms-to-another-region"></a>将 Azure VM 移动到另一区域
 
@@ -74,11 +74,11 @@ ms.locfileid: "57463544"
 
      请参阅以下文档，根据源 VM 配置创建最常用的相关网络资源。
 
-    - [网络安全组](/virtual-network/manage-network-security-group)
-    - [负载均衡器](/load-balancer/#step-by-step-tutorials)
-    - [公共 IP](/load-balancer/#step-by-step-tutorials)
+   - [网络安全组](/virtual-network/manage-network-security-group)
+   - [负载均衡器](/load-balancer/#step-by-step-tutorials)
+   - [公共 IP](/load-balancer/#step-by-step-tutorials)
 
-    对于其他任何网络组件，请参阅网络[文档](/#pivot=products&panel=network)。 
+     对于其他任何网络组件，请参阅网络[文档](/#pivot=products&panel=network)。 
 
 4. 若要在最终转接到目标区域之前测试配置，请在目标区域中手动[创建非生产网络](/virtual-network/quick-create-portal)。 这可以尽量减少对生产造成的干扰，也是建议的做法。
 

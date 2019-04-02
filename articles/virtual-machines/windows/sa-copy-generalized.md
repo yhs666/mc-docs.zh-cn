@@ -17,12 +17,12 @@ origin.date: 05/23/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 40934555a7c9bab64f9362deed7c25d1053ccc56
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 186abe4e20cdfa8e1ded1b1eb477099788eaf82c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665987"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625884"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -122,7 +122,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
 
 ### <a name="set-the-uri-of-the-vhd"></a>设置 VHD 的 URI
 
-VHD 使用的 URI 采用以下格式： https://**mystorageaccount**.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
+VHD 使用的 URI 采用以下格式： https://<strong>mystorageaccount</strong>.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myVhd.vhd"

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/03/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6900647f1b34d1310be7fa40605cbc09d98a653c
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: b924f781c5d46afcb4b2e65c452a9e736860ac94
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903292"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626941"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>使用 Azure 基于角色的访问控制定义对 Azure Kubernetes 服务 (AKS) 中的 Kubernetes 配置文件的访问
 
@@ -138,8 +138,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials

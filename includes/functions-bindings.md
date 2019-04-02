@@ -3,14 +3,14 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 origin.date: 09/04/2018
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 98b0764940862b02745e1a832dd89865a39801f7
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 04cef48d98de4cfb54fb8424fd087113d4799e72
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256386"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408312"
 ---
 下表显示了 Azure Functions 运行时的两个主要版本支持的绑定。
 
@@ -34,6 +34,4 @@ ms.locfileid: "58256386"
 | [计时器](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 
 <sup>1</sup> 在 2.x 中，除了 HTTP 和 Timer 以外，所有绑定都必须注册。 请参阅[注册绑定扩展](../articles/azure-functions/functions-bindings-register.md)。
-
-<sup>2</sup> 目前为预览版。
 

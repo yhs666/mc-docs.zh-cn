@@ -9,40 +9,41 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 origin.date: 08/10/2017
-ms.date: 02/20/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: d5863d4a6959719a961c1259e825969a82032a78
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: dc4358c2375fa5acfa60ad116854406ab15888dd
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582776"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505481"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>什么是计算机视觉 API 版本 1.0？
 
 > [!IMPORTANT]
 > 现已推出计算机视觉 API 的新版本，请参阅：
 >- [概述](/cognitive-services/computer-vision/home)
+>- [计算机视觉 API 版本 2.0](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44)
 
 开发人员可以使用基于云的计算机视觉 API 来访问高级算法，以便处理图像并返回信息。 上传图像或指定图像 URL 后，Microsoft 计算机视觉算法可以根据输入和用户选择以不同的方式分析视觉内容。 使用计算机视觉 API，用户可以根据以下目的来分析图像：
-- 基于内容标记图像。
-- 对图像进行分类。
-- 标识图像的类型和质量。
-- [检测人脸并返回其坐标。](#Faces)
-- 识别特定于域的内容。
-- 生成内容说明。
-- 使用光学字符识别标识图像中找到的打印文本。
-- 识别手写的文本。
-- 区分配色方案。
-- 标志成人内容。
-- 裁剪要用作缩略图的照片。
+* 基于内容标记图像。
+* 对图像进行分类。
+* 标识图像的类型和质量。
+* [检测人脸并返回其坐标。](#Faces)
+* 识别特定于域的内容。
+* 生成内容说明。
+* 使用光学字符识别标识图像中找到的打印文本。
+* 识别手写的文本。
+* 区分配色方案。
+* 标志成人内容。
+* 裁剪要用作缩略图的照片。
 
 ## <a name="requirements"></a>要求
-- 支持的输入方法：原始图像二进制，采用应用程序/业务流程流或图像 URL 的形式。
-- 支持的图像格式：JPEG、PNG、GIF 和 BMP。
-- 图像文件大小：小于 4 MB。
-- 图像维度：大于 50 x 50 像素。
+* 支持的输入方法：原始图像二进制，采用应用程序/业务流程流或图像 URL 的形式。
+* 支持的图像格式：JPEG、PNG、GIF 和 BMP。
+* 图像文件大小：小于 4 MB。
+* 图像维度：大于 50 x 50 像素。
 
 ## <a name="tagging-images"></a>标记图像
 计算机视觉 API 在上千个可识别对象、生物、风景和操作的基础上返回标记。 当标记内容不明确或者不属常识时，API 响应会提供“提示”来澄清标记在已知场景中的含义。 标记不按分类来组织，且不存在继承层次结构。 内容标记集合在一起，形成图像“说明”的基础。该“说明”以人类可读语言显示，采用完整句子的格式。 请注意，图像说明目前只能使用英语。
@@ -278,4 +279,4 @@ OCR 可以根据需要，围绕图像的水平轴将识别的文本旋转相应�
 
 ![缩略图](./Images/thumbnail-demo.png)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

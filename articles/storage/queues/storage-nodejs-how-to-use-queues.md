@@ -11,12 +11,12 @@ origin.date: 12/08/2016
 ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: queues
-ms.openlocfilehash: 8e3ef3d2db52d78d0de129bd818a632f6e1c507a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: bc3289c902f2ed03a166a991c76b0770afb5c5bf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028699"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627509"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

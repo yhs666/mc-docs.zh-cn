@@ -8,12 +8,12 @@ ms.topic: tutorial
 origin.date: 2/19/2019
 ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 50c5063ae7be14fdff354691ee5d5e56bc7f28b3
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 27ac79fe8d4a889efad3e919f08631d81f8b3825
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987927"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503536"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教程：为 Web 应用在自定义域中创建 DNS 记录 
 
@@ -46,9 +46,10 @@ ms.locfileid: "57987927"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [创建一个应用服务应用](../app-service/app-service-web-get-started-html.md)，或者使用为其他教程创建的应用。
+* 必须有一个可以用来测试的域名，可以在 Azure DNS 中托管该域名。 必须能够完全控制此域。 完全控制包括能够为域设置名称服务器 (NS) 记录。
+* [创建一个应用服务应用](../app-service/app-service-web-get-started-html.md)，或者使用为其他教程创建的应用。
 
-- 在 Azure DNS 中创建一个 DNS 区域，并将注册机构中的区域委派给 Azure DNS。
+* 在 Azure DNS 中创建一个 DNS 区域，并将注册机构中的区域委派给 Azure DNS。
 
    1. 若要创建 DNS 区域，请按照[创建 DNS 区域](dns-getstarted-create-dnszone.md)中的步骤执行操作。
    2. 若要将区域委派给 Azure DNS，请按照 [DNS 域委派](dns-domain-delegation.md)中的步骤执行操作。

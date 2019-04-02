@@ -3,7 +3,7 @@ title: 使用 Azure 门户缩放流式处理终结点 | Microsoft Docs
 description: 本教程逐步演示如何使用 Azure 门户缩放流式处理终结点。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 8385923e2bf47260e5a58fc62a926e3afdd63f01
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: a91b3c09dfabf6c67687b073cf2a03939203d9b6
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651249"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624105"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户缩放流式处理终结点
 ## <a name="overview"></a>概述
@@ -34,7 +34,7 @@ ms.locfileid: "52651249"
  
 本主题介绍了如何缩放流式处理终结点。
 
-有关定价详细信息，请参阅[媒体服务定价详细信息](http://go.microsoft.com/fwlink/?LinkId=275107)。
+有关定价详细信息，请参阅[媒体服务定价详细信息](https://go.microsoft.com/fwlink/?LinkId=275107)。
 
 ## <a name="scale-streaming-endpoints"></a>缩放流式处理终结点
 

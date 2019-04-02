@@ -5,15 +5,15 @@ services: dns
 author: WenJason
 ms.service: dns
 ms.topic: quickstart
-origin.date: 12/4/2018
-ms.date: 03/18/2019
+origin.date: 3/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: d1b000315501f18af19db37c2ebc091f232160f8
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5a9768225e526b035df73f990b2afb5ee29a1ae6
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988058"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503647"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Azure DNS 区域和记录
 
@@ -35,18 +35,18 @@ New-AzResourceGroup -name MyResourceGroup -location "chinaeast"
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
-通过使用 `New-AzDnsZone` cmdlet 创建 DNS 区域。 以下示例在名为 *MyResourceGroup* 的资源组中创建名为 *contoso.com* 的 DNS 区域。 使用该示例创建 DNS 区域，将相应的值替换成自己的值。
+通过使用 `New-AzDnsZone` cmdlet 创建 DNS 区域。 以下示例在名为 MyResourceGroup 的资源组中创建名为 contoso.xyz 的 DNS 区域。 使用该示例创建 DNS 区域，将相应的值替换成自己的值。
 
 ```powershell
-New-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="create-a-dns-record"></a>创建 DNS 记录
 
-可以使用 `New-AzDnsRecordSet` cmdlet 创建记录集。 下面的示例在资源组“MyResourceGroup”中在 DNS 区域“contoso.com”中创建相对名称为“www”的一个记录集。 记录集的完全限定名称为“www.contoso.com”。 记录类型为“A”，IP 地址为“1.2.3.4”，TTL 为 3600 秒。
+可以使用 `New-AzDnsRecordSet` cmdlet 创建记录集。 下面的示例在资源组“MyResourceGroup”的 DNS 区域“contoso.xyz”中创建相对名称为“www”的一个记录。 记录集的完全限定名称为“www.contoso.xyz”。 记录类型为“A”，IP 地址为“10.10.10.10”，TTL 为 3600 秒。
 
 ```powershell
-New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4")
+New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.10.10.10")
 ```
 
 ## <a name="view-records"></a>查看记录
@@ -54,28 +54,40 @@ New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupN
 若要列出区域中的 DNS 记录，请使用：
 
 ```powershell
-Get-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
 ```
 
-## <a name="update-name-servers"></a>更新名称服务器
+## <a name="test-the-name-resolution"></a>测试名称解析
 
-正确设置 DNS 区域和记录后，需要将域名配置为使用 Azure DNS 名称服务器。 这样，Internet 上的其他用户便可以找到 DNS 记录。
+现在，你已有一个测试 DNS 区域且其中有一个测试“A”记录，可以使用名为 *nslookup* 的工具来测试名称解析了。 
 
-区域的名称服务器是通过 `Get-AzDnsZone` cmdlet 指定的：
+**测试 DNS 名称解析：**
 
-```powershell
-Get-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+1. 运行以下 cmdlet 以获取区域的名称服务器列表：
 
-Name                  : contoso.com
-ResourceGroupName     : myresourcegroup
-Etag                  : 00000003-0000-0000-b40d-0996b97ed101
-Tags                  : {}
-NameServers           : {ns1-01.azure-dns.cn., ns2-01.azure-dns.cn., ns3-01.azure-dns.cn., ns4-01.azure-dns.cn.}
-NumberOfRecordSets    : 3
-MaxNumberOfRecordSets : 5000
-```
+   ```azurepowershell
+   Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -RecordType ns
+   ```
 
-这些名称服务器应当配置有域名注册机构（向其购买域名的机构）。 域名注册机构将提供选项来为域设置名称服务器。 有关详细信息，请参见[教程：在 Azure DNS 中托管域](dns-delegate-domain-azure-dns.md#delegate-the-domain)。
+1. 从上一步的输出中复制其中一个名称服务器名称。
+
+1. 打开一个命令提示符，并运行以下命令：
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   例如：
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.cn.
+   ```
+
+   应当会看到类似以下屏幕的内容：
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样。 此结果表明名称解析正常工作。
 
 ## <a name="delete-all-resources"></a>删除所有资源
 

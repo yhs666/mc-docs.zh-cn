@@ -11,15 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2018
-ms.date: 11/26/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da82d354ba907162074d747ffad44880ca740c4d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 82d69a88e2c18fb9ee0134847f87536ccf3eb807
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675260"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544701"
 ---
 # <a name="duplicate-detection"></a>重复检测
 
@@ -42,6 +41,9 @@ ms.locfileid: "52675260"
 在门户中，此功能在实体创建期间处于启用状态（即“启用重复检测”复选框已选中）。不过，默认情况下，此功能处于禁用状态。 用于新建主题的设置是等效的。
 
 ![][1]
+
+> [!IMPORTANT]
+> 创建队列后，无法启用/禁用重复检测。 只能在创建队列时执行此操作。 
 
 通过编程方式，可以结合使用 [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) 属性和整个 .NET Framework API，从而设置标志。 借助 Azure 资源管理器 API，可以使用 [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 属性设置此值。
 

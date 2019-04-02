@@ -3,8 +3,8 @@ title: Hyperlapse 媒体文件与 Azure Media Hyperlapse | Microsoft Docs
 description: Azure Media Hyperlapse 可以使用第一人称视角或运动相机内容创建流畅缩时视频。 本主题说明如何使用媒体索引器。
 services: media-services
 documentationcenter: ''
-author: asolanki
-manager: johndeu
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
@@ -12,18 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 03/28/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 666b829698c91af52001fa4f5fd8910b3beb9b7b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/18/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 1c92eddd4d8e4f3044866d6a02f91ee1d896bfe4
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664570"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624177"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 媒体文件与 Azure Media Hyperlapse
-Azure Media Hyperlapse 是可以使用第一人称视角或运动相机内容创建流畅缩时视频的媒体处理器 (MP)。  Azure 媒体服务的基于云的 Microsoft Hyperlapse 与 [Microsoft Research 的桌面 Hyperlapse Pro 和手机版 Hyperlapse Mobile](http://aka.ms/hyperlapse) 相似，它运用大规模的 Azure 媒体服务媒体处理平台来实现水平缩放，以及并行化批量 Hyperlapse 处理。
+
+> [!NOTE]
+> Azure 媒体服务的此预览功能即将停用。 从 2018 年 12 月 19 日起，媒体服务不再对 Media Hyperlapse 进行更改或改进。 在 2019 年 3 月 29 日，它将停用并不再可用。
+
+Azure Media Hyperlapse 是可以使用第一人称视角或运动相机内容创建流畅缩时视频的媒体处理器 (MP)。  Azure 媒体服务的基于云的 Microsoft Hyperlapse 与 [Microsoft Research 的桌面 Hyperlapse Pro 和手机版 Hyperlapse Mobile](https://aka.ms/hyperlapse) 相似，它运用大规模的 Azure 媒体服务媒体处理平台来实现水平缩放，以及并行化批量 Hyperlapse 处理。
 
 > [!IMPORTANT]
 > Microsoft Hyperlapse 最适合用于通过移动相机拍摄第一人称视角内容。 尽管静态相机镜头仍可运行，但 Azure 媒体 Hyperlapse 媒体处理器无法保证其他类型内容的性能及质量。
@@ -49,7 +53,7 @@ Azure Media Hyperlapse 作业接受输入 MP4、MOV 或 WMV 资产文件以及�
 **XML 预设：**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
             <Source StartFrame="0" NumFrames="10000" />
         </Sources>
@@ -210,5 +214,5 @@ Azure Media Hyperlapse 作业接受输入 MP4、MOV 或 WMV 资产文件以及�
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos（Azure 媒体分析演示）](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

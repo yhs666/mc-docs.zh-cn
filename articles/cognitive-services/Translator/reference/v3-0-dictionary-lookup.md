@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 03/29/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2fb5f46e4460ddf0635c410255a8501345d25b24
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 9346de689b35039960546a3a3e910eb1542a7834
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964467"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58633598"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>文本翻译 API 3.0：字典查找
 
@@ -39,15 +39,15 @@ https://api.translator.azure.cn/dictionary/lookup?api-version=3.0
   <th>说明</th>
   <tr>
     <td>api-version</td>
-    <td>必需参数。<br/>客户端所请求的 API 的版本。 值必须是 `3.0`。</td>
+    <td>必需参数。<br/>客户端所请求的 API 的版本。 值必须是 <code>3.0</code>。</td>
   </tr>
   <tr>
     <td>from</td>
-    <td>必需参数。<br/>指定输入文本的语言。 源语言必须是 `dictionary` 范围中包含的[支持的语言](./v3-0-languages.md)之一。</td>
+    <td>必需参数。<br/>指定输入文本的语言。 源语言必须是 <code>dictionary</code> 范围中包含的<a href="./v3-0-languages.md" data-raw-source="[supported languages](./v3-0-languages.md)">支持的语言</a>之一。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必需参数。<br/>指定输出文本的语言。 目标语言必须是 `dictionary` 范围中包含的[支持的语言](./v3-0-languages.md)之一。</td>
+    <td>必需参数。<br/>指定输出文本的语言。 目标语言必须是 <code>dictionary</code> 范围中包含的<a href="./v3-0-languages.md" data-raw-source="[supported languages](./v3-0-languages.md)">支持的语言</a>之一。</td>
   </tr>
 </table>
 
@@ -58,11 +58,11 @@ https://api.translator.azure.cn/dictionary/lookup?api-version=3.0
   <th>说明</th>
   <tr>
     <td>一个授权<br/>标头</td>
-    <td>必需的请求标头。<br/>请参阅[用于身份验证的可用选项](./v3-0-reference.md#authentication)。</td>
+    <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>必需的请求标头。<br/>指定有效负载的内容类型。 可能的值为：`application/json`</td>
+    <td>必需的请求标头。<br/>指定有效负载的内容类型。 可能的值为：<code>application/json</code></td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -70,7 +70,7 @@ https://api.translator.azure.cn/dictionary/lookup?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选。<br/>客户端生成的 GUID，用于唯一标识请求。 如果在查询字符串中使用名为 `ClientTraceId` 的查询参数包括了跟踪 ID，则可以省略此标头。</td>
+    <td>可选。<br/>客户端生成的 GUID，用于唯一标识请求。 如果在查询字符串中使用名为 <code>ClientTraceId</code> 的查询参数包括了跟踪 ID，则可以省略此标头。</td>
   </tr>
 </table> 
 

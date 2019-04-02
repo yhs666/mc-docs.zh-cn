@@ -18,12 +18,12 @@ ms.date: 12/04/2018
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 38304132060b4fe6e7dddad35c41b80f424d3ba6
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 801a0c7173ade06e7d8e6f04eaae11e952c67e07
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028289"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625803"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 代码示例（v1.0 终结点）
 
@@ -64,9 +64,10 @@ ms.locfileid: "53028289"
 
 以下示例演示如何实现基于角色的访问控制 (RBAC)。 RBAC 用于将 Web 应用中某些功能的权限限制为某些用户。 系统将根据用户是属于 **Azure AD 组**还是拥有一个给定的应用程序**角色**，对其进行授权。
 
-平台 | 示例
- -------- | -------------------
-![ASP.NET 4.5](./media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色**进行授权的 .NET 4.5 MVC Web 应用
+
+|                                   平台                                   |                                                                                                        示例                                                                                                         |
+|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![ASP.NET 4.5](./media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) |
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>调用 Microsoft Graph 或 Web API 的桌面和移动公共客户端应用程序
 

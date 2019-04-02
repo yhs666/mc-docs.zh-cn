@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a824927ba531e69ba97210e6af8467674fa86ba2
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 0bdf251c672e0e2307d444d64618a66952342eb5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004550"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625583"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的存储成本
 
@@ -58,7 +58,7 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
 * 详细了解[开发和测试优化](optimize-dev-test.md)
-<!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->ss
+  <!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->ss
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)

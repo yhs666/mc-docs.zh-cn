@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 12/31/2018
+origin.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: ed4e73fe05f45e195a7e3e6d73da31c0d1b3f6be
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: abee493e48ceee8e5a148733fef032e996104a9a
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814606"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503640"
 ---
 # <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
 
@@ -41,8 +42,8 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>设置通用组的访问权限 
 
-> [!Note]  
-仅适用于 Active Directory 联合身份验证服务 (AD FS)。
+> [!Note]
+> 仅适用于 Active Directory 联合身份验证服务 (AD FS)。
 
 1. 使用对要管理的资源具有所有者权限的帐户登录。
 2. 在“资源”边栏选项卡中，单击“访问”图标 ![](media/azure-stack-manage-permissions/image1.png)。

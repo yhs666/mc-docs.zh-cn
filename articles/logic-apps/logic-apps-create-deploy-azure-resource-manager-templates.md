@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2017
-ms.date: 10/15/2018
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: f6c8719970b3b0ae38bc8f6a9c0fe3ba8d0dc541
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1d628cd47758658490e4fb8717bb2121a99c1780
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652127"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627474"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建和部署逻辑应用
 
@@ -113,8 +113,10 @@ ms.locfileid: "52652127"
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -126,7 +128,7 @@ azure group deployment create --template-uri https://raw.githubusercontent.com/A
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
+* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

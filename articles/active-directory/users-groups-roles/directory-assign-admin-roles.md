@@ -15,12 +15,12 @@ ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8838876c82ef9e1dea75e79b666aee700b842088
-ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
+ms.openlocfilehash: b7d4482f00345a76a3e7af8d8776b5894782c845
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187484"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625620"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -49,7 +49,7 @@ ms.locfileid: "58187484"
 
   <b>重要说明</b>：此角色授予管理应用程序凭据这一功能。 分配有此角色的用户可以将凭据添加到应用程序，并使用这些凭据模拟应用程序的标识。 如果已向应用程序的标识授予 Azure Active Directory 访问权限，如创建或更新用户或其他对象，那么分配到此角色的用户在模拟应用程序时可以执行这些操作。 这种模拟应用程序标识的能力可能是用户在 Azure AD 中角色分配的基础上的权限提升。 请务必了解，向用户分配云应用程序管理员角色，会赋予其模拟应用程序标识的能力。
 - **[合规性管理员](#compliance-administrator)**：具有此角色的用户具有 Office 365 安全与合规中心以及 Exchange 管理中心的管理权限。 有关详细信息，请参阅 [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)（关于 Office 365 管理员角色）。
- 
+
 - **[Dynamics 365 服务管理员/CRM 服务管理员](#dynamics-365-service-administrator)**：具有此角色的用户具有 Microsoft Dynamics 365 Online 内的全局权限（如果该服务存在），并且能够管理支持票证和监视服务运行状况。 有关详细信息，请参阅[使用服务管理员角色管理租户](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)。
 
 - **[Exchange 管理员](#exchange-administrator)**：具有此角色的用户具有 Microsoft Exchange Online 内的全局权限（如果该服务存在）。 还能够创建和管理所有 Office 365 组、管理支持票证和监视服务运行状况。 有关详细信息，请参阅 [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)（关于 Office 365 管理员角色）。
@@ -67,18 +67,18 @@ ms.locfileid: "58187484"
 
 - **[密码管理员/支持管理员](#helpdesk-administrator)**：具有此角色的用户可以更改密码、使刷新令牌失效、管理服务请求和监视服务运行状况。 使刷新令牌失效会强制用户重新登录。 支持性管理员可以重置密码，且对于不是管理员或具有以下角色的其他用户，支持性管理员可使其刷新令牌失效：
   - 来宾邀请者
-  
+
   <b>重要说明</b>：具有此角色的用户可以更改可能有权访问 Azure Active Directory 内外敏感或私有信息或关键配置的用户的密码。 更改用户的密码可能意味着假定用户标识和权限的能力。 例如：
   - 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予支持人员管理员的特权。 通过此路径，支持人员管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
-  * Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
-  * 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
-  * Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
-  * 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
+  - Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
+  - 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
+  - Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
+  - 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
 
   > [!NOTE]
   > 在 Microsoft 图形 API、Azure AD 图形 API 和 Azure AD PowerShell 中，此角色标识为“支持管理员”。 它是 [Azure 门户](https://portal.azure.cn/)中的“密码管理员”。
   >
-  
+
 - **[Power BI 管理员](#power-bi-service-administrator)**：具有此角色的用户具有 Power BI 内的全局权限（如果该服务存在），并且能够管理支持票证和监视服务运行状况。 有关详细信息，请参阅[了解 Power BI 管理员角色](https://docs.microsoft.com/power-bi/service-admin-role)。
   > [!NOTE]
   > 在 Microsoft 图形 API、Azure AD 图形 API 和 Azure AD PowerShell 中，此角色标识为“Power BI 服务管理员”。 它是 [Azure 门户](https://portal.azure.cn)中的“Power BI 管理员”。
@@ -88,20 +88,24 @@ ms.locfileid: "58187484"
   <b>重要说明</b>：此角色授予管理所有 Azure AD 角色成员身份（包括全局管理员角色）的能力。 此角色不包括 Azure AD 中的任何其他权限功能，如创建或更新用户。 但是，分配到此角色的用户可通过分配其他角色，授予自己或其他人额外的特权。
 
 - **[安全管理员](#security-administrator)**：具有此角色的用户具有安全读者角色的所有只读权限，并且能够管理安全相关服务的配置：Azure Active Directory Identity Protection、Azure 信息保护和 Office 365 安全与合规中心。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
-  
-  | In | 有权执行的操作 |
-  | --- | --- |
-  | Identity Protection Center |<ul><li>安全读取者角色的所有权限。<li>此外，还能够执行除了重置密码以外的所有 IPC 操作。 |
-  | Privileged Identity Management |<ul><li>安全读取者角色的所有权限。<li>**不能**管理 Azure AD 角色成员身份或设置。 |
-  | <p>监视 Office 365 服务运行状况</p><p>Office 365 安全与合规中心 |<ul><li>安全读取者角色的所有权限。<li>可以配置高级威胁防护功能中的所有设置（恶意软件和病毒保护、恶意 URL 配置、URL 跟踪等）。 |
-  
+
+
+  |                                         In                                         |                                                                                               有权执行的操作                                                                                                |
+  |------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  |                             Identity Protection Center                             |                           <ul><li>安全读取者角色的所有权限。<li>此外，还能够执行除了重置密码以外的所有 IPC 操作。                           |
+  |                           Privileged Identity Management                           |                                    <ul><li>安全读取者角色的所有权限。<li><strong>不能</strong>管理 Azure AD 角色成员身份或设置。                                    |
+  | <p>监视 Office 365 服务运行状况</p><p>Office 365 安全与合规中心 | <ul><li>安全读取者角色的所有权限。<li>可以配置高级威胁防护功能中的所有设置（恶意软件和病毒保护、恶意 URL 配置、URL 跟踪等）。 |
+
+
 - **[安全读取者](#security-reader)**：具有此角色的用户具有全局只读访问权限，包括 Azure Active Directory、Identity Protection、Privileged Identity Management，以及能够读取 Azure Active Directory 登录报告和审核日志中的所有信息。 角色还授予 Office 365 安全与合规中心的只读权限。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
 
-  | In | 有权执行的操作 |
-  | --- | --- |
-  | Identity Protection Center |读取安全功能的所有安全报告和设置信息<ul><li>反垃圾邮件<li>加密<li>数据丢失防护<li>反恶意软件<li>高级威胁防护<li>防网络钓鱼<li>邮件流规则 |
-  | Privileged Identity Management |<p>以只读方式访问 Azure AD PIM 中显示的所有信息：Azure AD 角色分配的策略和报告、安全审阅，以及在未来还可通过读取来访问 Azure AD 角色分配以外的方案的策略数据和报告。<p>**不能**注册 Azure AD PIM 或对其进行任何更改。 担任此角色的人员可以在 PIM 的门户中或通过 PowerShell，为其他角色（例如，全局管理员或特权角色管理员）的候选用户激活角色。 |
-  | <p>监视 Office 365 服务运行状况</p><p>Office 365 安全与合规中心</p> |<ul><li>读取和管理警报<li>读取安全策略<li>读取威胁情报、云应用发现以及搜索和调查中的隔离区<li>读取所有报告 |
+
+  |                                           In                                           |                                                                                                                                                                                                                                                          有权执行的操作                                                                                                                                                                                                                                                           |
+  |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  |                               Identity Protection Center                               |                                                                                                                                                     读取安全功能的所有安全报告和设置信息<ul><li>反垃圾邮件<li>加密<li>数据丢失防护<li>反恶意软件<li>高级威胁防护<li>防网络钓鱼<li>邮件流规则                                                                                                                                                      |
+  |                             Privileged Identity Management                             | <p>以只读方式访问 Azure AD PIM 中显示的所有信息：Azure AD 角色分配的策略和报告、安全审阅，以及在未来还可通过读取来访问 Azure AD 角色分配以外的方案的策略数据和报告。<p><strong>不能</strong>注册 Azure AD PIM 或对其进行任何更改。 担任此角色的人员可以在 PIM 的门户中或通过 PowerShell，为其他角色（例如，全局管理员或特权角色管理员）的候选用户激活角色。 |
+  | <p>监视 Office 365 服务运行状况</p><p>Office 365 安全与合规中心</p> |                                                                                                                                                                          <ul><li>读取和管理警报<li>读取安全策略<li>读取威胁情报、云应用发现以及搜索和调查中的隔离区<li>读取所有报告                                                                                                                                                                          |
+
 
 - **[服务支持管理员](#service-support-administrator)**：具有此角色的用户可为 Azure 和 Office 365 服务打开 Microsoft 支持请求，还可在 Azure 门户和 Office 365 管理门户中查看访问仪表板和消息中心。 有关详细信息，请参阅 [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)（关于 Office 365 管理员角色）。
 
@@ -131,13 +135,13 @@ ms.locfileid: "58187484"
   |常规权限|<p>创建用户和组</p><p>创建和管理用户视图</p><p>管理 Office 支持票证|
   |<p>适用于所有用户，包括所有管理员</p>|<p>管理许可证</p><p>管理除用户主体名称之外的所有用户属性</p>
   |仅适用于不是管理员或具有以下任一管理员角色（权限有限）的用户：<ul><li>目录读者<li>来宾邀请者<li>支持管理员<li>消息中心读取者<li>报告读者<li>用户帐户管理员|<p>删除和还原</p><p>禁用和启用</p><p>使刷新令牌失效</p><p>管理包括用户主体名称在内的所有用户属性</p><p>重置密码</p><p>更新 (FIDO) 设备密钥</p>
-  
+
   <b>重要说明</b>：具有此角色的用户可以更改可能有权访问 Azure Active Directory 内外敏感或私有信息或关键配置的用户的密码。 更改用户的密码可能意味着假定用户标识和权限的能力。 例如：
   - 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予用户管理员的特权。 通过此路径，用户管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
-  * Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
-  * 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
-  * Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
-  * 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
+  - Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
+  - 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
+  - Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
+  - 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
 
 ## <a name="role-permissions"></a>角色权限
 下表描述 Azure Active Directory 中授予每个角色的特定权限。 某些角色可能在 Azure Active Directory 外部的 Microsoft 服务中拥有其他权限。

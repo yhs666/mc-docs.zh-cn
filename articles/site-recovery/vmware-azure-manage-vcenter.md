@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: a26afe06cd29546a8287b9633538ce6a4ca665cd
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 50ce4c85ff8c0e5523594496306c1e54afa49f17
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363494"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625325"
 ---
 # <a name="manage-vmware-vcenter-server"></a>管理 VMware vCenter 服务器
 
@@ -26,8 +26,8 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 2. 使用桌面快捷方式启动 cspsconfigtool.exe。
 3. 在“管理帐户”选项卡中，单击“添加帐户”。
 
-  ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
-1. 提供帐户详细信息并单击“确定”以添加该帐户。  该帐户应具备下表中概述的权限。 
+   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+4. 提供帐户详细信息并单击“确定”以添加该帐户。  该帐户应具备下表中概述的权限。 
 
 大约需要 15 分钟才能将帐户信息同步到 Site Recovery 服务。
 
@@ -53,7 +53,7 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 1. 登录到配置服务器并从桌面启动 cspsconfigtool.exe。
 2. 在“管理帐户”选项卡中，单击“添加帐户”。
 
-  ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 3. 提供新帐户的详细信息并单击“确定”以添加该帐户。 该帐户应具备[上方](#account-permissions)列出的权限。
 4. 在 Azure 门户上，打开保管库>“Site Recovery 基础结构” > “配置服务器”，然后打开配置服务器。
 5. 在“详细信息”页上，单击“刷新服务器”。
@@ -68,9 +68,9 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 2. 在“详细信息”页上，选择 vCenter 服务器。
 3. 单击“删除”按钮。
 
-  ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+   ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
-如果需要修改 vCenter IP 地址、FQDN 或端口，则需删除 vCenter 服务器再将其重新添加到门户。
+> 如果需要修改 vCenter IP 地址、FQDN 或端口，则需删除 vCenter 服务器再将其重新添加到门户。
 
 <!-- Update_Description: update meta properties -->

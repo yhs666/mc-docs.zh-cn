@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 06/26/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 78d08734f19037dbaba9a1311731ea6675db80d8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 268ae128bf1f2c1434607b763d14b3d62db84707
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660091"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626122"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure 资源管理器模板
 本文介绍如何从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板更好地了解模板语法。
@@ -63,16 +63,16 @@ ms.locfileid: "52660091"
     ![查看部署摘要](./media/resource-manager-export-template/view-template.png)
 4. Resource Manager 检索以下七个文件：
 
-    1. **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-    2. **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-    3. **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-    4. **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-    5. **.NET** - 可用于部署该模板的 .NET 类。
-    6. **Ruby** - 可用于部署模板的 Ruby 类。
+   1. **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
+   2. **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
+   3. **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
+   4. **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
+   5. **.NET** - 可用于部署该模板的 .NET 类。
+   6. **Ruby** - 可用于部署模板的 Ruby 类。
 
-    默认情况下，门户会显示模板。
+      默认情况下，门户会显示模板。
 
-    ![查看模板](./media/resource-manager-export-template/see-template.png)
+      ![查看模板](./media/resource-manager-export-template/see-template.png)
 
 事实上，创建 Web 应用和 SQL 数据库时使用的就是此模板。 请注意，可以使用该模板包含的参数在部署时提供不同的值。 若要详细了解模板的结构，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）。
 
@@ -98,8 +98,9 @@ ms.locfileid: "52660091"
 
     ![下载模板](./media/resource-manager-export-template/download-template.png)
 
-    <!-- Not Available on  **Add to library**.--> <!-- Not Available on  When adding a template to the library-->
-   <!-- Not Available on  select **More services**, type **Templates** to filter results, select **Templates**-->
+    <!-- Not Available on  **Add to library**.-->
+    <!-- Not Available on  When adding a template to the library-->
+<!-- Not Available on  select **More services**, type **Templates** to filter results, select **Templates**-->
 <!-- Not Available on  Select the template with the name you saved-->
 
 <!-- Not Available on  ## Customize the template-->

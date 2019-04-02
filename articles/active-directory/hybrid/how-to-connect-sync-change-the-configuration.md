@@ -17,12 +17,12 @@ ms.date: 03/15/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31dd78d45a00e248e028d630c9a3692addd02ec4
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: a9f8dd8477dec9b266e729916a4b6c5c87ced47f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186683"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627618"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：更改默认配置
 本文旨在介绍如何对 Azure Active Directory (Azure AD) Connect 同步中的默认配置进行更改。其中提供了一些常见方案的步骤。 了解这些知识后，用户应该能够根据自己的业务规则对自己的配置进行简单的更改。
@@ -350,8 +350,8 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
    3. 在弹出对话框中，选择“完全导入”，并单击“确定”。
    4. 等待操作完成。
 
-    > [!NOTE]
-    > 如果源属性已包含在导入属性列表中，则可以在本地 AD 连接器上跳过“完全导入”。 换而言之，在执行[步骤 2：将源属性添加到本地 AD 连接器架构](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)的过程中不需要进行任何更改。
+      > [!NOTE]
+      > 如果源属性已包含在导入属性列表中，则可以在本地 AD 连接器上跳过“完全导入”。 换而言之，在执行[步骤 2：将源属性添加到本地 AD 连接器架构](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)的过程中不需要进行任何更改。
 
 2. 在 **Azure AD 连接器**上运行“完全导入”：
 

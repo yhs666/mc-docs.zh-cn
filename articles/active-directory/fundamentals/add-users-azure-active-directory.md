@@ -13,12 +13,12 @@ ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: de77f78796a2e73ac6de6180176a862892c81a0e
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 54341651002eecd32efbbbaf2481999d3baa24da
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996196"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626713"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 添加或删除用户
 在 Azure Active Directory (Azure AD) 租户中添加新用户或删除现有用户。
@@ -37,17 +37,17 @@ ms.locfileid: "53996196"
 
     ![添加新用户，包含用户信息的“用户”页](./media/add-users-azure-active-directory/new-user-user-blade.png)
 
-    - **名称（必填）。** 新用户的名字和姓氏。 例如，Mary Parker。
+   - **名称（必填）。** 新用户的名字和姓氏。 例如，Mary Parker。
 
-    - **用户名（必填）。** 新用户的用户名。 例如，mary@contoso.com。 
+   - **用户名（必填）。** 新用户的用户名。 例如，mary@contoso.com。 
     
-        用户名的域名部分必须是初始默认域名 <_yourdomainname_>.partner.onmschina.cn，或者是一个自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure Active Directory 添加自定义域名](add-custom-domain.md)。
+       用户名的域名部分必须是初始默认域名 <_yourdomainname_>.partner.onmschina.cn，或者是一个自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure Active Directory 添加自定义域名](add-custom-domain.md)。
 
-    - **个人资料。** （可选）你可以添加关于用户的详细信息。 也可以在以后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
+   - **个人资料。** （可选）你可以添加关于用户的详细信息。 也可以在以后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
 
-    - **组。** （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组中的详细信息，请参阅[如何创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+   - **组。** （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组中的详细信息，请参阅[如何创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
 
-    - **目录角色。** （可选）可以将用户添加到某个目录角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中的一个或多个其他管理员角色。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
+   - **目录角色。** （可选）可以将用户添加到某个目录角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中的一个或多个其他管理员角色。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
 
 4. 复制“密码”框中提供的自动生成的密码。 需要将此密码提供给用户以进行初始登录过程。
 

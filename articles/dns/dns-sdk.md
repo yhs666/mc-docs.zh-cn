@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/19/2016
 ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: a56edc3776232dfaace72fc2f29377a2ee5bfd38
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8ec02d38cff54a0ac7aab842db1dfb0b378fe048
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987932"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503655"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 创建 DNS 区域和记录集
 
@@ -85,7 +85,7 @@ Azure DNS 支持乐观并发，称为 [Etag](dns-getstarted-create-dnszone.md)�
 // Create zone parameters
 var dnsZoneParams = new Zone("global"); // All DNS zones must have location = "global"
 
-// Create a Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
+// Create an Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
 dnsZoneParams.Tags = new Dictionary<string, string>();
 dnsZoneParams.Tags.Add("dept", "finance");
 

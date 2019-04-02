@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9343817c23d00e44709458ceca928dd3637ffc90
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 4397e0ec927c03a1e1b65f0c0f4545c65f3f302d
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672469"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624172"
 documentType: LandingData
 title: Azure 媒体服务文档
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 09-24-2018
-  ms.date: 12-03-2018
+  origin.date: 03/11/2019
+  ms.date: 04/01/2019
   ms.author: v-jay
 abstract:
   description: Azure 媒体服务 (AMS) 是一个基于云的平台，可用于生成解决方案，以便实现观众可在大多数受欢迎的设备上体验的高清晰度视频编码和广播品质视频流。
@@ -30,6 +30,7 @@ sections:
     className: cardsM
     columns: 1
     items:
+    - href: /azure/media-services/previous/
       html: <p>了解如何使用媒体服务 v2 对视频进行编码、按需流式处理和实时直播。</p>
       image:
         src: media/index/AMSIcons-media_servicesV2.svg

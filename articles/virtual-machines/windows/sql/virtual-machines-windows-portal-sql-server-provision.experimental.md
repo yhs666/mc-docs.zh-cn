@@ -17,12 +17,12 @@ origin.date: 04/03/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 experimental_id: a641df96-f27d-40
-ms.openlocfilehash: 0f5c26a09a0ab8a677cd18969ec59dca8c91d2b2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b3796a4d4fe650bb870a59e9aead75246f129e2c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644361"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625934"
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 SQL Server 虚拟机
 > [!div class="op_single_selector"]
@@ -237,12 +237,13 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
 下表列出了配置 Azure 密钥保管库集成所需的参数。
 
-| 参数 | 说明 | 示例 |
-| --- | --- | --- |
-| **密钥保管库 URL** |密钥保管库的位置。 |https://contosokeyvault.vault.azure.cn/ |
-| **主体名称** |Azure Active Directory 服务主体名称。 该名称也称为客户端 ID。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **主体密码** |Azure Active Directory 服务主体密码。 该密码也称为客户端密码。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **凭据名称** |**凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |mycred1 |
+
+|      参数       |                                                                           说明                                                                            |                   示例                    |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  **密钥保管库 URL**   |                                                                  密钥保管库的位置。                                                                  |   https://contosokeyvault.vault.azure.cn/    |
+|  **主体名称**  |                                  Azure Active Directory 服务主体名称。 该名称也称为客户端 ID。                                  |     fde2b411-33d5-4e11-af04eb07b669ccf2      |
+| **主体密码** |                              Azure Active Directory 服务主体密码。 该密码也称为客户端密码。                              | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **凭据名称**  | **凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |                   mycred1                    |
 
 有关详细信息，请参阅 [为 Azure VM 上的 SQL Server 配置 Azure 密钥保管库集成](virtual-machines-windows-ps-sql-keyvault.md)。
 

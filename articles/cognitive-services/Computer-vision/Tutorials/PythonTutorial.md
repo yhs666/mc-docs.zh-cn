@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: 通过 Jupyter Notebook 了解如何使用 Python 中的计算机视觉 API。 使用流行库可视化结果。
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 origin.date: 11/06/2018
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 406f3952f97e7bda7f890b94b3f58fb5f8e1e01a
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 28f619f20203904cbaca515d37b6dc16d9ff49e6
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204024"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505468"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>教程：计算机视觉 API Python
 
@@ -44,12 +44,12 @@ ms.locfileid: "57204024"
 
 ```python
 # Variables
-
-_url = 'https://api.cognitive.azure.cn/vision/v1/analyses'
+_region = 'chinanorth' #Here you enter the region of your subscription
+_url = 'https://{}.api.cognitive.azure.cn/vision/v2.0/analyze'.format(_region)
 _key = None #Here you have to paste your primary key
 _maxNumRetries = 10
 ```
 
 运行本教程时，你将能够从 URL 和本地存储中添加要分析的图像。 脚本将在 Notebook 中显示图像和分析信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

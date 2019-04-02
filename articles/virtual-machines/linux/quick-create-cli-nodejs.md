@@ -15,19 +15,19 @@ ms.workload: infrastructure
 origin.date: 12/15/2016
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8743c77f4501a1f35d47b410ce6b3a2fecaaadad
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 723ede88ef9d10002c9e693762edcb197b1400f8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644288"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625543"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建 Linux VM
 
 本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 `quick-create` 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
 
 > [!NOTE]
-若要使用 Azure CLI 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> 若要使用 Azure CLI 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 也可以使用 [Azure 门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
 
@@ -59,7 +59,8 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 | openSUSE |SUSE |openSUSE |13.2 |最新 |
 | UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |最新 |
 
-<!-- Not Available image of RHEL --> 以下各节对 **ImageURN** 选项 (`-Q`) 使用 `UbuntuLTS` 别名来部署 Ubuntu 14.04.4 LTS Server。
+<!-- Not Available image of RHEL -->
+以下各节对 **ImageURN** 选项 (`-Q`) 使用 `UbuntuLTS` 别名来部署 Ubuntu 14.04.4 LTS Server。
 
 上一个 `quick-create` 示例在禁用 SSH 密码时仅调出 `-M` 标志来标识要上传的 SSH 公钥，因此系统会提示输入以下参数：
 

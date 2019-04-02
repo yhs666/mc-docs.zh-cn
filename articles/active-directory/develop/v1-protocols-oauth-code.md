@@ -18,12 +18,12 @@ ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51aa7f10805bb330b446a8a2c6f138ecf1fe2af2
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: acf576d561518145b486f0cd3260bb57d523348f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186685"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625862"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 代码授权流来授权访问 Azure Active Directory Web 应用程序
 
@@ -171,7 +171,6 @@ grant_type=authorization_code
   "scope": "https%3A%2F%2Fgraph.chinacloudapi.cn%2Fmail.read",
   "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ."
 }
-
 ```
 
 | 参数 | 说明 |
@@ -205,6 +204,7 @@ grant_type=authorization_code
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
+
 | 参数 | 说明 |
 | --- | --- |
 | error |用于分类发生的错误类型与响应错误的错误码字符串。 |
@@ -225,6 +225,7 @@ grant_type=authorization_code
 | 500 |服务出现内部错误。 重试请求。 |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>令牌终结点错误的错误代码
+
 | 错误代码 | 说明 | 客户端操作 |
 | --- | --- | --- |
 | invalid_request |协议错误，例如，缺少必需的参数。 |修复并重新提交请求。 |
@@ -257,6 +258,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.partner.microsoftonlin
 ```
 
 #### <a name="error-parameters"></a>错误参数
+
 | 参数 | 说明 |
 | --- | --- |
 | authorization_uri |授权服务器的 URI（物理终结点）。 此值还用作查找键，可从发现终结点获取有关服务器的详细信息。 <p><p> 客户端必须验证授权服务器是否受信任。 Azure AD 对资源进行保护时，只需验证 URL 是否以 Azure AD 支持的 https://login.partner.microsoftonline.cn 或其他主机名开头即可。 特定于租户的资源应始终返回特定于租户的授权 URI。 |
@@ -311,6 +313,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+
 | 参数 | 说明 |
 | --- | --- |
 | token_type |令牌类型。 唯一支持的值为 **bearer**。 |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 8bc35979338ccadc1f653eaf6b4346a7aa76f458
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 03193188567647c64c44e8859cf3f83380b200e8
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440524"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544736"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Log Analytics 工作区
 
@@ -129,8 +129,6 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
 * 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[在 Log Analytics 中收集要使用的 Azure 服务日志和指标](../platform/collect-azure-metrics-logs.md)。  
 * [将 System Center Operations Manager 添加为数据源](../platform/om-agents.md)以从报告 Operations Manager 管理组的代理收集数据并将其存储在 Log Analytics 工作区中。  
 * 连接 [Configuration Manager](../platform/collect-sccm.md) 以导入作为层次结构中集合成员的计算机。  
-* 查看可用的[监视解决方案](../insights/solutions.md)以及如何从工作区添加或删除解决方案。
-
 
 
 

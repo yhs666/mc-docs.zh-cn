@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 12/12/2017
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7447f9341f24581ee072f7cd9c0d404eb46015ca
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 8d262659e12e8cb9e1f431f99f96ac9295d6afcd
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256379"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408310"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
@@ -510,16 +510,16 @@ public static async Task Run(string input, Binder binder)
 下表列出了每种绑定类型的 .NET 属性及其定义所在的包。
 
 > [!div class="mx-codeBreakAll"]
-| 绑定 | 属性 | 添加引用 |
-|------|------|------|
-| Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-| 事件中心 | `Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| 通知中心 | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| 服务总线 | `Microsoft.Azure.WebJobs.ServiceBusAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| 存储队列 | `Microsoft.Azure.WebJobs.QueueAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| 存储 blob | `Microsoft.Azure.WebJobs.BlobAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| 存储表 | `Microsoft.Azure.WebJobs.TableAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | 绑定 | 属性 | 添加引用 |
+> |------|------|------|
+> | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
+> | 事件中心 | `Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+> | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
+> | 通知中心 | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
+> | 服务总线 | `Microsoft.Azure.WebJobs.ServiceBusAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
+> | 存储队列 | `Microsoft.Azure.WebJobs.QueueAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | 存储 blob | `Microsoft.Azure.WebJobs.BlobAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | 存储表 | `Microsoft.Azure.WebJobs.TableAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 
 ## <a name="next-steps"></a>后续步骤
 

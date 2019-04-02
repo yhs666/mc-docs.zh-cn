@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: f288c0d8fcd03961c78d5aace1d696423c476b63
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 93f4536ef2649c3af5046b5c3f34cfdfbbe13d35
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833382"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626433"
 ---
-# <a name="upload-files-into-a-media-services-account-using-net-legacy"></a>使用 .NET 将文件上传到媒体服务帐户（旧版）
+# <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -41,7 +41,6 @@ ms.locfileid: "56833382"
 > * 名称长度不应超过 260 个字符。
 > * 在媒体服务中进行处理时，系统支持的最大文件大小存在限制。 有关文件大小限制的详细信息，请参阅[此文](media-services-quotas-and-limitations.md)。
 > * 不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
-> 
 
 创建资产时，可以指定以下加密选项：
 
@@ -50,9 +49,9 @@ ms.locfileid: "56833382"
 * **CommonEncryption** - 上传经过通用加密或 PlayReady DRM 加密并保护的内容（例如，受 PlayReady DRM 保护的平滑流式处理）时使用此选项。
 * **EnvelopeEncrypted** - 如果要上传使用 AES 加密的 HLS，请使用此选项。 请注意，Transform Manager 必须已对文件进行编码和加密。
 * **StorageEncrypted** - 使用 AES-256 位加密在本地加密明文内容，并将其上传到 Azure Storage 中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
-  
+
     媒体服务为资产提供磁盘上的存储加密，而不是通过数字权限管理器 (DRM) 等线路提供加密。
-  
+
     如果资产已经过存储加密，则必须配置资产传送策略。 有关详细信息，请参阅[配置资产传送策略](media-services-dotnet-configure-asset-delivery-policy.md)。
 
 如果指定使用 **CommonEncrypted** 选项或 **EnvelopeEncrypted** 选项加密资产，则需要将资产关联到 **ContentKey**。 有关详细信息，请参阅[如何创建 ContentKey](media-services-dotnet-create-contentkey.md)。 

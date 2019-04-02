@@ -12,12 +12,12 @@ ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 5adfd44e75e666af2eab9d6eea55509a17a720cd
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 8a076bb4ebc9cbd17b568c980533407cbec0735e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309066"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626676"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>使用 Azure Cosmos DB 的 API for MongoDB 创建 Angular 应用 - 将 CRUD 函数添加到应用
 
@@ -188,7 +188,7 @@ ms.locfileid: "54309066"
     如果刷新页面，“网络”选项卡会显示获取 hero 的时间。 虽然这里显示的时间很短，但很多情况下，具体时间取决于数据在中国所处的位置，以及能否在靠近用户的区域进行异地复制。 可以在即将推出的下一教程中详细了解异地复制。
     
     <!-- Notice: 全球 to 多个区域 -->
-## <a name="next-steps"></a>后续步骤
+   ## <a name="next-steps"></a>后续步骤
 
 在本教程的此部分，你已完成以下操作：
 

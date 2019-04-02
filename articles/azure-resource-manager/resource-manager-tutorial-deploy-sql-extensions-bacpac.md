@@ -14,12 +14,12 @@ origin.date: 02/25/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: b1ec41046f2cfcf11484f1e23eb17aa884028b51
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: a3c6df8b6ce498bd977193294a66339099b54bf0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348048"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626129"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件
@@ -67,15 +67,15 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
     有三个在此模板中定义的资源：
 
-    * `Microsoft.Sql/servers`。
-    * `Microsoft.SQL/servers/securityAlertPolicies`。
-    * `Microsoft.SQL.servers/databases`。
+   * `Microsoft.Sql/servers`。
+   * `Microsoft.SQL/servers/securityAlertPolicies`。
+   * `Microsoft.SQL.servers/databases`。
 
-    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers)-->
-    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/securityalertpolicies)-->
-    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
+     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers)-->
+     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/securityalertpolicies)-->
+     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
     
-    在自定义模板之前，不妨对其进行一些基本的了解。
+     在自定义模板之前，不妨对其进行一些基本的了解。
 4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 
 ## <a name="edit-the-template"></a>编辑模板

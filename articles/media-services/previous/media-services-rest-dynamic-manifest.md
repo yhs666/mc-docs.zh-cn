@@ -3,7 +3,7 @@ title: 使用 Azure 媒体服务 REST API 创建筛选器 | Microsoft Docs
 description: 本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务创建动态清单来存档此选择性流。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: 57a7dcd05c144678398dd67c5d0898a0067ae419
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: d3110753f88248deef05d47f635ea7fa24e185c6
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664207"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624167"
 ---
-# <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒体服务 REST API 创建筛选器
+# <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒体服务 REST API 创建筛选器 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
@@ -43,9 +43,9 @@ ms.locfileid: "52664207"
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect 和 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
->[!NOTE]
-
->访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+> [!NOTE]
+> 
+> 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 
 ## <a name="connect-to-media-services"></a>连接到媒体服务
 
@@ -196,7 +196,7 @@ ms.locfileid: "52664207"
 
 
 ## <a name="update-filters"></a>更新筛选器
-使用 PATCH、PUT 或 MERGE 并结合新的属性值来更新筛选器。  有关这些操作的详细信息，请参阅 [PATCH、PUT、MERGE](http://msdn.microsoft.com/library/dd541276.aspx)。
+使用 PATCH、PUT 或 MERGE 并结合新的属性值来更新筛选器。  有关这些操作的详细信息，请参阅 [PATCH、PUT、MERGE](https://msdn.microsoft.com/library/dd541276.aspx)。
 
 如果更新筛选器，则流式处理终结点需要两分钟的时间来刷新规则。 如果内容是通过使用此筛选器提供的（并在代理和 CDN 缓存中缓存），则更新此筛选器会导致播放器失败。 请在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。  
 

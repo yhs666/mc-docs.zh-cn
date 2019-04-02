@@ -6,6 +6,100 @@ items:
   - name: 什么是计算机视觉？
     href: Home.md
   expanded: true
+- name: 快速入门
+  items:
+  - name: 使用 REST API
+    items:
+    - name: 分析远程图像
+      items:
+      - name: cURL
+        href: QuickStarts/curl-analyze.md
+      - name: Go
+        href: QuickStarts/go-analyze.md
+      - name: Java
+        href: QuickStarts/java-analyze.md
+      - name: Javascript
+        href: QuickStarts/javascript-analyze.md
+      - name: Node.js
+        href: QuickStarts/node-analyze.md
+      - name: PHP
+        href: QuickStarts/php-analyze.md
+      - name: Python
+        href: QuickStarts/python-analyze.md
+      - name: Ruby
+        href: QuickStarts/ruby-analyze.md
+    - name: 分析本地图像
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-analyze.md
+      - name: Python
+        href: QuickStarts/python-disk.md
+    - name: 生成缩略图
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-thumb.md
+      - name: cURL
+        href: QuickStarts/curl-thumb.md
+      - name: Go
+        href: QuickStarts/go-thumb.md
+      - name: Java
+        href: QuickStarts/java-thumb.md
+      - name: Javascript
+        href: QuickStarts/javascript-thumb.md
+      - name: Node.js
+        href: QuickStarts/node-thumb.md
+      - name: PHP
+        href: QuickStarts/php-thumb.md
+      - name: Python
+        href: QuickStarts/python-thumb.md
+      - name: Ruby
+        href: QuickStarts/ruby-thumb.md
+    - name: 提取打印的文本
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-print-text.md
+      - name: cURL
+        href: QuickStarts/curl-print-text.md
+      - name: Go
+        href: QuickStarts/go-print-text.md
+      - name: Java
+        href: QuickStarts/java-print-text.md
+      - name: Javascript
+        href: QuickStarts/javascript-print-text.md
+      - name: Node.js
+        href: QuickStarts/node-print-text.md
+      - name: PHP
+        href: QuickStarts/php-print-text.md
+      - name: Python
+        href: QuickStarts/python-print-text.md
+      - name: Ruby
+        href: QuickStarts/ruby-print-text.md
+    - name: 提取手写的文本
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: Javascript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
+    - name: 使用域模型
+      items:
+      - name: PHP
+        href: QuickStarts/php-domain.md
+      - name: Python
+        href: QuickStarts/python-domain.md
+  - name: 使用 .NET SDK
+    items:
+    - name: 分析图像
+      href: quickstarts-sdk/csharp-analyze-sdk.md
+    - name: 生成缩略图
+      href: quickstarts-sdk/csharp-thumb-sdk.md
+    - name: 提取文本
+      href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: 使用 Python SDK
+    href: quickstarts-sdk/python-sdk.md
 - name: 教程
   items:
   - name: 生成图像的元数据
@@ -56,8 +150,10 @@ items:
     href: /cli/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: 计算机视觉 API v2.0
+    href: https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44
   - name: 计算机视觉 API v1.0
-    href: https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa
+    href: https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa
   - name: SDK
     items:
     - name: Node.js
@@ -65,11 +161,15 @@ items:
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
     - name: Swift
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: 资源
   items:
+  - name: 示例
+    items:
+    - name: 探索图像处理应用
+      href: Tutorials/CSharpTutorial.md
   - name: 常见问题
     href: FAQ.md
   - name: 定价和限制
@@ -82,9 +182,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: 区域可用性
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 967bb55db69aa0a540d2c039f966672555b77d02
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: e10fdd65fbd9c7a89a89e7c87a9a3da2027a2361
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964437"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505525"

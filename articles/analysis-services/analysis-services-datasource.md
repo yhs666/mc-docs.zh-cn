@@ -9,12 +9,12 @@ origin.date: 02/07/2019
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b404e32e97d0ce675f9e952681022706eaaafcfd
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: c63df567698545d1e1a6b1a00f64b9e0d9113ae8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306125"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627045"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -53,42 +53,42 @@ ms.locfileid: "56306125"
 
 ### <a name="in-memory-and-directquery"></a>内存中和 DirectQuery
 
-|数据源 | 内存中提供程序 | DirectQuery 提供程序 |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
-| SQL Server 数据仓库 |SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
-| Oracle |用于 Oracle 的 Microsoft OLE DB 提供程序、用于 .NET 的 Oracle 数据提供程序 |用于 .NET 的 Oracle 数据提供程序 | |
-| Teradata |用于 Teradata 的 OLE DB 提供程序、用于 .NET 的 Teradata 数据提供程序 |用于 .NET 的 Teradata 数据提供程序 | |
-| | | |
+|        数据源         |                                                  内存中提供程序                                                  |            DirectQuery 提供程序             |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
+|        SQL Server         | SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
+| SQL Server 数据仓库 | SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
+|          Oracle           |                         用于 Oracle 的 Microsoft OLE DB 提供程序、用于 .NET 的 Oracle 数据提供程序                          |        用于 .NET 的 Oracle 数据提供程序        |
+|         Teradata          |                            用于 Teradata 的 OLE DB 提供程序、用于 .NET 的 Teradata 数据提供程序                             |       用于 .NET 的 Teradata 数据提供程序       |
+|                           |                                                                                                                      |                                             |
 
 ### <a name="in-memory-only"></a>仅限内存中
 
-|数据源  |  
-|---------|---------|
-|Access 数据库     |  
-|Active Directory<sup>[1](#tab1400b)</sup>     |  
-|Analysis Services     |  
-|分析平台系统     |  
-|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
-|Excel 工作簿     |  
-|Exchange<sup>[1](#tab1400b)</sup>     |  
-|文件夹<sup>[1](#tab1400b)</sup>     |
-|IBM Informix<sup>[1](#tab1400b)</sup>（beta 版本） |
-|JSON 文档<sup>[1](#tab1400b)</sup>     |  
-|二进制文件中的行<sup>[1](#tab1400b)</sup>     | 
-|MySQL 数据库     | 
-|OData 源<sup>[1](#tab1400b)</sup>     |  
-|ODBC 查询     | 
-|OLE DB     |   
-|Postgre SQL 数据库<sup>[1](#tab1400b)</sup>    | 
-|Salesforce 对象<sup>[1](#tab1400b)</sup> |  
-|Salesforce 报表<sup>[1](#tab1400b)</sup> |
-|SAP HANA<sup>[1](#tab1400b)</sup>    |  
-|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
-|Sybase 数据库     |  
-|XML 表<sup>[1](#tab1400b)</sup>    |  
-|||
+|                   数据源                    |
+|-------------------------------------------------|
+|                 Access 数据库                 |
+|    Active Directory<sup>[1](#tab1400b)</sup>    |
+|                Analysis Services                |
+|            分析平台系统            |
+|      Dynamics CRM<sup>[1](#tab1400b)</sup>      |
+|                 Excel 工作簿                  |
+|        Exchange<sup>[1](#tab1400b)</sup>        |
+|         文件夹<sup>[1](#tab1400b)</sup>         |
+|  IBM Informix<sup>[1](#tab1400b)</sup>（beta 版本）   |
+|     JSON 文档<sup>[1](#tab1400b)</sup>      |
+|   二进制文件中的行<sup>[1](#tab1400b)</sup>    |
+|                 MySQL 数据库                  |
+|       OData 源<sup>[1](#tab1400b)</sup>       |
+|                   ODBC 查询                    |
+|                     OLE DB                      |
+|  Postgre SQL 数据库<sup>[1](#tab1400b)</sup>  |
+|   Salesforce 对象<sup>[1](#tab1400b)</sup>   |
+|   Salesforce 报表<sup>[1](#tab1400b)</sup>   |
+|        SAP HANA<sup>[1](#tab1400b)</sup>        |
+| SAP Business Warehouse<sup>[1](#tab1400b)</sup> |
+|       SharePoint<sup>[1](#tab1400b)</sup>       |
+|                 Sybase 数据库                 |
+|       XML 表<sup>[1](#tab1400b)</sup>        |
+|                                                 |
 
 <a name="tab1400b">1</a> 仅限表格 1400 和更高模型。
 

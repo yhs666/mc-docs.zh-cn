@@ -10,12 +10,12 @@ ms.workload: powerbi
 origin.date: 09/20/2017
 ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 18efc8ed1db763a36a263541e254bf21013da14e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 806b4d1a2e952cb01ce0fdd39510dde0a8b76e44
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306207"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408309"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 
@@ -120,6 +120,6 @@ to
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 <!-- Update_Description: link update -->

@@ -9,18 +9,18 @@ origin.date: 06/20/2017
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 03ff9f82e843ad3c3e37ee4fc246e1db3842cb88
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: d30fc0eb22bf2c027da49e9524b53bf9e62a7c82
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192861"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626147"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 存储中需要安全传输
 
 “需要安全传输”选项通过仅允许来自安全连接的帐户请求，增强存储帐户安全性。 例如，在调用 REST API 访问存储帐户时，必须使用 HTTPS 进行连接。 “需要安全传输”拒绝使用 HTTP 的请求。
 
-使用 Azure 文件服务时，如果启用了“需要安全传输”，任何未加密的连接都会失败。 这包括使用 SMB 2.1、未加密的 SMB 3.0 以及某些版本的 Linux SMB 客户端的方案。 
+使用 Azure 文件服务时，如果启用了“需要安全传输”，任何未加密的连接都会失败。 这包括使用 SMB 2.1、未加密的 SMB 3.0 以及某些版本的 Linux SMB 客户端的方案。 
 
 默认情况下，在使用 SDK 创建存储帐户时，将禁用“需要安全传输”选项。 在 Azure 门户中创建存储帐户时默认情况下会启用此选项。
 
@@ -34,17 +34,17 @@ ms.locfileid: "54192861"
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>新的存储帐户需要安全传输
 
 1. 在 Azure 门户中打开“创建存储帐户”窗格。
-1. 在“需要安全传输”下，选择“启用”。
+2. 在“需要安全传输”下，选择“启用”。
 
-  ![“创建存储帐户”边栏选项卡](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![“创建存储帐户”边栏选项卡](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>对现有存储帐户需要安全传输
 
 1. 在 Azure 门户中选择现有存储帐户。
-1. 在存储帐户菜单窗格的“设置”下，选择“配置”。
-1. 在“需要安全传输”下，选择“启用”。
+2. 在存储帐户菜单窗格的“设置”下，选择“配置”。
+3. 在“需要安全传输”下，选择“启用”。
 
-  ![“存储帐户”菜单窗格](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![“存储帐户”菜单窗格](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>以编程方式启用“需要安全传输”
 
@@ -74,7 +74,6 @@ StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
 ...
-
 ```
 
 使用以下命令行启用该设置：
@@ -85,7 +84,6 @@ StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
 ...
-
 ```
 
 ### <a name="enable-secure-transfer-required-setting-with-cli"></a>使用 CLI 启用“需要安全传输”设置
@@ -104,7 +102,6 @@ EnableHttpsTrafficOnly : True
   "type": "Microsoft.Storage/storageAccounts"
   ...
 }
-
 ```
 
 使用以下命令行启用该设置：
@@ -117,7 +114,6 @@ EnableHttpsTrafficOnly : True
   "type": "Microsoft.Storage/storageAccounts"
   ...
 }
-
 ```
 
 ## <a name="next-steps"></a>后续步骤

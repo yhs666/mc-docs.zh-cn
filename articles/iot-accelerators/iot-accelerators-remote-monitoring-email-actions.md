@@ -9,12 +9,12 @@ services: iot-accelerators
 origin.date: 11/12/2018
 ms.date: 12/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 192357024573f07df2c24903f3f1d3b9b63ebf41
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: afb33bc27a2b2ec1bd6c20b85e51b198925abe8e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569385"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627219"
 ---
 # <a name="add-an-email-action"></a>添加电子邮件操作
 
@@ -129,15 +129,15 @@ ms.locfileid: "53569385"
 
 1. 单击以登录 Outlook。 随即转到 Azure 门户：
 
-  ![登录 Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![登录 Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
 
-1. 单击“授权”。 系统会提示你进行登录。 用于登录的帐户应是该应用程序用于发送电子邮件通知的电子邮件地址：
+2. 单击“授权”。 系统会提示你进行登录。 用于登录的帐户应是该应用程序用于发送电子邮件通知的电子邮件地址：
 
-1. 单击“保存” 。 返回到解决方案加速器并刷新页面。
+3. 单击“保存” 。 返回到解决方案加速器并刷新页面。
 
-1. 如果已成功配置电子邮件通知，则会显示以下消息：
+4. 如果已成功配置电子邮件通知，则会显示以下消息：
 
-  ![Outlook 登录成功](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![Outlook 登录成功](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
 
 ## 自定义电子邮件 HTML <a name="htmledit"></a>
 

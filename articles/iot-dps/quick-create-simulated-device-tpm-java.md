@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: ed2c9a89d0a9da71da0785cd4bec41eb36debc3b
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: aeefd30d24ef6ae806a60a0e74ed159d52cf65ac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988367"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626218"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>使用适用于 Azure IoT 中心设备预配服务的 Java 设备 SDK 创建和预配模拟的 TPM 设备
 
@@ -97,17 +97,17 @@ Azure IoT 设备预配服务支持两类注册：
 
 1. 登录到 Azure 门户，单击左侧菜单上的“所有资源”按钮，打开设备预配服务。
 
-1. 在“设备预配服务摘要”边栏选项卡上，选择“管理注册”。 选择“个人注册”选项卡，然后单击顶部的“添加个人注册”按钮。 
+2. 在“设备预配服务摘要”边栏选项卡上，选择“管理注册”。 选择“个人注册”选项卡，然后单击顶部的“添加个人注册”按钮。 
 
-1. 在“添加注册”下，输入以下信息：
-    - 选择“TPM”作为标识证明*机制*。
-    - 输入 TPM 设备的“注册 ID”和“认可密钥”，如前所述。 
-    - 选择与预配服务链接的 IoT 中心。
-    - 输入唯一设备 ID。 为设备命名时，请确保避免使用敏感数据。
-    - 使用设备所需的初始配置更新“初始设备孪生状态”。
-    - 完成后，单击“保存”按钮。 
+3. 在“添加注册”下，输入以下信息：
+   - 选择“TPM”作为标识证明*机制*。
+   - 输入 TPM 设备的“注册 ID”和“认可密钥”，如前所述。 
+   - 选择与预配服务链接的 IoT 中心。
+   - 输入唯一设备 ID。 为设备命名时，请确保避免使用敏感数据。
+   - 使用设备所需的初始配置更新“初始设备孪生状态”。
+   - 完成后，单击“保存”按钮。 
 
-    ![在门户边栏选项卡中输入设备注册信息](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![在门户边栏选项卡中输入设备注册信息](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    成功注册以后，设备的“注册 ID”显示在“单个注册”选项卡下的列表中。 
 

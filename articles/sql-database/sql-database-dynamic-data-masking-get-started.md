@@ -13,12 +13,12 @@ ms.reviewer: vanto
 manager: digimobile
 origin.date: 03/04/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 2076b0c837472b7ec4bb0d722565709eb37cb6e8
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 2badf46b9339ba03e085e4c861f9cdbeab307e9d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319001"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626618"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -42,13 +42,13 @@ Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](/role
 * **掩码规则** - 一组规则，定义要掩码的指定字段，以及使用的掩码函数。 可以使用数据库架构名称、表名称和列名称定义指定的字段。
 * **掩码函数** - 一组方法，用于控制不同情况下的数据透露。
 
-| 掩码函数 | 掩码逻辑 |
-| --- | --- |
-| **默认** |**根据指定字段的数据类型完全掩码**<br/><br/>对于字符串数据类型（nchar、ntext、nvarchar），使用 XXXX；如果字段大小小于 4 个字符，则使用更少的 X。<br/>• 对于数字数据类型（bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real），使用零值。<br/>对于日期/时间数据类型（date、datetime2、datetime、datetimeoffset、smalldatetime、time），使用 1900-01-01。<br/>• 对于 SQL 变量，使用当前类型的默认值。<br/>• 对于 XML，使用文档 <masked/>。<br/>• 对于特殊数据类型（timestamp、table、hierarchyid、GUID、binary、image、varbinary 空间类型），将使用空值。 |
-| **信用卡** |**此掩码方法公开指定字段的最后四位数**，并添加一个信用卡格式的常量字符串作为前缀。<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **电子邮件** |**此掩码方法公开第一个字母并将域替换为 XXX.com**，并使用一个电子邮件地址格式的常量字符串作为前缀。<br/><br/>aXX@XXXX.com |
-| **随机数** |**此掩码方法根据选定边界和实际数据类型生成随机数**。 如果指定的边界相等，则掩码函数是常数。<br/><br/>![导航窗格](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **自定义文本** |**此掩码方法公开第一个和最后一个字符**，并在中间添加一个自定义填充字符串。 如果原始字符串短于公开的前缀和后缀，则只使用填充字符串。 <br/>前缀 [填充] 后缀<br/><br/>![导航窗格](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| 掩码函数  |                                                                                                                                                                                                                                                                                                                                                   掩码逻辑                                                                                                                                                                                                                                                                                                                                                   |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    **默认**    | **根据指定字段的数据类型完全掩码**<br/><br/>对于字符串数据类型（nchar、ntext、nvarchar），使用 XXXX；如果字段大小小于 4 个字符，则使用更少的 X。<br/>• 对于数字数据类型（bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real），使用零值。<br/>对于日期/时间数据类型（date、datetime2、datetime、datetimeoffset、smalldatetime、time），使用 1900-01-01。<br/>• 对于 SQL 变量，使用当前类型的默认值。<br/>• 对于 XML，使用文档 <masked/>。<br/>• 对于特殊数据类型（timestamp、table、hierarchyid、GUID、binary、image、varbinary 空间类型），将使用空值。 |
+|  **信用卡**  |                                                                                                                                                                                                                                                                 **此掩码方法公开指定字段的最后四位数**，并添加一个信用卡格式的常量字符串作为前缀。<br/><br/>XXXX-XXXX-XXXX-1234                                                                                                                                                                                                                                                                 |
+|     **电子邮件**     |                                                                                                                                                                                                                                                                   **此掩码方法公开第一个字母并将域替换为 XXX.com**，并使用一个电子邮件地址格式的常量字符串作为前缀。<br/><br/>aXX@XXXX.com                                                                                                                                                                                                                                                                   |
+| **随机数** |                                                                                                                                                                                                **此掩码方法根据选定边界和实际数据类型生成随机数**。 如果指定的边界相等，则掩码函数是常数。<br/><br/>![导航窗格](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png)                                                                                                                                                                                                 |
+|  **自定义文本**  |                                                                                                                                                                            **此掩码方法公开第一个和最后一个字符**，并在中间添加一个自定义填充字符串。 如果原始字符串短于公开的前缀和后缀，则只使用填充字符串。 <br/>前缀 [填充] 后缀<br/><br/>![导航窗格](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png)                                                                                                                                                                             |
 
 <a name="Anchor1"></a>
 

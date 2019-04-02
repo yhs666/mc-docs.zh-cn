@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: d05ea63d53456276f8effd3d52c135c090d1f85a
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 2c2516f10ad310f493b4604bcad612e0abf610a6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905364"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626497"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>更改 Azure Stack 用户订阅的所有者
 
@@ -47,7 +47,7 @@ Azure Stack 操作员可以使用 PowerShell 更改用户订阅的计费所有�
 - **$ArmEndpoint**：环境的资源管理器终结点。
 - **$TenantId**：租户 ID。
 - **$SubscriptionId**：订阅 ID。
-- **$OwnerUpn**：要添加为新账单所有者的帐户，例如 **user@example.com**。
+- **$OwnerUpn**：要添加为新账单所有者的帐户，例如 <strong>user@example.com</strong>。
 
 ```powershell
 # Set up Azure Stack admin environment

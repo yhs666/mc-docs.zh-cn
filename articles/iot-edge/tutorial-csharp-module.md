@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 01/04/2019
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: be45ddd87a68b12c02efe323503958ce187e829c
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: db502ed0c2bc2a8a4aabb4ed5a0612b15a952af6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665638"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627203"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 C# IoT Edge 模块并将其部署到模拟设备
 
@@ -124,7 +124,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 1. 在 VS Code 资源管理器中，打开 **modules** > **CSharpModule** > **Program.cs**。
 
-5. 在 **CSharpModule** 命名空间的顶部，为稍后要使用的类型添加三个 **using** 语句：
+2. 在 **CSharpModule** 命名空间的顶部，为稍后要使用的类型添加三个 **using** 语句：
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -132,13 +132,13 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-6. 将 **temperatureThreshold** 变量添加到 **Program** 类。 此变量设置一个值，若要向 IoT 中心发送数据，测量的温度必须超出该值。 
+3. 将 **temperatureThreshold** 变量添加到 **Program** 类。 此变量设置一个值，若要向 IoT 中心发送数据，测量的温度必须超出该值。 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. 将 **MessageBody**、**Machine** 和 **Ambient** 类添加到 **Program** 类。 这些类将为传入消息的正文定义所需的架构。
+4. 将 **MessageBody**、**Machine** 和 **Ambient** 类添加到 **Program** 类。 这些类将为传入消息的正文定义所需的架构。
 
     ```csharp
     class MessageBody
@@ -159,7 +159,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     }
     ```
 
-8. 在 Init 方法中，此代码创建并配置 ModuleClient 对象。 该对象允许模块连接到本地 Azure IoT Edge 运行时，发送并接收消息。 在 **Init** 方法中使用的连接字符串由 IoT Edge 运行时提供给模块。 创建 **ModuleClient** 后，代码将从模块孪生的所需属性中读取 **temperatureThreshold** 值。 代码注册一个回调，以通过 **input1** 终结点从 IoT Edge 中心接收消息。 将 **SetInputMessageHandlerAsync** 方法替换为新方法，并添加 **SetDesiredPropertyUpdateCallbackAsync** 方法用于更新所需属性。 若要进行此更改，请使用以下代码替换 Init 方法的最后一行 ：
+5. 在 Init 方法中，此代码创建并配置 ModuleClient 对象。 该对象允许模块连接到本地 Azure IoT Edge 运行时，发送并接收消息。 在 **Init** 方法中使用的连接字符串由 IoT Edge 运行时提供给模块。 创建 **ModuleClient** 后，代码将从模块孪生的所需属性中读取 **temperatureThreshold** 值。 代码注册一个回调，以通过 **input1** 终结点从 IoT Edge 中心接收消息。 将 **SetInputMessageHandlerAsync** 方法替换为新方法，并添加 **SetDesiredPropertyUpdateCallbackAsync** 方法用于更新所需属性。 若要进行此更改，请使用以下代码替换 Init 方法的最后一行 ：
 
     ```csharp
     // Register a callback for messages that are received by the module.
@@ -176,7 +176,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. 将 **onDesiredPropertiesUpdate** 方法添加到 **Program** 类。 此方法从孪生模块接收所需属性的更新，然后更新 **temperatureThreshold** 变量，使之匹配。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
+6. 将 **onDesiredPropertiesUpdate** 方法添加到 **Program** 类。 此方法从孪生模块接收所需属性的更新，然后更新 **temperatureThreshold** 变量，使之匹配。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -207,60 +207,60 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
     }
     ```
 
-10. 将 **PipeMessage** 方法替换为 **FilterMessages** 方法。 每当模块从 IoT Edge 中心接收消息，就会调用此方法。 此方法筛选掉那些所报告温度低于温度阈值（通过孪生模块进行设置）的消息。 它还将 **MessageType** 属性添加到消息，其值设置为“警报”。 
+7. 将 **PipeMessage** 方法替换为 **FilterMessages** 方法。 每当模块从 IoT Edge 中心接收消息，就会调用此方法。 此方法筛选掉那些所报告温度低于温度阈值（通过孪生模块进行设置）的消息。 它还将 **MessageType** 属性添加到消息，其值设置为“警报”。 
 
-    ```csharp
-    static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-    {
-        var counterValue = Interlocked.Increment(ref counter);
-        try
-        {
-            ModuleClient moduleClient = (ModuleClient)userContext;
-            var messageBytes = message.GetBytes();
-            var messageString = Encoding.UTF8.GetString(messageBytes);
-            Console.WriteLine($"Received message {counterValue}: [{messageString}]");
+   ```csharp
+   static async Task<MessageResponse> FilterMessages(Message message, object userContext)
+   {
+       var counterValue = Interlocked.Increment(ref counter);
+       try
+       {
+           ModuleClient moduleClient = (ModuleClient)userContext;
+           var messageBytes = message.GetBytes();
+           var messageString = Encoding.UTF8.GetString(messageBytes);
+           Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
-            // Get the message body.
-            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+           // Get the message body.
+           var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-            {
-                Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
-                    $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
-                {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+           if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+           {
+               Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
+                   $"exceeds threshold {temperatureThreshold}");
+               var filteredMessage = new Message(messageBytes);
+               foreach (KeyValuePair<string, string> prop in message.Properties)
+               {
+                   filteredMessage.Properties.Add(prop.Key, prop.Value);
+               }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
-            }
+               filteredMessage.Properties.Add("MessageType", "Alert");
+               await moduleClient.SendEventAsync("output1", filteredMessage);
+           }
 
-            // Indicate that the message treatment is completed.
-            return MessageResponse.Completed;
-        }
-        catch (AggregateException ex)
-        {
-            foreach (Exception exception in ex.InnerExceptions)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", exception);
-            }
-            // Indicate that the message treatment is not completed.
-            var moduleClient = (ModuleClient)userContext;
-            return MessageResponse.Abandoned;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-            // Indicate that the message treatment is not completed.
-            ModuleClient moduleClient = (ModuleClient)userContext;
-            return MessageResponse.Abandoned;
-        }
-    }
-    ```
+           // Indicate that the message treatment is completed.
+           return MessageResponse.Completed;
+       }
+       catch (AggregateException ex)
+       {
+           foreach (Exception exception in ex.InnerExceptions)
+           {
+               Console.WriteLine();
+               Console.WriteLine("Error in sample: {0}", exception);
+           }
+           // Indicate that the message treatment is not completed.
+           var moduleClient = (ModuleClient)userContext;
+           return MessageResponse.Abandoned;
+       }
+       catch (Exception ex)
+       {
+           Console.WriteLine();
+           Console.WriteLine("Error in sample: {0}", ex.Message);
+           // Indicate that the message treatment is not completed.
+           ModuleClient moduleClient = (ModuleClient)userContext;
+           return MessageResponse.Abandoned;
+       }
+   }
+   ```
 
 8. 保存 Program.cs 文件。
 
@@ -278,15 +278,15 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 10. 将 **CSharpModule** 模块孪生添加到部署清单。 在 **modulesContent** 节底部的 **$edgeHub** 模块孪生后面插入以下 JSON 内容： 
 
-   ```json
+    ```json
        "CSharpModule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
-   ```
+    ```
 
-   ![将模块孪生添加到部署模板](./media/tutorial-csharp-module/module-twin.png)
+    ![将模块孪生添加到部署模板](./media/tutorial-csharp-module/module-twin.png)
 
 11. 保存 deployment.template.json 文件。
 

@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
-ms.openlocfilehash: 6d7ad9b134bbe533c2a0f57d2801a4444abb3fe9
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 53153d824a558127ab4146a02a32a21f1814b9db
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222604"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505530"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教程：向运行通用 Windows 平台应用程序的特定 Windows 设备推送通知
 
@@ -231,22 +231,25 @@ ms.locfileid: "56222604"
 
 1. 在 Visual Studio 中，选择 F5 编译并启动应用。 应用 UI 提供了一组开关，可以使用它们选择要订阅的类别。
 
-    ![突发新闻应用][1]
+    ![突发新闻应用](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. 启用一个或多个类别切换，然后单击“订阅”。
 
     应用程序将所选类别转换为标签并针对所选标签从通知中心请求注册新设备。 返回注册的类别并显示在对话框中。
 
-    ![类别切换和订阅按钮][19]
+    ![类别切换和订阅按钮](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. 使用以下方式之一从后端发送新通知：
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>创建一个控制台应用以发送带标记的通知
 
-   * **控制台应用**：启动控制台应用。
-   * **Java/PHP**：运行应用或脚本。
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     所选类别的通知作为 toast 通知显示。
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>运行控制台应用以发送带标记的通知
 
-     ![Toast 通知][14]
+1. 运行上一部分中创建的应用。
+2. 所选类别的通知作为 toast 通知显示。 如果选择通知，则会看到第一个 UWP 应用窗口。 
+
+     ![Toast 通知](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -261,11 +264,6 @@ ms.locfileid: "56222604"
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

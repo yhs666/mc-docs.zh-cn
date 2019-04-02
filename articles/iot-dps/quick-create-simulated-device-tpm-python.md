@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 43ffb02f1b67978313ccf358a3bea9eed5c8d6bf
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: d3565e49f5339a25d08d21e8ef87e2c109cd3833
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988415"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625300"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用适用于 IoT 中心设备预配服务的 Python 设备 SDK 创建和预配模拟的 TPM 设备
 
@@ -74,23 +74,23 @@ Azure IoT 设备预配服务支持两类注册：
 
 1. 打开在 cmake 文件夹中生成的名为 `azure_iot_sdks.sln` 的解决方案，将其内置到 Visual Studio 中。
 
-1. 右键单击“tpm_device_provision”项目，然后选择“设为启动项目”。 运行解决方案。 输出窗口会显示进行设备注册所需的“认可密钥”和“注册 ID”。 记下这些值。 
+2. 右键单击“tpm_device_provision”项目，然后选择“设为启动项目”。 运行解决方案。 输出窗口会显示进行设备注册所需的“认可密钥”和“注册 ID”。 记下这些值。 
 
     ![TPM 安装程序](./media/python-quick-create-simulated-device/tpm-setup.png)
 
-1. 登录到 Azure 门户，单击左侧菜单上的“所有资源”按钮，打开设备预配服务。
+3. 登录到 Azure 门户，单击左侧菜单上的“所有资源”按钮，打开设备预配服务。
 
-1. 在“设备预配服务摘要”边栏选项卡上，选择“管理注册”。 选择“个人注册”选项卡，然后单击顶部的“添加个人注册”按钮。 
+4. 在“设备预配服务摘要”边栏选项卡上，选择“管理注册”。 选择“个人注册”选项卡，然后单击顶部的“添加个人注册”按钮。 
 
-1. 在“添加注册”下，输入以下信息：
-    - 选择“TPM”作为标识证明*机制*。
-    - 输入 TPM 设备的*注册 ID* 和*认可密钥*。 
-    - 选择与预配服务链接的 IoT 中心。
-    - 输入唯一设备 ID。 为设备命名时，请确保避免使用敏感数据。
-    - 使用设备所需的初始配置更新“初始设备孪生状态”。
-    - 完成后，单击“保存”按钮。 
+5. 在“添加注册”下，输入以下信息：
+   - 选择“TPM”作为标识证明*机制*。
+   - 输入 TPM 设备的*注册 ID* 和*认可密钥*。 
+   - 选择与预配服务链接的 IoT 中心。
+   - 输入唯一设备 ID。 为设备命名时，请确保避免使用敏感数据。
+   - 使用设备所需的初始配置更新“初始设备孪生状态”。
+   - 完成后，单击“保存”按钮。 
 
-    ![在门户边栏选项卡中输入设备注册信息](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![在门户边栏选项卡中输入设备注册信息](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    成功注册以后，设备的“注册 ID”会显示在“单个注册”选项卡下的列表中。 
 
@@ -100,21 +100,21 @@ Azure IoT 设备预配服务支持两类注册：
 1. 下载并安装 [Python 2.x 或 3.x](https://www.python.org/downloads/)。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。
     - 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包](https://www.microsoft.com/download/confirmation.aspx?id=48145)，以便使用 Python 中的本机 DLL。
 
-1. 按照[这些说明](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)生成 Python 包。
+2. 按照[这些说明](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)生成 Python 包。
 
-    > [!NOTE]
-        > 如果运行 `build_client.cmd`，请确保使用 `--use-tpm-simulator` 标志。
+   > [!NOTE]
+   > 如果运行 `build_client.cmd`，请确保使用 `--use-tpm-simulator` 标志。
+   > 
+   > [!NOTE]
+   > 如果使用 `pip`，请确保也安装 `azure-iot-provisioning-device-client` 包。 请注意，发布的 PIP 包使用真实的 TPM 而非模拟器。 若要使用模拟器，需使用 `--use-tpm-simulator` 标志从源进行编译。
 
-    > [!NOTE]
-        > 如果使用 `pip`，请确保也安装 `azure-iot-provisioning-device-client` 包。 请注意，发布的 PIP 包使用真实的 TPM 而非模拟器。 若要使用模拟器，需使用 `--use-tpm-simulator` 标志从源进行编译。
-
-1. 导航到示例文件夹。
+3. 导航到示例文件夹。
 
     ```cmd/sh
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. 使用 Python IDE，编辑名为 **provisioning\_device\_client\_sample.py** 的 Python 脚本。 将 *GLOBAL\_PROV\_URI* 和 *ID\_SCOPE* 变量修改先前记下的值。 此外，请确保 *SECURITY\_DEVICE\_TYPE* 设置为 `ProvisioningSecurityDeviceType.TPM`
+4. 使用 Python IDE，编辑名为 **provisioning\_device\_client\_sample.py** 的 Python 脚本。 将 *GLOBAL\_PROV\_URI* 和 *ID\_SCOPE* 变量修改先前记下的值。 此外，请确保 *SECURITY\_DEVICE\_TYPE* 设置为 `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -125,17 +125,17 @@ Azure IoT 设备预配服务支持两类注册：
 
     ![服务信息](./media/python-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. 运行示例。 
+5. 运行示例。 
 
     ```cmd/sh
     python provisioning_device_client_sample.py
     ```
 
-1. 请注意相关消息，这些消息模拟设备启动后连接到设备预配服务以获取 IoT 中心信息的情况。 
+6. 请注意相关消息，这些消息模拟设备启动后连接到设备预配服务以获取 IoT 中心信息的情况。 
 
     ![注册成功](./media/python-quick-create-simulated-device/registration-success.png)
 
-1. 将模拟设备成功预配到与预配服务链接的 IoT 中心以后，设备 ID 会显示在该中心的“Device Explorer”边栏选项卡上。
+7. 将模拟设备成功预配到与预配服务链接的 IoT 中心以后，设备 ID 会显示在该中心的“Device Explorer”边栏选项卡上。
 
     ![设备注册到 IoT 中心](./media/python-quick-create-simulated-device/hubregistration.png) 
 

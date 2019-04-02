@@ -14,12 +14,12 @@ ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 4f751f476aba39cd0b95f1874cccbf5ca216e262
-ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
+ms.openlocfilehash: 11ac7db8034a247ee58e1b5dfe199ea54711b94e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409410"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626455"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 
@@ -251,7 +251,7 @@ ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是�
 
 ## <a name="reserved-aliases"></a>保留的别名 
 创建组后，某些终结点允许最终用户指定一个 mailNickname 或别名，用作组的电子邮件地址的一部分。 仅 Azure AD 全局管理员可以创建具有以下权限较高的电子邮件别名的组。 
-  
+  
 - abuse 
 - admin 
 - administrator 

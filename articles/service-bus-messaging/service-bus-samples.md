@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/21/2018
-ms.date: 11/26/2018
+ms.date: 09/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: e3e04f2a43fa1d9b34e642c27aa38fb18ff92504
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f59f16c650a4b81583ad1f780f24bb164e933095
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674676"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544787"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: d5cff57341957126d214976f4bd723dda1e5a28a
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 70a8afcaa60137079c34e3013a0a47484f5ccebe
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666136"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627176"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
-本文介绍如何使用 Azure CLI 和 Azure 门户从 Azure 下载 [Linux 虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 文件。 
+本文介绍如何使用 Azure CLI 和 Azure 门户从 Azure 下载 Linux 虚拟硬盘 (VHD) 文件。 
 
 如果尚未安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，请安装。
 

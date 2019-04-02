@@ -2,18 +2,17 @@
 title: 什么是 Azure DNS？
 description: Microsoft Azure 上的 DNS 托管服务概述。 在 Microsoft Azure 上托管域。
 author: WenJason
-manager: digimobile
 ms.service: dns
 ms.topic: overview
-origin.date: 9/24/2018
-ms.date: 02/25/2019
+origin.date: 3/21/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: a3f9ac500bd230c6e559921d184ca1f5756e4f71
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 3660d116a01085a2b8246f88500314b3493893e3
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663584"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503570"
 ---
 # <a name="what-is-azure-dns"></a>什么是 Azure DNS？
 
@@ -39,6 +38,9 @@ Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上�
 
 有关详细信息，请参阅[如何保护 DNS 区域和记录](dns-protect-zones-recordsets.md)。 
 
+## <a name="dnssec"></a>DNSSEC
+
+Azure DNS 当前不支持 DNSSEC。 在大多数情况下，可以通过在应用程序中始终使用 HTTPS/TLS 来减少对 DNSSEC 的需求。 如果 DNSSEC 是 DNS 区域的关键要求，则可以使用第三方 DNS 托管提供者托管这些区域。
 
 ## <a name="ease-of-use"></a>易于使用
 

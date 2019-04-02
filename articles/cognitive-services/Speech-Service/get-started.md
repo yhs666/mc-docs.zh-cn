@@ -12,12 +12,12 @@ origin.date: 02/08/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 0169f595c827c075fdf2ec86f59504add51323d4
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: f9d682ae9f9ee7aac75f4338f35266091965db0e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348326"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625164"
 ---
 # <a name="try-speech-services-for-trial"></a>试用语音服务
 
@@ -64,37 +64,37 @@ ms.locfileid: "58348326"
 
 1. 使用 Microsoft 帐户登录 [Azure 门户](https://portal.azure.cn/)。
 
-1. 选择门户左上角的“创建资源”。
+2. 选择门户左上角的“创建资源”。
 
     ![创建资源](media/index/try-speech-api-create-speech1.png)
 
-1. 在“新建”窗口中，搜索“语音”。
+3. 在“新建”窗口中，搜索“语音”。
 
-1. 在搜索结果中，选择“语音”。
+4. 在搜索结果中，选择“语音”。
 
     ![选择语音](media/index/try-speech-api-create-speech2.png)
 
-1. 在“语音”下，选择“创建”按钮。
+5. 在“语音”下，选择“创建”按钮。
 
     ![选择“创建”按钮](media/index/try-speech-api-create-speech3.png)
 
-1. 在“创建”下输入：
+6. 在“创建”下输入：
 
-    * 新资源的名称。 名称有助于区分同一服务的多个订阅。
-    * 选择新资源关联的 Azure 订阅，以确定计费方式。
-    * 选择将使用资源的区域。 目前在东亚、欧洲北部和美国西部区域提供语音服务。
-    * 选择免费或付费定价层。 单击“查看全部定价详细信息”，获取每个层的定价和用量配额的完整信息。
-    * 为此“语音”订阅创建新的资源组或将订阅分配到现有资源组。 资源组有助于使多种 Azure 订阅保持有序状态。
-    * 为了以后可便捷访问订阅，请选中“固定到仪表板”复选框。
-    * 选择“创建”。
+   * 新资源的名称。 名称有助于区分同一服务的多个订阅。
+   * 选择新资源关联的 Azure 订阅，以确定计费方式。
+   * 选择将使用资源的区域。 目前在东亚、欧洲北部和美国西部区域提供语音服务。
+   * 选择免费或付费定价层。 单击“查看全部定价详细信息”，获取每个层的定价和用量配额的完整信息。
+   * 为此“语音”订阅创建新的资源组或将订阅分配到现有资源组。 资源组有助于使多种 Azure 订阅保持有序状态。
+   * 为了以后可便捷访问订阅，请选中“固定到仪表板”复选框。
+   * 选择“创建”。
 
-    ![选择“创建”按钮](media/index/try-speech-api-create-speech4.png)
+     ![选择“创建”按钮](media/index/try-speech-api-create-speech4.png)
 
-    创建和部署新语音资源需要一些时间。 选择“快速入门”，查看新资源的信息。
+     创建和部署新语音资源需要一些时间。 选择“快速入门”，查看新资源的信息。
 
-    ![“快速启动”面板](media/index/try-speech-api-create-speech5.png)
+     ![“快速启动”面板](media/index/try-speech-api-create-speech5.png)
 
-1. 在“快速入门”下，单击步骤 1 中的“密钥”链接，以显示订阅密钥。 每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 选择每个密钥旁的按钮，可将其复制到剪贴板以粘贴到代码中。
+7. 在“快速入门”下，单击步骤 1 中的“密钥”链接，以显示订阅密钥。 每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 选择每个密钥旁的按钮，可将其复制到剪贴板以粘贴到代码中。
 
 > [!NOTE]
 > 可在一个或多个区域中创建数量不受限的标准层订阅。 但是，只能创建一个免费层订阅。 在免费层上进行的模型部署如果连续 7 天处于未使用状态，则会被系统自动停用。

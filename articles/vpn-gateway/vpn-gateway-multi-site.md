@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 12/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 97cb1b3ca002592be6c5be3eb88eeffecf4cd2fa
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 2efcfe921baa9ca5d1f610d09309bcd80053dd8e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028253"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626064"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet（经典）
 
@@ -89,7 +89,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3.打开网络配置文件
 打开上一步骤中下载的网络配置文件。 使用偏好的任何 xml 编辑器。 该文件的内容类似于：
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

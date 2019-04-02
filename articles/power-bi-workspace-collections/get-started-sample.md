@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 02/15/2019
 ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: c3d16427c3b0fd697f9da3161f824385a8d12279
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: caa1811ae358bac7abd3fcb73958701205c0ef17
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347098"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408263"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
@@ -99,7 +99,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
 
 ## <a name="explore-the-sample-code"></a>探索示例代码
 
-**Power BI 工作区集合**示例是一个 Web 应用示例，演示了如何将 **Power BI** 报表集成到应用中。 它采用模型-视图-控制器 (MVC) 设计模式来演示最佳做法。 本部分重点介绍可以在 **PowerBI Embedded** Web 应用解决方案中浏览的示例代码。 模型-视图-控制器 (MVC) 模式根据用户输入的三个单独的类（模型、视图和控件）对域、演示文稿和操作分开进行建模。 若要了解关于 MVC 的详细信息，请参阅 [Learn About ASP.NET](http://www.asp.net/mvc)（了解 ASP.NET）。
+**Power BI 工作区集合**示例是一个 Web 应用示例，演示了如何将 **Power BI** 报表集成到应用中。 它采用模型-视图-控制器 (MVC) 设计模式来演示最佳做法。 本部分重点介绍可以在 **PowerBI Embedded** Web 应用解决方案中浏览的示例代码。 模型-视图-控制器 (MVC) 模式根据用户输入的三个单独的类（模型、视图和控件）对域、演示文稿和操作分开进行建模。 若要了解关于 MVC 的详细信息，请参阅 [Learn About ASP.NET](https://www.asp.net/mvc)（了解 ASP.NET）。
 
 **Power BI 工作区集合**示例代码分隔方式如下所示。 每个部分在 PowerBI embedded.sln 解决方案中都包括了文件名称，以便轻松查找示例中的代码。
 
@@ -277,6 +277,6 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 <!-- Update_Description: code update -->

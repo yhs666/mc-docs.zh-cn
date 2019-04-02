@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 02/21/2019
 ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: bf029bbe61899836ca4677142c1929c5238742b9
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: e4d16760e878fa937a629fb19b4eab40b3c9c7d7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626551"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询
 
@@ -257,12 +257,12 @@ ms.locfileid: "57560487"
 1. 右键单击某个 HDInsight 群集，并选择“查看作业”。 此时会显示群集上运行的 Hive 作业的列表。  
 
 2. 选择作业。 在“Hive 作业摘要”窗口中，选择以下项目之一：
-    - **作业查询**
-    - **作业输出**
-    - **作业日志**  
-    - **Yarn 日志**
+   - **作业查询**
+   - **作业输出**
+   - **作业日志**  
+   - **Yarn 日志**
    
-    ![HDInsight Visual Studio 工具“查看 Hive 作业”窗口的屏幕截图](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "查看 Hive 作业")
+     ![HDInsight Visual Studio 工具“查看 Hive 作业”窗口的屏幕截图](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "查看 Hive 作业")
 
 
 ## <a name="run-apache-pig-scripts"></a>运行 Apache Pig 脚本

@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 11/06/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e192b460ef53d3e0354a761aaabe150acc0c6b08
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 391cd7debd4d3083ad5305c6ace66888e4a61885
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004554"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627533"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中为数据库预配吞吐量
 
@@ -25,16 +25,16 @@ ms.locfileid: "58004554"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. [创建新的 Azure Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
+2. [创建新的 Azure Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
 
-1. 打开“数据资源管理器”窗格，然后选择“新建数据库”。 提供以下详细信息：
+3. 打开“数据资源管理器”窗格，然后选择“新建数据库”。 提供以下详细信息：
 
-    * 输入数据库 ID。 
-    * 选择“预配吞吐量”。
-    * 输入吞吐量（例如 1000 RU）。
-    * 选择“确定” 。
+   * 输入数据库 ID。 
+   * 选择“预配吞吐量”。
+   * 输入吞吐量（例如 1000 RU）。
+   * 选择“确定” 。
 
-    ![“新建数据库”对话框屏幕截图](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+     ![“新建数据库”对话框屏幕截图](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
 

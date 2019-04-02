@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/14/2018
 ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 26924acbaaf196375a829a8d1034601b2dfd9082
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: a5a450a01dc264fcdfcfe8d92922f1a78160b75f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222581"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626740"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>通过使用 ASP.NET 注册推送通知的当前用户
 
@@ -43,9 +43,9 @@ ms.locfileid: "56222581"
    * **文本字段**：“Password”
    * **按钮**：“Login”
 
-    此时，Storyboard 应与下图类似：
+     此时，Storyboard 应与下图类似：
 
-    ![][0]
+     ![][0]
 
 2. 在助手编辑器中，创建所有带开关控件的容器并调用它们，连接文本字段与视图控制器（委派），并创建“登录”按钮的“操作”。
    

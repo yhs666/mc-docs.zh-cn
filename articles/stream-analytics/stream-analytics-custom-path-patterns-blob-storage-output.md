@@ -1,26 +1,71 @@
 ---
-title: Azure 流分析 Blob 存储输出（预览版）的自定义 DateTime 路径模式
-description: ''
+title: Azure 流分析自定义 blob 输出分区
+description: 本文介绍了 Azure 流分析作业中 blob 存储输出的自定义 DateTime 路径模式和自定义字段或属性功能。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 09/24/2018
 ms.date: 11/06/18
-ms.openlocfilehash: 367d6adf5d51007420db279bd589d407fd9bbec1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 372380068917651ae3ffb9523c0e203048c52ff2
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660431"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544800"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure 流分析 Blob 存储输出（预览版）的自定义 DateTime 路径模式
 
-Azure 流分析支持在 Blob 存储输出的文件路径中使用自定义日期和时间格式说明符。 可以使用自定义 DateTime 路径模式来指定与 Hive 流式处理约定相符的输出格式，这样 Azure 流分析就可以将数据发送到 Azure HDInsight 和 Azure Databricks 进行下游处理。 自定义 DateTime 路径模式可以轻松地实现，只需在 Blob 输出的“路径前缀”字段中使用 `datetime` 关键字并使用格式说明符即可。 例如，`{datetime:yyyy}`。
+Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径模式的自定义 blob 输出分区。 
 
-使用 [Azure 门户](https://portal.azure.cn/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true)的此链接来切换功能标志，该标志可以为 Blob 存储输出预览版启用自定义 DateTime 路径模式。 此功能很快会在主门户中启用。
+## <a name="custom-field-or-attributes"></a>自定义字段或属性
+
+自定义字段或输入属性通过允许进一步控制输出，改进下游数据处理和报告工作流。
+
+### <a name="partition-key-options"></a>分区键选项
+
+用于分区输入数据的分区键或列名称可能包含带有连字符、下划线和空格的字母数字字符。 除非与别名一起使用，否则无法将嵌套字段用作分区键。
+
+### <a name="example"></a>示例
+
+假设作业从连接到外部视频游戏服务的实时用户会话获取输入数据，其中引入的数据包含用于识别会话的列 client_id。 若要按 client_id 对数据进行分区，请在创建作业时将“blob 路径模式”字段设置为，在 blob 输出属性中添加分区标记 {client_id}。 当包含各种 client_id 值的数据流经流分析作业时，输出数据根据每个文件夹的单一 client_id 值保存到单独的文件夹中。
+
+![包含客户端 ID 的路径模式](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+
+同样，如果作业输入是来自数百万个传感器的传感器数据（其中每个传感器有一个 sensor_id），那么路径模式为 {sensor_id}，用于将每个传感器数据分区到不同的文件夹中。  
+
+
+使用 REST API，用于相应请求的 JSON 文件的输出部分可能如下所示：  
+
+![REST API 输出](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+
+在作业开始运行后，“客户端”容器可能如下所示：  
+
+![“客户端”容器](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+
+每个文件夹都可能包含多个 blob，其中每个 blob 包含一个或多个记录。 在上面的示例中，标记为“06000000”的文件夹中有一个 blob，其中包含以下内容：
+
+![blob 内容](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+
+请注意，blob 中的每个记录都有一个与文件夹名称匹配的 client_id 列，这是因为用于在输出路径中对输出进行分区的列是 client_id。
+
+### <a name="limitations"></a>限制
+
+1. “路径模式”blob 输出属性中只允许有一个自定义分区键。 以下所有路径模式都有效：
+
+   * cluster1/{date}/{aFieldInMyData}  
+   * cluster1/{time}/{aFieldInMyData}  
+   * cluster1/{aFieldInMyData}  
+   * cluster1/{date}/{time}/{aFieldInMyData}  
+
+2. 由于分区键不区分大小写，因此像“John”和“john”这样的分区键是等效的。 另外，无法使用表达式作为分区键。 例如，{columnA + columnB} 不起作用。  
+
+3. 如果输入流由分区键基数低于 8000 的记录组成，记录会附加到现有 blob，并且仅在必要时新建 blob。 如果基数超过 8000，无法保证将写入现有 blob，并且不会为具有相同分区键的任意数量记录新建 blob。  
+
+## <a name="custom-datetime-path-patterns"></a>自定义 DateTime 路径模式
+
+可以使用自定义 DateTime 路径模式来指定与 Hive 流式处理约定相符的输出格式，这样 Azure 流分析就可以将数据发送到 Azure HDInsight 和 Azure Databricks 进行下游处理。 自定义 DateTime 路径模式可以轻松地实现，只需在 Blob 输出的“路径前缀”字段中使用 `datetime` 关键字并使用格式说明符即可。 例如，`{datetime:yyyy}`。
 
 ## <a name="supported-tokens"></a>支持的令牌
 

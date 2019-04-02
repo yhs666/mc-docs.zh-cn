@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 02/15/2019
 ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3b12e88d7b0d24e18f3fe43aaaf000608b5557cf
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: a44e5aa69459fbf689b9f856c3ced6e1fe4e5019
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347143"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408265"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中基于数据集创建新报表
 
@@ -210,6 +210,6 @@ var embedCreateConfiguration = {
 [Power BI Core NuGut 包](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI JavaScript 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 <!-- Update_Description: link update -->

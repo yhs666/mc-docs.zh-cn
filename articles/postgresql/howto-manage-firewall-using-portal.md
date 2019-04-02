@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: f925ec4b164757965dce6c08725f204ca40f62b4
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.openlocfilehash: c35c8fee84148b6d62f9a24e8d6adbd3cc94cc12
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858203"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626842"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则
 使用服务器级防火墙规则，管理员可以从指定的 IP 地址或某个范围的 IP 地址访问 Azure Database for PostgreSQL 服务器。 
@@ -27,24 +27,24 @@ ms.locfileid: "54858203"
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
 1. 在 PostgreSQL 服务器页上的“设置”标题下，单击“连接安全性”，打开 Azure Database for PostgreSQL 的“连接安全性”页。
 
-  ![Azure 门户 - 单击连接安全性](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   ![Azure 门户 - 单击连接安全性](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
 2. 在工具栏上单击“添加我的 IP”。 该操作会自动创建一条防火墙规则，其中包含计算机的公共 IP 地址（由 Azure 系统标识）。
 
-  ![Azure 门户 - 单击“添加我的 IP”](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
+   ![Azure 门户 - 单击“添加我的 IP”](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
 3. 验证 IP 地址，并保存配置。 在某些情况下，Azure 门户识别出的 IP 地址与访问 Internet 和 Azure 服务器时所使用的 IP 地址不同。 因此，可能需要更改起始 IP 和结束 IP，以使规则正常工作。
-使用搜索引擎或其他联机工具来查看自己的 IP 地址。 例如，搜索“我的 IP 是多少”。
+   使用搜索引擎或其他联机工具来查看自己的 IP 地址。 例如，搜索“我的 IP 是多少”。
 
-  ![在必应中搜索“我的 IP 是多少”](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
+   ![在必应中搜索“我的 IP 是多少”](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
 4. 添加其他地址范围。 在 Azure Database for PostgreSQL 防火墙规则中，可以指定单个 IP 地址，也可以指定某个范围的地址。 如果希望将规则限制为单个 IP 地址，请在起始 IP 和结束 IP 字段中输入相同的地址。 打开防火墙后，管理员、用户和应用程序可以登录到 PostgreSQL 服务器上他们拥有有效凭据的任何数据库。
 
-  ![Azure 门户 - 防火墙规则 ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure 门户 - 防火墙规则 ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. 在工具栏上单击“保存”以保存此服务器级防火墙规则。 等待出现有关防火墙规则更新已成功的确认消息。
 
-  ![Azure 门户 - 单击“保存”](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
+   ![Azure 门户 - 单击“保存”](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## <a name="connecting-from-azure"></a>从 Azure 连接
 若要允许来自 Azure 的应用程序连接到 Azure Database for PostgreSQL 服务器，必须启用 Azure 连接。 例如，如果要承载“Azure Web 应用”应用程序，或者要承载在 Azure VM 中运行的应用程序。 资源无需在同一虚拟网络 (VNet) 或资源组中，即可使用防火墙规则启用这些连接。 在应用程序尝试从 Azure 连接到你的数据库服务器时，防火墙将验证是否允许 Azure 连接。 有几种方法可启用这些类型的连接。 如果防火墙设置的开始地址和结束地址都等于 0.0.0.0，则表示允许这些连接。 或者，可以在门户中从“连接安全性”窗格将“允许访问 Azure 服务”选项设为“启用”并点击“保存”。 如果不允许该连接尝试，则该请求将不会访问 Azure Database for PostgreSQL 服务器。

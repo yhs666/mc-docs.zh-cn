@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 12/14/2017
 ms.date: 03/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5646240f644e2904d9aad5c3c33793722cd153bc
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: dedd649356f7eff002ae362d2215bafa3ccefafa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196643"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625619"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
@@ -47,24 +47,24 @@ ms.locfileid: "57196643"
 2. 选择“自定义域和 SSL”。
     
     可以为许多终结点分配自定义域名。 当前有以下终结点可用： 
-    + **代理**（默认值为：`<apim-service-name>.azure-api.cn`）， 
-    + **门户**（默认值为：`<apim-service-name>.portal.azure-api.cn`），     
-    + **管理**（默认值为：`<apim-service-name>.management.azure-api.cn`）， 
-    + **SCM**（默认值为：`<apim-service-name>.scm.azure-api.cn`）。
+   + **代理**（默认值为：`<apim-service-name>.azure-api.cn`）， 
+   + **门户**（默认值为：`<apim-service-name>.portal.azure-api.cn`），     
+   + **管理**（默认值为：`<apim-service-name>.management.azure-api.cn`）， 
+   + **SCM**（默认值为：`<apim-service-name>.scm.azure-api.cn`）。
 
-    >[!NOTE]
-    > 可以更新所有终结点或者更新其中的一部分。 通常情况下，客户会更新**代理**（此 URL 用来调用通过 API 管理公开的 API）和**门户**（开发人员门户 URL）。 **管理**和 **SCM** 终结点由 APIM 客户在内部使用，因此很少会为其分配自定义域名。
+     >[!NOTE]
+     > 可以更新所有终结点或者更新其中的一部分。 通常情况下，客户会更新**代理**（此 URL 用来调用通过 API 管理公开的 API）和**门户**（开发人员门户 URL）。 **管理**和 **SCM** 终结点由 APIM 客户在内部使用，因此很少会为其分配自定义域名。
     
 3. 选择要更新的终结点。 
 4. 在右侧窗口中，单击“自定义”。
 
-    + 在“自定义域名”中，指定要使用的名称。 例如，`api.contoso.com`。 还支持通配符域名（例如 *.domain.com）。
-    + 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
+   + 在“自定义域名”中，指定要使用的名称。 例如，`api.contoso.com`。 还支持通配符域名（例如 *.domain.com）。
+   + 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
 
-    > [!TIP]
-    > 如果使用 Azure 密钥保管库来管理自定义域 SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密插入到密钥保管库中。 如果证书设置为“自动轮换”，API 管理会自动选取最新版本。
+     > [!TIP]
+     > 如果使用 Azure 密钥保管库来管理自定义域 SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密插入到密钥保管库中。 如果证书设置为“自动轮换”，API 管理会自动选取最新版本。
 
-1. 单击“应用”。
+5. 单击“应用”。
 
     >[!NOTE]
     >分配证书的过程可能需要 15 分钟或更久，这取决于部署规模。 开发人员 SKU 有故障时间，基本和更高版本的 SKU 没有故障时间。

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/08/2019
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: d9053f36edbd0e46d115383800f4992f0888caec
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 2fc2fc1637dc34d18816bc39e1b7bac659527ece
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505505"
 ---
 # <a name="detect-adult-and-racy-content"></a>检测成人和不雅内容
 
@@ -34,7 +34,7 @@ ms.locfileid: "57203989"
 
 ## <a name="identify-adult-and-racy-content"></a>标识成人和不雅内容
 
-[分析](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API。
+[分析](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API。
 
 分析图像方法在方法的 JSON 响应中返回两个布尔属性（`isAdultContent` 和 `isRacyContent`），分别表示成人和不雅内容。 该方法还返回 `adultScore` 和 `racyScore` 这两个属性，它们分别表示用于识别成人和不雅内容的置信度分数。
 
@@ -42,4 +42,4 @@ ms.locfileid: "57203989"
 
 了解关于[检测特定于域的内容](concept-detecting-domain-content.md)和[检测人脸](concept-detecting-faces.md)的概念。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

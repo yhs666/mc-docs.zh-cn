@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 04/01/2018
 ms.date: 02/18/2019
-ms.openlocfilehash: ed5a3a55fdb2491e06166f4579015cdbb534eb0f
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 247a2250e3629ef5d30f126a188f84a3008c308b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302996"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626145"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
@@ -120,25 +120,25 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 如果客户端计算机已安装 PostgreSQL，则可使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 的本地实例，或 Azure 云控制台连接到 Azure PostgreSQL 服务器。 现在，使用 psql 命令行实用工具连接到“用于 PostgreSQL 的 Azure 数据库”服务器。
 
 1. 运行以下 psql 命令连接到 Azure Database for PostgreSQL 数据库：
-```cli
-psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
-```
+   ```cli
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-  例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
-  
-  ```cli
-psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-```
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
 
-2.  连接到服务器后，在出现提示时创建空数据库：
-```sql
-CREATE DATABASE mypgsqldb;
-```
+   ```cli
+   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-3.  出现提示时，请执行以下命令，将连接切换到新建的数据库 mypgsqldb：
-```sql
-\c mypgsqldb
-```
+2. 连接到服务器后，在出现提示时创建空数据库：
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
+
+3. 出现提示时，请执行以下命令，将连接切换到新建的数据库 mypgsqldb：
+   ```sql
+   \c mypgsqldb
+   ```
 
 ## <a name="create-tables-in-the-database"></a>在数据库中创建表
 现已介绍了如何连接 Azure Database for PostgreSQL，接下来你可以完成一些基本任务：
@@ -191,9 +191,10 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` 命令需以下参数：
-| 设置 | 建议的值 | 说明  |
+
+| 设置 | 建议的值 | 说明  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  源服务器所在的资源组。  |
+| resource-group |  myresourcegroup |  源服务器所在的资源组。  |
 | name | mydemoserver-restored | 通过还原命令创建的新服务器的名称。 |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 选择要还原到的时间点。 此日期和时间必须在源服务器的备份保留期限内。 使用 ISO8601 日期和时间格式。 例如，可使用自己的本地时区（如 `2017-04-13T05:59:00-08:00`），或使用 UTC Zulu 格式 `2017-04-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要从其还原的源服务器的名称或 ID。 |

@@ -18,12 +18,12 @@ ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: f68bad8aa4d70172063bccfb172d5812c69e0f67
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: c7e310d31770d49d5fb4b541b89c1c693a0ea53a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905401"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625924"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教程：将虚拟机提供给 Azure Stack 用户使用
 
@@ -125,13 +125,13 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
    >[!NOTE]
    >订阅套餐之后，可能需要刷新门户才能看到哪些服务包含在新订阅中。
 
-1. **预配虚拟机**
+2. **预配虚拟机**
 
    可在用户门户中使用新订阅预配虚拟机。
 
    a. 使用用户帐户登录到用户门户。
-      - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
-   - 如果使用 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
+   - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
+     - 如果使用 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
 
    b.  在仪表板上，选择“+创建资源” > “计算” > “Windows Server 2016 Datacenter Eval”，然后选择“创建”。
 

@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: bb90aa540c7b13d818e8b4d42a5f6640f6125070
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 1ddb6674476dc1507f03cb0bd450f6892eb9566b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736183"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626040"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -319,7 +319,7 @@ type | 标识指标的实际提供程序。
 class | 与“counter”一起标识提供程序的命名空间中的特定指标。
 counter | 与“class”一起标识提供程序的命名空间中的特定指标。
 counterSpecifier | 标识 Azure Metrics 命名空间中的特定指标。
-条件 | （可选）选择指标适用对象的特定实例，或选择该对象所有实例的聚合。 有关详细信息，请参阅 [`builtin` 指标定义](#metrics-supported-by-builtin)。
+条件 | （可选）选择指标适用对象的特定实例，或选择该对象所有实例的聚合。 有关详细信息，请参阅 `builtin` 指标定义。
 sampleRate | IS 8601 时间间隔，用于设置收集此指标原始样本的速率。 如果未设置，则收集时间间隔由 [sampleRateInSeconds](#ladcfg) 的值设置。 支持的最短采样率为 15 秒 (PT15S)。
 unit | 应为以下字符串之一：“Count”、“Bytes”、“Seconds”、“Percent”、“CountPerSecond”、“BytesPerSecond”、“Millisecond”。 定义指标的单位。 所收集数据的使用者会预期收集到的数据值与此单位匹配。 LAD 将忽略此字段。
 displayName | Azure Metrics 中要附加到此数据的标签（使用由相关区域设置指定的语言）。 LAD 会忽略此字段。
@@ -389,7 +389,7 @@ minSeverity | Syslog 严重性级别（例如“LOG\_ERR”或“LOG\_INFO”）
 
 元素 | 值
 ------- | -----
-命名空间 | （可选）应在其中执行查询的 OMI 命名空间。 如果未指定，则默认值为“root/scx”，由 [ System Center 跨平台提供程序](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)实现。
+命名空间 | （可选）应在其中执行查询的 OMI 命名空间。 如果未指定，则默认值为“root/scx”，由 [ System Center 跨平台提供程序](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)实现。
 查询 | 要执行的 OMI 查询。
 表 | （可选）指定存储帐户中的 Azure 存储表（请参阅[受保护的设置](#protected-settings)）。
 frequency | （可选）两次执行查询之间的秒数。 默认值为 300 秒（5 分钟）；最小值为 15 秒。

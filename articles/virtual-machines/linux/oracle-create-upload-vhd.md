@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 03/12/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0311ea86f798f978687553496a098a8653329465
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: dcd9a04e5b2b7c1f29841dfc3c97d37e2f217d43
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674965"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627225"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>为 Azure 准备 Oracle Linux 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "52674965"
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux 安装说明
 * 另请参阅[常规 Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 的提示。
 * Hyper-V 和 Azure 同时支持 Oracle 的兼容内核及其 UEK3（坚不可摧企业内核）。 为了获得最佳结果，请务必在准备 Oracle Linux VHD 时更新到最新内核。
-<!-- Not Avaiable on Red Hat -->
+  <!-- Not Avaiable on Red Hat -->
 * Hyper-V 和 Azure 不支持 Oracle 的 UEK2，因为它不包括所需的驱动程序。
 * Azure 不支持 VHDX 格式，仅支持 **固定大小的 VHD**。  可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。
 * 在安装 Linux 系统时，建议使用标准分区而不是 LVM（通常是许多安装的默认值）。 这会避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台 VM 以进行故障排除的情况下。 如果需要，可以在数据磁盘上使用 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -50,7 +50,7 @@ ms.locfileid: "52674965"
 
         # sudo rpm -e --nodeps NetworkManager
 
-    **注意：** 如果尚未安装此包，则该命令会失败，并显示错误消息。 这是正常情况。
+    **注意：** 如果未安装此包，则该命令会失败，并显示一条错误消息。 这是正常情况。
 4. 在包含以下文本的 `/etc/sysconfig/` 目录中创建一个名为 **network** 的文件：
 
         NETWORKING=yes
@@ -117,7 +117,7 @@ ms.locfileid: "52674965"
 为 Azure 准备 Oracle Linux 7 虚拟机非常类似于 Oracle Linux 6，但有几个值得注意的重要区别：
 
 * Azure 支持 Oracle 的 UEK3。  建议使用 UEK3 内核。
-<!-- Not Avaiable on  Red Hat 兼容内核 -->
+  <!-- Not Avaiable on  Red Hat 兼容内核 -->
 * NetworkManager 包不再与 Azure Linux 代理冲突。 默认会安装此包，建议不要删除。
 * GRUB2 现在用作默认引导加载程序，因此编辑内核参数的过程已更改（见下文）。
 * XFS 现在是默认文件系统。 如果需要，仍可以使用 ext4 文件系统。

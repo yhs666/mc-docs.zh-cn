@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 06/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 34b7a9540275be31d709f4885c05d9e7f7ec4b67
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 2c9b42f76482bb94cc8d6abc47054fb369435a77
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204140"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627067"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -85,7 +85,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 
 > [!WARNING]
 > 以青铜级持续性运行的节点类型不具有任何特权。 这意味着，不会停止或延迟对无状态工作负荷产生影响的基础结构作业，这可能影响工作负荷。 对仅运行无状态工作负荷的节点类型仅使用“青铜”。 对于生产工作负荷，建议运行“白银”或以上级别。 
-
+> 
 > 无论任何持续性级别，VM 规模集上的[释放](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate)操作都将破坏群集
 
 **使用“白银”或“黄金”耐久性级别的优点**

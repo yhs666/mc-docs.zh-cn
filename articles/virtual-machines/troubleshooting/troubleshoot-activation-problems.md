@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 origin.date: 11/15/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 726b5427931ca96afcac467d742de93c5fb6f29e
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ae46e1d41efac35930b021433701a505002ae26a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666400"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626464"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -101,11 +101,11 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
     \psping.exe kms.core.chinacloudapi.cn:1688
     ```
 
-  确保输出的倒数第二行显示以下内容：Sent = 4, Received = 4, Lost = 0 (0% loss)。
+   确保输出的倒数第二行显示以下内容：Sent = 4, Received = 4, Lost = 0 (0% loss)。
 
-  如果“Lost”大于 0（零），表示 VM 未连接到 KMS 服务器。 在这种情况下，如果 VM 位于虚拟网络中，并且指定了自定义 DNS 服务器，必须确保此 DNS 服务器能够解析 kms.core.chinacloudapi.cn。 或者，将 DNS 服务器更改为可以解析 kms.core.chinacloudapi.cn。
+   如果“Lost”大于 0（零），表示 VM 未连接到 KMS 服务器。 在这种情况下，如果 VM 位于虚拟网络中，并且指定了自定义 DNS 服务器，必须确保此 DNS 服务器能够解析 kms.core.chinacloudapi.cn。 或者，将 DNS 服务器更改为可以解析 kms.core.chinacloudapi.cn。
 
-  请注意，如果从虚拟网络中删除所有 DNS 服务器，VM 会使用 Azure 的内部 DNS 服务。 此服务可以解析 kms.core.chinacloudapi.cn。
+   请注意，如果从虚拟网络中删除所有 DNS 服务器，VM 会使用 Azure 的内部 DNS 服务。 此服务可以解析 kms.core.chinacloudapi.cn。
 
 另请验证是否未以会阻止激活尝试的方式配置来宾防火墙。
 

@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 03/28/2017
-ms.date: 11/26/2018
-ms.openlocfilehash: b69bdcbb87b74d6d28215ea738ed8d7e507f4ecd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/06/2018
+ms.custom: v-lingwu
+ms.openlocfilehash: b7f7274b481803eca573cc93ba863fd6366e2012
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675394"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544750"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。

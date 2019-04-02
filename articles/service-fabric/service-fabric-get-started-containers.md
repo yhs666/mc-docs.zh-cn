@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 05/18/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: a8f7f5b816b3f5239c57180bda5e6e0050bbf5b5
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: da2ccf071aad28577a37782cc741aea2e53bbad7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396653"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627432"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.locfileid: "54396653"
 
   <!-- Not Available on [try Service Fabric for free](https://aka.ms/tryservicefabric)-->
   * 如果版本包含 x.x.16299.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers 作为操作系统。
-  
+
   <!-- Not Available on  You cannot use a party cluster-->
 
 * 一个位于 Azure 容器注册表中的注册表 - 在 Azure 订阅中[创建容器注册表](../container-registry/container-registry-get-started-portal.md)。
@@ -155,7 +155,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-连接到正在运行的容器。 打开 Web 浏览器并指向返回的 IP 地址，例如 “ http://172.31.194.61 ”。 此时会看到标题“Hello World!” 显示在浏览器中。
+连接到正在运行的容器。 打开 Web 浏览器并指向返回的 IP 地址，例如 “ <http://172.31.194.61> ”。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 若要停止容器，请运行：
 
@@ -454,7 +454,8 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 ## <a name="clean-up"></a>清理
 只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-tutorial-delete-cluster.md)。
 
-<!-- Not Available on  [Party clusters](https://try.servicefabric.azure.com/) --> 将映像推送到容器注册表后，即可从开发计算机中删除本地映像：
+<!-- Not Available on  [Party clusters](https://try.servicefabric.azure.com/) -->
+将映像推送到容器注册表以后，可从开发计算机中删除本地映像：
 
 ```
 docker rmi helloworldapp
@@ -695,7 +696,6 @@ ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 
           } 
         ] 
 } 
-
 ```
 
 ## <a name="next-steps"></a>后续步骤

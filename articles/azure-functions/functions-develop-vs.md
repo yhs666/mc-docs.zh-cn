@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 origin.date: 10/08/2018
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 568a5298141737f0c210825019d407327c506773
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 2d6b081c00675a48434ecee13f020d17822c88d3
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256370"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408272"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -164,7 +164,7 @@ Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webh
         }
     }
     ```
-到队列存储的连接从 `AzureWebJobsStorage` 设置获取。 有关详细信息，请参阅特定绑定的参考文章。 
+   到队列存储的连接从 `AzureWebJobsStorage` 设置获取。 有关详细信息，请参阅特定绑定的参考文章。 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 

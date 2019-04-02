@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 01/17/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9e329e18907ba3bdc264b9f1a90de73e20364ee7
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 5465167bf63044ef682b217cf6bed02be7df3217
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204112"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625296"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -95,7 +95,7 @@ Service Fabric 还为 Reliable Services 和 Reliable Actors 编程模型提供�
 ## <a name="next-steps"></a>后续步骤
 
 * 若要开始检测应用程序，请参阅[应用程序级别事件和日志生成](service-fabric-diagnostics-event-generation-app.md)。
-<!-- Not Avaiable on * Go through the steps to set up Application Insights for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)-->
+  <!-- Not Avaiable on * Go through the steps to set up Application Insights for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)-->
 * 在[平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)中详细了解如何监视平台以及 Service Fabric 提供的事件。
 * 在[为群集设置 Log Analytics](service-fabric-diagnostics-oms-setup.md) 中使用 Service Fabric 配置 Log Analytics 集成
 * 了解如何为监视容器设置 Log Analytics - [在 Azure Service Fabric 上监视和诊断 Windows 容器](service-fabric-tutorial-monitoring-wincontainers.md)。

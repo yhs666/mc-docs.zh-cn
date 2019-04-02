@@ -17,12 +17,12 @@ origin.date: 01/09/2019
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f552f604af4f1488e9aec983393f68fe7a39562
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: d8b9319063c2f431ffa109a1ab0b14ee675b70fa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666006"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627310"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -54,30 +54,29 @@ lspci | grep -i NVIDIA
 ### <a name="ubuntu"></a>Ubuntu 
 
 1. 从 NVIDIA 网站下载并安装 CUDA 驱动程序。 例如，对于 Ubuntu 16.04 LTS：
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+   ```bash
+   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+   sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-get update
+   sudo apt-get update
 
-  sudo apt-get install cuda-drivers
+   sudo apt-get install cuda-drivers
+   ```
 
-  ```
-
-  安装可能需要几分钟。
+   安装可能需要几分钟。
 
 2. 若要安装完整的 CUDA 工具包，请键入：
 
-  ```bash
-  sudo apt-get install cuda
-  ```
+   ```bash
+   sudo apt-get install cuda
+   ```
 
 3. 重新启动 VM，并继续验证安装。
 
@@ -103,50 +102,50 @@ sudo reboot
 
 1. 更新内核（建议）。 如果选择不更新内核，请确保 `kernel-devel` 和 `dkms` 的版本适合你的内核。
 
-  ```
-  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+   ```
+   sudo yum install kernel kernel-tools kernel-headers kernel-devel
 
-  sudo reboot
+   sudo reboot
 
 2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
 
-  tar xvzf lis
+   tar xvzf lis
 
-  cd LISISO
+   cd LISISO
 
-  sudo ./install.sh
+   sudo ./install.sh
 
-  sudo reboot
-  ```
+   sudo reboot
+   ```
 
 3. 重新连接到 VM 并使用以下命令继续安装：
 
-  ```bash
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   ```bash
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-  sudo yum install dkms
+   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
+   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo yum install cuda-drivers
-  ```
+   sudo yum install cuda-drivers
+   ```
 
-  安装可能需要几分钟。 
+   安装可能需要几分钟。 
 
 4. 若要安装完整的 CUDA 工具包，请键入：
 
-  ```bash
-  sudo yum install cuda
-  ```
+   ```bash
+   sudo yum install cuda
+   ```
 
 5. 重新启动 VM，并继续验证安装。
 

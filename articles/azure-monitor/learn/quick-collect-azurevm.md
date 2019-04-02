@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: a6b1dc45d6e8e6e8954b1d822f29c5998d0bcc37
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 65d305694098aea8e0d90cc0f44d6918f8bb7056
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440352"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626956"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集 Azure 虚拟机相关数据
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 可直接从 Azure 虚拟机及环境中的其他资源收集数据，并将数据置于单个存储库进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Azure Linux 或 Windows VM 中配置或收集数据。  
@@ -36,13 +36,13 @@ ms.locfileid: "56440352"
 
 2. 单击“创建”，然后为以下各项选择选项：
 
-  * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 OMS 工作区现在称为 Log Analytics 工作区。  
-  * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
-  * 对于“资源组”，选择包含一个或多个 Azure 虚拟机的现有资源组。  
-  * 选择向其部署 VM 的“位置”。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。
-  * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/log-analytics/)。
+   * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 OMS 工作区现在称为 Log Analytics 工作区。  
+   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
+   * 对于“资源组”，选择包含一个或多个 Azure 虚拟机的现有资源组。  
+   * 选择向其部署 VM 的“位置”。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。
+   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/log-analytics/)。
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
 3. 在“Log Analytics 工作区”窗格上提供所需信息后，单击“确定”。  
 

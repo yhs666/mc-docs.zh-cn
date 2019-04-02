@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 09/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: dfc591fc9e314e7104326d336323bbba6586dd3a
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 73a1d21ad6bfa4159f08bc577e6e09a52eeafbd1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303059"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626052"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自动化运行方式帐户
 
@@ -194,6 +194,12 @@ Azure 自动化中的运行方式帐户用于提供身份验证，以使用 Azur
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -311,13 +317,13 @@ Azure 自动化中的运行方式帐户用于提供身份验证，以使用 Azur
 
 3. 在“运行方式帐户”属性页上，选择要删除的运行方式帐户或经典运行方式帐户。 然后，在所选帐户的“属性”窗格中单击“删除”。
 
- ![删除运行方式帐户](media/manage-runas-account/automation-account-delete-runas.png)
+   ![删除运行方式帐户](media/manage-runas-account/automation-account-delete-runas.png)
 
-1. 帐户删除过程中，可以在菜单的“通知”下面跟踪进度。
+4. 帐户删除过程中，可以在菜单的“通知”下面跟踪进度。
 
-1. 删除该帐户后，可以通过在“运行方式帐户”属性页中选择创建选项“Azure 运行方式帐户”来重新创建该帐户。
+5. 删除该帐户后，可以通过在“运行方式帐户”属性页中选择创建选项“Azure 运行方式帐户”来重新创建该帐户。
 
- ![重新创建自动化运行方式帐户](media/manage-runas-account/automation-account-create-runas.png)
+   ![重新创建自动化运行方式帐户](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>自签名证书续订
 

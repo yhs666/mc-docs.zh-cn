@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 6a6ca762f4007a7764dd66c9102d6f1163c8883d
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 6a758d0c02ca3187a0515b23b754c8b195a4e24e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906116"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625928"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -140,19 +140,20 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 下表描述了用于使用指标创建警报的参数和值。
 
-| 参数 | value |
-| --- | --- |
-| Name |simpletestdiskwrite |
-| 此警报规则的位置 |美国东部 |
-| resourceGroup |montest |
-| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 创建的警报的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。有关如何检索精确指标名称的信息，请参阅 `Get-MetricDefinitions` cmdlet |
-| operator |GreaterThan |
-| 阈值（此指标的计数/秒） |1 |
-| WindowSize（hh:mm:ss 格式） |00:05:00 |
-| 聚合（在这种情况下使用平均计数的指标的统计信息） |平均值 |
-| 自定义电子邮件（字符串数组） |'foo@example.com','bar@example.com' |
-| 向所有者、参与者和读者发送电子邮件 |-SendToServiceOwners |
+
+|                                  参数                                   |                                                           value                                                            |
+|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+|                                     Name                                     |                                                    simpletestdiskwrite                                                     |
+|                         此警报规则的位置                          |                                                          美国东部                                                           |
+|                                resourceGroup                                 |                                                          montest                                                           |
+|                               TargetResourceId                               |              /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig               |
+|                   创建的警报的 MetricName                    | \PhysicalDisk(_Total)\Disk Writes/sec。有关如何检索精确指标名称的信息，请参阅 `Get-MetricDefinitions` cmdlet |
+|                                   operator                                   |                                                        GreaterThan                                                         |
+|                阈值（此指标的计数/秒）                |                                                             1                                                              |
+|                         WindowSize（hh:mm:ss 格式）                         |                                                          00:05:00                                                          |
+| 聚合（在这种情况下使用平均计数的指标的统计信息） |                                                          平均值                                                           |
+|                         自定义电子邮件（字符串数组）                         |                                            'foo@example.com','bar@example.com'                                             |
+|                向所有者、参与者和读者发送电子邮件                |                                                    -SendToServiceOwners                                                    |
 
 创建电子邮件操作
 
@@ -206,7 +207,6 @@ $additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary
 $additionalWebhookProperties.Add('customProperty', 'someValue')
 $actionGrp1 = New-AzureRmActionGroup -ActionGroupId '/subscriptions/<subid>/providers/Microsoft.Insights/actiongr1' -WebhookProperty $additionalWebhookProperties
 Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/subscriptions/<subid>' -Action $actionGrp1 -Condition $condition1, $condition2
-
 ```
 
 其他 Webhook 属性都是可选的。 可以使用 `Get-AzureRmActivityLogAlert` 返回活动日志警报的内容。
@@ -376,14 +376,12 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insigh
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true
-
 ```
 
 请注意，WorkspaceId 属性采用工作区的“资源 ID”。 可以使用以下命令获取 Log Analytics 工作区的资源 ID：
 
 ```PowerShell
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId
-
 ```
 
 可以组合这些命令以将数据发送到多个目标。

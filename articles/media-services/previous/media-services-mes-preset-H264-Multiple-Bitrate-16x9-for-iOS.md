@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: b338f67dd5b883e7f1a5ddf9b8ca1a90edcd1aad
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: b16b088a7601b09952526c605cb6b3f4d82482f8
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624144"
 ---
 # <a name="h264-multiple-bitrate-16x9-for-ios"></a>适用于 iOS 的 H264 多比特率 16x9
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
@@ -30,13 +30,13 @@ ms.locfileid: "52672688"
  此预设产生一组 8 GOP 对齐的 MP4 文件，范围从 8500 kbps 到 200 kbps，以及立体声 AAC 音频。 若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)主题。  
   
 > [!NOTE]
->  跨层修改 `Width` 和 `Height` 值时，请确保纵横比保持一致。 例如：1920x1080、1280x720、1080x576、640x360。 不应使用混合纵横比，如 1280x720、720x480、640x360。  
+>  跨层修改 `Width` 和 `Height` 值时，请确保纵横比保持一致。 例如：1920x1080、1280x720、1080x576、640x360。 不应使用混合的纵横比，例如：1280x720、720x480、640x360。  
   
  XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:03</KeyFrameInterval>  

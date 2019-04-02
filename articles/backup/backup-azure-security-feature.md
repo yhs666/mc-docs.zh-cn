@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: dc83475a8e5c2566944a7128dc6702a13693a4d3
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.openlocfilehash: 9aeda84507e2a1c0bc9f6d326ea906fea9f342cf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745223"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625361"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>有助于保护使用 Azure 备份的混合备份的安全功能
 对安全问题（例如恶意软件、勒索软件、入侵）的关注在逐渐上升。 这些安全问题可能会代价高昂（就金钱和数据来说）。 为了防止此类攻击，Azure 备份现提供可保护混合备份的安全功能。 本文介绍如何通过 Azure 恢复服务代理和 Azure 备份服务器来启用和使用这些功能。 这些功能包括：
@@ -83,7 +83,7 @@ ms.locfileid: "52745223"
 在为关键操作添加额外身份验证层的过程中，在执行“停止保护并删除数据”和“更改密码”操作时，系统会提示输入安全 PIN。
 
 > [!NOTE]
-
+> 
 > 目前，对于 DPM 和 MABS，**停止保护并删除数据**不支持安全 PIN。 
 
 若要接收此 PIN，请执行以下操作：
@@ -107,6 +107,7 @@ ms.locfileid: "52745223"
 此文章中提到的安全功能提供对针对性攻击的防御机制。 更重要的是，在发生攻击的情况下，这些功能提供恢复数据的能力。
 
 ## <a name="troubleshooting-errors"></a>排查错误
+
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
 | 策略更改 |无法修改备份策略。 错误：由于内部服务错误 [0x29834]，当前操作失败。 请稍后重试操作。 如果问题持续出现，请联系 Azure 支持部门。 |**原因：**<br/>当启用安全设置、尝试缩短保留期范围至低于以上指定的最小值和使用不受支持的版本时，将出现此错误（本文第一条注释已指定所支持的版本）。 <br/>**建议的操作：**<br/> 在这种情况下，应将保留期设置为高于指定保留期的最小值（以日计为七天、以周记为四周、以月计为三个月或以年计为一年），以进行策略相关的更新。 （可选）首选更新备份代理、Azure 备份服务器和/或 DPM UR 来利用所有的安全性更新。 |

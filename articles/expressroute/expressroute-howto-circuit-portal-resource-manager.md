@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 10/20/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0259facdd5b48b47bf1d054d52548a2874881364
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: c4e7a4c22790d2a891cf8d52c108980b1a165576
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303053"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627708"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路
 
@@ -55,21 +55,23 @@ ms.locfileid: "56303053"
 
 1. 可以通过选择创建新资源的选项来创建 ExpressRoute 线路。 单击“创建资源” > “网络” > “ExpressRoute”，如下图所示：
 
-  ![创建 ExpressRoute 线路](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+   ![创建 ExpressRoute 线路](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
   
 2. 单击“ExpressRoute”即可看到“创建 ExpressRoute 线路”页。 在此页上填写相应值时，请务必指定正确的 SKU 层（“标准”或“高级”）和数据计量计费模型（“不限流量”或“按流量计费”）。
 
-  ![配置 SKU 层和数据计量](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+   ![配置 SKU 层和数据计量](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
-  * “层”决定是启用 ExpressRoute 标准版外接程序还是 ExpressRoute 高级版外接程序。 可以指定“Standard”以获取标准 SKU，或指定“Premium”以获取高级版外接程序。
-  * “数据计量”决定计费类型。 可以指定“Metered”以获取数据流量套餐，指定“Unlimited”以获取无限制流量套餐。 请注意，可以将计费类型从“按流量计费”更改为“不限流量”。
-    > [!IMPORTANT] 无法将类型从“不限流量”更改为“按流量计费”。
-  * “对等互连位置”是与 Microsoft 建立对等互连的实际位置。
+   * “层”决定是启用 ExpressRoute 标准版外接程序还是 ExpressRoute 高级版外接程序。 可以指定“Standard”以获取标准 SKU，或指定“Premium”以获取高级版外接程序。
+   * “数据计量”决定计费类型。 可以指定“Metered”以获取数据流量套餐，指定“Unlimited”以获取无限制流量套餐。 请注意，可以将计费类型从“按流量计费”更改为“不限流量”。
+     
+     > [!IMPORTANT] 无法将类型从“不限流量”更改为“按流量计费”。
 
-    > [!IMPORTANT]
-    > “对等互连位置”指明了与 Microsoft 建立对等互连的[实际位置](expressroute-locations.md)。 此位置与“Location”属性 **没有** 关系，后者指的是 Azure 网络资源提供商所在的地理位置。 尽管两者之间没有关系，但最好是选择地理上与线路对等互连位置靠近的网络资源提供商。
-    >
-    >
+   * “对等互连位置”是与 Microsoft 建立对等互连的实际位置。
+
+     > [!IMPORTANT]
+     > “对等互连位置”指明了与 Microsoft 建立对等互连的[实际位置](expressroute-locations.md)。 此位置与“Location”属性 **没有** 关系，后者指的是 Azure 网络资源提供商所在的地理位置。 尽管两者之间没有关系，但最好是选择地理上与线路对等互连位置靠近的网络资源提供商。
+     >
+     >
 
 ### <a name="3-view-the-circuits-and-properties"></a>3.查看线路和属性
 

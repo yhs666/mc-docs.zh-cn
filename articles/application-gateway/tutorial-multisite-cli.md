@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 origin.date: 07/14/2018
 ms.date: 02/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 966d99d21af505753aca81e056b7c6251fd8fed4
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 04a6b90df4f44efd9c6a432b066e89e654c69d1e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079663"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625122"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>使用 Azure CLI 创建托管多个站点的应用程序网关
 
-创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure CLI 配置[多个网站的托管](application-gateway-multi-site-overview.md)。 本教程中使用虚拟机规模集创建后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达池中的相应服务器。 本教程假定你拥有多个域，并使用示例 *www.contoso.com* 和 *www.fabrikam.com*。
+创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure CLI 配置[多个网站的托管](application-gateway-multi-site-overview.md)。 本教程中使用虚拟机规模集创建后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达池中的相应服务器。 本教程假定你拥有多个域，并使用示例 <em>www.contoso.com</em> 和 <em>www.fabrikam.com</em>。
 
 在本文中，学习如何：
 
@@ -116,7 +116,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>添加侦听器
 
-应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 *www.contoso.com* 和 *www.fabrikam.com* 创建侦听器。 
+应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 <em>www.contoso.com</em> 和 <em>www.fabrikam.com</em> 创建侦听器。 
 
 使用 [az network application-gateway http-listener create](/cli/network/application-gateway) 添加路由流量所需的名为 *contosoListener* 和 *fabrikamListener* 的侦听器。
 

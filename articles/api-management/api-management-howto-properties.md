@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 01/25/2018
 ms.author: v-yiso
 ms.date: 08/13/2018
-ms.openlocfilehash: 7e4ed71f644b0090c299809a1d12fdf0d50eb68f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ecaa9f3f30d014b0ba924dde3315c0b9e748f772
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649897"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625163"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理策略中使用命名值
 API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 可以使用文字文本值、策略表达式和命名值构造策略语句。 
@@ -51,7 +51,7 @@ API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置
 2. 选择“命名值”。
 3. 按“+添加”。
 
-  “名称”和“值”是必需值。 如果此属性值为机密，请选中“这是机密”复选框。 输入一个或多个用于组织命名值的可选标记，并单击“保存”。
+   “名称”和“值”是必需值。 如果此属性值为机密，请选中“这是机密”复选框。 输入一个或多个用于组织命名值的可选标记，并单击“保存”。
   
 4. 单击**创建**。
 

@@ -18,12 +18,12 @@ ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f663265738e9abd8b8c76b156bd16ac3caffabc2
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 414f30a38648c454c2f04ab005a98aee22008a77
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462378"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626202"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 访问令牌
 
@@ -214,15 +214,15 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 
 ### <a name="revocation"></a>撤销
 
-|   | 基于密码的 Cookie | 基于密码的令牌 | 不基于密码的 Cookie | 不基于密码的令牌 | 机密客户端令牌| 
-|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
-| 密码过期 | 一直有效| 一直有效 | 一直有效 | 一直有效 | 一直有效 |
-| 用户更改了密码 | 已撤销 | 已撤销 | 一直有效 | 一直有效 | 一直有效 |
-| 用户执行 SSPR | 已撤销 | 已撤销 | 一直有效 | 一直有效 | 一直有效 |
-| 管理员重置密码 | 已撤销 | 已撤销 | 一直有效 | 一直有效 | 一直有效 |
-| 用户[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) 撤销刷新令牌 | 已撤销 | 已撤销 |已撤销 | 已撤销 |已撤销 | 已撤销 |
-| 管理员[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) 撤销租户的所有刷新令牌 | 已撤销 | 已撤销 |已撤销 | 已撤销 |已撤销 | 已撤销 |
-| 在 Web 上[单一登录](v1-protocols-openid-connect-code.md#single-sign-out) | 已撤销 | 一直有效 | 已撤销 | 一直有效 | 一直有效 |
+|                                                                                                                                                          | 基于密码的 Cookie | 基于密码的令牌 | 不基于密码的 Cookie | 不基于密码的令牌 | 机密客户端令牌 |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
+|                                                                     密码过期                                                                     |      一直有效      |     一直有效      |        一直有效        |       一直有效        |        一直有效        |
+|                                                                 用户更改了密码                                                                 |        已撤销        |       已撤销        |        一直有效        |       一直有效        |        一直有效        |
+|                                                                      用户执行 SSPR                                                                      |        已撤销        |       已撤销        |        一直有效        |       一直有效        |        一直有效        |
+|                                                                  管理员重置密码                                                                   |        已撤销        |       已撤销        |        一直有效        |       一直有效        |        一直有效        |
+|    用户[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) 撤销刷新令牌    |        已撤销        |       已撤销        |          已撤销          |         已撤销          |          已撤销          |
+| 管理员[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) 撤销租户的所有刷新令牌 |        已撤销        |       已撤销        |          已撤销          |         已撤销          |          已撤销          |
+|                                      在 Web 上[单一登录](v1-protocols-openid-connect-code.md#single-sign-out)                                       |        已撤销        |     一直有效      |          已撤销          |       一直有效        |        一直有效        |
 
 > [!NOTE]
 > “不基于密码”登录是指用户在未键入密码的情况下登录。 例如，在 Windows Hello 中进行人脸登录、使用 FIDO 密钥或 PIN 登录。 

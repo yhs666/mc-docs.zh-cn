@@ -11,16 +11,16 @@ ms.workload: powerbi
 origin.date: 09/20/2017
 ms.date: 02/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: b51fc3ec8710e5a1b16d2353c34bdb2f78639e11
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 8dac33e32c8eaafcbef401d22840ea35d3dcf210
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306162"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408258"
 ---
 # <a name="connect-to-a-data-source"></a>连接到数据源
 
-使用 Power BI 工作区集合，可以在自己的应用中嵌入报表。 在应用中嵌入 Power BI 报表时，可以通过导入数据的副本或通过使用 DirectQuery 直接连接到数据源将该报表连接到基础数据。
+使用 Power BI 工作区集合，可以在自己的应用中嵌入报表。 在应用中嵌入 Power BI 报表时，可以通过 **导入** 数据的副本或通过使用 **DirectQuery** **直接连接** 到数据源将该报表连接到基础数据。
 
 > [!IMPORTANT]
 > Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
@@ -73,7 +73,7 @@ ms.locfileid: "56306162"
 - [Power BI 工作区集合入门](get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 
 <!-- Update_Description: wording update -->

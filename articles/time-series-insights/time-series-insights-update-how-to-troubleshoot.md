@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 62258fe4b20c62e6da4034df31fda7831338c0bc
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 3046ee8bbace7b3d82484cd24f0a67ca2004c38f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348947"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625880"
 ---
 # <a name="diagnose-and-troubleshoot"></a>诊断和故障排除
 
@@ -43,16 +43,16 @@ ms.locfileid: "58348947"
 
 - 事件源密钥缺少所需权限。
 
-    * 对于 IoT 中心，需提供具有“服务连接”权限的密钥。
+  * 对于 IoT 中心，需提供具有“服务连接”权限的密钥。
 
     ![配置][3]
 
-    * 如上图所示，“iothubowner”和“服务”策略均可使用，因为两者都具有“服务连接”权限。
-    * 对于事件中心，需提供具有“侦听”权限的密钥。
+  * 如上图所示，“iothubowner”和“服务”策略均可使用，因为两者都具有“服务连接”权限。
+  * 对于事件中心，需提供具有“侦听”权限的密钥。
   
     ![权限][4]
 
-    * 如上图所示，“读取”和“管理”策略均可使用，因为两者都具有“侦听”权限。
+  * 如上图所示，“读取”和“管理”策略均可使用，因为两者都具有“侦听”权限。
 
 - 提供的使用者组并非时序见解所独有。
 

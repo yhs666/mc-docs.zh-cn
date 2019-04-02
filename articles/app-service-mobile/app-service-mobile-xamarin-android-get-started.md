@@ -15,18 +15,18 @@ ms.topic: hero-article
 origin.date: 10/01/2016
 ms.date: 10/29/2018
 ms.author: v-biyu
-ms.openlocfilehash: adcf2386af9b36ebc7893754e2a04e4b77cd714b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a79f97bb8cb5476e750562499613008cf5d17738
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650935"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625995"
 ---
-#<a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
+# <a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##<a name="overview"></a>概述
+## <a name="overview"></a>概述
 
 本教程说明如何向 Xamarin.Android 应用添加基于云的后端服务。 有关详细信息，请参阅 [什么是移动应用](./app-service-mobile-value-prop.md)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "52650935"
 
 只有在完成本教程后，才可以学习有关 Xamarin Android 应用的所有其他移动应用教程。
 
-##<a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，需要满足以下先决条件：
 
@@ -77,7 +77,7 @@ ms.locfileid: "52650935"
 ## <a name="troubleshooting"></a>故障排除
 如果在生成解决方案时遇到问题，请运行 NuGet 包管理器并更新 `Xamarin.Android` 支持包。 快速入门项目并非始终包含最新版本。
 请注意，在项目中引用的所有支持包必须都具有相同的版本。 对于 Android 平台，[Azure 移动应用 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)具有 `Xamarin.Android.Support.CustomTabs` 依赖项，因此，如果你的项目使用较新的支持包，则你需要直接安装具有所需版本的此包以避免冲突。
-##<a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 * [向应用添加脱机同步](./app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [向应用添加身份验证](./app-service-mobile-xamarin-android-get-started-users.md)
 * [如何使用 Azure 移动应用的托管客户端](./app-service-mobile-dotnet-how-to-use-client-library.md)

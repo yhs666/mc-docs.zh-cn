@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/18/2019
+origin.date: 02/28/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 7d28eb9514749f8c0b73f76c715244ac42aa752e
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: bf673058a7d9f95ba836ab2a3274684734347637
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988001"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503643"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>为 MySQL 资源提供程序添加托管服务器
 
@@ -45,9 +45,9 @@ ms.locfileid: "57988001"
 4. 提供 MySQL 服务器实例的连接详细信息。
 
    * 对于“MySQL 宿主服务器名称”，请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
-   - Azure Stack 市场中提供的 Bitnami MySQL 映像的默认管理员**用户名**为 *root*。 
-   - 如果不知道 root 的**密码**，请参阅 [Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)，了解如何获取它。 
-   - 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
+   * Azure Stack 市场中提供的 Bitnami MySQL 映像的默认管理员**用户名**为 *root*。 
+   * 如果不知道 root 的**密码**，请参阅 [Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)，了解如何获取它。 
+   * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
    * 保留“订阅”的默认设置。
    * 对于“资源组”，请创建新组或使用现有组。
 
@@ -61,8 +61,8 @@ ms.locfileid: "57988001"
    SKU **名称**应反映 SKU 的属性，这样用户就能将其数据库部署到适当的 SKU。
 
 6. 选择“确定”以创建 SKU。
-> [!NOTE]
-> SKU 最长可能需要在一小时后才显示在门户中。 在部署并运行 SKU 之前，无法创建数据库。
+   > [!NOTE]
+   > SKU 最长可能需要在一小时后才显示在门户中。 在部署并运行 SKU 之前，无法创建数据库。
 
 7. 在“添加 MySQL 宿主服务器”下，选择“创建”。
 

@@ -16,12 +16,12 @@ ms.custom: mvc
 origin.date: 03/15/2018
 ms.author: v-yiso
 ms.date: 02/04/2019
-ms.openlocfilehash: f01da9e7ee0fd6d7a1c7451fd009025b16d37d87
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 149e76b7558f8d224f85814ad4fe4c2aef2a0347
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906007"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626523"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
@@ -84,7 +84,7 @@ ms.locfileid: "54906007"
 
    此示例按资源类型演示逻辑应用，因此，你的逻辑应用会显示在“逻辑应用”部分下。
 
-  ![从 Azure 门户打开部署的逻辑应用](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![从 Azure 门户打开部署的逻辑应用](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    逻辑应用在逻辑应用设计器中打开后，可以在设计器的底部选择“代码视图”，以便查看逻辑应用的基础定义结构。 
    若要为逻辑应用创建部署模板，请了解如何为该逻辑应用[下载 Azure 资源管理器模板](#download-logic-app)。 详细了解[资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)。

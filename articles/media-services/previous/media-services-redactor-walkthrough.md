@@ -3,7 +3,7 @@ title: 使用 Azure 媒体分析进行面部修订演练 | Microsoft Docs
 description: 本主题提供分步指导，引导用户使用 Azure 媒体服务资源管理器 (AMSE) 和 Azure Media Redactor Visualizer（开源工具）运行完整修正工作流。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 09/03/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 4c4bb6e2a6aad79e41bd98e3d0db3a0af072e4ed
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 6e38c07ffc5f8f228a1d26c4b2e51a752924c3a6
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654318"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624173"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒体分析进行面部修订演练
 
@@ -36,7 +36,7 @@ ms.locfileid: "52654318"
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure 媒体服务资源管理器工作流
 
-开始使用 Redactor 的最简单方法是使用 github 上的开源 AMSE 工具。 如果不需要访问批注 json 或 jpg 面部图像，可通过 **合并** 模式运行简化的工作流。
+使用 Redactor 的最简单方法是使用 GitHub 上的开源 AMSE 工具。 如果不需要访问批注 json 或 jpg 面部图像，可通过 **合并** 模式运行简化的工作流。
 
 ### <a name="download-and-setup"></a>下载和安装
 
@@ -124,7 +124,7 @@ ms.locfileid: "52654318"
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒体分析演示](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-[宣布推出 Azure 媒体分析的人脸编修](https://azure.microsoft.com/blog/azure-media-redactor/)
+[宣布推出 Azure 媒体分析的面部修订](https://azure.microsoft.com/blog/azure-media-redactor/)
 <!--Update_Description:update blog link-->

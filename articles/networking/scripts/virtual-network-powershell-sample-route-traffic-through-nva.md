@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: c28cb29c1b89cee429370b2e0edffc9da63db992
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 33432e8b3dcaa39f0f95253603b1bbb75209c787
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903199"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625578"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>通过网络虚拟设备路由流量
 
@@ -67,7 +67,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgName -Name 'MyPublicIP-F
 # <a name="create-a-nic-for-the-firewall-vm-and-enable-ip-forwarding"></a>为防火墙 VM 创建一个 NIC 并启用 IP 转发。
 $nicVMFW = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location -Name 'MyNic-Firewall' ` -PublicIpAddress $publicip -Subnet $vnet.Subnets[2] -EnableIPForwarding
 
-#<a name="create-a-firewall-vm-to-accept-all-traffic-between-the-front-and-back-end-subnets"></a>创建一个防火墙 VM，接受前端和后端子网之间的所有流量。
+# <a name="create-a-firewall-vm-to-accept-all-traffic-between-the-front-and-back-end-subnets"></a>创建一个防火墙 VM，接受前端和后端子网之间的所有流量。
 $vmConfig = New-AzVMConfig -VMName 'MyVm-Firewall' -VMSize Standard_DS2 | `
     Set-AzureRmVMOperatingSystem -Windows -ComputerName 'MyVm-Firewall' -Credential $cred | ` Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer ` -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nicVMFW.Id
     

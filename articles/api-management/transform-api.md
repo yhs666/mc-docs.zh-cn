@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 02/26/2019
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1599bcafc6b10663ac206025acb6188ea738b69c
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: c72f5f91918f7da495dc156bf853ec15be348a65
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348683"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625262"
 ---
 # <a name="transform-and-protect-your-api"></a>转换和保护 API 
 
@@ -81,12 +81,12 @@ ms.locfileid: "58348683"
 
     ![策略](./media/transform-api/transform-api.png)
     
-11. 按如下所示修改 **<outbound>** 代码：
+7. 按如下所示修改 **<outbound>** 代码：
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![策略](./media/transform-api/set-policy.png)
+   ![策略](./media/transform-api/set-policy.png)
     
 8. 单击“保存”按钮  。
 

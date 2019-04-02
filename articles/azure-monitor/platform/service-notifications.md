@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 5010567608edf62c8e5c726a659d874fbc8ffa6c
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 0c897bb91ab1b3f9aae2c7bc2bcc016355d80b1f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363449"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625316"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 门户查看服务运行状况通知
 
@@ -60,24 +60,29 @@ Properties.communicationId | 与此事件关联的通信。
 ### <a name="details-on-service-health-level-information"></a>服务运行状况级别信息的详细信息
 
 **需要采取操作** (properties.incidentType == ActionRequired)
-    - 信息 - 需要管理员采取操作来防止影响现有服务
+
+- 信息 - 需要管理员采取操作来防止影响现有服务
     
 **维护** (properties.incidentType == Maintenance)
-    - 警告 - 紧急维护
-    - 信息 - 标准计划内维护
+
+- 警告 - 紧急维护
+- 信息 - 标准计划内维护
 
 **信息** (properties.incidentType == Information)
-    - 信息 - 可能需要管理员采取操作来防止影响现有服务
+
+- 信息 - 可能需要管理员采取操作来防止影响现有服务
 
 **安全性** (properties.incidentType == Security)
-    - 错误 - 访问多个区域中多项服务时普遍出现的问题影响大批客户。
-    - 警告 - 访问特定服务和/或特定区域时出现的问题影响一部分客户。
-    - 信息 - 出现了影响管理操作和/或延迟，但不影响服务可用性的问题。
+
+- 错误 - 访问多个区域中多项服务时普遍出现的问题影响大批客户。
+- 警告 - 访问特定服务和/或特定区域时出现的问题影响一部分客户。
+- 信息 - 出现了影响管理操作和/或延迟，但不影响服务可用性的问题。
 
 **服务问题** (properties.incidentType == Incident)
-    - 错误 - 访问多个区域中多项服务时普遍出现的问题影响大批客户。
-    - 警告 - 访问特定服务和/或特定区域时出现的问题影响一部分客户。
-    - 信息 - 出现了影响管理操作和/或延迟，但不影响服务可用性的问题。
+
+- 错误 - 访问多个区域中多项服务时普遍出现的问题影响大批客户。
+- 警告 - 访问特定服务和/或特定区域时出现的问题影响一部分客户。
+- 信息 - 出现了影响管理操作和/或延迟，但不影响服务可用性的问题。
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 门户中查看服务运行状况通知

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: bd4cae9b91be57b2e80d1f60d7c4dc1bd35b57a9
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 22cfb18107ff0acb3859f91793332b5824985d0f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363533"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627274"
 ---
 # <a name="what-are-classic-alerts-in-21vianet-azure"></a>什么是世纪互联 Azure 中的经典警报？
 
@@ -80,10 +80,10 @@ Azure Monitor 创建了一个称为“操作组”的可重复使用的通知组
 - 调用 Webhook，以便用户启动其他自动化操作
 
 Webhook 可实现自动化和修复，例如使用：
-    - Azure 自动化 Runbook
-    - Azure 函数
-    - Azure 逻辑应用
-    - 第三方服务
+- Azure 自动化 Runbook
+- Azure 函数
+- Azure 逻辑应用
+- 第三方服务
 
 ## <a name="next-steps"></a>后续步骤
 了解警报规则以及如何使用以下工具来配置这些规则：

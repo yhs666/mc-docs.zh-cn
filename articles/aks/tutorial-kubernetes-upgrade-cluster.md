@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7371e3fecfe5af9043697ed5238d4f75783e9106
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a384a20ff3361876c5793c55e892ede828fbe256
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903017"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626786"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中升级 Kubernetes
 
@@ -143,7 +143,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [az aks show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [az aks get-upgrades]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-upgrades
 [az aks upgrade]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-upgrade
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

@@ -11,12 +11,12 @@ ms.date: 03/04/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: df101412049f3dfe05bbe4df28628d52929a5463
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: b3e1964acce4b3f07f13359fc8ab956c000e1fc4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409091"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626604"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虚拟网络服务终结点
 
@@ -40,9 +40,10 @@ ms.locfileid: "56409091"
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>配置 Key Vault 防火墙和虚拟网络
 
 以下是配置防火墙和虚拟网络所需的步骤。 无论使用的是 PowerShell、Azure CLI 还是 Azure 门户，上述步骤均适用。
-2. 为目标虚拟网络和子网启用“Key Vault 的服务终结点”。
-3. 为 Key Vault 设置防火墙和虚拟网络规则，仅限特定虚拟网络、子网和 IPv4 地址范围能够访问该 Key Vault。
-4. 如果需要所有受信任的 Microsoft 服务都能够访问此 Key Vault，则启用该选项，允许“受信任的 Azure 服务”连接到 Key Vault。
+
+1. 为目标虚拟网络和子网启用“Key Vault 的服务终结点”。
+2. 为 Key Vault 设置防火墙和虚拟网络规则，仅限特定虚拟网络、子网和 IPv4 地址范围能够访问该 Key Vault。
+3. 如果需要所有受信任的 Microsoft 服务都能够访问此 Key Vault，则启用该选项，允许“受信任的 Azure 服务”连接到 Key Vault。
 
 有关详细信息，请参阅[配置 Azure 密钥保管库防火墙和虚拟网络](key-vault-network-security.md)。
 

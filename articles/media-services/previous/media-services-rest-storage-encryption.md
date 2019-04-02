@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 10/22/2018
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: c7deebed1cade0323178849ddc5160d040a1aa7b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 45252a95ead79133583bff545dcf245cfe909b78
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650197"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624168"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容
+# <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容 
 
 强烈建议通过 AES-256 位加密在本地加密内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。
 

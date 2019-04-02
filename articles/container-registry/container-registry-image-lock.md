@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/19/2019
 ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 677bc6c449812bccb092706658a8785ca67765bc
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: bc663fa2044274f97fde2eebf34f983d39ab8e56
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352513"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626795"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>锁定 Azure 容器注册表中的容器映像
 
@@ -137,6 +137,5 @@ az acr repository update \
 [az-acr-repository-update]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-update
 [az-acr-repository-show]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show
 [az-acr-repository-show-manifests]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [container-registry-delete]: container-registry-delete.md

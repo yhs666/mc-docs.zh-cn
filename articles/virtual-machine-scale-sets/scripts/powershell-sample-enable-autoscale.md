@@ -18,11 +18,11 @@ ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 17fd57e79ea9c34f982877461c5128aa51d4ba02
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101586"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625310"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 自动缩放虚拟机规模集
 此脚本创建运行 Windows Server 2016 的虚拟机规模集，当 CPU 负载发生变化时，它会使用基于主机的指标自动缩放。

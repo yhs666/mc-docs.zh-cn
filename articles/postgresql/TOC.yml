@@ -11,6 +11,8 @@ items:
     href: quickstart-create-server-database-portal.md
   - name: 创建 DB - Azure CLI
     href: quickstart-create-server-database-azure-cli.md
+  - name: 创建 DB - Azure CLI up 命令
+    href: quickstart-create-server-up-azure-cli.md
   - name: 连接和查询
     items:
     - name: Python
@@ -200,9 +202,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: 2ca2dedf70a6736aa996be6339e537e34db74427
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: dcfa855bbecacd85328725ebe74868c5c3b19b0e
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990140"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503649"

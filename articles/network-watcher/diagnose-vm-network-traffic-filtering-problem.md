@@ -18,16 +18,16 @@ origin.date: 04/20/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 23faf0072b0213144735b5cc82c6d1f2a12195fd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f1e2c9e97a68641dd81176028a034f693bc9e800
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651414"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626192"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>快速入门：使用 Azure 门户诊断虚拟机网络流量筛选器问题
 
-在本快速入门中，请先部署虚拟机 (VM)，然后检查到某个 IP 地址和 URL 的通信以及来自某个 IP 地址的通信。 确定通信失败的原因以及解决方法。
+在本快速入门中，将部署虚拟机 (VM)，然后检查到某个 IP 地址和 URL 的通信以及来自某个 IP 地址的通信。 确定通信失败的原因以及解决方法。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -77,17 +77,18 @@ ms.locfileid: "52651414"
 2. 在“网络诊断工具”下选择“IP 流验证”。
 3. 选择订阅，输入或选择以下值，然后选择“检查”，如下图所示：
 
-    |设置            |值                                                                                              |
-    |---------          |---------                                                                                          |
-    | 资源组    | 选择 myResourceGroup                                                                            |
-    | 虚拟机   | 选择 myVm                                                                                       |
-    | Linux | myvm - 你在创建 VM 时由门户创建的网络接口的名称是不同的。 |
-    | 协议          | TCP                                                                                               |
-    | 方向         | 出站                                                                                          |
-    | 本地 IP 地址  | 10.0.0.4                                                                                          |
-    | 本地端口      | 60000                                                                                                |
-    | 远程 IP 地址 | 13.107.21.200 - www.bing.com 的一个地址。                                             |
-    | 远程端口       | 80                                                                                                |
+
+   |      设置      |                                               值                                               |
+   |-------------------|---------------------------------------------------------------------------------------------------|
+   |  资源组   |                                      选择 myResourceGroup                                       |
+   |  虚拟机  |                                            选择 myVm                                            |
+   | Linux | myvm - 你在创建 VM 时由门户创建的网络接口的名称是不同的。 |
+   |     协议      |                                                TCP                                                |
+   |     方向     |                                             出站                                              |
+   | 本地 IP 地址  |                                             10.0.0.4                                              |
+   |    本地端口     |                                               60000                                               |
+   | 远程 IP 地址 |                      13.107.21.200 - www.bing.com 的一个地址。                       |
+   |    远程端口    |                                                80                                                 |
 
     ![IP 流验证](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 

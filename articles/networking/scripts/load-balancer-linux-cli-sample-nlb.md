@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 07/07/2017
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 6201efa2ce709627206ced13089e64877f88d19d
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 958652a021ac8718d3a0675d9b3ec50f19e0ac49
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785335"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627707"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>对传入 VM 的流量进行负载均衡以实现高可用性
 
@@ -33,69 +33,77 @@ ms.locfileid: "53785335"
 
 ## <a name="sample-script"></a>示例脚本
 
-#<a name="binbash"></a>!/bin/bash
+```bash
+# !/bin/bash
 
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 az group create --name myResourceGroup --location chinaeast
 
-# <a name="create-a-virtual-network"></a>创建虚拟网络。
+# Create a virtual network.
 az network vnet create --resource-group myResourceGroup --location chinaeast --name myVnet --subnet-name mySubnet
 
-# <a name="create-a-public-ip-address"></a>创建公共 IP 地址。
+# Create a public IP address.
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
-# <a name="create-an-azure-load-balancer"></a>创建 Azure 负载均衡器。
+# Create an Azure Load Balancer.
 az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP \
   --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
 
-# <a name="creates-an-lb-probe-on-port-80"></a>在端口 80 上创建 LB 探测。
+# Creates an LB probe on port 80.
 az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
   --name myHealthProbe --protocol tcp --port 80
 
-# <a name="creates-an-lb-rule-for-port-80"></a>为端口 80 创建 LB 规则。
+# Creates an LB rule for port 80.
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
   --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 
-# <a name="create-three-nat-rules-for-port-22"></a>为端口 22 创建三个 NAT 规则。
-for i in `seq 1 3`; do az network lb inbound-nat-rule create \
+# Create three NAT rules for port 22.
+for i in `seq 1 3`; do
+  az network lb inbound-nat-rule create \
     --resource-group myResourceGroup --lb-name myLoadBalancer \
     --name myLoadBalancerRuleSSH$i --protocol tcp \
     --frontend-port 422$i --backend-port 22 \
-    --frontend-ip-name myFrontEndPool done
+    --frontend-ip-name myFrontEndPool
+done
 
-# <a name="create-a-network-security-group"></a>创建网络安全组
+# Create a network security group
 az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
 
-# <a name="create-a-network-security-group-rule-for-port-22"></a>为端口 22 创建网络安全组规则。
+# Create a network security group rule for port 22.
 az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
   --protocol tcp --direction inbound --source-address-prefix '*' --source-port-range '*'  \
   --destination-address-prefix '*' --destination-port-range 22 --access allow --priority 1000
 
-# <a name="create-a-network-security-group-rule-for-port-80"></a>为端口 80 创建网络安全组规则。
+# Create a network security group rule for port 80.
 az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
 --protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' --source-port-range '*' \
 --destination-address-prefix '*' --destination-port-range 80 --access allow --priority 2000
 
-# <a name="create-three-virtual-network-cards-and-associate-with-public-ip-address-and-nsg"></a>创建三个虚拟网卡，并将其与公共 IP 地址和 NSG 相关联。
-for i in `seq 1 3`; do az network nic create \
+# Create three virtual network cards and associate with public IP address and NSG.
+for i in `seq 1 3`; do
+  az network nic create \
     --resource-group myResourceGroup --name myNic$i \
     --vnet-name myVnet --subnet mySubnet \
     --network-security-group myNetworkSecurityGroup --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH$i done
+    --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH$i
+done
 
-# <a name="create-an-availability-set"></a>创建可用性集。
+# Create an availability set.
 az vm availability-set create --resource-group myResourceGroup --name myAvailabilitySet --platform-fault-domain-count 3 --platform-update-domain-count 3
 
-# <a name="create-three-virtual-machines-this-creates-ssh-keys-if-not-present"></a>创建三个虚拟机，这会创建 SSH 密钥（如果不存在）。
-for i in `seq 1 3`; do az vm create \
+# Create three virtual machines, this creates SSH keys if not present.
+for i in `seq 1 3`; do
+  az vm create \
     --resource-group myResourceGroup \
     --name myVM$i \
     --availability-set myAvailabilitySet \
     --nics myNic$i \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --no-wait done
+    --no-wait
+done
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

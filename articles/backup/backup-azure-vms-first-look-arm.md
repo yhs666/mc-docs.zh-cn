@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36f66119959361be0c26ff10288b3cd8f62c9c77
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: da673f9b4d4b93a36a96cb0b9a09ccf25b8bfcf0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986997"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626702"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>通过 VM 设置备份 Azure VM
 
@@ -44,18 +44,18 @@ ms.locfileid: "56986997"
 3. 从 VM 列表中选择要备份的 VM。
 4. 在 VM 菜单上单击“备份”。 
 5. 在“恢复服务保管库”中执行以下操作：
-  - 如果已有一个保管库，请单击“选择现有”，然后选择一个保管库。
-  - 如果没有保管库，请单击“新建”。 指定保管库的名称。 它在 VM 所在的区域和资源组中创建。 直接通过 VM 设置启用备份时，不能修改这些设置。
+   - 如果已有一个保管库，请单击“选择现有”，然后选择一个保管库。
+   - 如果没有保管库，请单击“新建”。 指定保管库的名称。 它在 VM 所在的区域和资源组中创建。 直接通过 VM 设置启用备份时，不能修改这些设置。
 
-  ![启用备份向导](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![启用备份向导](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. 在“选择备份策略”中执行以下操作：
 
-  - 保留默认策略。 这样会每天一次在指定的时间备份 VM，并在保管库中保留备份 30 天。
-  - 选择现有的备份策略（如果有）。
-  - 创建一项新策略，然后定义策略设置。  
+   - 保留默认策略。 这样会每天一次在指定的时间备份 VM，并在保管库中保留备份 30 天。
+   - 选择现有的备份策略（如果有）。
+   - 创建一项新策略，然后定义策略设置。  
 
-  ![选择备份策略](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![选择备份策略](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. 单击“启用备份”。 这样会将备份策略与 VM 相关联。 
 
@@ -64,7 +64,7 @@ ms.locfileid: "56986997"
 8. 可在门户通知中跟踪配置进度。
 9. 待作业完成后，请在 VM 菜单中单击“备份”。 页面会显示 VM 的备份状态、有关恢复点的信息、正在运行的作业以及发出的警报。
 
-  ![备份状态](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![备份状态](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. 启用备份后，会运行[初始备份](#run-the-initial-backup)。 可以立即启动初始备份，也可以等待它按备份计划启动。
     - 在初始备份完成之前，“上次备份状态”显示为“警告(初始备份挂起)”。

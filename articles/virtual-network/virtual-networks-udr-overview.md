@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 10/26/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0d3b1c3377e4f3e1eb5b5bd52f818e2f5879b6d9
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: aea29c9d4030367cb786ff616940483b914a5d29
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306241"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625527"
 ---
 # <a name="virtual-network-traffic-routing"></a>虚拟网络流量路由
 
@@ -48,8 +48,8 @@ Azure 自动创建系统路由，并将路由分配到虚拟网络中的每个�
 - **Internet**：将地址前缀指定的流量路由到 Internet。 系统默认路由指定 0.0.0.0/0 地址前缀。 如果不替代 Azure 的默认路由，Azure 会将不是通过虚拟网络中的地址范围指定的地址的流量路由到 Internet，但有一个例外。 如果目标地址是用于某个 Azure 服务的，Azure 会将流量通过 Azure 的主干网络直接路由到该服务，而不是将流量路由到 Internet。 Azure 服务之间的流量不跨越 Internet，不管虚拟网络存在于哪个 Azure 区域，也不管 Azure 服务的实例部署在哪个 Azure 区域。 可以将 0.0.0.0/0 地址前缀对应的 Azure 默认系统路由替代为[自定义路由](#custom-routes)。
 
 - **无**：系统会将路由到“无”下一跃点类型的流量删除，而不是将其路由到子网外。 Azure 自动为以下地址前缀创建默认路由：
-    - **10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16**：保留在 RFC 1918 中专用。
-    - **100.64.0.0/10**：保留在 RFC 6598 中使用。
+  - **10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16**：保留在 RFC 1918 中专用。
+  - **100.64.0.0/10**：保留在 RFC 6598 中使用。
 
     如果将上述任何地址范围分配到虚拟网络的地址空间中，Azure 会自动将路由的下一跃点类型从“无”更改为“虚拟网络”。 如果将地址范围分配到虚拟网络的地址空间时，该地址空间包括四个保留地址前缀中的一个，但与其并不相同，则 Azure 会删除该前缀对应的路由，为你所添加的地址前缀添加一个路由，并使用“虚拟网络”作为下一跃点类型。
 
@@ -82,12 +82,12 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
 - **虚拟设备**：虚拟设备是通常情况下运行防火墙等网络应用程序的虚拟机。 若要了解各种可在虚拟网络中部署的预配置网络虚拟设备，请参阅 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=networking&page=1&subcategories=appliances)。 使用“虚拟设备”跃点类型创建路由时，也指定下一跃点 IP 地址。 IP 地址可以是：
 
-    - 附加到虚拟机的网络接口的[专用 IP 地址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)。 如果网络接口附加到虚拟机，而虚拟机将网络流量转发到不是自己地址的地址，则该网络接口必须为其启用 Azure 选项“启用 IP 转发”。 此设置禁止 Azure 在源和目标中检查网络接口。 详细了解如何[为网络接口启用 IP 转发](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)。 虽然“启用 IP 转发”是一项 Azure 设置，但你也可能需要在虚拟机的操作系统中启用 IP 转发，否则设备无法在分配到 Azure 网络接口的专用 IP 地址之间转发流量。 如果必须将流量路由到公共 IP 地址，则设备需通过代理来路由流量，或者通过网络地址转换将源的专用 IP 地址转换为其自己的专用 IP 地址，然后再由 Azure 将网络地址转换为公共 IP 地址，这样才能将流量发送到 Internet。 若要确定虚拟机中的必需设置，请参阅操作系统或网络应用程序的文档。 若要了解 Azure 中的出站连接，请参阅[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。
+  - 附加到虚拟机的网络接口的[专用 IP 地址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)。 如果网络接口附加到虚拟机，而虚拟机将网络流量转发到不是自己地址的地址，则该网络接口必须为其启用 Azure 选项“启用 IP 转发”。 此设置禁止 Azure 在源和目标中检查网络接口。 详细了解如何[为网络接口启用 IP 转发](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)。 虽然“启用 IP 转发”是一项 Azure 设置，但你也可能需要在虚拟机的操作系统中启用 IP 转发，否则设备无法在分配到 Azure 网络接口的专用 IP 地址之间转发流量。 如果必须将流量路由到公共 IP 地址，则设备需通过代理来路由流量，或者通过网络地址转换将源的专用 IP 地址转换为其自己的专用 IP 地址，然后再由 Azure 将网络地址转换为公共 IP 地址，这样才能将流量发送到 Internet。 若要确定虚拟机中的必需设置，请参阅操作系统或网络应用程序的文档。 若要了解 Azure 中的出站连接，请参阅[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。
 
-        > [!NOTE]
-        > 将虚拟设备部署到子网时，该子网应不同于通过虚拟设备路由的资源所部署到的子网。 如果将虚拟设备部署到同一子网，然后将路由表应用到通过虚拟设备路由流量的子网，则可能导致路由循环，使流量无法离开子网。
+      > [!NOTE]
+      > 将虚拟设备部署到子网时，该子网应不同于通过虚拟设备路由的资源所部署到的子网。 如果将虚拟设备部署到同一子网，然后将路由表应用到通过虚拟设备路由流量的子网，则可能导致路由循环，使流量无法离开子网。
 
-    - Azure [内部负载均衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fvirtual-network%2ftoc.json)的专用 IP 地址。 负载均衡器通常作为[网络虚拟设备的高可用性策略](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fvirtual-network%2ftoc.json)的一部分使用。
+  - Azure [内部负载均衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fvirtual-network%2ftoc.json)的专用 IP 地址。 负载均衡器通常作为[网络虚拟设备的高可用性策略](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fvirtual-network%2ftoc.json)的一部分使用。
 
     可以在定义路由时，使用“0.0.0.0/0”作为地址前缀，使用“虚拟设备”作为下一跃点类型，这样设备就可以检查流量，并决定是转发流量还是丢弃流量。 若要创建包含 0.0.0.0/0 地址前缀的用户定义路由，请先阅读 [0.0.0.0/0 地址前缀](#default-route)。
 
@@ -157,15 +157,15 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
 - Azure 将所有流量发送到路由中指定的下一跃点类型，包括目标为 Azure 服务公共 IP 地址的流量。 当地址前缀为 0.0.0.0/0 的路由的下一跃点类型为“Internet”时，从子网流向 Azure 服务公共 IP 地址的流量不会离开 Azure 的主干网络，不管虚拟网络或 Azure 服务资源存在于哪个 Azure 区域。 但在创建下一跃点类型为“虚拟网关”或“虚拟设备”的用户定义路由或 BGP 路由时，所有流量都会发送到路由中指定的下一跃点类型，包括发送到 Azure 服务（尚未为其启用[服务终结点](virtual-network-service-endpoints-overview.md)）公共 IP 地址的流量。 如果已为服务启用服务终结点，则不会将目标为该服务的流量路由到地址前缀为 0.0.0.0/0 的路由中的下一跃点类型，因为该服务的地址前缀是在启用服务终结点时 Azure 创建的路由中指定的，并且该服务的地址前缀比 0.0.0.0/0 长。
 - 你将不再能够直接从 Internet 访问子网中的资源。 可以从 Internet 直接访问子网中的资源，前提是入站流量在到达虚拟网络中的资源之前，流经地址前缀为 0.0.0.0/0 的路由的下一跃点类型所指定的设备。 如果路由包含下一跃点类型的以下值：
-    - **虚拟设备**：设备必须：
-        - 可从 Internet 访问
-        - 有分配的公共 IP 地址
-        - 没有与阻止设备通信的网络安全组规则相关联
-        - 不拒绝通信
-        - 能够进行网络地址转换和转发，或者能够对流向子网中目标资源的流量进行代理，以及能够让流量返回 Internet。 
-    - **虚拟网络网关**：如果网关为 ExpressRoute 虚拟网络网关，则连接了 Internet 的本地设备可以进行网络地址转换和转发，或者通过 ExpressRoute 的[专用对等互连](../expressroute/expressroute-circuit-peerings.md?toc=%2fvirtual-network%2ftoc.json#private-peering)对流向子网中目标资源的流量进行代理。 
-        <!-- Archor SHOULD BE private-peering -->
-如果虚拟网络已连接到 Azure VPN 网关，请不要将路由表与包含目标为 0.0.0.0/0 的路由的[网关子网](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)相关联。 这样做可能会阻止网关正常工作。 有关详细信息，请参阅 [VPN 网关常见问题解答](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fvirtual-network%2ftoc.json#gatewayports)中的“我的 VPN 网关上的某些端口为何处于打开状态？”问题。
+  - **虚拟设备**：设备必须：
+      - 可从 Internet 访问
+      - 有分配的公共 IP 地址
+      - 没有与阻止设备通信的网络安全组规则相关联
+      - 不拒绝通信
+      - 能够进行网络地址转换和转发，或者能够对流向子网中目标资源的流量进行代理，以及能够让流量返回 Internet。 
+  - **虚拟网络网关**：如果网关为 ExpressRoute 虚拟网络网关，则连接了 Internet 的本地设备可以进行网络地址转换和转发，或者通过 ExpressRoute 的[专用对等互连](../expressroute/expressroute-circuit-peerings.md?toc=%2fvirtual-network%2ftoc.json#private-peering)对流向子网中目标资源的流量进行代理。 
+      <!-- Archor SHOULD BE private-peering -->
+    如果虚拟网络已连接到 Azure VPN 网关，请不要将路由表与包含目标为 0.0.0.0/0 的路由的[网关子网](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)相关联。 这样做可能会阻止网关正常工作。 有关详细信息，请参阅 [VPN 网关常见问题解答](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fvirtual-network%2ftoc.json#gatewayports)中的“我的 VPN 网关上的某些端口为何处于打开状态？”问题。
 
 <!-- Not Available on [DMZ between Azure and your on-premises datacenter](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json)-->
 <!-- Not Available on [DMZ between Azure and the Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fvirtual-network%2ftoc.json)-->
@@ -207,20 +207,21 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
 图中 Subnet1 的路由表包含以下路由：
 
-|ID  |源 |状态  |地址前缀    |下一跃点类型          |下一跃点 IP 地址|用户定义路由的名称| 
-|----|-------|-------|------              |-------                |--------           |--------      |
-|1   |默认|无效|10.0.0.0/16         |虚拟网络        |                   |              |
-|2   |User   |活动 |10.0.0.0/16         |虚拟设备      |10.0.100.4         |Within-VNet1  |
-|3   |User   |活动 |10.0.0.0/24         |虚拟网络        |                   |Within-Subnet1|
-|4   |默认|无效|10.1.0.0/16         |VNet 对等互连           |                   |              |
-|5   |默认|无效|10.2.0.0/16         |VNet 对等互连           |                   |              |
-|6   |User   |活动 |10.1.0.0/16         |无                   |                   |ToVNet2-1-Drop|
-|7   |User   |活动 |10.2.0.0/16         |无                   |                   |ToVNet2-2-Drop|
-|8   |默认|无效|10.10.0.0/16        |虚拟网络网关|[X.X.X.X]          |              |
-|9   |User   |活动 |10.10.0.0/16        |虚拟设备      |10.0.100.4         |To-On-Prem    |
-|10 个  |默认|活动 |[X.X.X.X]           |虚拟网络服务终结点    |         |              |
-|11  |默认|无效|0.0.0.0/0           |Internet|              |                   |              |
-|12  |User   |活动 |0.0.0.0/0           |虚拟设备      |10.0.100.4         |Default-NVA   |
+
+| ID | 源  |  状态  | 地址前缀 |         下一跃点类型         | 下一跃点 IP 地址 | 用户定义路由的名称 |
+|----|---------|---------|------------------|-------------------------------|---------------------|-------------------------|
+| 1  | 默认 | 无效 |   10.0.0.0/16    |        虚拟网络        |                     |                         |
+| 2  |  User   | 活动  |   10.0.0.0/16    |       虚拟设备       |     10.0.100.4      |      Within-VNet1       |
+| 3  |  User   | 活动  |   10.0.0.0/24    |        虚拟网络        |                     |     Within-Subnet1      |
+| 4  | 默认 | 无效 |   10.1.0.0/16    |         VNet 对等互连          |                     |                         |
+| 5  | 默认 | 无效 |   10.2.0.0/16    |         VNet 对等互连          |                     |                         |
+| 6  |  User   | 活动  |   10.1.0.0/16    |             无              |                     |     ToVNet2-1-Drop      |
+| 7  |  User   | 活动  |   10.2.0.0/16    |             无              |                     |     ToVNet2-2-Drop      |
+| 8  | 默认 | 无效 |   10.10.0.0/16   |    虚拟网络网关    |      [X.X.X.X]      |                         |
+| 9  |  User   | 活动  |   10.10.0.0/16   |       虚拟设备       |     10.0.100.4      |       To-On-Prem        |
+| 10 个 | 默认 | 活动  |    [X.X.X.X]     | 虚拟网络服务终结点 |                     |                         |
+| 11 | 默认 | 无效 |    0.0.0.0/0     |           Internet            |                     |                         |
+| 12 |  User   | 活动  |    0.0.0.0/0     |       虚拟设备       |     10.0.100.4      |       Default-NVA       |
 
 每个路由 ID 的说明如下所示：
 

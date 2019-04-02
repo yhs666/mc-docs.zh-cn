@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 893162aa8b61880956c2a81c6791ed9e1c06df00
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: db167fd99754ec34fed1629c73a825c9007567ee
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833418"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624150"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体  
 
@@ -30,7 +30,7 @@ ms.locfileid: "56833418"
 > 
 > 
 
-Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 可以像在任何其他 OData 服务上一样添加、查询、更新和删除实体。 适用时，标注例外情况。 有关 OData 的详细信息，请参阅 [开放数据协议文档](http://www.odata.org/documentation/)。
+Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 可以像在任何其他 OData 服务上一样添加、查询、更新和删除实体。 适用时，标注例外情况。 有关 OData 的详细信息，请参阅 [开放数据协议文档](https://www.odata.org/documentation/)。
 
 本主题介绍如何使用 REST 管理 Azure 媒体服务实体。
 

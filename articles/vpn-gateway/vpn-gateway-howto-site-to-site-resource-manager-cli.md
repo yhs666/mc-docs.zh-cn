@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 10/18/2018
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 550104f1edbd7b201001b1d6d074eb4227413aa3
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 8203760cc0ad031650b4de372c3b535809319171
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833175"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625231"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络
 
@@ -37,7 +37,7 @@ ms.locfileid: "56833175"
 在开始配置之前，请验证是否符合以下条件：
 
 * 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
-* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
+* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。
 * 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
 * 检查是否已安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和 [Azure CLI 入门](/cli/get-started-with-azure-cli)。
 
@@ -112,7 +112,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 使用以下值：
 
-* *--gateway-ip-address* 是本地 VPN 设备的 IP 地址。 VPN 设备不能位于 NAT 之后。
+* *--gateway-ip-address* 是本地 VPN 设备的 IP 地址。
 * *--local-address-prefixes* 是本地地址空间。
 
 使用 [az network local-gateway create](/cli/network/local-gateway) 命令添加具有多个地址前缀的本地网关：

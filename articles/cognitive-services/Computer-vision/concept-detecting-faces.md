@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 06b8761c5300a886ce42a27d5b5b940f06b029a3
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 1c61316e59d1cecbe345de33ed86d567ca8dfbda
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204164"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505430"
 ---
 # <a name="face-detection-with-computer-vision"></a>使用计算机视觉进行人脸检测
 
@@ -114,6 +114,6 @@ ms.locfileid: "57204164"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何使用人脸检测功能的详细信息，请参阅[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)参考文档。
+有关如何使用人脸检测功能的详细信息，请参阅[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)参考文档。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

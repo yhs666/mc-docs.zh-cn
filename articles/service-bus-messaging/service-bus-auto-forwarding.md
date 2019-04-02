@@ -12,19 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/22/2018
-ms.date: 10/31/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b1c3c3f26093308d35dd88c1dc237e1c4cbc5e87
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3dba77fbadd0d7f1a8c54a2827eda515343a523a
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646711"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544707"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自动转发链接服务总线实体
 
-通过服务总线自动转发功能可将队列或订阅链接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。 仍可将消息直接发送到目标实体。 另外，不能将子队列（如死信队列）链接到其他队列或主题。
+通过服务总线自动转发功能可将队列或订阅链接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。 仍可将消息直接发送到目标实体。
 
 ## <a name="using-autoforwarding"></a>使用自动转发
 

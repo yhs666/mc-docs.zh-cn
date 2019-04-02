@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 02/26/2019
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 38a9f744d24503df7e05a09bc7b4b4f58bfd3975
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 34adfb121aeb3ba468b4dea9e938c223aa9f7d15
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348542"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627494"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Apache Spark MLlib 生成机器学习应用程序并分析数据集
 
@@ -202,16 +202,16 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
     若要预测食物检测结果，需要基于违规行为开发一个模型。 由于逻辑回归是二元分类方法，因此有必要将结果数据分为两个类别：“失败”和“通过”：
 
-    - 通过
-        - 通过
-        - 有条件通过
-    - 失败
-        - 失败
-    - 弃用
-        - 未找到企业
-        - 停业
+   - 通过
+       - 通过
+       - 有条件通过
+   - 失败
+       - 失败
+   - 弃用
+       - 未找到企业
+       - 停业
 
-    附带其他结果（“未找到企业”或“停止经营”）的数据没有作用，不过它们在结果中占据极小的百分比。
+     附带其他结果（“未找到企业”或“停止经营”）的数据没有作用，不过它们在结果中占据极小的百分比。
 
 4. 运行以下代码，将现有数据帧 (`df`) 转换为新的数据帧，其中每个检测以“违规行为标签对”表示。 在本例中，`0.0` 标签表示失败，`1.0` 标签表示成功，`-1.0` 标签表示除了这两个以外的结果。 
 

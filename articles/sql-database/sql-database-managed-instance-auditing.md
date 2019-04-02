@@ -15,12 +15,12 @@ ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: d92c182d787b0afbacee1097702c6e30469b9a7a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 55aa20d9fde906a54a2f6984e7805d96ddaff534
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663668"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625378"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -34,26 +34,26 @@ ms.locfileid: "56663668"
 以下部分介绍了托管实例上的审核配置。
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
-1. 创建一个用于存储审核日志的 Azure 存储**容器**。
+2. 创建一个用于存储审核日志的 Azure 存储**容器**。
 
    1. 导航到要在其中存储审核日志的 Azure 存储。
 
       > [!IMPORTANT]
       > 请使用与托管实例位于同一区域中的存储帐户，以避免跨区域读取/写入。
 
-   1. 在存储帐户中，转到“概述”，然后单击“Blob”。
+   2. 在存储帐户中，转到“概述”，然后单击“Blob”。
 
       ![Azure Blob 小组件](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   1. 在顶部菜单中，单击“+ 容器”以创建新容器。
+   3. 在顶部菜单中，单击“+ 容器”以创建新容器。
 
       ![创建 Blob 容器图标](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   1. 提供一个容器**名称**，将公共访问级别设置为“专用”，然后单击“确定”。
+   4. 提供一个容器**名称**，将公共访问级别设置为“专用”，然后单击“确定”。
 
-     ![创建 Blob 容器配置](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![创建 Blob 容器配置](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-1. 为审核日志创建容器后，可通过两种方式将其配置为审核日志的目标：[使用 T-SQL](#blobtsql)，或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
+3. 为审核日志创建容器后，可通过两种方式将其配置为审核日志的目标：[使用 T-SQL](#blobtsql)，或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
 
    - <a id="blobtsql"></a>使用 T-SQL 为审核日志配置 Blob 存储：
 
@@ -61,11 +61,11 @@ ms.locfileid: "56663668"
 
         ![Blob 容器属性按钮](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. 通过单击复制图标来复制容器 URL并保存该 URL（例如在记事本中）供将来使用。 容器 URL 格式应当为 `https://<StorageName>.blob.core.chinacloudapi.cn/<ContainerName>`
+     2. 通过单击复制图标来复制容器 URL并保存该 URL（例如在记事本中）供将来使用。 容器 URL 格式应当为 `https://<StorageName>.blob.core.chinacloudapi.cn/<ContainerName>`
 
         ![Blob 容器复制 URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. 生成一个 Azure 存储 **SAS 令牌**，用于向存储帐户授予托管实例审核访问权限：
+     3. 生成一个 Azure 存储 **SAS 令牌**，用于向存储帐户授予托管实例审核访问权限：
 
         - 导航到在前面的步骤中你在其中创建了容器的 Azure 存储帐户。
 
@@ -95,9 +95,9 @@ ms.locfileid: "56663668"
           > [!IMPORTANT]
           > 从令牌的开头删除问号（“?”）字符。
 
-     1. 通过 SQL Server Management Studio (SSMS) 或任何其他支持的工具连接到托管实例。
+     4. 通过 SQL Server Management Studio (SSMS) 或任何其他支持的工具连接到托管实例。
 
-     1. 执行以下 T-SQL 语句来使用你在前面的步骤中创建的容器 URL 和 SAS 令牌**创建新凭据**：
+     5. 执行以下 T-SQL 语句来使用你在前面的步骤中创建的容器 URL 和 SAS 令牌**创建新凭据**：
 
         ```SQL
         CREATE CREDENTIAL [<container_url>]
@@ -106,7 +106,7 @@ ms.locfileid: "56663668"
         GO
         ```
 
-     1. 执行以下 T-SQL 语句来创建新的服务器审核（请选择自己的审核名称，并使用在前面步骤中创建的容器 URL）。 如果未指定，则 `RETENTION_DAYS` 默认为 0（无限期保留）：
+     6. 执行以下 T-SQL 语句来创建新的服务器审核（请选择自己的审核名称，并使用在前面步骤中创建的容器 URL）。 如果未指定，则 `RETENTION_DAYS` 默认为 0（无限期保留）：
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
@@ -114,7 +114,7 @@ ms.locfileid: "56663668"
         GO
         ```
 
-      1. 继续[创建服务器审核规范或数据库审核规范](#createspec)
+        1. 继续[创建服务器审核规范或数据库审核规范](#createspec)
 
    - <a id="blobssms"></a>使用 SQL Server Management Studio (SSMS) 18（预览版）为审核日志配置 Blob 存储：
 
@@ -140,12 +140,12 @@ ms.locfileid: "56663668"
 
      1. 在“创建审核”对话框中单击“确定”。
 
-1. <a id="createspec"></a>将 Blob 容器配置为审核日志的目标后，像使用 SQL Server 时一样创建服务器审核规范或数据库审核规范：
+4. <a id="createspec"></a>将 Blob 容器配置为审核日志的目标后，像使用 SQL Server 时一样创建服务器审核规范或数据库审核规范：
 
    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-1. 启用在步骤 6 中创建的服务器审核：
+5. 启用在步骤 6 中创建的服务器审核：
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]

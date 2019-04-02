@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: b0b339484d31bf1daafae78d77d725d96b8992be
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 62f0456807dafcfddcf6e994da500238e35b1f9f
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964415"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505428"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>快速入门：使用 C# 通过文本翻译 API 来翻译字符串
 
@@ -156,6 +156,8 @@ dotnet run
 
 ## <a name="sample-response"></a>示例响应
 
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+
 ```json
 [
   {
@@ -196,3 +198,4 @@ dotnet run
 * [获取支持的语言的列表](quickstart-csharp-languages.md)
 * [根据输入确定句子长度](quickstart-csharp-sentences.md)
 
+<!-- Update_Description: wording update -->

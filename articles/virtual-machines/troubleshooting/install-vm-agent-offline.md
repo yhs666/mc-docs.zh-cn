@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/31/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: aede95f4185a440e1e133af157af4787cd128408
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c4f6cdd9755301ce59763e5211fcd316c1044768
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666163"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625460"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 
@@ -55,19 +55,19 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>步骤 2：修改 OS 磁盘以安装 Azure VM 代理
 
-1.  远程桌面连接到故障排除 VM。
+1. 远程桌面连接到故障排除 VM。
 
-2.  在附加的 OS 磁盘上，浏览到 \windows\system32\config 文件夹。 将此文件夹中的所有文件复制为备份，以备回滚之需。
+2. 在附加的 OS 磁盘上，浏览到 \windows\system32\config 文件夹。 将此文件夹中的所有文件复制为备份，以备回滚之需。
 
-3.  启动注册表编辑器 (regedit.exe)。
+3. 启动注册表编辑器 (regedit.exe)。
 
-4.  选择“HKEY_LOCAL_MACHINE”项。 在菜单上，选择“文件” > “加载配置单元”：
+4. 选择“HKEY_LOCAL_MACHINE”项。 在菜单上，选择“文件” > “加载配置单元”：
 
-    ![加载配置单元](./media/install-vm-agent-offline/load-hive.png)
+   ![加载配置单元](./media/install-vm-agent-offline/load-hive.png)
 
-5.  浏览到已附加 OS 磁盘上的 \windows\system32\config\SYSTEM 文件夹。 输入“BROKENSYSTEM”作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”项之下。
+5. 浏览到已附加 OS 磁盘上的 \windows\system32\config\SYSTEM 文件夹。 输入“BROKENSYSTEM”作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”项之下。
 
-6.  浏览到已附加 OS 磁盘上的 \windows\system32\config\SOFTWARE 文件夹。 输入“BROKENSOFTWARE”作为配置单元软件。
+6. 浏览到已附加 OS 磁盘上的 \windows\system32\config\SOFTWARE 文件夹。 输入“BROKENSOFTWARE”作为配置单元软件。
 
 7. 如果附加的 OS 磁盘中已安装 VM 代理，请执行当前配置的备份。 如果该磁盘中未安装 VM 代理，请转到下一步骤。
 
@@ -78,41 +78,41 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  将故障排除 VM 上的现有文件用作 VM 代理安装的存储库。 完成以下步骤：
+8. 将故障排除 VM 上的现有文件用作 VM 代理安装的存储库。 完成以下步骤：
 
-    1. 从故障排除 VM 中，以注册表格式 (.reg) 导出以下子项： 
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
+   1. 从故障排除 VM 中，以注册表格式 (.reg) 导出以下子项： 
+      - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+      - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
+      - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
         ![导出注册表子项](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. 编辑注册表文件。 在每个文件中，将项值 SYSTEM改为 BROKENSYSTEM（如下图所示）并保存该文件。 请记住当前 VM 代理的 **ImagePath**。 需将相应的文件夹复制到附加的 OS 磁盘。 
+   2. 编辑注册表文件。 在每个文件中，将项值 SYSTEM改为 BROKENSYSTEM（如下图所示）并保存该文件。 请记住当前 VM 代理的 **ImagePath**。 需将相应的文件夹复制到附加的 OS 磁盘。 
 
-        ![更改注册表子项值](./media/install-vm-agent-offline/change-reg.png)
+       ![更改注册表子项值](./media/install-vm-agent-offline/change-reg.png)
 
-    3. 双击每个注册表文件，将注册表文件导入存储库。
+   3. 双击每个注册表文件，将注册表文件导入存储库。
 
-    4. 确认将以下三个子项成功导入 BROKENSYSTEM 配置单元：
-        - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
-        - RdAgent
+   4. 确认将以下三个子项成功导入 BROKENSYSTEM 配置单元：
+       - WindowsAzureGuestAgent
+       - WindowsAzureTelemetryService
+       - RdAgent
 
-    5. 将当前 VM 代理的安装文件夹复制到附加的 OS 磁盘： 
+   5. 将当前 VM 代理的安装文件夹复制到附加的 OS 磁盘： 
 
-        1.  在附加的 OS 磁盘上的根路径中创建名为 WindowsAzure 的文件夹。
+       1.  在附加的 OS 磁盘上的根路径中创建名为 WindowsAzure 的文件夹。
 
-        2.  转到故障排除 VM 上的 C:\WindowsAzure，找到名为 C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX 的任何文件夹。 将 C:\WindowsAzure 中包含最新版本号的 GuestAgent 文件夹，复制到附加的 OS 磁盘中的 WindowsAzure 文件夹。 如果不确定要复制哪个文件夹，请复制所有 GuestAgent 文件夹。 下图显示了已复制到附加的 OS 磁盘的 GuestAgent 文件夹示例。
+       2.  转到故障排除 VM 上的 C:\WindowsAzure，找到名为 C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX 的任何文件夹。 将 C:\WindowsAzure 中包含最新版本号的 GuestAgent 文件夹，复制到附加的 OS 磁盘中的 WindowsAzure 文件夹。 如果不确定要复制哪个文件夹，请复制所有 GuestAgent 文件夹。 下图显示了已复制到附加的 OS 磁盘的 GuestAgent 文件夹示例。
 
-             ![复制 GuestAgent 文件夹](./media/install-vm-agent-offline/copy-files.png)
+            ![复制 GuestAgent 文件夹](./media/install-vm-agent-offline/copy-files.png)
 
-9.  选择“BROKENSYSTEM”。 在菜单上，选择“文件” > “卸载配置单元”
+9. 选择“BROKENSYSTEM”。 在菜单上，选择“文件” > “卸载配置单元”
 
-10.  选择“BROKENSOFTWARE”。 在菜单上，选择“文件” > “卸载配置单元”
+10. 选择“BROKENSOFTWARE”。 在菜单上，选择“文件” > “卸载配置单元”
 
-11.  分离 OS 磁盘，然后使用该 OS 磁盘重新创建 VM。
+11. 分离 OS 磁盘，然后使用该 OS 磁盘重新创建 VM。
 
-12.  访问 VM。 请注意，RdAgent 正在运行，并且正在生成日志。
+12. 访问 VM。 请注意，RdAgent 正在运行，并且正在生成日志。
 
 如果使用资源管理器部署模型创建了 VM，则操作现已完成。
 

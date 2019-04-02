@@ -7,12 +7,12 @@ ms.service: container-service
 origin.date: 12/03/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a337f17521d9e52e9d077635539b17f439ec0cae
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 4812f05f7adb5fd1049b8ff48acf14b8223d74be
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903253"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627698"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为通过 Azure CLI 使用虚拟节点
 
@@ -337,8 +337,7 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --n
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
 <!-- LINKS - internal -->
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [az-network-vnet-create]: https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create
 [az-network-vnet-subnet-create]: https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create

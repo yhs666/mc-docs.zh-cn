@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 37c80892f64553072c6cac078ad68751355cd9e3
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 626ebac430f51c695c5e0d0f6d5f39630e62e3f9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141761"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625338"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor 中的自定义指标
 
@@ -167,24 +167,27 @@ Azure Monitor 以一分钟粒度间隔存储所有指标。 我们知道，在�
 ## <a name="supported-regions"></a>支持的区域
 在公共预览期，发布自定义指标的功能只在一部分 Azure 区域中可用。 此限制意味着，只能发布某个受支持区域中的资源的指标。 下表列出了自定义指标支持的 Azure 区域。 另外还列出了这些区域中的资源的指标应发布到的相应终结点：
 
-|Azure 区域|区域终结点前缀|
-|---|---|
-|美国东部|https://eastus.monitoring.azure.com/|
-|美国中南部|https://southcentralus.monitoring.azure.com/|
-|美国中西部|https://westcentralus.monitoring.azure.com/|
-|美国西部 2|https://westus2.monitoring.azure.com/|
-|东南亚|https://southeastasia.monitoring.azure.com/|
-|北欧|https://northeurope.monitoring.azure.com/|
-|西欧|https://westeurope.monitoring.azure.com/|
+
+|   Azure 区域   |           区域终结点前缀           |
+|------------------|----------------------------------------------|
+|     美国东部      |     https://eastus.monitoring.azure.com/     |
+| 美国中南部 | https://southcentralus.monitoring.azure.com/ |
+| 美国中西部  | https://westcentralus.monitoring.azure.com/  |
+|    美国西部 2     |    https://westus2.monitoring.azure.com/     |
+|  东南亚  | https://southeastasia.monitoring.azure.com/  |
+|   北欧   |  https://northeurope.monitoring.azure.com/   |
+|   西欧    |   https://westeurope.monitoring.azure.com/   |
 
 ## <a name="quotas-and-limits"></a>配额和限制
 Azure Monitor 针对自定义指标实施以下用量限制：
 
-|类别|限制|
-|---|---|
-|活动的时序/订阅/区域|50,000|
-|每个指标的维度键数|10 个|
-|指标命名空间、指标名称、维度键和维度值的字符串长度|256 个字符|
+
+|                                        类别                                         |     限制      |
+|-----------------------------------------------------------------------------------------|----------------|
+|                         活动的时序/订阅/区域                         |     50,000     |
+|                                每个指标的维度键数                                |       10 个       |
+| 指标命名空间、指标名称、维度键和维度值的字符串长度 | 256 个字符 |
+
 活动的时序定义为包含过去 12 小时内发布的指标值的指标、维度键或维度值的任意唯一组合。
 
 ## <a name="next-steps"></a>后续步骤
@@ -195,4 +198,3 @@ Azure Monitor 针对自定义指标实施以下用量限制：
  - [使用 Telegraf 代理的 Linux 虚拟机](collect-custom-metrics-linux-telegraf.md)
  - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [经典云服务](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
- 

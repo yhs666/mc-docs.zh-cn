@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 01/17/2019
 ms.author: v-yiso
 ms.date: ''
-ms.openlocfilehash: 54d33f67372c0fa6300f33c0ef6e1ba71eebe21d
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 6d87415421e78ff106ce115892d4dd459fed4906
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348673"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626725"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型
 
@@ -50,6 +50,7 @@ ms.locfileid: "58348673"
 * 可以在不停机的情况下，将同一订阅中的虚拟网络、网关，以及附加到 ExpressRoute 线路的虚拟网络中的关联部署迁移到 Resource Manager 环境。 可以按照后面描述的步骤来迁移各种资源，例如虚拟网络、网关以及部署在虚拟网络中的虚拟机。 必须确保虚拟网络配置正确，才能进行迁移。 
 * 若要完成虚拟网络、网关以及处于虚拟网络中但与 ExpressRoute 线路不属同一订阅的关联部署的迁移，则需停机一段时间。 文档最后一部分介绍了在迁移资源时必须执行的步骤。
 * 无法迁移使用 ExpressRoute 网关和 VPN 网关的虚拟网络。
+* 不支持 ExpressRoute 线路跨订阅迁移。 有关详细信息，请参阅[无法移动的服务](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved)。
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型
 必须先将 ExpressRoute 线路从经典环境转移到 Resource Manager 环境，才能尝试迁移附加到 ExpressRoute 线路的资源。 若要完成此任务，请参阅以下文章：
@@ -71,24 +72,24 @@ ms.locfileid: "58348673"
 2. 确保已针对迁移进行了相应的虚拟网络准备。
 3. 注册订阅，以便进行资源迁移。 若要针对资源迁移来注册订阅，请使用以下 PowerShell 代码片段：
 
-  ```powershell 
-  Select-AzSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
+   ```powershell 
+   Select-AzSubscription -SubscriptionName <Your Subscription Name>
+   Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   ```
 4. 验证、准备和迁移。 若要转移虚拟网络，请使用以下 PowerShell 代码片段：
 
-  ```powershell
-  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+   ```
 
-  也可通过运行以下 PowerShell cmdlet 来中止迁移：
+   也可通过运行以下 PowerShell cmdlet 来中止迁移：
 
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Abort $vnetName
+   ```
 
 ## <a name="next-steps"></a>后续步骤
 * [平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)

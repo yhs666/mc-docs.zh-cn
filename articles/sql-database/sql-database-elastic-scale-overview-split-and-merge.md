@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 12/04/2018
 ms.date: 03/25/2019
-ms.openlocfilehash: c7c35f69cd71840d9c5a66a0ea4a0a46954439e5
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 88cfedc1d241aaa0778e35547e550dd5378ceb0c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318994"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625345"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 
@@ -137,7 +137,7 @@ ms.locfileid: "58318994"
 
 - **分片映射**
 
- 请求参数的下一部分包含有关分片映射和托管分片映射的数据库的信息。 具体而言，需要提供托管分片映射的 Azure SQL 数据库服务器和数据库的名称、用于连接到分片映射数据库的凭据以及分片映射的名称。 当前，该操作仅接受一个凭据集。 这些凭据需要具有足够的权限，才能对分片映射和分片上的用户数据执行更改。
+  请求参数的下一部分包含有关分片映射和托管分片映射的数据库的信息。 具体而言，需要提供托管分片映射的 Azure SQL 数据库服务器和数据库的名称、用于连接到分片映射数据库的凭据以及分片映射的名称。 当前，该操作仅接受一个凭据集。 这些凭据需要具有足够的权限，才能对分片映射和分片上的用户数据执行更改。
 
 - **源范围（拆分与合并）**
 

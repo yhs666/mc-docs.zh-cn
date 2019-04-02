@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/08/2018
 ms.author: v-yiso
-ms.date: 04/02/2018
-ms.openlocfilehash: 42349bc84fa7ca4557c0a12729c49c28e4c1a10d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/08/2018
+ms.openlocfilehash: 841c182f18def8cefb075cb12eab578277247963
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654275"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626245"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用门户将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.locfileid: "52654275"
 - 单个 VNet 可最多连接到 4 条 ExpressRoute 线路。 通过以下流程为正在连接的每条 ExpressRoute 线路创建新的连接对象。 ExpressRoute 线路可在同一订阅、不同订阅或两者兼有。
 
 - 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将大量虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](expressroute-faqs.md)。
-## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>将 VNet 连接到线路 - 同一订阅
+  ## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>将 VNet 连接到线路 - 同一订阅
 
 > [!NOTE]
 > 如果第 3 层提供商配置了你的对等互连，则 BGP 配置信息不会显示。 如果线路处于已预配状态，应该能够创建连接。
@@ -75,8 +75,8 @@ ms.locfileid: "52654275"
 ![跨订阅连接](./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png)
 
 - 大型云中的每个较小云用于表示属于组织中不同部门的订阅。
-- 组织中的每个部门可以使用自己的订阅部署其服务，但可以共享单个 ExpressRoute 线路以连接回本地网络。
-- 单个部门（在此示例中为 IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路和关联到该线路的授权，包括链接到其他 Azure Active Directory 租户和企业协议合约的订阅。 
+- 组织内的每个部门可以使用自己的订阅部署其服务，但可以共享单个 ExpressRoute 线路以连接回本地网络。
+- 一个部门（此示例中为：IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路和关联到该线路的授权，包括链接到其他 Azure Active Directory 租户和企业协议合约的订阅。 
 
     > [!NOTE]
     > 将对 ExpressRoute 线路所有者收取专用线路的连接和带宽费用。 所有虚拟网络共享相同的带宽。
@@ -94,6 +94,10 @@ ms.locfileid: "52654275"
 **创建连接授权**
 
 线路所有者创建授权。 这样即可创建授权密钥，供线路用户用来将其虚拟网络网关连接到 ExpressRoute 线路。 一个授权只可用于一个连接。
+
+> [!NOTE]
+> 每个连接都需要单独授权。
+>
 
 1. 在 ExpressRoute 页面中，单击“授权”，键入授权的**名称**并单击“保存”。
 
@@ -124,11 +128,11 @@ ms.locfileid: "52654275"
 3. 请确保将“连接类型”设置为“ExpressRoute”。
 4. 在“基本信息”页面中填写详细信息，然后单击“确定”。
 
-  ![“基本信息”页面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![“基本信息”页面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. 在“设置”页面中，选择“虚拟网络网关”并选中“兑换授权”复选框。
 6. 输入“授权密钥”和“对等线路 URI”，并为连接命名。 单击 **“确定”**。
 
-  ![“设置”页](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![“设置”页](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. 在“摘要”页面中复查信息，并单击“确定”。
 
 

@@ -5,21 +5,15 @@ services: service-bus
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: service-bus
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-yiso
-ms.openlocfilehash: ba10e377e8e27a54c8a5d3f2290dce2317ea1082
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658600"
 ---
-#<a name="service-bus-documentation"></a>服务总线文档
+# <a name="service-bus-documentation"></a>服务总线文档
 
 了解如何使用服务总线建立跨本地和云环境的连接。 教程、视频、API 参考和其他文档演示了如何在应用程序与服务之间设置云消息传送。
 

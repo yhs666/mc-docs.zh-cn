@@ -8,12 +8,12 @@ origin.date: 12/06/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 6fd7624d3298c6fe4d1acd55a1a5c9ab72ffa6fc
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 515da88c575a5b2b9529bba835f62054cf65659a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988696"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627357"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的诊断日志记录 
@@ -78,16 +78,16 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
 
 2. 在“诊断设置”页上，执行以下步骤： 
 
-    * **名称**：为要创建的日志输入名称。
+   * **名称**：为要创建的日志输入名称。
 
-    * **存档到存储帐户**：要使用此选项，需要一个可连接到的现有存储帐户。 要在门户中创建新的存储帐户，请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md)，并按照说明创建 Azure 资源管理器（即通用帐户）。 然后在门户中返回到此页，选择存储帐户。 新创建的存储帐户可能几分钟后才会显示在下拉菜单中。
-    * **流式传输到事件中心**：要使用此选项，需要一个可连接到的现有事件中心命名空间和事件中心。 要创建事件中心命名空间，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 然后在门户中返回到此页，选择事件中心命名空间和策略名称。
+   * **存档到存储帐户**：要使用此选项，需要一个可连接到的现有存储帐户。 要在门户中创建新的存储帐户，请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md)，并按照说明创建 Azure 资源管理器（即通用帐户）。 然后在门户中返回到此页，选择存储帐户。 新创建的存储帐户可能几分钟后才会显示在下拉菜单中。
+   * **流式传输到事件中心**：要使用此选项，需要一个可连接到的现有事件中心命名空间和事件中心。 要创建事件中心命名空间，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 然后在门户中返回到此页，选择事件中心命名空间和策略名称。
     
-    <!--Not Available on * **Send to Log Analytics**: -->
+     <!--Not Available on * **Send to Log Analytics**: -->
     
-    * **记录 DataPlaneRequests**：选择此选项可记录从底层 Azure Cosmos DB 分布式平台发出的针对 SQL、图形、MongoDB、Cassandra 和表 API 帐户的后端请求。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
-    * **记录 MongoRequests**：选择此选项可记录来自 Azure Cosmos DB 前端的用户发起的请求，以便为使用 Azure Cosmos DB 的 API for MongoDB 配置的 Cosmos 帐户提供服务。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
-    * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
+   * **记录 DataPlaneRequests**：选择此选项可记录从底层 Azure Cosmos DB 分布式平台发出的针对 SQL、图形、MongoDB、Cassandra 和表 API 帐户的后端请求。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
+   * **记录 MongoRequests**：选择此选项可记录来自 Azure Cosmos DB 前端的用户发起的请求，以便为使用 Azure Cosmos DB 的 API for MongoDB 配置的 Cosmos 帐户提供服务。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
+   * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日期。
 
 3. 选择“其他安全性验证” 。
 

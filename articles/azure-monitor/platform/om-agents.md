@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 5464f6089e0408e858f488ca2b386d3228372168
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 423deb6362e7f9063d265a036cedb3e890bb3b8a
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440751"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544775"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>将 Operations Manager 连接到 Log Analytics
 若要保持 [System Center Operations Manager](https://docs.microsoft.com/zh-cn/system-center/scom/key-concepts?view=sc-om-1807) 中的现有投资并将扩展功能用于 Log Analytics，可将 Operations Manager 与 Log Analytics 工作区集成。 这样既可以利用 Log Analytics，又可以继续使用 Operations Manager 执行以下操作：
@@ -75,7 +75,7 @@ ms.locfileid: "56440751"
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 和 443||  
 |\*.microsoft.com| 80 和 443||  
-|\*.microsoftonline.com| 80 和 443||  
+|\*.partner.microsoftonline.cn| 80 和 443||  
 |\*.mms.microsoft.com| 80 和 443||  
 |login.windows.net| 80 和 443||  
 |portal.loganalytics.io| 80 和 443||

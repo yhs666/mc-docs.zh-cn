@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 10/22/2018
 ms.date: 02/18/2019
-ms.openlocfilehash: 1d17519032475975c8a4d26d8c1ef30ede4463c8
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: dec5fb9e9aa2177d7fc508ab668e1485e8b7da77
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303018"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625195"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器中优化 autovacuum 
 本文介绍如何在 Azure Database for PostgreSQL 服务器中有效优化 autovacuum。
@@ -35,7 +35,7 @@ PostgreSQL 使用多版本并发控制 (MVCC) 实现更高的数据库并发性�
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>使用 autovacuum 查询监视膨胀情况
 以下示例查询的目的是确定名为 XYZ 的表中的非活动元组和活动元组的数量：
- 
+
     'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
 
 ## <a name="autovacuum-configurations"></a>Autovacuum 配置
@@ -44,14 +44,16 @@ PostgreSQL 使用多版本并发控制 (MVCC) 实现更高的数据库并发性�
 - 启动它以后应清除多少内容？
 
 下面是一些可以基于以上问题更新的 autovacuum 配置参数以及一些指导信息。
-参数|说明|默认值
----|---|---
-autovacuum_vacuum_threshold|指定在任一表中触发清扫操作所需的已更新或已删除元组的最小数量。 默认值为 50 个元组。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。|50
-autovacuum_vacuum_scale_factor|指定在决定是否触发清扫操作时要添加到 autovacuum_vacuum_threshold 的表大小的占比。 默认值为 0.2，即表大小的 20%。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。|百分之 5
-autovacuum_vacuum_cost_limit|指定自动清扫操作中使用的成本限制值。 如果指定为 -1（默认值），则会使用常规的 vacuum_cost_limit 值。 如果存在多个辅助角色，则该值会按比例分配给这些运行 autovacuum 的辅助角色。 每个辅助角色的限制的总和不超过此变量的值。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。|-1
-autovacuum_vacuum_cost_delay|指定自动清扫操作中使用的成本延迟值。 如果指定为 -1，则会使用常规的 vacuum_cost_delay 值。 默认值为 20 毫秒。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。|20 ms
-autovacuum_nap_time|指定任一给定数据库上运行的 autovacuum 之间的最小延迟。 守护程序会在每一轮中检查数据库并根据需要为数据库中的表发出清扫和分析命令。 延迟以秒为单位，默认值为一分钟 (1 min)。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。|15 s
-autovacuum_max_workers|指定在任何时候可能运行的 autovacuum 进程（不是 autovacuum 启动器）的最大数量。 默认值为三个。 只能在服务器启动时设置此参数。|3
+
+|           参数            |                                                                                                                                                                                                                                                            说明                                                                                                                                                                                                                                                            | 默认值 |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+|  autovacuum_vacuum_threshold   |                                                                                                         指定在任一表中触发清扫操作所需的已更新或已删除元组的最小数量。 默认值为 50 个元组。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。                                                                                                         |      50       |
+| autovacuum_vacuum_scale_factor |                                                                                  指定在决定是否触发清扫操作时要添加到 autovacuum_vacuum_threshold 的表大小的占比。 默认值为 0.2，即表大小的 20%。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。                                                                                  |   百分之 5   |
+|  autovacuum_vacuum_cost_limit  | 指定自动清扫操作中使用的成本限制值。 如果指定为 -1（默认值），则会使用常规的 vacuum_cost_limit 值。 如果存在多个辅助角色，则该值会按比例分配给这些运行 autovacuum 的辅助角色。 每个辅助角色的限制的总和不超过此变量的值。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。 |      -1       |
+|  autovacuum_vacuum_cost_delay  |                                                                                         指定自动清扫操作中使用的成本延迟值。 如果指定为 -1，则会使用常规的 vacuum_cost_delay 值。 默认值为 20 毫秒。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。 若要替代单个表的设置，请更改表存储参数。                                                                                         |     20 ms     |
+|      autovacuum_nap_time       |                                                                               指定任一给定数据库上运行的 autovacuum 之间的最小延迟。 守护程序会在每一轮中检查数据库并根据需要为数据库中的表发出清扫和分析命令。 延迟以秒为单位，默认值为一分钟 (1 min)。 只能在 postgresql.conf 文件中或服务器命令行上设置此参数。                                                                                |     15 s      |
+|     autovacuum_max_workers     |                                                                                                                                                                      指定在任何时候可能运行的 autovacuum 进程（不是 autovacuum 启动器）的最大数量。 默认值为三个。 只能在服务器启动时设置此参数。                                                                                                                                                                       |       3       |
+
 若要替代单个表的设置，请更改表存储参数。 
 
 ## <a name="autovacuum-cost"></a>Autovacuum 成本

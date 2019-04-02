@@ -13,12 +13,12 @@ ms.reviewer: carlr
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: a56ae74cb8b0781dd23f02139819e0a31d60148a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 1bd61a8d6155917af58861707779db52ae3945ed
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663843"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627223"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>使用数据库作业自动完成管理任务
 
@@ -37,8 +37,8 @@ Azure SQL 数据库允许创建和计划可针对一个或多个数据库定期�
   - 将 Azure SQL 数据库集合中的数据聚合到单个目标表中。
   - 对大量的数据库执行长时间运行的数据处理查询，例如，收集客户遥测数据。 结果将收集到单个目标表以供进一步分析。
 - 数据移动
- - 创建作业，用于将数据库中所做的更新复制到其他数据库，或者收集远程数据库中所做的更新，并在数据库中应用更改。
- - 创建作业用于通过 SQL Server Integration Services (SSIS) 从/向数据库加载数据。
+  - 创建作业，用于将数据库中所做的更新复制到其他数据库，或者收集远程数据库中所做的更新，并在数据库中应用更改。
+  - 创建作业用于通过 SQL Server Integration Services (SSIS) 从/向数据库加载数据。
 
 在 Azure SQL 数据库中可以使用以下作业计划技术：
 

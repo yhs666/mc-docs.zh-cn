@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 04/06/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 91df2a71e2edfa87d7eb815537a4f8e328f20523
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 39adb33c4d582e51a847e60a2889c9f97bcec6e8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204097"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625329"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序
 Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse 中的本地或远程 Service Fabric 群集。 
@@ -141,8 +141,8 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
    - `ClientKey` 字段应指向本地计算机上包含客户端或群集证书私钥的 PEM 格式的 .pem 或 .key 文件。
    - `ClientCert` 字段应指向本地计算机上包含客户端或群集证书数据的 PEM 格式的 .pem 或 .crt 文件。 证书。 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn",
@@ -150,17 +150,17 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
-2. 右键单击 Service Fabric 应用程序，并选择“Service Fabric”。
-3. 在上下文菜单中，单击“发布应用程序...”。
-3. 在“发布应用程序”窗口中，选择“PublishProfiles/Cloud.json”为目标配置文件，然后单击“发布”。
+3. 右键单击 Service Fabric 应用程序，并选择“Service Fabric”。
+4. 在上下文菜单中，单击“发布应用程序...”。
+5. 在“发布应用程序”窗口中，选择“PublishProfiles/Cloud.json”为目标配置文件，然后单击“发布”。
 
     ![云端“发布”对话框](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  可以在控制台窗口中跟踪发布操作的进度。
-5.  若要验证应用程序是否正在运行，请在浏览器窗口中的 Azure 群集上打开 Service Fabric Explorer。 在上述示例中，URL 为：`https://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer`。 展开“应用程序”节点，确保应用程序正在运行。 
+6. 可以在控制台窗口中跟踪发布操作的进度。
+7. 若要验证应用程序是否正在运行，请在浏览器窗口中的 Azure 群集上打开 Service Fabric Explorer。 在上述示例中，URL 为：`https://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer`。 展开“应用程序”节点，确保应用程序正在运行。 
 
 在安全 Linux 群集上，如果应用程序包含 Reliable Services 服务，则还需要配置可供服务用来调用 Service Fabric 运行时 API 的证书。 若要了解详细信息，请参阅[将 Reliable Services 应用程序配置为在 Linux 群集上运行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。
 

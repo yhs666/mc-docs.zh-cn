@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 2/20/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: ebaeb273022b9f273ff5df663f2d8548e82ae086
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 5566931acfcc5e9a843eede051c98209468e0ce5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348329"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626821"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入门：使用适用于 Unity 的语音 SDK (Beta) 识别语音
 
@@ -81,12 +81,12 @@ ms.locfileid: "58348329"
 
 1. 在[项目窗口](https://docs.unity3d.com/Manual/ProjectView.html)（默认位于左下角）中，单击“创建”按钮并选择“C# 脚本”。 将脚本命名为 `HelloWorld`。
 
-1. 双击脚本对其进行编辑。
+2. 双击脚本对其进行编辑。
 
-  > [!NOTE]
-  > 可以在“编辑” > “首选项”下配置要启动的代码编辑器，详情请参阅 [Unity 用户手册](https://docs.unity3d.com/Manual/Preferences.html)。
+   > [!NOTE]
+   > 可以在“编辑” > “首选项”下配置要启动的代码编辑器，详情请参阅 [Unity 用户手册](https://docs.unity3d.com/Manual/Preferences.html)。
 
-1. 将所有代码替换为以下内容：
+3. 将所有代码替换为以下内容：
 
 ```C#
 using UnityEngine;
@@ -218,19 +218,19 @@ public class HelloWorld : MonoBehaviour
 
 1. 找到字符串 `YourSubscriptionKey` 并将其替换为你的语音服务订阅密钥。
 
-1. 找到字符串 `YourServiceRegion` 并将其替换为与订阅关联的[区域](regions.md)。 例如，如果使用的是免费试用版，区域是 `westus`。
+2. 找到字符串 `YourServiceRegion` 并将其替换为与订阅关联的[区域](regions.md)。 例如，如果使用的是免费试用版，区域是 `westus`。
 
-1. 保存对脚本所做的更改。
+3. 保存对脚本所做的更改。
 
-1. 返回到 Unity 编辑器。需要将脚本作为组件添加到游戏对象之一。
+4. 返回到 Unity 编辑器。需要将脚本作为组件添加到游戏对象之一。
 
-  * 单击“层次结构窗口”中的“画布”对象。 随后会在[检查器窗口](https://docs.unity3d.com/Manual/UsingTheInspector.html)（默认位于右侧）中打开该对象的设置。
-  * 单击“检查器窗口”中的“添加组件”按钮，然后搜索并添加前面创建的 HelloWorld 脚本。
-  * 请注意，Hello World 组件包含两个未初始化的属性：“输出文本”和“开始识别按钮”，它们与 `HelloWorld` 类的公共属性相匹配。
-    若要连接它们，请单击对象选取器（属性右侧的小圆圈图标），并选择前面创建的文本和按钮对象。
+   * 单击“层次结构窗口”中的“画布”对象。 随后会在[检查器窗口](https://docs.unity3d.com/Manual/UsingTheInspector.html)（默认位于右侧）中打开该对象的设置。
+   * 单击“检查器窗口”中的“添加组件”按钮，然后搜索并添加前面创建的 HelloWorld 脚本。
+   * 请注意，Hello World 组件包含两个未初始化的属性：“输出文本”和“开始识别按钮”，它们与 `HelloWorld` 类的公共属性相匹配。
+     若要连接它们，请单击对象选取器（属性右侧的小圆圈图标），并选择前面创建的文本和按钮对象。
 
-    > [!NOTE]
-    > 按钮中还包括嵌套的文本对象。 请确保不要意外选择该对象来提供文本输出（或者，可以使用“检查器窗口”中的“名称”字段来重命名某个文本对象，以避免混淆）。
+     > [!NOTE]
+     > 按钮中还包括嵌套的文本对象。 请确保不要意外选择该对象来提供文本输出（或者，可以使用“检查器窗口”中的“名称”字段来重命名某个文本对象，以避免混淆）。
 
 ## <a name="run-the-application-in-the-unity-editor"></a>在 Unity 编辑器中运行应用程序
 

@@ -8,12 +8,12 @@ origin.date: 12/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 0a53bc144e2afffb09b8fe053fb7687e13d44138
-ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
+ms.openlocfilehash: eebb97c3960d5677b9d17a9129c50cd65c378c6e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727656"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626017"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -107,10 +107,10 @@ ms.locfileid: "57727656"
 5. 检查 Azure VM 是否在 Azure 中按预期显示。
 6. 在“复制的项”中，右键单击 VM >“完成迁移”。 这样会执行以下操作：
 
-    - 完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
-    - 此步骤清除复制数据。 它不删除迁移的 VM。
+   - 完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+   - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-    ![完成迁移](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![完成迁移](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 > [!WARNING]
 > **请勿取消正在进行的故障转移**：在故障转移开始前，VM 复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但 VM 将不再进行复制。
@@ -142,7 +142,8 @@ ms.locfileid: "57727656"
     
     - 使用[网络安全组](/virtual-network/security-overview)限制到管理终结点的网络流量。
     
-    <!-- Not Available on  [Azure Disk Encryption](/security/azure-security-disk-encryption-overview)--> <!-- Not Available on  [securing IaaS resources]( https://www.azure.cn/services/virtual-machines/secure-well-managed-iaas/ )-->
+    <!-- Not Available on  [Azure Disk Encryption](/security/azure-security-disk-encryption-overview)-->
+    <!-- Not Available on  [securing IaaS resources]( https://www.azure.cn/services/virtual-machines/secure-well-managed-iaas/ )-->
     <!-- Not Available on  [Azure Security Center](https://www.azure.cn/home/features/security-center/ )-->
     <!-- Not Available on  - For monitoring and management:-->
     <!-- Not Available on  [Azure Cost Management](/cost-management/overview)-->

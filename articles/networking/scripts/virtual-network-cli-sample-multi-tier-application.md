@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: ab47c2dc87483043fbcf5f37acef2b4ccce2e6c7
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: fcd9451b51e58cef3b0ea36ec04cd6384f9fd83b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626726"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>为多层应用程序创建网络
 
@@ -34,17 +34,18 @@ ms.locfileid: "53785332"
 
 ## <a name="sample-script"></a>示例脚本
 
+```bash
+# !/bin/bash
 
-#<a name="binbash"></a>!/bin/bash
+RgName="MyResourceGroup"
+Location="chinaeast"
 
-RgName="MyResourceGroup" Location="chinaeast"
-
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 az group create \
   --name $RgName \
   --location $Location
 
-# <a name="create-a-virtual-network-with-a-front-end-subnet"></a>创建包含前端子网的虚拟网络。
+# Create a virtual network with a front-end subnet.
 az network vnet create \
   --name MyVnet \
   --resource-group $RgName \
@@ -53,20 +54,20 @@ az network vnet create \
   --subnet-name MySubnet-FrontEnd \
   --subnet-prefix 10.0.1.0/24
 
-# <a name="create-a-back-end-subnet"></a>创建后端子网。
+# Create a back-end subnet.
 az network vnet subnet create \
   --address-prefix 10.0.2.0/24 \
   --name MySubnet-BackEnd \
   --resource-group $RgName \
   --vnet-name MyVnet
 
-# <a name="create-a-network-security-group-for-the-front-end-subnet"></a>为前端子网创建网络安全组。
+# Create a network security group for the front-end subnet.
 az network nsg create \
   --resource-group $RgName \
   --name MyNsg-FrontEnd \
   --location $Location
 
-# <a name="create-an-nsg-rule-to-allow-http-traffic-in-from-the-internet-to-the-front-end-subnet"></a>创建允许 HTTP 流量从 Internet 流入到前端子网的 NSG 规则。
+# Create an NSG rule to allow HTTP traffic in from the Internet to the front-end subnet.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-FrontEnd \
@@ -76,10 +77,11 @@ az network nsg rule create \
   --direction Inbound \
   --priority 100 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 80
 
-# <a name="create-an-nsg-rule-to-allow-ssh-traffic-in-from-the-internet-to-the-front-end-subnet"></a>创建允许 SSH 流量从 Internet 流入到前端子网的 NSG 规则。
+# Create an NSG rule to allow SSH traffic in from the Internet to the front-end subnet.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-FrontEnd \
@@ -89,23 +91,24 @@ az network nsg rule create \
   --direction Inbound \
   --priority 300 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 22
 
-# <a name="associate-the-front-end-nsg-to-the-front-end-subnet"></a>将前端 NSG 关联到前端子网。
+# Associate the front-end NSG to the front-end subnet.
 az network vnet subnet update \
   --vnet-name MyVnet \
   --name MySubnet-FrontEnd \
   --resource-group $RgName \
   --network-security-group MyNsg-FrontEnd
 
-# <a name="create-a-network-security-group-for-back-end-subnet"></a>为后端子网创建网络安全组。
+# Create a network security group for back-end subnet.
 az network nsg create \
   --resource-group $RgName \
   --name MyNsg-BackEnd \
   --location $Location
 
-# <a name="create-an-nsg-rule-to-allow-mysql-traffic-from-the-front-end-subnet-to-the-back-end-subnet"></a>创建允许 MySQL 流量从前端子网流入到后端子网的 NSG 规则。
+# Create an NSG rule to allow MySQL traffic from the front-end subnet to the back-end subnet.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-BackEnd \
@@ -114,10 +117,11 @@ az network nsg rule create \
   --direction Inbound \
   --priority 100 \
   --source-address-prefix 10.0.1.0/24 \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 3306
 
-# <a name="create-an-nsg-rule-to-allow-ssh-traffic-from-the-internet-to-the-front-end-subnet"></a>创建允许 SSH 流量从 Internet 流入到前端子网的 NSG 规则。
+# Create an NSG rule to allow SSH traffic from the Internet to the front-end subnet.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-BackEnd \
@@ -127,32 +131,35 @@ az network nsg rule create \
   --direction Inbound \
   --priority 200 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 22
 
-# <a name="create-an-nsg-rule-to-block-all-outbound-traffic-from-the-back-end-subnet-to-the-internet-note-if-you-run-the-mysql-installation-below-this-rule-will-be-disabled-and-then-re-enabled"></a>创建一项 NSG 规则，阻止从后端子网流向 Internet 的所有出站流量（注意：如果运行下面的 MySQL 安装，则会先禁用此规则，然后重新启用它）。
+# Create an NSG rule to block all outbound traffic from the back-end subnet to the Internet (NOTE: If you run the MySQL installation below this rule will be disabled and then re-enabled).
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-BackEnd \
   --name Deny-Internet-All \
   --access Deny --protocol Tcp \
   --direction Outbound --priority 300 \
-  --source-address-prefix "*" \ --source-port-range "*" \
-  --destination-address-prefix "*" \ --destination-port-range "*"
+  --source-address-prefix "<em>" \
+  --source-port-range "</em>" \
+  --destination-address-prefix "<em>" \
+  --destination-port-range "</em>"
 
-# <a name="associate-the-back-end-nsg-to-the-back-end-subnet"></a>将后端 NSG 关联到后端子网。
+# Associate the back-end NSG to the back-end subnet.
 az network vnet subnet update \
   --vnet-name MyVnet \
   --name MySubnet-BackEnd \
   --resource-group $RgName \
   --network-security-group MyNsg-BackEnd
 
-# <a name="create-a-public-ip-address-for-the-web-server-vm"></a>为 Web 服务器 VM 创建一个公共 IP 地址。
+# Create a public IP address for the web server VM.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIP-Web
 
-# <a name="create-a-nic-for-the-web-server-vm"></a>为 Web 服务器 VM 创建一个 NIC。
+# Create a NIC for the web server VM.
 az network nic create \
   --resource-group $RgName \
   --name MyNic-Web \
@@ -161,7 +168,7 @@ az network nic create \
   --network-security-group MyNsg-FrontEnd \
   --public-ip-address MyPublicIP-Web
 
-# <a name="create-a-web-server-vm-in-the-front-end-subnet"></a>在前端子网中创建 Web 服务器 VM。
+# Create a Web Server VM in the front-end subnet.
 az vm create \
   --resource-group $RgName \
   --name MyVm-Web \
@@ -170,12 +177,12 @@ az vm create \
   --admin-username azureadmin \
   --generate-ssh-keys
 
-# <a name="create-a-public-ip-address-for-the-mysql-vm"></a>为 MySQL VM 创建一个公共 IP 地址。
+# Create a public IP address for the MySQL VM.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIP-Sql
 
-# <a name="create-a-nic-for-the-mysql-vm"></a>为 MySQL VM 创建一个 NIC。
+# Create a NIC for the MySQL VM.
 az network nic create \
   --resource-group $RgName \
   --name MyNic-Sql \
@@ -184,7 +191,7 @@ az network nic create \
   --network-security-group MyNsg-BackEnd \
   --public-ip-address MyPublicIP-Sql
 
-# <a name="create-a-mysql-vm-in-the-back-end-subnet"></a>在后端子网中创建 MySQL VM。
+# Create a MySQL VM in the back-end subnet.
 az vm create \
   --resource-group $RgName \
   --name MyVm-Sql \
@@ -192,6 +199,7 @@ az vm create \
   --image UbuntuLTS \
   --admin-username azureadmin \
   --generate-ssh-keys
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

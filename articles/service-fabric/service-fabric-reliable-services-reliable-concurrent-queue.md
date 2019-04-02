@@ -15,12 +15,12 @@ ms.workload: required
 origin.date: 05/01/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7d651232a949978441aed35840fa1779d751106a
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 397e635bf184af8ac130b00fe30fed7a6d91948e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463604"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627394"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的可靠并发队列简介
 可靠并发队列是一种异步的、事务性的已复制队列，其特点是排队和取消排队操作的高并发性。 它旨在降低[可靠队列](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)提供的严格的 FIFO 排序要求，代之以“尽力排序”要求，从而提高吞吐量并降低延迟。
@@ -71,7 +71,7 @@ using (var txn = this.StateManager.CreateTransaction())
 假定任务已成功完成，且没有并发事务在修改队列。 用户可以预期队列包含的项采用以下顺序：
 
 > 10, 20
-
+> 
 > 20, 10
 
 - *案例 2：并行排队任务*
@@ -164,7 +164,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 中止事务后，项会采用以下顺序之一添加回队列头：
 > 10, 20
-
+> 
 > 20, 10
 
 事务未成功提交的所有案例均是如此。

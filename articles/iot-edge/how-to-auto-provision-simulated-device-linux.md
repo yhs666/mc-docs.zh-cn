@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fb41210726dd7c351d5eb8608c963967f207a84
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7c52f48dbc48add8d3182972a377aaa51492f3d5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987982"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625196"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>使用 Linux 虚拟机上的虚拟 TPM 创建和预配 IoT Edge 设备
 
@@ -235,17 +235,17 @@ IoT Edge 运行时需要有权访问 TPM 才能自动预配设备。
 
 11. 验证重写是否成功。
 
-   ```bash
-   sudo systemctl cat iotedge.service
-   ```
+    ```bash
+    sudo systemctl cat iotedge.service
+    ```
 
-   如果重写成功，输出将显示 **iotedge** 默认服务变量，然后显示 **override.conf** 中设置的环境变量。 
+    如果重写成功，输出将显示 **iotedge** 默认服务变量，然后显示 **override.conf** 中设置的环境变量。 
 
 12. 重载设置。
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>重启 IoT Edge 运行时
 

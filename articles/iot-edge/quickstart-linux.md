@@ -4,18 +4,18 @@ description: 本快速入门介绍如何创建 IoT Edge 设备，然后从 Azure
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 02/28/2019
-ms.date: 03/25/2019
+origin.date: 03/19/2019
+ms.date: 04/08/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6e09e2733b06acd9199234dcf15a00cca397c32e
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7ad320b9e679d862002c7a1603a631705a9b2ff3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987983"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626800"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>快速入门：将第一个 IoT Edge 模块部署到 Linux 设备
 
@@ -109,7 +109,7 @@ IoT Edge 设备：
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 复制 JSON 输出中 `cs` 键的值并保存。 该值为设备连接字符串。 在下一部分中配置 IoT Edge 运行时时将用到此连接字符串。
+3. 复制 JSON 输出中 `connectionString` 键的值并保存。 该值为设备连接字符串。 在下一部分中配置 IoT Edge 运行时时将用到此连接字符串。
 
    ![从 CLI 输出中检索连接字符串](./media/quickstart/retrieve-connection-string.png)
 

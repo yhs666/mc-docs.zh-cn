@@ -16,12 +16,12 @@ origin.date: 02/27/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: aac8cfbf743cead1a570117baea3439db9ef5fbe
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 9b93d2648f603854d590334223bb4cb244b519cc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216257"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625927"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Apache Hive 库
 
@@ -60,7 +60,7 @@ ms.locfileid: "54216257"
 
 * 在创建期间，包含 jar 文件的库的存储帐户 **必须** 链接到 HDInsight 群集。 它必须是默认的存储帐户，或通过 __可选配置__添加的帐户。
 
-* 必须指定容器的 WASB 路径作为脚本操作的参数。 例如，如果 jar 存储在名为 **mystorage** 的存储帐户上名为 **libs** 的容器中，则该参数应为 **wasb://libs@mystorage.blob.core.chinacloudapi.cn/**。
+* 必须指定容器的 WASB 路径作为脚本操作的参数。 例如，如果 jar 存储在名为 **mystorage** 的存储帐户上名为 **libs** 的容器中，则该参数应为 <strong>wasb://libs@mystorage.blob.core.chinacloudapi.cn/</strong>。
 
   > [!NOTE]
   > 本文档假定已创建存储帐户、blob 容器，并已将文件上传到该容器。
@@ -88,7 +88,7 @@ ms.locfileid: "54216257"
 
    * **ZOOKEEPER**：将此项留空。
 
-   * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，**wasb://libs@mystorage.blob.core.chinacloudapi.cn/**。
+   * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，<strong>wasb://libs@mystorage.blob.core.chinacloudapi.cn/</strong>。
 
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。
 

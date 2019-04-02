@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 11/06/2018
 ms.author: v-yiso
 ms.date: 01/21/2019
-ms.openlocfilehash: c500d29064ad1517aea4c9cd97e9404da4e6f071
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 4caaf031664472b6d1347de6cf57720b69deadb1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216210"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625848"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用
 
@@ -58,19 +58,19 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     此模板可创建以下资源：
 
-    * Kafka on HDInsight 3.6 群集。
+   * Kafka on HDInsight 3.6 群集。
 
-    * Spark on HDInsight 3.6 群集。
+   * Spark on HDInsight 3.6 群集。
 
-    * 包含 HDInsight 群集的 Azure 虚拟网络。
+   * 包含 HDInsight 群集的 Azure 虚拟网络。
 
-        > [!NOTE]
-        > 通过模板创建的虚拟网络使用 10.0.0.0/16 地址空间。
+       > [!NOTE]
+       > 通过模板创建的虚拟网络使用 10.0.0.0/16 地址空间。
 
-    * Azure Cosmos DB SQL API 数据库。
+   * Azure Cosmos DB SQL API 数据库。
 
-    > [!IMPORTANT]
-    > 本示例使用的结构化流式处理笔记本需要 Spark on HDInsight 3.6。 如果使用早期版本的 Spark on HDInsight，则使用笔记本时会收到错误消息。
+     > [!IMPORTANT]
+     > 本示例使用的结构化流式处理笔记本需要 Spark on HDInsight 3.6。 如果使用早期版本的 Spark on HDInsight，则使用笔记本时会收到错误消息。
 
 2. 使用以下信息填充“自定义部署”部分中的条目：
    

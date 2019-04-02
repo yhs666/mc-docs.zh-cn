@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/24/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 738fbee83b4d19b08eab27fe6e11debf39837b05
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 29c8cf3e4206423bfffbbf18e3e8395042bda764
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666063"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626622"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>创建 OpenBSD 磁盘映像并将其上传到 Azure
 本文介绍如何创建和上传包含 OpenBSD 操作系统的虚拟硬盘 (VHD)。 上传后，可将其用作自己的映像，通过 Azure CLI 在 Azure 中创建虚拟机 (VM)。
@@ -55,7 +55,7 @@ ms.locfileid: "56666063"
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
 
-4. 默认情况下，禁止在 Azure 中的虚拟机上使用 `root` 用户。 用户可以对 OpenBSD VM 使用 `doas` 命令，通过提升的权限运行命令。 默认启用 Doas。 有关详细信息，请参阅 [doas.conf](http://man.openbsd.org/doas.conf.5)。 
+4. 默认情况下，禁止在 Azure 中的虚拟机上使用 `root` 用户。 用户可以对 OpenBSD VM 使用 `doas` 命令，通过提升的权限运行命令。 默认启用 Doas。 有关详细信息，请参阅 [doas.conf](https://man.openbsd.org/doas.conf.5)。 
 
 5. 安装并配置 Azure 代理的先决条件，如下所示：
 
@@ -173,8 +173,8 @@ ssh azureuser@<ip address>
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要深入了解 OpenBSD6.1 上的 Hyper-V 支持，请阅读 [OpenBSD 6.1](https://www.openbsd.org/61.html) 和 [hyperv.4](http://man.openbsd.org/hyperv.4)。
+若要深入了解 OpenBSD6.1 上的 Hyper-V 支持，请阅读 [OpenBSD 6.1](https://www.openbsd.org/61.html) 和 [hyperv.4](https://man.openbsd.org/hyperv.4)。
 
-若要从托管磁盘创建 VM，请阅读 [az disk](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest)。
+若要从托管磁盘创建 VM，请阅读 [az disk](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk)。
 
 <!--Update_Description: update meta properties， wording update, update link -->

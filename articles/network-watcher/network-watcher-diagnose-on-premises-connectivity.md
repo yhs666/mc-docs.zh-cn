@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: b320e15397bd7cce040db15bdc234a76893a599e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 059e09a11b48d2907a15a9d6a20b8a12fd76c26d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662752"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626748"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>通过 VPN 网关诊断本地连接
 
@@ -33,12 +33,12 @@ ms.locfileid: "52662752"
 想要使用 FortiGate 作为本地 VPN 网关，在 Azure 与本地之间配置站点到站点连接。 若要实现此方案，需要进行以下设置：
 
 1. 虚拟网络网关 - Azure 上的 VPN 网关
-1. 本地网络网关 - Azure 云中的[本地 (FortiGate) VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)表示形式
-1. 站点到站点连接（基于路由）- [VPN 网关与本地路由器之间的连接](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-<!-- Not Available on vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection -->
-1. [配置 FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
+2. 本地网络网关 - Azure 云中的[本地 (FortiGate) VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)表示形式
+3. 站点到站点连接（基于路由）- [VPN 网关与本地路由器之间的连接](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+   <!-- Not Available on vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection -->
+4. [配置 FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-有关站点到站点配置的详细分步指南，请访问：[使用 Azure 门户创建具有站点到站点连接的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
+有关配置站点到站点配置的详细分步指南，请访问：[使用 Azure 门户创建具有站点到站点连接的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
 一个关键的配置步骤是配置 IPsec 通信参数，任何不当的配置都会导致本地网络与 Azure 之间的连接断开。 目前，Azure VPN 网关配置为支持第 1 阶段的以下 IPsec 参数。 请注意，如前所述，这些设置不可修改。  如下表中所示，Azure VPN 网关支持的加密算法包括 AES256、AES128、和 3DES。
 
@@ -109,7 +109,7 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 | 身份验证 | 预共享密钥不匹配。 | 是|
 | PeerReachability | 无法访问对等网关。 | 是|
 | IkePolicyMismatch | 对等网关中的 IKE 策略不受 Azure 支持。 | 是|
-| WfpParse 错误 | 分析 WFP 日志时出错。 |是|
+| WfpParse Error | 分析 WFP 日志时出错。 |是|
 
 ## <a name="next-steps"></a>后续步骤
 

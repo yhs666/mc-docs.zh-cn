@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/20/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8077ecee5843a590483a0ff7e2c677978a7b196c
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: ce3769ea65665a0ab747ac8d0c075c5a5c58bd5a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788693"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627146"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 门户创建和配置托管多个网站的应用程序网关
 
@@ -45,20 +45,20 @@ ms.locfileid: "57788693"
 2. 选择“网络”，然后在“特色”列表中选择“应用程序网关”。
 3. 输入应用程序网关的以下值：
 
-    - *myAppGateway* - 应用程序网关的名称。
-    - *myResourceGroupAG* - 新资源组。
+   - *myAppGateway* - 应用程序网关的名称。
+   - *myResourceGroupAG* - 新资源组。
 
-    ![新建应用程序网关](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![新建应用程序网关](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. 接受其他设置的默认值，然后单击“确定”。
 5. 依次单击“选择虚拟网络”、“新建”，然后输入虚拟网络的以下值：
 
-    - *myVNet* - 虚拟网络的名称。
-    - *10.0.0.0/16* - 虚拟网络地址空间。
-    - *myAGSubnet* - 子网名称。
-    - *10.0.0.0/24* - 子网地址空间。
+   - *myVNet* - 虚拟网络的名称。
+   - *10.0.0.0/16* - 虚拟网络地址空间。
+   - *myAGSubnet* - 子网名称。
+   - *10.0.0.0/24* - 子网地址空间。
 
-    ![创建虚拟网络](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![创建虚拟网络](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. 单击“确定”创建虚拟网络和子网。
 7. 依次单击“选择公共 IP 地址”、“新建”，然后输入公共 IP 地址的名称。 在本示例中，公共 IP 地址名为 *myAGPublicIPAddress*。 接受其他设置的默认值，然后单击“确定”。
@@ -137,11 +137,11 @@ ms.locfileid: "57788693"
 1. 单击“侦听器”，然后单击“多站点”。
 2. 为侦听器输入以下值：
     
-    - *contosoListener* - 作为侦听器的名称。
-    - *www.contoso.com* - 将此主机名示例替换为自己的域名。
+   - *contosoListener* - 作为侦听器的名称。
+   - <em>www.contoso.com</em> - 将此主机名示例替换为自己的域名。
 
 3. 单击 **“确定”**。
-4. 使用名称 *fabrikamListener* 并使用第二个域名创建第二个侦听器。 在此示例中，使用 *www.fabrikam.com*。
+4. 使用名称 *fabrikamListener* 并使用第二个域名创建第二个侦听器。 在此示例中，使用 <em>www.fabrikam.com</em>。
 
     ![多站点侦听器](./media/create-multiple-sites-portal/be-listeners.png)
 

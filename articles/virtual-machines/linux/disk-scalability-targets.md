@@ -5,17 +5,17 @@ services: virtual-machines-linux,storage
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 11/15/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 374c7763d3e0c9cc07324e25cda98561e658f486
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 73f5e7c5335dbce3a7b2c5d6d92499311b138429
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666376"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627583"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 上的 VM 磁盘的可伸缩性和性能目标
 

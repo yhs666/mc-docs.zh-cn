@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 08/23/2018
 ms.author: v-yiso
 ms.date: 03/11/2019
-ms.openlocfilehash: b60f81f000550f65f5d705e24260a99affe4c750
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 1e018beb11bd904dc96e35dd8c9cd2609a9ee728
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196625"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627238"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题 (FAQ)
 
@@ -101,7 +101,7 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>如何确保云服务面向公众的 IP 地址永不改变？
 
 为了将云服务的 IP 地址列入允许列表，建议将一个保留 IP 与服务进行关联，否则，如果删除了部署，则会从订阅解除分配由 Azure 提供的虚拟 IP（也称 VIP）。 否则，如果删除了部署，则会从订阅解除分配由 Azure 提供的虚拟 IP。 为使 VIP 交换操作成功，需要为生产槽和暂存槽设置单独的保留 IP。 如果缺少这些 IP，交换操作会失败。 请根据以下文章来保留 IP 地址并将其与云服务进行关联：
- 
+ 
 - [保留现有云服务的 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [使用服务配置文件将保留 IP 关联到云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 

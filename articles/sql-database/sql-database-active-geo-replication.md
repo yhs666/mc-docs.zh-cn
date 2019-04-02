@@ -13,12 +13,12 @@ ms.reviewer: mathoma, carlrab
 manager: digimobile
 origin.date: 02/27/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 7384fbdc8eb6f7d625d52f62a85257279d3592c4
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 66507d364e389bd0548ab71cd1d5903b7f2d4446
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318991"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627407"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>创建并使用活动异地复制
 
@@ -67,7 +67,7 @@ ms.locfileid: "58318991"
 
 - **自动异步复制**
 
- 只能通过添加到现有数据库来创建辅助数据库。 辅助数据库可在任何 Azure SQL 数据库服务器中创建。 创建完成之后，使用从主数据库复制的数据填充辅助数据库。 这个过程称为种子设定。 创建辅助数据库并设定其种子后，会自动以异步方式将主数据库的更新复制到辅助数据库。 异步复制是指先在主数据库上提交事务，然后将事务复制到辅助数据库。
+  只能通过添加到现有数据库来创建辅助数据库。 辅助数据库可在任何 Azure SQL 数据库服务器中创建。 创建完成之后，使用从主数据库复制的数据填充辅助数据库。 这个过程称为种子设定。 创建辅助数据库并设定其种子后，会自动以异步方式将主数据库的更新复制到辅助数据库。 异步复制是指先在主数据库上提交事务，然后将事务复制到辅助数据库。
 
 - **可读取的辅助数据库**
 

@@ -16,12 +16,12 @@ origin.date: 05/31/2017
 ms.date: 11/09/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 92451ac2aa86cfa853267beace3094781b25bad2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 76cb132f28a22a1f0c886a249bc1592f7754dff9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627126"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>与 Azure AD 联合的多域支持
 以下文档提供了有关与 Office 365 或 Azure AD 域联合时如何使用多个顶级域和子域的指导。
@@ -137,7 +137,7 @@ ms.locfileid: "52643511"
 ## <a name="support-for-subdomains"></a>对子域的支持
 添加子域时，因为 Azure AD 处理域的方式，导致子域继承父项的设置。  因此，IssuerUri 需要与父项匹配。
 
-例如，假设我有 bmcontoso.com，后来又添加了 corp.bmcontoso.com。  corp.bmcontoso.com 中的用户的 IssuerUri 将需要是 **http://bmcontoso.com/adfs/services/trust。**  但是，为 Azure AD 实现的上述标准规则将生成颁发者为 **http://corp.bmcontoso.com/adfs/services/trust 的令牌。** 这与域的所需值不匹配，身份验证将失败。
+例如，假设我有 bmcontoso.com，后来又添加了 corp.bmcontoso.com。  corp.bmcontoso.com 中的用户的 IssuerUri 将需要是 **<http://bmcontoso.com/adfs/services/trust>。**  但是，为 Azure AD 实现的上述标准规则将生成颁发者为 **<http://corp.bmcontoso.com/adfs/services/trust> 的令牌。** 这与域的所需值不匹配，身份验证将失败。
 
 ### <a name="how-to-enable-support-for-subdomains"></a>如何启用对子域的支持
 若要避免此行为，需要更新 Microsoft Online 的 AD FS 信赖方信任。  为此，必须配置自定义声明规则，使其在构造自定义 Issuer 值时能够从用户的 UPN 后缀中删除任何子域。
@@ -169,7 +169,7 @@ ms.locfileid: "52643511"
 ## <a name="next-steps"></a>后续步骤
 安装 Azure AD Connect 后，可以[验证安装并分配许可证](how-to-connect-post-installation.md)。
 
-若要了解在安装过程中启用的这些功能，请参阅[自动升级](how-to-connect-install-automatic-upgrade.md)和[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
+若要了解在安装过程中启用的这些功能，请参阅：[自动升级](how-to-connect-install-automatic-upgrade.md)和[防止意外删除](how-to-connect-sync-feature-prevent-accidental-deletes.md)。
 
 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](how-to-connect-sync-feature-scheduler.md)。
 

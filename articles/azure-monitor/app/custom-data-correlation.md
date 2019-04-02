@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 564aba62afcc491e3a2ec258aca47e1900287463
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 255918131da4eb9a6bd84cd34d5d4dbeee9954d5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627083"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>将 Application Insights 数据与自定义数据源相关联
 
@@ -44,7 +44,7 @@ Application Insights 收集多种不同的数据类型：异常、跟踪、页�
 
 - 对于同步机制，可以直接调用数据收集器 API，也可以使用逻辑应用连接器 - 只需查找“Azure Log Analytics”并选取“发送数据”选项即可：
 
- ![“选择操作”的屏幕截图](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![“选择操作”的屏幕截图](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 
 ## <a name="correlating-data"></a>关联数据

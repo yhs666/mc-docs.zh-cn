@@ -3,36 +3,30 @@ title: 使用参考数据在 Azure 流分析中查找
 description: 本文介绍如何使用参考数据在 Azure 流分析作业的查询设计中查找或关联数据。
 services: stream-analytics
 author: lingliw
-ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/25/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 9a6f9e5d039220affa8ddba9be285e6fea9202bb
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.date: 01/29/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 0161629faf5b66e6e879b6c79a00a7440389e002
+ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219570"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58545268"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
 参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层，并且通过 Azure 数据工厂，可以将引用数据转换和/或复制到 Azure Blob 存储。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
 
-流分析支持**最大大小为 300 MB** 的参考数据。 只有简单的查询才能达到参考数据最大大小 300 MB 限制。 随着查询复杂性增加以包括有状态处理（如开窗聚合、临时联接接和临时分析函数），预计参考数据的最大支持大小将减少。 如果 Azure 流分析无法加载参考数据并执行复杂操作，则作业将耗尽内存并失败。 在这种情况下，SU % 利用率指标将达到 100%。    
 
-|**流单元数**  |**大约支持的最大大小（以 MB 为单位）**  |
-|---------|---------|
-|1   |50   |
-|3   |150   |
-|至少 6   |300   |
 
-作业增加的流单元数量超过 6 不会增加参考数据支持的最大大小。
+## <a name="azure-blob-storage"></a>Azure Blob 存储
 
-对压缩的支持不可用于参考数据。 
+引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
 
-## <a name="configuring-reference-data"></a>配置引用数据
+### <a name="configure-blob-reference-data"></a>配置 blob 参考数据
+
 若要配置引用数据，首先需要创建一个属于 **引用数据**类型的输入。 下表介绍你在根据属性说明创建引用数据输入时需要提供的每个属性：
 
 |**属性名称**  |**说明**  |
@@ -47,7 +41,8 @@ ms.locfileid: "53219570"
 |事件序列化格式   | 为确保查询按预计的方式运行，流分析需要了解你对传入数据流使用哪种序列化格式。 对于引用数据，所支持的格式是 CSV 和 JSON。  |
 |编码   | 目前只支持 UTF-8 这种编码格式。  |
 
-## <a name="static-reference-data"></a>静态参考数据
+### <a name="static-reference-data"></a>静态参考数据
+
 如果不希望参考数据发生变化，则可以通过在输入配置中指定静态路径来启用对静态参考数据的支持。 Azure 流分析从指定路径中获取 Blob。 不需要 {date} 和 {time} 替换令牌。 参考数据在流分析中不可变。 因此，不建议覆盖静态参考数据 Blob。
 
 ## <a name="generating-reference-data-on-a-schedule"></a>按计划生成引用数据

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 01/17/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 316b8ba252b414695e24b9d032c7680698de3583
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 031dfec7ffe1e2cc296bd933dfd10f66f04e8d0e
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833295"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624116"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "56833295"
 * 一个 Azure 帐户。
 * 一个媒体服务帐户。    若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 设置开发环境。 有关详细信息，请参阅[设置环境](media-services-set-up-computer.md)。
-* 网络摄像机。 例如， [Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
+* 网络摄像机。 例如， [Telestream Wirecast 编码器](https://www.telestream.net/wirecast/overview.htm)。
 
 建议阅读以下文章：
 

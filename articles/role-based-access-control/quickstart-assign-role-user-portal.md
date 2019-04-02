@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 02/22/2019
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: dc33ae82bb00e443524e8c37daf725a36fea02aa
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 39391e27004306f31b4d055f4a32d8c1fbd2a031
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318918"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505533"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>教程：使用 RBAC 和 Azure 门户授予用户对 Azure 资源的访问权限
 
@@ -35,7 +35,7 @@ ms.locfileid: "58318918"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+通过 https://portal.azure.cn 登录到 Azure 门户。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -119,4 +119,4 @@ ms.locfileid: "58318918"
 > [教程：使用 RBAC 和 Azure PowerShell 授予用户对 Azure 资源的访问权限](tutorial-role-assignments-user-powershell.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

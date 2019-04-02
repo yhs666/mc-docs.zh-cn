@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 32ec53b618a7e1d324bb821f1d7c533c01867cac
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 004dff4f6a95c0048fe808373f3d6b9b8b7d272a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905362"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625375"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -57,8 +57,8 @@ ms.locfileid: "56905362"
 
 如果你的 Azure Stack 使用 Azure AD 作为标识存储，则可以通过 Azure 门户使用与 Azure 中相同的步骤来创建服务主体。
 
->[!NOTE]
-在开始创建服务主体之前，请检查你是否具有[所需的 Azure AD 权限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+> [!NOTE]
+> 在开始创建服务主体之前，请检查你是否具有[所需的 Azure AD 权限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ### <a name="create-service-principal"></a>创建服务主体
 
@@ -81,8 +81,8 @@ ms.locfileid: "56905362"
 
 4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
 
->[!IMPORTANT]
-保存密钥后，将显示密钥**值**。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
+> [!IMPORTANT]
+> 保存密钥后，将显示密钥**值**。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
 
 ![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principals/image15.png)
 
@@ -102,8 +102,8 @@ ms.locfileid: "56905362"
 
 要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
 
->[!NOTE]
-可以在订阅、资源组或资源级别设置角色的作用域。 较低级别的作用域会继承权限。 例如，如果应用具有某个资源组的“读者”角色，则意味着该应用可以读取该资源组中的任何资源。
+> [!NOTE]
+> 可以在订阅、资源组或资源级别设置角色的作用域。 较低级别的作用域会继承权限。 例如，如果应用具有某个资源组的“读者”角色，则意味着该应用可以读取该资源组中的任何资源。
 
 请使用以下步骤作为指南来为服务主体分配角色。
 

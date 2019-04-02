@@ -66,6 +66,8 @@ items:
       href: notification-hubs-tags-segment-push-message.md
     - name: 模板注册
       href: notification-hubs-templates-cross-platform-push-messages.md
+  - name: 安全模型
+    href: notification-hubs-push-notification-security.md
 - name: 操作指南
   items:
   - name: 更改定价层
@@ -76,6 +78,12 @@ items:
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
   - name: 发送预定通知
     href: notification-hubs-send-push-notifications-scheduled.md
+  - name: 使用 Azure PowerShell 部署和管理通知中心
+    href: notification-hubs-deploy-and-manage-powershell.md
+  - name: 安全地向用户推送通知
+    href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+  - name: 批量导出和导入注册数据
+    href: export-modify-registrations-bulk.md
   - name: 使用 SDK 创建通知中心
     items:
     - name: 创建通知中心 - .NET
@@ -116,9 +124,9 @@ items:
     href: https://feedback.azure.com/forums/218849-notification-hubs
   - name: 支持选项
     href: https://www.azure.cnhttps://www.azure.cn/support/contact/
-ms.openlocfilehash: f6e1f36ed297428ef8a195c7013c62dfce1f2f6f
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: c353c89e4329155ed135a6f8f783edbe536d34c8
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196604"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505522"

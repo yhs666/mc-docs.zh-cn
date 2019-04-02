@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/28/2017
 ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9475a8147edaf0a580a32c54d2660f829cd000f2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 61634182b6c93c2f2b7123f1637dddd21054d55a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675065"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625446"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中心发送云到设备的消息 (Java)
 
@@ -50,7 +50,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 * 最新的 [Java SE 开发工具包 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
-+ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个 [试用帐户][lnk-free-trial]。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个 [试用帐户][lnk-free-trial]。）
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模拟设备应用上接收消息
 
@@ -171,24 +171,24 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     ```cmd/sh
     mvn clean package -DskipTests
     ```
-## <a name="run-the-applications"></a>运行应用程序
-现在，已准备就绪，可以运行应用程序了。
+   ## <a name="run-the-applications"></a>运行应用程序
+   现在，已准备就绪，可以运行应用程序了。
 
-1. 在 simulated-device 文件夹的命令提示符处，运行以下命令以发送遥测数据至 IoT 中心并侦听中心发出的云到设备消息：
+10. 在 simulated-device 文件夹的命令提示符处，运行以下命令以发送遥测数据至 IoT 中心并侦听中心发出的云到设备消息：
 
-    ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
-    ```
+     ```cmd/sh
+     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+     ```
 
-    ![运行模拟设备应用](./media/iot-hub-java-java-c2d/receivec2d.png)
+     ![运行模拟设备应用](./media/iot-hub-java-java-c2d/receivec2d.png)
 
-2. 在 send-c2d-messages 文件夹的命令提示符处，运行以下命令以发送云到设备的消息并等待反馈确认：
+11. 在 send-c2d-messages 文件夹的命令提示符处，运行以下命令以发送云到设备的消息并等待反馈确认：
 
-    ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-    ```
+     ```cmd/sh
+     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+     ```
 
-    ![运行命令以发送“云到设备”消息](media/iot-hub-java-java-c2d/sendc2d.png)
+     ![运行命令以发送“云到设备”消息](media/iot-hub-java-java-c2d/sendc2d.png)
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，已学习如何发送和接收云到设备的消息。 

@@ -7,17 +7,18 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: quickstart
-origin.date: 12/03/2018
-ms.date: 12/31/2018
+origin.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: 0a68bc28c7efd7d5aa8649bd68a525d3371d0d28
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 14880ee05df2200e7bb53e9b0c0d1fa4f6774879
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814633"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626707"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 
@@ -43,7 +44,7 @@ ms.locfileid: "53814633"
 
    如果使用 Azure Stack 开发工具包 (ASDK)，可能无法访问 SSH 客户端。 如果需要一个客户端，有多个包含 SSH 客户端的包可供使用。 例如，PuTTY 包含 SSH 客户端和 SSH 密钥生成器 (puttygen.exe)。 有关可用包的详细信息，请阅读以下 Azure 文章：[如何在 Azure 上的 Windows 中使用 SSH 密钥](/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
 
-   本快速入门使用 PuTTY 生成 SSH 密钥并连接到 Linux 服务器虚拟机。 若要下载并安装 PuTTY，请转到 [http://www.putty.org/](http://www.putty.org)。
+   本快速入门使用 PuTTY 生成 SSH 密钥并连接到 Linux 服务器虚拟机。 若要下载并安装 PuTTY，请转到 [https://www.putty.org/](https://www.putty.org)。
 
 ## <a name="create-an-ssh-key-pair"></a>创建 SSH 密钥对
 
@@ -73,12 +74,12 @@ ms.locfileid: "53814633"
 2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。
    
    ![选择 Linux 服务器](media/azure-stack-quick-linux-portal/select.png)
-1. 单击**创建**。
+3. 单击**创建**。
 
 4. 键入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴保存的 SSH 公钥，然后单击“确定”。
 
-   >[!NOTE]
- 请确保删除密钥中的所有前导和尾随空格。
+   > [!NOTE]
+   > 请确保删除密钥中的所有前导和尾随空格。
 
    ![基本信息面板 - 配置虚拟机](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +89,10 @@ ms.locfileid: "53814633"
 
 6. 在“设置”页上，对默认设置进行任何所需的更改。
    
-    - 从 Azure Stack 版本1808 开始，可以配置**存储**，可以在其中选择使用“托管磁盘”。 在版本 1808 之前，只能使用非托管磁盘。    
-      ![为托管磁盘配置存储](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - 从 Azure Stack 版本1808 开始，可以配置**存储**，可以在其中选择使用“托管磁盘”。 在版本 1808 之前，只能使用非托管磁盘。    
+     ![为托管磁盘配置存储](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    配置准备就绪后，选择“确定”以继续。
+     配置准备就绪后，选择“确定”以继续。
 
 7. 在“摘要”页上，单击“确定”开始部署虚拟机。  
    ![部署](media/azure-stack-quick-linux-portal/deploy.png)

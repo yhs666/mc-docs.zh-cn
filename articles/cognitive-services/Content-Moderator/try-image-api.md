@@ -1,22 +1,22 @@
 ---
 title: 使用 API 控制台审查图像 - 内容审查器
 titlesuffix: Azure Cognitive Services
-description: 试用内容审查器 API 控制台中的图像审查工作流。
+description: 使用 Azure 内容审查器中的图像审查 API，可以启动图像内容的扫描和审阅式审查工作流。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-origin.date: 08/05/2017
-ms.date: 01/22/2019
+origin.date: 01/10/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: b08c28b1b92f6ec58b9a8ccadec10d24392b09b8
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 4c31818cd77c8af0bd677d6675da756a04025705
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858113"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505532"
 ---
 # <a name="moderate-images-from-the-api-console"></a>在 API 控制台中审查图像
 
@@ -27,57 +27,57 @@ ms.locfileid: "54858113"
 
 1. 转到[“图像审查 API 参考”](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)。
 
-    此时，“图像 - 评估”图像审查页打开。
+   此时，“图像 - 评估”图像审查页打开。
 
 2. 对于“开放 API 测试控制台”，选择与所在位置最相关的区域。 
 
-    ![试用“图像 - 评估”页上的区域选择](images/test-drive-region.png)
+   ![试用“图像 - 评估”页上的区域选择](images/test-drive-region.png)
   
-    此时，“图像 - 评估”API 控制台打开。
+   此时，“图像 - 评估”API 控制台打开。
 
 3. 在“Ocp-Apim-Subscription-Key”框中，输入订阅密钥。
 
-    ![试用“图像 - 评估”控制台上的订阅密钥输入](images/try-image-api-1.PNG)
+   ![试用“图像 - 评估”控制台上的订阅密钥输入](images/try-image-api-1.PNG)
 
 4. 在“请求正文”框中，使用默认示例图像，或指定要扫描的图像。 可以二进制位数据的形式提交图像本身，也可以指定图像的可公开访问 URL。 
 
-    对于本示例，在“请求正文”框中使用所提供的路径，再选择“发送”。 
+   对于本示例，在“请求正文”框中使用所提供的路径，再选择“发送”。 
 
-     ![试用“图像 - 评估”控制台上的“请求正文”](images/try-image-api-2.PNG)
+   ![试用“图像 - 评估”控制台上的“请求正文”](images/try-image-api-2.PNG)
 
-    此 URL 处的图像如下：
+   此 URL 处的图像如下：
 
-    ![试用“图像 - 评估”控制台上的示例图像](images/sample-image.jpg) 
+   ![试用“图像 - 评估”控制台上的示例图像](images/sample-image.jpg) 
 
 5. 选择“发送”。
 
 6. API 不仅返回每个分类的概率分数， 还返回确定图像是否符合条件的结果（“true”或“false”）。 
 
-    ![试用“图像 - 评估”控制台上的概率分数和条件确定](images/try-image-api-3.PNG)
+   ![试用“图像 - 评估”控制台上的概率分数和条件确定](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>人脸检测
 
 图像审查 API 可用于定位图像中的人脸。 若有隐私顾虑，并要防止某人脸出现在平台上，就会发现此选项十分有用。 
 
-1.  在[图像审查 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)的左侧菜单中，选择“图像”下的“查找人脸”。 
+1. 在[图像审查 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)的左侧菜单中，选择“图像”下的“查找人脸”。 
 
-    此时，“图像 - 查找人脸”页打开。
+   此时，“图像 - 查找人脸”页打开。
 
-2.  对于“开放 API 测试控制台”，选择与所在位置最相关的区域。 
+2. 对于“开放 API 测试控制台”，选择与所在位置最相关的区域。 
 
-    ![试用“图像 - 查找人脸”页上的区域选择](images/test-drive-region.png)
+   ![试用“图像 - 查找人脸”页上的区域选择](images/test-drive-region.png)
 
-    此时，“图像 - 查找人脸”API 控制台打开。
+   此时，“图像 - 查找人脸”API 控制台打开。
 
 3. 指定要扫描的图像。 可以二进制位数据的形式提交图像本身，也可以指定图像的可公开访问 URL。 本示例链接到 CNN 文章中使用的图像。
 
-    ![试用“图像 - 查找人脸”上的示例图像](images/try-image-api-face-image.jpg)
+   ![试用“图像 - 查找人脸”上的示例图像](images/try-image-api-face-image.jpg)
 
-    ![试用“图像 - 查找人脸”上的示例请求](images/try-image-api-face-request.png)
+   ![试用“图像 - 查找人脸”上的示例请求](images/try-image-api-face-request.png)
 
 4. 选择“发送”。 在本示例中，API 找到两张人脸，并返回它们在图像中的坐标。
 
-     ![试用“图像 - 查找人脸”上的示例“响应内容”框](images/try-image-api-face-response.png)
+   ![试用“图像 - 查找人脸”上的示例“响应内容”框](images/try-image-api-face-response.png)
 
 ## <a name="text-detection-via-ocr-capability"></a>通过 OCR 功能检测文本
 
@@ -85,13 +85,13 @@ ms.locfileid: "54858113"
 
 1. 在[图像审查 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)的左侧菜单中，选择“图像”下的“OCR”。 
 
-    此时，“图像 - OCR”页打开。
+   此时，“图像 - OCR”页打开。
 
 2. 对于“开放 API 测试控制台”，选择与所在位置最相关的区域。 
 
-    ![“图像 - OCR”页上的区域选择](images/test-drive-region.png)
+   ![“图像 - OCR”页上的区域选择](images/test-drive-region.png)
 
-  此时，“图像 - OCR”API 控制台打开。
+   此时，“图像 - OCR”API 控制台打开。
 
 3. 在“Ocp-Apim-Subscription-Key”框中，输入订阅密钥。
 
@@ -99,9 +99,10 @@ ms.locfileid: "54858113"
 
 5. 选择“发送”。 提取的文本用 JSON 显示：
 
-    ![“图像 - OCR”示例“响应内容”框](images/try-image-api-ocr.PNG)
+   ![“图像 - OCR”示例“响应内容”框](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>后续步骤
 
 若要与应用集成，请在代码中使用 REST API，或从[图像审查 .NET 快速入门](image-moderation-quickstart-dotnet.md)入手。
 
+<!-- Update_Description: wording update -->

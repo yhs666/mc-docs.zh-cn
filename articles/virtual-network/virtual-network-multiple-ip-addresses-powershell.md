@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/24/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 22ed8afed745da8c502bb1570a9f8fb3d4e87ca6
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: fe23c902fce3ce4105beabbe77ebf8ec2ece976a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306138"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625680"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 

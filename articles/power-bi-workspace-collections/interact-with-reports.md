@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 09/26/2018
 ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 418d2d464bd0a5de4eff287265d1904912054350
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 6540c1b20b24ec103fdf387554f0f99a50bd711a
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347088"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408256"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>使用 JavaScript API 与 Power BI 报表进行交互
 
@@ -44,29 +44,29 @@ iframe 使嵌入过程变得更容易，但是如果没有 JavaScript API，报�
 ### <a name="manage-reports"></a>管理报表
 使用此 Javascript API 可以管理在报表和页面级别发生的行为：
 
-- 在应用程序中安全地嵌入特定的 Power BI 报表 - 请尝试 [嵌入的演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+- 在应用程序中安全地嵌入特定的 Power BI 报表 - 请尝试 [嵌入的演示应用程序](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   - 设置访问令牌
 - 配置报表
-  - 启用和禁用筛选器窗格及页面导航窗格 - 请尝试 [更新设置演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  - 为页面和筛选器设置默认值 - 请尝试 [设置默认值演示](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  - 启用和禁用筛选器窗格及页面导航窗格 - 请尝试 [更新设置演示应用程序](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  - 为页面和筛选器设置默认值 - 请尝试 [设置默认值演示](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 - 进入和退出全屏模式
 
 [了解有关嵌入报表的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>导航到报表中的页面
-JavaScript API 能发现报表中的所有页并设置当前页。 请尝试 [导航演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario3)。
+JavaScript API 能发现报表中的所有页并设置当前页。 请尝试 [导航演示应用程序](https://azure-samples.github.io/powerbi-angular-client/#/scenario3)。
 
 [了解有关页面导航的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>筛选报表
-此 JavaScript API 针对嵌入的报表和报表页面提供了基本和高级筛选功能。 请尝试 [筛选演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)，并查看此处的一些入门代码。
+此 JavaScript API 针对嵌入的报表和报表页面提供了基本和高级筛选功能。 请尝试 [筛选演示应用程序](https://azure-samples.github.io/powerbi-angular-client/#/scenario4)，并查看此处的一些入门代码。
 
 #### <a name="basic-filters"></a>基本筛选器
 基本筛选器置于列或层次结构级别，包含要包括或排除的值的列表。
 
 ```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -95,7 +95,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"

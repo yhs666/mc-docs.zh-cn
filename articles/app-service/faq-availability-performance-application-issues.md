@@ -17,12 +17,12 @@ origin.date: 05/11/2018
 ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: d455e80d3aa0fc0639dae604ae215a10d6a3d5da
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: e6d3862d44885e3b3795f2ac5e5e01280224da16
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626655"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -104,15 +104,15 @@ ms.locfileid: "57347174"
 若要打开失败的请求跟踪，请执行以下操作：
 
 1. 在 Azure 门户中，转到自己的 Web 应用。
-3. 选择“所有设置” > “诊断日志”。
-4. 对于“失败的请求跟踪”，选择“打开”。
-5. 选择“其他安全性验证” 。
-6. 在 Web 应用边栏选项卡，选择“工具”。
-7. 选择“Visual Studio Online”。
-8. 如果设置不是“打开”，则选择“打开”。
-9. 选择“转到”。
-10. 选择 **Web.config**。
-11. 在 system.webServer 中，添加此配置（以捕获特定的 URL）：
+2. 选择“所有设置” > “诊断日志”。
+3. 对于“失败的请求跟踪”，选择“打开”。
+4. 选择“其他安全性验证” 。
+5. 在 Web 应用边栏选项卡，选择“工具”。
+6. 选择“Visual Studio Online”。
+7. 如果设置不是“打开”，则选择“打开”。
+8. 选择“转到”。
+9. 选择 **Web.config**。
+10. 在 system.webServer 中，添加此配置（以捕获特定的 URL）：
 
     ```xml
     <system.webServer>
@@ -129,7 +129,7 @@ ms.locfileid: "57347174"
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. 若要解决性能较低的问题，请添加此配置（如果捕获请求话费的时间超过 30 秒）：
+11. 若要解决性能较低的问题，请添加此配置（如果捕获请求话费的时间超过 30 秒）：
     ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
@@ -144,11 +144,11 @@ ms.locfileid: "57347174"
     </add> </traceFailedRequests>
     </tracing>
     ```
-13. 若要下载失败的请求跟踪，请在[门户](https://portal.azure.cn)中转到你的网站。
-15. 选择“工具” > “Kudu” > “转到”。
-18. 在菜单中，选择“调试控制台” > “CMD”。
-19. 选择“LogFiles”文件夹，然后选择名称以“W3SVC”开头的文件夹。
-20. 若要查看 XML 文件，请选择铅笔图标。
+12. 若要下载失败的请求跟踪，请在[门户](https://portal.azure.cn)中转到你的网站。
+13. 选择“工具” > “Kudu” > “转到”。
+14. 在菜单中，选择“调试控制台” > “CMD”。
+15. 选择“LogFiles”文件夹，然后选择名称以“W3SVC”开头的文件夹。
+16. 若要查看 XML 文件，请选择铅笔图标。
 
 ## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>看到消息“由于‘内存百分比’限制工作进程请求回收。” 如何解决此问题？
 

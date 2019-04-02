@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/19/2018
-ms.date: 12/31/2018
-ms.custom: seodec18
+ms.date: 04/08/2019
 ms.author: v-biyu
-ms.openlocfilehash: 8c0eae2f2e21aac614ad91a9a0d4df0171d67b93
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.custom: seodec18
+ms.openlocfilehash: 9be4448fbc92509669289a38ff7676046b65684f
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735204"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505446"
 ---
-# <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>将应用服务应用配置为使用 Azure Active Directory 登录
+# <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>将应用服务应用配置为使用 Azure Active Directory 登录
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 本文说明如何将 Azure 应用服务配置为使用 Azure Active Directory 作为身份验证提供程序。
 
-## <a name="express"> </a>使用快速设置配置 Azure Active Directory
+## <a name="express"> </a>使用快速设置进行配置
+
 1. 在 [Azure 门户]中，导航到应用服务应用。 在左侧导航栏中，选择“身份验证/授权”。
 2. 如果尚未启用“身份验证/授权”，请选择“启用”。
 3. 选择“Azure Active Directory”，然后选择“管理模式”下的“快速”。
@@ -40,17 +41,19 @@ ms.locfileid: "53735204"
 
 现在，可以使用 Azure Active Directory 在应用服务应用中进行身份验证。
 
-## <a name="advanced"></a>（备选方法）使用高级设置手动配置 Azure Active Directory
-也可以选择手动提供配置设置。 如果要使用的 AAD 租户不同于登录 Azure 所用的租户，这是较好的解决方案。 如果要完成配置，必须先在 Azure Active Directory 中创建注册，然后向应用服务提供一些注册详细信息。
+## <a name="advanced"> </a>使用高级设置进行配置
+
+也可以手动提供配置设置。 如果要使用的 Azure Active Directory 租户不同于登录 Azure 所用的租户，这是较好的解决方案。 如果要完成配置，必须先在 Azure Active Directory 中创建注册，然后向应用服务提供一些注册详细信息。
 
 ### <a name="register"> </a>向 Azure Active Directory 注册应用服务应用
+
 1. 登录 [Azure 门户]，并导航到应用服务应用。 复制应用 URL。 稍后要使用此信息配置 Azure Active Directory 应用注册。
 2. 导航到“Active Directory”，选择“应用注册”，然后单击顶部的“新建应用程序注册”，开始新的应用注册。 
 3. 在“创建”页中，输入应用注册的“名称”，选择“Web 应用/API”类型，在“登录 URL”框中粘贴应用程序 URL（来自于步骤 1）。 然后单击“创建”。
 4. 几秒钟后即可看到刚刚创建的新应用注册。
 5. 添加应用注册后，单击应用注册名称，单击顶部的“设置”，然后单击“属性” 
 6. 在“应用 ID URI”框中，粘贴应用程序 URL（参见步骤 1），并在“主页 URL”中粘贴应用程序 URL（参见步骤 1），然后单击“保存”
-7. 现在，单击“答复 URL”，编辑“答复 URL”，粘贴应用程序 URL（来自于步骤 1），修改协议，确保具有 https:// 协议（非 http:// ），然后在 URL 末尾追加 /.auth/login/aad/callback（例如 `https://contoso.chinacloudsites.cn/.auth/login/aad/callback`）。 单击“保存” 。   
+7. 现在，单击“答复 URL”，编辑“答复 URL”，粘贴应用程序 URL（来自于步骤 1），然后在 URL 末尾追加 /.auth/login/aad/callback（例如 `https://contoso.chinacloudsites.cn/.auth/login/aad/callback`）。 单击“保存” 。   
 8.  此时请复制应用的应用程序 ID。 保留此 ID 供将来使用。 需要使用它来配置应用服务应用。
 9. 关闭“已注册应用”页。 在“应用注册”页中，单击顶部的“终结点”按钮，然后复制“联合元数据文档”URL。 
 10. 打开新的浏览器窗口并导航到该 URL，只需进行粘贴并浏览到 XML 页即可。 文档顶部是 **EntityDescriptor** 元素。 找到 **entityID** 属性，并复制其值。 它可作为**颁发者 URL**。 稍后配置应用程序时要用到此信息。
@@ -62,8 +65,8 @@ ms.locfileid: "53735204"
 
 现在，可以使用 Azure Active Directory 在应用服务应用中进行身份验证。
 
-## <a name="optional-configure-a-native-client-application"></a>（可选）配置本机客户端应用程序
-Azure Active Directory 还允许注册权限映射控制度更高的本机客户端。 如果想要使用 **Active Directory 身份验证库**等库执行登录，则需要这种注册。
+## <a name="configure-a-native-client-application"></a>配置本机客户端应用程序
+可以注册权限映射控制度更高的本机客户端。 如果想要使用 Active Directory 身份验证库等客户端库进行登录，则需要这种注册。
 
 1. 在 [Azure 门户]中，导航到“Active Directory”。
 2. 在左侧导航栏中，选择“应用注册”。 在顶部单击“新建应用注册”。

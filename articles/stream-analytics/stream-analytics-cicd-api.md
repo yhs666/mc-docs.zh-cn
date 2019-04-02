@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/21/19
-ms.openlocfilehash: e484f65e878fec3a1d20b6f98d370703a05cfef6
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+ms.openlocfilehash: 6346a8d213b9825f742099263a57da4ef2bea284
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363703"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544808"
 ---
-# <a name="implement-cicd-for-stream-analytics-using-apis"></a>使用 API 实现流分析的 CI/CD
+# <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>使用 API 实现 IoT Edge 流分析的 CI/CD
 
 可使用 REST API 启用 Azure 流分析作业的持续集成和部署管道。 本文举例说明该使用哪些 API 及其具体用法。 Azure Cloud Shell 不支持 REST API。
 
@@ -261,7 +261,3 @@ curl -d –X GET https://management.chinacloudapi.cn/subscriptions/{subscription
 * [Azure IoT Edge 流分析](stream-analytics-edge.md)
 * [IoT Edge 教程上的 ASA ](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [使用 Visual Studio 工具开发流分析 Edge 作业](stream-analytics-tools-for-visual-studio-edge-jobs.md)
-
-
-
-

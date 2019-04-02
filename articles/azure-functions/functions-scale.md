@@ -14,12 +14,12 @@ origin.date: 02/28/2019
 ms.date: 03/20/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d2a48148e57625640810614cb5e1faf084df2
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: e11c3fe6fed009bc59320493b8919078ae1d394a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256359"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626550"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -56,7 +56,7 @@ VM 使得成本不再取决于执行数量、执行时间和所用内存。 因�
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-###<a name="always-on"></a> Always On
+### <a name="always-on"></a> Always On
 
 如果在应用服务计划上运行，应启用 AlwaysOn 设置，使函数应用能正常运行。 在应用服务计划中，如果函数运行时处于不活动状态，几分钟后就会进入空闲状态，因此只有 HTTP 触发器才能“唤醒”函数。 只能对应用服务计划使用始终可用。 
 

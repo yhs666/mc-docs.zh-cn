@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: e7e598b6033995d175a047912fb0155c8406b6a7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: a687330596d16a56f9baf7d080a1bef5729b27c8
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672563"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624152"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure Media Encoder Standard 自动生成比特率阶梯
+#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure Media Encoder Standard 自动生成比特率阶梯  
 
 ## <a name="overview"></a>概述
 

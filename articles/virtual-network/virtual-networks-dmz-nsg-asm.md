@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/03/2017
 ms.date: 02/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: fe26c737634744ee9bed8f1d6879d89acb3cc0b4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 43c134bf92c7b2f2cf6f08e6839bbbe2bff9f393
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655119"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625980"
 ---
 # <a name="example-1---build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>示例 1 - 将 NSG 与经典 PowerShell 配合使用，构建简单的外围网络
 
@@ -98,15 +98,15 @@ ms.locfileid: "52655119"
    * "Priority" 设置流量的评估顺序。 编号越低，优先级就越高。 将某个规则应用于特定的流量后，就不再处理其他规则。 因此，如果优先级为 1 的规则允许流量，优先级为 2 的规则拒绝流量，并将这两个规则同时应用于流量，则允许流量流动（规则 1 的优先级更高，因此将发生作用，并且不再应用其他规则）。
    * "Action" 表示是阻止还是允许受此规则影响的流量。
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. 此规则允许 RDP 流量从 Internet 发往绑定子网上任何服务器的 RDP 端口。 此规则使用两种特殊地址前缀：“VIRTUAL_NETWORK”和“INTERNET”。 这些标记可以方便地用于较大类别地址前缀的寻址。
 
@@ -574,7 +574,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 ```
 
 #### <a name="sample-application-scripts"></a>示例应用程序脚本
-如果需要为其安装示例应用程序和其他外围网络示例，以下链接提供了所需示例： [应用程序脚本示例][SampleApp]
+如果希望为此外围网络示例以及其他外围网络示例安装一个示例应用程序，可以使用以下链接上提供的应用程序：[示例应用程序脚本][SampleApp]
 
 ## <a name="next-steps"></a>后续步骤
 * 更新和保存 XML 文件

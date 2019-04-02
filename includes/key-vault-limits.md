@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: d83c772fdc97eda11dec79c6ae7a928872f1a6ee
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632955"
+---
 密钥事务数（每个区域的每个保管库在 10 秒内允许的事务数上限<sup>1</sup>）：
 
 |密钥类型|HSM-Key<br>CREATE 密钥|HSM-key<br>所有其他事务|Software-key<br>CREATE 密钥|Software-key<br>所有其他事务|
@@ -12,6 +20,7 @@
 |
 
 机密、托管存储帐户密钥，以及保管库事务：
+
 | 事务类型 | 每个区域的每个保管库在 10 秒内允许的事务数上限<sup>1</sup> |
 | --- | --- |
 | 所有事务 |2000 |

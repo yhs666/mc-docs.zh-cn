@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 12/26/2018
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 103693f23482373d2eef844faa0e13575fdddaae
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: b70f72ee100293c7eb5d91c400a2af1751e1506f
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806565"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408302"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 通知中心输出绑定
 
@@ -43,12 +43,12 @@ ms.locfileid: "53806565"
 
 参阅语言特定的示例：
 
-- [C# 脚本 - out 参数](#c-script-template-example---out-parameter)
-- [C# 脚本 - 异步](#c-script-template-example---asynchronous)
-- [C# 脚本 - JSON](#c-script-template-example---json)
-- [C# 脚本 - 库类型](#c-script-template-example---library-types)
-- [F#](#f-template-example)
-- [JavaScript](#javascript-template-example)
+* [C# 脚本 - out 参数](#c-script-template-example---out-parameter)
+* [C# 脚本 - 异步](#c-script-template-example---asynchronous)
+* [C# 脚本 - JSON](#c-script-template-example---json)
+* [C# 脚本 - 库类型](#c-script-template-example---library-types)
+* [F#](#f-template-example)
+* [JavaScript](#javascript-template-example)
 
 ### <a name="c-script-template-example---out-parameter"></a>C# 脚本模板示例 - out 参数
 
@@ -154,7 +154,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node.js is running late!');
     }
@@ -310,4 +310,4 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

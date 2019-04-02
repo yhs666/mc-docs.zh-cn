@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 03/11/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 98457aade2f1168108d98cc1f6a21327a257689f
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 08c1a3dc0981831a672f6fc881190571dc0de4ed
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625534"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
 
@@ -886,7 +886,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
 * 若要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
-<!--Not Available on * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md)-->
+  <!--Not Available on * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md)-->
 * 有关如何创建可以跨所有 Azure 环境和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
 
 <!--Update_Description: update meta properties, wording update, add comments section -->

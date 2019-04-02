@@ -11,12 +11,12 @@ origin.date: 12/06/2018
 ms.date: 01/07/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: cd81512742854aa2d3bad92bf90236c6a0095df4
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 5f4dee6b41b61efbc5de898818f0538ebe837a30
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083553"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626465"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure 认知服务的自然语言支持
 
@@ -48,8 +48,8 @@ ms.locfileid: "54083553"
 
 ### <a name="vision"></a>影像
 
-| | 阿拉伯语 | 保加利亚语 | 加泰罗尼亚语 | 克罗地亚语 | 捷克语 | 丹麦语 | 荷兰语 | 爱沙尼亚语 | 芬兰语 | 希腊语 | 印地语 | 匈牙利语 | 冰岛语 | 印度尼西亚语 | 拉脱维亚语 | 立陶宛语 | 马来语 | 挪威语 | 波兰语 | 罗马尼亚语 | 俄语 | 塞尔维亚语 | 斯洛伐克语 | 斯洛文尼亚语 | 瑞典语 | 泰米尔语 | 泰语 | 土耳其语 | 乌克兰语 | 越南语 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|                                                                 |       阿拉伯语       |     保加利亚语      |      加泰罗尼亚语       |      克罗地亚语      |       捷克语        |       丹麦语       |       荷兰语        |      爱沙尼亚语      |      芬兰语       |       希腊语        |       印地语        |     匈牙利语      |     冰岛语      |     印度尼西亚语     |      拉脱维亚语       |     立陶宛语     |       马来语        |     挪威语      |       波兰语       |      罗马尼亚语      |      俄语       |      塞尔维亚语       |       斯洛伐克语       |     斯洛文尼亚语      |      瑞典语       |       泰米尔语        |        泰语        |      土耳其语       |     乌克兰语      |     越南语     |
+|-----------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
 | [计算机视觉：OCR](/cognitive-services/computer-vision/faq) | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: |
 
 ## <a name="see-also"></a>另请参阅

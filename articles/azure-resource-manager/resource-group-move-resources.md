@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 02/28/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7cd5722f93a4cb23e3b4bf4dd9e5de832aa58212
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 4474e5ea20f59324b2294209df0ce8da3a9a8695
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348073"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626575"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -59,63 +59,63 @@ ms.locfileid: "58348073"
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书 - 请参阅[应用服务证书限制](#app-service-certificate-limitations)
 * 自动化 - Runbook 必须与自动化帐户存在于同一资源组中。
-<!-- Not Available * Azure Active Directory B2C-->
+  <!-- Not Available * Azure Active Directory B2C-->
 * Azure Redis 缓存 - 如果 Azure Redis 缓存实例配置了虚拟网络，则实例无法被移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
-<!-- Not Available * Azure DevOps-->
-<!-- Not Available * Azure Maps-->
-<!-- Not Available * Azure Relay-->
+  <!-- Not Available * Azure DevOps-->
+  <!-- Not Available * Azure Maps-->
+  <!-- Not Available * Azure Relay-->
 * Azure Stack - 注册
 * 批处理
-<!-- Not Available * BizTalk Services-->
-<!-- Not Available * Bot Service-->
+  <!-- Not Available * BizTalk Services-->
+  <!-- Not Available * Bot Service-->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
 * 容器注册表 - 启用异地复制后无法移动容器注册表。
 * 内容审查器
-<!-- Not Available * Cost Management-->
-<!-- Not Available * Customer Insights-->
-<!-- Not Available * Data Catalog-->
-<!-- Not Available * Data Factory-->
-<!-- Not Available * Data Lake Analytics-->
-<!-- Not Available * Data Lake Store-->
-<!-- Not Available * DNS-->
-<!-- Not Available * Event Grid-->
+  <!-- Not Available * Cost Management-->
+  <!-- Not Available * Customer Insights-->
+  <!-- Not Available * Data Catalog-->
+  <!-- Not Available * Data Factory-->
+  <!-- Not Available * Data Lake Analytics-->
+  <!-- Not Available * Data Lake Store-->
+  <!-- Not Available * DNS-->
+  <!-- Not Available * Event Grid-->
 * 事件中心
-<!-- Not Available * Front Door-->
+  <!-- Not Available * Front Door-->
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
-<!-- Not Available * Iot Central-->
+  <!-- Not Available * Iot Central-->
 * IoT 中心
 * Key Vault - 用于磁盘加密的 Key Vault 不能移动到同一订阅中的资源组，也不能跨订阅移动。
 * 负载均衡器 - 可以移动基本 SKU 负载均衡器。 不能移动标准 SKU 负载均衡器。
-<!-- Not Available * Log Analytics-->
+  <!-- Not Available * Log Analytics-->
 * Logic Apps
-<!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
-<!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
-<!-- Not Available * Managed Identity - user-assigned-->
+  <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+  <!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
+  <!-- Not Available * Managed Identity - user-assigned-->
 * 媒体服务
 * 监视器 - 确保移动到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#monitor-limits)
 * 通知中心
-<!-- Not Available * Operational Insights-->
-<!-- Not Available * Operations Management-->
+  <!-- Not Available * Operational Insights-->
+  <!-- Not Available * Operations Management-->
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 可以移动基本 SKU 公共 IP。 不能移动标准 SKU 公共 IP。
-<!--MOONCAKE: Not Available on * Recovery Services vault - enroll in a [preview](#recovery-services-limitations)-->
+  <!--MOONCAKE: Not Available on * Recovery Services vault - enroll in a [preview](#recovery-services-limitations)-->
 * 计划程序
-<!-- Not Available * Search-->
+  <!-- Not Available * Search-->
 * 服务总线
 * Service Fabric
-<!-- Not Available * Service Fabric Mesh-->
-<!-- Not Available * SignalR Service-->
+  <!-- Not Available * Service Fabric Mesh-->
+  <!-- Not Available * SignalR Service-->
 * 存储 - 不同区域的存储帐户无法通过同一操作进行移动。 请改为对每个区域使用单独的操作。
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
-<!-- Not Available * Time Series Insights-->
+  <!-- Not Available * Time Series Insights-->
 * 流量管理器
 * 虚拟机 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -130,27 +130,27 @@ ms.locfileid: "58348073"
 <!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
 * 应用程序网关
-<!-- Not Available * Azure Database Migration-->
-<!-- Not Available * Azure Databricks-->
-<!-- Not Available * Azure Firewall-->
-<!-- Not Available * Azure Migrate-->
-<!-- Not Available * Azure NetApp Files-->
+  <!-- Not Available * Azure Database Migration-->
+  <!-- Not Available * Azure Databricks-->
+  <!-- Not Available * Azure Firewall-->
+  <!-- Not Available * Azure Migrate-->
+  <!-- Not Available * Azure NetApp Files-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
-<!-- Not Available * Container Instances-->
-<!-- Not Available * Container Service-->
-<!-- Not Available * Data Box-->
-<!-- Not Available * Dev Spaces-->
-<!-- Not Available * Dynamics LCS-->
+  <!-- Not Available * Container Instances-->
+  <!-- Not Available * Container Service-->
+  <!-- Not Available * Data Box-->
+  <!-- Not Available * Dev Spaces-->
+  <!-- Not Available * Dynamics LCS-->
 * Express Route
-<!-- Not Available * Kubernetes Service-->
-<!-- Not Available * Lab Services-->
-<!-- Not Available * Managed Applications-->
-<!-- Not Available * Azure Genomics-->
-<!-- Not Available * NetApp-->
-<!-- Not Available * SAP HANA on Azure-->
+  <!-- Not Available * Kubernetes Service-->
+  <!-- Not Available * Lab Services-->
+  <!-- Not Available * Managed Applications-->
+  <!-- Not Available * Azure Genomics-->
+  <!-- Not Available * NetApp-->
+  <!-- Not Available * SAP HANA on Azure-->
 * 安全性
 * 站点恢复
-<!-- Not Available * StorSimple Device Manager-->
+  <!-- Not Available * StorSimple Device Manager-->
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
 ## <a name="limitations"></a>限制
@@ -353,27 +353,27 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”作为问题类型。
 
-1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
+2. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
 
-  对于 Azure PowerShell，请使用：
+   对于 Azure PowerShell，请使用：
 
-  ```powershell
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```powershell
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  对于 Azure CLI，请使用：
+   对于 Azure CLI，请使用：
 
-  ```azurecli
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  <!--Not Available on If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:-->
-  <!--Not Available on [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)-->
-  <!--Not Available on [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
+   <!--Not Available on If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:-->
+   <!--Not Available on [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)-->
+   <!--Not Available on [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
 
-1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
+3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
 
     对于 PowerShell，请使用以下命令来获取注册状态：
 
@@ -401,16 +401,16 @@ _在订阅之间_移动 Web 应用时存在以下限制：
     az provider register --namespace Microsoft.Batch
     ```
 
-1. 移动资源的帐户至少需要具备下列权限：
+4. 移动资源的帐户至少需要具备下列权限：
 
     * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
     * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
 
-1. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
+5. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
-1. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中有 800 多项资源时，资源管理器会立即返回错误。 但是，移动 800 项以下的资源也可能因超时而失败。
+6. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中有 800 多项资源时，资源管理器会立即返回错误。 但是，移动 800 项以下的资源也可能因超时而失败。
 
-1. 服务必须支持移动资源的功能。 若要确定移动是否会成功，[验证你的移动请求](#validate-move)。 请参阅本文中的以下部分，了解[支持对资源进行移动的服务](#services-that-can-be-moved)和[不支持对资源进行移动的服务](#services-that-cannot-be-moved)。
+7. 服务必须支持移动资源的功能。 若要确定移动是否会成功，[验证你的移动请求](#validate-move)。 请参阅本文中的以下部分，了解[支持对资源进行移动的服务](#services-that-can-be-moved)和[不支持对资源进行移动的服务](#services-that-cannot-be-moved)。
 
 ## <a name="validate-move"></a>验证移动
 

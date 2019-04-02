@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 02/06/2019
-ms.date: 03/01/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2939520efd782262c4227d2ac9aa1e96dac40889
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 5664d54b07771b3b8d7ce4347ea836aa50b9869e
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204067"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505501"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入门：使用人脸 .NET SDK 检测图像中的人脸
 
@@ -35,6 +35,9 @@ ms.locfileid: "57204067"
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
 1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”。 单击“浏览”选项卡，选择“包括预发行版”，然后找到并安装以下包：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>添加人脸检测代码
 
@@ -201,4 +204,4 @@ Male 37   Female 56
 > [!div class="nextstepaction"]
 > [教程：创建一个用于检测和分析图像中人脸的 WPF 应用](../Tutorials/FaceAPIinCSharpTutorial.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

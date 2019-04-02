@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 08/08/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: f28eb0739193ca292e5724f2561ea9a2f77afb30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3e604ba5a3a1bb0e9a9170c217975f167390015e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644053"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626351"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的虚拟机
 
@@ -72,7 +72,7 @@ ms.locfileid: "52644053"
     ![查看公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
-不要修改虚拟机的操作系统中的 IP 地址设置。 操作系统不知道 Azure 公共 IP 地址。 虽然可以向操作系统添加专用 IP 地址设置，但除非必要，否则我们建议不要这样做，而只能阅读[向操作系统添加专用 IP 地址](virtual-network-network-interface-addresses.md#private)之后才执行此操作。
+> 不要修改虚拟机的操作系统中的 IP 地址设置。 操作系统不知道 Azure 公共 IP 地址。 虽然可以向操作系统添加专用 IP 地址设置，但除非必要，否则我们建议不要这样做，而只能阅读[向操作系统添加专用 IP 地址](virtual-network-network-interface-addresses.md#private)之后才执行此操作。
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 15a0b2e5f51cfc38c87cabebc4834cb557bcfc9a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: da6a148892d4af7ae0faeac26767e90e19ff393b
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964432"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505511"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>快速入门：使用 Go 通过文本翻译 API 获取受支持语言的列表
 
@@ -30,7 +30,7 @@ ms.locfileid: "57964432"
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
-使用最喜欢的 IDE 或编辑器创建新的 Go 项目。 然后，将此代码片段复制到项目的名为 `get-languages.go` 的文件中。
+使用喜欢的 IDE 或编辑器创建新的 Go 项目，或在桌面上创建新的文件夹。 然后，将此代码片段复制到项目/文件夹的 `get-languages.go` 文件中。
 
 ```go
 package main
@@ -136,6 +136,8 @@ go run get-languages.go
 
 ## <a name="sample-response"></a>示例响应
 
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+
 成功的响应以 JSON 格式返回，如以下示例所示：
 
 ```json
@@ -239,3 +241,4 @@ go run get-languages.go
 * [获取备用翻译](quickstart-go-dictionary.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 
+<!-- Update_Description: wording update -->

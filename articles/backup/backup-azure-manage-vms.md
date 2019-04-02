@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b119b6152f068f6953a34a334ee7bd31abcd39bd
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: ccdbc230532872609df40fc069300bf996538a90
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987016"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627729"
 ---
 # <a name="manage-azure-vm-backups"></a>管理 Azure VM 备份
 
@@ -83,11 +83,11 @@ ms.locfileid: "56987016"
 
     ![“立即备份”按钮](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. 单击“是”启动备份作业。
+   1. 单击“是”启动备份作业。
 
-    ![“立即备份”按钮](./media/backup-azure-manage-vms/backup-now-check.png)
+      ![“立即备份”按钮](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    备份作业将创建恢复点。 恢复点保留期范围与在虚拟机的关联策略中指定的保留期范围相同。 若要跟踪作业进度，请在保管库仪表板中，单击“备份作业”磁贴。  
+      备份作业将创建恢复点。 恢复点保留期范围与在虚拟机的关联策略中指定的保留期范围相同。 若要跟踪作业进度，请在保管库仪表板中，单击“备份作业”磁贴。  
 
 ## 停止保护 VM <a name="stop-protecting-virtual-machines"></a>
 
@@ -109,7 +109,7 @@ ms.locfileid: "56987016"
 
     ![停止保护](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
- 可以通过通知消息了解到备份作业已停止。
+   可以通过通知消息了解到备份作业已停止。
 
 
 ## <a name="resume-protection-of-a-vm"></a>恢复对 VM 的保护

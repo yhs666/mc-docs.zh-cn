@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 6/5/2018
 ms.date: 01/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bd62aeff56f7342dc462595a9f80b742665c09f4
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 0d286b0ccf738b00e060238fc4abffc8a08f26a7
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987052"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544790"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 
@@ -336,7 +336,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
-- \*.microsoftonline.com
+- \*.partner.microsoftonline.cn
 - \*.chinacloudapi.cn
 
 在 Azure 备份服务器上恢复与 Azure 的连接后，Azure 订阅状态将确定可执行的操作。 服务器变为“已连接”状态后，请使用[“网络连接”](backup-mabs-install-azure-stack.md#network-connectivity)中的表查看可用操作。

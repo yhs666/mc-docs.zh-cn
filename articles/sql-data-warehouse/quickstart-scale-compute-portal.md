@@ -8,17 +8,17 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 origin.date: 04/17/2018
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d39a69822e6eb44fbefddad2e24cbd9b6af56eb
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 444dd7be1258cf4be4113f56ac11ddc4ed16faac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833341"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625218"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据仓库中缩放计算资源
+## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据仓库中缩放计算资源
 
 使用 Azure 门户在 Azure SQL 数据仓库中缩放计算资源。 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。 
 

@@ -8,16 +8,16 @@ ms.topic: tutorial
 origin.date: 10/30/2018
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 6d0543920459a2e0ab925e341df4f99e0bb090f9
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: e1ffc198b1587a7b530a65cc9bdd6addc8d0b348
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663514"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503566"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教程：在 Azure DNS 中托管域
 
-可以使用 Azure DNS 托管 DNS 域和管理 DNS 记录。 通过在 Azure 中托管域，可以使用与其他 Azure 服务相同的凭据、API、工具和计费来管理 DNS 记录。 
+可以使用 Azure DNS 托管 DNS 域和管理 DNS 记录。 通过在 Azure 中托管域，可以使用与其他 Azure 服务相同的凭据、API、工具和计费来管理 DNS 记录。
 
 假设从域名注册机构购买域 contoso.net，然后在 Azure DNS 中创建名为 contoso.net 的区域。 由于你是域的所有者，注册机构将为你提供选项来配置域的名称服务器 (NS) 记录。 注册机构将 NS 记录存储在 .net 父域。 然后，世界各地的 Internet 用户在尝试解析 contoso.net 中的 DNS 记录时，会被定向到 Azure DNS 区域中的域。
 
@@ -32,6 +32,12 @@ ms.locfileid: "56663514"
 
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+## <a name="prerequisites"></a>先决条件
+
+必须有一个可以用来测试的域名，可以在 Azure DNS 中托管该域名。 必须能够完全控制此域。 完全控制包括能够为域设置名称服务器 (NS) 记录。
+
+本教程中使用的示例域为 contoso.net，但请使用自己的域名。
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 

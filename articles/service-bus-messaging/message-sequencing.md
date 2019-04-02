@@ -11,15 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2018
-ms.date: 10/31/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 37b6c33700af6f4a20d3a3ba25114a7775cfec06
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d0d75558bb3c78b932e9985dfc8f2776b8520ceb
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643891"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544745"
 ---
 # <a name="message-sequencing-and-timestamps"></a>消息序列化和时间戳
 

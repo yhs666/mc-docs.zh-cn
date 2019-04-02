@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: c1922df55b97f3ade3eebd2937df182eba289051
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: cd3deba0345979d88eeb0d1d209147a63324bcfe
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560476"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625323"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure 资源管理器模板创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -123,7 +123,7 @@ ms.locfileid: "57560476"
       }
     }
     ```
-  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 5. 在**服务器资源管理器**中，连接到 Azure 订阅，并在 Azure 存储帐户中创建名为 **templates** 的容器。 在“属性”面板中，将 **templates** 容器的“公共读取访问权限”权限设置为“Blob”。
 6. 在“**服务器资源管理器**”中，右键单击 **templates** 容器，并单击“**查看 Blob 容器**”。 单击“**上传 Blob**”按钮，选择“**parameters.json**”和“**templates.json**”这两个文件，并单击“**打开**”，将 JSON 文件上传到 **templates** 容器。 包含 JSON 数据的 Blob 的 URL 如下：

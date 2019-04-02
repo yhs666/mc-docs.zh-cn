@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 03/19/2018
 ms.date: 09/10/2018
 ms.author: liydu
-ms.openlocfilehash: 892cccd8f4910e661607da78bb72f0a13df88670
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5ebad5b6882ca7a4a4696a059ae1060601539509
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625695"
 ---
 # <a name="door-monitor"></a>门监视器          
 
@@ -67,13 +67,13 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 
 完成注册表单：
 
-  * **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
+* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
 
-  * **名称**：SendGrid 服务的名称。 选择一个不同于你的其他服务的唯一名称。
+* **名称**：SendGrid 服务的名称。 选择一个不同于你的其他服务的唯一名称。
 
-   * **密码**：此服务需要一个密码，该密码将不用于此项目中的任何项。
+  * **密码**：此服务需要一个密码，该密码将不用于此项目中的任何项。
 
-  * **电子邮件**：SendGrid 服务将向此电子邮件地址发送验证。
+* **电子邮件**：SendGrid 服务将向此电子邮件地址发送验证。
 
 选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后单击“购买”以提交注册表单。
  
@@ -107,13 +107,13 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 填充注册表单上的字段。
 
-  * **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
+* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)。
 
-  * **Iot 中心名称**：IoT 中心的名称。 选择一个不同于你的其他服务的唯一名称。
+* **IoT 中心名称**：IoT 中心的名称。 选择一个不同于你的其他服务的唯一名称。
 
-   * **IoT 中心 SKU**：F1（一个订阅仅限一个）是免费的。 可在[定价页](https://azure.microsoft.com/pricing/details/iot-hub/)上查看定价详细信息。
+  * **IoT 中心 SKU**：F1（一个订阅仅限一个）是免费的。 可在[定价页](https://azure.microsoft.com/pricing/details/iot-hub/)上查看定价详细信息。
 
-   * **从电子邮件**：此字段应该是设置 SendGrid 服务时使用的电子邮件地址。
+  * **发件人电子邮件**：此字段的值应与设置 SendGrid 服务时使用的电子邮件地址相同。
 
 选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后准备好继续下一步时单击“购买”。
  
@@ -136,7 +136,7 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-还可以从命令面板打开示例应用。 使用 `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) 打开命令面板，键入“Arduino”，然后找到并选择“Arduino: Examples”。
+还可以从命令面板打开示例应用。 使用 `Ctrl+Shift+P`（macOS: `Cmd+Shift+P`）打开命令面板，键入“Arduino”，然后找到并选择“Arduino:Examples”。
 
 ### <a name="provision-azure-services"></a>预配 Azure 服务
 
@@ -162,7 +162,7 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 #### <a name="macos"></a>macOS
 
-1. 将 DevKit 置于配置模式：按下按钮 A，然后按下重置按钮并松开。 屏幕将显示“配置”。
+1. 将 DevKit 置于配置模式：按住按钮 A，然后按下重置按钮并松开。 屏幕将显示“配置”。
 
 2. 单击 `Cmd+P` 以运行 `task device-upload`。
 
@@ -177,7 +177,7 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 DevKit 将重新启动并开始运行代码。
 
 > [!NOTE]
-> 有时会收到“错误: AZ3166: 未知程序包”错误消息。 如果未正确刷新板包索引，则会出现此错误。 若要解决此错误，请参阅 [IoT DevKit 常见问题解答的开发部分](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)。
+> 偶尔可能会收到“错误:AZ3166:未知程序包”错误消息。 如果未正确刷新板包索引，则会出现此错误。 若要解决此错误，请参阅 [IoT DevKit 常见问题解答的开发部分](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)。
 
 ## <a name="test-the-project"></a>测试项目
 
@@ -185,9 +185,9 @@ DevKit 将重新启动并开始运行代码。
 
 初始化以后，屏幕上会显示 `Door closed`。 磁场变化时，状态更改为 `Door opened`。 门状态一变化，你就会收到电子邮件通知。 （收到这些电子邮件可能需要长达五分钟的时间。）
 
-![磁铁靠近传感器：门关闭](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "磁铁靠近传感器：门关闭")
+![磁铁靠近传感器：门已关闭](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "磁铁靠近传感器：门已关闭")
 
-![磁铁从传感器移开：门打开](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "磁铁从传感器移开：门打开")
+![磁铁从传感器移开：门已打开](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "磁铁从传感器移开：门已打开")
 
 ## <a name="problems-and-feedback"></a>问题和反馈
 

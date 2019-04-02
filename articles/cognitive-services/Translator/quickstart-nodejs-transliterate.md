@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: b47086ff93dc2cb1ed00332149404fee5b096c86
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c56122427c0debdde0c12abfb97de4ec5764a592
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964418"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505412"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>快速入门：使用文本翻译 API 通过 Node.js 对文本进行直译
 
@@ -33,7 +33,7 @@ ms.locfileid: "57964418"
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
-使用最喜欢的 IDE 或编辑器创建新的项目。 然后，将此代码片段复制到项目的名为 `transliterate-text.js` 的文件中。
+使用你喜欢的 IDE 或编辑器创建一个新项目，或者在桌面上创建一个包含名为 `translate-text.js` 的文件的新文件夹。 然后将以下代码片段复制到项目/文件中：
 
 ```javascript
 const request = require('request');
@@ -127,7 +127,7 @@ node transliterate-text.js
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```
@@ -151,3 +151,4 @@ node transliterate-text.js
 * [获取支持的语言的列表](quickstart-nodejs-languages.md)
 * [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 
+<!-- Update_Description: wording update -->

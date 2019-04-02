@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/11/2018
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0c00f002139234da8ecfa763c159b4baa4187046
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: daa7086343ab8ba0fb4cd7bbc55403d7c70c4d66
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56902981"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505429"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入门：将 Azure Redis 缓存与 Python 配合使用
 
@@ -36,7 +36,7 @@ ms.locfileid: "56902981"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 安装有 [pip](https://pypi.org/project/pip/) 的 [Python 2 或 Python 3 环境](https://www.python.org/downloads/)。 
+* 安装有 [pip](https://pypi.org/project/pip/) 的 [Python 2 或 Python 3 环境](https://www.python.org/downloads/)。 
 
 ## <a name="create-an-azure-cache-for-redis-on-azure"></a>在 Azure 上创建 Azure Redis 缓存
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

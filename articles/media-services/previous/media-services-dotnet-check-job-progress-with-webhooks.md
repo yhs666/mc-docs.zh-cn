@@ -12,29 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/24/2018
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: fdfe14d644db2fc76a809c5388ccfb86d9ffb9f2
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: b0cf07f501d00cefe3d881b776761fd673a6559e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656525"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626290"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知 
+
 运行作业时，通常需要采用某种方式跟踪作业进度。 可以使用 Azure Webhook 或 [Azure 队列存储](media-services-dotnet-check-job-progress-with-queues.md)监视媒体服务作业通知。 本文介绍如何使用 Webhook。
 
 本文介绍如何
 
 *  定义为响应 Webhook 而自定义的 Azure 函数。 
-    
+
     在本例中，Webhook 由媒体服务在编码作业更改状态时触发。 该函数侦听来自媒体服务通知的 Webhook 回调，并在作业完成之后发布输出资产。 
-    
+
     >[!NOTE]
     >在继续之前，请确保了解 [Azure Functions HTTP 和 webhook 绑定](../../azure-functions/functions-bindings-http-webhook.md)的工作原理。
     >
-    
+
 * 向编码任务添加 Webhook，并指定此 Webhook 响应的 Webhook URL 和机密密钥。 本文末尾包含一个示例，该示例演示将 Webhook 添加到编码任务。  
 
 可在[此处](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)找到各种媒体服务 .NET Azure Functions 的定义（包括本文中所示的定义）。
@@ -49,7 +50,7 @@ ms.locfileid: "53656525"
 
 ## <a name="create-a-function-app"></a>创建函数应用
 
-1. 转到 [Azure 门户](http://portal.azure.cn)，然后使用 Azure 帐户登录。
+1. 转到 [Azure 门户](https://portal.azure.cn)，然后使用 Azure 帐户登录。
 2. 根据[此文](../../azure-functions/functions-create-function-app-portal.md)中所述创建 Function App。
 
 ## <a name="configure-function-app-settings"></a>配置 Function App 设置
@@ -58,10 +59,11 @@ ms.locfileid: "53656525"
 
 [应用程序设置](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings)部分定义了本文中所定义的 Webhook 中使用的参数。 还向应用设置添加以下参数。 
 
-|Name|定义|示例| 
-|---|---|---|
-|SigningKey |签名密钥。| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | webhook 终结点地址。 Webhook 函数创建后即可从“获取函数 URL”链接中复制 URL。 | https://juliakofuncapp.chinacloudsites.cn/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==。|
+
+|      Name       |                                                         定义                                                          |                                                                  示例                                                                   |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+|   SigningKey    |                                                       签名密钥。                                                        |                                                    j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt                                                    |
+| WebHookEndpoint | webhook 终结点地址。 Webhook 函数创建后即可从“获取函数 URL”链接中复制 URL。 | https://juliakofuncapp.chinacloudsites.cn/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==。 |
 
 ## <a name="create-a-function"></a>创建函数
 
@@ -119,7 +121,7 @@ project.json 文件包含依赖项。
    }
 }
 ```
-    
+
 #### <a name="runcsx"></a>run.csx
 
 此部分中的代码演示一个作为 Webhook 的 Azure 函数的实现。 在此示例中，该函数侦听来自媒体服务通知的 Webhook 回调，并在作业完成之后发布输出资产。
@@ -368,7 +370,7 @@ Webhook 触发后，上述示例会生成以下输出，值会有所变化。
         "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
       }
     }
-    
+
     URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.chinacloudapi/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 ## <a name="add-a-webhook-to-your-encoding-task"></a>向编码任务添加 Webhook
@@ -378,23 +380,22 @@ Webhook 触发后，上述示例会生成以下输出，值会有所变化。
 1. 在 Visual Studio 中创建新的 C# 控制台应用程序。 输入“名称”、“位置”和“解决方案名称”，并单击“确定”。
 2. 使用 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 安装 Azure 媒体服务。
 3. 使用适当的值更新 App.config 文件： 
-    
-    * Azure 媒体服务连接信息， 
-    * 用于获取通知的 Webhook URL； 
-    * 与 Webhook 所需的密钥匹配的签名密钥。 签名密钥是 64 字节 Base64 编码值，用于保护来自 Azure 媒体服务的 Webhook 回调的安全。 
+   * Azure 媒体服务连接信息， 
+   * 用于获取通知的 Webhook URL； 
+   * 与 Webhook 所需的密钥匹配的签名密钥。 签名密钥是 64 字节 Base64 编码值，用于保护来自 Azure 媒体服务的 Webhook 回调的安全。 
 
-    ```xml
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="domain" />
-                <add key="AMSRESTAPIEndpoint" value="endpoint" />
+     ```xml
+           <appSettings>
+               <add key="AMSAADTenantDomain" value="domain" />
+               <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-                <add key="AMSClientId" value="clinet id" />
-                <add key="AMSClientSecret" value="client secret" />
+               <add key="AMSClientId" value="clinet id" />
+               <add key="AMSClientSecret" value="client secret" />
 
-                <add key="WebhookURL" value="https://yourapp.chinacloudsites.cn/api/functionname?code=ApiKey" />
-                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-            </appSettings>
-    ```
+               <add key="WebhookURL" value="https://yourapp.chinacloudsites.cn/api/functionname?code=ApiKey" />
+               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+           </appSettings>
+     ```
 
 4. 使用以下代码更新 Program.cs 文件：
 

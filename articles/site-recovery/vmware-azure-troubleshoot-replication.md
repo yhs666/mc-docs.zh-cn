@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/07/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2b688fa3807e87db8661cb08294130c755cb9b80
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 334fb9b64d6f2ecf071ebf742a16bf06dec484d8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463670"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626862"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -95,82 +95,82 @@ ms.locfileid: "57463670"
 > 进程服务器必须有一个静态 IPv4 地址，不应在其上配置 NAT IP。
 
 * **检查源计算机与进程服务器之间的连接**
-1. 如果可以从源计算机执行 telnet 但无法从源访问 PS，请在源 VM 上运行 cxpsclient 工具，使用 cxprocessserver 检查端到端连接：
+* 如果可以从源计算机执行 telnet 但无法从源访问 PS，请在源 VM 上运行 cxpsclient 工具，使用 cxprocessserver 检查端到端连接：
 
-        <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
 
-    有关相应错误的详细信息，请在 PS 上检查以下目录中生成的日志：
+   有关相应错误的详细信息，请在 PS 上检查以下目录中生成的日志：
 
-        C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-        and
-        C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-2. 如果 PS 未发出检测信号，请在 PS 上检查以下日志：
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+* 如果 PS 未发出检测信号，请在 PS 上检查以下日志：
 
-        C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-        and
-        C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-*  **检查进程服务器是否主动将数据推送到 Azure**。
+* **检查进程服务器是否主动将数据推送到 Azure**。
 
-    1. 在进程服务器上打开任务管理器（按 Ctrl+Shift+Esc）。
-    2. 选择“性能”选项卡，然后选择“打开资源监视器”链接。 
-    3. 在“资源监视器”页上，选择“网络”选项卡。在“网络活动的进程”下，检查 **cbengine.exe** 是否正在主动发送大量数据。
+  1. 在进程服务器上打开任务管理器（按 Ctrl+Shift+Esc）。
+  2. 选择“性能”选项卡，然后选择“打开资源监视器”链接。 
+  3. 在“资源监视器”页上，选择“网络”选项卡。在“网络活动的进程”下，检查 **cbengine.exe** 是否正在主动发送大量数据。
 
-        ![显示“网络活动的进程”下的卷的屏幕截图](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+      ![显示“网络活动的进程”下的卷的屏幕截图](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-    如果 cbengine.exe 未发送大量数据，请完成以下部分中的步骤。
+     如果 cbengine.exe 未发送大量数据，请完成以下部分中的步骤。
 
-*  **检查进程服务器可以连接到 Azure Blob 存储**。
+* **检查进程服务器可以连接到 Azure Blob 存储**。
 
-    选择“cbengine.exe”。 在“TCP 连接”下，检查进程服务器与 Azure Blob 存储 URL 之间是否建立了连接。
+   选择“cbengine.exe”。 在“TCP 连接”下，检查进程服务器与 Azure Blob 存储 URL 之间是否建立了连接。
 
-    ![显示 cbengine.exe 与 Azure Blob 存储 URL 之间的连接的屏幕截图](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+   ![显示 cbengine.exe 与 Azure Blob 存储 URL 之间的连接的屏幕截图](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-    进程服务器与 Azure Blob 存储 URL 之间未建立连接，请在控制面板中选择“服务”。 检查以下服务是否正在运行：
+   进程服务器与 Azure Blob 存储 URL 之间未建立连接，请在控制面板中选择“服务”。 检查以下服务是否正在运行：
 
-    *  cxprocessserver
-    *  InMage Scout VX Agent - Sentinel/Outpost
-    *  Azure 恢复服务代理
-    *  Azure Site Recovery 服务
-    *  tmansvc
+  * cxprocessserver
+  * InMage Scout VX Agent - Sentinel/Outpost
+  * Azure 恢复服务代理
+  * Azure Site Recovery 服务
+  * tmansvc
 
     启动或重启未运行的任何服务。 检查是否仍出现此问题。
 
-*  **检查进程服务器是否可以使用端口 443 连接到 Azure 公共 IP 地址**。
+* **检查进程服务器是否可以使用端口 443 连接到 Azure 公共 IP 地址**。
 
-    在 %programfiles%\Azure Recovery Services Agent\Temp 中，打开最新的 CBEngineCurr.errlog 文件。 在该文件中，搜索 **443** 或字符串 **connection attempt failed**。
+   在 %programfiles%\Azure Recovery Services Agent\Temp 中，打开最新的 CBEngineCurr.errlog 文件。 在该文件中，搜索 **443** 或字符串 **connection attempt failed**。
 
-    ![显示 Temp 文件夹中错误日志的屏幕截图](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+   ![显示 Temp 文件夹中错误日志的屏幕截图](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-    如果找到问题，请在进程服务器上的命令行中，使用 Telnet 来 ping Azure 公共 IP 地址（在上图中，IP 地址已掩码）。 可以使用端口 443 在 CBEngineCurr.currLog 文件查找 Azure 公共 IP 地址：
+   如果找到问题，请在进程服务器上的命令行中，使用 Telnet 来 ping Azure 公共 IP 地址（在上图中，IP 地址已掩码）。 可以使用端口 443 在 CBEngineCurr.currLog 文件查找 Azure 公共 IP 地址：
 
-    `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
-    如果无法连接，请检查访问问题是否由防火墙或代理设置所导致，如下一步骤中所述。
+   如果无法连接，请检查访问问题是否由防火墙或代理设置所导致，如下一步骤中所述。
 
-*  **检查进程服务器上的基于 IP 地址的防火墙是否阻止了访问**。
+* **检查进程服务器上的基于 IP 地址的防火墙是否阻止了访问**。
 
-    如果在服务器上使用基于 IP 地址的防火墙规则，请下载 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)的完整列表。 将 IP 地址范围添加到防火墙配置，以确保防火墙允许与 Azure（以及默认的 HTTPS 端口 443）通信。 允许订阅的 Azure 区域的 IP 地址范围以及 Azure 中国北部区域的 IP 地址范围（用于访问控制和标识管理）。
+   如果在服务器上使用基于 IP 地址的防火墙规则，请下载 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)的完整列表。 将 IP 地址范围添加到防火墙配置，以确保防火墙允许与 Azure（以及默认的 HTTPS 端口 443）通信。 允许订阅的 Azure 区域的 IP 地址范围以及 Azure 中国北部区域的 IP 地址范围（用于访问控制和标识管理）。
 
-*  **检查进程服务器上的基于 URL 的防火墙是否阻止了访问**。
+* **检查进程服务器上的基于 URL 的防火墙是否阻止了访问**。
 
-    如果在服务器上使用基于 URL 的防火墙规则，请将下表中列出的 URL 添加到防火墙配置：
+   如果在服务器上使用基于 URL 的防火墙规则，请将下表中列出的 URL 添加到防火墙配置：
 
   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-*  **检查进程服务器上的代理设置是否阻止了访问**。
+* **检查进程服务器上的代理设置是否阻止了访问**。
 
-    如果使用代理服务器，请确保代理服务器名称由 DNS 服务器解析。 若要检查设置配置服务器时提供的值，请转到注册表项 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**。
+   如果使用代理服务器，请确保代理服务器名称由 DNS 服务器解析。 若要检查设置配置服务器时提供的值，请转到注册表项 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**。
 
-    接下来，确保 Azure Site Recovery 代理使用相同的设置发送数据： 
+   接下来，确保 Azure Site Recovery 代理使用相同的设置发送数据： 
 
-    1. 搜索“Azure 备份”。 
-    2. 打开“Azure 备份”，然后选择“操作” > “更改属性”。 
-    3. 在“代理配置”选项卡上，应会看到代理地址。 代理地址应与注册表设置中显示的代理地址相同。 如果不同，请将其更改为相同的地址。
+   1. 搜索“Azure 备份”。 
+   2. 打开“Azure 备份”，然后选择“操作” > “更改属性”。 
+   3. 在“代理配置”选项卡上，应会看到代理地址。 代理地址应与注册表设置中显示的代理地址相同。 如果不同，请将其更改为相同的地址。
 
-*  **检查进程服务器上的限制带宽是否受约束**。
+* **检查进程服务器上的限制带宽是否受约束**。
 
-    增加带宽，然后检查问题是否仍然出现。
+   增加带宽，然后检查问题是否仍然出现。
 
 ## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>源计算机未在 Azure 门户中列出。
 

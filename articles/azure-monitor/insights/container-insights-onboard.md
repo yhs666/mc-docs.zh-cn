@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 53eec2d7bfe8882a4aa812348ef23e1a43c6ea86
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: e2e9530810ba3d318bacf81ad773090ffd8300a2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440715"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625454"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>如何为容器载入 Azure Monitor  
 本文介绍如何为容器设置 Azure Monitor，以监视部署到 Kubernetes 环境和在 [Azure Kubernetes 服务](https://docs.microsoft.com/azure/aks/)中托管的工作负荷的性能。
@@ -293,31 +293,31 @@ provisioningState       : Succeeded
 5. 将此文件以“existingClusterParam.json”文件名保存到本地文件夹。
 6. 已做好部署此模板的准备。 
 
-    * 请在包含模板的文件夹中使用以下 PowerShell 命令：
+   * 请在包含模板的文件夹中使用以下 PowerShell 命令：
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        配置更改可能需要几分钟才能完成。 完成后，系统会显示包含结果的消息，如下所示：
+       ```powershell
+       New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       配置更改可能需要几分钟才能完成。 完成后，系统会显示包含结果的消息，如下所示：
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * 使用 Azure CLI 运行以下命令：
+   * 使用 Azure CLI 运行以下命令：
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        配置更改可能需要几分钟才能完成。 完成后，系统会显示包含结果的消息，如下所示：
+       配置更改可能需要几分钟才能完成。 完成后，系统会显示包含结果的消息，如下所示：
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-启用监视后，可能需要约 15 分钟才能查看群集的运行状况指标。 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     启用监视后，可能需要约 15 分钟才能查看群集的运行状况指标。 
 
 ## <a name="verify-agent-and-solution-deployment"></a>验证代理和解决方案部署
 如果代理版本为 *06072018* 或更高版本，则可验证代理和解决方案是否均已成功部署。 如果是早期版本的代理，则只能验证代理的部署情况。

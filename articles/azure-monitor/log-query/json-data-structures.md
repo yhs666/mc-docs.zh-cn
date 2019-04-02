@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 87ef8b235bb1f03e7b7c75864e2c801862904688
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 637024a2fb862bfcd305a7300204cb832e1d0057
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440532"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544678"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用 JSON 和数据结构
 
@@ -135,7 +135,6 @@ print hosts_object
 
 - [字符串操作](string-operations.md)
 - [高级查询编写](advanced-query-writing.md)
-- [联接](joins.md)
 
 
 

@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6e50908fb6415b3d9506cab773624a6945c59c37
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: ec712458645e87766713a021aaaa8e921ad0a1c9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736700"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625187"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -170,7 +170,7 @@ ms.locfileid: "53736700"
 
 * **接收孪生通知**。 此操作允许解决方案后端在修改孪生时收到通知。 为此，IoT 解决方案需要创建一个路由，并且将“数据源”设置为等于 *twinChangeEvents*。 默认情况下没有此类路由预先存在，因此不会发送孪生通知。 如果更改速率太高，或由于其他原因（例如内部故障），IoT 中心可能会只发送一个包含所有更改的通知。 因此，如果应用程序需要可靠地审核和记录所有中间状态，则应使用设备到云消息。 孪生通知消息包括属性和正文。
 
-    - 属性
+  - 属性
 
     | Name | 值 |
     | --- | --- |
@@ -184,28 +184,28 @@ ms.locfileid: "53736700"
     iothub-message-schema | deviceLifecycleNotification |
     opType | “replaceTwin”或“updateTwin” |
 
-   消息系统属性以 `$` 符号作为前缀。
+    消息系统属性以 `$` 符号作为前缀。
 
-    - 正文
+  - 正文
         
     本部分包括 JSON 格式的所有孪生更改。 它使用与修补程序相同的格式，不同的是它可以包含所有孪生节：标记、properties.reported、properties.desired，并且它包含“$metadata”元素。 例如，
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ``` 
 
@@ -291,7 +291,7 @@ IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的�
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -300,7 +300,7 @@ IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的�
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

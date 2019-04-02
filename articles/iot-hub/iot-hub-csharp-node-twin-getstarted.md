@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/07/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
-ms.openlocfilehash: eac8a7a1f58beb4786ba55dbf906a8e5a53af3f2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4e05e39b1fb41fc3b57ac5235841324aa3351123
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625495"
 ---
 # <a name="get-started-with-device-twins-netnode"></a>设备孪生入门 (.NET/Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "52647332"
 * Visual Studio 2015 或 Visual Studio 2017。
 * Node.js 版本 4.0.x 或更高版本。
 
-+ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 05/29/2017
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: fd911f3e5f47085bd9ef31e485f92bbaee1a4eb8
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 44bf6a4fd8704002b0833ea1b0a15db738f64e50
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836870"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625472"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>在 Azure DNS 中托管反向 DNS 查找区域
 
@@ -125,14 +125,14 @@ az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2
 
    ![用于创建记录集的按钮](./media/dns-reverse-dns-hosting/figure4.png)
 
-1. PTR 记录的记录集名称需为以倒序排序的 IPv4 地址的其余部分。 
+2. PTR 记录的记录集名称需为以倒序排序的 IPv4 地址的其余部分。 
 
    在此示例中，已填充前三个八进制数，作为区域名称 (.2.0.192) 的一部分。 因此，“名称”框中提供仅最后一个八进制数。 例如，对于 IP 地址为 192.0.2.15 的资源，可将记录集命名为 **15**。  
-1. 对于“类型”，请选择“PTR”。  
-1. 在“域名”字段中，输入使用该 IP 的资源的完全限定域名 (FQDN)。
-1. 单击窗格底部的“确定”创建 DNS 记录。
+3. 对于“类型”，请选择“PTR”。  
+4. 在“域名”字段中，输入使用该 IP 的资源的完全限定域名 (FQDN)。
+5. 单击窗格底部的“确定”创建 DNS 记录。
 
- ![“添加记录集”窗格，已填写其中的输入框](./media/dns-reverse-dns-hosting/figure5.png)
+   ![“添加记录集”窗格，已填写其中的输入框](./media/dns-reverse-dns-hosting/figure5.png)
 
 以下示例演示如何使用 PowerShell 或 Azure CLI 完成此任务。
 

@@ -14,12 +14,12 @@ origin.date: 03/04/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: da3488cfd726452cc337d138d25a6adbe875b018
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: c8c2b3e62905f329edd8015274ad6c675e6320bf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348045"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625929"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教程：在 Azure 资源管理器模板中使用条件
@@ -65,18 +65,18 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 选择“打开”以打开该文件。
 4. 有五个通过此模板定义的资源：
 
-    * `Microsoft.Storage/storageAccounts`。
-    * `Microsoft.Network/publicIPAddresses`。
-    * `Microsoft.Network/virtualNetworks`。
-    * `Microsoft.Network/networkInterfaces`。
-    * `Microsoft.Compute/virtualMachines`。
+   * `Microsoft.Storage/storageAccounts`。
+   * `Microsoft.Network/publicIPAddresses`。
+   * `Microsoft.Network/virtualNetworks`。
+   * `Microsoft.Network/networkInterfaces`。
+   * `Microsoft.Compute/virtualMachines`。
     
-    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
-    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
-    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
-    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
-    <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
-    在自定义模板之前，不妨对其进行一些基本的了解。
+     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
+     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
+     <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
+     在自定义模板之前，不妨对其进行一些基本的了解。
 5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 
 ## <a name="modify-the-template"></a>修改模板

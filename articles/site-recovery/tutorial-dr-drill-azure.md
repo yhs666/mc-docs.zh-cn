@@ -10,12 +10,12 @@ origin.date: 12/31/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 2e7d51f5d30ad4824fe4e9038c7bb7e1e57dcd6f
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 01db7b005a0e4add40ce8e01a6910a4a012f9808
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363534"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625248"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练
 
@@ -24,10 +24,10 @@ ms.locfileid: "54363534"
 这是本系列的第四个教程，演示如何为本地 VMware VM 或 Hyper-V VM 设置到 Azure 的灾难恢复。
 
 本教程假定你已完成头三个教程：
-    - 在[第一个教程](tutorial-prepare-azure.md)中，我们设置了 VMware 灾难恢复所需的 Azure 组件。
-    - 在[第二个教程](vmware-azure-tutorial-prepare-on-premises.md)中，我们准备了用于灾难恢复的本地组件，并查看了先决条件。
-    - 在[第三个教程](vmware-azure-tutorial.md)中，我们为本地 VMware VM 设置并启用了复制。
-    - 教程旨在介绍**方案的最简单部署路径**。 它们尽可能使用默认选项，并且不显示所有可能的设置和路径。 如果想要更详细地了解测试故障转移步骤，请阅读[操作方法指南](site-recovery-test-failover-to-azure.md)。
+- 在[第一个教程](tutorial-prepare-azure.md)中，我们设置了 VMware 灾难恢复所需的 Azure 组件。
+- 在[第二个教程](vmware-azure-tutorial-prepare-on-premises.md)中，我们准备了用于灾难恢复的本地组件，并查看了先决条件。
+- 在[第三个教程](vmware-azure-tutorial.md)中，我们为本地 VMware VM 设置并启用了复制。
+- 教程旨在介绍**方案的最简单部署路径**。 它们尽可能使用默认选项，并且不显示所有可能的设置和路径。 如果想要更详细地了解测试故障转移步骤，请阅读[操作方法指南](site-recovery-test-failover-to-azure.md)。
 
 本教程介绍如何执行下列操作：
 

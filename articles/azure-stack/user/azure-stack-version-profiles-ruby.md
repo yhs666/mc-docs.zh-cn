@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 148ccef3e28ca03887c4a9dcf09f6feec310c6f6
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 15b4780ce8536dc307c8ed9a3a4dc22a068ebd00
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218289"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503533"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -87,12 +87,12 @@ gem install 'azure_sdk'
 若要将 Ruby Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 请参阅表后针对操作系统的说明，了解如何设置环境变量。
 
 | 值 | 环境变量 | 说明 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](/azure-stack/azure-stack-identity-overview) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。  |
 | 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
-| 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](#The-azure-stack-resource-manager-endpoint)。  |
+| 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md)。  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack 资源管理器终结点
 

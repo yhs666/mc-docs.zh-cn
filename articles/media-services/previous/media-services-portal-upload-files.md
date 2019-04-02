@@ -11,18 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 9e547eccbcfaef163e958a6799e94f6442468d55
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: c237e9a8cc1fa8f5d224d1d89c8d7b1e51f6fe7f
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833360"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624076"
 ---
-# <a name="upload-files-to-a-media-services-account-in-the-azure-portal-legacy"></a>在 Azure 门户中将文件上传到媒体服务帐户（旧版）
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>在 Azure 门户中将文件上传到媒体服务帐户 
 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)

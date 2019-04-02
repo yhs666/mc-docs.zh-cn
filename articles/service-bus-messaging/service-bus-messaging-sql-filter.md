@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/05/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 2572838b30e2a1b2332463426ced640ca1012c4a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 68d23cf1860a8e1b77b655dcfe1db0bd6fe9f909
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654198"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625352"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
@@ -224,29 +224,29 @@ SqlFilter 对象是 [SqlFilter 类](/dotnet/api/microsoft.servicebus.messaging.s
   
 ### <a name="property-evaluation-semantics"></a>属性求值语义  
   
--   尝试对不存在的系统属性求值会引发 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
+- 尝试对不存在的系统属性求值会引发 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
   
--   不存在的属性在进行内部求值时会被视为**未知**。  
+- 不存在的属性在进行内部求值时会被视为**未知**。  
   
- 算术运算符中的未知求值：  
+  算术运算符中的未知求值：  
   
--   对于二元运算符，如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
+- 对于二元运算符，如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
   
--   对于一元运算符，如果操作数的求值结果为**未知**，则结果为**未知**。  
+- 对于一元运算符，如果操作数的求值结果为**未知**，则结果为**未知**。  
   
- 二进制比较运算符中的未知求值：  
+  二进制比较运算符中的未知求值：  
   
--   如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
+- 如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
   
- `[NOT] LIKE`中的未知求值：  
+  `[NOT] LIKE`中的未知求值：  
   
--   如果任何操作数的求值结果为“未知”，则结果为“未知”。  
+- 如果任何操作数的求值结果为“未知”，则结果为“未知”。  
   
- `[NOT] IN`中的未知求值：  
+  `[NOT] IN`中的未知求值：  
   
--   如果左侧操作数的求值结果为“未知”，则结果为“未知”。  
+- 如果左侧操作数的求值结果为“未知”，则结果为“未知”。  
   
- **AND** 运算符中的未知求值：  
+  **AND** 运算符中的未知求值：  
   
 ```  
 +---+---+---+---+  

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 12/07/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: f73b08ab9319ff286300f1976e1dbd803f1105cd
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 1755d5e9f49bf39f3fab60911fdda3d498e7d878
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788723"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626524"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>使用 Azure 门户创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -73,20 +73,20 @@ Export-PfxCertificate `
 3. 选择“网络”，然后在“特色”列表中选择“应用程序网关”。
 4. 输入应用程序网关的以下值：
 
-    - *myAppGateway* - 应用程序网关的名称。
-    - *myResourceGroupAG* - 新资源组。
+   - *myAppGateway* - 应用程序网关的名称。
+   - *myResourceGroupAG* - 新资源组。
 
-    ![新建应用程序网关](./media/create-url-route-portal/application-gateway-create.png)
+     ![新建应用程序网关](./media/create-url-route-portal/application-gateway-create.png)
 
 5. 接受其他设置的默认值，然后单击“确定”。
 6. 依次单击“选择虚拟网络”、“新建”，然后输入虚拟网络的以下值：
 
-    - *myVNet* - 虚拟网络的名称。
-    - *10.0.0.0/16* - 虚拟网络地址空间。
-    - *myAGSubnet* - 子网名称。
-    - *10.0.1.0/24* - 子网地址空间。
+   - *myVNet* - 虚拟网络的名称。
+   - *10.0.0.0/16* - 虚拟网络地址空间。
+   - *myAGSubnet* - 子网名称。
+   - *10.0.1.0/24* - 子网地址空间。
 
-    ![创建虚拟网络](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![创建虚拟网络](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. 单击“确定”创建虚拟网络和子网。
 8. 在“前端 IP 配置”下，确保“IP 地址类型”设置为“公用”，并且选择了“新建”。 输入 myAGPublicIPAddress 作为名称。 接受其他设置的默认值，然后单击“确定”。

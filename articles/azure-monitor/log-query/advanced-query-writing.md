@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2773bbc5067b41a4af3d5f431db853ad4c4d47c2
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 6511766b47cb69f5b8aaa8530d08bfd4108a0cd8
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441045"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544812"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure Monitor 中编写高级查询
 
@@ -134,7 +134,6 @@ SecurityEvent
 
 - [字符串操作](string-operations.md)
 - [JSON 和数据结构](json-data-structures.md)
-- [联接](joins.md)
 
 
 

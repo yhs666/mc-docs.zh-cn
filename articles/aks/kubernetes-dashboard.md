@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/08/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 73b557d5d5580b08b55818eeacec48e7f8869011
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 2cf032744c932968b7582049077c9d630f824350
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626727"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>访问 Azure Kubernetes 服务 (AKS) 中的 Kubernetes Web 仪表板
 
@@ -116,6 +116,5 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-browse]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-browse

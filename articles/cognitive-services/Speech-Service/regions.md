@@ -12,12 +12,12 @@ origin.date: 01/14/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 8ee5bf7a14bab4a9c9772189af17983626805d03
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: b0dad12cece51bf197dc090d31ebd4aeffff7f92
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348363"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625633"
 ---
 # <a name="speech-service-supported-regions"></a>语音服务支持的区域
 
@@ -33,18 +33,19 @@ ms.locfileid: "58348363"
 
 以下区域提供语音 SDK，用于“语音识别”和“翻译”：
 
-  区域 | 语音 SDK 参数 | 语音自定义门户
- ------|-------|--------
 
-
+| 区域 | 语音 SDK 参数 | 语音自定义门户 |
+|--------|----------------------|-----------------------------|
+|        |                      |                             |
 
 ### <a name="intent-recognition"></a>意向识别
 
 通过语音 SDK 实现**意向识别**的可用区域如下：
 
- 全球区域 | 区域 | 语音 SDK 参数
- ------|-------|--------
 
+| 全球区域 | 区域 | 语音 SDK 参数 |
+|---------------|--------|----------------------|
+|               |        |                      |
 
 ## <a name="rest-apis"></a>REST API
 

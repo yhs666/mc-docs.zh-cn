@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 06/25/2018
 ms.date: 12/31/2018
 ms.author: v-jay
-ms.openlocfilehash: 6e123e0da3fe03961a72d96efab3968a56e3558f
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: f307f920b9762244cca251eccc331527d25656d8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806326"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626594"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>使用 Azure CLI 在多个 IP 配置上进行负载均衡
 
@@ -48,7 +48,6 @@ ms.locfileid: "53806326"
 
     ```azurecli
     az network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location chinaeast --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
-
     ```
 
 5. [创建负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *mylb*：
@@ -98,7 +97,8 @@ ms.locfileid: "53806326"
     az storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：<!-- Not Available create-a-virtual-nic -->
+11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：
+    <!-- Not Available create-a-virtual-nic -->
 
     ```azurecli
     az network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

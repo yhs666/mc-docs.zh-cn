@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: ed153613c13bb54a614004fa6e5f12fd3263c761
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 8c916a017dd211c475abaeaf1bfcb0c4a3746a34
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905449"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626462"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 
@@ -151,7 +151,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 
    func CreateToken() (adal.OAuthTokenProvider, error) {
       var token adal.OAuthTokenProvider
-      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
    }
    ```
 
@@ -165,14 +165,14 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    import "github.com/Azure/go-autorest/autorest/adal"
 
    func CreateToken() (adal.OAuthTokenProvider, error) {
-       var token adal.OAuthTokenProvider
-       oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
-       token, err = adal.NewServicePrincipalToken(
-           *oauthConfig,
-           clientID,
-           clientSecret,
-           activeDirectoryResourceID)
-       return token, err
+       var token adal.OAuthTokenProvider
+       oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+       token, err = adal.NewServicePrincipalToken(
+           *oauthConfig,
+           clientID,
+           clientSecret,
+           activeDirectoryResourceID)
+       return token, err
    ```
 
     将 `<activeDirectoryResourceID>` 设置为在本文上一部分中检索的 **ResourceManagerUrl** 元数据中的“audience”列表值之一。
@@ -192,12 +192,12 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    package main
 
    import (
-       "context"
-       "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
-       "github.com/Azure/go-autorest/autorest"
-       "github.com/Azure/go-autorest/autorest/adal"
-       "github.com/Azure/go-autorest/autorest/to"
+       "context"
+       "fmt"
+       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/go-autorest/autorest"
+       "github.com/Azure/go-autorest/autorest/adal"
+       "github.com/Azure/go-autorest/autorest/to"
    )
    ```
 
@@ -205,14 +205,14 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 
    ```go
    var (
-       activeDirectoryEndpoint = "yourLoginEndpointFromResourceManagerUrlMetadata"
-       tenantID = "yourAzureStackTenantID"
-       clientID = "yourServicePrincipalApplicationID"
-       clientSecret = "yourServicePrincipalSecret"
-       activeDirectoryResourceID = "yourAudienceFromResourceManagerUrlMetadata"
-       subscriptionID = "yourSubscriptionID"
-       baseURI = "yourResourceManagerURL"
-       resourceGroupName = "existingResourceGroupName"
+       activeDirectoryEndpoint = "yourLoginEndpointFromResourceManagerUrlMetadata"
+       tenantID = "yourAzureStackTenantID"
+       clientID = "yourServicePrincipalApplicationID"
+       clientSecret = "yourServicePrincipalSecret"
+       activeDirectoryResourceID = "yourAudienceFromResourceManagerUrlMetadata"
+       subscriptionID = "yourSubscriptionID"
+       baseURI = "yourResourceManagerURL"
+       resourceGroupName = "existingResourceGroupName"
    )
    ```
 
@@ -221,14 +221,14 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    ```go
    //CreateToken creates a service principal token
    func CreateToken() (adal.OAuthTokenProvider, error) {
-      var token adal.OAuthTokenProvider
-      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
-      token, err = adal.NewServicePrincipalToken(
-          *oauthConfig,
-          clientID,
-          clientSecret,
-          activeDirectoryResourceID)
-      return token, err
+      var token adal.OAuthTokenProvider
+      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+      token, err = adal.NewServicePrincipalToken(
+          *oauthConfig,
+          clientID,
+          clientSecret,
+          activeDirectoryResourceID)
+      return token, err
    }
    ```
 
@@ -238,66 +238,66 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    package main
 
    import (
-      "context"
-      "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
-      "github.com/Azure/go-autorest/autorest"
-      "github.com/Azure/go-autorest/autorest/adal"
-      "github.com/Azure/go-autorest/autorest/to"
+      "context"
+      "fmt"
+      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/go-autorest/autorest"
+      "github.com/Azure/go-autorest/autorest/adal"
+      "github.com/Azure/go-autorest/autorest/to"
    )
 
    var (
-      activeDirectoryEndpoint = "yourLoginEndpointFromResourceManagerUrlMetadata"
-      tenantID = "yourAzureStackTenantID"
-      clientID = "yourServicePrincipalApplicationID"
-      clientSecret = "yourServicePrincipalSecret"
-      activeDirectoryResourceID = "yourAudienceFromResourceManagerUrlMetadata"
-     subscriptionID = "yourSubscriptionID"
-     baseURI = "yourResourceManagerURL"
-     resourceGroupName = "existingResourceGroupName"
+      activeDirectoryEndpoint = "yourLoginEndpointFromResourceManagerUrlMetadata"
+      tenantID = "yourAzureStackTenantID"
+      clientID = "yourServicePrincipalApplicationID"
+      clientSecret = "yourServicePrincipalSecret"
+      activeDirectoryResourceID = "yourAudienceFromResourceManagerUrlMetadata"
+     subscriptionID = "yourSubscriptionID"
+     baseURI = "yourResourceManagerURL"
+     resourceGroupName = "existingResourceGroupName"
    )
 
    //CreateToken creates a service principal token
    func CreateToken() (adal.OAuthTokenProvider, error) {
-      var token adal.OAuthTokenProvider
-      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
-      token, err = adal.NewServicePrincipalToken(
-          *oauthConfig,
-          clientID,
-          clientSecret,
-          activeDirectoryResourceID)
-      return token, err
+      var token adal.OAuthTokenProvider
+      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+      token, err = adal.NewServicePrincipalToken(
+          *oauthConfig,
+          clientID,
+          clientSecret,
+          activeDirectoryResourceID)
+      return token, err
    }
 
    func main() {
-      token, _ := CreateToken()
-      vnetClient := network.NewVirtualNetworksClientWithBaseURI(baseURI, subscriptionID)
-      vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
-      future, _ := vnetClient.CreateOrUpdate(
-          context.Background(),
-          resourceGroupName,
-          "sampleVnetName",
-          network.VirtualNetwork{
-              Location: to.StringPtr("local"),
-              VirtualNetworkPropertiesFormat: &network.VirtualNetworkPropertiesFormat{
-                  AddressSpace: &network.AddressSpace{
-                      AddressPrefixes: &[]string{"10.0.0.0/8"},
-                  },
-                  Subnets: &[]network.Subnet{
-                      {
-                          Name: to.StringPtr("subnetName"),
-                          SubnetPropertiesFormat: &network.SubnetPropertiesFormat{
-                              AddressPrefix: to.StringPtr("10.0.0.0/16"),
-                          },
-                      },
-                  },
-              },
-          })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
-      if err != nil {
-          fmt.Printf(err.Error())
-          return
-      }
+      token, _ := CreateToken()
+      vnetClient := network.NewVirtualNetworksClientWithBaseURI(baseURI, subscriptionID)
+      vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
+      future, _ := vnetClient.CreateOrUpdate(
+          context.Background(),
+          resourceGroupName,
+          "sampleVnetName",
+          network.VirtualNetwork{
+              Location: to.StringPtr("local"),
+              VirtualNetworkPropertiesFormat: &network.VirtualNetworkPropertiesFormat{
+                  AddressSpace: &network.AddressSpace{
+                      AddressPrefixes: &[]string{"10.0.0.0/8"},
+                  },
+                  Subnets: &[]network.Subnet{
+                      {
+                          Name: to.StringPtr("subnetName"),
+                          SubnetPropertiesFormat: &network.SubnetPropertiesFormat{
+                              AddressPrefix: to.StringPtr("10.0.0.0/16"),
+                          },
+                      },
+                  },
+              },
+          })
+      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      if err != nil {
+          fmt.Printf(err.Error())
+          return
+      }
    }
    ```
 

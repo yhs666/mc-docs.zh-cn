@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 02/01/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7cdde9ad9181c7931eee924b890994d45f1ad8b0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 6e63a07976a1d25a37913e49bcc6c64001626a31
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625992"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>文本翻译 API 3.0：BreakSentence
 
@@ -39,7 +39,7 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
   <th>说明</th>
   <tr>
     <td>api-version</td>
-    <td>必需的查询参数。<br/>客户端所请求的 API 的版本。 值必须是 `3.0`。</td>
+    <td>必需的查询参数。<br/>客户端所请求的 API 的版本。 值必须是 <code>3.0</code>。</td>
   </tr>
   <tr>
     <td>语言</td>
@@ -58,11 +58,11 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
   <th>说明</th>
   <tr>
     <td>一个授权<br/>标头</td>
-    <td>必需的请求标头。<br/>请参阅[用于身份验证的可用选项](./v3-0-reference.md#authentication)。</td>
+    <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>必需的请求标头。<br/>指定有效负载的内容类型。 可能的值为：`application/json`</td>
+    <td>必需的请求标头。<br/>指定有效负载的内容类型。 可能的值为：<code>application/json</code></td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -70,7 +70,7 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选。<br/>客户端生成的 GUID，用于唯一标识请求。 请注意，如果在查询字符串中使用名为 `ClientTraceId` 的查询参数包括了跟踪 ID，则可以省略此标头。</td>
+    <td>可选。<br/>客户端生成的 GUID，用于唯一标识请求。 请注意，如果在查询字符串中使用名为 <code>ClientTraceId</code> 的查询参数包括了跟踪 ID，则可以省略此标头。</td>
   </tr>
 </table> 
 
@@ -159,11 +159,11 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>发生了意外错误。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 `X-RequestId` 中的请求标识符、请求标头 `X-ClientTraceId` 中的客户端标识符。</td>
+    <td>发生了意外错误。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 <code>X-RequestId</code> 中的请求标识符、请求标头 <code>X-ClientTraceId</code> 中的客户端标识符。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>服务器暂不可用。 重试请求。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 `X-RequestId` 中的请求标识符、请求标头 `X-ClientTraceId` 中的客户端标识符。</td>
+    <td>服务器暂不可用。 重试请求。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 <code>X-RequestId</code> 中的请求标识符、请求标头 <code>X-ClientTraceId</code> 中的客户端标识符。</td>
   </tr>
 </table> 
 

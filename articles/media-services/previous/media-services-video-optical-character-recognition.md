@@ -3,7 +3,7 @@ title: 使用 Azure 媒体分析 OCR 将文本数字化 | Microsoft 文档
 description: Azure 媒体分析 OCR（光学字符识别）可让你将视频文件中的文本内容转换成可编辑、可搜索的数字文本。  这可让你从媒体的视频信号中自动提取有意义的元数据。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 56a47330ec3da31324a9d717dd0957a3dd9f9c13
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: fcae37c93d0d3c29c98bfdd87c9619a024f185ec
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624207"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本  
 ## <a name="overview"></a>概述
 如果需要提取视频文件的文本内容，并生成可编辑、可搜索的数字文本，则应该使用 Azure 媒体分析 OCR（光学字符识别）。 此 Azure 媒体处理器可检测视频文件的文本内容并生成文本文件供你使用。 OCR 可让你从媒体的视频信号中自动提取有意义的元数据。
 
@@ -46,8 +46,8 @@ ms.locfileid: "52645150"
 | 属性名称 | 说明 |
 | --- | --- |
 |AdvancedOutput| 如果将 AdvancedOutput 设置为 true，则 JSON 输出将包含每个单词的位置数据（除了短语和区域以外）。 如果不想查看这些详细信息，请将标志设置为 false。 默认值为 false。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)。|
-| 语言 |（可选）描述要查找的文本的语言。 下列其中一项：“自动检测”（默认值）、“阿拉伯语”、“简体中文”、“繁体中文”、“捷克语”、“丹麦语”、“荷兰语”、“英语”、“芬兰语”、“法语”、“德语”、“希腊语”、“匈牙利语”、“意大利语”、“日语”、“韩语”、“挪威语”、“波兰语”、“葡萄牙语”、“罗马尼亚语”、“俄语”、“塞尔维亚语(西里尔文)”、“塞尔维亚语(拉丁语)”、“斯洛伐克语”、“西班牙语”、“瑞典语”、“土耳其语”。 |
-| TextOrientation |（可选）描述要查找的文本的方向。  “Left”表示所有字母顶部朝向左侧。  默认文本（例如书籍中出现的文本）的方向为“Up”。  下列其中一项：AutoDetect（默认值）、Up、Right、Down、Left。 |
+| 语言 |（可选）描述要查找的文本的语言。 下列类型作之一：AutoDetect（默认值）、Arabic、简体中文、繁体中文、Czech Danish、Dutch、English、Finnish、French、German、Greek、Hungarian、Italian、Japanese、Korean、Norwegian、Polish、Portuguese、Romanian、Russian、SerbianCyrillic、SerbianLatin、Slovak、Spanish、Swedish、Turkish。 |
+| TextOrientation |（可选）描述要查找的文本的方向。  “Left”表示所有字母顶部朝向左侧。  默认文本（例如书籍中出现的文本）的方向为“Up”。  下列类型作之一：AutoDetect（默认值）、Up、Right、Down、Left。 |
 | TimeInterval |（可选）描述采样率。  默认值为每 1/2 秒。<br/>JSON 格式 - HH:mm:ss.SSS（默认值 00:00:00.500）<br/>XML 格式 - W3C XSD 持续时间基元（默认值 PT0.5） |
 | DetectRegions |（可选）指定要在其中检测文本的视频帧中的区域的 DetectRegion 对象数组。<br/>DetectRegion 对象由以下四个整数值组成：<br/>Left – 左边距中的像素<br/>Top – 上边距中的像素<br/>Width – 以像素为单位的区域宽度<br/>Height – 以像素为单位的区域高度 |
 
@@ -78,7 +78,7 @@ ms.locfileid: "52645150"
 
 ```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
-    <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
+    <VideoOcrPreset xmlns:xsi=""https://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""https://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""https://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
          <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>

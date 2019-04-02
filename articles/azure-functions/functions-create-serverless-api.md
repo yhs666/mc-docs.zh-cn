@@ -11,12 +11,12 @@ origin.date: 05/04/2017
 ms.date: 02/22/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0948c3a38130ade54afdf319acbca62aa482f702
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7de777793bad9818c4ca72b825c547b5bf55bea4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665505"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625693"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 创建无服务器 API
 
@@ -97,20 +97,22 @@ ms.locfileid: "56665505"
 ### <a name="creating-a-proxy-on-the-frontend"></a>在前端上创建代理
 
 1. 在门户中导航回到前端 Function App。
-1. 在左侧导航栏中，单击“代理”旁边的加号“+”。
+2. 在左侧导航栏中，单击“代理”旁边的加号“+”。
     ![创建代理](./media/functions-create-serverless-api/creating-proxy.png)
-1. 使用表中指定的代理设置。 
+3. 使用表中指定的代理设置。 
 
-    | 字段 | 示例值 | 说明 |
-    |---|---|---|
-    | Name | HelloProxy | 仅用于管理的友好名称 |
-    | 路由模板 | /api/remotehello | 确定可以使用哪个路由来调用此代理 |
-    | 后端 URL | https://%HELLO_HOST%/api/hello | 指定请求应代理的终结点 |
-    
-1. 请注意，代理不提供 `/api` 基路径前缀，必须在路由模板中包含此前缀。
-1. `%HELLO_HOST%` 语法将引用前面创建的应用设置。 解析的 URL 将指向原始函数。
-1. 单击**创建**。
-1. 可以通过复制代理 URL 或使用偏好的 HTTP 客户端在浏览器中对其进行测试来试验新代理。
+
+   |     字段      |          示例值          |                          说明                          |
+   |----------------|--------------------------------|---------------------------------------------------------------|
+   |      Name      |           HelloProxy           |           仅用于管理的友好名称            |
+   | 路由模板 |        /api/remotehello        |      确定可以使用哪个路由来调用此代理       |
+   |  后端 URL   | https://%HELLO_HOST%/api/hello | 指定请求应代理的终结点 |
+
+
+4. 请注意，代理不提供 `/api` 基路径前缀，必须在路由模板中包含此前缀。
+5. `%HELLO_HOST%` 语法将引用前面创建的应用设置。 解析的 URL 将指向原始函数。
+6. 单击**创建**。
+7. 可以通过复制代理 URL 或使用偏好的 HTTP 客户端在浏览器中对其进行测试来试验新代理。
     1. 对于匿名函数，请使用：
         1. `https://YOURPROXYAPP.chinacloudsites.cn/api/remotehello?name="Proxies"`
     1. 对于具有授权的函数，请使用：

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6285313b7e60e40b894d5970ed6345273e79f814
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9c9990ed5817f7592473f6e602b634d752ac6288
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666352"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626133"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -146,7 +146,6 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
     }
   ]
 }
-
 ```
 
 #### <a name="retrieving-public-ip-address"></a>检索公共 IP 地址
@@ -284,31 +283,32 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>实例元数据数据类别
 可通过实例元数据服务获取以下数据类别：
 
-数据 | 说明 | 引入的版本 
------|-------------|-----------------------
-location | VM 在其中运行的 Azure 区域 | 2017-04-02 
-name | VM 的名称 | 2017-04-02
-offer | 为 VM 映像提供信息。 此值只适用于 Azure 映像库中部署的图像。 | 2017-04-02
-发布者 | VM 映像的发布者 | 2017-04-02
-sku | VM 映像的特定 SKU | 2017-04-02
-版本 | VM 映像的版本 | 2017-04-02
-osType | Linux 或 Windows | 2017-04-02
-platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md) | 2017-04-02
-platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md) | 2017-04-02
-vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
-vmSize | [VM 大小](sizes.md) | 2017-04-02
-subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
-标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
-resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-计划 | 在 Azure 市场映像中 VM 的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，包含名称、产品和发布者 | 2018-04-02
-publicKeys | 公钥的集合 [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey]，已分配给 VM 和路径 | 2018-04-02
-vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
-ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
-ipv4/publicIpAddress | VM 的公共 IPv4 地址 | 2017-04-02
-subnet/address | VM 的子网地址 | 2017-04-02 
-subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
-macAddress | VM mac 地址 | 2017-04-02 
-scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
+
+|         数据          |                                                                               说明                                                                               | 引入的版本 |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+|       location        |                                                                    VM 在其中运行的 Azure 区域                                                                    |     2017-04-02     |
+|         name          |                                                                             VM 的名称                                                                              |     2017-04-02     |
+|         offer         |                              为 VM 映像提供信息。 此值只适用于 Azure 映像库中部署的图像。                               |     2017-04-02     |
+|       发布者       |                                                                        VM 映像的发布者                                                                        |     2017-04-02     |
+|          sku          |                                                                      VM 映像的特定 SKU                                                                      |     2017-04-02     |
+|        版本        |                                                                         VM 映像的版本                                                                         |     2017-04-02     |
+|        osType         |                                                                            Linux 或 Windows                                                                             |     2017-04-02     |
+| platformUpdateDomain  |                                                      正在运行 VM 的[更新域](manage-availability.md)                                                       |     2017-04-02     |
+|  platformFaultDomain  |                                                       正在运行 VM 的[容错域](manage-availability.md)                                                       |     2017-04-02     |
+|         vmId          |                                VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)                                 |     2017-04-02     |
+|        vmSize         |                                                                           [VM 大小](sizes.md)                                                                           |     2017-04-02     |
+|    subscriptionId     |                                                               虚拟机的 Azure 订阅                                                                |     2017-08-01     |
+|         标记          |                                       虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)                                        |     2017-08-01     |
+|   resourceGroupName   |                                   虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md)                                    |     2017-08-01     |
+|         计划          | 在 Azure 市场映像中 VM 的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，包含名称、产品和发布者 |     2018-04-02     |
+|      publicKeys       |            公钥的集合 [<https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey>]，已分配给 VM 和路径            |     2018-04-02     |
+|    vmScaleSetName     |               虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)                |     2017-12-01     |
+| ipv4/privateIpAddress |                                                                      VM 的本地 IPv4 地址                                                                       |     2017-04-02     |
+| ipv4/publicIpAddress  |                                                                      VM 的公共 IPv4 地址                                                                      |     2017-04-02     |
+|    subnet/address     |                                                                        VM 的子网地址                                                                         |     2017-04-02     |
+|     subnet/prefix     |                                                                        子网前缀，例如 24                                                                        |     2017-04-02     |
+|      macAddress       |                                                                             VM mac 地址                                                                              |     2017-04-02     |
+|    scheduledevents    |                                                               请参阅[计划事件](scheduled-events.md)                                                               |     2017-08-01     |
 
 <!-- Not Available on placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 <!-- Not Available on zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 -->
@@ -337,7 +337,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
 
-<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) --> 可以直接通过实例元数据服务查询此数据。
+<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) -->
+可以直接通过实例元数据服务查询此数据。
 
 **请求**
 
@@ -500,9 +501,9 @@ Puppet | https://github.com/keirans/azuremetadata
 9. 调用服务时请求超时？
    * 必须从分配给 VM 的网卡的主 IP 地址进行元数据调用，此外，在已更改路由的情况下，网卡外必须存在地址 169.254.0.0/16 的路由。
 10. 我更新了虚拟机规模集中的标记，但与 VM 不同，它们未显示在实例中，这是怎么回事？
-   * 目前，对于规模集，仅在重启/重置映像/或对实例的磁盘更改时，向 VM 显示标记。 
+    * 目前，对于规模集，仅在重启/重置映像/或对实例的磁盘更改时，向 VM 显示标记。 
 
-   <!-- Not Available on ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)-->
+    <!-- Not Available on ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)-->
 
 ## <a name="next-steps"></a>后续步骤
 

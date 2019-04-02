@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 02/12/2019
+origin.date: 06/01/2017
+ms.date: 03/28/2019
 ms.author: v-junlch
-ms.openlocfilehash: 118d5723bc2a0bda51b89a7d84fb4d02fd1afd31
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 3a66a82e6e4a996a5dde5efc77e81f52973a23fe
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101575"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544778"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虚拟机规模集模板
 [Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建最小的可行规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。 
@@ -41,7 +41,7 @@ ms.locfileid: "56101575"
 
 ```json
 {
-  "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json",
+  "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
 ## <a name="define-parameters"></a>定义参数
@@ -214,4 +214,4 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

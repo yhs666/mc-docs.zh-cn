@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: jerskine
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: c9140a77d25cc209d17681332d10ebe6e862d848
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 3aaadabfbf91818fb1b0114919b2dfb0f27a6357
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905398"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627369"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>验证 Azure Stack 的 Graph 集成
 
@@ -49,7 +49,9 @@ ms.locfileid: "56905398"
 
 * 已建立域连接的 Windows 10 或 Windows Server 2016。
 * PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Active Directory PowerShell 模块。
 * 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 

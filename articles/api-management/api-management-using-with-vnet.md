@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/01/2019
 ms.author: v-yiso
 ms.date: 04/01/2019
-ms.openlocfilehash: 9e1a6fbddfa0bcaae73447db575b06403ae71f34
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 60f267c12038cc35f7cfdb41a60bf5a5302081b5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348549"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625235"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -52,29 +52,29 @@ ms.locfileid: "58348549"
 3. 配置要在虚拟网络内部署的 API 管理实例。
 
     ![API 管理的虚拟网络菜单][api-management-using-vnet-menu]
-    
+
 4. 选择所需的访问类型：
-    
-    * **外部**：可以通过外部负载均衡器从公共 Internet 访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
-    
-    ![公共对等互连][api-management-vnet-public]
-    
-    * **内部**：只能通过内部负载均衡器从虚拟网络内部访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
-    
-    ![专用对等互连][api-management-vnet-private]`
 
-    此时会显示一个列表，其中包含预配了 API 管理服务的所有区域。 选择每个区域的 VNET 和子网。 该列表中填充了所配置区域中设置的 Azure 订阅中可用的经典虚拟网络和资源管理器虚拟网络。
-    
-    > [!NOTE]
-    > 上图中的**服务终结点**包括网关/代理、Azure 门户、开发人员门户、GIT 和直接管理终结点。
-    > 上图中的**管理终结点**是托管在服务上用于通过 Azure 门户和 Powershell 管理配置的终结点。
-    > 另请注意：即使该图中显示各个终结点的 IP 地址，但 API 管理服务**仅**对其配置的主机名做出响应。
-    
-    > [!IMPORTANT]
-    > 将 Azure API 管理实例部署到 资源管理器 VNET 时，该服务必须位于一个除了 Azure API 管理实例之外不包含其他资源的专用子网中。 如果尝试将 Azure API 管理实例部署到包含其他资源的资源管理器 VNET 子网，则部署会失败。
-    >
+   * **外部**：可以通过外部负载均衡器从公共 Internet 访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
 
-    ![选择 VPN][api-management-setup-vpn-select]
+     ![公共对等互连][api-management-vnet-public]
+
+   * **内部**：只能通过内部负载均衡器从虚拟网络内部访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
+
+     ![专用对等互连][api-management-vnet-private]`
+
+     此时会显示一个列表，其中包含预配了 API 管理服务的所有区域。 选择每个区域的 VNET 和子网。 该列表中填充了所配置区域中设置的 Azure 订阅中可用的经典虚拟网络和资源管理器虚拟网络。
+
+     > [!NOTE]
+     > 上图中的**服务终结点**包括网关/代理、Azure 门户、开发人员门户、GIT 和直接管理终结点。
+     > 上图中的**管理终结点**是托管在服务上用于通过 Azure 门户和 Powershell 管理配置的终结点。
+     > 另请注意：即使该图中显示各个终结点的 IP 地址，但 API 管理服务**仅**对其配置的主机名做出响应。
+
+     > [!IMPORTANT]
+     > 将 Azure API 管理实例部署到 资源管理器 VNET 时，该服务必须位于一个除了 Azure API 管理实例之外不包含其他资源的专用子网中。 如果尝试将 Azure API 管理实例部署到包含其他资源的资源管理器 VNET 子网，则部署会失败。
+     >
+
+     ![选择 VPN][api-management-setup-vpn-select]
 
 5. 单击屏幕顶部的“保存”。
 
@@ -137,30 +137,33 @@ ms.locfileid: "58348549"
 
 * **指标和运行状况监视**：到 Azure Monitor 终结点的出站网络连接，可在以下域中解析： 
 
-    | Azure 环境 | 终结点 |
-    | --- | --- |
-    | Azure Public | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
-    | Azure 中国 | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
-+ **SMTP 中继**：在主机 `smtpi-co1.msn.com`、`smtpi-ch1.msn.com`、`smtpi-db3.msn.com`、`smtpi-sin.msn.com`、`ies.global.microsoft.com` 下解析的 SMTP 中继的出站网络连接
 
-+ **开发人员门户 CAPTCHA**：在主机 `client.hip.live.com` 下解析的开发人员门户 CAPTCHA 的出站网络连接。
+  | Azure 环境 |                                                                                                终结点                                                                                                 |
+  |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  |   Azure Public    | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
+  | Azure Government   |                                         <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                          |
+  |    Azure 中国    |                                         <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                          |
 
-+ **Azure 门户诊断**：若要在从虚拟网络内部使用 API 管理扩展时从 Azure 门户启用诊断日志流，需要允许在端口 443 上对 `dc.services.visualstudio.com` 进行出站访问。 这有助于排查使用扩展时可能遇到的问题。
 
-+ **使用 Express Route 或网络虚拟设备强制隧道流量发往本地防火墙**：客户的常用配置是定义自己的默认路由 (0.0.0.0/0)，强制来自 API 管理所委托子网的所有流量流经本地防火墙或流向网络虚拟设备。 此流量流一定会中断与 Azure API 管理的连接，因为出站流量会在本地被阻止，或者通过“网络地址转换”功能发送到不再与各种 Azure 终结点一起工作的一组无法识别的地址。 此解决方案要求你执行多项操作：
+* **SMTP 中继**：在主机 `smtpi-co1.msn.com`、`smtpi-ch1.msn.com`、`smtpi-db3.msn.com`、`smtpi-sin.msn.com`、`ies.global.microsoft.com` 下解析的 SMTP 中继的出站网络连接
 
-    * 在部署 API 管理服务时所在的子网上启用服务终结点。 需为 Azure SQL、Azure 存储、Azure 事件中心和 Azure 服务总线启用[服务终结点][ServiceEndpoints]。 直接从 API 管理委托的子网启用这些服务的终结点可以让它们使用 Microsoft Azure 主干网络，为服务流量提供优化的路由。 如果将服务终结点与强制隧道 API 管理配合使用，则不会将上述 Azure 服务流量进行强制隧道传输。 其他 API 管理服务依赖项流量会通过强制隧道重定向，不能丢失，否则 API 管理服务会功能失常。
-    
-    * 所有控制平面流量（从 Internet 到 API 管理服务的管理终结点）都会通过特定的一组由 API 管理托管的入站 IP 进行路由。 强制流量通过隧道时，响应不会对称地映射回那些入站源 IP。 为了克服此限制，我们需要添加下述用户定义路由 ([UDR][UDRs])，以便将流量引导回 Azure，方法是将这些主机路由的目标设置为“Internet”。 控制平面流量的入站 IP 集如下所示：
-    
+* **开发人员门户 CAPTCHA**：在主机 `client.hip.live.com` 下解析的开发人员门户 CAPTCHA 的出站网络连接。
+
+* **Azure 门户诊断**：若要在从虚拟网络内部使用 API 管理扩展时从 Azure 门户启用诊断日志流，需要允许在端口 443 上对 `dc.services.visualstudio.com` 进行出站访问。 这有助于排查使用扩展时可能遇到的问题。
+
+* **使用 Express Route 或网络虚拟设备强制隧道流量发往本地防火墙**：客户的常用配置是定义自己的默认路由 (0.0.0.0/0)，强制来自 API 管理所委托子网的所有流量流经本地防火墙或流向网络虚拟设备。 此流量流一定会中断与 Azure API 管理的连接，因为出站流量会在本地被阻止，或者通过“网络地址转换”功能发送到不再与各种 Azure 终结点一起工作的一组无法识别的地址。 此解决方案要求你执行多项操作：
+
+  * 在部署 API 管理服务时所在的子网上启用服务终结点。 需为 Azure SQL、Azure 存储、Azure 事件中心和 Azure 服务总线启用[服务终结点][ServiceEndpoints]。 直接从 API 管理委托的子网启用这些服务的终结点可以让它们使用 Microsoft Azure 主干网络，为服务流量提供优化的路由。 如果将服务终结点与强制隧道 API 管理配合使用，则不会将上述 Azure 服务流量进行强制隧道传输。 其他 API 管理服务依赖项流量会通过强制隧道重定向，不能丢失，否则 API 管理服务会功能失常。
+
+  * 所有控制平面流量（从 Internet 到 API 管理服务的管理终结点）都会通过特定的一组由 API 管理托管的入站 IP 进行路由。 强制流量通过隧道时，响应不会对称地映射回那些入站源 IP。 为了克服此限制，我们需要添加下述用户定义路由 ([UDR][UDRs])，以便将流量引导回 Azure，方法是将这些主机路由的目标设置为“Internet”。 控制平面流量的入站 IP 集如下所示：
+
     > 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、13.64.39.16/32、40.81.47.216/32、51.145.179.78/32、52.142.95.35/32、40.90.185.46/32、20.40.125.155/32
 
-    * 对于其他进行强制隧道传输的 API 管理服务依赖项，应该可以通过某种方式解析主机名并访问终结点。 其中包括：
-        - 指标和运行状况监视
-        - Azure 门户诊断
-        - SMTP 中继
-        - 开发人员门户验证码
+  * 对于其他进行强制隧道传输的 API 管理服务依赖项，应该可以通过某种方式解析主机名并访问终结点。 其中包括：
+      - 指标和运行状况监视
+      - Azure 门户诊断
+      - SMTP 中继
+      - 开发人员门户验证码
 
 ## <a name="troubleshooting"></a>故障排除
 * **初始设置**：如果在某个子网中初次部署 API 管理服务未成功，建议首先在同一子网中部署一个虚拟机。 接下来，在虚拟机中部署远程桌面，并验证是否存在与 Azure 订阅中的以下每个源的连接 
@@ -168,8 +171,8 @@ ms.locfileid: "58348549"
     * Azure SQL 数据库
     * Azure 存储表
 
- > [!IMPORTANT]
- > 在验证连接后，在将 API 管理部署到子网中之前，请确保删除子网中部署的所有资源。
+  > [!IMPORTANT]
+  > 在验证连接后，在将 API 管理部署到子网中之前，请确保删除子网中部署的所有资源。
 
 * **增量更新**：对网络进行更改时，请参阅 [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)，验证并确保 API 管理服务尚未丧失对所依赖的任何关键资源的访问权限。 连接状态应每 15 分钟更新一次。
 

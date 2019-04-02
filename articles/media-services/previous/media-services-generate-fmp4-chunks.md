@@ -1,6 +1,6 @@
 ---
 title: 创建生成 fMP4 区块的 Azure 媒体服务编码任务 | Microsoft 文档
-description: 本主题介绍如何创建生成 fMP4 区块的编码任务。 将此任务用于 Media Encoder Standard 或 Media Encoder Premium Workflow 编码器时，输出资产会包含 fMP4 区块而非 ISO MP4 文件。
+description: 本主题介绍如何创建生成 fMP4 区块的编码任务。 将此任务用于 Media Encoder Standard 编码器时，输出资产会包含 fMP4 区块而非 ISO MP4 文件。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -14,18 +14,18 @@ ms.topic: article
 origin.date: 10/30/2018
 ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: 9bff5e6ed139b73c43a74f304283dedccc9236a3
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 296b8beb37aa9fbc7b271b73946b51d8aa33c44e
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672808"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624208"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>创建生成 fMP4 区块的编码任务
 
 ## <a name="overview"></a>概述
 
-本文介绍如何创建一个编码任务，以便生成分片的 MP4 (fMP4) 区块而非 ISO MP4 文件。 若要生成 fMP4 区块，请使用 **Media Encoder Standard** 或 **Media Encoder Premium Workflow** 编码器创建一个编码任务，并请指定 **AssetFormatOption.AdaptiveStreaming** 选项，如以下代码片段所示：  
+本文介绍如何创建一个编码任务，以便生成分片的 MP4 (fMP4) 区块而非 ISO MP4 文件。 若要生成 fMP4 区块，请使用 **Media Encoder Standard** 编码器创建一个编码任务，并请指定 **AssetFormatOption.AdaptiveStreaming** 选项，如以下代码片段所示：  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 

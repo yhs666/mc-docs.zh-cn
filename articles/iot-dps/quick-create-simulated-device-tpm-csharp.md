@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1348ad88985ef73c1ce869fef066cad0671dc89c
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 8ef690e8089ee433e1c140cbebe17f0337ccb5ff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988421"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626964"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用适用于 IoT 中心设备预配服务的 C# 设备 SDK 创建和预配模拟的 TPM 设备
 
@@ -61,7 +61,7 @@ Azure IoT 设备预配服务支持两类注册：
     cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
     ```
 
-2. 键入以下命令，生成并运行 TPM 设备预配示例。 将 `<IDScope>` 值替换为预配服务的 ID 范围。 
+3. 键入以下命令，生成并运行 TPM 设备预配示例。 将 `<IDScope>` 值替换为预配服务的 ID 范围。 
 
     ```cmd
     dotnet run <IDScope>
@@ -69,29 +69,29 @@ Azure IoT 设备预配服务支持两类注册：
 
     此命令将在单独的命令提示中启动 TPM 芯片模拟器。  
 
-1. 命令窗口显示进行设备注册所需的“认可密钥”、“注册 ID”以及建议的“设备 ID”。 记下这些值。 这些值将用于在设备预配服务实例中创建个人注册。 
+4. 命令窗口显示进行设备注册所需的“认可密钥”、“注册 ID”以及建议的“设备 ID”。 记下这些值。 这些值将用于在设备预配服务实例中创建个人注册。 
    > [!NOTE]
    > 请勿混淆包含命令输出的窗口与包含 TPM 模拟器输出的窗口。 可能需要单击命令窗口，将其置于前台。
 
     ![命令窗口输出](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
-4. 在 Azure 门户的设备预配服务摘要边栏选项卡上，选择“管理注册”。 选择“个人注册”选项卡，然后单击顶部的“添加个人注册”按钮。 
+5. 在 Azure 门户的设备预配服务摘要边栏选项卡上，选择“管理注册”。 选择“个人注册”选项卡，然后单击顶部的“添加个人注册”按钮。 
 
-5. 在“添加注册”下，输入以下信息：
-    - 选择“TPM”作为标识证明*机制*。
-    - 输入前面记录的 TPM 设备的“注册 ID”和“认可密钥”。
-    - 可以选择与预配服务链接的 IoT 中心。
-    - 输入唯一设备 ID。 可以输入在示例输出中建议的设备 ID，也可以输入自己的设备 ID。 如果使用自己的设备 ID，则请在为设备命名时，确保避免使用敏感数据。 
-    - （可选）使用设备所需的初始配置更新“初始设备孪生状态”。
-    - 完成后，单击“保存”按钮。 
+6. 在“添加注册”下，输入以下信息：
+   - 选择“TPM”作为标识证明*机制*。
+   - 输入前面记录的 TPM 设备的“注册 ID”和“认可密钥”。
+   - 可以选择与预配服务链接的 IoT 中心。
+   - 输入唯一设备 ID。 可以输入在示例输出中建议的设备 ID，也可以输入自己的设备 ID。 如果使用自己的设备 ID，则请在为设备命名时，确保避免使用敏感数据。 
+   - （可选）使用设备所需的初始配置更新“初始设备孪生状态”。
+   - 完成后，单击“保存”按钮。 
 
-    ![在门户边栏选项卡中输入设备注册信息](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![在门户边栏选项卡中输入设备注册信息](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    成功注册以后，设备的“注册 ID”会显示在“单个注册”选项卡下的列表中。 
 
-6. 在命令窗口（显示“认可密钥”、“注册 ID”和建议的“设备 ID”）中按 Enter，以登记模拟设备。 请注意相关消息，这些消息模拟设备启动后连接到设备预配服务以获取 IoT 中心信息的情况。 
+7. 在命令窗口（显示“认可密钥”、“注册 ID”和建议的“设备 ID”）中按 Enter，以登记模拟设备。 请注意相关消息，这些消息模拟设备启动后连接到设备预配服务以获取 IoT 中心信息的情况。 
 
-1. 验证设备是否已预配。 将模拟设备成功预配到与预配服务链接的 IoT 中心以后，设备 ID 会显示在该中心的“IoT 设备”边栏选项卡上。 
+8. 验证设备是否已预配。 将模拟设备成功预配到与预配服务链接的 IoT 中心以后，设备 ID 会显示在该中心的“IoT 设备”边栏选项卡上。 
 
     ![设备注册到 IoT 中心](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 

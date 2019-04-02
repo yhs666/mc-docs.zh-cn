@@ -1,20 +1,20 @@
 ---
 title: 在 Azure 虚拟机上安装 Ansible
 description: 了解如何在 Ubuntu、CentOS 和 SLES 上安装和配置 Ansible 以管理 Azure 资源
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 ms.topic: quickstart
 origin.date: 08/21/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 36b9207e3090b9f4a481d7c666590caa66650954
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.date: 04/01/2019
+ms.openlocfilehash: b055b498fd10dc0c1fa1e7471754c130cd8e2f05
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666278"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626878"
 ---
 <!-- Verify successfully-->
 # <a name="install-ansible-on-azure-virtual-machines"></a>在 Azure 虚拟机上安装 Ansible
@@ -39,6 +39,7 @@ ms.locfileid: "56666278"
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [SLES 12 SP2](#sles-12-sp2)
 
+<a name="centos-74"></a>
 ### <a name="centos-74"></a>CentOS 7.4
 
 在终端或 Bash 窗口中输入以下命令，为 Azure Python SDK 模块和 Ansible 安装所需的程序包：
@@ -69,6 +70,7 @@ sudo pip install ansible[azure]
 
 按[创建 Azure 凭据](#create-azure-credentials)部分概述的说明进行操作。
 
+<a name="sles-12-sp2"></a>
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 
 在终端或 Bash 窗口中输入以下命令，为 Azure Python SDK 模块和 Ansible 安装所需的程序包：

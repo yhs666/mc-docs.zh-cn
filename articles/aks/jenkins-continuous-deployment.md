@@ -7,13 +7,13 @@ author: rockboyfor
 ms.author: v-yeche
 ms.topic: article
 origin.date: 01/09/2019
-ms.date: 03/04/2019
-ms.openlocfilehash: efa2caf5d69f6abfced48c19b8b2551f0a06d9d7
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.date: 04/08/2019
+ms.openlocfilehash: 1ea16d558945edcd91842c1ae904e2eaec3428a3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903236"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627585"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>教程：使用 Jenkins 持续集成和部署从 GitHub 部署到 Azure Kubernetes 服务 (AKS)
 
@@ -228,17 +228,17 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 在 Jenkins 门户主页的左侧，选择“新建项”：
 
 1. 输入“azure-vote”作为作业名称。 依次选择“自由风格项目”和“确定”
-1. 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+2. 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 <em>https://github.com/\<your-github-account\>/azure-voting-app-redis</em>
+3. 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 <em>https://github.com/\<your-github-account\>/azure-voting-app-redis.git</em>
 
-1. 在“生成触发器”部分下面，选择“用于 GITscm 轮询的 GitHub 挂钩触发器”
-1. 在“生成环境”下，选择“使用机密文本或文件”
-1. 在“绑定”下，依次选择“添加” > “用户名和密码(已分隔)”
-    - 在“用户名变量”中输入 `ACR_ID`，并在“密码变量”中输入 `ACR_PASSWORD`
+4. 在“生成触发器”部分下面，选择“用于 GITscm 轮询的 GitHub 挂钩触发器”
+5. 在“生成环境”下，选择“使用机密文本或文件”
+6. 在“绑定”下，依次选择“添加” > “用户名和密码(已分隔)”
+   - 在“用户名变量”中输入 `ACR_ID`，并在“密码变量”中输入 `ACR_PASSWORD`
 
-    ![Jenkins 绑定](media/aks-jenkins/bindings.png)
+     ![Jenkins 绑定](media/aks-jenkins/bindings.png)
 
-1. 选择添加类型为“执行 shell”的“生成步骤”，并使用以下文本。 此脚本将生成新的容器映像，并将其推送到 ACR 注册表。
+7. 选择添加类型为“执行 shell”的“生成步骤”，并使用以下文本。 此脚本将生成新的容器映像，并将其推送到 ACR 注册表。
 
     ```bash
     # Build new image and push to ACR.
@@ -248,7 +248,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
     docker push $WEB_IMAGE_NAME
     ```
 
-1. 添加另一个“执行 shell”类型的“生成步骤”并使用以下文本。 此脚本使用 ACR 中的新容器映像来更新 AKS 中的应用程序部署。
+8. 添加另一个“执行 shell”类型的“生成步骤”并使用以下文本。 此脚本使用 ACR 中的新容器映像来更新 AKS 中的应用程序部署。
 
     ```bash
     # Update kubernetes deployment with new image.
@@ -256,7 +256,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
     kubectl set image deployment/azure-vote-front azure-vote-front=$WEB_IMAGE_NAME --kubeconfig /var/lib/jenkins/config
     ```
 
-1. 完成后，单击“保存”。
+9. 完成后，单击“保存”。
 
 ## <a name="test-the-jenkins-build"></a>测试 Jenkins 生成
 

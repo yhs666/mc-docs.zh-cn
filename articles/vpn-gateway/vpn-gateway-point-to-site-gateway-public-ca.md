@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 02/22/2019
-ms.date: 03/04/2019
+origin.date: 03/12/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 110ff353518e8deaa07d69f89e461eeb26bc86a1
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 9225fe178ee24dbb6800706175ab5d9982d71a4e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833164"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625381"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>为 P2S 转换到公共 CA 网关证书
 
@@ -21,7 +21,6 @@ ms.locfileid: "56833164"
 
 >[!NOTE]
 > * 用于 P2S 客户端身份验证的自签名证书不受此 Azure 级证书更改的影响。 可以继续照常颁发和使用自签名证书。
-> * Web 应用不受此更改的影响。
 >
 
 本上下文中的证书都是额外的 Azure 级证书。 它们不是生成用于身份验证的自己的自签名根证书和客户端证书时所使用的证书链。 这些证书不受影响，并且将在你为进行身份验证而生成这些证书时过期。
@@ -40,7 +39,7 @@ ms.locfileid: "56833164"
 >
 > **所有剩余网关将在 2019 年 3 月 12 日 18:00 (UTC) 开始转换**。
 >
-> 完成网关转换过程将花费多达 2 个小时。 网关完成转换过程时，客户将收到电子邮件。
+> 网关完成转换过程时，客户将收到电子邮件。
 > 
 
 ## <a name="1-verify-your-certificate"></a>1.验证证书
@@ -52,8 +51,8 @@ ms.locfileid: "56833164"
 2. 打开或解压缩 zip 文件，然后浏览到“Generic”文件夹。 在 Generic 文件夹中，你将看到两个文件，其中之一是 *VPNSettings.xml*。
 3. 在任意 xml 查看器/编辑器中打开 *VPNSettings.xml*。 在该 xml 文件中，搜索以下字段：
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. 如果 ServerCertRotCn 和 ServerCertIssuerCn 是“DigiCert Global Root CA”，则你不受此项更新的影响，无需继续执行本文中的步骤。 但是，如果这两个字段显示其他内容，那么你的网关证书属于此更新的一部分，将进行转换。
 
 ### <a name="classic"></a>经典

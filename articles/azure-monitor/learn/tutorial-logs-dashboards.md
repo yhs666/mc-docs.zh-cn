@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: df88cbbecd1d6d5deb1ff0a1827bca3dc92b23a2
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: b7ec72e089b43e8734ff9e26c136c21366635fa7
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440326"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544795"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>创建和共享 Log Analytics 数据的仪表板
 
@@ -73,5 +73,3 @@ Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and
 ## <a name="next-steps"></a>后续步骤
 本教程介绍了如何在 Azure 门户中创建仪表板，并在仪表板中添加日志搜索。  继续学习下一教程，了解可基于日志搜索结果实现的不同响应。  
 
-> [!div class="nextstepaction"]
-> [使用 Log Analytics 警报对事件做出响应](tutorial-response.md)

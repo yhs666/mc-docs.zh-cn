@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/27/2018
 ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: d0421d6bfc18c25d454ff5257d29cfb83da799b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ccab03c79a079680dfad88dad0b5995c99027203
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654605"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627204"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 为现有的问题管理系统配置运行状况通知
 
@@ -38,7 +38,7 @@ ms.locfileid: "52654605"
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>使用服务运行状况 Webhook 有效负载配置自定义通知
 若要设置自己的自定义 Webhook 集成，需分析在服务运行状况通知期间发送的 JSON 有效负载。
 
-查看[此处的示例](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)，了解 `Service Health` Webhook 有效负载。
+查看[此处的示例](../azure-monitor/platform/activity-log-alerts-webhook.md)，了解 `ServiceHealth` Webhook 有效负载。
 
 可以通过查看 `context.eventSource == "ServiceHealth"` 来确定其是否为服务运行状况警报。 在这里，与引入最相关的属性为：
  * `data.context.activityLog.status`
@@ -66,8 +66,8 @@ https://app.azure.com/h/0DET-URB/bbadb3
 有效负载中的 `level` 属性可以是 `Informational`、`Warning`、`Error`、`Critical` 中的任意一种（从最不严重到最严重排列）。
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>分析受影响的服务，了解事件的全貌
-服务运行状况警报可以将多个区域和服务的问题告知你。 若要获取完整详细信息，需分析 `impactedServices` 的值。
-其中的内容为 [JSON 转义](http://json.org/)字符串，当取消转义时，包含另一可以进行定期分析的 JSON 对象。
+服务运行状况警报可告知你有关多个区域和服务的问题。 若要获取完整详细信息，需分析 `impactedServices` 的值。
+其中的内容为 [JSON 转义](https://json.org/)字符串，当取消转义时，包含另一可以进行定期分析的 JSON 对象。
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
@@ -103,7 +103,7 @@ https://app.azure.com/h/0DET-URB/bbadb3
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>通过 HTTP POST 请求测试 Webhook 集成
-1. 创建要发送的服务运行状况有效负载。 可以在 [Azure 活动日志警报的 Webhook](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) 中找到示例服务运行状况 Webhook 有效负载。
+1. 创建要发送的服务运行状况有效负载。 可以在 [Azure 活动日志警报的 Webhook](../azure-monitor/platform/activity-log-alerts-webhook.md) 中找到示例服务运行状况 Webhook 有效负载。
 
 2. 按如下所示创建 HTTP POST 请求：
 
@@ -119,6 +119,6 @@ https://app.azure.com/h/0DET-URB/bbadb3
 4. 转到 [PagerDuty](https://www.pagerduty.com/)，确认集成已设置成功。
 
 ## <a name="next-steps"></a>后续步骤
-- 查看[活动日志警报 webhook 架构](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)。 
-- 了解[服务运行状况通知](../monitoring-and-diagnostics/monitoring-service-notifications.md)。
-- 详细了解[操作组](../monitoring-and-diagnostics/monitoring-action-groups.md)。
+- 查看[活动日志警报 webhook 架构](../azure-monitor/platform/activity-log-alerts-webhook.md)。 
+- 了解[服务运行状况通知](../azure-monitor/platform/service-notifications.md)。
+- 详细了解[操作组](../azure-monitor/platform/action-groups.md)。

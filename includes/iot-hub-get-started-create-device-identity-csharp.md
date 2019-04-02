@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 1ba108b59ddb88189056940779d6af91802720f7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632896"
+---
 ## <a name="create-a-device-identity"></a>创建设备标识
 
 在本部分中，会创建一个 .NET 控制台应用，用于在 IoT 中心的标识注册表中创建设备标识。 设备无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]的“标识注册表”部分。 运行此控制台应用时，它会生成唯一的设备 ID 和密钥。 设备在向 IoT 中心发送设备到云的消息时，使用这些值来标识自身。 设备 ID 区分大小写。
@@ -6,27 +14,27 @@
 
     ![新的 Visual C# Windows 经典桌面项目][10]
 
-1. 在解决方案资源管理器中，右键单击“CreateDeviceIdentity”项目，然后单击“管理 NuGet 包”。
+2. 在解决方案资源管理器中，右键单击“CreateDeviceIdentity”项目，然后单击“管理 NuGet 包”。
 
-1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
 
     ![“NuGet 包管理器”窗口][11]
 
-1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
+4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
 
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Common.Exceptions;
     ```
 
-1. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
+5. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
 
     ```csharp
     static RegistryManager registryManager;
     static string connectionString = "{iot hub connection string}";
     ```
 
-1. 将以下方法添加到 **Program** 类：
+6. 将以下方法添加到 **Program** 类：
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -46,9 +54,9 @@
     ```
 
     此方法会创建 ID 为 **myFirstDevice**的设备标识。 （如果该设备 ID 已在标识注册表中，代码就只检索现有的设备信息。）然后，应用程序会显示该标识的主密钥。 在模拟设备应用中使用此密钥连接到 IoT 中心。
-[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. 最后，在 **Main** 方法中添加以下行：
+7. 最后，在 **Main** 方法中添加以下行：
 
     ```csharp
     registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -56,7 +64,7 @@
     Console.ReadLine();
     ```
 
-1. 运行此应用程序并记下设备密钥。
+8. 运行此应用程序并记下设备密钥。
 
     ![应用程序生成的设备密钥][12]
 

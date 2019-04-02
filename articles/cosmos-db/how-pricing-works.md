@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 11/28/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: bc3262754d1fa0912d551f728e63b810e7eebb67
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: c089918fc84d4f01f5f9c68be656465f8ddb01bd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988025"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627323"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的定价模型 
 
@@ -62,14 +62,14 @@ Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 
 可在以下文章中了解更多关于优化 Azure Cosmos DB 资源成本的信息：
 
-* 了解[针对开发和测试进行优化](optimize-dev-test.md)
-<!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+* 了解[开发和测试优化](optimize-dev-test.md)
+  <!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
 * 详细了解如何[优化多区域 Cosmos 帐户的成本](optimize-cost-regions.md)
-<!--Not Available on * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
+  <!--Not Available on * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 * 了解 [Azure Cosmos DB 模拟器](local-emulator.md)
 
 <!--Update_Description: update meta properties, wording update -->

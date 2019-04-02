@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 02/27/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: bbbc6bc7eca50b6b28103a375b4f13750df9f1a1
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 5f01bcc88889551909babbe73edcafbc04036556
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216231"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626358"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>使用 Apache Ambari 视图来调试 HDInsight 上的 Apache Tez 作业
 
@@ -97,14 +97,14 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 5. 此页上的选项卡允许查看以下信息：
 
-    * **查询详细信息**：有关 Hive 查询的详细信息。
-    * **时间线**：有关每个处理阶段所用时间的信息。
-    * **配置**：用于此查询的配置。
+   * **查询详细信息**：有关 Hive 查询的详细信息。
+   * **时间线**：有关每个处理阶段所用时间的信息。
+   * **配置**：用于此查询的配置。
 
-    在“查询详细信息”中，可以使用链接查找有关“应用程序”或此查询的 __DAG__ 的信息。
+     在“查询详细信息”中，可以使用链接查找有关“应用程序”或此查询的 __DAG__ 的信息。
 
-    * “应用程序”链接将显示有关此查询的 YARN 应用程序的信息。 从此处可以访问 YARN 应用程序日志。
-    * “DAG”链接将显示有关此查询的有向无环图的信息。 从此处可以访问 DAG 的图形表示方式。 还可以找到 DAG 内相应顶点的相关信息。
+   * “应用程序”链接将显示有关此查询的 YARN 应用程序的信息。 从此处可以访问 YARN 应用程序日志。
+   * “DAG”链接将显示有关此查询的有向无环图的信息。 从此处可以访问 DAG 的图形表示方式。 还可以找到 DAG 内相应顶点的相关信息。
 
 ## <a name="next-steps"></a>后续步骤
 

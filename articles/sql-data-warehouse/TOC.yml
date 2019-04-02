@@ -3,7 +3,7 @@ items:
   href: index.md
 - name: 概述
   items:
-  - name: 关于 SQL 数据仓库
+  - name: 什么是 SQL 数据仓库？
     href: sql-data-warehouse-overview-what-is.md
   - name: SQL 数据仓库体系结构
     href: massively-parallel-processing-mpp-architecture.md
@@ -19,6 +19,8 @@ items:
     href: sql-data-warehouse-overview-faq.md
 - name: 发行说明
   items:
+  - name: 2018 年 8 月
+    href: release-notes-august-2018.md
   - name: 2018 年 7 月
     href: release-notes-july-2018.md
   - name: 2018 年 6 月
@@ -49,6 +51,12 @@ items:
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: 工作负荷管理
+    items:
+    - name: 创建工作负荷分类器（预览版）
+      items:
+      - name: T-SQL
+        href: quickstart-create-a-workload-classifier-tsql.md
   expanded: true
 - name: 概念
   items:
@@ -140,6 +148,10 @@ items:
     items:
     - name: 资源类和工作负荷管理
       href: resource-classes-for-workload-management.md
+    - name: 工作负荷分类（预览版）
+      href: sql-data-warehouse-workload-classification.md
+    - name: 工作负荷重要性（预览版）
+      href: sql-data-warehouse-workload-importance.md
     - name: 内存和并发限制
       href: memory-and-concurrency-limits.md
   - name: 可管理性和监视
@@ -154,8 +166,6 @@ items:
       href: backup-and-restore.md
     - name: 建议
       href: sql-data-warehouse-concept-recommendations.md
-    - name: 维护计划
-      href: maintenance-scheduling.md
     - name: 故障排除
       href: sql-data-warehouse-troubleshoot.md
   - name: 维护计划
@@ -214,14 +224,16 @@ items:
     items:
     - name: 分析工作负荷
       href: analyze-your-workload.md
-  - name: 监视和优化
+  - name: 管理和监视
     items:
-    - name: 监视工作负荷
+    - name: 还原数据仓库
+      href: sql-data-warehouse-restore.md
+    - name: 监视工作负荷 - 门户
+      href: sql-data-warehouse-monitor-workload-portal.md
+    - name: 监视工作负荷 - DMV
       href: sql-data-warehouse-manage-monitor.md
     - name: 监视 Gen2 缓存
       href: sql-data-warehouse-how-to-monitor-cache.md
-    - name: 还原数据仓库
-      href: sql-data-warehouse-restore.md
   - name: 集成
     items:
     - name: 构建数据管道
@@ -266,9 +278,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
-ms.openlocfilehash: ed99c57d96f0156bc913dcfd66e7906ff0319f34
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 7d55160e1aaece31ce9f31b304bf68eda792d968
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348057"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625135"

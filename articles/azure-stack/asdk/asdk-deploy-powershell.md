@@ -18,12 +18,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 6629e1e991ace9cef83bef4681a070558733f34b
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 26f759741fd4922734892dea05dfa90d54f732f6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905303"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625449"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>从命令行部署 ASDK
 ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
@@ -139,6 +139,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 可选参数
+
 |参数|必需/可选|说明|
 |-----|-----|-----|
 |AdminPassword|必须|在所有虚拟机（在开发工具包部署过程中创建）上设置本地管理员帐户和所有其他的用户帐户。 此密码必须与当前主机上的本地管理员密码匹配。|

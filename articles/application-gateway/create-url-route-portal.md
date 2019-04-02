@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 10/25/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: faa132f4ff3403bf4339d0850d56f1be60ba68c7
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 38c2cca07b05d299cae32bc2e855a6721f99d323
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788733"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626271"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -50,20 +50,20 @@ ms.locfileid: "57788733"
 2. 选择“网络”，然后在“特色”列表中选择“应用程序网关”。
 3. 输入应用程序网关的以下值：
 
-    - *myAppGateway* - 应用程序网关的名称。
-    - *myResourceGroupAG* - 新资源组。
+   - *myAppGateway* - 应用程序网关的名称。
+   - *myResourceGroupAG* - 新资源组。
 
-    ![新建应用程序网关](./media/create-url-route-portal/application-gateway-create.png)
+     ![新建应用程序网关](./media/create-url-route-portal/application-gateway-create.png)
 
 4. 接受其他设置的默认值，然后单击“确定”。
 5. 依次单击“选择虚拟网络”、“新建”，然后输入虚拟网络的以下值：
 
-    - *myVNet* - 虚拟网络的名称。
-    - *10.0.0.0/16* - 虚拟网络地址空间。
-    - *myAGSubnet* - 子网名称。
-    - *10.0.0.0/24* - 子网地址空间。
+   - *myVNet* - 虚拟网络的名称。
+   - *10.0.0.0/16* - 虚拟网络地址空间。
+   - *myAGSubnet* - 子网名称。
+   - *10.0.0.0/24* - 子网地址空间。
 
-    ![创建虚拟网络](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![创建虚拟网络](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. 单击“确定”创建虚拟网络和子网。
 7. 依次单击“选择公共 IP 地址”、“新建”，然后输入公共 IP 地址的名称。 在本示例中，公共 IP 地址名为 *myAGPublicIPAddress*。 接受其他设置的默认值，然后单击“确定”。

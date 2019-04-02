@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 01/24/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 66a58107547fdb98db42c650755b4da76c061880
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a07606618f5ccc8f481d59030999ccaa862ab5ff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004539"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626526"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -34,43 +34,43 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接模式和连接协议。  两种可用模式：
 
-    * 网关模式（默认）
+   * 网关模式（默认）
 
-        网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境（例如在使用 Azure Functions 或正在使用消耗计划时）中运行应用程序时，也建议使用网关连接模式。 
+       网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境（例如在使用 Azure Functions 或正在使用消耗计划时）中运行应用程序时，也建议使用网关连接模式。 
 
-    * 直接模式
+   * 直接模式
 
-        直接模式支持通过 TCP 和 HTTPS 协议的连接。 如果使用最新版的 .Net SDK，则 .NET Standard 2.0 和 .Net Framework 中支持直接连接模式。 使用直接模式时，有两个可用的协议选项：
+       直接模式支持通过 TCP 和 HTTPS 协议的连接。 如果使用最新版的 .Net SDK，则 .NET Standard 2.0 和 .Net Framework 中支持直接连接模式。 使用直接模式时，有两个可用的协议选项：
 
-        * TCP
-        * HTTPS
+     * TCP
+     * HTTPS
 
-        如果使用网关模式，Cosmos DB 在使用 Azure Cosmos DB 的 API for MongoDB 时使用端口 443 和端口 10250、10255 和 10256。 10250 端口映射到没有异地复制功能的默认 MongoDB 实例，10255/10256 端口映射到具有异地复制功能的 MongoDB 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
+       如果使用网关模式，Cosmos DB 在使用 Azure Cosmos DB 的 API for MongoDB 时使用端口 443 和端口 10250、10255 和 10256。 10250 端口映射到没有异地复制功能的默认 MongoDB 实例，10255/10256 端口映射到具有异地复制功能的 MongoDB 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
 
-        |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
-        |---------|---------|---------|---------|
-        |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(10350)、Graph(443)    |
-        |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 范围内的端口    |
-        |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
+       |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
+       |---------|---------|---------|---------|
+       |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(10350)、Graph(443)    |
+       |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 范围内的端口    |
+       |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
 
-    Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
+     Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
 
-    连接模式是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 如果使用直接模式，则也可以在 ConnectionPolicy 参数中设置协议。
+     连接模式是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 如果使用直接模式，则也可以在 ConnectionPolicy 参数中设置协议。
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = new "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
+       ConnectionMode = ConnectionMode.Direct,
+       ConnectionProtocol = Protocol.Tcp
+     });
+     ```
 
-    由于只有直接模式支持 TCP，因此如果使用网关模式，HTTPS 协议始终用来与网关通信，并忽略 ConnectionPolicy 中的 Protocol 值。
+     由于只有直接模式支持 TCP，因此如果使用网关模式，HTTPS 协议始终用来与网关通信，并忽略 ConnectionPolicy 中的 Protocol 值。
 
-    ![Azure Cosmos DB 连接策略演示](./media/performance-tips/connection-policy.png)
+     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/connection-policy.png)
 
 2. **调用 OpenAsync 以避免首次请求时启动延迟**
 

@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: ''
-origin.date: 02/22/2019
-ms.date: 03/18/2019
+origin.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
+ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: cb72fee201119559d68f1380a3f8963019cf9eb8
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: b84e0fe45ef11cc25060c923fadab15deec58896
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988523"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503551"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的存储基础结构
 

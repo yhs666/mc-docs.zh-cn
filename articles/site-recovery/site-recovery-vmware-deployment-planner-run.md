@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/28/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: fdda36c724ad37231e4d938ef9e814eed3000c88
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: fe529a5bc653c75743685a35767f439badf5da91
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463589"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625760"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>运行用于从 VMware 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -64,23 +64,24 @@ ms.locfileid: "57463589"
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| 参数名称 | 说明 |
-|---|---|
-| -Operation | StartProfiling |
-| -Server | 要分析其 VM 的 vCenter 服务器/vSphere ESXi 主机的完全限定域名或 IP 地址。|
-| -User | 用于连接到 vCenter 服务器/vSphere ESXi 主机的用户名。 该用户至少需要拥有只读访问权限。|
-| -VMListFile | 一个文件，其中包含要分析的 VM 的列表。 文件路径可以是绝对或相对路径。 此文件应该每行包含一个 VM 名称/IP 地址。 此文件中指定的虚拟机名称应与 vCenter 服务器/vSphere ESXi 主机上的 VM 名称相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
-|-NoOfMinutesToProfile|运行分析的分钟数。 最小值为 30 分钟。|
-|-NoOfHoursToProfile|运行分析的小时数。|
-| -NoOfDaysToProfile | 运行分析的天数。 建议运行分析 7 天以上，确保在指定时间段内观察环境中的工作负荷模式，并根据该模式提供准确的建议。 |
-|-Virtualization|指定虚拟化类型（VMware 或 Hyper-V）。|
-| -Directory | （可选）通用命名约定 (UNC) 或本地目录路径，用于存储在分析期间生成的分析数据。 如果未指定目录名称，则使用当前路径下名为“ProfiledData”的目录作为默认目录。 |
-| -Password | （可选）用于连接到 vCenter 服务器/vSphere ESXi 主机的密码。 如果现在不指定密码，则在执行命令时，系统会提示指定密码。|
-|-Port|（可选）用于连接到 vCenter/ESXi 主机的端口号。 默认端口为 443。|
-|-Protocol| （可选）用于连接到 vCenter 的指定协议，即“http”或“https”。 默认协议为 https。|
-| -StorageAccountName | （可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。 |
-| -StorageAccountKey | （可选）用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <*存储帐户名称*> >“设置”>“访问密钥”> 密钥 1。 |
-| -Environment | （可选）这是目标 Azure 存储帐户环境。 这可以是以下三个值之一：AzureChinaCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。 |
+
+|    参数名称     |                                                                                                                                                                                                            说明                                                                                                                                                                                                             |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      -Operation       |                                                                                                                                                                                                           StartProfiling                                                                                                                                                                                                           |
+|        -Server        |                                                                                                                                                        要分析其 VM 的 vCenter 服务器/vSphere ESXi 主机的完全限定域名或 IP 地址。                                                                                                                                                         |
+|         -User         |                                                                                                                                                       用于连接到 vCenter 服务器/vSphere ESXi 主机的用户名。 该用户至少需要拥有只读访问权限。                                                                                                                                                       |
+|      -VMListFile      | 一个文件，其中包含要分析的 VM 的列表。 文件路径可以是绝对或相对路径。 此文件应该每行包含一个 VM 名称/IP 地址。 此文件中指定的虚拟机名称应与 vCenter 服务器/vSphere ESXi 主机上的 VM 名称相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -NoOfMinutesToProfile |                                                                                                                                                                           运行分析的分钟数。 最小值为 30 分钟。                                                                                                                                                                           |
+|  -NoOfHoursToProfile  |                                                                                                                                                                                       运行分析的小时数。                                                                                                                                                                                        |
+|  -NoOfDaysToProfile   |                                                                                    运行分析的天数。 建议运行分析 7 天以上，确保在指定时间段内观察环境中的工作负荷模式，并根据该模式提供准确的建议。                                                                                     |
+|    -Virtualization    |                                                                                                                                                                                        指定虚拟化类型（VMware 或 Hyper-V）。                                                                                                                                                                                        |
+|      -Directory       |                                                                                  （可选）通用命名约定 (UNC) 或本地目录路径，用于存储在分析期间生成的分析数据。 如果未指定目录名称，则使用当前路径下名为“ProfiledData”的目录作为默认目录。                                                                                   |
+|       -Password       |                                                                                                                            （可选）用于连接到 vCenter 服务器/vSphere ESXi 主机的密码。 如果现在不指定密码，则在执行命令时，系统会提示指定密码。                                                                                                                             |
+|         -Port         |                                                                                                                                                                            （可选）用于连接到 vCenter/ESXi 主机的端口号。 默认端口为 443。                                                                                                                                                                            |
+|       -Protocol       |                                                                                                                                                            （可选）用于连接到 vCenter 的指定协议，即“http”或“https”。 默认协议为 https。                                                                                                                                                            |
+|  -StorageAccountName  |                                                                            （可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。                                                                            |
+|  -StorageAccountKey   |                                                                                                                        （可选）用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <*存储帐户名称*> >“设置”>“访问密钥”> 密钥 1。                                                                                                                         |
+|     -Environment      |                                                                      （可选）这是目标 Azure 存储帐户环境。 这可以是以下三个值之一：AzureChinaCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。                                                                      |
 
 建议在分析 VM 时，分析 7 天以上。 如果变动量模式在某个月发生变化，建议在看到最大变动量的一周内进行分析。 最好的方式是分析 31 天，以便获取更好的建议。 在分析过程中，ASRDeploymentPlanner.exe 会保持运行。 该工具将取以天为单位的分析时间输入。 若要快速测试此工具或获取概念证明，可以分析数小时或数分钟。 允许的最短分析时间为 30 分钟。
 

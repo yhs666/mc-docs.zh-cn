@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1b221c5daa37e434ee3aad70305673c43a075854
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: d10daafbf840efcc2c956dc710e3ce19c2f24562
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964440"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505423"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>快速入门：使用文本翻译 API 通过 Node.js 来检测文本语言
 
@@ -120,6 +120,8 @@ node detect.js
 
 ## <a name="sample-response"></a>示例响应
 
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+
 ```json
 [
     {
@@ -164,3 +166,4 @@ node detect.js
 * [获取支持的语言的列表](quickstart-nodejs-languages.md)
 * [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 
+<!-- Update_Description: wording update -->

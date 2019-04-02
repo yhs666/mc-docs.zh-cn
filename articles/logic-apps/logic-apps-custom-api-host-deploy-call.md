@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0f809fc0bd72d3612b5e67fa5603ace5dc871f52
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 72413b0a1b1e50dba0161b5964ae3f3b106de3d2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216227"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625211"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>从 Azure 逻辑应用中的工作流部署和调用自定义 API
 
 [创建自定义 API](./logic-apps-create-api-app.md) 以供逻辑应用工作流使用后，必须先部署 API 才能调用它们。 虽然可以将 API 部署为 [Web 应用](../app-service/overview.md)，但请考虑将 API 部署为 [API 应用](../app-service/app-service-web-tutorial-rest-api.md)，便于更加轻松地在云端和本地生成、托管和使用 API。 不必更改 API 中的任何代码 - 可直接将代码部署到 API 应用。 可在 [Azure App Service](../app-service/overview.md) 上托管API，它是一款平台即服务 (PaaS) 产品，可提供简单的高缩放性 API 托管。
 
-虽然可从逻辑应用调用任何 API，但为获得最佳体验，请添加 [OpenAPI（以前称为 Swagger）元数据](http://swagger.io/specification/)，用于说明 API 的操作和参数。 此 OpenAPI 文件有助于使 API 与逻辑应用集成更轻松、运行更顺畅。
+虽然可从逻辑应用调用任何 API，但为获得最佳体验，请添加 [OpenAPI（以前称为 Swagger）元数据](https://swagger.io/specification/)，用于说明 API 的操作和参数。 此 OpenAPI 文件有助于使 API 与逻辑应用集成更轻松、运行更顺畅。
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>将 API 部署为 Web 应用或 API 应用
 

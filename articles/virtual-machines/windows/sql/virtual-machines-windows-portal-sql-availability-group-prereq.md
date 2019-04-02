@@ -17,12 +17,12 @@ ms.workload: iaas-sql-server
 origin.date: 03/29/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6c495ee3bdf9d87e7abc9ad2d8feee4012ba6bda
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b9ecd4225c0878ea7f085c1253740d19019c2b54
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666071"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626768"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虚拟机中创建 Alwayson 可用性组的先决条件
 
@@ -294,14 +294,14 @@ Azure 会创建虚拟机。
 15. 单击黄色警告栏上的“更多”链接。
 16. 在“所有服务器任务详细信息”对话框的“操作”栏中，单击“将此服务器提升为域控制器”。
 17. 在“部署配置”下面，选择“将域控制器添加到现有域”。
-   ![部署配置](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![部署配置](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. 单击“选择”。
 19. 使用管理员帐户 (**CORP.CONTOSO.COM\domainadmin**) 和密码 (**Contoso!0000**) 进行连接。
 20. 在“从林中选择域”中单击你的域，然后单击“确定”。
 21. 在“域控制器选项”中，使用默认值并设置 DSRM 密码。
 
-   >[!NOTE]
-   >“DNS 选项”页可能会警告你无法创建此 DNS 服务器的委托。 在非生产环境中可以忽略此警告。
+    >[!NOTE]
+    >“DNS 选项”页可能会警告你无法创建此 DNS 服务器的委托。 在非生产环境中可以忽略此警告。
 22. 单击“下一步”，直到出现“必备项检查”对话框。 然后单击“安装” 。
 
 在服务器完成配置更改后，重启服务器。

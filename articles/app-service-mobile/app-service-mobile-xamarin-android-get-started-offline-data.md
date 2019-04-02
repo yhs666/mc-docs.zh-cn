@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1ae698543179ed997a5cecb8dc36ef7974ff78be
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 151d7dbabda3e4c91289efff31cba8654449392e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653822"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625190"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>为 Xamarin.Android 移动应用启用脱机同步
 
@@ -32,7 +32,7 @@ ms.locfileid: "52653822"
 
 本教程会更新[创建 Xamarin Android 应用] 教程中的客户端项目，支持 Azure 移动应用的脱机功能。 如果不使用下载的快速入门服务器项目，必须将数据访问扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-若要了解有关脱机同步功能的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]（Azure 移动应用中的脱机数据同步）主题。
+若要了解有关脱机同步功能的详细信息，请参阅 [Azure 移动应用中的脱机数据同步] 主题。
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新客户端应用以支持脱机功能
 
@@ -78,7 +78,7 @@ ms.locfileid: "52653822"
 
 4. 在应用程序中，单击要在本地存储区中完成的几个项旁边的复选框。
 
-  `CheckItem` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。 每当对客户端已更改的表执行拉取操作时，始终会自动执行推送操作。 这可确保本地存储中的所有表以及关系都保持一致。 此行为可能会导致意外的推送。 有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
+   `CheckItem` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。 每当对客户端已更改的表执行拉取操作时，始终会自动执行推送操作。 这可确保本地存储中的所有表以及关系都保持一致。 此行为可能会导致意外的推送。 有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
 
 ## <a name="review-the-client-sync-code"></a>查看客户端同步代码
 
@@ -117,7 +117,7 @@ ms.locfileid: "52653822"
 
     每当刷新 todoitem 列表或者添加或完成 todoitem 时，所提供的代码便会调用 `ToDoActivity.SyncAsync()` 进行同步。 每次本地更改后，该代码同步。
 
-    在所提供的代码中，将查询远程 `TodoItem` 表中的所有记录，但它还可以筛选记录，只需将查询 ID 和查询传递给 `PushAsync` 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [Azure 移动应用中的脱机数据同步]部分。
+    在所提供的代码中，将查询远程 `TodoItem` 表中的所有记录，但它还可以筛选记录，只需将查询 ID 和查询传递给 `PushAsync` 即可。 有关详细信息，请参阅 [Azure 移动应用中的脱机数据同步] 中的 *增量同步*部分。
 
     ```
     // ToDoActivity.cs

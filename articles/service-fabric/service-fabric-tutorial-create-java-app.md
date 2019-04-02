@@ -16,12 +16,12 @@ origin.date: 09/01/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f34b949fe652c342699b659ad44cccccdc8a826c
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: c8c79f0f18ae8b90e4e1cbea7fa46b72c16c6cac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463548"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625714"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教程：在 Service Fabric 上创建包含 Java Web API 前端服务和有状态后端服务的应用程序
 
@@ -75,6 +75,7 @@ ms.locfileid: "57463548"
     ![创建应用程序之后的 Eclipse 包资源管理器]( ./media/service-fabric-tutorial-create-java-app/eclipse-package-explorer.png)
 
 下表对上一屏幕截图中包资源管理器的每个项目进行了简短的说明。 
+
 | **包资源管理器项目** | **说明** |
 | --- | --- |
 | PublishProfiles | 包含的 JSON 文件介绍了本地和 Azure Service Fabric 群集的配置文件详细信息。 部署此应用程序时，这些文件的内容供插件使用。 |

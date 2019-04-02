@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2019
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 02b645196194a59909d933f9972316d4d0e7214c
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: b1117a84172107f135ad3a1d5cd465f597e1e35f
+ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996489"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58545266"
 ---
 # <a name="use-firewall-rules"></a>使用防火墙规则
 
@@ -144,10 +144,14 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 若要部署模板，请按照 [Azure 资源管理器][lnk-deploy]的说明进行操作。
 
+## <a name="next-steps"></a>后续步骤
 
+若要限制服务总线到 Azure 虚拟网络的访问，请参阅以下链接：
+
+- [服务总线的虚拟网络服务终结点][lnk-vnet]
 
 <!-- Links -->
 
 [lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
-
+[lnk-vnet]: service-bus-service-endpoints.md
 [express-route]:  /expressroute/expressroute-faqs#supported-services

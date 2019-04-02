@@ -9,12 +9,12 @@ ms.date: 01/28/19
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 7beeec9f29a8c1863f3a8448c99c954258416d66
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: ad0a71db44acd4b1290d1e46ed942467acb914f5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906073"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625520"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
@@ -138,17 +138,17 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. 导航到示例文件夹 `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`。 请注意，在 Bash shell 中，命令区分大小写，并且路径分隔符必须为正斜杠。
+3. 导航到示例文件夹 `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`。 请注意，在 Bash shell 中，命令区分大小写，并且路径分隔符必须为正斜杠。
 
-3. 发出以下命令来生成应用程序：
+4. 发出以下命令来生成应用程序：
    
    ```shell
    mvn clean package -DskipTests
    ```
-4. 若要运行程序，请发出以下命令。 请确保将占位符替换为在上一步骤中获取的连接字符串和主题名称：
+5. 若要运行程序，请发出以下命令。 请确保将占位符替换为在上一步骤中获取的连接字符串和主题名称：
 
    ```shell
-  java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
+   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
    ```
 
    观察发送到主题并随后从各个订阅中接收的 10 条消息：

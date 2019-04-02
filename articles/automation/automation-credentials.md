@@ -7,19 +7,19 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/08/2018
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ac95fe25d30da848804609aa53b9e7a65eb605cf
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5ab59b728b96182dce7e35ef665228e327ea247b
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987989"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503546"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 
-自动化凭据资产包含一个对象，该对象包含用户名和密码等安全凭据。 Runbook 和 DSC 配置可能会使用在身份验证时接受 PSCredential 对象的 cmdlet，也可能会提取 PSCredential 对象的用户名和密码，以便提供给需要进行身份验证的某些应用程序或服务。 在 Azure 自动化中安全地存储凭据的属性，并可以在 Runbook 或 DSC 配置中通过 [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活动访问这些属性。
+自动化凭据资产包含一个对象，该对象包含用户名和密码等安全凭据。 Runbook 和 DSC 配置可能会使用在身份验证时接受 PSCredential 对象的 cmdlet，也可能会提取 PSCredential 对象的用户名和密码，以便提供给需要进行身份验证的某些应用程序或服务。 在 Azure 自动化中安全地存储凭据的属性，并可以在 Runbook 或 DSC 配置中通过 [Get-AutomationPSCredential](#activities) 活动访问这些属性。
 
 > [!NOTE]
 > Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。
@@ -30,10 +30,10 @@ ms.locfileid: "57987989"
 
 | Cmdlet | 说明 |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |检索有关凭据资产的信息。 只能从 **Get-AutomationPSCredential** 活动中检索凭据本身。 |
-| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |创建新的自动化凭据。 |
-| [Remove- AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |删除自动化凭据。 |
-| [Set- AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |设置现有自动化凭据的属性。 |
+| [Get-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationcredential) |检索有关凭据资产的信息。 只能从 **Get-AutomationPSCredential** 活动中检索凭据本身。 |
+| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential) |创建新的自动化凭据。 |
+| [Remove- AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential) |删除自动化凭据。 |
+| [Set- AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential) |设置现有自动化凭据的属性。 |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
 
@@ -41,10 +41,10 @@ ms.locfileid: "57987989"
 
 | Cmdlet | 说明 |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |检索有关凭据资产的信息。  |
-| [New-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |创建新的自动化凭据。 |
-| [Remove-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |删除自动化凭据。 |
-| [Set-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |设置现有自动化凭据的属性。 |
+| [Get-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcredential) |检索有关凭据资产的信息。  |
+| [New-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcredential) |创建新的自动化凭据。 |
+| [Remove-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcredential) |删除自动化凭据。 |
+| [Set-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcredential) |设置现有自动化凭据的属性。 |
 
 ## <a name="activities"></a>活动
 
@@ -52,7 +52,7 @@ ms.locfileid: "57987989"
 
 | 活动 | 说明 |
 |:--- |:--- |
-| Get-AutomationPSCredential |在 Runbook 或 DSC 配置中获取要使用的凭据。 返回 [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) 对象。 |
+| Get-AutomationPSCredential |在 Runbook 或 DSC 配置中获取要使用的凭据。 返回 [System.Management.Automation.PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential) 对象。 |
 
 > [!NOTE]
 > 应避免在 Get-AutomationPSCredential 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与凭据资产之间的依赖关系变得复杂化。
@@ -92,7 +92,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>使用 PowerShell 凭据
 
-在 Runbook 或 DSC 配置中使用 **Get-AutomationPSCredential** 活动检索凭据资产。 此操作将返回 [PSCredential 对象](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx)，可将其用于需要 PSCredential 参数的活动或 cmdlet。 还可以检索要单独使用的凭据对象的属性。 该对象具有一个用于用户名和安全密码的属性，或者可以使用 GetNetworkCredential 方法返回 [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) 对象，该对象将提供该密码的不安全版本。
+在 Runbook 或 DSC 配置中使用 **Get-AutomationPSCredential** 活动检索凭据资产。 此操作将返回 [PSCredential 对象](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential)，可将其用于需要 PSCredential 参数的活动或 cmdlet。 还可以检索要单独使用的凭据对象的属性。 该对象具有一个用于用户名和安全密码的属性，或者可以使用 GetNetworkCredential 方法返回 [NetworkCredential](https://docs.microsoft.com/dotnet/api/system.net.networkcredential) 对象，该对象将提供该密码的不安全版本。
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 

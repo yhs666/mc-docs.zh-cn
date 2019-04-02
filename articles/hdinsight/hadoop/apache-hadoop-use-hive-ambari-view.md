@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9f2aee212d1fe8730e255069fdf7fadb88164f51
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: b713d5311603396cf7cb5265f1a4b8536e4c75ae
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029210"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626456"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>将 Apache Ambari Hive 视图与 HDInsight 中的 Apache Hadoop 配合使用
 
@@ -81,7 +81,7 @@ ms.locfileid: "54029210"
    * `DROP TABLE`：删除表和数据文件（如果该表已存在）。
 
    * `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表。
-   外部表仅在 Hive 中存储表定义。 数据保留在原始位置。
+     外部表仅在 Hive 中存储表定义。 数据保留在原始位置。
 
    * `ROW FORMAT`：演示如何设置数据格式。 在此情况下，每个日志中的字段以空格分隔。
 
@@ -89,8 +89,8 @@ ms.locfileid: "54029210"
 
    * `SELECT`：选择 t4 列包含值 [ERROR] 的所有行的计数。
 
-    > [!IMPORTANT]
-    > 将“数据库”选择保留为“默认”。 本文档中的示例使用 HDInsight 附带的默认数据库。
+     > [!IMPORTANT]
+     > 将“数据库”选择保留为“默认”。 本文档中的示例使用 HDInsight 附带的默认数据库。
 
 5. 要启动查询，请使用工作表下方的“执行”按钮。 按钮变为橙色，文本更改为“停止”。
 
@@ -139,8 +139,8 @@ ms.locfileid: "54029210"
 
 > [!TIP]
 > 保存的查询存储在默认群集存储中。 可在路径 `/user/<username>/hive/scripts` 下找到保存的查询。 它们存储为纯文本 `.hql` 文件。
->
-## <a name="user-defined-functions"></a>用户定义的函数
+> 
+> ## <a name="user-defined-functions"></a>用户定义的函数
 
 可以通过用户定义函数 (UDF) 扩展 Hive。 使用 UDF 实现 HiveQL 中不容易建模的功能或逻辑。
 

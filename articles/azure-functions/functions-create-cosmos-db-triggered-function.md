@@ -6,19 +6,19 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/02/2018
-ms.date: 02/22/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 26bf0282d68ff48619236cde4533d5be9ef8a9e7
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 2151e195a6c92b6c9ac1991ab2be32d83d4e57b8
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665530"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408287"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>创建由 Azure Cosmos DB 触发的函数
 
@@ -61,7 +61,7 @@ ms.locfileid: "56665530"
 
 1. 在搜索字段中，键入 `cosmos`，然后选择“Azure Cosmos DB 触发器”模板。
 
-1. 如果系统提示，请选择“安装”以在函数应用中安装 Azure 存储扩展的任何依赖项。 安装成功后，选择“继续”。
+1. 如果系统提示，请选择“安装”以在函数应用中安装 Azure Cosmos DB 存储扩展。 安装成功后，选择“继续”。
 
     ![安装绑定扩展](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

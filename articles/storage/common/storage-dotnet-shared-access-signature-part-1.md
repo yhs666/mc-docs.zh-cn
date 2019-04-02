@@ -9,12 +9,12 @@ origin.date: 04/18/2017
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: f6f0295e21907c2fd741405025afc0b39cd5eb27
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 0663f008b90aa6a0f0939ac34fc2df48216b9f5f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253935"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626282"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -41,11 +41,11 @@ SAS 通常适用于用户需要在存储帐户中读取和写入其数据的服�
 
 1. 客户端通过执行身份验证的前端代理服务上传和下载数据。 此前端代理服务的优势在于允许验证业务规则，但对于大量数据或大量事务，创建可扩展以匹配需求的服务可能成本高昂或十分困难。
 
-  ![方案示意图：前端代理服务](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![方案示意图：前端代理服务](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
-1. 轻型服务按需对客户端进行身份验证，并生成 SAS。 在客户端接收 SAS 后，它们可以直接使用 SAS 定义的权限并且针对 SAS 允许的间隔访问存储帐户资源。 SAS 减少了通过前端代理服务路由所有数据的需要。
+2. 轻型服务按需对客户端进行身份验证，并生成 SAS。 在客户端接收 SAS 后，它们可以直接使用 SAS 定义的权限并且针对 SAS 允许的间隔访问存储帐户资源。 SAS 减少了通过前端代理服务路由所有数据的需要。
 
-  ![方案示意图：SAS 提供程序服务](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![方案示意图：SAS 提供程序服务](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 许多实际服务可能会混合使用这两种方法。 例如，可能通过前端代理对某些数据进行处理和验证，同时使用 SAS 直接保存和/或读取其他数据。
 
@@ -204,7 +204,6 @@ catch (StorageException e)
         throw;
     }
 }
-
 ```
 
 ## <a name="best-practices-when-using-sas"></a>使用 SAS 的最佳实践

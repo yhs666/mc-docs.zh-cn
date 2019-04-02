@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6209dfbf062e411fb11905ae64b33ecce0370683
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 37256d9a1838f650715c84bb5f9719bfea2b216a
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964470"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505403"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>快速入门：使用 Node.js 通过文本翻译 API 获取所支持语言的列表
 
@@ -89,6 +89,8 @@ node get-languages.js
 如果希望将你的代码与我们的进行比较，请查看 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) 上提供的完整示例。
 
 ## <a name="sample-response"></a>示例响应
+
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 此示例已截断，显示了结果的片段：
 
@@ -195,3 +197,4 @@ node get-languages.js
 * [获取备用翻译](quickstart-nodejs-dictionary.md)
 * [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 
+<!-- Update_Description: wording update -->

@@ -16,12 +16,12 @@ origin.date: 02/26/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9f61976b96df517eb155e46711a124ce4df2e24b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6399e8bd04f83ddff7ba275bb302d0554169fc3f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650855"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627629"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>教程：调试本地 Service Fabric 群集上部署的 Java 应用程序
 
@@ -37,7 +37,7 @@ ms.locfileid: "52650855"
 > * [生成 Java Service Fabric Reliable Services 应用程序](service-fabric-tutorial-create-java-app.md)
 > * 在本地群集上部署和调试应用程序
 > * [将应用程序部署到 Azure 群集](service-fabric-tutorial-java-deploy-azure.md)
-<!-- Not Avaiable on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
+>   <!-- Not Avaiable on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
 > * [设置 CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>先决条件
@@ -64,7 +64,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. 在“导入项目”窗口中，选择“选择根目录”选项并选取“Voting”目录。 如果已学完了系列教程 1，则“Voting”目录出现在“Eclipse-workspace”目录中。
 
-4. 更新要调试的服务的 entryPoint.sh，以便使用远程调试参数启动 Java 进程。 本教程使用了无状态前端：*Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*。在此示例中调试时，设置端口 8001。
+4. 更新要调试的服务的 entryPoint.sh，以便使用远程调试参数启动 Java 进程。 在本教程中，使用了无状态前端：*Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*。设置了端口 8001，以便在此示例中进行调试。
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar

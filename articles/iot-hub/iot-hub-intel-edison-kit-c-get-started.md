@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: 9bf7b1b49c72a3c1da93b0b18287f668e973390b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 37554d75682ceda1a206c95f7222342139f0b55e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660207"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626780"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>将 Intel Edison 连接到 Azure IoT 中心 (C)
 
@@ -64,8 +64,8 @@ ms.locfileid: "52660207"
 * Grove 电缆
 * 任何垫条或螺钉（随附在工具包内），其中包括两颗螺钉（用于将模块固定到扩展板上）以及四组螺钉和塑料垫片。
 
-> [!NOTE] 
-上述项为可选项，因为代码示例支持模拟的传感器数据。
+> [!NOTE]
+> 上述项为可选项，因为代码示例支持模拟的传感器数据。
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -217,14 +217,14 @@ ms.locfileid: "52660207"
    ```
    ![生成输出](./media/iot-hub-intel-edison-kit-c-get-started/14_build_output.png)
 
-1. 通过运行以下命令，生成示例应用程序：
+2. 通过运行以下命令，生成示例应用程序：
 
    ```bash
    sudo ./app '<your Azure IoT hub device connection string>'
    ```
 
-   > [!NOTE] 
-   确保将设备连接字符串复制并粘贴到单引号中。
+   > [!NOTE]
+   > 确保将设备连接字符串复制并粘贴到单引号中。
 
 应看到以下输出，其中显示传感器数据以及发至 IoT 中心的消息。
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 01/07/2017
 ms.date: 02/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: d254ec508327b62094b3de84c1e133d07b4e4267
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 57942e32ea66ffef4650ac8263eca9069c030663
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626210"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>访问防火墙后面的 Azure Key Vault
 
@@ -39,11 +39,12 @@ ms.locfileid: "54906150"
 ## <a name="authentication"></a>身份验证
 密钥保管库客户端应用程序需要访问 Azure Active Directory 终结点进行身份验证。 使用的终结点取决于 Azure AD 租户配置、主体类型（用户主体或服务主体）以及帐户类型（如 Microsoft 帐户或者工作或学校帐户）。  
 
-| 主体类型 | 终结点：端口 |
-| --- | --- |
-| 使用 Microsoft 帐户的用户<br> （例如：user@hotmail.com） |**全球：**<br> login.microsoftonline.com:443<br><br> **Azure China：**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government：**<br> login.microsoftonline.us:443<br><br>**Azure Germany：**<br> login.microsoftonline.de:443<br><br> 和 <br>login.live.com:443 |
-| 使用 Azure AD 的工作或学校帐户的用户或服务主体（如 user@contoso.com） |**全球：**<br> login.microsoftonline.com:443<br><br> **Azure China：**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government：**<br> login.microsoftonline.us:443<br><br>**Azure Germany：**<br> login.microsoftonline.de:443 |
-| 使用工作或学校帐户，以及 Active Directory 联合身份验证服务 (AD FS) 或其他联合终结点的用户或服务主体（如 user@contoso.com） |适用于工作或学校帐户的所有终结点，以及 AD FS 或其他联合终结点 |
+
+|                                                                             主体类型                                                                              |                                                                                                                            终结点：端口                                                                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                                    使用 Microsoft 帐户的用户<br> （例如：user@hotmail.com）                                                     | **全球：**<br> login.microsoftonline.com:443<br><br> **Azure China：**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government：**<br> login.microsoftonline.us:443<br><br>**Azure Germany：**<br> login.microsoftonline.de:443<br><br> 和 <br>login.live.com:443 |
+|                                 使用 Azure AD 的工作或学校帐户的用户或服务主体（如 user@contoso.com）                                  |                  **全球：**<br> login.microsoftonline.com:443<br><br> **Azure China：**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government：**<br> login.microsoftonline.us:443<br><br>**Azure Germany：**<br> login.microsoftonline.de:443                   |
+| 使用工作或学校帐户，以及 Active Directory 联合身份验证服务 (AD FS) 或其他联合终结点的用户或服务主体（如 user@contoso.com） |                                                                                         适用于工作或学校帐户的所有终结点，以及 AD FS 或其他联合终结点                                                                                          |
 
 还有其他可能的复杂情况。 有关其他信息，请参阅 [Azure Active Directory 身份验证流](/active-directory/develop/active-directory-authentication-scenarios)、[将应用程序与 Azure Active Directory 集成](/active-directory/develop/active-directory-how-to-integrate)和 [Active Directory 身份验证协议](/active-directory/develop/active-directory-developers-guide)。  
 

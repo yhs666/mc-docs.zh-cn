@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 09/19/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8fb2219d09ac01fc755798cda147ccd7c5f86a58
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7650067cc589f80dc73183944724ee351cafc53e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665693"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626930"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Apache Hadoop 组件和版本？
 
@@ -209,19 +209,19 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
 
 > [!IMPORTANT]
 > 如果需要在群集中使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
->
->
-  | 群集类型 | Hadoop | HBase | 交互式查询 |Storm | Spark | 
-  | --- | --- | --- | --- | --- | --- |
-  | 头：默认 VM 大小 |D12 |D12  | D13 |A3 |D12 |
-  | 头：建议的 VM 大小 |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |
-  | 辅助角色：默认 VM 大小 |D4 |D4  |  D14 |D3 |D13 |
-  | 辅助角色：建议的 VM 大小 |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 |
-  | Zookeeper：默认 VM 大小 | |A4 v2 | A4 v2| A4 v2 | |
-  | Zookeeper：建议的 VM 大小 | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | |
-  | 边缘：默认 VM 大小 | | | | | |
-  | 边缘：建议的 VM 大小 | | | | | |
-
+> 
+> 
+>   | 群集类型 | Hadoop | HBase | 交互式查询 |Storm | Spark | 
+>   | --- | --- | --- | --- | --- | --- |
+>   | 头：默认 VM 大小 |D12 |D12  | D13 |A3 |D12 |
+>   | 头：建议的 VM 大小 |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |
+>   | 辅助角色：默认 VM 大小 |D4 |D4  |  D14 |D3 |D13 |
+>   | 辅助角色：建议的 VM 大小 |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 |
+>   | Zookeeper：默认 VM 大小 | |A4 v2 | A4 v2| A4 v2 | |
+>   | Zookeeper：建议的 VM 大小 | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | |
+>   | 边缘：默认 VM 大小 | | | | | |
+>   | 边缘：建议的 VM 大小 | | | | | |
+> 
 > [!NOTE]
 > - 头称为 Storm 群集类型的 *Nimbus* 。
 > - 对于 Storm 群集类型，辅助角色称为“主管”。

@@ -10,12 +10,12 @@ origin.date: 09/24/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 818697221d68fecd9559409f914be518f3ba2e14
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 934d4979ce9b48e1768d19c45fc452594040e116
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987989"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626546"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -468,7 +468,7 @@ ms.locfileid: "56987989"
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -486,7 +486,7 @@ ms.locfileid: "56987989"
    };
    ```
 
-1. 复制以下代码并将其粘贴到对 **readContainer** 的调用下面，以便执行 **createFamilyItem** 函数。
+2. 复制以下代码并将其粘贴到对 **readContainer** 的调用下面，以便执行 **createFamilyItem** 函数。
 
    ```javascript
    createDatabase()
@@ -503,7 +503,7 @@ ms.locfileid: "56987989"
      .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
    ```
 
-1. 在终端中，找到 ```app.js``` 文件并运行以下命令： 
+3. 在终端中，找到 ```app.js``` 文件并运行以下命令： 
 
    ```bash 
    node app.js
@@ -618,16 +618,16 @@ Azure Cosmos DB 支持删除 JSON 项。
 1. 将 **deleteFamilyItem** 函数复制并粘贴到 **replaceFamilyItem** 函数下面。
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);
    };
    ```
 
-1. 复制以下代码并将其粘贴到对第二个 **queryContainer** 的调用下面，以便执行 **deleteFamilyItem** 函数。
+2. 复制以下代码并将其粘贴到对第二个 **queryContainer** 的调用下面，以便执行 **deleteFamilyItem** 函数。
 
    ```javascript
    createDatabase()
@@ -649,7 +649,7 @@ Azure Cosmos DB 支持删除 JSON 项。
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
    ```
 
-1. 在终端中，找到 ```app.js``` 文件并运行以下命令： 
+3. 在终端中，找到 ```app.js``` 文件并运行以下命令： 
 
    ```bash 
    node app.js

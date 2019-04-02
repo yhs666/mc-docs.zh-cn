@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 2b3ca1ae45aede2f3269ed37c41ec738ff726e70
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: a8db49d08c9036d8196332f38d6348b432792b6f
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833381"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624154"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用按需流式处理操作导入一个 Postman 集合 
 
@@ -5497,7 +5497,7 @@ ms.locfileid: "56833381"
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"Name\": \"test-streamingendpoint-1\",\n    \"Description\": \"\",\n    \"ScaleUnits\": 0,\n    \"CustomHostNames\": [],\n    \"AccessControl\": null,\n    \"CdnEnabled\": true,\n    \"CdnProfile\": \"AzureMediaStreamingPlatformCdnProfile-StandardVerizon\",\n    \"CdnProvider\": \"StandardVerizon\",\n    \"CacheControl\":{    \n      \"MaxAge\":\"1800\"  \n\t},  \n   \"CrossSiteAccessPolicies\":{    \n      \"ClientAccessPolicy\":\"<access-policy><cross-domain-access><policy><allow-from http-request-headers='*'><domain uri='http://*' /></allow-from><grant-to><resource path='/' include-subpaths='false' /></grant-to></policy></cross-domain-access></access-policy>\",  \n      \"CrossDomainPolicy\":\"<?xml version='1.0'?><!DOCTYPE cross-domain-policy SYSTEM 'http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd'><cross-domain-policy><allow-access-from domain='*' /></cross-domain-policy>\"  \n   }  \n}"
+                            "raw": "{\n    \"Name\": \"test-streamingendpoint-1\",\n    \"Description\": \"\",\n    \"ScaleUnits\": 0,\n    \"CustomHostNames\": [],\n    \"AccessControl\": null,\n    \"CdnEnabled\": true,\n    \"CdnProfile\": \"AzureMediaStreamingPlatformCdnProfile-StandardVerizon\",\n    \"CdnProvider\": \"StandardVerizon\",\n    \"CacheControl\":{    \n      \"MaxAge\":\"1800\"  \n\t},  \n   \"CrossSiteAccessPolicies\":{    \n      \"ClientAccessPolicy\":\"<access-policy><cross-domain-access><policy><allow-from http-request-headers='*'><domain uri='http://*' /></allow-from><grant-to><resource path='/' include-subpaths='false' /></grant-to></policy></cross-domain-access></access-policy>\",  \n      \"CrossDomainPolicy\":\"<?xml version='1.0'?><!DOCTYPE cross-domain-policy SYSTEM 'https://www.macromedia.com/xml/dtds/cross-domain-policy.dtd'><cross-domain-policy><allow-access-from domain='*' /></cross-domain-policy>\"  \n   }  \n}"
                         },
                         "url": {
                             "raw": "{{RESTAPIEndpoint}}/StreamingEndpoints",
@@ -5590,4 +5590,3 @@ ms.locfileid: "56833381"
     ]
 }
 ```
-

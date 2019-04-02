@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/26/2017
 ms.date: 12/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0bcd546cf926ec6f015c87707325305427d3f614
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 8e10860492ffcac8bfae583201e0e43e411f4377
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627422"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
@@ -149,14 +149,15 @@ Get-AzureApplicationGateway AppGwTest
 
 配置参数为：
 
-|参数|说明|
-|---|---|
-| **名称** |自定义探测的引用名称。 |
-| **协议** | 使用的协议（可能的值为 HTTP 或 HTTPS）。|
-| **Host** 和 **Path** | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http://contoso.com/ ， 则可以为“ http://contoso.com/path/custompath.htm ”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。|
-| **时间间隔** | 配置探测检查间隔（以秒为单位）。|
-| **超时** | 定义 HTTP 响应检查的探测超时。|
-| **UnhealthyThreshold** | 将后端实例标记为“不正常”所需的失败 HTTP 响应数目。|
+
+|       参数        |                                                                                                                                                说明                                                                                                                                                |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        **名称**        |                                                                                                                                     自定义探测的引用名称。                                                                                                                                      |
+|      **协议**      |                                                                                                                            使用的协议（可能的值为 HTTP 或 HTTPS）。                                                                                                                             |
+| **Host** 和 **Path**  | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http://contoso.com/ ， 则可以为“ <http://contoso.com/path/custompath.htm> ”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。 |
+|      **时间间隔**      |                                                                                                                             配置探测检查间隔（以秒为单位）。                                                                                                                              |
+|      **超时**       |                                                                                                                          定义 HTTP 响应检查的探测超时。                                                                                                                           |
+| **UnhealthyThreshold** |                                                                                                         将后端实例标记为“不正常”所需的失败 HTTP 响应数目。                                                                                                          |
 
 \<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
 
@@ -166,14 +167,14 @@ Get-AzureApplicationGateway AppGwTest
 
 1. 使用 `Get-AzureApplicationGatewayConfig` 获取 XML 文件。 此 cmdlet 会导出要修改的配置 XML 以添加探测设置。
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
-1. 在文本编辑器中打开 XML 文件。 将 `<probe>` 节添加到 `<frontendport>` 的后面。
+2. 在文本编辑器中打开 XML 文件。 将 `<probe>` 节添加到 `<frontendport>` 的后面。
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -183,12 +184,12 @@ Get-AzureApplicationGateway AppGwTest
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  在 XML 的 backendHttpSettings 节中，添加以下示例中所示的探测名称：
+   在 XML 的 backendHttpSettings 节中，添加以下示例中所示的探测名称：
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -197,11 +198,11 @@ Get-AzureApplicationGateway AppGwTest
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  保存该 XML 文件。
+   保存该 XML 文件。
 
-1. 通过 `Set-AzureApplicationGatewayConfig` 使用新的 XML 文件更新应用程序网关配置。 此 cmdlet 使用新配置更新应用程序网关。
+3. 通过 `Set-AzureApplicationGatewayConfig` 使用新的 XML 文件更新应用程序网关配置。 此 cmdlet 使用新配置更新应用程序网关。
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"

@@ -3,7 +3,7 @@ title: 创建 Node.js Web 应用 - Azure 应用服务 | Azure Docs
 description: 数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: cephalin
 manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 3bd962873d87013d333ae83d5eda01ca608320ca
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: c53e980d9dd37f3c466a4905728d762f5163d916
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906097"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505440"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -109,14 +109,14 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="set-nodejs-runtime"></a>设置 Node.js 运行时
 
-将 Node 运行时设置为 8.11.1。 <!-- To see all supported runtimes, run [`az webapp list-runtimes`](cli/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+将 Node 运行时设置为 10.14.1。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)。
 
 ```azurecli
 # Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
-浏览到新建的 Web 应用。 将 _&lt;应用名称>_ 替换为唯一的应用名称。
+浏览到新建的 Web 应用。 将 `<app_name>` 替换为唯一应用名称。
 
 ```bash
 http://<app name>.chinacloudsites.cn
@@ -158,7 +158,7 @@ zip -r myUpdatedAppFiles.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
-``` 
+```
 
 将此新的 ZIP 文件部署到应用服务，使用的步骤与[部署 ZIP 文件](#deploy-zip-file)中的步骤相同。
 
@@ -166,13 +166,13 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>管理新 Azure Web 应用
+## <a name="manage-your-new-azure-app"></a>管理新的 Azure 应用
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
 
-在左侧菜单中单击“应用服务”，然后单击 Azure Web 应用的名称。
+在左侧菜单中单击“应用程序服务”，然后单击 Azure 应用的名称。
 
-![在门户中导航到 Azure Web 应用](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![在门户中导航到 Azure 应用](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 随后会显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。 
 
@@ -186,5 +186,3 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 > [!div class="nextstepaction"]
 > [将 Node.js 与 MongoDB 配合使用](app-service-web-tutorial-nodejs-mongodb-app.md)
-
-<!--Update_Description: add a note about Azure CLI 2.0 version-->

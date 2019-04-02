@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 11/14/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f73e925547f1daf14d5c69b67d0413ef296ab0a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f8167edac4ca30a02c919528862801711dc4f85f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004549"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626601"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
 
@@ -120,8 +120,8 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 5. 接下来导航到要为其设置生存时间的项，添加 `ttl` 属性，然后选择“更新”。 
 
-  ```json
-  {
+   ```json
+   {
     "id": "1",
     "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
     "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
@@ -129,8 +129,8 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
     "_attachments": "attachments/",
     "ttl": 10,
     "_ts": 1551307496
-  }
-  ```
+   }
+   ```
 
 <a name="dotnet-set-ttl-item"></a>
 ### <a name="net-sdk"></a>.NET SDK

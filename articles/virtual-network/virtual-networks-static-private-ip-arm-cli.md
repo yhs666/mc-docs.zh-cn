@@ -17,12 +17,12 @@ origin.date: 02/16/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a952c50d206a06dbad12afaec899ee6bfa3728a9
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 8fe9391d5eb915e59baebac1ecb97f741af6e159
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306116"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627333"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 为虚拟机配置专用 IP 地址
 
@@ -45,7 +45,7 @@ ms.locfileid: "56306116"
 
 1. 如果尚未这样做，请安装并配置最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录 Azure 帐户。
 
-  [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+   [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 2. 通过 [azure network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 命令为该 VM 创建公共 IP。 在输出后显示的列表说明了所使用的参数。
 

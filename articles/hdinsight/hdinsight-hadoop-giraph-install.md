@@ -17,12 +17,12 @@ origin.date: 02/05/2016
 ms.date: 03/04/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: e0efe70f0354a07c762058a7f5933483d0c11c05
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7556108d878638ded89ebddf41ed68633b3903db
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665502"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626839"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Apache Giraph
 
@@ -53,12 +53,13 @@ ms.locfileid: "56665502"
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Use Script Action to customize a cluster")
 
-    |属性|值|  
-    |---|---|  
-    |Name|指定脚本操作的名称。 例如，安装 Giraph|
-    |脚本 URI|指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
-    |节点类型|指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”。
-    |parameters|根据脚本的需要，请指定参数。 用于安装 Giraph 的脚本不需要任何参数，因此可以将此字段留空。|  
+
+   |  属性  |                                                                                                        值                                                                                                         |
+   |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |    Name    |                                                                        指定脚本操作的名称。 例如，安装 Giraph                                                                         |
+   | 脚本 URI | 指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 *<https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1>* |
+   | 节点类型  |                                       指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”。                                       |
+   | parameters |                                    根据脚本的需要，请指定参数。 用于安装 Giraph 的脚本不需要任何参数，因此可以将此字段留空。                                     |
 
     可以添加多个脚本操作，以在群集上安装多个组件。 在添加了脚本后，单击复选标记以开始创建群集。
 

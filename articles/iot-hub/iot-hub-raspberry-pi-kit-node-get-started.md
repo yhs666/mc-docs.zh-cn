@@ -12,12 +12,12 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 04/01/2019
-ms.openlocfilehash: 064cc39f4f34057b136e17da4ca22b37d6f7e6a8
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: bbaf1f1a57db4ce34f3d21d1671695ad4e6ae4f3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348588"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627576"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -178,7 +178,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    > [!NOTE] 
    > 默认用户名是 `pi`，密码是 `raspberry`。
 
-1. 将 Node.js 和 NPM 安装到 Pi。
+2. 将 Node.js 和 NPM 安装到 Pi。
    
    首先检查 Node.js 版本。 
    
@@ -193,20 +193,20 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    sudo apt-get -y install nodejs
    ```
 
-1. 克隆示例应用程序。
+3. 克隆示例应用程序。
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
    ```
 
-1. 安装示例的所有程序包。 安装包括 Azure IoT 设备 SDK、BME280 传感器库和接线 Pi 库。
+4. 安装示例的所有程序包。 安装包括 Azure IoT 设备 SDK、BME280 传感器库和接线 Pi 库。
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
-   > [!NOTE] 
-   完成此安装过程可能需要几分钟，具体取决于网络连接情况。
+   > [!NOTE]
+   > 完成此安装过程可能需要几分钟，具体取决于网络连接情况。
 
 ### <a name="configure-the-sample-application"></a>配置示例应用程序
 
@@ -232,8 +232,8 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
-   > [!NOTE] 
-   确保将设备连接字符串复制并粘贴到单引号中。
+> [!NOTE]
+>    确保将设备连接字符串复制并粘贴到单引号中。
 
 
 应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。

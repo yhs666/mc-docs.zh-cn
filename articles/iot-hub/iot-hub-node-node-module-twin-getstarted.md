@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/26/2018
 ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: cab6dc1d3c89fb0fab3b4088e57877a409674ad3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 14074192240ad079a825f8b607afbd663cf36e5b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665497"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626592"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>使用 Node.js 后端和 Node.js 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -44,11 +44,11 @@ ms.locfileid: "56665497"
 本部分将创建一个 Node.js 应用，用于在 IoT 中心的标识注册表中创建设备标识和模块标识。 设备或模块无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]中的“标识注册表”部分。 运行此控制台应用时，它会为设备和模块生成唯一的 ID 和密钥。 设备和模块在向 IoT 中心发送设备到云的消息时，使用这些值来标识自身。 ID 区分大小写。
 
 1. 创建目录以保存代码。
-2. 在该目录中，首先运行“npm init -y” ，使用默认值创建一个空的 package.json ****。 这是代码的项目文件。
-3. 运行“npm install -S azure-iothub@modules-preview”，在“node_modules” 子目录中安装服务 SDK **** ****。 
+2. 在该目录中，首先运行 npm init -y 使用默认值创建一个空的 package.json。 这是代码的项目文件。
+3. 运行 npm install -S azure-iothub@modules-preview 在 node_modules 子目录中安装服务 SDK。 
 
     > [!NOTE] 
-    > 子目录名称 node_modules 使用字“模块”来表示“节点库”。 此处的术语与 IoT 中心模块无关。
+    > 子目录名称 node_modules 使用字模块来表示“节点库”。 此处的术语与 IoT 中心模块无关。
 
 4. 在目录中创建以下 .js 文件。 将它命名为 add.js。 复制并粘贴中心连接字符串和中心名称。
 
@@ -104,7 +104,6 @@ ms.locfileid: "56665497"
         });
       });
     });
-
     ```
 
 此应用在设备“myFirstDevice”下创建 ID 为“myFirstDevice”的设备标识，以及 ID 为“myFirstModule”的模块标识。 （如果该模块 ID 已在标识注册表中，代码就只检索现有的模块信息。）然后，应用程序会显示该标识的主密钥。 在模拟模块应用中使用此密钥连接到 IoT 中心。
@@ -125,7 +124,7 @@ ms.locfileid: "56665497"
 2. 与上面步骤中的操作类似，为设备代码创建一个目录，使用 NPM 对它进行初始化并安装设备 SDK (npm install -S azure-iot-device-amqp@modules-preview)。
 
     > [!NOTE]
-    > npm install 命令可能有点慢。 请耐心等待，它正在从包存储库中提取大量代码。
+    > npm install 命令可能有点慢。 请耐心等待，它正在从包存储库中提取大量代码。
 
     > [!NOTE] 
     > 如果看到错误 npm ERR! 分析 json 时出现注册表错误，可以安全忽略。 如果看到错误 npm ERR! 分析 json 时出现注册表错误，可以安全忽略。
@@ -181,7 +180,7 @@ ms.locfileid: "56665497"
     });
     ```
 
-2. 现在请使用命令“node twin.js”来运行它 ****。
+4. 现在请使用命令 node twin.js 来运行它。
 
     ```
     F:\temp\module_twin>node twin.js

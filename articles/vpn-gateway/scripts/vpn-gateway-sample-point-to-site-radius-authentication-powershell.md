@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 05/30/2018
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 2617b49b203681596c05e90c852baa3c038cdb5d
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 5a303ea014760b64f950e4e64748fae8708fa372
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625447"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>使用 PowerShell 创建 VPN 网关并添加点到站点配置
 
@@ -85,7 +85,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
 如果不再需要所创建的资源，请使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令删除资源组。 这将删除资源组及其包含的所有资源。
 
 ```azurepowershell
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## <a name="script-explanation"></a>脚本说明

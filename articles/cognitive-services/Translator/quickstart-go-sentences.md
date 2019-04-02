@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: a4309a748747d95a3b94e0b26e27b87fb8cf2f2c
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c46ace5fb840dbcef5334d94ec14af67b83b4edc
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964481"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505405"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>快速入门：使用 Go 通过文本翻译 API 来确定句子长度
 
@@ -61,7 +61,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -199,3 +199,4 @@ go run sentence-length.go
 * [获取备用翻译](quickstart-go-dictionary.md)
 * [获取支持的语言的列表](quickstart-go-languages.md)
 
+<!-- Update_Description: wording update -->

@@ -4,18 +4,18 @@ description: 本文介绍有关生成流分析作业升级复原力的指南。
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
-ms.author: v-yeche
+ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
 ms.date: 06/18/2018
-ms.openlocfilehash: d82abeaaba048717c5e4b4cda2d93b74b50b8cef
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: edaa5d6aecc3d1e9c5a36de752a253e30e5ab2a4
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654798"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544705"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>在服务更新期间保证流分析作业可靠性
 

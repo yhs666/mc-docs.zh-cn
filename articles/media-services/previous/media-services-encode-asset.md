@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: eedc962b3d36c26ce0d6efa09e413d520f1b3d64
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 276d28df67b68f84a76af867c754ba992c6df1cc
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833395"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624139"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>简要介绍并比较 Azure 点播媒体编码器（旧版）
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述和比较 
 
 ## <a name="encoding-overview"></a>编码概述
 Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项。

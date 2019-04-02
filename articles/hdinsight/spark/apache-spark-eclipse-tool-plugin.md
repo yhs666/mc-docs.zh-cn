@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 11/30/2017
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3d820a190f5ae4aaba991cfbef43a20d40995b65
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 22ea161364e669aa7519a0b265dfa66784476c44
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806558"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625416"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -143,12 +143,12 @@ ms.locfileid: "53806558"
    a. 在“包资源管理器”中，右键单击项目名称，然后选择“将 Spark 应用程序提交到 HDInsight”。        
    b. 在“Spark 提交”对话框中提供以下值，然后选择“提交”：
       
-      * 对于“群集名称”，选择要在其上运行应用程序的 HDInsight Spark 群集。
-      * 从 Eclipse 项目或硬盘中选择一个项目。 默认值取决于从包资源管理器右键单击的项。
-      * 在“主类名”下拉列表中，提交向导将显示项目中的所有对象名。 选择或输入要运行的对象的名称。 如果从硬盘中选择项目，必须手动输入主类名。 
-      * 由于本示例中的应用程序代码不需要任何命令行参数，也不需要引用 JAR 或文件，因此可以将其余的文本框留空。
+   * 对于“群集名称”，选择要在其上运行应用程序的 HDInsight Spark 群集。
+   * 从 Eclipse 项目或硬盘中选择一个项目。 默认值取决于从包资源管理器右键单击的项。
+   * 在“主类名”下拉列表中，提交向导将显示项目中的所有对象名。 选择或输入要运行的对象的名称。 如果从硬盘中选择项目，必须手动输入主类名。 
+   * 由于本示例中的应用程序代码不需要任何命令行参数，也不需要引用 JAR 或文件，因此可以将其余的文本框留空。
         
-      ![“Spark 提交”对话框](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![“Spark 提交”对话框](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 6. “Spark 提交”选项卡应开始显示进度。 可以通过选择“Spark 提交”窗口中的红色按钮停止应用程序。 也可以选择地球图标（以图中的蓝色框表示），查看此特定应用程序运行的日志。
       
    ![“Spark 提交”窗口](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

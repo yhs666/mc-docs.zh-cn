@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 02/22/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4ca682b1f9a8c67a0ae32ea2cd268f4953be6091
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: ead75d3e31cd5b372a7ac4ab72d0e262e0a54211
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029234"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625394"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 Apache HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight Apache HBase 群集。
@@ -98,9 +98,9 @@ ms.locfileid: "54029234"
      2. 在顶部菜单中单击 **主机** 。
    * 使用 Curl 发出 REST 调用：
 
-    ```bash
-    curl -u <username>:<password> -k https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azurehdinsight.cn/services/hbase/components/hbrest
-    ```
+     ```bash
+     curl -u <username>:<password> -k https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azurehdinsight.cn/services/hbase/components/hbrest
+     ```
 
      在返回的 JavaScript 对象表示法 (JSON) 数据中，找到“host_name”条目。 此条目包含群集中的节点的 FQDN。 例如：
 
@@ -111,8 +111,8 @@ ms.locfileid: "54029234"
 
      使用以下 Azure PowerShell 脚本注册 **Get-ClusterDetail** 函数，该函数可用于返回 DNS 后缀：
 
-    ```powershell
-    function Get-ClusterDetail(
+     ```powershell
+     function Get-ClusterDetail(
         [String]
         [Parameter( Position=0, Mandatory=$true )]
         $ClusterDnsName,
@@ -126,8 +126,8 @@ ms.locfileid: "54029234"
         [Parameter( Position=3, Mandatory=$true )]
         $PropertyName
         )
-    {
-    <#
+     {
+     <#
         .SYNOPSIS
         Displays information to facilitate an HDInsight cluster-to-cluster scenario within the same virtual network.
         .Description
@@ -152,7 +152,7 @@ ms.locfileid: "54029234"
         .EXAMPLE
         Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
         This command shows the FQDN suffix of hosts in the cluster.
-    #>
+     #>
 
         $DnsSuffix = ".azurehdinsight.cn"
 
@@ -200,14 +200,14 @@ ms.locfileid: "54029234"
             $Suffix = $FQDN.Substring($pos + 1)
             Write-host $Suffix
         }
-    }
-    ```
+     }
+     ```
 
      运行 Azure PowerShell 脚本后，使用以下命令通过 **Get-ClusterDetail** 函数来返回 DNS 后缀。 使用此命令时，指定 HDInsight HBase 群集名称、管理员名称和管理员密码。
 
-    ```powershell
-    Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
-    ```
+     ```powershell
+     Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
+     ```
 
      此命令返回 DNS 后缀。 例如， **yourclustername.b4.internal.chinacloudapp.cn**。
 

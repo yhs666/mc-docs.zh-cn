@@ -8,12 +8,12 @@ origin.date: 01/02/2019
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: ece92f34a73acde82d37183a68095aa42f77a0ac
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 2dfd3508d3a27ac4cd8187c1daae9a9b7d293b84
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253934"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626507"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -31,11 +31,11 @@ ms.locfileid: "58253934"
 * <a id="files-versus-blobs"></a>
 **相对于 Azure Blob 存储，我为什么要对数据使用 Azure 文件共享？**  
     Azure 文件和 Azure Blob 存储均提供在云中存储大量数据的方法，但是用途略有不同。 
-    
+
     Azure Blob 存储适用于需要存储非结构化数据且具有大规模缩放性的云本机应用程序。 为了更大程度地提升性能和可缩放性，相对于真实的文件系统而言，Azure Blob 存储是更简单的存储抽象。 此外，只可通过基于 REST 的客户端库访问 Azure Blob 存储（或直接通过基于 REST 的协议访问）。
 
     Azure 文件是一个专门的文件系统， 具有你在使用本地操作系统多年来所熟知和喜爱的所有文件抽象。 例如 Azure Blob 存储，Azure 文件提供了一个 REST 接口和基于 REST 的客户端库。 与 Azure Blob 存储不同的是，Azure 文件提供了对 Azure 文件共享的 SMB 访问权限。 通过使用 SMB，无需对文件系统写入任何代码或附加任何特殊驱动程序，即可在 Windows、Linux 或 macOS 上及本地或云 VM 中直接装载 Azure 文件共享。 此外，你也可以使用 Azure 文件同步在本地文件服务器上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。 
-   
+
     有关 Azure 文件和 Azure Blob 存储之间差异的深入描述，请参阅[确定何时使用 Azure Blob 存储、Azure 文件或 Azure 磁盘](../common/storage-decide-blobs-files-disks.md)。 若要了解有关 Azure Blob 存储的详细信息，请参阅 [Blob 存储简介](../blobs/storage-blobs-introduction.md)。
 
 * <a id="files-versus-disks"></a>**相对于 Azure 磁盘，我为什么要使用 Azure 文件共享？**  
@@ -44,26 +44,28 @@ ms.locfileid: "58253934"
     但是，相比使用 Azure 文件共享，通过将 Azure 磁盘作为后端存储来运行文件服务器的方式，由于多方面的原因，其经济成本通常会更高。 首先，除了为磁盘存储付费之外，还必须为运行一个或多个 Azure VM 的成本付费。 其次，你还必须管理用于运行文件服务器的 VM。 例如，负责操作系统升级。 最后，如果你最终需要在本地缓存数据，则还要自行安装和管理复制技术（例如，分布式文件系统复制 (DFSR)）来实现此目的。
 
 
-    有关在 Azure 中设置高性能和高可用性文件服务器的选项的信息，请参阅 [Deploying IaaS VM guest clusters in Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)（在 Azure 中部署 IaaS VM 来宾群集）。 有关 Azure 文件和 Azure 磁盘之间差异的深入描述，请参阅[确定何时使用 Azure Blob 存储、Azure 文件或 Azure 磁盘](../common/storage-decide-blobs-files-disks.md)。 若要详细了解 Azure 磁盘，请参阅 [Azure 托管磁盘概述](../../virtual-machines/windows/managed-disks-overview.md)。
+~~~
+For information about an option for setting up a high-performance and highly available file server in Azure, see [Deploying IaaS VM guest clusters in Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). For a more in-depth description of the differences between Azure Files and Azure Disks, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](../common/storage-decide-blobs-files-disks.md). To learn more about Azure Disks, see [Azure Managed Disks overview](../../virtual-machines/windows/managed-disks-overview.md).
+~~~
 
 * <a id="get-started"></a>
-**如何开始使用 Azure 文件？**  
+  **如何开始使用 Azure 文件？**  
    开始使用 Azure 文件非常简单。 首先，[创建文件共享](storage-how-to-create-file-share.md)，然后再将其装载到首选操作系统中： 
 
-    * [在 Windows 中装载](storage-how-to-use-files-windows.md)
-    * [在 Linux 中装载](storage-how-to-use-files-linux.md)
-    * [在 macOS 中装载](storage-how-to-use-files-mac.md)
+  * [在 Windows 中装载](storage-how-to-use-files-windows.md)
+  * [在 Linux 中装载](storage-how-to-use-files-linux.md)
+  * [在 macOS 中装载](storage-how-to-use-files-mac.md)
 
-   有关部署 Azure 文件共享以替换组织中生产文件共享的详细指南，请参阅[规划 Azure 文件部署](storage-files-planning.md)。
+    有关部署 Azure 文件共享以替换组织中生产文件共享的详细指南，请参阅[规划 Azure 文件部署](storage-files-planning.md)。
 
 * <a id="redundancy-options"></a>
-**Azure 文件支持哪些存储冗余选项？**  
+  **Azure 文件支持哪些存储冗余选项？**  
     目前，Azure 文件支持本地冗余存储 (LRS)、异地冗余存储 (GRS) 和读取访问权限异地冗余存储 (RA-GRS)。
 
 * <a id="tier-options"></a>
-**Azure 文件支持哪些存储层？**  
+  **Azure 文件支持哪些存储层？**  
     Azure 文件目前仅支持标准存储层。 当前我们暂无有关高级存储支持的日程表可供分享。 
-    
+
     > [!NOTE]
     > 你无法使用仅限 Blob 存储帐户或高级存储帐户创建 Azure 文件共享。
 
@@ -77,7 +79,9 @@ ms.locfileid: "58253934"
     - 你可以使用共享访问签名 (SAS) 生成在指定时间间隔内有效的具有特定权限的令牌。 例如，可以生成在 10 分钟后到期、对特定文件具有只读访问权限的令牌。 只要拥有此有效令牌，就可以在 10 分钟内拥有对给定文件的只读访问权限。 目前，仅通过 REST API 或客户端库支持共享的访问签名密钥。 你必须使用存储帐户密钥通过 SMB 装载 Azure 文件共享。
 
 
-    当前，Azure 文件不直接支持 Active Directory。
+~~~
+Currently, Azure Files does not support Active Directory directly.
+~~~
 
 * <a id="encryption-at-rest"></a>
 **如何确保已静态加密 Azure 件共享？**  
@@ -161,7 +165,7 @@ ms.locfileid: "58253934"
 * <a id="file-snaphsots"></a>
 **是否可以创建单个文件的共享快照？**  
     可在文件共享级别上创建共享快照。 你可以从文件共享快照还原单个文件，但是不能创建文件级别的共享快照。 但是，如果你已执行共享级别的共享快照，并且想要列出已更改特定文件的共享快照，则可以在已装载 Windows 的共享上的“以前的版本”下执行此操作。 
-    
+
 * <a id="encrypted-snapshots"></a>
 **是否可以创建加密文件共享的共享快照？**  
     可以对已启用静态加密的 Azure 文件共享执行共享快照。 可以从共享快照中将文件还原到加密文件共享中。 如果共享已加密，则共享快照也会加密。
@@ -187,7 +191,7 @@ ms.locfileid: "58253934"
 * <a id="restore-snapshotted-file-to-other-share"></a>
 **是否可以将数据从共享快照还原到不同的存储帐户？**  
     是的。 可以将共享快照文件复制到原始位置或备用位置，其中包括位于同一区域或不同区域的相同/不同的存储帐户。 你还可以将文件复制到本地位置或任何其他云。    
-  
+
 ### <a name="clean-up-share-snapshots"></a>清除共享快照
 * <a id="delete-share-keep-snapshots"></a>
 **是否可以删除共享，而不删除共享快照？**  
@@ -205,7 +209,7 @@ ms.locfileid: "58253934"
 * <a id="share-snapshot-price"></a>
 **共享快照的费用是多少？**  
      在预览版期间，共享快照容量可免费使用， 但会收取标准存储出口和事务费用。 公开发布后，共享快照的容量和事务均将收费。
-     
+
      共享快照在本质上是递增的。 基本共享快照即是共享本身。 所有的后续共享快照均是递增的，并且只会存储与之前共享快照的不同之处。 你只需为更改的内容付费。 如果你的共享包含 100 GiB 数据，但自执行上次共享快照以来只更改了 5 GiB 数据，则共享快照只额外使用了 5 GiB 数据，而你要为 105 GiB 付费。 有关事务和标准出口费用的更多信息，请参阅[定价页](https://azure.cn/pricing/details/storage/files/)。
 
 ## <a name="scale-and-performance"></a>缩放和性能

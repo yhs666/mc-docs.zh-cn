@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: ae8e07c706f325a36bd4cbdad252313938c3048b
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 59c3e1c4c1a1f9092464edf49f6bbd06fde0bb59
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905378"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625895"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
 
@@ -73,6 +73,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 |*Remove*| 从客户端删除服务器的配置并停止 Syslog 转发| 标志 | 否|
 
 *Set-SyslogClient* cmdlet 的参数：
+
 | 参数 | 说明 | 类型 |
 |---------|---------| ---------|
 | *pfxBinary* | pfx 文件，其中包含的证书可供客户端用作对 Syslog 服务器进行身份验证的标识  | Byte[] |
@@ -104,13 +105,13 @@ Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, pa
 
 $ErcsNodeName = "<yourPEP>"
 $password = ConvertTo-SecureString -String "<your cloudAdmin account password" -AsPlainText -Force
- 
+
 $cloudAdmin = "<your cloudAdmin account name>"
 $CloudAdminCred = New-Object System.Management.Automation.PSCredential ($cloudAdmin, $password)
- 
+
 $certPassword = $password
 $certContent = Get-Content -Path C:\cert\<yourClientCertificate>.pfx -Encoding Byte
- 
+
 $params = @{ 
     ComputerName = $ErcsNodeName 
     Credential = $CloudAdminCred 
@@ -118,7 +119,7 @@ $params = @{
 }
 
 $session = New-PSSession @params
- 
+
 $params = @{ 
     Session = $session 
     ArgumentList = @($certContent, $certPassword) 
@@ -288,6 +289,7 @@ Prefix fields
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP 严重性表：
+
 | 严重性 | 级别 | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
@@ -307,6 +309,7 @@ REP 严重性表：
 ```
 
 Windows 事件的严重性表：
+
 | CEF 严重性值 | Windows 事件级别 | 数字值 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
@@ -317,6 +320,7 @@ Windows 事件的严重性表：
 |0|详细|值：5. 指示所有级别的日志|
 
 Azure Stack 中 Windows 事件的自定义扩展表：
+
 | 自定义扩展名称 | Windows 事件示例 | 
 |-----------------------|---------|
 |MasChannel | 系统|
@@ -353,6 +357,7 @@ Azure Stack 中 Windows 事件的自定义扩展表：
 ```
 
 警报严重性表：
+
 | 严重性 | 级别 |
 |----------|-------|
 |0|Undefined|
@@ -360,6 +365,7 @@ Azure Stack 中 Windows 事件的自定义扩展表：
 |5|警告|
 
 Azure Stack 中已创建警报的自定义扩展表：
+
 | 自定义扩展名称 | 示例 | 
 |-----------------------|---------|
 |MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 - 补救措施：请联系支持人员。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程 |

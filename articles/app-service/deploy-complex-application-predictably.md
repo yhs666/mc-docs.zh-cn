@@ -16,12 +16,12 @@ origin.date: 01/06/2016
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: d47db7f575fedba25acc911b125383d1b5bdc412
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f56052829ee633b3a1f8baa94d55cf2f391d5b02
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906179"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627615"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 本教程演示如何通过使用 JSON 资源组模板和 PowerShell 脚本以一种可预见的方式，在 [Azure App Service](https://www.azure.cn/home/features/app-service/) 中将由[微服务](https://en.wikipedia.org/wiki/Microservices)构成的应用程序设置并部署为单个单元。 
@@ -65,7 +65,7 @@ ms.locfileid: "54906179"
 3. 会转到[部署到 Azure](https://deploy.azure.com) 站点并需要输入部署参数。 请注意大多数字段将填充以存储库名称和某些随机字符串。 可以更改所有字段（如果想），但唯一一项必须输入的内容是 SQL Server 管理登录名和密码，并单击“下一步”。
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
-4. 接下来，单击“部署”启动部署进程。 进程运行至完成时，请单击 http://todoapp*XXXX*.chinacloudsites.cn 链接以浏览部署的应用程序。 
+4. 接下来，单击“部署”启动部署进程。 进程运行至完成时，请单击 http://todoapp<em>XXXX</em>.chinacloudsites.cn 链接以浏览部署的应用程序。 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    

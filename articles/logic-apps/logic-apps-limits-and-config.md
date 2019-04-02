@@ -8,13 +8,13 @@ author: ecfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 origin.date: 11/16/2018
-ms.date: 02/04/2019
-ms.openlocfilehash: 43ff8d3d0a959a2a3682faab600b4ed1e4dfe66a
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/08/2019
+ms.openlocfilehash: 7a2c841261c332a019c9105a6ee984085a506cff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906123"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626933"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -85,13 +85,13 @@ ms.locfileid: "54906123"
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 
-| 触发器并发 | 限制并发时为 50 | 启用触发器的并发控制时，默认限制为 25。 此限制描述可以在同一时间或并行运行的逻辑应用实例的最大数。 <p><p>若要将默认限制更改为介于 1 到 50 之间（含）的值，请参阅[更改触发器并发限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[按顺序触发实例](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 | 
-| 最大等待运行数 | 限制并发时为 100 | 当你启用触发器的并发控制时，默认限制为 10。 此限制描述当逻辑应用已在运行最大数量并发实例时，可等待运行的最大逻辑应用实例数。 <p><p>若要将默认限制更改为介于 0 和 100 之间的值，请参阅[更改等待的运行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 | 
+| 触发器并发 | * 在并发控制关闭时无限制 <p><p>* 在并发控制打开时，25 是默认限制（在打开控制之后无法撤消）。 可以将默认值更改为介于 1 与 50（含）之间的值。 | 此限制描述可以在同一时间或并行运行的逻辑应用实例的最大数。 <p><p>若要将默认限制更改为介于 1 到 50 之间（含）的值，请参阅[更改触发器并发限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[按顺序触发实例](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 | 
+| 最大等待运行数 | 并发控制打开时，最小等待运行数是 10 加上并发运行（触发器并发）数。 可以将最大数更改为多达 100 个（含）。 | 此限制描述当逻辑应用已在运行最大数量并发实例时，可等待运行的最大逻辑应用实例数。 <p><p>若要更改此默认限制，请参阅[更改等待的运行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 | 
 | Foreach 数组项 | 100,000 | 此限制描述“for each”循环可以处理的最大数组项数。 <p><p>可以使用[查询操作](../connectors/connectors-native-query.md)筛选更大数组。 | 
-| Foreach 并发 | 限制并发时为 50 | 启用此循环的并发控制时，默认限制为 20。 此限制描述可同时或并行运行的最大“for each”循环迭代数。 <p><p>若要将默认限制更改为介于 1 到 50 之间（含）的值，请参阅[更改“for each”并发限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)或[按顺序运行“for each”循环](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)。 | 
-| SplitOn 项 | 100,000 | | 
-| Until 迭代 | 5,000 | | 
-|||| 
+| Foreach 并发 | 20 是并发控制关闭时的默认限制。 可以将默认值更改为介于 1 与 50（含）之间的值。 | 此限制是可同时或并行运行的最大“for each”循环迭代数。 <p><p>若要将默认限制更改为介于 1 到 50 之间（含）的值，请参阅[更改“for each”并发限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)或[按顺序运行“for each”循环](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)。 | 
+| SplitOn 项 | 100,000 | 对于返回数组的触发器，可指定一个表达式，它使用[将数组项拆分或解除批处理到多个工作流实例](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)进行处理的“SplitOn”属性，而不是使用“Foreach”循环。 此表达式引用要用于为每个数组项创建和运行工作流实例的数组。 |
+| Until 迭代 | 5,000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -119,9 +119,9 @@ ms.locfileid: "54906123"
 
 | Name | 限制 | 注释 |
 |------|-------|-------|
-| FTP | 50 MB | 若要超出此限制，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 但是，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 | 
-| SFTP | 50 MB | 若要超出此限制，请使用 [SFTP-SSH 连接器](../connectors/connectors-sftp-ssh.md)或参阅[通过分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 但是，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 | 
-| SFTP-SSH | 1 GB | 若要超出此限制，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 但是，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 | 
+| FTP | 50 MB | 若要仅对操作超出此限制，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 <p>**注意**：分块不适用于触发器。 另外，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 | 
+| SFTP | 50 MB | 若要仅对操作超出此限制，请使用 [SFTP-SSH 连接器](../connectors/connectors-sftp-ssh.md)或参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 <p>**注意**：分块不适用于触发器。 另外，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 | 
+| SFTP-SSH | 1 GB | 此连接器最多处理 1 GB 数据，但以 50 MB（而非 1 GB）为一批传输该数据。 若要仅对操作超出此限制，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 <p>**注意**：分块不适用于触发器。 | 
 |||| 
 
 <a name="request-limits"></a>
@@ -164,11 +164,12 @@ ms.locfileid: "54906123"
 
 下面介绍对可通过 Web API 创建的自定义连接器的限制。
 
-| Name | 限制 | 
-| ---- | ----- | 
-| 自定义连接器数 | 每个 Azure 订阅 1,000 | 
-| 每分钟的请求数量（对于自定义连接器创建的每个连接） | 每个连接 500 个请求 |
-|||| 
+
+|                                      Name                                       |            限制             |
+|---------------------------------------------------------------------------------|------------------------------|
+|                           自定义连接器数                           | 每个 Azure 订阅 1,000 |
+| 每分钟的请求数量（对于自定义连接器创建的每个连接） | 每个连接 500 个请求  |
+|                                                                                 |                              |
 
 <a name="managed-identity"></a>
 
@@ -195,53 +196,56 @@ ms.locfileid: "54906123"
 
 | 项目 | 限制 | 注释 | 
 |----------|-------|-------| 
-| EDI 参与方 | 25 | | 
-| EDI 贸易协议 | 10 个 | | 
-| 地图 | 25 | | 
-| 架构 | 25 | 
 | 程序集 | 10 个 | | 
 | 批处理配置 | 5 | 
 | 证书 | 25 | | 
+| EDI 贸易协议 | 10 个 | | 
+| EDI 参与方 | 25 | | 
+| 地图 | 25 | | 
+| 架构 | 25 | 
 |||| 
 
 *基本层*
 
 | 项目 | 限制 | 注释 | 
 |----------|-------|-------| 
-| EDI 参与方 | 2 | | 
-| EDI 贸易协议 | 1 | | 
-| 地图 | 500 | | 
-| 架构 | 500 | 
 | 程序集 | 25 | | 
 | 批处理配置 | 1 | | 
 | 证书 | 2 | | 
+| EDI 贸易协议 | 1 | | 
+| EDI 参与方 | 2 | | 
+| 地图 | 500 | | 
+| 架构 | 500 | 
 |||| 
 
 *标准层*
 
 | 项目 | 限制 | 注释 | 
 |----------|-------|-------| 
-| EDI 参与方 | 500 | | 
-| EDI 贸易协议 | 500 | | 
-| 地图 | 500 | | 
-| 架构 | 500 | 
 | 程序集 | 50 | | 
 | 批处理配置 | 5 |  
 | 证书 | 50 | | 
+| EDI 贸易协议 | 500 | | 
+| EDI 参与方 | 500 | | 
+| 地图 | 500 | | 
+| 架构 | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>项目容量限制
 
-| Name | 限制 | 注释 | 
-| ---- | ----- | ----- | 
-| 架构 | 8 MB | 若要上传大于 2 MB 的文件，请使用 blob URI。 | 
-| 映射（XSLT 文件） | 2 MB | | 
-| 运行时终结点：每 5 分钟读取调用 | 60,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
-| 运行时终结点：每 5 分钟调用调用 | 45,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
-| 运行时终结点：每 5 分钟跟踪调用 | 45,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
-| 运行时终结点：阻止并发调用 | ~1,000 | 你可减少并发请求数，或根据需要减少持续时间。 | 
+| 项目 | 限制 | 注释 | 
+| -------- | ----- | ----- | 
+| 映射（XSLT 文件） | 8 MB | 若要上传大于 2 MB 的文件，请使用 [Azure 逻辑应用 REST API - 映射](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)。 | 
+||||
+
+| 运行时终结点 | 限制 | 注释 |
+|------------------|-------|-------|
+| 每 5 分钟读取调用 | 60,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
+| 每 5 分钟调用调用 | 45,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
+| 每 5 分钟跟踪调用 | 45,000 | 你可根据需要在多个帐户之间分配工作负荷。 | 
+| 阻止并发调用 | ~1,000 | 你可减少并发请求数，或根据需要减少持续时间。 | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -259,7 +263,7 @@ ms.locfileid: "54906123"
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>配置:IP 地址
+## <a name="firewall-configuration-ip-addresses"></a>防火墙配置：IP 地址
 
 ### <a name="azure-logic-apps-service"></a>Azure 逻辑应用服务
 

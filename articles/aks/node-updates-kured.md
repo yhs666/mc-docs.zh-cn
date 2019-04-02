@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 11/06/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9e35fdf02a9e2d008b3be57a37ceb1032835bc5b
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: c9acc86b2a04b13cbed528d1edc96a2b90d71cb4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903240"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627526"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>将安全更新和内核更新应用于 Azure Kubernetes 服务 (AKS) 中的节点
 
@@ -102,8 +102,7 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4   
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md

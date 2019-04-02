@@ -7,12 +7,12 @@ ms.date: 01/21/2019
 author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 30e8310f65370b15871610779011d8cd2bcb9c25
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 0b000dd10cfe4afc3502152c02f2f7b84bfafda2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363451"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625201"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在故障转移期间保留 IP 地址
 
@@ -48,7 +48,8 @@ ms.locfileid: "54363451"
             - **子网 2**：10.1.2.0/24，
             - **子网 3**：10.1.3.0/24
             
-            <!--Up for Primary region China East--> <!--Downdown for Secondary region China North-->
+            <!--Up for Primary region China East-->
+            <!--Downdown for Secondary region China North-->
             
     - 次要（目标）区域是“Azure 中国北部”
         - 中国北部具有与**源 VNet** 相同的恢复 VNet（**恢复 VNet**）。
@@ -67,10 +68,10 @@ ms.locfileid: "54363451"
 
 - 如果目标 IP 地址在故障转移前已就位，公司 A 可安排故障转移以及故障转移后自动在恢复 VNet 和 Azure VNet 之间建立连接。 下图对此做了演示..
 - 根据应用的要求，可以在故障转移之前、期间（作为中间步骤）或之后，在目标区域中的两个 VNet（恢复 VNet 和 Azure VNet）之间建立连接。
-    - 该公司可以使用[恢复计划](site-recovery-create-recovery-plans.md)来指定何时建立连接。
-    - 他们可以使用 VNet 对等互连或站点到站点 VPN 来在 VNet 之间进行连接。
-        - VNet 对等互连不使用 VPN 网关，并且具有不同的约束。
-        - VNet 对等互连[定价](https://www.azure.cn/pricing/details/networking/)的计算不同于 VNet 到 VNet VPN 网关[定价](https://www.azure.cn/pricing/details/vpn-gateway/)的计算。 对于故障转移，我们通常建议使用与源网络相同的连接方法（包括连接类型），以最大程度减少不可预测的网络事件。
+  - 该公司可以使用[恢复计划](site-recovery-create-recovery-plans.md)来指定何时建立连接。
+  - 他们可以使用 VNet 对等互连或站点到站点 VPN 来在 VNet 之间进行连接。
+      - VNet 对等互连不使用 VPN 网关，并且具有不同的约束。
+      - VNet 对等互连[定价](https://www.azure.cn/pricing/details/networking/)的计算不同于 VNet 到 VNet VPN 网关[定价](https://www.azure.cn/pricing/details/vpn-gateway/)的计算。 对于故障转移，我们通常建议使用与源网络相同的连接方法（包括连接类型），以最大程度减少不可预测的网络事件。
 
     ![Azure 完全故障转移中的资源](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -93,7 +94,8 @@ ms.locfileid: "54363451"
     - 源 VNet 1 包含两个子网。
     - 源 VNet 2 包含两个子网。
     
-    <!--Up for Primary region China East--> <!--Downdown for Secondary region China North-->
+    <!--Up for Primary region China East-->
+    <!--Downdown for Secondary region China North-->
     
 - 次要（目标）区域为“Azure 中国北部”- 中国北部具有与**源 VNet 1** 和**源 VNet 2** 相同的恢复 VNet（**恢复 VNet 1** 和**恢复 VNet 2**）。
         - **恢复 VNet 1** 和**恢复 VNet 2** 各自具有 2 个与**源 VNet 1** 和**源 VNet 2** 中的子网匹配的子网 - 中国北部具有地址空间为 10.3.0.0/16 的额外 VNet (**Azure VNet**)。

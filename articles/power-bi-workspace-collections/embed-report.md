@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 02/15/2019
 ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 35e08f780ffcbb3b810d9a476d35f0ae5c083e11
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 5c208673335b66c15370024f3ef0d24ef010be74
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347215"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408255"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>嵌入 Power BI 工作区集合中的报表
 
@@ -158,6 +158,6 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 存储库](https://github.com/Microsoft/PowerBI-Node)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 <!-- Update_Description: link update -->

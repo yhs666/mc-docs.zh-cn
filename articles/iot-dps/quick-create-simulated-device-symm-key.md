@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2a960d7c1d9edc8edb6a02d8ea857d6d9c20107c
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 9764702f7daaf7b8c5b2599f45b1ab1647a6d2fd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626215"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>快速入门：使用对称密钥预配模拟设备
 
@@ -114,15 +114,15 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
 
 3. 在“添加注册”中输入以下信息，然后单击“保存”按钮。
 
-    - **机制**：选择“对称密钥”作为标识证明“机制”。
+   - **机制**：选择“对称密钥”作为标识证明“机制”。
 
-    - **自动生成密钥**：选中此框。
+   - **自动生成密钥**：选中此框。
 
-    - **注册 ID**：输入注册 ID 以标识注册。 仅使用小写字母数字和短划线（“-”）字符。 例如，`symm-key-device-007`。
+   - **注册 ID**：输入注册 ID 以标识注册。 仅使用小写字母数字和短划线（“-”）字符。 例如，`symm-key-device-007`。
 
-    - **IoT 中心设备 ID：** 输入设备标识符。 例如：device-007。
+   - **IoT 中心设备 ID：** 输入设备标识符。 例如：device-007。
 
-    ![在门户中为对称密钥证明添加单个注册](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![在门户中为对称密钥证明添加单个注册](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. 保存注册后，将生成“主要密钥”和“辅助密钥”，并将其添加到注册条目。 对称密钥设备注册会在“单独注册”选项卡的“注册 ID”列下显示为 symm-key-device-007。 
 

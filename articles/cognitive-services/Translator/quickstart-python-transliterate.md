@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: a59d46422e751dc73a572dd7370d13f67547fc01
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 46270aff04ced5d6edbb0c3c8c2ee15f4f458237
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964471"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505411"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入门：使用文本翻译 API 通过 Python 对文本进行直译
 
@@ -33,7 +33,7 @@ ms.locfileid: "57964471"
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
-使用最喜欢的 IDE 或编辑器创建新的 Python 项目。 然后，将此代码片段复制到项目的名为 `transliterate-text.py` 的文件中。
+使用你喜欢的 IDE 或编辑器创建一个新项目，或者在桌面上创建一个包含名为 `transliterate-text.py` 的文件的新文件夹。 然后将以下代码片段复制到项目/文件中：
 
 ```python
 # -*- coding: utf-8 -*-
@@ -136,7 +136,7 @@ python transliterate-text.py
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```
@@ -160,3 +160,4 @@ python transliterate-text.py
 * [获取支持的语言的列表](quickstart-python-languages.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)
 
+<!-- Update_Description: wording update -->

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 01/30/2019
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f7ab35f8de889a5a88d25fe368b44968e845234e
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: a7193943842588024b486a9d47823dd5c5c23630
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306112"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626048"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
@@ -51,7 +51,7 @@ ms.locfileid: "56306112"
 
 6. 通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。 若要注册资源提供程序，请选择“注册”。 在上一屏幕截图中，针对 **Microsoft.Batch** 突出显示了“注册”链接。
 
-  <!--MOONCAKE CUSTOMIZED: Microsoft.Batch to replace Microsoft.Blueprint--> 
+   <!--MOONCAKE CUSTOMIZED: Microsoft.Batch to replace Microsoft.Blueprint--> 
 
     当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 

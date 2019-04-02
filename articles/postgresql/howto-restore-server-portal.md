@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.topic: article
 origin.date: 04/01/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: 6f1ddeba7682e50cc75185281968f350ae9b11da
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9ba4e2a1c05f1acb72f2a63c651baf4cf40b21ea
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652708"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625234"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for PostgreSQL 中备份和还原服务器
 
@@ -62,10 +62,10 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 3. 使用必需信息填写“还原”窗体：
 
    ![Azure Database for PostgreSQL - 还原信息 ](./media/howto-restore-server-portal/3-restore.png)
-  - **还原点**：选择要还原到的时间点。
-  - **目标服务器**：提供新服务器的名称。
-  - 位置：不可选择区域。 默认情况下，此值与源服务器相同。
-  - **定价层**：执行时间点还原时，无法更改这些参数。 此值与源服务器相同。 
+   - **还原点**：选择要还原到的时间点。
+   - **目标服务器**：提供新服务器的名称。
+   - **位置**：不可选择区域。 默认情况下，此值与源服务器相同。
+   - **定价层**：执行时间点还原时，无法更改这些参数。 此值与源服务器相同。 
 
 4. 单击“确定”，将服务器还原到某个时间点。 
 

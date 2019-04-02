@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: dfd99c374d47ff522e45027eeabdbfe17bf97e27
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: cb3656424cb91f8d794c82c4dead6648c354a068
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029202"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625321"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 通过 HDInsight 中的 Hadoop 运行 Apache Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -76,19 +76,19 @@ ms.locfileid: "54029202"
 
     此命令中使用的参数如下：
 
-    * **-d** - 由于未使用 `-G`，请求将按默认使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
+   * **-d** - 由于未使用 `-G`，请求将按默认使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
 
-        * **user.name** - 正在运行命令的用户。
+       * **user.name** - 正在运行命令的用户。
 
-        * **command** - 要执行的 Sqoop 命令。
+       * **command** - 要执行的 Sqoop 命令。
 
-        * **statusdir** - 此作业的状态要写入到的目录。
+       * **statusdir** - 此作业的状态要写入到的目录。
 
-    此命令应会返回可用于检查作业状态的作业 ID。
+     此命令应会返回可用于检查作业状态的作业 ID。
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. 若要检查作业的状态，请使用以下命令。 将“JOBID”替换为上一步骤返回的值。 例如，如果返回值为 `{"id":"job_1415651640909_0026"}`，则 **JOBID** 将是 `job_1415651640909_0026`。
 

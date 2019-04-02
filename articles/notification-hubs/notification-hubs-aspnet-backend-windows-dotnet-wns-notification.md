@@ -16,12 +16,12 @@ ms.custom: mvc
 origin.date: 04/04/2018
 ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 49c8f0c02315669130768073d0e9952cf6ab0019
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 81462d583bdd12d3785955c80041140a6720702d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222605"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627448"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户发送通知
 
@@ -126,7 +126,7 @@ ms.locfileid: "56222605"
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-12. 在 **WindowsApp** 项目的 **MainPage.xaml.cs** 中，将以下成员添加到 `MainPage` 类。 确保使用前面获取的实际后端终结点来替换 `<Enter Your Backend Endpoint>`。 例如，`http://mybackend.chinacloudsites.cn`。
+10. 在 **WindowsApp** 项目的 **MainPage.xaml.cs** 中，将以下成员添加到 `MainPage` 类。 确保使用前面获取的实际后端终结点来替换 `<Enter Your Backend Endpoint>`。 例如，`http://mybackend.chinacloudsites.cn`。
     
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -218,7 +218,7 @@ ms.locfileid: "56222605"
     ```
 13. 右键单击“WindowsApp”项目，单击“添加”，然后单击“类”。 将类命名为 `RegisterClient.cs`，然后单击“确定”以生成该类。
 
-   此类会包装联系应用后端所需的 REST 调用，以便注册推送通知。 它还会在本地存储通知中心创建的 registrationIds，如[从应用后端注册](https://msdn.microsoft.com/library/dn743807.aspx)中所述。 它使用单击“登录并注册”按钮时存储在本地存储中的授权令牌。
+    此类会包装联系应用后端所需的 REST 调用，以便注册推送通知。 它还会在本地存储通知中心创建的 registrationIds，如[从应用后端注册](https://msdn.microsoft.com/library/dn743807.aspx)中所述。 它使用单击“登录并注册”按钮时存储在本地存储中的授权令牌。
 14. 在 RegisterClient.cs 文件的顶部添加以下 `using` 语句：
 
     ```csharp

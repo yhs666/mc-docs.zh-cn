@@ -18,12 +18,12 @@ ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: aac8b0f35cc3227b15767d624d93b7d810582e63
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.openlocfilehash: 8d37d9e4807525bd36671bdcd9cb2c52cc349488
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262182"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626501"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 终结点中的权限和许可
 
@@ -97,13 +97,13 @@ Azure AD 中的应用程序必须获得许可才能访问所需的资源或 API�
 - 资源应该单独显式定义 `Read` 和 `ReadWrite` 权限。
 - 资源应将允许访问跨用户边界的数据的所有权限标记为 `Admin` 权限。
 - 资源应当遵循命名模式 `Subject.Permission[.Modifier]`，其中：
-    - `Subject` 对应于可用的数据类型
-    - `Permission` 对应于用户可以对该数据执行的操作
-    - 可以选择使用 `Modifier` 来描述另一个权限的专用化
+  - `Subject` 对应于可用的数据类型
+  - `Permission` 对应于用户可以对该数据执行的操作
+  - 可以选择使用 `Modifier` 来描述另一个权限的专用化
     
     例如：
-    - Mail.Read - 允许用户读取邮件。
-    - Mail.ReadWrite - 允许用户读取或写入邮件。
-    - Mail.ReadWrite.All - 允许管理员或用户访问组织中的所有邮件。
+  - Mail.Read - 允许用户读取邮件。
+  - Mail.ReadWrite - 允许用户读取或写入邮件。
+  - Mail.ReadWrite.All - 允许管理员或用户访问组织中的所有邮件。
 
 <!-- Update_Description: link update -->

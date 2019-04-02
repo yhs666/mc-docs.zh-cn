@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 01/01/2018
-ms.date: 10/15/2018
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7153008e21e958d3db69bfe60772d0fcab27a6e0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8e153d952339036b7701d3ed372e9de2fb329b2a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644956"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626164"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>为 Azure 逻辑应用中的逻辑应用定义创建、编辑或扩展 JSON
 
-在 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)中使用自动化工作流创建企业集成解决方案时，基础逻辑应用定义会将简单的声明性 JavaScript 对象表示法 (JSON) 以及[工作流定义语言 (WDL) 架构](../logic-apps/logic-apps-workflow-definition-language.md)用于说明和验证。 这些格式使得逻辑应用定义更易于阅读和理解，无需让用户详细了解代码。 若要自动创建和部署逻辑应用，可在 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中将逻辑应用定义包含为 [Azure 资源](../azure-resource-manager/resource-group-overview.md)。 若要创建、管理和部署逻辑应用，可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure 逻辑应用 REST API](https://docs.microsoft.com/rest/api/logic/)。
+在 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)中使用自动化工作流创建企业集成解决方案时，基础逻辑应用定义会将简单的声明性 JavaScript 对象表示法 (JSON) 以及[工作流定义语言 (WDL) 架构](../logic-apps/logic-apps-workflow-definition-language.md)用于说明和验证。 这些格式使得逻辑应用定义更易于阅读和理解，无需让用户详细了解代码。 若要自动创建和部署逻辑应用，可在 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中将逻辑应用定义包含为 [Azure 资源](../azure-resource-manager/resource-group-overview.md)。 若要创建、管理和部署逻辑应用，可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure 逻辑应用 REST API](https://docs.microsoft.com/rest/api/logic/)。
 
 若要在 JSON 中处理逻辑应用定义，请在 Azure 门户中打开“代码视图”编辑器，或者在 Visual Studio 中将定义复制到任何所需的编辑器。 如果你不熟悉逻辑应用，请查看[如何创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -193,7 +193,7 @@ ms.locfileid: "52644956"
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+        "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
@@ -203,8 +203,8 @@ ms.locfileid: "52644956"
 
 以下步骤介绍此示例如何处理该字符串，从内到外进行操作：
 
-``` 
-"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+```
+"uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
 1. 获取公司名称的 [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)，以便获取字符总数。
@@ -246,7 +246,7 @@ ms.locfileid: "52644956"
     },
     "destinationMap": {
       "defaultValue": {
-        "science": "http://www.nasa.gov",
+        "science": "https://www.nasa.gov",
         "microsoft": "https://www.microsoft.com/en-us/default.aspx",
         "google": "https://www.google.com",
         "robots": "https://en.wikipedia.org/wiki/Robot",
@@ -266,7 +266,7 @@ ms.locfileid: "52644956"
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=https://feeds.wired.com/wired/index"
       }
     },
     "forEachArticle": {
@@ -343,7 +343,7 @@ ms.locfileid: "52644956"
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{parameters('order').id}"
+        "uri": "https://www.example.com/?id=@{parameters('order').id}"
       }
     },
     "ifTimingWarning": {
@@ -354,7 +354,7 @@ ms.locfileid: "52644956"
           "type": "Http",
           "inputs": {
             "method": "GET",
-            "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+            "uri": "https://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
           }
         }
       },

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2dd08601871fff3072491522de7ddcaff10f3099
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: ff6ed8f795ef2e9601311c01478538e643fd3140
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480163"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625612"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>远程桌面服务在 Azure VM 上不启动
 
@@ -49,7 +49,8 @@ ms.locfileid: "55480163"
     **计算机**: vm.contoso.com</br>
     **说明**：远程桌面服务在启动时挂起。 
 
-     <!--Not Available on Serial Access Console--> <!--Not Available on wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more -->
+     <!--Not Available on Serial Access Console-->
+     <!--Not Available on wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more -->
 
 ## <a name="cause"></a>原因
 
@@ -72,7 +73,7 @@ ms.locfileid: "55480163"
 
 1. [将 OS 磁盘附加到恢复 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 开始与恢复 VM 建立远程桌面连接。 确保附加的磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的 OS 磁盘的驱动器号。
-3.  打开权限提升的命令提示符实例（“以管理员身份运行”）。 然后运行以下脚本。 假设分配给附加的 OS 磁盘的驱动器号为 **F**。请将它替换为 VM 中的相应值。 
+3. 打开权限提升的命令提示符实例（“以管理员身份运行”）。 然后运行以下脚本。 假设分配给附加的 OS 磁盘的驱动器号为 **F**。请将它替换为 VM 中的相应值。 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

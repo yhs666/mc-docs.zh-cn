@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1419956a79c68e78e6b1bdaccc27f9066af8d510
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 77e4619a6747ff5c29e7bcfdc91833a7cdfbfe54
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186649"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625814"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入门：自助密码重置
 
@@ -45,7 +45,7 @@ ms.locfileid: "58186649"
       * **移动应用代码（预览版）**
    * 单击“保存” 。
 
-    ![身份验证][Authentication]
+     ![身份验证][Authentication]
 
 4. 在“注册”页上，进行以下选择：
    * 要求用户在登录时注册：**是**

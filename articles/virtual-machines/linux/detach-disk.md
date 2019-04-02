@@ -14,24 +14,22 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/18/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: deeae56b3466f67f1ed1c01f40325301b30770ce
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 0a605794d338c1b8975060c0f9537ebc3b4bc525
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666000"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625270"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机中分离数据磁盘
 
 不再需要附加到虚拟机的数据磁盘时，可以轻松地分离它。 这会从虚拟机中删除该磁盘，但不会从存储中删除它。 在本文中，我们使用的是 Ubuntu LTS 16.04 分发版。 如果使用的是其他分发版，则卸载磁盘的说明可能会有所不同。
 
 > [!WARNING]
-> 如果用户分离磁盘，它不会自动删除。 如果用户订阅了高级存储，则将继续承担该磁盘的存储费用。 有关详细信息，请参阅[使用高级存储时的定价和计费方式](../windows/premium-storage.md#pricing-and-billing)。 
-> 
-> 
+> 如果用户分离磁盘，它不会自动删除。 如果用户订阅了高级存储，则将继续承担该磁盘的存储费用。 有关详细信息，请参阅[使用高级存储时的定价和计费方式](https://www.azure.cn/pricing/details/storage/page-blobs/)。
 
 如果希望再次使用磁盘上的现有数据，可以将其重新附加到相同的虚拟机或另一个虚拟机。  
 

@@ -15,12 +15,12 @@ ms.workload: required
 origin.date: 09/20/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 90f06faae4747179fe27b53ce1fb9645fd93fe42
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 21b6ed6cbba4b2117f80bdb2289cc1a388282cb9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463601"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625238"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>通过 Reliable Services 使用 C# 进行服务远程处理
 
@@ -88,7 +88,6 @@ class MyService : StatelessService, IMyService
 IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
 string message = await helloWorldClient.HelloWorldAsync();
-
 ```
 
 此远程处理框架将服务引发的异常传播到客户端。 因此，使用 `ServiceProxy` 时，客户端负责处理服务引起的异常。
@@ -129,28 +128,28 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 1. 在服务清单中将终结点资源从 `"ServiceEndpoint"` 更改为 `"ServiceEndpointV2"`。
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. 使用 `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` 扩展方法创建远程处理侦听器（对于 V1 和 V2 是相同的）。
 
-  ```csharp
+   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-  ```
+   ```
 
 3. 使用 `FabricTransportServiceRemotingProvider` 属性来标记包含远程处理接口的程序集。
 
-  ```csharp
-  [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 不需要在客户端项目中更改代码。
 使用接口程序集生成客户端程序集，以确保使用前面显示的程序集属性。
@@ -163,18 +162,18 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 1. 在服务清单中将终结点资源从 `"ServiceEndpoint"` 更改为 `"ServiceEndpointV2"`。
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. 使用 `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` 命名空间中的 [FabricTransportServiceRemotingListener](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)。
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
         {
@@ -185,16 +184,16 @@ string message = await helloWorldClient.HelloWorldAsync();
             })
         };
     }
-  ```
+   ```
 
 3. 使用 `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` 命名空间中的 [FabricTransportServiceRemotingClientFactory ](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) 创建客户端。
 
-  ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
+   ```csharp
+   var proxyFactory = new ServiceProxyFactory((c) =>
           {
               return new FabricTransportServiceRemotingClientFactory();
           });
-  ```
+   ```
 
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2"></a>从远程处理 V1 升级到远程处理 V2
 
@@ -247,29 +246,28 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 1. 在服务清单中添加名为“ServiceEndpointV2_1”的终结点资源。
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2_1" />  
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. 使用远程处理扩展方法创建远程处理侦听器。
 
-  ```csharp
+   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-  ```
+   ```
 
 3. 在远程处理接口上添加[程序集属性](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet)。
 
-  ```csharp
+   ```csharp
      [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
-
-  ```
+   ```
 
 不需要在客户端项目中进行更改。
 使用接口程序集生成客户端程序集，以确保使用的是以前的程序集属性。
@@ -280,18 +278,18 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 1. 在服务清单中添加名为“ServiceEndpointV2_1”的终结点资源。
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2_1" />  
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. 使用[远程处理 V2 侦听器](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet)。 使用的默认服务终结点资源名称为“ServiceEndpointV2_1”。 必须在服务清单中定义该名称。
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
         {
@@ -304,17 +302,17 @@ string message = await helloWorldClient.HelloWorldAsync();
             })
         };
     }
-  ```
+   ```
 
 3. 使用 V2 [客户端工厂](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)。
-  ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
+   ```csharp
+   var proxyFactory = new ServiceProxyFactory((c) =>
           {
             var settings = new FabricTransportRemotingSettings();
             settings.UseWrappedMessage = true;
             return new FabricTransportServiceRemotingClientFactory(settings);
           });
-  ```
+   ```
 
 <a name="upgrade-from-remoting-v1-to-remoting-v2interfacecompatible"></a>
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>从远程处理 V1 升级到远程处理 V2（与接口兼容）。
@@ -527,8 +525,8 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 2. 使用远程处理侦听器的 `JsonSerializationProvider` 重写默认的序列化提供程序。
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
    {
        return new[]
        {
@@ -539,7 +537,7 @@ string message = await helloWorldClient.HelloWorldAsync();
            })
        };
    }
-  ```
+   ```
 
 3. 使用远程处理客户端工厂的 `JsonSerializationProvider` 重写默认的序列化提供程序。
 

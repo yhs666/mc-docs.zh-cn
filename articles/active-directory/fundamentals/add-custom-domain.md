@@ -13,15 +13,15 @@ ms.date: 01/21/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 2ea67756217d66b7e74e3d5a93da0abbc6a18c50
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: f8be2252304d41a5392f2ed256ce9b52710e542f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440333"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625785"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户添加自定义域名
-每个新的 Azure AD 租户都附带了一个初始域名 *domainname*.partner.onmschina.cn。 无法更改或删除初始域名，但可以将组织的名称添加到列表中。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain@contoso.com*。
+每个新的 Azure AD 租户都附带了一个初始域名 *domainname*.partner.onmschina.cn。 无法更改或删除初始域名，但可以将组织的名称添加到列表中。 添加自定义域名有助于创建用户所熟悉的用户名，例如 <em>alain@contoso.com</em>。
 
 ## <a name="before-you-begin"></a>准备阶段
 添加自定义域名之前，必须在域注册机构处创建域名。 有关认证的域注册机构，请参阅 [ICANN 认证的注册机构](https://www.icann.org/registrar-reports/accredited-list.html)。
@@ -87,9 +87,9 @@ ms.locfileid: "54440333"
 
 ## <a name="common-verification-issues"></a>常见验证问题
 - 如果 Azure AD 无法验证自定义域名，请尝试以下建议的方法：
-    - **至少等待一小时，然后重试**。 只有在传播 DNS 记录之后，Azure AD 才能验证域，而此过程可能需要一小时或更长时间。
+  - **至少等待一小时，然后重试**。 只有在传播 DNS 记录之后，Azure AD 才能验证域，而此过程可能需要一小时或更长时间。
 
-    - **确保 DNS 记录正确。** 返回到域名注册机构站点，确保其中包含该条目，并且该条目与 Azure AD 提供的 DNS 条目信息相匹配。
+  - **确保 DNS 记录正确。** 返回到域名注册机构站点，确保其中包含该条目，并且该条目与 Azure AD 提供的 DNS 条目信息相匹配。
 
     如果无法在注册机构站点上更新记录，必须与有权添加条目并验证其准确性的某人共享该条目。
 

@@ -10,12 +10,12 @@ origin.date: 07/19/18
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7585f2af280186187226dce0988884a08322e8fa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6fa5309845f34306396a14e9a1c6892a002e1feb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676534"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625500"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Azure Kubernetes 服务 (AKS) 中的群集自动缩放程序 - 预览版
 
@@ -252,7 +252,7 @@ spec:
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-      - image: gcr.io/google-containers/cluster-autoscaler:v1.2.2
+      - image: gcr.azk8s.cn/google-containers/cluster-autoscaler:v1.2.2
         imagePullPolicy: Always
         name: cluster-autoscaler
         resources:
@@ -310,8 +310,12 @@ spec:
             secretKeyRef:
               key: NodeResourceGroup
               name: cluster-autoscaler-azure
+        - name: ARM_CLOUD
+          value: AzureChinaCloud
       restartPolicy: Always
 ```
+
+<!--MOONCAKE: ADD ARM_CLOUD AzureChinaCloud-->
 
 复制并粘贴上一步骤中创建的机密，并将其插入到文件的开头。
 

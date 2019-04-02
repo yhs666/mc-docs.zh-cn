@@ -9,12 +9,12 @@ origin.date: 12/18/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b9785e01d66dc97697794f06db822c4303468d44
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a066d1d25c752c2eb4613a284f74227ffafadc46
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903027"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625334"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -293,8 +293,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-install-cli]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-install-cli
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.cn
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

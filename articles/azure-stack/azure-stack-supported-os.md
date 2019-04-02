@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/27/2018
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 0f0d607d024d5605b42979b98418c11424ba189b
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: e91ced8ace8a7ecf17df63049630045e99eb3ed0
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988006"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503634"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -33,7 +33,7 @@ ms.locfileid: "57988006"
 Azure Stack 支持下表中列出的 Windows 来宾操作系统：
 
 | 操作系统 | 说明 | 在市场中可用 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server，版本 1709 | 64 位 | 包含容器的核心 |
 | Windows Server 2016 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
 | Windows Server 2012 R2 | 64 位 |  数据中心 |
@@ -59,7 +59,7 @@ Datacenter 版本可在市场中下载；客户可以自带包含其他版本的
 > 目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
 | 分发 | 说明 | 发布者 | 市场 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | 基于 CentOS 的 6.9 | 64 位 | Rogue Wave | 是 |
 | 基于 CentOS 的 7.4 | 64 位 | Rogue Wave | 是 |
 | ClearLinux | 64 位 | ClearLinux.org | 是 |

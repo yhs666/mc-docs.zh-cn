@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d52942c2d1c036b17654679dc86961b9ee6e822a
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 7001a05f2e7904c07b92bb1d9ee3a472252cef5a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463522"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625607"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -84,15 +84,15 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an outbound HTTPS (443) security rule for "Storage" on the NSG as shown in the screenshot below.
     
-    <!--Current only Storage endpoint without chinaeast-->
+    <!--Current only Storage endpoint without chinaeast
     
-    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)-->
 
-2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
+1. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
 
     ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
+2. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
 
     **位置** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
     --- | --- | ---

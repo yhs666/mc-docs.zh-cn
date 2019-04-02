@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 02/28/2018
 ms.date: 01/07/2019
 ms.author: v-yeche
-ms.openlocfilehash: e303bc7882089ab731798cf816fd6a49a55c7b4f
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 477cc3b476ce724639abb46f6de6f348f8cdde0a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083648"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626952"
 ---
 # <a name="view-service-fabric-health-reports"></a>查看 Service Fabric 运行状况报告
 Azure Service Fabric 引入了一种具有运行状况实体的[运行状况模型](service-fabric-health-introduction.md)，系统组件和监视器可以在其上报告它们监视的本地状况。 [运行状况存储](service-fabric-health-introduction.md#health-store)聚合所有运行状况数据以确定实体是否正常运行。
@@ -1037,8 +1037,6 @@ ApplicationHealthStateChunks :
 
 > [!NOTE]
 > 有些查询会返回已分页的结果。 这些查询的返回结果是派生自 [PagedList<T>](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.query.pagedlist-1?view=azure-dotnet) 的列表。 如果一条消息无法容纳这些结果，则仅返回一页，以及一个用于跟踪枚举停止位置的 ContinuationToken。 继续调用相同的查询，并从先前的查询传入继续标记以获取后续结果。
->
->
 
 ### <a name="examples"></a>示例
 以下代码获取群集中不正常的应用程序：

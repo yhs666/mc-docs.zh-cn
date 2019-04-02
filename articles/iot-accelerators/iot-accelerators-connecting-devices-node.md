@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/24/2018
 ms.author: v-yiso
 ms.date: 11/26/2018
-ms.openlocfilehash: 23984b1978b0cf5cc66211b1e973020e3bd57330
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a838a86996fc1e58af2ebb242eba510b18c23d39
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664506"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627042"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>将设备连接到远程监视解决方案加速器 (Node.js)
 
@@ -28,16 +28,16 @@ ms.locfileid: "52664506"
 
 1. 在开发计算机上，创建名为 `RemoteMonitoring` 的文件夹。 在命令行环境中导航到此文件夹。
 
-1. 若要下载并安装完成示例应用所需的包，请运行以下命令：
+2. 若要下载并安装完成示例应用所需的包，请运行以下命令：
 
     ```cmd/sh
     npm init
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. 在 `RemoteMonitoring` 文件夹中，创建名为 **remote_monitoring.js** 的文件。 在文本编辑器中打开此文件。
+3. 在 `RemoteMonitoring` 文件夹中，创建名为 **remote_monitoring.js** 的文件。 在文本编辑器中打开此文件。
 
-1. 在 **remote_monitoring.js** 文件中，添加以下 `require` 语句：
+4. 在 **remote_monitoring.js** 文件中，添加以下 `require` 语句：
 
     ```nodejs
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -47,14 +47,14 @@ ms.locfileid: "52664506"
     var async = require('async');
     ```
 
-1. 在 `require` 语句之后添加以下变量声明。 将占位符值 `{device connection string}` 替换为针对远程监视解决方案中预配的设备记下的值：
+5. 在 `require` 语句之后添加以下变量声明。 将占位符值 `{device connection string}` 替换为针对远程监视解决方案中预配的设备记下的值：
 
     ```nodejs
     var connectionString = '{device connection string}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. 若要定义一些基本遥测数据，请添加以下变量：
+6. 若要定义一些基本遥测数据，请添加以下变量：
 
     ```nodejs
     var temperature = 50;
@@ -65,7 +65,7 @@ ms.locfileid: "52664506"
     var pressureUnit = 'psig';
     ```
 
-1. 若要定义一些属性值，请添加以下变量：
+7. 若要定义一些属性值，请添加以下变量：
 
     ```nodejs
     var temperatureSchema = 'chiller-temperature;v1';
@@ -81,7 +81,7 @@ ms.locfileid: "52664506"
     var deviceOnline = true;
     ```
 
-1. 添加以下变量以定义要发送到解决方案的报告属性。 这些属性包括用于说明设备使用的方法和遥测的元数据：
+8. 添加以下变量以定义要发送到解决方案的报告属性。 这些属性包括用于说明设备使用的方法和遥测的元数据：
 
     ```nodejs
     var reportedProperties = {
@@ -135,7 +135,7 @@ ms.locfileid: "52664506"
     }
     ```
 
-1. 若要输出操作结果，请添加以下帮助程序函数：
+9. 若要输出操作结果，请添加以下帮助程序函数：
 
     ```nodejs
     function printErrorFor(op) {
@@ -145,163 +145,163 @@ ms.locfileid: "52664506"
     }
     ```
 
-1. 添加以下帮助器函数用于随机化遥测值：
+10. 添加以下帮助器函数用于随机化遥测值：
 
-    ```nodejs
-    function generateRandomIncrement() {
-        return ((Math.random() * 2) - 1);
-    }
-    ```
+     ```nodejs
+     function generateRandomIncrement() {
+         return ((Math.random() * 2) - 1);
+     }
+     ```
 
-1. 添加以下泛型函数以处理解决方案中的直接方法调用。 该函数显示调用的直接方法的相关信息，但在此示例中不以任何方式修改设备。 解决方案使用直接方法对设备进行操作：
+11. 添加以下泛型函数以处理解决方案中的直接方法调用。 该函数显示调用的直接方法的相关信息，但在此示例中不以任何方式修改设备。 解决方案使用直接方法对设备进行操作：
 
-    ```nodejs
-    function onDirectMethod(request, response) {
-      // Implement logic asynchronously here.
-      console.log('Simulated ' + request.methodName);
+     ```nodejs
+     function onDirectMethod(request, response) {
+       // Implement logic asynchronously here.
+       console.log('Simulated ' + request.methodName);
 
-      // Complete the response
-      response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (err) console.error('Error sending method response :\n' + err.toString());
-        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
-      });
-    }
-    ```
+       // Complete the response
+       response.send(200, request.methodName + ' was called on the device', function (err) {
+         if (err) console.error('Error sending method response :\n' + err.toString());
+         else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       });
+     }
+     ```
 
-1. 添加以下函数以处理解决方案中的 **FirmwareUpdate** 直接方法调用。 该函数验证直接方法负载中传入的参数，并以异步方式运行固件更新模拟：
+12. 添加以下函数以处理解决方案中的 **FirmwareUpdate** 直接方法调用。 该函数验证直接方法负载中传入的参数，并以异步方式运行固件更新模拟：
 
-    ```nodejs
-    function onFirmwareUpdate(request, response) {
-      // Get the requested firmware version from the JSON request body
-      var firmwareVersion = request.payload.Firmware;
-      var firmwareUri = request.payload.FirmwareUri;
+     ```nodejs
+     function onFirmwareUpdate(request, response) {
+       // Get the requested firmware version from the JSON request body
+       var firmwareVersion = request.payload.Firmware;
+       var firmwareUri = request.payload.FirmwareUri;
       
-      // Ensure we got a firmware values
-      if (!firmwareVersion || !firmwareUri) {
-        response.send(400, 'Missing firmware value', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
-        });
-      } else {
-        // Respond the cloud app for the device method
-        response.send(200, 'Firmware update started.', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else {
-            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       // Ensure we got a firmware values
+       if (!firmwareVersion || !firmwareUri) {
+         response.send(400, 'Missing firmware value', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+         });
+       } else {
+         // Respond the cloud app for the device method
+         response.send(200, 'Firmware update started.', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else {
+             console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
 
-            // Run the simulated firmware update flow
-            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
-          }
-        });
-      }
-    }
-    ```
+             // Run the simulated firmware update flow
+             runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+           }
+         });
+       }
+     }
+     ```
 
-1. 添加以下函数以模拟长时间运行的固件更新流（将进度报告回解决方案）：
+13. 添加以下函数以模拟长时间运行的固件更新流（将进度报告回解决方案）：
 
-    ```nodejs
-    // Simulated firmwareUpdate flow
-    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
-      console.log('Simulating firmware update flow...');
-      console.log('> Firmware version passed: ' + firmwareVersion);
-      console.log('> Firmware URI passed: ' + firmwareUri);
-      async.waterfall([
-        function (callback) {
-          console.log("Image downloading from " + firmwareUri);
-          var patch = {
-            FirmwareUpdateStatus: 'Downloading image..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Downloaded, applying firmware " + firmwareVersion);
-          deviceOnline = false;
-          var patch = {
-            FirmwareUpdateStatus: 'Applying firmware..',
-            Online: false
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(8000, callback);
-        },
-        function (callback) {
-          console.log("Rebooting");
-          var patch = {
-            FirmwareUpdateStatus: 'Rebooting..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Firmware updated to " + firmwareVersion);
-          deviceOnline = true;
-          var patch = {
-            FirmwareUpdateStatus: 'Firmware updated',
-            Online: true,
-            Firmware: firmwareVersion
-          };
-          reportUpdateThroughTwin(patch, callback);
-          callback(null);
-        }
-      ], function(err) {
-        if (err) {
-          console.error('Error in simulated firmware update flow: ' + err.message);
-        } else {
-          console.log("Completed simulated firmware update flow");
-        }
-      });
+     ```nodejs
+     // Simulated firmwareUpdate flow
+     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+       console.log('Simulating firmware update flow...');
+       console.log('> Firmware version passed: ' + firmwareVersion);
+       console.log('> Firmware URI passed: ' + firmwareUri);
+       async.waterfall([
+         function (callback) {
+           console.log("Image downloading from " + firmwareUri);
+           var patch = {
+             FirmwareUpdateStatus: 'Downloading image..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Downloaded, applying firmware " + firmwareVersion);
+           deviceOnline = false;
+           var patch = {
+             FirmwareUpdateStatus: 'Applying firmware..',
+             Online: false
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(8000, callback);
+         },
+         function (callback) {
+           console.log("Rebooting");
+           var patch = {
+             FirmwareUpdateStatus: 'Rebooting..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Firmware updated to " + firmwareVersion);
+           deviceOnline = true;
+           var patch = {
+             FirmwareUpdateStatus: 'Firmware updated',
+             Online: true,
+             Firmware: firmwareVersion
+           };
+           reportUpdateThroughTwin(patch, callback);
+           callback(null);
+         }
+       ], function(err) {
+         if (err) {
+           console.error('Error in simulated firmware update flow: ' + err.message);
+         } else {
+           console.log("Completed simulated firmware update flow");
+         }
+       });
 
-      // Helper function to update the twin reported properties.
-      function reportUpdateThroughTwin(patch, callback) {
-        console.log("Sending...");
-        console.log(JSON.stringify(patch, null, 2));
-        client.getTwin(function(err, twin) {
-          if (!err) {
-            twin.properties.reported.update(patch, function(err) {
-              if (err) callback(err);
-            });      
-          } else {
-            if (err) callback(err);
-          }
-        });
-      }
+       // Helper function to update the twin reported properties.
+       function reportUpdateThroughTwin(patch, callback) {
+         console.log("Sending...");
+         console.log(JSON.stringify(patch, null, 2));
+         client.getTwin(function(err, twin) {
+           if (!err) {
+             twin.properties.reported.update(patch, function(err) {
+               if (err) callback(err);
+             });      
+           } else {
+             if (err) callback(err);
+           }
+         });
+       }
 
-      function sleep(milliseconds, callback) {
-        console.log("Simulate a delay (milleseconds): " + milliseconds);
-        setTimeout(function () {
-          callback(null);
-        }, milliseconds);
-      }
-    }
-    ```
+       function sleep(milliseconds, callback) {
+         console.log("Simulate a delay (milleseconds): " + milliseconds);
+         setTimeout(function () {
+           callback(null);
+         }, milliseconds);
+       }
+     }
+     ```
 
-1. 添加以下代码将遥测数据发送到解决方案。 客户端应用将属性添加到消息，以确定消息架构：
+14. 添加以下代码将遥测数据发送到解决方案。 客户端应用将属性添加到消息，以确定消息架构：
 
-    ```nodejs
-    function sendTelemetry(data, schema) {
-      if (deviceOnline) {
-        var d = new Date();
-        var payload = JSON.stringify(data);
-        var message = new Message(payload);
-        message.properties.add('$$CreationTimeUtc', d.toISOString());
-        message.properties.add('$$MessageSchema', schema);
-        message.properties.add('$$ContentType', 'JSON');
+     ```nodejs
+     function sendTelemetry(data, schema) {
+       if (deviceOnline) {
+         var d = new Date();
+         var payload = JSON.stringify(data);
+         var message = new Message(payload);
+         message.properties.add('$$CreationTimeUtc', d.toISOString());
+         message.properties.add('$$MessageSchema', schema);
+         message.properties.add('$$ContentType', 'JSON');
 
-        console.log('Sending device message data:\n' + payload);
-        client.sendEvent(message, printErrorFor('send event'));
-      } else {
-        console.log('Offline, not sending telemetry');
-      }
-    }
-    ```
+         console.log('Sending device message data:\n' + payload);
+         client.sendEvent(message, printErrorFor('send event'));
+       } else {
+         console.log('Offline, not sending telemetry');
+       }
+     }
+     ```
 
-1. 添加以下代码用于创建客户端实例：
+15. 添加以下代码用于创建客户端实例：
 
-    ```nodejs
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+     ```nodejs
+     var client = Client.fromConnectionString(connectionString, Protocol);
+     ```
 
-1. 添加以下代码来执行下述操作：
+16. 添加以下代码来执行下述操作：
 
     * 打开连接。
     * 设置所需属性的处理程序。
@@ -309,8 +309,8 @@ ms.locfileid: "52664506"
     * 为直接方法注册处理程序。 此示例对固件更新直接方法使用单独的处理程序。
     * 开始发送遥测数据。
 
-    ```nodejs
-    client.open(function (err) {
+      ```nodejs
+      client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
       } else {
@@ -378,15 +378,15 @@ ms.locfileid: "52664506"
           client.close(printErrorFor('client.close'));
         });
       }
-    });
-    ```
+      });
+      ```
 
-1. 保存对 **remote_monitoring.js** 文件的更改。
+17. 保存对 **remote_monitoring.js** 文件的更改。
 
-1. 若要启动示例应用程序，请在命令提示符处运行以下命令：
+18. 若要启动示例应用程序，请在命令提示符处运行以下命令：
 
-    ```cmd/sh
-    node remote_monitoring.js
-    ```
+     ```cmd/sh
+     node remote_monitoring.js
+     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

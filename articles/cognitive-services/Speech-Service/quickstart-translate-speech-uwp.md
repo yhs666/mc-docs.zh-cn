@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 12/13/2018
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 22d7682b46d238440b409cbaee024ff430dc364b
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: aa5cb153f38519ebe6f95c90ad4e69f024466464
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348281"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625319"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>快速入门：使用适用于 C# 的语音 SDK 翻译语音 (UWP)
 
@@ -42,7 +42,8 @@ ms.locfileid: "58348281"
 
 1. 应用程序的用户界面使用 XAML 进行定义。 在解决方案资源管理器中打开 `MainPage.xaml`。 在设计器的 XAML 视图中，将以下 XAML 代码片段插入到 `<Grid>` 和 `</Grid>` 之间。
 
-``XML <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
+```XML
+<StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
     <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
     <Button x:Name="SpeechRecognitionButton" Content="Translate speech from the microphone input" Margin="0,10,10,0" Click="SpeechTranslationFromMicrophone_ButtonClicked" Height="35"/>
     <StackPanel x:Name="StatusPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
@@ -51,14 +52,14 @@ ms.locfileid: "58348281"
             <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
                 <!-- Use LiveSetting to enable screen readers to announce the status update. -->
                 <TextBlock x:Name="StatusBlock" FontWeight="Bold" AutomationProperties.LiveSetting="Assertive"
-MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  /> </ScrollViewer>
+MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
+            </ScrollViewer>
         </Border>
     </StackPanel>
 </StackPanel>
 ```
 
-1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Replace all the code in it with the following.
-
+1. 打开代码隐藏源文件 `MainPage.xaml.cs`（可以发现它归在 `MainPage.xaml` 下）。 将其中的所有代码替换为以下内容。
 ```C#
 using System;
 using System.Threading.Tasks;

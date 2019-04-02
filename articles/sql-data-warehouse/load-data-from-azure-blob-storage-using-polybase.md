@@ -11,12 +11,12 @@ origin.date: 09/12/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 37944b4ce6c23ff9caffd316393fda205339271c
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: ddcaab297f5dbc31845f45bd1530bb1272284894
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54397036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626005"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -242,7 +242,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
         LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
-<!-- Notice:  wasbs://2013@nytaxiblob.blob.core.windows.net/ is CORRECT source-->
+   <!-- Notice:  wasbs://2013@nytaxiblob.blob.core.windows.net/ is CORRECT source-->
 5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据存储为文本，且值由管道 ("|") 字符分隔。 使用 Gzip 压缩外部文件。 
 
     ```sql
@@ -268,11 +268,11 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     );
     ```
 
-6.  运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) 语句，创建外部文件格式的架构。 该架构提供组织即将创建的外部表的方法。
+6. 运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) 语句，创建外部文件格式的架构。 该架构提供组织即将创建的外部表的方法。
 
-    ```sql
-    CREATE SCHEMA ext;
-    ```
+   ```sql
+   CREATE SCHEMA ext;
+   ```
 
 7. 创建外部表。 表定义存储在 SQL 数据仓库中，但表引用数据存储在 Azure Blob 存储中。 运行以下 T-SQL 命令以创建若干外部表，这些表都指向我们之前在外部数据源中定义的 Azure blob。
 

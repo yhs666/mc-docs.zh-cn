@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 05/31/2016
-ms.date: 01/14/2019
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5eb7a644d5bdbcd6b5abac397fe0eca5b4490e37
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 92e430913ceca46d1c312d55593a912f30c3253b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806541"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625297"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure 逻辑应用的架构更新 - 2015 年 8 月 1 日预览版
 
@@ -109,7 +109,7 @@ PUT https://management.azure.cn/subscriptions/<Azure-subscription-ID>/resourceGr
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>在 Azure 资源管理器模板中部署托管 API
 
-可以使用资源管理器模板创建完整应用。
+如果不要求交互式登录，则可通过使用资源管理器模板创建完整应用。
 如果要求登录，仍可使用资源管理器模板，但必须通过 Azure 门户来对连接进行授权。 
 
 ``` json
@@ -357,7 +357,7 @@ PUT https://management.azure.cn/subscriptions/<Azure-subscription-ID>/resourceGr
    },
    "outputs": {
       "headers": { },
-      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
    },
    "status": "Succeeded"
 } ]
@@ -374,7 +374,7 @@ PUT https://management.azure.cn/subscriptions/<Azure-subscription-ID>/resourceGr
       },
       "outputs": {
          "headers": { },
-         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
       },
       "status": "Succeeded"
 } ]
@@ -389,7 +389,7 @@ PUT https://management.azure.cn/subscriptions/<Azure-subscription-ID>/resourceGr
       "repeat": "@outputs('pingBing').repeatItems",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@repeatItem().outputs.body"
       }
    }
@@ -405,7 +405,7 @@ PUT https://management.azure.cn/subscriptions/<Azure-subscription-ID>/resourceGr
       "foreach": "@outputs('pingBing')",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@item().outputs.body"
       }
    }
@@ -466,4 +466,4 @@ HTTP 侦听器功能现为内置功能，因此不需要部署 HTTP 侦听器 AP
 
 ## <a name="enterprise-integration-apis"></a>企业集成 API
 
-此架构尚不支持企业集成 API 的托管版本，例如 AS2。 但是，可以通过 HTTP 操作使用现有的已部署 BizTalk API。 有关详细信息，请参阅[集成路线图](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的“使用已部署的 API 应用”。 
+此架构尚不支持企业集成 API 的托管版本，例如 AS2。 但是，可以通过 HTTP 操作使用现有的已部署 BizTalk API。 有关详细信息，请参阅[集成路线图](https://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的“使用已部署的 API 应用”。 

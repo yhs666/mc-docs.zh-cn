@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 12/07/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 568a1c68b4517dc4973e8e7c7cc35fdb8a8b1470
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: dfb0ae0082d833ec01926b8910a2d2bb6328beaf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004579"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625606"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 
@@ -183,7 +183,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 接下来，可通过以下文章详细了解 Azure Cosmos DB 中的成本优化：
 
 * 详细了解[开发和测试优化](optimize-dev-test.md)
-<!--Not Available on* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+  <!--Not Available on* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)

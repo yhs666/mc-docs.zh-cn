@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d9e160f4aae49f42a23ee4d60527392265d1bb0f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 6dec70e18b053477034961a0209839b3c69df09f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674786"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626813"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>使用 System Center DPM 准备将工作负载备份到 Azure
 
@@ -51,7 +51,7 @@ Hyper-V VM 上的 DPM | System Center 2012 SP1 或更高版本；System Center 2
 VMware VM 上的 DPM | System Center 2012 R2 更新汇总 5 或更高版本。
 组件 | DPM 服务器上应已安装 Windows PowerShell 和 .NET Framework 4.5。
 支持的应用 | [了解](https://docs.microsoft.com/zh-cn/system-center/dpm/dpm-protection-matrix) DPM 可以进行哪些备份。
-支持的文件类型 | 使用 Azure 备份可以备份以下文件类型：加密（仅限完整备份）；压缩（支持增量备份）；稀疏（支持增量备份）；压缩和稀疏（视为稀疏）。
+支持的文件类型 | 使用 Azure 备份，可以备份下列文件类型：加密（仅完整备份）；压缩（支持增量备份）；稀疏（支持增量备份）；压缩和稀疏（处理为稀疏）。
 不受支持的文件类型 | 区分大小写的文件系统上的服务器；硬链接（跳过）；重分析点（跳过）；加密和压缩（跳过）；加密和稀疏（跳过）；压缩流；分析流。
 本地存储 | 要备份的每台计算机上的可用本地存储必须至少为要备份的数据大小的 5%。  例如，如果要备份 100 GB 的数据，则暂存位置至少需要 5 GB 的可用空间。
 保管库存储 | 可以备份到 Azure 备份保管库的数据量没有限制，但数据源（例如虚拟机或数据库）的大小不应超过 54400 GB。
@@ -89,7 +89,7 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
 - 在执行计算机注册工作流期间，证书的私钥将可供用户使用，它用来对计算机进行身份验证。
 - Azure 备份服务根据身份验证将数据发送到所标识的保管库。
 
- ### <a name="best-practices-for-vault-credentials"></a>保管库凭据的最佳做法
+  ### <a name="best-practices-for-vault-credentials"></a>保管库凭据的最佳做法
 
 若要获取凭据，请从 Azure 门户通过安全通道下载保管库凭据文件：
 

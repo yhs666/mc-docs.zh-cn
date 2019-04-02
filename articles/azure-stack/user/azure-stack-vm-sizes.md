@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/11/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ec5d82857524318c43732a1dd9599cfba301f7da
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 4d45fd993ff753cf16d9ac58f79a71976de63388
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218290"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503669"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
 
@@ -136,14 +136,14 @@ Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与 VM 大�
 ### <a name="fsv2-series"></a>Fsv2 系列
 *需要 Azure Stack 1804 或更高版本* 
 
-|大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) |
-|---------------------|----|----|-----|-----|-------|--------------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |
+|大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
+|---------------------|----|----|-----|-----|-------|--------------|---------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |4 |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |8 |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |8 |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
 ## <a name="memory-optimized"></a>内存优化

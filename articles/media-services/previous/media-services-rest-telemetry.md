@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 9383a8d974eb7b6dc246e2d875c726259e66d6f0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 727febf1bc0dd1b2b1d34475776614ab8a9c7f77
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656693"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625286"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
 
@@ -126,8 +126,8 @@ ms.locfileid: "52656693"
         "EndPointType":2
     }
 
->[!NOTE]
->不要忘记将“https://telemetryvalidationstore.table.core.chinacloudapi.cn”值更改为自己的存储帐户。
+> [!NOTE]
+> 不要忘记将“<https://telemetryvalidationstore.table.core.chinacloudapi.cn>”值更改为自己的存储帐户。
 
 ### <a name="response"></a>响应
 

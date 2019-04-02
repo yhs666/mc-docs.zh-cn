@@ -9,12 +9,12 @@ origin.date: 05/11/2017
 ms.date: 02/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 865b67a06b3bc790b30763de438a71724458d15b
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a1063539557c60aa8fe4a18857492e2a7bccf413
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625861"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -466,17 +466,18 @@ queueServicePoint.UseNagleAlgorithm = false;
 ### <a name="the-client-is-receiving-403-messages"></a>客户端正在接收“HTTP 403 (禁止访问)”消息
 如果客户端应用程序引发“HTTP 403(禁止)”错误，则可能的原因是客户端在发送存储请求时使用了过期的共享访问签名 (SAS)（虽然其他可能的原因包括时钟偏差、无效密钥和空标头）。 如果已过期的 SAS 密钥是原因，则你不会在服务器端存储日志记录日志数据中看到任何条目。 下表显示了存储客户端库生成的客户端日志的示例，它说明了如何出现此问题：
 
-| 源 | 详细程度 | 详细程度 | 客户端请求 ID | 操作文本 |
-| --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab-... |正在按位置模式 PrimaryOnly 使用主位置启动操作。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |开始向 https://domemaildist.blob.core.chinacloudapi.cnazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 发出同步请求。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |正在等待响应。 |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等待响应时引发了异常：远程服务器返回了错误：(403) 禁止访问。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |收到响应。 状态代码 = 403，请求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = 。 |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |操作期间引发了异常：远程服务器返回了错误：(403) 禁止访问。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |正在检查是否应重试该操作。 重试次数 = 0，HTTP 状态代码 = 403，异常 = 远程服务器返回了错误：(403) 禁止访问。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |已根据位置模式将下一个位置设为主位置。 |
-| Microsoft.WindowsAzure.Storage |错误 |1 |85d077ab -… |重试策略不允许重试。 操作失败，远程服务器返回了错误：(403) 禁止访问。 |
+
+|             源             |  详细程度  | 详细程度 | 客户端请求 ID |                                                                                                                     操作文本                                                                                                                      |
+|--------------------------------|-------------|-----------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Microsoft.WindowsAzure.Storage | 信息 |     3     |    85d077ab-...     |                                                                                         正在按位置模式 PrimaryOnly 使用主位置启动操作。                                                                                         |
+| Microsoft.WindowsAzure.Storage | 信息 |     3     |    85d077ab -…    | Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cnazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14. |
+| Microsoft.WindowsAzure.Storage | 信息 |     3     |    85d077ab -…    |                                                                                                                  正在等待响应。                                                                                                                  |
+| Microsoft.WindowsAzure.Storage |   警告   |     2     |    85d077ab -…    |                                                                           等待响应时引发了异常：远程服务器返回了错误：(403) 禁止访问。                                                                            |
+| Microsoft.WindowsAzure.Storage | 信息 |     3     |    85d077ab -…    |                                                                    收到响应。 状态代码 = 403，请求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = 。                                                                    |
+| Microsoft.WindowsAzure.Storage |   警告   |     2     |    85d077ab -…    |                                                                              操作期间引发了异常：远程服务器返回了错误：(403) 禁止访问。                                                                              |
+| Microsoft.WindowsAzure.Storage | 信息 |     3     |    85d077ab -…    |                                                正在检查是否应重试该操作。 重试次数 = 0，HTTP 状态代码 = 403，异常 = 远程服务器返回了错误：(403) 禁止访问。                                                 |
+| Microsoft.WindowsAzure.Storage | 信息 |     3     |    85d077ab -…    |                                                                                         已根据位置模式将下一个位置设为主位置。                                                                                          |
+| Microsoft.WindowsAzure.Storage |    错误    |     1     |    85d077ab -…    |                                                                       重试策略不允许重试。 操作失败，远程服务器返回了错误：(403) 禁止访问。                                                                        |
 
 在此方案中，应调查在客户端将该令牌发送到服务器之前 SAS 令牌即将到期的原因：
 
@@ -735,7 +736,7 @@ sqllocaldb create v11.0
 2. 在“启动”  部分中，选择本地网络接口或连接到 Internet 的接口。
 3. 单击“捕获选项”。
 4. 将一个筛选器添加到“捕获筛选器”文本框中。 例如，host contosoemaildist.table.core.chinacloudapi.cn 会将 Wireshark 配置为只捕获发送到 contosoemaildist 存储帐户中的表服务终结点或从该终结点发送的数据包。 请查看[捕获筛选器的完整列表](http://wiki.wireshark.org/CaptureFilters)。
-   
+
    ![][6]
 5. 单击“启动”。 现在，当在本地计算机上使用客户端应用程序时，Wireshark 将捕获发送到表服务终结点或从该终结点发送的所有数据包。
 6. 完成后，在主菜单上，依次单击“捕获”和“停止”。

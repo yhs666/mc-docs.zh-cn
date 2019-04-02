@@ -16,12 +16,12 @@ origin.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 03/12/2018
-ms.openlocfilehash: 5261c2e24cc9160bfbfb0a3803bfc138a3b8d38f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ef2cbead67092fa530cfac9432c3a6f3f2852e15
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649597"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627700"
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT 中心服务概述
 欢迎使用 Azure IoT 中心。 本文概述 Azure IoT 中心，并描述应该使用此服务实现物联网 (IoT) 解决方案的原因。 Azure IoT 中心是一项完全托管的服务，可在数百万个 IoT 设备和一个解决方案后端之间实现安全可靠的双向通信。 Azure IoT 中心：
@@ -97,7 +97,7 @@ Azure IoT 中心会实现 [服务辅助通信][lnk-service-assisted-pattern] 模
 - 设备只能同与它们对等的已知服务（例如 IoT 中心）进行连接或建立路由。
 - 设备和服务之间或网关之间的通信路径在应用程序协议层受到保护。
 - 系统级别的授权和身份验证以每个设备的标识为基础。 它们可让访问凭据和权限近乎实时地撤销。
-* 对于因为电源或连接性问题而偶尔进行连接的设备，可以保留命令和通知，直到设备进行连接并接收它们，从而实现双向通信。 IoT 中心会为发送的命令维护设备特定的队列。
+- 对于因为电源或连接性问题而偶尔进行连接的设备，可以保留命令和通知，直到设备进行连接并接收它们，从而实现双向通信。 IoT 中心会为发送的命令维护设备特定的队列。
 - 针对通过网关到特定服务的受保护传输，应用程序有效负载数据会受到单独保护。
 
 移动行业已使用服务辅助通信模式来实现推送通知服务，例如 [Windows 推送通知服务][lnk-wns]。

@@ -14,12 +14,12 @@ ms.workload: big-data
 origin.date: 12/28/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 111823bb69bb16e9b4fcfe2b4422582b265aaca1
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 63b559a15b5792ebc0711bd0b35c8b18a1c12157
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348650"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625422"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 
@@ -134,12 +134,12 @@ ms.locfileid: "58348650"
 
     将 `sshuser` 替换为创建群集时指定的 SSH 用户帐户。
 
-    > [!NOTE]
-    > 可通过多种方法获取 `ssh` 实用工具。 在 Linux、Unix 和 macOS 上，操作系统会附带此实用工具。 如果使用的是 Windows，请考虑以下选项之一：
-
-    > * [Windows 10 版 Bash on Ubuntu](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git (https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+   > [!NOTE]
+   > 可通过多种方法获取 `ssh` 实用工具。 在 Linux、Unix 和 macOS 上，操作系统会附带此实用工具。 如果使用的是 Windows，请考虑以下选项之一：
+   > 
+   > * [Windows 10 版 Bash on Ubuntu](https://msdn.microsoft.com/commandline/wsl/about)
+   > * [Git (https://git-scm.com/)](https://git-scm.com/)
+   > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. 若要安装 Bind，请通过 SSH 会话使用以下命令：
 

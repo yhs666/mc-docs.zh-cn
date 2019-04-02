@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 06/28/2017
 ms.date: 01/21/2019
 ms.author: v-biyu
-ms.openlocfilehash: e9d6b2f981045f3b4e723178e59f59390a178afa
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 0400b40d9b16eb9c202ec2dd25d863233d3ecc6c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083848"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627577"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>将活动 DNS 名称迁移到 Azure 应用服务
 
@@ -114,11 +114,12 @@ ms.locfileid: "54083848"
 
 对于 `contoso.com` 根域示例，重新映射 A 或 CNAME 记录，如下表中的示例所示： 
 
-| FQDN 示例 | 记录类型 | 主机 | 值 |
-| - | - | - | - |
-| contoso.com (root) | A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
-| www.contoso.com（子域） | CNAME | `www` | _&lt;appname>.chinacloudsites.cn_ |
-| \*.contoso.com（通配符域） | CNAME | _\*_ | _&lt;appname>.chinacloudsites.cn_ |
+
+|       FQDN 示例        | 记录类型 | 主机  |                       值                        |
+|---------------------------|-------------|-------|----------------------------------------------------|
+|    contoso.com (root)     |      A      |  `@`  | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
+|   www.contoso.com（子域）   |    CNAME    | `www` |         *&lt;appname>.chinacloudsites.cn*          |
+| \*.contoso.com（通配符域） |    CNAME    | *\**  |         *&lt;appname>.chinacloudsites.cn*          |
 
 保存设置。
 

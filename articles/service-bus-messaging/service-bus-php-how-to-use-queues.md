@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/10/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: f6b0fd0c7c19b336992ca90f86031757fb43c8b2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9a01cc39f27c0df40bb8bd7b799aa313dd0921b0
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653812"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544752"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -28,6 +28,8 @@ ms.locfileid: "52653812"
 本指南说明如何使用服务总线队列。 示例是用 PHP 编写的并使用了 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
 
@@ -167,7 +169,7 @@ catch(ServiceException $e){
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 
-从队列接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveQueueMessage` 方法。 可通过两种不同的模式接收消息：[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 和 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock)。 **PeekLock** 是默认设置。
+从队列接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveQueueMessage` 方法。 可在两种不同的模式下接收消息：[*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) 和 [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock)。 **PeekLock** 是默认设置。
 
 使用 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式时，接收是一项单步操作，即当服务总线接收到队列中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式是最简单的模式，最适合应用程序允许出现故障时不处理消息的方案。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 

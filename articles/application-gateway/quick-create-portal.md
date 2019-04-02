@@ -9,12 +9,12 @@ origin.date: 01/08/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 248abff2673cc25b72a61782117c37207de5fc09
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 8106a20b8d5c7eef6897df57911542b70c35c8b8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788707"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627038"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -38,10 +38,10 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 1. 在“基本信息”页上，输入这些值作为以下应用程序网关设置：
 
-    - **名称**：输入 *myAppGateway* 作为应用程序网关的名称。
-    - **资源组**：选择 **myResourceGroupAG** 作为资源组。 如果该资源组不存在，请选择“新建”，创建一个新的。
+   - **名称**：输入 *myAppGateway* 作为应用程序网关的名称。
+   - **资源组**：选择 **myResourceGroupAG** 作为资源组。 如果该资源组不存在，请选择“新建”，创建一个新的。
 
-    ![新建应用程序网关](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+     ![新建应用程序网关](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
 2. 接受其他设置的默认值，然后选择“确定”。
 
@@ -51,15 +51,15 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 2. 在“选择虚拟网络”页上，选择“新建”，然后为以下虚拟网络设置输入相应值：
 
-    - **名称**：输入 *myVNet* 作为虚拟网络的名称。
+   - **名称**：输入 *myVNet* 作为虚拟网络的名称。
 
-    - **地址空间**：输入 *10.0.0.0/16* 作为虚拟网络地址空间。
+   - **地址空间**：输入 *10.0.0.0/16* 作为虚拟网络地址空间。
 
-    - **子网名称**：输入 *myAGSubnet* 作为子网名称。<br>应用程序网关子网只能包含应用程序网关。 不允许其他资源。
+   - **子网名称**：输入 *myAGSubnet* 作为子网名称。<br>应用程序网关子网只能包含应用程序网关。 不允许其他资源。
 
-    - **子网地址范围**：输入 *10.0.0.0/24* 作为子网地址范围。
+   - **子网地址范围**：输入 *10.0.0.0/24* 作为子网地址范围。
 
-    ![创建虚拟网络](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
+     ![创建虚拟网络](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
 3. 选择“确定”，返回到“设置”页。
 
@@ -75,7 +75,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 ## <a name="add-backend-pool"></a>添加后端池
 
-后端池用于将请求路由到为请求提供服务的后端服务器。 后端池可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 需要将后端目标添加到后端池。
+后端池用于将请求路由到将为请求提供服务的后端服务器。 后端池可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 需要将后端目标添加到后端池。
 
 本示例使用虚拟机作为目标后端。 我们可以使用现有的虚拟机，或者创建新的虚拟机。 本示例将创建两个虚拟机，供 Azure 用作应用程序网关的后端服务器。 为此，我们将会：
 
@@ -106,9 +106,9 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
     - **虚拟机名称**：输入 *myVM* 作为虚拟机的名称。
     - **用户名**：输入 *azureuser* 作为管理员用户名。
     - **密码**：输入 *Azure123456!* 作为管理员密码。
-4. 接受其他默认值，然后选择“下一步:**磁盘”。  
-5. 接受“磁盘”选项卡的默认值，然后选择“下一步:**网络”。
-6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但我们需要确保已建立 IP 连接。 
+4. 接受其他默认值，然后选择“下一步:**磁盘”**。  
+5. 接受“磁盘”选项卡的默认值，然后选择“下一步:**网络”**。
+6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”**。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但我们需要确保已建立 IP 连接。 
 7. 在“管理”选项卡上，将“启动诊断”设置为“关闭”。 接受其他默认值，然后选择“复查 + 创建”。
 8. 在“复查 + 创建”选项卡上复查设置，更正任何验证错误，然后选择“创建”。
 9. 等待虚拟机创建完成，然后再继续操作。

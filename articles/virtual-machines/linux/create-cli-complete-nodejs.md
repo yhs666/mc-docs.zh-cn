@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/09/2017
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8fff9281c165a8ab5d3b7e1dde56e2994a8182dc
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: eabff2d0c2ac973a2ec3596fc203b2cb59bf623d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736195"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625826"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建完整的 Linux 环境
 在本文中，我们构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
@@ -1179,7 +1179,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

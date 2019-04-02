@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: c8458a8aa71dabfcaa148a5b60a60b7377bc797b
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 445534a4f19f1e1e883ef3c90eb030b7c271ee20
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363375"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625351"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>将大量的任务提交到 Batch 作业
 
@@ -42,7 +42,7 @@ Batch API 提供所需的方法用于高效地将任务作为集合添加到作�
 
   使用这些 API 时，需要提供逻辑来分割任务数目以符合集合限制，以及在添加任务失败时处理错误并重试。 如果任务集合太大，以致无法添加，则请求会生成错误，并在减少任务后重试。
 
-- 以下 API 支持的任务集合要大得多 - 仅受提交方客户端上的 RAM 可用性的限制。 这些 API 以透明方式将任务集合分割为较低级别 API 的“区块”，并在添加任务失败时重试。
+* 以下 API 支持的任务集合要大得多 - 仅受提交方客户端上的 RAM 可用性的限制。 这些 API 以透明方式将任务集合分割为较低级别 API 的“区块”，并在添加任务失败时重试。
 
     - [.NET API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
     - [Java API](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
@@ -56,7 +56,7 @@ Batch API 提供所需的方法用于高效地将任务作为集合添加到作�
 - **任务大小** - 添加大型任务所需的时间比添加小型任务更长。 若要减小集合中每个任务的大小，可以简化任务命令行、减少环境变量的数目，或者更有效地处理任务执行要求。 例如，不要使用大量的资源文件，而是使用池中的[启动任务](batch-api-basics.md#start-task)来安装任务依赖项，或使用[应用程序包](batch-application-packages.md)。
 
 - **并行操作数目** - 根据具体的 Batch API，通过增加 Batch 客户端的最大并发操作数目来提高吞吐量。 在 .NET API 中使用 [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 属性，或者在 Batch Python SDK 扩展中使用 [TaskOperations.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection) 等方法的 `threads` 参数来配置此项设置。 （此属性在本机 Batch Python SDK 中不可用。）此属性默认设置为 1，但将其设置为更大的值可提高操作吞吐量。 提高吞吐量的代价是会消耗网络带宽，并在一定程度上降低 CPU 的性能。 最高可按 `MaxDegreeOfParallelism` 或 `threads` 的 100 倍提高任务吞吐量。 在实践中，应将并发操作数目设置为 100 以下。 
- 
+
   包含 Batch 模板的 Azure Batch CLI 扩展会根据可用核心数自动增加并发操作数目，但无法在 CLI 中配置此属性。 
 
 - **HTTP 连接限制** - 当 Batch 客户端添加大量的任务时，并发 HTTP 连接数可能会限制该客户端的性能。 可以使用某些 API 限制 HTTP 连接数。 例如，使用 .NET API 进行开发时，[ServicePointManager.DefaultConnectionLimit](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) 属性默认设置为 2。 我们建议将该值增大到接近或大于并行操作数目。
@@ -152,7 +152,6 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 tasks=list()
 # Populate the list with your tasks
 ...
-
 ```
 
 使用 [task.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection) 添加任务集合。 设置 `threads` 参数以增加并发操作数目：

@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 06/15/2018
 ms.date: 12/31/2018
 ms.author: v-yiso
-ms.openlocfilehash: 25510af6efcbc9c86cfe7b2b57316042f7ef595c
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: f1c29da83cff2281686a5b5e25b7738e151511b7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736651"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626658"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自定义开发人员门户页面的样式
 
@@ -60,11 +60,11 @@ ms.locfileid: "53736651"
     
 5. 在“更改变量值以自定义开发人员门户外观:”字段中输入“headings-color”。
 
-    **@headings-color** 元素将显示在页面上。 此变量控制文本的颜色。
+    <strong>@headings-color</strong> 元素将显示在页面上。 此变量控制文本的颜色。
 
     ![自定义样式](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. 单击 **@headings-color** 变量对应的字段。 
+6. 单击 <strong>@headings-color</strong> 变量对应的字段。 
     
     此时会打开颜色选取器下拉列表。
     

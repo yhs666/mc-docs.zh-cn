@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 08/17/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 856d3cd9525ac50458dd34afc3932d45f5ca9a22
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 82b18d3624ff4f4ae7caf84449847a5a8e729a82
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988352"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626563"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入门：使用 .NET 和 Azure Cosmos DB 生成表 API 应用 
@@ -73,13 +73,13 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
-## <a name="open-the-sample-application-in-visual-studio"></a>在 Visual Studio 中打开示例应用程序
+   ## <a name="open-the-sample-application-in-visual-studio"></a>在 Visual Studio 中打开示例应用程序
 
-1. 在 Visual Studio 的“文件”菜单中选择“打开”，然后选择“项目/解决方案”。 
+4. 在 Visual Studio 的“文件”菜单中选择“打开”，然后选择“项目/解决方案”。 
 
    ![打开解决方案](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
-2. 导航到克隆示例应用程序的文件夹，然后打开 TableStorage.sln 文件。
+5. 导航到克隆示例应用程序的文件夹，然后打开 TableStorage.sln 文件。
 
    ![打开克隆的应用程序](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 

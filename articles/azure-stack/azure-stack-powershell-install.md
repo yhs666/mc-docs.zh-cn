@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 origin.date: 02/08/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0bf160cc674f924b8c4ac39defe64db00296653d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 3b941f2409d917be38b988048585a2f3c4b01db2
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987981"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503659"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
@@ -219,11 +219,11 @@ Get-Module -Name "Azs*" -ListAvailable
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-    > [!NOTE]  
-    >在没有 Internet 连接的计算机上，建议执行以下 cmdlet 以禁用遥测数据收集功能。 在不禁用遥测数据收集功能的情况下，可能会遇到 cmldet 性能降级的问题。 这仅适用于没有 Internet 连接的计算机。
-    ```PowerShell
-    Disable-AzureRmDataCollection
-    ```
+    > [!NOTE]
+    > 在没有 Internet 连接的计算机上，建议执行以下 cmdlet 以禁用遥测数据收集功能。 在不禁用遥测数据收集功能的情况下，可能会遇到 cmldet 性能降级的问题。 这仅适用于没有 Internet 连接的计算机。
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### <a name="enable-additional-storage-features"></a>启用其他存储功能
 

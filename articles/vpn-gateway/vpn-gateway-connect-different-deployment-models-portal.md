@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 origin.date: 10/17/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 7fd4b42fc2c2bea7dab2cc6ba091422763cb8521
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: f8537ac47bbbd2831bc06694e702bfbfd45c522f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833193"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625385"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 
@@ -115,7 +115,7 @@ SKU = VpnGw1 <br>
 1. 在“新建 VPN 连接”页上，选中“立即创建网关”复选框。
 2. 单击“可选网关配置”打开“网关配置”页。
 
-  ![打开网关配置页面](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "打开网关配置页面")
+   ![打开网关配置页面](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "打开网关配置页面")
 3. 单击“子网 - 配置所需设置”，打开“添加子网”页面。 “名称”已配置为所需值：**GatewaySubnet**。
 4. **地址范围** 指网关子网的范围。 虽然可以创建具有地址范围 /29（3 个地址）的网关子网，但建议创建包含更多 IP 地址的网关子网。 这可以适应将来可能需要更多可用 IP 地址的配置。 如果可能，请使用 /27 或 /28。 如果使用这些步骤进行练习，可以参考[示例](#values)值。 本示例使用“10.0.0.32/28”。 单击“确定”  创建网关子网。
 5. “网关配置”页面上的“大小”指的是网关 SKU。 选择 VPN 网关的网关 SKU。
@@ -193,16 +193,16 @@ SKU = VpnGw1 <br>
 2. 在虚拟网络页面上，单击“概述”。
 3. 在“VPN 连接”  部分中，单击图中的本地站点名称。
 
-  ![VPN 连接](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
+   ![VPN 连接](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
 4. 在“站点到站点 VPN 连接”页面上，单击站点名称。
 
-  ![站点名称](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "本地站点名称")
+   ![站点名称](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "本地站点名称")
 5. 在本地站点的连接页面上，单击本地站点的名称以打开“本地站点”页面。
 
-  ![打开本地站点](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "打开本地站点")
+   ![打开本地站点](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "打开本地站点")
 6. 在“本地站点”页面上，将 VPN 网关的 IP 地址替换为 Resource Manager 网关的 IP 地址。
 
-  ![网关 IP 地址](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "网关 IP 地址")
+   ![网关 IP 地址](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "网关 IP 地址")
 7. 单击“确定”  更新 IP 地址。
 
 ## <a name="RMtoclassic"></a>第 4 节 - 创建从资源管理器虚拟网络到经典虚拟网络的连接

@@ -5,17 +5,17 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.service: backup, virtual-machines-windows
+ms.service: virtual-machines-windows
 ms.topic: article
 origin.date: 12/17/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2966494cd3ae871e670b10327c4368d0a67c4f43
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 933d79c83325a94cdf0855b87fee8345790302b3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666102"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626248"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Windows 扩展
 

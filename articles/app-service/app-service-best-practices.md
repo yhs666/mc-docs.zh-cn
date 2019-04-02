@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/01/2016
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 146ba5eaef1939e9f0dbbbb8b1994742c0ccd5e3
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: 1d274f3a60bef6edd165cadf772f96e2c4068501
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396454"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505441"
 ---
 # <a name="best-practices-for-azure-app-service"></a>有关 Azure 应用服务的最佳实践
 本文汇总了有关使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 的最佳实践。 
@@ -32,15 +32,14 @@ ms.locfileid: "54396454"
 * 增大资源之间通信的延迟
 * [Azure 定价页](https://www.azure.cn/pricing/details/data-transfer/)中列出了跨区域出站数据传输的收费。
 
-相同区域中的共置最适合用于组成解决方案的 Azure 资源（例如 Web 应用），以及用于保存内容或数据的数据库或存储帐户。 创建资源时，应确保它们位于同一个 Azure 区域，除非有具体的业务或设计理由需要将它们放在不同的区域。 可以利用高级应用服务计划应用当前可用的[应用服务克隆功能](app-service-web-app-cloning.md)，将应用服务应用移至数据库所在的区域。   
+相同区域中的共置最适合用于组成解决方案的 Azure 资源（例如 Web 应用），以及用于保存内容或数据的数据库或存储帐户。 创建资源时，确保它们位于同一个 Azure 区域，除非有具体的业务或设计理由需要将它们放在不同的区域。 可使用高级应用服务计划应用当前可用的[应用服务克隆功能](app-service-web-app-cloning.md)，将应用服务应用移至数据库所在的区域。   
 
 ## <a name="memoryresources"></a>当应用消耗的内存超出预期时
-如果通过监视或者参考服务建议，发现应用消耗的内存超出指定的预期值，请考虑使用 [应用服务自动修复功能](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites)。 自动修复功能的选项之一是根据内存阈值采取自定义操作。 这些操作的范围包括发出电子邮件通知、通过内存转储提供调查依据，以及通过回收工作进程在现场消除问题。 可以根据这篇有关 [应用服务支持站点扩展](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps)的博文中所述，通过 web.config 或者友好的用户界面来配置自动修复。   
+如果通过监视或者参考服务建议，发现应用消耗的内存超出指定的预期值，请考虑使用[应用服务自动修复功能](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites)。 自动修复功能的选项之一是根据内存阈值采取自定义操作。 这些操作的范围包括发出电子邮件通知、通过内存转储提供调查依据，以及通过回收工作进程在现场消除问题。 可以根据这篇有关 [应用服务支持站点扩展](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps)的博文中所述，通过 web.config 或者友好的用户界面来配置自动修复。   
 
 ## <a name="CPUresources"></a>当应用消耗的 CPU 超出预期时
 如果通过监视或者参考服务建议，发现应用消耗的 CPU 超出预期，或者反复出现 CPU 高峰，请考虑向上缩放或向外缩放应用服务计划。 如果应用程序是有状态的，则纵向扩展是唯一选项；如果应用程序是无状态的，则横向扩展提供更高的灵活性和更大的缩放潜力。 
 
-有关“有状态”与“无状态”应用程序的详细信息，可以观看此视频：[在 Azure 应用服务上计划可缩放的端到端多层应用程序](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)。 有关应用服务缩放和自动缩放选项的详细信息，请参阅[在 Azure 应用服务中缩放 Web 应用](web-sites-scale.md)。  
 
 ## <a name="socketresources"></a>当套接字资源耗尽时
 耗尽出站 TCP 连接的一个常见原因是使用的客户端库，未实施为重复使用 TCP 连接，或者使用了较高级别的协议（如 HTTP），因而未使用 Keep-Alive。 请查看应用服务计划中的应用引用的每个库，以确保在代码中配置或访问这些库时，能够有效地重复使用出站连接。 此外，请遵循有关正确执行创建和发布或清理操作的库指导文档，以避免连接泄漏。 在展开此类客户端库调查的过程中，可以通过向外扩展到多个实例来消除影响。
@@ -52,7 +51,7 @@ ms.locfileid: "54396454"
 
 例如，使用 `http` 或 `https` 包时：
 
-```
+```javascript
 var request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });

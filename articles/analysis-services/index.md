@@ -9,12 +9,6 @@ ms.service: azure-analysis-services
 ms.topic: landing-page
 origin.date: 02/14/2018
 ms.date: 01/21/2019
-ms.openlocfilehash: d89db1844e1ce6ba04407579b2a3561f7e73b7a2
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193028"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 文档
 
@@ -57,5 +51,4 @@ ms.locfileid: "54193028"
             </div>
         </div>
         </a>
-    </li>    
-</ul>
+    </li><br/></ul>

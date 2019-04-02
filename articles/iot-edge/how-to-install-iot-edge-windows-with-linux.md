@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/27/2018
 ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4e2df9bcb1774cc6c3d53d8883434a18451cf45b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b1cfddd25ba272b133a38da281611987aaee8537
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674137"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626498"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>在 Windows 上安装 Azure IoT Edge 运行时，使其与 Linux 容器一起使用
 
@@ -25,8 +25,8 @@ ms.locfileid: "52674137"
 
 本文列出了在 Windows x64 (AMD/Intel) 系统上使用 Linux 容器安装 Azure IoT Edge 运行时的步骤。 Windows 支持目前为预览版。
 
->[!NOTE]
-不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。
+> [!NOTE]
+> 不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。
 
 ## <a name="supported-windows-versions"></a>支持的 Windows 版本
 使用 Linux 容器时，可在以下版本的 Windows 上使用 Azure IoT Edge 进行开发和测试：

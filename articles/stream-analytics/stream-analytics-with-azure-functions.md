@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.reviewer: jasonh
-ms.openlocfilehash: 5409851082b2adc9195d3e00690598fa46c5e0a0
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+ms.openlocfilehash: 96bc14f9d5f822c9db598bdc5e3e2d289418668e
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363707"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544728"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>从 Azure 流分析作业运行 Azure Functions 
 
@@ -40,10 +40,10 @@ ms.locfileid: "54363707"
 
 需要执行以下步骤来完成此任务：
 * [创建以事件中心为输入的流分析作业](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [创建用于 Redis 的 Azure 缓存实例](#create-an-azure-redis-cache-instance)  
-* [在 Azure Functions 中创建可将数据写入到用于 Redis 的 Azure 缓存的函数](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* 创建用于 Redis 的 Azure 缓存实例  
+* 在 Azure Functions 中创建可将数据写入到用于 Redis 的 Azure 缓存的函数    
 * [更新流分析作业，以函数作为输出](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [在用于 Redis 的 Azure 缓存中检查结果](#check-azure-redis-cache-for-results)  
+* 在用于 Redis 的 Azure 缓存中检查结果  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>创建以事件中心为输入的流分析作业
 

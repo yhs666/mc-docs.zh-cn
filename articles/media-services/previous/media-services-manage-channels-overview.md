@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 89735b258dc183dc5e411103e87cbe01c7bd4387
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 954a8fc03048313b1fb16a7adbc9e46d0f6ef37d
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833429"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624192"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒体服务实时传送视频流概述
 

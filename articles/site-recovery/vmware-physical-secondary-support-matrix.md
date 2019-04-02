@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 12/31/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba5d2f3438ff43598d10a410eaa2db7e441e2ff0
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: eff473a67c064358376f67f903ffcb02b42bddcf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463487"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626300"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 和物理服务器灾难恢复到辅助站点时的支持矩阵
 
@@ -110,10 +110,11 @@ RDM | 是
 
 移动服务可协调本地 VMware 服务器/物理服务器和辅助站点之间的复制。 如果设置了复制，应确保安装了最新版本的移动服务和其他组件。
 
-**更新** | **详细信息** 
---- | --- 
-Scout 更新 | [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累积更新。
-组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
+
+|    **更新**     |                                                                                                                                                  **详细信息**                                                                                                                                                   |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   Scout 更新   |                                                                                                  [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新                                                                                                   |
+| 组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。 |
 
 <!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)-->
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 02/04/2019
-ms.openlocfilehash: 8cef6b04adab4e5003cd2c52703ad5b232a894dc
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 1418492c617f923d3928f8bbc7dd26d17ebac9f4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906229"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625252"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -37,7 +37,7 @@ ms.locfileid: "54906229"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+> [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="Profile"></a> 配置文件  
  **配置文件**模板用于自定义开发人员门户中用户配置文件页的用户配置文件部分。  

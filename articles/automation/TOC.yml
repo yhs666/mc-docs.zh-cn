@@ -57,14 +57,12 @@ items:
       href: runbook-input-parameters.md
     - name: 图形 Runbook 中的错误处理
       href: automation-runbook-graphical-error-handling.md
-    - name: 跟踪 Runbook 作业
-      displayName: fair share, activity log
+    - name: Runbook 执行
+      displayName: fair share, activity log, job
       href: automation-runbook-execution.md
     - name: 管理 Azure 自动化数据
       displayName: backup
       href: automation-managing-data.md
-    - name: 管理 Python 2 程序包
-      href: python-packages.md
     - name: 了解 PowerShell 工作流
       href: automation-powershell-workflow.md
     - name: 子 Runbook
@@ -100,16 +98,18 @@ items:
       href: automation-dsc-diagnostics.md
   - name: 管理共享资源
     items:
-    - name: 证书
-      href: automation-certificates.md
-    - name: 连接
-      href: automation-connections.md
-    - name: 凭据
-      href: automation-credentials.md
-    - name: 集成模块
-      href: automation-integration-modules.md
     - name: 计划
       href: automation-schedules.md
+    - name: 模块
+      href: shared-resources/modules.md
+    - name: 管理 Python 2 程序包
+      href: python-packages.md
+    - name: 凭据
+      href: automation-credentials.md
+    - name: 连接
+      href: automation-connections.md
+    - name: 证书
+      href: automation-certificates.md
     - name: 变量
       href: automation-variables.md
   - name: 方案
@@ -147,9 +147,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/automation/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: 2a19a3cadb0650112fb3c2d6d8c0619f379177b1
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 26fe28897dc9974368611fda915a876fdeaeb2a8
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987980"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503583"

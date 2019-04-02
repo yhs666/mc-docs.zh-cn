@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/13/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 62cb4301cd7c62da0af609bd72a19b8beab65540
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 4d9a105b9dd37db8a38cf340f56896345c2f412b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674381"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625318"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>为 Azure 准备 Debian VHD
 ## <a name="prerequisites"></a>先决条件
@@ -35,7 +35,7 @@ ms.locfileid: "52674381"
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1MB。 从原始磁盘转换为 VHD 时，必须确保在转换前原始磁盘大小是 1MB 的倍数。 有关详细信息，请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)。
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>使用 Azure-Manage 来创建 Debian VHD
-有工具可用于生成适用于 Azure 的 Debian VHD，如来自 [credativ](http://www.credativ.com/) 的 [azure-manage](https://github.com/credativ/azure-manage) 脚本。 这是建议的方法，而不是从头开始创建映像。 例如，若要创建 Debian 8 VHD，请运行以下命令来下载 `azure-manage` 实用程序（以及依赖项），并运行 `azure_build_image` 脚本：
+有工具可用于生成适用于 Azure 的 Debian VHD，如来自 [credativ](https://www.credativ.com/) 的 [azure-manage](https://github.com/credativ/azure-manage) 脚本。 这是建议的方法，而不是从头开始创建映像。 例如，若要创建 Debian 8 VHD，请运行以下命令来下载 `azure-manage` 实用程序（以及依赖项），并运行 `azure_build_image` 脚本：
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap

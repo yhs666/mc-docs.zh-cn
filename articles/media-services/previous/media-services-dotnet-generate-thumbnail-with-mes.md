@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 1d11b507fe4120fce670ed6b72e0b66f156ad27c
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: e8d4c1a99f564f672d175ccb54cb2e2c27121635
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672660"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624200"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使用 Media Encoder Standard 通过 .NET 来生成缩略图
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使用 Media Encoder Standard 通过 .NET 来生成缩略图 
 
 可以使用 Media Encoder Standard 以 [JPEG](https://en.wikipedia.org/wiki/JPEG)、[PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 或 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 图像文件格式从输入视频生成一个或多个缩略图。 可以提交仅生成图像的任务，也可以合并缩略图生成与编码功能。 本文针对此类方案提供一些示例 XML 和 JSON 缩略图预设。 本文的末尾提供了一段[示例代码](#code_sample)，演示如何使用媒体服务 .NET SDK 来完成编码任务。
 
@@ -67,7 +67,7 @@ ms.locfileid: "52672660"
 
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <PngImage Start="{Best}">
           <PngLayers>
@@ -126,7 +126,7 @@ ms.locfileid: "52672660"
     
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <JpgImage Start="5%" Step="10%" Range="96%">
           <JpgLayers>
@@ -185,7 +185,7 @@ ms.locfileid: "52672660"
 ### <a name="xml-preset"></a>XML 预设
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
           <JpgLayers>
@@ -253,7 +253,7 @@ ms.locfileid: "52672660"
 ### <a name="xml-preset"></a>XML 预设
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
     <JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
       <JpgLayers>
@@ -352,7 +352,7 @@ ms.locfileid: "52672660"
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -552,13 +552,13 @@ namespace EncodeAndGenerateThumbnails
 * 为 Start/Step/Range 使用的显式时间戳假设输入源的长度至少为 1 分钟。
 * Jpg/Png/BmpImage 元素包含 Start、Step 和 Range 字符串属性 – 这些属性解释如下：
   
-  * 帧数（如果为非负整数），例如："Start": "120"；
-  * 相对于源持续时间（如果以 % 为后缀表示），例如："Start": "15%"，或者
-  * 时间戳（如果以 HH:MM:SS... 格式表示）。 例如，"Start" : "00:01:00"
+  * 帧数（如果为非负整数），例如，"Start":"120"；
+  * 相对于源持续时间（如果以 % 为后缀表示），例如："Start":"15%"，或者
+  * 时间戳（如果以 HH:MM:SS... 格式表示）。 例如，"Start" :"00:01:00"
     
     可以随意混搭使用表示法。
     
-    此外，Start 还支持特殊的宏 {Best}，它会尝试判断第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
+    此外，Start 还支持特殊的宏 {Best}，它会尝试判断第一个“有意义”的内容帧。请注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
   * 默认值：Start:{Best}
 * 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 提供时，MES 会将 JpgVideo 与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 

@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 02/15/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 788050915c58c73f38e3d3f24f52e8c3d33d15ad
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 7723739fa12ab82dec824718cc78afeec6073e37
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204080"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625124"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>为客户端身份验证设置 Azure Active Directory
 
@@ -138,8 +138,7 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 在设置 Azure Active Directory 应用程序并为用户设置角色后，[配置并部署群集](service-fabric-cluster-creation-via-arm.md)。
 
 <!-- Links -->
-[azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest
-?view=azure-cli-latest
+[azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

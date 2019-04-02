@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 08/22/2017
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7f3f0af35af6bc98fc06d3e77fc44daf372837e3
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: f723d2c27de12f105400d1f0e5ed973525f255ba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627778"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -44,7 +44,7 @@ ms.locfileid: "54309186"
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a>此 Java Web 应用程序教程的先决条件
 在开始本应用程序开发教程前，必须具有：
 
-*  如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

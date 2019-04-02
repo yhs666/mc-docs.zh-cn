@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3cca2c9d3fca608fc5b756711679db500910e746
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 1fd63c7b75ce70ff34657280b88beb8083f69b37
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806703"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408283"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Durable Functions 中的检查点和重播 (Azure Functions)
 
@@ -80,7 +80,7 @@ module.exports = df.orchestrator(function*(context) {
 完成后，前面所示的函数历史记录在 Azure 表存储中如下所示（为方便演示，此处采用了缩写）：
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | 输入 | Name             | 结果                                                    | 状态 |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
@@ -100,22 +100,22 @@ module.exports = df.orchestrator(function*(context) {
 
 有关列值的一些注释：
 
-- **PartitionKey**：包含业务流程的实例 ID。
-- **EventType**：表示事件的类型。 可为以下类型之一：
-  - **OrchestrationStarted**：业务流程协调程序函数已从等待状态恢复，或者正首次运行。 `Timestamp` 列用于填充 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的确定性值。
-  - **ExecutionStarted**：业务流程协调程序函数已开始首次执行。 此事件也包含 `Input` 列中输入的函数。
-  - **TaskScheduled**：已计划活动函数。 `Name` 列中已捕获该活动函数的名称。
-  - **TaskCompleted**：已完成活动函数。 `Result` 列中提供了该函数的结果。
-  - **TimerCreated**：已创建持久计时器。 `FireAt` 列包含计时器过期时的 UTC 计划时间。
-  - **TimerFired**：已触发持久计时器。
-  - **EventRaised**：已将外部事件发送到业务流程实例。 `Name` 列捕获事件的名称，`Input` 列捕获事件的有效负载。
-  - **OrchestratorCompleted**：处于等待状态的业务流程协调程序函数。
-  - **ContinueAsNew**：业务流程协调程序函数已完成，并已使用新状态重启自身。 `Result` 列包含用作已重启实例中的输入的值。
-  - **ExecutionCompleted**：业务流程协调程序函数已运行并已完成（或失败）。 该函数的输出或错误详细信息存储在 `Result` 列中。
-- **Timestamp**：历史记录事件的 UTC 时间戳。
-- **Name**：调用的函数的名称。
-- **输入**：函数的 JSON 格式的输入。
-- **Result**：函数的输出，即其返回值。
+* **PartitionKey**：包含业务流程的实例 ID。
+* **EventType**：表示事件的类型。 可为以下类型之一：
+  * **OrchestrationStarted**：业务流程协调程序函数已从等待状态恢复，或者正首次运行。 `Timestamp` 列用于填充 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的确定性值。
+  * **ExecutionStarted**：业务流程协调程序函数已开始首次执行。 此事件也包含 `Input` 列中输入的函数。
+  * **TaskScheduled**：已计划活动函数。 `Name` 列中已捕获该活动函数的名称。
+  * **TaskCompleted**：已完成活动函数。 `Result` 列中提供了该函数的结果。
+  * **TimerCreated**：已创建持久计时器。 `FireAt` 列包含计时器过期时的 UTC 计划时间。
+  * **TimerFired**：已触发持久计时器。
+  * **EventRaised**：已将外部事件发送到业务流程实例。 `Name` 列捕获事件的名称，`Input` 列捕获事件的有效负载。
+  * **OrchestratorCompleted**：处于等待状态的业务流程协调程序函数。
+  * **ContinueAsNew**：业务流程协调程序函数已完成，并已使用新状态重启自身。 `Result` 列包含用作已重启实例中的输入的值。
+  * **ExecutionCompleted**：业务流程协调程序函数已运行并已完成（或失败）。 该函数的输出或错误详细信息存储在 `Result` 列中。
+* **Timestamp**：历史记录事件的 UTC 时间戳。
+* **Name**：调用的函数的名称。
+* **输入**：函数的 JSON 格式的输入。
+* **Result**：函数的输出，即其返回值。
 
 > [!WARNING]
 > 尽管此表可以用作有效的调试工具，但不要对它有任何依赖。 它可能会随着 Durable Functions 扩展的演变而变化。
@@ -126,7 +126,7 @@ module.exports = df.orchestrator(function*(context) {
 
 重播行为针对可在业务流程协调程序中编写的代码类型创建约束。
 
-- 业务流程协调程序代码必须是**确定性的**。 该代码将被重播多次，每次必须生成相同的结果。 例如，不能通过直接调用来获取当前日期/时间、获取随机数、生成随机 GUID 或调入远程终结点。
+* 业务流程协调程序代码必须是**确定性的**。 该代码将被重播多次，每次必须生成相同的结果。 例如，不能通过直接调用来获取当前日期/时间、获取随机数、生成随机 GUID 或调入远程终结点。
 
   如果业务流程协调程序代码需要获取当前日期/时间，应使用可安全重播的 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) 或 `currentUtcDateTime` (JavaScript) API。
 
@@ -142,15 +142,15 @@ module.exports = df.orchestrator(function*(context) {
 
   不确定性的操作必须在活动函数中执行。 这包括与其他输入或输出绑定之间的任何交互。 这可以确保在完成首次执行之后立即生成所有不确定性值并将其保存到执行历史记录。 然后，后续执行会自动使用保存的值。
 
-- 业务流程协调程序代码应是**非阻塞性的**。 例如，这就意味着没有 I/O 并且未调用 `Thread.Sleep` (.NET) 或等效 API。
+* 业务流程协调程序代码应是**非阻塞性的**。 例如，这就意味着没有 I/O 并且未调用 `Thread.Sleep` (.NET) 或等效 API。
 
   如果业务流程协调程序需要延迟，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) 或 `createTimer` (JavaScript) API。
 
-- 除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 对象的 API，否则业务流程协调程序不得发起任何异步操作。 例如，.NET 中没有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync`，JavaScript 中没有 `setTimeout()` 和 `setInterval()`。 Durable Task Framework 在单个线程上执行业务流程协调程序代码，不能与可由其他异步 API 计划的其他任何线程交互。
+* 除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 对象的 API，否则业务流程协调程序不得发起任何异步操作。 例如，.NET 中没有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync`，JavaScript 中没有 `setTimeout()` 和 `setInterval()`。 Durable Task Framework 在单个线程上执行业务流程协调程序代码，不能与可由其他异步 API 计划的其他任何线程交互。
 
-- 在业务流程协调程序代码中，**应避免无限循环**。 由于 Durable Task Framework 在业务流程函数的执行过程中会保存执行历史记录，无限循环可能会导致业务流程协调程序实例耗尽内存。 对于无限循环方案，可使用 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) 或 `continueAsNew` (JavaScript) 等 API 来重启函数执行，并丢弃以前的执行历史记录。
+* 在业务流程协调程序代码中，**应避免无限循环**。 由于 Durable Task Framework 在业务流程函数的执行过程中会保存执行历史记录，无限循环可能会导致业务流程协调程序实例耗尽内存。 对于无限循环方案，可使用 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) 或 `continueAsNew` (JavaScript) 等 API 来重启函数执行，并丢弃以前的执行历史记录。
 
-- JavaScript 业务流程协调程序函数不能是 `async`。 函数必须声明为同步的生成器函数。
+* JavaScript 业务流程协调程序函数不能是 `async`。 函数必须声明为同步的生成器函数。
 
 尽管这些约束在乍看之下让人心虚，但其实并不难遵守。 Durable Task Framework 会尝试检测上述规则的冲突，并引发 `NonDeterministicOrchestrationException`。 但是，这种检测行为是尽力而为的，请不要对它有依赖。
 

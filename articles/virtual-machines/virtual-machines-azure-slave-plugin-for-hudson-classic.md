@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6e1649c4fd2398eff74901fe326c0164348e1709
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e85767f8d29ffd7bc651989e68662c123ef67bd8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656320"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625477"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>如何在 Hudson 连续集成中使用 Azure Slave 插件
 适用于 Hudson 的 Azure Slave 插件让你能够在运行分布式构建系统时，预配 Azure 上的从属节点。
@@ -78,8 +78,8 @@ ms.locfileid: "52656320"
 
     ![配置配置文件][configure profile]
 
-    >[!NOTE]
-    > 若要使用 Azure 中国，需要单击“高级...”，并将“https://management.core.windows.net”替换为“https://management.core.chinacloudapi.cn”。
+   > [!NOTE]
+   > 若要使用 Azure 中国，需要单击“高级...”，并将“<https://management.core.windows.net>”替换为“<https://management.core.chinacloudapi.cn>”。
 
 5. 从用户的订阅配置文件复制订阅 ID 和管理证书，并将其粘贴到相应的字段中。
 

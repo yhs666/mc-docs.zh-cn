@@ -17,12 +17,12 @@ origin.date: 11/28/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 30a9fade71b19112ed2a95ac1575022408c6ca45
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ac31aad1eb3ed84c532148c651d9ef13734cd787
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666390"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625730"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -179,6 +179,7 @@ VM 大小决定 VM 可用计算资源（如 CPU、GPU 和内存）的数量。 �
 ### <a name="vm-sizes"></a>VM 大小
 
 下表将大小分类成了多个用例。  
+
 | 类型                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)         |B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |

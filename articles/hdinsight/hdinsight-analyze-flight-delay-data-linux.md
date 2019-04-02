@@ -11,12 +11,12 @@ origin.date: 05/07/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 3e9703c9c8b39fd4cf98a34a907dab5dd91822dc
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 90a96c40719d3e97a6c5362791f74c371f27b12e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216267"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626223"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据
 
@@ -56,11 +56,13 @@ ms.locfileid: "54216267"
 
 2. 在该页面上，选择以下值：
 
-   | 名称 | 值 |
-   | --- | --- |
-   | 筛选年份 |2013 |
-   | 筛选期间 |1 月 |
-   | 字段 |Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。 |
+
+   |     名称      |                                                                                                                                    值                                                                                                                                     |
+   |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |  筛选年份  |                                                                                                                                     2013                                                                                                                                     |
+   | 筛选期间 |                                                                                                                                   1 月                                                                                                                                    |
+   |    字段     | Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。 |
+
    清除所有其他字段。 
 
 3. 选择“下载”。 你将得到一个具有所选数据字段的 zip 文件。

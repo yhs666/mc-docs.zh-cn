@@ -10,12 +10,12 @@ ms.topic: overview
 origin.date: 01/18/2019
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 6a8d6ab3b831cab626def0179f45ff75f65bf7df
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c837ad90bce29dcf7f39e5d1d38f9a1d2291c642
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666624"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627330"
 ---
 # <a name="what-is-azure-data-box"></a>什么是 Azure Data Box？
 
@@ -45,11 +45,11 @@ Data Box 旨在几乎不影响网络的情况下将大量数据移至 Azure。 �
 - **速度** - Data Box 使用 1 Gbps 或 10 Gbps 网络接口将多达 80 TB 的数据移至 Azure。
 
 - **安全** - Data Box 为设备、数据和服务提供内置安全保护。
-    - 该设备具有坚固的外壳，通过防破坏螺钉和防破坏贴纸固定。 
-    - 设备上的数据始终使用 AES 256 位加密进行保护。
-    - 只能使用 Azure 门户中提供的密钥解锁设备。
-    - 服务受 Azure 安全功能的保护。
-    - 将数据上传到 Azure 后，会根据 NIST 800-88r1 标准完全擦除设备上的磁盘数据。
+  - 该设备具有坚固的外壳，通过防破坏螺钉和防破坏贴纸固定。 
+  - 设备上的数据始终使用 AES 256 位加密进行保护。
+  - 只能使用 Azure 门户中提供的密钥解锁设备。
+  - 服务受 Azure 安全功能的保护。
+  - 将数据上传到 Azure 后，会根据 NIST 800-88r1 标准完全擦除设备上的磁盘数据。
     
     有关详细信息，请参阅 [Azure Data Box 安全性和数据保护](data-box-security.md)。
 

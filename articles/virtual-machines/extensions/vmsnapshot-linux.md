@@ -5,18 +5,18 @@ services: backup, virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.service: backup, virtual-machines-linux
+ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 origin.date: 12/17/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: e5344bac3b2533c04dc2726adb212e096d21de76
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 87b9e3ade644cd7526c3f6600c797f4a5e05a47e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666033"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626250"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Linux 扩展
 
@@ -34,6 +34,8 @@ VM 快照扩展要求在我们获取虚拟机的备份时，目标虚拟机已�
 ## <a name="extension-schema"></a>扩展架构
 
 以下 JSON 显示 VM 快照扩展的架构。 该扩展需要任务 ID（它标识了在 VM 上已触发快照的备份作业）、状态 Blob URI（其中写入快照操作状态）、快照的计划开始时间、日志 Blob URI（写入与快照任务对应的日志），以及表示 VM 磁盘和元数据的 objstr。  由于应将这些设置视为敏感数据，因此它应存储在受保护的设置配置中。 Azure VM 扩展保护的设置数据已加密，并且只能在目标虚拟机上解密。 请注意，建议仅将这些设置作为备份作业的一部分从 Azure 备份服务传递。
+
+<!--MOONCAKE: The extension type is VMSnapshotLinux-->
 
 ```json
 {
@@ -60,7 +62,6 @@ VM 快照扩展要求在我们获取虚拟机的备份时，目标虚拟机已�
   }
 }
 ```
-<!-- Notice: The extension type is VMSnapshotLinux-->
 
 ### <a name="property-values"></a>属性值
 

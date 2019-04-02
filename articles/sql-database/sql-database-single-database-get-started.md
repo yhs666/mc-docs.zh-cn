@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/25/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 020463a2098fa644099b8957941fe36d78a92d58
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: d1e12ea6a63006e9e0ebf596289c15be4078e46a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318880"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625781"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据库中创建单一数据库
 
@@ -43,8 +43,8 @@ ms.locfileid: "58318880"
    - **资源组**：选择“新建”，键入 myResourceGroup，然后选择“确定”。
    - **选择源**：下拉列表并选择“示例(AdventureWorksLT)”。
 
-    > [!IMPORTANT]
-    > 确保选择“示例(AdventureWorksLT)”数据，这样就可以轻松地按照本指南以及使用此数据的其他 Azure SQL 数据库快速入门进行操作。
+     > [!IMPORTANT]
+     > 确保选择“示例(AdventureWorksLT)”数据，这样就可以轻松地按照本指南以及使用此数据的其他 Azure SQL 数据库快速入门进行操作。
   
    ![创建单一数据库](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -75,9 +75,9 @@ ms.locfileid: "58318880"
 
 10. 在“SQL 数据库”窗体中，选择“创建”来部署和预配资源组、服务器和数据库。
 
-   部署需要几分钟时间。 可在工具栏上选择“通知”，以监视部署过程。
+    部署需要几分钟时间。 可在工具栏上选择“通知”，以监视部署过程。
 
-   ![通知](./media/sql-database-get-started-portal/notification.png)
+    ![通知](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>查询数据库
 

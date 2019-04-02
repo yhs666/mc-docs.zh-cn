@@ -11,18 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: get-started-article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 9a37204c8d51e88ed27109f27747da6825267c0d
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 7046ef893493196042eb2043be71532c94e4b376
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833306"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624141"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门（旧版）
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 

@@ -18,12 +18,12 @@ ms.date: 02/14/2019
 ms.author: v-junlch
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 07f20d3b6e03e089ae693eeeaa3e88cc8be96ac9
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.openlocfilehash: e59aecf5b682ea33ba14e3032e759db26dde7c69
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262190"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626867"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>快速入门：设置开发环境
 
@@ -44,8 +44,8 @@ ms.locfileid: "56262190"
 
 > [!TIP]
 > 如果需要查找租户 ID，可执行以下操作：
-- 将鼠标指针悬停在帐户名上以获取目录/租户 ID，或
-- 在 Azure 门户中选择“Azure Active Directory”>“属性”>“目录 ID”
+> - 将鼠标指针悬停在帐户名上以获取目录/租户 ID，或
+> - 在 Azure 门户中选择“Azure Active Directory”>“属性”>“目录 ID”
 
 如果没有任何与帐户关联的现有租户，则帐户名下面会显示一个 GUID；另外，除非按照下一节的步骤操作，否则无法执行注册应用等操作。
 

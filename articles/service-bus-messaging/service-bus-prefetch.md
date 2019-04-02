@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: b52957841785d8a563fa6e15499edf5699b6d113
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: d84f079d426ce04d852f7df7bac99ca1609a8886
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363274"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544714"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>预提取 Azure 服务总线消息
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 72ad60de073d1cdbef7355eee2c1d5e1fbc77bd8
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 029d07b8f7a730a67edcbb0cf47456a40edb0276
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463655"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626564"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>运行用于从 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 
@@ -36,6 +36,7 @@ ms.locfileid: "57463655"
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | 参数名称 | 说明 |
 |---|---|
 | -Operation | GetVMList |
@@ -85,20 +86,21 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| 参数名称 | 说明 |
-|---|---|
-| -Operation | StartProfiling |
-| -User | 连接到 Hyper-V 主机或 Hyper-V 群集所需的用户名。 用户需要有管理访问权限。|
-| -VMListFile | 包含要分析的 VM 列表的文件。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-NoOfMinutesToProfile|运行分析的分钟数。 最小值为 30 分钟。|
-|-NoOfHoursToProfile|运行分析的小时数。|
-|-NoOfDaysToProfile |运行分析的天数。 建议在运行分析时，运行 7 天以上。 该持续时间可确保观察环境中指定时段内的工作负荷模式，并使用这些结果来提供准确的建议。|
-|-Virtualization|虚拟化类型（VMware 或 Hyper-V）。|
-|-Directory|（可选）用于存储在分析期间生成的分析数据的 UNC 或本地目录路径。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。|
-|-Password|（可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。|
-|-StorageAccountName|（可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
-|-StorageAccountKey|（可选）用于访问存储帐户的密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**（或经典存储帐户的主访问密钥）。|
-|-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 中国时，请使用此参数。|
+
+|    参数名称     |                                                                                                                                                                                                                                                              说明                                                                                                                                                                                                                                                              |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      -Operation       |                                                                                                                                                                                                                                                            StartProfiling                                                                                                                                                                                                                                                             |
+|         -User         |                                                                                                                                                                                                             连接到 Hyper-V 主机或 Hyper-V 群集所需的用户名。 用户需要有管理访问权限。                                                                                                                                                                                                             |
+|      -VMListFile      | 包含要分析的 VM 列表的文件。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul> |
+| -NoOfMinutesToProfile |                                                                                                                                                                                                                            运行分析的分钟数。 最小值为 30 分钟。                                                                                                                                                                                                                             |
+|  -NoOfHoursToProfile  |                                                                                                                                                                                                                                           运行分析的小时数。                                                                                                                                                                                                                                           |
+|  -NoOfDaysToProfile   |                                                                                                                             运行分析的天数。 建议在运行分析时，运行 7 天以上。 该持续时间可确保观察环境中指定时段内的工作负荷模式，并使用这些结果来提供准确的建议。                                                                                                                              |
+|    -Virtualization    |                                                                                                                                                                                                                                             虚拟化类型（VMware 或 Hyper-V）。                                                                                                                                                                                                                                              |
+|      -Directory       |                                                                                                                                                       （可选）用于存储在分析期间生成的分析数据的 UNC 或本地目录路径。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。                                                                                                                                                       |
+|       -Password       |                                                                                                                                                                                         （可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。                                                                                                                                                                                         |
+|  -StorageAccountName  |                                                                                                                             （可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。                                                                                                                              |
+|  -StorageAccountKey   |                                                                                                                                              （可选）用于访问存储帐户的密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**（或经典存储帐户的主访问密钥）。                                                                                                                                              |
+|     -Environment      |                                                                                                                                               （可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 中国时，请使用此参数。                                                                                                                                                |
 
 <!--MOONCAKE: Environment on Azure China Cloud-->
 
@@ -169,24 +171,25 @@ Azure Site Recovery 不支持使用 iSCSI 和传递磁盘的 VM。 该工具无�
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| 参数名称 | 说明 |
-|---|---|
-| -Operation | GenerateReport |
-|-VMListFile | 一个文件，其中包含一系列需为其生成报表的已分析 VM。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Virtualization|虚拟化类型（VMware 或 Hyper-V）。|
-|-Directory|（可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。|
-| -User | （可选）连接到 Hyper-V 主机或 Hyper-V 群集所需的用户名。 用户需要有管理访问权限。 用户和密码用于获取要在报表中使用的最新 VM 配置信息（例如磁盘数、核心数、NIC 数）。 如果未提供此值，则使用分析过程中收集的配置信息。|
-|-Password|（可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。|
-| -DesiredRPO | （可选）以分钟为单位的所需恢复点目标 (RPO)。 默认值为 15 分钟。|
-| -Bandwidth | （可选）带宽，以兆位/秒为单位。 使用此参数可以计算指定的带宽可实现的 RPO。 |
-| -StartDate | （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的开始日期和时间。 StartDate 必须与 EndDate 一起指定。 如果指定 StartDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
-| -EndDate | （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的结束日期和时间。 EndDate 必须与 StartDate 一起指定。 如果指定 EndDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
-| -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
-| -UseManagedDisks | （可选）UseManagedDisks：Yes/No。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时，需考虑到对虚拟机进行的故障转移/测试性故障转移是否是在托管磁盘而不是非托管磁盘上完成的。 |
-|-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的套餐、目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
-|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。 默认值为 ChinaNorth 或上次使用的目标区域。 |
-|-OfferId|（可选）与订阅关联的产品/服务。 默认值为 MS-MC-ARZ-33P（标准预付款产品/服务）。|
-|-Currency|（可选）在生成的报表中显示的成本所采用的货币。 |
+
+|  参数名称  |                                                                                                                                                                                                                                                                                  说明                                                                                                                                                                                                                                                                                   |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    -Operation    |                                                                                                                                                                                                                                                                                 GenerateReport                                                                                                                                                                                                                                                                                 |
+|   -VMListFile    | 一个文件，其中包含一系列需为其生成报表的已分析 VM。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul> |
+| -Virtualization  |                                                                                                                                                                                                                                                                  虚拟化类型（VMware 或 Hyper-V）。                                                                                                                                                                                                                                                                  |
+|    -Directory    |                                                                                                                                          （可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。                                                                                                                                          |
+|      -User       |                                                                                      （可选）连接到 Hyper-V 主机或 Hyper-V 群集所需的用户名。 用户需要有管理访问权限。 用户和密码用于获取要在报表中使用的最新 VM 配置信息（例如磁盘数、核心数、NIC 数）。 如果未提供此值，则使用分析过程中收集的配置信息。                                                                                       |
+|    -Password     |                                                                                                                                                                                                             （可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。                                                                                                                                                                                                              |
+|   -DesiredRPO    |                                                                                                                                                                                                                                         （可选）以分钟为单位的所需恢复点目标 (RPO)。 默认值为 15 分钟。                                                                                                                                                                                                                                          |
+|    -Bandwidth    |                                                                                                                                                                                                                   （可选）带宽，以兆位/秒为单位。 使用此参数可以计算指定的带宽可实现的 RPO。                                                                                                                                                                                                                   |
+|    -StartDate    |                                                                                                                                                              （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的开始日期和时间。 StartDate 必须与 EndDate 一起指定。 如果指定 StartDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。                                                                                                                                                               |
+|     -EndDate     |                                                                                                                                                                （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的结束日期和时间。 EndDate 必须与 StartDate 一起指定。 如果指定 EndDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。                                                                                                                                                                 |
+|  -GrowthFactor   |                                                                                                                                                                                                                                              （可选）增长系数，以百分比表示。 默认值为 30%。                                                                                                                                                                                                                                               |
+| -UseManagedDisks |                                                                                                                                                    （可选）UseManagedDisks：Yes/No。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时，需考虑到对虚拟机进行的故障转移/测试性故障转移是否是在托管磁盘而不是非托管磁盘上完成的。                                                                                                                                                     |
+| -SubscriptionId  |                                                                                                                                                           （可选）订阅 GUID。 可以根据订阅、与订阅相关联的套餐、目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。                                                                                                                                                           |
+|  -TargetRegion   |                                                                                                                                                                （可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。 默认值为 ChinaNorth 或上次使用的目标区域。                                                                                                                                                                |
+|     -OfferId     |                                                                                                                                                                                                                              （可选）与订阅关联的产品/服务。 默认值为 MS-MC-ARZ-33P（标准预付款产品/服务）。                                                                                                                                                                                                                              |
+|    -Currency     |                                                                                                                                                                                                                                                    （可选）在生成的报表中显示的成本所采用的货币。                                                                                                                                                                                                                                                     |
 
 <!-- Not Avaiable on Refer to the list of [supported target regions](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->
 <!-- Not Avaiable on Refer to the list of [supported currencies](hyper-v-deployment-planner-cost-estimation.md#supported-currencies) -->
@@ -276,15 +279,16 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- 参数名称 | 说明 |
-|---|---|
-| -Operation | GetThroughput |
-|-Virtualization|虚拟化类型（VMware 或 Hyper-V）。|
-|-Directory|（可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。|
-| -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
-| -StorageAccountKey | 用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**。|
-| -VMListFile | 一个文件，其中包含一系列可以通过分析来计算所消耗带宽的 VM。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|（可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 中国时，请使用此参数。|
+
+|   参数名称    |                                                                                                                                                                                                                                                                                      说明                                                                                                                                                                                                                                                                                      |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     -Operation      |                                                                                                                                                                                                                                                                                     GetThroughput                                                                                                                                                                                                                                                                                     |
+|   -Virtualization   |                                                                                                                                                                                                                                                                     虚拟化类型（VMware 或 Hyper-V）。                                                                                                                                                                                                                                                                      |
+|     -Directory      |                                                                                                                                             （可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。                                                                                                                                              |
+| -StorageAccountName |                                                                                                                                                         存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 存储帐户必须是常规用途 v1 (GPv1) 类型。                                                                                                                                                         |
+| -StorageAccountKey  |                                                                                                                                                                                                用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**。                                                                                                                                                                                                 |
+|     -VMListFile     | 一个文件，其中包含一系列可以通过分析来计算所消耗带宽的 VM。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul> |
+|    -Environment     |                                                                                                                                                                    （可选）Azure 存储帐户的目标环境。 它可以是以下三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 中国时，请使用此参数。                                                                                                                                                                     |
 
 <!-- Not Available on either Azure US Government or-->
 

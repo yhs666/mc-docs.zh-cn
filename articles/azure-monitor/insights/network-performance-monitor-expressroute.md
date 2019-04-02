@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0b209bc9de1a103730c4cf190e94f6846882c21f
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: b991f763bddc58e170ed4e55804ab50f77e28249
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440551"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626754"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 监视器
 
@@ -55,7 +55,7 @@ ms.locfileid: "56440551"
 
     ![ExpressRoute 监视器配置](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- 完成发现操作以后，发现的专用对等互连就会列在表中。 针对这些对等互连的监视功能一开始处于禁用状态。 
+   完成发现操作以后，发现的专用对等互连就会列在表中。 针对这些对等互连的监视功能一开始处于禁用状态。 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>启用 ExpressRoute 对等连接监视 
 

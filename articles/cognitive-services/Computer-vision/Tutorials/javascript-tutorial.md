@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 origin.date: 09/19/2017
-ms.date: 02/20/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 8e75d98e9880259d33da3074defc8bfeb9925e2f
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 5beb8e91e632335462fa25b8d2e492919886c02f
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582774"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505483"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教程：计算机视觉 API JavaScript
 
@@ -89,11 +89,11 @@ AnalyzeImage 函数包装进行图像分析的 REST API 调用。 成功返回�
 
 ```javascript
 /* Analyze the image at the specified URL by using Microsoft Cognitive Services Analyze Image API.
- - @param {string} sourceImageUrl - The URL to the image to analyze.
- - @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
- -                             from the REST API call, or to display the error message if there was 
- -                             an error.
- - @param {<span> element} captionSpan - The span to display the image caption.
+ * @param {string} sourceImageUrl - The URL to the image to analyze.
+ * @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
+ *                             from the REST API call, or to display the error message if there was 
+ *                             an error.
+ * @param {<span> element} captionSpan - The span to display the image caption.
  */
 function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
     // Request parameters.
@@ -197,12 +197,12 @@ IdentifyLandmarks 函数包装进行图像分析的 REST API 调用。 成功返
 
 ```javascript
 /* Identify landmarks in the image at the specified URL by using Microsoft Cognitive Services 
- - Landmarks API.
- - @param {string} sourceImageUrl - The URL to the image to analyze for landmarks.
- - @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
- -                             from the REST API call, or to display the error message if there was 
- -                             an error.
- - @param {<span> element} captionSpan - The span to display the image caption.
+ * Landmarks API.
+ * @param {string} sourceImageUrl - The URL to the image to analyze for landmarks.
+ * @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
+ *                             from the REST API call, or to display the error message if there was 
+ *                             an error.
+ * @param {<span> element} captionSpan - The span to display the image caption.
  */
 function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
     // Request parameters.
@@ -300,12 +300,12 @@ function celebritiesButtonClick() {
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
- - Celebrities API.
- - @param {string} sourceImageUrl - The URL to the image to analyze for celebrities.
- - @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
- -                             from the REST API call, or to display the error message if there was 
- -                             an error.
- - @param {<span> element} captionSpan - The span to display the image caption.
+ * Celebrities API.
+ * @param {string} sourceImageUrl - The URL to the image to analyze for celebrities.
+ * @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
+ *                             from the REST API call, or to display the error message if there was 
+ *                             an error.
+ * @param {<span> element} captionSpan - The span to display the image caption.
  */
 function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
     // Request parameters.
@@ -528,11 +528,11 @@ ReadOcrImage 函数包装进行图像分析的 REST API 调用。 成功返回�
 
 ```javascript
 /* Recognize and read printed text in an image at the specified URL by using Microsoft Cognitive 
- - Services OCR API.
- - @param {string} sourceImageUrl - The URL to the image to analyze for printed text.
- - @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
- -                             from the REST API call, or to display the error message if there was 
- -                             an error.
+ * Services OCR API.
+ * @param {string} sourceImageUrl - The URL to the image to analyze for printed text.
+ * @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
+ *                             from the REST API call, or to display the error message if there was 
+ *                             an error.
  */
 function ReadOcrImage(sourceImageUrl, responseTextArea) {
     // Request parameters.
@@ -624,11 +624,11 @@ ReadHandwrittenImage 函数包装两个进行图像分析所需的 REST API 调�
 
 ```javascript
 /* Recognize and read text from an image of handwriting at the specified URL by using Microsoft 
- - Cognitive Services Recognize Handwritten Text API.
- - @param {string} sourceImageUrl - The URL to the image to analyze for handwriting.
- - @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
- -                             from the REST API call, or to display the error message if there was 
- -                             an error.
+ * Cognitive Services Recognize Handwritten Text API.
+ * @param {string} sourceImageUrl - The URL to the image to analyze for handwriting.
+ * @param {<textarea> element} responseTextArea - The text area to display the JSON string returned
+ *                             from the REST API call, or to display the error message if there was 
+ *                             an error.
  */
 function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
     // Request parameters.
@@ -746,6 +746,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 ## <a name="next-steps"></a>后续步骤
 
+- [计算机视觉 API C&#35; 教程](CSharpTutorial.md)
 - [计算机视觉 API Python 教程](PythonTutorial.md)
 
 <!-- Update_Description: wording update -->

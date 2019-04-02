@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 43f2bcaed5becb0fd43ae7e6259fcbc3c862c50e
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 3e6e8049bada788df2688740afe52002f8c8812d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988075"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626875"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中创建套餐
 
@@ -55,12 +55,12 @@ ms.locfileid: "57988075"
 
 创建套餐后，可以更改其状态。 必须将套餐设为“公共”，用户才能在订阅时获得完整视图。 产品/服务可以是：
 
-   - **公共**：对用户可见。
-   - **专用**：仅对云管理员可见。 起草计划或套餐时，或者当云管理员想要[为用户创建每个订阅](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)时，此设置非常有用。
-   - **已解除授权**：已对新订阅方关闭。 云管理员可以解除套餐的授权来防止将来订阅，但不影响当前订阅方。
+- **公共**：对用户可见。
+- **专用**：仅对云管理员可见。 起草计划或套餐时，或者当云管理员想要[为用户创建每个订阅](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)时，此设置非常有用。
+- **已解除授权**：已对新订阅方关闭。 云管理员可以解除套餐的授权来防止将来订阅，但不影响当前订阅方。
 
-   > [!TIP]  
-   > 产品/服务的更改不会对用户立即可见。 若要查看所做的更改，用户可能需要先注销，然后重新登录到用户门户，这样才能看到新的套餐。
+  > [!TIP]  
+  > 产品/服务的更改不会对用户立即可见。 若要查看所做的更改，用户可能需要先注销，然后重新登录到用户门户，这样才能看到新的套餐。
 
 可通过两种方式更改套餐的状态：
 

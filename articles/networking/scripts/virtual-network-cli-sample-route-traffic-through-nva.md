@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1056193e4aaa6f2ba46f823b1b3ad93bd53f90e1
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 48088a6aa5a9cf00f4fdb27fec5aac62da2c244f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785301"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625775"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>通过网络虚拟设备路由流量
 
@@ -34,17 +34,18 @@ ms.locfileid: "53785301"
 
 ## <a name="sample-script"></a>示例脚本
 
+```bash
+# !/bin/bash
 
-#<a name="binbash"></a>!/bin/bash
+RgName="MyResourceGroup"
+Location="chinaeast"
 
-RgName="MyResourceGroup" Location="chinaeast"
-
-# <a name="create-a-resource-group"></a>创建资源组。
+# Create a resource group.
 az group create \
   --name $RgName \
   --location $Location
 
-# <a name="create-a-virtual-network-with-a-front-end-subnet"></a>创建包含前端子网的虚拟网络。
+# Create a virtual network with a front-end subnet.
 az network vnet create \
   --name MyVnet \
   --resource-group $RgName \
@@ -53,13 +54,13 @@ az network vnet create \
   --subnet-name MySubnet-FrontEnd \
   --subnet-prefix 10.0.1.0/24
 
-# <a name="create-a-network-security-group-for-the-front-end-subnet-allowing-http-and-https-inbound"></a>为前端子网创建允许 HTTP 和 HTTPS 入站流量的网络安全组。
+# Create a network security group for the front-end subnet allowing HTTP and HTTPS inbound.
 az network nsg create \
   --resource-group $RgName \
   --name MyNsg-FrontEnd \
   --location $Location
 
-# <a name="create-nsg-rules-to-allow-http--https-traffic-inbound"></a>创建允许 HTTP 和 HTTPS 入站流量的 NSG 规则。
+# Create NSG rules to allow HTTP & HTTPS traffic inbound.
 az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-FrontEnd \
@@ -69,8 +70,10 @@ az network nsg rule create \
   --direction Inbound \
   --priority 100 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
-  --destination-port-range 80 az network nsg rule create \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
+  --destination-port-range 80
+az network nsg rule create \
   --resource-group $RgName \
   --nsg-name MyNsg-FrontEnd \
   --name Allow-HTTPS-All \
@@ -79,36 +82,37 @@ az network nsg rule create \
   --direction Inbound \
   --priority 200 \
   --source-address-prefix Internet \
-  --source-port-range "*" \ --destination-address-prefix "*" \
+  --source-port-range "<em>" \
+  --destination-address-prefix "</em>" \
   --destination-port-range 443
 
-# <a name="associate-the-front-end-nsg-to-the-front-end-subnet"></a>将前端 NSG 关联到前端子网。
+# Associate the front-end NSG to the front-end subnet.
 az network vnet subnet update \
   --vnet-name MyVnet \
   --name MySubnet-FrontEnd \
   --resource-group $RgName \
   --network-security-group MyNsg-FrontEnd
 
-# <a name="create-the-back-end-subnet"></a>创建后端子网。
+# Create the back-end subnet.
 az network vnet subnet create \
   --address-prefix 10.0.2.0/24 \
   --name MySubnet-BackEnd \
   --resource-group $RgName \
   --vnet-name MyVnet
 
-#<a name="create-the-dmz-subnet"></a>创建外围网络子网。
+# Create the DMZ subnet.
 az network vnet subnet create \
   --address-prefix 10.0.0.0/24 \
   --name MySubnet-Dmz \
   --resource-group $RgName \
   --vnet-name MyVnet
 
-# <a name="create-a-public-ip-address-for-the-firewall-vm"></a>为防火墙 VM 创建一个公共 IP 地址。
+# Create a public IP address for the firewall VM.
 az network public-ip create \
   --resource-group $RgName \
   --name MyPublicIP-Firewall
 
-# <a name="create-a-nic-for-the-firewall-vm-and-enable-ip-forwarding"></a>为防火墙 VM 创建一个 NIC 并启用 IP 转发。
+# Create a NIC for the firewall VM and enable IP forwarding.
 az network nic create \
   --resource-group $RgName \
   --name MyNic-Firewall \
@@ -117,7 +121,7 @@ az network nic create \
   --public-ip-address MyPublicIp-Firewall \
   --ip-forwarding
 
-#<a name="create-a-firewall-vm-to-accept-all-traffic-between-the-front-and-back-end-subnets"></a>创建一个防火墙 VM，接受前端和后端子网之间的所有流量。
+# Create a firewall VM to accept all traffic between the front and back-end subnets.
 az vm create \
   --resource-group $RgName \
   --name MyVm-Firewall \
@@ -126,18 +130,18 @@ az vm create \
   --admin-username azureadmin \
   --generate-ssh-keys
 
-# <a name="get-the-private-ip-address-from-the-vm-for-the-user-defined-route"></a>从 VM 获取用户定义的路由的专用 IP 地址。
+# Get the private IP address from the VM for the user-defined route.
 Fw1Ip=$(az vm list-ip-addresses \
   --resource-group $RgName \
   --name MyVm-Firewall \
   --query [].virtualMachine.network.privateIpAddresses[0] --out tsv)
 
-# <a name="create-route-table-for-the-frontend-subnet"></a>创建 FrontEnd 子网的路由表。
+# Create route table for the FrontEnd subnet.
 az network route-table create \
   --name MyRouteTable-FrontEnd \
   --resource-group $RgName
 
-# <a name="create-a-route-for-traffic-from-the-front-end-to-the-back-end-subnet-through-the-firewall-vm"></a>创建一个路由，该路由适用于通过防火墙 VM 从前端子网发往后端子网的流量。
+# Create a route for traffic from the front-end to the back-end subnet through the firewall VM.
 az network route-table route create \
   --name RouteToBackEnd \
   --resource-group $RgName \
@@ -146,7 +150,7 @@ az network route-table route create \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address $Fw1Ip
   
-# <a name="create-a-route-for-traffic-from-the-front-end-subnet-to-the-internet-through-the-firewall-vm"></a>创建一个路由，该路由适用于通过防火墙 VM 从前端子网发往 Internet 的流量。
+# Create a route for traffic from the front-end subnet to the Internet through the firewall VM.
 az network route-table route create \
   --name RouteToInternet \
   --resource-group $RgName \
@@ -155,19 +159,19 @@ az network route-table route create \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address $Fw1Ip
 
-# <a name="associate-the-route-table-to-the-frontend-subnet"></a>将路由表关联到 FrontEnd 子网。
+# Associate the route table to the FrontEnd subnet.
 az network vnet subnet update \
   --name MySubnet-FrontEnd \
   --vnet-name MyVnet \
   --resource-group $RgName \
   --route-table MyRouteTable-FrontEnd
 
-# <a name="create-route-table-for-the-backend-subnet"></a>创建 BackEnd 子网的路由表。
+# Create route table for the BackEnd subnet.
 az network route-table create \
   --name MyRouteTable-BackEnd \
   --resource-group $RgName
   
-# <a name="create-a-route-for-traffic-from-the-back-end-subnet-to-the-front-end-subnet-through-the-firewall-vm"></a>创建一个路由，该路由适用于通过防火墙 VM 从后端子网发往前端子网的流量。
+# Create a route for traffic from the back-end subnet to the front-end subnet through the firewall VM.
 az network route-table route create \
   --name RouteToFrontEnd \
   --resource-group $RgName \
@@ -176,7 +180,7 @@ az network route-table route create \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address $Fw1Ip
 
-# <a name="create-a-route-for-traffic-from-the-back-end-subnet-to-the-internet-through-the-firewall-vm"></a>创建一个路由，该路由适用于通过防火墙 VM 从后端子网发往 Internet 的流量。
+# Create a route for traffic from the back-end subnet to the Internet through the firewall VM.
 az network route-table route create \
   --name RouteToInternet \
   --resource-group $RgName \
@@ -185,12 +189,13 @@ az network route-table route create \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address $Fw1Ip
 
-# <a name="associate-the-route-table-to-the-backend-subnet"></a>将路由表关联到 BackEnd 子网。
+# Associate the route table to the BackEnd subnet.
 az network vnet subnet update \
   --name MySubnet-BackEnd \
   --vnet-name MyVnet \
   --resource-group $RgName \
   --route-table MyRouteTable-BackEnd
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

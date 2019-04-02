@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 04/10/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7ddf7612d4801f1de57ceeb860945f152624bd5f
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: acc792b13a7a2799324798e05ede35e38e78857f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029218"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626778"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 通过 HDInsight 上的 Apache Hadoop 运行 Apache Pig 作业
 
@@ -64,8 +64,8 @@ ms.locfileid: "54029218"
 
     此命令中使用的参数如下：
 
-    * **-u**：用来对请求进行身份验证的用户名和密码
-    * **-G**：指示此请求是 GET 请求
+   * **-u**：用来对请求进行身份验证的用户名和密码
+   * **-G**：指示此请求是 GET 请求
 
      URL 的开头 (**https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**) 对于所有请求都是相同的。 路径 **/status** 指示请求是要返回服务器的 WebHCat（也称为 Templeton）状态。
 
@@ -77,18 +77,18 @@ ms.locfileid: "54029218"
 
     此命令中使用的参数如下：
 
-    * **-d**：由于未使用 `-G`，因此该请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
+   * **-d**：由于未使用 `-G`，因此该请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
 
-    * **user.name**：正在运行命令的用户
-    * **execute**：要执行的 Pig Latin 语句
-    * **statusdir**：此作业的状态要写入到的目录
+   * **user.name**：正在运行命令的用户
+   * **execute**：要执行的 Pig Latin 语句
+   * **statusdir**：此作业的状态要写入到的目录
 
-    > [!NOTE]
-    > 请注意，在与 Curl 配合使用时，将使用 `+` 字符替换 Pig Latin 语句中的空格。
+     > [!NOTE]
+     > 请注意，在与 Curl 配合使用时，将使用 `+` 字符替换 Pig Latin 语句中的空格。
 
-    此命令应会返回可用来检查作业状态的作业 ID，例如：
+     此命令应返回可用来检查作业状态的作业 ID，例如：
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. 若要检查作业的状态，请使用以下命令
 

@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 7f96af7f61389080d0b117308de38ae82ab8a7e2
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 0b48ce35387038fc057c1a7edbb6c061e6940aba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905403"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625509"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解有关部署的重要规划注意事项，及系统如何适应数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -126,11 +126,11 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 - **单租户 Azure Stack**。 Azure Stack 部署看起来像是一个租户，至少从网络角度来看是这样的。 可能存在许多租户订阅，但如同任何 Intranet 服务一样，所有流量通过相同的网络传输。 一个订阅与另一个订阅通过相同的网络连接传输网络流量，无需通过加密的隧道进行隔离。
 
 - **多租户 Azure Stack**。 在这种 Azure Stack 部署中，每个租户订阅的、发往 Azure Stack 外部网络的流量必须与其他租户的网络流量相隔离。
- 
+
 - **Intranet 部署**。 位于企业 Intranet 上的 Azure Stack 部署，通常位于专用 IP 地址空间中，并在一个或多个防火墙后面。 公共 IP 地址并非真正面向公众，因为它们无法通过公共 Internet 直接路由。
 
 - **Internet 部署**。 这种 Azure Stack 部署连接到公共 Internet，并针对公共 VIP 范围使用可通过 Internet 路由的公共 IP 地址。 部署仍可位于防火墙后面，但可以从公共 Internet 和 Azure 直接访问公共 VIP 范围。
- 
+
 下表汇总了混合连接方案及其优点、缺点和用例。
 
 | 方案 | 连接方法 | 优点 | 缺点 | 适用范围 |
@@ -160,13 +160,14 @@ Azure Stack 解决方案随附的硬件生命周期主机是 Azure Stack 外部�
 
 下表汇总了目前可用选项的列表。
 
-| 区域 | 外部监视解决方案 |
-| -- | -- |
-| Azure Stack 软件 | [适用于 Operations Manager 的 Azure Stack 管理包](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios 插件](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>基于 REST 的 API 调用 | 
-| 物理服务器（通过 IPMI 的 BMC） | OEM 硬件 - Operations Manager 供应商管理包<br>OEM 硬件供应商提供的解决方案<br>硬件供应商 Nagios 插件 | OEM 合作伙伴支持的监视解决方案（随附） | 
-| 网络设备 (SNMP) | Operations Manager 网络设备发现<br>OEM 硬件供应商提供的解决方案<br>Nagios 交换机插件 |
-| 租户订阅运行状况监视 | [适用于 Azure 的 System Center 管理包](https://www.microsoft.com/download/details.aspx?id=50013) | 
-|  |  | 
+
+|                 区域                  |                                                                                                                             外部监视解决方案                                                                                                                              |
+|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         Azure Stack 软件          | [适用于 Operations Manager 的 Azure Stack 管理包](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios 插件](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>基于 REST 的 API 调用 |
+|   物理服务器（通过 IPMI 的 BMC）    |                                                                         OEM 硬件 - Operations Manager 供应商管理包<br>OEM 硬件供应商提供的解决方案<br>硬件供应商 Nagios 插件                                                                          |
+|        网络设备 (SNMP)         |                                                                                     Operations Manager 网络设备发现<br>OEM 硬件供应商提供的解决方案<br>Nagios 交换机插件                                                                                     |
+| 租户订阅运行状况监视 |                                                                                          [适用于 Azure 的 System Center 管理包](https://www.microsoft.com/download/details.aspx?id=50013)                                                                                          |
+|                                       |                                                                                                                                                                                                                                                                                       |
 
 请注意以下要求：
 - 使用的解决方案必须无代理。 不能在 Azure Stack 组件内部安装第三方代理。 
@@ -184,7 +185,7 @@ Azure Stack 解决方案随附的硬件生命周期主机是 Azure Stack 外部�
 - 应将此同一共享用于网络交换机与硬件生命周期主机的备份。 OEM 硬件供应商会帮助提供这些组件的备份和还原指导，因为这些操作在 Azure Stack 外部进行。 你要负责根据 OEM 供应商的建议来运行备份工作流。
 
 如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在断开连接部署中）、计划、套餐、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
- 
+
 ### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>保护 IaaS 虚拟机上的租户应用程序
 
 Azure Stack 不备份租户应用程序和数据。 必须针对 Azure Stack 的外部目标规划备份和灾难恢复保护。 租户保护是租户驱动的活动。 对于 IaaS 虚拟机，租户可以使用来宾内部技术来保护文件夹、应用程序数据和系统状态。 但是，企业或服务提供商可能需要在同一数据中心或云外部提供备份和恢复解决方案。

@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 11/08/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 098761cbb941a5fc948b11a51991e35d074ee1df
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: e2310ccc7a322565212850477e933751bcb77e0b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306243"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627613"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -211,7 +211,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## <a name="next-steps"></a>后续步骤
 
 * 若要了解如何监视虚拟机，请参阅[使用 Azure PowerShell 监视和更新 Windows 虚拟机](../virtual-machines/windows/tutorial-monitoring.md)。
-<!-- Not Available on [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md) -->
+  <!-- Not Available on [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md) -->
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->

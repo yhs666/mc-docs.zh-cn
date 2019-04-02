@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 08/14/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 998c0adfa1a684ce302835f0233a16e3196750fc
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 994d53897f089808e8caec747e4d093f09701cc7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028560"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625434"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 
@@ -66,7 +66,7 @@ Dedicated 是 Red Hat 托管的，使用容器平台的单租户 OpenShift。 Re
 
 - [在 Azure 中配置 OpenShift 的常见先决条件](./openshift-prerequisites.md)
 - [在 Azure 中部署 OpenShift Origin](./openshift-origin.md)
-<!-- Not Available on - [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)-->
+  <!-- Not Available on - [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)-->
 - [部署后任务](./openshift-post-deployment.md)
 - [OpenShift 部署故障排除](./openshift-troubleshooting.md)
 

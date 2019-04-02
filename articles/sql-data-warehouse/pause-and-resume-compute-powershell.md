@@ -5,20 +5,21 @@ services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
 origin.date: 04/17/2018
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 52b9514c87422976efc054b80e0bdbf3e9a4ecf5
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 004ead84bdbeb02c78d0b46b406506cdfcbee559
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348084"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626041"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入门：使用 PowerShell 暂停和恢复 Azure SQL 数据仓库中的计算
+
 使用 PowerShell 暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
@@ -37,7 +38,7 @@ ms.locfileid: "58348084"
 Connect-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
-若要查看正在使用的订阅，请运行 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.profile/get-azsubscription)。
+若要查看正在使用的订阅，请运行 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)。
 
 ```powershell
 Get-AzSubscription
@@ -61,11 +62,11 @@ Set-AzContext -SubscriptionName "MySubscription"
 
     ![服务器名称和资源组](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. 记下将用作数据库名称的数据仓库名称。 同时记下服务器名称和资源组。 你
-5.  执行暂停和恢复命令时会用到。
+4. 记下将用作数据库名称的数据仓库名称。 同时记下服务器名称和资源组。
 6. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20181129.database.chinacloudapi.cn。 删除后缀并使用“newserver-20181129”作为 PowerShell cmdlet 中的服务器名称。
 
 ## <a name="pause-compute"></a>暂停计算
+
 为了节省成本，可以按需暂停和恢复计算资源。 例如，如果晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，然后在白天时恢复使用。 数据库暂停时，不对计算资源进行收费。 但是，仍将收取存储费用。
 
 若要暂停数据库，请使用 [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase) cmdlet。 以下示例暂停名为“newserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据仓库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
@@ -85,7 +86,9 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
+
 ## <a name="resume-compute"></a>恢复计算
+
 若要启动数据库，请使用 [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase) cmdlet。 以下示例启动名为“newserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
 
 ```Powershell
@@ -102,6 +105,14 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 
+## <a name="check-status-of-your-data-warehouse-operation"></a>检查数据仓库操作的状态
+
+若要检查数据仓库的状态，请使用 [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity?view=azurermps-6.13.0#description) cmdlet。
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
+```
+
 ## <a name="clean-up-resources"></a>清理资源
 
 针对数据仓库资源用量和数据仓库存储的数据，将会收取你的费用。 这些计算和存储资源是分开计费的。
@@ -115,18 +126,20 @@ $resultDatabase
 
     ![清理资源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. 要暂停计算，请单击“暂停”按钮。 暂停数据仓库后，可看到“启动”按钮。  要恢复计算，请单击“启动”。
+2. 要暂停计算，请单击“暂停”按钮。 暂停数据仓库后，可看到“启动”按钮。  要恢复计算，请单击“启动”。
 
-2. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”。
+3. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”。
 
-3. 若要删除创建的 SQL Server，请单击“mynewserver-20181129.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
+4. 若要删除创建的 SQL Server，请单击“mynewserver-20181129.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
-4. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
+5. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
+
 
 ## <a name="next-steps"></a>后续步骤
+
 现在已暂停并恢复了数据仓库的计算。 若要了解有关 Azure SQL 数据仓库的详细信息，请继续有关加载数据的教程。
 
 > [!div class="nextstepaction"]
->[将数据加载到 SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)
+> [将数据加载到 SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)
 <!-- Update_Description: new articles on pause and resume database on powershell -->
 <!--ms.date: 03/12/2018-->

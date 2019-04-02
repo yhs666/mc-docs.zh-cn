@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/06/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 106d80d823efa5e1084b5cc2f594c78668dfad34
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bac3f99ac922bcde262f99d0a9a8967063c58105
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646696"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544821"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 
@@ -29,6 +29,8 @@ ms.locfileid: "52646696"
 本文说明如何使用服务总线主题和订阅。 示例采用 PHP 编写并使用 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的应用场景包括**创建主题和订阅**、**创建订阅筛选器**、**将消息发送到主题**、**从订阅接收消息**以及**删除主题和订阅**。
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
 
@@ -181,7 +183,7 @@ $ruleInfo->withSqlFilter("MessageNumber > 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleInfo);
 ```
 
-请注意，此代码需要使用另一个命名空间： `WindowsAzure\ServiceBus\Models\SubscriptionInfo`。
+此代码需要使用其他命名空间：`WindowsAzure\ServiceBus\Models\SubscriptionInfo`。
 
 同样，以下示例创建一个名为 `LowMessages` 的订阅，其 `SqlFilter` 只选择 `MessageNumber` 属性小于或等于 3 的消息。
 
@@ -229,7 +231,7 @@ catch(ServiceException $e){
 }
 ```
 
-发送到服务总线主题的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准属性和方法以及用来保存自定义应用程序特定属性的属性。 以下示例演示了如何将 5 条测试消息发送到前面创建的 `mytopic` 主题。 `setProperty` 方法用于将自定义属性 (`MessageNumber`) 添加到每条消息。 请注意，每条消息的 `MessageNumber` 属性值会不同（可使用该值决定哪个订阅接收它，如[创建订阅](#create-a-subscription)部分所述）：
+发送到服务总线主题的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准属性和方法以及用来保存自定义应用程序特定属性的属性。 以下示例演示如何向以前创建的 `mytopic` 主题发送五条测试消息。 `setProperty` 方法用于将自定义属性 (`MessageNumber`) 添加到每条消息。 `MessageNumber` 属性值在每条消息中都有所不同（你可以使用此值确定哪些订阅接收它，如[创建订阅](#create-a-subscription)部分中所示）：
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -245,12 +247,12 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息容量为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
-从订阅接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveSubscriptionMessage` 方法。 可通过两种模式接收消息：[ReceiveAndDelete 和 PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)。 **PeekLock** 是默认设置。
+从订阅接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveSubscriptionMessage` 方法。 可在两种不同的模式下接收消息：[*ReceiveAndDelete* 和 *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)。 **PeekLock** 是默认设置。
 
-使用 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式时，接收是一项单次操作，即，当服务总线收到订阅中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * 模式是最简单的模式，最适合应用程序允许出现故障时不处理消息的方案。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+使用 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式时，接收是一项单次操作，即，当服务总线收到订阅中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * 模式是最简单的模型，最适合应用程序允许在出现故障时不处理消息的情形。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线已将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
 
 在默认 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式下，接收消息会变成一个两阶段操作，这能够支持不能允许丢失消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序完成消息处理（或可靠地存储消息以供日后处理）后，它会将收到的消息传递到 `ServiceBusRestProxy->deleteMessage`，从而完成接收过程的第二阶段。 发现 `deleteMessage` 调用时，服务总线会将消息标记为“已使用”，并将消息从队列中删除。
 
@@ -296,14 +298,14 @@ catch(ServiceException $e){
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何：处理应用程序崩溃和不可读消息
-Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序出于某种原因无法处理消息，它可以对收到的消息调用 `unlockMessage` 方法（而不是 `deleteMessage` 方法）。 这会导致服务总线解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
+Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序出于某种原因无法处理消息，它可以对收到的消息调用 `unlockMessage` 方法（而不是 `deleteMessage` 方法）。 这会导致服务总线解锁队列中的消息，并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
 队列中的锁定消息还有相关超时，如果应用程序无法在锁定超时期满前处理消息（例如，当应用程序发生故障时），服务总线会自动解除锁定消息，让它再次可供接收。
 
-如果应用程序在处理消息后、但在发出 `deleteMessage` 请求前发生故障，消息会重新传递给重启的应用程序。 此情况通常称作*至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过使用消息的 `getMessageId` 方法来实现，消息在多次传送尝试中保持不变。
+如果应用程序在处理消息后、但在发出 `deleteMessage` 请求前发生故障，消息会重新传递给重启的应用程序。 这种处理类型通常称作“至少处理一次”，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可通过使用消息的 `getMessageId` 方法来实现，该方法在多次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
-若要删除某个主题或订阅，请分别使用 `ServiceBusRestProxy->deleteTopic` 或 `ServiceBusRestProxy->deleteSubscripton` 方法。 请注意，删除某个主题也会删除向该主题注册的所有订阅。
+若要删除某个主题或订阅，请分别使用 `ServiceBusRestProxy->deleteTopic` 或 `ServiceBusRestProxy->deleteSubscripton` 方法。 删除某个主题也会删除向该主题注册的所有订阅。
 
 以下示例演示了如何删除名为 `mytopic` 的主题及其注册的订阅。
 

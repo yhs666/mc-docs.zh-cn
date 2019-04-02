@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 4572a3ae114fe8ceaa072d60c4b16286a4cc17f9
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 42383e0478392aa452e017bca418f8e602162cee
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833373"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627309"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容  
 
@@ -247,11 +247,11 @@ ms.locfileid: "56833373"
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>MPEG DASH 的流 URL 采用以下格式：
 
- {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest **(format=mpd-time-csf)**
+ {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest<strong>(format=mpd-time-csf)</strong>
 
 #### <a name="a-streaming-url-for-hls-has-the-following-format"></a>HLS 的流 URL 采用以下格式：
 
- {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest **(format=m3u8-aapl)**
+ {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest<strong>(format=m3u8-aapl)</strong>
 
 #### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>平滑流式处理的流 URL 采用以下格式：
 
@@ -347,11 +347,11 @@ http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-
 
 HLS
 
-http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+<http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl>)
 
 MPEG DASH
 
-http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+<http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf>)
 
 渐进式下载 URL（音频和视频）。
 
@@ -372,7 +372,7 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-要流式传输视频，请将 URL 粘贴到 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)的 URL 文本框中。
+要流式传输视频，请将 URL 粘贴到 [Azure 媒体服务播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)的 URL 文本框中。
 
 若要测试渐进式下载，请将 URL 粘贴到浏览器（例如 Internet Explorer、Chrome 或 Safari）中。
 
@@ -389,7 +389,7 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 
 
 <!-- URLs. -->
-[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portal]: http://portal.azure.cn/
+[Web Platform Installer]: https://go.microsoft.com/fwlink/?linkid=255386
+[Portal]: https://portal.azure.cn/
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 46b40470e08e6c619e46fd8c9e8bf92ef39013fb
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7adfe19d271260522b0b5d229394e39b0ade919f
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964462"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505516"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入门：使用 Python 通过文本翻译 API 来翻译字符串
 
@@ -33,7 +33,7 @@ ms.locfileid: "57964462"
 
 ## <a name="create-a-project-and-import-required-modules"></a>创建一个项目并导入必需的模块
 
-使用最喜欢的 IDE 或编辑器创建新的 Python 项目。 然后，将此代码片段复制到项目的名为 `translate-text.py` 的文件中。
+使用最喜欢的 IDE 或编辑器创建新的 Python 项目。 然后，将此代码片段复制到项目的名为 `translate-text.py` 的文件中。 请确保 IDE 解释器引用了正确的 Python 版本，以避免无法识别库。
 
 ```python
 # -*- coding: utf-8 -*-
@@ -170,3 +170,4 @@ python translate-text.py
 * [获取支持的语言的列表](quickstart-python-languages.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)
 
+<!-- Update_Description: wording update -->

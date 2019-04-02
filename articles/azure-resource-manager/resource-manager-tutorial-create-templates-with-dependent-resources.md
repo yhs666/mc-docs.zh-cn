@@ -14,12 +14,12 @@ origin.date: 03/04/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 643f4ba6d032fdeccf4957a112c6f7dd19d411c4
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 7ce9bd449f1596e1b32b0a9dbdc3e935249cf1ce
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626573"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
@@ -80,14 +80,14 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
     有五个通过此模板定义的资源：
 
-    * `Microsoft.Storage/storageAccounts`。
-    * `Microsoft.Network/publicIPAddresses`。
-    * `Microsoft.Network/virtualNetworks`。
-    * `Microsoft.Network/networkInterfaces`。
-    * `Microsoft.Compute/virtualMachines`。
+   * `Microsoft.Storage/storageAccounts`。
+   * `Microsoft.Network/publicIPAddresses`。
+   * `Microsoft.Network/virtualNetworks`。
+   * `Microsoft.Network/networkInterfaces`。
+   * `Microsoft.Compute/virtualMachines`。
     
-    <!-- Not Available on template -->
-    在自定义模板之前，不妨对其进行一些基本的了解。
+     <!-- Not Available on template -->
+     在自定义模板之前，不妨对其进行一些基本的了解。
 
 2. 展开第一个资源。 它是一个存储帐户。 
     

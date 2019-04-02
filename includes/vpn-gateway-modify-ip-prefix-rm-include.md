@@ -12,10 +12,10 @@
    ```
 2. 修改前缀。
 
-  ```azurepowershell
-  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
-  ```
+   ```azurepowershell
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
+   ```
 
 删除地址前缀：
 
@@ -23,15 +23,15 @@
 
 1. 设置 LocalNetworkGateway 的变量。
 
-  ```azurepowershell
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 2. 使用更新的前缀设置网关。
 
-  ```azurepowershell
-  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-  ```
+   ```azurepowershell
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+   ```
 
 ### <a name="withconnection"></a>修改本地网关 IP 地址前缀 - 现有网关连接
 

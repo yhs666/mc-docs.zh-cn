@@ -8,12 +8,12 @@ origin.date: 11/27/2018
 ms.date: 01/21/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 8fa42eaa092dd2c10e018aaf7b8d2895ed29d8cc
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: c7d43096c08f175410c2734a1526e008e3c17686
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363540"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627538"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 设置 VMware VM 到 Azure 的灾难恢复
 
@@ -103,7 +103,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 使用 Set-ASRVaultContext cmdlet 设置保管库上下文。 设置后，PowerShell 会话中的后续 Azure Site Recovery 操作将在所选保管库的上下文中执行。
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）为大多数 cmdlet 提供了易用的别名。 模块中的 cmdlet 采用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 形式，并具有采用 *\<Operation>-**ASR**\<Object>* 形式的等效别名。 本文使用 cmdlet 别名以便于阅读。
+> Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）为大多数 cmdlet 提供了易用的别名。 该模块中的 cmdlet 采用 *\<操作>-*<em>AzureRmRecoveryServicesAsr</em>*\<对象>* 格式，等效的别名采用 *\<操作>-*<em>ASR</em>*\<对象>* 格式。 本文使用 cmdlet 别名以便于阅读。
 
 以下示例使用 $vault 变量中的保管库详细信息为 PowerShell 会话指定保管库上下文。
 
@@ -238,42 +238,41 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 
     使用 *$Job_FailbackPolicyCreate* 中的作业详细信息来跟踪操作，直到其完成。
 
-    * 创建保护容器映射，用于在配置服务器上映射复制策略。
+   * 创建保护容器映射，用于在配置服务器上映射复制策略。
 
-    ```azurepowershell
-    #Get the protection container corresponding to the Configuration Server
-    $ProtectionContainer = Get-ASRProtectionContainer -Fabric $ASRFabrics[0]
+     ```azurepowershell
+     #Get the protection container corresponding to the Configuration Server
+     $ProtectionContainer = Get-ASRProtectionContainer -Fabric $ASRFabrics[0]
 
-    #Get the replication policies to map by name.
-    $ReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy"
-    $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
+     #Get the replication policies to map by name.
+     $ReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy"
+     $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
 
-    # Associate the replication policies to the protection container corresponding to the Configuration Server. 
+     # Associate the replication policies to the protection container corresponding to the Configuration Server. 
 
-    $Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
+     $Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
-    # Check the job status
-    while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){ 
-            sleep 10; 
-            $Job_AssociatePolicy = Get-ASRJob -Job $Job_AssociatePolicy
-    }
-    $Job_AssociatePolicy.State
+     # Check the job status
+     while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){ 
+           sleep 10; 
+           $Job_AssociatePolicy = Get-ASRJob -Job $Job_AssociatePolicy
+     }
+     $Job_AssociatePolicy.State
 
-    <# In the protection container mapping used for failback (replicating failed over virtual machines 
-       running in Azure, to the primary VMware site.) the protection container corresponding to the 
-       Configuration server acts as both the Primary protection container and the recovery protection
-       container
-    #>
+     <# In the protection container mapping used for failback (replicating failed over virtual machines 
+      running in Azure, to the primary VMware site.) the protection container corresponding to the 
+      Configuration server acts as both the Primary protection container and the recovery protection
+      container
+     #>
      $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
-    # Check the job status
-    while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){ 
-            sleep 10; 
-            $Job_AssociateFailbackPolicy = Get-ASRJob -Job $Job_AssociateFailbackPolicy
-    }
-    $Job_AssociateFailbackPolicy.State
-
-    ```
+     # Check the job status
+     while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){ 
+           sleep 10; 
+           $Job_AssociateFailbackPolicy = Get-ASRJob -Job $Job_AssociateFailbackPolicy
+     }
+     $Job_AssociateFailbackPolicy.State
+     ```
 
 ## <a name="add-a-vcenter-server-and-discover-vms"></a>添加 vCenter 服务器，并发现 VM
 
@@ -380,7 +379,6 @@ $VM3 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -Friendl
 
 # Enable replication for virtual machine CentOSVM2
 $Job_EnableReplication3 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" 
-
 ```
 
 成功完成启用复制作业后，将对虚拟机启动初始复制。 初始复制可能要花费一段时间，具体时间取决于要复制的数据量和复制时可用的带宽。 初始复制完成后，虚拟机会进入受保护状态。 虚拟机进入受保护状态后，你可以针对该虚拟机执行测试故障转移、将其添加到恢复计划，等等。

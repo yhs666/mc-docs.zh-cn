@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 07/12/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: e6cf52fa640c7d97b246c2fb8f007889cab4f6e9
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 10d97f96c5bea10bb37a0b4345c17a06e84f7b81
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666040"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625514"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Windows 虚拟机从非托管磁盘转换为托管磁盘
 
@@ -42,17 +42,17 @@ ms.locfileid: "56666040"
 
 1. 使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet 解除分配 VM。 以下示例在名为 `myResourceGroup` 的资源组中解除分配名为 `myVM` 的 VM： 
 
-  ```powershell
-  $rgName = "myResourceGroup"
-  $vmName = "myVM"
-  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-  ```
+   ```powershell
+   $rgName = "myResourceGroup"
+   $vmName = "myVM"
+   Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+   ```
 
 2. 使用 [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet 将 VM 转换为托管磁盘。 以下过程转换之前的 VM，包括 OS 磁盘和任何数据磁盘，并启用虚拟机：
 
-  ```powershell
-  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-  ```
+   ```powershell
+   ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+   ```
 
 ## <a name="convert-vms-in-an-availability-set"></a>在可用性集中转换 VM
 
@@ -60,33 +60,33 @@ ms.locfileid: "56666040"
 
 1. 使用 [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet 转换可用性集。 以下示例在名为 `myResourceGroup` 的资源组中更新名为 `myAvailabilitySet` 的可用性集：
 
-  ```powershell
-  $rgName = 'myResourceGroup'
-  $avSetName = 'myAvailabilitySet'
+   ```powershell
+   $rgName = 'myResourceGroup'
+   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
-  ```
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+   ```
 
-  如果可用性集所在的区域只有 2 个托管容错域，但却有 3 个非托管容错域，则此命令会显示类似于“指定的容错域计数 3 必须在 1 到 2 这个范围内”的错误消息。 若要解决此错误，请将容错域更新为 2，并按如下所示将 `Sku` 更新为 `Aligned`：
+   如果可用性集所在的区域只有 2 个托管容错域，但却有 3 个非托管容错域，则此命令会显示类似于“指定的容错域计数 3 必须在 1 到 2 这个范围内”的错误消息。 若要解决此错误，请将容错域更新为 2，并按如下所示将 `Sku` 更新为 `Aligned`：
 
-  ```powershell
-  $avSet.PlatformFaultDomainCount = 2
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
-  ```
+   ```powershell
+   $avSet.PlatformFaultDomainCount = 2
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+   ```
 
 2. 解除分配 VM，并转换可用性集中的 VM。 以下脚本使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet 解除分配每个 VM，使用 [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) 进行转换，并在转换进程结束后自动将其重启：
 
-  ```powershell
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   ```powershell
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
-  foreach($vmInfo in $avSet.VirtualMachinesReferences)
-  {
+   foreach($vmInfo in $avSet.VirtualMachinesReferences)
+   {
      $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-  }
-  ```
+   }
+   ```
 
 ## <a name="troubleshooting"></a>故障排除
 

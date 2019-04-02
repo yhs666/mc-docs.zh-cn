@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 5a471fe7f64695712ca408235c364ee3f7b2d3ff
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 04/01/2019
+ms.openlocfilehash: 9944bd50fbedf138f89dcf99c94693bcd11fbc95
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302980"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503636"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
@@ -82,6 +82,8 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn 
 - 此外，还可以通过在开头添加 *set synchronous_commit = off;* 命令并在末尾添加 *set synchronous_commit = on;* 命令来编辑转储文件。 如果在应用更改数据之前未在末尾打开该功能，可能会导致随后的数据丢失。
 
 - 在目标 Azure Database for PostgreSQL 服务器上，请考虑在还原之前执行以下操作：
+    - 关闭查询性能跟踪，因为迁移期间不需要这些统计信息。 可以通过将 pg_stat_statements.track、pg_qs.query_capture_mode 和 pgms_wait_sampling.query_capture_mode 设置为 NONE 来完成此操作。
+
     - 使用高计算和高内存 sku（如 32 vCore 内存优化）来加速迁移。 完成还原操作后，可以轻松缩回到所需的 sku。 sku 越高，通过增加 pg_restore 命令中相应的 `-j` 参数就可以实现越多的并行性。 
 
     - 通过增加目标服务器上的 IOPS 可以提高还原性能。 你可以通过增加服务器的存储大小来预配更多 IOPS。 此设置不可逆，但要考虑的一点是，更高的 IOPS 是否在将来有益于你的实际工作负荷。

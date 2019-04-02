@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 05/08/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 334f6b75ed93e529151ad39b748232afe264d86a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 901ea5cf96931dacadc2b9536ea125f446b089a9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029080"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625587"
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>通过 Azure 函数应用使用 Kafka on HDInsight
 
@@ -41,9 +41,9 @@ Kafka on HDInsight 不会公共 Internet 上提供 API。 若要发布或使用 
 
 * 一个 Azure 虚拟网络。 若要使用 Azure Functions，虚拟网络必须使用以下 IP 范围之一：
 
-    * 10.0.0.0-10.255.255.255
-    * 172.16.0.0-172.31.255.255
-    * 192.168.0.0-192.168.255.255
+  * 10.0.0.0-10.255.255.255
+  * 172.16.0.0-172.31.255.255
+  * 192.168.0.0-192.168.255.255
 
     有关详细信息，请参阅[将应用与 Azure 虚拟网络集成](../../app-service/web-sites-integrate-with-vnet.md)文档。
 

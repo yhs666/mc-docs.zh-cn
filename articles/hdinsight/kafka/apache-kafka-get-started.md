@@ -11,12 +11,12 @@ ms.workload: big-data
 origin.date: 10/12/2018
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: c292b079e26bd2a91838b24f99c33b720faf54de
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 6bd880955a7a95756fcb352152c72784a7d46de4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348580"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626103"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -40,7 +40,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
     在 Linux、Unix 和 macOS 系统中，默认提供 `ssh` 命令。 在 Windows 10 上，使用以下方式之一安装 `ssh` 命令：
 
 
-    * [安装适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。 可通过 Microsoft Store 提供 `ssh` 命令获得 Linux 分发版。
+  * [安装适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。 可通过 Microsoft Store 提供 `ssh` 命令获得 Linux 分发版。
 
     > [!IMPORTANT]
     > 本文档中的此步骤假定正在使用上述 SSH 客户端之一。 如果正在使用不同的 SSH 客户端并遇到问题，请查阅 SSH 客户端的文档。

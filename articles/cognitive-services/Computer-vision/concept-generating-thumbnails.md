@@ -4,26 +4,27 @@ titleSuffix: Azure Cognitive Services
 description: 使用计算机视觉 API 生成图像的缩略图的相关概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 11/30/2018
-ms.date: 01/08/2019
+origin.date: 03/11/2018
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 4a358f35d867775c9f7afbbac932c0d498cafd52
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: b44bfd7ff16b0ec52ba1e7e15a6bd0174c12ba10
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083780"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505477"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>使用计算机视觉生成智能裁剪的缩略图
 
 缩略图是图像的缩减表示形式。 缩略图用于以更加经济且更适合布局的方式表示图像及其他数据。 计算机视觉 API 利用智能裁剪及图像大小调整，来创建给定图像的直观缩略图。
 
 计算机视觉缩略图生成算法的工作原理如下：
+
 1. 从图像中删除让人分散注意力的元素并识别感兴趣区域&mdash;显示主要对象的图像区域。
 1. 基于所识别的感兴趣区域裁剪图像。
 1. 更改纵横比以适应目标缩略图尺寸。
@@ -52,4 +53,4 @@ ms.locfileid: "54083780"
 
 了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

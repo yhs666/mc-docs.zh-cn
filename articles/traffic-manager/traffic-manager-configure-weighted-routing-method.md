@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 12/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9138b5704d1ce0baf34ff1023e3bf47645b84301
-ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.openlocfilehash: 2f5f5db08bfdfb78368e35c9be68a8c4db76e1cd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389372"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626503"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置加权流量路由方法
 
@@ -49,7 +49,7 @@ ms.locfileid: "53389372"
 
 - 了解[优先级流量路由方法](traffic-manager-configure-priority-routing-method.md)。
 - 了解[性能流量路由方法](traffic-manager-configure-performance-routing-method.md)。
-<!-- Not Available on - Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
+  <!-- Not Available on - Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
 - 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。
 
 <!--Image references-->

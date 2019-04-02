@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 11/25/2018
-ms.date: 12/24/2018
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 999c3c0265235884a917879edacbbd5c51adea87
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: 41de59f2250082d55d3120eac08eaee62b389ac2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627367"
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
 从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择执行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
@@ -30,7 +30,7 @@ ms.locfileid: "53656571"
 ## <a name="overview"></a>概述
 将内容传送到客户（流式传输实时事件或视频点播）时，目标是：将优质视频传递到处于不同网络条件下的各种设备。 若要实现此目标，请执行以下操作：
 
-* 将流编码成多比特率（[自适应比特率](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)）视频流（这将会负责处理质量和网络条件），并 
+* 将流编码成多比特率（[自适应比特率](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)）视频流（这将会负责处理质量和网络条件），并 
 * 使用媒体服务[动态打包](media-services-dynamic-packaging-overview.md)将流动态地重新打包成不同的协议（这将会负责不同设备上的流式处理）。 媒体服务支持以下自适应比特率流式处理技术的传送：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。 
 
 ### <a name="manifest-files"></a>清单文件
@@ -80,11 +80,11 @@ ms.locfileid: "53656571"
 
 包含筛选器的 MPEG DASH URL
 
-http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
+<http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter>)
 
 包含筛选器的平滑流 URL
 
-http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
+<http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter>)
 
 
 有关如何传送内容和构建流 URL 的详细信息，请参阅[传送内容概述](media-services-deliver-content-overview.md)。
@@ -174,7 +174,7 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 若要组合筛选器，需要在清单/播放列表 URL 中设置筛选器名称，用分号对名称进行分隔。 假设你有一个名为 MyMobileDevice 的筛选器，用于筛选质量，另外还有一个名为 MyStartTime 的筛选器，用于设置具体的开始时间。 可将它们组合成下面这样：
 
-http://teststreaming.streaming.mediaservices.chinacloudapi.cn/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
+<http://teststreaming.streaming.mediaservices.chinacloudapi.cn/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime>)
 
 最多可以组合三个筛选器。 
 

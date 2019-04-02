@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 01/29/2019
 ms.author: v-yiso
-ms.date: 03/11/2019
-ms.openlocfilehash: 95618b54a0bbe5a390c68431f4518a282bbc1028
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.date: 04/08/2019
+ms.openlocfilehash: 9244c84a5bfbfd2d0f75807398e03a87cd0723db
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196621"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626084"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
@@ -60,8 +60,16 @@ ms.locfileid: "57196621"
 |---|
 |<ul><li>托管此虚拟机的服务器是否已启动并运行？</li><li>主机 OS 启动是否已完成？</li><li>是否已配置并启动虚拟机容器？</li><li>主机和存储帐户之间是否有网络连接？</li><li>来宾 OS 启动是否已完成？</li><li>是否存在持续的计划内维护？</li></ul>|
 
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
+|执行的检查|
+|---|
+|<ul><li>是否有用户无法提交或列出 Data Lake Analytics 作业？</li><li>是否因系统错误而无法完成 Data Lake Analytics 作业？</li></ul>|
 
 
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
+|执行的检查|
+|---|
+|<ul><li>是否有用户无法将数据上传到 Data Lake Store？</li><li>是否有用户无法从 Data Lake Store 下载数据？</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -93,6 +101,11 @@ ms.locfileid: "57196621"
 |执行的检查|
 |---|
 |<ul><li> 是否可以在命名空间上执行注册、安装或发送等运行时操作？</li></ul>|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
+|执行的检查|
+|---|
+|<ul><li>容量资源是否已启动且正在运行？</li><li>所有工作负荷是否都已启动且正在运行？</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |执行的检查|
@@ -137,4 +150,4 @@ ms.locfileid: "57196621"
 # <a name="next-steps"></a>后续步骤
 -  请参阅 [Azure 服务运行状况仪表板简介](service-health-overview.md)和 [Azure 资源运行状况简介](resource-health-overview.md)，了解更多相关信息。 
 -  [有关 Azure 资源运行状况的常见问题解答](resource-health-faq.md)
--  设置警报，以便收到运行状况问题的通知。 有关详细信息，请参阅[配置服务运行状况事件的警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 
+- 设置警报，以便收到运行状况问题的通知。 有关详细信息，请参阅[配置服务运行状况事件的警报](../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/16/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 4e4073fe5cc3cd3820dc11ec1a774aa90f8ec5b1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: da61229cc7db1cf7d62f553d425d8d1909a86657
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674472"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544820"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
 
@@ -37,6 +37,8 @@ ms.locfileid: "52674472"
 有关主题和订阅的详细信息，请参阅[后续步骤](#next-steps)一节。
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、使用 Windows PowerShell [创建 Node.js 云服务][Node.js Cloud Service]或使用 WebMatrix 创建网站。

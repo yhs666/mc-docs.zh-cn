@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8436bfd57111efdc16ff14fd15ad50ed42454129
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: fe712bc70848f2ed8d28e6f78e55062527e20f44
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203998"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505455"
 documentType: LandingData
 title: 计算机视觉 API 文档
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-origin.date: 09/24/2018
-ms.date: 02/27/2019
+origin.date: 02/26/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
 abstract:
@@ -63,17 +63,25 @@ sections:
     style: icon48
     items:
     - image:
+        src: media/index/logo_Csharp.svg
+      text: C&#35;
+      href: quickstarts-sdk/csharp-analyze-sdk.md
+    - image:
         src: media/index/logo_java.svg
       text: Java
-      href: QuickStarts/Java.md
+      href: QuickStarts/java-analyze.md
     - image:
         src: media/index/logo_nodejs.svg
       text: Node.js
-      href: QuickStarts/JavaScript.md
+      href: QuickStarts/node-analyze.md
     - image:
         src: media/index/logo_python.svg
       text: Python
-      href: QuickStarts/Python.md
+      href: quickstarts-sdk/python-sdk.md
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: QuickStarts/go-analyze.md
 - title: 分步教程
   items:
   - type: paragraph
@@ -81,9 +89,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="Tutorials/java-tutorial.md">Java 教程</a>
-    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript 教程</a>
-    - html: <a href="Tutorials/PythonTutorial.md">Python 教程</a>
+    - html: <a href="Tutorials/CSharpTutorial.md">使用 C# 创建计算机视觉应用</a>
 - title: 参考
   items:
   - type: list
@@ -91,9 +97,9 @@ sections:
     className: cardsD
     items:
     - title: API
-      html: <p><a href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">计算机视觉 API v1.0</a></p>
+      html: <p><a href="https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44">计算机视觉 API v2.0</a></p> <p><a href="https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa">计算机视觉 API v1.0</a></p>
     - title: SDK
-      html: <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+      html: <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision">Go</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI

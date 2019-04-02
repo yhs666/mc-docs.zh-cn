@@ -7,12 +7,12 @@ origin.date: 01/29/2019
 ms.date: 03/04/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: e3f30db19823a77a8bedcc17c5c99aef7d89d234
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: d1db6d4ea4cb56a99ac5c3e66e27a61a2007412d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463648"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625440"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -49,10 +49,10 @@ ms.locfileid: "57463648"
 
 7. 选择要用于复制数据的 Azure 存储帐户。 
 
-    > [!NOTE]
-
-    >   * 可以选择高级或标准存储帐户。 如果选择高级帐户，则需要为正在进行的复制日志指定其他标准存储帐户。 这些帐户必须位于与恢复服务保管库相同的区域中。
-    >   * 如果要使用不同的存储帐户，可以[创建一个](../storage/common/storage-create-storage-account.md)。 若要使用资源管理器创建存储帐户，请单击“新建”。 
+   > [!NOTE]
+   > 
+   >   * 可以选择高级或标准存储帐户。 如果选择高级帐户，则需要为正在进行的复制日志指定其他标准存储帐户。 这些帐户必须位于与恢复服务保管库相同的区域中。
+   >   * 如果要使用不同的存储帐户，可以[创建一个](../storage/common/storage-create-storage-account.md)。 若要使用资源管理器创建存储帐户，请单击“新建”。 
 
 8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需要创建一个。 若要使用资源管理器创建网络，请单击“新建”。 选择适用的子网，然后单击“确定”。
 

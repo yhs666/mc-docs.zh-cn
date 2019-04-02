@@ -15,17 +15,18 @@ ms.workload: multiple
 origin.date: 06/11/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2a39317bf79df9800e541c12a8956436746ba1de
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 8269359acbc21f5d302aaa19051ee36f63ef9c7e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463615"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626294"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 应用程序和服务清单示例
 下面是应用程序和服务清单的示例，这些清单适用于带 ASP.NET Core Web 前端和有状态后端的 Service Fabric 应用程序。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Service Fabric .NET 快速入门](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)清单。
 
 以下功能会显示：
+
 |清单|功能|
 |---|---|
 |[应用程序清单](#application-manifest)| [资源调控](service-fabric-resource-governance.md)、[使用本地管理员帐户运行服务](service-fabric-application-runas-security.md)、[将默认策略应用到所有服务代码包](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages)、[创建用户和组主体](service-fabric-application-runas-security.md)、在服务实例之间共享数据包、[重新服务终结点](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
@@ -165,7 +166,6 @@ ms.locfileid: "57463615"
 
   </Policies>
 </ApplicationManifest>
-
 ```
 
 ## <a name="votingweb-service-manifest"></a>VotingWeb 服务清单
@@ -229,7 +229,6 @@ ms.locfileid: "57463615"
     </Endpoints>
   </Resources>
 </ServiceManifest>
-
 ```
 
 ## <a name="votingdata-service-manifest"></a>VotingData 服务清单
@@ -277,7 +276,6 @@ ms.locfileid: "57463615"
   </Resources>
 
 </ServiceManifest>
-
 ```
 
 ## <a name="application-manifest-elements"></a>应用程序清单元素

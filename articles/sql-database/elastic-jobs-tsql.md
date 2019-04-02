@@ -13,12 +13,12 @@ ms.reviewer: sstein
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: 16bfb0269fc11b87f08e9cb3f2f720852c732a1c
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 62bbee54b6583b0571d444e359a240a65a811f9e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663580"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625254"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业
 
@@ -523,7 +523,7 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 [ **@enabled =** ] enabled  
 指定作业的计划是已启用 (1) 还是未启用 (0)。 enabled 为 bit。
 
-[ **@schedule_interval_type=** ] schedule_interval_type  
+[ <strong>@schedule_interval_type=</strong> ] schedule_interval_type  
 其值指示何时会执行作业。 schedule_interval_type 为 nvarchar(50)，可以是下述值之一：
 
 - 'Once'；
@@ -533,13 +533,13 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 - 'Weeks'；
 - 'Months'
 
-[ **@schedule_interval_count=** ] schedule_interval_count  
+[ <strong>@schedule_interval_count=</strong> ] schedule_interval_count  
 每次执行作业时，其间会出现的 schedule_interval_count 期间数。 schedule_interval_count 为 int，默认值为 1。 该值必须大于或等于 1。
 
-[ **@schedule_start_time=** ] schedule_start_time  
+[ <strong>@schedule_start_time=</strong> ] schedule_start_time  
 可以开始执行作业的日期。 schedule_start_time 为 DATETIME2，默认值为 0001-01-01 00:00:00.0000000。
 
-[ **@schedule_end_time=** ] schedule_end_time  
+[ <strong>@schedule_end_time=</strong> ] schedule_end_time  
 可以停止执行作业的日期。 schedule_end_time 为 DATETIME2，默认值为 9999-12-31 11:59:59.0000000。 
 
 #### <a name="return-code-values"></a>返回代码值

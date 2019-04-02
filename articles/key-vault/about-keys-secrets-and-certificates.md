@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 05/09/2018
 ms.date: 02/04/2019
 ms.author: v-biyu
-ms.openlocfilehash: a2700ed1e81fac1e1897f968b549fbdbdd0b29ac
-ms.sourcegitcommit: ae1b73a4248509f7afa6ffa466f53e59449f47d5
+ms.openlocfilehash: aebf67d46781928daacc0a914f8c91169e2ddb3b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/21/2019
-ms.locfileid: "54417357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627709"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>关于密钥、机密和证书
 
@@ -370,10 +370,10 @@ Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对�
 
 如果证书的策略设置为自动续订，则在发生以下事件时发送通知。  
 
--   证书续订之前
--   证书续订之后，指出是否已成功续订证书，或是否存在错误，需要手动续订证书。  
+- 证书续订之前
+- 证书续订之后，指出是否已成功续订证书，或是否存在错误，需要手动续订证书。  
 
- 如果证书策略设置为手动续订（仅限电子邮件），则在续订证书时发送通知。  
+  如果证书策略设置为手动续订（仅限电子邮件），则在续订证书时发送通知。  
 
 ### <a name="certificate-access-control"></a>证书访问控制
 

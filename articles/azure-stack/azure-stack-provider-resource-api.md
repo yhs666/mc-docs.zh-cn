@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 17fab0abe75c50af245f50d5ba70348d286155b7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a7aec5ebb564ecc24eb40646fa9b0855ad2d4967
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988010"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625679"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
@@ -40,6 +40,7 @@ ms.locfileid: "57988010"
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>参数
+
 | **参数** | **说明** |
 | --- | --- |
 | *armendpoint* |Azure Stack 环境的 Azure 资源管理器终结点。 按 Azure Stack 约定，Azure 资源管理器终结点名称的格式为 `https://adminmanagement.{domain-name}`。 例如，对于开发工具包，如果域名为 *local.azurestack.external*，则资源管理器终结点是 `https://adminmanagement.local.azurestack.external`。 |
@@ -81,6 +82,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>响应详细信息
+
 | **参数** | **说明** |
 | --- | --- |
 | *id* |使用情况聚合的唯一 ID。 |
@@ -103,18 +105,19 @@ meterID1",
 1. [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
 2. [配置 Azure Stack 用户的](user/azure-stack-powershell-configure-user.md)或 [Azure Stack 操作员的](azure-stack-powershell-configure-admin.md) PowerShell 环境 
 3. 若要检索使用情况数据，请使用 [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet：
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
-### <a name="rest-api"></a>REST API
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+   ### <a name="rest-api"></a>REST API
 
 可以通过调用 Microsoft.Commerce.Admin 服务来收集已删除订阅的使用信息。 
 
 **若要为活动用户返回已删除的所有租户使用情况：**
 
-| **方法** | **请求 URI** |
-| --- | --- |
-| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
+
+| **方法** |                                                                                                          **请求 URI**                                                                                                          |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    GET     | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
 
 **若要返回已删除或活动租户的使用情况：**
 

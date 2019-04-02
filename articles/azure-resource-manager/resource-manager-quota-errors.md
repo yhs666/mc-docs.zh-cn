@@ -14,12 +14,12 @@ ms.topic: troubleshooting
 origin.date: 03/09/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0899cf43c908320cf76b695239820e67eabd935
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: e623871be16e32c0cdefe78fb296c0f94c588a79
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627656"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解决资源配额错误
 
@@ -120,7 +120,7 @@ Virtual Machines                             0 10000 Count
 
    ![请求增加](./media/resource-manager-quota-errors/request-increase.png)
 
-  <!--MOONCAKE CUSTOMIZE-->
+   <!--MOONCAKE CUSTOMIZE-->
 5. 在完成“常规信息”和“问题”部分后，请填写你需要增加的配额类型的表单。
 
    ![填写表单](./media/resource-manager-quota-errors/forms.png)

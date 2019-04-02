@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5ded38201a6d759be66235f19db0c76c9f202cb6
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: 33542d311a2f615125d8a3b0dc4c681d370157e7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985618"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626920"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>创建可从 Azure 逻辑应用调用的自定义 API
 
@@ -31,7 +31,7 @@ ms.locfileid: "55985618"
 * 帮助客户使用服务来管理专业或个人任务。
 * 扩展服务的市场宣传、可发现性和使用。
 
-连接器本质上是 Web API，此类 API 将 REST 用于可插入接口、将 [Swagger 元数据格式](http://swagger.io/specification/)用于文档、将 JSON 用作其数据交换格式。 因为连接器是通过 HTTP 终结点进行通信的 REST API，所以可以使用任何语言生成连接器，如 .NET、Java 或 Node.js。 此外，还可在 [Azure 应用服务](../app-service/overview.md)上托管API，前者是一款平台即服务 (PaaS) 产品，可为 API 托管提供一种最简单且可缩放性最高的最佳方法。 
+连接器本质上是 Web API，此类 API 将 REST 用于可插入接口、将 [Swagger 元数据格式](https://swagger.io/specification/)用于文档、将 JSON 用作其数据交换格式。 因为连接器是通过 HTTP 终结点进行通信的 REST API，所以可以使用任何语言生成连接器，如 .NET、Java 或 Node.js。 此外，还可在 [Azure 应用服务](../app-service/overview.md)上托管API，前者是一款平台即服务 (PaaS) 产品，可为 API 托管提供一种最简单且可缩放性最高的最佳方法。 
 
 对于要用于逻辑应用的自定义 API，API 可以提供在逻辑应用工作流中执行特定任务的[操作](./logic-apps-overview.md#logic-app-concepts)。 API 还可充当[触发器](./logic-apps-overview.md#logic-app-concepts)，在新数据或事件满足指定条件时启动逻辑应用工作流。 本主题介绍根据想要 API 提供的行为，在 API 中生成操作和触发器可以遵循的常见模式。
 

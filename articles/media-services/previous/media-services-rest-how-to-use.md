@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 01/21/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: b1649c5c980be9273fcda6a689e55cc2f8acd12d
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: d7ea42b16157ade42a7d4cd9fa1f5670068f14af
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333917"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625524"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
+# <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 **媒体服务操作 REST** API 用于在媒体服务帐户中创建作业、资产、实时频道和其他资源。 有关详细信息，请参阅 [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)（媒体服务操作 REST API 参考）。
@@ -36,7 +36,7 @@ ms.locfileid: "54333917"
 使用 REST 时需考虑下列事项：
 
 * 查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。 需要使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)。 
-* 使用 JSON 并指定在请求中使用 **__metadata** 关键字（例如，为了引用某个链接对象）时，必须将 **Accept** 标头设置为 [JSON 详细格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)（参阅以下示例）。 Odata 并不了解请求中的 __metadata 属性，除非将其设置为 verbose。  
+* 使用 JSON 并指定在请求中使用 **__metadata** 关键字（例如，为了引用某个链接对象）时，必须将 **Accept** 标头设置为 [JSON 详细格式](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)（参阅以下示例）。 Odata 并不了解请求中的 __metadata 属性，除非将其设置为 verbose。  
   
         POST https://media.chinacloudapi.cn/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/27/2017
 ms.date: 02/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5dcbbd7b3026389b268f0ff276c261fd524c0197
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 812d3ca0d24e3f07f514900bab1103f1f330676a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903103"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625233"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -183,12 +183,12 @@ StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有�
   - 使用应用程序的单个 ConnectionMultiplexer 实例。 可以使用 LazyConnection 创建 Connection 属性返回的单个实例，如[使用 ConnectionMultiplexer 类连接到缓存](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)中所示。
   - 将 `ConnectionMultiplexer.ClientName` 属性设置为应用程序实例的唯一名称以进行诊断。
   - 对自定义工作负载使用多个 `ConnectionMultiplexer` 实例。
-   - 如果应用程序中的负载不同，可以遵循此模型。 例如：
-   - 可以使用一个多路复用器来处理大键。
-   - 可以使用一个多路复用器来处理小键。
-   - 可为连接超时设置不同的值，并为使用的每个 ConnectionMultiplexer 设置重试逻辑。
-   - 在每个多路复用器上设置 `ClientName` 属性以帮助进行诊断。
-   - 该指导原则可以更好地改进每个 `ConnectionMultiplexer`的延迟。
+    - 如果应用程序中的负载不同，可以遵循此模型。 例如：
+    - 可以使用一个多路复用器来处理大键。
+    - 可以使用一个多路复用器来处理小键。
+    - 可为连接超时设置不同的值，并为使用的每个 ConnectionMultiplexer 设置重试逻辑。
+    - 在每个多路复用器上设置 `ClientName` 属性以帮助进行诊断。
+    - 该指导原则可以更好地改进每个 `ConnectionMultiplexer`的延迟。
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>可以使用哪些 Azure Redis 缓存客户端？
 Redis 的一大优势是有许多客户端，支持许多不同的开发语言。 如需最新的客户端列表，请参阅 [Redis 客户端](https://redis.io/clients)。 有关介绍多种不同语言和客户端的教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)以及它在内容列表中的同级文章。

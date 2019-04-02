@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 04/23/2018
 ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 900c5e0141e0ee1004833cb1c50eb3cc6f3a3173
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 5afe07734960911d048228f7e5952a463cee3fe9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665565"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627050"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 管理 HDInsight 群集
 
@@ -370,33 +370,33 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
     Jq 用于将从 HDInsight 中检索的数据转换成新的配置模板。 具体而言，这些示例会执行以下操作：
 
-    * 创建一个包含字符串“version”和日期并存储在 `newtag`中的唯一值。
+   * 创建一个包含字符串“version”和日期并存储在 `newtag`中的唯一值。
 
-    * 为新的所需配置创建根文档。
+   * 为新的所需配置创建根文档。
 
-    * 获取 `.items[]` 数组的内容，并将其添加在 **desired_config** 元素下。
+   * 获取 `.items[]` 数组的内容，并将其添加在 **desired_config** 元素下。
 
-    * 删除 `href`、`version` 和 `Config` 元素，因为提交新配置时不需要这些元素。
+   * 删除 `href`、`version` 和 `Config` 元素，因为提交新配置时不需要这些元素。
 
-    * 添加一个值为 `version#################` 的 `tag` 元素。 数字部分基于当前日期。 每个配置必须有唯一的标记。
+   * 添加一个值为 `version#################` 的 `tag` 元素。 数字部分基于当前日期。 每个配置必须有唯一的标记。
 
-    最后，数据将保存到 `newconfig.json` 文档。 文档结构应该类似于以下示例：
+     最后，数据将保存到 `newconfig.json` 文档。 文档结构应该类似于以下示例：
 
      ```json
-    {
-        "Clusters": {
-            "desired_config": {
-            "tag": "version1459260185774265400",
-            "type": "spark-thrift-sparkconf",
-            "properties": {
-                ....
-            },
-            "properties_attributes": {
-                ....
-            }
-        }
-    }
-    ```
+     {
+       "Clusters": {
+           "desired_config": {
+           "tag": "version1459260185774265400",
+           "type": "spark-thrift-sparkconf",
+           "properties": {
+               ....
+           },
+           "properties_attributes": {
+               ....
+           }
+       }
+     }
+     ```
 
 3. 打开 `newconfig.json` 文档并在 `properties` 对象中修改/添加值。 以下示例将 `"spark.yarn.am.memory"` 的值从 `"1g"` 更改为 `"3g"`。 它还添加了值为 `"256m"` 的 `"spark.kryoserializer.buffer.max"`。
 

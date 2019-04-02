@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/03/2018
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 80c9e511f9dd4445fe78100c9248a7ef3b1a99df
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: d2dda4963f285cf3ddd6598cc206b372dd93d718
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256358"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408291"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 
@@ -66,7 +66,7 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 
 * 主机配置文件 (host.json) 应该为空或包含字符串 `"version": "2.0"`。
 
-* 函数应用中的所有函数必须共享相同的语言。 创建函数应用时，必须选择该应用的运行时堆栈。 运行时堆栈由应用程序设置中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 值指定。 增加此项要求的目的是减少占用空间和启动时间。 进行本地开发时，还必须在 [local.settings.json 文件](functions-run-local.md#local-settings-file)中包含此设置。
+* 函数应用中的所有函数必须共享相同的语言。 创建函数应用时，必须选择该应用的运行时堆栈。 运行时堆栈由应用程序设置中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 值指定。 增加此项要求的目的是减少占用空间和启动时间。 进行本地开发时，还必须在 [local.settings.json 文件](functions-run-local.md#local-settings-file)中包含此设置。
 
 * 应用服务计划中函数的默认超时已更改为 30 分钟。 可以使用 host.json 中的 [functionTimeout](functions-host-json.md#functiontimeout) 设置，将超时手动改回到无限。
 
@@ -104,7 +104,7 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 
 ### <a name="changing-version-of-apps-in-azure"></a>在 Azure 中更改应用版本
 
-Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion) 应用程序设置指定。 值 `~2` 表示面向 2.x 版运行时，`~1` 表示面向 1.x 版运行时。 请不要随意更改此设置，因为这可能需要在函数中进行其他应用设置更改和代码更改。 若要了解将函数应用迁移到不同运行时版本的建议方法，请参阅[如何以 Azure Functions 运行时版本为目标](set-runtime-version.md)。
+Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) 应用程序设置指定。 值 `~2` 表示面向 2.x 版运行时，`~1` 表示面向 1.x 版运行时。 请不要随意更改此设置，因为这可能需要在函数中进行其他应用设置更改和代码更改。 若要了解将函数应用迁移到不同运行时版本的建议方法，请参阅[如何以 Azure Functions 运行时版本为目标](set-runtime-version.md)。
 
 ## <a name="bindings"></a>绑定
 
@@ -132,5 +132,4 @@ Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EX
 * [如何面向 Azure Functions 运行时版本](set-runtime-version.md)
 * [发行说明](https://github.com/Azure/azure-functions-host/releases)
 
-
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

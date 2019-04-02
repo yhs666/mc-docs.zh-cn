@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/11/2018
-ms.date: 01/16/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1c899e698478d4fe698d03f710a88ade504e4e59
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 9baddc2b8abbdd0d0d3719f0e3a34a55afda3538
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334201"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408271"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 单元测试
 
@@ -26,23 +26,23 @@ ms.locfileid: "54334201"
 
 学习本文中的示例需要了解以下概念和框架：
 
-- 单元测试
+* 单元测试
 
-- Durable Functions
+* Durable Functions
 
-- [xUnit](https://xunit.github.io/) - 测试框架
+* [xUnit](https://xunit.github.io/) - 测试框架
 
-- [moq](https://github.com/moq/moq4) - 模拟框架
+* [moq](https://github.com/moq/moq4) - 模拟框架
 
 ## <a name="base-classes-for-mocking"></a>用于模拟的基类
 
 通过 Durable Functions 中的三个抽象类来支持模拟：
 
-- [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
+* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
 
-- [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
+* [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
-- [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html)
+* [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html)
 
 这些类是定义业务流程客户端、业务流程协调程序和活动方法的 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)、[DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) 和 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 的基类。 模拟将会设置基类方法的预期行为，使单元测试能够验证业务逻辑。 可以通过一个两步工作流对业务流程客户端和业务流程协调程序中的业务逻辑进行单元测试：
 
@@ -426,7 +426,7 @@ namespace VSSample.Tests
 
 > [!div class="nextstepaction"]
 > [详细了解 xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
-
+> 
 > [详细了解 moq](https://github.com/Moq/moq4/wiki/Quickstart)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

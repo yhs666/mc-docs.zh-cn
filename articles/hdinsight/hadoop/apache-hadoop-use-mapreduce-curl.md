@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 02/27/2018
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6b9b05fae0d91a86080de53f48402e7b3ccc803d
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: a7bcde1e98cb8ff6e992bccd37708d26c4f09956
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348590"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626168"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>使用 REST 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业
 
@@ -109,15 +109,15 @@ ms.locfileid: "58348590"
 
     URI 的末尾 (/mapreduce/jar) 告知 WebHCat，此请求从 jar 文件中的类启动 MapReduce 作业。 此命令中使用的参数如下：
 
-    * **-d**：由于不使用 `-G`，因此请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
-    * **user.name**：正在运行命令的用户
-    * **jar**：包含要运行的类的 jar 文件所在位置
-    * **class**：包含 MapReduce 逻辑的类
-    * **arg**：要传递到 MapReduce 作业的参数。 在此示例中是用于输出的输入文本文件和目录
+   * **-d**：由于不使用 `-G`，因此请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
+   * **user.name**：正在运行命令的用户
+   * **jar**：包含要运行的类的 jar 文件所在位置
+   * **class**：包含 MapReduce 逻辑的类
+   * **arg**：要传递到 MapReduce 作业的参数。 在此示例中是用于输出的输入文本文件和目录
 
      此命令应返回可用来检查作业状态的作业 ID：
 
-       job_1415651640909_0026
+      job_1415651640909_0026
 
 5. 若要检查作业的状态，请使用以下命令：
 
@@ -142,7 +142,7 @@ ms.locfileid: "58348590"
    > [!NOTE]
    > 此 Curl 请求返回包含作业相关信息的 JSON 文档。 Jq 用于仅检索状态值。
 
-4. 在作业的状态更改为 `SUCCEEDED` 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置。 在本示例中，位置为 `/example/curl`。 此地址在群集默认存储的 `/example/curl` 中存储作业的输出。
+6. 在作业的状态更改为 `SUCCEEDED` 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置。 在本示例中，位置为 `/example/curl`。 此地址在群集默认存储的 `/example/curl` 中存储作业的输出。
 
 可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 列出并下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 与 Azure 存储配合使用](../../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
 

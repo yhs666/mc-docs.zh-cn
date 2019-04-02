@@ -16,12 +16,12 @@ origin.date: 02/14/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9b4e9a493682a53edbd743358942f2e9e137d992
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 1322efad88bfadfb2c70b4673c14f6de75a8b9b4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463528"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625705"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>将 Linux Service Fabric 群集部署到 Azure 虚拟网络
 
@@ -97,15 +97,16 @@ ms.locfileid: "57463528"
 
 [AzureDeploy.Parameters][parameters] 参数文件声明用于部署群集和关联资源的多个值。 可能需要使用某些参数来修改部署：
 
-|参数|示例值|说明|
-|---|---||
-|adminUserName|vmadmin| 群集 VM 的管理员用户名。 |
-|adminPassword|Password#1234| 群集 VM 的管理员密码。|
-|clusterName|mysfcluster123| 群集的名称。 |
-|location|chinaeast| 群集的位置。 |
-|certificateThumbprint|| <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”。 </p>|
-|certificateUrlValue|| <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如“https://mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”。</p>|
-|sourceVaultValue||<p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p>|
+
+|       参数       | 示例值  |                                                                                                                                                                          说明                                                                                                                                                                           |
+|-----------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     adminUserName     |    vmadmin     |                                                                                                                                                           群集 VM 的管理员用户名。                                                                                                                                                            |
+|     adminPassword     | Password#1234  |                                                                                                                                                           群集 VM 的管理员密码。                                                                                                                                                            |
+|      clusterName      | mysfcluster123 |                                                                                                                                                                   群集的名称。                                                                                                                                                                   |
+|       location        |   chinaeast    |                                                                                                                                                                 群集的位置。                                                                                                                                                                 |
+| certificateThumbprint |                |                                  <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到密钥保管库的现有证书，请填写证书 SHA1 指纹值。 例如“6190390162C988701DB5676EB81083EA608DCCF3”。 </p>                                   |
+|  certificateUrlValue  |                |                 <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写证书 URL。 例如“<https://mykeyvault.vault.azure.cn:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>”。</p>                 |
+|   sourceVaultValue    |                | <p>如果创建自签名证书或提供证书文件，则值应为空。</p><p>若要使用之前上传到 Key Vault 的现有证书，请填写源保管库值。 例如“/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”。</p> |
 
 <a name="createvaultandcert" name="createvaultandcert_anchor"></a>
 

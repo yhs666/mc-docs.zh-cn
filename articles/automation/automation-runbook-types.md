@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 09/11/2018
-ms.date: 03/04/2019
+origin.date: 03/05/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 54ea3004cb33652a1cc4b7579d3dc16b81696c2b
-ms.sourcegitcommit: 5876992f8ad515b53366d40234fd6ed44c48e1f5
+ms.openlocfilehash: 76b2fbc4a61e48bdc6c00d622c78b75e5e0fb0e1
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987114"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503590"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 
@@ -23,10 +23,10 @@ Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  �
 
 | 类型 | 说明 |
 |:--- |:--- |
-| [图形](#graphical-runbooks) |基于 Windows PowerShell，只能在 Azure 门户上的图形编辑器中创建和编辑。 |
-| [图形 PowerShell 工作流](#graphical-runbooks) |基于 Windows PowerShell 工作流，只能在 Azure 门户上的图形编辑器中创建和编辑。 |
+| [图形](#graphical-runbooks)|基于 Windows PowerShell，只能在 Azure 门户上的图形编辑器中创建和编辑。 |
+| [图形 PowerShell 工作流](#graphical-runbooks)|基于 Windows PowerShell 工作流，只能在 Azure 门户上的图形编辑器中创建和编辑。 |
 | [PowerShell](#powershell-runbooks) |基于 Windows PowerShell 脚本的文本 Runbook。 |
-| [PowerShell 工作流](#powershell-workflow-runbooks) |基于 Windows PowerShell 工作流的文本 Runbook。 |
+| [PowerShell 工作流](#powershell-workflow-runbooks)|基于 Windows PowerShell 工作流的文本 Runbook。 |
 | [Python](#python-runbooks) |基于 Python 的文本 Runbook。 |
 
 ## <a name="graphical-runbooks"></a>图形 Runbook

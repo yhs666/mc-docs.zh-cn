@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 origin.date: 06/15/2018
 ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6dac1f1eeb7069ed5f15fc40f084da1764ec7cda
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: be7c4b0da8186773930e0a074600828650adca44
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660925"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625904"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>对在 Azure 中部署云服务时的分配失败进行故障排除
 
@@ -77,13 +77,13 @@ Azure 数据中心的服务器分区成群集。 会在多个群集中尝试新�
 
 3. 保留 IP - 此解决方案将保留现有 IP 地址，但会导致应用程序停机。  
 
-    - 请使用 Powershell 为现有部署创建 ReservedIP 
+   - 请使用 Powershell 为现有部署创建 ReservedIP 
 
-    ```
-    New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
-    ```
+     ```
+     New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
+     ```
 
-    - 按照上面的第 2 种方法进行操作，确保在服务的 CSCFG 中指定新的 ReservedIP。
+   - 按照上面的第 2 种方法进行操作，确保在服务的 CSCFG 中指定新的 ReservedIP。
 
 4. 删除新部署的地缘组 - 不再建议使用地缘组。 按照上面第 1 种方法的步骤部署新的云服务。 确保云服务不在地缘组中。 
 

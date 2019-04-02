@@ -14,12 +14,12 @@ origin.date: 10/10/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: b6fe11c5fa0c05aabbd6dd5e44a376d5891fbf5f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: caddd242aaa481a6e3e68851188535fee507203f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656881"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625573"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -66,25 +66,25 @@ grant_type=password
 
 对于每个值：
 
- - **grant_type**  
-    要使用的身份验证方案类型。 在此示例中，值为 `password`
+- **grant_type**  
+   要使用的身份验证方案类型。 在此示例中，值为 `password`
 
- - **resource**  
-    令牌访问的资源。 可以通过查询 Azure Stack 管理元数据终结点找到该资源。 请查看 **audiences** 部分
+- **resource**  
+   令牌访问的资源。 可以通过查询 Azure Stack 管理元数据终结点找到该资源。 请查看 **audiences** 部分
 
- - **Azure Stack 管理终结点**  
-    ```
-    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-    ```
+- **Azure Stack 管理终结点**  
+   ```
+   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   ```
 
   > [!NOTE]  
   > 如果你是尝试访问租户 API 的管理员，请务必使用租户终结点，例如：`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   例如，使用 Azure Stack 开发工具包作为终结点：
 
-    ```bash
-    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-    ```
+   ```bash
+   curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+   ```
 
   响应：
 
@@ -94,9 +94,9 @@ grant_type=password
   "graphEndpoint":"https://graph.chinacloudapi.cn/",
   "portalEndpoint":"https://adminportal.local.azurestack.external/",
   "authentication":{
-      "loginEndpoint":"https://login.chinacloudapi.cn/",
-      "audiences":["https://contoso.partner.onmschina.cn/4de154de-f8a8-4017-af41-df619da68155"]
-      }
+     "loginEndpoint":"https://login.chinacloudapi.cn/",
+     "audiences":["https://contoso.partner.onmschina.cn/4de154de-f8a8-4017-af41-df619da68155"]
+     }
   }
   ```
 

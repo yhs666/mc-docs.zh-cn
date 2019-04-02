@@ -5,21 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: WenJason
 manager: digimobile
-ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+ms.topic: conceptual
+origin.date: 1/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: d1a44b43e906ca6ab72cf45d845b4abd00856c5b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 1/18/2019
+ms.openlocfilehash: 724cb74cfd72c282d5807e075f70350a203ce20c
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648680"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503525"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的存储帐户
 存储帐户包含 Blob 和表服务，以及存储数据对象的唯一命名空间。 默认情况下，只有你，即存储帐户所有者，才能使用帐户中的数据。
@@ -39,6 +39,6 @@ ms.locfileid: "52648680"
 
 [了解 Azure 存储帐户](../storage/common/storage-create-storage-account.md)
 
-[下载与 Azure 一致的 Azure Stack 存储验证指南](http://aka.ms/azurestacktp1doc)
+[下载与 Azure 一致的 Azure Stack 存储验证指南](https://aka.ms/azurestacktp1doc)
 
 <!-- Update_Description: wording update -->

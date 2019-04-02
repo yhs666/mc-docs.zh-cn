@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 07/25/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 219ca796d5c3a8516f3caed3e9633790792d63fa
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: af93196adfc79589ddcfb2db80826d058cf947a3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306724"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625299"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理器的工作原理
 
@@ -43,8 +43,8 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 
 1. 部署其服务的三个实例。 这些部署的 DNS 名称为“contoso-east.chinacloudapp.cn”、“contoso-north.chinacloudapp.cn”和“contoso-east2.chinacloudapp.cn”。
 2. 创建一个名为“contoso.trafficmanager.cn”的流量管理器配置文件，并将该文件配置为对三个终结点使用“性能”流量路由方法。
-* 使用 DNS CNAME 记录将其虚构域名“partners.contoso.com”配置为指向“contoso.trafficmanager.cn”。
-<!--Notice: us map east, eu map north, asia map east2 -->
+3. 使用 DNS CNAME 记录将其虚构域名“partners.contoso.com”配置为指向“contoso.trafficmanager.cn”。
+   <!--Notice: us map east, eu map north, asia map east2 -->
 
 ![流量管理器 DNS 配置][1]
 

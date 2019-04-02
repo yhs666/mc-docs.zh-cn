@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 10/15/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 35037275612c834f303c96678ffb3b446acfa81d
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 41048b763e4b33957c9956cd13ac6d7d4848b3b6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676967"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626502"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 上的 Windows 重启循环
 本文介绍在 Azure 中的 Windows 虚拟机 (VM) 上可能遇到的重启循环。
@@ -84,9 +84,9 @@ ms.locfileid: "52676967"
 
 12. 如果存在以下键，并且其值为 2 或 3，则将这些值相应地改为 1：
 
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
 13. 选择 BROKENSYSTEM 键，然后选择菜单中的“文件” > “加载配置单元”。
 

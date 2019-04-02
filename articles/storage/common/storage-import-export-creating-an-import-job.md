@@ -9,28 +9,28 @@ origin.date: 01/23/2017
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 32df8509a39facd6293f19c7ee09087245a4fdc3
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 3650beb1bbfa9ff073d782148dff2f1b8414ceba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253910"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626549"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导入作业
 
 使用 REST API 为 Azure 导入/导出服务创建导入作业的过程包括以下步骤：
 
--   使用 Azure 导入/导出工具准备驱动器。
+- 使用 Azure 导入/导出工具准备驱动器。
 
--   获取驱动器的寄送目的地位置。
+- 获取驱动器的寄送目的地位置。
 
--   创建导入作业。
+- 创建导入作业。
 
--   通过支持的承运人服务将驱动器寄送到 21 Vanet。
+- 通过支持的承运人服务将驱动器寄送到 21 Vanet。
 
--   使用寄送详细信息更新导入作业。
+- 使用寄送详细信息更新导入作业。
 
- 有关导入/导出服务的概述以及演示如何使用 [Azure 门户](https://portal.azure.cn/)创建和管理导入和导出作业的教程，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储](storage-import-export-service.md)。
+  有关导入/导出服务的概述以及演示如何使用 [Azure 门户](https://portal.azure.cn/)创建和管理导入和导出作业的教程，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储](storage-import-export-service.md)。
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>使用 Azure 导入/导出工具准备驱动器
 
@@ -40,21 +40,21 @@ ms.locfileid: "58253910"
 
 准备驱动器的过程包括以下步骤：
 
--   确定要导入的数据。
+- 确定要导入的数据。
 
--   在 Microsoft Azure 存储中确定目标 Blob。
+- 在 Microsoft Azure 存储中确定目标 Blob。
 
--   使用 Azure 导入/导出工具将数据复制到一个或多个硬盘驱动器。
+- 使用 Azure 导入/导出工具将数据复制到一个或多个硬盘驱动器。
 
- Azure 导入/导出工具还会在准备每个驱动器时为其生成清单文件。 清单文件中包含：
+  Azure 导入/导出工具还会在准备每个驱动器时为其生成清单文件。 清单文件中包含：
 
--   所有要上传的文件的枚举，以及从这些文件到 Blob 的映射。
+- 所有要上传的文件的枚举，以及从这些文件到 Blob 的映射。
 
--   每个文件的段校验和。
+- 每个文件的段校验和。
 
--   有关要与每个 Blob 关联的元数据和属性的信息。
+- 有关要与每个 Blob 关联的元数据和属性的信息。
 
--   当要上传的 Blob 名称与容器中现有 Blob 的名称相同时所要执行的操作列表。 可能的选项包括：a) 使用文件覆盖 Blob，b) 保留现有 Blob 并跳过上传文件，c) 向名称追加后缀，使之不与其他文件冲突。
+- 当要上传的 Blob 名称与容器中现有 Blob 的名称相同时所要执行的操作列表。 可能的选项包括：a) 使用文件覆盖 Blob，b) 保留现有 Blob 并跳过上传文件，c) 向名称追加后缀，使之不与其他文件冲突。
 
 ## <a name="obtaining-your-shipping-location"></a>获取寄送位置
 

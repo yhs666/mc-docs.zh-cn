@@ -18,12 +18,12 @@ ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d510ed5088cc55a4cb460e69f8bb1bbc10a1b46c
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 72fc7387d760c67c6b331e450e25b9925c3e809d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996404"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627386"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>代理流中使用委托用户标识的服务到服务调用
 
@@ -56,19 +56,19 @@ OAuth 2.0 代理 (OBO) 流使调用服务或 Web API 的应用程序能够将用
 ### <a name="register-the-middle-tier-service"></a>注册中间层服务
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 在顶部栏中选择帐户，并在“目录”列表下为应用程序选择 Active Directory 租户。
-1. 在左窗格中，选择“更多服务”，然后选择“Azure Active Directory”。
-1. 依次选择“应用注册”和“新建应用程序注册”。
-1. 输入应用程序的友好名称，并选择应用程序类型。
+2. 在顶部栏中选择帐户，并在“目录”列表下为应用程序选择 Active Directory 租户。
+3. 在左窗格中，选择“更多服务”，然后选择“Azure Active Directory”。
+4. 依次选择“应用注册”和“新建应用程序注册”。
+5. 输入应用程序的友好名称，并选择应用程序类型。
     1. 根据应用程序类型，将登录 URL 或重定向 URL 设置为基 URL。
     1. 选择“创建”以创建应用程序。
-1. 在退出 Azure 门户之前生成客户端密码。
-    1. 在 Azure 门户中，选择应用程序，然后选择“设置”。
-    1. 在“设置”菜单中选择“密钥”，然后添加密钥持续时间为一年或两年的密钥。
-    1. 保存此页面时，Azure 门户将显示密钥值。 将密钥值复制并保存在安全的位置。
+6. 在退出 Azure 门户之前生成客户端密码。
+   1. 在 Azure 门户中，选择应用程序，然后选择“设置”。
+   2. 在“设置”菜单中选择“密钥”，然后添加密钥持续时间为一年或两年的密钥。
+   3. 保存此页面时，Azure 门户将显示密钥值。 将密钥值复制并保存在安全的位置。
 
-    > [!IMPORTANT]
-    > 在实现中配置应用程序设置时需要此秘钥。 此密钥值不会重新显示，也无法通过任何其他方式检索。 因此，当它在 Azure 门户中可见时请立即记录。
+      > [!IMPORTANT]
+      > 在实现中配置应用程序设置时需要此秘钥。 此密钥值不会重新显示，也无法通过任何其他方式检索。 因此，当它在 Azure 门户中可见时请立即记录。
 
 ### <a name="register-the-client-application"></a>注册客户端应用程序
 

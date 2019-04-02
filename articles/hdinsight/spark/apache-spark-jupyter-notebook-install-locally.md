@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7c8414259730a25804225ce11b284a64a8d56c8d
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 44a958a8eddfc3d6999afa603656bbc9936fe600
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626721"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -98,20 +98,20 @@ ms.locfileid: "53806514"
 
 5. 在 `config.json`中配置相应的检测信号设置。 应在与之前添加的 `kernel_python_credentials` 和 `kernel_scala_credentials` 代码片段相同的级别添加这些设置。 有关如何以及在何处添加检测信号设置的示例，请参阅 [示例 config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)。
 
-    * 对于 `sparkmagic 0.2.3`（群集 v3.4），包括：
+   * 对于 `sparkmagic 0.2.3`（群集 v3.4），包括：
 
-            "should_heartbeat": true,
-            "heartbeat_refresh_seconds": 5,
-            "heartbeat_retry_seconds": 1
+           "should_heartbeat": true,
+           "heartbeat_refresh_seconds": 5,
+           "heartbeat_retry_seconds": 1
 
-    * 对于 `sparkmagic 0.11.2`（群集 v3.5 和 v3.6），包括：
+   * 对于 `sparkmagic 0.11.2`（群集 v3.5 和 v3.6），包括：
 
-            "heartbeat_refresh_seconds": 5,
-            "livy_server_heartbeat_timeout_seconds": 60,
-            "heartbeat_retry_seconds": 1
+           "heartbeat_refresh_seconds": 5,
+           "livy_server_heartbeat_timeout_seconds": 60,
+           "heartbeat_retry_seconds": 1
 
-    >[!TIP]
-    >发送检测信号，以确保会话不会泄漏。 当计算机转到睡眠或关闭状态时，将不会发送检测信号，从而导致会话被清除。 对于群集 v3.4，如果要禁用此行为，可以从 Ambari UI 将 Livy 配置 `livy.server.interactive.heartbeat.timeout` 设置为 `0`。 对于群集 v3.5，如果未设置上述 3.5 配置，会话将不会删除。
+     >[!TIP]
+     >发送检测信号，以确保会话不会泄漏。 当计算机转到睡眠或关闭状态时，将不会发送检测信号，从而导致会话被清除。 对于群集 v3.4，如果要禁用此行为，可以从 Ambari UI 将 Livy 配置 `livy.server.interactive.heartbeat.timeout` 设置为 `0`。 对于群集 v3.5，如果未设置上述 3.5 配置，会话将不会删除。
 
 6. 启动 Jupyter。 从命令提示符使用以下命令。
 

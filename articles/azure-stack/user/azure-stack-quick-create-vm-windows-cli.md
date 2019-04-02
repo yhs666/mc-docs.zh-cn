@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 01/14/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 14569bedbdd554168163a98eb7e1c0b82cf51c22
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 5e31d8f874f6535718d48881952fdc6cab149b85
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905414"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503530"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
 
@@ -43,8 +43,8 @@ ms.locfileid: "56905414"
 
 资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 从 Azure Stack 环境中，运行 [az group create](/cli/group#az-group-create) 命令来创建资源组。
 
->[!NOTE]
- 代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
+> [!NOTE]
+>  代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
 
 以下示例在本地位置创建名为 myResourceGroup 的资源组。
 

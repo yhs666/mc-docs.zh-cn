@@ -8,12 +8,12 @@ ms.topic: quickstart
 origin.date: 01/08/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2670662743f406f37ccd6bb80397b089d4fd4bac
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 57e1bbc9447b0b9afdcd4cee3b287af70c3a055f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988662"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625537"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入门：使用 Gremlin 控制台创建、查询和遍历 Azure Cosmos DB 图形数据库
@@ -122,14 +122,12 @@ g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen'
 
 ```
 g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
-
 ```
 
 输出：
 
 ```
 ==>[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e,label:person,type:vertex,properties:[firstName:[[id:ea0604f8-14ee-4513-a48a-1734a1f28dc0,value:Mary Kay]],lastName:[[id:86d3bba5-fd60-4856-9396-c195ef7d7f4b,value:Andersen]],age:[[id:bc81b78d-30c4-4e03-8f40-50f72eb5f6da,value:39]],userid:[[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e|userid,value:2]]]]
-
 ```
 
 输入 (Robin)：
@@ -148,7 +146,6 @@ g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield'
 
 ```
 g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
-
 ```
 
 输出：

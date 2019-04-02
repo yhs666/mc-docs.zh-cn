@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 24c070096bca8a326df14bd5df1939d069aecdf7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: b35a3d3373d8ce799bb015c818478c1bb8e87e17
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964466"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505399"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>快速入门：使用 Go 通过文本翻译 API 对文本进行直译
 
@@ -61,7 +61,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -172,7 +172,7 @@ go run transliterate-text.go
 [
   {
     "script": "latn",
-    "text": "konnnichiha"
+    "text": "konnichiwa"
   }
 ]
 ```
@@ -194,3 +194,4 @@ go run transliterate-text.go
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 
+<!-- Update_Description: wording update -->

@@ -11,17 +11,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 09/28/2018
-ms.date: 11/12/2018
+ms.topic: conceptual
+origin.date: 01/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 1f29d5d6ab8683b7456dd7a2af8e0159540ca0b9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.reviewer: thoroet
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: a3dcfc09aec67234335094f79701585d2c906ccd
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652096"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503653"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的物理内存容量
 
@@ -34,16 +35,16 @@ ms.locfileid: "52652096"
 
 以下流程图显示将内存添加到每个缩放单元节点的一般过程。
 
-![将内存添加到每个缩放单元节点](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![将内存添加到每个缩放单元节点](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>将内存添加到现有节点
 以下步骤提供添加内存过程的高级概述。 
 
-> [!Warning]  
-请勿在未参考 OEM 提供的文档的情况下按照这些步骤操作。
-
-> [!Warning]  
-由于不支持滚动内存升级，因此必须关闭整个缩放单元。
+> [!Warning]
+> 请勿在未参考 OEM 提供的文档的情况下按照这些步骤操作。
+> 
+> [!Warning]
+> 由于不支持滚动内存升级，因此必须关闭整个缩放单元。
 
 1. 按照[启动和停止 Azure Stack](azure-stack-start-and-stop.md) 一文中所述的步骤，停止 Azure Stack。
 2. 使用硬件制造商的文档升级每台物理计算机上的内存。

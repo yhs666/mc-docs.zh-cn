@@ -17,12 +17,12 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 20f5449a8d67de3b681af41df3e2570d3a8fab56
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: bd13ca88a31a3e042c6dab20805868bfe479154b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029241"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625332"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>使用 Power Query 将 Excel 连接到 Apache Hadoop
 Microsoft 大数据解决方案的一个关键功能是，将 Microsoft 商业智能 (BI) 组件与 Azure HDInsight 中的 Apache Hadoop 群集相集成。 一个主要示例是能够使用 Microsoft Power Query for Excel 外接程序将 Excel 连接到包含与 Hadoop 群集关联的数据的 Azure 存储帐户。 本文将逐步说明如何设置和使用 Power Query 来查询与 HDInsight 管理的 Hadoop 群集关联的数据。
@@ -48,21 +48,21 @@ Power Query 可以导入已输出的数据，或者导入已由在 HDInsight 群
 2. 创建一个新的空白工作簿。
 3. 基于 Excel 版本，执行以下步骤：
 
-    - Excel 2016
+   - Excel 2016
 
-        - 单击“数据”菜单，单击“获取并转换数据”功能区上的“获取数据”，单击“从 Azure”，然后单击“从 Azure HDInsight (HDFS)”。
+     - 单击“数据”菜单，单击“获取并转换数据”功能区上的“获取数据”，单击“从 Azure”，然后单击“从 Azure HDInsight (HDFS)”。
 
-        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
-    - Excel 2013/2010
+   - Excel 2013/2010
 
-        - 依次单击“Power Query”菜单、“来自 Azure”和“来自 Microsoft Azure HDInsight”。
+     - 依次单击“Power Query”菜单、“来自 Azure”和“来自 Microsoft Azure HDInsight”。
 
-        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+       ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-        **注意：** 如果未看到“Power Query”菜单，请转到“文件” > “选项” > “加载项”，从页面底部的下拉“管理”框中选择“COM 加载项”。  。
+       **注意：** 如果未看到“Power Query”菜单，请转到“文件” > “选项” > “加载项”，从页面底部的下拉“管理”框中选择“COM 加载项”。  。
 
-        **注意：** Power Query 还允许通过单击“来自其他源”从 HDFS 中导入数据。
+       **注意：** Power Query 还允许通过单击“来自其他源”从 HDFS 中导入数据。
 4. 对于“帐户名称”，请输入与群集相关联的 Azure Blob 存储帐户名称，然后单击“确定”。 （对于 Azure 中国，**帐户名称**必须是完整的 URL，如： https://\<你的帐户名称\>.blob.core.chinacloudapi.cn/）[此帐户可以是默认存储帐户](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)，也可以是关联的存储帐户。 格式是 https://&lt;StorageAccountName\>.blob.core.chinacloudapi.cn/。
 5. 对于“帐户密钥”，请输入 Blob 存储帐户的密钥，然后单击“保存”。 （只需要在首次访问此存储时输入帐户信息。）
 6. 在“查询编辑器”左侧的“导航器”窗格中，双击 Blob 存储容器名称  。 默认情况下，该容器名称与群集名称相同。

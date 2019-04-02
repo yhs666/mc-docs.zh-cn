@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 门户分析媒体 | Microsoft Docs
-description: 本主题讨论如何使用 Azure 门户通过媒体分析媒体处理器 (MP) 处理媒体。
+description: 本主题讨论如何通过 Azure 门户使用媒体分析媒体处理器 (MP) 处理媒体。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-haiqya
-ms.openlocfilehash: 135de426fd55c23904248f9178fe61fa70e60ff6
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: e188de704230ee59f1ffacf892519fbd2de01e7a
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833363"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624146"
 ---
-# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>使用 Azure 门户分析媒体（旧版）
+# <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体 
 > [!NOTE]
 > 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 > 

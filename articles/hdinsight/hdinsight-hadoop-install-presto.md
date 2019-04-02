@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/01/2019
 ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 63cdfecc6a16adc12cb24fdd43d82d29d48020b3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: decd67e425f0faa8b1b299a16255ece7de4863d0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665689"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625713"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>在基于 Hadoop 的 HDInsight 群集上安装并使用 Presto
 
@@ -48,11 +48,11 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 
 1. 执行[使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤，开始预配群集。 请确保使用**自定义**群集创建流创建群集。 群集必须满足以下要求：
 
-    * 它必须是装有 HDInsight 3.6 版的 Hadoop 群集。
+   * 它必须是装有 HDInsight 3.6 版的 Hadoop 群集。
 
-    * 它必须使用 Azure 存储作为数据存储。 目前尚不支持在使用 Azure Data Lake Storage 作为存储选项的群集上使用 Presto。
+   * 它必须使用 Azure 存储作为数据存储。 目前尚不支持在使用 Azure Data Lake Storage 作为存储选项的群集上使用 Presto。
 
-    ![HDInsight、自定义（大小、设置、应用）](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight、自定义（大小、设置、应用）](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. 在“高级设置”区域中，选择“脚本操作”。 提供以下信息。 对于脚本类型，还可以选择“安装 Presto”选项：
    

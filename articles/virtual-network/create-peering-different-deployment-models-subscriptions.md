@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 09/15/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b3cbc397d730b21713b1e6c5755b7364fe3a6a93
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 9e31520ba45e36c6e7e0d345f933c2f9fecbca5d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306121"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625441"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>创建虚拟网络对等互连 - 不同的部署模型和不同的订阅
 
@@ -62,7 +62,7 @@ ms.locfileid: "56306121"
 10. 以 UserA 的身份注销门户，然后以 UserB 的身份登录。
 11. 单击“+ 新建”，在“在市场中搜索”框中键入“虚拟网络”，然后在搜索结果中单击“虚拟网络”。
 12. 在显示的“虚拟网络”边栏选项卡中，在“选择部署模型”框中选择“经典”，单击“创建”。
-13.   在显示的“创建虚拟网络(经典)”边栏选项卡中，输入以下值：
+13. 在显示的“创建虚拟网络(经典)”边栏选项卡中，输入以下值：
 
     - **名称**：*myVnetB*
     - **地址空间**：*10.1.0.0/16*

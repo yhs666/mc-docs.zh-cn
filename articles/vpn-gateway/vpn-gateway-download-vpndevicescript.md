@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/09/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 5adfbb8ff852edb249287579331023721d4ff8ae
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 6e800c62812b9133e88096bbcfb2140e972c56d4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833195"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626588"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下载用于 S2S VPN 连接的 VPN 设备配置脚本
 
@@ -86,21 +86,20 @@ ms.locfileid: "56833195"
 $RG          = "TestRG1"
 $GWName      = "VNet1GW"
 $Connection  = "VNet1toSite1"
-```
 
-# <a name="list-the-available-vpn-device-models-and-versions"></a>列出可用的 VPN 设备型号和版本
+# List the available VPN device models and versions
 Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
-# <a name="download-the-configuration-script-for-the-connection"></a>下载适用于连接的配置脚本
+# Download the configuration script for the connection
 Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
-## Apply the configuration script to your VPN device
+## <a name="apply-the-configuration-script-to-your-vpn-device"></a>将配置脚本应用到 VPN 设备
 
-After you have downloaded and validated the configuration script, the next step is to apply the script to your VPN device. The actual procedure varies based on your VPN device makes and models. Consult the operation manuals or the instruction pages for your VPN devices.
+下载并验证配置脚本后，下一步是将脚本应用到 VPN 设备。 实际过程根据 VPN 设备的品牌和型号而有所不同。 请查阅 VPN 设备的操作手册或说明书。
 
-## Next steps
+## <a name="next-steps"></a>后续步骤
 
-Continue configuring your [Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+继续配置[站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
 <!-- Update_Description: wording update -->

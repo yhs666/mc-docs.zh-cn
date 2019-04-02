@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 2/20/2019
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 55aca8fb0bd6aa1212a72b6e4643a072b2a8b436
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: ce716212eee07b013cef5df4234c7e6ac1a07cc2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348259"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626673"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>快速入门：在 iOS 上使用语音 SDK 通过 Objective-C 识别语音
 
@@ -285,8 +285,8 @@ ms.locfileid: "58348259"
 @end
 ```
 1. 将字符串 `YourSubscriptionKey` 替换为你的订阅密钥。
-1. 将字符串 `YourServiceRegion` 替换为与订阅关联的[区域](regions.md)。
-1. 添加进行麦克风访问的请求。 右键单击项目树的 `Info.plist` 条目，然后选择“打开为...” > “源代码”。 将以下代码行添加到 `<dict>` 节，然后保存文件。
+2. 将字符串 `YourServiceRegion` 替换为与订阅关联的[区域](regions.md)。
+3. 添加进行麦克风访问的请求。 右键单击项目树的 `Info.plist` 条目，然后选择“打开为...” > “源代码”。 将以下代码行添加到 `<dict>` 节，然后保存文件。
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -295,14 +295,14 @@ ms.locfileid: "58348259"
 ## <a name="building-and-running-the-sample"></a>生成并运行示例
 
 1. 使调试输出可见（“视图” > “调试区域” > “激活控制台”）。
-1. 从“产品” -> “目标”菜单中的列表中，选择 iOS 模拟器或连接到开发计算机的 iOS 设备作为应用的目标位置。
-1. 在 iOS 模拟器中生成并运行示例代码，方法是在菜单中选择“产品” -> “运行”，或者单击“播放”按钮。
-目前，语音 SDK 仅支持 64 位 iOS 平台。
-1. 单击应用中的“识别(文件)”按钮以后，应看到音频文件的内容“天气怎么样?” 显示在屏幕下部。
+2. 从“产品” -> “目标”菜单中的列表中，选择 iOS 模拟器或连接到开发计算机的 iOS 设备作为应用的目标位置。
+3. 在 iOS 模拟器中生成并运行示例代码，方法是在菜单中选择“产品” -> “运行”，或者单击“播放”按钮。
+   目前，语音 SDK 仅支持 64 位 iOS 平台。
+4. 单击应用中的“识别(文件)”按钮以后，应看到音频文件的内容“天气怎么样?” 显示在屏幕下部。
 
- ![模拟的 iOS 应用](media/sdk/qs-objectivec-simulated-app.png)
+   ![模拟的 iOS 应用](media/sdk/qs-objectivec-simulated-app.png)
 
-1. 单击应用中的“识别(麦克风)”按钮并讲几句话后，应在屏幕下方看到所述文本。
+5. 单击应用中的“识别(麦克风)”按钮并讲几句话后，应在屏幕下方看到所述文本。
 
 ## <a name="next-steps"></a>后续步骤
 

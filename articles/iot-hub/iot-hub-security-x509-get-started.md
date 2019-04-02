@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 10/10/2017
 ms.date: 03/04/2019
 ms.author: yiso
-ms.openlocfilehash: f692d6f836e203807d01ad4880be4746beb17aa6
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 35f84769b24d926d43991c70f36540f4090e2e7b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665645"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626220"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
@@ -68,7 +68,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 10. 成功上传证书后，单击“验证”。 在“证书”边栏选项卡中，证书的“状态”会更改为“已验证”。 如果状态未自动更新，请单击“刷新”。
 
-   ![上传证书验证](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![上传证书验证](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

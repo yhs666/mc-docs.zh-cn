@@ -9,12 +9,12 @@ origin.date: 01/09/2019
 ms.date: 01/28/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d5628e5ec626c7b478cbb66e00581ce06e79559
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 816c8005823699a807032cd1512effd4f925f1a0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085633"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626939"
 ---
 # <a name="deploy"></a>部署
 
@@ -50,15 +50,15 @@ ms.locfileid: "55085633"
 
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>部署“Adventure Works Internet 销售”
 
-1.  在“解决方案资源管理器”中，右键单击“AW Internet 销售”项目，并单击“生成”。  
+1. 在“解决方案资源管理器”中，右键单击“AW Internet 销售”项目，并单击“生成”。  
 
-2.  右键单击“AW Internet 销售”项目，并单击“部署”。
+2. 右键单击“AW Internet 销售”项目，并单击“部署”。
 
-    部署到 Azure Analysis Services 时，可能会提示输入帐户。 输入组织帐户和密码，例如 nancy@adventureworks.com。 此帐户必须位于服务器上的管理员组中。
+   部署到 Azure Analysis Services 时，可能会提示输入帐户。 输入组织帐户和密码，例如 nancy@adventureworks.com。 此帐户必须位于服务器上的管理员组中。
 
-    “部署”对话框会出现，其中显示了模型中包括的元数据和每个表的部署状态。  
+   “部署”对话框会出现，其中显示了模型中包括的元数据和每个表的部署状态。  
 
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
 
 3. 当部署成功完成时，继续操作并单击“关闭”。  
 

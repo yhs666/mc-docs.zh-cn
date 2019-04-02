@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 11/06/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: d1de6ecb8e2fde5c571a4f1ca1d0a3c13d404be6
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 99019b80c2a3af1c74c75eece3a2ad8f7930d59f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988008"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625603"
 ---
 # <a name="create-an-azure-cosmos-container"></a>创建 Azure Cosmos 容器
 
@@ -27,9 +27,9 @@ ms.locfileid: "56988008"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. [创建新的 Azure Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
+2. [创建新的 Azure Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
 
-1. 打开“数据资源管理器”窗格，然后选择“新建集合”。 接下来，请提供以下详细信息：
+3. 打开“数据资源管理器”窗格，然后选择“新建集合”。 接下来，请提供以下详细信息：
 
    * 表明要创建新数据库还是使用现有数据库。
    * 输入集合 ID。
@@ -37,25 +37,25 @@ ms.locfileid: "56988008"
    * 输入吞吐量（例如 1000 RU）。
    * 选择“确定” 。
 
-    ![“数据资源管理器”窗格的屏幕截图，突出显示“新建集合”](./media/how-to-create-container/partitioned-collection-create-sql.png)
+     ![“数据资源管理器”窗格的屏幕截图，突出显示“新建集合”](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 <a name="portal-mongodb"></a>
 ### <a name="azure-cosmos-db-api-for-mongodb"></a>用于 MongoDB 的 Azure Cosmos DB API
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. [创建新的 Azure Cosmos DB 帐户](create-mongodb-dotnet.md#create-a-database-account)或选择现有的帐户。
+2. [创建新的 Azure Cosmos DB 帐户](create-mongodb-dotnet.md#create-a-database-account)或选择现有的帐户。
 
-1. 打开“数据资源管理器”窗格，然后选择“新建集合”。 接下来，请提供以下详细信息：
+3. 打开“数据资源管理器”窗格，然后选择“新建集合”。 接下来，请提供以下详细信息：
 
-    * 表明要创建新数据库还是使用现有数据库。
-    * 输入集合 ID。
-    * 对于“无限制”存储容量。
-    * 输入分片键。
-    * 输入吞吐量（例如 1000 RU）。
-    * 选择“确定” 。
+   * 表明要创建新数据库还是使用现有数据库。
+   * 输入集合 ID。
+   * 对于“无限制”存储容量。
+   * 输入分片键。
+   * 输入吞吐量（例如 1000 RU）。
+   * 选择“确定” 。
 
-    ![用于 MongoDB 的 Azure Cosmos DB API 的屏幕截图，突出显示“添加集合”对话框](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+     ![用于 MongoDB 的 Azure Cosmos DB API 的屏幕截图，突出显示“添加集合”对话框](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 <a name="portal-cassandra"></a>
 <!-- Not Available on ### Cassandra API-->
@@ -133,7 +133,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-MongoDB 网络协议不需请求单位。 若要创建新的包含吞吐量的集合，请使用 Azure 门户或 SQL API。
+> MongoDB 网络协议不需请求单位。 若要创建新的包含吞吐量的集合，请使用 Azure 门户或 SQL API。
 
 <a name="dotnet-cassandra"></a>
 <!-- Not Available on ### Cassandra API-->

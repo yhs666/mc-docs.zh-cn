@@ -12,12 +12,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 7ae66772c98cc19e5427562d7c9a6d56c838a049
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 040b57e430cd423e7029bd41d907b8966e6c02c3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987984"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626440"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -128,28 +128,28 @@ if($s)
 - 转储文件日志收集默认情况下处于禁用状态。 若要启用它，请使用 **IncludeDumpFile** 开关参数。 
 - 目前，可以使用 **FilterByRole** 参数按以下角色筛选日志收集：
 
- |   |   |   |    |
- | - | - | - | -  |   
- |ACS                   |CacheService                   |IBC                            |OEM|
- |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP|
- |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
- |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
- |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
- |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
- |ACSMonitoringService  |域                         |KeyVaultInternalDataPlane      |SeedRingServices|
- |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
- |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
- |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
- |ACSWac                |ExternalDNS                    |MetricsRP                      |存储|
- |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
- |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
- |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
- |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
- |AzureMonitor          |网关                        |NC                             |WAS|
- |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
- |BRP                   |HintingServiceV2               |NRP                            |   |
- |CA                    |HRP                            |OboService                     |   |
- |   |   |   |    |
+  |   |   |   |    |
+  | - | - | - | -  |   
+  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+  |ACSMonitoringService  |域                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |存储|
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+  |AzureMonitor          |网关                        |NC                             |WAS|
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
+  |BRP                   |HintingServiceV2               |NRP                            |   |
+  |CA                    |HRP                            |OboService                     |   |
+  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>其他注意事项
 

@@ -8,14 +8,13 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 01/11/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 5bcabd5028b234f073babeabdf7100a5638084e2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/07/2018
+ms.openlocfilehash: 99a6aa4fcdba4d05ce301dfaee84f3872970a62b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674954"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625150"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>轮转流分析作业的输入和输出的登录凭据
 
@@ -28,20 +27,20 @@ ms.locfileid: "52674954"
 ### <a name="blob-storagetable-storage"></a>Blob 存储/表存储
 1. 登录 Azure 门户，浏览用作流分析作业输入/输出的存储帐户。    
 2. 从设置部分打开“访问密钥”。 在两个默认密钥（key1、key2）中选择作业不使用的那个密钥，并重新生成该密钥：  
-    ![重新生成存储帐户的密钥](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+   ![重新生成存储帐户的密钥](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. 复制新生成的密钥。    
 4. 从 Azure 门户中，浏览流分析作业>选择“停止”并等待作业停止。    
 5. 找到要更新凭据的 Blob/表存储输入/输出。    
 6. 找到“存储帐户密钥”字段，在其中粘贴新生成的密钥，然后单击“保存”。    
 7. 保存更改后将自动开始进行连接测试，可在通知选项卡上查看。有两种通知：一种对应于保存更新，另一种对应于测试连接：  
     ![编辑密钥后的通知](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. 进行至 [从上次停止的时间启动作业] (#start-your-job-from-the-last-stopped-time) 部分。
+8. 进行至[从上次停止的时间启动作业](#start-your-job-from-the-last-stopped-time)部分。
 
 ### <a name="event-hubs"></a>事件中心
 
 1. 登录 Azure 门户，浏览用作流分析作业输入/输出的事件中心。    
 2. 从设置部分中，打开“共享的访问策略”，并选择所需访问策略。 在“主密钥”和“辅助密钥”中，选择作业不使用的那个密钥，并重新生成该密钥：  
-    ![重新生成事件中心的密钥](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+   ![重新生成事件中心的密钥](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. 复制新生成的密钥。    
 4. 从 Azure 门户中，浏览流分析作业>选择“停止”并等待作业停止。    
 5. 找到需要更新凭据的事件中心输入/输出。    
@@ -55,7 +54,7 @@ ms.locfileid: "52674954"
 
 1. 登录 Azure 门户，浏览用作流分析作业输出的 SQL 数据库。    
 2. 从“数据资源管理器”中，登录/连接到数据库 > 选择“SQL server 身份验证”作为“授权类型”> 在“登录”和“密码”中键入相应详细信息>选择“确定”。  
-   ![重新生成 SQL 数据库凭据](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
+   ![重新生成 SQL 数据库凭据](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. 在查询选项卡中，通过运行以下查询（确保使用用户名替换 `<user_name>`，使用新密码替换 `<new_password>`）更改其中一个用户的密码：  
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/18/2018
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4aa7c3dd8fc59f2ebdc9440959fa7d299d412a50
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 4cb9ec46d4ead6cc86b30d09d77e6c5dbf867887
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903237"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505485"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
 
@@ -39,8 +39,8 @@ ms.locfileid: "56903237"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [.Net SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) 或更高版本。
-- StackExchange.Redis 客户端需要 [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+* [.NET SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) 或更高版本。
+* StackExchange.Redis 客户端需要 [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
 
 ## <a name="create-a-cache"></a>创建缓存
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -337,4 +337,4 @@ dotnet run
 
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

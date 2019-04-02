@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 8841e5663fe5e5e8a7c5544b519829ae2293b7de
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 0bcddc3b90118972a9c4ddca9f46c9f3edac8055
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141731"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625762"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 
@@ -118,10 +118,10 @@ ms.locfileid: "54141731"
 
     ![门户中的“导出”按钮](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. 在显示的边栏选项卡中，可以选择：  
-  * 想要导出其事件的区域
-  * 要保存事件的存储帐户
-  * 想要在存储中保留这些事件的天数。 设置为 0 天可以永久保留日志。
-  * 想要在其中创建用于流式处理这些事件的事件中心的服务总线命名空间。
+   * 想要导出其事件的区域
+   * 要保存事件的存储帐户
+   * 想要在存储中保留这些事件的天数。 设置为 0 天可以永久保留日志。
+   * 想要在其中创建用于流式处理这些事件的事件中心的服务总线命名空间。
 
      ![“导出活动日志”边栏选项卡](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. 单击“保存”保存这些设置。 这些设置将立即应用于你的订阅。

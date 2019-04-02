@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 01/09/2019
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 3a24c14f8fbdc02304e20e4c3b7201783ce3f053
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ed75f8dd0f8d35e66d91ac9b371a15e1e2d75e6c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666504"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626951"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 安全性和数据保护
 
@@ -70,17 +70,17 @@ Azure Data Box 磁盘在服务中收集并显示以下关键实例中的个人�
 
 - **订单详细信息** – 创建订单后，用户的寄送地址、电子邮件和联系信息将存储在 Azure 门户中。 保存的信息包括：
 
-    - 联系人姓名
-    - 电话号码
-    - 电子邮件
-    - 街道地址
-    - 城市
-    - 邮政编码
-    - 状态
-    - 国家/地区/省/区域
-    - 驱动器 ID
-    - 承运商帐号
-    - 运输跟踪号
+  - 联系人姓名
+  - 电话号码
+  - 电子邮件
+  - 街道地址
+  - 城市
+  - 邮政编码
+  - 状态
+  - 国家/地区/省/区域
+  - 驱动器 ID
+  - 承运商帐号
+  - 运输跟踪号
 
     作业完成或者删除订单时，Data Box 服务会删除订单详细信息。
 

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 508a3f1e62036966dbb26b2abc9467f41c9a6a27
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 05e64f95f1a80e0b383069642eeb530396942ebd
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833390"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624186"
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述
@@ -34,7 +34,7 @@ ms.locfileid: "56833390"
 
 可以在本文末尾找到完整的架构代码和 XML 示例。  
 
-## <a name="AssetFiles "></a> AssetFiles 根元素
+## <a name="AssetFiles"></a> AssetFiles 根元素
 用于编码作业的 AssetFile 条目的集合。  
 
 ### <a name="child-elements"></a>子元素
@@ -42,7 +42,7 @@ ms.locfileid: "56833390"
 | --- | --- |
 | AssetFile<br/><br/> minOccurs="0" maxOccurs="1" |AssetFile 元素是 AssetFiles 集合的一部分。 |
 
-## <a name="AssetFile "></a> AssetFile 元素
+## <a name="AssetFile"></a> AssetFile 元素
 可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
 
 ### <a name="attributes"></a>属性
@@ -59,7 +59,7 @@ ms.locfileid: "56833390"
 | VideoTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个视频轨道。 有关详细信息，请参阅“VideoTracks 元素”。 |
 | AudioTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个音频轨道。 这是所有这些音频轨道的集合。 有关详细信息，请参阅“AudioTracks 元素”。 |
 
-## <a name="Sources "></a> Sources 元素
+## <a name="Sources"></a> Sources 元素
 输入/源媒体文件的集合，处理该集合以生成此 AssetFile。  
 
 可以找到 XML 示例 [XML 示例](#xml)。  
@@ -69,7 +69,7 @@ ms.locfileid: "56833390"
 | --- | --- |
 | Source<br/><br/> minOccurs="1" maxOccurs="unbounded" |生成此资产时所使用的输入/源文件。 有关详细信息，请参阅“源元素”。 |
 
-## <a name="Source "></a> Source 元素
+## <a name="Source"></a> Source 元素
 生成此资产时所使用的输入/源文件。  
 
 可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
@@ -79,7 +79,7 @@ ms.locfileid: "56833390"
 | --- | --- | --- |
 | **名称**<br/><br/> 必须 |**xs:string** |输入源文件名称。 |
 
-## <a name="VideoTracks "></a> VideoTracks 元素
+## <a name="VideoTracks"></a> VideoTracks 元素
 每个物理 AssetFile 都可包含交错成适当容器格式的零个或多个视频轨道。 **VideoTracks** 元素表示其中包含所有视频轨道的一个集合。  
 
 可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
@@ -111,7 +111,7 @@ ms.locfileid: "56833390"
 | TargetBitrate<br/><br/> minInclusive ="0"<br/><br/> 必须 |**xs:int** |通过编码预设请求的此视频轨道的目标平均比特率，以千比特/秒为单位。 |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |此视频轨道的最大 GOP 平均比特率（千比特/秒）。 |
 
-## <a name="AudioTracks "></a> AudioTracks 元素
+## <a name="AudioTracks"></a> AudioTracks 元素
 每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的音频轨道。 **AudioTracks** 元素表示其中包含所有那些音频轨道的一个集合。  
 
 可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
@@ -121,7 +121,7 @@ ms.locfileid: "56833390"
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父 AssetFile 中的特定音频轨道。 有关详细信息，请参阅“AudioTrack 元素”。 |
 
-## <a name="AudioTrack "></a> AudioTrack 元素
+## <a name="AudioTrack"></a> AudioTrack 元素
 父 AssetFile 中的特定音频轨道。  
 
 可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
@@ -142,7 +142,7 @@ ms.locfileid: "56833390"
 | --- | --- |
 | LoudnessMeteringResultParameters<br/><br/> minOccurs="0" maxOccurs="1" |响度测量结果参数。 有关详细信息，请参阅“LoudnessMeteringResultParameters 元素”。 |
 
-## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 元素
+## <a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters 元素
 Loudness metering result parameters.  
 
 可以找到 XML 示例 [XML 示例](#xml)。  
@@ -163,7 +163,7 @@ Loudness metering result parameters.
 
 ## <a name="schema-code"></a>架构代码
     <?xml version="1.0" encoding="utf-8"?>  
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
+    <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
                targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
                elementFormDefault="qualified">  
@@ -514,7 +514,7 @@ Loudness metering result parameters.
 
 以下 XML 是输出元数据文件的示例。  
 
-    <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
+    <AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
       <AssetFile Name="BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4" Size="4646283" Duration="PT8.4288444S">  
         <Sources>  

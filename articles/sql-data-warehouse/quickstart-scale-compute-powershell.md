@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
 origin.date: 04/17/2018
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 48d387a9ab996522ef9a995bee0589e723884584
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 23abf7f9672bc410879d6348a4893ccd35c09b01
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348124"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626044"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -38,13 +38,13 @@ ms.locfileid: "58348124"
 Connect-AzAccount -EnvironmentName AzureChinaCloud
 ```
 
-若要查看正在使用的订阅，请运行 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.profile/get-azsubscription)。
+若要查看正在使用的订阅，请运行 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)。
 
 ```powershell
 Get-AzSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.profile/set-azcontext)。
+如果需要使用与默认订阅不同的订阅，请运行 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext)。
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"

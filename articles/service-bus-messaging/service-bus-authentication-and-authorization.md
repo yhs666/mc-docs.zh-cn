@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/14/2018
-ms.date: 10/31/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 89591d681af93f610aaeac8fb8acafe66cca2e45
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ccba78fa3957a0c7e042c552d7eeff67a4855d9c
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657623"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544732"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>服务总线身份验证和授权
 

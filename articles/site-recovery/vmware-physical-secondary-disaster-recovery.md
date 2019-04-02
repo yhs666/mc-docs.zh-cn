@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/31/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 650479c6c9dba5115f4d110da996fe340ccbd470
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 8364e3b7cdf5e0ad13563e6fc31ad9eb7ed01f0b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463577"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626855"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -49,15 +49,15 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 
 ### <a name="quick-comparison"></a>快速比较
 
-**功能** | **复制到 Azure** |**在 VMware 数据中心之间进行复制**
---|--|--
-**所需的组件** |复制的计算机上的移动服务。 本地配置服务器、进程服务器、主目标服务器。Azure 中用于故障回复的临时进程服务器。|移动服务、进程服务器、配置服务器和主目标
-**配置和业务流程** |Azure 门户中的恢复服务保管库 | 使用 vContinuum 
-**复制**|磁盘（Windows 和 Linux） |Volume-Windows<br> Disk-Linux
-**共享磁盘群集**|不支持|支持
-**数据变动量限制（平均）** |10 MB/秒数据/磁盘<br> 25 MB/秒数据/VM<br> [了解详细信息](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/秒数据/磁盘  <br> > 25 MB/秒数据/VM
-**监视** |通过 Azure 门户|通过 CX（配置服务器）
-**支持矩阵**| [单击此处了解详细信息](./vmware-physical-azure-support-matrix.md)|[下载 ASR Scout 兼容矩阵](https://aka.ms/asr-scout-cm)
+|             **功能**             |                                                                    **复制到 Azure**                                                                     |                **在 VMware 数据中心之间进行复制**                |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|       **所需的组件**       | 复制的计算机上的移动服务。 本地配置服务器、进程服务器、主目标服务器。Azure 中用于故障回复的临时进程服务器。 | 移动服务、进程服务器、配置服务器和主目标 |
+| **配置和业务流程** |                                                           Azure 门户中的恢复服务保管库                                                           |                             使用 vContinuum                             |
+|           **复制**            |                                                                    磁盘（Windows 和 Linux）                                                                     |                      Volume-Windows<br> Disk-Linux                       |
+|       **共享磁盘群集**       |                                                                          不支持                                                                          |                                支持                                 |
+|   **数据变动量限制（平均）**   |      10 MB/秒数据/磁盘<br> 25 MB/秒数据/VM<br> [了解详细信息](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits)      |           > 10 MB/秒数据/磁盘  <br> > 25 MB/秒数据/VM            |
+|           **监视**            |                                                                        通过 Azure 门户                                                                        |                      通过 CX（配置服务器）                      |
+|         **支持矩阵**          |                                               [单击此处了解详细信息](./vmware-physical-azure-support-matrix.md)                                               |   [下载 ASR Scout 兼容矩阵](https://aka.ms/asr-scout-cm)    |
 
 ## <a name="prerequisites"></a>先决条件
 完成本教程：
@@ -82,52 +82,52 @@ Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解
 >所有 Scout 组件的文件更新版本可能与更新 .zip 文件中的版本不同。 较旧的版本表示此更新自上一次更新以来组件中没有任何更改。
 
 下载[更新](https://aka.ms/asr-scout-update7) .zip 文件与 [MySQL 和 PHP 升级](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)配置文件。 更新 .zip 文件包含以下组件的所有基础二进制文件和累积的升级二进制文件： 
-  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
-  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
-  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
-1. 解压缩 .zip 文件。
-2. **RX 服务器**：将 **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** 复制到 RX 服务器，并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
-4. **Windows 主目标服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到服务器。 双击以运行该文件。 同一文件还可用于全新安装。 相同的统一代理更新也适用于源服务器。
+- InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+- RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+  1. 解压缩 .zip 文件。
+  2. **RX 服务器**：将 **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** 复制到 RX 服务器，并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+  3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
+  4. **Windows 主目标服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到服务器。 双击以运行该文件。 同一文件还可用于全新安装。 相同的统一代理更新也适用于源服务器。
   由于 **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** 是拥有所有最新更改的新 GA 安装程序，因此，在通过该安装程序执行了准备工作的主目标服务器上不需要应用更新。
-5. **vContinuum 服务器**：将 **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
-6. **Linux 主目标服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** 复制到 Linux 主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-7. **Windows 源服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到源服务器。 双击以运行该文件。 
-8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  示例：对于 RHEL 6.7 64 位服务器，将 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** 复制到服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-9. 在使用上述安装程序升级配置服务器、进程服务器和 RX 服务器后，需要通过[快速安装指南](https://aka.ms/asr-scout-quick-install-guide)的第 7.4 部分中提到的步骤手动升级 PHP 和 MySQL 二进制文件。
+  5. **vContinuum 服务器**：将 **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
+  6. **Linux 主目标服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** 复制到 Linux 主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+  7. **Windows 源服务器**：若要更新统一代理，请将 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** 复制到源服务器。 双击以运行该文件。 
+  8. **Linux 源服务器**：若要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  示例：对于 RHEL 6.7 64 位服务器，将 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** 复制到服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
+  9. 在使用上述安装程序升级配置服务器、进程服务器和 RX 服务器后，需要通过[快速安装指南](https://aka.ms/asr-scout-quick-install-guide)的第 7.4 部分中提到的步骤手动升级 PHP 和 MySQL 二进制文件。
 
 ## <a name="enable-replication"></a>启用复制
 
@@ -174,7 +174,8 @@ Scout Update 6 是累积更新。 其中包含从 Update 1 到 Update 5 的所�
 * 已添加对以下 Linux 操作系统的支持：
     - CentOS 6.9
     
-    <!--Not Available on - Red Hat Enterprise Linux (RHEL) 6.9--> <!--Not Available on - Oracle Linux 5.11-->
+    <!--Not Available on - Red Hat Enterprise Linux (RHEL) 6.9-->
+    <!--Not Available on - Oracle Linux 5.11-->
     <!--Not Available on - Oracle Linux 6.8-->
     
 * 已添加对 VMware Center 6.5 的支持
@@ -198,7 +199,7 @@ Scout Update 6 是累积更新。 其中包含从 Update 1 到 Update 5 的所�
 2. **RX 服务器**：将 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 复制到 RX 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
 3. **配置服务器和进程服务器**：将 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 复制到配置服务器和进程服务器。 双击以运行该文件。<br>
 4. **Windows 主目标服务器**：若要更新统一代理，请将 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 复制到服务器。 双击以运行该文件。 相同的统一代理更新也适用于源服务器。 如果源尚未更新到 Update 4，则应更新统一代理。
-  更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe 的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
+   更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe 的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
 5. **vContinuum 服务器**：将 **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** 复制到服务器。  确保已关闭 vContinuum 向导。 双击以运行该文件。
     更新不需要应用于备有 InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe 的主目标服务器，因为这是拥有所有最新更改的新 GA 安装程序。
 6. **Linux 主目标服务器**：若要更新统一代理，请将 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 复制到主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
@@ -282,9 +283,9 @@ Scout Update 4 是累积更新。 其中包含从 Update 1 到 Update 3 的所�
 
 > [!NOTE]
 > * InMage_Scout_Standard_8.0.1_GA.zip 基础包中含有：
-    * 更新的配置服务器基本安装程序 (InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe)
-    * Windows 主目标基本安装程序 (InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe)。
-    * 对于所有新安装，请使用新的配置服务器和 Windows 主目标 GA 位。
+>     * 更新的配置服务器基本安装程序 (InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe)
+>     * Windows 主目标基本安装程序 (InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe)。
+>     * 对于所有新安装，请使用新的配置服务器和 Windows 主目标 GA 位。
 > * Update 4 可以直接应用于 8.0.1 GA。
 > * 应用配置服务器和 RX 更新后，不能进行回退。
 

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 09/24/2018
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 338a4127fcc7347c03812c7c726021b97d81b494
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2328aea619822884df3e1f29a69ab4d90504dde9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656261"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626722"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -30,7 +30,7 @@ ms.locfileid: "52656261"
 >
 >
 
-本文说明了如何配置 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 实时编码器，以便将单比特率流发送到用于实时编码的 AMS 频道。  有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
+本文说明了如何配置 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 实时编码器，以便将单比特率流发送到用于实时编码的 AMS 频道。  有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教程演示了如何通过 Azure 媒体服务浏览器 (AMSE) 工具管理 Azure 媒体服务 (AMS)。 此工具仅在 Windows 电脑上运行。 如果使用的是 Mac 或 Linux，则可使用 Azure 门户创建[频道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
@@ -70,13 +70,13 @@ ms.locfileid: "52656261"
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>配置 Telestream Wirecast 编码器
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />配置 Telestream Wirecast 编码器
 在本教程中，将使用以下输出设置。 本部分的其余内容介绍更详细的配置步骤。
 
 **视频**：
 
 * 编解码器：H.264
-* 配置文件：高（等级 4.0）
+* 配置文件：高（级别 4.0）
 * 比特率：5000 kbps
 * 关键帧：2 秒（60 秒）
 * 帧速率：30
@@ -85,7 +85,7 @@ ms.locfileid: "52656261"
 
 * 编解码器：AAC (LC)
 * 比特率：192 kbps
-* 采样速率：44.1 kHz
+* 采样率：44.1 kHz
 
 ### <a name="configuration-steps"></a>配置步骤
 1. 在所使用的计算机上打开 Telestream Wirecast 应用程序，并针对 RTMP 流式处理进行设置。
@@ -106,14 +106,14 @@ ms.locfileid: "52656261"
 
    * 编码器：MainConcept H.264
    * 每秒帧数：30
-   * 平均比特率：5000 千位/秒（可根据网络限制进行调整）
-   * 配置文件：Main
+   * 平均比特率：5000 Kbps/秒（可根据网络限制进行调整）
+   * 配置文件：主要
    * 关键帧间隔：60 帧
 
-    **音频：**
+     **音频：**
 
-   * 目标比特率：192 千位/秒
-   * 采样速率：44.100 kHz
+   * 目标比特率：192 kbits/秒
+   * 采样率：44.100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. 按“保存” 。
@@ -132,10 +132,10 @@ ms.locfileid: "52656261"
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. 选择“确定” 。
-2. 在“Wirecast”主屏幕上，确认视频和音频的输入源已就绪，并单击左上角的“流”。
+9. 选择“确定” 。
+10. 在“Wirecast”主屏幕上，确认视频和音频的输入源已就绪，并单击左上角的“流”。
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > 在单击“流”之前，必须确保频道已就绪。
@@ -147,7 +147,7 @@ ms.locfileid: "52656261"
 
 导航回 AMSE 工具，并右键单击要测试的频道。 在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 如果流出现在播放器中，则编码器已正确配置，可以连接到 AMS。
 

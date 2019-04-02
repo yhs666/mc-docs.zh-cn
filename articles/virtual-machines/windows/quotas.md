@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 05/31/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: ca0c741edfc8c9470f845858648cb5d5546d9703
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: eaa834bbd7bbefb121b340592f243879309077cf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665985"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626166"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -69,7 +69,6 @@ Standard NCv3 Family vCPUs                   0     0 Count
 Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
-
 ```
 
 <!--PENDING FOR NC series GA ANOUNCEMENT -->

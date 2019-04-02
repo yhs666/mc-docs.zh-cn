@@ -15,16 +15,16 @@ ms.topic: get-started-article
 origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: 552a26e34948459e8f6a268ee8c0c7696e5c25b1
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 0b71a69829114570e760583866db3ef86fc519c5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028690"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625976"
 ---
 # <a name="getting-started"> </a>使用移动服务时，应用服务有何作用？
 
-##<a name="overview"></a>概述
+## <a name="overview"></a>概述
 现有的移动服务很安全，将继续受到支持。 但是，*Azure 应用服务*平台为移动应用提供了移动服务当前所不具备的优点：
 
 - 针对包含 Web 和移动客户端的应用提供更简单且更符合成本效益的功能
@@ -44,22 +44,22 @@ ms.locfileid: "53028690"
 - 使用自定义 CName 为移动设备后端终结点提供友好、稳定的名称
 - 使用流量管理器异地缩放应用
 - 包含任何所需的库和包。
-* （适用于 .NET）使用 ASP.NET 的任何功能，包括 MVC
-* （适用于 Node.js）使用 Node 生态系统的任何纯 JavaScript 库，包括常用的 MVC 库。
+- （适用于 .NET）使用 ASP.NET 的任何功能，包括 MVC
+- （适用于 Node.js）使用 Node 生态系统的任何纯 JavaScript 库，包括常用的 MVC 库。
 
 ## <a name="access-on-premises-data-using-vnet"></a>使用 VNet 访问本地数据
 有了移动服务，便可以使用混合连接访问本地资源。 但是，在某些情况下，VPN 解决方案更合适。 通过 *Azure 应用服务*，可以将 Azure VNet 用于移动应用后端代码。
 
-##<a name="use-your-favorite-backend-language"></a>使用偏好的后端语言
+## <a name="use-your-favorite-backend-language"></a>使用偏好的后端语言
 *Azure 应用服务* 提供对 ASP.NET 与 Node.js 平台更广泛、更丰富的支持，包括对最新运行时的访问。
 
-##<a name="set-up-automatic-scale"></a>设置自动缩放
+## <a name="set-up-automatic-scale"></a>设置自动缩放
 使用移动服务时，后端代码的所有实例都在小型 VM 上运行。 *Azure 应用服务* 允许从更丰富的选项中选择 VM 的大小。 还可以根据各种性能指标快速纵向或横向扩展，处理任何传入的客户负载。
 
-##<a name="be-in-the-know"></a>知晓一切
+## <a name="be-in-the-know"></a>知晓一切
 通过监视和警报自动通知用户和用户的团队，实时响应问题。 整合来自 AppInsights 的高级应用分析和监视功能，了解移动应用的执行方式。 使用 *Azure 应用服务*，可以根据多种性能指标，通过编程方式或 Azure 门户设置警报。
 
-##<a name="keep-your-assets-safe"></a>保护资产安全
+## <a name="keep-your-assets-safe"></a>保护资产安全
 自动备份后端和数据库。 代码和数据受到保护，即使出现灾难也不会破坏并且可以轻松还原，让用户放心开展业务。
 
 ## <a name="ready-stage-go"></a>各就位，预备，跑！

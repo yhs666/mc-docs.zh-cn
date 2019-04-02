@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 05/01/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7ea75787529ed8708d7d70c71febb8cdfe86d855
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 2828aa8bacf46a363385a030f5e1103244a94bb8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626903"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>通过 HDInsight (SSH) 中基于 Linux 的 Apache Hadoop 使用 Apache Mahout 生成电影推荐
 
@@ -180,25 +180,25 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     此命令查看为用户 ID 4 生成的建议。
 
-    * **user-ratings.txt** 文件用于检索已被评价过的电影。
+   * **user-ratings.txt** 文件用于检索已被评价过的电影。
 
-    * **moviedb.txt** 文件用于检索电影的名称。
+   * **moviedb.txt** 文件用于检索电影的名称。
 
-    * **recommendations.txt** 用于检索此用户的电影建议。
+   * **recommendations.txt** 用于检索此用户的电影建议。
 
      此命令的输出类似于以下文本：
 
-    ```
-    Seven Years in Tibet (1997), score=5.0
-    Indiana Jones and the Last Crusade (1989), score=5.0
-    Jaws (1975), score=5.0
-    Sense and Sensibility (1995), score=5.0
-    Independence Day (ID4) (1996), score=5.0
-    My Best Friend's Wedding (1997), score=5.0
-    Jerry Maguire (1996), score=5.0
-    Scream 2 (1997), score=5.0
-    Time to Kill, A (1996), score=5.0
-    ```
+     ```
+     Seven Years in Tibet (1997), score=5.0
+     Indiana Jones and the Last Crusade (1989), score=5.0
+     Jaws (1975), score=5.0
+     Sense and Sensibility (1995), score=5.0
+     Independence Day (ID4) (1996), score=5.0
+     My Best Friend's Wedding (1997), score=5.0
+     Jerry Maguire (1996), score=5.0
+     Scream 2 (1997), score=5.0
+     Time to Kill, A (1996), score=5.0
+     ```
 
 ## <a name="delete-temporary-data"></a>删除临时数据
 

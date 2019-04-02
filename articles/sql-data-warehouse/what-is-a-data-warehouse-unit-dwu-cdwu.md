@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c94b213ddc3ed161f333b5513d369343903bf25
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 3de97d80b882a89440b04dde9bcbd336391d5af4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348042"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626745"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。 
@@ -178,22 +178,21 @@ DWU 更改可能需要几分钟才能完成。 如果要自动缩放，建议实
 1. 连接到与逻辑 SQL 数据库服务器关联的 master 数据库。
 2. 提交以下查询以检查数据库状态。
 
-
-```sql
-SELECT    *
-FROM      sys.databases
-;
-```
+    ```sql
+    SELECT    *
+    FROM      sys.databases
+    ;
+    ```
 
 3. 提交以下查询以检查操作状态
 
-```sql
-SELECT    *
-FROM      sys.dm_operation_status
-WHERE     resource_type_desc = 'Database'
-AND       major_resource_id = 'MySQLDW'
-;
-```
+    ```sql
+    SELECT    *
+    FROM      sys.dm_operation_status
+    WHERE     resource_type_desc = 'Database'
+    AND       major_resource_id = 'MySQLDW'
+    ;
+    ```
 
 此 DMV 返回针对 SQL 数据仓库的各种管理操作的相关信息，例如操作和操作状态（IN_PROGRESS 或 COMPLETED）。
 

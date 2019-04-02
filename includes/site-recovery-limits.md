@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: b76c25f5e948571ea5f15bf0b742efa2d41153dd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 996844f002f9ec9726272750f90c7d92769a309c
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664900"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58545321"
 ---
 以下限制适用于 Azure 站点恢复：
 
 |限制标识符|默认限制|
 |---|---|---|---|
-|每个订阅的保管库数|25|
+|每个订阅的保管库数|500|
 |每个 Azure 保管库的服务器数|250|
 |每个 Azure 保管库的保护组数|无限制|
 |每个 Azure 保管库的恢复计划数|无限制|

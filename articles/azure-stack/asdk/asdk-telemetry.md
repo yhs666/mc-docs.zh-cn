@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 053824467addc440e56784bb9bfc6005add77a66
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 85d0d95a4ec94cc0d40a2885e011bdd92a8b215c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905246"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627221"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -115,7 +115,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 PARAMETER 详细信息：
 > .PARAMETER Enable - 启用遥测数据上传
-
+> 
 > .PARAMETER Disable - 禁用遥测数据上传  
 
 **用于启用遥测的脚本：**

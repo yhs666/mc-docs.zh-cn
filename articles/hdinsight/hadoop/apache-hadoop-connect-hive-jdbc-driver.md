@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 02/14/2019
 ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1dca086f2aa06ea9df4b9122137b968a46f593b5
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 12b817298e07d4753c6f99994dff7e99b7a3ad68
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560482"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626801"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive
 
@@ -97,7 +97,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
     ![添加新的别名](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
-6. 将以下值用于“添加别名”对话框。
+7. 将以下值用于“添加别名”对话框。
 
     * **名称**：Hive on HDInsight
 
@@ -111,14 +111,14 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
     * **密码**：群集登录帐户的密码。
 
- ![添加别名对话框](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![添加别名对话框](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
     > 使用“测试”按钮验证连接是否有效。 出现“连接到: Hive on HDInsight”对话框时，选择“连接”进行测试。 如果测试成功，将会显示“连接成功”对话框。 如果发生错误，请参阅[故障排除](#troubleshooting)。
 
     若要保存连接别名，请使用“添加别名”对话框底部的“确定”按钮。
 
-7. 在 SQuirreL SQL 顶部的“连接到”下拉列表中，选择“Hive on HDInsight”。 出现提示时，选择“连接”。
+8. 在 SQuirreL SQL 顶部的“连接到”下拉列表中，选择“Hive on HDInsight”。 出现提示时，选择“连接”。
 
     ![连接对话框](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 

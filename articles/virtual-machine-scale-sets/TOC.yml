@@ -224,10 +224,10 @@ items:
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: ee17146b4994b72502998837b06876515717558d
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
+ms.openlocfilehash: e8d5247b951b33b61cdef15315105d4e089dbe7b
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254035"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544698"

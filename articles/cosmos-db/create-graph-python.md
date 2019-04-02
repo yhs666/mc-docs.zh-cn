@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 01/22/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1791ee62f63bd611ed63caec2eb0b6e94e4d3bf4
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 2131f931ae42d4397025c616c4abb5258c466072
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988647"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626479"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>快速入门：在 Azure Cosmos DB 中使用 Python 和 Azure 门户创建图形数据库
@@ -212,11 +212,13 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 9. 单击“添加属性”，添加下列所有属性：
 
-    key|值|说明
-    ----|----|----
-    id|rakesh|顶点的唯一标识符。 如果未指定 id，将为你生成一个。
-    gender|男| 
-    学校|MIT| 
+
+   |   key   | 值  |                                            说明                                            |
+   |---------|--------|---------------------------------------------------------------------------------------------|
+   |    id   | rakesh | 顶点的唯一标识符。 如果未指定 id，将为你生成一个。 |
+   |  gender |  男  |                                                                                             |
+   |  学校 |  MIT   |                                                                                             |
+
 
 10. 单击“确定”。 
 
@@ -226,17 +228,17 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 12. 现在可以连接 rakesh 与 ashley。 确保“ashley”在“结果”列表中为选中状态，然后单击右下侧“目标”旁边的编辑按钮。 可能需要扩大窗口才能看到“属性”区域。
 
-   ![更改图形中某个顶点的目标。](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    ![更改图形中某个顶点的目标。](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. 在“目标”框中键入“rakesh”，在“Edge 标签”框中键入“认识”，再选中复选框。
 
-   ![通过数据资源管理器在 ashley 和 rakesh 之间添加连接](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    ![通过数据资源管理器在 ashley 和 rakesh 之间添加连接](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
 
 14. 现在，从结果列表中选择“rakesh”即可看到 ashley 和 rakesh 已连接。 
 
-   ![在数据资源管理器中连接的两个顶点](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    ![在数据资源管理器中连接的两个顶点](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-   这就完成了本教程的资源创建部分。 可以继续向图形添加顶点、修改现有顶点，也可以更改查询。 现在，回顾一下 Azure Cosmos DB 提供的指标，然后清理资源。 
+    这就完成了本教程的资源创建部分。 可以继续向图形添加顶点、修改现有顶点，也可以更改查询。 现在，回顾一下 Azure Cosmos DB 提供的指标，然后清理资源。 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 origin.date: 02/28/2018
 ms.date: 03/18/2019
-ms.openlocfilehash: a3b499d1d725ce6ca7d352ef8010da65e317060d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 24c903f896447bbae1f0a9518cabda1b8cde409f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990137"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627622"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器概念
 
@@ -41,6 +41,7 @@ Azure Database for MySQL 服务器：
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>如何连接到 Azure Database for MySQL 服务器并进行身份验证？
 
 以下元素有助于确保安全地访问数据库。
+
 |     |     |
 | :-- | :-- |
 | **身份验证和授权** | Azure Database for MySQL 服务器支持本机 MySQL 身份验证。 可使用服务器的管理员登录名连接到服务器并进行身份验证。 |

@@ -13,12 +13,12 @@ ms.reviewer: genemi
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 51215bdace97539428331e9d741049ba54ff556e
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 510db867e2a63cfe588870f282a81b6440bf002b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318999"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626863"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-在前一示例中，**SqlCommand** 对象从表值参数 **@TestTvp** 插入行。 使用 **SqlCommand.Parameters.Add** 方法将以前创建的 **DataTable** 对象分配到此参数。 对一个调用中的插入进行批处理将显著提高顺序插入的性能。
+在前一示例中，**SqlCommand** 对象从表值参数 <strong>@TestTvp</strong> 插入行。 使用 **SqlCommand.Parameters.Add** 方法将以前创建的 **DataTable** 对象分配到此参数。 对一个调用中的插入进行批处理将显著提高顺序插入的性能。
 
 若要进一步改进前一个示例，请使用存储过程来替代基于文本的命令。 以下 Transact-SQL 命令创建一个采用 **SimpleTestTableType** 表值参数的存储过程。
 

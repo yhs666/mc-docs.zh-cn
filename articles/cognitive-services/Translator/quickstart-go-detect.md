@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: dc87664a5bf3bdc758bf8eb430ef65d6d1db615c
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 6be785a64231a22887584adb82bddf8e43b9894e
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964400"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505410"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>快速入门：使用文本翻译 API 通过 Go 来检测文本语言
 
@@ -61,7 +61,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -165,6 +165,8 @@ go run detect-language.go
 
 ## <a name="sample-response"></a>示例响应
 
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+
 ```json
 [
   {
@@ -207,3 +209,4 @@ go run detect-language.go
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 
+<!-- Update_Description: wording update -->

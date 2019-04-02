@@ -15,18 +15,18 @@ ms.topic: hero-article
 origin.date: 08/17/2018
 ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9c1d6e3c44ae75a48742c58499c28c72fbd2054c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7cc3ab1d77f6691edd77e67b5fa7c5b1a506d32a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643965"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626829"
 ---
-#<a name="create-a-windows-app"></a>创建 Windows 应用
+# <a name="create-a-windows-app"></a>创建 Windows 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##<a name="overview"></a>概述
+## <a name="overview"></a>概述
 
 本教程说明如何向通用 Windows 平台 (UWP) 应用添加基于云的后端服务。 有关详细信息，请参阅 [什么是移动应用](./app-service-mobile-value-prop.md)。 以下是已完成应用的截屏：
 
@@ -34,7 +34,7 @@ ms.locfileid: "52643965"
 
 只有在完成本教程后，才可以学习有关 UWP 应用的所有其他移动应用教程。
 
-##<a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 要完成本教程，需要以下各项：
 
@@ -53,7 +53,7 @@ ms.locfileid: "52643965"
 
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-##<a name="download-and-run-the-client-project"></a>下载并运行客户端项目
+## <a name="download-and-run-the-client-project"></a>下载并运行客户端项目
 
 配置移动应用后端后，可以创建新的客户端应用或修改现有应用以连接到 Azure。 在此部分中，将下载已自定义以连接到移动应用后端的 UWP 示例应用项目。
 
@@ -71,7 +71,7 @@ ms.locfileid: "52643965"
 > [!TIP]
 > 如果使用的是 .NET 后端，可以将 UWP 应用项目添加到服务器项目所在的解决方案中。 这样更易于调试和测试同一 Visual Studio 解决方案中的应用和后端。 若要将 UWP 应用项目添加到后端解决方案，必须使用 Visual Studio 2017。
 
-##<a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 * [向应用添加身份验证](./app-service-mobile-windows-store-dotnet-get-started-users.md)  
   了解如何使用标识提供者对应用程序的用户进行身份验证。

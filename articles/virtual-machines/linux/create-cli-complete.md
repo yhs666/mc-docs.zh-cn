@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ae6bce39918aeed64673cf478b201e67016e8e9b
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: bc5f6bd60dfe0e7501aba7730608de5fdee25b1c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666072"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626159"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建完整的 Linux 虚拟机
 若要在 Azure 中快速创建虚拟机 (VM)，可使用单个使用默认值的 Azure CLI 命令创建任何所需的支持资源。 虚拟网络、公共 IP 地址和网络安全组规则等资源均会自动创建。 为了在生产使用中更好地控制环境，可提前创建这些资源，并将 VM 添加到其中。 本文逐步介绍如何创建 VM 和每个支持资源。
@@ -534,7 +534,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

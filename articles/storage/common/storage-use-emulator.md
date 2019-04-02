@@ -9,12 +9,12 @@ origin.date: 08/10/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 55c557ba9a159617f7aa2606bd9ae99fbf46d3a1
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 0ad6f8b06e5fbe81be339dff76c13def08e43be8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192928"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626135"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -63,17 +63,17 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 可以使用存储模拟器命令行工具初始化存储模拟器，使其指向默认 LocalDB 实例以外的其他 SQL 数据库实例：
 
 1. 如[启动和初始化存储模拟器](#start-and-initialize-the-storage-emulator)部分中所述，打开“存储模拟器”控制台窗口。
-1. 在控制台窗口中，键入以下命令，其中 `<SQLServerInstance>` 是 SQL Server 实例的名称。 若要使用 LocalDB，请指定 `(localdb)\MSSQLLocalDb` 作为 SQL Server 实例。
+2. 在控制台窗口中，键入以下命令，其中 `<SQLServerInstance>` 是 SQL Server 实例的名称。 若要使用 LocalDB，请指定 `(localdb)\MSSQLLocalDb` 作为 SQL Server 实例。
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  也可以使用以下命令，该命令指示模拟器使用默认 SQL Server 实例：
+   也可以使用以下命令，该命令指示模拟器使用默认 SQL Server 实例：
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  或者，可以使用以下命令将数据库重新初始化为默认的 LocalDB 实例：
+   或者，可以使用以下命令将数据库重新初始化为默认的 LocalDB 实例：
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 有关这些命令的详细信息，请参阅[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)。
 

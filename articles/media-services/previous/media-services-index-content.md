@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 02/10/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 0e9180d9e3ca0974ce87d7432142e664bcc2c0be
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 15cc530925ea38bcfae2842aa37b6cb95d2191aa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833388"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627635"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 为媒体文件编制索引
 使用 Azure Media Indexer，可以使媒体文件内容可供搜索，并为隐藏的字幕和关键字生成全文本脚本。 可以只处理一个媒体文件，也可以一次处理多个媒体文件。  
@@ -33,11 +33,11 @@ ms.locfileid: "56833388"
 索引作业可生成以下输出：
 
 * 下列格式的隐藏式字幕文件：**SAMI**、**TTML** 和 **WebVTT**。
-  
+
     隐藏字幕文件包含名为 Recognizability 的标记，该标记可以根据源视频中的语音辨别度对索引作业评分。  用户可以使用 Recognizability 的值筛选可用的输出文件。 如果分数较低，则表示索引结果由于音频质量问题而不佳。
 * 关键字文件 (XML)。
 * 用于 SQL Server 的音频索引 Blob (AIB) 文件。
-  
+
     有关详细信息，请参阅 [Using AIB Files with Azure Media Indexer and SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)（在 Azure Media Indexer 和 SQL Server 中使用 AIB 文件）。
 
 本文介绍如何创建索引作业，以便**为资产编制索引**以及**为多个文件编制索引**。
@@ -257,18 +257,19 @@ ms.locfileid: "56833388"
 ### <a id="error_codes"></a>错误代码
 如果发生错误，Azure Media Indexer 应返回以下错误代码之一：
 
-| 代码 | Name | 可能的原因 |
-| --- | --- | --- |
-| 2000 |配置无效 |配置无效 |
-| 2001 |输入资产无效 |输入资产缺失或资产为空。 |
-| 2002 |清单无效 |清单为空或清单包含无效项目。 |
-| 2003 |无法下载媒体文件 |清单文件中的 URL 无效。 |
-| 2004 |协议不受支持 |不支持媒体 URL 的协议。 |
-| 2005 |文件类型不受支持 |不支持输入媒体文件类型。 |
-| 2006 |输入文件太多 |输入清单中的文件超过 10 个。 |
-| 3000 |无法解码媒体文件 |不受支持的媒体编解码器 <br/>或<br/> 受损的媒体文件 <br/>或<br/> 输入媒体中没有音频流。 |
-| 4000 |分批编制索引部分成功 |一些输入媒体文件无法编制索引。 有关详细信息，请参阅 <a href="#output_files">输出文件</a>。 |
-| 其他 |内部错误 |请联系支持团队。 indexer@microsoft.com |
+
+| 代码  |                Name                |                                                      可能的原因                                                       |
+|-------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| 2000  |       配置无效        |                                                    配置无效                                                    |
+| 2001  |        输入资产无效        |                                            输入资产缺失或资产为空。                                             |
+| 2002  |          清单无效          |                                    清单为空或清单包含无效项目。                                    |
+| 2003  |   无法下载媒体文件    |                                                清单文件中的 URL 无效。                                                |
+| 2004  |        协议不受支持        |                                           不支持媒体 URL 的协议。                                           |
+| 2005  |       文件类型不受支持        |                                           不支持输入媒体文件类型。                                           |
+| 2006  |        输入文件太多        |                                     输入清单中的文件超过 10 个。                                     |
+| 3000  |    无法解码媒体文件     |           不受支持的媒体编解码器 <br/>或<br/> 受损的媒体文件 <br/>或<br/> 输入媒体中没有音频流。            |
+| 4000  | 分批编制索引部分成功 | 一些输入媒体文件无法编制索引。 有关详细信息，请参阅 <a href="#output_files">输出文件</a>。 |
+| 其他 |          内部错误           |                                     请联系支持团队。 indexer@microsoft.com                                      |
 
 ## <a id="supported_languages"></a>支持的语言
 当前支持英语和西班牙语。 有关详细信息，请参阅 [版本 v1.2 博客文章](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。

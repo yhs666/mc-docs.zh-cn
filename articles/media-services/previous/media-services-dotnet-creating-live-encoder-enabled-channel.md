@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 01/17/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 2d738ff171d58ec17d7da6bb433bec3f88e2c843
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: fd750f12cc723351ca2f2186feeecf9f2df75a89
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833339"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624148"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]
@@ -43,8 +43,6 @@ ms.locfileid: "56833339"
 
 > [!NOTE]
 > 目前，实时事件的最大建议持续时间为 8 小时。
-> 
-> 
 
 1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
 
@@ -231,7 +229,7 @@ namespace EncodeLiveStreamWithAmsClear
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
             // IpV4 address with 4 numbers
             // CIDR address range
-        
+
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.FragmentedMP4,
@@ -259,7 +257,7 @@ namespace EncodeLiveStreamWithAmsClear
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
             // IpV4 address with 4 numbers
             // CIDR address range
-        
+
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl

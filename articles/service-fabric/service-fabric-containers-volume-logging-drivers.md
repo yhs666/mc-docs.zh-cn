@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 06/10/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: a29daaaf89ac7ef99a834335ca6703c5a59c9c15
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 9e2881b91f8cca9b8fccaa136075f2ee36742493
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204179"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625831"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 文件卷驱动程序（预览版）
 Azure 文件卷插件是一个 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)，可为 Docker 容器提供基于 [Azure 文件](/storage/files/storage-files-introduction)的卷。 该 Docker 卷插件可在打包为 Service Fabric 应用程序后部署到 Service Fabric 群集。 该插件用于为部署到群集的其他 Service Fabric 容器应用程序提供基于 Azure 文件的卷。
@@ -110,9 +110,8 @@ Azure 文件卷插件是一个 [Docker 卷插件](https://docs.docker.com/engine
     ```
 
 > [!NOTE]
-
+> 
 > Windows Server 2016 Datacenter 不支持向容器装载映射 SMB （[仅 Windows Server 1709 版支持](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/manage-containers/container-storage)）。 这样可以阻止网络卷映射和 Azure 文件卷驱动程序出现在早于 1709 的版本上。
->   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>在本地开发群集上部署应用程序
 Azure 文件卷插件应用程序的默认服务实例计数为 -1，这表示有一个服务实例会部署到群集中的每个节点。 但在本地开发群集上部署 Azure 文件卷插件应用程序时，服务实例计数应指定为 1。 可以通过 InstanceCount 应用程序参数完成此操作。 因此，在本地开发群集上部署 Azure 文件卷插件应用程序的命令为：
@@ -130,32 +129,32 @@ sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
                 <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 

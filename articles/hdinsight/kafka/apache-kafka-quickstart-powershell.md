@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 04/16/2018
 ms.date: 01/14/2019
 ms.author: larryfr
-ms.openlocfilehash: 0b671db443667cabbc6294ea54d6449eeb182364
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: de84d8cf0e39b983863a84e569bfc5e72d0db236
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029211"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626698"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -45,9 +45,9 @@ ms.locfileid: "54029211"
 
     在 Linux、Unix 和 macOS 系统中，默认提供 `ssh` 命令。 在 Windows 10 上，使用以下方式之一安装 `ssh` 命令：
 
-    * 使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)。 Cloud Shell 提供 `ssh` 命令，并且可以配置为将 Bash 或 PowerShell 用作 shell 环境。
+  * 使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)。 Cloud Shell 提供 `ssh` 命令，并且可以配置为将 Bash 或 PowerShell 用作 shell 环境。
 
-    * [安装适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。 可通过 Microsoft Store 提供 `ssh` 命令获得 Linux 分发版。
+  * [安装适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。 可通过 Microsoft Store 提供 `ssh` 命令获得 Linux 分发版。
 
     > [!IMPORTANT]
     > 本文档中的此步骤假定正在使用上述 SSH 客户端之一。 如果正在使用不同的 SSH 客户端并遇到问题，请查阅 SSH 客户端的文档。

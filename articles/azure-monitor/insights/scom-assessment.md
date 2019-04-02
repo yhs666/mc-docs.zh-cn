@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 3bd37acfc4ba46a83b6d7cc017599a9ed90b6f37
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: e67c8fb537edcfb6066a73f47e2fd9962e89b173
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440284"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625516"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 运行状况检查（预览版）解决方案优化环境
 
@@ -44,11 +44,11 @@ ms.locfileid: "56440284"
 
 使用以下信息安装和配置解决方案。
 
- - 在 Log Analytics 中使用运行状况检查解决方案之前，必须先安装该解决方案。 可从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview)安装该解决方案。
+- 在 Log Analytics 中使用运行状况检查解决方案之前，必须先安装该解决方案。 可从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview)安装该解决方案。
 
- - 将解决方案添加到工作区以后，仪表板上的“System Center Operations Manager 运行状况检查”磁贴会显示“需要更多的配置”这样一条消息。 单击该磁贴，并按照页面中所述的配置步骤操作
+- 将解决方案添加到工作区以后，仪表板上的“System Center Operations Manager 运行状况检查”磁贴会显示“需要更多的配置”这样一条消息。 单击该磁贴，并按照页面中所述的配置步骤操作
 
- ![System Center Operations Manager 仪表板磁贴](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager 仪表板磁贴](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > 可以使用脚本配置 System Center Operations Manager，只需执行 Log Analytics 中解决方案的配置页所述的步骤即可。
@@ -147,7 +147,6 @@ GO
 USE [OperationsManager]
 GO
 ALTER ROLE [db_owner] ADD MEMBER [UserName]
-
 ```
 
 ### <a name="configure-the-health-check-rule"></a>配置运行状况检查规则

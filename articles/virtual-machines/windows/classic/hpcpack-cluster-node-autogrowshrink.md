@@ -15,12 +15,12 @@ ms.workload: big-compute
 origin.date: 12/08/2016
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 698b624480fca9e00cbc08450e815ff02ce79af4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ef4bbb41025d9a09b065265d0f2b59f94696a1cc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647175"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625691"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源
 如果在 HPC Pack 群集中部署 Azure“突发”节点，或者在 Azure VM 中创建 HPC Pack 群集，可能需要借助某种方法根据群集上的工作负荷自动扩展或收缩群集资源（例如节点或核心）。 以这种方法缩放群集资源可以更有效地使用 Azure 资源并控制其成本。
@@ -48,43 +48,43 @@ ms.locfileid: "52647175"
 
   3. 以管理员身份启动 Azure PowerShell，并在一个头节点上运行以下命令：
 
-    ```powershell
+     ```powershell
         cd $env:CCP_HOME\bin
 
         Connect-AzureRmAccount -Environment AzureChinaCloud
-    ```
+     ```
 
-    如果帐户存在于多个 Azure Active Directory 租户或 Azure 订阅中，则可以运行以下命令来选择正确的租户和订阅：
+     如果帐户存在于多个 Azure Active Directory 租户或 Azure 订阅中，则可以运行以下命令来选择正确的租户和订阅：
 
-    ```powershell
+     ```powershell
         Connect-AzureRmAccount -Environment AzureChinaCloud -TenantId <TenantId> -SubscriptionId <subscriptionId>
-    ```     
+     ```     
 
-    运行以下命令来查看当前所选的租户和订阅：
+     运行以下命令来查看当前所选的租户和订阅：
 
-    ```powershell
+     ```powershell
         Get-AzureRMContext
-    ```
+     ```
 
   4. 运行以下脚本
 
-    ```powershell
+     ```powershell
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName "YourHpcPackAppName" -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
-    ```
+     ```
 
-    其中
+     其中
 
-    **DisplayName** - Azure Active 应用程序的显示名称。 如果该应用程序不存在，会在 Azure Active Directory 中创建它。
+     **DisplayName** - Azure Active 应用程序的显示名称。 如果该应用程序不存在，会在 Azure Active Directory 中创建它。
 
-    **主页** - 应用程序的主页。 可以配置虚拟 URL，如前面的示例所示。
+     **主页** - 应用程序的主页。 可以配置虚拟 URL，如前面的示例所示。
 
-    **IdentifierUri** - 应用程序的标识符。 可以配置虚拟 URL，如前面的示例所示。
+     **IdentifierUri** - 应用程序的标识符。 可以配置虚拟 URL，如前面的示例所示。
 
-    **CertificateThumbprint** - 步骤 1 中在头节点上安装的证书的指纹。
+     **CertificateThumbprint** - 步骤 1 中在头节点上安装的证书的指纹。
 
-    **TenantId** - Azure Active Directory 的租户 ID。 可以从 Azure Active Directory 门户“属性”页获取租户 ID。
+     **TenantId** - Azure Active Directory 的租户 ID。 可以从 Azure Active Directory 门户“属性”页获取租户 ID。
 
-    如需 **ConfigARMAutoGrowShrinkCert.ps1** 的详细信息，请运行 `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`。
+     如需 **ConfigARMAutoGrowShrinkCert.ps1** 的详细信息，请运行 `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`。
 
 * **对于 Azure 中包含头节点的群集（经典部署模型）** - 如果使用 HPC Pack IaaS 部署脚本在经典部署模型中创建群集，请通过在群集配置文件中设置 AutoGrowShrink 选项来启用 **AutoGrowShrink** 群集属性。 有关详细信息，请 [下载的脚本](https://www.microsoft.com/download/details.aspx?id=44949)随附的文档。
 

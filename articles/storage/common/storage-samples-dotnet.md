@@ -15,12 +15,12 @@ ms.workload: storage
 origin.date: 01/12/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 52d5922071312a20c38e1b112ecd359a2c966517
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b2ba67e88add639c558f74a8cb0c70b0d0a30e50
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626073"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
@@ -88,12 +88,10 @@ ms.locfileid: "52663571"
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
-</tr>   
-<tr> 
+</tr><br/><tr> 
 <td>服务属性</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
-</tr>           
-<tr> 
+</tr><br/><tr> 
 <td>快照 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">使用增量快照备份 Azure 虚拟机磁盘</a></td>
 </tr> 
@@ -219,6 +217,6 @@ ms.locfileid: "52663571"
 
 了解其他语言的示例：
 
-* Java：[使用 Java 的 Azure 存储示例](storage-samples-java.md)
+* Java:[使用 Java 的 Azure 存储示例](storage-samples-java.md)
 * 所有其他语言：[Azure 存储示例](../storage-samples.md)
 <!--Update_Description: update link-->

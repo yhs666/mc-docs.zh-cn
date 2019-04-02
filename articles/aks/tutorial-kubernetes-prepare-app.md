@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dbde9cdc138cd550400d0676a689f7830e3dcfa6
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 1641145b174e3ceaf1ea1535ddac0ea705b30277
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903102"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626011"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教程：准备用于 Azure Kubernetes 服务 (AKS) 的应用程序
 
@@ -90,7 +90,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>在本地测试应用程序
 
-若要查看正在运行的应用程序，请在本地 Web 浏览器中输入 http://localhost:8080。 示例应用程序会加载，如以下示例所示：
+若要查看正在运行的应用程序，请在本地 Web 浏览器中输入 `http://localhost:8080`。 示例应用程序会加载，如以下示例所示：
 
 ![Azure 上的 Kubernetes 群集映像](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 

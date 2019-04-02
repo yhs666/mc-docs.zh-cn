@@ -16,12 +16,12 @@ origin.date: 01/16/2019
 ms.date: 03/18/2019
 ms.author: v-jay
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 426d4a8c4a88a07239db54581fe38cc8a5d31c2a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 3c66992f02460fa813790c536cba4e07310e2f2e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988097"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627779"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的 Key Vault
 
@@ -74,7 +74,6 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ```PowerShell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
-
 ```
 
 **输出**
@@ -93,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![新的 Key Vault](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-此命令的输出会显示创建的密钥保管库的属性。 当应用程序访问此保管库时，它必须使用“保管库 URI”属性（在本例中为“https://vault01.vault.local.azurestack.external”）。
+此命令的输出会显示创建的密钥保管库的属性。 当应用程序访问此保管库时，它必须使用“保管库 URI”属性（在本例中为“<https://vault01.vault.local.azurestack.external>”）。
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory 联合身份验证服务 (AD FS) 部署
 
@@ -128,8 +127,8 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 现在可以通过已创建密钥的 URI 来引用该密钥。 如果创建或导入的密钥的名称与现有密钥相同，则会使用新密钥中指定的值来更新原始密钥。 可以使用密钥的特定于版本的 URI 来访问以前的版本。 例如：
 
-* 使用“https://vault10.vault.local.azurestack.external:443/keys/key01”总能获得当前版本。
-* 使用“https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a”获取此特定版本。
+* 使用“<https://vault10.vault.local.azurestack.external:443/keys/key01>”总能获得当前版本。
+* 使用“<https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a>”获取此特定版本。
 
 ### <a name="get-a-key"></a>获取密钥
 

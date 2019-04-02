@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53d6ac859d8d9dcd6586f4f9f88b32a7d9fcd648
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 645189673ca4f1ad4ddf4ac83aa089efb5f6c1ab
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964454"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505509"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入门：使用 Python 通过文本翻译 API 获取所支持语言的列表
 
@@ -96,6 +96,8 @@ python get-languages.py
 如果希望将你的代码与我们的进行比较，请查看 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python) 上提供的完整示例。
 
 ## <a name="sample-response"></a>示例响应
+
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 此示例已截断，显示了结果的片段：
 
@@ -202,3 +204,4 @@ python get-languages.py
 * [获取备用翻译](quickstart-python-dictionary.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)
 
+<!-- Update_Description: wording update -->

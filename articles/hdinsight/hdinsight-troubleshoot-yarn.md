@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 11/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: cd9f25f7744797c06e09db96a57cde49c78e9d3b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4c59f9807c67d39fd6416d7d8ab662fb94172e9c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662687"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625108"
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 YARN 进行故障排除
 
@@ -35,6 +35,7 @@ ms.locfileid: "52662687"
 在 Ambari 中使用以下步骤可以创建新的 YARN 队列，并在所有队列之间均衡容量分配。 
 
 在此示例中，两个现有队列（**default** 和 **thriftsvr**）的容量都从 50 % 更改为 25%，因此，新队列 (Spark) 具有 50% 的容量。
+
 | 队列 | 容量 | 最大容量 |
 | --- | --- | --- | --- |
 | 默认值 | 25% | 50% |
@@ -99,7 +100,7 @@ YARN 计划程序 UI 中会立即显示这些更改。
     ```
 
 3. 若要下载所有应用程序主控的 YARN 容器日志，请使用以下命令：
-   
+
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```

@@ -9,12 +9,12 @@ origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d1ec486cb8875252a8850b13d886c7d610b59ff9
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: a75c221cf4d98a9976b854b6e22ecb8404477164
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463682"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627078"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -64,6 +64,7 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 
 ### <a name="site-recovery-support"></a>Site Recovery 支持
 由于 Site Recovery 复制不区分应用程序，因此这些建议应该也适用于以下场景。
+
 | 源    |到辅助站点    |到 Azure
 |---------|---------|---------|
 |Azure| -|是|

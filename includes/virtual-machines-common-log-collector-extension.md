@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 10/26/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5a2354e790dc09e84535726cae6cf932f35daeb0
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 5b35a5a178b2fd0d6426c6f63a6c45d4f7b6ba8b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666476"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627772"
 ---
 若要诊断 Azure 云服务的问题，需要在问题发生时收集虚拟机上该服务的日志文件。 可以使用 AzureLogCollector 扩展按需从一个或多个云服务 VM（通过 Web 角色和辅助角色）执行一次性日志收集，并将收集到的文件传输到 Azure 存储帐户 - 所有这些操作都无需远程登录到任何 VM。
 
@@ -94,37 +94,37 @@ ms.locfileid: "56666476"
 1. 按照说明将 Azure PowerShell 连接到订阅。
 2. 指定服务名、槽、角色和角色实例，以便向其添加 AzureLogCollector 扩展并启用该扩展。
 
-  ```powershell
-  #Specify your cloud service name
-  $ServiceName = 'extensiontest2'
+   ```powershell
+   #Specify your cloud service name
+   $ServiceName = 'extensiontest2'
 
-  #Specify the slot. 'Production' or 'Staging'
-  $slot = 'Production'
+   #Specify the slot. 'Production' or 'Staging'
+   $slot = 'Production'
 
-  #Specified the roles on which the extension will be installed and enabled
-  $roles = @("WorkerRole1","WebRole1")
+   #Specified the roles on which the extension will be installed and enabled
+   $roles = @("WorkerRole1","WebRole1")
 
-  #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
-  $instances = @("*")
+   #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
+   $instances = @("*")
 
-  #Specify the collection mode, "Full" or "GA"
-  $mode = "GA"
-  ```
+   #Specify the collection mode, "Full" or "GA"
+   $mode = "GA"
+   ```
 
 3. 指定更多需要为其收集文件的数据文件夹（此步骤为可选）。
 
-  ```powershell
-  #add one location
-  $a1 = New-Object PSObject
+   ```powershell
+   #add one location
+   $a1 = New-Object PSObject
 
-  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+   $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+   $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-  $AdditionalDataList+= $a1
-  #more locations can be added....
-  ```
+   $AdditionalDataList+= $a1
+   #more locations can be added....
+   ```
 
    > [!NOTE]
    > 可以使用令牌 `%roleroot%` 指定角色根驱动器，因为该角色不使用固定驱动器。
@@ -132,16 +132,16 @@ ms.locfileid: "56666476"
    > 
 4. 提供要向其上传所收集文件的 Azure 存储帐户名称和密钥。
 
-  ```powershell
-  $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = 'YourStorageAccountKey'
-  ```
+   ```powershell
+   $StorageAccountName = 'YourStorageAccountName'
+   $StorageAccountKey  = 'YourStorageAccountKey'
+   ```
 
 5. 按如下所示调用 SetAzureServiceLogCollector.ps1（本文末尾提供），以便为云服务启用 AzureLogCollector 扩展。 执行完以后，可以在 `https://YourStorageAccountName.blob.core.chinacloudapi.cn/vmlogs` 下找到上传的文件
 
-  ```powershell
-  .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances -Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
-  ```
+   ```powershell
+   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances -Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
+   ```
 
 下面是传递给脚本的参数的定义。 （也在下面复制。）
 
@@ -198,36 +198,36 @@ param (
 
 1. 指定服务名称、VM 和收集模式。
 
-  ```powershell
-  #Specify your cloud service name
-  $ServiceName = 'YourCloudServiceName'
+   ```powershell
+   #Specify your cloud service name
+   $ServiceName = 'YourCloudServiceName'
 
-  #Specify the VM name
-  $VMName = "'YourVMName'"
+   #Specify the VM name
+   $VMName = "'YourVMName'"
 
-  #Specify the collection mode, "Full" or "GA"
-  $mode = "GA"
+   #Specify the collection mode, "Full" or "GA"
+   $mode = "GA"
 
-  Specify the additional data folder for which files will be collected (this step is optional).
+   Specify the additional data folder for which files will be collected (this step is optional).
 
-  #add one location
-  $a1 = New-Object PSObject
+   #add one location
+   $a1 = New-Object PSObject
 
-  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+   $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+   $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-  $AdditionalDataList+= $a1
+   $AdditionalDataList+= $a1
         #more locations can be added....
-  ```
+   ```
 
 2. 提供要向其上传所收集文件的 Azure 存储帐户名称和密钥。
 
-  ```powershell
-  $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = 'YourStorageAccountKey'
-  ```
+   ```powershell
+   $StorageAccountName = 'YourStorageAccountName'
+   $StorageAccountKey  = 'YourStorageAccountKey'
+   ```
 
 3. 按如下所示调用 SetAzureVMLogCollector.ps1（本文末尾提供），以便为云服务启用 AzureLogCollector 扩展。 执行完以后，可以在 `https://YourStorageAccountName.blob.core.chinacloudapi.cn/vmlogs` 下找到上传的文件
 

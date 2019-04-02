@@ -16,12 +16,12 @@ origin.date: 07/13/2017
 ms.date: 11/12/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 687747e3da4b23aa5ab181c4e525cc5550b052c8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 85d639eb550c2f797a3851b69700da9eb70a54d3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645851"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625396"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步服务影子属性
 大多数属性在 Azure AD 中的表示方式与其在本地 Active Directory 中的表示方式相同。 但是，一些属性有一些特殊的处理方式，而且 Azure AD 中的属性值可能不同于 Azure AD Connect 所同步的属性值。
@@ -38,11 +38,12 @@ ms.locfileid: "52645851"
 ### <a name="userprincipalname"></a>userPrincipalName
 用户在非验证域中具有下列属性值：
 
-| 属性 | 值 |
-| --- | --- |
-| 本地 userPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD userPrincipalName | lee.sperry@fabrikam.partner.onmschina.cn |
+
+|            属性             |                  值                   |
+|----------------------------------|------------------------------------------|
+|  本地 userPrincipalName   |         lee.sperry@fabrikam.com          |
+| Azure AD shadowUserPrincipalName |         lee.sperry@fabrikam.com          |
+|    Azure AD userPrincipalName    | lee.sperry@fabrikam.partner.onmschina.cn |
 
 userPrincipalName 属性是在使用 PowerShell 时看到的值。
 
@@ -53,12 +54,13 @@ proxyAddress 也会发生这个只包括验证域的相同过程，但有一些�
 
 对于邮箱用户（不管是在本地还是在 Exchange Online 中），仅显示验证域的值。 它看起来可能如下所示：
 
-| 属性 | 值 |
-| --- | --- |
-| 本地 proxyAddress | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
+
+|           属性            |                                                      值                                                       |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------|
+|   本地 proxyAddress   |   SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com    |
 | Exchange Online proxyAddress | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-在本示例中删除了 **smtp:abbie.spencer@fabrikam.com** ，因为该域尚未验证。 不过，Exchange 也添加了 **SIP:abbie.spencer@fabrikamonline.com**。 Fabrikam 尚未使用本地 Lync/Skype，但 Azure AD 和 Exchange Online 为其做了准备。
+在本示例中删除了 <strong>smtp:abbie.spencer@fabrikam.com</strong> ，因为该域尚未验证。 不过，Exchange 也添加了 <strong>SIP:abbie.spencer@fabrikamonline.com</strong>。 Fabrikam 尚未使用本地 Lync/Skype，但 Azure AD 和 Exchange Online 为其做了准备。
 
 这个针对 proxyAddress 的逻辑称为 **ProxyCalc**。 每当出现以下情况，导致用户出现变化时，就会调用 ProxyCalc：
 

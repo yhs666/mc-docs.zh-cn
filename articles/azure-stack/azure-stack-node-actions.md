@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: fe399f1ad6a53a2bb93ebce63649489ff686a0e6
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 25c134ebcdcc55de0a432fd578da1076ded27d17
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905435"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625836"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -43,15 +43,15 @@ ms.locfileid: "56905435"
 3. 在结果中选择缩放单元。
 4. 从左侧的“常规”下面，选择“节点”。
 
-  查看以下信息：
+   查看以下信息：
 
-  - 各个节点的列表
-  - 操作状态（参阅以下列表）
-  - 电源状态（“正在运行”或“已停止”）
-  - 服务器模型
-  - 基板管理控制器 (BMC) 的 IP 地址
-  - 内核总数
-  - 总内存量
+   - 各个节点的列表
+   - 操作状态（参阅以下列表）
+   - 电源状态（“正在运行”或“已停止”）
+   - 服务器模型
+   - 基板管理控制器 (BMC) 的 IP 地址
+   - 内核总数
+   - 总内存量
 
 ![缩放单元的状态](media/azure-stack-node-actions/multinodeactions.png)
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 01/11/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 862e5b803e643fa70d5ca9c986af07274207884c
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 80c5cd7b75ec0067c53fdc5716e2d013cfb74ab1
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666145"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544789"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 
@@ -286,6 +286,7 @@ ms.locfileid: "56666145"
 
 **验证**：若要验证基本报表服务器功能是否工作，请参阅本主题后面的[验证配置](#verify-the-configuration)部分。
 
+<a name="use-script-to-configure-the-report-server-and-HTTPS"></a>
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>使用脚本来配置报表服务器和 HTTPS
 若要使用 Windows PowerShell 来配置报表服务器，请完成以下步骤。 该配置包括 HTTPS 而不是 HTTP。
 

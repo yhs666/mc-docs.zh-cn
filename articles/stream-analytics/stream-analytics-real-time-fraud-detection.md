@@ -10,14 +10,14 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
 ms.date: 11/26/2018
-ms.openlocfilehash: aab304eb52d13de4554894e0fb0580bed20cd460
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b9ba882586c0d2f21a6f5840dacff36da63d6c77
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675454"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625220"
 ---
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时欺诈检测
 
 本教程提供了有关如何使用 Azure 流分析的端到端说明。 你将学习如何执行以下操作： 
 
@@ -29,7 +29,7 @@ ms.locfileid: "52675454"
 
 本教程将使用基于电话呼叫数据的实时欺诈检测的示例。 所演示的技术还适用于其他类型的欺诈检测，如信用卡欺诈或身份盗用。 
 
-## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>方案：实时进行电信和 SIM 欺诈检测
+## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>方案：实时进行远程通信和 SIM 欺诈检测
 
 电信公司的传入呼叫数据量很大。 公司希望实时检测欺诈呼叫，以便他们可以通知客户或针对特定号码关闭服务。 有一种 SIM 欺诈涉及在同一时间以同一身份发起但位于不同地理位置的多个呼叫。 若要检测此类欺诈，公司需要检查来电记录，并查找特定模式 - 在本例中，将查找在不同国家/地区同时发起的呼叫。 任何属于此类别的电话记录都将写入到存储中，以供后续分析。
 
@@ -133,7 +133,9 @@ ms.locfileid: "52675454"
 1.  打开命令窗口，然后切换到 TelcoGenerator 应用解压缩到的文件夹。
 2.  输入以下命令：
 
+        ```cmd
         telcodatagen.exe 1000 0.2 2
+        ```
 
     参数包括： 
 
@@ -181,13 +183,15 @@ ms.locfileid: "52675454"
 
 3. 单击“添加流输入”并选择“事件中心”。 然后使用以下信息填充“新建输入”页：
 
-    |**设置**  |**建议的值**  |**说明**  |
-    |---------|---------|---------|
-    |输入别名  |  CallStream   |  输入一个名称，用于标识作业的输入。   |
-    |订阅   |  \<订阅\> |  选择包含创建的事件中心的 Azure 订阅。   |
-    |事件中心命名空间  |  asa-eh-ns-demo |  输入事件中心命名空间的名称。   |
-    |事件中心名称  | asa-eh-frauddetection-demo | 选择事件中心的名称。   |
-    |事件中心策略名称  | asa-policy-manage-demo | 选择之前创建的访问策略。   |
+
+   |      **设置**      |    **建议的值**     |                          **说明**                          |
+   |-----------------------|----------------------------|-------------------------------------------------------------------|
+   |      输入别名      |         CallStream         |             输入一个名称，用于标识作业的输入。             |
+   |     订阅      |   \<订阅\>    | 选择包含创建的事件中心的 Azure 订阅。 |
+   |  事件中心命名空间  |       asa-eh-ns-demo       |            输入事件中心命名空间的名称。             |
+   |    事件中心名称     | asa-eh-frauddetection-demo |                选择事件中心的名称。                 |
+   | 事件中心策略名称 |   asa-policy-manage-demo   |        选择之前创建的访问策略。         |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
 
@@ -229,11 +233,13 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 如果想要将每个事件存档，可使用传递查询读取事件负载中的所有字段。
 
 1. 在查询窗口中输入以下查询：
-
-        SELECT 
-            *
-        FROM 
-            CallStream
+        
+   ```SQL
+   SELECT 
+       *
+   FROM 
+       CallStream
+   ```
 
     >[!NOTE]
     >对于 SQL，关键字不区分大小写，空格也不重要。
@@ -254,14 +260,16 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 1. 在代码编辑器中将查询更改为以下内容：
 
-        SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
-        FROM 
-            CallStream
+   ```SQL
+   SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+   FROM 
+       CallStream
+   ```
 
 2. 再次单击“测试”。 
 
-    ![用于投影的流分析作业输出，其中显示生成的 25 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
-
+   ![用于投影的流分析作业输出显示 25 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+ 
 ### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>按区域计算传入呼叫数：带聚合功能的翻转窗口
 
 假设要计算每个区域的传入呼叫数。 在流数据中，当要执行聚合函数（如计数）时，需要将流划分为临时单位（因为数据流本身实际上是无限的）。 使用流分析[开窗函数](stream-analytics-window-functions.md)执行此操作。 然后，可以使用该窗口中的数据作为一个单元。
@@ -270,11 +278,13 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 1. 在代码编辑器中将查询更改为以下内容：
 
+        ```SQL
         SELECT 
             System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
         FROM
             CallStream TIMESTAMP BY CallRecTime 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+        ```
 
     此查询在 `FROM` 子句中使用 `Timestamp By` 关键字来指定输入流中要用于定义翻转窗口的时间戳字段。 在这种情况下，窗口按每条记录中的 `CallRecTime` 字段将数据划分为段。 （如果未指定任何字段，开窗操作将使用每个事件到达事件中心的时间。 请参阅[流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)中的“到达时间与应用程序时间”。 
 
@@ -284,8 +294,8 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 2. 再次单击“测试”。 在结果中，请注意“WindowEnd”下的时间戳以 5 秒为增量。
 
-   ![用于聚合的流分析作业输出，其中显示生成的 13 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
-
+   ![用于聚合的流分析作业输出，其中显示 13 条记录](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+ 
 ### <a name="detect-sim-fraud-using-a-self-join"></a>使用自联接检测 SIM 欺诈
 
 在此示例中，将欺诈使用情况视为来自同一用户的呼叫，但与另一个 5 秒内的呼叫位于不同的位置。 例如，同一用户不能合法地同时从美国和中国发起呼叫。 
@@ -296,6 +306,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 1. 在代码编辑器中将查询更改为以下内容： 
 
+        ```SQL
         SELECT  System.Timestamp as Time, 
             CS1.CallingIMSI, 
             CS1.CallingNum as CallingNum1, 
@@ -307,6 +318,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
             ON CS1.CallingIMSI = CS2.CallingIMSI 
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
+        ```
 
     除了联接中的 `DATEDIFF` 函数以外，此查询与任何 SQL 联接类似。 此 `DATEDIFF` 版本特定于流分析，它必须显示在 `ON...BETWEEN` 子句中。 参数为时间单位（此示例中为秒）和联接的两个源的别名。 这与标准 SQL `DATEDIFF` 函数不同。
 
@@ -341,12 +353,14 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 4. 在“输出”窗格中，单击“添加”，然后选择“BIob 存储”。 使用以下信息填写“新建输出”页：
 
-    |**设置**  |**建议的值**  |**说明**  |
-    |---------|---------|---------|
-    |输出别名  |  CallStream-FraudulentCalls   |  输入一个名称，用于标识作业的输出。   |
-    |订阅   |  \<订阅\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
-    |存储帐户  |  asaehstorage |  输入创建的存储帐户的名称。 |
-    |容器  | asa-fraudulentcalls-demo | 选择“创建新名称”并输入容器名称。 |
+
+   |   **设置**   |    **建议的值**     |                                                                                                           **说明**                                                                                                           |
+   |-----------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |  输出别名   | CallStream-FraudulentCalls |                                                                                             输入一个名称，用于标识作业的输出。                                                                                              |
+   |  订阅   |   \<订阅\>    | 选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
+   | 存储帐户 |        asaehstorage        |                                                                                         输入创建的存储帐户的名称。                                                                                          |
+   |    容器    |  asa-fraudulentcalls-demo  |                                                                                            选择“创建新名称”并输入容器名称。                                                                                            |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
 
@@ -391,7 +405,8 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md)--> 有关常规流分析的详细信息，请查看以下文章：
+<!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md)-->
+有关常规流分析的详细信息，请查看以下文章：
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)

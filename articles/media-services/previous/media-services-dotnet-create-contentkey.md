@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 5fe165d6ce15496a8912447063a91bfb17918495
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: ee40bc318269a1ffcea71fd57a1adfde5814db04
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833282"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624099"
 ---
-# <a name="create-contentkeys-with-net-legacy"></a>使用 .NET 创建内容密钥（旧版）
+# <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)

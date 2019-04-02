@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/08/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 916639d7ee11843918e0c8b726324bb147a6b5e2
-ms.sourcegitcommit: 902c63072b2d4d889e47f3e4ecb53aeb33534e0c
+ms.openlocfilehash: b1762b8769f9766dc39227767903622295d3cbd8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186251"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625750"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理器进行灾难恢复
 
@@ -72,12 +72,13 @@ DNS 是转移网络流量的最高效机制之一，因为 DNS 通常是全局�
 图：使用 Azure DNS 执行手动故障转移
 
 为此解决方案做出了如下假设：
--   主终结点和辅助终结点使用不经常变化的静态 IP。 假设主站点的 IP 为 100.168.124.44，辅助站点的 IP 为 100.168.124.43。
--   主站点和辅助站点均有对应的 Azure DNS 区域。 假设主站点的终结点为 prod.contoso.com，备份站点的终结点为 dr.contoso.com。 此外，还有主应用程序的 DNS 记录 www.contoso.com。   
--   TTL 不高于组织中设置的 RTO SLA。 例如，如果企业将应用程序灾难响应 RTO 设置为 60 分钟，TTL 应短于 60 分钟，最好是越低越好。 设置 Azure DNS 手动故障转移的具体步骤如下：
-1. 创建 DNS 区域
-2. 创建 DNS 区域记录
-3. 更新 CNAME 记录
+- 主终结点和辅助终结点使用不经常变化的静态 IP。 假设主站点的 IP 为 100.168.124.44，辅助站点的 IP 为 100.168.124.43。
+- 主站点和辅助站点均有对应的 Azure DNS 区域。 假设主站点的终结点为 prod.contoso.com，备份站点的终结点为 dr.contoso.com。 此外，还有主应用程序的 DNS 记录 www.contoso.com。   
+- TTL 不高于组织中设置的 RTO SLA。 例如，如果企业将应用程序灾难响应 RTO 设置为 60 分钟，TTL 应短于 60 分钟，最好是越低越好。 
+  设置 Azure DNS 手动故障转移的具体步骤如下：
+- 创建 DNS 区域
+- 创建 DNS 区域记录
+- 更新 CNAME 记录
 
 ### <a name="step-1-create-a-dns"></a>步骤 1：创建 DNS
 创建 DNS 区域（例如，www.contoso.com），如下所示：

@@ -10,12 +10,12 @@ ms.author: v-biyu
 manager: mbaldwin
 origin.date: 10/12/2017
 ms.date: 01/14/2019
-ms.openlocfilehash: 0cc1839fe5cb5037b11be0ee05c22ffeddb52d15
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 6d575e8ef2cab1e2dfab59055b89862a06c843b4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996362"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627240"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 托管存储帐户 - CLI
 
@@ -64,16 +64,16 @@ ms.locfileid: "53996362"
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     如果用户未创建存储帐户并且对存储帐户没有权限，则以下步骤会设置帐户的权限，以确保你可以管理 Key Vault 中的所有存储权限。
- > [!NOTE] 
-    如果用户对存储帐户没有权限，我们会先获取用户的对象 ID
+   > [!NOTE]
+   >  如果用户对存储帐户没有权限，我们会先获取用户的对象 ID
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
     ```
-### <a name="relavant-azure-cli-cmdlets"></a>相关 Azure CLI cmdlet
-- [Azure CLI 存储 Cmdlet](https://docs.azure.cn/zh-cn/cli/keyvault/storage?view=azure-cli-latest)
+   ### <a name="relavant-azure-cli-cmdlets"></a>相关 Azure CLI cmdlet
+5. [Azure CLI 存储 Cmdlet](https://docs.azure.cn/zh-cn/cli/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>相关的 Powershell cmdlet
 

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 07/25/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: e721f5ea75588aa8003b62a5f6c547dec5db8e4d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ba50198b11336f72f92319e8abc10e9dfdbad997
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652043"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625287"
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>使用 IoT 中心路由消息 (.NET)
 
@@ -199,16 +199,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 3. 在“终结点”边栏选项卡中，选择“CriticalQueue”终结点，然后单击“删除”。 单击“是”，然后单击“添加”。 将终结点命名为 **StorageContainer**，从下拉列表中选择“Azure 存储容器”，然后创建**存储帐户**和**存储容器**。  记下名称。  完成后，单击底部的“确定”。 
 
- > [!NOTE]
+   > [!NOTE]
    > 如果可以使用不止一个**终结点**，则不需删除 **CriticalQueue**。
 
 4. 单击 IoT 中心的“路由”。 单击边栏选项卡顶部的“添加” ，创建将消息路由到刚添加的队列的路由规则。 选择“设备消息”作为数据源。 输入 `level="storage"` 作为条件，并选择自定义终结点 **StorageContainer** 作为路由规则终结点。 单击底部的“保存”。  
 
     请确保回退路由设为“开”。 此设置是 IoT 中心的默认配置。
 
-1. 确保以前的应用程序仍在运行。 
+5. 确保以前的应用程序仍在运行。 
 
-1. 在 Azure 门户中，转到自己的存储帐户，在“Blob 服务”下面单击“浏览 Blob...”。选择容器，导航到 JSON 文件并单击该文件，然后单击“下载”查看数据。
+6. 在 Azure 门户中，转到自己的存储帐户，在“Blob 服务”下面单击“浏览 Blob...”。选择容器，导航到 JSON 文件并单击该文件，然后单击“下载”查看数据。
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，介绍了如何使用 IoT 中心的消息路由功能可靠地分派设备到云的消息。

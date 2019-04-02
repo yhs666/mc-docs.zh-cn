@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 04/01/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 219c539fa478752daade31a2484374366be7d5c5
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 1bc54387ae292ab9de27cc367aabe960e9b2dd46
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665959"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626874"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
@@ -79,8 +79,8 @@ ms.locfileid: "56665959"
 
   针对确切方案（计算、网络和存储）执行实验室测试是确保顺利迁移的最佳办法。 这有助于确保：
 
-  - 待测试的是完全独立的实验室或现有的非生产环境。 建议使用可反复迁移和破坏性修改的完全独立的实验室。  下面列出了用于收集/水化实际订阅的元数据的脚本。
-  - 在单独的订阅中创建实验室是个好办法。 原因是实验室将被反复拆毁，单独拥有独立订阅可降低意外删除某实际内容的可能性。
+- 待测试的是完全独立的实验室或现有的非生产环境。 建议使用可反复迁移和破坏性修改的完全独立的实验室。  下面列出了用于收集/水化实际订阅的元数据的脚本。
+- 在单独的订阅中创建实验室是个好办法。 原因是实验室将被反复拆毁，单独拥有独立订阅可降低意外删除某实际内容的可能性。
 
   可以使用 AsmMetadataParser 工具实现此操作。 [在此处了解有关该工具的详细信息](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -116,17 +116,17 @@ ms.locfileid: "56665959"
     > 需要在与要迁移的当前环境相同的区域中提高这些限制。
     >
 
-    - 网络接口
-    - 负载均衡器
-    - 公共 IP
-    - 静态公共 IP
-    - 核心数
-    - 网络安全组
-    - 路由表
+  - 网络接口
+  - 负载均衡器
+  - 公共 IP
+  - 静态公共 IP
+  - 核心数
+  - 网络安全组
+  - 路由表
 
     可以通过最新版 Azure CLI 使用以下命令查看当前的 Azure 资源管理器配额。
 
-    **计算***（核心数、可用性集数）*
+    **计算** *（核心数、可用性集数）*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 

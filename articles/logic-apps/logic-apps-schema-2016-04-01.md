@@ -10,13 +10,13 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/25/2016
 ms.author: v-yiso
-ms.date: 11/12/2018
-ms.openlocfilehash: 2e8191dddc0d092bc15aef35896e1df7f140e78c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 04/08/2019
+ms.openlocfilehash: 70a71091cb2df729897589a8f415646da4ef6727
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028300"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625176"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure 逻辑应用的架构更新 - 2016 年 6 月 1 日
 
@@ -43,7 +43,7 @@ ms.locfileid: "53028300"
             "Http": {
                "inputs": {
                    "method": "GET",
-                   "uri": "http://www.bing.com"
+                   "uri": "https://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -70,7 +70,7 @@ ms.locfileid: "53028300"
          "Http_2": {
             "inputs": {
                 "method": "GET",
-                "uri": "http://www.bing.com"
+                "uri": "https://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -164,7 +164,7 @@ ms.locfileid: "53028300"
    "Http": {
       "inputs": {
          "method": "GET",
-         "uri": "http://www.bing.com"
+         "uri": "https://www.bing.com"
       },
       "runAfter": {},
       "type": "Http",

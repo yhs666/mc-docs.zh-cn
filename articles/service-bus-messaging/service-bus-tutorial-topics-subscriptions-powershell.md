@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 47e3f0ddf9c11e88239d03916a3c73c06e3f5fa3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 417518a5a665a7b1b342e140bc554a6320627339
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674140"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544740"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教程：使用 PowerShell 和主题/订阅更新库存
 
@@ -287,4 +287,4 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [使用 PowerShell 和主题/订阅更新库存](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
-[安装和配置 Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[安装和配置 Azure PowerShell]: https://docs.azure.cn/zh-cn/powershell-install-configure

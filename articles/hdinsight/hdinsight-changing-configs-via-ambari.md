@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 07/09/2018
 ms.date: 01/21/2019
 ms.author: ashish
-ms.openlocfilehash: 64c6918a5230feba0de4daecb78bf1674b057155
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 10cd0ad06c3ebb2c9ad90fe65d82e5ca9ee3a716
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216263"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626125"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 优化 HDInsight 群集配置
 
@@ -246,7 +246,7 @@ Hive 允许在表中插入记录时创建动态分区，且无需预定义每个
 
 2. 将动态分区模式更改为 *strict*。 在 strict（严格）模式下，必须至少有一个分区是静态的。 这可以阻止未在 WHERE 子句中包含分区筛选器的查询，即，*strict* 可阻止扫描所有分区的查询。 导航到 Hive 的“配置”选项卡，并将 `hive.exec.dynamic.partition.mode` 设置为 **strict**。 默认值为 **nonstrict**。
  
-3. 若要限制要创建的动态分区数，请修改“hive.exec.max.dynamic.partitions”参数。 默认值为 5,000。
+3. 若要限制要创建的动态分区数，请修改 `hive.exec.max.dynamic.partitions` 参数。 默认值为 5,000。
  
 4. 若要限制每个节点的动态分区总数，请修改 `hive.exec.max.dynamic.partitions.pernode`。 默认值为 2,000。
 

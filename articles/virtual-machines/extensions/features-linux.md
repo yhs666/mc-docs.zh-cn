@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/30/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62278edb91e38460b45aee818bde41119f49a33a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5eba9829c3551ebf235ddf0a89235e6e73da8b5f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674974"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627268"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -336,7 +336,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 3. 查看特定扩展文档中有关错误代码和已知问题等的故障排除部分。
 
-3. 查看系统日志。 检查其他可能影响了扩展的操作，例如，长时间安装另一个需要包管理器独占访问权限的应用程序。
+4. 查看系统日志。 检查其他可能影响了扩展的操作，例如，长时间安装另一个需要包管理器独占访问权限的应用程序。
 
 ### <a name="common-reasons-for-extension-failures"></a>扩展失败的常见原因
 

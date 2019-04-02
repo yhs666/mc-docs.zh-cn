@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 11/06/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0346563c8b7daba7a82527be9870caa04fb23e76
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 3549cb778ceca43d63addbca7b016ef7315e79f7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216254"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627429"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Spark 结构化流式处理与 Apache Kafka on HDInsight 配合使用
 
@@ -137,12 +137,12 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     此模板可创建以下资源：
 
-    * Kafka on HDInsight 3.6 群集。
-    * Spark 2.2.0 on HDInsight 3.6 群集。
-    * 包含 HDInsight 群集的 Azure 虚拟网络。
+   * Kafka on HDInsight 3.6 群集。
+   * Spark 2.2.0 on HDInsight 3.6 群集。
+   * 包含 HDInsight 群集的 Azure 虚拟网络。
 
-    > [!IMPORTANT]
-    > 本教程使用的结构化流式处理笔记本需要 Spark 2.2.0 on HDInsight 3.6。 如果使用早期版本的 Spark on HDInsight，则使用笔记本时会收到错误消息。
+     > [!IMPORTANT]
+     > 本教程使用的结构化流式处理笔记本需要 Spark 2.2.0 on HDInsight 3.6。 如果使用早期版本的 Spark on HDInsight，则使用笔记本时会收到错误消息。
 
 2. 使用以下信息填充“自定义模板”部分的条目：
 

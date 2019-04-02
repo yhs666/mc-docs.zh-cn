@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: craigg
 origin.date: 01/15/2019
 ms.date: 02/25/2019
-ms.openlocfilehash: 8d4cb1f789f216f74ebd5ed2668352a17919b612
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 669fdc15962fb96282727cfd448a5df9322521df
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663730"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625864"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例创建虚拟网络
 
@@ -44,7 +44,7 @@ Azure SQL 数据库托管实例必须部署在 Azure [虚拟网络](../virtual-n
 
 2. 选择“部署到 Azure”按钮：
 
-  <a target="_blank" href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
    单击此按钮会打开一个窗体，在其中可以配置用于部署托管实例的网络环境。
 

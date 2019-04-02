@@ -18,12 +18,12 @@ ms.topic: article
 origin.date: 11/25/2017
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 01f65ec45507e01a6c7c378af470a872c6e3d3fa
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: eb51a3c4395e442bc573f5fcc6617613d9d6657e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806612"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625849"
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用用于 IntelliJ 的 Azure 工具包通过 SSH 本地或远程调试 HDInsight 群集上的 Spark 应用程序
 
@@ -43,21 +43,21 @@ ms.locfileid: "53806612"
 
    b. 根据偏好选择 Java 或 Scala 模板。 选择下列选项之一：
 
-      - **Spark on HDInsight (Scala)**
+   - **Spark on HDInsight (Scala)**
 
-      - **Spark on HDInsight (Java)**
+   - **Spark on HDInsight (Java)**
 
-      - **Spark on HDInsight 示例 (Scala)**
+   - **Spark on HDInsight 示例 (Scala)**
 
-      本示例使用“Spark on HDInsight 示例 (Scala)”模板。
+     本示例使用“Spark on HDInsight 示例 (Scala)”模板。
 
    c. 在“生成工具”列表中，根据需要选择以下选项之一：
 
-      - 用于支持 Scala 项目创建向导的“Maven”
+   - 用于支持 Scala 项目创建向导的“Maven”
 
-      -  用于管理依赖项和生成 Scala 项目的“SBT” 
+   - 用于管理依赖项和生成 Scala 项目的“SBT” 
 
-      ![创建调试项目](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     ![创建调试项目](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
    d. 选择“**下一步**”。     
  
@@ -166,8 +166,8 @@ ms.locfileid: "53806612"
 
 
 ### <a name="scenarios"></a>方案
-* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Apache Spark 分析网站日志](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 

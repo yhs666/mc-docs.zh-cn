@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 3ec8fdec7ee4a2bee00b822251743e949c72d599
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 848cded3c7d4ba7e97c4ddb3a7ee75067c82c1ed
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141736"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625158"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述
 本文介绍了 Microsoft Azure 自动缩放是什么、其对用户的好处，以及如何开始使用它。  
@@ -66,15 +66,15 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 
 - **自动缩放设置** ：由自动缩放引擎读取，用于确定是进行扩展还是进行缩减。 它包含一个或多个配置文件、目标资源的信息，以及通知设置。
 
-    - **自动缩放配置文件** 是以下项的组合：
+  - **自动缩放配置文件** 是以下项的组合：
 
-        - **容量设置**：表示实例数的最小值、最大值和默认值。
-        - **规则集**，其中的每个规则都包括一个触发器（时间或指标）和一个缩放操作（增加或缩减）。
-        - **定期**：表示自动缩放应在何时使此配置文件生效。
+    - **容量设置**：表示实例数的最小值、最大值和默认值。
+    - **规则集**，其中的每个规则都包括一个触发器（时间或指标）和一个缩放操作（增加或缩减）。
+    - **定期**：表示自动缩放应在何时使此配置文件生效。
 
-        可以有多个配置文件，以应对不同的互相重叠的要求。 例如，可以针对一天中的不同时间或者一周中的不同日期设置不同的自动缩放配置文件。
+      可以有多个配置文件，以应对不同的互相重叠的要求。 例如，可以针对一天中的不同时间或者一周中的不同日期设置不同的自动缩放配置文件。
 
-    - **通知设置** ：定义在发生自动缩放事件时应发送的通知，前提是符合某个自动缩放设置的配置文件的条件。 自动缩放可以将通知发送到一个或多个电子邮件地址，也可以对一个或多个 webhook 进行调用。
+  - **通知设置** ：定义在发生自动缩放事件时应发送的通知，前提是符合某个自动缩放设置的配置文件的条件。 自动缩放可以将通知发送到一个或多个电子邮件地址，也可以对一个或多个 webhook 进行调用。
 
 
 ![Azure 自动缩放设置、配置文件和规则结构](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -102,6 +102,7 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 * [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>支持进行自动缩放的服务
+
 | 服务 | 架构和文档 |
 | --- | --- |
 | Web 应用 |[缩放 Web 应用](../../azure-monitor/platform/autoscale-get-started.md) |

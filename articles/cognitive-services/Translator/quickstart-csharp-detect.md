@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: a871d474c3e9a3fe969e787e25392cae824b7d30
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 3b1fb48a535e6ea576328fb251d8f9d5c278501e
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964425"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505426"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>快速入门：使用文本翻译 API 通过 C# 来检测文本语言
 
@@ -132,9 +132,17 @@ request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
-// Print the response
-Console.WriteLine(jsonResponse);
+// Pretty print the response
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+要使用“Pretty Print”（响应格式）打印响应，请将此函数添加到 Program 类：
+```
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>将其放在一起
@@ -155,6 +163,8 @@ dotnet run
 ```
 
 ## <a name="sample-response"></a>示例响应
+
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 ```json
 [
@@ -200,3 +210,4 @@ dotnet run
 * [获取支持的语言的列表](quickstart-csharp-languages.md)
 * [根据输入确定句子长度](quickstart-csharp-sentences.md)
 
+<!-- Update_Description: code update -->

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8bc3e94c578c9b0041970e3b99f084e62f143964
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: cfffb667c0e056c3911ef9f24d010328622a772a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463587"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627405"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -142,7 +142,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ## <a name="set-the-vault-context"></a>设置保管库上下文
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）包含大多数 cmdlet 的易用别名。 模块中的 cmdlet 采用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 形式，并具有采用 *\<Operation>-**ASR**\<Object>* 形式的等效别名。 本文使用 cmdlet 别名以便于阅读。
+> Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）为大多数 cmdlet 提供了易用的别名。 该模块中的 cmdlet 采用 *\<操作>-*<em>AzureRmRecoveryServicesAsr</em>*\<对象>* 格式，等效的别名采用 *\<操作>-*<em>ASR</em>*\<对象>* 格式。 本文使用 cmdlet 别名以便于阅读。
 
 设置 PowerShell 会话中使用的保管库上下文。 为此，请下载保管库设置文件，并将下载的文件导入 PowerShell 会话以设置保管库上下文。
 
@@ -154,7 +154,6 @@ $Vaultsettingsfile = Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault 
 
 #Import the downloaded vault settings file to set the vault context for the PowerShell session.
 Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
-
 ```
 ```
 ResourceName         ResourceGroupName ResourceNamespace          ResourceType
@@ -219,7 +218,6 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 
 $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-ChinaNorth"
-
 ```
 
 <!--Target object is China North region-->
@@ -343,7 +341,6 @@ $ChinaEastCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
 $ChinaNorthTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstorage" -ResourceGroupName "a2ademorecoveryrg" -Location 'China North' -SkuName Standard_LRS -Kind Storage
-
 ```
 
 ## <a name="create-network-mappings"></a>创建网络映射
@@ -447,7 +444,6 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
-
 ```
 
 复制包含**非托管磁盘**的 Azure 虚拟机。
@@ -515,7 +511,6 @@ $TFONetwork= $TFOVnet.Id
 $ReplicationProtectedItem = Get-ASRReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
 
 $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
-
 ```
 
 等待测试故障转移操作完成。

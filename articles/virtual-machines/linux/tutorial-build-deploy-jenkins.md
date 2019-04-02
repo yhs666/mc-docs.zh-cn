@@ -14,12 +14,12 @@ origin.date: 07/31/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: jenkins
-ms.openlocfilehash: b6ad22f3d1b9227c4c99b0adb96e17872e3e68f8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 8e3cd5604d775a0d4c7fb2048aecbdbf85357784
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674437"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627539"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教程：使用 Jenkins 和 Azure DevOps Services 将应用部署到 Azure 中的 Linux 虚拟机
 
@@ -45,15 +45,15 @@ ms.locfileid: "52674437"
   
   <!-- Not Available on [Create a Jenkins master on an Azure virtual machine](/jenkins/install-jenkins-solution-template) -->
   <!-- Keep the office website -->
-* 登录到 Azure DevOps Services 组织 (**https://{yourorganization}.visualstudio.com**)。 
+* 登录到 Azure DevOps Services 组织 (<strong>https://{yourorganization}.visualstudio.com</strong>)。 
   可以[免费创建 Azure DevOps Services 组织](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)。
 
   > [!NOTE]
   > 有关详细信息，请参阅[连接到 Azure DevOps Services](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/connect-to-projects?view=vsts)。
 
-*  部署目标需用到 Linux 虚拟机。  有关详细信息，请参阅[使用 Azure CLI 创建和管理 Linux VM](/virtual-machines/linux/tutorial-manage-vm)。
+* 部署目标需用到 Linux 虚拟机。  有关详细信息，请参阅[使用 Azure CLI 创建和管理 Linux VM](/virtual-machines/linux/tutorial-manage-vm)。
 
-*  为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/tutorial-filter-network-traffic)。
+* 为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/tutorial-filter-network-traffic)。
 
 ## <a name="get-the-sample-app"></a>获取示例应用
 
@@ -71,7 +71,7 @@ ms.locfileid: "52674437"
 
 ## <a name="configure-jenkins-plug-ins"></a>配置 Jenkins 插件
 
-首先，必须配置两个 Jenkins 插件：NodeJS 和 VS Team Services 持续部署。
+首先，必须配置两个 Jenkins 插件：**NodeJS** 和 **VS Team Services 持续部署**。
 
 1. 打开你的 Jenkins 帐户，并选择“管理 Jenkins”。
 2. 在“管理 Jenkins”页面上，选择“管理插件”。
@@ -98,20 +98,20 @@ ms.locfileid: "52674437"
 > [!NOTE]
 > 确保用于以下步骤的个人访问令牌 (PAT) 包含 Azure DevOps Services 中的“发布”（读取、写入、执行和管理）权限。
 
-1.  如果没有 PAT，请在 Azure DevOps Services 组织中创建一个 PAT。 Jenkins 需要使用此信息来访问你的 Azure DevOps Services 组织。 确保存储令牌信息以用于本部分后面的步骤。
+1. 如果没有 PAT，请在 Azure DevOps Services 组织中创建一个 PAT。 Jenkins 需要使用此信息来访问你的 Azure DevOps Services 组织。 确保存储令牌信息以用于本部分后面的步骤。
 
-    若要了解如何生成令牌，请阅读[如何为 Azure DevOps Services 创建个人访问令牌？](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts)。
+   若要了解如何生成令牌，请阅读[如何为 Azure DevOps Services 创建个人访问令牌？](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts)。
 2. 在“生成后操作”选项卡中，选择“添加生成后操作”。 选择“存档项目”。
 3. 对于“要存档的文件”，输入 `**/*` 以包括所有文件。
 4. 若要创建其他操作，请选择“添加生成后操作”。
-5. 选择“在 TFS/Team Services 中触发发布” 。 输入 Azure DevOps Services 组织的 URI，例如 **https://{your-organization-name}.visualstudio.com**。
+5. 选择“在 TFS/Team Services 中触发发布” 。 输入 Azure DevOps Services 组织的 URI，例如 <strong>https://{your-organization-name}.visualstudio.com</strong>。
 6. 输入**项目**名称。
 7. 为发布管道选择名称。 （稍后将在 Azure DevOps Services 中创建此发布管道。）
 8. 选择用于连接到 Azure DevOps Services 或 Team Foundation Server 环境的凭据：
    - 如果使用的是 Azure DevOps Services，请将“用户名”留空。 
    - 如果你正在使用 Team Foundation Server 的本地版本，请输入用户名和密码。    
    ![配置 Jenkins 生成后操作](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
-5. 保存 Jenkins 项目。
+9. 保存 Jenkins 项目。
 
 ## <a name="create-a-jenkins-service-endpoint"></a>创建 Jenkins 服务终结点
 
@@ -120,7 +120,7 @@ ms.locfileid: "52674437"
 1. 在 Azure DevOps Services 中打开“服务”页面，打开“新服务终结点”列表，然后选择“Jenkins”。
    ![添加 Jenkins 终结点](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. 输入连接的名称。
-3. 输入 Jenkins 服务器的 URL，然后选择“接受不受信任的 SSL 证书”选项。 示例 URL 是 **http://{YourJenkinsURL}.chinaeast.cloudapp.chinacloudapi.cn**。
+3. 输入 Jenkins 服务器的 URL，然后选择“接受不受信任的 SSL 证书”选项。 示例 URL 是 <strong>http://{YourJenkinsURL}.chinaeast.cloudapp.chinacloudapi.cn</strong>。
 4. 输入 Jenkins 帐户的用户名和密码。
 5. 选择“验证连接”确认信息是否正确。
 6. 选择“确定”，创建服务终结点。

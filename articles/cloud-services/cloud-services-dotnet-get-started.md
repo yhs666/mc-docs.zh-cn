@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 05/15/2017
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1edcc59263d1b7bb6ca8cf7754fe967b6862e60d
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 7916cc7f7c9bfd30211371a07b7f859c5a8f8d34
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303076"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626437"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -466,9 +466,9 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 要将文件添加到某个项目或文件夹，请右键单击该项目或文件夹，并单击“添加” - “现有项”。 选择所需的文件，并单击“添加”。 。
 
-3. 在 ContosoAdsCommon 项目中，删除 *Class1.cs* 文件，并在其原位置添加来自下载项目的 *Ad.cs* 和 *ContosoAdscontext.cs* 文件。
+1. 在 ContosoAdsCommon 项目中，删除 *Class1.cs* 文件，并在其原位置添加来自下载项目的 *Ad.cs* 和 *ContosoAdscontext.cs* 文件。
 
-3. 在 ContosoAdsWeb 项目中，从下载的项目添加以下文件。
+2. 在 ContosoAdsWeb 项目中，从下载的项目添加以下文件。
     - *Global.asax.cs*。  
     - 在“Views\Shared”文件夹中：\_Layout.cshtml。
     - 在“Views\Home”文件夹中：Index.cshtml。

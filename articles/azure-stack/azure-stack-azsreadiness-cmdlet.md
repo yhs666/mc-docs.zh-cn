@@ -17,12 +17,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 3d7a2f502535187ae5ec709584a3fc3eefe14770
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f13edc3e020f48039d3cf225e5344b4ad5089bf9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626169"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -300,6 +300,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -RegionName
 
 指定 Azure Stack 部署的区域名称。
+
 |  |  |
 |----------------------------|--------------|
 |键入：                       |String        |
@@ -311,6 +312,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -FQDN
 
 指定 Azure Stack 部署的外部 FQDN，也可以使用别名 ExternalFQDN 和 ExternalDomainName。
+
 |  |  |
 |----------------------------|--------------|
 |键入：                       |String        |
@@ -322,6 +324,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -IdentitySystem
 
 指定 Azure Stack 部署的标识系统有效值：AAD 或 ADFS（分别表示 Azure Active Directory 和 Active Directory 联合身份验证服务）。
+
 |  |  |
 |----------------------------|--------------|
 |键入：                       |String        |
@@ -334,6 +337,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -PfxPassword
 
 指定与 PFX 证书文件关联的密码。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |SecureString |
@@ -345,6 +349,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -PaaSCertificates
 
 指定包含 PaaS 证书路径和密码的哈希表。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |Hashtable |
@@ -356,6 +361,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -DeploymentDataJSONPath
 
 指定 Azure Stack 部署数据 JSON 配置文件。 此文件是针对部署生成的。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -367,6 +373,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -PfxPath
 
 指定需要通过导入/导出例程修复的有问题的证书（此工具中的证书验证会指出该问题）的路径。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -378,6 +385,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -ExportPFXPath  
 
 指定导入/导出例程生成的 PFX 文件的目标路径。  
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -389,6 +397,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -Subject
 
 指定用于生成证书请求的主题的排序字典。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |OrderedDictionary   |
@@ -416,6 +425,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -OutputRequestPath
 
 指定证书请求文件的目标路径，目录必须已存在。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -427,6 +437,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -AADServiceAdministrator
 
 指定用于 Azure Stack 部署的 Azure Active Directory 服务管理员。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |PSCredential   |
@@ -438,6 +449,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -AADDirectoryTenantName
 
 指定用于 Azure Stack 部署的 Azure Active Directory 名称。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -449,6 +461,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -AzureEnvironment
 
 指定用于 Azure Stack 部署和注册的帐户、目录和订阅所在的 Azure 服务实例。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -461,6 +474,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -RegistrationAccount
 
 指定用于 Azure Stack 注册的注册帐户。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -472,6 +486,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -RegistrationSubscriptionID
 
 指定用于 Azure Stack 注册的注册订阅 ID。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |Guid     |
@@ -483,6 +498,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 > -ReportPath
 
 指定就绪性报告的路径，默认值为当前目录和默认报告名称。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -528,6 +544,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -ReportSections
 
 指定是否仅显示报告摘要，并省略详细信息。
+
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
@@ -540,6 +557,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -Summary
 
 指定是否仅显示报告摘要，并省略详细信息。
+
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
@@ -551,6 +569,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -CleanReport
 
 删除以往的执行和验证历史记录，并将验证结果写入新报告。
+
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
@@ -575,6 +594,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -Confirm
 
 在运行 cmdlet 之前提示确认。
+
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
@@ -587,11 +607,13 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 > -WhatIf
 
 显示运行该 cmdlet 时会发生什么情况。 cmdlet 未运行。
-|  |  |
-|----------------------------|------------------|
-|键入：                       |SwitchParameter   |
-|别名：                    |wi                |
-|位置：                   |名为             |
-|默认值：              |False             |
-|接受管道输入：      |False             |
-|接受通配符： |False             |
+
+|                             |                 |
+|-----------------------------|-----------------|
+|            键入：            | SwitchParameter |
+|          别名：           |       wi        |
+|          位置：          |      名为      |
+|       默认值：        |      False      |
+|   接受管道输入：    |      False      |
+| 接受通配符： |      False      |
+

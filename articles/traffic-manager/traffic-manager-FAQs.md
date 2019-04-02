@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 09/18/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: b1bc5c399ac21c0ca79f2fd72557232f294d388a
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: 1b1c4ab3f6ac9bff1b487e12981cef4c46dd36a1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306734"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625933"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -167,7 +167,8 @@ The country/region hierarchy that is used by Traffic Manager can be found [here]
 可以指定返回的最大终结点数，当收到查询时，多值路由将返回不超过该指定数量的正常运行的终结点。 此配置的最大值为 10。
 
 ### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>使用多值路由时，会收到一组相同的终结点吗？
-我们无法保证在每个查询中都会返回相同的一组终结点。 此结果也受终结点的运行状况影响，在响应中不包括某些终结点时，说明它们可能存在问题<!-- Not Available ## Real User Measurements-->
+我们无法保证在每个查询中都会返回相同的一组终结点。 此结果也受终结点的运行状况影响，在响应中不包括某些终结点时，说明它们可能存在问题
+<!-- Not Available ## Real User Measurements-->
 <!-- Not Available ## Traffic View-->
 
 ## <a name="traffic-manager-endpoints"></a>流量管理器终结点
@@ -246,16 +247,18 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 当收到针对配置文件的查询时，流量管理器首先会根据指定的路由方法和终结点的运行状况查找需要返回的终结点。 然后，在根据下表返回响应之前，它会查看传入查询中请求的记录类型以及与终结点关联的记录类型。
 
 对于使用多值路由以外的任何路由方法的配置文件：
-|传入的查询请求|    终结点类型|  提供的响应|
-|--|--|--|
-|任意 |  A/AAAA/CNAME |  目标终结点| 
-|A |    A/CNAME | 目标终结点|
-|A |    AAAA |  无数据 |
-|AAAA | AAAA/CNAME |  目标终结点|
-|AAAA | A | 无数据 |
-|CNAME |    CNAME | 目标终结点|
-|CNAME  |A/AAAA | 无数据 |
-|
+
+| 传入的查询请求 |  终结点类型   | 提供的响应 |
+|------------------------|------------------|-------------------|
+|          任意           | A/AAAA/CNAME |  目标终结点  |
+|           A            |    A/CNAME     |  目标终结点  |
+|           A            |       AAAA       |      无数据       |
+|          AAAA          |   AAAA/CNAME   |  目标终结点  |
+|          AAAA          |        A         |      无数据       |
+|         CNAME          |      CNAME       |  目标终结点  |
+|         CNAME          |     A/AAAA     |      无数据       |
+|                        |                  |                   |
+
 对于将路由方法设置为多值路由的配置文件：
 
 |传入的查询请求|    终结点类型 | 提供的响应|

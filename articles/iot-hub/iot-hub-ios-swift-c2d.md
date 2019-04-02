@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/19/2018
-ms.date: 10/29/2018
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 85ee5901da91e2e2e005d2326afc6b861eb8803d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: e5a6f39e1d371a70c502df072a71b0bd6bf12531
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674809"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626267"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -119,7 +119,7 @@ pod install
 1. 检索 IoT 中心的服务连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)上“共享访问策略”边栏选项卡中的“iothubowner”策略复制此字符串，或者使用以下 CLI 命令检索它：  
 
     ```azurecli
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. 在 XCode 中打开示例工作区。

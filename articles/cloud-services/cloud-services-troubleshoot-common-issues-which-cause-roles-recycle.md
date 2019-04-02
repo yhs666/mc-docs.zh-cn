@@ -16,12 +16,12 @@ ms.workload: tbd
 origin.date: 06/15/2018
 ms.author: v-yiso
 ms.date: 07/16/2018
-ms.openlocfilehash: 4d8b2d95236015955ae6e817e38215a0898fa668
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9b01e028bd62a71cb2c532dfecffae2f6985e4eb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654621"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625850"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 
@@ -61,7 +61,7 @@ Azure 是一个 64 位的环境。 因此，针对 32 位目标编译的 .NET �
 
 - `DiagnosticsConnectionString` 设置指向 Azure 中的有效存储帐户。  
   默认情况下，此设置指向模拟的存储帐户中，因此必须在部署应用程序包之前显式更改此设置。 如果不更改此设置，则角色实例尝试启动诊断监视器时，会引发异常。 这可能导致角色实例无限期回收。
-* 连接字符串是使用以下[格式](../storage/common/storage-configure-connection-string.md)指定的。 （协议必须指定为 HTTPS。）将 MyAccountName 替换为存储帐户名称，将 MyAccountKey 替换为访问密钥：    
+- 连接字符串是使用以下[格式](../storage/common/storage-configure-connection-string.md)指定的。 （协议必须指定为 HTTPS。）将 MyAccountName 替换为存储帐户名称，将 MyAccountKey 替换为访问密钥：    
 
     ```
     DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey

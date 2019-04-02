@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/10/2016
 ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9a6eded7fd8d51a14f4d837f242701aaa9b60d09
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 31f5f6e0013f109ad28d6222e4d90da1bc5aedff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659765"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625561"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>将推送通知添加到 iOS 应用
 
@@ -54,7 +54,7 @@ ms.locfileid: "52659765"
 ## <a id="test"></a>测试推送通知
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-##<a id="more"></a>其他信息
+## <a id="more"></a>其他信息
 
 * 使用模板可以灵活地发送跨平台推送和本地化推送。 [如何使用适用于 Azure 移动应用的 iOS 客户端库](./app-service-mobile-ios-how-to-use-client-library.md#templates)说明了如何注册模板。
 

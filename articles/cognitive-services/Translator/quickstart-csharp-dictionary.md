@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7fefde59ae0e5a7004b1fe46f4aea7a0c693be3d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 4a9762f1c5285c6bf3b5e459d34e3c1c7a0cef3a
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964431"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505513"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>快速入门：通过 C# 使用双语字典查找字词
 
@@ -133,8 +133,16 @@ var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
 // Print the response
-Console.WriteLine(jsonResponse);
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+添加 `PrettyPrint` 以将格式设置添加到 JSON 响应：
+```csharp
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>将其放在一起
@@ -201,3 +209,4 @@ dotnet run
 * [获取支持的语言的列表](quickstart-csharp-languages.md)
 * [根据输入确定句子长度](quickstart-csharp-sentences.md)
 
+<!-- Update_Description: code update -->

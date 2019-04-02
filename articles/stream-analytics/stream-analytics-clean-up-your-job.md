@@ -1,6 +1,6 @@
 ---
 title: 清理 Azure 流分析作业
-description: 本文指导如何删除 Azure 流分析作业。
+description: 本文演示用于删除 Azure 流分析作业的不同方法。
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
@@ -8,14 +8,13 @@ ms.author: v-yeche
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 05/22/2018
-ms.date: 08/20/2018
-ms.openlocfilehash: c1961b2b5c6a86efdec36ff6d275b764bef39557
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/06/2018
+ms.openlocfilehash: 408562fa5eeb865f41ca0858da4da17784f2e912
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647406"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544796"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>清理 Azure 流分析作业
 
@@ -32,7 +31,7 @@ ms.locfileid: "52647406"
 
 3. 在流分析作业页上，选择“停止”以停止作业。 
 
-   ![停止作业](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![停止 Azure 流分析作业](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 ## <a name="delete-a-job-in-azure-portal"></a>删除 Azure 门户中的作业
 
@@ -42,10 +41,11 @@ ms.locfileid: "52647406"
 
 3. 在流分析作业页上，选择“删除”以删除作业。 
 
-   ![删除作业](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![删除 Azure 流分析作业](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>使用 PowerShell 停止或删除作业
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 若要使用 PowerShell 停止作业，请使用 [Stop-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob?view=azurermps-5.7.0) cmdlet。 若要使用 PowerShell 删除作业，请使用 [Remove-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/Remove-AzureRmStreamAnalyticsJob?view=azurermps-5.7.0) cmdlet。
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>使用 Azure SDK for .NET 停止或删除作业

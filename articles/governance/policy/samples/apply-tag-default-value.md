@@ -9,12 +9,12 @@ ms.topic: sample
 origin.date: 10/30/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 06714d5d96d67759a798c4371fdf0cfd2ee3bf73
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: cb15b57b5ff91bf6275fdc8dd4011b3015d5e4d4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903305"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627004"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>示例 - 应用标记及其默认值
 
@@ -227,13 +227,14 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 ### <a name="azure-cli-explanation"></a>Azure CLI 说明
 
-| 命令 | 注释 |
-|---|---|
-| [az policy definition create](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) | 创建新的 Azure Policy 定义。 |
-| [az group show](/cli/group?view=azure-cli-latest#az-group-show) | 获取单个资源组。 |
+|                                                 命令                                                 |                                                          注释                                                          |
+|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [az policy definition create](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) |                                         创建新的 Azure Policy 定义。                                          |
+|                     [az group show](/cli/group?view=azure-cli-latest#az-group-show)                     |                                              获取单个资源组。                                              |
 | [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [az policy assignment delete](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 删除现有的 Azure Policy 分配。 |
-| [az policy definition delete](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 删除现有的 Azure Policy 定义。 |
+| [az policy assignment delete](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) |                                      删除现有的 Azure Policy 分配。                                       |
+| [az policy definition delete](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-delete) |                                      删除现有的 Azure Policy 定义。                                       |
+
 有多个工具可以用来与资源管理器 REST API 进行交互，例如 [ARMClient](https://github.com/projectkudu/ARMClient) 或 PowerShell。 可以在[策略定义结构](../concepts/definition-structure.md#aliases)的**别名**部分中找到通过 PowerShell 调用 REST API 的示例。
 
 ## <a name="rest-api"></a>REST API

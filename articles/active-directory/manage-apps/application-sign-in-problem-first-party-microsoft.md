@@ -16,12 +16,12 @@ origin.date: 09/10/2018
 ms.date: 02/18/2019
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 47565c75012d57fd60301dbccdda39ce1afc34b2
-ms.sourcegitcommit: 791c712e00a5ee97aa71b20c3b94c92ce181dc16
+ms.openlocfilehash: 55e7c30b4003d3836700036acc9fece6af5fa4a0
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334262"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627430"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登录 Microsoft 应用程序时出现的问题
 
@@ -51,7 +51,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 下面是当用户无法登录到 Microsoft 应用程序时遇到的一些常见问题。
 
--   首先要检查的常规问题
+- 首先要检查的常规问题
 
   - 确保用户尝试登录到**正确的 URL**，而不是本地应用程序 URL。
 
@@ -63,25 +63,25 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
   - 确保用户的**密码未过期或遗忘**。 [重置用户的密码](#reset-a-users-password)
 
-   - 确保**多重身份验证**未阻止用户访问。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
+  - 确保**多重身份验证**未阻止用户访问。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
 
-   - 确保用户的**身份验证联系信息**是最新的，以便进行多重身份验证。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
+  - 确保用户的**身份验证联系信息**是最新的，以便进行多重身份验证。 [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)或[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
 
--   对于**需要许可证的 Microsoft** **应用程序**（如 Office365），以下是排除上述常规问题后需要检查的一些特定问题：
+- 对于**需要许可证的 Microsoft** **应用程序**（如 Office365），以下是排除上述常规问题后需要检查的一些特定问题：
 
-   - 确保已为用户**分配许可证**。 [检查用户的已分配许可证](#check-a-users-assigned-licenses)或[检查组的已分配许可证](#check-a-groups-assigned-licenses)
+  - 确保已为用户**分配许可证**。 [检查用户的已分配许可证](#check-a-users-assigned-licenses)或[检查组的已分配许可证](#check-a-groups-assigned-licenses)
 
-   - 如果许可证**分配到** **静态组**，请确保**用户是该组的成员**。 [检查用户的组成员身份](#check-a-users-group-memberships)
+  - 如果许可证**分配到** **静态组**，请确保**用户是该组的成员**。 [检查用户的组成员身份](#check-a-users-group-memberships)
 
-   -  一旦确保已分配许可证，请确保许可证**未过期**。
+  -  一旦确保已分配许可证，请确保许可证**未过期**。
 
-   -  确保许可证与他们访问的**应用程序相对应**。
+  -  确保许可证与他们访问的**应用程序相对应**。
 
--   对于**不需要许可证的 Microsoft** **应用程序**，以下是一些需要检查的其他事项：
+- 对于**不需要许可证的 Microsoft** **应用程序**，以下是一些需要检查的其他事项：
 
-   - 如果应用程序请求**用户级权限**（例如“访问此用户的邮箱”），请确保用户已登录到应用程序，并且已执行**用户级许可操作**，从而允许应用程序访问其数据。
+  - 如果应用程序请求**用户级权限**（例如“访问此用户的邮箱”），请确保用户已登录到应用程序，并且已执行**用户级许可操作**，从而允许应用程序访问其数据。
 
-   - 如果应用程序请求**管理员级权限**（例如“访问所有用户的邮箱”），请确保全局管理员已**代表组织中所有用户执行管理员级许可操作**。
+  - 如果应用程序请求**管理员级权限**（例如“访问所有用户的邮箱”），请确保全局管理员已**代表组织中所有用户执行管理员级许可操作**。
 
 ## <a name="problems-with-the-users-account"></a>用户帐户问题
 
@@ -170,25 +170,25 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 若要检查用户的多重身份验证状态，请执行以下步骤：
 
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
+1. 打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
+2. 在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
 
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+3. 在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
-4.  在导航菜单中单击“用户”。
+4. 在导航菜单中单击“用户”。
 
-5.  单击“所有用户”。
+5. 单击“所有用户”。
 
-6.  单击窗格顶部的“多重身份验证”按钮。
+6. 单击窗格顶部的“多重身份验证”按钮。
 
-7.  在**多重身份验证管理门户**加载后，确保位于“用户”选项卡上。
+7. 在**多重身份验证管理门户**加载后，确保位于“用户”选项卡上。
 
-8.  通过搜索、筛选或排序在用户列表中找到用户。
+8. 通过搜索、筛选或排序在用户列表中找到用户。
 
-9.  从用户列表中选择用户，并根据需要**启用**、**禁用**或**强制实施**多重身份验证。
+9. 从用户列表中选择用户，并根据需要**启用**、**禁用**或**强制实施**多重身份验证。
 
-  - **注意**：如果用户处于**已强制实施**状态，可暂时将其设置为**已禁用**以允许用户重新登录到其帐户。 一旦他们重新登录到其帐户，便可以再次将其状态更改为**已启用**来要求他们在下次登录期间重新注册其联系信息。 此外，也可以按照[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)中的步骤为其验证或设置此数据。
+   - **注意**：如果用户处于**已强制实施**状态，可暂时将其设置为**已禁用**以允许用户重新登录到其帐户。 一旦他们重新登录到其帐户，便可以再次将其状态更改为**已启用**来要求他们在下次登录期间重新注册其联系信息。 此外，也可以按照[检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)中的步骤为其验证或设置此数据。
 
 ### <a name="check-a-users-authentication-contact-info"></a>检查用户的身份验证联系信息
 
@@ -326,21 +326,21 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 若要重新处理组的已分配许可证，请执行以下步骤：
 
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
+1. 打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
+2. 在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
 
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+3. 在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
-4.  在导航菜单中单击“组”。
+4. 在导航菜单中单击“组”。
 
-5.  单击“所有组”。
+5. 单击“所有组”。
 
-6.  **搜索**感兴趣的组，并**单击对应的行**进行选择。
+6. **搜索**感兴趣的组，并**单击对应的行**进行选择。
 
-7.  单击“许可证”查看当前已分配给组的许可证。
+7. 单击“许可证”查看当前已分配给组的许可证。
 
-8.  单击“重新处理”按钮，确保分配给此组成员的许可证是最新许可证。 这可能需要较长时间，具体取决于组的大小和复杂程度。
+8. 单击“重新处理”按钮，确保分配给此组成员的许可证是最新许可证。 这可能需要较长时间，具体取决于组的大小和复杂程度。
 
    >[!NOTE]
    >要更快地执行此操作，可考虑暂时会许可证直接分配给用户。 [为用户分配许可证](#problems-with-application-consent)。
@@ -351,32 +351,32 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 若要将许可证分配给组，请执行以下步骤：
 
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
+1. 打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
+2. 在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
 
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+3. 在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
-4.  在导航菜单中单击“组”。
+4. 在导航菜单中单击“组”。
 
-5.  单击“所有组”。
+5. 单击“所有组”。
 
-6.  **搜索**感兴趣的组，并**单击对应的行**进行选择。
+6. **搜索**感兴趣的组，并**单击对应的行**进行选择。
 
-7.  单击“许可证”查看当前已分配给组的许可证。
+7. 单击“许可证”查看当前已分配给组的许可证。
 
-8.  单击“分配”按钮。
+8. 单击“分配”按钮。
 
-9.  从可用产品列表中选择**一个或多个产品**。
+9. 从可用产品列表中选择**一个或多个产品**。
 
 10. **可选**单击“分配选项”项精确分配产品。 完成此操作后，单击“确定”。
 
 11. 单击“分配”按钮，将这些许可证分配给此组。 这可能需要较长时间，具体取决于组的大小和复杂程度。
 
-   >[!NOTE]
-   >要更快地执行此操作，可考虑暂时会许可证直接分配给用户。 [为用户分配许可证](#problems-with-application-consent)。
-   > 
-   >
+    >[!NOTE]
+    >要更快地执行此操作，可考虑暂时会许可证直接分配给用户。 [为用户分配许可证](#problems-with-application-consent)。
+    > 
+    >
 
 ## <a name="problems-with-application-consent"></a>应用程序许可问题
 

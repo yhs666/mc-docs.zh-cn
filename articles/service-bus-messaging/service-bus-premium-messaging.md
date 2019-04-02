@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/30/2018
-ms.date: 11/26/2018
+ms.date: 03/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47280e3a97debda3fb786ca5c9e31792864a4402
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 70fbddcec45c8e7b4b925ab6c6125ae692d86506
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675211"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544813"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服务总线高级和标准消息传送层
 

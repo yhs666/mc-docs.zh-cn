@@ -11,15 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/20/2017
-ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: f9b4d544613fc025cb5625331d23960e1af9781c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-lingwu
+ms.openlocfilehash: 7754191f3c3c3f353ce29986a351d542d1a585e2
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659054"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544719"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>从 Azure Active Directory 访问控制服务迁移到共享访问签名授权
 

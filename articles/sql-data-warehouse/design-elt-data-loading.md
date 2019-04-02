@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 origin.date: 04/17/2018
-ms.date: 01/21/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 91ee2a3f864394cfc3ddf56da9818cf0a6961327
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 0d69b4bad25495f2a88009afd66b8c675af852bd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333922"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625346"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计 PolyBase 数据加载策略
 
@@ -30,16 +30,16 @@ ms.locfileid: "54333922"
 
 1. 将源数据提取到文本文件中。
 2. 将数据移入 Azure Blob 存储中。
-<!-- Not Available on Azure Data Lake Store-->
+   <!-- Not Available on Azure Data Lake Store-->
 3. 准备要加载的数据。
-2. 使用 PolyBase 将数据载入 SQL 数据仓库临时表。
-3. 转换数据。
-4. 将数据插入生产表。
+4. 使用 PolyBase 将数据载入 SQL 数据仓库临时表。
+5. 转换数据。
+6. 将数据插入生产表。
 
 
 有关加载教程，请参阅[使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)。
 
-有关详细信息，请参阅[加载模式博客](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/)。 
+有关详细信息，请参阅[加载模式博客](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)。 
 
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1.将源数据提取到文本文件中

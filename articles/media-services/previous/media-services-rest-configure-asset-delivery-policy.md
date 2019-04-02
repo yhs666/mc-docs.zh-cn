@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 8ba4a800b2f70d7c73c4628c33f4ebb4ec5ea772
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 83030d82ceb3f36ecbb59e07bcf5ea0a7467ef96
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833384"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624155"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -64,7 +64,7 @@ MPEG DASH
 * 如果资产包含现有流式处理定位符，则不能将新策略链接到该资产、取消现有策略与该资产的链接，或者更新与该资产关联的传送策略。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  重新创建流式处理定位符时，可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已被来源或下游 CDN 缓存。
 
 > [!NOTE]
-
+> 
 > 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 
 ## <a name="connect-to-media-services"></a>连接到媒体服务

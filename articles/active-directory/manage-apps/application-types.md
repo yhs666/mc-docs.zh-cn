@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 02/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 78cda5e8a6610ffc9e599a51e937a81f376eafbf
-ms.sourcegitcommit: 791c712e00a5ee97aa71b20c3b94c92ce181dc16
+ms.openlocfilehash: 0c858f9e17ebfc62622134533d9838b131c6d26d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334260"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626684"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -76,21 +76,21 @@ ms.locfileid: "56334260"
 
 若要**删除应用程序**，请执行以下步骤：
 
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”或“共同管理员”身份登录。
+1. 打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”或“共同管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory 扩展”。
+2. 在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory 扩展”。
 
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+3. 在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
-4.  在 Azure Active Directory 的左侧导航菜单中，单击“企业应用程序”。
+4. 在 Azure Active Directory 的左侧导航菜单中，单击“企业应用程序”。
 
-5.  单击“所有应用程序”，查看所有应用程序的列表。
+5. 单击“所有应用程序”，查看所有应用程序的列表。
 
    - 如果未看到要在此处显示的应用程序，请使用“所有应用程序列表”顶部的“筛选器”控件，并将“显示”选项设置为“所有应用程序”。
 
-6.  选择要删除的应用程序。
+6. 选择要删除的应用程序。
 
-7.  加载应用程序后，在应用程序顶部的“概述”窗格中，单击“删除”图标。
+7. 加载应用程序后，在应用程序顶部的“概述”窗格中，单击“删除”图标。
 
 
 <!-- Update_Description: link update -->

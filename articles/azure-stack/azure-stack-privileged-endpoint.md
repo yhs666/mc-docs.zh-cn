@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a166200764d2b09ebaf4937cb40c07036fb9ecf7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c8d07c70eae351bccd4d9ca351d14ffed9443aab
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988068"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627209"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -61,52 +61,52 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
-    - 在集成系统上：
-      ```PowerShell
-        $cred = Get-Credential
+   - 在集成系统上：
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
-    - 如果运行的是 ASDK：
+       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
+   - 如果运行的是 ASDK：
      
-      ```PowerShell
-        $cred = Get-Credential
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   出现提示时，请使用以下凭据：
+       Enter-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     出现提示时，请使用以下凭据：
 
-      - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
-      - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
+     - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
+     - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
-    > [!NOTE]
-    > 如果无法连接到 ERCS 终结点，请使用尚未尝试连接到的 ERCS VM 的 IP 地址重试步骤 1 和 2。
+     > [!NOTE]
+     > 如果无法连接到 ERCS 终结点，请使用尚未尝试连接到的 ERCS VM 的 IP 地址重试步骤 1 和 2。
 
-3.  在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>**，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
+3. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>**，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
 
-    其中的许多 cmdlet 仅供集成系统环境使用（例如与数据中心集成相关的 cmdlet）。 在 ASDK 中，以下 cmdlet 已经过验证：
+   其中的许多 cmdlet 仅供集成系统环境使用（例如与数据中心集成相关的 cmdlet）。 在 ASDK 中，以下 cmdlet 已经过验证：
 
-    - Clear-Host
-    - Close-PrivilegedEndpoint
-    - Exit-PSSession
-    - Get-AzureStackLog
-    - Get-AzureStackStampInformation
-    - Get-Command
-    - Get-FormatData
-    - Get-Help
-    - Get-ThirdPartyNotices
-    - Measure-Object
-    - New-CloudAdminUser
-    - Out-Default
-    - Remove-CloudAdminUser
-    - Select-Object
-    - Set-CloudAdminUserPassword
-    - Test-AzureStack
-    - Stop-AzureStack
-    - Get-ClusterLog
+   - Clear-Host
+   - Close-PrivilegedEndpoint
+   - Exit-PSSession
+   - Get-AzureStackLog
+   - Get-AzureStackStampInformation
+   - Get-Command
+   - Get-FormatData
+   - Get-Help
+   - Get-ThirdPartyNotices
+   - Measure-Object
+   - New-CloudAdminUser
+   - Out-Default
+   - Remove-CloudAdminUser
+   - Select-Object
+   - Set-CloudAdminUserPassword
+   - Test-AzureStack
+   - Stop-AzureStack
+   - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>有关使用特权终结点的提示 
 
@@ -133,26 +133,26 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
-    - 在集成系统上：
-      ```PowerShell
-        $cred = Get-Credential
-
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
-    - 如果运行的是 ASDK：
-     
-      ```PowerShell
+   - 在集成系统上：
+     ```PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   出现提示时，请使用以下凭据：
+       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
+   - 如果运行的是 ASDK：
+     
+     ```PowerShell
+      $cred = Get-Credential
 
-      - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
-      - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
+      $session = New-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     出现提示时，请使用以下凭据：
+
+     - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
+     - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
 3. 将 PEP 会话导入本地计算机
     ```PowerShell 

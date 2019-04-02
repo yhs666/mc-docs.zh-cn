@@ -9,12 +9,12 @@ ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7145db508b67e80e23533a289342e20e63647d34
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 9ba853616f38afdf2a8daff931a406a4d20bf63e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988028"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625594"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>了解单设备或大规模的 IoT Edge 自动部署
 
@@ -32,7 +32,7 @@ Azure IoT Edge 提供两种方法来配置在 IoT Edge 设备上运行的模块�
 2. IoT 中心服务与所有目标设备通信，为其配置所需模块。 
 3. IoT 中心服务从 IoT Edge 设备检索状态，然后将这些状态提供给操作员。  例如，如果某个 Edge 设备配置不成功，或者某个模块在运行时发生故障，操作员就会看到。 
 4. 随时对新的符合目标条件的 IoT Edge 设备进行部署配置。 例如，如果某个部署的目标是华盛顿州的所有 IoT Edge 设备，则当某个新的 IoT Edge 设备完成预配并添加到华盛顿州设备组时，该部署会自动配置此设备。 
- 
+ 
 本文将介绍配置和监视部署过程中涉及的每个组件。 如需创建和更新部署的详细介绍，请参阅[大规模部署和监视 IoT Edge 模块](how-to-deploy-monitor.md)。
 
 ## <a name="deployment"></a>部署

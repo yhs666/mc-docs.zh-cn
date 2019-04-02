@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 02/14/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4b9aa4168c991770b2f6ef07614a526bcbab903e
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: f308950f05662db721a80feb7f219aeea726d485
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348095"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625840"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 模板和 Resource Manager REST API 部署资源
 
@@ -37,7 +37,7 @@ ms.locfileid: "58348095"
 ## <a name="deploy-with-the-rest-api"></a>使用 REST API 进行部署
 1. 设置 [常见参数和标头](https://docs.microsoft.com/rest/api/azure/)，包括身份验证令牌。
 
-1. 如果目前没有资源组，请创建资源组。 提供订阅 ID、新资源组的名称，以及解决方案所需的位置。 有关详细信息，请参阅 [创建资源组](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate)。
+2. 如果目前没有资源组，请创建资源组。 提供订阅 ID、新资源组的名称，以及解决方案所需的位置。 有关详细信息，请参阅 [创建资源组](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate)。
 
     ```HTTP
     PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
@@ -53,9 +53,9 @@ ms.locfileid: "58348095"
     }
     ```
 
-1. 在执行部署之前，通过运行[验证模板部署](https://docs.microsoft.com/rest/api/resources/deployments/validate)操作来验证部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数（如下一步中所示）。
+3. 在执行部署之前，通过运行[验证模板部署](https://docs.microsoft.com/rest/api/resources/deployments/validate)操作来验证部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数（如下一步中所示）。
 
-1. 创建部署。 提供订阅 ID、资源组的名称、部署的名称以及模板的链接。 有关模板文件的信息，请参阅[参数文件](#parameter-file)。 有关使用 REST API 创建资源组的详细信息，请参阅[创建模板部署](https://docs.microsoft.com/rest/api/resources/deployments/createorupdate)。 请注意，**mode** 设置为 **Incremental**。 要运行完整部署，请将 **mode** 设置为 **Complete**。 使用完整模式时要小心，因为可能会无意中删除不在模板中的资源。
+4. 创建部署。 提供订阅 ID、资源组的名称、部署的名称以及模板的链接。 有关模板文件的信息，请参阅[参数文件](#parameter-file)。 有关使用 REST API 创建资源组的详细信息，请参阅[创建模板部署](https://docs.microsoft.com/rest/api/resources/deployments/createorupdate)。 请注意，**mode** 设置为 **Incremental**。 要运行完整部署，请将 **mode** 设置为 **Complete**。 使用完整模式时要小心，因为可能会无意中删除不在模板中的资源。
 
     ```HTTP
     PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -102,10 +102,10 @@ ms.locfileid: "58348095"
 
     可以将存储帐户设置为使用共享访问签名 (SAS) 令牌。 有关详细信息，请参阅[使用共享访问签名委托访问权限](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)。
 
-1. 可以将模板和参数包含在请求正文中，而不是链接到模板和参数的文件。
+5. 可以将模板和参数包含在请求正文中，而不是链接到模板和参数的文件。
 
-  ```json
-  {
+   ```json
+   {
       "properties": {
       "mode": "Incremental",
       "template": {
@@ -162,14 +162,14 @@ ms.locfileid: "58348095"
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
-5. 获取模板部署的状态。 有关详细信息，请参阅 [获取有关模板部署的信息](https://docs.microsoft.com/rest/api/resources/deployments/get)。
+6. 获取模板部署的状态。 有关详细信息，请参阅 [获取有关模板部署的信息](https://docs.microsoft.com/rest/api/resources/deployments/get)。
 
-  ```HTTP
-  GET https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   GET https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 

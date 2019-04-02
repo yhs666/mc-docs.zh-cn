@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/01/2018
-ms.date: 02/18/2019
+origin.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 4e33fbae7c1f821a6421a3adaa94030b9ca8e45d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5e250976f335fab149b55a144f35faf30ddeaa25
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988020"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503573"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack 中的 Azure Monitor
 
@@ -34,8 +34,8 @@ ms.locfileid: "57988020"
 
 Azure Monitor 是一项平台服务，可提供单个源用于监视 Azure 资源。 通过 Azure Monitor，可直观显示、查询、路由和存档来自 Azure 内部资源的指标和日志并对其采取其他操作。 可以通过使用 Azure Stack 管理门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 有关 Azure Stack 支持的具体连接，请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-指标和诊断日志不可用于 Azure Stack 开发工具包。
+> [!Note]
+> 指标和诊断日志不可用于 Azure Stack 开发工具包。
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 的先决条件
 

@@ -16,12 +16,12 @@ origin.date: 08/27/2018
 ms.date: 01/07/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 20b42371f6b65897428059e964fa94bdff8854d0
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: def67e5f7f83318fec2a3cd589542948f8ac545d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083552"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626885"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教程：配置 Jenkins 环境以便为 Service Fabric 上的 Java 应用程序启用 CI/CD
 
@@ -55,15 +55,15 @@ ms.locfileid: "54083552"
 
 1. 拉取 Service Fabric Jenkins 容器映像：``docker pull rapatchi/jenkins:v10``。 此映像附带了预安装的 Service Fabric Jenkins 插件。
 
-1. 结合 Azure 证书存储在已装载本地计算机上的位置运行容器映像。
+2. 结合 Azure 证书存储在已装载本地计算机上的位置运行容器映像。
 
     ```bash
     docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
-1. 获取容器映像实例的 ID。 可以使用命令 ``docker ps -a`` 列出所有 Docker 容器
+3. 获取容器映像实例的 ID。 可以使用命令 ``docker ps -a`` 列出所有 Docker 容器
 
-1. 运行以下命令，检索 Jenkins 实例的密码：
+4. 运行以下命令，检索 Jenkins 实例的密码：
 
     ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
@@ -73,16 +73,16 @@ ms.locfileid: "54083552"
     * 从门户 ``http://<HOST-IP>:8080`` 登录到 Jenkins 仪表板时需要此密码
     * 首次登录后，可以创建自己的用户帐户或使用管理员帐户。
 
-1. 使用[生成新的 SSH 密钥并将其添加到 SSH 代理](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中所述的步骤，将 GitHub 设置为使用 Jenkins。 由于命令是从 Docker 容器运行的，因此请遵照适用于 Linux 环境的说明。
-    * 使用 GitHub 提供的说明生成 SSH 密钥。 接下来，将 SSH 密钥添加到托管存储库的 GitHub 帐户。
-    * 在 Jenkins Docker shell（而不是主机）中运行上述链接中提到的命令。
-    * 若要从主机登录到 Jenkins shell，请使用以下命令：
+5. 使用[生成新的 SSH 密钥并将其添加到 SSH 代理](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中所述的步骤，将 GitHub 设置为使用 Jenkins。 由于命令是从 Docker 容器运行的，因此请遵照适用于 Linux 环境的说明。
+   * 使用 GitHub 提供的说明生成 SSH 密钥。 接下来，将 SSH 密钥添加到托管存储库的 GitHub 帐户。
+   * 在 Jenkins Docker shell（而不是主机）中运行上述链接中提到的命令。
+   * 若要从主机登录到 Jenkins shell，请使用以下命令：
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    确保托管 Jenkins 容器映像的群集或计算机使用公共 IP。 使用公共 IP 可让 Jenkins 实例从 GitHub 接收通知。
+     确保托管 Jenkins 容器映像的群集或计算机使用公共 IP。 使用公共 IP 可让 Jenkins 实例从 GitHub 接收通知。
 
 ## <a name="create-and-configure-a-jenkins-job"></a>创建和配置 Jenkins 作业
 

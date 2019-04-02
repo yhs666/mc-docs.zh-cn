@@ -16,12 +16,12 @@ origin.date: 05/31/2018
 ms.date: 11/12/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 247d733cd9452a0648f91714ffcee58219045f11
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b0815d69d0fc5f2f6ae3a4ec5eb1ecbe84f6f76e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654272"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625753"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 用户登录选项
 Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登录云和本地资源。 本文介绍每个标识模型的重要概念，以帮助你选择登录到 Azure AD 时想要使用的标识。
@@ -135,22 +135,24 @@ Azure AD 登录页列出了针对本地 Active Directory 定义的 UPN 后缀，
 对于下面的信息，假设我们所关注的是 UPN 后缀 contoso.com，它在本地目录中用作 UPN 的一部分，例如 user@contoso.com。
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>快速设置/密码哈希同步
-| 状态 | 对 Azure 用户登录体验的影响 |
-|:---:|:--- |
-| 未添加 |在这种情况下，并未在 Azure AD 目录中针对 contoso.com 添加任何自定义域。 在本地具有后缀 @contoso.com 的 UPN 的用户将无法使用其本地 UPN 来登录 Azure。 他们需要为默认的 Azure AD 目录添加后缀，以改用 Azure AD 向他们提供的新 UPN。 例如，如果要将用户同步到 Azure AD 目录 azurecontoso.partner.onmschina.cn，则为本地用户 user@contoso.com 指定 UPN user@azurecontoso.partner.onmschina.cn。 |
-| 未验证 |在这种情况下，我们拥有已添加在 Azure AD 目录中的自定义域 contoso.com。 但是，该域尚未验证。 如果在没有验证域的情况下继续同步用户，则 Azure AD 将为用户分配新 UPN，如同“未添加”方案中所做的一样。 |
-| 已验证 |在这种情况下，我们拥有已在 Azure AD 中为 UPN 后缀添加并验证了的自定义域 contoso.com。 在用户被同步到 Azure AD 后，用户可以使用其本地用户主体名（例如 user@contoso.com）登录到 Azure。 |
+
+|    状态     | 对 Azure 用户登录体验的影响                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  未添加   | 在这种情况下，并未在 Azure AD 目录中针对 contoso.com 添加任何自定义域。 在本地具有后缀 @contoso.com 的 UPN 的用户将无法使用其本地 UPN 来登录 Azure。 他们需要为默认的 Azure AD 目录添加后缀，以改用 Azure AD 向他们提供的新 UPN。 例如，如果要将用户同步到 Azure AD 目录 azurecontoso.partner.onmschina.cn，则为本地用户 user@contoso.com 指定 UPN user@azurecontoso.partner.onmschina.cn。 |
+| 未验证 | 在这种情况下，我们拥有已添加在 Azure AD 目录中的自定义域 contoso.com。 但是，该域尚未验证。 如果在没有验证域的情况下继续同步用户，则 Azure AD 将为用户分配新 UPN，如同“未添加”方案中所做的一样。                                                                                                                                                                                                                                                                            |
+|   已验证   | 在这种情况下，我们拥有已在 Azure AD 中为 UPN 后缀添加并验证了的自定义域 contoso.com。 在用户被同步到 Azure AD 后，用户可以使用其本地用户主体名（例如 user@contoso.com）登录到 Azure。                                                                                                                                                                                                                                                                                            |
 
 ###### <a name="ad-fs-federation"></a>AD FS 联合
 无法使用 Azure AD 中的默认 .partner.onmschina.cn 域或 Azure AD 中未验证的自定义域创建联合。 在运行 Azure AD Connect 向导时，如果选择使用未验证的域创建联合，则 Azure AD Connect 将发出提示，并指出要为域创建的将托管 DNS 的必需记录。 有关详细信息，请参阅[验证选择用于联合的 Azure AD 域](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation)。
 
 如果选择的用户登录选项为“与 AD FS 联合”，则必须有一个自定义域才能继续在 Azure AD 中创建联合。 针对我们的讨论，这意味着我们应在 Azure AD 目录中添加自定义域 contoso.com。
 
-| 状态 | 对 Azure 用户登录体验的影响 |
-|:---:|:--- |
-| 未添加 |在这种情况下，Azure AD Connect 没有在 Azure AD 目录中找到 UPN 后缀 contoso.com 的匹配自定义域。 如果需要让用户在 AD FS 中使用其本地 UPN（例如 user@contoso.com）登录，则需要添加自定义域 contoso.com。 |
-| 未验证 |在这种情况下，Azure AD Connect 将发出提示，并提供有关如何在后面的阶段验证域的相应详细信息。 |
-| 已验证 |在这种情况下，可以继续进行配置，而不需要采取任何进一步的操作。 |
+
+|    状态     | 对 Azure 用户登录体验的影响                                                                                                                                                                                                                               |
+|:------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  未添加   | 在这种情况下，Azure AD Connect 没有在 Azure AD 目录中找到 UPN 后缀 contoso.com 的匹配自定义域。 如果需要让用户在 AD FS 中使用其本地 UPN（例如 user@contoso.com）登录，则需要添加自定义域 contoso.com。 |
+| 未验证 | 在这种情况下，Azure AD Connect 将发出提示，并提供有关如何在后面的阶段验证域的相应详细信息。                                                                                                                                                   |
+|   已验证   | 在这种情况下，可以继续进行配置，而不需要采取任何进一步的操作。                                                                                                                                                                                         |
 
 ## 更改用户登录方法 <a name="changing-user-sign-in-method"></a>
 可以在使用向导完成 Azure AD Connect 的初始配置后，使用 Azure AD Connect 中的可用任务在“联合”、“密码哈希同步”或“直通身份验证”之间更改用户的登录方法。 再次运行 Azure AD Connect 向导，随后将看到可执行的任务列表。 在任务列表中选择“更改用户登录”。

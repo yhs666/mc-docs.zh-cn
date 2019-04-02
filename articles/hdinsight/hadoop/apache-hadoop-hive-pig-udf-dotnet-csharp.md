@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 02/27/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 08182b73a8ef965d6a734c7ea7ae9789afda5010
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 464047291539e0dc2e4a36837af3fd0b4d07a6a5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029204"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627433"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 用户定义函数与 Apache Hive 和 Apache Pig 流式处理配合使用
 
@@ -178,13 +178,13 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”。
 
-6. 若要上传 .exe 文件，请使用以下方法之一：
+5. 若要上传 .exe 文件，请使用以下方法之一：
 
-    * 如果使用的是 __Azure 存储帐户__，请单击“上传”图标，并浏览到“HiveCSharp”项目的“bin\debug”文件夹。 最后，选择 **HiveCSharp.exe** 文件并单击“确定”。
+   * 如果使用的是 __Azure 存储帐户__，请单击“上传”图标，并浏览到“HiveCSharp”项目的“bin\debug”文件夹。 最后，选择 **HiveCSharp.exe** 文件并单击“确定”。
 
-        ![上传图标](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![上传图标](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
-    上传“HiveCSharp.exe”完成后，请为“PigUDF.exe”文件重复该上传过程。
+     上传“HiveCSharp.exe”完成后，请为“PigUDF.exe”文件重复该上传过程。
 
 ## <a name="run-an-apache-hive-query"></a>运行 Apache Hive 查询
 

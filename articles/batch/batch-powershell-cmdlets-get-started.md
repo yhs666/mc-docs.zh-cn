@@ -16,12 +16,12 @@ origin.date: 10/05/2017
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 706617bb79a9713cc20a3dcda1131b3c045ca1ef
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: aa28627c7338d0e53b11f20a511deb1a438565f5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987004"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626541"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
@@ -38,7 +38,7 @@ ms.locfileid: "56987004"
 - 运行 **Login-AzureRmAccount** cmdlet 连接到订阅（Azure Resource Manager 模块中随附了 Azure Batch cmdlet）：
   
     `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
-* **注册到批处理提供程序命名空间**。 执行此操作时，只需**每个订阅一次**。
+- **注册到批处理提供程序命名空间**。 执行此操作时，只需**每个订阅一次**。
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 

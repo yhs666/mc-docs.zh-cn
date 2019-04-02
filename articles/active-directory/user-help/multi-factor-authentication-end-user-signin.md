@@ -16,12 +16,12 @@ ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d53be190f0a73b049ec4dbd69db9904a02289752
-ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
+ms.openlocfilehash: 5277b259c2a80f0daa2248e702ff55ae5f4cb6ba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187480"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627170"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]
@@ -59,7 +59,7 @@ ms.locfileid: "58187480"
 1. 使用用户名和密码登录到 Office 365 等应用程序或服务。
 2. Microsoft 将通知发送到设备上的 Microsoft 验证器应用。
 
-  ![Microsoft 发送通知](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft 发送通知](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. 打开手机上的通知，选择“验证”键。 如果公司需要 PIN，请在此处输入。
 4. 现在，应该已登录。
@@ -71,7 +71,7 @@ ms.locfileid: "58187480"
 1. 使用用户名和密码登录到 Office 365 等应用程序或服务。
 2. Microsoft 会提示输入验证码。
 
-  ![输入验证码](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![输入验证码](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. 在手机上打开 Microsoft Authenticator 应用，并在登录框中输入验证码。
 
@@ -82,7 +82,7 @@ ms.locfileid: "58187480"
 2. 选择“使用其他验证选项”。 此时会显示不同的验证选项，具体将取决于设置了多少个选项。
 3. 选择替代方法并登录。
 
-  ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>后续步骤
 - 如果使用双重验证登录时遇到问题，请在[使用 Azure 多重身份验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)中获取详细信息。

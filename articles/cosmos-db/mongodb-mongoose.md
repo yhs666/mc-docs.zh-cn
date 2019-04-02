@@ -10,12 +10,12 @@ ms.date: 03/18/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: cb3c1f013208f932a383d7466d2f45c736024662
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c92d402eb33ff06cc9ac3ad3a03f5fca66693da5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004578"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625182"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>将 Node.js Mongoose 应用程序连接到 Azure Cosmos DB
 
@@ -48,25 +48,25 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 
     回答以下问题，然后即可开始创建项目。
 
-1. 将一个新文件添加到该文件夹，并将此文件命名为 ```index.js```。
-1. 使用一个 ```npm install``` 选项安装所需的包：
-    * Mongoose：```npm install mongoose@5 --save```
+2. 将一个新文件添加到该文件夹，并将此文件命名为 ```index.js```。
+3. 使用一个 ```npm install``` 选项安装所需的包：
+   * Mongoose：```npm install mongoose@5 --save```
 
-    > [!Note]
-    > 下面的 Mongoose 示例连接基于 Mongoose 5+，后者自早期版本以来已发生变化。
+     > [!Note]
+     > 下面的 Mongoose 示例连接基于 Mongoose 5+，后者自早期版本以来已发生变化。
 
-    * Dotenv（若要从 .env 文件加载机密）：```npm install dotenv --save```
+   * Dotenv（若要从 .env 文件加载机密）：```npm install dotenv --save```
 
-    >[!Note]
-    > ```--save``` 标志将依赖项添加到 package.json 文件。
+     >[!Note]
+     > ```--save``` 标志将依赖项添加到 package.json 文件。
 
-1. 导入 index.js 文件中的依赖项。
+4. 导入 index.js 文件中的依赖项。
     ```JavaScript
     var mongoose = require('mongoose');
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. 将 Cosmos DB 连接字符串和 Cosmos DB 名称添加到 ```.env``` 文件。
+5. 将 Cosmos DB 连接字符串和 Cosmos DB 名称添加到 ```.env``` 文件。
 
     ```JavaScript
     COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.cn:10255/{dbname}
@@ -74,7 +74,7 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
     COSMOSDB_PASSWORD=cosmos-secret
     ```
 
-1. 将以下代码添加到 index.js 末尾，以使用 Mongoose 框架连接到 Cosmos DB。
+6. 将以下代码添加到 index.js 末尾，以使用 Mongoose 框架连接到 Cosmos DB。
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
       auth: {
@@ -106,7 +106,7 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
 
 1. 再次打开 ```index.js```。
 
-1. 为“Family”创建架构定义。
+2. 为“Family”创建架构定义。
 
     ```JavaScript
     const Family = mongoose.model('Family', new mongoose.Schema({
@@ -133,7 +133,7 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
     }));
     ```
 
-1. 为“Family”创建对象。
+3. 为“Family”创建对象。
 
     ```JavaScript
     const family = new Family({
@@ -153,7 +153,7 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
     });
     ```
 
-1. 最后，将对象保存到 Cosmos DB。 这会在幕后创建一个集合。
+4. 最后，将对象保存到 Cosmos DB。 这会在幕后创建一个集合。
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -161,32 +161,32 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
     });
     ```
 
-1. 现在，我们创建另一个架构和对象。 这一次，我们要针对家庭成员可能感兴趣的“Vacation Destinations”创建一个架构。
-    1. 我们按前面所述创建方案
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+5. 现在，我们创建另一个架构和对象。 这一次，我们要针对家庭成员可能感兴趣的“Vacation Destinations”创建一个架构。
+   1. 我们按前面所述创建方案
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. 创建示例对象（可将多个对象添加到此架构）并将其保存。
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   2. 创建示例对象（可将多个对象添加到此架构）并将其保存。
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
-1. 现在，请转到 Azure 门户，可以看到 Cosmos DB 中创建了两个集合。
+6. 现在，请转到 Azure 门户，可以看到 Cosmos DB 中创建了两个集合。
 
     ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库][multiple-coll]
 
-1. 最后，我们从 Cosmos DB 读取数据。 由于我们使用的是默认 Mongoose 操作模型，读取操作与 Mongoose 的其他读取操作相同。
+7. 最后，我们从 Cosmos DB 读取数据。 由于我们使用的是默认 Mongoose 操作模型，读取操作与 Mongoose 的其他读取操作相同。
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -209,13 +209,13 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
     };
     ```
 
-1. 接下来，定义通用对象模型
+2. 接下来，定义通用对象模型
 
     ```JavaScript
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. 现在定义“Family”模型。 请注意，我们使用的是 ```commonModel.discriminator``` 而不是 ```mongoose.model```。 此外，我们还要将基本配置添加到 mongoose 架构。 因此，此处的 discriminatorKey 是 ```FamilyType```。
+3. 现在定义“Family”模型。 请注意，我们使用的是 ```commonModel.discriminator``` 而不是 ```mongoose.model```。 此外，我们还要将基本配置添加到 mongoose 架构。 因此，此处的 discriminatorKey 是 ```FamilyType```。
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -242,7 +242,7 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
     }, baseConfig));
     ```
 
-1. 同样，让我们添加另一个架构，这一次是为“VacationDestinations”添加的。 此处的 DiscriminatorKey 是 ```VacationDestinationsType```。
+4. 同样，让我们添加另一个架构，这一次是为“VacationDestinations”添加的。 此处的 DiscriminatorKey 是 ```VacationDestinationsType```。
 
     ```JavaScript
     const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
@@ -251,49 +251,49 @@ Mongoose 还存在称作[鉴别器](https://mongoosejs.com/docs/discriminators.h
     }, baseConfig));
     ```
 
-1. 最后，创建模型的对象并将其保存。
-    1. 将对象添加到“Family”模型。
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+5. 最后，创建模型的对象并将其保存。
+   1. 将对象添加到“Family”模型。
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. 接下来，将对象添加到“VacationDestinations”模型，并将其保存。
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   2. 接下来，将对象添加到“VacationDestinations”模型，并将其保存。
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
-1. 现在，如果返回到 Azure 门户，可以看到只有一个名为 ```alldata``` 的集合，其中包含“Family”和“VacationDestinations”数据。
+6. 现在，如果返回到 Azure 门户，可以看到只有一个名为 ```alldata``` 的集合，其中包含“Family”和“VacationDestinations”数据。
 
     ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库][alldata]
 
-1. 另请注意，每个对象有另一个名为 ```__type``` 的属性，可帮助区分两个不同的对象模型。
+7. 另请注意，每个对象有另一个名为 ```__type``` 的属性，可帮助区分两个不同的对象模型。
 
-1. 最后，读取存储在 Azure Cosmos DB 中的数据。 Mongoose 会负责根据模型筛选数据。 因此，在读取数据时，无需执行其他任何操作。 只需指定模型（在本例中为 ```Family_common```），Mongoose 就会根据“DiscriminatorKey”处理筛选。
+8. 最后，读取存储在 Azure Cosmos DB 中的数据。 Mongoose 会负责根据模型筛选数据。 因此，在读取数据时，无需执行其他任何操作。 只需指定模型（在本例中为 ```Family_common```），Mongoose 就会根据“DiscriminatorKey”处理筛选。
 
     ```JavaScript
     Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){

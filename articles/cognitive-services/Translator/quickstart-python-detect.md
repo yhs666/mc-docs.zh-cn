@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: bb278aa86060c4bcebcbb772c2ac16f7eacff6b6
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 05815331202a6847a9eca9bc90a6c1b160d97c72
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964460"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505517"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>快速入门：使用文本翻译 API 通过 Python 来检测文本语言
 
@@ -128,6 +128,8 @@ python detect.py
 
 ## <a name="sample-response"></a>示例响应
 
+请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+
 ```json
 [
     {
@@ -172,3 +174,4 @@ python detect.py
 * [获取支持的语言的列表](quickstart-python-languages.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)
 
+<!-- Update_Description: wording update -->

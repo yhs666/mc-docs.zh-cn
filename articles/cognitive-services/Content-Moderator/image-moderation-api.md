@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 01/10/2019
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7098f97ea520fba641140854fe7fd55a4de784e1
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 1790b7b370b67823137a63d0a72ab40d41862fb3
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582765"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505416"
 ---
 # <a name="learn-image-moderation-concepts"></a>了解图像审查概念
 
@@ -36,12 +36,11 @@ ms.locfileid: "56582765"
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified` 表示可能存在某些情况下可能被视为色情或成人性质的图像。
 > - `isImageRacyClassified` 表示可能存在某些情况下可能被视为性暗示或过于成熟的图像。
 > - 这些分数介于 0 和 1 之间。 分数越高，模型预测类别可能适用的可能性越高。 此预览版依赖于统计模型，而不是人工编码结果。 我们建议对你自己的内容进行测试，以确定每个类别是否满足你的需求。
 > - 布尔值为 true 或 false，具体情况取决于内部分数阈值。 客户应评估是使用该值，还是根据他们的内容策略确定自定义阈值。
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>使用光学字符识别 (OCR) 检测文本
 

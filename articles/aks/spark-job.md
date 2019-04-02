@@ -10,12 +10,12 @@ origin.date: 03/15/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8c750ca639171b97be639e1d8dccca2ef88456f6
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 95c806f66173fe9b8463b9c18731d4276b5b16ff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903122"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625138"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 中运行 Apache Spark 作业
 
@@ -336,6 +336,5 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 [acr-aks]: /container-registry/container-registry-auth-aks
 [acr-create]: /container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: /aks/
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest
-?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest?view=azure-cli-latest
 [storage-account]: /storage/common/storage-azure-cli

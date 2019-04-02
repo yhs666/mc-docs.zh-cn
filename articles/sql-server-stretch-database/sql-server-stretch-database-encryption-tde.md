@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/14/2016
 ms.date: 03/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3b32bab71c39c3b35a6ac03861a29b8de548b398
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8ecb84a204644bcec7cdc8037da73580293e2e46
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664138"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627465"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>为 Azure 上的 Stretch Database 启用透明数据加密 (TDE)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "52664138"
 
 TDE 使用称为数据库加密密钥的对称密钥来加密整个数据库的存储。 数据库加密密钥由内置服务器证书保护。 内置服务器证书对每个 Azure 服务器都是唯一的。 Microsoft 每隔 90 天自动轮换这些证书至少一次。 有关 TDE 的一般描述，请参阅[透明数据加密 (TDE)]。
 
-##<a name="enabling-encryption"></a>启用加密
+## <a name="enabling-encryption"></a>启用加密
 
 对于存储从启用延伸的 SQL Server 数据库迁移的数据的 Azure 数据库，若要启用 TDE，请执行以下操作：
 
@@ -40,7 +40,7 @@ TDE 使用称为数据库加密密钥的对称密钥来加密整个数据库的�
 3. 选择“透明数据加密”选项 ![][1]
 4. 选择“打开”设置，然后选择“保存” ![][2]
 
-##<a name="disabling-encryption"></a>禁用加密
+## <a name="disabling-encryption"></a>禁用加密
 
 对于存储从启用延伸的 SQL Server 数据库迁移的数据的 Azure 数据库，若要禁用 TDE，请执行以下操作：
 

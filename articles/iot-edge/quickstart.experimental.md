@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1a45841564b0c985662e6d2db320111fa27d1e92
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b0fd572d5f47dbb3380bf8f41684406d14186726
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650459"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625858"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入门：将第一个 IoT Edge 模块从 Azure 门户部署到 Windows 设备 - 预览
 
@@ -95,10 +95,10 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 3. 安装 vcruntime。
 
-  ```powershell
-  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
-  .\vc_redist.exe /quiet /norestart
-  ```
+   ```powershell
+   Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+   .\vc_redist.exe /quiet /norestart
+   ```
 
 4. 创建并启动 IoT Edge 服务。
 
@@ -143,27 +143,27 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 4. 在配置文件中，找到“Edge 设备主机名”节。 使用从 PowerShell 复制的主机名更新 **hostname** 的值。
 
-3. 在管理员 PowerShell 窗口中，检索 IoT Edge 设备的 IP 地址。 
+5. 在管理员 PowerShell 窗口中，检索 IoT Edge 设备的 IP 地址。 
 
    ```powershell
    ipconfig
    ```
 
-4. 复制输出的 **vEthernet (DockerNAT)** 部分的“IPv4 地址”的值。 
+6. 复制输出的 **vEthernet (DockerNAT)** 部分的“IPv4 地址”的值。 
 
-5. 创建名为 **IOTEDGE_HOST** 的环境变量，将 *\<ip_address\>* 替换为 IoT Edge 设备的 IP 地址。 
+7. 创建名为 **IOTEDGE_HOST** 的环境变量，将 *\<ip_address\>* 替换为 IoT Edge 设备的 IP 地址。 
 
-  ```powershell
-  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-  ```
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
 
-  在重启时保留环境变量。
+   在重启时保留环境变量。
 
-  ```powershell
-  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
-  ```
+   ```powershell
+   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+   ```
 
-6. 在 `config.yaml` 文件中，找到“Connect 设置”节。 将 **management_uri** 和 **workload_uri** 值更新为你的 IP 地址以及在上一部分打开的端口。 将 **\<GATEWAY_ADDRESS\>** 替换为你复制的 DockerNAT IP 地址。
+8. 在 `config.yaml` 文件中，找到“Connect 设置”节。 将 **management_uri** 和 **workload_uri** 值更新为你的 IP 地址以及在上一部分打开的端口。 将 **\<GATEWAY_ADDRESS\>** 替换为你复制的 DockerNAT IP 地址。
 
    ```yaml
    connect: 
@@ -171,7 +171,7 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-7. 找到“Listen 设置”节，为 **management_uri** 和 **workload_uri** 添加相同的值。 
+9. 找到“Listen 设置”节，为 **management_uri** 和 **workload_uri** 添加相同的值。 
 
    ```yaml
    listen:
@@ -179,23 +179,23 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. 找到“Moby Container Runtime 设置”节，验证是否已将 **network** 的值取消注释并设置为 **azure-iot-edge**
+10. 找到“Moby Container Runtime 设置”节，验证是否已将 **network** 的值取消注释并设置为 **azure-iot-edge**
 
-   ```yaml
-   moby_runtime:
-     docker_uri: "npipe://./pipe/docker_engine"
-     network: "azure-iot-edge"
-   ```
+    ```yaml
+    moby_runtime:
+      docker_uri: "npipe://./pipe/docker_engine"
+      network: "azure-iot-edge"
+    ```
    
-9. 保存此配置文件。 
+11. 保存此配置文件。 
 
-10. 在 PowerShell 中重启 IoT Edge 服务。
+12. 在 PowerShell 中重启 IoT Edge 服务。
 
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+    ```powershell
+    Stop-Service iotedge -NoWait
+    sleep 5
+    Start-Service iotedge
+    ```
 
 ### <a name="view-the-iot-edge-runtime-status"></a>查看 IoT Edge 运行时状态
 

@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 02/15/2019
 ms.date: 03/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: a091e52fed81c1a741c4731a8fa326dd6cd4d3ef
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: f820ac402489a56e10f1f7e54770aa8a6bef5181
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347210"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408286"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>通过 Power BI 工作区集合进行身份验证和授权
 
@@ -183,6 +183,6 @@ Body
 [Power BI 工作区集合入门](get-started.md)  
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 <!-- Update_Description: link update -->

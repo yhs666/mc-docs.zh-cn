@@ -14,12 +14,12 @@ origin.date: 04/01/2018
 ms.date: 11/06/18
 ms.workload: data-services
 ms.author: v-lingwu
-ms.openlocfilehash: c5e9f5f14dd1a442235ffc5dee7a373abf7ab842
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dfa3e2165f0ca6545f58f2bc1180ab5f2be79761
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667057"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544753"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教程：Azure 流分析 JavaScript 用户定义的函数
 
@@ -51,15 +51,22 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 尽管函数定义中并不禁止 **Date.GetDate()** 或 **Math.random()** 等函数，但应该避免使用这些函数。 这些函数在每次被调用时**不会**返回相同的结果，并且 Azure 流分析服务不会保留函数调用和返回结果的日记。 当你或流分析服务重新启动某个作业时，如果某个函数针对相同的事件返回不同的结果，则无法保证可重复性。
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>在 Azure 门户中添加 JavaScript 用户定义的函数
-若要在现有的流分析作业中创建一个简单的 JavaScript 用户定义的函数，请执行以下步骤：
+若要在现有的流分析作业中创建一个简单的 JavaScript 用户定义函数，请执行以下步骤：
 
-1. 在 Azure 门户中找到流分析作业。
-2. 在“作业拓扑”下面选择函数。 此时显示一个空白的函数列表。
-3. 若要新建用户的定义函数，请选择“添加”。
-4. 在“新建函数”边栏选项卡中，为“函数类型”选择“JavaScript”。 编辑器中会显示默认函数模板。
-5. 为“UDF 别名”输入 **hex2Int**，并按如下所示更改函数实现：
+> [!NOTE]
+> 这些步骤适用于配置为在云中运行的流分析作业。 如果流分析作业配置为在 Azure IoT Edge 上运行，请改用 Visual Studio 并[使用 C# 编写用户定义的函数](stream-analytics-edge-csharp-udf.md)。
 
-    ```
+1.  在 Azure 门户中找到流分析作业。
+
+2. 在“作业拓扑”标题下，选择“函数”。 此时显示一个空白的函数列表。
+
+3.  若要新建用户定义函数，请选择“+添加”。
+
+4.  在“新建函数”边栏选项卡中，为“函数类型”选择“JavaScript”。 编辑器中会显示默认函数模板。
+
+5.  为“UDF 别名”输入 **hex2Int**，并按如下所示更改函数实现：
+
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -71,10 +78,10 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查询中调用 JavaScript 用户定义的函数
 
-1. 在查询编辑器中的“作业拓扑”下面选择“查询”。
-2. 编辑查询，并调用该用户定义的函数，如下所示：
+1. 在查询编辑器中的“作业拓扑”标题下，选择“查询”。
+2.  编辑查询，并调用该用户定义的函数，如下所示：
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -126,14 +133,14 @@ JavaScript 运行时错误被视为严重错误，可通过活动日志查看。
 
 **JavaScript 用户定义的函数定义：**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **示例查询：**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

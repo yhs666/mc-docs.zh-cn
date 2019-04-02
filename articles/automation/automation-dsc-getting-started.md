@@ -3,19 +3,19 @@ title: Azure Automation State Configuration 入门
 description: Azure Automation State Configuration (DSC) 中最常见任务的说明和示例
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 818a0e8ade7c70c7baab1716123f54213f8d407d
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: 4be9b73544455f85d22f74b52512edf21a33aa28
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615185"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503593"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 入门
 
@@ -158,7 +158,6 @@ ms.locfileid: "53615185"
    ![“注册”边栏选项卡的屏幕快照](./media/automation-dsc-getting-started/RegisterVM.png)
 
    指定的节点配置将按“配置模式频率”指定的时间间隔应用到 VM，而 VM 则会按“刷新频率”指定的时间间隔检查节点配置的更新。 有关如何使用这些值的详细信息，请参阅[配置本地配置管理器](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)。
-1. 在“添加 Azure VM”边栏选项卡中，单击“创建”。
 
 Azure 将启动登记 VM 的过程。 完成后，VM 会显示在自动化帐户的“State Configuration (DSC)”页上的“节点”选项卡中。
 

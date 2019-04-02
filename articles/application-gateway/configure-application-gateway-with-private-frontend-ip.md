@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/26/2019
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4abe824581bc6889e9f9a29d20a9eaedcd385e04
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 10c62b535f0e0a6066e5d047d790209e07d48428
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788762"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625330"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>使用内部负载均衡器 (ILB) 终结点配置应用程序网关
 
@@ -43,14 +43,14 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
    - 10.0.0.0/16* - 虚拟网络地址空间。
    - *myAGSubnet* - 子网名称。
    - *10.0.0.0/24* - 子网地址空间。  
-   ![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+     ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. 单击“确定”创建虚拟网络和子网。
 7. 选择“专用”作为“前端 IP 配置”（默认为动态 IP 地址分配）。 所选子网的第一个可用地址将分配为前端 IP 地址。
 8. 若要从子网地址范围中选择专用 IP（静态分配），请单击“选择特定的专用 IP 地址”框并指定 IP 地址。
    > [!NOTE]
    > IP 地址类型（静态或动态）一经分配，以后便不可更改。
 9. 选择协议和端口的侦听器配置以及 WAF 配置（如果需要），然后单击“确定”。
-    ![private-frontendip-2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
+    ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. 检查摘要页上的设置，然后单击“确定”创建网络资源和应用程序网关。 创建应用程序网关可能需要几分钟时间，请等到部署成功完成，然后转到下一部分。
 
 ## <a name="add-backend-pool"></a>添加后端池
@@ -108,13 +108,13 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 1. Click **All resources**, and then click **myAppGateway**.
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-   ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
+   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-    ![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
+    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

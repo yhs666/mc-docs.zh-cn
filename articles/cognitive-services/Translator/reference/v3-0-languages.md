@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 03/12/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5a3304f44b20b8e3a3a3e287679c41f6cea82739
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5f3c1df9cb9978887cfec8c976ed8cfba6feaa43
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964472"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625240"
 ---
 # <a name="translator-text-api-30-languages"></a>文本翻译 API 3.0：语言
 
@@ -38,11 +38,11 @@ https://api.translator.azure.cn/languages?api-version=3.0
   <th>说明</th>
   <tr>
     <td>api-version</td>
-    <td>必需参数。<br/>客户端所请求的 API 的版本。 值必须是 `3.0`。</td>
+    <td>必需参数。<br/>客户端所请求的 API 的版本。 值必须是 <code>3.0</code>。</td>
   </tr>
   <tr>
     <td>scope</td>
-    <td>可选参数。<br/>逗号分隔的名称列表，用于定义要返回的语言组。 允许的组名称为：`translation`、`transliteration` 和 `dictionary`。 如果未指定范围，则返回所有组，这相当于传递了 `scope=translation,transliteration,dictionary`。 若要确定哪个支持的语言集适合你的场景，请参阅[响应对象](#response-body)的说明。</td>
+    <td>可选参数。<br/>逗号分隔的名称列表，用于定义要返回的语言组。 允许的组名称为：<code>translation</code>、<code>transliteration</code> 和 <code>dictionary</code>。 如果未指定范围，则返回所有组，这相当于传递了 <code>scope=translation,transliteration,dictionary</code>。 若要确定哪个支持的语言集适合你的场景，请参阅<a href="#response-body" data-raw-source="[response object](#response-body)">响应对象</a>的说明。</td>
   </tr>
 </table> 
 
@@ -53,7 +53,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   <th>说明</th>
   <tr>
     <td>Accept-Language</td>
-    <td>可选请求标头。<br/>要用于用户界面字符串的语言。 响应中的某些字段是语言的名称，或区域的名称。 使用此参数可以定义要以哪种语言返回这些名称。 通过提供格式正确的 BCP 47 语言标记来指定语言。 例如，使用值 `fr` 来请求法语名称，或使用值 `zh-Hant` 来请求繁体中文名称。<br/>如果未指定目标语言或者本地化不可用，则以英语提供名称。
+    <td>可选请求标头。<br/>要用于用户界面字符串的语言。 响应中的某些字段是语言的名称，或区域的名称。 使用此参数可以定义要以哪种语言返回这些名称。 通过提供格式正确的 BCP 47 语言标记来指定语言。 例如，使用值 <code>fr</code> 来请求法语名称，或使用值 <code>zh-Hant</code> 来请求繁体中文名称。<br/>如果未指定目标语言或者本地化不可用，则以英语提供名称。
     </td>
   </tr>
   <tr>
@@ -234,7 +234,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   <th>说明</th>
   <tr>
     <td>ETag</td>
-    <td>所请求的受支持语言组的实体标记的当前值。 若要提高后续请求的效率，客户端可在 `If-None-Match` 标头字段中发送 `ETag` 值。
+    <td>所请求的受支持语言组的实体标记的当前值。 若要提高后续请求的效率，客户端可在 <code>If-None-Match</code> 标头字段中发送 <code>ETag</code> 值。
     </td>
   </tr>
   <tr>
@@ -256,7 +256,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   </tr>
   <tr>
     <td>304</td>
-    <td>自请求标头 `If-None-Match` 指定版本以来，资源尚未修改。</td>
+    <td>自请求标头 <code>If-None-Match</code> 指定版本以来，资源尚未修改。</td>
   </tr>
   <tr>
     <td>400</td>
@@ -268,11 +268,11 @@ https://api.translator.azure.cn/languages?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>发生了意外错误。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 `X-RequestId` 中的请求标识符、请求标头 `X-ClientTraceId` 中的客户端标识符。</td>
+    <td>发生了意外错误。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 <code>X-RequestId</code> 中的请求标识符、请求标头 <code>X-ClientTraceId</code> 中的客户端标识符。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>服务器暂不可用。 重试请求。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 `X-RequestId` 中的请求标识符、请求标头 `X-ClientTraceId` 中的客户端标识符。</td>
+    <td>服务器暂不可用。 重试请求。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 <code>X-RequestId</code> 中的请求标识符、请求标头 <code>X-ClientTraceId</code> 中的客户端标识符。</td>
   </tr>
 </table> 
 
@@ -290,3 +290,4 @@ curl "https://api.translator.azure.cn/languages?api-version=3.0&scope=translatio
 
 ---
 
+<!-- Update_Description: code update -->

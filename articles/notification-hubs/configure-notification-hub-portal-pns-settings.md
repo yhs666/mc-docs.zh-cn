@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/14/2019
 ms.date: 03/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 479acb75a98e4cc89a70410c6b4d588eb8f4faa9
-ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
+ms.openlocfilehash: 1e1477655cdc092bc1517b162c77c82170e714f9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57787321"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625585"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>使用 Azure 门户在通知中心设置推送通知
 
@@ -32,21 +32,21 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 
 1. 在 Azure 门户上的“通知中心”中，选择“Apple (APNS)”。
 
-1. 对于“身份验证模式”，请选择“证书”或“令牌”。
+2. 对于“身份验证模式”，请选择“证书”或“令牌”。
 
    a. 如果选择“证书”：
-      * 选择“文件”图标，然后选择要上传的“.p12”文件。
-      * 输入密码。
-      * 选择“沙盒”模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。
+   * 选择“文件”图标，然后选择要上传的“.p12”文件。
+   * 输入密码。
+   * 选择“沙盒”模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。
 
-      ![Azure 门户中 APNS 证书配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Azure 门户中 APNS 证书配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
    b. 如果选择“令牌”：
 
-      * 输入“密钥 ID”、“捆绑 ID”、“团队 ID”和“令牌”的值。
-      * 选择“沙盒”模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。
+   * 输入“密钥 ID”、“捆绑 ID”、“团队 ID”和“令牌”的值。
+   * 选择“沙盒”模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。
 
-      ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 有关详细信息，请参阅[使用 Azure 通知中心将通知推送到 iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)。
 

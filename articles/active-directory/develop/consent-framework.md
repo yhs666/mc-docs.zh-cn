@@ -17,12 +17,12 @@ ms.date: 12/29/2018
 ms.author: v-junlch
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 57cba38ef2317fcb517511b09817585fbfd4e750
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: ffa2a1bf34a3c3f2d0ae305e85c512d4212700fd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625676"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 许可框架
 
@@ -42,30 +42,30 @@ ms.locfileid: "53996174"
 
     ![针对其他应用程序的权限](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
-1. 考虑已更新应用程序的权限，该应用程序正在运行，并且某个用户即将首次使用该应用程序。 首先，应用程序需要从 Azure AD 的 `/authorize` 终结点获取授权代码。 然后，可以使用该授权代码获取新的访问令牌和刷新令牌。
+2. 考虑已更新应用程序的权限，该应用程序正在运行，并且某个用户即将首次使用该应用程序。 首先，应用程序需要从 Azure AD 的 `/authorize` 终结点获取授权代码。 然后，可以使用该授权代码获取新的访问令牌和刷新令牌。
 
-1. 如果用户尚未经过身份验证，Azure AD 的 `/authorize` 终结点会提示用户登录。
+3. 如果用户尚未经过身份验证，Azure AD 的 `/authorize` 终结点会提示用户登录。
 
     ![用户或管理员登录到 Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
-1. 用户登录后，Azure AD 将决定是否要向该用户显示同意页。 根据该用户（或其组织的管理员）是否已授予应用程序许可而决定。 如果尚未授予许可，Azure AD 会提示用户授予许可，并显示运行该应用程序所需的权限。 许可对话框中显示的权限集与在 Azure 门户中的“委托权限”中选择的权限集相匹配。
+4. 用户登录后，Azure AD 将决定是否要向该用户显示同意页。 根据该用户（或其组织的管理员）是否已授予应用程序许可而决定。 如果尚未授予许可，Azure AD 会提示用户授予许可，并显示运行该应用程序所需的权限。 许可对话框中显示的权限集与在 Azure 门户中的“委托权限”中选择的权限集相匹配。
 
     ![用户同意体验](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-1. 用户授予许可后，授权代码会返回到应用程序，应用程序可凭此获取访问令牌和刷新令牌。 有关此流程的详细信息，请参阅 [Web API 应用类型](web-api.md)。
+5. 用户授予许可后，授权代码会返回到应用程序，应用程序可凭此获取访问令牌和刷新令牌。 有关此流程的详细信息，请参阅 [Web API 应用类型](web-api.md)。
 
-1. 作为管理员，还可以代表租户中的所有用户同意应用程序的委派权限。 管理许可可防止针对租户中的每个用户显示许可对话框，可通过具有管理员角色的用户在 [Azure 门户](https://portal.azure.cn)中执行。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+6. 作为管理员，还可以代表租户中的所有用户同意应用程序的委派权限。 管理许可可防止针对租户中的每个用户显示许可对话框，可通过具有管理员角色的用户在 [Azure 门户](https://portal.azure.cn)中执行。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
 
     **同意应用的委托权限**
 
-    1. 转到应用程序的“设置”页
-    1. 选择“所需权限”。
-    1. 单击“授予权限”按钮。
+   1. 转到应用程序的“设置”页
+   2. 选择“所需权限”。
+   3. 单击“授予权限”按钮。
 
-    ![授予权限以获得管理员的显式许可](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![授予权限以获得管理员的显式许可](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > 使用 ADAL.js 的单页应用程序 (SPA) 目前要求使用“授予权限”按钮授予显式许可。 否则，在请求访问令牌时应用程序会失败。
+   > [!IMPORTANT]
+   > 使用 ADAL.js 的单页应用程序 (SPA) 目前要求使用“授予权限”按钮授予显式许可。 否则，在请求访问令牌时应用程序会失败。
 
 ## <a name="next-steps"></a>后续步骤
 
