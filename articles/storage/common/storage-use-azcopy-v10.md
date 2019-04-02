@@ -10,11 +10,11 @@ ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
 ms.openlocfilehash: 1d9c03c41b576825a9a81b64d06c56b661d085d5
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253928"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626008"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>使用 AzCopy v10（预览版）传输数据
 

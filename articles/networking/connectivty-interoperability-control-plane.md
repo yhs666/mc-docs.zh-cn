@@ -12,11 +12,11 @@ origin.date: 10/18/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
 ms.openlocfilehash: 88e9ccea7ab1d01e2b48bcfa3059b2acc53fe525
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785296"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627182"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Azure 后端连接功能中的互操作性：控制平面分析
 

@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 08/09/2018
 ms.date: 01/21/2019
 ms.openlocfilehash: 15e00cdad2a6ba5f034ca3fb9fa9419a44d8af0b
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663724"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627478"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 

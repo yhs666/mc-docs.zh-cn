@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: fdd469392dc3f02881060c98adc09a12d98aac67
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c8accf2bd0900a9c3a9c55864cf0ade0fa55c8e3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645544"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625274"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>为 Windows 应用启用脱机同步
 
@@ -39,7 +39,7 @@ ms.locfileid: "52645544"
 本教程需要的内容以下先决条件：
 
 * 在 Windows 8.1 或更高版本上运行的 Visual Studio 2013。
-* 完成 [创建 Windows 应用][创建 windows 应用]（使用适用于 Azure 移动应用的 .NET 后端服务器 SDK）。
+* 完成 [创建 Windows 应用][创建 Windows 应用]。
 * [Azure 移动服务 SQLite Store][sqlite store nuget]
 * [SQLite for Universal Windows Platform（适用于通用 Windows 平台的 SQLite）](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
@@ -74,7 +74,7 @@ ms.locfileid: "52645544"
 
 2. 按 **F5** 生成并运行应用。 请注意，在应用启动时，同步刷新将失败。
 
-3. 输入新项，并注意每次单击 [CancelledByNetworkError] 时，推送将失败，并显示 **CancelledByNetworkError**状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
+3. 输入新项，并注意每次单击 **保存** 时，推送将失败，并显示 [CancelledByNetworkError]状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
 
 4. 关闭应用程序并重新启动它，以验证你创建的新项目是否已永久保存到本地存储中。
 
@@ -96,9 +96,9 @@ ms.locfileid: "52645544"
 
 4. 在应用程序中，单击要在本地存储区中完成的几个项旁边的复选框。
 
-  `UpdateCheckedTodoItem` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。 但是， **针对客户端已更改的表执行拉取操作时，始终会自动执行推送操作**。 此行为可确保本地存储中的所有表以及关系都保持一致。 此行为可能会导致意外的推送。  有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
+   `UpdateCheckedTodoItem` 调用 `SyncAsync`，将每个已完成项与移动应用后端同步。 `SyncAsync` 同时调用推送和拉取操作。 但是， **针对客户端已更改的表执行拉取操作时，始终会自动执行推送操作**。 此行为可确保本地存储中的所有表以及关系都保持一致。 此行为可能会导致意外的推送。  有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
 
-##<a name="api-summary"></a>API 摘要
+## <a name="api-summary"></a>API 摘要
 
 为了支持移动服务的脱机功能，我们使用了 [IMobileServiceSyncTable] 接口，并使用本地 SQLite 数据库初始化了 [MobileServiceClient.SyncContext][synccontext]。 脱机时，移动应用的普通 CRUD 操作执行起来就像此应用仍处于连接状态一样，但操作针对本地存储进行。 以下方法用于将本地存储与服务器进行同步：
 

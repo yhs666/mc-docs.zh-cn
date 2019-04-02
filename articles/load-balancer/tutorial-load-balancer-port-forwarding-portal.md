@@ -16,12 +16,12 @@ origin.date: 02/26/2019
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 88da6f731f5896b27bf1dd2b9facef6b3e8478ef
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 7e59f6d59d8771131833422f41200deb5785cf9e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348655"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627454"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教程：使用门户在 Azure 负载均衡器中配置端口转发
 
@@ -94,7 +94,7 @@ ms.locfileid: "58348655"
    - **密码**：键入“Azure1234567”。 
      在“确认密码”字段中，重新键入该密码。
    
-1. 选择“网络”选项卡，或选择“下一步:磁盘”，然后选择“下一步:网络”**。 
+1. 选择“网络”选项卡，或选择 **“下一步:磁盘”，然后选择“下一步:网络”**。 
    
    确保选中以下项：
    - **虚拟网络**：**MyVNet**
@@ -207,9 +207,9 @@ ms.locfileid: "58348655"
 
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“MyLoadBalancer”。
    
-1. 在“设置”下，依次选择“负载均衡规则”、“添加”。
+2. 在“设置”下，依次选择“负载均衡规则”、“添加”。
    
-1. 在“添加负载均衡规则”页上，键入或选择以下值：
+3. 在“添加负载均衡规则”页上，键入或选择以下值：
    
    - **名称**：键入“MyLoadBalancerRule”。
    - **协议**：选择“TCP”。
@@ -218,9 +218,9 @@ ms.locfileid: "58348655"
    - **后端池**：选择“MyBackendPool”。
    - **运行状况探测**：选择“MyHealthProbe”。 
    
-1. 选择“确定” 。
+4. 选择“确定” 。
    
-  ![添加负载均衡器规则](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![添加负载均衡器规则](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>创建入站 NAT 端口转发规则
 

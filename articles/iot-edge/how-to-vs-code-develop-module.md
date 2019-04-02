@@ -10,12 +10,12 @@ origin.date: 02/20/2019
 ms.date: 03/11/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c5750e15d1f322b1475703699ff3eacd98ef28cb
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 82720f36ed1122d089e7231e3d100d2ca4f42df3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196641"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626490"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 模块
 
@@ -78,19 +78,19 @@ ms.locfileid: "57196641"
 
 1. 选择“视图” > “命令面板”。
 
-1. 在“命令面板”中，输入并运行 Azure IoT Edge：New IoT Edge solution”命令。
+2. 在“命令面板”中，输入并运行 Azure IoT Edge：New IoT Edge solution”命令。
 
    ![运行新的 IoT Edge 解决方案](./media/how-to-develop-csharp-module/new-solution.png)
 
-1. 浏览到要在其中创建新解决方案的文件夹，然后选择“选择文件夹”。
+3. 浏览到要在其中创建新解决方案的文件夹，然后选择“选择文件夹”。
 
-1. 输入解决方案的名称。
+4. 输入解决方案的名称。
 
-1. 选择首选开发语言的模块模板作为解决方案中的第一个模块。
+5. 选择首选开发语言的模块模板作为解决方案中的第一个模块。
 
-1. 输入模块的名称。 选择容器注册表中唯一的名称。
+6. 输入模块的名称。 选择容器注册表中唯一的名称。
 
-1. 提供模块的映像存储库的名称。 Visual Studio Code 使用“localhost:5000/<你的模块名称\>”自动填充模块名。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 localhost。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：*\<注册表名称\>*.azurecr.io。 仅替换字符串的“localhost:5000”部分，以使最终结果看起来像*\<注册表名称\>.azurecr.io/\<你的模块名称\>***。
+7. 提供模块的映像存储库的名称。 Visual Studio Code 使用“localhost:5000/<你的模块名称\>”自动填充模块名。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 localhost。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：*\<注册表名称\>*.azurecr.io。 仅替换字符串的“localhost:5000”部分，以使最终结果看起来像*\<注册表名称\>.azurecr.io/\<你的模块名称\>***。
 
    ![提供 Docker 映像存储库](./media/how-to-develop-csharp-module/repository.png)
 
@@ -111,7 +111,7 @@ Visual Studio Code 采用你提供的信息，创建一个 IoT Edge 解决方案
 
 ## <a name="add-additional-modules"></a>添加其他模块
 
-若要向解决方案添加其他模块，请从命令面板运行命令“Azure IoT Edge：添加 IoT Edge 模块”。 也可以右键单击 Visual Studio Code 资源管理器视图中的“模块”文件夹或 `deployment.template.json` 文件，然后选择“添加 IoT Edge 模块”。
+若要向解决方案添加其他模块，请从命令面板运行命令“Azure IoT Edge：添加 IoT Edge 模块”**。 也可以右键单击 Visual Studio Code 资源管理器视图中的“模块”文件夹或 `deployment.template.json` 文件，然后选择“添加 IoT Edge 模块”。
 
 ## <a name="develop-your-module"></a>开发模块
 
@@ -141,7 +141,7 @@ Visual Studio Code 采用你提供的信息，创建一个 IoT Edge 解决方案
 
 ### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>为单个模块应用设置 IoT Edge 模拟器
 
-若要设置和启动模拟器，请从 Visual Studio Code 命令选项板运行命令“Azure IoT Edge：启动单模块的 IoT Edge Hub 模拟器。 出现提示时，使用默认模块代码中的值“input1”（或代码中的等效值）作为应用程序的输入名称。 该命令触发“iotedgehubdev”CLI，然后启动 IoT Edge 模拟器并测试实用程序模块容器。 如果模拟器已成功以单模块模式启动，则可以在集成终端中看到下面的输出。 还可以看到 `curl` 命令以帮助发送消息。 稍后将使用它。
+若要设置和启动模拟器，请从 Visual Studio Code 命令选项板运行命令“Azure IoT Edge：启动单模块的 IoT Edge Hub 模拟器**。 出现提示时，使用默认模块代码中的值“input1”（或代码中的等效值）作为应用程序的输入名称。 该命令触发“iotedgehubdev”CLI，然后启动 IoT Edge 模拟器并测试实用程序模块容器。 如果模拟器已成功以单模块模式启动，则可以在集成终端中看到下面的输出。 还可以看到 `curl` 命令以帮助发送消息。 稍后将使用它。
 
    ![为单个模块应用设置 IoT Edge 模拟器](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -198,7 +198,7 @@ Visual Studio Code 采用你提供的信息，创建一个 IoT Edge 解决方案
 
 1. 在 Visual Studio Code 调试视图中，将在左侧面板中看到变量。
 
-1. 若要停止调试会话，请选择“停止”按钮或按“Shift + F5”，然后在命令面板中运行“Azure IoT Edge：停止 IoT Edge 模拟器”以停止模拟器并清除。
+1. 若要停止调试会话，请选择“停止”按钮或按“Shift + F5”，然后在命令面板中运行“Azure IoT Edge：停止 IoT Edge 模拟器”以停止模拟器并清除**。
 
 ## <a name="debug-in-attach-mode-with-iot-edge-simulator-c-nodejs-java-azure-functions"></a>使用 IoT Edge 模拟器在附加模式下进行调试 (C#、Node.js、Java、Azure Functions)
 
@@ -235,7 +235,7 @@ Visual Studio Code 采用你提供的信息，创建一个 IoT Edge 解决方案
 
 1. 在 Visual Studio Code 调试视图中，将在左侧面板中看到变量。
 
-1. 若要停止调试会话，请先选择停止按钮或按“Shift + F5”，然后从命令面板中选择“Azure IoT Edge：停止 IoT Edge 模拟器”。
+1. 若要停止调试会话，请先选择停止按钮或按“Shift + F5”，然后从命令面板中选择“Azure IoT Edge：停止 IoT Edge 模拟器”**。
 
 > [!NOTE]
 > 上面的示例展示了如何调试容器上的 IoT Edge 模块。 它为模块的容器 `createOptions` 设置添加了公开的端口。 完成模块的调试后，建议为可用于生产的 IoT Edge 模块删除那些公开的端口。

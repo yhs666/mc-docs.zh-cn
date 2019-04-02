@@ -13,12 +13,12 @@ ms.workload: big-data
 origin.date: 09/15/2018
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5e47aec63387af6fec2166938daa11c7c6509b89
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 256c9ffe2d227e84a4e7c5acce5879ab25b3dd4a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348579"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627237"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>在 Azure 虚拟网络中设置 Apache HBase 群集复制
 
@@ -291,15 +291,15 @@ sudo service bind9 status
 4. 在页面顶部，选择“提交新项”。
 5. 选择或输入以下信息：
 
-  1. **名称**：输入“启用复制”。
-  2. **Bash 脚本 URL**：输入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
-  3.  **头**：确保已选定。 清除其他节点类型。
-  4. **参数**：以下示例参数将对所有现有表启用复制，并将源群集中的所有数据复制到目标群集：
+   1. **名称**：输入“启用复制”。
+   2. **Bash 脚本 URL**：输入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
+   3. **头**：确保已选定。 清除其他节点类型。
+   4. **参数**：以下示例参数将对所有现有表启用复制，并将源群集中的所有数据复制到目标群集：
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > 对源和目标群集 DNS 名称使用主机名而不是 FQDN。
+      > [!NOTE]
+      > 对源和目标群集 DNS 名称使用主机名而不是 FQDN。
 
 6. 选择“创建” 。 该脚本可能会运行一段时间，尤其是在使用 **-copydata** 参数的情况下。
 

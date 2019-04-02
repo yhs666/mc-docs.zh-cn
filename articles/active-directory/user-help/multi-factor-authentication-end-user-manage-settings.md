@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 05/23/2017
 ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: f0366d77387f5853b9842b9ec2215b93fc8d1b35
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 5683cdc1f28038b1ebc1e486c081990bbcaf794d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660198"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626295"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理双重验证设置
 本文回答有关如何更新双重验证或多重身份验证的设置的问题。 如果在登录帐户时遇到问题，请参阅[使用双重验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)获取疑难解答帮助。
@@ -37,17 +37,17 @@ ms.locfileid: "52660198"
 
 2. 选择所需的验证。
 
-    - 默认值为“身份验证电话”，可以选择接收短信或通话。
+   - 默认值为“身份验证电话”，可以选择接收短信或通话。
         
-    ![2](./media/multi-factor-authentication-end-user-manage/2.png)  
+     ![2](./media/multi-factor-authentication-end-user-manage/2.png)  
 
-    - 也可以选择“办公电话”。
+   - 也可以选择“办公电话”。
     
-        ![3](./media/multi-factor-authentication-end-user-manage/3.png)     
+       ![3](./media/multi-factor-authentication-end-user-manage/3.png)     
     
-    - 还可以选择“移动电话”，以便安装执行验证的“Azure 身份验证应用”。
+   - 还可以选择“移动电话”，以便安装执行验证的“Azure 身份验证应用”。
     
-        ![4](./media/multi-factor-authentication-end-user-manage/4.png) 
+       ![4](./media/multi-factor-authentication-end-user-manage/4.png) 
 
 
 ## <a name="i-want-to-change-my-phone-number"></a>我想要更改我的电话号码
@@ -74,5 +74,5 @@ ms.locfileid: "52660198"
 从设备上卸载该应用或重置设备时，不会删除应用在后端的激活。 有关详细信息，请参阅 [Microsoft Authenticator](./microsoft-authenticator-app-how-to.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 在[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)
-<!-- Update_Description: update metedata properties -->中获得故障排除提示和帮助
+- 在[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)中获得疑难解答提示和帮助
+<!-- Update_Description: update metedata properties -->

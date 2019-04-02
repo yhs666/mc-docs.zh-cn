@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: fa701173002a7bac5f7ade98c7cc498584b8fbae
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: d9df7ec2b591dc287edff9e5fd4334e189df6cca
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833413"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626060"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序  
 
-借助适用于 Windows 8 的平滑流式处理客户端 SDK，开发人员可以生成支持按需付费、直播平滑流式处理内容的 Windows 应用商店应用程序。 除了播放平滑流式处理内容这一基本功能以外，该 SDK 还提供其他丰富功能，例如 Microsoft PlayReady 保护、质量级别限制、实时 DVR、音频流切换、收听状态更新（如质量级别更改）和错误事件，等等。 有关支持的功能的详细信息，请参阅 [发行说明](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)。 有关详细信息，请参阅 [适用于 Windows 8 的播放器框架](http://playerframework.codeplex.com/)。 
+借助适用于 Windows 8 的平滑流式处理客户端 SDK，开发人员可以生成支持按需付费、直播平滑流式处理内容的 Windows 应用商店应用程序。 除了播放平滑流式处理内容这一基本功能以外，该 SDK 还提供其他丰富功能，例如 Microsoft PlayReady 保护、质量级别限制、实时 DVR、音频流切换、收听状态更新（如质量级别更改）和错误事件，等等。 有关支持的功能的详细信息，请参阅 [发行说明](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)。 有关详细信息，请参阅 [适用于 Windows 8 的播放器框架](https://playerframework.codeplex.com/)。 
 
 本教程包含四个课时：
 
@@ -39,7 +39,7 @@ ms.locfileid: "56833413"
 
 * Windows 8 32 位或 64 位。
 * Visual Studio 版本 2012 到 2015。
-* [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
+* [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
 
 可从 MSDN 开发人员代码示例（代码库）下载每一课后生成的解决方案： 
 
@@ -108,7 +108,7 @@ ms.locfileid: "56833413"
 
          <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <TextBox x:Name="txtMediaSource" Text="https://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
             <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
@@ -204,7 +204,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
          }
          # endregion
    ```
-现已定义 sliderProgress_PointerPressed 事件处理程序。  要使它正常工作，还需要执行其他操作，本教程的下一课会进行介绍。
+   现已定义 sliderProgress_PointerPressed 事件处理程序。  要使它正常工作，还需要执行其他操作，本教程的下一课会进行介绍。
 6. 按 **CTRL+S** 保存文件。
 
 完成的代码隐藏文件应如下所示：
@@ -808,13 +808,13 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
             changeStreams(selectedStreams);
         }
    ```
-**编译和测试应用程序**
+   **编译和测试应用程序**
 
-1. 按 **F6** 编译项目。 
-2. 按 **F5** 运行应用程序。
-3. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
-4. 单击“设置源” 。 
-5. 默认语言为 audio_eng。 尝试在 audio_eng 和 audio_es 之间切换。 每次选择一个新流时，都必须单击“提交”按钮。
+7. 按 **F6** 编译项目。 
+8. 按 **F5** 运行应用程序。
+9. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
+10. 单击“设置源” 。 
+11. 默认语言为 audio_eng。 尝试在 audio_eng 和 audio_es 之间切换。 每次选择一个新流时，都必须单击“提交”按钮。
 
 已完成第 3 课。  本课中添加了用于选择流的功能。
 
@@ -1010,19 +1010,19 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
             changeStreams(selectedStreams);
          }
    ```
-**编译和测试应用程序**
+   **编译和测试应用程序**
 
-1. 按 **F6** 编译项目。 
-2. 按 **F5** 运行应用程序。
-3. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
-4. 单击“设置源” 。 
-5. 默认情况下，已选中视频流的所有曲目。 如果要体验比特率的变化，可以先选择最低的可用比特率，再选择最高的可用比特率。 每次更改后都必须单击“提交”。  可以看到视频质量的变化。
+7. 按 **F6** 编译项目。 
+8. 按 **F5** 运行应用程序。
+9. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
+10. 单击“设置源” 。 
+11. 默认情况下，已选中视频流的所有曲目。 如果要体验比特率的变化，可以先选择最低的可用比特率，再选择最高的可用比特率。 每次更改后都必须单击“提交”。  可以看到视频质量的变化。
 
 已完成第 4 课。  在本课中，已添加了用于选择曲目的功能。
 
 ## <a name="other-resources"></a>其他资源：
-* [如何生成具有高级功能的平滑流式处理 Windows 8 JavaScript 应用程序](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [平滑流式处理技术概述](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [如何生成具有高级功能的平滑流式处理 Windows 8 JavaScript 应用程序](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [平滑流式处理技术概述](https://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

@@ -10,12 +10,12 @@ origin.date: 12/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: c1a2d0cbe58c279a76a6e3968c3ce44b3bee4a1d
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 09d6d027f5397a4a9a3da1d71cf93bcd86f5ced2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463645"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627234"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -39,7 +39,7 @@ ms.locfileid: "57463645"
     - Windows Server 2012 
     - 64 位版本的 Windows Server 2008 R2 SP1 或更高版本
     - CentOS 6.4 到 6.10、7.1 到 7.6（仅限 HVM 虚拟化实例）
-    
+
     <!-- Not Available on - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
 - 必须在要复制的每个 VM 上安装移动服务。 
 
@@ -169,43 +169,47 @@ ms.locfileid: "57463645"
 为要迁移的各 VM 启用复制。 启用复制后，Site Recovery 会自动安装移动服务。
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
-1. 在保管库相应页面的“入门”下，选择“Site Recovery”。
-2. 在“适用于本地计算机和 Azure VM”下，选择“步骤 1:复制应用程序”**。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”：
-    - 1:配置源
+2. 在保管库相应页面的“入门”下，选择“Site Recovery”。
+3. 在“适用于本地计算机和 Azure VM”下，选择“步骤 1:复制应用程序”**。 使用以下信息完成向导页面。 完成后，在每个页面上选择“确定”：
+   - 1:配置源
 
-    |  |  |
-    |-----|-----|
-    | 源： | 选择“本地”。|
-    | 源位置：| 输入配置服务器 EC2 实例的名称。|
-    |计算机类型： | 选择“物理计算机”。|
-    | 进程服务器： | 从下拉列表中选择配置服务器。|
 
-    - 2:配置目标
+     |                  |                                                           |
+     |------------------|-----------------------------------------------------------|
+     |     源：      |                  选择“本地”。                  |
+     | 源位置： | 输入配置服务器 EC2 实例的名称。 |
+     |  计算机类型：   |               选择“物理计算机”。               |
+     | 进程服务器：  | 从下拉列表中选择配置服务器。  |
 
-    |  |  |
-    |-----|-----|
-    | 目标： | 保留默认值。|
-    | 订阅： | 选择已在使用的订阅。|
-    | 故障转移后的资源组：| 使用在[准备 Azure 资源](#prepare-azure-resources)中创建的资源组。|
-    | 故障转移后的部署模型： | 选择“Resource Manager”。|
-    | 存储帐户： | 选择在[准备 Azure 资源](#prepare-azure-resources)中创建的存储帐户。|
-    | Azure 网络： | 选择“立即对选定的计算机进行配置”。|
-    | 故障转移后的 Azure 网络： | 选择在[准备 Azure 资源](#prepare-azure-resources)中创建的网络。|
-    | 子网： | 在下拉列表中选择“默认”。|
 
-    - 3:选择物理计算机
+   - 2:配置目标
 
-      选择“物理计算机”，然后输入要迁移的 EC2 实例的“名称”、“IP 地址”和“OS 类型”的值。 选择“确定” 。
 
-    - 4:配置属性
+     |                                 |                                                                                                     |
+     |---------------------------------|-----------------------------------------------------------------------------------------------------|
+     |             目标：             |                                         保留默认值。                                          |
+     |          订阅：          |                          选择已在使用的订阅。                          |
+     |  故障转移后的资源组：  |     使用在[准备 Azure 资源](#prepare-azure-resources)中创建的资源组。      |
+     | 故障转移后的部署模型： |                                    选择“Resource Manager”。                                     |
+     |        存储帐户：         | 选择在[准备 Azure 资源](#prepare-azure-resources)中创建的存储帐户。 |
+     |         Azure 网络：          |                           选择“立即对选定的计算机进行配置”。                           |
+     |  故障转移后的 Azure 网络：   |       选择在[准备 Azure 资源](#prepare-azure-resources)中创建的网络。        |
+     |             子网：             |                            在下拉列表中选择“默认”。                            |
 
-      选择在配置服务器上创建的帐户，然后选择“确定”。
 
-    - 5:配置复制设置
+   - 3:选择物理计算机
 
-      确保在下拉列表中选定的复制策略是“myReplicationPolicy”，然后选择“确定”。
+     选择“物理计算机”，然后输入要迁移的 EC2 实例的“名称”、“IP 地址”和“OS 类型”的值。 选择“确定” 。
 
-3. 向导完成后，选择“启用复制”。
+   - 4:配置属性
+
+     选择在配置服务器上创建的帐户，然后选择“确定”。
+
+   - 5:配置复制设置
+
+     确保在下拉列表中选定的复制策略是“myReplicationPolicy”，然后选择“确定”。
+
+4. 向导完成后，选择“启用复制”。
 
 若要跟踪“启用保护”作业的进度，请转到“监视和报告” > “作业” > “Site Recovery 作业”。 在“完成保护”作业运行之后，计算机就可以进行故障转移了。        
 
@@ -241,13 +245,13 @@ ms.locfileid: "57463645"
 
 1. 在“受保护的项” > “复制的项”中选择 AWS 实例，然后选择“故障转移”。
 2. 在“故障转移”中，选择要故障转移到其中的“恢复点”。 选择最新的恢复点，然后启动故障转移。 可以在“作业”页上跟踪故障转移进度。
-1. 确保 VM 出现在“复制的项”中。
-2. 右键单击每个 VM，然后选择“完成迁移”。 这样会执行以下操作：
+3. 确保 VM 出现在“复制的项”中。
+4. 右键单击每个 VM，然后选择“完成迁移”。 这样会执行以下操作：
 
-    - 此操作将完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
-    - 此步骤清除复制数据。 它不删除迁移的 VM。 
+   - 此操作将完成迁移过程，停止 AWS VM 复制，并停止 VM 的 Site Recovery 计费。
+   - 此步骤清除复制数据。 它不删除迁移的 VM。 
 
-    ![完成迁移](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![完成迁移](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > 请勿取消正在进行的故障转移。 在故障转移开始前，VM 复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但 VM 将不再进行复制。  

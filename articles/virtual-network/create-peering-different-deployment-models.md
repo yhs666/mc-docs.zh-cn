@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 11/15/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 71b133ca3828ecc8eecbf80dc7424aca47c502ae
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 08376965d34a74dcb928e798c2da07c14b306b63
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306109"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626500"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅
 
@@ -98,7 +98,7 @@ ms.locfileid: "56306109"
 
 4. 使用 CLI 而非经典 CLI 执行以下 bash CLI 脚本。 有关在 Windows 计算机上运行 bash CLI 脚本的选项，请参阅[在 Windows 上安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli-windows?view=azure-cli-latest)。
 
-  [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+   [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
     ```azurecli
     #!/bin/bash

@@ -18,11 +18,11 @@ ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
 ms.openlocfilehash: 78026e285b0adf7a9f41af9f019cc8c168c47768
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347074"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626792"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教程：将现有的自定义 DNS 名称映射到 Azure 应用服务
 

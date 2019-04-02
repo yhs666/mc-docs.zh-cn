@@ -13,12 +13,12 @@ ms.reviewer: sashan,moslake,josack
 manager: digimobile
 origin.date: 03/01/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 922d7e2956a9716a1d15b5b8818b520bf6f2a418
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: f6862028d130040c8e5da57bdb3d3330ccb125b7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318946"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626050"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL 数据库服务器的 SQL 数据库资源限制
 
@@ -26,15 +26,15 @@ ms.locfileid: "58318946"
 
 ## <a name="maximum-resource-limits"></a>最大资源限制
 
-| 资源 | 限制 |
-| :--- | :--- |
-| 每个服务器的数据库数 | 5000 |
-| 任意区域中每个订阅的服务器默认数量 | 20 个 |
-| 任意区域中每个订阅的服务器数上限 | 200 |  
-| 每个服务器的 DTU/eDTU 配额 | 54,000 |  
-| 每个服务器/实例的 vCore 配额 | 540 |
-| 每个服务器的最大池数 | 受限于 DTU 或 vCore 数。 例如，如果每个池是 1000 个 DTU，则一个服务器可以支持 54 个池。|
-||||
+| 资源                                                 | 限制                                                                                                            |
+|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
+| 每个服务器的数据库数                                     | 5000                                                                                                             |
+| 任意区域中每个订阅的服务器默认数量 | 20 个                                                                                                               |
+| 任意区域中每个订阅的服务器数上限     | 200                                                                                                              |
+| 每个服务器的 DTU/eDTU 配额                              | 54,000                                                                                                           |
+| 每个服务器/实例的 vCore 配额                          | 540                                                                                                              |
+| 每个服务器的最大池数                                     | 受限于 DTU 或 vCore 数。 例如，如果每个池是 1000 个 DTU，则一个服务器可以支持 54 个池。 |
+|                                                          |                                                                                                                  |
 
 > [!NOTE]
 > 若要获得超过默认数量的 DTU/eDTU 配额、vCore 配额或服务器，可以在 Azure 门户中为订阅提交问题类型为“配额”的新支持请求。 每个服务器的 DTU/eDTU 配额和数据库限制约束了每个服务器的弹性池数。
@@ -86,14 +86,15 @@ ms.locfileid: "58318946"
 
 可通过以下 wait 类型（在 [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV 中公开）查看日志速率调控器流量的形状：
 
-| Wait 类型 | 注释 |
-| :--- | :--- |
-| LOG_RATE_GOVERNOR | 数据库限制 |
-| POOL_LOG_RATE_GOVERNOR | 池限制 |
-| INSTANCE_LOG_RATE_GOVERNOR | 实例级限制 |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 反馈控制。高级/业务关键型工作负荷中的可用性组物理复制不会保持 |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | 反馈控制。限制速率可以避免出现日志空间不足的情况 |
-||||
+
+| Wait 类型                                   | 注释                                                                                                 |
+|:--------------------------------------------|:------------------------------------------------------------------------------------------------------|
+| LOG_RATE_GOVERNOR                           | 数据库限制                                                                                     |
+| POOL_LOG_RATE_GOVERNOR                      | 池限制                                                                                         |
+| INSTANCE_LOG_RATE_GOVERNOR                  | 实例级限制                                                                               |
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 反馈控制。高级/业务关键型工作负荷中的可用性组物理复制不会保持 |
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE             | 反馈控制。限制速率可以避免出现日志空间不足的情况                               |
+|                                             |                                                                                                       |
 
 当日志速率限制阻碍实现所需的可伸缩性时，请考虑以下选项：
 - 纵向扩展到更高的层，以获得 48 MB/秒的最大日志速率。 

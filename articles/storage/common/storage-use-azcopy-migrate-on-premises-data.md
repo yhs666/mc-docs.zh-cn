@@ -10,11 +10,11 @@ ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 857ebac1475d39cce35935775596bf2ff5b1d8c6
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028261"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626446"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>教程：使用 AzCopy 将本地数据迁移到云存储
 

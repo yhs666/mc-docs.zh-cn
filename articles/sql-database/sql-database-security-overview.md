@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 02/04/2019
 ms.date: 02/25/2019
 ms.openlocfilehash: c46b9e7a320caa575096399ab2426991893a19a0
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663663"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627688"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 

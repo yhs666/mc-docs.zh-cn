@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 05/09/2017
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: d6c20df9c0878666f37024e85e85a113f6bd4895
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 220cbc0022fb3324a265813a972beb7c63c74687
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788705"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625799"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
 
@@ -74,7 +74,7 @@ ms.locfileid: "57788705"
                             ]
                             }
     ```
-如果存在，请确保 DNS 服务器能够正确解析后端池成员的 FQDN。
+  如果存在，请确保 DNS 服务器能够正确解析后端池成员的 FQDN。
 
 ## <a name="problems-with-default-health-probe"></a>默认运行状况探测出现问题
 
@@ -82,12 +82,13 @@ ms.locfileid: "57788705"
 
 此外，出现 502 错误经常意味着默认的运行状况探测无法访问后端 VM。 预配某个应用程序网关实例时，该实例会使用 BackendHttpSetting 的属性自动将默认的运行状况探测配置到每个 BackendAddressPool。 无需用户输入即可设置此探测。 具体而言，在配置负载均衡规则时，会在 BackendHttpSetting 与 BackendAddressPool 之间建立关联。 默认探测是针对其中每个关联配置的，而应用程序网关会在 BackendHttpSetting 元素中指定的端口上，与 BackendAddressPool 中每个实例发起周期性运行状况检查连接。 下表列出了与默认运行状况探测关联的值。
 
-| 探测属性 | 值 | 说明 |
-| --- | --- | --- |
-| 探测 URL |http://127.0.0.1/ |URL 路径 |
-| 时间间隔 |30 |探测间隔（秒） |
-| 超时 |30 |探测超时（秒） |
-| 不正常阈值 |3 |探测重试计数。 连续探测失败计数达到不正常阈值后，将后端服务器标记为故障。 |
+
+|   探测属性    |       值       |                                                           说明                                                            |
+|---------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------|
+|      探测 URL      | http://127.0.0.1/ |                                                             URL 路径                                                             |
+|      时间间隔       |        30         |                                                    探测间隔（秒）                                                     |
+|      超时       |        30         |                                                    探测超时（秒）                                                     |
+| 不正常阈值 |         3         | 探测重试计数。 连续探测失败计数达到不正常阈值后，将后端服务器标记为故障。 |
 
 ### <a name="solution"></a>解决方案
 

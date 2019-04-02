@@ -9,12 +9,12 @@ origin.date: 09/19/2017
 ms.date: 02/25/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 7faa2765a776e1debf3075109834193e91ae7004
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 47fb3a5b0f2f9fc79dc0d9580033366fe9f08c70
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665661"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627468"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 文件中创建文件共享
 可以使用 [Azure 门户](https://portal.azure.cn/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。本教程介绍：
@@ -96,4 +96,4 @@ ms.locfileid: "56665661"
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
 * [在 Linux 上进行故障排除](storage-troubleshoot-linux-file-connection-problems.md)   
-<!--Update_Description: wording update-->
+  <!--Update_Description: wording update-->

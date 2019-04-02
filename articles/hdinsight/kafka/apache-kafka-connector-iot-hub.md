@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 11/06/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4f70ee1d453a177b8682d60d54a1ef650ad25a65
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: d0dea1c9454c1240d7b938f033d79eb9ad4fe070
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302988"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626478"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>将 Apache Kafka on HDInsight 与 Azure IoT 中心配合使用
 
@@ -174,32 +174,32 @@ ms.locfileid: "56302988"
 
 1. 获取事件中心兼容的终结点，以及 IoT 中心的事件中心兼容终结点名称。 若要获取此信息，请使用以下方法之一：
 
-    * __在 [Azure 门户](https://portal.azure.cn/)中__使用以下步骤：
+   * __在 [Azure 门户](https://portal.azure.cn/)中__使用以下步骤：
 
-        1. 导航到 IoT 中心并选择“终结点”。
-        2. 在“内置终结点”中，选择“事件”。
-        3. 在“属性”中，复制以下字段的值：
+     1. 导航到 IoT 中心并选择“终结点”。
+     2. 在“内置终结点”中，选择“事件”。
+     3. 在“属性”中，复制以下字段的值：
 
-            * __与事件中心兼容的名称__
-            * __与事件中心兼容的终结点__
-            * __分区__
+         * __与事件中心兼容的名称__
+         * __与事件中心兼容的终结点__
+         * __分区__
 
         > [!IMPORTANT]
         > 门户中的终结点值可能包含本示例不需要的额外文本。 提取与模式 `sb://<randomnamespace>.servicebus.chinacloudapi.cn/` 匹配的文本。
 
-    * __在 [Azure CLI](/cli/get-started-with-azure-cli)__ 中使用以下命令：
+   * __在 [Azure CLI](/cli/get-started-with-azure-cli)__ 中使用以下命令：
 
-        ```azure-cli
-        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
-        ```
+       ```azure-cli
+       az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
+       ```
 
-        将 `myhubname` 替换为 IoT 中心的名称。 响应类似于以下文本：
+       将 `myhubname` 替换为 IoT 中心的名称。 响应类似于以下文本：
 
-        ```json
-        "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.chinacloudapi.cn/",
-        "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
-        "Partitions": 2
-        ```
+       ```json
+       "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.chinacloudapi.cn/",
+       "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
+       "Partitions": 2
+       ```
 
 2. 获取__共享访问策略__和__密钥__。 本示例使用__服务__密钥。 若要获取此信息，请使用以下方法之一：
 
@@ -245,16 +245,16 @@ ms.locfileid: "56302988"
 
     在编辑器中，找到并更改以下条目：
 
-    * `Kafka.Topic=PLACEHOLDER`：将  替换为 `iotin`。 从 IoT 中心收到的消息将放入 `iotin` 主题中。
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`：将 `PLACEHOLDER` 替换为与事件中心兼容的名称。
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`：将 `PLACEHOLDER` 替换为与事件中心兼容的终结点。
-    * `IotHub.Partitions=PLACEHOLDER`：将 `PLACEHOLDER` 替换为在上一步骤中获取的分区数。
-    * `IotHub.AccessKeyName=PLACEHOLDER`：将  替换为 `service`。
-    * `IotHub.AccessKeyValue=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service` 策略的主密钥。
-    * `IotHub.StartType=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 UTC 日期。 此日期是连接器开始检查消息的时间。 日期格式为 `yyyy-mm-ddThh:mm:ssZ`。
-    * `BatchSize=100`：将  替换为 `5`。 做出此项更改后，如果 IoT 中心出现五条新消息，则连接器会将消息读入 Kafka。
+   * `Kafka.Topic=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `iotin`。 从 IoT 中心收到的消息将放入 `iotin` 主题中。
+   * `IotHub.EventHubCompatibleName=PLACEHOLDER`：将 `PLACEHOLDER` 替换为与事件中心兼容的名称。
+   * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`：将 `PLACEHOLDER` 替换为与事件中心兼容的终结点。
+   * `IotHub.Partitions=PLACEHOLDER`：将 `PLACEHOLDER` 替换为在上一步骤中获取的分区数。
+   * `IotHub.AccessKeyName=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service`。
+   * `IotHub.AccessKeyValue=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service` 策略的主密钥。
+   * `IotHub.StartType=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 UTC 日期。 此日期是连接器开始检查消息的时间。 日期格式为 `yyyy-mm-ddThh:mm:ssZ`。
+   * `BatchSize=100`：将 `100` 替换为 `5`。 做出此项更改后，如果 IoT 中心出现五条新消息，则连接器会将消息读入 Kafka。
 
-    有关示例配置，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)。
+     有关示例配置，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)。
 
 3. 若要保存更改，请依次按 __Ctrl + X__、__Y__、__Enter__。
 
@@ -278,10 +278,10 @@ ms.locfileid: "56302988"
 
     在编辑器中，找到并更改以下条目：
 
-    * `topics=PLACEHOLDER`：将  替换为 `iotout`。 写入 `iotout` 主题的消息将转发到 IoT 中心。
-    * `IotHub.ConnectionString=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service` 策略的连接字符串。
+   * `topics=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `iotout`。 写入 `iotout` 主题的消息将转发到 IoT 中心。
+   * `IotHub.ConnectionString=PLACEHOLDER`：将 `PLACEHOLDER` 替换为 `service` 策略的连接字符串。
 
-    有关示例配置，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
+     有关示例配置，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
 3. 若要保存更改，请依次按 __Ctrl + X__、__Y__、__Enter__。
 
