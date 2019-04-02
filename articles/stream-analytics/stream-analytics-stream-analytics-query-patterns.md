@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/3/2019
-ms.openlocfilehash: 2859dcc31a759397a3e4486f20399a16e4d1a23b
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 7ccd94b18255dde63977413dcab9b8f3a5b2a1dc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141686"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625703"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 
@@ -417,16 +417,18 @@ GROUP BY
 
 **输入**：  
 
-| User | 功能 | 事件 | 时间 |
-| --- | --- | --- | --- |
-| user@location.com |RightMenu |开始 |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |结束 |2015-01-01T00:00:08.0000000Z |
+
+|       User        |  功能  | 事件 |             时间             |
+|-------------------|-----------|-------|------------------------------|
+| user@location.com | RightMenu | 开始 | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu |  结束  | 2015-01-01T00:00:08.0000000Z |
 
 **输出**：  
 
-| User | 功能 | 持续时间 |
-| --- | --- | --- |
-| user@location.com |RightMenu |7 |
+
+|       User        |  功能  | 持续时间 |
+|-------------------|-----------|----------|
+| user@location.com | RightMenu |    7     |
 
 **解决方案**：
 
@@ -606,6 +608,7 @@ WHERE
 **说明**：由于事件生成器之间的时钟偏差、分区之间的时钟偏差或网络延迟，事件可能会迟到或不按顺序到达。 在下面的示例中，TollID 2 的设备时钟比 TollID 1 慢 10 秒，TollID 3 的设备时钟比 TollID 1 慢 5 秒。 
 
 **输入**：
+
 | 牌照 | 制造商 | 时间 | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -618,6 +621,7 @@ WHERE
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **输出**：
+
 | TollID | 计数 |
 | --- | --- |
 | 1 | 2 |

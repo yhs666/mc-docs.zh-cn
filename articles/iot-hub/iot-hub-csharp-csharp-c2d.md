@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/24/2017
 ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 40b604b621206cc70d0263d2a0f9f1a7e62be1e3
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 376c7a12c8e378ac6877091cd65a1feb30f58686
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675457"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625184"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到设备
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -49,7 +49,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 * Visual Studio 2017
 
-+ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="receive-messages-in-the-device-app"></a>在设备应用中接收消息
 

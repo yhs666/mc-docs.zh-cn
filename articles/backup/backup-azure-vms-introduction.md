@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: v-lingwu
 ms.openlocfilehash: 0625a1a5e84b137e408fa86dc91ffc84afba0942
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987024"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625461"
 ---
 # <a name="about-azure-vm-backup"></a>关于 Azure VM 备份
 

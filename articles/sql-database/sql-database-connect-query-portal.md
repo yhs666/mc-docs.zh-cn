@@ -14,12 +14,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/12/2019
 ms.date: 03/11/2019
-ms.openlocfilehash: 4d9dfd700c87e79babf88abce224a2e0efdc5dfe
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: e6dead7c887f74453be08f2559af9c0d31b20e50
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347133"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625780"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>快速入门：使用 Azure 门户的 SQL 查询编辑器进行连接并查询数据
 
@@ -66,8 +66,8 @@ SQL 查询编辑器是一个 Azure 门户浏览器工具，它提供了一种在
 配置一个 Active Directory (AD) 管理员即可使用单个标识登录到 Azure 门户和 SQL 数据库。 请按照以下步骤配置 SQL Server 的 AD 管理员。
 
 > [!NOTE]
-* AD 管理员尚不支持电子邮件帐户（例如，outlook.com、gmail.com、yahoo.com 等）。 请确保选择在 Azure AD 中本机创建或联合到 Azure AD 中的用户。
-* Azure AD 管理员登录不适用于已启用双因素身份验证的帐户。
+> * AD 管理员尚不支持电子邮件帐户（例如，outlook.com、gmail.com、yahoo.com 等）。 请确保选择在 Azure AD 中本机创建或联合到 Azure AD 中的用户。
+> * Azure AD 管理员登录不适用于已启用双因素身份验证的帐户。
 
 1. 从左侧菜单中选择“所有资源”，然后选择 SQL Server。
 

@@ -9,12 +9,12 @@ ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd9ac8ba045fb09f90a1ec8f720b2f0a28083aed
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5abe9a368e9607426eba742feac9964f5a0ef0a4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987979"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625400"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>将 IoT Edge 设备配置为充当透明网关
 
@@ -181,7 +181,7 @@ ms.locfileid: "57987979"
 
 在本部分，我们将创建三个证书，然后将它们连接起来以形成一个链。 将证书放入链文件可在 IoT Edge 网关设备和任何下游设备上轻松安装这些证书。  
 
-1.  创建所有者 CA 证书和一个中间证书。 这些证书位于 *\<WRKDIR>* 中。
+1. 创建所有者 CA 证书和一个中间证书。 这些证书位于 *\<WRKDIR>* 中。
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -193,7 +193,7 @@ ms.locfileid: "57987979"
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  使用以下命令创建 Edge 设备 CA 证书和私钥。 提供网关设备的名称，在生成证书期间，此名称将用来为文件命名。 
+2. 使用以下命令创建 Edge 设备 CA 证书和私钥。 提供网关设备的名称，在生成证书期间，此名称将用来为文件命名。 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

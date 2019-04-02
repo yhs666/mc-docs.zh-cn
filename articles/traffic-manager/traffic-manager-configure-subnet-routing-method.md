@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 09/17/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a13f7580604bd3a75dde38f98072ebac6609bbbb
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: a83bf28ecc4e6d18118a897d622e50f7428f2ef1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306729"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625644"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -134,41 +134,48 @@ ms.locfileid: "56306729"
 1. 在 Azure 门户的左上角选择“创建资源” > “计算” > “Windows Server 2016 VM”。
 2. 对于“基本信息”输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
 
-    |设置|值|
-    |---|---|
-    |Name|myVMChinaEast|
-    |用户名| 输入所选用户名。|
-    |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |资源组| 选择“现有”，然后选择“myResourceGroupTM1”。|
-    |||
 
-4. 在“选择大小”下选择 VM 大小。
-5. 对于“设置”选择以下值，然后选择“确定”：
-    |设置|值|
-    |---|---|
-    |虚拟网络| 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 myVNet3，为“子网”输入 mySubnet3。|
-    |网络安全组|选择“基本”，在“选择公共入站端口”下拉列表中选择“HTTP”和“RDP” |
-    |启动诊断|选择“已禁用”。|
-    |||
+   |    设置     |                                                                                                                              值                                                                                                                              |
+   |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      Name      |                                                                                                                          myVMChinaEast                                                                                                                          |
+   |   用户名    |                                                                                                               输入所选用户名。                                                                                                               |
+   |    密码    | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 |
+   | 资源组 |                                                                                                    选择“现有”，然后选择“myResourceGroupTM1”。                                                                                                    |
+   |                |                                                                                                                                                                                                                                                                 |
 
-6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。
 
-7. 再次完成步骤 1-5，但需要做出以下更改：
+3. 在“选择大小”下选择 VM 大小。
+4. 对于“设置”选择以下值，然后选择“确定”：
 
-    |设置|值|
-    |---|---|
-    |VM 名称 | *myVMWEurope*|
-    |资源组 | 选择“现有”，然后键入 *myResourceGroupTM2*|
-    |虚拟网络 | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 myVNet4，为“子网”输入 mySubnet4。|
-    |||
+   |        设置         |                                                          值                                                           |
+   |------------------------|--------------------------------------------------------------------------------------------------------------------------|
+   |    虚拟网络     | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 myVNet3，为“子网”输入 mySubnet3。 |
+   | 网络安全组 |             选择“基本”，在“选择公共入站端口”下拉列表中选择“HTTP”和“RDP”              |
+   |    启动诊断    |                                                   选择“已禁用”。                                                   |
+   |                        |                                                                                                                          |
 
-8. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
+
+5. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。
+
+6. 再次完成步骤 1-5，但需要做出以下更改：
+
+
+   |     设置     |                                                          值                                                           |
+   |-----------------|--------------------------------------------------------------------------------------------------------------------------|
+   |     VM 名称     |                                                      *myVMWEurope*                                                       |
+   | 资源组  |                                 选择“现有”，然后键入 *myResourceGroupTM2*                                  |
+   | 虚拟网络 | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 myVNet4，为“子网”输入 mySubnet4。 |
+   |                 |                                                                                                                          |
+
+
+7. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
 
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 创建一个流量管理器配置文件，该配置文件允许根据请求的源 IP 返回特定终结点。
 
 1. 在屏幕左上方，选择“创建资源” > “网络” > “流量管理器配置文件” > “创建”。
 2. 在“创建流量管理器配置文件”中输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
+
     | 设置                 | 值                                              |
     | ---                     | ---                                                |
     | Name                   | 此名称必须在 trafficmanager.cn 区域中唯一，并会生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.cn。                                   |
@@ -200,9 +207,9 @@ ms.locfileid: "56306729"
 5. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
 
     ![添加流量管理器终结点](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)
-    
+
     <!--MOONCAKE: should be routing-eastus.png-->
-    
+
 ## <a name="test-traffic-manager-profile"></a>测试流量管理器配置文件
 本部分测试流量管理器如何将用户流量从给定子网路由到特定终结点。 若要查看流量管理器的运作方式，请完成以下步骤：
 1. 确定流量管理器配置文件的 DNS 名称。

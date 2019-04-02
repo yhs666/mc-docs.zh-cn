@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 57ef95be3c33256e7928dc512b0a1e32a4609242
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 8f60e1afa358863781f55fd4a3eb97f249d25d0c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135492"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625613"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教程：如何将 Azure Key Vault 与 .NET Azure Web 应用配合使用
 
@@ -162,25 +162,14 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
                 var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.cn/secrets/AppSecret")
                         .ConfigureAwait(false);
                 Message = secret.Value;
-
-                /* The following *do while* logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff, which is the recommended client side throttling*/
-                do
-                {
-                    long waitTime = Math.Min(getWaitTime(retries), 2000000);
-                    secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.cn/secrets/AppSecret")
-                        .ConfigureAwait(false);
-                    retry = false;
-                } 
-                while(retry && (retries++ < 10));
             }
+            /* If you have throttling errors see this tutorial https://docs.azure.cn/key-vault/tutorial-net-create-vault-azure-web-app */
             /// <exception cref="KeyVaultErrorException">
             /// Thrown when the operation returned an invalid status code
             /// </exception>
             catch (KeyVaultErrorException keyVaultException)
             {
                 Message = keyVaultException.Message;
-                if((int)keyVaultException.Response.StatusCode == 429)
-                    retry = true;
             }
         }
 
