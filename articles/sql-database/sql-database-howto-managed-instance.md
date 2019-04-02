@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 01/25/2019
 ms.date: 02/25/2019
 ms.openlocfilehash: c8a9debcd80d9350273b56d87ebb52e50a084bab
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663750"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625643"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>如何在 Azure SQL 数据库中使用托管实例
 

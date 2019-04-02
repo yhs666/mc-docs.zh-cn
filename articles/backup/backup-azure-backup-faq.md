@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: d1e505dd73997539edfd154ba4c8db1cd3d9cd03
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 2624c6fd8caf363071a3ae81dced4cc87a058e0b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363575"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625744"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -100,22 +100,23 @@ ms.locfileid: "54363575"
 
 Azure 备份支持操作系统对文件和文件夹以及使用 Azure 备份服务器和 DPM 保护的工作负载应用程序进行备份。
 
-**OS**| **SKU** |**详细信息**
---- | --- | ---
-工作站 | |
-Windows 10 64 位 | Enterprise、Pro、Home | 计算机应运行最新服务包和更新。
-Windows 8.1 64 位 | Enterprise、Pro | 计算机应运行最新服务包和更新。
-Windows 8 64 位 | Enterprise、Pro | 计算机应运行最新服务包和更新。
-Windows 7 64 位 | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 计算机应运行最新服务包和更新。
-服务器 | |
-Windows Server 2016 64 位 | Standard、Datacenter、Essentials | 使用最新服务包/更新。
-Windows Server 2012 R2 64 位 | Standard、Datacenter、Foundation | 使用最新服务包/更新。
-Windows Server 2012 64 位 | Datacenter、Foundation、Standard | 使用最新服务包/更新。
-Windows Storage Server 2016 64 位 | Standard、Workgroup | 使用最新服务包/更新。
-Windows Storage Server 2012 R2 64 位 | Standard、Workgroup、Essential | 使用最新服务包/更新。
-Windows Storage Server 2012 64 位 | Standard、Workgroup | 使用最新服务包/更新。
-Windows Server 2008 R2 SP1 64 位 | Standard、Enterprise、Datacenter、Foundation | 使用最新更新。
-Windows Server 2008 64 位 | Standard、Enterprise、Datacenter | 使用最新更新。
+
+|                **OS**                 |                                **SKU**                                |                            **详细信息**                            |
+|---------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------|
+|              工作站              |                                                                       |                                                                   |
+|           Windows 10 64 位           |                         Enterprise、Pro、Home                         | 计算机应运行最新服务包和更新。 |
+|          Windows 8.1 64 位           |                            Enterprise、Pro                            | 计算机应运行最新服务包和更新。 |
+|           Windows 8 64 位            |                            Enterprise、Pro                            | 计算机应运行最新服务包和更新。 |
+|           Windows 7 64 位            | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 计算机应运行最新服务包和更新。 |
+|                服务器                 |                                                                       |                                                                   |
+|      Windows Server 2016 64 位       |                   Standard、Datacenter、Essentials                    |               使用最新服务包/更新。               |
+|     Windows Server 2012 R2 64 位     |                   Standard、Datacenter、Foundation                    |              使用最新服务包/更新。               |
+|      Windows Server 2012 64 位       |                   Datacenter、Foundation、Standard                    |              使用最新服务包/更新。               |
+|  Windows Storage Server 2016 64 位   |                          Standard、Workgroup                          |              使用最新服务包/更新。               |
+| Windows Storage Server 2012 R2 64 位 |                    Standard、Workgroup、Essential                     |              使用最新服务包/更新。               |
+|  Windows Storage Server 2012 64 位   |                          Standard、Workgroup                          |              使用最新服务包/更新。               |
+|   Windows Server 2008 R2 SP1 64 位   |             Standard、Enterprise、Datacenter、Foundation              |                     使用最新更新。                      |
+|      Windows Server 2008 64 位       |                   Standard、Enterprise、Datacenter                    |                       使用最新更新。                        |
 
 对于 Azure VM Linux 备份，Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 和 32 位操作系统除外。 只要 VM 上装有 VM 代理且支持 Python，其他自带 Linux 发行版应该也能正常运行。
 
@@ -185,8 +186,9 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>如果每个恢复点相当于完整的点，它会影响总体可计费备份存储吗？
 
 典型的长期保留点产品将备份数据存储为完整的点。
-    - 完整点的存储 *效率不高* ，但能使还原变得更方便和快速。
-    - 增量复制为高效存储，但要求还原数据链，这会影响恢复时间
+
+- 完整点的存储 *效率不高* ，但能使还原变得更方便和快速。
+- 增量复制为高效存储，但要求还原数据链，这会影响恢复时间
 
 Azure 备份存储体系结构在这两方面都能提供最佳性能，它以最佳方式存储数据，以便快速还原，且产生的存储成本低。 这种方法可确保提高（入口和出口）带宽使用效率。 数据存储量和恢复数据所需的时间都会尽量减少。 了解有关[增量备份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)的更多信息。
 

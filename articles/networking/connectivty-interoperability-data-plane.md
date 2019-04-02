@@ -12,11 +12,11 @@ origin.date: 10/18/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
 ms.openlocfilehash: a265426aed5201336dcf30be11d1e77be985a77a
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785309"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625540"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 后端连接功能中的互操作性：数据平面分析
 

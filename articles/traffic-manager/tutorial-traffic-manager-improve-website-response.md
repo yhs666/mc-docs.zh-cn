@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 07/23/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 55ba40ac23cd57cdbd3bcff92dcdd73c40ec865b
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: 9ac1011c0ad23f69ad97cd62d2f0244ab8b67a27
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306732"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625258"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>教程：使用流量管理器改善网站响应
 
@@ -134,41 +134,48 @@ ms.locfileid: "56306732"
 1. 在 Azure 门户的左上角选择“创建资源” > “计算” > “Windows Server 2016 VM”。
 2. 对于“基本信息”输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
 
-    |设置|值|
-    |---|---|
-    |Name|myVMChinaEast|
-    |用户名| 输入所选用户名。|
-    |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |资源组| 选择“现有”，然后选择“myResourceGroupTM1”。|
-    |||
 
-4. 在“选择大小”下选择 VM 大小。
-5. 对于“设置”选择以下值，然后选择“确定”：
-    |设置|值|
-    |---|---|
-    |虚拟网络| 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 *myVNet3*，为“子网”输入 *mySubnet*。|
-    |网络安全组|选择“基本”，在“选择公共入站端口”下拉列表中选择“HTTP”和“RDP” |
-    |启动诊断|选择“已禁用”。|
-    |||
+   |    设置     |                                                                                                                              值                                                                                                                              |
+   |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      Name      |                                                                                                                          myVMChinaEast                                                                                                                          |
+   |   用户名    |                                                                                                               输入所选用户名。                                                                                                               |
+   |    密码    | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 |
+   | 资源组 |                                                                                                    选择“现有”，然后选择“myResourceGroupTM1”。                                                                                                    |
+   |                |                                                                                                                                                                                                                                                                 |
 
-6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。
 
-7. 再次完成步骤 1-5，但需要做出以下更改：
+3. 在“选择大小”下选择 VM 大小。
+4. 对于“设置”选择以下值，然后选择“确定”：
 
-    |设置|值|
-    |---|---|
-    |VM 名称 | *myVMChinaNorth*|
-    |资源组 | 选择“现有”，然后键入 *myResourceGroupTM2*|
-    |虚拟网络 | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 *myVNet4*，为“子网”输入 *mySubnet*。|
-    |||
+   |        设置         |                                                          值                                                          |
+   |------------------------|-------------------------------------------------------------------------------------------------------------------------|
+   |    虚拟网络     | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 *myVNet3*，为“子网”输入 *mySubnet*。 |
+   | 网络安全组 |             选择“基本”，在“选择公共入站端口”下拉列表中选择“HTTP”和“RDP”             |
+   |    启动诊断    |                                                  选择“已禁用”。                                                   |
+   |                        |                                                                                                                         |
 
-8. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
+
+5. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。
+
+6. 再次完成步骤 1-5，但需要做出以下更改：
+
+
+   |     设置     |                                                          值                                                          |
+   |-----------------|-------------------------------------------------------------------------------------------------------------------------|
+   |     VM 名称     |                                                    *myVMChinaNorth*                                                     |
+   | 资源组  |                                 选择“现有”，然后键入 *myResourceGroupTM2*                                 |
+   | 虚拟网络 | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 *myVNet4*，为“子网”输入 *mySubnet*。 |
+   |                 |                                                                                                                         |
+
+
+7. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
 
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 创建流量管理器配置文件，以便将用户流量定向到延迟最低的终结点。
 
 1. 在屏幕左上方，选择“创建资源” > “网络” > “流量管理器配置文件” > “创建”。
 2. 在“创建流量管理器配置文件”中输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
+
     | 设置                 | 值                                              |
     | ---                     | ---                                                |
     | Name                   | 此名称必须在 trafficmanager.cn 区域中唯一，并会生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.cn。                                   |
@@ -230,13 +237,13 @@ ms.locfileid: "56306732"
 1. 在 VM *myVMChinaEast* 上的 Web 浏览器中，键入流量管理器配置文件的 DNS 名称，以查看网站。 由于 VM 位于“中国东部”，因此你将路由到位于“中国东部”的最近 IIS 服务器 *myIISVMChinaEast* 上托管的最近网站。
 
    ![测试流量管理器配置文件](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
-    
+
     <!--Notice: should be eastus-traffic-manager-test.png-->
-    
+
 2. 接下来，使用步骤 1-5 连接到位于“中国北部”的 VM *myVMChinaNorth*，然后从此 VM 浏览到流量管理器配置文件域名。 由于 VM 位于“中国北部”，因此，现在你会路由到位于“中国北部”的最近 IIS 服务器 *myIISVMChinaNorth* 上托管的网站。
 
    ![测试流量管理器配置文件](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
-   
+
    <!--Notice: should be westeurope-traffic-manager-test.png-->
 
 ## <a name="delete-the-traffic-manager-profile"></a>删除流量管理器配置文件

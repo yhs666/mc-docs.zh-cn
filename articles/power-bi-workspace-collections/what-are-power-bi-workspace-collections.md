@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 09/20/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2e530bb1576b232085b7ea2e8b8205c59bb2197c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 399df9b1c399641cf1ef3bf3c16b428d93e95a3b
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647766"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408300"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>什么是 Power BI 工作区集合？
 
@@ -88,6 +88,6 @@ Power BI 工作区集合是一项 **Azure 服务**，使 ISV 和应用程序开�
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 存储库](https://github.com/Microsoft/PowerBI-Node)  
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](https://community.powerbi.com/)
 
 <!-- Update_Description: update metedata properties -->

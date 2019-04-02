@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 origin.date: 04/17/2018
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: cf8b994d188d292a8d36fcad4614af749d53ae3c
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 2663f1c31132b1dbc342338ce2d34a37951849fd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348179"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626226"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
 此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
@@ -148,10 +148,11 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 
 <!--MSDN references-->
 
+
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[数据迁移]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[数据迁移]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 <!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store -->
 [sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
 

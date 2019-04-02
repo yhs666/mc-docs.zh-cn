@@ -8,15 +8,14 @@ manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/31/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2faa2d08efb7a2f78c7ba1a2c1ccd3f751c2afd6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2c272a12444d923fe4355540c44d4f85c4fde13e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656120"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626977"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 
@@ -48,11 +47,11 @@ ms.locfileid: "52656120"
 
 与直接消息传送相比，此通信机制具有多项优势：
 
--   **暂时分离。** 使用异步消息传送模式，生产者和使用者不需要在同一时间联机。 服务总线可靠地存储消息，直到使用方准备好接收它们。 这允许分布式应用程序的组件断开连接，例如，为进行维护而自动断开，或因组件故障断开连接，而不会影响系统的整体性能。 此外，使用方应用程序可能只需在一天的特定时段内联机。
+* **暂时分离。** 使用异步消息传送模式，生产者和使用者不需要在同一时间联机。 服务总线可靠地存储消息，直到使用方准备好接收它们。 这允许分布式应用程序的组件断开连接，例如，为进行维护而自动断开，或因组件故障断开连接，而不会影响系统的整体性能。 此外，使用方应用程序可能只需在一天的特定时段内联机。
 
--   **负载量。**  在许多应用程序中，系统负载随时间而变化，而每个工作单元所需的处理时间通常为常量。 使用队列在消息创建者与使用者之间中继意味着，只需将使用方应用程序（辅助）预配为适应平均负载而非最大负载。 队列深度将随传入负载的变化而加大和减小。 这会直接根据为应用程序负载提供服务所需的基础结构的数目来节省成本。
+* **负载量。**  在许多应用程序中，系统负载随时间而变化，而每个工作单元所需的处理时间通常为常量。 使用队列在消息创建者与使用者之间中继意味着，只需将使用方应用程序（辅助）预配为适应平均负载而非最大负载。 队列深度将随传入负载的变化而加大和减小。 这会直接根据为应用程序负载提供服务所需的基础结构的数目来节省成本。
 
--   **负载均衡。** 随着负载增加，可添加更多的工作进程以从队列中读取。 每条消息仅由一个辅助进程处理。 另外，可通过此基于拉取的负载均衡来以最合理的方式使用辅助计算机，即使这些辅助计算机具有不同的处理能力（因为它们以其最大速率拉取消息）也是如此。 此模式通常称为 *使用者竞争* 模式。
+* **负载均衡。** 随着负载增加，可添加更多的工作进程以从队列中读取。 每条消息仅由一个辅助进程处理。 另外，可通过此基于拉取的负载均衡来以最合理的方式使用辅助计算机，即使这些辅助计算机具有不同的处理能力（因为它们以其最大速率拉取消息）也是如此。 此模式通常称为 *使用者竞争* 模式。
 
     ![][2]
 
@@ -198,123 +197,123 @@ ms.locfileid: "52656120"
 
 现在，将添加用于将项提交到队列的代码。 首先，将创建一个包含服务总线队列连接信息的类。 然后，用户将从 Global.aspx.cs 初始化用户的连接。 最后，将更新你之前在 HomeController.cs 中创建的提交代码以便实际将项提交到服务总线队列。
 
-1.  在“解决方案资源管理器”中，右键单击“FrontendWebRole”（右键单击项目而不是角色）。 单击“添加”，并单击“类”。
+1. 在“解决方案资源管理器”中，右键单击“FrontendWebRole”（右键单击项目而不是角色）。 单击“添加”，并单击“类”。
 
-2.  将类命名为 **QueueConnector.cs**。 单击“添加”以创建类。
+2. 将类命名为 **QueueConnector.cs**。 单击“添加”以创建类。
 
-3.  现在，将添加可封装连接信息并初始化服务总线队列连接的代码。 将 QueueConnector.cs 的全部内容替换为下面的代码，并输入 `your Service Bus namespace`（命名空间名称）和 `yourKey`（之前从 Azure 门户中获取的**主要密钥**）的值。
-
-   ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using Microsoft.ServiceBus.Messaging;
-    using Microsoft.ServiceBus;
-
-    namespace FrontendWebRole
-    {
-        public static class QueueConnector
-        {
-            // Thread-safe. Recommended that you cache rather than recreating it
-            // on every request.
-            public static QueueClient OrdersQueueClient;
-
-            // Obtain these values from the portal.
-            public const string Namespace = "your Service Bus namespace";
-
-            // The name of your queue.
-            public const string QueueName = "OrdersQueue";
-
-            public static NamespaceManager CreateNamespaceManager()
-            {
-                // Create the namespace manager which gives you access to
-                // management operations.
-                var uri = ServiceBusEnvironment.CreateServiceUri(
-                    "sb", Namespace, String.Empty);
-                var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-                    "RootManageSharedAccessKey", "yourKey");
-                return new NamespaceManager(uri, tP);
-            }
-
-            public static void Initialize()
-            {
-                // Using Http to be friendly with outbound firewalls.
-                ServiceBusEnvironment.SystemConnectivity.Mode =
-                    ConnectivityMode.Http;
-
-                // Create the namespace manager which gives you access to
-                // management operations.
-                var namespaceManager = CreateNamespaceManager();
-
-                // Create the queue if it does not exist already.
-                if (!namespaceManager.QueueExists(QueueName))
-                {
-                    namespaceManager.CreateQueue(QueueName);
-                }
-
-                // Get a client to the queue.
-                var messagingFactory = MessagingFactory.Create(
-                    namespaceManager.Address,
-                    namespaceManager.Settings.TokenProvider);
-                OrdersQueueClient = messagingFactory.CreateQueueClient(
-                    "OrdersQueue");
-            }
-        }
-    }
-    ```
-
-4.  现在，请确保 **Initialize** 方法会被调用。 在“解决方案资源管理器”中，双击“Global.asax\Global.asax.cs”。
-
-5.  在 **Application_Start** 方法的末尾添加以下代码行。
+3. 现在，将添加可封装连接信息并初始化服务总线队列连接的代码。 将 QueueConnector.cs 的全部内容替换为下面的代码，并输入 `your Service Bus namespace`（命名空间名称）和 `yourKey`（之前从 Azure 门户中获取的**主要密钥**）的值。
 
    ```csharp
-    FrontendWebRole.QueueConnector.Initialize();
-    ```
+   using System;
+   using System.Collections.Generic;
+   using System.Linq;
+   using System.Web;
+   using Microsoft.ServiceBus.Messaging;
+   using Microsoft.ServiceBus;
 
-6.  最后，更新之前创建的 Web 代码以便将项提交到队列。 在“解决方案资源管理器”中，双击“Controllers\HomeController.cs”。
+   namespace FrontendWebRole
+   {
+       public static class QueueConnector
+       {
+           // Thread-safe. Recommended that you cache rather than recreating it
+           // on every request.
+           public static QueueClient OrdersQueueClient;
 
-7.  更新 `Submit()` 方法（不包含任何参数的重载），如下所示，获取队列的消息计数。
+           // Obtain these values from the portal.
+           public const string Namespace = "your Service Bus namespace";
+
+           // The name of your queue.
+           public const string QueueName = "OrdersQueue";
+
+           public static NamespaceManager CreateNamespaceManager()
+           {
+               // Create the namespace manager which gives you access to
+               // management operations.
+               var uri = ServiceBusEnvironment.CreateServiceUri(
+                   "sb", Namespace, String.Empty);
+               var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                   "RootManageSharedAccessKey", "yourKey");
+               return new NamespaceManager(uri, tP);
+           }
+
+           public static void Initialize()
+           {
+               // Using Http to be friendly with outbound firewalls.
+               ServiceBusEnvironment.SystemConnectivity.Mode =
+                   ConnectivityMode.Http;
+
+               // Create the namespace manager which gives you access to
+               // management operations.
+               var namespaceManager = CreateNamespaceManager();
+
+               // Create the queue if it does not exist already.
+               if (!namespaceManager.QueueExists(QueueName))
+               {
+                   namespaceManager.CreateQueue(QueueName);
+               }
+
+               // Get a client to the queue.
+               var messagingFactory = MessagingFactory.Create(
+                   namespaceManager.Address,
+                   namespaceManager.Settings.TokenProvider);
+               OrdersQueueClient = messagingFactory.CreateQueueClient(
+                   "OrdersQueue");
+           }
+       }
+   }
+   ```
+
+4. 现在，请确保 **Initialize** 方法会被调用。 在“解决方案资源管理器”中，双击“Global.asax\Global.asax.cs”。
+
+5. 在 **Application_Start** 方法的末尾添加以下代码行。
 
    ```csharp
-    public ActionResult Submit()
-    {
-        // Get a NamespaceManager which allows you to perform management and
-        // diagnostic operations on your Service Bus queues.
-        var namespaceManager = QueueConnector.CreateNamespaceManager();
+   FrontendWebRole.QueueConnector.Initialize();
+   ```
 
-        // Get the queue, and obtain the message count.
-        var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
-        ViewBag.MessageCount = queue.MessageCount;
+6. 最后，更新之前创建的 Web 代码以便将项提交到队列。 在“解决方案资源管理器”中，双击“Controllers\HomeController.cs”。
 
-        return View();
-    }
-    ```
-
-8.  更新 `Submit(OnlineOrder order)` 方法（包含一个参数的重载），如下所示，将订单信息提交到队列。
+7. 更新 `Submit()` 方法（不包含任何参数的重载），如下所示，获取队列的消息计数。
 
    ```csharp
-    public ActionResult Submit(OnlineOrder order)
-    {
-        if (ModelState.IsValid)
-        {
-            // Create a message from the order.
-            var message = new BrokeredMessage(order);
+   public ActionResult Submit()
+   {
+       // Get a NamespaceManager which allows you to perform management and
+       // diagnostic operations on your Service Bus queues.
+       var namespaceManager = QueueConnector.CreateNamespaceManager();
 
-            // Submit the order.
-            QueueConnector.OrdersQueueClient.Send(message);
-            return RedirectToAction("Submit");
-        }
-        else
-        {
-            return View(order);
-        }
-    }
-    ```
+       // Get the queue, and obtain the message count.
+       var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
+       ViewBag.MessageCount = queue.MessageCount;
 
-9.  现在，可以重新运行应用程序。 每提交订单时，消息计数都会增大。
+       return View();
+   }
+   ```
 
-    ![][18]
+8. 更新 `Submit(OnlineOrder order)` 方法（包含一个参数的重载），如下所示，将订单信息提交到队列。
+
+   ```csharp
+   public ActionResult Submit(OnlineOrder order)
+   {
+       if (ModelState.IsValid)
+       {
+           // Create a message from the order.
+           var message = new BrokeredMessage(order);
+
+           // Submit the order.
+           QueueConnector.OrdersQueueClient.Send(message);
+           return RedirectToAction("Submit");
+       }
+       else
+       {
+           return View(order);
+       }
+   }
+   ```
+
+9. 现在，可以重新运行应用程序。 每提交订单时，消息计数都会增大。
+
+   ![][18]
 
 ## <a name="create-the-worker-role"></a>创建辅助角色
 

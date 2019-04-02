@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 10/26/2018
 ms.date: 01/14/2019
 ms.author: v-jay
-ms.openlocfilehash: f19de76719181666915cc37184eb609bc292f97e
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: fa48761f9c87098d80ef4f845647827d8bad26f5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192937"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632776"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>创建用于访问 Azure 存储的应用程序
 有两种方法可以对要访问存储服务的应用程序进行身份验证：
@@ -48,7 +48,7 @@ ms.locfileid: "54192937"
 3. 单击用户的存储帐户，并单击左下方的“操作”选项卡。 单击“获取共享访问签名”，生成 SAS 的连接字符串。
 4. 下面是 SAS 连接字符串的示例，该字符串为存储帐户的 Blob 服务授予对服务、容器和对象级别的读取与写入权限。
    
-  `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.chinacloudapi.cn"`
+   `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.chinacloudapi.cn"`
 
 可以看到，使用 SAS 时，不会在应用程序中公开帐户密钥。 可以查阅[共享访问签名：了解 SAS 模型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)，详细了解 SAS 以及 SAS 使用方面的最佳做法。
 

@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 04/17/2018
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 64c39ca338d5c94e9348d27d59b25d79de28be01
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: a0d603e7e90e5c45f82502a7e3f1ff1a581faebe
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348017"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627690"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>还原 Azure SQL 数据仓库 (PowerShell)
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ $GeoRestoredDatabase.status
 [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery [如何安装和配置 Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs [概述]: ./sql-data-warehouse-restore-database-overview.md [门户]: ./sql-data-warehouse-restore-database-portal.md [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md [REST]: ./sql-data-warehouse-restore-database-rest-api.md [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-Azsqldatabase
+[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/

@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 09/19/2017
-ms.date: 02/22/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e2a90561492e3bed3e4550f90ceb60428fe92210
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 1344f18864410328e8eb1de58dd6bb25deec6861
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665434"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408278"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 将消息添加到 Azure 存储队列
 
@@ -30,9 +30,9 @@ ms.locfileid: "56665434"
 
 若要完成本快速入门教程，需先执行以下操作：
 
-- 按[通过 Azure 门户创建第一个函数](functions-create-first-azure-function.md)中的说明操作，请勿执行“清理资源”这一步。 该快速入门创建此处所用的函数应用和函数。
+* 按[通过 Azure 门户创建第一个函数](functions-create-first-azure-function.md)中的说明操作，请勿执行“清理资源”这一步。 该快速入门创建此处所用的函数应用和函数。
 
-- 安装 [Azure 存储资源管理器](https://storageexplorer.com/)。 这是一项工具，可以用来检查输出绑定创建的队列消息。
+* 安装 [Azure 存储资源管理器](https://storageexplorer.com/)。 这是一项工具，可以用来检查输出绑定创建的队列消息。
 
 ## <a name="add-binding"></a>添加输出绑定
 
@@ -123,7 +123,7 @@ ms.locfileid: "56665434"
 
 如果已安装存储资源管理器并将其连接到此快速入门中使用的存储帐户，则请跳过此部分。
 
-2. 运行 [Azure 存储资源管理器](https://storageexplorer.com/)工具，选择左侧的“连接”图标，选择“使用存储帐户名称和密钥”，然后选择“下一步”。
+1. 运行 [Azure 存储资源管理器](https://storageexplorer.com/)工具，选择左侧的“连接”图标，选择“使用存储帐户名称和密钥”，然后选择“下一步”。
 
     ![运行“存储帐户资源管理器”工具。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -141,13 +141,13 @@ ms.locfileid: "56665434"
  
 1. 单击“帐户密钥”旁边的显示/隐藏图标以显示该值，然后复制“帐户密钥”值并将其粘贴在存储资源管理器的“帐户密钥”框中。
   
-3. 选择“下一步”>“连接”。
+1. 选择“下一步”>“连接”。
 
    ![粘贴存储凭据，然后进行连接。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>检查输出队列
 
-4. 在存储资源管理器中选择用于本快速入门的存储帐户。
+1. 在存储资源管理器中选择用于本快速入门的存储帐户。
 
 1. 展开“队列”节点，然后选择名为 **outqueue** 的队列。 
 
@@ -155,7 +155,7 @@ ms.locfileid: "56665434"
 
     ![存储资源管理器中显示的队列消息](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. 再次运行函数，此时会看到新消息出现在队列中。  
+1. 再次运行函数，此时会看到新消息出现在队列中。  
 
 ## <a name="clean-up-resources"></a>清理资源
 

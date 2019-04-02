@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: fe7000c2a8114d11f68ed90cd36f4935f9a66e4a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ddb864ef4c4a68243f1fcbf78453ed0830ebaacb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666593"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627652"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>如何配置和运行云服务的启动任务
 
@@ -47,11 +47,11 @@ ms.locfileid: "52666593"
 1. 实例将标记为“正在启动”并且不接收流量  。
 
 2. 所有启动任务均根据其 **taskType** 属性执行。
-    - **simple** 任务以同步方式执行（一次一个任务）。
-    - background 和 foreground 任务与启动任务并行，以异步方式启动。  
+   - **simple** 任务以同步方式执行（一次一个任务）。
+   - background 和 foreground 任务与启动任务并行，以异步方式启动。  
 
-    > [!WARNING]
-    > 在启动过程中的启动任务阶段，IIS 可能未完全配置，因此角色特定的数据可能不可用。 需要角色特定的数据的启动任务应使用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx)。
+     > [!WARNING]
+     > 在启动过程中的启动任务阶段，IIS 可能未完全配置，因此角色特定的数据可能不可用。 需要角色特定的数据的启动任务应使用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx)。
 
 3. 将启动角色主机进程并在 IIS 中创建站点。
 

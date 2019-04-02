@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/30/2016
 ms.author: v-yiso
 ms.date: 01/29/2018
-ms.openlocfilehash: 2365e1edd547f66269d442402c4d669863e6047b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 114b945709ecc69658e7a8b5bbd4ec5fc0b2ab0d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652581"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626843"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>将身份验证添加到 Apache Cordova 应用
 
@@ -29,12 +29,12 @@ ms.locfileid: "52652581"
 ## <a name="summary"></a>摘要
 本教程介绍如何使用支持的标识提供者将身份验证添加到 Apache Cordova 上的待办事项列表快速入门项目。 本教程基于 [Get started with Mobile Apps] （移动应用入门）教程，必须先完成该教程。
 
-##<a name="register"></a>注册应用以进行身份验证并配置应用服务
+## <a name="register"></a>注册应用以进行身份验证并配置应用服务
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [观看显示类似步骤的视频](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-##<a name="permissions"></a>将权限限制给已经过身份验证的用户
+## <a name="permissions"></a>将权限限制给已经过身份验证的用户
 
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "52652581"
 
 接下来，请更新应用，以便在从移动应用后端请求资源之前对用户进行身份验证。
 
-##<a name="add-authentication"></a>向应用程序添加身份验证
+## <a name="add-authentication"></a>向应用程序添加身份验证
 
 1. 在 **Visual Studio** 中打开项目，然后打开 `www/index.html` 文件进行编辑。
 2. 找到 head 节中的 `Content-Security-Policy` 元标记。  将 OAuth 主机添加到允许的源列表。
