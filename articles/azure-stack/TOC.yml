@@ -5,10 +5,12 @@ items:
   items:
   - name: 什么是 Azure Stack？
     href: azure-stack-poc.md
+  - name: 重要功能和概念
+    href: azure-stack-key-features.md
   - name: 发行说明
     items:
     - name: 最新更新
-      href: azure-stack-servicing-policy.md#update-package-release-cadence
+      href: azure-stack-servicing-policy.md
     - name: 1902 更新
       href: azure-stack-update-1902.md
     - name: 1901 更新
@@ -109,16 +111,12 @@ items:
         href: azure-stack-integrate-security.md
       - name: 设备审核
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: 服务策略
-    href: azure-stack-servicing-policy.md
-  - name: 重要功能和概念
-    href: azure-stack-key-features.md
-  - name: 管理基础知识
-    href: azure-stack-manage-basics.md
 - name: 操作指南
   items:
   - name: 管理 Azure Stack
     items:
+    - name: 管理基础知识
+      href: azure-stack-manage-basics.md
     - name: 配置遥测数据的收集
       href: azure-stack-telemetry.md
     - name: 注册 Azure Stack
@@ -280,18 +278,24 @@ items:
       href: azure-stack-app-service-capacity-planning.md
     - name: 准备工作
       href: azure-stack-app-service-before-you-get-started.md
-    - name: 部署应用服务资源提供程序
+    - name: 部署应用服务
       href: azure-stack-app-service-deploy.md
+    - name: 部署应用服务以实现高可用性
+      href: app-service-deploy-ha.md
     - name: 脱机部署应用服务
       href: azure-stack-app-service-deploy-offline.md
     - name: 更新应用服务
       href: azure-stack-app-service-update.md
     - name: 脱机更新应用服务
       href: azure-stack-app-service-update-offline.md
-    - name: 添加更多 Web 辅助角色
+    - name: 添加应用服务基础结构角色
       href: azure-stack-app-service-add-worker-roles.md
     - name: 配置部署源
       href: azure-stack-app-service-configure-deployment-sources.md
+    - name: 备份应用服务
+      href: app-service-back-up.md
+    - name: 恢复应用服务
+      href: app-service-recover.md
     - name: 基于 Azure Stack 的应用服务发行说明
       items:
       - name: 基于 Azure Stack 的应用服务 Update 1 发行说明
@@ -381,13 +385,11 @@ items:
   items:
   - name: Azure Stack MSDN 论坛
     href: https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=AzureStack
-  - name: 定价信息
-    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: 培训和认证
     href: /azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 5bcc143f8721f215e66e8388c9b6720043081788
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 778f2fba797da8eb6c9663dc1a5421a24f8e88fd
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988086"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503520"
