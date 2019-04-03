@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-origin.date: 12/19/2018
+origin.date: 03/21/2019
 ms.author: v-yiso
-ms.date: 01/28/2019
-ms.openlocfilehash: d56b55f70cd2a9075222d9fc2b5b2a78c8ab4326
-ms.sourcegitcommit: d89808077d346e8f78330a496bc5e83219c45b14
+ms.date: 04/08/2019
+ms.openlocfilehash: 8a14230c9067dae0d23d9f981ed5d635f349de97
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58307842"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625257"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -87,8 +87,8 @@ IoT 项目依赖 Internet 连接。 使用以下说明配置 DevKit 连接到 Wi
 
 ![Wi-Fi 名称和 IP 地址](./media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> 照片中显示的 IP 地址可能与 DevKit 屏幕上分配和显示的实际 IP 地址不匹配。 这是正常的，因为 Wi-Fi 使用 DHCP 动态分配 IP。
+> [!NOTE]
+> IoT DevKit 需要在 2.4GHz 网络上运行。 IoT DevKit 上的 WiFi 模块与 5GHz 网络不兼容。 有关详细信息，请查阅 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration)。
 
 配置 Wi-Fi 后，即使拔下设备插头，该连接的凭据也会保留在设备上。 例如，如果在家中为 DevKit 配置了 Wi-Fi，之后将 DevKit 带到办公室，则需要重新配置 AP 模式（从“进入 AP 模式”部分中的步骤开始），将 DevKit 连接到办公室 Wi-Fi。 
 
@@ -170,9 +170,9 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 
 ### <a name="install-st-link-drivers"></a>安装 ST-Link 驱动程序
 
-[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) 是 IoT DevKit 用来与开发计算机通信的 USB 接口。 遵循 OS 特定的步骤，使计算机能够访问你的设备。
+[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) 是 IoT DevKit 用来与开发计算机通信的 USB 接口。 需要将它安装在 Windows 上才能将编译的设备代码刷写到 DevKit。 遵循 OS 特定的步骤，使计算机能够访问你的设备。
 
-* Windows：从 [STMicroelectronics 网站](http://www.st.com/en/development-tools/stsw-link009.html)下载并安装 USB 驱动程序。
+* Windows：从 [STMicroelectronics 网站](https://www.st.com/en/development-tools/stsw-link009.html)下载并安装用于建立[直接链接](https://aka.ms/stlink-v2-windows)的 USB 驱动程序。
 * **macOS**：macOS 无需驱动程序。
 * **Ubuntu**：在终端中运行以下命令，然后注销并登录，使组更改生效：
     ```bash
@@ -189,14 +189,18 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 
 ## <a name="build-your-first-project"></a>生成第一个项目
 
+### <a name="open-sample-code-from-sample-gallery"></a>从示例库打开示例代码
+
 1. 确保 IoT DevKit **未连接**到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
 
-2. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:**打开示例...” 。然后选择“IoT DevKit”作为开发板。
+2. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Open Examples...”。然后选择“IoT DevKit”作为开发板。
 
 3. 在 IoT Workbench 的“示例”页中，找到“入门”并单击“打开示例”。 然后选择用于下载示例代码的默认路径。
 
     ![打开示例](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
+
+### <a name="provision-azure-iot-hub-and-device"></a>预配 Azure IoT 中心和设备
 
 4. 在 VS Code 中登录到 Azure 中国。 若要执行此操作，请调用命令“Azure:登录到 Azure 云”，然后选择“Azure 中国”，在弹出的 Web 页面中填写 Azure 中国的帐户名和密码。  然后，用户需要调用：“Azure:选择订阅”，选择要使用的订阅，并单击“确定”。
 
@@ -206,66 +210,93 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
     > 假定已在 VS code 中安装了扩展“Azure 帐户”。 
 
 
-5. 在打开的新项目窗口中，单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:预配 Azure 服务...”。遵照分步指南完成预配 Azure IoT 中心和创建 IoT 中心设备的操作。
-    ![云预配](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
+1. 在打开的新项目窗口中，单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Provision Azure Services...”。遵照分步指南完成预配 Azure IoT 中心和创建 IoT 中心设备的操作。
+    ![预配命令](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
 
+    > [!NOTE]
+    > 如果你尚未登录到 Azure， 请遵循弹出的通知登录。
+
+1. 选择要使用的订阅。
+    ![选择订阅](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
+
+1. 然后选择或新建一个[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology)。
+    ![选择资源组](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
+
+1. 在指定的资源组中，遵循指南选择或新建 Azure IoT 中心。
+    ![选择 IoT 中心的步骤](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provision.png)
+
+    ![选择 IoT 中心](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-hub.png)
+
+    ![选定的 IoT 中心](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-selected.png)
+
+1. 在输出窗口中，可以看到预配的 Azure IoT 中心![预配的 IoT 中心](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provisioned.png)
+
+1. 在预配的 Azure IoT 中心内选择或新建一个设备。
+    ![选择 IoT 设备的步骤](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-device-provision.png)
+
+    ![选择预配的 IoT 设备](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-device.png)
+
+1. 现已预配 Azure IoT 中心并在其中创建了设备。 另外，设备连接字符串将保存在 VS Code 中，供将来配置 IoT DevKit。
+    ![完成预配](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
+
+### <a name="configure-and-compile-device-code"></a>配置并编译设备代码
 6. 在右下方的状态栏中，检查选定的开发板是否为 **MXCHIP AZ3166**，以及是否使用了带有 **STMicroelectronics** 的串行端口。
     ![选择开发板和 COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
 
-7. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:配置设备设置...”，然后选择“配置设备连接字符串”>“选择 IoT 中心设备连接字符串”。
+7. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Configure Device Settings...”，然后选择“Config Device Connection String”（配置设备连接字符串）>“Select IoT Hub Device Connection String”（选择 IoT 中心设备连接字符串）。
 
 8. 在 DevKit 上，按住**按钮 A** 不放，按下再松开**重置**按钮，然后松开**按钮 A**。DevKit 将进入配置模式并保存连接字符串。
 
     ![连接字符串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-9.  请保存以下代码作为 C 源文件，稍后将使用它。
+9. 请保存以下代码作为 C 源文件，稍后将使用它。
 
-    ```c
-    // Copyright (c) Microsoft. All rights reserved.
-    // Licensed under the MIT license. See LICENSE file in the project root for full license information.
+   ```c
+   // Copyright (c) Microsoft. All rights reserved.
+   // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-    /* This file contains certs needed to communicate with Azure (IoT) */
+   /* This file contains certs needed to communicate with Azure (IoT) */
 
-    #include "azureiotcerts.h"
+   #include "azureiotcerts.h"
 
-    const char certificates[] = 
-            /* Baltimore */
-            "-----BEGIN CERTIFICATE-----\r\n"
-            "MIIElDCCA3ygAwIBAgIQAf2j627KdciIQ4tyS8+8kTANBgkqhkiG9w0BAQsFADBh\r\n"
-            "MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\r\n"
-            "d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD\r\n"
-            "QTAeFw0xMzAzMDgxMjAwMDBaFw0yMzAzMDgxMjAwMDBaME0xCzAJBgNVBAYTAlVT\r\n"
-            "MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg\r\n"
-            "U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB\r\n"
-            "ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83\r\n"
-            "nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd\r\n"
-            "KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f\r\n"
-            "/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX\r\n"
-            "kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0\r\n"
-            "/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAVowggFWMBIGA1UdEwEB/wQIMAYBAf8C\r\n"
-            "AQAwDgYDVR0PAQH/BAQDAgGGMDQGCCsGAQUFBwEBBCgwJjAkBggrBgEFBQcwAYYY\r\n"
-            "aHR0cDovL29jc3AuZGlnaWNlcnQuY29tMHsGA1UdHwR0MHIwN6A1oDOGMWh0dHA6\r\n"
-            "Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcmwwN6A1\r\n"
-            "oDOGMWh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RD\r\n"
-            "QS5jcmwwPQYDVR0gBDYwNDAyBgRVHSAAMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8v\r\n"
-            "d3d3LmRpZ2ljZXJ0LmNvbS9DUFMwHQYDVR0OBBYEFA+AYRyCMWHVLyjnjUY4tCzh\r\n"
-            "xtniMB8GA1UdIwQYMBaAFAPeUDVW0Uy7ZvCj4hsbw5eyPdFVMA0GCSqGSIb3DQEB\r\n"
-            "CwUAA4IBAQAjPt9L0jFCpbZ+QlwaRMxp0Wi0XUvgBCFsS+JtzLHgl4+mUwnNqipl\r\n"
-            "5TlPHoOlblyYoiQm5vuh7ZPHLgLGTUq/sELfeNqzqPlt/yGFUzZgTHbO7Djc1lGA\r\n"
-            "8MXW5dRNJ2Srm8c+cftIl7gzbckTB+6WohsYFfZcTEDts8Ls/3HB40f/1LkAtDdC\r\n"
-            "2iDJ6m6K7hQGrn2iWZiIqBtvLfTyyRRfJs8sjX7tN8Cp1Tm5gr8ZDOo0rwAhaPit\r\n"
-            "c+LJMto4JQtV05od8GiG7S5BNO98pVAdvzr508EIDObtHopYJeS4d60tbvVS3bR0\r\n"
-            "j6tJLp07kzQoH3jOlOrHvdPJbRzeXDLz\r\n"
-            "-----END CERTIFICATE-----\r\n";
-    ```
+   const char certificates[] = 
+           /* Baltimore */
+           "-----BEGIN CERTIFICATE-----\r\n"
+           "MIIElDCCA3ygAwIBAgIQAf2j627KdciIQ4tyS8+8kTANBgkqhkiG9w0BAQsFADBh\r\n"
+           "MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\r\n"
+           "d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD\r\n"
+           "QTAeFw0xMzAzMDgxMjAwMDBaFw0yMzAzMDgxMjAwMDBaME0xCzAJBgNVBAYTAlVT\r\n"
+           "MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg\r\n"
+           "U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB\r\n"
+           "ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83\r\n"
+           "nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd\r\n"
+           "KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f\r\n"
+           "/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX\r\n"
+           "kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0\r\n"
+           "/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAVowggFWMBIGA1UdEwEB/wQIMAYBAf8C\r\n"
+           "AQAwDgYDVR0PAQH/BAQDAgGGMDQGCCsGAQUFBwEBBCgwJjAkBggrBgEFBQcwAYYY\r\n"
+           "aHR0cDovL29jc3AuZGlnaWNlcnQuY29tMHsGA1UdHwR0MHIwN6A1oDOGMWh0dHA6\r\n"
+           "Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcmwwN6A1\r\n"
+           "oDOGMWh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RD\r\n"
+           "QS5jcmwwPQYDVR0gBDYwNDAyBgRVHSAAMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8v\r\n"
+           "d3d3LmRpZ2ljZXJ0LmNvbS9DUFMwHQYDVR0OBBYEFA+AYRyCMWHVLyjnjUY4tCzh\r\n"
+           "xtniMB8GA1UdIwQYMBaAFAPeUDVW0Uy7ZvCj4hsbw5eyPdFVMA0GCSqGSIb3DQEB\r\n"
+           "CwUAA4IBAQAjPt9L0jFCpbZ+QlwaRMxp0Wi0XUvgBCFsS+JtzLHgl4+mUwnNqipl\r\n"
+           "5TlPHoOlblyYoiQm5vuh7ZPHLgLGTUq/sELfeNqzqPlt/yGFUzZgTHbO7Djc1lGA\r\n"
+           "8MXW5dRNJ2Srm8c+cftIl7gzbckTB+6WohsYFfZcTEDts8Ls/3HB40f/1LkAtDdC\r\n"
+           "2iDJ6m6K7hQGrn2iWZiIqBtvLfTyyRRfJs8sjX7tN8Cp1Tm5gr8ZDOo0rwAhaPit\r\n"
+           "c+LJMto4JQtV05od8GiG7S5BNO98pVAdvzr508EIDObtHopYJeS4d60tbvVS3bR0\r\n"
+           "j6tJLp07kzQoH3jOlOrHvdPJbRzeXDLz\r\n"
+           "-----END CERTIFICATE-----\r\n";
+   ```
 
 10. 由于“Azure 中国”和“Azure 全球”的证书有所不同，用户需要将以下证书文件替换为上一步中保存的文件。  
 
-   C:\Users\{你的别名}\AppData\Local\Arduino15\packages\AZ3166\hardware\stm32f4\1.6.1\cores\arduino\azure-iot-sdk-c\azureiotcerts.c
+    C:\Users\{你的别名}\AppData\Local\Arduino15\packages\AZ3166\hardware\stm32f4\1.6.1\cores\arduino\azure-iot-sdk-c\azureiotcerts.c
 
-   请注意，该路径可能因 IoT DevKit SDK 的不同版本而异。
+    请注意，该路径可能因 IoT DevKit SDK 的不同版本而异。
 
-11. 再次单击 `F1`，键入并选择“Azure IoT Device Workbench:上传设备代码”。 它启动编译，并将代码上传到 DevKit。
+11. 再次单击 `F1`，键入并选择“Azure IoT Device Workbench:Upload Device Code”。 它启动编译，并将代码上传到 DevKit。
 
     ![Arduino 上传](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
@@ -297,14 +328,24 @@ DevKit 将重新启动并开始运行代码。
 1. 在“共享访问策略”窗格中单击“iothubowner 策略”，并记下 IoT 中心的连接字符串。
     ![Azure IoT 中心连接字符串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
 
-1. 在 VS Code 中，单击 `F1`，键入并选择“Azure IoT 中心:设置 IoT 中心连接字符串”。 将连接字符串复制到其中。
+1. 在 VS Code 中，单击 `F1`，键入并选择“Azure IoT Hub:Set IoT Hub Connection String”。 将连接字符串复制到其中。
     ![设置 Azure IoT 中心连接字符串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. 展开右侧的“Azure IoT 中心设备”窗格，右键单击创建的设备名称，然后选择“开始监视 D2C 消息”。
+1. 展开右侧的“AZURE IOT HUB DEVICES”（AZURE IOT 中心设备）窗格，右键单击创建的设备名称，然后选择“Start Monitoring D2C Message”（开始监视 D2C 消息）。
     ![监视 D2C 消息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. 在“输出”窗格中，可以看到传入 IoT 中心的 D2C 消息。
     ![D2C 消息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+
+## <a name="review-the-code"></a>查看代码
+
+`GetStarted.ino` 是主要的 Arduino 草图文件。
+
+![D2C 消息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/code.png)
+
+若要查看设备遥测数据如何发送到 Azure IoT 中心，请打开同一文件夹中的 `utility.cpp` 文件。 查看 [API 参考](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/)，了解如何在 IoT DevKit 中使用传感器和外围设备。
+
+使用的 `DevKitMQTTClient` 是[适用于 C 的 Microsoft Azure IoT SDK 和库](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client)中 **iothub_client** 的包装器，用于与 Azure IoT 中心交互。
 
 ## <a name="problems-and-feedback"></a>问题和反馈
 
