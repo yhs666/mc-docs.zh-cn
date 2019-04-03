@@ -16,12 +16,12 @@ origin.date: 02/27/2019
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 39296908628a7fbe78631da93b48df099b4b8bfd
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 5e18516989b1aea134ecefa1154a03eccef59dd1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348533"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626431"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>教程：在 Azure 门户中通过基本负载均衡器对内部流量负载进行均衡
 
@@ -172,9 +172,9 @@ ms.locfileid: "58348533"
 
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“MyLoadBalancer”。
    
-1. 在“设置”下，依次选择“负载均衡规则”、“添加”。
+2. 在“设置”下，依次选择“负载均衡规则”、“添加”。
    
-1. 在“添加负载均衡规则”页上，键入或选择以下值（如果还没有这些值）：
+3. 在“添加负载均衡规则”页上，键入或选择以下值（如果还没有这些值）：
    
    - **名称**：键入 *MyLoadBalancerRule*。
    - **前端 IP 地址：** 键入 *LoadBalancerFrontEnd*（如果不存在）。
@@ -184,9 +184,9 @@ ms.locfileid: "58348533"
    - **后端池**：选择“MyBackendPool”。
    - **运行状况探测**：选择“MyHealthProbe”。 
    
-1. 选择“确定” 。
+4. 选择“确定” 。
    
-  ![添加负载均衡器规则](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![添加负载均衡器规则](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 

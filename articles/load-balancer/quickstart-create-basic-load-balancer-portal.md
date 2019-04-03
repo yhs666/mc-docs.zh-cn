@@ -9,19 +9,19 @@ manager: digimobile
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/26/2019
-ms.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 11e6b7230619c6e46e8016942ea05aeaaff45007
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 8d4718b7e116eec558eb91b698b4c87101f4bed4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348577"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625309"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建基本负载均衡器
 
@@ -29,7 +29,7 @@ ms.locfileid: "58348577"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
-若要执行本快速入门中的任务，请登录 [Azure 门户](http://portal.azure.cn)。
+若要执行本快速入门中的任务，请登录 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="create-a-basic-load-balancer"></a>创建基本负载均衡器
 
@@ -194,9 +194,9 @@ ms.locfileid: "58348577"
 
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“MyLoadBalancer”。
    
-1. 在“设置”下，依次选择“负载均衡规则”、“添加”。
+2. 在“设置”下，依次选择“负载均衡规则”、“添加”。
    
-1. 在“添加负载均衡规则”页上，键入或选择以下值：
+3. 在“添加负载均衡规则”页上，键入或选择以下值：
    
    - **名称**：键入 *MyLoadBalancerRule*。
    - **前端 IP 地址**：键入 *LoadBalancerFrontend*。
@@ -206,9 +206,9 @@ ms.locfileid: "58348577"
    - **后端池**：选择“MyBackendPool”。
    - **运行状况探测**：选择“MyHealthProbe”。 
    
-1. 选择“确定” 。
+4. 选择“确定” 。
    
-  ![添加负载均衡器规则](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![添加负载均衡器规则](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 
@@ -260,6 +260,7 @@ ms.locfileid: "58348577"
 
 ![IIS Web 服务器](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+若要查看负载均衡器如何在运行应用的所有三个 VM 之间分发流量，可强制刷新 web 浏览器。
 ## <a name="clean-up-resources"></a>清理资源
 
 若要在不再需要的情况下删除负载均衡器和所有相关的资源，请打开 **MyResourceGroupLB** 资源组，然后选择“删除资源组”。
