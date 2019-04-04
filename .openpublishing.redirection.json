@@ -13981,6 +13981,11 @@
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/create-cluster.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create",
+      "redirect_document_id": false
     }
 
 
