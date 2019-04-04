@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 10/30/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: ba2d944581860deb2475935c292acc575fd83f3e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 06e8bd0233ba3aed847afd2d828c0f27c7aa25f9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626593"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 Apache Cordova 客户端库
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南介绍如何使用最新的 [适用于 Azure 移动应用的 Apache Cordova 插件]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门] （Azure 移动应用快速入门），创建后端、创建表并下载预先生成的 Apache Cordova 项目。 本指南侧重于客户端 Apache Cordova 插件。
+本指南介绍如何使用最新的 [适用于 Azure 移动应用的 Apache Cordova 插件]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门]，创建后端、创建表并下载预先生成的 Apache Cordova 项目。 本指南侧重于客户端 Apache Cordova 插件。
 
 ## <a name="supported-platforms"></a>支持的平台
 
@@ -37,7 +37,7 @@ ms.locfileid: "52661172"
 * Windows Phone 8.1。
 * 通用 Windows 平台。
 
-##<a name="Setup"></a>安装与先决条件
+## <a name="Setup"></a>安装与先决条件
 
 本指南假设已创建了包含表的后端。 本指南假设该表的架构与这些教程中的表相同。 本指南还假设已将 Apache Cordova 插件添加到代码。  如果尚未这样做，可以在命令行中将 Apache Cordova 插件添加到项目：
 
@@ -75,8 +75,8 @@ Azure 移动应用 Cordova 插件同时支持 Ionic v1 和 v2 应用。  只有 
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>如何对用户进行身份验证
-Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Google、Microsoft 帐户和 Twitter）对应用的用户进行身份验证和授权。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅[身份验证入门]教程。
+## <a name="auth"></a>如何：对用户进行身份验证
+Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权：Facebook、Google、Microsoft 帐户和 Twitter。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅[身份验证入门]教程。
 
 在 Apache Cordova 应用中使用身份验证时，以下 Cordova 插件必须可用：
 
@@ -87,7 +87,7 @@ Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Go
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>如何为外部重定向 URL 配置移动应用服务。
+### <a name="configure-external-redirect-urls"></a>如何：为外部重定向 URL 配置移动应用服务。
 
 有多种类型的 Apache Cordova 应用程序使用环回功能来处理 OAuth UI 流。  Localhost 上的 OAuth UI 流会导致问题，因为默认情况下，身份验证服务只知道如何利用服务。  有问题的 OAuth UI 流的示例包括：
 
@@ -98,7 +98,7 @@ Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Go
 
 请遵循以下说明将本地设置添加到配置中：
 
-1. 登录到 [Azure Portal]
+1. 登录到 [Azure 门户]
 2. 选择“所有资源”或“应用服务”，然后单击移动应用的名称。
 3. 单击“工具” 
 4. 在“观察”菜单中单击“资源浏览器”，然后单击“转到”。  会打开新窗口或选项卡。
@@ -113,14 +113,14 @@ Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Go
      ],
     ```
 
-    将 URL 替换为自己服务的 URL。  示例包括“ http://localhost:3000 ”（适用于 Node.js 示例服务）或“ http://localhost:4400 ”（适用于 Ripple 服务）。  但是，这些 URL 是示例，根据不同的情况（包括示例中提到的服务）可能会有差异。
+    将 URL 替换为自己服务的 URL。  示例包括“ <http://localhost:3000> ”（适用于 Node.js 示例服务）或“ <http://localhost:4400> ”（适用于 Ripple 服务）。  但是，这些 URL 是示例，根据不同的情况（包括示例中提到的服务）可能会有差异。
 8. 单击屏幕右上角的“读/写”  按钮。
 9. 单击绿色的“PUT”  按钮。
 
 此时会保存设置。  在保存完设置之前，请不要关闭浏览器窗口。
 同时将以下环回 URL 添加到应用服务的 CORS 设置：
 
-1. 登录到 [Azure Portal]
+1. 登录到 [Azure 门户]
 2. 选择“所有资源”或“应用服务”，然后单击移动应用的名称。
 3. “设置”边栏选项卡随即自动打开。  如果没有打开，请单击“所有设置” 。
 4. 在“API”菜单下面单击“CORS”  。
@@ -130,7 +130,7 @@ Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Go
 
 大约需要 10-15 秒时间才能使新设置生效。
 
-## <a name="register-for-push"></a>如何注册推送通知
+## <a name="register-for-push"></a>如何：注册推送通知
 
 安装 [phonegap-plugin-push] 即可处理推送通知。  在命令行中使用 `cordova plugin add` 命令，或者在 Visual Studio 内通过 Git 插件安装程序，即可轻松添加此插件。  Apache Cordova 应用中的以下代码为设备注册推送通知：
 
@@ -178,7 +178,7 @@ pushHandler.on('error', function (error) {
 可在 [API 文档](http://azure.github.io/azure-mobile-apps-js-client/)中找到有关 API 的详细信息。
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.cn
+[Azure 门户]: https://portal.azure.cn
 [Azure 移动应用快速入门]: ./app-service-mobile-cordova-get-started.md
 [身份验证入门]: ./app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md

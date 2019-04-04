@@ -7,20 +7,20 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-origin.date: 04/17/2018
-ms.date: 03/04/2019
+origin.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: b289b2088ce9e53cc373274c2d0276cdba6083eb
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 718cc2079989d5feadb1618ff9f7135d17a4c051
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833272"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626703"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化列存储的行组质量
 
-行组质量由行组中的行数决定。 减少内存需求或增加可用内存，使列存储索引压缩到每个行组中的行数最大化。  使用这些方法来提高列存储索引的压缩率和请求性能。
+行组质量由行组中的行数决定。 增加可用内存可以使列存储索引压缩到每个行组中的行数最大化。  使用这些方法来提高列存储索引的压缩率和请求性能。
 
 ## <a name="why-the-rowgroup-size-matters"></a>行组大小之所以重要的原因
 由于列存储索引会通过扫描单个行组的列段来扫描表，所以，使每个行组的行数最大化可增强查询性能。 如果行组具有的行数较多，则会增强数据压缩，这意味着需要从磁盘读取的数据变少。
@@ -36,11 +36,11 @@ ms.locfileid: "56833272"
 
 如果内存不足，无法将至少 10,000 个行压缩到每个行组中，SQL 数据仓库会生成错误。
 
-有关批量加载的详细信息，请参阅 [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index)（批量加载到聚集列存储索引中）。
+有关批量加载的详细信息，请参阅 [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk )（批量加载到聚集列存储索引中）。
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>如何监视行组质量
 
-DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) 会公开一些有用信息，例如行组中的行数，以及修整原因（如果有修整）。 可创建下列视图来轻松查询此 DMV，以便获得关于行组修整的信息。
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats（[sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) 包含可以将 SQL DB 与 SQL 数据仓库匹配的视图定义），用于公开一些有用信息，例如行组中的行数，以及修整原因（如果有修整）。 可创建下列视图来轻松查询此 DMV，以便获得关于行组修整的信息。
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -68,7 +68,7 @@ from cte;
 ```
 
 trim_reason_desc 指示行组是否已修整（trim_reason_desc = NO_TRIM 表示没有修整，且行组的质量为最佳）。 下列修整原因指示行组的过早修整：
-- BULKLOAD：当加载的行的传入批小于 100 万行时，使用此修整原因。 如果插入的行数（而不是插入增量存储）大于 100,000，引擎将创建压缩的行组，但会将修整原因设置为 BULKLOAD。 在此方案中，请考虑增加批加载窗口以累计更多的行。 此外，请重新评估分区方案，避免其过度具体，因为行组无法跨越分区边界。
+- BULKLOAD：当加载的行的传入批小于 100 万行时，使用此修整原因。 如果插入的行数（而不是插入增量存储）大于 100,000，引擎将创建压缩的行组，但会将修整原因设置为 BULKLOAD。 在此方案中，请考虑增加批负荷，使之包含更多的行。 此外，请重新评估分区方案，避免其过度具体，因为行组无法跨越分区边界。
 - MEMORY_LIMITATION：要创建具有 100 万行的行组，引擎需要一定量的工作内存。 当加载会话的可用内存小于所需的工作内存时，将提前修整行组。 以下各部分说明如何估计所需内存和分配更多内存。
 - DICTIONARY_SIZE：此修整原因指示，由于至少有一个字符串列具有宽和/或高基数字符串，因此发生行组修整。 字典大小的内存限制为 16 MB，一旦达到此限制，将压缩行组。 如果遇到这种情况，请考虑将有问题的列隔离到单独的表中。
 
@@ -138,14 +138,6 @@ DWU 大小和用户资源类共同确定用户查询可用的内存量。 若要
 
 - 若要增加 DWU，请参阅[如何进行性能缩放？](quickstart-scale-compute-portal.md)
 - 若要更改查询的资源类，请参阅[更改用户资源类示例](resource-classes-for-workload-management.md#change-a-users-resource-class)。
-
-例如，使用 DWU 100 时，smallrc 资源类中的用户在每次分发时可使用 100 MB 的内存。 有关详细信息，请参阅 [SQL 数据仓库中的并发](resource-classes-for-workload-management.md)。
-
-假设需要 700 MB 的内存以获取优质行组大小。 以下示例演示可如何使用足够的内存来运行加载查询。
-
-- 使用 DWU 1000 和 mediumrc，则内存授予为 800 MB
-- 使用 DWU 600 和 largerc，则内存授予为 800 MB。
-
 
 ## <a name="next-steps"></a>后续步骤
 
