@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/26/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0b59c92d833c053244ba170cdcdf19ad0edcc496
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 54a6b8fb36242a1a35fdf3e32f93957a19693040
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625324"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -24,7 +24,8 @@ ms.locfileid: "52644150"
 
 要了解 Azure Cosmos DB 中的索引工作原理，管理索引策略时了解它至关重要，可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细致权衡。  
 
-<!-- Not Available on https://www.youtube.com/embed/uFu2D-GscG0 --> 在本文中，我们将仔细研究 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
+<!-- Not Available on https://www.youtube.com/embed/uFu2D-GscG0 -->
+在本文中，我们将仔细研究 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
 
 阅读本文后，可以回答以下问题：
 
@@ -47,9 +48,9 @@ ms.locfileid: "52644150"
 
 * 持续大量写入时支持一致的查询：对于使用一致的查询的高写入吞吐量工作负荷，在持续大量写入时可逐步、高效地联机更新索引。 一致的索引更新对在用户配置文档服务的一致性级别进行查询来说是至关重要的。  
 
-* 支持多租户：在为跨租户的资源调控给定基于保留的模型的情况下，可以在为每个副本分配的系统资源（CPU、内存和每秒的输入/输出操作）的预算内执行索引更新。  
+* 多租户支持：在为跨租户的资源调控给定基于保留的模型的情况下，可以在为每个副本分配的系统资源（CPU、内存和每秒的输入/输出操作）的预算内执行索引更新。  
 
-* 存储效率：就成本效益而言，在磁盘上存储索引的开销是有限的，并且是可预测的。 这一点非常重要，因为 Cosmos DB 允许开发人员在索引开销与查询性能之间做出基于成本的权衡。  
+* 存储效率：为了追求成本效益，在磁盘上存储索引的开销受限并且可预测。 这一点非常重要，因为 Cosmos DB 允许开发人员在索引开销与查询性能之间做出基于成本的权衡。  
 
 <a name="CustomizingIndexingPolicy"></a>  
 ## <a name="customize-the-indexing-policy-of-a-collection"></a>自定义集合的索引策略
@@ -57,7 +58,7 @@ ms.locfileid: "52644150"
 
 * **包括或排除索引的文档和路径**。 插入或替换集合中的文档时，可在索引中排除或包括特定的文档。 还可包括或排除特定的 JSON 属性（也称为路径），以便在包括在索引中的文档中建立索引。 路径包括通配符模式。
 * **配置各种索引类型**。 对于每个包含的路径，可指定路径针对集合而要求的索引类型。 可根据路径的数据、预期的查询工作负荷和数字/字符串“精准度”来指定索引的类型。
-* **配置索引更新模式**。 Azure Cosmos DB 支持三种索引模式：一致、延迟和无。 可通过 Azure Cosmos DB 集合上的索引策略来配置索引模式。 
+* **配置索引更新模式**。 Azure Cosmos DB 支持三种索引模式：“一致”、“延迟”和“无”。 可通过 Azure Cosmos DB 集合上的索引策略来配置索引模式。 
 
 以下 Microsoft .NET 代码片段演示了如何在创建集合时设置自定义索引策略。 在此示例中，我们以最大精度为字符串和数字设置范围索引策略。 可使用此策略对字符串执行 ORDER BY 查询。
 
@@ -85,7 +86,7 @@ ms.locfileid: "52644150"
 
 <a name="indexing-modes"></a>
 ### <a name="database-indexing-modes"></a>数据库索引模式
-Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos DB 集合进行配置：一致、延迟和无。
+Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos DB 集合进行配置：“一致”、“延迟”和“无”。
 
 **一致**：如果 Azure Cosmos DB 集合的策略为“一致”，针对特定 Azure Cosmos DB 集合的查询将按照为点读取指定的一致性级别进行（强、有限过期性、会话或最终）。 索引会作为文档更新（插入、替换、更新和删除 Azure Cosmos DB 集合中的文档）的一部分进行同步更新。
 
@@ -102,7 +103,7 @@ Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos
 > 
 > 
 
-下表显示了基于为集合配置的索引模式（一致和延迟）和为查询请求指定的一致性级别进行的查询的一致性。 这适用于使用任何接口：REST API、SDK 或在存储过程和触发器中进行的查询。 
+下表显示了基于为集合配置的索引模式（一致和延迟）和为查询请求指定的一致性级别进行的查询的一致性。 这适用于使用任何接口发出的查询：REST API、SDK，或从存储过程和触发器内部。 
 
 |一致性|索引模式：一致|索引模式：延迟|
 |---|---|---|
@@ -276,7 +277,7 @@ Azure Cosmos DB 还针对每个路径支持空间索引类型，可为 Point、P
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 哈希       | 对 /prop/?（或 /）应用哈希索引 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>对 /props/[]/?（或 / 和 /props/）应用哈希索引 (or / or /props/) 可用于有效完成下列查询：<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
 | 范围      | 对 /prop/?（或 /）应用范围索引 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| 空间     | /prop/? 可用于有效完成下列查询：<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --启用对点的索引编制<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --启用对多边形的索引编制              |
+| 空间     | /prop/? 可用于有效完成下列查询：<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type":"Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type":"Polygon", ... }) --启用对点的索引编制<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type":"Point", ... }, c.prop) --启用对多边形的索引编制。              |
 
 默认情况下，如果没有范围索引（任何精度），则使用范围运算符（如 >=）的查询会返回错误，以提示执行查询必须执行一次扫描。 使用 REST API 中的 x-ms-documentdb-enable-scans 标头或使用 .NET SDK 的 EnableScanInQuery 请求选项，可以在没有范围索引的情况下执行范围查询。 如果在查询中有 Azure Cosmos DB 可以使用索引据其进行筛选的其他筛选器，则不返回错误。
 
@@ -336,7 +337,7 @@ Azure Cosmos DB 还针对每个路径支持空间索引类型，可为 Point、P
 
 索引转换是联机进行的。 这意味着按照旧策略索引的文档可以按照新策略有效转换，而不会影响集合的写入可用性或预配的吞吐量。 在索引转换过程中，使用 REST API、SDK 或在存储过程和触发器中执行读取和写入操作的一致性不会受到影响。 
 
-更改索引策略是一个异步过程，完成操作的时间取决于文档数量、预配的 RU 和文档大小。 在重新编制索引的过程中，如果查询使用的是正在修改的索引，则查询可能不会返回所有匹配的结果且不会返回任何错误/失败。 虽然正在重新编制索引，但是，无论索引模式配置如何（一致或延迟），期间查询始终一致。 索引转换完成后，将继续看到一致的结果。 这适用于使用所有接口（REST API、SDK）或从存储过程和触发器中进行的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
+更改索引策略是一个异步过程，完成操作的时间取决于文档数量、预配的 RU 和文档大小。 在重新编制索引的过程中，如果查询使用的是正在修改的索引，则查询可能不会返回所有匹配的结果且不会返回任何错误/失败。 虽然正在重新编制索引，但是，无论索引模式配置如何（一致或延迟），期间查询始终一致。 索引转换完成后，将继续看到一致的结果。 这适用于使用所有接口发出的查询：REST API、SDK，以及从存储过程和触发器内部。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
 
 索引转换也已到位。 Azure Cosmos DB 不维护索引的两个副本，并用新索引替换旧索引。 这就意味着，索引转换发生时集合中不需要也不占用额外的磁盘空间。
 
@@ -443,7 +444,7 @@ JSON 规范中实现了以下更改：
 * 每个路径可以有多个索引定义。 每种数据类型可有一个。
 * 对于数字，索引精度支持 1-8，对于字符串支持 1-100，-1 为最大精度。
 * 路径段不需要双引号来转义每个路径。 例如，可以添加 /title/? 路径 而不是 /"title"/?。
-* 表示“所有路径”的根路径可以表示为 /\*（除了 /）。
+* 表示“所有路径”的根路径可以表示为 **/\\***（还包括 **/**）。
 
 如果代码使用 1.1.0 或更早版本的 .NET SDK 编写的自定义索引策略设置集合，要迁移到 SDK 1.2.0 版本，必须更改应用程序代码来处理这些更改。 如果没有用于配置索引策略的代码，或打算继续使用 SDK 更早版本，则不需进行任何更改。
 

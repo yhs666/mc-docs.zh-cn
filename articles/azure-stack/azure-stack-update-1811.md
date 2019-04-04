@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/28/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: e0ebb66451bc53f5f8ffaf3b2e7f2652d07865f2
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a7e33967047bb6aae6e65dc87720eee85bd74988
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988025"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627544"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -88,7 +88,7 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 
     在安装此更新的过程中，配置扩展主机时 Azure Stack 用户门户将不可用。 扩展主机的配置最长可能需要花费 5 小时。 在此期间，你可以检查更新状态，或者使用 [Azure Stack 管理员 PowerShell 或特权终结点](azure-stack-monitor-update.md)继续执行某个失败的更新安装。
 
-- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1811 之前将适用于 Azure Stack 的管理包更新到版本 10.0.3.11。
+- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1811 之前将适用于 Azure Stack 的管理包更新到版本 1.0.3.11。
 
 ## <a name="new-features"></a>新增功能
 
@@ -123,13 +123,13 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 - 此版本为 Azure Stack 操作员引入了警报“修复”操作。 1811 中的某些警报在警报中提供一个“修复”按钮用于解决问题。 有关详细信息，请参阅[在 Azure Stack 中监视运行状况和警报](azure-stack-monitor-health.md)。
 
 - 更新到 Azure Stack 中的更新体验。 更新增强功能包括： 
-    - 用于将“更新”与“更新历史记录”拆分开来的选项卡，这样可以更好地跟踪正在进行的更新与已完成的更新。
-    - “概要”部分的增强的状态可视化效果，其中的新图标和布局对应于“当前版本和 OEM 版本”以及“上次更新的日期”。
-    - “发行说明”列的“查看”链接直接将用户转到特定于该更新的文档，而不是转到常规更新页。
-    - “更新历史记录”选项卡，用于确定每项更新的运行时间以及增强的筛选功能。  
-    - 连接的 Azure Stack 缩放单元仍会自动接收已发布的**可用更新**。
-    - 未连接的 Azure Stack 缩放单元可以导入更新，就像以前一样。 
-    - 从门户下载 JSON 日志的过程没有任何变化。 Azure Stack 操作员会看到表示进度的扩展步骤。
+  - 用于将“更新”与“更新历史记录”拆分开来的选项卡，这样可以更好地跟踪正在进行的更新与已完成的更新。
+  - “概要”部分的增强的状态可视化效果，其中的新图标和布局对应于“当前版本和 OEM 版本”以及“上次更新的日期”。
+  - “发行说明”列的“查看”链接直接将用户转到特定于该更新的文档，而不是转到常规更新页。
+  - “更新历史记录”选项卡，用于确定每项更新的运行时间以及增强的筛选功能。  
+  - 连接的 Azure Stack 缩放单元仍会自动接收已发布的**可用更新**。
+  - 未连接的 Azure Stack 缩放单元可以导入更新，就像以前一样。 
+  - 从门户下载 JSON 日志的过程没有任何变化。 Azure Stack 操作员会看到表示进度的扩展步骤。
 
     有关详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
@@ -257,17 +257,17 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 <!-- 1264761 - IS ASDK -->  
 - 可能会看到包含以下详细信息的“运行状况控制器”组件的警报：  
 
-    - 警报 #1：
-       - 名称：基础结构角色不正常
-       - 严重性：警告
-       - 组件：运行状况控制器
-       - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
+  - 警报 #1：
+     - 名称：基础结构角色不正常
+     - 严重性：警告
+     - 组件：运行状况控制器
+     - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
 
-    - 警报 #2：
-       - 名称：基础结构角色不正常
-       - 严重性：警告
-       - 组件：运行状况控制器
-       - 说明：运行状况控制器故障扫描程序不可用。 这可能会影响运行状况报告和指标。
+  - 警报 #2：
+     - 名称：基础结构角色不正常
+     - 严重性：警告
+     - 组件：运行状况控制器
+     - 说明：运行状况控制器故障扫描程序不可用。 这可能会影响运行状况报告和指标。
 
     可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
 
@@ -347,7 +347,7 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 - 在 Azure Stack 机密轮换期间，有一个时段（两到五分钟）会无法访问公共 IP 地址。
 
 <!-- 2664148 - IS ASDK --> 
--   租户通过 S2S VPN 隧道访问虚拟机时，可能会遇到这样的情况：如果在创建网关后向本地网络网关添加本地子网，连接尝试会失败。 
+- 租户通过 S2S VPN 隧道访问虚拟机时，可能会遇到这样的情况：如果在创建网关后向本地网络网关添加本地子网，连接尝试会失败。 
 
 - 在 Azure Stack 门户中，对于已附加到 VM 实例的网络适配器，在更改与其绑定的 IP 配置的静态 IP 地址时，会看到一条警告消息，其中指出 
 
@@ -359,9 +359,9 @@ Azure Stack 定期发布修补程序。 将 Azure Stack 更新到 1811 之前，
 
 - 在门户中，如果添加入站安全规则并选择“服务标记”作为源，“服务标记”列表中会显示多个不适用于 Azure Stack 的选项。 在 Azure Stack 中有效的选项仅限以下几个：
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。 仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。
 

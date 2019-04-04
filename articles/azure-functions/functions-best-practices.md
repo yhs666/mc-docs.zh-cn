@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/16/2017
-ms.date: 01/15/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7260bfb1b27c0ca1c8d333626672f17036147a4
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: b8eb375473b7f1767f712460f1eae231919d39af
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334200"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408296"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
@@ -85,7 +85,7 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 
 请注意在生产 Function App 中加载的内容。 将内存平均分配给应用中的每个函数。
 
-如果在多个 .Net 函数中引用共享程序集，请将其放在常用的共享文件夹中。 如果使用 C# 脚本 (.csx)，请使用类似于以下示例的语句引用程序集： 
+如果在多个 .NET 函数中引用共享程序集，请将其放在常用的共享文件夹中。 如果使用 C# 脚本 (.csx)，请使用类似于以下示例的语句引用程序集： 
 
     #r "..\Shared\MyAssembly.dll". 
 
@@ -121,7 +121,7 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 
 有关详细信息，请参阅以下资源：
 
-- [如何在 Azure Functions 中管理连接](manage-connections.md)
-- [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md)
+* [如何在 Azure Functions 中管理连接](manage-connections.md)
+* [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -1,6 +1,6 @@
 ---
-title: 快速入门 - 通过 Azure 服务总线发送和接收消息 | Azure
-description: 此快速入门介绍如何使用 PowerShell 和 .NET Standard 客户端发送和接收服务总线消息
+title: 快速入门 - 使用 Azure PowerShell 创建服务总线队列 | Docs
+description: 在本快速入门中，你将了解如何使用 Azure PowerShell 创建服务总线队列。 然后，你将使用示例应用程序向队列发送消息以及从中接收消息。
 services: service-bus-messaging
 author: lingliw
 manager: digimobile
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 09/22/2018
-ms.date: 11/26/2018
+ms.date: 01/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a6a75ea7af58c9af15386c1ebe111180277ba09c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 64296259173ed5ebac2c319e5170ac430ed73df3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675310"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627151"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>快速入门：使用 Azure PowerShell 和 .NET 发送和接收消息
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入门：使用 Azure PowerShell 创建服务总线队列
 
 Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。
 
@@ -90,29 +89,29 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-3. 导航到示例文件夹 `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`。
+2. 导航到示例文件夹 `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`。
 
-4. 请使用以下 PowerShell cmdlet 获取连接字符串（如果尚未这样做）。 请务必将 `my-resourcegroup` 和 `namespace-name` 替换为具体值： 
+3. 如果尚未这样做，请使用以下 PowerShell cmdlet 获取连接字符串。 请务必将 `my-resourcegroup` 和 `namespace-name` 替换为具体值： 
 
    ```PowerShell
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5.  在 PowerShell 提示符下，键入以下命令：
+4. 在 PowerShell 提示符下，键入以下命令：
 
    ```shell
    dotnet build
    ```
 
-6.  导航到 `bin\Debug\netcoreapp2.0` 文件夹。
+5. 导航到 `bin\Debug\netcoreapp2.0` 文件夹。
 
-7.  键入以下命令以运行程序。 请务必将 `myConnectionString` 替换为先前获取的值，将 `myQueueName` 替换为所创建队列的名称：
+6. 键入以下命令以运行程序。 请务必将 `myConnectionString` 替换为先前获取的值，将 `myQueueName` 替换为所创建队列的名称：
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
 
-8. 观察发送到队列并随后从队列中接收的 10 条消息：
+7. 观察发送到队列并随后从队列中接收的 10 条消息：
 
    ![程序输出](./media/service-bus-quickstart-powershell/dotnet.png)
 
@@ -265,4 +264,4 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [使用 Azure PowerShell 更新库存](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [试用帐户]: https://www.azure.cn/pricing/1rmb-trial
-[安装和配置 Azure PowerShell]: https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps
+[安装和配置 Azure PowerShell]: https://docs.azure.cn/zh-cn/powershell-install-configure

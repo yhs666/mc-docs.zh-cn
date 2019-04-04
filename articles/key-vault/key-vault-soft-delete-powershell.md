@@ -1,19 +1,19 @@
 ---
 title: Azure Key Vault - 如何将软删除与 PowerShell 配合使用
 description: 使用 PowerShell 代码段进行软删除的用例示例
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 08/21/2017
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
-ms.openlocfilehash: 4c86607195d90888db84c67473e0092068ff906a
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 84a77dde47c91dd8b8e773571443fb36ab4672ca
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903071"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626287"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何将 Key Vault 软删除与 PowerShell 配合使用
 
@@ -178,19 +178,19 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 像密钥一样，可以使用自己的命令管理机密：
 
 - 删除名为 SQLPassword 的机密： 
-```powershell
-Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - 列出 Key Vault 中所有已删除的机密： 
-```powershell
-Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - 恢复处于已删除状态的机密： 
-```powershell
-Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - 清除处于已删除状态的机密： 
 
@@ -219,7 +219,7 @@ Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 清除密钥保管库时，将永久删除其全部内容，包括密钥、机密和证书。 若要清除已软删除的密钥保管库，请使用具有 `-InRemovedState` 选项的命令 `Remove-AzKeyVault`，并通过使用 `-Location location` 参数指定已删除的密钥保管库的位置。 可以使用命令 `Get-AzKeyVault -InRemovedState` 查找已删除的保管库的位置。
 
 ```powershell
-Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location ChinaNorth
+Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location chinanorth
 ```
 
 ### <a name="purge-permissions-required"></a>所需的清除权限
@@ -233,6 +233,26 @@ Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location ChinaNorth
 
 >[!IMPORTANT]
 >已清除的保管库对象（由“Scheduled Purge Date”字段触发清除操作）将被永久删除。 不可恢复！
+
+## <a name="enabling-purge-protection"></a>启用清除保护
+
+启用清除保护时，在长达 90 天的保留期到期之前，不能清除处于已删除状态的保管库或对象。 仍可以恢复此类保管库或对象。 此功能可增加保障，在保留期到期之前，永远不会永久删除保管库或对象。
+
+只有启用了软删除，才能启用清除保护。 
+
+若要在创建保管库时同时启用软删除和清除保护，请使用 [New-AzKeyVault](https://docs.microsoft.com/zh-cn/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet：
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location chinanorth -EnableSoftDelete -EnablePurgeProtection
+```
+
+若要向现有保管库（已启用软删除）添加清除保护，请使用 [Get-AzKeyVault](https://docs.microsoft.com/zh-cn/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0)、[Get-AzResource](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/get-azresource?view=azps-1.5.0) 和 [Set-AzResource](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet：
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
 
 ## <a name="other-resources"></a>其他资源
 

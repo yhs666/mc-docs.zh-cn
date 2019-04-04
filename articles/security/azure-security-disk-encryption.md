@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.openlocfilehash: 408d8ea77d1db0ab97ace0548074b890737f20a4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2892ca2a24b25a221b6181b44d8a55fd97bac7c1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667300"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626788"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>适用于 Windows 和 Linux IaaS VM 的 Azure 磁盘加密
 Microsoft Azure 坚决承诺确保数据隐私权和数据所有权，并通过各种先进技术来加密、控制和管理加密密钥以及控制和审核对数据的访问，使你能够控制 Azure 托管的数据。 这样，Azure 客户便可以灵活选择最符合其业务需求的解决方案。 在本文中，我们将会介绍新的技术解决方案“适用于 Windows 和 Linux IaaS VM 的 Azure 磁盘加密”，以帮助你保护数据，使你的组织能够信守在安全性与符合性方面所做的承诺。 本文提供有关如何使用 Azure 磁盘加密功能的详细指导，包括支持的方案和用户体验。
@@ -47,7 +47,7 @@ Azure 磁盘加密解决方案支持以下客户方案：
 在 Microsoft Azure 中启用 IaaS VM 时，该解决方案支持以下 IaaS VM 方案：
 
 * 与 Azure 密钥保管库集成
-* 标准层 VM：[A、D、DS、G、GS 和 F 等系列 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* 标准层 VM：[A、D、DS、G、GS、F 等系列 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * 在 Windows 和 Linux IaaS VM 及托管磁盘 VM 上启用加密
 * 在 Windows IaaS VM 和托管磁盘 VM 的 OS 和数据驱动器上禁用加密
 * 在 Linux IaaS VM 和托管磁盘 VM 的数据驱动器上禁用加密
@@ -122,14 +122,14 @@ Azure 磁盘加密管理解决方案可以解决以下业务需求：
 
 5. Azure 使用加密和 Key Vault 配置更新 VM 服务模型，并设置加密的 VM。
 
- ![Azure 中的 Microsoft Antimalware](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
+   ![Azure 中的 Microsoft Antimalware](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
 
 ### <a name="decryption-workflow"></a>解密工作流
 若要为 IaaS VM 禁用磁盘加密，请完成以下高级步骤：
 
 1. 选择通过 Azure 磁盘加密 Resource Manager 模板或 PowerShell cmdlet 在 Azure 中运行的 IaaS VM 上禁用加密（解密），并指定解密配置。
 
- 此步骤将对正在运行的 Windows IaaS VM 禁用 OS 和/或数据卷加密。 但是如前面部分所述，不支持对 Linux 禁用 OS 磁盘加密。 仅允许对 Linux VM 上的数据驱动器执行解密步骤。
+   此步骤将对正在运行的 Windows IaaS VM 禁用 OS 和/或数据卷加密。 但是如前面部分所述，不支持对 Linux 禁用 OS 磁盘加密。 仅允许对 Linux VM 上的数据驱动器执行解密步骤。
 2. Azure 更新 VM 服务模型后，IaaS VM 将被标记为已解密。 VM 的内容不再静态加密。
 
 > [!NOTE]
@@ -140,8 +140,8 @@ Azure 磁盘加密管理解决方案可以解决以下业务需求：
 针对“概述”部分所述支持的方案，在 Azure IaaS VM 上启用 Azure 磁盘加密之前，请查看以下先决条件：
 
 * 必须具有有效的活动 Azure 订阅，才能在 Azure 的受支持区域中创建资源。
-* 以下 Windows 服务器版本支持 Azure 磁盘加密：Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 和 Windows Server 2016。
-* 以下 Windows 客户端版本支持 Azure 磁盘加密：Windows 8 Client 和 Windows 10 Client。
+* 以下 Windows Server 版本支持 Azure 磁盘加密：Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 和 Windows Server 2016。
+* 以下 Windows 客户端版本支持 Azure 磁盘加密：Windows 8 客户端和 Windows 10 客户端。
 
 > [!NOTE]
 > 对于 Windows Server 2008 R2，必须安装 .NET Framework 4.5 才能在 Azure 中启用加密。 可通过安装可选更新“适用于 Windows Server 2008 R2 x64 系统的 Microsoft .NET Framework 4.5.2 ([KB2901983](https://support.microsoft.com/kb/2901983))”，从 Windows 更新安装它。
@@ -206,7 +206,7 @@ Azure 磁盘加密管理解决方案可以解决以下业务需求：
 
 * 使用最新版本的 Azure PowerShell SDK 来配置 Azure 磁盘加密。 下载最新的 [Azure PowerShell 发行版](https://github.com/Azure/azure-powershell/releases)
 
- > [!NOTE]
+  > [!NOTE]
   > [Azure PowerShell SDK 版本 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016) 不支持 Azure 磁盘加密。 如果收到与使用 Azure PowerShell 1.1.0 相关的错误，请参阅 [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx)（与 Azure PowerShell 1.1.0 相关的 Azure 磁盘加密错误）。
 
 * 若要运行任何 Azure CLI 命令并将其与 Azure 订阅关联，必须首先安装 Azure CLI：
@@ -214,8 +214,8 @@ Azure 磁盘加密管理解决方案可以解决以下业务需求：
   * 若要将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure Resource Manager 配合使用，请参阅 [Resource Manager 模式下的 Azure CLI 命令](../virtual-machines/azure-cli-arm-commands.md)。
 
 * 使用 Azure 磁盘加密 PS cmdlet Set-AzureRmVMDiskEncryptionExtension 或 CLI 命令在 Azure 托管磁盘 VM 上启用加密时，必须使用 -skipVmBackup 参数。
-> [!NOTE]
- > 如果未指定 -skipVmBackup 参数，则启用加密步骤将失败。
+  > [!NOTE]
+  > 如果未指定 -skipVmBackup 参数，则启用加密步骤将失败。
 
 * Azure 磁盘加密解决方案对 Windows IaaS VM 使用 BitLocker 外部密钥保护程序。 对于已加入域的 VM，不要推送会强制执行 TPM 保护程序的任何组策略。 有关“在没有兼容 TPM 的情况下允许 BitLocker”的组策略信息，请参阅 [BitLocker 组策略参考](https://technet.microsoft.com/library/ee706521)。
 * 若要创建 Azure AD 应用程序、创建 Key Vault 或设置现有 Key Vault 并启用加密，请参阅 [Azure 磁盘加密先决条件 PowerShell 脚本](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)。
@@ -248,26 +248,26 @@ Azure 磁盘加密管理解决方案可以解决以下业务需求：
 
 1. 单击“Active Directory”选项卡。
 
- ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+   ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
 
 2. 单击“添加应用程序”，然后键入应用程序名称。
 
- ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+   ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
 
 3. 单击箭头按钮并配置应用程序的属性。
 
- ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+   ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
 
 4. 单击左下角的复选标记完成操作。 将出现应用程序配置页，页面底部显示 Azure AD 客户端 ID。
 
- ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+   ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
 
 5. 单击“保存”按钮保存 Azure AD 客户端机密。 请注意密钥文本框中的 Azure AD 客户端机密。 请妥善保存。
 
- ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+   ![Azure 磁盘加密](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > Azure 经典门户不支持先前的流。
+   > [!NOTE]
+   > Azure 经典门户不支持先前的流。
 
 ##### <a name="use-an-existing-application"></a>使用现有的应用程序
 若要执行以下命令，请获取并使用 [Azure AD PowerShell 模块](https://technet.microsoft.com/library/jj151815.aspx)。
@@ -367,7 +367,7 @@ Azure AD 应用程序需有访问保管库中密钥或机密的权限。 使用 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
 
 > [!NOTE]
-> Azure 磁盘加密要求为 Azure AD 客户端应用程序配置以下访问策略 -“WrapKey”和“Set”权限。
+> Azure 磁盘加密要求为 Azure AD 客户端应用程序配置以下访问策略：_WrapKey_ 和 _Set_ 权限。
 
 ## <a name="terminology"></a>术语
 若要理解该技术所用的一些常见术语，请参考下面的术语表：
@@ -503,27 +503,27 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 
    * 设置“EnabledForDiskEncryption”标志：
 
-    `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+     `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
    * 设置 Azure AD 应用程序的权限，将机密写入 Key Vault：
 
-    `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+     `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
 
 2. 若要在现有或正在运行的 VM 上启用加密，请键入：
 
- `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+   `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
 
 3. 获取加密状态：
 
- `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
+   `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 
 4. 若要通过加密的 VHD 在新 VM 上启用加密，请将以下参数与 `azure vm create` 命令结合使用：
 
- ```
+   ```
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
    * key-encryption-key-vault-id <key-encryption-key-vault-id>
    * key-encryption-key-url <key-encryption-key-url>
- ```
+   ```
 
 ### <a name="enable-encryption-on-existing-or-running-iaas-windows-vm-in-azure"></a>在 Azure 中现有或正在运行的 IaaS Windows VM 上启用加密
 在此方案中，可以通过使用 Resource Manager 模板、PowerShell cmdlet 或 CLI 命令启用加密。 以下部分详细介绍了如何通过 Resource Manager 模板和 CLI 命令启用它。
@@ -559,24 +559,24 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 1. 在 Key Vault 中设置访问策略：
    * 设置“EnabledForDiskEncryption”标志：
 
-    `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+     `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
    * 设置 Azure AD 应用程序的权限，将机密写入 Key Vault：
 
-    `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+     `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
 2. 在现有或正在运行的 VM 上启用加密：
 
- `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+   `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
 3. 获取加密状态：
 
- `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
+   `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. 若要通过加密的 VHD 在新 VM 上启用加密，请将以下参数与 `azure vm create` 命令结合使用：
 
- ```
+   ```
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
    * key-encryption-key-vault-id <key-encryption-key-vault-id>
    * key-encryption-key-url <key-encryption-key-url>
- ```
+   ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-in-azure"></a>在 Azure 中现有或正在运行的 IaaS Linux VM 上启用加密
 可通过 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm) 在 Azure 中为现有或正在运行的 IaaS Linux VM 启用磁盘加密。
@@ -606,28 +606,28 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 
 1. 在 Key Vault 中设置访问策略：
 
- * 设置“EnabledForDiskEncryption”标志：
+   * 设置“EnabledForDiskEncryption”标志：
 
-    `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
- * 设置 Azure AD 应用程序的权限，将机密写入 Key Vault：
+     `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+   * 设置 Azure AD 应用程序的权限，将机密写入 Key Vault：
 
-    `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+     `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
 
 2. 在现有或正在运行的 VM 上启用加密：
 
- `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+   `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
 
 3. 获取加密状态：
 
- `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
+   `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 
 4. 若要通过加密的 VHD 在新 VM 上启用加密，请将以下参数与 `azure vm create` 命令结合使用：
- ```
+   ```
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
    * key-encryption-key-vault-id <key-encryption-key-vault-id>
    * key-encryption-key-url <key-encryption-key-url>
- ```
+   ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>获取已加密 IaaS VM 的加密状态
 可以使用 Azure Resource Manager、[PowerShell cmdlets](/powershell/azure/overview) 或 CLI 命令获取加密状态。 以下部分将说明如何使用 Azure 经典门户和 CLI 命令来获取加密状态。
@@ -641,7 +641,7 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 
 3. 从“选择列”边栏选项卡中选择“磁盘加密”，然后单击“更新”。 应会看到，对于每个 VM，磁盘加密列会显示加密状态“已启用”或“未启用”，如下图所示：
 
- ![Azure 中的 Microsoft Antimalware](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
+   ![Azure 中的 Microsoft Antimalware](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windowslinux-iaas-vm-by-using-the-disk-encryption-powershell-cmdlet"></a>使用磁盘加密 PowerShell cmdlet 获取已加密 (Windows/Linux) IaaS VM 的加密状态
 可使用磁盘加密 PowerShell cmdlet `Get-AzureRmVMDiskEncryptionStatus` 获取 IaaS VM 的加密状态。 若要获取 VM 的加密设置，请输入以下内容：
@@ -722,15 +722,15 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
 
 ### <a name="enable-encryption-on-pre-encrypted-iaas-vm-with-azure-managed-disk"></a>在具有 Azure 托管磁盘的预加密的 IaaS VM 上启用加密
 使用 Azure 托管磁盘 ARM 模板，以便借助该 ARM 模板从预加密的 VHD 创建加密的 VM，该模板位于   
-[从预加密的 VHD/存储 blob 创建一个新的加密托管磁盘] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+[从预加密的 VHD/存储 Blob 创建新的加密托管磁盘](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
 
 ### <a name="enable-encryption-on-a-new-linux-iaas-vm-with-azure-managed-disk"></a>在具有 Azure 托管磁盘的新 Linux IaaS VM 上启用加密
 使用 Azure 托管磁盘 ARM 模板，以便借助该 ARM 模板创建新的加密 Linux IaaS VM，该模板位于   
-[使用全磁盘加密部署 RHEL 7.2] (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+[部署使用全磁盘加密的 RHEL 7.2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
 
 ### <a name="enable-encryption-on-a-new-windows-iaas-vm-with-azure-managed-disk"></a>在具有 Azure 托管磁盘的新 Windows IaaS VM 上启用加密
  使用 Azure 托管磁盘 ARM 模板，以便借助该 ARM 模板创建新的加密 Linux IaaS VM，该模板位于   
- [从库映像创建新的加密 Windows IaaS 托管磁盘 VM] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+ [从库映像创建新的加密 Windows IaaS 托管磁盘 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
 
   > [!NOTE]
   >使用 Azure 磁盘加密 PS cmdlet Set-AzureRmVMDiskEncryptionExtension 或 CLI 命令在 Azure 托管磁盘 VM 上启用加密时，必须使用 -skipVmBackup 参数。
@@ -822,21 +822,21 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
 ##### <a name="steps"></a>步骤
 1. 通过之前指定的分发版之一创建 VM。
 
- 对于 CentOS 7.2，通过专门的映像支持 OS 磁盘加密。 若要使用此映像，请在创建 VM 时将“7.2n”指定为 SKU：
- ```
+   对于 CentOS 7.2，通过专门的映像支持 OS 磁盘加密。 若要使用此映像，请在创建 VM 时将“7.2n”指定为 SKU：
+   ```
     Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
- ```
+   ```
 2. 根据需要配置 VM。 如果打算加密所有（OS + 数据）驱动器，需要指定数据驱动器且可从 /etc/fstab 处装载数据驱动器。
 
- > [!NOTE]
- > 使用 UUID =... 在 /etc/fstab 中指定数据驱动器（而不是指定 /dev/sdb1 等块设备名称）。 在加密过程中，驱动器的顺序将在 VM 上有所改变。 如果 VM 依赖于特定块设备顺序，加密后将无法装载。
+   > [!NOTE]
+   > 使用 UUID =... 在 /etc/fstab 中指定数据驱动器（而不是指定 /dev/sdb1 等块设备名称）。 在加密过程中，驱动器的顺序将在 VM 上有所改变。 如果 VM 依赖于特定块设备顺序，加密后将无法装载。
 
 3. 注销 SSH 会话。
 
 4. 若要加密 OS，请在[启用加密](#enable-encryption-on-existing-or-running-iaas-linux-vm-in-azure)时将 volumeType 指定为“All”或“OS”。
 
- > [!NOTE]
- > 未作为 `systemd` 服务运行的所有用户空间进程应使用 `SIGKILL` 终止。 重启 VM。 在正在运行的 VM 上启用 OS 磁盘加密时，请计划 VM 停机时间。
+   > [!NOTE]
+   > 未作为 `systemd` 服务运行的所有用户空间进程应使用 `SIGKILL` 终止。 重启 VM。 在正在运行的 VM 上启用 OS 磁盘加密时，请计划 VM 停机时间。
 
 5. 使用[下一部分](#monitoring-os-encryption-progress)中的说明，定期监视加密进度。
 
@@ -850,7 +850,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-重启之前，建议保存 VM 的[启动诊断](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/)。
+   重启之前，建议保存 VM 的[启动诊断](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/)。
 
 #### <a name="monitoring-os-encryption-progress"></a>监视 OS 加密进度
 可通过三种方法监视 OS 加密进度：
@@ -862,14 +862,14 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk encryption started
     ```
- VM 变为“OS 磁盘加密开始”后，在支持高级存储的 VM 上将需要花费大约 40-50 分钟。
+  VM 变为“OS 磁盘加密开始”后，在支持高级存储的 VM 上将需要花费大约 40-50 分钟。
 
- 由于 WALinuxAgent 出现[问题 #388](https://github.com/Azure/WALinuxAgent/issues/388)，`OsVolumeEncrypted` 和 `DataVolumesEncrypted` 在某些发行版中显示为 `Unknown`。 在 WALinuxAgent 2.1.5 版及更高版本中，将自动修复此问题。 如果在输出中看到 `Unknown`，可通过使用 Azure 资源浏览器验证磁盘加密状态。
+  由于 WALinuxAgent 出现[问题 #388](https://github.com/Azure/WALinuxAgent/issues/388)，`OsVolumeEncrypted` 和 `DataVolumesEncrypted` 在某些发行版中显示为 `Unknown`。 在 WALinuxAgent 2.1.5 版及更高版本中，将自动修复此问题。 如果在输出中看到 `Unknown`，可通过使用 Azure 资源浏览器验证磁盘加密状态。
 
- 转到 [Azure 资源浏览器](https://resources.azure.com/)，然后在左侧的选择面板中展开此层次结构：
+  转到 [Azure 资源浏览器](https://resources.azure.com/)，然后在左侧的选择面板中展开此层次结构：
 
- ~~~~
- |-- subscriptions
+  ~~~~
+  |-- subscriptions
      |-- [Your subscription]
           |-- resourceGroups
                |-- [Your resource group]
@@ -878,11 +878,11 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-~~~~                
+  ~~~~                
 
- 在 InstanceView 中，向下滚动以查看驱动器的加密状态。
+  在 InstanceView 中，向下滚动以查看驱动器的加密状态。
 
- ![VM 实例视图](./media/azure-security-disk-encryption/vm-instanceview.png)
+  ![VM 实例视图](./media/azure-security-disk-encryption/vm-instanceview.png)
 
 * 查看[启动诊断](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/)。 来自 ADE 扩展的消息应带有前缀 `[AzureDiskEncryption]`。
 
@@ -890,7 +890,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- 建议不要在 OS 加密正在进行时登录 VM。 仅当其他两个方法都失败时再复制日志。
+  建议不要在 OS 加密正在进行时登录 VM。 仅当其他两个方法都失败时再复制日志。
 
 #### <a name="prepare-a-pre-encrypted-linux-vhd"></a>准备预加密的 Linux VHD
 ##### <a name="ubuntu-16"></a>Ubuntu 16
@@ -898,23 +898,23 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
 
 1. 对磁盘进行分区时选择“配置加密卷”。
 
- ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+   ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. 创建一个单独的不得加密的启动驱动器。 对根驱动器进行加密。
 
- ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+   ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. 提供通行短语。 这是将上传到 Key Vault 的密码。
 
- ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+   ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. 完成分区。
 
- ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+   ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. 启动 VM 并被要求提供密码时，请使用步骤 3 中提供的密码。
 
- ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+   ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. 使用[这些说明](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/)准备 VM 以上传到 Azure。 不要运行最后一步（取消预配 VM）。
 
@@ -955,32 +955,32 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
      else
         echo "Success loading keyfile!" >&2
     fi
-```
+   ```
 
 2. 在 */etc/crypttab* 中更改加密配置。 它看起来应该如下所示：
- ```
+   ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
 3. 如果要在 Windows 中编辑 *azure_crypt_key.sh*但却将其复制到了 Linux，请运行 `dos2unix /usr/local/sbin/azure_crypt_key.sh`。
 
 4. 将可执行文件的权限添加到脚本：
- ```
+   ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
- ```
+   ```
 5. 通过追加行编辑 */etc/initramfs-tools/modules*：
- ```
+   ```
     vfat
     ntfs
     nls_cp437
     nls_utf8
     nls_iso8859-1
-```
+   ```
 6. 运行 `update-initramfs -u -k all` 更新 initramfs 以使 `keyscript` 生效。
 
 7. 现在可以取消预配 VM。
 
- ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+   ![Ubuntu 16.04 安装](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. 继续下一步，[上传 VHD](#upload-encrypted-vhd-to-an-azure-storage-account) 到 Azure。
 
@@ -988,11 +988,11 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
 执行以下步骤，在分发安装过程中配置加密：
 1. 对磁盘进行分区时，选择“加密卷组”，然后输入密码。 这是将上传到 Key Vault 的密码。
 
- ![openSUSE 13.2 安装](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+   ![openSUSE 13.2 安装](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. 使用密码启动 VM。
 
- ![openSUSE 13.2 安装](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+   ![openSUSE 13.2 安装](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. 遵循 [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131)（为 Azure 准备 SLES 或 openSUSE 虚拟机）中的说明准备 VM，以上传到 Azure。 不要运行最后一步（取消预配 VM）。
 
@@ -1002,7 +1002,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. 注释掉文件 /usr/lib/dracut/modules.d/90crypt/module-setup.sh 末尾的这些代码行：
- ```
+   ```
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -1012,20 +1012,20 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
     #        $systemdsystemunitdir/sysinit.target.wants/cryptsetup.target \
     #        systemd-ask-password systemd-tty-ask-password-agent
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
- ```
+   ```
 
 3. 在文件 /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh 的开头附加以下行：
- ```
+   ```
     DRACUT_SYSTEMD=0
- ```
-并更改所有匹配项：
- ```
+   ```
+   并更改所有匹配项：
+   ```
     if [ -z "$DRACUT_SYSTEMD" ]; then
- ```
-to:
-```
+   ```
+   to:
+   ```
     if [ 1 ]; then
-```
+   ```
 4. 编辑 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 并将其附加在“# Open LUKS device”的后面：
 
     ```
@@ -1056,19 +1056,19 @@ to:
 执行以下步骤，在分发安装过程中配置加密：
 1. 对磁盘进行分区时，选择“加密我的数据”。
 
- ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+   ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. 确保为根分区选择了“加密”。
 
- ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+   ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. 提供通行短语。 这是将上传到 Key Vault 的密码。
 
- ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+   ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. 启动 VM 并被要求提供密码时，请使用步骤 3 中提供的密码。
 
- ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+   ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. 通过 [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70)（为 Azure 准备基于 CentOS 的虚拟机）中的“CentOS 7.0+”说明准备 VM 以上传到 Azure。 不要运行最后一步（取消预配 VM）。
 
@@ -1082,7 +1082,7 @@ to:
     ```
 
 2. 注释掉文件 /usr/lib/dracut/modules.d/90crypt/module-setup.sh 末尾的这些代码行：
-```
+   ```
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -1092,20 +1092,20 @@ to:
     #        $systemdsystemunitdir/sysinit.target.wants/cryptsetup.target \
     #        systemd-ask-password systemd-tty-ask-password-agent
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
-```
+   ```
 
 3. 在文件 /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh 的开头附加以下行：
-```
+   ```
     DRACUT_SYSTEMD=0
-```
-并更改所有匹配项：
-```
+   ```
+   并更改所有匹配项：
+   ```
     if [ -z "$DRACUT_SYSTEMD" ]; then
-```
-to
-```
+   ```
+   to
+   ```
     if [ 1 ]; then
-```
+   ```
 4. 编辑 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 并将其附加在“# Open LUKS device”的后面：
     ```
     MountPoint=/tmp-keydisk-mount

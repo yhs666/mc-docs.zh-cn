@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 07/26/2018
-ms.date: 12/10/2018
+origin.date: 12/06/2018
+ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 090185d7766b81370be0881ca3db4bac61be92ec
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a62b20cb13cab4a8b722a4941822e74707fc1b3c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675511"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625772"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 
@@ -24,7 +24,7 @@ ms.locfileid: "52675511"
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 >
 
-本文还介绍如何查看状态，以及如何更新、删除和取消预配 ExpressRoute 线路。
+本文逐步讲解检查状态以及更新或删除并预配 ExpressRoute 经典部署模型线路的步骤。 本文适用于经典部署模型。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -47,25 +47,25 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
-  ```powershell
-  Connect-AzureRmAccount -Environment AzureChinaCloud
-  ```
+   ```powershell
+   Connect-AzureRmAccount -Environment AzureChinaCloud
+   ```
 2. 检查该帐户的订阅。
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
 
-  ```powershell
-  Add-AzureAccount -Environment AzureChinaCloud
-  ```
+   ```powershell
+   Add-AzureAccount -Environment AzureChinaCloud
+   ```
 
 ## <a name="get-the-status-of-a-circuit"></a>获取线路的状态
 
@@ -82,7 +82,6 @@ ServiceProviderName              : Beijing Telecom Ethernet
 ServiceProviderProvisioningState : Provisioned
 Sku                              : Standard
 Status                           : Enabled
-
 ```
 
 可以将服务密钥作为参数传递给调用，从而获取特定 ExpressRoute 线路的相关信息。

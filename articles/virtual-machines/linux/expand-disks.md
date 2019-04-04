@@ -13,21 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/15/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4a4e717179ac67f757b6e9b42e9f91c6ff146b0d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.subservice: disks
+ms.openlocfilehash: 314a66c7230189821b85cb3bc3bc56de6ccee87c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674919"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626794"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘
 
 本文介绍了如何使用 Azure CLI 扩展 Linux 虚拟机 (VM) 的托管磁盘。 可通过[添加数据磁盘](add-disk.md)来扩充存储空间，也可扩展现有的数据磁盘。 在 Azure 中的 Linux VM 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 
 
 > [!WARNING]
-> 执行磁盘重设大小操作前请务必确保已备份数据。 有关详细信息，请参阅[在 Azure 中备份 Linux VM](tutorial-backup-vms.md)。
+> 始终确保文件系统处于正常状态，并确保在执行磁盘大小调整操作之前备份数据。 有关详细信息，请参阅[在 Azure 中备份 Linux VM](tutorial-backup-vms.md)。
 
 ## <a name="expand-an-azure-managed-disk"></a>扩展 Azure 托管磁盘
 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
@@ -67,7 +68,7 @@ ms.locfileid: "52674919"
     ```
 
     > [!NOTE]
-    > 扩展托管磁盘时，更新的大小将向上舍入到最接近的托管磁盘大小。 有关可用托管磁盘大小和层的表，请参阅 [Azure 托管磁盘概述 - 定价和计费](../windows/managed-disks-overview.md#pricing-and-billing)。
+    > 扩展托管磁盘时，更新的大小将向上舍入到最接近的托管磁盘大小。 有关可用托管磁盘大小和层的表，请参阅 [Azure 托管磁盘概述 - 定价和计费](../windows/managed-disks-overview.md)。
 
 1. 使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM。 以下示例在名为 myResourceGroup 的资源组中启动名为 myVM 的 VM：
 
@@ -143,7 +144,7 @@ ms.locfileid: "52674919"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示数据驱动器 */dev/sdc1* 现在为 200 GB：
+1. 若要验证是否已调整数据磁盘的大小，请使用 `df -h`。 以下示例输出显示数据驱动器 */dev/sdc1* 现在为 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

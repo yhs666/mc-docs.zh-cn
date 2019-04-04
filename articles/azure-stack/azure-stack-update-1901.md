@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/20/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 7d857c8b4a3eb8b876e8f392230707ddde7aeaf9
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 5bd86726837c3380b354263202822367ecc9a96a
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987929"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503559"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -59,12 +59,12 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - **1809**：[KB 4481548 – Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：当前没有修补程序可用。
-- **1901**：当前没有修补程序可用。
+- **1901**：[KB 4481548 - Azure Stack 修补程序 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-- 在更新到 1901 之前，请先安装 1811 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。
+> - 在更新到 1901 之前，请先安装 1811 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。
 
 - 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。
 
@@ -72,7 +72,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1901 之前将适用于 Azure Stack 的管理包更新到版本 10.0.3.11。
+- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1901 之前将适用于 Azure Stack 的管理包更新到版本 1.0.3.11。
 
 ## <a name="new-features"></a>新增功能
 
@@ -90,7 +90,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    * **AzureRm.Storage**  
          AzureRm 汇总模块现在包含已发布的 5.0.4 版，支持 **api-version 2017-10-01**。  
    * **AzureRm.Compute**  
-         在 `New-AzureRMVM` 和 `NewAzureRMVMSS` 中添加了简单参数集，`-ImageName` 参数支持指定用户映像。  
+         在 `New-AzureRmVM` 和 `New-AzureRmVmss` 中添加了简单参数集，`-Image` 参数支持指定用户映像。  
    * **AzureRm.Insights**  
          AzureRm 汇总模块现在包含已发布的 5.1.5 版，支持适用于指标、指标定义资源类型的 **api-version 2018-01-01**。
 
@@ -117,7 +117,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 修复了以下问题：在将虚拟网络的 DNS 设置从“使用 Azure Stack DNS”更新为“自定义 DNS”之后，不使用新设置更新实例。
 
 - <!-- 3235634 – IS, ASDK -->
-修复了以下问题：部署其大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**）时，需要将后缀指定为 **Standard_A2_v2**（小写 v）。 使用全球 Azure 时，现在可以使用 **Standard_A2_V2**（大写 V）。
+  修复了以下问题：部署其大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**）时，需要将后缀指定为 **Standard_A2_v2**（小写 v）。 使用全球 Azure 时，现在可以使用 **Standard_A2_V2**（大写 V）。
 
 <!-- 2869209 – IS, ASDK --> 
 - 修复了以下问题：使用 [Add-AzsPlatformImage cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) 时必须使用 **-OsUri** 参数作为存储帐户 URI（磁盘将上传到该存储帐户）。 现在还可以使用磁盘的本地路径。
@@ -289,9 +289,9 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 <!-- 3632798 - IS, ASDK -->
 - 在门户中，如果添加入站安全规则并选择“服务标记”作为源，“服务标记”列表中会显示多个不适用于 Azure Stack 的选项。 在 Azure Stack 中有效的选项仅限以下几个：
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。 仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。
 

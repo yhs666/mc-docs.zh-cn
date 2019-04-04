@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 02/13/2019
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2de5d35df537d79a1684e7899600736bed504a07
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5567bd3ecce605ac99be36873f7d4cbbd7fb5d8a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626680"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -42,29 +42,30 @@ ms.locfileid: "57964483"
 
 ## <a name="supported-types-for-named-entity-recognition"></a>命名实体识别支持的类型
 
-| 类型  | 子类型 | 示例 |
-|:-----------   |:------------- |:---------|
-| 人员        | 暂无\*         | “Jeff”、“Bill Gates”     |
-| 位置      | 暂无\*         | “Redmond, Washington”、“Paris”  |
-| 组织  | 暂无\*         | “Microsoft”   |
-| 数量      | Number        | “6”、“six”     | 
-| 数量      | 百分比    | “50%”、“fifty percent”| 
-| 数量      | Ordinal       | “2nd”、“second”     | 
-| 数量      | NumberRange   | “4 to 8”     | 
-| 数量      | Age           | “90 day old”、“30 years old”    | 
-| 数量      | 货币      | “$10.99”     | 
-| 数量      | 维度     | “10 miles”、“40 cm”     | 
-| 数量      | 温度   | “32 degrees”    |
-| DateTime      | 暂无\*         | “6:30PM February 4, 2012”      | 
-| DateTime      | 日期          | “May 2nd, 2017”、“05/02/2017”   | 
-| DateTime     | 时间          | “8am”、“8:00”  | 
-| DateTime      | DateRange     | “May 2nd to May 5th”    | 
-| DateTime      | TimeRange     | “6pm to 7pm”     | 
-| DateTime      | 持续时间      | “1 minute and 45 seconds”   | 
-| DateTime      | 设置           | “every Tuesday”     | 
-| DateTime      | TimeZone      |    | 
-| URL           | 暂无\*         | "https://www.bing.com"    |
-| Email         | 暂无\*         | "support@contoso.com" |
+| 类型         | 子类型     | 示例                        |
+|:-------------|:------------|:-------------------------------|
+| 人员       | 暂无\*       | “Jeff”、“Bill Gates”           |
+| 位置     | 暂无\*       | “Redmond, Washington”、“Paris” |
+| 组织 | 暂无\*       | “Microsoft”                    |
+| 数量     | Number      | “6”、“six”                     |
+| 数量     | 百分比  | “50%”、“fifty percent”         |
+| 数量     | Ordinal     | “2nd”、“second”                |
+| 数量     | NumberRange | “4 to 8”                       |
+| 数量     | Age         | “90 day old”、“30 years old”   |
+| 数量     | 货币    | “$10.99”                       |
+| 数量     | 维度   | “10 miles”、“40 cm”            |
+| 数量     | 温度 | “32 degrees”                   |
+| DateTime     | 暂无\*       | “6:30PM February 4, 2012”      |
+| DateTime     | 日期        | “May 2nd, 2017”、“05/02/2017”  |
+| DateTime    | 时间        | “8am”、“8:00”                  |
+| DateTime     | DateRange   | “May 2nd to May 5th”           |
+| DateTime     | TimeRange   | “6pm to 7pm”                   |
+| DateTime     | 持续时间    | “1 minute and 45 seconds”      |
+| DateTime     | 设置         | “every Tuesday”                |
+| DateTime     | TimeZone    |                                |
+| URL          | 暂无\*       | "<https://www.bing.com>"       |
+| Email        | 暂无\*       | "support@contoso.com"          |
+
 \*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。
 
 
@@ -89,7 +90,7 @@ ms.locfileid: "57964483"
                ]
 }
 ```    
-    
+
 ## <a name="step-1-structure-the-request"></a>步骤 1：构造请求
 
 有关请求定义的详细信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。 为方便起见，特重申以下几点：
@@ -107,7 +108,7 @@ ms.locfileid: "57964483"
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 
-在收到请求时执行分析。 该服务每分钟最多接受 100 个请求。 每个请求最大为 1 MB。
+在收到请求时执行分析。 该服务每秒最多接受 100 个请求，每分钟最多接受 1000 个请求。 每个请求最大为 1 MB。
 
 记住，该服务是无状态服务。 帐户中未存储任何数据。 结果会立即在响应中返回。
 

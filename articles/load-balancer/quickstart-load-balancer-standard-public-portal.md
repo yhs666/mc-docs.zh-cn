@@ -19,12 +19,12 @@ origin.date: 02/26/2019
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 43472962712aea0bfb02888b88926b3a2e359e60
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: a2f02175ab37e603b42f8324789c707869984624
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348619"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625852"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建标准负载均衡器以对 VM 进行负载均衡
 
@@ -76,11 +76,11 @@ ms.locfileid: "58348619"
 2. 单击 **“确定”**。
 3. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 4. 为 VM 设置输入以下值：
-    1. 请确保选择 *myVNet* 作为虚拟网络，并选择 *myBackendSubnet* 作为子网。
-    2. 对于**公共 IP 地址**，请在“创建公共 IP 地址”窗格中，选择“标准”，然后选择“确定”。
-    3. 对于**网络安全组**，选择“高级”，然后执行以下操作：
-        1. 选择“网络安全组(防火墙)”，然后在“选择网络安全组”页上，选择“新建”。 
-        2. 在“创建网络安全组”页中，对于**名称**，输入 *myNetworkSecurityGroup*，然后选择“确定”。
+   1. 请确保选择 *myVNet* 作为虚拟网络，并选择 *myBackendSubnet* 作为子网。
+   2. 对于**公共 IP 地址**，请在“创建公共 IP 地址”窗格中，选择“标准”，然后选择“确定”。
+   3. 对于**网络安全组**，选择“高级”，然后执行以下操作：
+      1. 选择“网络安全组(防火墙)”，然后在“选择网络安全组”页上，选择“新建”。 
+      2. 在“创建网络安全组”页中，对于**名称**，输入 *myNetworkSecurityGroup*，然后选择“确定”。
 5. 单击“禁用”以禁用启动诊断。
 6. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。
 7. 使用步骤 1-6，创建第二个名为 VM2 的另一个 VM，将 myVnet 作为其虚拟网络，将 myBackendSubnet 作为其子网，将 *myNetworkSecurityGroup 作为其网络安全组。 
@@ -131,9 +131,9 @@ ms.locfileid: "58348619"
    - 对于“名称”，请键入 *myBackendPool* 作为后端池的名称。
    - 对于**虚拟网络**，选择 *myVNet*。
    - 在“虚拟机”下添加 *myVM1* 和 *myVM2* 及其对应的 IP 地址，然后选择“添加”。
-    - 单击 **“确定”**。
+     - 单击 **“确定”**。
 
-3. 通过检查确保负载均衡器后端池设置显示 **VM1** 和 **VM2** 这两个 VM。
+4. 通过检查确保负载均衡器后端池设置显示 **VM1** 和 **VM2** 这两个 VM。
 
 ### <a name="create-a-health-probe"></a>创建运行状况探测器
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/18/2018
 ms.date: 10/22/2018
 ms.author: v-jay
-ms.openlocfilehash: 4b3c6dc3f6d37080e28cbf6c14a9cfd5b535010c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9b520f33d5292d18b13a5e23996efef4b880cabb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658751"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627256"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ ms.locfileid: "52658751"
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-可以使用 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)来测试流。
+可以使用 [Azure 媒体服务播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)来测试流。
 
 ## <a id="client_request"></a>你的客户端如何从密钥传送服务请求密钥？
 在上一步骤中，构造了指向清单文件的 URL。 客户端需要从流清单文件提取必要的信息，以便向密钥传送服务发出请求。
@@ -165,7 +165,7 @@ ms.locfileid: "52658751"
 
 对于 HLS，根清单将划分成段文件。 
 
-例如，根清单为 http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)。 它包含段文件名的列表。
+例如，根清单为 <http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl>)。 它包含段文件名的列表。
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -174,7 +174,7 @@ ms.locfileid: "52658751"
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-如果在文本编辑器中打开某个段文件（例如， http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video，格式 =m3u8-aapl），它包含 #EXT-X-KEY，指示该文件已加密。
+如果在文本编辑器中打开某个段文件（例如，<http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl>），它包含 #EXT-X-KEY，指示该文件已加密。
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -255,7 +255,7 @@ ms.locfileid: "52658751"
 ### <a id="example"></a>示例
 
 使用本部分中所示的代码覆盖 Program.cs 文件中的代码。
- 
+
 >[!NOTE]
 >不同媒体服务策略的策略数限制为 1,000,000 个（例如，Locator 策略或 ContentKeyAuthorizationPolicy 就是如此）。 如果始终使用相同的天数/访问权限，请使用相同的策略 ID。 例如，适用于需要长期保留使用的定位符的策略（非上传策略）。 有关详细信息，请参阅[使用媒体服务 .NET SDK 管理资产和相关的实体](media-services-dotnet-manage-entities.md#limit-access-policies)中的“限制访问策略”部分。
 
@@ -315,7 +315,7 @@ namespace DynamicEncryptionWithAES
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-            
+
             bool tokenRestriction = true;
             string tokenTemplateString = null;
 
@@ -629,7 +629,6 @@ namespace DynamicEncryptionWithAES
         }
     }
 }
-
 ```
 
 <!--Update_Description:wording update-->

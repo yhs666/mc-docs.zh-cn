@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/11/2018
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: d355b3bad50422dbde92d26a82da13d64a7883ee
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 72e16abd5da3972db2ce533611730cc0e7587990
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192931"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626949"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -41,7 +41,7 @@ ms.locfileid: "54192931"
     ```
     ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
-    
+
     下表介绍了这些命令行选项：
 
     |选项  |说明  |
@@ -63,10 +63,10 @@ ms.locfileid: "54192931"
 2. 在“基本”部分中，选择“导入 Azure”，输入作业名称字符串，选择订阅，输入或选择资源组。 输入导入作业的描述性名称。 请注意，输入的名称只能包含小写字母、数字、连字符和下划线，必须以字母开头并且不得包含空格。 在作业进行中以及作业完成后，使用所选名称来跟踪作业。
 
 3. 在“作业详细信息”部分中，上传在驱动器准备步骤中获取的驱动器日志文件。 如果使用了 waimportexport.exe version1，需要为已准备好的每个驱动器上传一个文件。 在“导入目标”存储帐户部分中，选择要将数据导入哪个存储帐户。 “放置位置”根据选定存储帐户所属的区域自动进行填充。
-   
+
    ![创建导入作业 - 步骤 3](./media/storage-import-export-service/import-job-03.png)
 4. 在“回寄信息”部分中，从下拉列表中选择快递商，并输入已通过此快递商创建的有效快递商帐号。 当导入作业完成后，我们使用此帐户寄回驱动器。 输入完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、州/省/自治区/直辖市和国家/地区。
-   
+
 5. 在“摘要”部分中，输入 Azure 数据中心寄送地址是为了将磁盘寄送到 Azure 数据中心。 请确保寄送标签上标明了作业名称和完整地址。 
 
 6. 单击“摘要页”上的“确定”，完成“创建导入作业”。
@@ -95,7 +95,7 @@ ms.locfileid: "54192931"
 必须拥有 Azure 订阅以及一个或多个存储帐户才能使用导入/导出服务。 Azure 导入/导出仅支持经典、Blob 存储帐户和常规用途 v1 存储帐户。 每个作业只能用于将数据传入/传出一个存储帐户。 换言之，一个导入/导出作业不能跨多个存储帐户。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-quickstart-create-account.md)。
 
 > [!IMPORTANT] 
-> Azure 导入导出服务不支持已启用 [虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md) 功能的存储帐户。 
+> Azure 导入导出服务不支持已启用[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)功能的存储帐户。 
 > 
 > 
 
@@ -199,7 +199,7 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 * 在导入作业详细信息中更新快递跟踪号码，并提交导入作业。
 * Azure 数据中心在收到驱动器后会对其进行处理。
 * 该中心会使用快递商帐户将驱动器寄送到在导入作业中提供的回寄地址。
-  
+
     ![图 1：导入作业流](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>关于导出作业
@@ -220,7 +220,7 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 * Azure 数据中心在收到驱动器后会对其进行处理。
 * 驱动器使用 BitLocker 加密；密钥通过 Azure 门户提供。  
 * 该中心会使用快递商帐户将驱动器寄送到在导入作业中提供的回寄地址。
-  
+
     ![图 2：导出作业流](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>查看作业和驱动器状态
@@ -288,264 +288,263 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 
 1. 标识要导入 Azure 文件存储的数据。 导入的数据可以是本地服务器或网络共享中的目录和独立文件。  
 2. 根据数据总大小确定所需驱动器数目。 采购所需数目的 2.5 英寸 SSD 或者 2.5/3.5 英寸 SATA II 或 III 硬盘驱动器。
-4. 确定要复制到每个磁盘驱动器的目录和/或独立文件。
-5. 为数据集和驱动器集创建 CSV 文件。
-    
-  以下是导入数据作为 Azure 文件的数据集 CSV 文件示例：
-  
+3. 确定要复制到每个磁盘驱动器的目录和/或独立文件。
+4. 为数据集和驱动器集创建 CSV 文件。
+
+   以下是导入数据作为 Azure 文件的数据集 CSV 文件示例：
+
     ```
-    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
-    "F:\50M_original\","fileshare/",file,rename,"None",None 
-    ```
-   In the above example, 100M_1.csv.txt  will be copied to the root of the "fileshare". If the "Fileshare" does not exist, one will be created. All files and folders under 50M_original will be recursively copied to fileshare. Folder structure will be maintained.
-
-    Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
-    
-
-
-    **Driveset CSV File**
-
-    The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. 
-
-    Below is the example of driveset CSV file:
-    
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
+    "F:\50M_original\","fileshare/",file,rename,"None",None 
     ```
-    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey  G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |  H,Format,SilentMode,Encrypt,
-    ```
+   在上面的示例中，100M_1.csv.txt 将复制到“fileshare”的根目录中。 如果“Fileshare”不存在，将创建一个。 50M_original 下的所有文件和文件夹以递归方式复制到 fileshare。 文件夹结构保持不变。
 
-    In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
+    详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
 
-    Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.  Use the [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
-7.  You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
 
-8. Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
+~~~
+**Driveset CSV File**
+
+The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. 
+
+Below is the example of driveset CSV file:
+
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+H,Format,SilentMode,Encrypt,
+```
+
+In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
+
+Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
+~~~
+
+6. 使用 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)将数据复制到一个或多个硬盘驱动器。
+7. 可以通过在驱动器集 CSV 中的 Encryption 字段内指定“Encrypt”，在硬盘驱动器上启用 BitLocker 加密。 也可以手动在硬盘驱动器上启用 BitLocker 加密，并在运行工具时，在驱动器集 CSV 文件中指定“AlreadyEncrypted”并提供密钥。
+
+8. 完成磁盘准备操作以后，请勿修改硬盘驱动器上的数据，也勿修改日志文件。
 
 > [!IMPORTANT]
-> Each hard disk drive you prepare will result in a journal file. When you are creating the import job using the Azure portal, you must upload all the journal files of the drives which are part of that import job. Drives without journal files will not be processed.
+> 准备的每个硬盘驱动器都会生成一个日记文件。 使用 Azure 门户创建导入作业时，必须上传属于该导入作业的驱动器的所有日记文件。 不带日志文件的驱动器得不到处理。
 > 
 >
 
-Below are the commands and examples for preparing the hard disk drive using WAImportExport tool.
+下面是使用 WAImportExport 工具进行硬盘驱动器准备的命令和示例。
 
-WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
+在第一个复制会话中使用新复制会话复制目录和/或文件的 WAImportExport 工具 PrepImport 命令：
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
 ```
 
-**Import example 1**
+导入示例 1
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-In order to **add more drives**, one can create a new driveset file and run the command as below. For subsequent copy sessions to the different disk drives than specified in InitialDriveset .csv file, specify a new driveset CSV file and provide it as a value to the parameter "AdditionalDriveSet". Use the **same journal file** name and provide a **new session ID**. The format of AdditionalDriveset CSV file is same as InitialDriveSet format.
+若要 **添加更多驱动器**，可以创建一个新的驱动器集文件并运行以下命令。 如果后续复制会话中的磁盘驱动器与 InitialDriveset .csv 中指定的不同，请指定一个新的驱动器集 CSV 文件并将其作为值提供给“AdditionalDriveSet”参数。 使用同一日记文件名称并提供新的会话 ID。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 ```
 
-**Import example 2**
+导入示例 2
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
 
-In order to add additional data to the same driveset, WAImportExport tool PrepImport command can be called for subsequent copy sessions to copy additional files/directory:
-For subsequent copy sessions to the same hard disk drives specified in InitialDriveset .csv file, specify the **same journal file** name and provide a **new session ID**; there is no need to provide the storage account key.
+为了向同一驱动器集添加其他数据，可以为后续复制会话调用 WAImportExport 工具 PrepImport 命令以复制其他文件/目录：在后续复制会话中将数据复制到 InitialDriveset.csv 文件中指定的同一组硬盘驱动器时，请指定**同一日志文件**名称并提供**新的会话 ID**；不需要提供存储帐户密钥。
 
 ```
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
 ```
 
-**Import example 3**
+导入示例 3
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-See more details about using the WAImportExport tool in [Preparing hard drives for import](storage-import-export-tool-preparing-hard-drives-import.md).
+若要更详细了解如何使用 WAImportExport 工具，请参阅[为导入准备硬盘驱动器](storage-import-export-tool-preparing-hard-drives-import.md)。
 
-Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
+另请参阅[为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)，以获取更详细的分步说明。  
 
 
 
-## Create an export job
-Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center so that data can be exported from your storage account to the drives and the drives then shipped to you.
+## <a name="create-an-export-job"></a>创建导出作业
+创建导出作业的目的是通知导入/导出服务：用户要将一个或多个空驱动器寄送到数据中心；这样数据中心就可以将数据从用户的存储帐户导出到驱动器，并将驱动器寄送给用户。
 
-### Prepare your drives
-Following pre-checks are recommended for preparing your drives for an export job:
+### <a name="prepare-your-drives"></a>准备驱动器
+对驱动器进行准备以便完成导出作业时，建议执行以下预检查：
 
-1. Check the number of disks required using the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use.
-2. Check that you can read/write to the hard drive that will be shipped for the export job.
+1. 使用 WAImportExport 工具的 PreviewExport 命令检查所需的磁盘数。 有关详细信息，请参阅[预览导出作业的驱动器使用情况](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 它可以根据要使用的驱动器大小，帮助你预览所选 Blob 的驱动器使用情况。
+2. 请检查你是否可以读取/写入需要寄送的用于导出作业的硬盘驱动器。
 
-### Create the export job
-1. To create an export job, navigate to More services -> STORAGE -> "Import/export jobs" on the Azure portal. Click **Create Import/export Job**.
-2. In Step 1 Basics, select "Export from Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed. provide contact information for the person responsible for this export job. 
+### <a name="create-the-export-job"></a>创建导出作业
+1. 若要创建导出作业，请在 Azure 门户上依次转到“更多服务”->“存储”->“导入/导出作业”。 单击“创建导入/导出作业”。
+2. 在“第 1 步:基本信息”中，选择“从 Azure 导出”，输入作业名称字符串，选择订阅，输入或选择资源组。 输入导入作业的描述性名称。 请注意，输入的名称只能包含小写字母、数字、连字符和下划线，必须以字母开头并且不得包含空格。 在作业进行中以及作业完成后，将使用所选名称来跟踪作业。 输入此导出作业的负责人的联系信息。 
 
-3. In Step 2 Job details, select the storage account that the data will be exported from in the Storage account section. The Drop-Off location  will be automatically populated based on the region of the storage account selected. Specify which blob data you wish to export from your storage account to your blank drive or drives. You can choose to export all blob data in the storage account, or you can specify which blobs or sets of blobs to export.
-   
-   To specify a blob to export, use the **Equal To** selector, and specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
-   
-   To specify all blobs starting with a prefix, use the **Starts With** selector, and specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name.
-   
-   The following table shows examples of valid blob paths:
-   
-   | Selector | Blob Path | Description |
+3. 在“第 2 步:作业详细信息”中，从存储帐户部分中选择要导出其中数据的存储帐户。 “放置位置”将根据选定存储帐户所属的区域自动进行填充。 指定要从存储帐户导出到空驱动器的 blob 数据。 可以选择导出该存储帐户中的所有 Blob 数据，也可以指定要导出的 Blob 或 Blob 组。
+
+   若要指定要导出的 Blob，请使用“等于”选择器，并指定该 Blob 的相对路径，以容器名称开头  。 使用 *$root* 指定根容器。
+
+   若要指定以某一前缀开头的所有 Blob，请使用“开头为”选择器，并指定前缀，以正斜杠“/”开头  。 该前缀可以是容器名称的前缀、完整容器名称或者后跟 Blob 名称前缀的完整容器名称。
+
+   下表显示有效 Blob 路径的示例：
+
+   | 选择器 | Blob 路径 | 说明 |
    | --- | --- | --- |
-   | Starts With |/ |Exports all blobs in the storage account |
-   | Starts With |/$root/ |Exports all blobs in the root container |
-   | Starts With |/book |Exports all blobs in any container that begins with prefix **book** |
-   | Starts With |/music/ |Exports all blobs in container **music** |
-   | Starts With |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
-   | Equal To |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
-   | Equal To |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
-   
-   You must provide the blob paths in valid formats to avoid errors during processing, as shown in this screenshot.
-   
-   ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
+   | 开头为 |/ |导出存储帐户中的所有 Blob |
+   | 开头为 |/$root/ |导出根容器中的所有 Blob |
+   | 开头为 |/book |导出任何容器中以前缀 book 开头的所有 Blob |
+   | 开头为 |/music/ |导出容器 music 中的所有 Blob |
+   | 开头为 |/music/love |导出容器 music 中以前缀 love 开头的所有 Blob |
+   | 等于 |$root/logo.bmp |导出根容器中的 Blob logo.bmp |
+   | 等于 |videos/story.mp4 |导出容器 videos 中的 Blob story.mp4 |
 
-4. In Step 3 Return shipping info, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. We will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region..
-   
- 5. In the Summary Page, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
+   必须以有效格式提供 Blob 路径，以免在处理过程中出现错误，如以下屏幕快照所示。
 
-6. Click OK on the Summary Page to complete Import job creation
+   ![创建导出作业 - 步骤 3](./media/storage-import-export-service/export-job-03.png)
 
-7. After shipping the disks, return to the **Import/Export** page on the Azure portal, 
-     a) Navigate and click on the import job
-     b) Click on **Update job status and tracking info once drives are shipped**. 
-     c) Select the check box "Mark as shipped"
-     d) Provide the Carrier and Tracking number.
-    
-   If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
-   
-8. You can track your job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
+4. 在“第 3 步:回寄信息”中，从下拉列表中选择快递商，并输入已通过此快递商创建的有效快递商帐号。 当导入作业完成后，我们会使用此帐户寄回驱动器。 输入完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、州/省/自治区/直辖市和国家/地区。
+
+   5. 在“摘要页”中，输入 Azure 数据中心寄送地址是为了将磁盘寄送到 Azure DC。 请确保寄送标签上标明了作业名称和完整地址。 
+
+5. 单击“摘要页”上的“确定”，完成“创建导入作业”
+
+6. 寄送磁盘后，返回到 Azure 门户上的“导入/导出”页，再执行以下操作：a) 转到并单击导入作业；b) 单击“驱动器寄送后，更新作业状态和跟踪信息”； 
+     c) 选中“标记为‘已寄送’”复选框；d) 输入“快递商”和“跟踪号码”。
+
+   如果在创建作业后的 2 周内未更新跟踪号，该作业便会过期。
+
+7. 可以在门户仪表板上跟踪作业进度。 若要了解上一部分中每个作业状态的含义，请 [查看作业状态](#viewing-your-job-status)。
 
    > [!NOTE]
-   > If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
+   > 如果在复制到硬盘时要导出的 Blob 正在使用中，Azure 导入/导出服务将生成该 Blob 的快照，并复制快照。
    > 
    > 
- 
-9. After you receive the drives with your exported data, you can view and copy the BitLocker keys generated by the service for your drive. Navigate to export job in the Azure portal and click the Import/Export tab. Select your export job from the list, and click the BitLocker Keys option. The BitLocker keys appear as shown below:
-   
-   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
-Please go through the FAQ section below as it covers the most common questions customers encounter when using this service.
+8. 收到包含已导出数据的驱动器以后，即可查看和复制该服务为驱动器生成的 BitLocker 密钥。 在 Azure 门户中，转到导出作业，再单击“导入/导出”选项卡。从列表中选择导出作业，再单击“BitLocker 密钥”选项。 BitLocker 密钥随即出现，如下所示：
 
-## Frequently asked questions
+   ![查看导出作业的 BitLocker 密钥](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
-**Can I copy Azure File storage using the Azure Import/Export service?**
+请查看下面的“常见问题”部分，因为该部分介绍了客户在使用此服务时遇到的最常见问题。
 
-Yes, the Azure Import/Export service supports import to Azure File Storage. It does not support export of Azure Files at this time.
+## <a name="frequently-asked-questions"></a>常见问题
 
-**Is the Azure Import/Export service available for CSP subscriptions?**
+能否使用 Azure 导入/导出服务复制 Azure 文件存储？
 
-Azure Import/Export service does support CSP subscriptions.
+可以，Azure 导入/导出服务支持导入到 Azure 文件存储。 目前它不支持导出 Azure 文件。
 
-**Can I skip the drive preparation step for an import job or can I prepare a drive without copying?**
+**Azure 导入/导出服务是否适用于 CSP 订阅？**
 
-Any drive that you want to ship for importing data must be prepared using the Azure WAImportExport tool. You must use the WAImportExport tool to copy data to the drive.
+Azure 导入/导出服务支持 CSP 订阅。
 
-**Do I need to perform any disk preparation when creating an export job?**
+**能否跳过导入作业的驱动器准备步骤？能否在不复制的情况下准备驱动器？**
 
-No, but some pre-checks are recommended. Check the number of disks required using the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use. Also check that you can read from and write to the hard drive that will be shipped for the export job.
+任何需要寄送到数据中心进行数据导入的驱动器都必须使用 WAImportExport 工具进行准备。 必须使用 WAImportExport 工具将数据复制到驱动器。
 
-**What happens if I accidentally send an HDD which does not conform to the supported requirements?**
+**在创建导出作业时我是否需要执行任何磁盘准备操作？**
 
-The Azure data center will return the drive that does not conform to the supported requirements to you. If only some of the drives in the package meet the support requirements, those drives will be processed, and the drives that do not meet the requirements will be returned to you.
+不需要，但建议执行一些预先检查。 使用 WAImportExport 工具的 PreviewExport 命令检查所需的磁盘数。 有关详细信息，请参阅[预览导出作业的驱动器使用情况](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 它可以根据要使用的驱动器大小，帮助你预览所选 Blob 的驱动器使用情况。 此外，请检查你是否可以读取和写入需要寄送的用于导出作业的硬盘驱动器。
 
-**Can I cancel my job?**
+**如果我无意中发送了不符合支持的要求的 HDD，会发生什么情况？**
 
-You can cancel a job when its status is Creating or Shipping.
+Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果包裹中只有某些驱动器满足支持要求，则会处理这些驱动器，而不符合支持要求的驱动器则会返还给你。
 
-**How long can I view the status of completed jobs in the Azure portal?**
+**是否可以取消我的作业？**
 
-You can view the status for completed jobs for up to 90 days. Completed jobs will be deleted after 90 days.
+可以取消状态为“创建”或“装运”的作业。
 
-**If I want to import or export more than 10 drives, what should I do?**
+**在 Azure 门户中可以查看多长时间的已完成作业的状态？**
 
-One import or export job can reference only 10 drives in a single job for the Import/Export service. If you want to ship more than 10 drives, you can create multiple jobs. Drives that are associated with the same job must be shipped together in the same package.
+可以查看最长 90 天的已完成作业的状态。 已完成作业在 90 天后被删除。
 
-**Does the service format the drives before returning them?**
+**如果我想要导入或导出超过 10 个驱动器，我应该做什么？**
 
-No. All drives are encrypted with BitLocker.
+对于导入/导出服务，一个导入或导出作业在单个作业中只能引用 10 个驱动器。 如果想要装运超过 10 个驱动器，可以创建多个作业。 与同一作业关联的驱动器必须放在同一个包裹中一起寄送。
 
-**Can I purchase drives for import/export jobs from 21Vianet?**
+**该服务是否会在返还驱动器之前将其格式化？**
 
-No. You will need to ship your own drives for both import and export jobs.
+否。 所有驱动器都使用 BitLocker 加密。
 
-** How can I access data that is imported by this service**
+**是否可为导入/导出作业从 21Vianet 购买驱动器？**
 
-The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.azure.cn/vs-azure-tools-storage-manage-with-storage-explorer 
+否。 对于导入和导出作业，用户将需要装运自己的驱动器。
 
-**After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
+**如何才能访问此服务导入的数据？**
 
-When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in the dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files. 
+以 Azure 存储帐户名义存储的数据可以通过 Azure 门户访问，也可以使用存储资源管理器这一独立工具进行访问。 https://docs.azure.cn/vs-azure-tools-storage-manage-with-storage-explorer 
 
-**If the drive has files that already exist in my storage account, will the service overwrite existing blobs or files in my storage account?**
+导入作业完成后，数据在存储帐户中看起来是什么样的？是否会保留目录层次结构？
 
-When preparing the drive, you can specify whether the destination files should be overwritten or ignored using the field in dataset CSV file called Disposition:<rename|no-overwrite|overwrite>. By default, the service will rename the new files rather than overwrite existing blobs or files.
+为导入作业准备硬盘驱动器时，目标由数据集 CSV 文件中的 DstBlobPathOrPrefix 字段指定。 该目标是存储帐户中的目标容器，可以将硬盘驱动器中的数据复制到其中。 在该目标容器中，为硬盘驱动器中的文件夹创建虚拟目录，为文件创建 Blob。 
 
-**Is the WAImportExport tool compatible with 32-bit operating systems?**
-No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. Please refer to the Operating Systems section in the [pre-requisites](#pre-requisites) for a complete list of supported OS versions.
+**如果驱动器的文件已存在于我的存储帐户中，该服务是否会覆盖我的存储帐户中的现有 Blob 或文件？**
 
-**Should I include anything other than the hard disk drive in my package?**
+准备驱动器时，可以使用数据集 CSV 文件中名为 /Disposition:<rename|no-overwrite|overwrite> 的字段指定是否应覆盖或忽略目标文件。 默认情况下，该服务会将新文件重命名，而不是覆盖现有 Blob 或文件。
 
-Please ship only your hard drives. Do not include items like power supply cables or USB cables.
+**WAImportExport 工具是否与 32 位操作系统兼容？**
+不是。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 版本的完整列表，请参阅 [先决条件](#pre-requisites) 中的“操作系统”部分。
 
-**Do I have to ship my drives using FedEx or China Postal Service?**
+**是否应该在包裹中添加除硬盘驱动器之外的其他东西？**
 
-You can ship drives to the data center using any known carrier like FedEx or China Postal Service. However, for shipping the drives back to you from the data center, you must provide a available address.
+请仅发运硬盘驱动器。 不要包括电源线或 USB 电缆之类的物品。
 
-**Are there any restrictions with shipping my drive internationally?**
+是否必须通过 FedEx 或中国邮政寄送驱动器？
 
-Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches 21Vianet in a timely manner.
+可以通过任何知名的快递商（例如 FedEx 或中国邮政）将驱动器寄送到数据中心。 但是，如果要求我们将驱动器从数据中心寄回给你，你必须提供可用地址。
 
-**When creating a job, the shipping address is a location that is different from my storage account location. What should I do?**
+**跨国寄送驱动器是否存在限制？**
 
-Some storage account locations are mapped to alternate shipping locations. Previously available shipping locations can also be temporarily mapped to alternate locations. Always check the shipping address provided during job creation before shipping your drives.
+请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 21Vianet。
 
-**When shipping my drive, the carrier asks for the data center contact address and phone number. What should I provide?**
+创建作业时，寄送地址是一个不同于存储帐户位置的位置。我该怎样做？
 
-The phone number and DC address is provided as part of job creation.
+某些存储帐户位置映射到备用寄送位置。 此前可用的寄送位置也可临时映射到备用位置。 在寄送驱动器之前，请始终查看你在创建作业的过程中提供的寄送地址。
 
-**Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to O365?**
+寄送驱动器时，快递商要求提供数据中心的联系人地址和电话号码。我该提供哪些内容？
 
-Please refer to [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+电话号码和数据中心地址是在创建作业过程中提供的。
 
-**Can I use the Azure Import/Export service to copy my backups offline to the Azure Backup Service?**
+**能否使用 Azure 导入/导出服务将 PST 邮箱和 SharePoint 数据复制到 O365？**
 
-Please refer to [Offline Backup workflow in Azure Backup](../../backup/backup-azure-backup-import-export.md).
+请参阅[将 PST 文件或 SharePoint 数据导入到 Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx)。
 
-**What is the maximum number of HDD for in one shipment?**
+**能否使用 Azure 导入/导出服务将我的备份脱机复制到 Azure 备份服务？**
 
-Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
-a) Have the disks labeled with the corresponding job names. 
-b) Update the jobs with a tracking number suffixed with -1, -2 etc.
-  
-**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?**
+请参阅 [Azure 备份中的脱机备份工作流](../../backup/backup-azure-backup-import-export.md)。
 
-Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
-Max Page Blob size is 1TB.
+**一次装运的最大 HDD数量是多少？**
 
-**Does Disk Import/Export support AES 256 encryption?**
+一次寄送中可以有任何数量 HDD，并且如果磁盘属于多个作业，建议：a) 使用对应的作业名称标记磁盘。 b) 使用后缀为 -1、-2 等的跟踪号码更新作业。
 
-Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
+**磁盘导入/导出支持的块 Blob 和页 Blob 的最大大小是多少？**
 
-If using [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+最大块 Blob 大小约为 4.768 TB 或 5,000,000 MB。
+最大页 Blob 大小为 1 TB。
+
+磁盘导入/导出是否支持 AES 256 加密？
+
+默认情况下，Azure 导入/导出服务使用 AES 128 BitLocker 加密进行加密，但在复制数据前，可以使用 BitLocker 进行手动加密，从而将加密提升为 AES 256。 
+
+如果使用的是 [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，下面展示了示例命令
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```
-If using [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+如果使用的是 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，请指定“AlreadyEncrypted”，并在驱动集 CSV 中提供密钥。
 ```
-DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-## Next steps
+## <a name="next-steps"></a>后续步骤
 
-* [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-* [Azure Import Export REST API sample](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [设置 WAImportExport 工具](storage-import-export-tool-how-to.md)
+* [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
+* [Azure 导入/导出 REST API 示例](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 
 <!--Update_Description: wording update-->

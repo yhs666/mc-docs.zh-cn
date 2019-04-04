@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 12/31/2018
 ms.date: 01/21/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd93471114ca59c22e121e637f877d5232b30437
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 44754b6962dcf43c48282bb059797e29a1202072
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363564"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625832"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>VMware 到 Azure 的灾难恢复的配置服务器要求
 
@@ -73,13 +73,14 @@ MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行�
 
 下表汇总了配置服务器的容器要求。 如果要复制多个 VMware VM，则应查看[容量规划注意事项](site-recovery-plan-capacity-vmware.md)然后运行用于 VMWare 复制的 [Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)工具。 
 
-**组件** | **要求** 
---- | ---
-**CPU** | 内存 | 缓存磁盘 | 数据更改率 | 复制的计算机
---- | --- | --- | --- | ---
-8 个 vCPU<br/><br/> 2 个插槽 * 4 个核心 \@ 2.5 GHz | 16 GB | 300 GB | 500 GB 或更少 | 少于 100 台计算机
-12 个 vCPU<br/><br/> 2 个插槽 * 6 个核心 \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 到 150 台计算机
-16 个 vCPU<br/><br/> 2 个插槽 * 8 个核心 \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 到 200 台计算机
+
+|                   **组件**                   | **要求** |
+|---------------------------------------------------|-----------------|
+|                      **CPU**                      |   **内存**    |
+|                        ---                        |       ---       |
+| 8 个 vCPU<br/><br/> 2 个插槽 \* 4 个核心 \@ 2.5 GHz |      16 GB      |
+| 12 个 vCPU<br/><br/> 2 个插槽 \* 6 个核心 \@ 2.5 GHz |      18 GB      |
+| 16 个 vCPU<br/><br/> 2 个插槽 \* 8 个核心 \@ 2.5 GHz |      32 GB      |
 
 ## <a name="next-steps"></a>后续步骤
 设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复。

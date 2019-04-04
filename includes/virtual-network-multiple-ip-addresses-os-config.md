@@ -9,12 +9,12 @@ origin.date: 04/09/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f14982775b33ab03dfa9b83d6c1b07a1d8553169
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9544a90c7b771ae09cf6073a56642248db8575cf
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644310"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632846"
 ---
 <a name="os-config"></a>
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a>将 IP 地址添加到 VM 操作系统
@@ -64,15 +64,15 @@ ping -S 10.0.0.5 hotmail.com
 
 3. 更新网络接口（假设为“eth0”）的配置文件。
 
-    * 保留 dhcp 的现有行项。 主 IP 地址会保留之前的配置。
-    * 使用以下命令添加其他静态 IP 地址的配置：
+   * 保留 dhcp 的现有行项。 主 IP 地址会保留之前的配置。
+   * 使用以下命令添加其他静态 IP 地址的配置：
 
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-    应会看到一个 .cfg 文件。
+     应会看到一个 .cfg 文件。
 4. 打开 文件。 该文件的末尾应会显示以下命令行：
 
     ```bash
@@ -190,7 +190,6 @@ echo 150 custom >> /etc/iproute2/rt_tables
 
 ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
-
 ```
 - 确保执行以下替换：
     - **10.0.0.5** 替换为有关联的公共 IP 地址的专用 IP 地址

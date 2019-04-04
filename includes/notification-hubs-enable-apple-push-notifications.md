@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 08/28/2018 ms.date: 09/26/2018 ms.author: v-junlch ms.custom: include 文件
+ title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date:08/28/2018 ms.date:09/26/2018 ms.author: v-junlch ms.custom: include file
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>生成证书签名请求文件
 
@@ -33,17 +33,17 @@ Apple Push Notification 服务 (APNS) 使用证书对推送通知进行身份验
 
 2. 更新新应用的以下三个字段，并单击“Continue”（继续）： 
 
-    - **Name（名称）**：在“App ID Description”（应用 ID 说明）部分的“Name”（名称）字段中为应用键入一个描述性名称。
-    - **Bundle Identifier**（捆绑标识符）：在“Explicit App ID”（显式应用 ID）部分下，使用[应用分发指南](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)中所述的 `<Organization Identifier>.<Product Name>` 格式输入“Bundle Identifier”（捆绑标识符）。 使用的“Organization Identifier”（组织标识符）和“Product Name”（产品名称）必须与在创建 XCode 项目时使用的组织标识符与产品名称匹配。 在下面的屏幕截图中，*NotificationHubs* 用作组织标识符，*GetStarted* 用作产品名称。 如果确保此值与在 XCode 项目中使用的值匹配，则就可以在 XCode 中使用正确的发布配置文件。
-    - **推送通知**：在“应用服务”部分选中“推送通知”选项。
+   - **名称**：在“App ID Description”（应用 ID 说明）部分的“Name”（名称）字段中为应用键入一个描述性名称。
+   - **Bundle Identifier**（捆绑标识符）：在“Explicit App ID”（显式应用 ID）部分下，使用[应用分发指南](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)中所述的 `<Organization Identifier>.<Product Name>` 格式输入“Bundle Identifier”（捆绑标识符）。 使用的“Organization Identifier”（组织标识符）和“Product Name”（产品名称）必须与在创建 XCode 项目时使用的组织标识符与产品名称匹配。 在下面的屏幕截图中，*NotificationHubs* 用作组织标识符，*GetStarted* 用作产品名称。 如果确保此值与在 XCode 项目中使用的值匹配，则就可以在 XCode 中使用正确的发布配置文件。
+   - **Push Notifications**（推送通知）：在“App Services”（应用程序服务）部分选中“Push Notifications”（推送通知）选项。
 
-    ![用于注册新应用 ID 的窗体](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![用于注册新应用 ID 的窗体](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    此操作会生成应用 ID 并请求你确认信息。 单击“Register”（注册）确认新的应用 ID。
+     此操作会生成应用 ID 并请求你确认信息。 单击“Register”（注册）确认新的应用 ID。
 
-    单击“注册”后，会看到“注册已完成”屏幕，如下图所示。 单击“Done”（完成） 。
+     单击“注册”后，会看到“注册已完成”屏幕，如下图所示。 单击“Done”（完成） 。
 
-    ![应用 ID 注册完成，显示了权利](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![应用 ID 注册完成，显示了权利](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. 在开发人员中心的“App IDs”（应用 ID）下，找到创建的应用 ID，然后单击其所在行。
 

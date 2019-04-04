@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 origin.date: 01/31/2017
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: fec39d993ab6c7d25675a1c1e7322e3ceb732a29
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0f634b1547f7d9333e1b93eaa99c00b394b4e6ec
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675353"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626606"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>将 Azure 存储用于 SQL Server 备份和还原
 ## <a name="overview"></a>概述
@@ -36,8 +36,8 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](https://ms
 * **易用性**：在 Azure Blob 中存储备份非常方便、灵活且可轻松访问场外存储。 为 SQL Server 备份创建场外存储就像修改现有脚本/作业以使用 **BACKUP TO URL** 语法一样简单。 场外存储通常应当远离生产数据库位置，以防止某个灾难可能同时影响场外和生产数据库位置。 通过选择[异地复制 Azure blob](../../../storage/common/storage-redundancy.md)，可以在发生可能影响整个区域的灾难时进一步加强保护。
 * **备份存档**：对备份进行存档时，Azure Blob 存储服务提供可替代常用磁带存储方式的更好方式。 选择磁带存储时可能需要将数据实际运输到场外设施，并且需要采取一些介质保护措施。 在 Azure Blob 存储中存储备份可提供即时、具有高可用性且持久的存档方式。
 * **受管理的硬件**：使用 Azure 服务没有硬件管理开销。 Azure 服务可管理硬件并提供地域异地复制和硬件故障防护。
-* **无限制的存储空间**：通过启用直接备份到 Azure Blob，可以访问几乎无限制的存储空间。 或者，还可以选择备份到 Azure 虚拟机磁盘，所受的限制取决于计算机的大小。 只能将有限数量的磁盘附加到用于备份的 Azure 虚拟机。 对特大实例的限制为 16 个磁盘；对较小实例的磁盘限制数更少。
-* **备份可用性**：存储在 Azure Blob 中的备份可随时从任何位置使用，并可轻松访问以还原到本地 SQL Server 或运行于 Azure 虚拟机中的其他 SQL Server，而无需进行数据库附加/分离或者下载和附加 VHD。
+* **无限制的存储**：通过启用直接备份到 Azure Blob，可以访问几乎无限的存储。 或者，还可以选择备份到 Azure 虚拟机磁盘，所受的限制取决于计算机的大小。 只能将有限数量的磁盘附加到用于备份的 Azure 虚拟机。 对特大实例的限制为 16 个磁盘；对较小实例的磁盘限制数更少。
+* **备份可用性**：存储在 Azure Blob 中的备份可随时从任何位置使用，并可供轻松访问以还原到本地 SQL Server 或运行于 Azure 虚拟机中的其他 SQL Server，而无需进行数据库附加/分离或者下载和附加 VHD。
 * **成本**：只需为所使用的服务付费。 作为场外和备份存档方式可能更加划算。 有关详细信息，请参阅 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/ "定价计算器")和 [Azure 定价文章](https://www.azure.cn/pricing/overview/ "定价文章")。
 * **存储快照**：如果数据库文件存储在 Azure Blob 中并且使用的是 SQL Server 2016，则可以使用[文件快照备份](https://msdn.microsoft.com/library/mt169363.aspx)来执行几乎实时的备份和极其快速的还原。
 
@@ -48,11 +48,12 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](https://ms
 ## <a name="azure-blob-storage-service-components"></a>Azure Blob 存储服务组件
 备份到 Azure Blob 存储服务时，会使用以下 Azure 组件。
 
-| 组件 | 说明 |
-| --- | --- |
-| **存储帐户** |存储帐户是所有存储服务的起点。 若要访问 Azure Blob 存储服务，请先创建一个 Azure 存储帐户。 有关 Azure Blob 存储服务的详细信息，请参阅[如何使用 Azure Blob 存储服务](/storage/storage-dotnet-how-to-use-blobs) |
-| **容器** |容器提供一组 Blob 集，并且可存储无限数量的 Blob。 要将 SQL Server 备份写入到 Azure Blob 服务，必须创建至少一个根容器。 |
-| **Blob** |任何类型和大小的文件。 可使用以下 URL 格式对 Blob 进行寻址：**https://[storage account].blob.core.chinacloudapi.cn/[container]/[blob]**。 有关页 Blob 的详细信息，请参阅[了解块 Blob 和页 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+
+|      组件      |                                                                                                                                                     说明                                                                                                                                                      |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **存储帐户** |         存储帐户是所有存储服务的起点。 若要访问 Azure Blob 存储服务，请先创建一个 Azure 存储帐户。 有关 Azure Blob 存储服务的详细信息，请参阅[如何使用 Azure Blob 存储服务](/storage/storage-dotnet-how-to-use-blobs)         |
+|    **容器**    |                                                       容器提供一组 Blob 集，并且可存储无限数量的 Blob。 要将 SQL Server 备份写入到 Azure Blob 服务，必须创建至少一个根容器。                                                       |
+|      **Blob**       | 任何类型和大小的文件。 可使用以下 URL 格式对 Blob 进行寻址：<strong>https://[storage account].blob.core.chinacloudapi.cn/[container]/[blob]</strong>。 有关页 Blob 的详细信息，请参阅[了解块 Blob 和页 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server 组件
 备份到 Azure Blob 存储服务时，会使用以下 SQL Server 组件。

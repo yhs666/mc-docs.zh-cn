@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-origin.date: 09/24/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 52863327390b592d694c62f85cee32f414bcd569
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 12/06/2018
+ms.custom: v-lingwu
+ms.openlocfilehash: b5a78d0efdb21d8b2ea59e7185cc8c0c3506e1f9
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674609"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544811"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>教程：在 Visual Studio 中为 Azure 流分析 Edge 作业编写 C# 用户定义函数（预览版）
 

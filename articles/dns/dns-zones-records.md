@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/18/2017
 ms.date: 12/11/2018
 ms.author: v-jay
-ms.openlocfilehash: 3c5e08ea62433c59686dea0f5b1589b54bc05f89
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: 85593a605c97e4a1ffe602a0a8d74127d7aff048
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234109"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625877"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 
@@ -132,13 +132,13 @@ Azure DNS 使用 Etag 来安全地处理对同一资源的并发更改。 Etag �
 
 Etag 是在 Azure DNS REST API 级别使用 HTTP 标头指定的。  下表给出了它们的行为：
 
-| 标头 | 行为 |
-| --- | --- |
-| 无 |PUT 始终成功（没有 Etag 检查） |
-| If-match <etag> |只有当资源存在并且 Etag 匹配时，PUT 才会成功 |
-| If-match * |只有当资源存在时，PUT 才会成功 |
-| If-none-match * |只有当资源不存在时，PUT 才会成功 |
 
+|      标头      |                       行为                        |
+|------------------|-------------------------------------------------------|
+|       无       |         PUT 始终成功（没有 Etag 检查）          |
+| If-match <etag>  | 只有当资源存在并且 Etag 匹配时，PUT 才会成功 |
+|   If-match \*    |         只有当资源存在时，PUT 才会成功          |
+| If-none-match \* |     只有当资源不存在时，PUT 才会成功      |
 
 ## <a name="limits"></a>限制
 

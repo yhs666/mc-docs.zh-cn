@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 731d8225745f238b8856a1654e17e9e23f49a3f8
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 1c9de11acb4b7764cff4093803c18d08b074fae5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833410"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626029"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -43,6 +43,10 @@ ms.locfileid: "56833410"
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
+
+## <a name="december-2018"></a>2018 年 12 月
+
+Azure 媒体服务的 [Media Hyperlapse 预览](media-services-hyperlapse-content.md)功能即将停用。 从 2018 年 12 月 19 日起，媒体服务不再对 Media Hyperlapse 进行更改或改进。 在 2019 年 3 月 29 日，它将停用并不再可用。
 
 ## <a name="october-2018"></a>2018 年 10 月
 
@@ -98,7 +102,7 @@ Azure 媒体编修器正式发布：此媒体处理器通过模糊选定个体�
 
 在创建编码任务时，现在可通过指定“自适应流式处理”预设字符串使用标准编码器[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)。 若要使用媒体服务对视频进行流式处理，请使用“自适应流式处理”预设。 若要为特定方案自定义编码预设，可从[这些](media-services-mes-presets-overview.md)预设开始。
 
-现在可使用标准编码器或媒体编码器高级工作流来[创建生成 fMP4 区块的编码任务](media-services-generate-fmp4-chunks.md)。 
+现在可使用 Media Encoder Standard 来[创建生成 fMP4 区块的编码任务](media-services-generate-fmp4-chunks.md)。 
 
 ## <a name="february-2017-release"></a>2017 年 2 月版本
 
@@ -174,11 +178,11 @@ Azure 媒体编修器正式发布：此媒体处理器通过模糊选定个体�
  将在 Media Encoder Standard 发布后大约 12 个月内开始弃用媒体编码器。
 
 ### <a name="azure-sdk-for-php"></a>用于 PHP 的 Azure SDK
-Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) 包，其中包含媒体服务的更新与新功能。 具体而言，适用于 PHP 的媒体服务 SDK 现支持最新[内容保护](media-services-content-protection-overview.md)功能。 使用 AES 和 DRM（PlayReady 和 Widevine）对这些功能进行动态加密（可以使用也可不使用标记限制）。 还支持缩放[编码单位](media-services-dotnet-encoding-units.md)。
+Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) 包，其中包含媒体服务的更新与新功能。 具体而言，适用于 PHP 的媒体服务 SDK 现支持最新[内容保护](media-services-content-protection-overview.md)功能。 使用 AES 和 DRM（PlayReady 和 Widevine）对这些功能进行动态加密（可以使用也可不使用标记限制）。 还支持缩放[编码单位](media-services-dotnet-encoding-units.md)。
 
 有关详细信息，请参阅：
 
-* 以下[代码示例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
+* 以下[代码示例](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
   * vodworkflow_aes.php：此 PHP 文件演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
   * scale_encoding_units.php：此 PHP 文件演示如何缩放编码预留单位。
 
@@ -220,7 +224,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 * 实现了对动态筛选器的支持。
 * 实现了这样的功能，让用户可在删除资产时保留存储容器。
 * 进行了与频道中的重试策略相关的 Bug 修复。
-* 启用了 Media Encoder Premium Workflow。
 
 ## <a id="june_changes_15"></a>2015 年 6 月版本
 ### <a name="media-services-net-sdk-updates"></a>媒体服务 .NET SDK 更新
@@ -261,7 +264,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 ## <a id="march_changes_15"></a>2015 年 3 月版本
 ### <a name="general-media-services-updates"></a>媒体服务一般更新
 * 媒体服务现提供内容分发网络集成。 为了支持集成，将 CdnEnabled 属性添加到了 StreamingEndpoint。 CdnEnabled 可用于 2.9 及以上版本的 REST API。 有关详细信息，请参阅 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 CdnEnabled 可用于 3.1.0.2 及以上版本的 .NET SDK。 有关详细信息，请参阅 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)。
-* 公布了 Media Encoder Premium Workflow。 有关详细信息，请参阅[在 Azure 媒体服务中引入高级编码](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)。
 
 ## <a id="february_changes_15"></a>2015 年 2 月版本
 ### <a name="general-media-services-updates"></a>媒体服务一般更新
@@ -289,7 +291,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 * 增加了 HLS 自动目标持续时间。 进行实时流式传输时，HLS 始终是动态打包的。 默认情况下，媒体服务将根据从关键帧间隔 (KeyFrameInterval) 自动计算 HLS 段打包率 (FragmentsPerSegment)。 此方法也称为从实时编码器接收的帧组 (GOP)。 有关详细信息，请参阅[使用媒体服务实时传送视频流](media-services-manage-channels-overview.md)。
 
 ### <a name="media-services-net-sdk-updates"></a>媒体服务 .NET SDK 更新
-[媒体服务 .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) 当前版本为 3.1.0.0。 进行了以下更新：
+[媒体服务 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) 当前版本为 3.1.0.0。 进行了以下更新：
 
 * 将 .Net SDK 依赖项升级到了 .NET 4.5 Framework。
 * 添加了新的 API，可用于更新编码预留单位。 有关详细信息，请参阅[使用 .NET 更新预留单位类型和增加编码预留单位](media-services-dotnet-encoding-units.md)。
@@ -454,10 +456,10 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 * 自 2.3.0.0 版起，媒体服务 SDK 支持将多个存储帐户链接到一个媒体服务帐户。 以下 API 支持此功能：
   
-    * IStorageAccount 类型
-    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts 属性
-    * StorageAccount 属性
-    * StorageAccountName 属性
+  * IStorageAccount 类型
+  * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts 属性
+  * StorageAccount 属性
+  * StorageAccountName 属性
   
     有关详细信息，请参阅[跨多个存储帐户管理媒体服务资产](meda-services-managing-multiple-storage-accounts.md)。
 * 与通知相关的 API。 自 2.2.0.0 版起，可侦听 Azure 队列存储通知。 有关详细信息，请参阅[处理媒体服务作业通知](media-services-check-job-progress.md)。

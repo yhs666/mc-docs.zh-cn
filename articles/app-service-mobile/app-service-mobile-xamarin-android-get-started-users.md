@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-biyu
 ms.date: 10/29/2018
-ms.openlocfilehash: 3d259ff5cead2c1e91c88bea53c7b9b7af144358
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aff7ced952fade407579db322935fca6618694a7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654168"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625166"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>向 Xamarin.Android 应用添加身份验证
 
@@ -30,7 +30,7 @@ ms.locfileid: "52654168"
 
 本教程基于移动应用快速入门。 还必须先完成教程 [创建 Xamarin.Android 应用]。 如果不使用下载的快速入门服务器项目，必须将身份验证扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-##<a name="register"></a>注册应用以进行身份验证并配置应用服务
+## <a name="register"></a>注册应用以进行身份验证并配置应用服务
 
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -55,7 +55,7 @@ ms.locfileid: "52654168"
 
 接下来，更新客户端应用，以使用经过身份验证的用户从移动应用后端请求资源。
 
-##<a name="add-authentication"></a>向应用程序添加身份验证
+## <a name="add-authentication"></a>向应用程序添加身份验证
 
 已更新应用，在显示数据之前要求用户点击“登录”  按钮进行身份验证。
 

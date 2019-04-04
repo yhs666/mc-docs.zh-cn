@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 02/10/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: e384496dad0b7e40cb0e952a76eff1ad84136331
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 4bd4bf67f783b73ab168c6ab54a7ede38f9133fe
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624125"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>使用 Azure 门户创建媒体服务帐户
 
@@ -44,7 +44,7 @@ ms.locfileid: "56833332"
 本部分中的步骤说明如何创建 AMS 帐户。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 单击“+新建”> 搜索“Web + 移动” > “媒体服务”。
+2. 单击“+新建”> 搜索“媒体服务”。
    
     ![媒体服务创建](./media/media-services-create-account/media-services-new1.png)
 3. 在“创建媒体服务帐户”中输入所需的值。

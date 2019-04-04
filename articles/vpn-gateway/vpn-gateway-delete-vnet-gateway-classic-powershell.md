@@ -1,39 +1,39 @@
 ---
-title: 删除虚拟网络网关：PowerShell：Azure 经典 | Microsoft Docs
+title: 删除虚拟网关：PowerShell：Azure 经典 | Microsoft Docs
 description: 在经典部署模型中使用 PowerShell 删除虚拟网络网关。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 08/13/2018
-ms.author: v-junlch
-ms.openlocfilehash: 92c12d2be3f5f5b9b9d61f8e4b0a994099a0ba2b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 7ebd3c31e43b8736164484e5f34714883dacaab4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659240"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627074"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>使用 PowerShell 删除虚拟网络网关（经典）
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [经典 - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 本文可帮助在经典部署模型中使用 PowerShell 删除 VPN 网关。 删除虚拟网络网关后，修改网络配置文件以删除不再使用的元素。
 
-##<a name="connect"></a>步骤 1：连接到 Azure
+## <a name="connect"></a>步骤 1：连接到 Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1.安装最新的 PowerShell cmdlet。
 
@@ -57,7 +57,7 @@ Add-AzureAccount -Environment AzureChinaCloud
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-使用文本编辑器打开文件，并查看经典 VNet 的名称。 在 Azure 门户中创建 VNet 时，Azure 使用的全名在门户中不可见。 例如，在 Azure 门户中命名为“ClassicVNet1”的 VNet 可能在网络配置文件中具有更长的名称。 名称可能如下所示：“Group ClassicRG1 ClassicVNet1”。 虚拟网络名称以“VirtualNetworkSite name =”的形式列出。 运行 PowerShell cmdlet 时，请使用网络配置文件中的名称。
+使用文本编辑器打开文件，并查看经典 VNet 的名称。 在 Azure 门户中创建 VNet 时，Azure 使用的全名在门户中不可见。 例如，在 Azure 门户中命名为“ClassicVNet1”的 VNet 可能在网络配置文件中具有更长的名称。 名称的外观可能如下：“Group ClassicRG1 ClassicVNet1”。 虚拟网络名称以“VirtualNetworkSite name =”的形式列出。 运行 PowerShell cmdlet 时，请使用网络配置文件中的名称。
 
 ## <a name="delete"></a>步骤 3：删除虚拟网络网关
 
@@ -102,7 +102,7 @@ Status : Successful
  </Gateway>
 ```
 
-###<a name="lns"></a>本地网络站点
+### <a name="lns"></a>本地网络站点
 
 删除不再使用的所有本地站点。 根据已创建的配置，可能没有列出 **LocalNetworkSite**。
 

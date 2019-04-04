@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/26/2017
 ms.author: v-yiso
 ms.date: 12/17/2018
-ms.openlocfilehash: 6fa422808c080fd10e388f257135c3b7791c55e5
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 829e748eea51e5ca395333c05c01d817c59ea6f7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569270"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626422"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 
@@ -39,10 +39,10 @@ ms.locfileid: "53569270"
 
 该证书必须满足 Azure 中的以下 SSL 证书要求：
 
--   证书必须包含私钥。
--   必须为密钥交换创建证书，并且该证书可导出到个人信息交换 (.pfx) 文件。
--   证书的使用者名称必须与用于访问云服务的域匹配。 无法从证书颁发机构 (CA) 处获取针对 chinacloudapp.cn 域的 SSL 证书。 必须获取在访问服务时要使用的自定义域名。 从 CA 处请求证书时，该证书的使用者名称必须与用于访问应用程序的自定义域名匹配。 例如，如果自定义域名为 contoso.com，则将要从 CA 请求用于 *.contoso.com 或 www.contoso.com 的证书。
--   该证书必须使用至少 2048 位加密。
+- 证书必须包含私钥。
+- 必须为密钥交换创建证书，并且该证书可导出到个人信息交换 (.pfx) 文件。
+- 证书的使用者名称必须与用于访问云服务的域匹配。 无法从证书颁发机构 (CA) 处获取针对 chinacloudapp.cn 域的 SSL 证书。 必须获取在访问服务时要使用的自定义域名。 从 CA 处请求证书时，该证书的使用者名称必须与用于访问应用程序的自定义域名匹配。 例如，如果自定义域名为 **contoso.com**，则将要从 CA 请求用于 <strong><em>.contoso.com</em>* 或 **www.contoso.com</strong> 的证书。
+- 该证书必须使用至少 2048 位加密。
 
 出于测试目的，可以[创建](./cloud-services-certs-create.md)和使用自签名的证书。 自签名证书不通过 CA 进行身份验证，并且可以使用 chinacloudapp.cn 域作为网站 URL。 例如，以下任务使用公用名 (CN) 为 sslexample.chinacloudapp.cn 的自签名证书。
 
@@ -53,53 +53,55 @@ ms.locfileid: "53569270"
 
 必须将应用程序配置为使用该证书，并且必须添加 HTTPS 终结点。 因此，需要更新服务定义和服务配置文件。
 
-1.  在开发环境中，打开服务定义文件 (CSDEF)，在 WebRole 部分中添加“证书”部分，并包含以下关于证书（和中间证书）的信息：
+1. 在开发环境中，打开服务定义文件 (CSDEF)，在 WebRole 部分中添加“证书”部分，并包含以下关于证书（和中间证书）的信息：
 
-    ```xml
-    <WebRole name="CertificateTesting" vmsize="Small">
-    ...
-        <Certificates>
-            <Certificate name="SampleCertificate" 
-                         storeLocation="LocalMachine" 
-                         storeName="My"
-                         permissionLevel="limitedOrElevated" />
-            <!-- IMPORTANT! Unless your certificate is either
-            self-signed or signed directly by the CA root, you
-            must include all the intermediate certificates
-            here. You must list them here, even if they are
-            not bound to any endpoints. Failing to list any of
-            the intermediate certificates may cause hard-to-reproduce
-            interoperability problems on some clients.-->
-            <Certificate name="CAForSampleCertificate"
-                         storeLocation="LocalMachine"
-                         storeName="CA"
-                         permissionLevel="limitedOrElevated" />
-        </Certificates>
-    ...
-    </WebRole>
-    ```
+   ```xml
+   <WebRole name="CertificateTesting" vmsize="Small">
+   ...
+       <Certificates>
+           <Certificate name="SampleCertificate" 
+                        storeLocation="LocalMachine" 
+                        storeName="My"
+                        permissionLevel="limitedOrElevated" />
+           <!-- IMPORTANT! Unless your certificate is either
+           self-signed or signed directly by the CA root, you
+           must include all the intermediate certificates
+           here. You must list them here, even if they are
+           not bound to any endpoints. Failing to list any of
+           the intermediate certificates may cause hard-to-reproduce
+           interoperability problems on some clients.-->
+           <Certificate name="CAForSampleCertificate"
+                        storeLocation="LocalMachine"
+                        storeName="CA"
+                        permissionLevel="limitedOrElevated" />
+       </Certificates>
+   ...
+   </WebRole>
+   ```
 
-    **Certificates** 节定义了证书的名称、位置及其所在存储的名称。
+   **Certificates** 节定义了证书的名称、位置及其所在存储的名称。
 
    权限（`permissionLevel` 属性）可以设置为下列值之一：
 
-   | 权限值 | 说明 |
-   | --- | --- |
-   | limitedOrElevated |（默认）所有角色进程都可以访问该私钥。 |
-   | 提升的 |仅提升的进程可以访问该私钥。 |
 
-2.  在服务定义文件中，在“终结点”部分中添加 InputEndpoint 元素以启用 HTTPS：
+   | 权限值  |                         说明                          |
+   |-------------------|--------------------------------------------------------------|
+   | limitedOrElevated | （默认）所有角色进程都可以访问该私钥。 |
+   |     提升的      |     仅提升的进程可以访问该私钥。      |
 
-    ```xml
-    <WebRole name="CertificateTesting" vmsize="Small">
-    ...
-        <Endpoints>
-            <InputEndpoint name="HttpsIn" protocol="https" port="443" 
-                certificate="SampleCertificate" />
-        </Endpoints>
-    ...
-    </WebRole>
-    ```
+
+2. 在服务定义文件中，在“终结点”部分中添加 InputEndpoint 元素以启用 HTTPS：
+
+   ```xml
+   <WebRole name="CertificateTesting" vmsize="Small">
+   ...
+       <Endpoints>
+           <InputEndpoint name="HttpsIn" protocol="https" port="443" 
+               certificate="SampleCertificate" />
+       </Endpoints>
+   ...
+   </WebRole>
+   ```
 
 3. 在服务定义文件中，在 **Sites** 节中添加 **Binding** 元素。 此元素添加 HTTPS 绑定以将终结点映射到站点：
 
@@ -160,18 +162,18 @@ ms.locfileid: "53569270"
 
 在 Azure 中启动并运行部署后，便可以使用 HTTPS 连接到该部署。
 
-1.  单击“站点 URL”打开 Web 浏览器。
+1. 单击“站点 URL”打开 Web 浏览器。
 
    ![单击“站点 URL”](./media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
-2.  在 Web 浏览器中，修改链接以使用 **https** 而不是 **http**，然后访问该页。
+2. 在 Web 浏览器中，修改链接以使用 **https** 而不是 **http**，然后访问该页。
 
    > [!NOTE]
    > 如果使用自签名证书，浏览到与自签名证书关联的 HTTPS 终结点时，浏览器中可能会显示一个证书错误。 使用由受信任证书颁发机构签名的证书可消除此问题；同时，你可以忽略此错误。 （也可以将自签名证书添加到用户的受信任证书颁发机构证书存储中。）
    >
    >
 
-    ![站点预览](./media/cloud-services-configure-ssl-certificate-portal/show-site.png)
+   ![站点预览](./media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
    > 若要对过渡部署而非生产部署使用 SSL，首先需要确定用于过渡部署的 URL。 一旦部署了你的云服务，则过渡环境的 URL 由“部署 ID”GUID 决定，其格式为：`https://deployment-id.cloudapp.net/`  

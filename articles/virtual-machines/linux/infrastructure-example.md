@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4903de8d2e29afca0043dde5f3d69aa1afd46ad
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fc34e6f912b2ac72ea437d13e51a16482b4d0837
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666281"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626921"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
 本文逐步讲述如何构建示例应用程序基础结构。 我们详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署你的虚拟机 (VM)。
@@ -54,8 +54,8 @@ Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序�
 以上各项都会遵循以下命名约定：
 
 * Adventure Works Cycles 使用 **[IT 工作负荷]-[位置]-[Azure 资源]** 作为前缀
-    * 在本示例中，IT 工作负荷名为 **azos**（Azure On-line Store，Azure 在线商店），位置为 **che**（China East，中国东部）
-* 虚拟网络使用 AZOS-CHE-VN **[number]**
+    * 在本示例中，IT 工作负荷名为 **azos**（Azure On-line Store，Azure 在线商店），位置为 **che**（China East 2，中国东部 2）
+* 虚拟网络使用 AZOS-CHE-VN<strong>[number]</strong>
 * 可用性集使用 azos-che-as-**[role]**
 * 虚拟机名称使用 azos-che-vm-**[vmname]**
 
@@ -74,7 +74,7 @@ Adventure Works Cycles 确定其应使用 Azure 托管磁盘。 创建 VM 时，
 他们通过 Azure 门户使用以下设置创建了仅限云的虚拟网络：
 
 * 姓名：AZOS-CHE-VN01
-* 位置：中国东部
+* 位置：中国东部 2
 * 虚拟网络地址空间：10.0.0.0/8
 * 第一个子网：
   * 姓名：FrontEnd

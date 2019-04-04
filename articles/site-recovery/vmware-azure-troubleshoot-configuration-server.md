@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/13/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: f74ac093d6ac0e2a669d147857fbd45cc06d5c01
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 56e2a218990f38c8eef136275d39c1ed2461c980
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463605"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625386"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>排查配置服务器问题
 
@@ -26,9 +26,9 @@ ms.locfileid: "57463605"
 1. 打开 C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 文件。 （ProgramData 文件夹可能已隐藏。 如果未看到 ProgramData 文件夹，请在文件资源管理器的“查看”选项卡上的“显示/隐藏”部分，选中“隐藏的项目”复选框）。失败可能是多个问题造成的。
 
 2. 搜索字符串 **No Valid IP Address found**。 如果找到了该字符串：
-    1. 验证请求的主机 ID 是否与源计算机的主机 ID 相同。
-    2. 验证是否为源计算机的物理 NIC 至少分配了一个 IP 地址。 若要将代理成功注册到配置服务器，必须为源计算机的物理 NIC 至少分配一个有效的 IPV4 地址。
-    3. 在源计算机上运行以下命令以获取源计算机的所有 IP 地址：
+   1. 验证请求的主机 ID 是否与源计算机的主机 ID 相同。
+   2. 验证是否为源计算机的物理 NIC 至少分配了一个 IP 地址。 若要将代理成功注册到配置服务器，必须为源计算机的物理 NIC 至少分配一个有效的 IPV4 地址。
+   3. 在源计算机上运行以下命令以获取源计算机的所有 IP 地址：
       - 对于 Windows：`> ipconfig /all`
       - 对于 Linux：`# ifconfig -a`
 
@@ -83,9 +83,10 @@ ms.locfileid: "57463605"
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>未能从 Server Standard EVALUATION 向 Server Standard 激活Windows 许可证
 
-1. 作为通过 OVF 部署配置服务器的一部分，使用了评估许可证，该许可证的有效期为 180 天。 需要在此许可证过期之前进行激活。 否则，这可能导致配置服务器频繁关闭，因而妨碍复制活动。
+1. 通过 OVF 部署配置服务器的过程中，使用了评估许可证，该许可证的有效期为 180 天。 需要在此许可证过期之前进行激活。 否则，这可能导致配置服务器频繁关闭，因而妨碍复制活动。
 2. 如果无法激活 Windows 许可证，请联系 [Windows 支持团队](https://aka.ms/Windows_Support)以解决此问题。
 
+<a name="register-source-machine-with-configuration-server"></a>
 ## <a name="register-source-machine-with-configuration-server"></a>将源计算机注册到配置服务器
 
 ### <a name="if-the-source-machine-runs-windows"></a>如果源计算机运行 Windows

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 02/05/2019
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: de6a80b571fa983017a8bb3b80a963715d2c3b50
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 752270408526fcc23e74332ed1a928a02f584f45
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666661"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625972"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob 存储要求
 
@@ -97,7 +97,7 @@ Data Box Blob 存储支持以下版本的 Azure 存储服务 API：
 
 ### <a name="endpoint-declaration"></a>终结点声明
 
-Azure Data Box Blob 存储终结点包括两部分：区域名称和 Data Box 域。 在 Data Box Blob 存储 SDK 中，默认终结点为 <serial no. of the device>.microsoftdatabox.com。  有关 blob 服务终结点的更多信息，请转至[通过 Data Box Blob 存储连接](data-box-deploy-copy-data-via-rest.md)。
+Azure Data Box Blob 存储终结点包括两部分：区域名称和 Data Box 域。 在 Data Box Blob 存储 SDK 中，默认终结点为 \<设备的序列号\>.microsoftdatabox.com。  有关 blob 服务终结点的更多信息，请转至[通过 Data Box Blob 存储连接](data-box-deploy-copy-data-via-rest.md)。
  
 ## <a name="examples"></a>示例
 

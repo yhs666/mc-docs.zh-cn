@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 02/12/2019
+ms.date: 03/28/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4b055f282515362ff5929caf2664e7647102491b
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 10778deb6cedeb65773406a9c8a4be5f69e4a268
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101591"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627562"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>教程：使用 Azure 模板在虚拟机规模集中安装应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 前一篇教程介绍了如何创建自定义 VM 映像并使用它来部署 VM 实例。 使用此自定义映像可以手动安装和配置应用程序。 也可以在部署每个 VM 实例之后，将应用程序自动安装到规模集，或者更新已在规模集中运行的应用程序。 本教程介绍如何执行下列操作：
@@ -32,7 +32,7 @@ ms.locfileid: "56101591"
 > * 使用 Azure 自定义脚本扩展
 > * 更新规模集中运行的应用程序
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -114,7 +114,7 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>更新应用部署
-在规模集的整个生命周期内，都可能需要部署应用程序的更新版本。 使用自定义脚本扩展可以引用更新的部署脚本，然后将扩展重新应用到规模集。 在上一步骤中创建规模集时，*upgradePolicy` 已设置为 *Automatic*。 此设置可让规模集中的 VM 实例自动更新应用程序并应用其最新版本。
+在规模集的整个生命周期内，都可能需要部署应用程序的更新版本。 使用自定义脚本扩展可以引用更新的部署脚本，然后将扩展重新应用到规模集。 在上一步骤中创建规模集时，<em>upgradePolicy 已设置为 *Automatic</em>。 此设置可让规模集中的 VM 实例自动更新应用程序并应用其最新版本。
 
 若要更新自定义脚本扩展定义，请编辑模板以引用新的安装脚本。 必须对自定义脚本扩展使用新文件名，以识别更改。 自定义脚本扩展不会通过检查脚本的内容来确定是否发生了任何更改。 以下定义使用更新的安装脚本，该脚本的名称后面追加了 *_v2*：
 
@@ -174,4 +174,4 @@ az group delete --name myResourceGroup --no-wait --yes
 > [!div class="nextstepaction"]
 > [自动缩放规模集](tutorial-autoscale-template.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

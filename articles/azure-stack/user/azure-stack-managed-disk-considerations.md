@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中托管磁盘的差异和注意事项 | Microsoft Docs
-description: 了解使用 Azure Stack 中的托管磁盘时的差异和注意事项。
+title: Azure Stack 中托管磁盘和托管映像的差异与注意事项 | Microsoft Docs
+description: 了解 Azure Stack 中托管磁盘和托管映像的差异与注意事项。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,28 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/31/2019
-ms.date: 03/04/2019
+origin.date: 03/23/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: jiahan
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 0cb43c776fc5abe00ac44737048c7837f34a84af
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: fa50acf016826afd2987750a783195d6f1555dff
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988009"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503614"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异和注意事项
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
 本文汇总了 [Azure Stack 托管磁盘](azure-stack-manage-vm-disks.md)与 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)之间的已知差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../azure-stack-manage-storage-accounts.md)简化了 IaaS VM 的磁盘管理。
 
 > [!Note]  
-> 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 使用 Azure Stack 门户基于 1811 更新创建虚拟机时，默认会启用托管磁盘。
+> 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 从 1811 更新开始，使用 Azure Stack 门户创建虚拟机时，默认会启用托管磁盘。
   
-## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘差异
+## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘的差异
 
 | 功能 | Azure（中国） | Azure Stack |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ ms.locfileid: "57988009"
 |迁移      |提供从现有非托管 Azure 资源管理器 VM 迁移的工具，而无需重新创建 VM  |尚不支持 |
 
 > [!NOTE]  
-> Azure Stack 中的托管磁盘 IOP 和吞吐量是一个上限数字而非预配的数字，这可能会受在 Azure Stack 中运行的硬件和工作负荷影响。
+> Azure Stack 中的托管磁盘 IOPs 和吞吐量是一个上限数字而非预配的数字，这可能会受在 Azure Stack 中运行的硬件和工作负荷影响。
 
 ## <a name="metrics"></a>指标
 
@@ -135,13 +135,32 @@ Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管�
 - 你有通用化的非托管 VM，后来想要使用托管磁盘。
 - 你有通用化的托管 VM，并想要创建多个类似的托管 VM。
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>将非托管 VM 迁移到托管磁盘
+### <a name="step-1-generalize-the-vm"></a>步骤 1：通用化 VM
 
-遵照[此处](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account)的说明，从存储帐户中的通用化 VHD 创建托管映像。 以后可以使用此映像创建接托管 VM。
+对于 Windows，请遵循[使用 Sysprep 通用化 Windows VM](/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) 部分操作。 对于 Linux，请遵循[此处](/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)所述的步骤 1。
 
-### <a name="create-managed-image-from-vm"></a>从 VM 创建托管映像
+> [!NOTE]
+> 请务必将 VM 通用化。 基于未正确通用化的映像创建 VM 会导致 **VMProvisioningTimeout** 错误。
+
+### <a name="step-2-create-the-managed-image"></a>步骤 2：创建托管映像
+
+可以使用门户、PowerShell 或 CLI 创建托管映像。 请遵循[此](/virtual-machines/windows/capture-image-resource) Azure 文章中的步骤操作。
+
+### <a name="step-3-choose-the-use-case"></a>步骤 3：选择用例
+
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>情况 1：将非托管 VM 迁移到托管磁盘
+
+执行此步骤之前，请务必正确通用化 VM。 通用化之后，不再可以使用此 VM。 基于未正确通用化的映像创建 VM 会导致 **VMProvisioningTimeout** 错误。
+
+遵照[此处](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account)的说明，从存储帐户中的通用化 VHD 创建托管映像。 以后可以使用此映像创建托管 VM。
+
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>情况 2：使用 PowerShell 基于托管映像创建托管 VM
 
 使用[此处](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell)的脚本从现有托管磁盘 VM 创建映像之后，以下示例脚本从现有映像对象创建类似的 Linux VM：
+
+Azure Stack PowerShell 模块 1.7.0 或更高版本：请遵照[此处](../../virtual-machines/windows/create-vm-generalized-managed.md)的说明操作。
+
+Azure Stack PowerShell 模块 1.6.0 或更低版本：
 
 ```powershell
 # Variables for common values
@@ -182,6 +201,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -192,7 +212,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-有关详细信息，请参阅 Azure 托管映像文章：[在 Azure 中创建通用化 VM 的托管映像](../../virtual-machines/windows/capture-image-resource.md)和[从托管映像创建 VM](../../virtual-machines/windows/create-vm-generalized-managed.md)。
+也可以使用门户基于托管映像创建 VM。 有关详细信息，请参阅 Azure 托管映像文章：[在 Azure 中创建通用化 VM 的托管映像](../../virtual-machines/windows/capture-image-resource.md)和[从托管映像创建 VM](../../virtual-machines/windows/create-vm-generalized-managed.md)。
 
 ## <a name="configuration"></a>配置
 

@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 08/19/2018
 ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 920a60a8557df133eeb18e80d168775c35482749
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: eb467899c4adf4ff830b4bdfc516b886d842f342
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675647"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627198"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 语法参考
 
@@ -85,7 +85,6 @@ SELECT <select_specification>
 
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
-
 ```  
 
  **参数**  
@@ -223,11 +222,11 @@ FROM <from_specification>
 
 联接的计算取决于参与其中的各个集的上下文作用域：  
 
--  容器集 A 和容器范围的集 B 之间的联接，会导致集 A 和集 B 的所有元素产生叉积。
+- 容器集 A 和容器范围的集 B 之间的联接，会导致集 A 和集 B 的所有元素产生叉积。
 
--   集 A 与以文档为作用域的集 B 之间的联接将生成通过针对集 A 中的每个文档对以文档为作用域的集 B 进行计算而得到的所有集的并集。  
+- 集 A 与以文档为作用域的集 B 之间的联接将生成通过针对集 A 中的每个文档对以文档为作用域的集 B 进行计算而得到的所有集的并集。  
 
- 在当前发布的版本中，查询处理器支持一个容器范围的表达式的最大值。  
+  在当前发布的版本中，查询处理器支持一个容器范围的表达式的最大值。  
 
 ### <a name="examples-of-joins"></a>联接示例  
 
@@ -327,17 +326,17 @@ WHERE <filter_condition>
 
  **参数**  
 
--   `<filter_condition>`  
+- `<filter_condition>`  
 
-     指定需要满足什么条件才会返回文档。  
+   指定需要满足什么条件才会返回文档。  
 
--   `<scalar_expression>`  
+- `<scalar_expression>`  
 
-     表示待计算值的表达式。 请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
+   表示待计算值的表达式。 请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
 
- **备注**  
+  **备注**  
 
- 指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
+  指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
 
 <a name="bk_orderby_clause"></a>
 ##  <a name="order-by-clause"></a>ORDER BY 子句  
@@ -354,29 +353,29 @@ ORDER BY <sort_specification>
 
  **参数**  
 
--   `<sort_specification>`  
+- `<sort_specification>`  
 
-     指定对查询结果集进行排序时要依据的属性或表达式。 可以通过名称或列别名指定排序列。  
+   指定对查询结果集进行排序时要依据的属性或表达式。 可以通过名称或列别名指定排序列。  
 
-     可以指定多个排序列。 列名称必须唯一。 ORDER BY 子句中排序列的顺序定义了排序结果集的组织。 也就是说，结果集首先按第一个属性排序，然后该有序列表按第二个属性排序，依此类推。  
+   可以指定多个排序列。 列名称必须唯一。 ORDER BY 子句中排序列的顺序定义了排序结果集的组织。 也就是说，结果集首先按第一个属性排序，然后该有序列表按第二个属性排序，依此类推。  
 
-     ORDER BY 子句中引用的列名称必须与 select 列表中的列或者与在 FROM 子句中指定的表中的列相对应，且没有任何多义性。  
+   ORDER BY 子句中引用的列名称必须与 select 列表中的列或者与在 FROM 子句中指定的表中的列相对应，且没有任何多义性。  
 
--   `<sort_expression>`  
+- `<sort_expression>`  
 
-     指定对查询结果集进行排序时要依据的单个属性或表达式。  
+   指定对查询结果集进行排序时要依据的单个属性或表达式。  
 
--   `<scalar_expression>`  
+- `<scalar_expression>`  
 
-     有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
+   有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
 
--   `ASC | DESC`  
+- `ASC | DESC`  
 
-     指定应当按升序或降序对指定列中的值进行排序。 ASC 将按照从最低值到最高值的顺序进行排序。 DESC 将按照从最高值到最低值的顺序进行排序。 ASC 是默认排序顺序。 Null 值被视为最低的可能值。  
+   指定应当按升序或降序对指定列中的值进行排序。 ASC 将按照从最低值到最高值的顺序进行排序。 DESC 将按照从最高值到最低值的顺序进行排序。 ASC 是默认排序顺序。 Null 值被视为最低的可能值。  
 
- **备注**  
+  **备注**  
 
- 虽然查询语法支持多个排序依据属性，但 Cosmos DB 查询运行时支持仅按单个属性排序，以及仅按属性名称排序（不支持按计算属性排序）。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
+  虽然查询语法支持多个排序依据属性，但 Cosmos DB 查询运行时支持仅按单个属性排序，以及仅按属性名称排序（不支持按计算属性排序）。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
 
 <a name="bk_scalar_expressions"></a>
 ##  <a name="scalar-expressions"></a>标量表达式  
@@ -415,62 +414,62 @@ ORDER BY <sort_specification>
 
  **参数**  
 
--   `<constant>`  
+- `<constant>`  
 
-     返回一个常量值。 有关详细信息，请参阅[常量](#bk_constants)部分。  
+   返回一个常量值。 有关详细信息，请参阅[常量](#bk_constants)部分。  
 
--   `input_alias`  
+- `input_alias`  
 
-     表示由 `FROM` 子句中引入的 `input_alias` 定义的值。  
-    此值可以保证不是**未定义的** -- 将跳过输入中的**未定义**值。  
+   表示由 `FROM` 子句中引入的 `input_alias` 定义的值。  
+  此值可以保证不是**未定义的** -- 将跳过输入中的**未定义**值。  
 
--   `<scalar_expression>.property_name`  
+- `<scalar_expression>.property_name`  
 
-     表示对象的该属性的值。 如果该属性不存在，或者在不是对象的值上引用了该属性，则表达式的求值结果将是 **undefined** 值。  
+   表示对象的该属性的值。 如果该属性不存在，或者在不是对象的值上引用了该属性，则表达式的求值结果将是 **undefined** 值。  
 
--   `<scalar_expression>'['"property_name"|array_index']'`  
+- `<scalar_expression>'['"property_name"|array_index']'`  
 
-     表示名为 `property_name` 的属性的值或对象/数组中索引为 `array_index` 的数组元素的值。 如果不存在属性/数组索引，或对非对象/数组的值引用了属性/数组索引，则表达式的求值结果为未定义值。  
+   表示名为 `property_name` 的属性的值或对象/数组中索引为 `array_index` 的数组元素的值。 如果不存在属性/数组索引，或对非对象/数组的值引用了属性/数组索引，则表达式的求值结果为未定义值。  
 
--   `unary_operator <scalar_expression>`  
+- `unary_operator <scalar_expression>`  
 
-     表示应用于单个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
+   表示应用于单个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
 
--   `<scalar_expression> binary_operator <scalar_expression>`  
+- `<scalar_expression> binary_operator <scalar_expression>`  
 
-     表示应用于两个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
+   表示应用于两个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
 
--   `<scalar_function_expression>`  
+- `<scalar_function_expression>`  
 
-     表示由函数调用的结果定义的值。  
+   表示由函数调用的结果定义的值。  
 
--   `udf_scalar_function`  
+- `udf_scalar_function`  
 
-     用户定义的标量函数的名称。  
+   用户定义的标量函数的名称。  
 
--   `builtin_scalar_function`  
+- `builtin_scalar_function`  
 
-     内置标量函数的名称。  
+   内置标量函数的名称。  
 
--   `<create_object_expression>`  
+- `<create_object_expression>`  
 
-     表示通过使用指定属性及其值创建新对象而获得的值。  
+   表示通过使用指定属性及其值创建新对象而获得的值。  
 
--   `<create_array_expression>`  
+- `<create_array_expression>`  
 
-     表示通过创建以指定值为元素的新数组而获得的值  
+   表示通过创建以指定值为元素的新数组而获得的值  
 
--   `parameter_name`  
+- `parameter_name`  
 
-     表示指定的参数名称的值。 参数名称必须以单个 \@ 作为第一个字符。  
+   表示指定的参数名称的值。 参数名称必须以单个 \@ 作为第一个字符。  
 
- **备注**  
+  **备注**  
 
- 调用内置或用户定义的标量函数时，必须定义所有参数。 如果有任何参数未定义，则不会调用函数，并且结果将是 undefined。  
+  调用内置或用户定义的标量函数时，必须定义所有参数。 如果有任何参数未定义，则不会调用函数，并且结果将是 undefined。  
 
- 在创建对象时，将跳过任何分配有 undefined 值的属性并且不会将其包括在创建的对象中。  
+  在创建对象时，将跳过任何分配有 undefined 值的属性并且不会将其包括在创建的对象中。  
 
- 在创建数组时，将跳过任何分配有 **undefined** 值的元素值并且不会将其包括在创建的对象中。 这将导致下一个已定义元素取代其位置，这样，创建的数组将不会具有跳过的索引。  
+  在创建数组时，将跳过任何分配有 **undefined** 值的元素值并且不会将其包括在创建的对象中。 这将导致下一个已定义元素取代其位置，这样，创建的数组将不会具有跳过的索引。  
 
 <a name="bk_operators"></a>
 ##  <a name="operators"></a>运算符  
@@ -483,7 +482,7 @@ ORDER BY <sort_specification>
 |**类别**|**详细信息**|  
 |-|-|  
 |**算术**|运算符要求输入为数字。 输出也是数字。 如果有任何输入是 **undefined** 或者是数字之外的类型，则结果将是 **undefined**。|  
-|**按位**|运算符要求输入是 32 位有符号整数。 输出也是 32 位有符号整数。<br /><br /> 将对任何非整数值进行舍入。 正值将向下舍入，负值将向上舍入。<br /><br /> 对于超出 32 位整数范围的值，将通过取其 2 的补码数表示法的最后 32 位对其进行转换。<br /><br /> 如果有任何输入是 **undefined** 或者是数字之外的类型，则结果将是 **undefined**。<br /><br /> **注意：** 以上行为与 JavaScript 按位运算符的行为兼容。|  
+|**按位**|运算符要求输入是 32 位有符号整数。 输出也是 32 位有符号整数。<br /><br /> 将对任何非整数值进行舍入。 正值将向下舍入，负值将向上舍入。<br /><br /> 对于超出 32 位整数范围的值，将通过取其 2 的补码数表示法的最后 32 位对其进行转换。<br /><br /> 如果有任何输入是 **undefined** 或者是数字之外的类型，则结果将是 **undefined**。<br /><br /> **注意：** 上述行为与 JavaScript 位运算符的行为兼容。|  
 |**逻辑**|运算符要求输入为布尔值。 输出也是布尔值。<br />如果有任何输入**未定义**或者是布尔值之外的类型，则结果将是 **undefined**。|  
 |**比较**|运算符要求输入具有相同的类型，且不能未定义。 输出是布尔值。<br /><br /> 如果有任何输入**未定义**或者输入具有不同的类型，则结果将是 **undefined**。<br /><br /> 有关值排序的详细信息，请参阅**进行比较的值的排序**表。|  
 |**字符串**|运算符要求输入为字符串。 输出也是字符串。<br />如果有任何输入**未定义**或者是字符串之外的类型，则结果将是 **undefined**。|  
@@ -508,8 +507,10 @@ ORDER BY <sort_specification>
 
  **三元运算符：**  
 
-|三元运算符|?|如果第一个参数的求值结果为 **true**，则返回第二个参数，否则返回第三个参数。|  
-|-|-|-|  
+
+| 三元运算符 | ? | 如果第一个参数的求值结果为 **true**，则返回第二个参数，否则返回第三个参数。 |
+|------------------|---|---------------------------------------------------------------------------------------------------------------|
+|                  |   |                                                                                                               |
 
  **进行比较的值的排序**  
 
@@ -526,7 +527,7 @@ ORDER BY <sort_specification>
 
  在 Cosmos DB 中，通常在数据库中检索到值时，才知道其类型。 为了支持查询的高效执行，大多数运算符具有严格的类型要求。 另外，运算符本身不执行隐式转换。  
 
- 这意味着诸如 SELECT * FROM ROOT r WHERE r.Age = 21 的查询将仅返回 Age 属性等于数字 21 的文档。 Age 属性等于字符串 "21" 或字符串 "0021" 的文档将不会匹配，因为表达式 "21" = 21 的求值结果是 undefined。 这样可以更好地利用索引，因为查找特定值（例如数字 21）比搜索不确定个数的可能匹配项（数字 21 或字符串 "21"、"021"、"21.0"...）更快。 这与 JavaScript 针对不同类型的值采用运算符进行计算时的方式不同。  
+ 这意味着：SELECT * FROM ROOT r WHERE r.Age = 21 之类的查询仅返回属性 Age 等于数字 21 的文档。 Age 属性等于字符串 "21" 或字符串 "0021" 的文档将不会匹配，因为表达式 "21" = 21 的求值结果是 undefined。 这样可以更好地利用索引，因为查找特定值（例如数字 21）比搜索不确定个数的可能匹配项（数字 21 或字符串 "21"、"021"、"21.0"...）更快。 这与 JavaScript 针对不同类型的值采用运算符进行计算时的方式不同。  
 
  **数组和对象的相等和比较**  
 
@@ -624,7 +625,7 @@ ORDER BY <sort_specification>
 
   字符串文本是以零个或多个 Unicode 字符序列或转义符序列表示的 Unicode 字符串。 字符串文本括在单引号 (') 或双引号 (") 中。  
 
- 允许以下转义序列：  
+  允许以下转义序列：  
 
 |**转义序列**|**说明**|**Unicode 字符**|  
 |-|-|-|  
@@ -645,17 +646,17 @@ ORDER BY <sort_specification>
 
  对于索引查找，将考虑以下筛选器：  
 
--   对文档路径表达式和常量使用等于运算符 ( = )。  
+- 对文档路径表达式和常量使用等于运算符 ( = )。  
 
--   对文档路径表达式和数字常量使用范围运算符（<、\<=、>、>=）。  
+- 对文档路径表达式和数字常量使用范围运算符（<、\<=、>、>=）。  
 
--   文档路径表达式代表任何可从引用的数据库容器识别文档中常量路径的表达式。  
+- 文档路径表达式代表任何可从引用的数据库容器识别文档中常量路径的表达式。  
 
- **文档路径表达式**  
+  **文档路径表达式**  
 
- 文档路径表达式代表属性或数组索引器评估者在数据库容器文档中的一个文档当中的路径。 此路径可用于直接在数据库容器中的文档内识别筛选器中引用的值的位置。  
+  文档路径表达式代表属性或数组索引器评估者在数据库容器文档中的一个文档当中的路径。 此路径可用于直接在数据库容器中的文档内识别筛选器中引用的值的位置。  
 
- 若要将表达式视为文档路径表达式，它应当：  
+  若要将表达式视为文档路径表达式，它应当：  
 
 1.  直接引用容器根。  
 
@@ -721,17 +722,17 @@ ABS (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例显示了对三个不同数字使用 ABS 函数的结果。  
+  以下示例显示了对三个不同数字使用 ABS 函数的结果。  
 
 ```  
 SELECT ABS(-1), ABS(0), ABS(1)  
@@ -755,17 +756,17 @@ ACOS(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回 -1 的 ACOS。  
+  以下示例返回 -1 的 ACOS。  
 
 ```  
 SELECT ACOS(-1)  
@@ -789,17 +790,17 @@ ASIN(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回 -1 的 ASIN。  
+  以下示例返回 -1 的 ASIN。  
 
 ```  
 SELECT ASIN(-1)  
@@ -823,17 +824,17 @@ ATAN(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回指定值的 ATAN。  
+  以下示例返回指定值的 ATAN。  
 
 ```  
 SELECT ATAN(-45.01)  
@@ -857,17 +858,17 @@ ATN2(<numeric_expression>, <numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例为指定的 x 和 y 组件计算 ATN2。  
+  以下示例为指定的 x 和 y 组件计算 ATN2。  
 
 ```  
 SELECT ATN2(35.175643, 129.44)  
@@ -891,17 +892,17 @@ CEILING (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例显示了如何对正值、负值和零值使用 CEILING 函数。  
+  以下示例显示了如何对正值、负值和零值使用 CEILING 函数。  
 
 ```  
 SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
@@ -925,17 +926,17 @@ COS(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例计算指定角度的 COS。  
+  以下示例计算指定角度的 COS。  
 
 ```  
 SELECT COS(14.78)  
@@ -959,17 +960,17 @@ COT(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例计算指定角度的 COT。  
+  以下示例计算指定角度的 COT。  
 
 ```  
 SELECT COT(124.1332)  
@@ -993,17 +994,17 @@ DEGREES (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回 PI/2 弧度表示的角度的度数。  
+  以下示例返回 PI/2 弧度表示的角度的度数。  
 
 ```  
 SELECT DEGREES(PI()/2)  
@@ -1027,17 +1028,17 @@ FLOOR (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例显示了如何对正值、负值和零值使用 FLOOR 函数。  
+  以下示例显示了如何对正值、负值和零值使用 FLOOR 函数。  
 
 ```  
 SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
@@ -1061,25 +1062,25 @@ EXP (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回一个数值表达式。  
+  返回一个数值表达式。  
 
- **备注**  
+  **备注**  
 
- 常量 **e** (2.718281…) 是自然对数的底。  
+  常量 **e** (2.718281…) 是自然对数的底。  
 
- 某个数字的指数是对常量 **e** 执行该次数的乘幂计算。 例如 EXP(1.0) = e^1.0 = 2.71828182845905，EXP(10) = e^10 = 22026.4657948067。  
+  某个数字的指数是对常量 **e** 执行该次数的乘幂计算。 例如 EXP(1.0) = e^1.0 = 2.71828182845905，EXP(10) = e^10 = 22026.4657948067。  
 
- 某个数字的自然对数的指数是该数字本身：EXP (LOG (n)) = n。 某个数字的指数的自然对数是该数字本身：LOG (EXP (n)) = n。  
+  某个数的自然对数的指数就是该数本身：EXP (LOG (n)) = n。 并且某个数的指数的自然对数也是该数本身：LOG (EXP (n)) = n。  
 
- **示例**  
+  **示例**  
 
- 以下示例声明一个变量并返回指定变量 (10) 的指数值。  
+  以下示例声明一个变量并返回指定变量 (10) 的指数值。  
 
 ```  
 SELECT EXP(10)  
@@ -1115,29 +1116,29 @@ LOG (<numeric_expression> [, <base>])
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     为数值表达式。  
+   为数值表达式。  
 
--   `base`  
+- `base`  
 
-     可选的数值参数，用于设置对数的底。  
+   可选的数值参数，用于设置对数的底。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个数值表达式。  
+  返回一个数值表达式。  
 
- **备注**  
+  **备注**  
 
- 默认情况下，LOG() 返回自然对数。 可以通过使用可选的 base 参数将对数的底更改为其他值。  
+  默认情况下，LOG() 返回自然对数。 可以通过使用可选的 base 参数将对数的底更改为其他值。  
 
- 自然对数是以 **e** 为底的对数，其中，**e** 是一个无理常量，约等于 2.718281828。  
+  自然对数是以 **e** 为底的对数，其中，**e** 是一个无理常量，约等于 2.718281828。  
 
- 某个数字的指数的自然对数是该数字本身： LOG( EXP( n ) ) = n。 某个数字的自然对数的指数是该数字本身：EXP( LOG( n ) ) = n。  
+  某个数的指数的自然对数也是该数本身：LOG( EXP( n ) ) = n。 并且某个数的自然对数的指数就是该数本身：EXP( LOG( n ) ) = n。  
 
- **示例**  
+  **示例**  
 
- 以下示例声明一个变量并返回指定变量 (10) 的对数值。  
+  以下示例声明一个变量并返回指定变量 (10) 的对数值。  
 
 ```  
 SELECT LOG(10)  
@@ -1173,21 +1174,21 @@ LOG10 (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回一个数值表达式。  
+  返回一个数值表达式。  
 
- **备注**  
+  **备注**  
 
- LOG10 和 POWER 函数互为反函数。 例如，10 ^ LOG10(n) = n。  
+  LOG10 和 POWER 函数互为反函数。 例如，10 ^ LOG10(n) = n。  
 
- **示例**  
+  **示例**  
 
- 以下示例声明一个变量并返回指定变量 (100) 的 LOG10 值。  
+  以下示例声明一个变量并返回指定变量 (100) 的 LOG10 值。  
 
 ```  
 SELECT LOG10(100)  
@@ -1211,17 +1212,17 @@ PI ()
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回 PI 的值。  
+  以下示例返回 PI 的值。  
 
 ```  
 SELECT PI()  
@@ -1245,21 +1246,21 @@ POWER (<numeric_expression>, <y>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
--   `y`  
+- `y`  
 
-     是要将 `numeric_expression` 提升到的幂次。  
+   是要将 `numeric_expression` 提升到的幂次。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下数字演示了如何求某个数字的 3 次幂（数字的立方）。  
+  以下数字演示了如何求某个数字的 3 次幂（数字的立方）。  
 
 ```  
 SELECT POWER(2, 3), POWER(2.5, 3)  
@@ -1283,17 +1284,17 @@ RADIANS (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例采用几个角度作为输入并返回其对应的弧度值。  
+  以下示例采用几个角度作为输入并返回其对应的弧度值。  
 
 ```  
 SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIANS(197.1099392)  
@@ -1323,17 +1324,17 @@ ROUND(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例将以下正数和负数舍入到最接近的整数。  
+  以下示例将以下正数和负数舍入到最接近的整数。  
 
 ```  
 SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
@@ -1357,17 +1358,17 @@ SIGN(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回数字 -2 到 2 的 SIGN 值。  
+  以下示例返回数字 -2 到 2 的 SIGN 值。  
 
 ```  
 SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
@@ -1391,17 +1392,17 @@ SIN(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例计算指定角度的 SIN。  
+  以下示例计算指定角度的 SIN。  
 
 ```  
 SELECT SIN(45.175643)  
@@ -1425,17 +1426,17 @@ SQRT(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回数字 1-3 的平方根。  
+  以下示例返回数字 1-3 的平方根。  
 
 ```  
 SELECT SQRT(1), SQRT(2.0), SQRT(3)  
@@ -1459,17 +1460,17 @@ SQUARE(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回数字 1-3 的平方。  
+  以下示例返回数字 1-3 的平方。  
 
 ```  
 SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
@@ -1493,17 +1494,17 @@ TAN (<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例计算 PI()/2 的正切。  
+  以下示例计算 PI()/2 的正切。  
 
 ```  
 SELECT TAN(PI()/2);  
@@ -1527,17 +1528,17 @@ TRUNC(<numeric_expression>)
 
  **参数**  
 
--   `numeric_expression`  
+- `numeric_expression`  
 
-     是一个数值表达式。  
+   是一个数值表达式。  
 
- 返回类型  
+  返回类型  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例将以下正数和负数截断到最接近的整数值。  
+  以下示例将以下正数和负数截断到最接近的整数值。  
 
 ```  
 SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
@@ -1571,17 +1572,17 @@ IS_ARRAY(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_ARRAY 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
+  以下示例使用 IS_ARRAY 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1612,17 +1613,17 @@ IS_BOOL(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_BOOL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
+  以下示例使用 IS_BOOL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1653,17 +1654,17 @@ IS_DEFINED(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例检查指定的 JSON 文档中是否存在某个属性。 第一个示例返回 true，因为“a” 存在；第二个示例返回 false，因为“b”不存在。  
+  以下示例检查指定的 JSON 文档中是否存在某个属性。 第一个示例返回 true，因为“a” 存在；第二个示例返回 false，因为“b”不存在。  
 
 ```  
 SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
@@ -1690,17 +1691,17 @@ IS_NULL(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_NULL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
+  以下示例使用 IS_NULL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1731,17 +1732,17 @@ IS_NUMBER(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_NULL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
+  以下示例使用 IS_NULL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1772,17 +1773,17 @@ IS_OBJECT(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_OBJECT 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
+  以下示例使用 IS_OBJECT 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1813,17 +1814,17 @@ IS_PRIMITIVE(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_PRIMITIVE 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+  以下示例使用 IS_PRIMITIVE 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
 
 ```  
 SELECT   
@@ -1854,17 +1855,17 @@ IS_STRING(<expression>)
 
  **参数**  
 
--   `expression`  
+- `expression`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例使用 IS_STRING 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
+  以下示例使用 IS_STRING 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1887,14 +1888,15 @@ SELECT
 ###  <a name="string-functions"></a>字符串函数  
  下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。  
 
-||||  
-|-|-|-|  
-|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
-|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
+
+|                            |                              |                            |
+|----------------------------|------------------------------|----------------------------|
+|    [CONCAT](#bk_concat)    |   [CONTAINS](#bk_contains)   |  [ENDSWITH](#bk_endswith)  |
+|  [INDEX_OF](#bk_index_of)  |       [LEFT](#bk_left)       |    [LENGTH](#bk_length)    |
+|     [LOWER](#bk_lower)     |      [LTRIM](#bk_ltrim)      |   [REPLACE](#bk_replace)   |
+| [REPLICATE](#bk_replicate) |    [REVERSE](#bk_reverse)    |     [RIGHT](#bk_right)     |
+|     [RTRIM](#bk_rtrim)     | [STARTSWITH](#bk_startswith) | [SUBSTRING](#bk_substring) |
+|  [ToString](#bk_tostring)  |       [TRIM](#bk_trim)       |     [UPPER](#bk_upper)     |
 
 <a name="bk_concat"></a>
 ####  <a name="concat"></a>CONCAT  
@@ -1908,17 +1910,17 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回将指定值串联后形成的字符串。  
+  以下示例返回将指定值串联后形成的字符串。  
 
 ```  
 SELECT CONCAT("abc", "def")  
@@ -1942,17 +1944,17 @@ CONTAINS(<str_expr>, <str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例检查“abc”是否包含“ab”以及是否包含“d”。  
+  以下示例检查“abc”是否包含“ab”以及是否包含“d”。  
 
 ```  
 SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
@@ -1976,17 +1978,17 @@ ENDSWITH(<str_expr>, <str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例的返回结果指示“abc”是否以“b”和“bc”结尾。  
+  以下示例的返回结果指示“abc”是否以“b”和“bc”结尾。  
 
 ```  
 SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
@@ -2010,17 +2012,17 @@ INDEX_OF(<str_expr>, <str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回“abc”内的各个子字符串的索引。  
+  以下示例返回“abc”内的各个子字符串的索引。  
 
 ```  
 SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
@@ -2044,21 +2046,21 @@ LEFT(<str_expr>, <num_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
--   `num_expr`  
+- `num_expr`  
 
-     是任何有效的数值表达式。  
+   是任何有效的数值表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例根据不同的长度值返回“abc”的左侧部分。  
+  以下示例根据不同的长度值返回“abc”的左侧部分。  
 
 ```  
 SELECT LEFT("abc", 1), LEFT("abc", 2)  
@@ -2082,17 +2084,17 @@ LENGTH(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回某个字符串的长度。  
+  以下示例返回某个字符串的长度。  
 
 ```  
 SELECT LENGTH("abc")  
@@ -2116,17 +2118,17 @@ LOWER(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 LOWER。  
+  以下示例演示了如何在查询中使用 LOWER。  
 
 ```  
 SELECT LOWER("Abc")  
@@ -2151,17 +2153,17 @@ LTRIM(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 LTRIM。  
+  以下示例演示了如何在查询中使用 LTRIM。  
 
 ```  
 SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
@@ -2185,17 +2187,17 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 REPLACE。  
+  以下示例演示了如何在查询中使用 REPLACE。  
 
 ```  
 SELECT REPLACE("This is a Test", "Test", "desk")  
@@ -2219,21 +2221,21 @@ REPLICATE(<str_expr>, <num_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
--   `num_expr`  
+- `num_expr`  
 
-     是任何有效的数值表达式。  
+   是任何有效的数值表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 REPLICATE。  
+  以下示例演示了如何在查询中使用 REPLICATE。  
 
 ```  
 SELECT REPLICATE("a", 3)  
@@ -2257,17 +2259,17 @@ REVERSE(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 REVERSE。  
+  以下示例演示了如何在查询中使用 REVERSE。  
 
 ```  
 SELECT REVERSE("Abc")  
@@ -2291,21 +2293,21 @@ RIGHT(<str_expr>, <num_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
--   `num_expr`  
+- `num_expr`  
 
-     是任何有效的数值表达式。  
+   是任何有效的数值表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例根据不同的长度值返回“abc”的右侧部分。  
+  以下示例根据不同的长度值返回“abc”的右侧部分。  
 
 ```  
 SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
@@ -2329,17 +2331,17 @@ RTRIM(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 RTRIM。  
+  以下示例演示了如何在查询中使用 RTRIM。  
 
 ```  
 SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
@@ -2363,17 +2365,17 @@ STARTSWITH(<str_expr>, <str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例检查字符串“abc”是否以“b”和“a”开头。  
+  以下示例检查字符串“abc”是否以“b”和“a”开头。  
 
 ```  
 SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
@@ -2397,21 +2399,21 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
--   `num_expr`  
+- `num_expr`  
 
-     是任何有效的数值表达式。  
+   是任何有效的数值表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例返回“abc”中从位置 1 开始且长度为 1 个字符的子字符串。  
+  以下示例返回“abc”中从位置 1 开始且长度为 1 个字符的子字符串。  
 
 ```  
 SELECT SUBSTRING("abc", 1, 1)  
@@ -2434,17 +2436,17 @@ ToString(<expr>)
 
  **参数**  
 
--   `expr`  
+- `expr`  
 
-     为任何有效的标量表达式。  
+   为任何有效的标量表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示 ToString 在不同类型中的行为方式。   
+  以下示例演示 ToString 在不同类型中的行为方式。   
 
 ```  
 SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
@@ -2510,17 +2512,17 @@ TRIM(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例介绍了如何在查询中使用 TRIM。  
+  以下示例介绍了如何在查询中使用 TRIM。  
 
 ```  
 SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
@@ -2543,17 +2545,17 @@ UPPER(<str_expr>)
 
  **参数**  
 
--   `str_expr`  
+- `str_expr`  
 
-     是任何有效的字符串表达式。  
+   是任何有效的字符串表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个字符串表达式。  
+  返回一个字符串表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何在查询中使用 UPPER。  
+  以下示例演示了如何在查询中使用 UPPER。  
 
 ```  
 SELECT UPPER("Abc")  
@@ -2586,17 +2588,17 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
 
  **参数**  
 
--   `arr_expr`  
+- `arr_expr`  
 
-     是任何有效的数组表达式。  
+   是任何有效的数组表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个数组表达式。  
+  返回一个数组表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何连接两个数组。  
+  以下示例演示了如何连接两个数组。  
 
 ```  
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
@@ -2620,25 +2622,25 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
  **参数**  
 
--   `arr_expr`  
+- `arr_expr`  
 
-     是任何有效的数组表达式。  
+   是任何有效的数组表达式。  
 
--   `expr`  
+- `expr`  
 
-     是任何有效的表达式。  
+   是任何有效的表达式。  
 
--   `bool_expr`  
+- `bool_expr`  
 
-     为任何布尔表达式。       
+   为任何布尔表达式。       
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔值。  
+  返回一个布尔值。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何使用 ARRAY_CONTAINS 检查数组中的成员身份。  
+  以下示例演示了如何使用 ARRAY_CONTAINS 检查数组中的成员身份。  
 
 ```  
 SELECT   
@@ -2683,17 +2685,17 @@ ARRAY_LENGTH(<arr_expr>)
 
  **参数**  
 
--   `arr_expr`  
+- `arr_expr`  
 
-     是任何有效的数组表达式。  
+   是任何有效的数组表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回数值表达式。  
+  返回数值表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何使用 ARRAY_LENGTH 获取数组的长度。  
+  以下示例演示了如何使用 ARRAY_LENGTH 获取数组的长度。  
 
 ```  
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
@@ -2717,25 +2719,25 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 
  **参数**  
 
--   `arr_expr`  
+- `arr_expr`  
 
-     是任何有效的数组表达式。  
+   是任何有效的数组表达式。  
 
--   `num_expr`  
+- `num_expr`  
 
-     用于开始数组的从零开始的数字索引。 负值可用于指定相对于数组最后一个元素的起始索引，即 -1 引用数组中最后一个元素。  
+   用于开始数组的从零开始的数字索引。 负值可用于指定相对于数组最后一个元素的起始索引，即 -1 引用数组中最后一个元素。  
 
--   `num_expr`  
+- `num_expr`  
 
-     结果数组中的最大元素数。    
+   结果数组中的最大元素数。    
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个数组表达式。  
+  返回一个数组表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例展示了如何使用 ARRAY_SLICE 获取数组的不同切片。  
+  以下示例展示了如何使用 ARRAY_SLICE 获取数组的不同切片。  
 
 ```  
 SELECT   
@@ -2767,10 +2769,11 @@ SELECT
 ###  <a name="spatial-functions"></a>空间函数  
  以下标量函数对标量对象输入值执行操作，并返回数值或布尔值。  
 
-||||  
-|-|-|-|  
-|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
-|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
+
+|                                              |                            |                                    |
+|----------------------------------------------|----------------------------|------------------------------------|
+|        [ST_DISTANCE](#bk_st_distance)        | [ST_WITHIN](#bk_st_within) | [ST_INTERSECTS](#bk_st_intersects) |
+| [ST_ISVALIDDETAILED](#bk_st_isvaliddetailed) |                            |                                    |
 
 <a name="bk_st_distance"></a>
 ####  <a name="stdistance"></a>ST_DISTANCE  
@@ -2784,17 +2787,17 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
 
  **参数**  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回包含距离的一个数字表达式。 这是根据默认参考系统以米为单位表示的。  
+  返回包含距离的一个数字表达式。 这是根据默认参考系统以米为单位表示的。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何使用 ST_DISTANCE 内置函数返回与指定位置的距离在 30 公里内的所有家族文档。 上获取。  
+  以下示例演示了如何使用 ST_DISTANCE 内置函数返回与指定位置的距离在 30 公里内的所有家族文档。 上获取。  
 
 ```  
 SELECT f.id   
@@ -2822,21 +2825,21 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
 
  **参数**  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     为任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
+   为任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔值。  
+  返回一个布尔值。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何使用 ST_WITHIN 查找某个多边形内的所有家族文档。  
+  以下示例演示了如何使用 ST_WITHIN 查找某个多边形内的所有家族文档。  
 
 ```  
 SELECT f.id   
@@ -2865,21 +2868,21 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 
  **参数**  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     为任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
+   为任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔值。  
+  返回一个布尔值。  
 
- **示例**  
+  **示例**  
 
- 以下示例介绍了如何查找与给定多边形相交的所有区域。  
+  以下示例介绍了如何查找与给定多边形相交的所有区域。  
 
 ```  
 SELECT a.id   
@@ -2908,21 +2911,21 @@ ST_ISVALID(<spatial_expr>)
 
  **参数**  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     是任何有效的 GeoJSON 点、多边形或 LineString 表达式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 返回一个布尔表达式。  
+  返回一个布尔表达式。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何使用 ST_VALID 检查某个点是否有效。  
+  以下示例演示了如何使用 ST_VALID 检查某个点是否有效。  
 
- 例如，此点具有不在有效的值范围 [-90, 90] 中的纬度值，因此，该查询返回 false。  
+  例如，此点具有不在有效的值范围 [-90, 90] 中的纬度值，因此，该查询返回 false。  
 
- 对于多边形，若要创建闭合的形状，GeoJSON 规范要求所提供的最后一个坐标对应该与第一个坐标对相同。 多边形内的点必须以逆时针顺序指定。 以顺时针顺序指定的多边形表示其中的区域倒转。  
+  对于多边形，若要创建闭合的形状，GeoJSON 规范要求所提供的最后一个坐标对应该与第一个坐标对相同。 多边形内的点必须以逆时针顺序指定。 以顺时针顺序指定的多边形表示其中的区域倒转。  
 
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
@@ -2946,17 +2949,17 @@ ST_ISVALID(<spatial_expr>)
 
  **参数**  
 
--   `spatial_expr`  
+- `spatial_expr`  
 
-     是任何有效的 GeoJSON 点或多边形表达式。  
+   是任何有效的 GeoJSON 点或多边形表达式。  
 
- **返回类型**  
+  **返回类型**  
 
- 如果指定的 GeoJSON 点或多边形表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外以字符串值提供原因。  
+  如果指定的 GeoJSON 点或多边形表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外以字符串值提供原因。  
 
- **示例**  
+  **示例**  
 
- 以下示例演示了如何使用 ST_ISVALIDDETAILED 检查有效性（带详细信息）。  
+  以下示例演示了如何使用 ST_ISVALIDDETAILED 检查有效性（带详细信息）。  
 
 ```  
 SELECT ST_ISVALIDDETAILED({   

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 57046de26021445eb892b7fb75875025b460e5ee
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 15763a9a8782b5b03cfbc3e84947b9370cc34b19
+ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441041"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58545267"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>分析 Azure Monitor 日志中的文本数据
 Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的自定义日志。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。
@@ -170,8 +170,8 @@ SecurityEvent
 | summarize count() by PreAuthType
 ```
 
-## <a name="use-function-to-simulate-a-table"></a>使用函数模拟表
-可能具有对特定表执行相同分析的多个查询。 在这种情况下，[创建一个函数](functions.md)以返回经过分析的数据，而不是在每个查询中复制分析逻辑。 随后可以在其他查询中使用函数别名来代替原始表。
+## 使用函数模拟表 <a name="Use-function-to-simulate-a-table"></a>
+可能具有对特定表执行相同分析的多个查询。 在这种情况下，创建一个函数以返回经过分析的数据，而不是在每个查询中复制分析逻辑。 随后可以在其他查询中使用函数别名来代替原始表。
 
 请考虑上面的以逗号分隔的自定义日志示例。 若要在多个查询中使用经过分析的数据，请使用以下查询插件函数，并使用别名 _MyCustomCSVLog_ 保存它。
 

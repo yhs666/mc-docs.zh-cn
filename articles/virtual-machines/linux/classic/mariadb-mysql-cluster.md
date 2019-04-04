@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 origin.date: 04/15/2015
 ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9ab62110d7715cbec288b1c49f0308c16c85456b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3a744f1b90cf148381bad045ba1e7526f7f633b8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652388"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625521"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
-> Azure 提供了用于创建和处理资源的两个不同部署模型：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 模型和经典模型。 本文介绍经典部署模型。 Azure 建议大多数新部署使用 Azure Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器](../../../resource-manager-deployment-model.md)部署模型和经典部署模型。 本文介绍经典部署模型。 Azure 建议大多数新部署使用 Azure Resource Manager 模型。
 <!-- Not Available on MariaDB Enterprise cluster-->
 
 本文说明了如何创建 [MariaDBs](https://mariadb.org/en/about/) 的多主机 [Galera](http://galeracluster.com/products/) 群集（MySQL 的嵌入式替代版本，具有稳健性、可伸缩性和可靠性），可在 Azure 虚拟机上的高度可用环境中使用。
@@ -225,30 +225,21 @@ ms.locfileid: "52652388"
 
 1. 从所创建的 mariadb-galera-image 映像创建第一个 CentOS 7 VM，提供以下信息：
 
- - 虚拟网络名称：mariadbvnet
- - 子网：mariadb
- - 虚拟机大小：中等
- - 云服务名称：mariadbha（或要通过 mariadbha.chinacloudapp.cn 访问的任何名称）
- - 虚拟机名称：mariadb1
- - 用户名：azureuser
- - SSH 访问权限：启用
- - 传递 SSH 证书 .pem 文件，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
+   - 虚拟网络名称：mariadbvnet
+   - 子网：mariadb
+   - 虚拟机大小：中等
+   - 云服务名称：mariadbha（或要通过 mariadbha.chinacloudapp.cn 访问的任何名称）
+   - 虚拟机名称：mariadb1
+   - 用户名：azureuser
+   - SSH 访问权限：启用
+   - 传递 SSH 证书 .pem 文件，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
 
-    > [!NOTE]
-    > 为清楚起见，以下命令拆开显示在多行内，但每个都应作为一整行进行输入。
-    >
-    >
-        azure vm create
-        --virtual-network-name mariadbvnet
-        --subnet-names mariadb
-        --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 22
-        --vm-name mariadb1
-        mariadbha mariadb-galera-image azureuser
-1. 再创建两个虚拟机，将其连接到 mariadbha 云服务。 更改 VM 名称，并将 SSH 端口更改为不与同一云服务中的其他 VM 冲突的唯一端口。
+     > [!NOTE]
+     > 为清楚起见，以下命令拆开显示在多行内，但每个都应作为一整行进行输入。
+     > 
+     > 
+     >    azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --availability-set clusteravset --vm-size Medium --ssh-cert "/path/to/key.pem" --no-ssh-password --ssh 22 --vm-name mariadb1 mariadbha mariadb-galera-image azureuser
+2. 再创建两个虚拟机，将其连接到 mariadbha 云服务。 更改 VM 名称，并将 SSH 端口更改为不与同一云服务中的其他 VM 冲突的唯一端口。
 
         azure vm create
         --virtual-network-name mariadbvnet
@@ -260,7 +251,7 @@ ms.locfileid: "52652388"
         --ssh 23
         --vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-  对于 MariaDB3：
+   对于 MariaDB3：
 
         azure vm create
         --virtual-network-name mariadbvnet
@@ -272,20 +263,20 @@ ms.locfileid: "52652388"
         --ssh 24
         --vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
-1. 需要获取三个 VM 各自的内部 IP 地址，才能执行下一步：
+3. 需要获取三个 VM 各自的内部 IP 地址，才能执行下一步：
 
     ![获取 IP 地址](./media/mariadb-mysql-cluster/IP.png)
-1. 使用 SSH 登录到这三个 VM，并编辑每个 VM 的配置文件。
+4. 使用 SSH 登录到这三个 VM，并编辑每个 VM 的配置文件。
 
         sudo vi /etc/my.cnf.d/server.cnf
 
     通过删除行首的 **#** 取消注释 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**。
     此外，将 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`** 分别替换为 VM 的 IP 地址和名称，然后同样取消注释这些行。
-1. 启动 MariaDB1 上的群集，并让其在启动时运行。
+5. 启动 MariaDB1 上的群集，并让其在启动时运行。
 
         sudo service mysql bootstrap
         chkconfig mysql on
-1. 在 MariaDB2 和 MariaDB3 上启动 MySQL，并允许其在启动时运行。
+6. 在 MariaDB2 和 MariaDB3 上启动 MySQL，并允许其在启动时运行。
 
         sudo service mysql start
         chkconfig mysql on

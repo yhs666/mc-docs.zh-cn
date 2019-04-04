@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 2c4952e70fce1170235828e568a84fedcaa63060
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/08/2019
+ms.openlocfilehash: 1787f2cee8c81c3cb2506b562927e6dd57e521d1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906239"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627226"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -164,13 +164,13 @@ ms.locfileid: "54906239"
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
-<forward-request timeout="time in seconds" follow-redirects="true | false"/>  
+<forward-request timeout="time in seconds" follow-redirects="true | false" buffer-request-body="true | false" />
 ```  
   
 ### <a name="examples"></a>示例  
   
 #### <a name="example"></a>示例  
- 以下 API 级策略将所有请求都转发到后端服务，超时间隔设置为 60 秒。  
+以下 API 级策略将所有 API 请求都转发到后端服务，超时间隔设置为 60 秒。
   
 ```xml  
 <!-- api level -->  
@@ -256,8 +256,9 @@ ms.locfileid: "54906239"
   
 |属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="整数"|以秒为单位的超时间隔，此时间过后对后端服务的调用会失败。|否|300 秒|  
+| timeout="整数"                       | 以秒为单位的超时间隔，此时间过后对后端服务的调用会失败。 最小值为 0 秒。 最大值为 240 秒。| 否       | 240 秒 |
 |follow-redirects="true &#124; false"|指定是由网关执行从后端服务的重定向，还是将重定向返回到调用方。|否|false|  
+| buffer-request-body="true &#124; false" | 设置为“true”时，请求将被缓冲，并将在[重试](api-management-advanced-policies.md#Retry)时重新使用。 | 否       | false       |
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
@@ -701,11 +702,11 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必须|默认|  
-|---------------|-----------------|--------------|-------------|  
-|url="string"|http://host:port 形式的代理 URL。|是|不适用|  
-|username="string"|要用于向代理进行身份验证的用户名。|否|不适用|  
-|password="string"|要用于向代理进行身份验证的密码。|否|不适用|  
+|     属性     |                      说明                       | 必须 | 默认 |
+|-------------------|--------------------------------------------------------|----------|---------|
+|   url="string"    |       http://host:port 形式的代理 URL。       |   是    |   不适用   |
+| username="string" | 要用于向代理进行身份验证的用户名。 |    否    |   不适用   |
+| password="string" | 要用于向代理进行身份验证的密码。 |    否    |   不适用   |
 
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
@@ -1009,9 +1010,9 @@ status code and media type. If no example or schema found, the content is empty.
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：** 入站、出站、后端  
+- **策略节：** 入站、出站、后端  
   
--   **策略范围：** 所有范围  
+- <strong>策略范围：</strong>所有范围  
   
 ## <a name="next-steps"></a>后续步骤
 有关如何使用策略的详细信息，请参阅：

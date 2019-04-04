@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/25/2018
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: c997d8e4a2dc0cd9cfb3e426709d7cf59d9f99e8
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 856f2e60ed056df510c61755c444202ba6cf4d60
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348675"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627735"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 数据迁移最佳做法
 
@@ -35,18 +35,19 @@ ms.locfileid: "58348675"
 
 下表根据数据量和网络带宽列出了大致的数据传输持续时间。 如果数据迁移预计需要花费三周以上，请使用 Data Box。
 
-|**数据量**|**网络带宽**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
-|1 TB|2 天|1 天| 2 小时|14 分钟|
-|10 TB|22 天|10 天|1 天|2 小时|
-|35 TB|76 天|34 天|3 天|8 小时|
-|80 TB|173 天|78 天|8 天|19 小时|
-|100 TB|216 天|97 天|10 天|1 天|
-|200 TB|1 年|194 天|19 天|2 天|
-|500 TB|3 年|1 年|49 天|5 天|
-|1 PB|6 年|3 年|97 天|10 天|
-|2 PB|12 年|5 年|194 天|19 天|
+
+| **数据量** | **网络带宽** |              |            |
+|--------------|-----------------------|--------------|------------|
+|              |   **45 Mbps (T3)**    | **100 Mbps** | **1 Gbps** |
+|     1 TB     |        2 天         |    1 天     |  2 小时   |
+|    10 TB     |        22 天        |   10 天    |   1 天    |
+|    35 TB     |        76 天        |   34 天    |   3 天   |
+|    80 TB     |       173 天        |   78 天    |   8 天   |
+|    100 TB    |       216 天        |   97 天    |  10 天   |
+|    200 TB    |        1 年         |   194 天   |  19 天   |
+|    500 TB    |        3 年        |    1 年    |  49 天   |
+|     1 PB     |        6 年        |   3 年    |  97 天   |
+|     2 PB     |       12 年        |   5 年    |  194 天  |
 
 可以使用 Azure 的本机工具（例如 Apache Hadoop DistCp、Azure 数据工厂和 AzureCp）通过网络传输数据。 也可以使用第三方工具 WANDisco 实现相同的目的。 使用 Apache Kafka Mirrormaker 和 Apache Sqoop 可以持续将数据从本地传输到 Azure 存储系统。
 

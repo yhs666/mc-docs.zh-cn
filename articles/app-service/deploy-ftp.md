@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 44b6227254dc97e740d36207115f5209f869751b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9618678a0a64192f836cfbb7b2224f77156ec73b
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083688"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505508"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 
@@ -45,6 +45,14 @@ ms.locfileid: "54083688"
 
 建议你使用**应用凭据**部署到应用，因为它对每个应用都是唯一的。 但是，如果单击“用户凭据”，会将可用于 FTP/S 登录的用户级凭据设置到订阅中的所有应用服务应用。
 
+> [!NOTE]
+> 使用用户级凭据向 FTP/FTPS 终结点进行身份验证时需要使用以下格式的用户名： 
+>
+>`<app-name>\<user-name>`
+>
+> 由于用户级凭据链接到用户而不是特定资源，因此用户名必须采用此格式才能将登录操作定向到正确的应用终结点。
+>
+
 ## <a name="deploy-files-to-azure"></a>将文件部署到 Azure
 
 1. 从 FTP 客户端（例如 [Visual Studio](https://www.visualstudio.com/vs/community/)、[Cyberduck](https://cyberduck.io/) 或 [WinSCP](https://winscp.net/index.php)），使用收集到的连接信息连接到应用。
@@ -59,7 +67,6 @@ ms.locfileid: "54083688"
 > - 生成 web.config（以下提供一个 [Node.js 示例](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps)）
 > 
 > 在本地计算机上手动生成这些必要的文件，并将它们与应用一起部署。
->
 >
 
 ## <a name="enforce-ftps"></a>强制实施 FTPS

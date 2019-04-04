@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
 ms.date: 10/22/2018
-ms.openlocfilehash: 2ffde0faed27e99c6ceba64c9a734fded7eb6d02
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 74f932455312c58880c8754ec724bc7bd43236bd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649712"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625395"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
 
-本文介绍如何使用“快速创建”方法创建新的云服务，并使用“**上载**”在 Azure 中上载和部署云服务包。 使用此方法时，Azure 门户会在进行操作时提供方便的链接供你完成所有要求。 如果创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。
+本文介绍如何使用“快速创建”方法创建新的云服务，并使用“上传”  在 Azure 中上传和部署云服务包。 使用此方法时，Azure 门户会在进行操作时提供方便的链接供你完成所有要求。 如果创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。
 
 > [!NOTE]
 > 如果计划从 Azure DevOps 发布云服务，请使用“快速创建”，然后从“Azure 快速入门”或仪表板设置 Azure DevOps 发布。 有关详细信息，请参阅[使用 Azure DevOps 向 Azure 持续交付][TFSTutorialForCloudService]，或查看“快速入门”页的帮助。
@@ -53,7 +53,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
 - 若要部署使用安全套接字层 (SSL) 进行数据加密的云服务，请[配置应用程序](./cloud-services-configure-ssl-certificate-portal.md#modify)以便使用 SSL。
 
-* 如果要配置与角色实例的远程桌面连接，请为远程桌面[配置角色](./cloud-services-role-enable-remote-desktop-new-portal.md)。
+- 如果要配置与角色实例的远程桌面连接，请为远程桌面[配置角色](./cloud-services-role-enable-remote-desktop-new-portal.md)。
 
 - 如果要为云服务配置详细监视，请为云服务启用 Azure 诊断。 最少监视（默认监视级别）使用从角色实例（虚拟机）的主机操作系统中收集到的性能计数器。  根据角色实例中的性能数据收集其他度量信息，以便对处理应用程序期间出现的问题进行进一步分析。 若要了解如何启用 Azure 诊断，请参阅[在 Azure 中启用诊断](./cloud-services-dotnet-diagnostics.md)。
 
@@ -63,7 +63,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
 - 如果尚未安装 Azure SDK，请单击“安装 Azure SDK”打开 [Azure 下载页](https://www.azure.cn/downloads/)，然后下载要用于开发代码的相应语言的 SDK。 （也可以稍后执行此操作。）
 
-* 如果任何角色实例需要证书，请创建这些证书。 云服务需要带有私钥的 .pfx 文件。 可在创建和部署云服务时将这些证书上传到 Azure。
+- 如果任何角色实例需要证书，请创建这些证书。 云服务需要带有私钥的 .pfx 文件。 可在创建和部署云服务时将这些证书上传到 Azure。
 
 ## <a name="create-and-deploy"></a>创建和部署
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/24/2019
-ms.date: 02/18/2019
+origin.date: 02/28/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: justini
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41634bd0dee05cddcdb2c1147fa5ac232b9e429b
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 8579c2d379954e459186d0f3de903e83951a6f99
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987944"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627235"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -43,7 +43,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - 在此版本中，Azure Stack 集成系统支持 4-16 个节点的配置。 可以使用 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) 来帮助规划 Azure Stack 容量与配置。
 
-- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 客户端（正式版）** 此客户端允许将与 Azure Stack 基础结构相关的审核、警报和安全日志转发到 Azure Stack 外部的 syslog 服务器或安全信息与事件管理 (SIEM) 软件。 syslog 客户端现在支持指定 syslog 服务器侦听的端口。
+- <!--  2712869   | IS  ASDK -->  <strong>Azure Stack syslog 客户端（正式版）</strong> 此客户端允许将与 Azure Stack 基础结构相关的审核、警报和安全日志转发到 Azure Stack 外部的 syslog 服务器或安全信息与事件管理 (SIEM) 软件。 syslog 客户端现在支持指定 syslog 服务器侦听的端口。
 
    此版本意味着 syslog 客户端已正式发布，可以用于生产环境。
 
@@ -64,12 +64,12 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 - 以下托管磁盘问题已在 1809 中修复，同时已在 1808 [Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/) 中修复： 
 
    <!--  2966665 – IS, ASDK --> 
-   - 修复了以下问题：将 SSD 数据磁盘附加到高级大小的托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败并出现以下错误：无法更新虚拟机 ‘vmname’ 的磁盘。错误:由于 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’，因此请求的操作无法执行。 
+  - 修复了以下问题：将 SSD 数据磁盘附加到高级大小的托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败并出现以下错误：无法更新虚拟机 ‘vmname’ 的磁盘。错误:由于 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’，因此请求的操作无法执行。 
    
-   - 使用 **createOption**:**Attach** 创建托管磁盘 VM 失败并出现以下错误：长时间运行的操作失败，状态为 'Failed'。其他信息:“发生内部执行错误。”
-   ErrorCode:InternalExecutionError ErrorMessage:发生内部执行错误。
+  - 使用 **createOption**:**Attach** 创建托管磁盘 VM 失败并出现以下错误：长时间运行的操作失败，状态为 'Failed'。其他信息:“发生内部执行错误。”
+    ErrorCode:InternalExecutionError ErrorMessage:发生内部执行错误。
    
-   现已修复此问题。
+    现已修复此问题。
 
 - <!-- 2702741 -  IS, ASDK --> 修复了在发出“停止-解除分配”命令后，无法保证系统会保留使用动态分配方法部署的公共 IP 的问题。 它们现在已保留。
 
@@ -150,7 +150,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
   ```
 
-- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1809 之前将适用于 Azure Stack 的管理包更新到版本 10.0.3.11。
+- 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1809 之前将适用于 Azure Stack 的管理包更新到版本 1.0.3.11。
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
 
@@ -298,10 +298,10 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 <!-- TBD - IS ASDK --> 
 - 应用 1809 更新后，在部署带托管磁盘的 VM 时可能会遇到以下问题：
 
-   - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
-      1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“AzureStack-DiskRP-Client”角色是否已列出。
-   2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
+  - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
+     1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
+     2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“AzureStack-DiskRP-Client”角色是否已列出。
+  - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 

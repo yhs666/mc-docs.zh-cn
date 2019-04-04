@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/28/2019
+origin.date: 03/21/2019
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: cc7bcdb93ab5a3f64b608b0a7682214abf28a1df
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 04/08/2019
+ms.openlocfilehash: 3c377cd1cf3b67a8e3f8a73dcdaa1cd2c7173a38
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348565"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627218"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -452,46 +452,35 @@ ms.locfileid: "58348565"
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>根据令牌声明授予操作访问权限  
- 以下示例演示了如何使用[验证 JWT](./api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明预先授予操作访问权限。 
-  
-```xml  
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
-<set-variable name="signingKey" value="insert signing key here" />  
-<choose>  
-  <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">  
-    <validate-jwt header-name="Authorization">  
-      <issuer-signing-keys>  
-        <key>@((string)context.Variables["signingKey"])</key>  
-      </issuer-signing-keys>  
-      <required-claims>  
-        <claim name="edit">  
-          <value>true</value>  
-        </claim>  
-      </required-claims>  
-    </validate-jwt>  
-  </when>  
-  <when condition="@(new [] {"post", "put"}.Contains(context.Request.Method,StringComparer.OrdinalIgnoreCase))">  
-    <validate-jwt header-name="Authorization">  
-      <issuer-signing-keys>  
-        <key>@((string)context.Variables["signingKey"])</key>  
-      </issuer-signing-keys>  
-      <required-claims>  
-        <claim name="create">  
-          <value>true</value>  
-        </claim>  
-      </required-claims>  
-    </validate-jwt>  
-  </when>  
-  <otherwise>  
-    <validate-jwt header-name="Authorization">  
-      <issuer-signing-keys>  
-        <key>@((string)context.Variables["signingKey"])</key>  
-      </issuer-signing-keys>  
-    </validate-jwt>  
-  </otherwise>  
-</choose>  
-```  
-  
+以下示例演示了如何使用[验证 JWT](api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明值授予操作访问权限。
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key> <!-- signing key is stored in a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <issuers>
+        <issuer>contoso.com</issuer>
+    </issuers>
+    <required-claims>
+        <claim name="group" match="any">
+            <value>finance</value>
+            <value>logistics</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
+<choose>
+    <when condition="@(context.Request.Method == "POST" && !((Jwt)context.Variables["jwt"]).Claims["group"].Contains("finance"))">
+        <return-response>
+            <set-status code="403" reason="Forbidden" />
+        </return-response>
+    </when>
+</choose>
+```
+
 #### <a name="azure-mobile-services-token-validation"></a>Azure 移动服务令牌验证
 
 ```xml
@@ -537,6 +526,7 @@ ms.locfileid: "58348565"
 |require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|是|  
 |分隔符|字符串。 指定要用于从多值声明中提取一组值的分隔符（例如 ","）。|否|不适用| 
 |url|Open ID 配置终结点 URL，从中可以获取 Open ID 配置元数据。 响应应符合以下 URL 中定义的规范：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。  对于 Azure Active Directory，请使用以下 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`，将其中的 {tenant-name} 替换为你的目录租户名称，例如 `contoso.onmicrosoft.com`。|是|不适用|  
+|output-token-variable-name|字符串。 成功进行令牌验证后，将作为 [`Jwt`](api-management-policy-expressions.md) 类型的对象接收令牌值的上下文变量的名称|否|不适用|
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  

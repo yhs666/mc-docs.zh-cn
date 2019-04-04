@@ -16,12 +16,12 @@ ms.workload: big-compute
 origin.date: 05/14/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b22cb12bb8cbc615c96013c74c45ab4094b3b79
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 91bc322c24169fd2a9e1f207322a818cbcdfb54c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626296"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>将 HPC 作业从本地计算机提交到部署在 Azure 中的 HPC Pack 群集
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -90,12 +90,12 @@ ms.locfileid: "52675483"
 **从头节点中导出证书**
 
 1. 在头节点上，向 Microsoft 管理控制台中添加用于“本地计算机”帐户的证书管理单元。 有关添加此管理单元的步骤，请参阅[向 MMC 中添加证书管理单元](https://technet.microsoft.com/library/cc754431.aspx)。
-1. 在控制台树中，依次展开“证书 - 本地计算机” > “个人”，然后单击“证书”。
-1. 找到在[步骤 1：在头节点上安装并配置 Web 组件](#step-1-install-and-configure-the-web-components-on-the-head-node)中为 HPC Pack Web 组件配置的证书（例如，CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn）。
-<!-- Notice: Archor IS NOT CONTAIN : -->
-1. 右键单击该证书，然后单击“所有任务” > “导出”。
-1. 在证书导出向导中，单击“下一步”并确保选中“否，不导出私钥”。
-1. 执行此向导中的其余步骤，以“DER 编码二进制 X.509 (.CER)”格式导出证书。
+2. 在控制台树中，依次展开“证书 - 本地计算机” > “个人”，然后单击“证书”。
+3. 在[步骤 1：在头节点上安装并配置 Web 组件](#step-1-install-and-configure-the-web-components-on-the-head-node)中找到为 HPC Pack Web 组件配置的证书（例如，CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn）。
+   <!-- Notice: Archor IS NOT CONTAIN : -->
+4. 右键单击该证书，然后单击“所有任务” > “导出”。
+5. 在证书导出向导中，单击“下一步”并确保选中“否，不导出私钥”。
+6. 执行此向导中的其余步骤，以“DER 编码二进制 X.509 (.CER)”格式导出证书。
 
 **在客户端计算机上导入证书**
 

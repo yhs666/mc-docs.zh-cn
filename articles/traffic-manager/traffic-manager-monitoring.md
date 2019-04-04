@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 12/04/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 503cd2caa813281db8bf95ae5d1c1fdcf2643df0
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: a7c6750d91ffaf6ca290cd643a09f08f68a707a1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306723"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625223"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
@@ -41,7 +41,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 ## <a name="how-endpoint-monitoring-works"></a>终结点监视功能的工作原理
 
-如果监视协议设置为 HTTP 或 HTTPS，流量管理器探测代理将使用指定的协议、端口和相对路径向终结点发出 GET 请求。 如果收到返回的 200-OK 响应，或者在**“预期的状态代码\*范围”**中配置的任何响应，则认为该终结点正常。 如果响应是一个不同的值，或者在指定的超时期限内未收到的任何响应，则流量管理器探测代理会根据“容许的失败次数”设置重试（如果此设置为 0，则不执行重试）。 如果连续失败次数超过“容许的失败次数”设置，则将该终结点标记为不正常。 
+如果监视协议设置为 HTTP 或 HTTPS，流量管理器探测代理将使用指定的协议、端口和相对路径向终结点发出 GET 请求。 如果收到返回的 200-OK 响应，或者在<strong>预期的状态代码 *范围</strong>中配置的任何响应，则认为该终结点正常。 如果响应是一个不同的值，或者在指定的超时期限内未收到的任何响应，则流量管理器探测代理会根据“容许的失败次数”设置重试（如果此设置为 0，则不执行重试）。 如果连续失败次数超过“容许的失败次数”设置，则将该终结点标记为不正常。 
 
 如果监视协议为 TCP，流量管理器探测代理将使用指定的端口发起 TCP 连接请求。 如果终结点响应了请求并提供了用于建立连接的响应，则将该运行状况检查标记为成功，并且流量管理器探测代理会重置 TCP 连接。 如果响应是一个不同的值，或者在指定的超时期限内未收到的任何响应，则流量管理器探测代理会根据“容许的失败次数”设置重试（如果此设置为 0，则不执行重试）。 如果连续失败次数超过“容许的失败次数”设置，则将该终结点标记为不正常。
 
@@ -135,7 +135,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 * **优先级**。 终结点构成一个采用优先级的列表。 将始终返回列表中第一个可用的终结点。 如果终结点状态为“已降级”，则返回下一个可用的终结点。
 * **加权**。 根据分配的权重以及其他可用终结点的权重随机选择任何可用的终结点。
 * **性能**。 返回最靠近最终用户的终结点。 如果终结点不可用，流量管理器会将流量转移给下一个最靠近 Azure 区域的终结点。 可以使用[嵌套式流量管理器配置文件](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)针对性能流量路由来配置替代故障转移计划。
-<!-- Not Available on * **Geographic**. The endpoint mapped to serve the geographic location based on the query request IP's is returned. If that endpoint is unavailable, another endpoint will not be selected to failover to, since a geographic location can be mapped only to one endpoint in a profile (more details are in the [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). As a best practice, when using geographic routing, we recommend customers to use nested Traffic Manager profiles with more than one endpoint as the endpoints of the profile.-->
+  <!-- Not Available on * **Geographic**. The endpoint mapped to serve the geographic location based on the query request IP's is returned. If that endpoint is unavailable, another endpoint will not be selected to failover to, since a geographic location can be mapped only to one endpoint in a profile (more details are in the [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). As a best practice, when using geographic routing, we recommend customers to use nested Traffic Manager profiles with more than one endpoint as the endpoints of the profile.-->
 * **MultiValue**：返回多个映射到 IPv4/IPv6 地址的终结点。 收到此配置文件的查询时，系统会根据指定的“响应中的最大记录数”值返回正常终结点。 响应的默认数量为两个终结点。
 * **子网**：返回映射到一组 IP 地址范围的终结点。 从该 IP 地址收到请求时，返回的终结点是针对该 IP 地址映射的终结点。 
 

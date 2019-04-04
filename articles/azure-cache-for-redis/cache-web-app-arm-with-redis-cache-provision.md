@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2017
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: f87e8c52363f62d79313bb90f74ab54cdb84a7aa
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 0bf8d0605c0f14dd0867b53794f768059b45640a
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903074"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505427"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>使用模板创建 Web 应用和 Azure Redis 缓存
 
@@ -35,8 +35,8 @@ ms.locfileid: "56903074"
 ## <a name="what-you-will-deploy"></a>要部署的内容
 在此模板中，你将部署：
 
-- Azure Web 应用
-- Azure Redis 缓存。
+* Azure Web 应用
+* 用于 Redis 的 Azure 缓存
 
 若要自动运行部署，请单击以下按钮：
 
@@ -87,7 +87,7 @@ ms.locfileid: "56903074"
 ### <a name="web-app"></a>Web 应用
 使用 **webSiteName** 变量中指定的名称创建 Web 应用。
 
-请注意，在 Web 应用中配置的应用设置属性使其可与 Azure Redis 缓存配合工作。 此应用设置是根据部署期间提供了值动态创建的。
+请注意，在 Web 应用中配置的应用设置属性使其可与 Azure Redis 缓存配合工作。 这些应用设置是根据部署期间提供的值动态创建的。
 
     {
       "apiVersion": "2015-08-01",

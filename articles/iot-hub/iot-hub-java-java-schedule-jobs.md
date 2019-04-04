@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 07/10/2017
 ms.author: v-yiso
 ms.date: 12/03/2018
-ms.openlocfilehash: 1926f7d0afd9e623547c698f3bf95b59c576205e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a042a154d7d0619aa9e57b98b1cd1b9e26443450
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675236"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625156"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -300,9 +300,9 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示符下，导航到 `simulated-device` 文件夹。
+2. 在命令提示符下，导航到 `simulated-device` 文件夹。
 
-1. 使用文本编辑器打开 `simulated-device` 文件夹中的 `pom.xml` 文件，在 **dependencies** 节点中添加以下依赖项。 通过此依赖项可以使用应用中的 **iot-device-client** 包来与 IoT 中心进行通信：
+3. 使用文本编辑器打开 `simulated-device` 文件夹中的 `pom.xml` 文件，在 **dependencies** 节点中添加以下依赖项。 通过此依赖项可以使用应用中的 **iot-device-client** 包来与 IoT 中心进行通信：
 
     ```xml
     <dependency>
@@ -315,7 +315,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     > [!NOTE]
     > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-device-client**。
 
-1. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
+4. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
 
     ```xml
     <build>
@@ -333,11 +333,11 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     </build>
     ```
 
-1. 保存并关闭 `pom.xml` 文件。
+5. 保存并关闭 `pom.xml` 文件。
 
-1. 使用文本编辑器打开 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
+6. 使用文本编辑器打开 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
 
-1. 在该文件中添加以下 **import** 语句：
+7. 在该文件中添加以下 **import** 语句：
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -348,7 +348,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     import java.util.Scanner;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值：
+8. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.cn;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -359,7 +359,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
     本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。
 
-1. 若要在控制台中列显设备孪生通知，请向 App 类添加以下嵌套类：
+9. 若要在控制台中列显设备孪生通知，请向 App 类添加以下嵌套类：
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -370,101 +370,101 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     }
     ```
 
-1. 若要在控制台中列显直接方法通知，请向 App 类添加以下嵌套类：
+10. 若要在控制台中列显直接方法通知，请向 App 类添加以下嵌套类：
 
-    ```java
-    // Handler for direct method notifications from IoT Hub
-    protected static class DirectMethodStatusCallback implements IotHubEventCallback {
-      public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to direct method operation with status " + status.name());
-      }
-    }
-    ```
+     ```java
+     // Handler for direct method notifications from IoT Hub
+     protected static class DirectMethodStatusCallback implements IotHubEventCallback {
+       public void execute(IotHubStatusCode status, Object context) {
+         System.out.println("IoT Hub responded to direct method operation with status " + status.name());
+       }
+     }
+     ```
 
-1. 若要处理 IoT 中心的直接方法调用，请向 App 类添加以下嵌套类：
+11. 若要处理 IoT 中心的直接方法调用，请向 App 类添加以下嵌套类：
 
-    ```java
-    // Handler for direct method calls from IoT Hub
-    protected static class DirectMethodCallback
-        implements DeviceMethodCallback {
-      @Override
-      public DeviceMethodData call(String methodName, Object methodData, Object context) {
-        DeviceMethodData deviceMethodData;
-        switch (methodName) {
-          case "lockDoor": {
-            System.out.println("Executing direct method: " + methodName);
-            deviceMethodData = new DeviceMethodData(METHOD_SUCCESS, "Executed direct method " + methodName);
-            break;
-          }
-          default: {
-            deviceMethodData = new DeviceMethodData(METHOD_NOT_DEFINED, "Not defined direct method " + methodName);
-          }
-        }
-        // Notify IoT Hub of result
-        return deviceMethodData;
-      }
-    }
-    ```
+     ```java
+     // Handler for direct method calls from IoT Hub
+     protected static class DirectMethodCallback
+         implements DeviceMethodCallback {
+       @Override
+       public DeviceMethodData call(String methodName, Object methodData, Object context) {
+         DeviceMethodData deviceMethodData;
+         switch (methodName) {
+           case "lockDoor": {
+             System.out.println("Executing direct method: " + methodName);
+             deviceMethodData = new DeviceMethodData(METHOD_SUCCESS, "Executed direct method " + methodName);
+             break;
+           }
+           default: {
+             deviceMethodData = new DeviceMethodData(METHOD_NOT_DEFINED, "Not defined direct method " + methodName);
+           }
+         }
+         // Notify IoT Hub of result
+         return deviceMethodData;
+       }
+     }
+     ```
 
-1. 更新 **main** 方法签名，以包含以下 `throws` 子句：
+12. 更新 **main** 方法签名，以包含以下 `throws` 子句：
 
-    ```java
-    public static void main( String[] args ) throws IOException, URISyntaxException
-    ```
+     ```java
+     public static void main( String[] args ) throws IOException, URISyntaxException
+     ```
 
-1. 将以下代码添加到 **main** 方法，以便：
+13. 将以下代码添加到 **main** 方法，以便：
     * 创建用来与 IoT 中心通信的设备客户端。
     * 创建一个 **Device** 对象用于存储设备孪生属性。
 
-    ```java
-    // Create a device client
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      // Create a device client
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // An object to manage device twin desired and reported properties
-    Device dataCollector = new Device() {
+      // An object to manage device twin desired and reported properties
+      Device dataCollector = new Device() {
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context)
       {
         System.out.println("Received desired property change: " + propertyKey + " " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
-1. 若要启动设备客户端服务，请向 main 方法添加以下代码：
+14. 若要启动设备客户端服务，请向 main 方法添加以下代码：
 
-    ```java
-    try {
-      // Open the DeviceClient
-      // Start the device twin services
-      // Subscribe to direct method calls
-      client.open();
-      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
-      client.subscribeToDeviceMethod(new DirectMethodCallback(), null, new DirectMethodStatusCallback(), null);
-    } catch (Exception e) {
-      System.out.println("Exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-      dataCollector.clean();
-      client.closeNow();
-      System.out.println("Shutting down...");
-    }
-    ```
+     ```java
+     try {
+       // Open the DeviceClient
+       // Start the device twin services
+       // Subscribe to direct method calls
+       client.open();
+       client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
+       client.subscribeToDeviceMethod(new DirectMethodCallback(), null, new DirectMethodStatusCallback(), null);
+     } catch (Exception e) {
+       System.out.println("Exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+       dataCollector.clean();
+       client.closeNow();
+       System.out.println("Shutting down...");
+     }
+     ```
 
-1. 若要在关闭前等待用户按 Enter 键，请向 main 方法末尾添加以下代码：
+15. 若要在关闭前等待用户按 Enter 键，请向 main 方法末尾添加以下代码：
 
-    ```java
-    // Close the app
-    System.out.println("Press any key to exit...");
-    Scanner scanner = new Scanner(System.in);
-    scanner.nextLine();
-    dataCollector.clean();
-    client.closeNow();
-    scanner.close();
-    ```
+     ```java
+     // Close the app
+     System.out.println("Press any key to exit...");
+     Scanner scanner = new Scanner(System.in);
+     scanner.nextLine();
+     dataCollector.clean();
+     client.closeNow();
+     scanner.close();
+     ```
 
-1. 保存并关闭 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
+16. 保存并关闭 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
 
-1. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 `simulated-device` 文件夹并运行以下命令：
+17. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 `simulated-device` 文件夹并运行以下命令：
 
-    `mvn clean package -DskipTests`
+     `mvn clean package -DskipTests`
 
 ## <a name="run-the-apps"></a>运行应用
 

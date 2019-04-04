@@ -12,17 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/15/2018
-ms.date: 03/18/2019
+origin.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 596fdf5b8c36aeef9eb1576a74043a6681941059
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 6c2b90c0737d1173a64408312b5e5d98571d9d41
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987931"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503553"
 ---
 # <a name="configure-deployment-sources"></a>配置部署源
 

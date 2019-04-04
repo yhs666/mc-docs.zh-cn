@@ -8,12 +8,12 @@ ms.topic: overview
 origin.date: 10/18/2018
 ms.author: v-yiso
 ms.date: 12/10/2018
-ms.openlocfilehash: ff251b6b1f42b97e6f21ba4d82894474adefbe77
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b17e68bbe49d5e8045ebd6dd44b3696be7f99140
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675041"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627082"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概述
 使用 Azure ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure、Office 365 和 Dynamics 365 等 Microsoft 云服务建立连接。
@@ -29,8 +29,8 @@ ms.locfileid: "52675041"
 * 通过 ExpressRoute 高级版附加组件从全球连接到所有区域的 Microsoft 服务。
 * 通过 BGP 在网络与 Microsoft 之间进行动态路由。
 * 在每个对等位置提供内置冗余以提高可靠性。
-- 连接运行时间 [SLA](https://www.azure.cn/support/legal/sla/)。
-- Skype for Business 的 QoS 支持。
+* 连接运行时间 [SLA](https://www.azure.cn/support/legal/sla/)。
+* Skype for Business 的 QoS 支持。
 
 有关详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。
 
@@ -48,7 +48,7 @@ Microsoft 使用 BGP（一种行业标准动态路由协议），在本地网络
 
 - Microsoft Azure 服务
 - Microsoft Office 365 服务
-* Microsoft Dynamics 365
+- Microsoft Dynamics 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

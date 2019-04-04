@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: cc9e5c9d519457d39057efcd30afefb9d11ff5bc
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: acb17e751fcc808ffbd41ad380a39027f535a19e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905321"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627007"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -93,8 +93,9 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 ### <a name="cloud-scenario-tests"></a>云方案测试
 
 除了上述基础结构测试以外，还可以运行云方案测试，以检查各基础结构组件的功能。 由于这些测试涉及到资源部署，因此需要云管理员凭据才能运行这些测试。 
-    > [!NOTE]
-    > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
+
+> [!NOTE]
+> 目前不能使用 Active Directory 联合身份验证服务 (AD FS) 凭据运行云方案测试。 
 
 验证工具可测试以下云方案：
 - 资源组创建   

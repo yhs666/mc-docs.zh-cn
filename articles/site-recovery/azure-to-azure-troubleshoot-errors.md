@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: afe281378372dbb8cfe96317613bff7eaceb3e59
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: c6d6d519924ff55c74c083fabf622a9c033908a4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463624"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626664"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -173,7 +173,7 @@ ms.locfileid: "57463624"
 - **解决方法**
   - Azure Site Recovery 需要具有对 Office 365 IP 范围的访问权限来进行身份验证。
     如果你使用 Azure 网络安全组 (NSG) 规则/防火墙代理控制 VM 上的出站网络连接，请确保允许到 O365 IP 范围的通信。 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
-        - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
+      - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>问题 3：Site Recovery 配置失败 (151197)
 - 可能的原因 </br>
@@ -183,19 +183,19 @@ ms.locfileid: "57463624"
   - Azure Site Recovery 需要根据区域访问 [Site Recovery IP 范围](/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)。 请确保可以从虚拟机访问所需的 IP 范围。
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>问题 4：当网络流量通过本地代理服务器时 A2A 复制失败 (151072)
- - 可能的原因 </br>
-   - 自定义代理设置无效，并且 ASR 移动服务代理未在 IE 中自动检测到代理设置
+- 可能的原因 </br>
+  - 自定义代理设置无效，并且 ASR 移动服务代理未在 IE 中自动检测到代理设置
 
- - **解决方法**
-   1.   移动服务代理通过 Windows 上的 IE 和 Linux 上的 /etc/environment 检测代理设置。
-   2.  如果只想对 ASR 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：</br>
-       - ***Linux*** 上的 ``/usr/local/InMage/config/``
-       - ***Windows*** 上的 ``C:\ProgramData\Azure Site Recovery\Config``
-   3.   ProxyInfo.conf 应包含采用以下 INI 格式的代理设置。</br>
-                   *[proxy]*</br>
-                   *Address=http://1.2.3.4*</br>
-                   *Port=567*</br>
-   4. ASR 移动服务代理仅支持***未经身份验证的代理***。
+- **解决方法**
+  1. 移动服务代理通过 Windows 上的 IE 和 Linux 上的 /etc/environment 检测代理设置。
+  2. 如果只想对 ASR 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：</br>
+     - ***Linux*** 上的 ``/usr/local/InMage/config/``
+     - ***Windows*** 上的 ``C:\ProgramData\Azure Site Recovery\Config``
+  3. ProxyInfo.conf 应包含采用以下 INI 格式的代理设置。</br>
+                *[proxy]*</br>
+                *Address=<http://1.2.3.4>*</br>
+                *Port=567*</br>
+  4. ASR 移动服务代理仅支持***未经身份验证的代理***。
 
 ### <a name="fix-the-problem"></a>解决问题
 要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
@@ -274,6 +274,7 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 - 请注意，更改网络映射会影响使用该特定网络映射的所有受保护 VM。
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/卷影复制服务错误（错误代码 151025）
+
 错误代码 | 可能的原因 | **建议**
 --- | --- | ---
 151025<br></br>**消息**：Site Recovery 扩展安装失败 | - 禁用了“COM + 系统应用程序”服务。</br></br>- 禁用了“卷影复制”服务。| 将“COM + 系统应用程序”和“卷影复制”服务设置为自动或手动启动模式。
@@ -295,10 +296,10 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 **可能的原因：** </br>
 GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/boot/grub2/grub.cfg”或“/etc/default/grub”）可能包含参数“root”和“resume”的值作为实际设备名而非 UUID。 Site Recovery 要求 UUID 方法，因为设备名可能会在 VM 重启时发生更改，由于故障转移时 VM 可能不会出现相同的名称，从而导致问题。 例如： </br>
 
-- 以下代码行摘自 GRUB 文件 /boot/grub2/grub.cfg。 <br>
-    *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+- 以下行来自 GRUB 文件 /boot/grub2/grub.cfg。 <br>
+    <em>linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2</em>*  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
-- 以下代码行摘自 GRUB 文件 **/boot/grub/menu.lst** *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+- 以下代码行摘自 GRUB 文件 **/boot/grub/menu.lst** <em>kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2</em>* **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 如果发现上面的粗体字符串，GRUB 具有参数“root”和“resume”的实际设备名，而不是 UUID。
 
@@ -313,9 +314,9 @@ GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
     ```
 
-1. 现在请将设备名替换为设备 UUID，格式类似于“root=UUID=<UUID>”。 例如，对于上述在“/boot/grub2/grub.cfg”、“/boot/grub2/grub.cfg”或“/etc/default/grub”文件中提到的 root 和 resume 参数，如果将设备名称替换为 UUID，则文件中的行将类似于： <br>
-    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
-1. 再次重启保护
+2. 现在请将设备名替换为设备 UUID，格式类似于“root=UUID=<UUID>”。 例如，对于上述在“/boot/grub2/grub.cfg”、“/boot/grub2/grub.cfg”或“/etc/default/grub”文件中提到的 root 和 resume 参数，如果将设备名称替换为 UUID，则文件中的行将类似于： <br>
+    <em>kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4</em>* **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. 再次重启保护
 
 ## <a name="enable-protection-failed-as-device-mentioned-in-the-grub-configuration-doesnt-existerror-code-151124"></a>启用保护失败，因为 GRUB 配置中所述的设备不存在（错误代码 151124）
 **可能的原因：** </br>
@@ -324,12 +325,12 @@ GRUB 配置文件 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 几个示例： </br>
 
 1. 以下代码行摘自 RHEL7 上的 GRUB 文件 **"/boot/grub2/grub.cfg"**。 </br>
-    *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”** 和 **“swap”** 的两个 LVM 设备。 
-1. 以下代码行摘自 RHEL7 上的 GRUB 文件 **"/etc/default/grub"** </br>
-    *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”** 和 **“swap”** 的两个 LVM 设备。 
-1. 以下代码行摘自 RHEL6 上的 GRUB 文件 **"/boot/grub/menu.lst"** </br>
+    <em>linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap</em>* rhgb quiet LANG=en_US.UTF-8<em></br>
+    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”</em>* 和“swap”的两个 LVM 设备。 
+2. 以下代码行摘自 RHEL7 上的 GRUB 文件 **"/etc/default/grub"** </br>
+    <em>GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap</em>* rhgb quiet"<em></br>
+    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”</em>* 和“swap”的两个 LVM 设备。 
+3. 以下代码行摘自 RHEL6 上的 GRUB 文件 **"/boot/grub/menu.lst"** </br>
     *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
     此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”** 和 **“swap”** 的两个 LVM 设备。<br>
 

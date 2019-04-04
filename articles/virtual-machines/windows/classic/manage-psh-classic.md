@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 origin.date: 10/12/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3f39e79d28418e5f87c6d32b8175bd0afbd03839
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d85e7ff1e465e74ae3189ad92576657313fc040e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625855"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型的常见 PowerShell 命令，请参阅[此处](../../virtual-machines-windows-ps-common-ref.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型的常见 PowerShell 命令，请参阅[此处](../../virtual-machines-windows-ps-common-ref.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 每天执行的许多管理 VM 的任务都可通过使用 Azure PowerShell cmdlet 自动执行。 本文以适用于较简单任务的命令为例加以说明，并提供演示适用于更复杂任务的命令的文章链接。
 
@@ -75,7 +75,7 @@ ms.locfileid: "52655166"
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## <a name="attach-a-data-disk"></a>附加数据磁盘
-此任务需要几个步骤才能完成。 首先，使用 ****Add-AzureDataDisk**** cmdlet 将磁盘添加到 $vm 对象。 然后，使用 **Update-AzureVM** cmdlet 更新 VM 的配置。
+此任务需要几个步骤才能完成。 首先，使用 ***<em>Add-AzureDataDisk</em>*** cmdlet 将磁盘添加到 $vm 对象。 然后，使用 **Update-AzureVM** cmdlet 更新 VM 的配置。
 
 还需要确定是要附加新的磁盘还是附加包含数据的磁盘。 对于新磁盘，此命令创建并附加 .vhd 文件。
 

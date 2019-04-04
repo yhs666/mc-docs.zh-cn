@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8343ade52a05088b3efb18e16de6f47b3e77b353
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 006f668ee59911055baaef69889ec1a74cfa9805
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204136"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626352"
 ---
 # <a name="introduction-to-application-groups"></a>应用程序组简介
 Service Fabric 的群集 Resource Manager 通常通过将负载（通过[指标](service-fabric-cluster-resource-manager-metrics.md)表示）平均分散到整个群集来管理群集资源。 Service Fabric 管理群集中节点的容量，并通过[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理整个群集。 指标和容量非常适用于许多种工作负荷，但大量使用不同 Service Fabric 应用程序实例的模式有时还有其他要求。 例如，如果想要：
@@ -37,6 +37,7 @@ Service Fabric 的群集 Resource Manager 通常通过将负载（通过[指标]
 下图显示已定义和未定义最大节点数的应用程序实例：
 
 <center>
+
 ![定义最大节点数的应用程序实例][Image1]
 </center>
 
@@ -117,6 +118,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 下面是容量保留的一个示例：
 
 <center>
+
 ![定义保留容量的应用程序实例][Image2]
 </center>
 

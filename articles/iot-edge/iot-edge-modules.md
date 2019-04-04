@@ -4,22 +4,22 @@ description: Azure IoT Edge 模块是容器化的逻辑单元，可以远程部�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 09/21/2018
-ms.date: 01/28/2019
+origin.date: 03/21/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1d8510f74d8a666ad6e22fe39c5deddfaf0b6e0b
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: a32f78f5dc012597f021cfdf2575c75b235bb165
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396785"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627332"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模块
 
-通过 Azure IoT Edge，可让你以模块的形式来部署和管理 Edge 上的业务逻辑。 Azure IoT Edge 模块是由 IoT Edge 托管的最小计算单位，可以包含 Azure 服务（如 Azure 流分析）或你自己特定于解决方案的代码。 若要了解如何开发、部署和维护模块，很有必要先理解以下四个组成模块的概念：
+通过 Azure IoT Edge，可让你以模块的形式来部署和管理 Edge 上的业务逻辑。 Azure IoT Edge 模块是由 IoT Edge 托管的最小计算单位，可以包含 Azure 服务（如 Azure 流分析）或你自己特定于解决方案的代码。 若要了解如何开发、部署和维护模块，有必要考虑模块的四个概念元素：
 
 * 模块映像是包含定义模块的程序包。
 * 模块实例是在 IoT Edge 设备上运行模块映像的特定计算单位。 该模块实例由 IoT Edge 运行时启动。
@@ -69,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>脱机功能
 
-Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 现在，这些功能受限。 
+Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 现在，这些功能受限。 公共预览版中提供了其他脱机功。能。 有关详细信息，请参阅[了解 IoT Edge 设备、模块和子设备的扩展脱机功能](offline-capabilities.md)。
 
 只要满足以下要求，IoT Edge 模块可以长时间内处于脱机状态： 
 
@@ -78,7 +78,6 @@ Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 现在，这些
 * **在脱机状态下发送消息的模块在连接恢复时仍然会工作**。 在重新连接到 IoT 中心时，IoT Edge 中心需要对新的模块令牌进行验证（如果以前的令牌已过期），然后才能转发模块消息。 如果模块不可用来提供新令牌，则 IoT Edge 中心无法对模块的已存储消息进行操作。 
 * **IoT Edge 中心利用磁盘空间来存储消息**。 默认情况下，消息存储在 IoT Edge 中心容器的文件系统中。 有一个配置选项可用来指定改为使用装载的卷来存储消息。 在任一情况下，都需要有空间可用来存储延迟传递到 IoT 中心的消息。  
 
-公共预览版中提供了其他脱机功。能。 有关详细信息，请参阅[了解 IoT Edge 设备、模块和子设备的扩展脱机功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>后续步骤
  - [了解开发 IoT Edge 模块的要求和工具](module-development.md)

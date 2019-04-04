@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 06/18/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: afb867e528fd20ef9e6ef4a6d9d5a33b7741ba2a
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: dda765980399c24bbadfd1a72627c2f43f6e22a5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204053"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625669"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]
@@ -360,4 +360,4 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
 
-<!--Update_Description: update meta properties, update link ->
+&lt;!--Update_Description：更新元属性，更新链接 -&gt;

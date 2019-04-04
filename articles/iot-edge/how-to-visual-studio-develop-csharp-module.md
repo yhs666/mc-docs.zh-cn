@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c08aa1f855451fdf4695ae7f8bc04f6765cd0d8d
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 5acda78a963945e2bfd3d1462f863ba3bcc690d9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665467"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625678"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>使用 Visual Studio 2017 开发和调试适用于 Azure IoT Edge 的 C# 模块（预览版）
 
@@ -80,13 +80,13 @@ Visual Studio 中的 Azure IoT Edge 项目模板创建了一个项目，它可�
 
 1. 在 Visual Studio 中，从“文件”菜单中选择“新建” > “项目”。
 
-1. 在“新建项目”对话框中，选择“已安装”，依次展开“Visual C#”>“云”，再选择“Azure IoT Edge”，键入项目的名称并指定位置，然后选择“确定”。 默认的项目名称为 AzureIoTEdgeApp1。
+2. 在“新建项目”对话框中，选择“已安装”，依次展开“Visual C#”>“云”，再选择“Azure IoT Edge”，键入项目的名称并指定位置，然后选择“确定”。 默认的项目名称为 AzureIoTEdgeApp1。
 
    ![新建项目](./media/how-to-visual-studio-develop-csharp-module/create-new.jpg)
 
-1. 在“IoT Edge 模块配置”窗口中，选择“C# 模块”，并指定模块名和模块映像存储库。 Visual Studio 使用“localhost:5000/<模块名\>自动填充模块名。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 localhost。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：***\<注册表名称\>*.azurecr.cn**。 仅替换字符串的 **localhost:5000** 部分，使最终结果看起来像**\<* 注册表名称*\>.azurecr.cn/*\<模块名称\>***。 默认的模块名称为 IoTEdgeModule1
+3. 在“IoT Edge 模块配置”窗口中，选择“C# 模块”，并指定模块名和模块映像存储库。 Visual Studio 使用“localhost:5000/<模块名\>自动填充模块名。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 localhost。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：***\<注册表名称\>*.azurecr.cn**。 仅替换字符串的 **localhost:5000** 部分，使最终结果看起来像 **\<注册表名称\>.azurecr.cn/*\<模块名称\>**<em>。 默认的模块名称为 IoTEdgeModule1
 
-1. 选择“确定”，通过 C# 模块创建 Azure IoT Edge 项目。
+4. 选择“确定”，通过 C# 模块创建 Azure IoT Edge 项目。
 
 现在，你的解决方案中有一个 AzureIoTEdgeApp1 项目和一个 IoTEdgeModule1 项目。 AzureIoTEdgeApp1 项目具有一个 deployment.template.json 文件。 此文件定义了要为 IoT Edge 解决方案生成和部署的模块，还定义了模块之间的路由。 默认解决方案自带一个 tempSensor 模块和一个 IoTEdgeModule1 模块。 tempSensor 模块向 IoTEdgeModule1 模块生成模拟数据，而 IoTEdgeModule1 模块中的默认代码直接将收到的消息传输到 Azure IoT 中心。
 

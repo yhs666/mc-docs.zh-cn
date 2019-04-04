@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 02/13/2019
-ms.date: 03/18/2019
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 78b4bc916419e74e85c46eb12fcc6d28acd608a0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 26ec1e633200dfd2976b0a1209e8acc0b7c60853
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988083"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503635"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
@@ -23,6 +23,9 @@ ms.locfileid: "57988083"
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 可以将 Webhook 与 [在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)
+
+> [!NOTE]
+> 不支持使用 Webhook 启动 Python runbook。
 
 ## <a name="details-of-a-webhook"></a>Webhook 详细信息
 

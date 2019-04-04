@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 1/18/2019
 ms.date: 03/18/2019
 ms.author: v-jay
-ms.openlocfilehash: 1a763d374622f87eb71d4fd0864164cf9f59121e
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 50288e6e0bec9605f81c1e3e381d83b40e453763
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987964"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626419"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 
@@ -131,7 +131,7 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 |TTL 单位     | 小时        | 小时用作时间计量单位         |
 |别名     | asverify.adatumfunctiona9ed.blob.core.chinacloudapi.cn        | 为其创建别名的 DNS 名称，在本示例中，为默认提供给存储帐户的 asverify.adatumfunctiona9ed.blob.core.chinacloudapi.cn DNS 名称。        |
 
-单击“存储” > “存储帐户”导航回到存储帐户，选择该存储帐户，单击“自定义域”。 在文本框中键入创建的别名（不带 asverify 前缀），选中“**使用间接 CNAME 验证”，单击“保存”。 完成此步骤后，返回 DNS 区域，并创建不带 asverify 前缀的 CNAME 记录。  此后，可以安全删除带有 cdnverify 前缀的 CNAME 记录。
+单击“存储” > “存储帐户”导航回到存储帐户，选择该存储帐户，单击“自定义域”。 在文本框中键入创建的别名（不带 asverify 前缀），选中“使用间接 CNAME 验证”，单击“保存”。 完成此步骤后，返回 DNS 区域，并创建不带 asverify 前缀的 CNAME 记录。  此后，可以安全删除带有 cdnverify 前缀的 CNAME 记录。
 
 ![Blob 存储自定义域](./media/dns-custom-domain/indirectvalidate.png)
 

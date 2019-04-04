@@ -17,12 +17,12 @@ origin.date: 10/17/2016
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b79219a33a4f3a681a0956cc46923b20728bf666
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: daf8d66103489f55a24132f97c2175448170fc8d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646288"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627470"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -82,7 +82,8 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 > 
 
 * CoreOS
-* CentOS 6.3+ <!-- Not Available * Red Hat Enterprise Linux 6.7+ -->
+* CentOS 6.3+
+  <!-- Not Available * Red Hat Enterprise Linux 6.7+ -->
 * Debian 7.0+
 * Ubuntu 12.04+
 * openSUSE 12.3+
@@ -165,7 +166,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 下面详细描述了各种配置选项。 配置选项分为三种类型：布尔值、字符串或整数。 布尔值配置选项可指定为“y”或“n”。 特殊关键字“无”可用于某些字符串类型配置条目，详细信息如下所示。
 
 **Provisioning.Enabled：**  
-类型：布尔值  
+键入：布尔  
 默认值：y
 
 这允许用户在代理中启用或禁用预配功能。 有效值为“y”或“n”。 如果禁用预配，则会保留映像中的 SSH 主机和用户密钥，并忽略 Azure 预配 API 中指定的所有配置。
@@ -176,13 +177,13 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 > 
 
 **Provisioning.DeleteRootPassword：**  
-类型：布尔值  
+键入：布尔  
 默认值：n
 
 如果设置此参数，则会在预配过程中清除 /etc/shadow 文件中的根密码。
 
 **Provisioning.RegenerateSshHostKeyPair：**  
-类型：布尔值  
+键入：布尔  
 默认值：y
 
 如果设置此参数，则会在设置过程中从 /etc/ssh/ 中删除所有 SSH 主机密钥对（ecdsa、dsa 和 rsa）。 并且会生成一个全新的密钥对。
@@ -190,25 +191,25 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 此全新密钥对的加密类型可通过 Provisioning.SshHostKeyPairType 项进行配置。 请注意，在重新启动 SSH 监控程序时（例如，在重新引导时），某些分发将为任何缺少的加密类型重新创建 SSH 密钥对。
 
 **Provisioning.SshHostKeyPairType：**  
-类型：字符串  
+键入：String  
 默认值：rsa
 
 可将其设置为虚拟机上的 SSH 守护程序支持的加密算法类型。 通常支持的值为“rsa”、“dsa”和“ecdsa”。 请注意，Windows 上的“putty.exe”不支持“ecdsa”。 因此，若要在 Windows 上使用 putty.exe 连接到 Linux 部署，请使用“rsa”或“dsa”。
 
 **Provisioning.MonitorHostName：**  
-类型：布尔值  
+键入：布尔  
 默认值：y
 
 如果设置此参数，则 waagent 将监视 Linux 虚拟机的主机名更改情况（由“hostname”命令返回），并自动更新映像中的网络配置以反映此更改。 要将名称更改推送到 DNS 服务器，会重新启用虚拟机中的网络。 这会导致 Internet 连接暂时中断。
 
 **Provisioning.DecodeCustomData**  
-类型：布尔值  
+键入：布尔  
 默认值：n
 
 如果已设置，waagent 从 Base64 解码 CustomData。
 
 **Provisioning.ExecuteCustomData**  
-类型：布尔值  
+键入：布尔  
 默认值：n
 
 如果已设置，waagent 会在预配后执行 CustomData。
@@ -218,7 +219,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 此选项允许重置 sys 用户的密码；默认为禁用。
 
 **Provisioning.PasswordCryptId**  
-类型：字符串  
+键入：String  
 默认值：6
 
 生成密码哈希时加密使用的算法。  
@@ -228,73 +229,73 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-类型：字符串  
-默认值：10
+键入：String  
+默认值：10 个
 
 生成密码哈希时使用的随机 salt 长度。
 
 **ResourceDisk.Format：**  
-类型：布尔值  
+键入：布尔  
 默认值：y
 
 如果设置此参数，则当“ResourceDisk.Filesystem”中用户请求的 filesystem 类型是“ntfs”之外的任何值时，平台提供的资源磁盘通过 waagent 进行格式化和装载。 磁盘上将提供类型为 Linux (83) 的单个分区。 请注意，如果可以成功装载此分区，则不会对其进行格式化。
 
 **ResourceDisk.Filesystem：**  
-类型：字符串  
+键入：String  
 默认值：ext4
 
 这会指定资源磁盘的 filesystem 类型。 受支持的值因 Linux 分发而异。 如果字符串为 X，则 mkfs.X 应呈现在 Linux 映像上。 SLES 11 映像通常应使用“ext3”。 FreeBSD 映像在此处应使用“ufs2”。
 
 **ResourceDisk.MountPoint：**  
-类型：字符串  
+键入：String  
 默认值：/mnt/resource 
 
 这会指定资源磁盘的装载路径。 请注意，资源磁盘是 *临时* 磁盘，可能在取消预配 VM 时被清空。
 
 **ResourceDisk.MountOptions：**  
-类型：字符串  
+键入：String  
 默认值：无
 
 指定要传递给 mount -o 命令的磁盘装载选项。 这是一个逗号分隔值列表，例如 “nodev,nosuid”。 有关详细信息，请参阅 mount(8)。
 
 **ResourceDisk.EnableSwap：**  
-类型：布尔值  
+键入：布尔  
 默认值：n
 
 如果设置此参数，则将在资源磁盘上创建交换文件 (/swapfile) 并将该文件添加到系统交换空间。
 
 **ResourceDisk.SwapSizeMB：**  
-类型：整数  
+键入：Integer  
 默认值：0
 
 交换文件的大小（以兆字节为单位）。
 
 **Logs.Verbose：**  
-类型：布尔值  
+键入：布尔  
 默认值：n
 
 如果设置此参数，日志的详细程度则会有所提升。 Waagent 将日志记录到 /var/log/waagent.log 并使用系统 logrotate 功能来循环日志。
 
 **OS.EnableRDMA**  
-类型：布尔值  
+键入：布尔  
 默认值：n
 
 如果已设置，代理将尝试安装然后加载与底层硬件上的固件版本匹配的 RDMA 内核驱动程序。
 
 **OS.RootDeviceScsiTimeout：**  
-类型：整数  
+键入：Integer  
 默认值：300
 
 这会配置 OS 磁盘和数据驱动器上的 SCSI 超时（以秒为单位）。 如果未设置此参数，则使用系统默认值。
 
 **OS.OpensslPath：**  
-类型：字符串  
+键入：String  
 默认值：无
 
 这可用于指定要用于加密操作的 openssl 二进制文件的替代路径。
 
 **HttpProxy.Host、HttpProxy.Port**  
-类型：字符串  
+键入：String  
 默认值：无
 
 如果已设置，代理会使用此代理服务器访问 Internet。 

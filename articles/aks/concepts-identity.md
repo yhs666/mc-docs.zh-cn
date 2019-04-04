@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 03/04/2019
+origin.date: 02/28/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0d2f79c2ac5c1ce066de76e31d063ee25eaa2f38
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 8a3f1e9639891892472224f3d1890210030618dd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903188"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626858"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的访问和标识选项
 
@@ -76,6 +76,8 @@ ClusterRoleBinding 的工作原理与向用户绑定角色相同，但前者可�
 
 若要开始使用 Azure AD 和 Kubernetes RBAC，请参阅[将 Azure Active Directory 与 AKS 集成][aks-aad]。
 
+有关相关的最佳做法，请参阅[在 AKS 中进行身份验证和授权的最佳做法][operator-best-practices-identity]。
+
 有关核心 Kubernetes 和 AKS 概念的详细信息，请参阅以下文章：
 
 - [Kubernetes/AKS 群集和工作负荷][aks-concepts-clusters-workloads]
@@ -99,3 +101,4 @@ ClusterRoleBinding 的工作原理与向用户绑定角色相同，但前者可�
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

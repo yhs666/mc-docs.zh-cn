@@ -4,18 +4,18 @@ description: 了解 Azure IoT Edge 运行时如何管理设备上的模块、安
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 08/13/2018
-ms.date: 01/28/2019
+origin.date: 03/13/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0d226a12206bd38b9b9887757129848447bf3c86
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 9423e910dd3a50a08e9b731c47cdfa4477d73515
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396808"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627353"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 
@@ -23,17 +23,17 @@ IoT Edge 运行时是一系列程序，设备安装了这些程序才可视为 I
 
 IoT Edge 运行时在 IoT Edge 设备上执行以下功能：
 
-* 安装和更新设备上的工作负荷。
+* 在设备上安装和更新工作负荷。
 * 维护设备上的 Azure IoT Edge 安全标准。
 * 确保 [IoT Edge 模块](iot-edge-modules.md)始终处于运行状态。
-* 将模块运行状况报告给云以进行远程监控。
+* 将模块运行状况报告给云以进行远程监视。
 * 促进下游叶设备与 IoT Edge 设备之间的通信。
 * 促进 IoT Edge 设备上的模块间的通信。
 * 促进 IoT Edge 设备和云之间的通信。
 
 ![运行时向 IoT 中心传达见解和模块运行状况](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 运行时的职责分为两类：通信和模块管理。 这两种角色是由组成 IoT Edge 运行时的两个组件执行的。 IoT Edge 中心负责通信，IoT Edge 代理管理部署和监视模块。 
+IoT Edge 运行时的职责分为两类：通信和模块管理。 这两种角色是由组成 IoT Edge 运行时的两个组件执行的。 IoT Edge 中心负责通信，而 IoT Edge 代理则负责部署和监视模块。 
 
 IoT Edge 中心和 IoT Edge 代理都是模块，就像 IoT Edge 设备上运行的其他任何模块一样。 
 

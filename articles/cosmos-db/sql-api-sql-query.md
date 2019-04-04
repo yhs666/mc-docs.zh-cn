@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 08/10/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 004b7227393f506dbc99ad4a7b2f23f2e71f6a05
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ffa62448a2f7a216b2f2c87b4d05e323945bde3b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646969"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626508"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查询来查询 Azure Cosmos DB 数据
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 
 现在，让我们尝试对此数据执行一些查询来了解 Azure Cosmos DB 的 SQL 查询语言的一些重要方面。 
 
-**Query1**：例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是一个 `SELECT *`，因此，查询输出是完整的 JSON 文档。若要了解语法，请参阅 [SELECT 语句](sql-api-sql-query-reference.md#select-query)：
+**查询 1**：例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是一个 `SELECT *`，因此，查询输出是完整的 JSON 文档。若要了解语法，请参阅 [SELECT 语句](sql-api-sql-query-reference.md#select-query)：
 
 ```sql
     SELECT * 
@@ -123,7 +123,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
     }]
 ```
 
-**Query2**：现在考虑我们需要将 JSON 输出的格式重新设置为一种不同的形式。 地址的城市名称与省/自治区/直辖市名称相同时，此查询使用两个选定的字段 Name 和 City 表示新的 JSON 对象。 在这种情况下，“NY, NY”匹配。   
+**查询 2**：现在，考虑我们需要将 JSON 输出的格式重新设置为另一种不同的形式。 地址的城市名称与省/自治区/直辖市名称相同时，此查询使用两个选定的字段 Name 和 City 表示新的 JSON 对象。 在这种情况下，“NY, NY”匹配。   
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
@@ -142,7 +142,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
     }]
 ```
 
-**Query3**：此查询返回其 ID与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
+**查询 3**：此查询返回其 ID与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
 
 ```sql
     SELECT c.givenName 
@@ -320,7 +320,7 @@ FROM <from_specification> 子句是可选的，除非稍后在查询中对源进
     ]
 ```
 
-虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示：在源中可以找到的任何有效 JSON 值（非未定义）都被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
+虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示：在源中可以找到的任何有效的 JSON 值（不是未定义的）都会被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
 
 **查询**
 
@@ -368,13 +368,14 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
 
 当前支持以下二进制运算符，它们可在查询中使用，如下例所示：  
 
-|**运算符类型**  |**值**  |
-|---------|---------|
-|算术    |   +,-,*,/,%   |
-|位  |   |、&、^、<<、>>、>>>（补零右移）      |
-|逻辑   |   AND、OR、NOT      |
-|比较   |    =、!=、&lt;、&gt;、&lt;=、&gt;=、<>     |
-|String  |  || （连接）       |
+
+| **运算符类型** |             **值**              |
+|-------------------|-------------------------------------|
+|    算术     |             +,-,\*,/,%              |
+|      位      |                                     |
+|      逻辑      |            AND、OR、NOT             |
+|    比较     | =、!=、&lt;、&gt;、&lt;=、&gt;=、<> |
+|      String       |                                     |
 
 让我们查看一些使用二进制运算符的查询。
 
@@ -1552,7 +1553,8 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | [SIN (num_expr)](sql-api-sql-query-reference.md#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
 | [TAN (num_expr)](sql-api-sql-query-reference.md#bk_tan) | 返回指定表达式中输入表达式的正切。 |
 
-<!-- We use sql-api-sql-query-reference.md to avoid the broken link in building process--> 例如，现在可以运行下面这样的查询：
+<!-- We use sql-api-sql-query-reference.md to avoid the broken link in building process-->
+例如，现在可以运行以下查询：
 
 **查询**
 
@@ -1832,7 +1834,7 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 ![支持使用 SQL API 的 LINQ 查询的体系结构 - SQL 语法、JSON 查询语言、数据库概念和 SQL 查询][1]
 
 ### <a name="net-and-json-mapping"></a>.NET 和 JSON 映射
-.NET 对象与 JSON 文档之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且"value"部分以递归方式映射到该对象的值部分。 考虑以下示例：创建的 Family 对象会映射到 JSON 文档，如下所示。 反之亦然，JSON 文档会映射回 .NET 对象。
+.NET 对象与 JSON 文档之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且"value"部分以递归方式映射到该对象的值部分。 下面是一个示例：创建的 Family 对象会映射到 JSON 文档，如下所示。 反之亦然，JSON 文档会映射回 .NET 对象。
 
 **C# 类**
 
@@ -1941,12 +1943,12 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 * **Select**：投影转换为 SQL SELECT（包括对象构造）
 * **Where**：筛选器转换为 SQL WHERE，且支持 &&、|| 和 ! 与 SQL 运算符之间的转换
 * **SelectMany**：允许将数组展开到 SQL JOIN 子句。 可以用于链/嵌套表达式以对数组元素进行筛选
-* **OrderBy 和 OrderByDescending**：转换为 ORDER BY 升序/降序
+* **OrderBy 和 OrderByDescending**：转换为 ORDER BY ascending/descending
 * 用于聚合的 **Count**、**Sum**、**Min**、**Max** 和 **Average** 运算符及其异步等效项 **CountAsync**、**SumAsync**、**MinAsync**、**MaxAsync** 和 **AverageAsync**。
 * **CompareTo**：转换为范围比较。 通常用于字符串，因为它们在 .NET 中不可进行比较
 * **Take**：转换为 SQL TOP，用于限制查询中的结果
-* **数学函数**：支持从 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan、Truncate 转换为等效的 SQL 内置函数。
-* **字符串函数**：支持从 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString、ToUpper 转换为等效的 SQL 内置函数。
+* **数学函数**：支持从 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan 和 Truncate 转换为等效的 SQL 内置函数。
+* **字符串函数**：支持从 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString 和 ToUpper 转换为等效的 SQL 内置函数。
 * **数组函数**：支持从 .NET 的 Concat、Contains 和 Count 转换为等效的 SQL 内置函数。
 * **地理空间扩展函数**：支持从 stub 方法 Distance、Within、IsValid 和 IsValidDetailed 转换为等效的 SQL 内置函数。
 * **用户定义的函数扩展函数**：支持从 stub 方法 UserDefinedFunctionProvider.Invoke 转换为相应的用户的定义函数。
@@ -2423,8 +2425,8 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
 9. Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)（针对大型数据库的查询评估技术）
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins:Pig Latin:A Not-So-Foreign Language for Data Processing, SIGMOD 2008。
+13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3):1995。
 
 [1]: ./media/sql-api-sql-query/sql-query1.png
 [introduction]: introduction.md

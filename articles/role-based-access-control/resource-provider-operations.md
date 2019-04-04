@@ -11,15 +11,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/24/2019
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 654ecd1f6dea806424399e362c867c41f8830b8d
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 694395b720dd531638370239df0a3cef65193deb
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319022"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505540"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure 资源管理器资源提供程序操作
 
@@ -1805,36 +1805,6 @@ ms.locfileid: "58319022"
 > | 操作 | Microsoft.DataLakeAnalytics/operations/read | 获取 DataLakeAnalytics 的可用操作。 |
 > | 操作 | Microsoft.DataLakeAnalytics/register/action | 将订阅注册到 DataLakeAnalytics。 |
 
-## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-
-> [!div class="mx-tdCol2BreakAll"]
-> | 操作类型 | 操作 | 说明 |
-> | --- | --- | --- |
-> | 操作 | Microsoft.DataLakeStore/accounts/delete | 删除 DataLakeStore 帐户。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/enableKeyVault/action | 为 DataLakeStore 帐户启用 KeyVault。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/eventGridFilters/delete | 删除 EventGrid 筛选器。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/eventGridFilters/read | 获取 EventGrid 筛选器。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/eventGridFilters/write | 创建或更新 EventGrid 筛选器。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/firewallRules/delete | 删除防火墙规则。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/firewallRules/read | 获取有关防火墙规则的信息。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/firewallRules/write | 创建或更新防火墙规则。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/operationResults/read | 获取 DataLakeStore 帐户操作的结果。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/read | 获取有关现有 DataLakeStore 帐户的信息。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/Superuser/action | 使用 Microsoft.Authorization/roleAssignments/write 授权后，对 Data Lake Store 上的超级用户授权。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/trustedIdProviders/delete | 删除受信任的标识提供者。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/trustedIdProviders/read | 获取有关受信任标识提供者的信息。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/trustedIdProviders/write | 创建或更新受信任的标识提供者。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/virtualNetworkRules/delete | 删除虚拟网络规则。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/virtualNetworkRules/read | 获取有关虚拟网络规则的信息。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/virtualNetworkRules/write | 创建或更新虚拟网络规则。 |
-> | 操作 | Microsoft.DataLakeStore/accounts/write | 创建或更新 DataLakeStore 帐户。 |
-> | 操作 | Microsoft.DataLakeStore/locations/capability/read | 获取有关使用 DataLakeStore 的订阅的功能信息。 |
-> | 操作 | Microsoft.DataLakeStore/locations/checkNameAvailability/action | 检查 DataLakeStore 帐户名称的可用性。 |
-> | 操作 | Microsoft.DataLakeStore/locations/operationResults/read | 获取 DataLakeStore 帐户操作的结果。 |
-> | 操作 | Microsoft.DataLakeStore/locations/usages/read | 获取有关 DataLakeStore 使用情况的订阅的配额使用信息。 |
-> | 操作 | Microsoft.DataLakeStore/operations/read | 获取 DataLakeStore 的可用操作。 |
-> | 操作 | Microsoft.DataLakeStore/register/action | 将订阅注册到 DataLakeStore。 |
-
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2118,43 +2088,6 @@ ms.locfileid: "58319022"
 > | 操作 | Microsoft.DomainRegistration/topLevelDomains/Read | 获取顶级域 |
 > | 操作 | Microsoft.DomainRegistration/topLevelDomains/Read | 获取顶级域 |
 > | 操作 | Microsoft.DomainRegistration/validateDomainRegistrationInformation/Action | 验证域购买对象但不提交该对象 |
-
-## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-
-> [!div class="mx-tdCol2BreakAll"]
-> | 操作类型 | 操作 | 说明 |
-> | --- | --- | --- |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/delete | 删除 eventSubscription |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | 获取事件订阅的完整 URL |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | 获取事件订阅的诊断设置 |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新事件订阅的诊断设置 |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | 获取 eventSubscriptions 的可用指标 |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/read | 读取 eventSubscription |
-> | 操作 | Microsoft.EventGrid/eventSubscriptions/write | 创建或更新 eventSubscription |
-> | 操作 | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 获取主题的诊断设置 |
-> | 操作 | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新主题的诊断设置 |
-> | 操作 | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | 获取主题的可用指标 |
-> | 操作 | Microsoft.EventGrid/extensionTopics/read | 读取 extensionTopic。 |
-> | 操作 | Microsoft.EventGrid/locations/eventSubscriptions/read | 列出区域事件订阅 |
-> | 操作 | Microsoft.EventGrid/locations/operationResults/read | 读取区域操作的结果 |
-> | 操作 | Microsoft.EventGrid/locations/operationsStatus/read | 读取区域操作的状态 |
-> | 操作 | Microsoft.EventGrid/locations/topictypes/eventSubscriptions/read | 按主题类型列出区域事件订阅 |
-> | 操作 | Microsoft.EventGrid/operationResults/read | 读取操作的结果 |
-> | 操作 | Microsoft.EventGrid/operations/read | 列出 EventGrid 操作。 |
-> | 操作 | Microsoft.EventGrid/operationsStatus/read | 读取操作的状态 |
-> | 操作 | Microsoft.EventGrid/register/action | 注册事件网格资源提供程序的订阅。 |
-> | 操作 | Microsoft.EventGrid/topics/delete | 删除主题 |
-> | 操作 | Microsoft.EventGrid/topics/listKeys/action | 列出主题的密钥 |
-> | 操作 | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | 获取主题的诊断设置 |
-> | 操作 | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新主题的诊断设置 |
-> | 操作 | Microsoft.EventGrid/topics/providers/Microsoft.Insights/metricDefinitions/read | 获取主题的可用指标 |
-> | 操作 | Microsoft.EventGrid/topics/read | 读取主题 |
-> | 操作 | Microsoft.EventGrid/topics/regenerateKey/action | 重新生成主题的密钥 |
-> | 操作 | Microsoft.EventGrid/topics/write | 创建或更新主题 |
-> | 操作 | Microsoft.EventGrid/topictypes/eventSubscriptions/read | 按主题类型列出全局事件订阅 |
-> | 操作 | Microsoft.EventGrid/topictypes/eventtypes/read | 读取主题类型支持的事件类型 |
-> | 操作 | Microsoft.EventGrid/topictypes/read | 读取主题类型 |
-> | 操作 | Microsoft.EventGrid/unregister/action | 取消注册事件网格资源提供程序的订阅。 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 

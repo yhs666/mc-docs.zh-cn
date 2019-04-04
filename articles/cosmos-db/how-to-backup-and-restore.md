@@ -8,16 +8,16 @@ origin.date: 11/15/2018
 ms.date: 03/18/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ba86163384d41bba525c4351d37a6fd3c55a71f2
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: bd73ed6b82a498c723023ac5428fc0fec89794b7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004553"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627316"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中从备份还原数据 
 
-如果意外删除了数据库或容器，可以[提交支持票证]( https://support.azure.cn/zh-cn/support/support-azure/)或[联系 Azure 支持]( https://www.azure.cn/support/contact/)，以便从自动联机备份中还原数据。 Azure 支持仅适用于选定计划（例如标准计划、开发人员计划以及更高级别的计划）。 不适用于基本计划。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
+如果意外删除了数据库或容器，可以[提交支持票证]( https://support.azure.cn/zh-cn/support/support-azure/)或[联系 Azure 支持]( https://www.azure.cn/support/contact/)，以便从自动联机备份中还原数据。 Azure 支持仅适用于选定计划（例如**标准**计划、<strong>开发人员计划以及更高级别的计划）。Azure 支持不适用于基本</strong>计划。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
 
 若要还原备份的特定快照，Azure Cosmos DB 要求在该快照的备份周期的持续时间内可用。
 

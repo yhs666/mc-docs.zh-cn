@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 07/27/2018
 ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5cd3d5508b5977e2f4452e507a407a1ef4b8efbc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 572e112ccbd716d6233e2002fa78d14becc1baa5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652795"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625732"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>在 Linux 虚拟机中设置 DPDK
 
@@ -128,9 +128,9 @@ zypper \
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  使用 `mkdir /mnt/huge` 创建用于装载的目录。
-   *  使用 `mount -t hugetlbfs nodev /mnt/huge` 装载巨页。
-   *  运行 `grep Huge /proc/meminfo` 检查巨页是否已保留。
+   * 使用 `mkdir /mnt/huge` 创建用于装载的目录。
+   * 使用 `mount -t hugetlbfs nodev /mnt/huge` 装载巨页。
+   * 运行 `grep Huge /proc/meminfo` 检查巨页是否已保留。
 
      > [!NOTE]
      > 可以将 grub 文件修改为，在启动时保留巨页，具体是按照适用于 DPDK 的[说明](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)操作。 页面底部提供了这些说明。 如果使用的是 Azure Linux 虚拟机，请改为将 /etc/config/grub.d 下的文件修改为跨重启保留巨页。
@@ -246,7 +246,7 @@ DPDK 应用程序必须通过 Azure 中公开的防故障 PMD 运行。 如果�
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

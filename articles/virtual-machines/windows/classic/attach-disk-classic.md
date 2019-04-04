@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 02/21/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24c7d6870bd6a512220a8ec0ca7b15b0c5b62aff
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c57ce43aa9bc799dbca705a42e874e4f9f29b42f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650690"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626983"
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机
 
@@ -35,14 +35,14 @@ ms.locfileid: "52650690"
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 * 若要使用高级存储，需要一个 DS 系列虚拟机。 可以从高级存储帐户和标准存储帐户通过这些虚拟机使用磁盘。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!-- Not Available on GS-series virtual machine -->
+  <!-- Not Available on GS-series virtual machine -->
 
 * 对于新磁盘，不需要首先进行创建，因为 Azure 会在附加磁盘时创建该磁盘。
 
 还可以[使用 Powershell 附加数据磁盘](../../virtual-machines-windows-attach-disk-ps.md)。
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="find-the-virtual-machine"></a>查找虚拟机
@@ -55,7 +55,7 @@ ms.locfileid: "52650690"
 按照附加[新磁盘](#option-1-attach-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
 
 <a name="option-1-attach-a-new-disk"></a>
-## <a name="option-1-attach-and-initialize-a-new-disk"></a>选项 1：附加并初始化新的磁盘
+## <a name="option-1-attach-and-initialize-a-new-disk"></a>选项 1：附加并初始化新磁盘
 
 1. 在“磁盘”边栏选项卡上，单击“附加新磁盘”。
 2. 检查默认设置，根据需要更新，并单击“确定” 。
@@ -74,7 +74,7 @@ ms.locfileid: "52650690"
 3. 选择“磁盘”。
 4. “磁盘”部分会列出磁盘。 大多数情况下，虚拟机包含磁盘 0、磁盘 1 和磁盘 2。 磁盘 0 是操作系统磁盘，磁盘 1 是临时磁盘，磁盘 2 是新附加到虚拟机的数据磁盘。 数据磁盘将分区列为“未知”。
 
- 右键单击磁盘，并选择“初始化” 。
+   右键单击磁盘，并选择“初始化” 。
 
 5. 在初始化磁盘时，系统会通知用户所有的数据会被擦除。 单击“是”以确认警告并初始化磁盘  。 完成后，即会将分区列为“GPT” 。 再次右键单击磁盘，并选择“新建卷” 。
 

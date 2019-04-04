@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 01/02/2019
 ms.date: 04/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5841867697e754260c812156ad9848e24a5ca6f9
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: d9e352d5e17333a3c0fbf80ef862109a47e9c7a2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348686"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627145"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
 
@@ -1303,127 +1303,127 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 ## <a name="behavioral-changes"></a>行为变更
 
-|**Apache 组件**|**Apache JIRA**|**摘要**|**详细信息**|
-|--|--|--|--|
-|**Spark 2.3** |**不适用** |**Apache Spark 发行说明中所述的更改** |- 提供了“弃用”文档和“行为变更”指南： https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- 对于 SQL 部分，提供了另一篇详细“迁移”指南（从 2.3 到 2.2）： https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 作业成功完成，但出现 HDFS 磁盘配额已满错误 |**场景**：当运行 **insert overwrite** 命令的用户的回收站文件夹中设置了配额时运行该命令。<br /><br />**以前的行为：** 作业会成功，但无法将数据移到回收站。 结果可能错误地包含表中以前存在的一些数据。<br /><br />**新行为：** 如果移到回收站失败，会永久删除文件。|
-|**Kafka 1.0**|**不适用**|**Apache Spark 发行说明中所述的更改** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive/Ranger** | |INSERT OVERWRITE 需要其他 ranger hive 策略 |**场景**：**INSERT OVERWRITE** 需要其他 ranger hive 策略<br /><br />**以前的行为：** Hive **INSERT OVERWRITE** 查询像往常一样成功。<br /><br />**新行为：** 升级到 HDP 2.6.x 之后，Hive **INSERT OVERWRITE** 查询意外失败并出现错误：<br /><br />编译语句时出错:失败:HiveAccessControlException 权限被拒绝: 用户 jdoe 对 /tmp/ 没有写入特权\*(状态=42000，代码=40000)<br /><br />从 HDP-2.6.0 开始，Hive **INSERT OVERWRITE** 查询需要 Ranger URI 策略才能允许写入操作，即使已通过 HDFS 策略为用户授予了写入特权。<br /><br />**解决方法/预期的客户操作：**<br /><br />1.在 Hive 存储库下创建新策略。<br />2.在显示“数据库”的下拉列表中，选择“URI”。<br />3.更新路径（示例：/tmp/*）<br />4.添加用户和组并保存。<br />5.重试 insert 查询。|
-|**HDFS**|**不适用** |HDFS 应受多个 KMS RUI 的支持 |**以前的行为：** dfs.encryption.key.provider.uri 属性用于配置 KMS 提供程序路径。<br /><br />**新行为：** 现已弃用 dfs.encryption.key.provider.uri，改用 hadoop.security.key.provider.path 来配置 KMS 提供程序路径。|
-|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|用于禁用计划程序的选项 |**受影响的组件：** Zeppelin-Server<br /><br />**以前的行为：** 以前的 Zeppelin 版本未提供用于禁用计划程序的选项。<br /><br />**新行为：** 默认情况下，用户不再会看到计划程序，因为它默认已禁用。<br /><br />**解决方法/预期的客户操作：** 若要启用计划程序，需要通过 Ambari 在 Zeppelin 中的自定义 zeppelin 站点设置下添加值为 true 的 azeppelin.notebook.cron.enable。|
+| **Apache 组件** |                             **Apache JIRA**                              |                                 **摘要**                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   **详细信息**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|----------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    **Spark 2.3**     |                                 **不适用**                                  |         **Apache Spark 发行说明中所述的更改**         |                                                                                                                                                                                                                                                                                                                    - 提供了“弃用”文档和“行为变更”指南： https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- 对于 SQL 部分，提供了另一篇详细“迁移”指南（从 2.3 到 2.2）： https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23                                                                                                                                                                                                                                                                                                                     |
+|        Spark         |    [**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505)    | Spark 作业成功完成，但出现 HDFS 磁盘配额已满错误 |                                                                                                                                                                                                                                                                              **场景**：当运行 **insert overwrite** 命令的用户的回收站文件夹中设置了配额时运行该命令。<br /><br />**以前的行为：** 作业会成功，但无法将数据移到回收站。 结果可能错误地包含表中以前存在的一些数据。<br /><br />**新行为：** 如果移到回收站失败，会永久删除文件。                                                                                                                                                                                                                                                                               |
+|    **Kafka 1.0**     |                                 **不适用**                                  |         **Apache Spark 发行说明中所述的更改**         |                                                                                                                                                                                                                                                                                                                                                                                                                                                        https://kafka.apache.org/10/documentation.html#upgrade_100_notable                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|   **Hive/Ranger**   |                                                                          |        INSERT OVERWRITE 需要其他 ranger hive 策略        | **场景**：**INSERT OVERWRITE** 需要其他 ranger hive 策略<br /><br />**以前的行为：** Hive **INSERT OVERWRITE** 查询像往常一样成功。<br /><br />**新行为：** 升级到 HDP 2.6.x 之后，Hive **INSERT OVERWRITE** 查询意外失败并出现错误：<br /><br />编译语句时出错:失败:HiveAccessControlException 权限被拒绝: 用户 jdoe 对 /tmp/ 没有写入特权\*(状态=42000，代码=40000)<br /><br />从 HDP-2.6.0 开始，Hive **INSERT OVERWRITE** 查询需要 Ranger URI 策略才能允许写入操作，即使已通过 HDFS 策略为用户授予了写入特权。<br /><br />**解决方法/预期的客户操作：**<br /><br />1.在 Hive 存储库下创建新策略。<br />2.在显示“数据库”的下拉列表中，选择“URI”。<br />3.更新路径（示例：/tmp/\*）<br />4.添加用户和组并保存。<br />5.重试 insert 查询。 |
+|       **HDFS**       |                                 **不适用**                                  |                  HDFS 应受多个 KMS RUI 的支持                  |                                                                                                                                                                                                                                                                                                                                                  **以前的行为：** dfs.encryption.key.provider.uri 属性用于配置 KMS 提供程序路径。<br /><br />**新行为：** 现已弃用 dfs.encryption.key.provider.uri，改用 hadoop.security.key.provider.path 来配置 KMS 提供程序路径。                                                                                                                                                                                                                                                                                                                                                   |
+|     **Zeppelin**     | [**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271) |                       用于禁用计划程序的选项                        |                                                                                                                                                                                                                                           **受影响的组件：** Zeppelin-Server<br /><br />**以前的行为：** 以前的 Zeppelin 版本未提供用于禁用计划程序的选项。<br /><br />**新行为：** 默认情况下，用户不再会看到计划程序，因为它默认已禁用。<br /><br />**解决方法/预期的客户操作：** 若要启用计划程序，需要通过 Ambari 在 Zeppelin 中的自定义 zeppelin 站点设置下添加值为 true 的 azeppelin.notebook.cron.enable。                                                                                                                                                                                                                                           |
 
 ## <a name="known-issues"></a>已知问题
 
--   **HDInsight 与 ADLS Gen 2 集成** 使用 Azure Data Lake Storage Gen 2 的 HDInsight ESP 群集在用户目录和权限上存在两个问题：
+- **HDInsight 与 ADLS Gen 2 集成** 使用 Azure Data Lake Storage Gen 2 的 HDInsight ESP 群集在用户目录和权限上存在两个问题：
    
-   1. 用户的主目录未在头节点 1 上创建。 解决方法是，手动创建目录并将所有权更改为相应用户的 UPN。
+  1. 用户的主目录未在头节点 1 上创建。 解决方法是，手动创建目录并将所有权更改为相应用户的 UPN。
    
-   2. /hdp 目录的权限当前未设置为 751。 这需要设置为该值 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. /hdp 目录的权限当前未设置为 751。 这需要设置为该值 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **Spark 2.3**
+- **Spark 2.3**
 
-    -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] 规则 OptimizeMetadataOnlyQuery 导致了错误结果
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] 规则 OptimizeMetadataOnlyQuery 导致错误的结果
 
-    -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406)\] 流到流的自联接中存在 Bug
+  -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406)\] 流到流的自联接中存在 Bug
 
-    -   如果 Azure Data Lake Storage（第 2 代）是群集的默认存储，则 Spark 示例笔记本不可用。
+  -   如果 Azure Data Lake Storage（第 2 代）是群集的默认存储，则 Spark 示例笔记本不可用。
 
--   **企业安全性套餐**
+- **企业安全性套餐**
 
-    - Spark Thrift 服务器不接受来自 ODBC 客户端的连接。
-      解决方法步骤：
-      1. 创建群集后等待大约 15 分钟。
-      2. 检查 ranger UI 中是否存在 hivesampletable_policy。
-      3. 重启 Spark 服务。
-         现在，STS 连接应该工作。
+  - Spark Thrift 服务器不接受来自 ODBC 客户端的连接。
+    解决方法步骤：
+    1. 创建群集后等待大约 15 分钟。
+    2. 检查 ranger UI 中是否存在 hivesampletable_policy。
+    3. 重启 Spark 服务。
+       现在，STS 连接应该工作。
 
--   **Ranger 服务检查失败的解决方法**
+- **Ranger 服务检查失败的解决方法**
 
-    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607)：从以前的 HDP 版本升级到 HDP 2.6.2 时 Ranger 服务检查失败的解决方法。
+  -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607)：从以前的 HDP 版本升级到 HDP 2.6.2 时 Ranger 服务检查失败的解决方法。
 
-        >[!NOTE]
-        >仅当已在 Ranger 中启用 SSL 时。 
+      >[!NOTE]
+      >仅当已在 Ranger 中启用 SSL 时。 
     
-    尝试通过 Ambari 从以前的 HDP 版本升级到 HDP 2.6.1 时会出现此问题。 Ambari 使用 curl 调用对 Ambari 中的 Ranger 服务执行服务检查。 如果 Ambari 使用的 JDK 版本是 JDK-1.7，curl 调用将会失败并出现以下错误：
+  尝试通过 Ambari 从以前的 HDP 版本升级到 HDP 2.6.1 时会出现此问题。 Ambari 使用 curl 调用对 Ambari 中的 Ranger 服务执行服务检查。 如果 Ambari 使用的 JDK 版本是 JDK-1.7，curl 调用将会失败并出现以下错误：
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    出现此错误的原因是 Ranger 中使用的 tomcat 版本是 Tomcat-7.0.7\*。 使用 JDK-1.7 会与 Tomcat-7.0.7\* 中提供的默认加密法产生冲突。
+  出现此错误的原因是 Ranger 中使用的 tomcat 版本是 Tomcat-7.0.7\*。 使用 JDK-1.7 会与 Tomcat-7.0.7\* 中提供的默认加密法产生冲突。
     
-    可通过两种方式解决此问题：
+  可通过两种方式解决此问题：
     
-    -   将 Ambari 中使用的 JDK 从 JDK 1.7 更新到 JDK 1.8（请参阅 Ambari 参考指南中的 [更改 JDK 版本](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) 部分）。
+  -   将 Ambari 中使用的 JDK 从 JDK 1.7 更新到 JDK 1.8（请参阅 Ambari 参考指南中的[更改 JDK 版本](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html)部分）。
     
-    -   如果想要继续支持 JDK-1.7 环境：
+  -   如果想要继续支持 JDK-1.7 环境：
     
-        1.  在 Ambari Ranger 配置中的 ranger-admin-site 部分添加具有以下值的属性 ranger.tomcat.ciphers：
+      1.  在 Ambari Ranger 配置中的 ranger-admin-site 部分添加具有以下值的属性 ranger.tomcat.ciphers：
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  如果为 Ranger-KMS 配置了环境，请在 Ambari Ranger 配置中的 theranger-kms-site 部分添加具有以下值的属性 ranger.tomcat.ciphers：
+      2.  如果为 Ranger-KMS 配置了环境，请在 Ambari Ranger 配置中的 theranger-kms-site 部分添加具有以下值的属性 ranger.tomcat.ciphers：
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
-    >所述的值是工作示例，可能不会反映你的环境。 确保设置这些属性的方式与配置环境的方式相匹配。   
+  >[!NOTE]
+  >所述的值是工作示例，可能不会反映你的环境。 确保设置这些属性的方式与配置环境的方式相匹配。   
 
--   **RangerUI：转义在策略窗体中输入的策略条件文本**
+- **RangerUI：转义在策略窗体中输入的策略条件文本**
     
-    **受影响的组件：** Ranger
+  **受影响的组件：** Ranger
     
-    **问题说明**
+  **问题说明**
     
-    如果用户想要创建包含自定义策略条件和表达式的策略，或文本中含有特殊字符，则无法强制实施策略。 在数据库中保存策略之前，特殊字符将转换为 ASCII。
+  如果用户想要创建包含自定义策略条件和表达式的策略，或文本中含有特殊字符，则无法强制实施策略。 在数据库中保存策略之前，特殊字符将转换为 ASCII。
     
-    **特殊字符：** & &lt; &gt; " \` '
+  **特殊字符：** & &lt; &gt; " \` '
     
-    例如，保存策略后，条件 tags.attributes\['type'\]='abc' 将转换为以下内容。
+  例如，保存策略后，条件 tags.attributes\['type'\]='abc' 将转换为以下内容。
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    可以通过在编辑模式下打开策略，查看包含这些字符的策略条件。
+  可以通过在编辑模式下打开策略，查看包含这些字符的策略条件。
     
-    **解决方法**
+  **解决方法**
     
-    - **选项\# 1：通过 Ranger Rest API 创建/更新策略**
+  - **选项\# 1：通过 Ranger Rest API 创建/更新策略**
         
-        REST URL： http://&lt;host&gt;:6080/service/plugins/policies
+      REST URL： http://&lt;host&gt;:6080/service/plugins/policies
         
-        **创建包含策略条件的策略：**
+      **创建包含策略条件的策略：**
         
-        以下示例将创建标记为 \`tags-test\` 的策略，并通过选择 select、update、create、drop、alter、index、lock、all 等所有 hive 组件权限，将该策略分配到策略条件为 astags.attr\['type'\]=='abc' 的 \`public\` 组。
+      以下示例将创建标记为 \`tags-test\` 的策略，并通过选择 select、update、create、drop、alter、index、lock、all 等所有 hive 组件权限，将该策略分配到策略条件为 astags.attr\['type'\]=='abc' 的 \`public\` 组。
         
-        **示例：**
+      **示例：**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **更新包含策略条件的现有策略：**
+      **更新包含策略条件的现有策略：**
         
-        以下示例将更新标记为 \`tags-test\` 的策略，并通过选择 select、update、create、drop、alter、index、lock、all 等所有 hive 组件权限，将该策略分配到策略条件为 astags.attr\['type'\]=='abc' 的 \`public\` 组。
+      以下示例将更新标记为 \`tags-test\` 的策略，并通过选择 select、update、create、drop、alter、index、lock、all 等所有 hive 组件权限，将该策略分配到策略条件为 astags.attr\['type'\]=='abc' 的 \`public\` 组。
         
-        REST URL： http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+      REST URL： http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-        **示例：**
+      **示例：**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **选项\# 2：应用 Javascript 更改**
+  - **选项\# 2：应用 Javascript 更改**
         
-        更新 JS 文件的步骤：
+      更新 JS 文件的步骤：
         
-        1.  在 /usr/hdp/current/ranger-admin 下找到 PermissionList.js 文件
+      1.  在 /usr/hdp/current/ranger-admin 下找到 PermissionList.js 文件
         
-        2.  找到 renderPolicyCondtion 函数的定义（行号：404）。
+      2.  找到 renderPolicyCondtion 函数的定义（行号：404）。
         
-        3.  从该函数中删除以下行，即 display 函数下的行（行号：434）
+      3.  从该函数中删除以下行，即 display 函数下的行（行号：434）
             
-            val = \_.escape(val);//Line No:460
+          val = \_.escape(val);//Line No:460
             
-            删除上述行之后，Ranger UI 将允许你创建策略条件可以包含特殊字符的策略，并且针对同一策略执行策略评估将会成功。
+          删除上述行之后，Ranger UI 将允许你创建策略条件可以包含特殊字符的策略，并且针对同一策略执行策略评估将会成功。
 
 ## <a name="deprecation"></a>弃用
 

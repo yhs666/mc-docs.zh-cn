@@ -16,17 +16,17 @@ ms.topic: article
 origin.date: 05/31/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: f32aa22c587d50cc69babdcf70af4a9a650d0afd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d95fdb9bfd25b0f5eac991f58ab8513f6f292b83
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645703"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626191"
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 应用
 
 > [!IMPORTANT] 
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本教程演示如何在 Azure 虚拟机的 Windows Server 中托管基于 Django 的网站。 本教程假设读者以前没有使用过 Azure。 完成本教程后，即可在云中启动和运行基于 Django 的应用程序。
@@ -52,11 +52,11 @@ ms.locfileid: "52645703"
    1. 在 Azure 门户中，转到仪表板并选择新创建的虚拟机。
    2. 单击“终结点”，然后单击“添加”。
 
-     ![添加终结点](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
+      ![添加终结点](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
 
    3. 在“添加终结点”页上，针对“名称”，输入“HTTP”。 将公共和专用 TCP 端口设置为“80”。
 
-     ![输入名称并设置公共和专用端口](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
+      ![输入名称并设置公共和专用端口](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
 
    4. 单击 **“确定”**。
 

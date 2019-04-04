@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 03/22/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4ec9892f291f127e43d8e11536a67b6fdb3c7ca3
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: a8f96a644ced68078ede751e28f2a17a63718adb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666407"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627706"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>有关 Linux 虚拟机的常见问题
 本文讨论有关在 Azure 中使用 Resource Manager 部署模型创建的 Linux 虚拟机的一些常见问题。 有关本主题的 Windows 版本，请参阅[有关 Windows 虚拟机的常见问题](../windows/faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -104,12 +104,12 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
     <tr>
         <td style="text-align:center">abc@123</td>
         <td style="text-align:center">P@$$w0rd</td>
-        <td style="text-align:center">P@ssw0rd</td>
-        <td style="text-align:center">P@ssword123</td>
+        <td style="text-align:center">P<xref href="ssw0rd" data-throw-if-not-resolved="False" data-raw-source="@ssw0rd"></xref></td>
+        <td style="text-align:center">P<xref href="ssword123" data-throw-if-not-resolved="False" data-raw-source="@ssword123"></xref></td>
         <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
-        <td style="text-align:center">pass@word1</td>
+        <td style="text-align:center">pass<xref href="word1" data-throw-if-not-resolved="False" data-raw-source="@word1"></xref></td>
         <td style="text-align:center">Password!</td>
         <td style="text-align:center">Password1</td>
         <td style="text-align:center">Password22</td>

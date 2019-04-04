@@ -6,16 +6,16 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-origin.date: 12/15/2018
-ms.date: 01/28/2019
+origin.date: 3/13/2019
+ms.date: 04/08/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ba1fa391708a6492d25af91dbd61509ca5256b85
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: bbecc5fd2b60b1d39f59a5ec1d4773b3f9454942
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396888"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625298"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教程：通过 IoT 中心设置和使用指标与诊断日志
 
@@ -112,7 +112,6 @@ az iot hub device-identity create --device-id $iotDeviceName \
 #   Notepad. You need this to run the device simulation during the testing phase.
 az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
-
 ```
 
 >[!NOTE]
@@ -267,14 +266,14 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](/azure/azure-monitor/plat
    ![显示包含新警报规则的经典警报屏幕的屏幕截图。](./media/tutorial-use-metrics-and-diags/12-alerts-done.png)
 
 6. 关闭警报窗格。 
-    
+
     使用这些设置时，如果发送的消息数大于 400 且已使用的消息总数超出 NUMBER，则会出现警报。
 
 ## <a name="run-simulated-device-app"></a>运行模拟设备应用
 
 之前的脚本设置部分中，已设置了一个使用 IoT 设备进行模拟的设备。 本部分将下载一个 .NET 控制台应用，用于模拟向 IoT 中心发送设备到云消息的设备。  
 
-下载 [IoT 设备模拟](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)的解决方案。 可以通过此链接下载一个包含多个应用程序的存储库；要查找的解决方案位于 iot-hub/Tutorials/Routing/SimulatedDevice/ 中。
+下载 [IoT 设备模拟](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)的解决方案。 可以通过此链接下载一个包含多个应用程序的存储库；要查找的解决方案位于 iot-hub/Tutorials/Routing/ 中。
 
 双击解决方案文件 (SimulatedDevice.sln)，在 Visual Studio 中打开代码，然后打开 Program.cs。 使用 IoT 中心主机名代替 `{iot hub hostname}`。 IoT 中心主机名的格式为“{iot-hub-name}.azure-devices.net”。 本教程的中心主机名为“ContosoTestHub.azure-devices.net”。 接下来，使用之前设置模拟设备时保存的设备密钥代替 `{device key}`。 
 
@@ -385,4 +384,4 @@ az group delete --name $resourceGroup
 转到下一教程，了解如何管理 IoT 设备的状态。 
 
 > [!div class="nextstepaction"]
-[从后端服务配置设备](tutorial-device-twins.md)
+> [从后端服务配置设备](tutorial-device-twins.md)

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 03/30/2017
 ms.author: v-yiso
 ms.date: 11/20/2017
-ms.openlocfilehash: 97bafb0847c12616a8f7838cb285346893059936
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 96b8c766263b8735f083de51f4d95d7c23099bff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627536"
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -41,9 +41,9 @@ ms.locfileid: "52656015"
 
 + Node.js 版本 4.0.x 或更高版本。
 
-+ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
++ 有效的 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个 [试用帐户][lnk-free-trial]。
 
-如果已按照[设备孪生入门][lnk-twin-tutorial]教程执行了操作，则现在已有一个 IoT 中心和一个名为 **myDeviceId** 的设备标识。 在这种情况下，可以跳到[创建模拟设备应用][lnk-how-to-configure-createapp]部分。
+如果已按照 [设备孪生入门][lnk-twin-tutorial] 教程执行了操作，则现在已有一个 IoT 中心和一个名为 **myDeviceId** 的设备标识。 在这种情况下，可以跳到 [创建模拟设备应用][lnk-how-to-configure-createapp] 部分。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -169,13 +169,13 @@ ms.locfileid: "52656015"
 ## <a name="create-the-service-app"></a>创建服务应用
 在本节中，用户需创建一个 .NET 控制台应用，以便通过新的遥测配置对象在与 *myDeviceId* 关联的设备孪生上更新 **所需属性** 。 该应用随后会查询存储在 IoT 中心的设备孪生，并显示设备的所需配置与报告配置之间的差异。
 
-1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **SetDesiredConfigurationAndQuery**。
+1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **SetDesiredConfigurationAndQuery**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
 2. 在“解决方案资源管理器”中，右键单击“**SetDesiredConfigurationAndQuery**”项目，并单击“**管理 NuGet 包**”。
-1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 该过程下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] Nuget 包及其依赖项并添加对它的引用。
 
-    ![“NuGet 包管理器”窗口][img-servicenuget]
+    ![NuGet 包管理器窗口][img-servicenuget]
     
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
 
@@ -231,35 +231,39 @@ ms.locfileid: "52656015"
                 Console.WriteLine($"Exception: {ex.Message}");
             }
         }
-    The **Registry** object exposes all the methods required to interact with device twins from the service. This code initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and then updates its desired properties with a new telemetry configuration object.
-    After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
+    ```
+    **Registry** 对象公开从服务与设备孪生进行交互所需的所有方法。 此代码将初始化 **Registry** 对象，并检索 **myDeviceId** 的设备孪生，并使用新的遥测配置对象更新其所需属性。
+    然后，该代码会每隔 10 秒钟查询一次存储在 IoT 中心的设备孪生，并打印所需遥测配置和报告遥测配置。 若要了解如何在所有设备中生成丰富的报告，请参阅 [IoT 中心查询语言][lnk-query]。
    
    > [!IMPORTANT]
-   > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
+   > 为进行说明，此应用程序每 10 秒查询 IoT 中心一次。 使用查询跨多个设备生成面向用户的报表，而不检测更改。 如果解决方案需要设备事件的实时通知，请使用[孪生通知][lnk-twin-notifications]。
    > 
    > 
-7. Finally, add the following lines to the **Main** method:
+7. 最后，在 **Main** 方法中添加以下行：
 
     ```
-    registryManager = RegistryManager.CreateFromConnectionString(connectionString);  SetDesiredConfigurationAndQuery().Wait();  Console.WriteLine("Press any key to quit.");  Console.ReadLine();
-1. 在“解决方案资源管理器”中，打开“设置启动项目...”，并确保 **SetDesiredConfigurationAndQuery** 项目的“操作”为“启动”。 生成解决方案。
-8. 在 **SimulateDeviceConfiguration.js** 运行时，使用 **F5** 从 Visual Studio 运行 .NET 应用程序，应看到报告的配置以五分钟（而不是 24 小时）的新活动发送频率从 **Success** 更改为 **Pending**，然后再次更改为 **Success**。
+    registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+    SetDesiredConfigurationAndQuery().Wait();
+    Console.WriteLine("Press any key to quit.");
+    Console.ReadLine();
+8. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
+9. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
 
- ![已成功配置设备][img-deviceconfigured]
+   ![Device configured successfully][img-deviceconfigured]
    
    > [!IMPORTANT]
-   > 设备报告操作与查询结果之间最多存在一分钟的延迟。 这是为了使查询基础结构可以采用非常大的规模来工作。 若要检索单个设备孪生的一致视图，请使用 **Registry** 类中的 **getDeviceTwin** 方法。
+   > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
    > 
    > 
 
-## <a name="next-steps"></a>后续步骤
-在本教程中，已从解决方案后端将所需配置设置为“所需属性”，此外还编写了一个设备应用以检测该更改并模拟多步骤更新过程（通过报告属性报告其状态）。
+## Next steps
+In this tutorial, you set a desired configuration as *desired properties* from the solution back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status through the reported properties.
 
-充分利用以下资源：
+Use the following resources to learn how to:
 
-* 通过 [Get started with IoT Hub][lnk-iothub-getstarted] （IoT 中心入门）教程学习如何从设备发送遥测；
-* 关于对大型设备集进行计划或执行操作，请参阅 [计划和广播作业][lnk-schedule-jobs] 教程。
-* 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
+* send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
+* schedule or perform operations on large sets of devices see the [Schedule and broadcast jobs][lnk-schedule-jobs] tutorial.
+* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-node-twin-how-to-configure/servicesdknuget.png

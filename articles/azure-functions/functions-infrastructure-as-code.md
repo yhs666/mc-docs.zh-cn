@@ -7,18 +7,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: azure functions, functions 无服务体系结构, 基础结构即代码, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
+ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 01/15/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 449d37c025f6263d9ad54c0b4260ddddc3b77c7d
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: d05ad15d62e7ae939b40424b1f73f57d307f3001
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334211"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408266"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -33,9 +34,9 @@ ms.locfileid: "54334211"
 
 函数应用需要以下资源：
 
-- [Azure 存储](../storage/index.yml)帐户
-- 托管计划（应用服务计划）
-- 函数应用 
+* [Azure 存储](/storage)帐户
+* 托管计划（应用服务计划）
+* 函数应用 
 
 有关这些资源的 JSON 语法和属性，请参阅：
 
@@ -59,9 +60,9 @@ ms.locfileid: "54334211"
 }
 ```
 
-此外，在站点配置中，必须将属性 `AzureWebJobsStorage` 指定为应用设置。 如果函数应用未使用 Application Insights 进行监视，还应将 `AzureWebJobsDashboard` 指定为应用设置。
+此外，在站点配置中，必须将属性 `AzureWebJobsStorage` 指定为应用设置。 函数应用应将 `AzureWebJobsDashboard` 指定为应用设置。
 
-Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内部队列。  未启用 Application Insights 时，运行时使用 `AzureWebJobsDashboard` 连接字符串登录到 Azure 表存储并启动门户中的“监视”选项卡。
+Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内部队列。 运行时使用 `AzureWebJobsDashboard` 连接字符串登录到 Azure 表存储并为为门户中的“监视器”选项卡提供支持。
 
 这些属性在 `siteConfig` 对象中的 `appSettings` 集合中指定：
 
@@ -103,7 +104,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 ## <a name="deploy-a-function-app-on-the-app-service-plan"></a>基于应用服务计划部署函数应用
 
-在应用服务计划中，函数应用在基本、标准和高级 SKU 中的专用 VM 上运行，类似于 Web 应用。 如需详细了解如何使用应用服务计划，请参阅 [Azure 应用服务计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
+在应用服务计划中，函数应用在基本、标准和高级 SKU 中的专用 VM 上运行，类似于 Web 应用。 如需详细了解如何使用应用服务计划，请参阅 [Azure 应用服务计划深入概述](../app-service/overview-hosting-plans.md)。 
 
 有关 Azure 资源管理器模板示例，请参阅[基于 Azure 应用服务计划的函数应用]。
 
@@ -193,10 +194,10 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 可以使用以下任意方法部署模板：
 
-- [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [Azure 门户](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Azure 门户](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>“部署到 Azure”按钮
 
@@ -218,12 +219,12 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 深入了解如何开发和配置 Azure Functions。
 
-- [Azure Functions 开发人员参考](functions-reference.md)
-- [如何配置 Azure 函数应用设置](functions-how-to-use-azure-function-app-settings.md)
-- [创建第一个 Azure 函数](functions-create-first-azure-function.md)
+* [Azure Functions 开发人员参考](functions-reference.md)
+* [如何配置 Azure 函数应用设置](functions-how-to-use-azure-function-app-settings.md)
+* [创建第一个 Azure 函数](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
 [基于 Azure 应用服务计划的函数应用]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

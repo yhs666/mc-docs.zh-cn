@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Linux VM 上运行自定义脚本 | Azure
+title: 在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1 | Azure
 description: 使用自定义脚本扩展 v1 自动化 Linux VM 配置任务
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/14/2018
-ms.date: 08/27/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 26aa8fadd542f41549616e89e90c24af39e1bcf9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aee4c618236bc1549c19db06c03e6ee8849a8453
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656983"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626110"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -47,7 +47,7 @@ ms.locfileid: "52656983"
 
 * CentOS 6.5 和更高版本
 * Debian 8 和更高版本
-  * Debian 8.7 未在最新映像中随附 Python2，这将中断 CustomScriptForLinux。
+    * Debian 8.7 未在最新映像中随附 Python2，这将中断 CustomScriptForLinux。
 * FreeBSD
 * OpenSUSE 13.1 和更高版本
 * SUSE Linux Enterprise Server 11 SP3 和更高版本
@@ -297,8 +297,8 @@ az vm extension set
 一些需要注意的要点：
 
 1. Enable 表示该命令何时开始运行。
-2. Download 涉及下载 Azure 中的 CustomScript 扩展包，而非 fileUris 中指定的脚本文件。
-3. 还可以看到正将它写出到哪个日志文件，“/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log”。
+1. Download 涉及下载 Azure 中的 CustomScript 扩展包，而非 fileUris 中指定的脚本文件。
+1. 还可查看其写出到的日志文件 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 下一步是查看以下格式的日志文件：
 

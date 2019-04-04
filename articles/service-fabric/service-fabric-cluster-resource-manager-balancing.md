@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7d2bf717f01344a5c60e448d901664d99ab6f6b5
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 06ac3b59b15862e94c6913926f18f479e8f8a437
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204105"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625632"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -123,6 +123,7 @@ ClusterManifest.xml
 ```
 
 <center>
+
 ![均衡阈值示例][Image1]
 </center>
 
@@ -131,6 +132,7 @@ ClusterManifest.xml
 在底部的示例中，节点的最大负载为 10，最小负载为 2，因此比率为 5。 5 大于该指标的指定均衡阈值 3。 因此，下一次引发均衡计时器时，将计划运行重新均衡。 在此类似情况下，一些负载通常会分配到 Node3。 因为 Service Fabric 群集资源管理器不使用贪婪方法，所以一些负载也可能分配到 Node2。 
 
 <center>
+
 ![均衡阈值示例操作][Image2]
 </center>
 
@@ -146,6 +148,7 @@ ClusterManifest.xml
 假设我们为此指标保留三个均衡阈值。 另外假设具有 1536 个活动阈值。 在第一种情况下，根据均衡阈值，群集为不均衡状态，但没有节点符合活动阈值，因此保持现状。 在底部的示例中，Node1 超过活动阈值。 由于同时超过了指标的均衡阈值和活动阈值，所以计划进行均衡。 有关示例，请看下图： 
 
 <center>
+
 ![活动阈值示例][Image3]
 </center>
 
@@ -195,7 +198,8 @@ ClusterManifest.xml
 可以看到此处的运行情况：这里是一个链条！ 我们没有 4 个独立的服务，我们拥有 3 个相关的服务以及 1 个独立的服务。
 
 <center>
-![Balancing Services Together][Image4]
+
+![一起均衡服务][Image4]
 </center>
 
 由于此链条，指标 1-4 不均衡可能会导致属于服务 1-3 的副本或实例四处移动。 此外，指标 1、2 或 3 不均衡一定不会在 Service4 中引起移动。 因为移动属于 Service4 的副本或实例绝对不会影响指标 1-3 的均衡，所以这样做毫无意义。
@@ -203,7 +207,8 @@ ClusterManifest.xml
 群集资源管理器会自动计算出哪些服务是相关的。 添加、移除或更改服务的指标会影响服务间的关系。 例如，在两次运行均衡之间，Service2 可能已经更新为删除 Metric2。 这会中断 Service1 和 Service2 之间的链接。 现在有三组相关服务，而不是两组：
 
 <center>
-![Balancing Services Together][Image5]
+
+![一起均衡服务][Image5]
 </center>
 
 ## <a name="next-steps"></a>后续步骤

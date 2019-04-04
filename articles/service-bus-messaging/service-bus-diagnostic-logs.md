@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9484d93b982222a9a12b6a1bd01b8abc11714267
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 61974316a9c5935e3b91d9dc9eae013f72538211
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784606"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544673"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服务总线诊断日志
 
 可以查看两种类型的 Azure 服务总线日志：
-* **[活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**。 此类日志包含对作业执行的操作的相关信息。 始终启用这些日志。
-* **[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**。 可以配置诊断日志，以便更深入地了解作业内发生的所有情况。 诊断日志涵盖从创建作业开始到删除作业为止的所有活动，其中包括作业运行时发生的更新和活动。
+* **[活动日志](../azure-monitor/platform/activity-logs-overview.md)**。 此类日志包含对作业执行的操作的相关信息。 始终启用这些日志。
+* **[诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)**。 可以配置诊断日志，以便更深入地了解作业内发生的所有情况。 诊断日志涵盖从创建作业开始到删除作业为止的所有活动，其中包括作业运行时发生的更新和活动。
 
 ## <a name="turn-on-diagnostic-logs"></a>启用诊断日志
 
@@ -47,13 +46,13 @@ ms.locfileid: "53784606"
 
     ![更改诊断日志的状态](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  设置所需的存档目标；例如存储帐户、事件中心或 Azure Log Analytics。
+5.  设置所需的存档目标；例如存储帐户、事件中心或 Azure Monitor 日志。
 
 6.  保存新的诊断设置。
 
 新设置在大约 10 分钟后生效。 在此之后，日志出现在“诊断日志”边栏选项卡上配置的存档目标中。
 
-有关配置诊断的详细信息，请参阅 [Azure 诊断日志概述](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
+有关配置诊断的详细信息，请参阅 [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
 ## <a name="diagnostic-logs-schema"></a>诊断日志架构
 

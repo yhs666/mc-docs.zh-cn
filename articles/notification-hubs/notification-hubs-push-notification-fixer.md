@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: e65ade032fcbc503ad7dfb7bf7a72de87225e339
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fd44742eaa14b7be4ff5f7a3328a52f4c82e8309
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655817"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625227"
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>诊断通知中心的已删除通知
 
@@ -92,7 +92,7 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 
     我们已对“最多一次”传递做了优化。 但在这种情况下，出错的注册会从数据库中删除。 然后，我们针对该批次中的其他设备重试通知传递。
 
-    若要获取有关注册的失败传递尝试的更多错误信息，可使用通知中心 REST API [按照消息遥测数据：获取通知消息遥测数据](https://msdn.microsoft.com/library/azure/mt608135.aspx)和 [PNS 反馈](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 有关示例代码，请参阅[发送 REST 示例](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample)。
+    若要获取有关针对注册的失败传递尝试的更多错误信息，可以使用通知中心 REST API [按消息遥测：获取通知消息遥测数据](https://msdn.microsoft.com/library/azure/mt608135.aspx)和 [PNS 反馈](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 有关示例代码，请参阅[发送 REST 示例](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample)。
 
 ## <a name="push-notification-service-issues"></a>推送通知服务问题
 平台推送通知服务收到通知消息之后，需负责将通知传递到设备。 此时，通知中心服务是不相关的，它不会控制何时将通知传递到设备或者是否将通知传递到设备。 
@@ -153,7 +153,7 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
     有关将通知中心与 Visual Studio 服务器资源管理器搭配使用的详细信息，请参阅以下文章： 
    
    - [查看通知中心的设备注册]
-   - [深入了解：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]
+   - [深入探讨：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]
    - [宣布推出 Visual Studio 2013 Update 3 和 Azure SDK 2.4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>调试失败的通知和查看通知结果
@@ -231,15 +231,15 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 
     有关编程访问的详细信息，请参阅以下文章： 
 
-    - [以编程方式遥测访问]  
-    - [通过 API 遥测访问示例] 
+  - [以编程方式遥测访问]  
+  - [通过 API 遥测访问示例] 
 
     > [!NOTE]
     > 与遥测相关的多项功能（例如，导出和导入注册、通过 API 进行遥测访问）只能在标准服务层使用。 如果尝试从免费或基本服务层使用这些功能，那么在使用 SDK 时会收到异常消息，在从 REST API 直接使用这些功能时会收到 HTTP 403（已禁止）错误。 
     >
     >若要使用与遥测相关的功能，首先确保在 Azure 门户中使用标准服务层。  
-> 
-> 
+    > 
+    > 
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -262,7 +262,7 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 [服务总线资源管理器]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [服务总线资源管理器代码]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [查看通知中心的设备注册]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
-[深入了解：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
+[深入探讨：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [宣布推出 Visual Studio 2013 Update 3 和 Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
 [EnableTestSend]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [以编程方式遥测访问]: http://msdn.microsoft.com/library/azure/dn458823.aspx

@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/05/2017
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 677e12febe03cbde66f1d75869a4d4d520b50d3a
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 99dc3c1f20da0639d224a60e9764dc22b80bc996
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735215"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505503"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure Active Directory 凭据不同。
@@ -54,6 +54,12 @@ ms.locfileid: "53735215"
 > Azure 不会显示用户级部署密码。 如果忘记密码，可以按照本部分的步骤重置凭据。
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>将用户级凭据用于 FTP/FTPS
+
+使用用户级凭据向 FTP/FTPS 终结点进行身份验证时需要使用以下格式的用户名：`<app-name>\<user-name>`
+
+由于用户级凭据链接到用户而不是特定资源，因此用户名必须采用此格式才能将登录操作定向到正确的应用终结点。
 
 ## <a name="appscope"></a>设置和重置应用级凭据
 若要获取应用级凭据，请执行以下操作：

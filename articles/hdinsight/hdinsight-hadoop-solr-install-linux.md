@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0a84112665279917969457202219b07bc5bb379a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f96b3cc16c137b4de9596a60f2f8cbccf73c942b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666977"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627543"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
 
@@ -39,7 +39,7 @@ ms.locfileid: "52666977"
 > [!WARNING]
 > Microsoft 完全支持 HDInsight 群集提供的组件。
 >
-> 自定义组件（如 Solr）可获得合理范围的支持，以帮助你进一步排查问题。 Azure 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Solr）可获得合理范围的支持，以帮助你进一步排查问题。 Azure 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如：[Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>脚本功能
 
@@ -82,11 +82,11 @@ ms.locfileid: "52666977"
 
 1. 使用 SSH 连接到 HDInsight 群集：
 
-    > [!NOTE]
-    > 将 `sshuser` 替换为群集的 SSH 用户。 将 `clustername` 替换为群集的名称。
-    ```bash
-    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
-    ```
+   > [!NOTE]
+   > 将 `sshuser` 替换为群集的 SSH 用户。 将 `clustername` 替换为群集的名称。
+   >  ```bash
+   >  ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
+   >  ```
 
     有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -118,7 +118,7 @@ ms.locfileid: "52666977"
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    此命令为任何匹配 **\*:\*** 的文档搜索 **collection1**（在查询字符串中编码为 \*%3A\*）。 以下 JSON 文档是响应的示例：
+    此命令为任何匹配 **\*:\\*** 的文档搜索 **collection1**（在查询字符串中编码为 \*%3A\*）。 以下 JSON 文档是响应的示例：
 
             "response": {
                 "numFound": 2,

@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 11/01/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b89c5e5242cb7bb0b59c64473fb7a2f1ff9e4a5a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0b062325f67a40f446927014f1f4fbe45f85ba4b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674896"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627341"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务 
 本文演示如何使用 Azure 和 Visual Studio 生成混合云应用程序。 创建一个使用多个 Azure 资源的应用程序，让其在云中启动并运行。
@@ -28,7 +28,24 @@ ms.locfileid: "52674896"
 * 如何创建或修改现有 Web 服务以供 Web 解决方案使用。
 * 如何使用 Azure WCF 中继服务在 Azure 应用程序和托管于其他某处的 Web 服务之间共享数据。
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+在本教程中，你将执行以下步骤：
+
+> [!div class="checklist"]
+> * 查看方案。
+> * 创建命名空间。
+> * 创建本地服务器
+> * 创建 ASP .NET 应用程序
+> * 在本地运行应用。
+> * 将 Web 应用部署到 Azure
+> * 在 Azure 上运行应用
+
+## <a name="prerequisites"></a>先决条件
+
+若要完成本教程，需要满足以下先决条件：
+
+- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://azure.microsoft.com/free/)。
+- [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017。
+- 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://azure.microsoft.com/downloads/)安装它。
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Azure 中继功能将为混合解决方案带来哪些帮助
 
@@ -56,6 +73,8 @@ ms.locfileid: "52674896"
 
 ## <a name="create-a-namespace"></a>创建命名空间
 第一步是创建命名空间并获取[共享访问签名 (SAS)](../service-bus-messaging/service-bus-sas.md) 密钥。 命名空间为每个通过中继服务公开的应用程序提供应用程序边界。 创建服务命名空间时，系统自动生成 SAS 密钥。 服务命名空间与 SAS 密钥的组合为 Azure 提供了用于验证应用程序访问权限的凭据。
+
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-an-on-premises-server"></a>创建本地服务器
 首先，生成一个模拟的本地产品目录系统。  此项目是一个 Visual Studio 控制台应用程序，它使用 [Azure 服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 来包含服务总线库和配置设置。
@@ -167,7 +186,7 @@ ms.locfileid: "52674896"
         }
     }
     ```
-12. 在“解决方案资源管理器”中，双击“App.config”文件以在 Visual Studio 编辑器中将其打开。 在 `<system.ServiceModel>` 元素的下面（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码。 确保将 *yourServiceNamespace* 替换为命名空间的名称，并将 *yourKey* 替换为之前从门户中检索到的 SAS 密钥：
+12. 在“解决方案资源管理器”中，双击“App.config”文件以在 Visual Studio 编辑器中将其打开。 在 `<system.ServiceModel>` 元素的底部（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码：确保将 *yourServiceNamespace* 替换为命名空间的名称，并将 *yourKey* 替换为之前从门户中检索到的 SAS 密钥：
 
     ```xml
     <system.serviceModel>
@@ -322,7 +341,7 @@ ms.locfileid: "52674896"
 ## <a name="put-the-pieces-together"></a>将各个部分组合在一起
 下一步是将本地产品服务器与 ASP.NET 应用程序挂钩。
 
-1. 如果尚未打开在[创建 ASP.NET 应用程序](#create-an-aspnet-application)部分中创建的 **ProductsPortal** 项目，请在 Visual Studio 中重新打开该项目。
+1. 如果尚未打开在[创建 ASP.NET 应用程序](#create-an-aspnet-application)部分创建的 **ProductsPortal** 项目，请在 Visual Studio 中重新打开该项目。
 2. 采用与“创建本地服务器”部分类似的步骤，将 NuGet 包添加到项目“引用”中。 在解决方案资源管理器中，右键单击“ProductsPortal”项目，然后单击“管理 NuGet 程序包”。
 3. 搜索“WindowsAzure.ServiceBus”，然后选择“WindowsAzure.ServiceBus”项。 然后，完成安装过程并关闭此对话框。
 4. 在解决方案资源管理器中，右键单击“ProductsPortal”项目，然后单击“添加”，再单击“现有项”。
@@ -330,7 +349,7 @@ ms.locfileid: "52674896"
 
    ![添加为链接][24]
 
-6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：确保将 *yourServiceNamespace* 替换为服务命名空间的名称，将 *yourKey* 替换为 SAS 密钥。 这会使客户端能够调用本地服务，并返回调用的结果。
+6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：确保将 *yourServiceNamespace* 替换为你的服务命名空间的名称，并将 *yourKey* 替换为你的 SAS 密钥。 这会使客户端能够调用本地服务，并返回调用的结果。
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -402,14 +421,14 @@ ms.locfileid: "52674896"
 
 1. 在“解决方案资源管理器”中，右键单击“ProductsPortal”项目并单击“发布”。 然后，在“发布”页中单击“发布”。
 
-  > [!NOTE]
-  > 在部署后自动启动 **ProductsPortal** Web 项目时，可能会在浏览器窗口中看到错误消息。 这在意料之中，因为 **ProductsServer** 应用程序尚未运行。
->
->
+   > [!NOTE]
+   > 在部署后自动启动 **ProductsPortal** Web 项目时，可能会在浏览器窗口中看到错误消息。 这在意料之中，因为 **ProductsServer** 应用程序尚未运行。
+   >
+   >
 
 2. 复制已部署 Web 应用的 URL，你在下一个步骤中需要用到该 URL。 也可以从 Visual Studio 的“Azure 应用服务活动”窗口中获取此 URL：
 
-  ![已部署应用的 URL][9]
+   ![已部署应用的 URL][9]
 
 3. 关闭浏览器窗口，停止正在运行的应用程序。
 
@@ -427,7 +446,7 @@ ms.locfileid: "52674896"
 
 ## <a name="run-the-application"></a>运行应用程序
 
-1. 按 F5 生成并运行应用程序。 本地服务器（**ProductsServer** 控制台应用程序）应该会先启动，然后 **ProductsPortal** 应用程序会在浏览器窗口中启动，如以下屏幕截图所示：请再次注意，产品清单列出了从产品服务本地系统检索的数据，并将该数据显示在 Web 应用中。 请检查 URL，确保 **ProductsPortal** 正在云中以 Azure Web 应用的形式运行。
+1. 按 F5 生成并运行应用程序。 本地服务器（**ProductsServer** 控制台应用程序）应该会先启动，然后 **ProductsPortal** 应用程序应该会在浏览器窗口中启动，如以下屏幕截图所示：再次提请注意，产品库存列表会列出从产品服务本地系统检索到的数据，并在 Web 应用中显示该数据。 请检查 URL，确保 **ProductsPortal** 正在云中以 Azure Web 应用的形式运行。
 
    ![在 Azure 上运行 Web 应用][1]
 

@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-origin.date: 02/21/2019
-ms.date: 03/01/2019
+origin.date: 03/19/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8ddb1e74bf70e87fb42c10067cc331d1c7521d1d
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: f9902028c31c1c3985df57c69f8a70350e18a440
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204055"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505491"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安装和运行文本分析容器
 
@@ -27,7 +27,7 @@ ms.locfileid: "57204055"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要运行任何文本分析容器，必须具有以下各项：
+若要运行任何文本分析容器，必须具有主计算机和容器环境。
 
 ## <a name="preparation"></a>准备工作
 
@@ -39,15 +39,22 @@ ms.locfileid: "57204055"
 |熟悉 Docker | 应对 Docker 概念有基本的了解，例如注册表、存储库、容器和容器映像，以及基本的 `docker` 命令的知识。| 
 |文本分析资源 |若要使用容器，必须具有：<br><br>[_文本分析_](text-analytics-how-to-access-key.md) Azure 资源，用于获取关联的计费密钥和计费终结点 URI。 这两个值可以从 Azure 门户中的“文本分析概述”和“密钥”页面获得，并且是启动容器时所必需的。<br><br>**{BILLING_KEY}**：资源密钥<br><br>**{BILLING_ENDPOINT_URI}**：终结点 URI 示例如下：`https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0`|
 
+### <a name="the-host-computer"></a>主计算机
+
+[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+
 ### <a name="container-requirements-and-recommendations"></a>容器要求和建议
 
 下表描述了每个文本分析容器的 CPU 和内存配置，其中包括要分配的最少和建议 CPU 核心数（至少 2.6 GHz）和内存量 (GB)。
 
-| 容器 | 最小值 | 建议 |
-|-----------|---------|-------------|
-|关键短语提取 | 单核，2 GB 内存 | 单核，4 GB 内存 |
-|语言检测 | 单核，2 GB 内存 | 单核，4 GB 内存 |
-|情绪分析 | 单核，2 GB 内存 | 单核，4 GB 内存 |
+| 容器 | 最小值 | 建议 | TPS<br>(最小值, 最大值)|
+|-----------|---------|-------------|--|
+|关键短语提取 | 单核，2 GB 内存 | 单核，4 GB 内存 |15、30|
+|语言检测 | 单核，2 GB 内存 | 单核，4 GB 内存 |15、30|
+|情绪分析 | 单核，2 GB 内存 | 单核，4 GB 内存 |15、30|
+
+* 每个核心必须至少为 2.6 千兆赫 (GHz) 或更快。
+* TPS - 每秒事务数
 
 核心和内存对应于 `--cpus` 和 `--memory` 设置，用作 `docker run` 命令的一部分。
 
@@ -65,9 +72,9 @@ Microsoft 容器注册表中提供了文本分析的容器映像。
 
 有关文本分析容器可用标记的完整说明，请查看 Docker 中心内的以下容器：
 
-- [关键短语提取](https://go.microsoft.com/fwlink/?linkid=2018757)
-- [语言检测](https://go.microsoft.com/fwlink/?linkid=2018759)
-- [情绪分析](https://go.microsoft.com/fwlink/?linkid=2018654)
+* [关键短语提取](https://go.microsoft.com/fwlink/?linkid=2018757)
+* [语言检测](https://go.microsoft.com/fwlink/?linkid=2018759)
+* [情绪分析](https://go.microsoft.com/fwlink/?linkid=2018654)
 
 使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令下载容器映像。
 
@@ -121,10 +128,10 @@ ApiKey={BILLING_KEY}
 
 此命令：
 
-- 从容器映像运行关键短语容器
-- 分配一个 CPU 核心和 4 GB 内存
-- 公开 TCP 端口 5000，并为容器分配伪 TTY
-- 退出后自动删除容器。 容器映像在主计算机上仍然可用。 
+* 从容器映像运行关键短语容器
+* 分配一个 CPU 核心和 4 GB 内存
+* 公开 TCP 端口 5000，并为容器分配伪 TTY
+* 退出后自动删除容器。 容器映像在主计算机上仍然可用。 
 
 提供 `docker run` 命令的多个[示例](../text-analytics-resource-container-config.md#example-docker-run-commands)。 
 
@@ -137,7 +144,7 @@ ApiKey={BILLING_KEY}
 
 容器提供了基于 REST 的查询预测终结点 API。 
 
-使用主机 https://localhost:5000，以获得容器 API。
+使用主机 `https://localhost:5000`，以获得容器 API。
 
 ## <a name="stop-the-container"></a>停止容器
 
@@ -163,19 +170,19 @@ ApiKey={BILLING_KEY}
 
 在本文中，我们已学习相关的概念，以及文本分析容器的下载、安装和运行工作流。 综上所述：
 
-- 文本分析提供三个适用于 Docker 的 Linux 容器，用于封装关键短语提取、语言检测和情绪分析。
-- 从 Azure 中的 Microsoft 容器注册表 (MCR) 下载容器映像。
-- 容器映像在 Docker 中运行。
-- 可以使用 REST API 或 SDK 通过指定容器的主机 URI 来调用文本分析容器中的操作。
-- 必须在实例化容器时指定账单信息。
+* 文本分析提供三个适用于 Docker 的 Linux 容器，用于封装关键短语提取、语言检测和情绪分析。
+* 从 Azure 中的 Microsoft 容器注册表 (MCR) 下载容器映像。
+* 容器映像在 Docker 中运行。
+* 可以使用 REST API 或 SDK 通过指定容器的主机 URI 来调用文本分析容器中的操作。
+* 必须在实例化容器时指定账单信息。
 
 > [!IMPORTANT]
 > 如果未连接到 Azure 进行计量，则无法授权并运行认知服务容器。 客户需要始终让容器向计量服务传送账单信息。 认知服务容器不会将客户数据（例如，正在分析的图像或文本）发送给 Microsoft。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 查看[配置容器](../text-analytics-resource-container-config.md)了解配置设置
-- 参阅[常见问题解答 (FAQ)](../text-analytics-resource-faq.md) 解决与功能相关的问题。
+* 查看[配置容器](../text-analytics-resource-container-config.md)了解配置设置
+* 参阅[常见问题解答 (FAQ)](../text-analytics-resource-faq.md) 解决与功能相关的问题。
 
 
 <!-- Update_Description: wording update -->

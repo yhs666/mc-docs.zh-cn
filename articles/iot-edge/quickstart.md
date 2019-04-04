@@ -1,25 +1,25 @@
 ---
-title: 关于在 Windows 上创建 Azure IoT Edge 设备的快速入门 | Microsoft Docs
+title: 快速入门：在 Windows 上创建 Azure IoT Edge 设备
 description: 本快速入门介绍如何创建 IoT Edge 设备，然后从 Azure 门户远程部署预生成的代码。
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 12/31/2018
-ms.date: 03/04/2019
+origin.date: 03/19/2019
+ms.date: 04/08/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3ad1096400e9bc23a97c75edcfe8219ad14dec9d
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 4fcd6a0ac714d7387ccb7f6ea4d6d9275184cfcb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625383"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入门：将第一个 IoT Edge 模块从 Azure 门户部署到 Windows 设备 - 预览
 
-此快速入门中，使用 Azure IoT Edge 云接口将预生成的代码远程部署到 IoT Edge 设备。 若要完成此任务，首先使用 Windows 设备模拟 IoT Edge 设备，然后即可向其部署模块。
+此快速入门中，使用 Azure IoT Edge 云接口将预生成的代码远程部署到 IoT Edge 设备。 要完成此任务，请先创建和配置一个用作 IoT Edge 设备的 Windows 虚拟机，然后即可向其部署模块。
 
 此快速入门介绍如何：
 
@@ -58,12 +58,19 @@ ms.locfileid: "56665445"
 
 IoT Edge 设备： 
 
-* 充当 IoT Edge 设备的 Windows 计算机或虚拟机。 使用支持的 Windows 版本：
-  * 装有 2018 年 10 月更新版（内部版本 17763）的 Windows 10 或 IoT Core
-  * Windows Server 2019
-* 启用虚拟化，使设备可以托管容器
-   * 如果是 Windows 计算机，请启用容器功能。 在开始栏中，导航到“打开或关闭 Windows 功能”，选中“容器”旁边的复选框。
-   * 如果该设备是虚拟机，则启用[嵌套虚拟化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)并分配至少 2-GB 内存。
+* 充当 IoT Edge 设备的 Windows 虚拟机。 可使用以下命令创建此虚拟机，并将 {password} 替换为安全密码：
+
+  ```azurecli
+  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
+  ```
+
+  可能需要几分钟才能创建并启动新的虚拟机。 然后，在连接到虚拟机时下载 RDP 文件进行使用：
+
+  1. 导航到 Azure 门户中新的 Windows 虚拟机。
+  1. 选择“连接” 。
+  1. 在“RDP”选项卡上，选择“下载 RDP 文件”。
+
+  使用远程桌面连接打开此文件，以通过用 `az vm create` 指定的管理员姓名和密码连接到 Windows 虚拟机。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -104,7 +111,7 @@ IoT Edge 设备：
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 复制 JSON 输出中 `cs` 键的值并保存。 该值为设备连接字符串。 在下一部分中配置 IoT Edge 运行时时将用到此连接字符串。
+3. 复制 JSON 输出中 `connectionString` 键的值并保存。 该值为设备连接字符串。 在下一部分中配置 IoT Edge 运行时时将用到此连接字符串。
 
    ![从 CLI 输出中检索连接字符串](./media/quickstart/retrieve-connection-string.png)
 
@@ -119,11 +126,19 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 在运行时安装期间，系统会要求你提供设备连接字符串。 请使用从 Azure CLI 检索的字符串。 此字符串将物理设备与 Azure 中的 IoT Edge 设备标识关联在一起。
 
-本部分的说明要求配置 Windows 容器的 IoT Edge 运行时。 若要使用 Linux 容器，请参阅[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows-with-linux.md)中的先决条件和安装步骤。
-
 ### <a name="connect-to-your-iot-edge-device"></a>连接到 IoT Edge 设备
 
-此部分的步骤全都在 IoT Edge 设备上执行。 如果使用虚拟机或辅助硬件，则现在可以通过 SSH 或远程桌面连接到该计算机。 如果使用自己的计算机作为 IoT Edge 设备，则可以转到下一部分。 
+本部分中的步骤均在 IoT Edge 设备上执行，因此需要立即通过远程桌面连接到此虚拟机。
+
+### <a name="prepare-your-device-for-containers"></a>为容器准备好设备
+
+在安装 IoT Edge 之前，安装脚本会自动在设备上安装 Moby 引擎。 通过启用“容器”功能来准备设备。
+
+1. 在“开始”栏中，搜索“打开或关闭 Windows 功能”并打开控制面板程序。
+1. 找到“容器”并将其选中。
+1. 选择“确定” 。
+
+完成后需重启 Windows，这样更改才会生效，但你可通过远程桌面会话执行此操作，而无需通过 Azure 门户重启虚拟机。
 
 ### <a name="download-and-install-the-iot-edge-service"></a>下载并安装 IoT Edge 服务
 
@@ -171,7 +186,7 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
    ![查看设备上的一个模块](./media/quickstart/iotedge-list-1.png)
 
-完成安装并启动 IoT Edge 代理模块可能需要数分钟，尤其是在所用设备的容量或 Internet 访问受限的情况下。 
+可能需要几分钟才能完成安装并启动 IoT Edge 代理模块。
 
 IoT Edge 设备现在已配置好。 它可以运行云部署型模块了。 
 

@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9791022d5845fdbeea8fa7a475c869866eda5c
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 8535c94acf9f94a341cf192ff7f2da105e303e99
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186662"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626430"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -48,9 +48,9 @@ ms.locfileid: "58186662"
   - CRM 服务管理员
   - Power BI 服务管理员
 
-* 如果在试用订阅中已过 30 天；或
-* 虚域存在（例如 contoso.com）；或
-* Azure AD Connect 正在从本地目录同步标识
+- 如果在试用订阅中已过 30 天；或
+- 虚域存在（例如 contoso.com）；或
+- Azure AD Connect 正在从本地目录同步标识
 
 ### <a name="exceptions"></a>异常
 
@@ -74,17 +74,18 @@ ms.locfileid: "58186662"
 
 下表描述了适用于在 Azure AD 中创建和管理的用户帐户的密码策略设置：
 
-| 属性 | 要求 |
-| --- | --- |
-| 允许的字符 |<ul><li>A - Z</li><li>a - z</li><li>0 - 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| 不允许的字符 |<ul><li>Unicode 字符。</li><li>空格。</li><li> 不能紧靠在“\@\"”符号前面添加句点字符“.”。</li></ul> |
-| 密码限制 |<ul><li>至少 8 个字符，最多包含 16 个字符。</li><li>需满足以下 4 项中的 3 项：<ul><li>小写字符。</li><li>大写字符。</li><li>数字 (0-9)。</li><li>符号（请参阅前面的密码限制）。</li></ul></li></ul> |
-| 密码过期期限 |<ul><li>默认值：“90”天。</li><li>可通过 Windows PowerShell 的 Azure Active Directory 模块中的 `Set-MsolPasswordPolicy` cmdlet 来配置该值。</li></ul> |
-| 密码过期通知 |<ul><li>默认值：“14”天（密码到期前）。</li><li>可使用 `Set-MsolPasswordPolicy` cmdlet 配置该值。</li></ul> |
-| 密码到期 |<ul><li>默认值：**false**（表示已启用密码到期）。</li><li>可使用 `Set-MsolUser` cmdlet 配置单个用户帐户的值。</li></ul> |
-| 密码更改历史记录 |用户更改密码时，上一个密码*不能*再次使用。 |
-| 密码重置历史记录 | 用户重置忘记的密码时，上一个密码*可以*再次使用。 |
-| 帐户锁定 |使用错误密码 10 次登录尝试失败之后，用户会被锁定一分钟。 后续的错误登录尝试会增加用户被锁定的时间。 |
+
+|           属性           |                                                                                                                                      要求                                                                                                                                      |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      允许的字符      |                                                                            <ul><li>A - Z</li><li>a - z</li><li>0 - 9</li> <li>@ # $ % ^ & \* - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul>                                                                             |
+|    不允许的字符    |                                                                       <ul><li>Unicode 字符。</li><li>空格。</li><li> 不能紧靠在“\@\"”符号前面添加句点字符“.”。</li></ul>                                                                       |
+|    密码限制     | <ul><li>至少 8 个字符，最多包含 16 个字符。</li><li>需满足以下 4 项中的 3 项：<ul><li>小写字符。</li><li>大写字符。</li><li>数字 (0-9)。</li><li>符号（请参阅前面的密码限制）。</li></ul></li></ul> |
+|   密码过期期限   |                                        <ul><li>默认值：“90”天。</li><li>可通过 Windows PowerShell 的 Azure Active Directory 模块中的 `Set-MsolPasswordPolicy` cmdlet 来配置该值。</li></ul>                                        |
+| 密码过期通知 |                                                          <ul><li>默认值：“14”天（密码到期前）。</li><li>可使用 `Set-MsolPasswordPolicy` cmdlet 配置该值。</li></ul>                                                          |
+|       密码到期        |                                       <ul><li>默认值：<strong>false</strong>（表示已启用密码到期）。</li><li>可使用 `Set-MsolUser` cmdlet 配置单个用户帐户的值。</li></ul>                                        |
+|   密码更改历史记录    |                                                                                                       用户更改密码时，上一个密码*不能*再次使用。                                                                                                        |
+|    密码重置历史记录    |                                                                                                    用户重置忘记的密码时，上一个密码*可以*再次使用。                                                                                                    |
+|       帐户锁定        |                                             使用错误密码 10 次登录尝试失败之后，用户会被锁定一分钟。 后续的错误登录尝试会增加用户被锁定的时间。                                              |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>在 Azure AD 中设置密码过期策略
 
@@ -103,9 +104,9 @@ Azure 云服务的全局管理员可使用用于 Windows PowerShell 的 Azure AD
 ### <a name="check-the-expiration-policy-for-a-password"></a>检查密码过期策略
 
 1. 使用公司管理员凭据连接到 Windows PowerShell。
-1. 执行以下命令之一：
+2. 执行以下命令之一：
 
-   * 若要查看单个用户的密码是否已设置为永不过期，请使用要查看的用户的 UPN（例如 *aprilr@contoso.partner.onmschina.cn*）或用户 ID 运行以下 cmdlet：`Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * 若要查看单个用户的密码是否已设置为永不过期，请使用要查看的用户的 UPN（例如 <em>aprilr@contoso.partner.onmschina.cn</em>）或用户 ID 运行以下 cmdlet：`Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * 若要查看所有用户的“密码永不过期”设置，请运行以下 cmdlet：`Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>设置密码过期

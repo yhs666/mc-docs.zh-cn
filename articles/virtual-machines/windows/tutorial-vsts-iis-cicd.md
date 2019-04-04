@@ -17,12 +17,12 @@ origin.date: 05/12/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 00a1af4ae4fb6e8def1dadb098b4a186e74f5844
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7501fb834e49e25ab6b84ab7746f7649e2dbe0fb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651528"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627529"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-azure-devops-services-and-iis"></a>教程：使用 Azure DevOps Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Azure DevOps Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：
@@ -166,15 +166,15 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 8. 选择“IIS Web 应用部署(预览)”旁边的“添加”，然后选择“关闭”。
 9. 选择“在部署组上运行”父任务。
-    1. 对于“部署组”，请选择前面创建的部署组，例如 *myIIS*。
-    2. 在“计算机标记”框中，选择“添加”，然后选择“web”标记。
+   1. 对于“部署组”，请选择前面创建的部署组，例如 *myIIS*。
+   2. 在“计算机标记”框中，选择“添加”，然后选择“web”标记。
 
-    ![IIS 的发布管道部署组任务](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
+      ![IIS 的发布管道部署组任务](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
 
-11. 选择“部署: IIS Web 应用部署”任务以配置 IIS 实例设置，如下所示：
+10. 选择“部署: IIS Web 应用部署”任务以配置 IIS 实例设置，如下所示：
     1. 对于“网站名称”，请输入“默认网站”。
     2. 保留其他所有默认设置。
-12. 选择“保存”，然后选择“确定”两次。
+11. 选择“保存”，然后选择“确定”两次。
 
 ## <a name="create-a-release-and-publish"></a>创建版本并发布
 现在，可将 Web 部署包推送为新版本。 此步骤将与构成部署组的每个实例上的代理通信，推送 Web 部署包，然后将 IIS 配置为运行更新的 Web 应用程序。

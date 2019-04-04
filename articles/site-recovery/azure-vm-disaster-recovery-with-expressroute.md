@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/27/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: bf0fadb8174e30ba9af5b2307dc38359c657e4e0
-ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
+ms.openlocfilehash: efdad534c0f54de49697c512aaf63d30c51081d3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727660"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625210"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUANG ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -93,11 +93,11 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
     - **源 vNet2**：10.2.0.0/24。
     - 每个分支虚拟网络都连接到“中心 vNet”。
 - **中心 vNet**。 有一个中心 vNet **源中心 vNet**：10.10.10.0/24。
-    - 此中心 vNet 充当网关守卫。
-    - 跨子网的所有通信都通过此中心进行。
- - ****中心 vNet 子网**。 中心 vNet 具有两个子网：
-     - **NVA 子网**：10.10.10.0/25。 此子网包含 NVA (10.10.10.10)。
-     - **网关子网**：10.10.10.128/25。 此子网包含连接到 ExpressRoute 连接的 ExpressRoute 网关，该连接通过专用对等互连路由域路由到本地站点。
+  - 此中心 vNet 充当网关守卫。
+  - 跨子网的所有通信都通过此中心进行。
+    - **中心 vNet 子网**。 中心 vNet 具有两个子网：
+    - **NVA 子网**：10.10.10.0/25。 此子网包含 NVA (10.10.10.10)。
+    - **网关子网**：10.10.10.128/25。 此子网包含连接到 ExpressRoute 连接的 ExpressRoute 网关，该连接通过专用对等互连路由域路由到本地站点。
 - 本地数据中心通过广州的合作伙伴边缘建立了 ExpressRoute 线路连接。
 - 所有路由都通过 Azure 路由表 (UDR) 进行控制。
 - vNet 之间或流向本地数据中心的所有出站流量都经过 NVA 路由。

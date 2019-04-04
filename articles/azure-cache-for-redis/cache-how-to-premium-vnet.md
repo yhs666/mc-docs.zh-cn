@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9de33355559287ae9b9e9cdd8fa4444b8497e5bb
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 9fd1067d423f6229bd121e4d400a7a717501a48a
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903243"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505482"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上很灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -84,13 +84,13 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Redis 缓存 VNet 常见问题解答
 以下列表包含有关 Azure Redis 缓存缩放的常见问题的解答。
 
-- Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？
-- [如何验证缓存是否在 VNET 中正常工作？](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-- 尝试连接到 VNET 中的 Azure Redis 缓存时，为何会收到一项指出远程证书无效的错误？
-- [是否可以对标准或基本缓存使用 VNet？](#can-i-use-vnets-with-a-standard-or-basic-cache)
-- 为什么在某些子网中创建 Azure Redis 缓存会失败，而在其他子网中不会失败？
-- [子网地址空间的要求是什么？](#what-are-the-subnet-address-space-requirements)
-- [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+* Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？
+* [如何验证缓存是否在 VNET 中正常工作？](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* 尝试连接到 VNET 中的 Azure Redis 缓存时，为何会收到一项指出远程证书无效的错误？
+* [是否可以对标准或基本缓存使用 VNet？](#can-i-use-vnets-with-a-standard-or-basic-cache)
+* 为什么在某些子网中创建 Azure Redis 缓存会失败，而在其他子网中不会失败？
+* [子网地址空间的要求是什么？](#what-are-the-subnet-address-space-requirements)
+* [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ### <a name="what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets"></a>Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？
 在 VNet 中托管 Azure Redis 缓存时，将使用下表中的端口。 
@@ -107,7 +107,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 
 出站端口有七个要求。
 
-- 如果需要，与 Internet 的所有出站连接都可以通过客户端的本地审核设备建立。
+- 与 Internet 的所有出站连接都可以通过客户端的本地审核设备建立。
 - 其中三个端口将流量路由到为 Azure 存储和 Azure DNS 提供服务的 Azure 终结点。
 - 剩余端口范围，这些端口用于内部 Redis 子网通信。 内部 Redis 子网通信不需要子网 NSG 规则。
 
@@ -142,10 +142,10 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 
 在虚拟网络中，可能一开始不符合 Azure Redis 缓存的网络连接要求。 在虚拟网络中使用时，Azure Redis 缓存需要以下所有项才能正常运行。
 
-- 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于 Azure Redis 缓存实例区域的终结点，以及位于**其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域之下解析：*table.core.chinacloudapi.cn*、*blob.core.chinacloudapi.cn*、*queue.core.chinacloudapi.cn* 和 *file.core.chinacloudapi.cn*。 
-- 与 *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 SSL 功能。
-- 虚拟网络的 DNS 设置必须能够解析前面几点所提到的所有终结点和域。 确保已针对虚拟网络配置并维护有效的 DNS 基础结构即可符合这些 DNS 要求。
-- 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
+* 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于 Azure Redis 缓存实例区域的终结点，以及位于**其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域之下解析：*table.core.chinacloudapi.cn*、*blob.core.chinacloudapi.cn*、*queue.core.chinacloudapi.cn* 和 *file.core.chinacloudapi.cn*。 
+* 与 *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 SSL 功能。
+* 虚拟网络的 DNS 设置必须能够解析前面几点所提到的所有终结点和域。 确保已针对虚拟网络配置并维护有效的 DNS 基础结构即可符合这些 DNS 要求。
+* 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何验证缓存是否在 VNET 中正常工作？
 
@@ -201,7 +201,7 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 ### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a>在 VNET 中托管缓存时，是否可以使用所有缓存功能？
 如果缓存是 VNET 的一部分，则只有 VNET 中的客户端可以访问缓存。 因此，以下缓存管理功能目前不起作用。
 
-- Redis 控制台 - 由于 Redis 控制台在 VNET 外部的本地浏览器中运行，因此无法连接到缓存。
+* Redis 控制台 - 由于 Redis 控制台在 VNET 外部的本地浏览器中运行，因此无法连接到缓存。
 
 
 ## <a name="use-expressroute-with-azure-cache-for-redis"></a>将 ExpressRoute 与 Azure Redis 缓存配合使用
@@ -216,8 +216,8 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 
 如果可能，建议使用以下配置：
 
-- ExpressRoute 配置播发 0.0.0.0/0 并默认使用强制隧道将所有输出流量发送到本地。
-- 已应用到包含 Azure Redis 缓存的子网的 UDR 使用公共 Internet 的 TCP/IP 流量工作路由来定义 0.0.0.0/0；例如，可以将下一跃点类型设置为“Internet”。
+* ExpressRoute 配置播发 0.0.0.0/0 并默认使用强制隧道将所有输出流量发送到本地。
+* 已应用到包含 Azure Redis 缓存的子网的 UDR 使用公共 Internet 的 TCP/IP 流量工作路由来定义 0.0.0.0/0；例如，可以将下一跃点类型设置为“Internet”。
 
 这些步骤的组合效应是子网级 UDR 优先于 ExpressRoute 强制隧道，因此可确保来自 Azure Redis 缓存的出站 Internet 访问。
 
@@ -237,7 +237,7 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 ## <a name="next-steps"></a>后续步骤
 了解如何使用更多的高级缓存功能。
 
-- [Azure Redis 缓存高级层简介](cache-premium-tier-intro.md)
+* [Azure Redis 缓存高级层简介](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 
@@ -248,4 +248,4 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

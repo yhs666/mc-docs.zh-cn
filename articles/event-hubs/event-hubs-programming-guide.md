@@ -1,23 +1,23 @@
 ---
-title: Azure 事件中心编程指南 | Azure
-description: 使用 Azure.NET SDK 编写 Azure 事件中心代码。
+title: 编程指南 - Azure 事件中心 | Azure Docs
+description: 本文介绍如何使用 Azure .NET SDK 为 Azure 事件中心编写代码。
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
+author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
 origin.date: 08/12/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: e7427d3989e46f6e06a28083dfad522cbce0a6bf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/08/2019
+ms.author: v-biyu
+ms.openlocfilehash: 828dac6346413f98370c219ccb269e71d03d182c
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658876"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505515"
 ---
-# <a name="event-hubs-programming-guide"></a>事件中心编程指南
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中心编程指南
 本文介绍使用 Azure 事件中心编写代码时的一些常见情况。 内容假设你对事件中心已有初步的了解。 有关事件中心的概念概述，请参阅 [事件中心概述](event-hubs-what-is-event-hubs.md)。
 
 ## <a name="event-publishers"></a>事件发布者
@@ -27,8 +27,7 @@ ms.locfileid: "52658876"
 使用 .NET 托管 API 时，用于将数据发布到事件中心的主要构造是 [EventHubClient][] 和 [EventData][] 类。 [EventHubClient][] 提供 AMQP 信道，事件将通过该信道发送到事件中心。 [EventData][] 类表示一个事件，用于将消息发布到事件中心。 此类包括正文、一些元数据和有关事件的标头信息。 其他属性将在 [EventData][] 对象通过事件中心时添加到该对象。
 
 ## <a name="get-started"></a>入门
-
-支持事件中心的 .NET 类在 [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet 包中提供。 可以使用 Visual Studio 解决方案资源管理器进行安装，也可使用 Visual Studio 中的[包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)。 为此，请在 [程序包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 窗口中发出以下命令：
+支持事件中心的 .NET 类在 [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet 包中提供。 可以使用 Visual Studio 解决方案资源管理器进行安装，也可使用 Visual Studio 中的[包管理器控制台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)。 为此，请在 [程序包管理器控制台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 窗口中发出以下命令：
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs
@@ -77,7 +76,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ### <a name="availability-considerations"></a>可用性注意事项
 
-可选择使用分区键，并应仔细考虑是否使用分区键。 在许多情况下，如果事件排序较为重要，使用分区键是一个不错的选择。 使用分区键时，这些分区需要单个节点上的可用性，并且可能会随时间推移发生故障；例如，在计算节点重启和修补时。 因此，如果设置了分区 ID，并且该分区由于某种原因变得不可用，则对该分区中的数据的访问尝试会失败。 如果高可用性是最重要的，请不要指定分区键；在这种情况下，将使用前述的轮循机制模型将事件发送到分区。 在这种情况下，需在可用性（无分区 ID）和一致性（将事件固定到分区 ID）之间做出明确选择。
+可选择使用分区键，并应仔细考虑是否使用分区键。 如果在发布事件时未指定分区键，则会使用循环分配。 在许多情况下，如果事件排序较为重要，使用分区键是一个不错的选择。 使用分区键时，这些分区需要单个节点上的可用性，并且可能会随时间推移发生故障；例如，在计算节点重启和修补时。 因此，如果设置了分区 ID，并且该分区由于某种原因变得不可用，则对该分区中的数据的访问尝试会失败。 如果高可用性是最重要的，请不要指定分区键；在这种情况下，将使用前述的轮循机制模型将事件发送到分区。 在这种情况下，需在可用性（无分区 ID）和一致性（将事件固定到分区 ID）之间做出明确选择。
 
 另一个注意事项是处理事件处理中的延迟。 在某些情况下，丢弃数据并重试可能比尝试跟上处理要更好，后者可能会进而导致下游处理延迟。 例如，在拥有股票行情自动收录器的情况下，最好等待接收完整的最新数据，但在实时聊天或 VOIP 的情况下，则更希望能快速获得数据，即使数据不完整。
 
@@ -100,8 +99,6 @@ for (var i = 0; i < numMessagesToSend; i++)
 请通过异步方式将事件发送到事件中心。 以异步方式发送可以增大客户端发送事件的速率。 [SendAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet) 返回 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 对象。 可以在客户端上使用 [RetryPolicy](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.retrypolicy?view=azure-dotnet) 类来控制客户端重试选项。
 
 ## <a name="event-consumers"></a>事件使用者
-<a name="event-processor-host"></a>
-
 [EventProcessorHost][] 类处理来自事件中心的数据。 在 .NET 平台上构建事件读取者时，应该使用此实现。 [EventProcessorHost][] 为事件处理器实现提供线程安全、多进程安全的运行时环境，该环境还能提供检查点和分区租用管理。
 
 若要使用 [EventProcessorHost][] 类，可以实现 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet)。 此接口包含四个方法：
@@ -112,6 +109,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessErrorAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync?view=azure-dotnet)
 
 若要开始处理事件，请实例化 [EventProcessorHost][]，为事件中心提供适当的参数。 例如：
+
+> [!NOTE]
+> EventProcessorHost 及其相关类在 **Microsoft.Azure.EventHubs.Processor** 包中提供。 按照[此文](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package)中的说明或在[包管理器控制台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)窗口中发出以下命令，将包添加到 Visual Studio 项目中：`Install-Package Microsoft.Azure.EventHubs.Processor`。
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

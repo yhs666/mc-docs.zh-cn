@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 9bc34fabfe574de3a40028f3df2f08ebce28028d
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: a5d1003c0c4b51f9efc425c55196f7169362b3c7
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204155"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505443"
 ---
 # <a name="categorize-images"></a>对图像进行分类
 
@@ -25,7 +25,7 @@ ms.locfileid: "57204155"
 
 ## <a name="the-86-category-concept"></a>“86 类”概念
 
-计算机视觉可以使用下表中 86 种类别广泛或具体地对图像进行分类。 有关文本格式的完整分类，请参阅[类别分类](category-taxonomy.md)。
+计算机视觉可以使用下图中 86 个类别的列表广泛或具体地对图像进行分类。 有关文本格式的完整分类，请参阅[类别分类](category-taxonomy.md)。
 
 ![类别分类中所有类别的分组列表](./Images/analyze_categories-v2.png)
 

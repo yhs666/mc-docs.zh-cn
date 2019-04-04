@@ -10,12 +10,12 @@ ms.workload: integration
 origin.date: 08/25/2018
 ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 42c2904fcb929c53ed8f5847fecb39b0f8f3d04c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8b8303e46b07a3e5fcb44a58d70c2edc23bcac9b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654431"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625941"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>方案：使用 Azure Functions 和 Azure 服务总线触发逻辑应用
 
@@ -35,9 +35,9 @@ ms.locfileid: "52654431"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)，并创建一个空的逻辑应用。 
 
-   如果你不熟悉逻辑应用，请查看[快速入门：创建你的第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+   如果不熟悉逻辑应用，请查看[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜索框中，输入“http 请求”。 在触发器列表下，选择以下触发器：**当收到 HTTP 请求时**
+1. 在搜索框中，输入“http 请求”。 在触发器列表中选择此触发器：**收到 HTTP 请求时**
 
    ![选择触发器](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -115,14 +115,15 @@ ms.locfileid: "52654431"
    
    private static string logicAppUri = @"https://prod-05.chinaeast.logic.azure.cn:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.azure.cn/zh-cn/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
    
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 
@@ -135,5 +136,5 @@ ms.locfileid: "52654431"
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
+* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 

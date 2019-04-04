@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 09/20/2018
-ms.date: 10/31/2018
+ms.date: 09/20/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 4ebcda74e8a8d52aa370e157513bc7539c6e738e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 337020d07ed043628a3b786943c5d23e42063ca9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653724"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626037"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 
@@ -33,12 +32,14 @@ ms.locfileid: "52653724"
 > [!NOTE] 
 > 如果需要安装 Python 或 [Azure Python 包][Azure Python package]，请参阅 [Python 安装指南](../python-how-to-install.md)。
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-topic"></a>创建主题
 
 可以通过 **ServiceBusService** 对象处理主题。 将以下代码添加到任何 Python 文件的顶部附近，你希望在其中以编程方式访问服务总线：
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
+from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 以下代码创建 **ServiceBusService** 对象。 将 `mynamespace`、`sharedaccesskeyname` 和 `sharedaccesskey` 替换为实际的命名空间、共享访问签名 (SAS) 密钥名称和密钥值。
@@ -167,7 +168,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 另外，还存在与订阅中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），则服务总线将自动解锁该消息并使其可再次被接收。
 
-如果应用程序在处理消息之后，但在调用 `delete` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 经常会调用此行为。 至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 为此，可以使用消息的 **MessageId** 属性，该属性在各次传送尝试中保持不变。
+如果应用程序在处理消息之后，但在调用 `delete` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此行为通常称为 “至少处理一次”<em>，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 为此，可以使用消息的 **MessageId** 属性，该属性在各次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
 主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。 以下示例演示如何删除名为 `mytopic`的主题：

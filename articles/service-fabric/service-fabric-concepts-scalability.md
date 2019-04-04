@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b4d27456830a8cd69241a7e800388f2c35c8b636
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: eb24cd96e01722ee57bbb45be2f8551c21633c32
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657249"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626185"
 ---
 # <a name="scaling-in-service-fabric"></a>在 Service Fabric 中进行缩放
 Azure Service Fabric 通过管理服务、分区以及群集的节点上的副本，让生成可缩放的应用程序更简单。 在同一硬件上运行多个工作负荷不仅可实现最大资源使用率，还可提供在如何选择缩放工作负荷方面的灵活性。 
@@ -102,13 +102,13 @@ Service Fabric 支持分区。 分区可将服务拆分成若干逻辑和物理�
 考虑一下这样一项服务：使用范围分区方案，低键为 0，高键为 99，分区计数为 4。 在包含三个节点的群集中，该服务可能如此处所示，按四个副本共享每个节点上的资源的方式进行布局：
 
 <center>
-![三节点式分区布局](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+<img src="./media/service-fabric-concepts-scalability/layout-three-nodes.png" alt="Partition layout with three nodes"/>
 </center>
 
-如果增加节点数目，Service Fabric 将移动其中的一些现有副本。 例如，假设节点数增加到 4，且已重新分发副本。 现在，服务在每个节点上有 3 个正在运行的副本，每个副本均属于不同的分区。 这可以实现更高的资源利用率，因为新节点不冷。 通常情况下，这还可提高性能，因为每项服务均有更多可用资源。
+如果增加节点数目，Service Fabric 会移动其中的一些现有副本。 例如，假设节点数增加到 4，且已重新分发副本。 现在，服务在每个节点上有 3 个正在运行的副本，每个副本均属于不同的分区。 这可以实现更高的资源利用率，因为新节点不冷。 通常情况下，这还可提高性能，因为每项服务均有更多可用资源。
 
 <center>
-![四节点式分区布局](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+<img src="./media/service-fabric-concepts-scalability/layout-four-nodes.png" alt="Partition layout with four nodes"/>
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>使用 Service Fabric 群集资源管理器和指标进行缩放
@@ -117,12 +117,13 @@ Service Fabric 支持分区。 分区可将服务拆分成若干逻辑和物理�
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>通过在群集中添加节点和从群集删除节点进行缩放 
 使用 Service Fabric 进行缩放的另一种方法是更改群集大小。 更改群集的大小意味着添加或删除群集中的一个或多个节点类型的节点。 例如，想一想群集中的所有节点均为热的情况。 这意味着群集的资源几乎全部耗尽。 在这种情况下，缩放的最佳方法是将更多节点添加到群集中。 新节点联接群集后，Service Fabric 群集资源管理器将服务移到其中，导致现有节点上的总负载减少。 对于实例计数为 -1 的无状态服务，会自动创建更多服务实例。 这会使某些调用从现有节点移到新节点。 
 
-<!-- Check cluster scaling is release or not --> 有关详细信息，请参阅[群集缩放](service-fabric-cluster-scaling.md)。
+<!-- Check cluster scaling is release or not -->
+有关详细信息，请参阅[群集缩放](service-fabric-cluster-scaling.md)。
 
 ## <a name="putting-it-all-together"></a>汇总
 让我们汇总已在此文中讨论的所有观点，并讨论一个示例。 请考虑以下服务：要生成一个充当通讯簿的服务，其中保存名称和联系信息。 
 
-首先，需要考虑多个与缩放相关的问题：要设置多少个用户？ 每个用户会存储多少个联系人？ 如果要在第一次构建服务时解决所有问题，这会很难。 我们假设你将处理具有特定分区计数的单个静态服务。 选错分区计数的后果可能会导致以后遇到缩放问题。 同样，即使选对计数，也可能并没有所需的所有信息。 例如，还需要首先决定群集的大小（节点数和其大小）。 通常难以预测服务在其生存期内使用的资源数。 也可能很难提前知道服务实际看到的流量模式。 例如，可能人们只在早上首先添加和删除其联系人，或者也可能在一天中均匀分布。 基于此，可能需要动态地扩大和缩小服务。 也许可以学习预测何时需要扩大和缩小服务，但无论哪种方式，可能都需要应对服务不断变化的资源消耗情况。 这可能涉及更改群集的大小，以在重新组织现有资源的使用不足以解决问题时提供更多资源。 
+首先，需要考虑多个与缩放相关的问题：会有多少用户？ 每个用户会存储多少个联系人？ 如果要在第一次构建服务时解决所有问题，这会很难。 我们假设你将处理具有特定分区计数的单个静态服务。 选错分区计数的后果可能会导致以后遇到缩放问题。 同样，即使选对计数，也可能并没有所需的所有信息。 例如，还需要首先决定群集的大小（节点数和其大小）。 通常难以预测服务在其生存期内使用的资源数。 也可能很难提前知道服务实际看到的流量模式。 例如，可能人们只在早上首先添加和删除其联系人，或者也可能在一天中均匀分布。 基于此，可能需要动态地扩大和缩小服务。 也许可以学习预测何时需要扩大和缩小服务，但无论哪种方式，可能都需要应对服务不断变化的资源消耗情况。 这可能涉及更改群集的大小，以在重新组织现有资源的使用不足以解决问题时提供更多资源。 
 
 但为什么要尝试为所有用户选择出单个分区方案？ 为什么局限于一项服务和一个静态群集？ 实际情况通常更具动态。 
 

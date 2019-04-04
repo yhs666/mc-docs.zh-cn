@@ -11,12 +11,12 @@ origin.date: 05/25/2017
 ms.date: 03/03/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0482f31eb0838d354cb040093a994f55c45cbf04
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: e773142239824d797bc93f154b5978c5cd7452c4
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665482"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627549"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Apache Hadoop 群集
 
@@ -83,7 +83,7 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
    * **缩放群集**：可更改此群集的工作节点数。
    * **删除**：删除群集。
    * **快速入门**：显示可帮助开始使用 HDInsight 的信息。
-   * **“用户”：用于设置 Azure 订阅上其他用户对此群集的门户管理权限。
+   * <em>*用户：用于设置 Azure 订阅上其他用户对此群集的 *门户管理权限</em>。
 
      > [!IMPORTANT]
      > 这只会影响在 Azure 门户中对此群集的访问和权限，对于连接到 HDInsight 群集或将作业提交到其上的用户并没有影响。

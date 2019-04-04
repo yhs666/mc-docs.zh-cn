@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 08/21/2018
-ms.date: 03/04/2019
+origin.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: d366ab42bc20266b4b0ce3d018413a83d6c83ec9
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 170f5364ccc639b3fe1a2d5d5151c70bea023697
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903129"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625787"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 连接到 Azure Kubernetes 服务 (AKS) 群集节点以进行维护或故障排除
 
@@ -21,9 +21,15 @@ ms.locfileid: "56903129"
 
 本文介绍如何使用 AKS 节点的专用 IP 地址来与它们建立 SSH 连接。
 
+## <a name="before-you-begin"></a>准备阶段
+
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+
 ## <a name="add-your-public-ssh-key"></a>添加 SSH 公钥
 
-默认情况下，在创建 AKS 群集时会生成 SSH 密钥。 如果在创建 AKS 群集时未指定自己的 SSH 密钥，请将 SSH 公钥添加到 AKS 节点。 
+默认情况下，在创建 AKS 群集时会生成 SSH 密钥。 如果在创建 AKS 群集时未指定自己的 SSH 密钥，请将 SSH 公钥添加到 AKS 节点。
 
 若要将 SSH 密钥添加到 AKS 节点，请完成以下步骤：
 
@@ -59,7 +65,7 @@ ms.locfileid: "56903129"
 
 ## <a name="get-the-aks-node-address"></a>获取 AKS 节点地址
 
-AKS 节点不会在 Internet 中公开。 若要通过 SSH 连接到 AKS 节点，需使用专用 IP 地址。
+AKS 节点不会在 Internet 中公开。 若要通过 SSH 连接到 AKS 节点，需使用专用 IP 地址。 下一步将在 AKS 群集中创建一个帮助器 Pod，以允许你通过 SSH 连接到节点的此专用 IP 地址。
 
 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令查看 AKS 群集节点的专用 IP 地址。 提供在前面 [az-aks-show][az-aks-show] 步骤中获取的自己的 AKS 群集资源组名称：
 
@@ -155,3 +161,6 @@ aks-nodepool1-79590246-0  10.240.0.4
 [az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

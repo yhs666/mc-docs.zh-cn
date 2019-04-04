@@ -9,12 +9,12 @@ custom: jenkins
 origin.date: 07/31/2018
 ms.date: 03/25/2019
 ms.subservice: common
-ms.openlocfilehash: 50e5924748fde41ce6112e063e9bd2ea2dd3a031
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 483d82d28c346c76ab8f612525aca65fa4c87425
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253912"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626421"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>将 Azure 存储用于 Jenkins 持续集成解决方案
 
@@ -118,7 +118,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 1. 在作业配置的“生成”部分中，选择“添加生成步骤”并选择“从 Azure Blob 存储下载”。
 2. 对于“存储帐户名称”，请选择要使用的存储帐户。
 3. 对于“容器名称”，指定包含要下载的 Blob 容器的名称。 可以使用环境变量。
-4. 对于“Blob 名称”，请指定 Blob 名称。 可以使用环境变量。 另外，在指定 Blob 名称的初始字母后，可以使用星号作为通配符。 例如，**project\*** 将指定名称以 **project** 开头的所有 Blob。
+4. 对于“Blob 名称”，请指定 Blob 名称。 可以使用环境变量。 另外，在指定 Blob 名称的初始字母后，可以使用星号作为通配符。 例如，**project\\*** 将指定名称以 **project** 开头的所有 Blob。
 5. [可选] 对于“下载路径”，指定希望将文件从 Azure Blob 存储下载到的 Jenkins 计算机路径。 也可以使用环境变量。 （如果没有为“下载路径”提供值，则 Azure Blob 存储中的文件将被下载到作业的工作空间中。）
 
 如果还希望从 Azure Blob 存储下载其他项，可以创建其他生成步骤。

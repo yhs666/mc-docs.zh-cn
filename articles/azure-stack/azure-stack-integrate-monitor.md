@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 051d10e128e036a60160c4bd0920236fcb40e96b
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 2f96cc2948af4ffcbf839ad60bf2f6e35a9b0b66
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905372"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626062"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -80,16 +80,17 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 使用以下参数来配置插件文件“Azurestack_plugin.py”：
 
-| 参数 | 说明 | 示例 |
-|---------|---------|---------|
-| *arm_endpoint* | Azure 资源管理器（管理员）终结点 |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure 资源管理器（管理员）终结点  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | 管理员订阅 ID | 通过管理员门户或 PowerShell 检索 |
-| *User_name* | 操作员订阅用户名 | operator@myazuredirectory.partner.onmschina.cn |
-| *User_password* | 操作员订阅密码 | mypassword |
-| *Client_id* | 客户端 | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Azure Stack 区域名称 | local |
-|  |  |
+
+|    参数    |                   说明                   |                       示例                       |
+|-----------------|-------------------------------------------------|-----------------------------------------------------|
+| *arm_endpoint*  | Azure 资源管理器（管理员）终结点 |  https://adminmanagement.local.azurestack.external  |
+| *api_endpoint*  | Azure 资源管理器（管理员）终结点 |  https://adminmanagement.local.azurestack.external  |
+|   *Tenant_id*   |              管理员订阅 ID              | 通过管理员门户或 PowerShell 检索 |
+|   *User_name*   |         操作员订阅用户名          |   operator@myazuredirectory.partner.onmschina.cn    |
+| *User_password* |         操作员订阅密码          |                     mypassword                      |
+|   *Client_id*   |                     客户端                      |       0a7bdc5c-7b57-40be-9939-d4c5fc7cd417\*        |
+|    *region*     |             Azure Stack 区域名称             |                        local                        |
+|                 |                                                 |                                                     |
 
 *提供的 PowerShell GUID 是通用的。 可对每个部署使用它。
 
@@ -125,7 +126,6 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
     #Retrieve infrastructure role instance health
     $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## <a name="learn-more"></a>了解详细信息

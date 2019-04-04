@@ -6,22 +6,24 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 04/17/2017
-ms.date: 10/15/2018
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 120c7a6d83f9068b84e1d72683d63398ff17b9f4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 3e24f4185fe2fef2ff168d635f3c7e92a956a639
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666518"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625307"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中分配变量
+
 有关开发解决方案时在 Azure SQL 数据仓库中分配 T-SQL 变量的技巧。
 
 ## <a name="setting-variables-with-declare"></a>使用 DECLARE 设置变量
+
 SQL 数据仓库中的变量是使用 `DECLARE` 语句或 `SET` 语句设置的。 使用 DECLARE 初始化变量是在 SQL 数据仓库中设置变量值的最灵活方式之一。
 
 ```sql
@@ -46,6 +48,7 @@ DECLARE @p1 int = 0
 ```
 
 ## <a name="setting-values-with-set"></a>使用 SET 设置值
+
 SET 是设置单个变量的常见方法。
 
 以下语句是使用 SET 设置变量的有效方法：
@@ -60,8 +63,9 @@ SET     @v +=1;
 一次只能使用 SET 设置一个变量。 但是可使用复合运算符。
 
 ## <a name="limitations"></a>限制
-不能使用 SELECT 或 UPDATE 来分配变量。
+
+不能使用 UPDATE 来分配变量。
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。

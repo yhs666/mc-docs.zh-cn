@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 01/14/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c9befa6d47182f82a4cce13b80b2ba6898576602
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c8c4366ec5980e769b5fb79ad5723ed4be7a9081
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987967"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626484"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 创建异地分布式应用解决方案
 
@@ -61,15 +61,15 @@ ms.locfileid: "57987967"
 
 在规划分布式应用的范围之前，最好先学习以下知识：
 
--   **应用的自定义域：** 客户访问应用时使用的自定义域名是什么？ 示例应用的自定义域名是 *www.scalableasedemo.com*。
+- **应用的自定义域：** 客户访问应用时使用的自定义域名是什么？ 示例应用的自定义域名是 <em>www.scalableasedemo.com</em>。
 
--   **流量管理器域：** 创建 [Azure 流量管理器配置文件](/traffic-manager/traffic-manager-manage-profiles)时需要选择域名。 此名称与 *trafficmanager.cn* 后缀相结合，以注册流量管理器所管理的域条目。 就示例应用而言，选择的名称是 *scalable-ase-demo*。 因此，流量管理器所管理的完整域名是 *scalable-ase-demo.trafficmanager.cn*。
+- **流量管理器域：** 创建 [Azure 流量管理器配置文件](/traffic-manager/traffic-manager-manage-profiles)时需要选择域名。 此名称与 *trafficmanager.cn* 后缀相结合，以注册流量管理器所管理的域条目。 就示例应用而言，选择的名称是 *scalable-ase-demo*。 因此，流量管理器所管理的完整域名是 *scalable-ase-demo.trafficmanager.cn*。
 
--   **缩放应用范围的策略：** 应用程序范围是否分散在单个区域中的多个应用服务环境之间？ 是多个区域吗？ 是否混用两种方法？ 决策依据应来自于客户流量的来源位置，以及其余应用的支持后端基础结构的伸缩性。 例如，对于 100% 无状态的应用程序，可以使用每一 Azure 区域多个应用服务环境的组合，乘以跨多个 Azure 区域部署的应用服务环境数，来大幅缩放应用。 由于有 15 个以上的全球 Azure 区域可供选择，客户可真正构建全球性超高缩放性的应用程序范围。 在本文所使用的示例应用中，有三个应用服务环境创建在单个 Azure 区域（中国东部）。
+- **缩放应用范围的策略：** 应用程序范围是否分散在单个区域中的多个应用服务环境之间？ 是多个区域吗？ 是否混用两种方法？ 决策依据应来自于客户流量的来源位置，以及其余应用的支持后端基础结构的伸缩性。 例如，对于 100% 无状态的应用程序，可以使用每一 Azure 区域多个应用服务环境的组合，乘以跨多个 Azure 区域部署的应用服务环境数，来大幅缩放应用。 由于有 15 个以上的全球 Azure 区域可供选择，客户可真正构建全球性超高缩放性的应用程序范围。 在本文所使用的示例应用中，有三个应用服务环境创建在单个 Azure 区域（中国东部）。
 
--   **应用服务环境的命名约定：** 每个应用服务环境需要唯一的名称。 有两个或更多应用服务环境时，命名约定将有助于标识每个应用服务环境。 示例应用中使用了简单的命名约定。 三个应用服务环境的名称分别是 *fe1ase*、*fe2ase* 和 *fe3ase*。
+- **应用服务环境的命名约定：** 每个应用服务环境需要唯一的名称。 有两个或更多应用服务环境时，命名约定将有助于标识每个应用服务环境。 示例应用中使用了简单的命名约定。 三个应用服务环境的名称分别是 *fe1ase*、*fe2ase* 和 *fe3ase*。
 
--   **应用的命名约定：** 由于将部署多个应用实例，每个部署的应用实例都要有名称。 多个应用服务环境可以使用相同的应用名称。 由于每个应用服务环境都有唯一的域后缀，开发人员可以选择在每个环境中重复使用完全相同的应用名称。 例如，开发人员可以将应用命名如下：*myapp.foo1.p.chinacloudsites.cn*、*myapp.foo2.p.chinacloudsites.cn*、*myapp.foo3.p.chinacloudsites.cn*，等等。对于此方案中的应用，每个应用实例具有唯一的名称。 所用的应用实例名称是 *webfrontend1*、*webfrontend2* 和 *webfrontend3*。
+- **应用的命名约定：** 由于将部署多个应用实例，每个部署的应用实例都要有名称。 多个应用服务环境可以使用相同的应用名称。 由于每个应用服务环境都有唯一的域后缀，开发人员可以选择在每个环境中重复使用完全相同的应用名称。 例如，开发人员可以将应用命名如下：*myapp.foo1.p.chinacloudsites.cn*、*myapp.foo2.p.chinacloudsites.cn*、*myapp.foo3.p.chinacloudsites.cn*，等等。对于此方案中的应用，每个应用实例具有唯一的名称。 所用的应用实例名称是 *webfrontend1*、*webfrontend2* 和 *webfrontend3*。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -136,7 +136,7 @@ ms.locfileid: "57987967"
 
 1. **登录到 Azure Pipelines** 以确认能够创建生成定义。
 
-2. 添加 **-r win10-x64** 代码。 在 .Net Core 中触发独立部署时需要此代码。
+2. 添加 **-r win10-x64** 代码。 使用 .NET Core 触发独立部署时需要此代码。
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -155,9 +155,9 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  在 Visual Studio Online (VSO) 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮以添加新的发布。
+1. 在 Visual Studio Online (VSO) 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮以添加新的发布。
 
-    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. 应用“Azure 应用服务部署”模板。
 
@@ -211,7 +211,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 14. 选择 Azure Stack 终结点的**订阅**。
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. 将 Azure Stack Web 应用名称设置为**应用服务名称**。
 
@@ -250,7 +250,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 > [!div class="checklist"]
 > - 将现有的自定义 DNS 名称映射到 Azure Web 应用
-> - 使用 **CNAME 记录或 **A 记录**将自定义 DNS 名称映射到应用服务。
+> - 使用 <strong>CNAME 记录器或 A 记录</strong>将自定义 DNS 名称映射到应用服务。
 
 ### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -299,11 +299,11 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 ![示例 DNS 记录页](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  在“域名注册机构”中，选择“添加或创建”以创建记录。 某些提供商提供了不同的链接来添加不同的记录类型。 查阅提供商的文档。
+1. 在“域名注册机构”中，选择“添加或创建”以创建记录。 某些提供商提供了不同的链接来添加不同的记录类型。 查阅提供商的文档。
 
-2.  添加一条 CNAME 记录来将子域映射到应用的默认主机名。
+2. 添加一条 CNAME 记录来将子域映射到应用的默认主机名。
 
-  对于 www.northwindcloud.com 域示例，请添加一条 CNAME 记录，用于将名称 www 映射到 <app\_name>.chinacloudsites.cn。
+   对于 www.northwindcloud.com 域示例，请添加一条 CNAME 记录，用于将名称 www 映射到 <app\_name>.chinacloudsites.cn。
 
 添加 CNAME 后，DNS 记录页类似于以下示例：
 
@@ -311,47 +311,47 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中启用 CNAME 记录映射
 
-1.  在新选项卡中登录到 Azure 门户。
+1. 在新选项卡中登录到 Azure 门户。
 
-2.  导航到“应用服务”。
+2. 导航到“应用服务”。
 
-3.  选择 Web 应用。
+3. 选择 Web 应用。
 
-4.  在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。
+4. 在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。
 
-5.  单击“添加主机名”旁边的 **+** 图标。
+5. 单击“添加主机名”旁边的 **+** 图标。
 
-1.  键入完全限定的域名，例如 `www.northwindcloud.com`。
+6. 键入完全限定的域名，例如 `www.northwindcloud.com`。
 
-2.  选择“验证”。
+7. 选择“验证”。
 
-3.  如有出现提示，请将其他类型的记录（`A` 或 `TXT`）添加到域名注册机构 DNS 记录。 Azure 将提供这些记录的值和类型：
+8. 如有出现提示，请将其他类型的记录（`A` 或 `TXT`）添加到域名注册机构 DNS 记录。 Azure 将提供这些记录的值和类型：
 
-    a.  **A** 记录映射到应用的 IP 地址。
+   a.  **A** 记录映射到应用的 IP 地址。
 
-    b.  **TXT** 记录映射到应用的默认主机名 <app_name>.chinacloudsites.cn。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
+   b.  **TXT** 记录映射到应用的默认主机名 <app_name>.chinacloudsites.cn。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
 
-4.  在域注册机构选项卡中完成此任务并重新验证，直到“添加主机名”按钮激活为止。
+9. 在域注册机构选项卡中完成此任务并重新验证，直到“添加主机名”按钮激活为止。
 
-5.  确保“**主机名记录类型”设置为“CNAME (www.example.com 或任何子域)”。
+10. 确保<strong>“主机名记录类型”设置为“CNAME (www.example.com 或任何子域)”</strong>。
 
-6.  选择“添加主机名”。
+11. 选择“添加主机名”。
 
-7.  键入完全限定的域名，例如 `northwindcloud.com`。
+12. 键入完全限定的域名，例如 `northwindcloud.com`。
 
-8.  选择“验证”。
+13. 选择“验证”。
 
-9.  “添加”按钮将会激活。
+14. “添加”按钮将会激活。
 
-10. 确保“**主机名记录类型”设置为“A 记录(example.com)”。
+15. 确保“主机名记录类型”设置为“A 记录(example.com)”。
 
-11. **添加主机名**。
+16. **添加主机名**。
 
-  新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
+    新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
   
-  ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  如果发生错误，页面底部会显示验证错误通知。 ![验证错误](media/azure-stack-solution-geo-distributed/image32.png)
+    如果发生错误，页面底部会显示验证错误通知。 ![验证错误](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  可以重复上述步骤以映射通配符域（\*.northwindcloud.com）。 如此可以直接将其他子域添加到此应用服务，而无需为每个子域单独创建 CNAME 记录。 请遵照注册机构的说明配置此设置。
@@ -479,15 +479,15 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 #### <a name="upload-the-ssl-certificate"></a>上传 SSL 证书
 
-1.  在 Web 应用的左侧导航窗格中选择“SSL 设置”。
+1. 在 Web 应用的左侧导航窗格中选择“SSL 设置”。
 
-2.  选择“上传证书”。
+2. 选择“上传证书”。
 
-3.  在“PFX 证书文件”中选择 PFX 文件。
+3. 在“PFX 证书文件”中选择 PFX 文件。
 
-4.  4. 在“证书密码”中，键入导出 PFX 文件时创建的密码。
+4. 4. 在“证书密码”中，键入导出 PFX 文件时创建的密码。
 
-5.  选择“上传”。
+5. 选择“上传”。
 
 ![上传证书](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -504,7 +504,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1.  在“添加 SSL 绑定”页面中，使用下拉列表选择要保护的域名，然后选择要使用的证书。
 
-2.  在“SSL 类型”中，选择是要使用[**服务器名称指示 (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication) 还是使用基于 IP 的 SSL。
+2.  在“SSL 类型”中，选择是要使用[**服务器名称指示 (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) 还是使用基于 IP 的 SSL。
 
 -   **基于 SNI 的 SSL** - 可添加多个基于 SNI 的 SSL 绑定。 选择此选项可以使用多个 SSL 证书来保护同一 IP 地址上的多个域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（可以在[服务器名称指示](https://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。
 
@@ -585,27 +585,27 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
-1.  在门户的搜索栏中，搜索在前面部分创建的**流量管理器配置文件**名称，并在显示的结果中选择该流量管理器配置文件。
+1. 在门户的搜索栏中，搜索在前面部分创建的**流量管理器配置文件**名称，并在显示的结果中选择该流量管理器配置文件。
 
-2.  在“流量管理器配置文件”的“设置”部分，选择“终结点”。
+2. 在“流量管理器配置文件”的“设置”部分，选择“终结点”。
 
-3.  选择“设置” （应用程序对象和服务主体对象）。
+3. 选择“设置” （应用程序对象和服务主体对象）。
 
-4.  添加 Azure Stack 终结点。
+4. 添加 Azure Stack 终结点。
 
-5.  对于“类型”，请选择“外部终结点”。
+5. 对于“类型”，请选择“外部终结点”。
 
-6.  提供此终结点的**名称**，最好是 Azure Stack 的名称。
+6. 提供此终结点的**名称**，最好是 Azure Stack 的名称。
 
-7.  对于完全限定的域名 (**FQDN**)，请使用 Azure Stack Web 应用的外部 URL。
+7. 对于完全限定的域名 (**FQDN**)，请使用 Azure Stack Web 应用的外部 URL。
 
-9.  在显示的“区域”下拉列表下，选择要应用到此终结点的区域，例如“中国东部”。
+8. 在显示的“区域”下拉列表下，选择要应用到此终结点的区域，例如“中国东部”。
 
-10. 使“添加为已禁用”保持未选中状态。
+9. 使“添加为已禁用”保持未选中状态。
 
-11. 选择“确定” 。
+10. 选择“确定” 。
 
-12. 添加 Azure 终结点：
+11. 添加 Azure 终结点：
 
     1.  对于“类型”，请选择“Azure 终结点”。
 
@@ -615,16 +615,16 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     4.  对于“目标资源”，请选择“选择应用服务”以显示同一订阅下的 Web 应用列表。 在“资源”中，选取要用作第一个终结点的应用服务。
 
-15. 使“添加为已禁用”保持未选中状态。
+12. 使“添加为已禁用”保持未选中状态。
 
-16. 选择“确定”
+13. 选择“确定”
 
-  > [!Note]  
-  >  创建至少一个地理范围为“全部(全球)”的终结点，作为资源的默认终结点。
+    > [!Note]  
+    >  创建至少一个地理范围为“全部(全球)”的终结点，作为资源的默认终结点。
 
-1.  添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
+14. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **全球企业依赖于 Azure 异地分布功能**
 

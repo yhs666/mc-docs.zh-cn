@@ -13,12 +13,12 @@ ms.topic: get-started-article
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 0c71ca274d0f62a28bb06315b2798a6f110490aa
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c7b5824d37da1e6239d90c4f8cf411fd7ba9ab58
+ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674914"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58545272"
 ---
 # <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 使用 Azure 中继服务可以安全地在公有云中公开企业网络中运行的服务。 无需打开防火墙上的端口或者对企业网络基础设施进行彻底的改造就能实现此目的。 
@@ -57,7 +57,7 @@ Azure 中继的混合连接功能是以往的中继功能的安全开放协议�
 ## <a name="wcf-relay"></a>WCF 中继
 WCF 中继适用于整个 .NET Framework 和 WCF。 可以使用一套 WCF“中继”绑定在本地服务与中继服务之间建立连接。 中继绑定将映射到新的传输绑定元素，这些元素旨在创建与云中服务总线集成的 WCF 通道组件。 有关详细信息，请参阅 [WCF 中继入门](relay-wcf-dotnet-get-started.md)。
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>混合连接与WCF 中继
+## 混合连接与WCF 中继<a name="wcf-relays"></a>
 使用混合连接和 WCF 中继都能与企业网络中的资产建立安全连接。 哪一种功能更好将取决于具体的需求，如下表中所述：
 
 |  | WCF 中继 | 混合连接 |

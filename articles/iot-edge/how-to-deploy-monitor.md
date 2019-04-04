@@ -10,12 +10,12 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6698c4ae9d57ce45ae36a3caa2ebe1a0e4697f0e
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: f844f68da56eaeba27b4d1f6657a19dc6e75435a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196642"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625419"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 门户大规模部署和监视 IoT Edge 模块
 
@@ -95,7 +95,7 @@ ms.locfileid: "57196642"
 
 ### <a name="step-3-specify-routes-optional"></a>步骤 3：指定路由（可选）
 
-路由定义模块在部署中如何相互通信。 向导默认提供名为“route”且定义为 FROM /\* INTO $upstream 的路由，这表示任何模块输出的任何消息都将发送到 IoT 中心。  
+路由定义模块在部署中如何相互通信。 向导默认提供名为“route”且定义为 <strong>FROM /* INTO $upstream</strong> 的路由，这表示任何模块输出的任何消息都将发送到 IoT 中心。  
 
 在路由中添加或更新[声明路由](module-composition.md#declare-routes)中的信息，再选择“下一步”继续转到评审部分。
 

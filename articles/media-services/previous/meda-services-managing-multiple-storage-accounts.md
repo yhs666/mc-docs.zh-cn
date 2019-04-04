@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: ac10583e5e7a79f320a1e3f89f10bf69761a3326
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: d3dc58750797a6ccb3d3a67cb325bcf1085bb92b
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833351"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624113"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产  
 
@@ -128,7 +128,7 @@ namespace MultipleStorageAccounts
             Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
 
             // Retrieve the name of a storage account that is not the default one.
-            var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
+            var notDefaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
             Console.WriteLine("Name: {0}", notDefaultStorageName.Name);
             Console.WriteLine("IsDefault: {0}", notDefaultStorageName.IsDefault);
 

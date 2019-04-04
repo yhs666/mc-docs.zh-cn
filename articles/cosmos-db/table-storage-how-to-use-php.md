@@ -9,12 +9,12 @@ ms.devlang: php
 ms.topic: sample
 origin.date: 04/05/2018
 ms.date: 01/21/2019
-ms.openlocfilehash: 065a692e0dd4ccef9e9615e153564b9a0094c9cb
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 65b7bd4d403d0a490a8218ab8c070540456ff9a3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625421"
 ---
 # <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
 <!-- Not Available on  Cosmos DB Table API -->
@@ -47,22 +47,23 @@ ms.locfileid: "54309166"
 ## <a name="get-the-client-library"></a>获取客户端库
 
 1. 在项目的根目录中创建一个名为 composer.json 的文件并向其添加以下代码：
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
+   }
+   }
+   ```
 2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到根目录中。 
 3. 打开命令提示符并在项目根目录中执行以下命令：
-```
-php composer.phar install
-```
-或者转到 GitHub 上的 [Azure 存储表 PHP 客户端库](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)，然后克隆源代码。
+   ```
+   php composer.phar install
+   ```
+   或者转到 GitHub 上的 [Azure 存储表 PHP 客户端库](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)，然后克隆源代码。
 
 ## <a name="add-required-references"></a>添加所需引用
-若要使用存储表服务，必须：<!-- Not Available on Azure Cosmos DB APIs -->
+若要使用存储表服务，必须：
+<!-- Not Available on Azure Cosmos DB APIs -->
 
 * 使用 [require_once][require_once]语句引用 autoloader 文件，并
 * 引用所用的任何类。
@@ -92,7 +93,8 @@ $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAcco
 UseDevelopmentStorage = true
 ```
 
-若要创建 Azure 表服务客户端，需要使用 **TableRestProxy** 类。 可以：<!-- Not Available on  Azure Cosmos DB client -->
+若要创建 Azure 表服务客户端，需要使用 **TableRestProxy** 类。 方法：
+<!-- Not Available on  Azure Cosmos DB client -->
 
 * 将连接字符串直接传递给此类或
 * 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串：

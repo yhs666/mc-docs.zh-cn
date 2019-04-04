@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: b3cbb18e43df36999b4536fd8d8b8143f2ca2ebd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0ef928a8d6823bc4e9b85efe4f5439a5c004ad2d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657768"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626877"
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>将包含传感器数据的 IoT 中心消息保存到 Azure Blob 存储
 
@@ -47,25 +47,25 @@ ms.locfileid: "52657768"
 
 2. 输入存储帐户所需的信息：
 
-   ![在 Azure 门户中创建存储帐户](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+   ![在 Azure 门户中创建存储帐户](media/iot-hub-store-data-in-azure-table-storage/1_azure-portal-create-storage-account.png)
 
    * **名称**：存储帐户的名称。 该名称必须全局唯一。
 
-   * **帐户种类**：选择 `Storage (general purpose v1)`。
+   * **帐户类型**：选择`Storage (general purpose v1)`。
 
    * **位置**：选择 IoT 中心所用的同一位置。
 
-   * **复制**：选择 `Locally-redundant storage (LRS)`。
+   * **复制**：选择`Locally-redundant storage (LRS)`。
 
-   * **性能**：选择 `Standard`。
+   * **性能**：选择`Standard`。
 
-   * **需要安全传输**：选择 `Disabled`。
+   * **需要安全传输**：选择`Disabled`。
 
    * **订阅**：选择 Azure 订阅。
 
    * **资源组**：使用 IoT 中心所用的同一资源组。
 
-   * **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
+   * **固定到仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
 
 3. 单击**创建**。
 
@@ -108,7 +108,7 @@ IoT 中心默认将未匹配任何其他路由的所有消息路由到内置终�
 
 3. 输入 `true` 作为查询字符串，然后单击“保存”。
 
-  ![在 IoT 中心中创建热路径路由](./media/iot-hub-store-data-in-azure-table-storage/4_hot-path-route.png)
+   ![在 IoT 中心中创建热路径路由](./media/iot-hub-store-data-in-azure-table-storage/4_hot-path-route.png)
 
 ## <a name="verify-your-message-in-your-storage-container"></a>在存储容器中验证消息
 
@@ -149,13 +149,13 @@ IoT 中心默认将未匹配任何其他路由的所有消息路由到内置终�
 
     关闭“终结点”窗格。 此时会返回到“资源组”窗格。 
 
-7.  单击为本教程设置的存储帐户。 
+7. 单击为本教程设置的存储帐户。 
 
-8.  在“存储帐户”窗格中，单击“删除”以删除存储帐户。 此时会转到“删除存储帐户”窗格。
+8. 在“存储帐户”窗格中，单击“删除”以删除存储帐户。 此时会转到“删除存储帐户”窗格。
 
    ![删除存储帐户](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-storageaccount.png)
 
-8.  键入存储帐户名称，然后单击窗格底部的“删除”。 
+9. 键入存储帐户名称，然后单击窗格底部的“删除”。 
 
 ## <a name="next-steps"></a>后续步骤
 

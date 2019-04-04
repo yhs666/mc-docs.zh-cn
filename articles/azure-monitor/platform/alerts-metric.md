@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 5ebf73e162e55f2c4be9cab5f32841a829f2a2d6
-ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
+ms.openlocfilehash: 651d9f50aa971b907b24e195743e391bfb5c43e2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334184"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626531"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 
@@ -37,7 +37,7 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 6. 此时会显示资源支持的信号列表，请选择要为其创建警报的指标。
 
-7. （可选）通过调整**期间**和**聚合**来优化指标。 如果指标包含维度，则会显示“维度”表。 为每个维度选择一个或多个值。 指标警报将会运行，以评估所选值的所有组合的条件。 还可以针对任一维度**选择 \***。 **选择 \*** 会将选择范围动态调整为某个维度的所有当前和未来值。
+7. （可选）通过调整**期间**和**聚合**来优化指标。 如果指标包含维度，则会显示“维度”表。 为每个维度选择一个或多个值。 指标警报将会运行，以评估所选值的所有组合的条件。 还可以针对任一维度**选择 \\***。 **选择 \\*** 会将选择范围动态调整为某个维度的所有当前和未来值。
 
 8. 随后会该指标在显示过去 6 小时的图表。 定义警报参数：“条件类型”、“频率”、“运算符”和“阈值”或“严重性”，这将确定指标警报规则将评估的逻辑。 [详细了解动态阈值条件类型和敏感度选项](alerts-dynamic-thresholds.md)。
 

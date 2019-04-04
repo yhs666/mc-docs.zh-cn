@@ -1,5 +1,5 @@
 ---
-title: 适用于 Windows 的自定义脚本扩展
+title: 适用于 Windows 的自定义脚本扩展 | Azure
 description: 使用自定义脚本扩展自动化 Windows VM 配置任务
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: bc7a18f892397771bc3c9a28e9f38ca9e32f9844
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 07b7fc39187eef8df4cfae6a6f28c07df262af58
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666409"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626574"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -122,11 +122,11 @@ ms.locfileid: "56666409"
 >这些属性名称区分大小写。 要避免部署问题，请使用如下所示的名称。
 
 #### <a name="property-value-details"></a>属性值详细信息
- * `commandToExecute`：（**必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码）或者 fileUris 敏感，请改用此字段。
-* `fileUris`：（可选，字符串数组）要下载的文件的 URL。
-* `timestamp`（可选，32 位整数）仅当需要更改此字段的值来触发脚本的重新运行时，才使用此字段。  任何整数值都是可以接受的，前提是必须不同于以前的值。
-* `storageAccountName`：（可选，字符串）存储帐户的名称。 如果指定存储凭据，所有 `fileUris` 都必须是 Azure Blob 的 URL。
-* `storageAccountKey`：（可选，字符串）存储帐户的访问密钥
+* `commandToExecute`：（**必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码）或者 fileUris 敏感，请改用此字段。
+    * `fileUris`：（可选，字符串数组）要下载的文件的 URL。
+    * `timestamp`（可选，32 位整数）仅当需要更改此字段的值来触发脚本的重新运行时，才使用此字段。  任何整数值都是可以接受的，前提是必须不同于以前的值。
+    * `storageAccountName`：（可选，字符串）存储帐户的名称。 如果指定存储凭据，所有 `fileUris` 都必须是 Azure Blob 的 URL。
+    * `storageAccountKey`：（可选，字符串）存储帐户的访问密钥
 
 可以在公共设置或受保护设置中设置以下值，但扩展会拒绝任何同时在公共设置和受保护设置中设置以下值的配置。
 * `commandToExecute`
@@ -149,7 +149,7 @@ ms.locfileid: "56666409"
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
-    -Location <myLocation> `
+    -Location myLocation `
     -FileUri myURL `
     -Run 'myScript.ps1' `
     -Name DemoScriptExtension
@@ -173,14 +173,14 @@ $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKe
 
 #run command
 Set-AzVMExtension -ResourceGroupName myRG `
-    -Location <myLocation> `
+    -Location myLocation `
     -VMName myVM `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.9" `
     -Settings $Settings `
-    -ProtectedSettings $ProtectedSettings
+    -ProtectedSettings $ProtectedSettings `
 ```
 
 ### <a name="running-scripts-from-a-local-share"></a>从本地共享运行脚本
@@ -197,7 +197,6 @@ Set-AzVMExtension -ResourceGroupName myRG `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.9" `
     -ProtectedSettings $ProtectedSettings
-
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>如何使用 CLI 多次运行自定义脚本

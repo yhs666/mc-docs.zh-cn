@@ -16,12 +16,12 @@ origin.date: 02/27/2019
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: f6409e0e33b9dbdfd2f6f96023df12d044ef7372
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 687e7db0c2fc3255d520d31a9364e468ef3c39c1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348624"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626715"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>教程：通过 Azure 门户对从 Internet 到 VM 的流量进行负载均衡
 
@@ -60,20 +60,22 @@ ms.locfileid: "58348624"
     | 公共 IP 地址名称              | 在文本框中键入 myPublicIP。   |
 3. 在“查看 + 创建”选项卡中，单击“创建”。   
 
-  
+
 ## <a name="create-backend-servers"></a>创建后端服务器
 
 在本部分中，创建一个虚拟网络，为负载均衡器的后端池创建三台虚拟机，然后在虚拟机上安装 IIS，以便对负载均衡器进行测试。
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 1. 在 Azure 门户的左上方，选择“创建资源” > “网络” > “虚拟网络”，然后输入虚拟网络的以下值：
-    |设置|值|
-    |---|---|
-    |Name|输入 *myVNet*。|
-    |订阅| 选择订阅。|
-    |资源组| 选择“使用现有”，然后选择“myResourceGroupSLB”。|
-    |子网名称| 输入 *myBackendSubnet*。|
-    
+
+   |    设置     |                             值                             |
+   |----------------|---------------------------------------------------------------|
+   |      Name      |                        输入 *myVNet*。                        |
+   |  订阅  |                   选择订阅。                   |
+   | 资源组 | 选择“使用现有”，然后选择“myResourceGroupSLB”。 |
+   |  子网名称   |                   输入 *myBackendSubnet*。                    |
+
+
 2. 单击“创建”以创建虚拟网络。
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
@@ -84,11 +86,11 @@ ms.locfileid: "58348624"
 2. 单击 **“确定”**。
 3. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 4. 为 VM 设置输入以下值：
-    1. 请确保选择 *myVNet* 作为虚拟网络，并选择 *myBackendSubnet* 作为子网。
-    2. 对于**公共 IP 地址**，请在“创建公共 IP 地址”窗格中，选择“标准”，然后选择“确定”。
-    3. 对于**网络安全组**，选择“高级”，然后执行以下操作：
-        1. 选择“网络安全组(防火墙)”，然后在“选择网络安全组”页上，选择“新建”。 
-        2. 在“选择网络安全组”页中，对于**名称**，请输入 *myNetworkSecurityGroup* 作为新网络安全组的名称，然后选择“确定”。
+   1. 请确保选择 *myVNet* 作为虚拟网络，并选择 *myBackendSubnet* 作为子网。
+   2. 对于**公共 IP 地址**，请在“创建公共 IP 地址”窗格中，选择“标准”，然后选择“确定”。
+   3. 对于**网络安全组**，选择“高级”，然后执行以下操作：
+      1. 选择“网络安全组(防火墙)”，然后在“选择网络安全组”页上，选择“新建”。 
+      2. 在“选择网络安全组”页中，对于**名称**，请输入 *myNetworkSecurityGroup* 作为新网络安全组的名称，然后选择“确定”。
 5. 单击“禁用”以禁用启动诊断。
 6. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。
 7. 通过步骤 1-6 创建名为 *VM2* 和 *VM3* 的另外两个 VM，将 *myVnet* 作为其虚拟网络，将 *myBackendSubnet* 作为其子网，将 *myNetworkSecurityGroup* 作为其网络安全组。 
@@ -121,13 +123,13 @@ ms.locfileid: "58348624"
 7. 在 PowerShell 窗口中，运行以下命令安装 IIS 服务器，删除默认 iisstart.htm 文件，然后添加显示 VM 名称的新 iisstart.htm 文件：
 
    ```powershell
-    
+
     # install IIS server role
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
+
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
+
     # Add a new htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
@@ -197,7 +199,7 @@ ms.locfileid: "58348624"
 2. 在“设置”下，单击“后端池”，然后在后端池列表中单击 **myBackendPool**。
 3. 在 **myBackendPool** 页面上，在“目标网络 IP 配置”下，若要从后端中删除 *VM1*，请单击“虚拟机:myVM1”旁边的删除图标
 
-当 *myVM1* 不再位于后端地址池中时，可以对 *myVM1* 执行任何维护任务，例如安装软件更新。 在没有 *VM1** 的情况下，负载目前在 *myVM2* 和 *myVM3* 之间进行均衡。 
+当 *myVM1* 不再位于后端地址池中时，可以对 *myVM1* 执行任何维护任务，例如安装软件更新。 删除 *VM1* 之后，会在 *myVM2* 与 *myVM3* 之间均衡负载。 
 
 若要将 *myVM1* 添加回后端池，请按照本文的*向后端池添加 VM* 部分中的过程进行操作。
 

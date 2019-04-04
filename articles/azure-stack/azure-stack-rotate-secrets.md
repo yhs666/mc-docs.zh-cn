@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 586bd3f3ec54ca73fa58d356b60eb38c3371e983
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 8e32c8f9fe53518cb871b16259267085238ce603
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218246"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625368"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -254,8 +254,9 @@ Remove-PSSession -Session $PEPSession
 3. 等待机密完成轮换。
 
 机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。
-    > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
+
+> [!Note]
+> 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Internal** 和  **-ReRun** 参数重新运行 **Start-SecretRotation**。  
 
 ```PowerShell
 Start-SecretRotation -Internal -ReRun

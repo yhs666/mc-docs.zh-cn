@@ -13,12 +13,12 @@ ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 93f7ad4040527ed2544160fa55d39b4f39e5af97
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a31c121675ed183ea2e4856f090bca1dbc76d12c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675522"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625178"
 ---
 # <a name="pool-create-event"></a>池创建事件
 
@@ -67,10 +67,10 @@ ms.locfileid: "52675522"
 <a name="bk_csconf"></a>
 ###  <a name="cloudserviceconfiguration"></a>cloudServiceConfiguration
 
-|元素名称|类型|注释|
-|------------------|----------|-----------|
-|osFamily|String|要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。|
-|targetOSVersion|String|要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\***，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。|
+|  元素名称   |  类型  |                                                                                                                                                                                                                                   注释                                                                                                                                                                                                                                    |
+|-----------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    osFamily     | String | 要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。 |
+| targetOSVersion | String |                                                             要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\\**\*，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。                                                             |
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 

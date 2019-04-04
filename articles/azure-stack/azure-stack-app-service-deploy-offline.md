@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/27/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 22d7861e453620325f210c9545b8362a2e572122
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7f956d96844ac6d3569d5d6167c99b0b695f0ae5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987935"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626434"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
@@ -83,28 +83,28 @@ ms.locfileid: "57987935"
     ![应用服务安装程序][3]
 
 7. 在下一页上执行以下操作：
-    1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
-        - 提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
-    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
+   1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
+      - 提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
+   2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
     
-    > [!NOTE]
-    > 应用服务只能部署到“默认提供程序订阅”。
-    >
+      > [!NOTE]
+      > 应用服务只能部署到“默认提供程序订阅”。
+      >
     
-    3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
-    4. 单击“下一步”。
+   3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
+   4. 单击“下一步”。
 
-    ![应用服务安装程序][4]
+      ![应用服务安装程序][4]
 
 8. 现在，可以选择部署到通过[此处](azure-stack-app-service-before-you-get-started.md#virtual-network)所述的步骤配置的现有虚拟网络，或者让应用服务安装程序创建虚拟网络和关联的子网。
-    1. 选择“使用默认设置创建 VNet”，接受默认值，然后单击“下一步”，或者
-    2. 选择“使用现有的 VNet 和子网”。
-        1. 选择包含虚拟网络的**资源组**；
-        2. 选择要部署到的正确**虚拟网络**名称；
-        3. 为每个所需角色子网选择正确的“子网”值；
-        4. 单击“下一步” 
+   1. 选择“使用默认设置创建 VNet”，接受默认值，然后单击“下一步”，或者
+   2. 选择“使用现有的 VNet 和子网”。
+       1. 选择包含虚拟网络的**资源组**；
+       2. 选择要部署到的正确**虚拟网络**名称；
+       3. 为每个所需角色子网选择正确的“子网”值；
+       4. 单击“下一步” 
 
-    ![应用服务安装程序][5]
+      ![应用服务安装程序][5]
 
 9. 输入文件共享的信息，然后单击“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。  如果使用已加入域的文件服务器，则必须提供包含域的完整用户名，例如 myfileserverdomain\FileShareOwner。
 
@@ -153,7 +153,7 @@ ms.locfileid: "57987935"
     > ```
     > 有关更多详细信息，请参阅 [Azure Stack 1.3 上的 Azure 应用服务的发行说明](azure-stack-app-service-release-notes-update-three.md)。
    
-   ![应用服务安装程序][12]
+    ![应用服务安装程序][12]
 
 13. 查看角色实例和 SKU 选项。 使用 ASDK 部署中每个角色的最小实例数和最小 SKU 填充默认值。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，单击“下一步”。
 
@@ -173,7 +173,7 @@ ms.locfileid: "57987935"
     ![应用服务安装程序][14]
 
     > [!NOTE]
-    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。Azure Stack上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.Net 3.5.1 SP1。 市场联合 Windows Server 2016 映像未启用此功能，因此必须在预先启用此功能的情况下创建并使用 Windows Server 2016 映像。**
+    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。Azure Stack上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.NET 3.5.1 SP1。 市场联合 Windows Server 2016 映像未启用此功能，因此必须在预先启用此功能的情况下创建并使用 Windows Server 2016 映像。**
 
 14. 在“选择平台映像”框中选择部署型 Windows Server 2016 虚拟机映像，该映像由应用服务云的计算资源提供程序提供。 单击“下一步”。
 
@@ -254,7 +254,7 @@ ms.locfileid: "57987935"
 
 1. 在 Azure Stack 租户门户中，单击“+”，转到 Azure 市场，部署 Django 网站并等待成功完成。 Django Web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
 
-2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1@Server1*（使用所选的用户名和服务器名称）。
+2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 <em>User1@Server1</em>（使用所选的用户名和服务器名称）。
 
 3. 如果还部署了 SQL Server 资源提供程序，则可从市场部署 DNN 网站。 当系统提示输入数据库参数时，请在运行 SQL Server 的计算机中选择连接到资源提供程序的数据库。
 

@@ -14,12 +14,12 @@ ms.workload: na
 orign.date: 05/01/2018
 ms.date: 06/11/2018
 ms.author: dkshir
-ms.openlocfilehash: bf20624a075b7279d1ae57de96490706c9da0289
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: abec8a06b642d1b506368b6523c9cd164bc2ece6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657734"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626441"
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>用于管理 CA 签名的 X.509 证书的 PowerShell 脚本
 
@@ -27,8 +27,9 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 ## <a name="prerequisites"></a>先决条件
 本教程假定你已获取 OpenSSL 二进制文件。 你还可
-    - 下载 OpenSSL 源代码并在计算机上生成二进制文件，或者 
-    - 下载并安装任何[第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的此项目](https://sourceforge.net/projects/openssl/)下载并安装。
+
+- 下载 OpenSSL 源代码并在计算机上生成二进制文件，或者 
+- 下载并安装任何[第三方 OpenSSL 二进制文件](https://wiki.openssl.org/index.php/Binaries)，例如从 [SourceForge 上的此项目](https://sourceforge.net/projects/openssl/)下载并安装。
 
 <a id="createcerts"></a>
 

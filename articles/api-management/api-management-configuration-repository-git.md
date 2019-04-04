@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/02/2018
+origin.date: 03/12/2019
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 3074483be6738564653df08b8ace1c312949e9e1
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 04/08/2019
+ms.openlocfilehash: 43a4cdf2c18ee9234d1a7f66460f921d789968b6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736703"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625437"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -54,9 +54,9 @@ ms.locfileid: "53736703"
 ![启用 Git][api-management-enable-git]
 
 > [!IMPORTANT]
-> 未定义为属性的任何机密都将保存在存储库中，并将保留在其历史记录中，直到禁用并重新启用 Git 访问。 属性提供了管理所有 API 配置和策略的常量字符串值（包括机密）的安全位置，因此无需将它们直接存储在策略声明中。 有关详细信息，请参阅[如何在 Azure API 管理策略中使用属性](./api-management-howto-properties.md)。
-> 
-> 
+> 未定义为“命名值”的任何机密都将保存在存储库中，并将保留在其历史记录中，直到禁用并重新启用 Git 访问。 “命名值”提供了管理所有 API 配置和策略的常量字符串值（包括机密）的安全位置，因此无需将它们直接存储在策略声明中。 有关详细信息，请参阅[如何在 Azure API 管理策略中使用命名值](api-management-howto-properties.md)。
+>
+>
 
 有关使用 REST API 启用或禁用 Git 访问的信息，请参阅[使用 REST API 启用或禁用 Git 访问](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)。
 
@@ -171,10 +171,10 @@ git push
 
 > [!NOTE]
 > 以下实体不包含在 Git 存储库中，并且无法使用 Git 进行配置。
-> 
-> * 用户
-> * 订阅
-> * 属性
+>
+> * [用户](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [订阅](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [命名值](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * 样式以外的开发人员门户实体
 > 
 

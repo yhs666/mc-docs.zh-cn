@@ -11,18 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: c132d7343b8ce087514552349ff23bf86ec4b3b6
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 872ac2fbbde97640ae8ba3115442a4ed56f81f2d
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833359"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624195"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal-legacy"></a>如何使用媒体服务实时传送视频流，通过 Azure 门户（旧版）创建多比特率流
+# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用媒体服务执行实时传送视频流，以通过 Azure 门户创建多比特率流  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,18 +42,16 @@ ms.locfileid: "56833359"
 
 > [!NOTE]
 > 目前，实时事件的最大建议持续时间为 8 小时。 
-> 
-> 
 
 1. 将视频摄像机连接到计算机。 启动并配置一个可通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
-   
+
     此步骤也可以在创建频道后执行。
 2. 创建并启动通道。 
 3. 检索通道引入 URL。 
-   
+
     实时编码器使用引入 URL 将流发送到频道。
 4. 检索频道预览 URL。 
-   
+
     使用此 URL 来验证频道是否正常接收实时流。
 5. 创建事件/节目（这也会创建资产）。 
 6. 发布事件（这将为关联的资产创建点播定位符）。    
@@ -83,31 +81,31 @@ ms.locfileid: "56833359"
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“媒体服务”，并单击媒体服务帐户名。
 2. 选择“实时传送视频流” 。
 3. 选择“自定义创建” 。 此选项可创建启用了实时编码的通道。
-   
+
     ![创建频道](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. 单击“设置” 。
-   
+
    1. 选择“实时编码”  通道类型。 此类型指定创建能够进行实时编码的通道。 这意味着传入单比特率流将发送到通道，并使用指定的实时编码器设置编码为多比特率流。 有关详细信息，请参阅 [使用 Azure 媒体服务执行实时流式处理以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。 单击“确定”。
    2. 指定通道名称。
    3. 单击屏幕底部的“确定”。
 5. 选择“引入”  选项卡。
-   
+
    1. 可在本页上选择流协议。 对于“实时编码”  通道类型，有效的协议选项为：
-      
+
       * 单比特率分片 MP4（平滑流式处理）
       * 单比特率 RTMP
-        
+
         有关每个协议的详细说明，请参阅 [使用 Azure 媒体服务执行实时流式处理以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
-        
+
         通道或其关联的事件/节目正在运行时，无法更改协议选项。 如需其他协议，应针对各个流协议创建单独的通道。  
    2. 可在引入时应用 IP 限制。 
-      
+
        可定义允许向此通道引入视频的 IP 地址。 允许的 IP 地址可以指定为单个 IP 地址（例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如'10.0.0.1/22'），或使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如'10.0.0.1(255.255.252.0)').
-      
+
        如果未指定 IP 地址并且没有规则定义，则不会允许任何 IP 地址。 若要允许任何 IP 地址，请创建规则并设置 0.0.0.0/0。
 6. 在“预览”  选项卡上，应用针对预览的 IP 限制。
 7. 在“编码”  选项卡上，指定编码预设。 
-   
+
     目前，唯一可以选择的系统预设是“默认 720p” 。 若要指定自定义预设，请开具 Microsoft 支持票证。 输入创建的预设名称。 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ ms.locfileid: "56833359"
 可通过两种方式启动该事件： 
 
 1. 在“通道”页上，按“实时事件”添加新事件。
-   
+
     指定：事件名称、资产名称、归档时段和加密选项。
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     如果保留选中“立即发布此现场活动”  ，会创建事件 PUBLISHING URL。
-   
+
     可流式传输事件时，按“启动” 。
-   
+
     启动事件后，可按“观看”  开始播放内容。
 2. 或者，可使用快捷方式并按“通道”页上的“开始播放”按钮。 这会创建默认资产、节目和流定位符。
-   
+
     事件命名为 **default** ，归档时段设置为 8 小时。
 
 可从“实时事件”  页面上观看已发布的事件。 

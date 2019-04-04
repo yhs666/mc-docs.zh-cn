@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/27/2018
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
-ms.openlocfilehash: 8ddd064fb05f1f9ad1b2d148082db10b120735c1
-ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
+ms.openlocfilehash: ba13d4d91700136ff564c058feb9e8d73988a21e
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57787319"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505495"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -52,7 +52,7 @@ ms.locfileid: "57787319"
 
 在本地运行时，WebJobs SDK 在 local.settings.json 文件中查找 Azure 存储和 Azure 服务总线连接字符串；在 Azure 中运行时，它会在 WebJob 的环境中查找这些字符串。 默认情况下，需要名为 `AzureWebJobsStorage` 的存储连接字符串设置。  
 
-使用版本 2.*x* 的 SDK，可以对这些连接字符串使用自己的名称，或将其存储于其他位置。 可在代码中设置名称，如下所示：
+使用版本 2.*x* 的 SDK，可以对这些连接字符串使用自己的名称，或将其存储于其他位置。 可在代码中使用 [`JobHostConfiguration`] 设置名称，如下所示：
 
 ```cs
 static void Main(string[] args)
@@ -152,7 +152,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>触发器
 
-函数必须是公共方法，并且必须包含一个触发器特性或 [`NoAutomaticTrigger`](#manual-trigger) 特性。
+函数必须是公共方法，并且必须包含一个触发器特性或 [`NoAutomaticTrigger`](#manual-triggers) 特性。
 
 ### <a name="automatic-triggers"></a>自动触发器
 
@@ -369,7 +369,7 @@ class Program
 
 * [Azure CosmosDB 触发器](#azure-cosmosdb-trigger-configuration-version-3x)
 * [事件中心触发器](#event-hubs-trigger-configuration-version-3x)
-* [队列存储触发器](#queue-trigger-configuration)
+* 队列存储触发器
 * [SendGrid 绑定](#sendgrid-binding-configuration-version-3x)
 * [服务总线触发器](#service-bus-trigger-configuration-version-3x)
 
@@ -908,3 +908,4 @@ config.LoggerFactory = new LoggerFactory()
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`ConfigureServices`]: https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

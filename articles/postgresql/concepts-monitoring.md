@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: 72e594e43b7dc303d33b2ddce10e163a9b0804f7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.date: 04/01/2019
+ms.openlocfilehash: d21a9f84b6cf0620af2bc93e97fc52087120a049
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990168"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503646"
 ---
 # <a name="monitor"></a>监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for PostgreSQL 提供各种监视选项，帮助用户深入了解服务器的行为。
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解�
 这些指标适用于 Azure Database for PostgreSQL：
 
 |指标|指标显示名称|计价单位|说明|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU 百分比|百分比|使用的 CPU 百分比。|
 |memory_percent|内存百分比|百分比|使用的内存百分比。|
 |io_consumption_percent|IO 百分比|百分比|使用的 IO 百分比。|
@@ -41,7 +41,7 @@ Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解�
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。|
 
 ## <a name="server-logs"></a>服务器日志
-可以在服务器上启用日志记录。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。
+可以在服务器上启用日志记录。 这些日志也可通过 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)、事件中心和存储帐户中的 Azure 诊断日志获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。
 
 ## <a name="query-store"></a>查询存储
 [查询存储](concepts-query-store.md)是一项公共预览功能，可以随着时间的推移跟踪查询性能，包括查询运行时统计信息和等待事件。 此功能将查询运行时性能信息保留在 query_store 架构下名为 azure_sys 的一个系统数据库中。 你可以通过各种配置旋钮控制数据的收集和存储。

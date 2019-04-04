@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a27b49a128cbd5cc98601cbaa4ea6e5ff67281b6
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 4724145ac730f45dfb24495a3bbe7e5c7740c5af
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196615"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625748"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>通过 Azure 门户部署 Azure IoT Edge 模块
 
@@ -59,9 +59,9 @@ Azure 门户提供部署清单的创建向导，无需你手动构建 JSON 文�
 
 ### <a name="specify-routes"></a>指定路由
 
-向导默认提供名为“route”且定义为 **FROM /\* INTO $upstream** 的路由，这表示任何模块输出的任何消息都将发送到 IoT 中心。  
+向导默认提供名为“route”且定义为 <strong>FROM /* INTO $upstream</strong> 的路由，这表示任何模块输出的任何消息都将发送到 IoT 中心。  
 
-添加路由或使用[声明路由](module-composition.md#declare-routes)中的信息进行更新，然后选择“下一步”转到评审部分。
+在路由中添加或更新[声明路由](module-composition.md#declare-routes)中的信息，再选择“下一步”继续转到评审部分。
 
 ### <a name="review-deployment"></a>评审部署
 

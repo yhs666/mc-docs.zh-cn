@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b3521462909836902992987537749bc2ab13aec9
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 256da4796ec45b358e66d3ee456fb651bb73002a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204132"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627500"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中配置和使用服务相关性
 相关性是一个控件，主要用于帮助简化将较大型的单体式应用程序转换到云和微服务领域。 它也可以用作提升服务性能的优化，不过这样做可能会产生副作用。
@@ -60,6 +60,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 相关性通过多种相互关联的架构之一来表示，有两种不同的模式。 相关性的最常见模式是所谓的 NonAlignedAffinity 模式。 在 NonAlignedAffinity 下，不同服务的副本或实例均放置在同一个节点上。 另一种模式是 AlignedAffinity。 对齐的相关性仅适用于有状态服务。 配置两个有状态服务实现对齐的相关性，可确保这些服务的主要副本与其他服务的主要副本位于相同的节点上。 它还能确保这些服务的每个次要副本对位于相同的节点上。 也可以针对有状态服务配置 NonAlignedAffinity（但不太常见）。 使用 NonAlignedAffinity 时，两个有状态服务的不同副本会在相同的节点上运行，但二者的主副本最终会在不同的节点上。
 
 <center>
+
 ![相关性模式及其影响][Image1]
 </center>
 
@@ -70,6 +71,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 目前，群集 Resource Manager 无法为链形相关性关系建模。 这意味着，如果有一个服务是某一个相关性关系中的子级，则该服务不能是另一个相关性关系中的父级。 如果想要为这种关系建模，需要有效地将它建模为星形而不是链形。 为了从链形转变为星形，最下面的子级会变成第一个子级的父级。 根据服务的排列方式，可能需要多次执行此操作。 如果没有自然的父级服务，可能需要创建一个作为预留位置。 根据你的需求，可能还需要查看一下[应用程序组](service-fabric-cluster-resource-manager-application-groups.md)。
 
 <center>
+
 ![相关性关系上下文中的链形与星形][Image2]
 </center>
 

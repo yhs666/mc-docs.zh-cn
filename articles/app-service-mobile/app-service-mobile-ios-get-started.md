@@ -15,14 +15,14 @@ ms.topic: hero-article
 origin.date: 08/17/2018
 ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: bf137e0b029d5688d1a44cfefcc08fbe2e35105e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fdae0889d5fbfa78b739d577befa265c87a4ade5
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663800"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627286"
 ---
-#<a name="create-an-ios-app"></a>创建 iOS 应用
+# <a name="create-an-ios-app"></a>创建 iOS 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 

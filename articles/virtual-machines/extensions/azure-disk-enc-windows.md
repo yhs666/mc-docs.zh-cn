@@ -1,5 +1,5 @@
 ---
-title: 适用于 Windows 的 Azure 磁盘加密 | Azure
+title: 适用于 Windows 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryption) | Azure
 description: 使用虚拟机扩展将 Azure 磁盘加密部署到 Windows 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 15d86486501a4487cc82d90bb8e204f4bc1b723d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9cc440249eed8916d133b5540a9e13f740cd0cff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666273"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626831"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>适用于 Windows 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -30,7 +30,7 @@ Azure 磁盘加密利用 BitLocker 在运行 Windows 的 Azure 虚拟机上提�
 
 ## <a name="prerequisites"></a>先决条件
 
-有关先决条件的完整列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption.md#prerequisites)。
+有关先决条件的完整列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption.md#prerequisites)
 
 <!--Pending on (../../security/azure-security-disk-encryption-prerequisites.md)-->
 
@@ -63,8 +63,14 @@ Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vaul
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+
       "KeyVaultURL": "[keyVaultURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+
+      "EncryptionOperation": "[encryptionOperation]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
@@ -81,13 +87,15 @@ Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vaul
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.Azure.Security | 字符串 |
 | type | AzureDiskEncryptionForWindows| 字符串 |
-| typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
+| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | （可选）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | （可选）AADClientSecret | password | 字符串 |
 | （可选）AADClientCertificate | thumbprint | 字符串 |
 | EncryptionOperation | EnableEncryption | 字符串 | 
-| KeyEncryptionAlgorithm | RSA-OAEP | 字符串 |
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | 字符串 |
 | KeyEncryptionKeyURL | url | 字符串 |
+| KeyVaultResourceId | 资源 URI | 字符串 |
+| KekVaultResourceId | 资源 URI | 字符串 |
 | KeyVaultURL | url | 字符串 |
 | SequenceVersion | uniqueidentifier | 字符串 |
 | VolumeType | OS, Data, All | 字符串 |
@@ -105,7 +113,7 @@ Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vaul
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://www.azure.cn/support/contact/)上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Not Available on [MSDN Azure and CSDN Azure](https://www.azure.cn/support/community/)-->
 

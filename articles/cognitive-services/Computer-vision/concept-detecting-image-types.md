@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: 与计算机视觉 API 的图像类型检测功能相关的概念。
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/08/2019
+origin.date: 03/11/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: e529e1e8f0e27bbc84b69e6aec81d2ee86219bde
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: f0d7e0cc1c2df90e747e5a1829bb83644a5ec64f
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083574"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505400"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>使用计算机视觉检测图像类型
 
-计算机视觉通过指示图像是否为剪贴画或线条图并根据量表对可能性进行评级来分析图像的内容类型。
+利用[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API，计算机视觉可以分析图像的内容类型，指示图像是剪贴画还是线条图。
 
 ## <a name="detecting-clip-art"></a>检测剪贴画
 
@@ -116,6 +116,6 @@ ms.locfileid: "54083574"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)的概念。
+请参阅[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)参考文档，了解如何检测图像类型。
 
 <!-- Update_Description: wording update -->

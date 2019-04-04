@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/07/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: 58e88201c5a6201bbef64750402a7dc7a1c4bbbf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 47087dade00548e4a82b71fa558486d64a24f694
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659676"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626420"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -69,6 +69,7 @@ ms.locfileid: "52659676"
 下表显示连接位置和每个位置的服务提供商。 若要查看服务提供商及其提供服务的位置，请参阅[按服务提供商列出的位置](./expressroute-locations.md#locations)。 
 
 ### <a name="production-azure"></a>生产 Azure
+
 | **位置** | **服务提供商** |
 | --- | --- |
 | **阿姆斯特丹** |Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Internet Solutions - Cloud Connect、Interxion、KPN、Level 3 Communications、Orange、Tata Communications、TeleCity Group、Telenor、Verizon |
@@ -102,6 +103,7 @@ ms.locfileid: "52659676"
 ### <a name="national-cloud-environments"></a>国家/地区云环境
 
 ### <a name="us-government-cloud"></a>美国政府云
+
 | **位置** | **服务提供商** |
 | --- | --- |
 | **芝加哥** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
@@ -111,10 +113,12 @@ ms.locfileid: "52659676"
 | **华盛顿特区** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
 
 ### <a name="china"></a>中国
+
 | **位置** | **服务提供商** |
-| --- | --- |
-| **北京** |中国电信 |
-| **上海** |中国电信 |
+|--------------|-----------------------|
+| **北京**  |     中国电信     |
+| **上海** |     中国电信     |
+
 若要了解更多详细信息，请参阅 [中国区 ExpressRoute](https://www.azure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>德国

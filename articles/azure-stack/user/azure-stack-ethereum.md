@@ -6,19 +6,19 @@ keywords: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 02/04/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: digimobile
 ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: 88cc7b354d145555f079a13ef22f91ce35da27ae
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 55c932ac84ba44161ec5571f0782e99cda85e896
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905357"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503668"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>在 Azure Stack 上部署 Ethereum 区块链网络
 
@@ -40,7 +40,7 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 - 适用于 Linux 的自定义脚本 2.0
 - 适用于 Windows 的自定义脚本扩展
 
-有关区块链方案的更多信息，请参阅 [Ethereum 工作量证明联盟解决方案模板](https://docs.microsoft.com/zh-cn/azure/blockchain/templates/ethereum-deployment)。
+有关区块链方案的更多信息，请参阅 [Ethereum 权威证明联盟解决方案模板](https://docs.microsoft.com/zh-cn/azure/blockchain/templates/ethereum-deployment)。
 
 ## <a name="deployment-architecture"></a>部署体系结构
 

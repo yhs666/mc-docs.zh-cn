@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中的 Linux VM 上使用 Docker Compose | Azure
-description: 如何通过 Azure CLI 在 Linux 虚拟机上使用 Docker 和 Compose
+description: 如何通过 Azure CLI 在 Linux 虚拟机上安装和使用 Docker 和 Compose
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -13,25 +13,24 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 12/18/2017
-ms.date: 02/18/2019
+origin.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: c056f590a395f0e05f6dd4dd13ea600327318383
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 27087ed7e8570da322b36e354392e4b4dcdaabac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666422"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627165"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>使用 Docker 和 Compose 在 Azure 中定义和运行多容器应用程序入门
 借助 [Compose](https://github.com/docker/compose)，可以使用简单的文本文件定义由多个 Docker 容器组成的应用程序。 然后，使用单个命令启动应用程序，该命令会执行部署定义环境的所有操作。 作为示例，本文说明如何在 Ubuntu VM 上使用后端 MariaDB SQL 数据库快速设置 WordPress 博客。 也可以使用 Compose 设置更复杂的应用程序。
 
-## <a name="set-up-a-linux-vm-as-a-docker-host"></a>将 Linux VM 设置为 Docker 主机
-可以使用各种 Azure 过程和 Azure 市场中提供的映像或 Resource Manager 模板创建 Linux VM，并将其设置为 Docker 主机。 例如，请参阅[使用 Docker VM 扩展部署环境](dockerextension.md)，了解使用[快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)通过 Azure Docker VM 扩展快速创建 Ubuntu VM。 
+本文最后一次使用 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 版本 2.0.58 于 2019 年 2 月 14 日进行了测试。
 
-使用 Docker VM 扩展时，VM 自动设置为 Docker 主机，并且已安装 Compose。
+<!--Not Available on [Azure local Shell](https://shell.azure.com/bash)-->
 
-### <a name="create-docker-host-with-azure-cli"></a>使用 Azure CLI 创建 Docker 主机
+## <a name="create-docker-host-with-azure-cli"></a>使用 Azure CLI 创建 Docker 主机
 安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -39,40 +38,44 @@ ms.locfileid: "56666422"
 首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 为 Docker 环境创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name myDockerGroup --location chinaeast
 ```
 
-接下来，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 部署 VM，其中包含 [GitHub 中此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)中的 Azure Docker VM 扩展。 出现提示时，为 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供自己的唯一值：
+创建名为“cloud-init.txt”的文件并粘贴以下配置。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 
 
-```azurecli
-az group deployment create --resource-group myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```yaml
+#include https://get.docker.com
 ```
 
-需要几分钟才能完成部署。
-
-## <a name="verify-that-compose-is-installed"></a>确认已安装 Compose
-若要查看 VM 的详细信息（包括 DNS 名称），请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show)：
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 使用 `--custom-data` 参数传入 cloud-init 配置文件。 如果未将 cloud-init.txt 配置文件保存在现有工作目录中，请提供该文件的完整路径。 下面的示例创建了名为 myDockerVM 的 VM 并打开了 Web 流量端口 80。
 
 ```azurecli
-az vm show \
-    --resource-group myResourceGroup \
+az vm create \
+    --resource-group myDockerGroup \
     --name myDockerVM \
-    --show-details \
-    --query [fqdns] \
-    --output tsv
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+az vm open-port --port 80 \
+    --resource-group myDockerGroup \
+    --name myDockerVM
 ```
 
-通过 SSH 连接到新的 Docker 主机。 提供来自前面步骤的自己的用户名和 DNS 名称：
+创建 VM、安装程序包和启动应用需耗时几分钟。 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 
+
+## <a name="install-compose"></a>安装 Compose
+
+通过 SSH 连接到新的 Docker 主机 VM。 提供自己的 IP 地址。
 
 ```bash
-ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
+ssh azureuser@10.10.111.11
 ```
 
-若要确认 VM 上安装了 Compose，请运行以下命令：
+在 VM 上安装 Compose。
 
 ```bash
-docker-compose --version
+sudo apt install docker-compose
 ```
 
 将看到类似于 *docker-compose 1.6.2, build 4d72027* 的输出。

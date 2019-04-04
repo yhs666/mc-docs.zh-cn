@@ -13,30 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 03/20/2018
-ms.date: 02/26/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 857cdf0e93d6d0247396100c0baedfe1fc739548
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 8c501fc5b7bd41146460a4bb27d02e4bb63716a3
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836916"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505507"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>使用 RBAC 管理外部用户对 Azure 资源的访问
 
 基于角色的访问控制 (RBAC) 可以为大型组织和中小企业提供更好的安全管理，与中小企业合作的外部协作者、供应商或自由职业者需要访问你环境中的特定资源，但不一定需要访问整个基础架构或任何与计费相关的区域。 RBAC 允许灵活拥有管理员帐户（订阅级别的服务管理员角色）管理的 Azure 订阅，并邀请多个用户在同一个订阅下工作，但不为他们分配任何管理权限。
 
 > [!NOTE]
-> 从 Office 365 管理中心预配的 Office 365 订阅或 Azure Active Directory 许可证（例如：Azure Active Directory 访问权限）不符合 RBAC 的使用条件。
+> 从 Microsoft 365 管理中心预配的 Office 365 订阅或 Azure Active Directory 许可证（例如：Azure Active Directory 访问权限）不符合 RBAC 的使用条件。
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>在订阅范围分配 RBAC 角色
 
 使用 RBAC 时，有两个（但不限于）常见的示例：
 
-- 邀请组织外部的用户（不属于管理员用户的 Azure Active Directory 租户）管理特定的资源或整个订阅
-- 与组织内部的、但属于不同团队或组的用户（属于用户的 Azure Active Directory 租户）合作，这些团队或组需要对环境中的整个订阅或者特定资源组或资源范围拥有精细访问权限
+* 邀请组织外部的用户（不属于管理员用户的 Azure Active Directory 租户）管理特定的资源或整个订阅
+* 与组织内部的、但属于不同团队或组的用户（属于用户的 Azure Active Directory 租户）合作，这些团队或组需要对环境中的整个订阅或者特定资源组或资源范围拥有精细访问权限
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>为 Azure Active Directory 外部的用户授予订阅级访问权限
 
@@ -92,10 +92,10 @@ Azure Active Directory 与 Azure 订阅之间不像其他 Azure 资源（例如�
 
 在订阅级别分配“虚拟机参与者”内置 RBAC 角色意味着分配有该角色的用户：
 
-- 可以查看所有虚拟机，不管这些虚拟机的部署日期及其所属的资源组是什么
-- 对订阅中的虚拟机拥有完全管理访问权限
-- 无法查看订阅中的其他任何资源类型
-- 从计费角度无法操作任何更改
+* 可以查看所有虚拟机，不管这些虚拟机的部署日期及其所属的资源组是什么
+* 对订阅中的虚拟机拥有完全管理访问权限
+* 无法查看订阅中的其他任何资源类型
+* 从计费角度无法操作任何更改
 
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>将内置的 RBAC 角色分配到外部用户
 

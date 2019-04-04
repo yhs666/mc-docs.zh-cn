@@ -9,12 +9,12 @@ origin.date: 08/09/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e9f45620d0944ee1a65e25095cfadda80fe610b2
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 58e71e55799c12966b92fd3ff39fa213e6448f2a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676395"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632874"
 ---
 Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和“电源”状态。 本文旨在介绍这些状态并专门突出显示了何时会对客户收取实例使用费用。 
 
@@ -45,11 +45,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 </td>
 <td>
 <p>VM 正在启动。</p>
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
    {<br>
-      "code": "PowerState/starting",<br>
-       "level": "Info",<br>
-        "displayStatus": "VM starting"<br>
+      &quot;code&quot;: &quot;PowerState/starting&quot;,<br>
+       &quot;level&quot;: &quot;Info&quot;,<br>
+        &quot;displayStatus&quot;: &quot;VM starting&quot;<br>
     }<br>
     ]</code><br>
 </td>
@@ -63,11 +63,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 </td>
 <td>
 <p>VM 的正常工作状态</p>
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "PowerState/running",<br>
- "level": "Info",<br>
- "displayStatus": "VM running"<br>
+ &quot;code&quot;: &quot;PowerState/running&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;VM running&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -81,11 +81,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 </td>
 <td>
 <p>这是一种过渡性状态。 完成后，会显示为“已停止”。</p>
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "PowerState/stopping",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopping"<br>
+ &quot;code&quot;: &quot;PowerState/stopping&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;VM stopping&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -100,11 +100,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <td>
 <p>VM 已在来宾 OS 中关闭，或者已使用 PowerOff API 关闭。</p>
 <p>硬件仍然分配给 VM 并保留在主机上。 </p>
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "PowerState/stopped",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopped"<br>
+ &quot;code&quot;: &quot;PowerState/stopped&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;VM stopped&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -118,11 +118,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 </td>
 <td>
 <p>过渡性状态。 完成后，VM 会显示为“已解除分配”。</p>
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "PowerState/deallocating",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocating"<br>
+ &quot;code&quot;: &quot;PowerState/deallocating&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;VM deallocating&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -136,11 +136,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 </td>
 <td>
 <p>VM 已成功停止并从主机中删除。 </p>
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "PowerState/deallocated",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocated"<br>
+ &quot;code&quot;: &quot;PowerState/deallocated&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;VM deallocated&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -184,11 +184,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <p><b>正在创建</b></p>
 </td>
 <td width="366">
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "ProvisioningState/creating",<br>
- "level": "Info",<br>
- "displayStatus": "Creating"<br>
+ &quot;code&quot;: &quot;ProvisioningState/creating&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;Creating&quot;<br>
  }</code><br>
 </td>
 </tr>
@@ -197,11 +197,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <p><b>正在更新</b></p>
 </td>
 <td width="366">
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "ProvisioningState/updating",<br>
- "level": "Info",<br>
- "displayStatus": "Updating"<br>
+ &quot;code&quot;: &quot;ProvisioningState/updating&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;Updating&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -211,11 +211,11 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <p><b>正在删除</b></p>
 </td>
 <td width="366">
-<code>"statuses": [<br>
+<code>&quot;statuses&quot;: [<br>
  {<br>
- "code": "ProvisioningState/deleting",<br>
- "level": "Info",<br>
- "displayStatus": "Deleting"<br>
+ &quot;code&quot;: &quot;ProvisioningState/deleting&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;Deleting&quot;<br>
  }<br>
  ]</code><br>
 </td>
@@ -227,19 +227,19 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <td width="366">
 <p>如果 VM 是使用 OS 映像而非专用映像创建的，可能会观察到以下子状态：</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; VM 正在运行，来宾 OS 的安装正在进行。 <p /> 
-<code> "statuses": [<br>
+<code> &quot;statuses&quot;: [<br>
  {<br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning In progress"<br>
+ &quot;code&quot;: &quot;ProvisioningState/creating/OSProvisioningInprogress&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;OS Provisioning In progress&quot;<br>
  }<br>
 ]</code><br>
 <p>2. <b>OSProvisioningComplete</b> &ndash; 短时状态。 VM 会快速过渡到“成功”状态，除非需要安装扩展。 安装扩展可能需要一定的时间。 <br />
-<code> "statuses": [<br>
+<code> &quot;statuses&quot;: [<br>
  {<br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning Complete"<br>
+ &quot;code&quot;: &quot;ProvisioningState/creating/OSProvisioningComplete&quot;,<br>
+ &quot;level&quot;: &quot;Info&quot;,<br>
+ &quot;displayStatus&quot;: &quot;OS Provisioning Complete&quot;<br>
  }<br>
 ]</code><br>
 <p><b>注意</b>：如果存在 OS 故障或者 OS 没有及时安装，则 OS 预配可能会过渡到“失败”状态。 会根据部署在基础结构上的 VM 对客户收费。</p>
@@ -252,20 +252,20 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 - **成功** - 用户启动的操作已完成。
 
     ```
- "statuses": [ 
- {
+  "statuses": [ 
+  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
- }
- ]
+  }
+  ]
     ```
 
 - **失败** - 表示操作失败。 若要获取详细信息和可能的解决方案，请查看错误代码。
 
     ```
- "statuses": [
+  "statuses": [
     {
       "code": "ProvisioningState/failed/InternalOperationError",
       "level": "Error",

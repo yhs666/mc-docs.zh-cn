@@ -7,13 +7,13 @@ ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 9a84198790e0c45355d98053917d9a007d996707
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+ms.date: 02/05/2019
+ms.openlocfilehash: 51c0bb1e74d867a169bbbaff68d92004cf9f560f
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363636"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544704"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 流分析预览功能
 
@@ -22,6 +22,14 @@ ms.locfileid: "54363636"
 ## <a name="public-previews"></a>公共预览版
 
 以下功能以公共预览版提供。 现在可以使用这些功能，但请勿在生产环境中使用它们。
+
+### <a name="anomaly-detection"></a>异常检测
+
+Azure 流分析引入了新的机器学习模型，除了支持双向、慢正和慢负趋势检测外，还支持“峰值”和“低值”检测。 有关详细信息，请访问 [Azure 流分析中的异常情况检测](stream-analytics-machine-learning-anomaly-detection.md)。
+
+### <a name="sql-database-reference-data"></a>SQL 数据库引用数据
+
+Azure 流分析支持将 Azure SQL 数据库用作参考数据的输入源。 可以在 Azure 门户和 Visual Studio 中配合流分析工具将 SQL 数据库用作 Stream Analytics 作业的参考数据。 有关详细信息，请访问[将 SQL 数据库中的参考数据用于 Azure 流分析作业](sql-reference-data.md)。
 
 ### <a name="integration-with-azure-machine-learning"></a>与 Azure 机器学习集成
 
@@ -45,21 +53,13 @@ Azure 流分析支持以 JavaScript 编写的用户定义的聚合 (UDA)，可�
 
 ## <a name="private-previews"></a>个人预览版
 
-以下功能以个人预览版提供。 若要访问这些预览功能，请访问 Azure 流分析个人预览版[注册](https://aka.ms/ASApreview1)页。
-
-### <a name="anomaly-detection"></a>异常检测
-
-Azure 流分析引入了新的机器学习模型，除了支持双向、慢正和慢负趋势检测外，还支持“峰值”和“低值”检测。
+以下功能以个人预览版提供。
 
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析的 C# 自定义反序列化程序
 
 开发人员现在可以在 C# 中实现自定义反序列化程序，对 Azure 流分析接收的事件进行反序列化。 可以进行反序列化的格式示例包括 Parquet、Protobuf、XML 或任何二进制格式。
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>按自定义属性划分的 Blob 输出分区
-
-现在，可以根据查询中的任何列将 Azure 流分析输出分区为 Blob 存储。
-
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>向 Azure Data Lake Storage 的 Azure 资源托管标识身份验证
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>向 Azure Data Lake Storage 的 Azure 资源托管标识身份验证
 
 现在，可以在写入 Azure Data Lake Storage Gen1 时，使用基于 Azure 资源的托管标识身份验证来实施实时管道，从而允许你以编程方式创建作业。 有关详细信息，请访问[使用 Azure 资源的托管标识向 Azure Data Lake Storage Gen1 输出对 Azure 流分析作业进行身份验证](stream-analytics-managed-identities-adls.md)。
 

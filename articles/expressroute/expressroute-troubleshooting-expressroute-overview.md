@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/26/2017
 ms.author: v-yiso
 ms.date: 04/01/2018
-ms.openlocfilehash: 2eda61d92a10928d0e4cba76f8b0923cdffd027f
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: beb9440558ed6822a21922b6a3d6618d80d5c66b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348623"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626711"
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 本文可帮助验证 ExpressRoute 连接并对其进行故障排除。 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -72,7 +72,7 @@ ms.locfileid: "58348623"
 
 将来会添加更多的验证和检查，请每月回来查看！
 
-##<a name="validate-circuit-provisioning-and-state"></a>验证线路预配和状态
+## <a name="validate-circuit-provisioning-and-state"></a>验证线路预配和状态
 不管什么连接模型，都必须创建 ExpressRoute 线路，从而生成用于线路预配的服务密钥。 预配 ExpressRoute 线路即可在 PE-MSEE (4) 和 MSEE (5) 之间建立冗余性的第 2 层连接。 如需详细了解如何创建、修改、预配和验证 ExpressRoute 线路，请参阅[创建和修改 ExpressRoute 线路][CreateCircuit]一文。
 
 >[!TIP]
@@ -80,7 +80,7 @@ ms.locfileid: "58348623"
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
+### <a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
 在 Azure 门户的左侧边栏菜单中选择“ ![2][2] ”，并选择 ExpressRoute 线路，即可查看 ExpressRoute 线路的状态。 选择“所有资源”下列出的 ExpressRoute 线路即可打开 ExpressRoute 线路边栏选项卡。 边栏选项卡的“ ![3][3] ”部分列出了 ExpressRoute 概要，如以下屏幕截图所示：
 
 ![4][4]    
@@ -94,7 +94,7 @@ ms.locfileid: "58348623"
 >
 >
 
-###<a name="verification-via-powershell"></a>通过 PowerShell 进行验证
+### <a name="verification-via-powershell"></a>通过 PowerShell 进行验证
 若要列出资源组中的所有 ExpressRoute 线路，请使用以下命令：
 
     Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -147,7 +147,7 @@ ServiceProviderProvisioningState : Provisioned
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>通过 PowerShell（经典）进行验证
+### <a name="verification-via-powershell-classic"></a>通过 PowerShell（经典）进行验证
 若要列出订阅的所有 ExpressRoute 线路，请使用以下命令：
 
 ```
@@ -181,10 +181,10 @@ Status                           : Enabled
 >
 >
 
-##<a name="validate-peering-configuration"></a>验证对等互连配置
+## <a name="validate-peering-configuration"></a>验证对等互连配置
 在服务提供商完成对 ExpressRoute 线路的预配以后，即可基于 MSEE-PR (4) 和 MSEE (5) 之间的 ExpressRoute 线路创建路由配置。 每条 ExpressRoute 线路可以启用一个、两个或三个路由上下文：Azure 专用对等互连（流量通往 Azure 中的专用虚拟网络）、Azure 公共对等互连（流量通往 Azure 中的公共 IP 地址）、以及 Microsoft 对等互连（流量通往 Office 365 和 Dynamics 365）。 有关如何创建和修改路由配置的详细信息，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]一文。
 
-###<a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
+### <a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
 
 >[!NOTE]
 >如果服务提供商提供第 3 层且对等互连在门户中为空，请使用门户中的刷新按钮来刷新线路配置。 此操作会将正确的线路配置应用到你的线路。 
@@ -202,7 +202,7 @@ Status                           : Enabled
 >
 >
 
-###<a name="verification-via-powershell"></a>通过 PowerShell 进行验证
+### <a name="verification-via-powershell"></a>通过 PowerShell 进行验证
 若要获取 Azure 专用对等互连配置详细信息，请使用以下命令：
 
 ```
@@ -253,13 +253,10 @@ ProvisioningState          : Succeeded
 ```
 
 
-<p/>
->[!NOTE]
->如果未启用对等互连，请检查分配的主要子网和辅助子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureASN 和 PeerASN，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 如果选择了 MD5 哈希，则 MSEE 和 PE-MSEE 对上的共享密钥应相同。 若要更改 MSEE 路由器上的配置，请参阅[创建和修改 ExpressRoute 线路的路由][CreatePeering]。  
->
->
+> [!NOTE]
+> 如果未启用对等互连，请检查分配的主要子网和辅助子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureASN 和 PeerASN，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 如果选择了 MD5 哈希，则 MSEE 和 PE-MSEE 对上的共享密钥应相同。 若要更改 MSEE 路由器上的配置，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]。
 
-###<a name="verification-via-powershell-classic"></a>通过 PowerShell（经典）进行验证
+### <a name="verification-via-powershell-classic"></a>通过 PowerShell（经典）进行验证
 若要获取 Azure 专用对等互连配置详细信息，请使用以下命令：
 
 ```
@@ -300,11 +297,9 @@ Get-AzureBGPPeering -AccessType Public -ServiceKey "****************************
 >
 >
 
-<p/>
->[!NOTE]
->如果未启用对等互连，请检查分配的主要对等子网和辅助对等子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureAsn 和 PeerAsn，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 若要更改 MSEE 路由器上的配置，请参阅[创建和修改 ExpressRoute 线路的路由][CreatePeering]。
->
->
+> [!NOTE]
+> 如果未启用对等互连，请检查分配的主要对等子网和辅助对等子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureAsn 和 PeerAsn，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 若要更改 MSEE 路由器上的配置，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]。
+
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>验证 Microsoft 和服务提供商之间的 ARP
 本部分使用 PowerShell（经典）命令。 如果一直使用 PowerShell Azure 资源管理器命令，请确保对订阅具有管理员/共同管理员权限。 若要使用 Azure Resource Manager 命令进行故障排除，请参阅[在 Resource Manager 部署模型中获取 ARP 表][ARP]文档。
@@ -376,10 +371,8 @@ Route Table Summary:
 >
 
 <p/>
->[!NOTE]
->如果某些目标无法通过特定对等互连访问，请检查属于特定对等互连上下文的 MSEE 的路由表。 如果路由表中存在匹配的前缀（可能是 NAT 型 IP），则请检查路径上是否设置了防火墙/NSG/ACL，以及这些设置是否允许通信。
->
->
+&gt;[!NOTE] &gt;如果某些目标无法通过特定对等互连访问，请检查属于特定对等互连上下文的 MSEE 的路由表。 如果路由表中存在匹配的前缀（可能是 NAT 型 IP），则请检查路径上是否设置了防火墙/NSG/ACL，以及这些设置是否允许通信。
+&gt; &gt;
 
 对于特定的“专用”路由上下文，若要获取“主要”路径上的 MSEE 提供的完整路由表，请使用以下命令：
 
@@ -406,7 +399,7 @@ Route Table Info:
 Route Table Info:
 ```
 
-##<a name="check-the-traffic-statistics"></a>检查流量统计信息
+## <a name="check-the-traffic-statistics"></a>检查流量统计信息
 若要获取对等互连上下文在主要路径和辅助路径上的综合流量统计信息（出入字节数），请使用以下命令：
 
 ```

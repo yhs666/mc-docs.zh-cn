@@ -17,12 +17,12 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: d2745f02d2a1bc59241b807509c306c1cb0b6331
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bfd1f9d9502d6b0c092f78aa0dc76d72ca63dba8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625206"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 ## <a name="overview"></a>概述
@@ -36,7 +36,7 @@ ms.locfileid: "52646571"
 ### <a name="before-you-begin"></a>准备阶段
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
-* 满足[快速入门：评估 Azure Stack 开发工具包](azure-stack-deploy-overview.md)中所述 Azure Stack 开发工具包硬件要求的两台服务器和其他必备组件。 
+* 满足[快速入门：评估 Azure Stack 开发工具包](azure-stack-deploy-overview.md)中所述 Azure Stack 开发工具包硬件要求的两个服务器和其他必备组件。 
 * [Azure Stack 开发工具包](https://azure.microsoft.com/overview/azure-stack/try/)部署包。
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>部署 Azure Stack 开发工具包环境
@@ -52,6 +52,7 @@ ms.locfileid: "52646571"
 下表汇总了这两个 Azure Stack 开发工具包环境的网络配置。 使用此表格后面提供的过程来添加网络特定的外部 BGPNAT 地址。
 
 **网络配置表**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |虚拟网络名称     |VNET-01|VNET-02 |
@@ -107,7 +108,7 @@ ms.locfileid: "52646571"
 1. 在仪表板上，打开前面创建的 VNET-01 虚拟网络资源。
 2. 在“设置”边栏选项卡中，选择“子网”。
 3. 若要将网关子网添加到虚拟网络，请选择“网关子网”。
-   
+
     ![添加网关子网](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4. 子网名称默认设置为 **GatewaySubnet**。
@@ -322,7 +323,7 @@ ms.locfileid: "52646571"
 2. 在左导航栏中，选择“计算”。
 3. 在 VM 列表中，找到前面创建的 **VM01**，并选择它。
 4. 在虚拟机的边栏选项卡上，单击“连接”，然后打开 VM01.rdp 文件。
-   
+
      ![“连接”按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 5. 使用创建虚拟机时所配置的帐户登录。
 6. 打开权限提升的 **Windows PowerShell** 窗口。
@@ -355,7 +356,7 @@ ms.locfileid: "52646571"
 
 10. 在 POC2 上的虚拟机中，通过隧道 ping POC1 上的虚拟机。 为此，请 ping 从 VM01 中记录的 DIP。
    在示例环境中，该地址为 **10.0.10.4**，但请确保 ping 实验室中记下的地址。 应会看到如下所示的结果：
-   
+
     ![ping 成功](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. 获得远程虚拟机的答复表示测试成功！ 可以关闭虚拟机窗口。 若要测试连接，可以尝试其他类型的数据传输，例如文件复制。
 
@@ -365,5 +366,5 @@ ms.locfileid: "52646571"
 1. 在已登录到 POC2 中租户虚拟机的情况下，使用租户帐户登录到用户门户。
 2. 转到“所有资源”，选择“POC2-POC1”连接。 此时会显示“连接”。
 4. 在“连接”边栏选项卡上显示了“传入数据”和“传出数据”的统计信息。 在以下屏幕截图中，较大的数字是附加的文件传输造成的。 应会看到其中有一些非零值。
-   
+
     ![传入和传出数据](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

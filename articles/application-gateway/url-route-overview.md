@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 04/23/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3ab5f74c0317f21f9137ab642ea505eab954c7c8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b1285da52ae9fdaeb3b0f2b8ec4e65f40714fe1b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662087"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625458"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Azure 应用程序网关基于 URL 路径的路由概述
 
@@ -30,7 +30,7 @@ ms.locfileid: "52662087"
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-对 http://contoso.com/video/* 的请求会路由到 VideoServerPool，而对 http://contoso.com/images/* 的请求则会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
+对 <http://contoso.com/video/*> 的请求会路由到 VideoServerPool，而对 <http://contoso.com/images/*> 的请求则会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
 
 > [!IMPORTANT]
 > 规则将按照门户中的列出顺序进行处理。 我们强烈建议先配置多站点侦听器，然后再配置基本侦听器。  这确保将流量路由到适当的后端。 如果基本侦听器先列出并且与传入的请求匹配，则该侦听器将处理该请求。

@@ -1,6 +1,6 @@
 ---
  title: include 文件 description: 所含代码用于创建后端 ASP .NET WebAPI 项目的 include 文件。
-services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 04/04/2018 ms.date: 07/09/2018 ms.author: v-junlch ms.custom: include file
+services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date:04/04/2018 ms.date:07/09/2018 ms.author: v-junlch ms.custom: include file
 ---
 
 ## <a name="create-the-webapi-project"></a>创建 WebAPI 项目
@@ -8,7 +8,7 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
 
 - **对客户端进行身份验证**：添加消息处理程序，以便对客户端请求进行身份验证，并将用户与请求相关联。
 - **使用 WebAPI 后端注册通知**：添加一个控制器来处理新的注册，使客户端设备能够接收通知。 经过身份验证的用户名将作为[标记](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md)自动添加到注册。
-- **将通知发送到客户端**：添加一个控制器，以便用户触发安全推送到与标记关联的设备和客户端。 
+- **将通知发送到客户端**：添加一个控制器，以便用户触发安全推送，将内容推送到与标记关联的设备和客户端。 
 
 通过执行以下操作创建新的 ASP.NET WebAPI 后端： 
 
@@ -30,20 +30,20 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
 3. 在 Visual Studio 中，右键单击 Visual Studio 解决方案，指向“添加”，然后单击“新建项目”。 
 4. 展开“Visual C#”，选择“Web”，然后单击“ASP.NET Web 应用程序”。
 
-4. 在“名称”框中，键入 **AppBackend**，然后选择“确定”。 
+5. 在“名称”框中，键入 **AppBackend**，然后选择“确定”。 
    
     ![“新建项目”窗口][B1]
 
-5. 在“新建 ASP.NET 项目”窗口中，选择“Web API”复选框，然后选择“确定”。
+6. 在“新建 ASP.NET 项目”窗口中，选择“Web API”复选框，然后选择“确定”。
    
     ![“新建 ASP.NET 项目”窗口][B2]
 
-6. 在“配置 Azure Web 应用”窗口中选择一个订阅，然后在“应用服务计划”列表中执行以下任一操作：
+7. 在“配置 Azure Web 应用”窗口中选择一个订阅，然后在“应用服务计划”列表中执行以下任一操作：
 
     - 选择已创建的应用服务计划。 
     - 选择“创建新的应用服务计划”，然后新建一个应用服务计划。 
     
-  在本教程中，不需要使用数据库。 选择应用服务计划后，选择“确定”以创建项目。
+   在本教程中，不需要使用数据库。 选择应用服务计划后，选择“确定”以创建项目。
    
 ![“配置 Azure Web 应用”窗口][B5]
 
@@ -73,13 +73,13 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
    - 请求使用基本身份验证。 
    - 用户名字符串和密码字符串是相同的字符串。
      
-    否则，会拒绝该请求。 此身份验证不是真正的身份验证和授权方法。 它只是本教程中一个简单的示例。
+     否则，会拒绝该请求。 此身份验证不是真正的身份验证和授权方法。 它只是本教程中一个简单的示例。
      
-    如果请求消息已经过 `AuthenticationTestHandler` 的身份验证和授权，则基本身份验证用户将附加到 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的当前请求。 稍后，另一个控制器 (RegisterController) 会使用 HttpContext 中的用户信息，将[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)添加到通知注册请求。
+     如果请求消息已经过 `AuthenticationTestHandler` 的身份验证和授权，则基本身份验证用户将附加到 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的当前请求。 稍后，另一个控制器 (RegisterController) 会使用 HttpContext 中的用户信息，将[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)添加到通知注册请求。
 
-    ```csharp     
-    public class AuthenticationTestHandler : DelegatingHandler
-    {
+     ```csharp     
+     public class AuthenticationTestHandler : DelegatingHandler
+     {
         protected override Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request, CancellationToken cancellationToken)
         {
@@ -123,10 +123,10 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
             tsc.SetResult(response);
             return tsc.Task;
         }
-    }
-    ``` 
-    > [!NOTE]
-    > 安全说明：`AuthenticationTestHandler` 类不提供真正的身份验证。 它仅用于模拟基本身份验证并且是不安全的。 必须在生产应用程序和服务中实现安全的身份验证机制。                
+     }
+     ``` 
+     > [!NOTE]
+     > 安全说明：`AuthenticationTestHandler` 类不提供真正的身份验证。 它仅用于模拟基本身份验证并且是不安全的。 必须在生产应用程序和服务中实现安全的身份验证机制。                
 5. 若要注册消息处理程序，请在 **App_Start/WebApiConfig.cs** 类中 `Register` 方法的末尾添加以下代码：
 
     ```csharp   

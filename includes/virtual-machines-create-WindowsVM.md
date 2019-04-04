@@ -9,12 +9,12 @@ origin.date: 03/09/2018
 ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4292b12fca12c9674c558e78fab328eddd7fa075
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d7091723e8279d3f704ac64718d95eb68b9ac233
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659603"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632925"
 ---
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -34,7 +34,7 @@ ms.locfileid: "52659603"
 
 2. 输入用于在 VM 上创建本地帐户的“用户名”和强“密码”。 该本地帐户用于登录和管理 VM。 在示例中， _azureuser_ 是用户名。
 
- 密码的长度必须为 8 到 123 个字符，并且必须符合以下四个复杂性要求中的三个要求：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 查看有关 [用户名和密码要求](../articles/virtual-machines/windows/faq.md)的更多信息。
+   密码的长度必须为 8 到 123 个字符，并且必须符合以下四个复杂性要求中的三个要求：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 查看有关 [用户名和密码要求](../articles/virtual-machines/windows/faq.md)的更多信息。
 
 3. “订阅”  是可选的。 一个常用设置是“即用即付”。
 

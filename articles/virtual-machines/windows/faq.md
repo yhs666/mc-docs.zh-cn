@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/20/2017
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 634eefeec04e4b63ee72f318617bfab3905ea45a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 9bfed180907a1129d9bdd5fb83c44bc6bddb9596
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674330"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625107"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
 本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
@@ -34,7 +34,7 @@ ms.locfileid: "52674330"
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 4 TB (4,095 GB)。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-Azure 托管磁盘是推荐用于 Azure 虚拟机的磁盘存储产品，方便永久存储数据。 可对每个虚拟机使用多个托管磁盘。 托管磁盘提供两种类型的持久存储选项：高级托管磁盘和标准托管磁盘。 有关定价信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/)。
+Azure 托管磁盘是推荐用于 Azure 虚拟机的磁盘存储产品，方便永久存储数据。 可对每个虚拟机使用多个托管磁盘。 托管磁盘提供两种类型的持久存储选项：高级和标准托管磁盘。 有关定价信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/)。
 
 Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)（存储定价详细信息）。
 
@@ -127,12 +127,12 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
         <td>abc@123</td>
         <td>iloveyou!</td>
         <td>P@$$w0rd</td>
-        <td>P@ssw0rd</td>
-        <td>P@ssword123</td>
+        <td>P<xref href="ssw0rd" data-throw-if-not-resolved="False" data-raw-source="@ssw0rd"></xref></td>
+        <td>P<xref href="ssword123" data-throw-if-not-resolved="False" data-raw-source="@ssword123"></xref></td>
     </tr>
     <tr>
         <td>Pa$$word</td>
-        <td>pass@word1</td>
+        <td>pass<xref href="word1" data-throw-if-not-resolved="False" data-raw-source="@word1"></xref></td>
         <td>Password!</td>
         <td>Password1</td>
         <td>Password22</td>

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/25/2017
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: 079345208d8066e4becbc1b7bc3e4c39e6137948
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 1abff93f3925847ab7ceda85d2db1c38823010fc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625616"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>适用于 C 的 Azure IoT 设备 SDK
 
@@ -89,7 +89,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 
 1. 配置 IoT 中心连接字符串后，请单击“管理”选项卡：
 
-  ![Device Explorer 孪生/管理屏幕截图](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer 孪生/管理屏幕截图](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 可在此选项卡中管理已注册到 IoT 中心的设备。
 
@@ -343,7 +343,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 其中的大多数包已在前面的示例中出现过，但 **Microsoft.Azure.IoTHub.Serializer** 是新的。 使用**序列化程序**库时需要此包。
 
-可以在 ***iothub_client\_samples\_iothub_convenience_sample** 文件中找到示例应用程序的实现。
+可以在 **iothub_client\_samples\_iothub_convenience_sample** 文件中找到示例应用程序的实现。
 
 以下部分演练本示例的重要组成部分。
 

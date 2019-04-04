@@ -3,19 +3,19 @@ title: 我在 Azure 自动化中的第一个 Python Runbook
 description: 本教程指导创建、测试和发布一个简单的 Python Runbook。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 09/11/2018
-ms.date: 12/24/2018
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 952baae34052a9018267adaeba7a802dba237352
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: d1255a5e40fc67c7d505f20869ce7148e09a2ade
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615166"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503648"
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 
@@ -26,6 +26,9 @@ ms.locfileid: "53615166"
 > - [Python](automation-first-runbook-textual-python2.md)
 
 本教程介绍了如何在 Azure 自动化中创建 [Python Runbook](automation-runbook-types.md#python-runbooks)。 首先从测试和发布的简单 Runbook 开始。 然后，通过修改 Runbook 来实际管理 Azure 资源，这种情况下会启动 Azure 虚拟机。 最后，通过添加 Runbook 参数使此 Runbook 更稳健。
+
+> [!NOTE]
+> 不支持使用 Webhook 启动 Python runbook。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -79,7 +82,7 @@ print("Hello World!")
 1. 单击“发布”以发布该 Runbook，并在出现提示时单击“是”。
 1. 如果向左滚动以在“Runbook”窗格中查看该 Runbook，它会显示“已发布”的“创作状态”。
 1. 向右滚动查看“MyFirstRunbook-Python”窗格。
-   顶部的选项允许我们启动 Runbook、查看 Runbook、计划其在将来的某个时刻启动，或创建 [webhook](automation-webhooks.md) 以使其可以通过 HTTP 调用启动。
+   顶部的选项允许我们启动 Runbook、查看 Runbook、计划其在将来的某个时刻启动。
 1. 如果想要启动 Runbook，请单击“启动”，并在“启动 Runbook”边栏选项卡打开时单击“确定”。
 1. 此时会为你创建的 Runbook 作业打开作业窗格。 可以关闭此窗格，但在此示例中，将它保持打开状态，以便查看该作业的进度。
 1. 作业状态显示在“作业摘要”中并且与测试该 Runbook 时看到的状态相匹配。

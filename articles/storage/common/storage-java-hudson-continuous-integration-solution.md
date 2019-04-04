@@ -10,12 +10,12 @@ origin.date: 02/28/2017
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 9d056e2e0437e2ec1e0aed70c79f3d864134280c
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: c5da39000f77549862e568ed445fb05a623f7462
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253918"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626467"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>将 Azure 存储用于 Hudson 持续集成解决方案
 ## <a name="overview"></a>概述
@@ -135,7 +135,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 1. 在作业配置的“生成”部分中，单击“添加生成步骤”并选择“从 Azure Blob 存储下载”。
 2. 对于“存储帐户名称”，请选择要使用的存储帐户。
 3. 对于“容器名称”，指定包含要下载的 Blob 容器的名称。 可以使用环境变量。
-4. 对于“Blob 名称”，请指定 Blob 名称。 可以使用环境变量。 另外，在指定 Blob 名称的初始字母后，可以使用星号作为通配符。 例如，**project\*** 将指定名称以 **project** 开头的所有 Blob。
+4. 对于“Blob 名称”，请指定 Blob 名称。 可以使用环境变量。 另外，在指定 Blob 名称的初始字母后，可以使用星号作为通配符。 例如，**project\\*** 将指定名称以 **project** 开头的所有 Blob。
 5. [可选] 对于“下载路径”，在 Hudson 计算机上指定希望将文件从 Azure Blob 存储下载到的路径。 也可以使用环境变量。 （如果未提供“下载路径”的值，则会将 Azure Blob 存储中的文件下载到作业工作区。）
 
 如果还希望从 Azure Blob 存储下载其他项，可以创建其他生成步骤。

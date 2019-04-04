@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 10/11/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd282654d364c556275905c172aaf3c6be6d0c75
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a5cd06476e40d777f6e400b8b7c9eada8c1491bd
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903286"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627298"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中配置 Azure CNI 网络
 
@@ -144,7 +144,7 @@ az aks create \
 
 * *是否可以配置基于 Pod 的网络策略？*
 
-  否。 目前不支持基于 Pod 的网络策略。
+  Kubernetes 网络策略目前在 AKS 中作为预览功能提供。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
 
 * 可部署到节点的 Pod 数上限是否可配置？
 
@@ -202,3 +202,4 @@ az aks create \
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

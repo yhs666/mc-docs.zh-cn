@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: b80f96f133194219ceb368ea8f2129c81a7c1ddb
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: ff3577218d8db63a947153d6f92699d90682558e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204200"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625783"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用指标管理资源消耗和负载
 指标是服务关切的、由群集中的节点提供的资源。 指标是要进行管理以提升或监视服务性能的任何信息。 例如，可能需要监视内存消耗量以了解服务是否过载。 另一个用途是确定服务是否可以移动到内存较少受限的其他位置，以便获得更佳性能。
@@ -45,6 +45,7 @@ ms.locfileid: "57204200"
 结果如下：
 
 <center>
+
 ![包含默认指标的群集布局][Image1]
 </center>
 
@@ -215,6 +216,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 让我们看一下可能的群集布局情况：
 
 <center>
+
 ![使用默认和自定义指标均衡的群集][Image2]
 </center>
 
@@ -239,7 +241,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 让我们查看一个负载报告示例，以及不同的指标权重如何在群集中造成不同的分配。 在此示例中，我们看到切换指标的相对权重会导致群集资源管理器创建不同的服务排列。
 
 <center>
-![指标权重示例及其对平衡解决方案的影响][Image3]
+
+![指标权重示例及其对均衡解决方案的影响][Image3]
 </center>
 
 此示例中有 4 种不同的服务，所有服务都针对两个不同指标 MetricA 和 MetricB 报告不同的值。 在其中一个用例中，所有服务定义 MetricA 为最重要的指标（权重 = 高），MetricB 为不重要的指标（权重 = 低）。 因此会看到群集资源管理器在放置服务时会采用使得 MetricA 比 MetricB 更均衡的方式。 “更均衡”意味着 MetricA 具有比 MetricB 更小的标准偏差。 在第二个方案中，反转指标权重。 结果，群集资源管理器会交换服务 A 与 B，以产生 MetricB 比 MetricA 更加均衡的分配。
@@ -256,6 +259,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 如果群集资源管理器不在乎全局和局部均衡，会发生什么情况？ 构造全局均衡的解决方案虽然很简单，但这会导致单个服务的资源不够均衡。 在以下示例中，我们关注仅使用默认指标配置的服务，并了解只考虑全局均衡时会发生什么情况：
 
 <center>
+
 ![全局唯一解决方案的影响][Image4]
 </center>
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2019
-ms.date: 03/18/2019
+origin.date: 03/23/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: adepue
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 96425edb65d775e41f8c6677a9ad7964efeeae72
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: f6ab41ce5c85f0c30aa952bd1b14bb74c03d68fa
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988574"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503650"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新
 
@@ -52,13 +52,13 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - **1809**：[KB 4481548 – Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：当前没有修补程序可用。
-- **1901**：当前没有修补程序可用。
-- **1902**：当前没有修补程序可用。
+- **1901**：[KB 4495662 – Azure Stack 修补程序 1.1901.3.105](https://support.microsoft.com/help/4495662)
+- **1902**：[KB 4494719 – Azure Stack 修补程序 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-- 在更新到 1902 之前，请先安装 1901 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。
+> - 在更新到 1902 之前，请先安装 1901 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。
 
 - 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。
 
@@ -74,9 +74,60 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 <!-- ## Fixed issues -->
 
-## <a name="changes"></a>更改
+## <a name="improvements"></a>改进
 
 - 1902 版本在 Azure Stack 管理员门户上引入了新的用户界面用于创建计划、套餐、配额和附加计划。 有关详细信息（包括屏幕截图），请参阅[创建计划、套餐和配额](azure-stack-create-plan.md)。
+
+<!--
+1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
+1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
+1398846 Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance    PNU
+1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
+1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
+-->
+- 为了改进包的完整性和安全性并简化脱机引入的管理，Microsoft 已将更新包的格式从 .exe 和 .bin 文件更改为 .zip 文件。 新格式使得有时导致更新准备工作停滞的解包过程更加可靠。 相同的包格式也适用于来自 OEM 的更新包。
+
+- 操作员现在可以直接使用 `Test-AzureStack -Group UpdateReadiness` 而无需在 `include` 语句后面额外传递 10 个参数，来改善其在运行 **Test-AzureStack** 时的 Azure Stack 体验。 例如：
+
+  ```powershell
+  Test-AzureStack -Group UpdateReadiness  
+  ```
+
+- 为了改进核心基础结构服务在更新过程中的总体可靠性和可用性，更新操作计划中的本机更新资源提供程序可根据需要检测并调用自动全局补救措施。 全局补救“修复”工作流包括：
+
+  - 检查处于欠佳状态的基础结构虚拟机，并根据需要尝试进行修复。
+  - 检查控制计划中的 SQL 服务问题，并根据需要尝试进行修复。
+  - 检查网络控制器 (NC) 中软件负载均衡器 (SLB) 服务的状态，并根据需要尝试进行修复。
+  - 检查网络控制器 (NC) 服务的状态，并根据需要尝试进行修复。
+  - 检查紧急恢复控制台服务 (ERCS) Service Fabric 节点的状态，并根据需要进行修复。
+  - 检查 XRP Service Fabric 节点的状态，并根据需要进行修复。
+  - 检查 Azure 一致性存储 (ACS) Service Fabric 节点的状态，并根据需要进行修复。
+
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- 改进了添加节点期间缩放单元状态从“正在扩展存储”切换为运行状态时的容量扩展可靠性。    
+
+<!-- 
+1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
+1396607 3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage Diagnostics
+1404529 3835749: Enable Group Policy Diagnostic Logs    Diagnostics
+1436561 Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag  Diagnostics
+1404512 3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug   Diagnostics 
+-->
+- 改进了 Azure Stack 诊断工具，以提高日志收集可靠性和性能。 增加了网络和标识服务的日志记录功能。 
+
+<!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
+- 改进了 **Test-AzureStack** 在进行机密轮换就绪性测试时的可靠性。
+
+<!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
+- 通过改进提高了 AD Graph 在与客户的 Active Directory 环境通信时的可靠性。
+
+<!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
+- 改进了 **Get-AzureStackStampInformation** 的硬件库存收集功能。
+
+- 为了改进 ERCS 基础结构上运行的操作的可靠性，每个 ERCS 实例的内存已从 8 GB 增加到 12 GB。 在 Azure Stack 集成系统安装中，这会导致内存总量增大 12 GB。
+
+> [!IMPORTANT]
+> 为了确保修补升级过程尽可能地减少租户停机时间，请在“容量”边栏选项卡中确认 Azure Stack 阵列是否可提供 12 GB 以上的可用空间。 成功安装更新后，“容量”边栏选项卡中会反映内存增大。
 
 ## <a name="common-vulnerabilities-and-exposures"></a>常见漏洞和风险
 
@@ -111,7 +162,6 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - [CVE-2019-0660](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0660)
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
-
 
 有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4487006](https://support.microsoft.com/en-us/help/4487006)。
 
@@ -171,9 +221,18 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 
-- 在版本 1902 中，ERCS 基础结构 VM 所需的内存已从 8 GB 增大至 12 GB。 在 ASDK 中，这会导致所需内存增大 4 GB。 在 Azure Stack 集成系统安装中，所需内存会增大 12 GB。
+- 如果没有硬件生命周期主机 (HLH)：在版本 1902 之前，必须将组策略“计算机配置”>“Windows 设置”>“安全设置”>“本地策略”>“安全选项”设置为“发送 LM 和 NTLM - 如果已协商，则使用 NTLMv2 会话安全”。 从版本 1902 开始，必须将此策略保持为“未定义”，或将其设置为“仅发送 NTLMv2 响应”（默认值）。 否则无法建立 PowerShell 远程会话，并且会收到“拒绝访问”错误：
 
-   为了确保修补升级过程尽可能地减少租户停机时间，请在“容量”边栏选项卡中确认 Azure Stack 阵列是否可提供 12 GB 以上的可用空间。 成功安装更新后，“容量”边栏选项卡中会反映内存增大。
+   ```shell
+   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
+   about_Remote_Troubleshooting Help topic.
+   At line:1 char:12
+   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
+      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
+   ```
 
 ### <a name="networking"></a>网络  
 
@@ -197,17 +256,6 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 <!-- 3203799 - IS, ASDK -->
 - 目前，无论实例大小是什么，Azure Stack 都不支持将 4 个以上的网络接口 (NIC) 附加到 VM 实例。
-
-- 我们已识别到以下问题：发往内部负载均衡器 (ILB) 的超过 1450 字节的数据包将被丢弃。 该问题的原因是主机上的 MTU 设置过小，无法容纳遍历角色的 VXLAN 封装数据包，自版本 1901 开始，该角色已移到主机。 在下面这种情况下，我们也发现此问题会自行显现：
-
-  - SQL 查询发往内部负载均衡器 (ILB) 后面的 SQL Always On，并且超过 660 字节。
-
-  在同一虚拟网络但不同子网中的 VM 与 ILB 之间进行通信时，将发生此问题。 在 ASDK 主机上权限提升的命令提示符下运行以下命令即可解决此问题：
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```
 
 <!-- ### SQL and MySQL-->
 

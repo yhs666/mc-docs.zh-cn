@@ -10,18 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/25/2018
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: a19e84dca10032351107d379a2b37a582cef20b4
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 0ab106b54d69dac69eb432d127983534868eb4f8
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625186"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>针对虚拟网络对等互连配置 VPN 网关传输
 
@@ -38,8 +38,8 @@ ms.locfileid: "56833166"
 1. 两种虚拟网络都使用资源管理器部署模型
 2. 辐射虚拟网络为经典部署模型，带网关的中心虚拟网络为资源管理器部署模型
 
-> [!IMPORTANT]
-> 全局虚拟网络对等互连目前不支持网关传输。
+> [!IMPORTANT]  
+> 预览版全局虚拟网络对等互连当前支持网关传输。 不需要加入允许列表。 可以通过 CLI、PowerShell、模板或 API 在预览版中进行测试。 预览版不支持门户。 
 
 ## <a name="requirements"></a>要求
 
@@ -130,13 +130,13 @@ Add-AzVirtualNetworkPeering `
 步骤类似于资源管理器示例，区别是操作仅应用于 Hub-RM 虚拟网络。
 
 1. 在 Azure 门户中创建或更新从 Hub-RM 到 Spoke-RM 的虚拟网络对等互连。 导航到 Hub-RM 虚拟网络资源，单击“对等互连”，然后单击“添加”：
-    - 设置“经典”选项作为虚拟网络部署模型
-    - 在相应的订阅中选择“Spoke-Classic”虚拟网络
-    - 确保“允许虚拟网络访问”为“已启用”
-    - 设置“允许网关传输”选项
-    - 单击“确定”
+   - 设置“经典”选项作为虚拟网络部署模型
+   - 在相应的订阅中选择“Spoke-Classic”虚拟网络
+   - 确保“允许虚拟网络访问”为“已启用”
+   - 设置“允许网关传输”选项
+   - 单击“确定”
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. 如果已创建对等互连，请导航到对等互连资源，然后启用“允许网关传输”选项（类似于步骤 (1) 中所示的屏幕截图）
 

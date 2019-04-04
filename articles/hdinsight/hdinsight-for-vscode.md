@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight 工具 -将 Visual Studio Code 用于 Hive、LLAP 或 pySpark
 description: 了解如何使用用于 Visual Studio Code 的 Azure HDInsight 工具来创建、提交查询和脚本。
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,交互式 Hive,交互式查询
 services: HDInsight
 documentationcenter: ''
 author: jejiang
@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 02/04/2019
 ms.date: 03/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: a69c2ea3cc3b7d7cd20434e2d083d1a77fd3e5ca
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 2ce98c0bd2ac134c6772b0f0798e419a86ac2ba7
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665583"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625295"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -82,7 +82,7 @@ ms.locfileid: "56665583"
  
         ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- 连接后，Visual Studio Code 窗口左下角的状态栏上会显示 Azure 帐户名称。  
+   连接后，Visual Studio Code 窗口左下角的状态栏上会显示 Azure 帐户名称。  
   
 
 <h2 id="linkcluster">创建链接：Azure HDInsight</h2>

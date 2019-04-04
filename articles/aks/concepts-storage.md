@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 03/04/2019
+origin.date: 03/01/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2567ee9a03690c8f17dfe48bd5a0db4dd5397094
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 2c987e577ab5706b90f6f654d38276889a34dc60
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903026"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627512"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序存储选项
 
@@ -122,6 +122,8 @@ spec:
 
 ## <a name="next-steps"></a>后续步骤
 
+如需相关的最佳做法，请参阅[在 AKS 中存储和备份的最佳做法][operator-best-practices-storage]。
+
 若要了解如何创建使用 Azure 磁盘或 Azure 文件的动态和静态卷，请参阅以下操作指南：
 
 - [使用 Azure 磁盘创建静态卷][aks-static-disks]
@@ -149,3 +151,4 @@ spec:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-storage]: operator-best-practices-storage.md

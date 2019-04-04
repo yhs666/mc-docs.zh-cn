@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 01/14/2019
-ms.date: 03/20/2019
+origin.date: 03/13/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 6c9dd92d1bf8b416038216eb4081974eb24ee430
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 79a6b99eb645674c4e5f7f05d95a15f2a2a1e7fb
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318907"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505534"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什么是 Azure 资源的基于角色的访问控制 (RBAC)？
 
@@ -106,9 +106,6 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 
 ![多角色分配](./media/overview/rbac-multiple-roles.png)
 
-## <a name="deny-assignments"></a>拒绝分配
-
-以前，RBAC 是一种仅允许模型，没有拒绝功能，但 RBAC 现在以有限方式支持拒绝分配。 拒绝分配类似于角色分配，可将一组拒绝操作附加到特定范围内的用户、组、服务主体，以便拒绝访问。 角色分配定义了一组允许的操作，而拒绝分配定义了一组不允许的操作。 换而言之，即使角色分配授予用户访问权限，拒绝分配也会阻止用户执行指定的操作。 拒绝分配优先于角色分配。 当前，拒绝分配为“只读”，且只能由 Azure 设置。 
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC 如何确定用户是否有权访问资源
 
@@ -120,7 +117,7 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 
 1. 用户使用附加的令牌对 Azure 资源管理器发出 REST API 调用。
 
-1. Azure 资源管理器检索适用于对其执行操作的资源的所有角色分配和拒绝分配。
+1. Azure 资源管理器检索适用于对其执行操作的资源的所有角色分配。
 
 1. Azure 资源管理器缩小适用于此用户或其组的角色分配范围，并确定用户针对此资源拥有的角色。
 
@@ -136,4 +133,4 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 - [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -6,20 +6,20 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
-origin.date: 11/27/2018
-ms.date: 03/25/2019
+ms.subservice: manage
+origin.date: 03/21/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a5e239b8142721eefb9b35ab8b67eab60d99a845
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: e4165d9aa5a2ceab2a69837b61e5be730c858d19
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348101"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625147"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>监视 Azure SQL 数据仓库中的资源利用率和查询活动
-Azure SQL 数据仓库在 Azure 门户中提供丰富的监视体验用于洞察数据仓库工作负荷。 建议使用 Azure 门户来监视数据仓库，因为它提供可配置的保留期、警报、建议，并为指标和日志提供可自定义的图表与仪表板。 在门户中，还可与 Azure Monitor（日志）等其他 Azure 监视服务集成，这样，不仅可以针对数据仓库，而且还能针对整个 Azure 分析平台提供一体式的监视体验，构成一种集成式的监视体验。 本文档介绍可在 SQL 数据仓库中使用哪些监视功能来优化和管理分析平台。 
+Azure SQL 数据仓库在 Azure 门户中提供丰富的监视体验用于洞察数据仓库工作负荷。 建议使用 Azure 门户来监视数据仓库，因为它提供可配置的保持期、警报、建议，并为指标和日志提供可自定义的图表与仪表板。 在门户中，还可与 Azure Monitor（日志）等其他 Azure 监视服务集成，这样，不仅可以针对数据仓库，而且还能针对整个 Azure 分析平台提供一体式的监视体验，构成一种集成式的监视体验。 本文档介绍可在 SQL 数据仓库中使用哪些监视功能来优化和管理分析平台。 
 
 ## <a name="resource-utilization"></a>资源利用率 
 Azure 门户中提供了以下可用于 SQL 数据仓库的指标。 这些指标通过 [Azure Monitor](/azure-monitor/platform/data-collection#metrics) 显示。
@@ -47,7 +47,7 @@ Azure 门户中提供了以下可用于 SQL 数据仓库的指标。 这些指�
 若要查看 SQL 数据仓库提供的 DMV 列表，请参阅此[文档](/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)。 
 
 ## <a name="metrics-and-diagnostics-logging"></a>指标和诊断日志记录
-指标和日志都可以导出到 Azure Monitor。
+指标和日志都可导出到 Azure Monitor（具体而言，是 [Azure Monitor 日志](/azure-monitor/log-query/log-query-overview)组件），并可通过日志查询以编程方式访问它们。 SQL 数据仓库的日志延迟大约为 10-15 分钟。 有关影响延迟的因素的更多详细信息，请访问以下文档。
 
 
 ## <a name="next-steps"></a>后续步骤

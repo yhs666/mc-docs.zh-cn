@@ -18,12 +18,12 @@ origin.date: 04/20/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dd362d853fa60c93c8e90c22afd580d9cb4cbfff
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0421c7c4280fc347975847a34f13572df41184aa
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651690"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626067"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>教程：使用 Azure 门户诊断虚拟机网络路由问题
 
@@ -84,13 +84,14 @@ Azure 自动创建到默认目标的路由。 可以创建自定义路由来覆�
 1. 在 Azure 门户的“网络观察程序”下选择“下一跃点”。
 2. 选择订阅，输入或选择以下值，然后选择“下一跃点”，如下图所示：
 
-    |设置                  |值                                                   |
-    |---------                |---------                                               |
-    | 资源组          | 选择 myResourceGroup                                 |
-    | 虚拟机         | 选择 myVm                                            |
-    | Linux       | myvm - 你的网络接口名称可能有所不同。   |
-    | 源 IP 地址       | 10.0.0.4                                               |
-    | 目标 IP 地址  | 13.107.21.200 - www.bing.com 的一个地址。 |
+
+   |        设置         |                         值                          |
+   |------------------------|--------------------------------------------------------|
+   |     资源组     |                 选择 myResourceGroup                 |
+   |    虚拟机     |                      选择 myVm                       |
+   |   Linux    |  myvm - 你的网络接口名称可能有所不同。  |
+   |   源 IP 地址    |                        10.0.0.4                        |
+   | 目标 IP 地址 | 13.107.21.200 - www.bing.com 的一个地址。 |
 
     ![下一跃点](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

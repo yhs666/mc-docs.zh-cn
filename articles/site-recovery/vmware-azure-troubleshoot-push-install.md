@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: v-yeche
 origin.date: 02/07/2019
 ms.date: 03/04/2019
-ms.openlocfilehash: b473726d2fdf87aa3bfbc7c4208fefcc2e707de9
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 07eb350af4118dc83f881b299c0f76bade0d1f86
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463523"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625276"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>解决移动服务推送安装问题
 
@@ -197,7 +197,7 @@ GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/
     ```
 
 2. 现在请将设备名替换为设备 UUID，格式类似于“root=UUID=<UUID>”。 例如，对于上述在“/boot/grub2/grub.cfg”、“/boot/grub2/grub.cfg”或“/etc/default/grub”文件中提到的 root 和 resume 参数，如果将设备名称替换为 UUID，则文件中的行将类似于： <br>
-    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+    <em>kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4</em>* **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. 再次重启保护
 
 <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>

@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/08/2019
-ms.date: 03/18/2019
+origin.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: f90786db933fcb25627991d070b5925ff54e185c
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 19fa15da96c520bdec186a907b1c4246b5d64d41
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987906"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503567"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -76,7 +76,7 @@ ms.locfileid: "57987906"
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -87,7 +87,7 @@ ms.locfileid: "57987906"
     > 如果使用 AD FS 作为标识系统，则需要 AD FS 和 Graph。 例如：
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - 将证书放入上一步骤中创建的相应目录。 例如：  
@@ -255,17 +255,17 @@ Invoke-AzsCertificateValidation Completed
 
 | Directory | 证书 |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
-| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
-| ACSTable  |  wildcard_table\< region>\< externalFQDN> |
-| 管理扩展主机  |  wildcard_adminhosting\< region>\< externalFQDN> |
-| 管理门户  |  adminportal\< region>\< externalFQDN> |
-| ARM Admin  |  adminmanagement\< region>\< externalFQDN> |
-| ARM Public  |  management\< region>\< externalFQDN> |
-| KeyVault  |  wildcard_vault\< region>\< externalFQDN> |
-| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
-| 公共扩展主机  |  wildcard_hosting\< region>\< externalFQDN> |
-| 公共门户  |  portal\< region>_\< externalFQDN> |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| 管理扩展主机  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| 管理门户  |  adminportal_\<region>_\<externalFQDN> |
+| ARM Admin  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM Public  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| 公共扩展主机  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| 公共门户  |  portal_\<region>_\<externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>使用已验证的证书
 

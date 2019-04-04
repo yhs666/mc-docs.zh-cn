@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/27/2017
+origin.date: 03/11/2019
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: d2cd23f7692c5f6e6194a85901e1e271c0512969
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 04/08/2019
+ms.openlocfilehash: 1235b37c378f87b26ea2e41230e5ac44668b7040
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348676"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626385"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -209,6 +209,15 @@ ms.locfileid: "58348676"
 <set-backend-service base-url="base URL of the backend service" />  
 ```  
   
+或
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> 后端实体可以通过管理 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 和[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。
+
 ### <a name="example"></a>示例  
   
 ```xml  
@@ -261,8 +270,8 @@ ms.locfileid: "58348676"
   
 |Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
-|base-url|新的后端服务基 URL。|否|不适用|  
-|backend-id|要路由到的后端标识符。|否|不适用|  
+|base-url|新的后端服务基 URL。|必须存在 `base-url` 或 `backend-id` 中的一个。|不适用|
+|backend-id|要路由到的后端标识符。 （后端实体通过 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 和 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。）|必须存在 `base-url` 或 `backend-id` 中的一个。|不适用|
 |sf-partition-key|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 用于从名称解析服务中解析特定分区。|否|不适用|  
 |sf-replica-type|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 控制请求是否应转到分区的主要副本或次要副本。 |否|不适用|    
 |sf-resolve-condition|只有在后端为 Service Fabric 服务时才适用。 确定对 Service Fabric 后端的调用是否针对新解析重复进行的条件。|否|不适用|    
@@ -281,13 +290,13 @@ ms.locfileid: "58348676"
   
 > [!IMPORTANT]
 >  请注意，默认情况下，当用户使用 `context.Request.Body` 或 `context.Response.Body` 访问消息正文时，原始的消息正文会丢失，必须将正文返回到表达式中，以便对其进行设置。 若要保留正文内容，请在访问消息时将 `preserveContent` 参数设置为 `true`。 如果 `preserveContent` 设置为 `true`，而表达式返回了不同的正文，则会使用返回的正文。  
->   
+> 
 >  在使用 `set-body` 策略时，请注意以下事项。  
->   
->  -   若要使用 `set-body` 策略返回全新的或更新的正文，则不需将 `preserveContent` 设置为 `true`，因为是在显式提供全新的正文内容。  
-> -   将响应的内容保留在入站管道中并不合理，因为尚无响应。  
-> -   将请求的内容保留在出站管道中并不合理，因为请求此时已发送到后端。  
-> -   如果在没有消息正文的情况下使用此策略（例如在入站 GET 中使用），则会引发异常。  
+> 
+> - 若要使用 `set-body` 策略返回全新的或更新的正文，则不需将 `preserveContent` 设置为 `true`，因为是在显式提供全新的正文内容。  
+>   -   将响应的内容保留在入站管道中并不合理，因为尚无响应。  
+>   -   将请求的内容保留在出站管道中并不合理，因为请求此时已发送到后端。  
+>   -   如果在没有消息正文的情况下使用此策略（例如在入站 GET 中使用），则会引发异常。  
   
  有关详细信息，请参阅[上下文变量](./api-management-policy-expressions.md#ContextVariables)表中的 `context.Request.Body`、`context.Response.Body`、`IMessage` 部分。  
   
@@ -485,17 +494,17 @@ OriginalUrl.
 > [!NOTE]
 > 标头的多个值会连接到 CSV 字符串，例如：  
 > `headerName: value1,value2,value3`
->
+> 
 > 例外包括标准化标头，其值：
 > - 可能包含逗号（`User-Agent`、`WWW-Authenticate`、`Proxy-Authenticate`），
 > - 可能包含日期（`Cookie`、`Set-Cookie`、`Warning`），
 > - 包含日期（`Date`、`Expires`、`If-Modified-Since`、`If-Unmodified-Since`、`Last-Modified`、`Retry-After`）。
->
+> 
 > 如果出现这些例外，多个标头值将不会连接成一个字符串，并将作为单独的标头传递，例如：  
->`User-Agent: value1`  
->`User-Agent: value2`  
->`User-Agent: value3`
-### <a name="elements"></a>元素  
+> `User-Agent: value1`  
+> `User-Agent: value2`  
+> `User-Agent: value3`
+> ### <a name="elements"></a>元素  
   
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
@@ -579,11 +588,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> 重写 URL  
  `rewrite-uri` 策略将请求 URL 从其公用格式转换为 Web 服务所需的格式，如以下示例所示。  
   
--   公共 URL - `http://api.example.com/storenumber/ordernumber`  
+- 公共 URL - `http://api.example.com/storenumber/ordernumber`  
   
--   请求 URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`  
+- 请求 URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`  
   
- 如果要将用户和/或浏览器友好的 URL 转换成 Web 服务所需的 URL 格式，则可使用此策略。 应用此策略的前提是公开备用的 URL 格式，例如简洁 URL、RESTful URL、用户友好的 URL 或 SEO 友好的 URL。这些 URL 是纯结构化 URL，不包含查询字符串，只包含资源的路径（在方案和颁发机构的后面）。 通常会出于美观、可用性或搜索引擎优化 (SEO) 目的使用这种 URL。  
+  如果要将用户和/或浏览器友好的 URL 转换成 Web 服务所需的 URL 格式，则可使用此策略。 应用此策略的前提是公开备用的 URL 格式，例如简洁 URL、RESTful URL、用户友好的 URL 或 SEO 友好的 URL。这些 URL 是纯结构化 URL，不包含查询字符串，只包含资源的路径（在方案和颁发机构的后面）。 通常会出于美观、可用性或搜索引擎优化 (SEO) 目的使用这种 URL。  
   
 > [!NOTE]
 >  只能使用此策略添加查询字符串参数。 不能在重写 URL 中添加额外的模板路径参数。  

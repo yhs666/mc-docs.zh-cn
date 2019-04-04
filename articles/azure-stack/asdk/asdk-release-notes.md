@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2019
-ms.date: 03/18/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: misainat
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: ab81e6d366680d4ea89cc2a13da2c35f24fd5a73
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 0e05e4dfee13b2e316a5de8f0a77daaa38cc7980
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988066"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503537"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -31,9 +31,11 @@ ms.locfileid: "57988066"
 
 ## <a name="build-11902069"></a>内部版本 1.1902.0.69
 
-### <a name="changes"></a>更改
+### <a name="new-features"></a>新增功能
 
 - 1902 版本在 Azure Stack 管理员门户上引入了新的用户界面用于创建计划、套餐、配额和附加计划。 有关详细信息（包括屏幕截图），请参阅[创建计划、套餐和配额](../azure-stack-create-plan.md)。
+
+- 有关此版本中其他更改和改进的列表，请参阅 Azure Stack 发行说明的[此部分](../azure-stack-update-1902.md#improvements)。
 
 <!-- ### New features
 
@@ -43,6 +45,20 @@ ms.locfileid: "57988066"
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>已知问题
+
+- 我们已识别到以下问题：发往内部负载均衡器 (ILB) 的超过 1450 字节的数据包将被丢弃。 该问题的原因是主机上的 MTU 设置过小，无法容纳遍历角色的 VXLAN 封装数据包，自版本 1901 开始，该角色已移到主机。 在你可能遇到的至少两种情况中，我们已发现此问题会自行显现：
+
+  - SQL 查询发往内部负载均衡器 (ILB) 后面的 SQL Always On，并且超过 660 字节。
+  - 如果尝试启用多个主机，Kubernetes 部署将失败。  
+
+  在同一虚拟网络但不同子网中的 VM 与 ILB 之间进行通信时，将发生此问题。 在 ASDK 主机上权限提升的命令提示符下运行以下命令即可解决此问题：
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>内部版本 1.1901.0.95
 

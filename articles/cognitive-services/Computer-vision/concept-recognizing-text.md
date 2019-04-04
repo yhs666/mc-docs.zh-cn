@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 03/13/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 97ed700f51d3678797e6ddd4113026e15ae3409d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f1b1567b28bc07331229007c2f7b5c889e84427d
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964438"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505447"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>识别打印文本和手写文本
 
@@ -27,12 +27,12 @@ ms.locfileid: "57964438"
 
 读取 API 使用我们最新的识别模型检测图像中的文本内容，并将已识别的文本转换为机器可读的字符流。 该 API 已针对包含大量文本的图像（例如，数码扫描的文档）以及包含大量视觉噪点的图像进行优化。 该 API 以异步方式执行，因为处理较大文档时，可能需要花费好几分钟才能返回结果。
 
-“读取”操作会在其输出中保留已识别字的原始行分组。 每一行附带边框坐标，行中的每个字也有其自身的坐标。 如果某个字的识别置信度较低，该结果中也会反映该信息。 
+“读取”操作会在其输出中保留已识别字的原始行分组。 每一行附带边框坐标，行中的每个字也有其自身的坐标。 如果某个字的识别置信度较低，该结果中也会反映该信息。 有关详细信息，请参阅[阅读 API 参考文档](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)。
 
 > [!NOTE]
 > 此功能目前以预览版提供，仅适用于英语文本。
 
-### <a name="image-requirements"></a>映像要求
+### <a name="image-requirements"></a>图像要求
 
 读取 API 可以处理符合以下要求的图像：
 
@@ -54,9 +54,9 @@ OCR 支持 25 种语言：阿拉伯语、简体中文、繁体中文、捷克语
 
 ![一个示意图，描绘正在旋转的图像及其正在读取和画出的文本](./Images/vision-overview-ocr.png)
 
-有关详细信息，请参阅 [OCR 参考文档](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)。
+有关详细信息，请参阅 [OCR 参考文档](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)。
 
-### <a name="image-requirements"></a>映像要求
+### <a name="image-requirements"></a>图像要求
 
 OCR API 可以处理符合以下要求的图像：
 
@@ -73,9 +73,9 @@ OCR API 可以处理符合以下要求的图像：
 > [!NOTE]
 > 随着读取 API 的推出，识别文本 API 已弃用。 读取 API 具有类似的功能，经更新后可以处理 PDF、TIFF 和多页文件。
 
-识别文本 API 类似于 OCR，但它以异步方式执行，并使用更新的识别模型。 有关详细信息，请参阅[识别文本 API 参考文档](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200)。
+识别文本 API 类似于 OCR，但它以异步方式执行，并使用更新的识别模型。 有关详细信息，请参阅[识别文本 API 参考文档](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)。
 
-### <a name="image-requirements"></a>映像要求
+### <a name="image-requirements"></a>图像要求
 
 识别文本 API 可以处理符合以下要求的图像：
 
@@ -95,3 +95,8 @@ OCR API 可以处理符合以下要求的图像：
 * 文本过长，或单词的开头缺少大写字母。
 * 文本包含下标、上标或删除线。
 
+## <a name="next-steps"></a>后续步骤
+
+按照[提取印刷体文本 (OCR)](./quickstarts/csharp-print-text.md) 快速入门，在简单的 C# 应用中实现文本识别。
+
+<!-- Update_Description: wording update -->

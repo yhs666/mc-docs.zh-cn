@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lingliw
-ms.openlocfilehash: 54c2a7c3c17f3e744abb5666f7db36e12a35da22
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 54c82c9f28feac5b35e0a0fc264df715035f4254
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987075"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626779"
 ---
 # <a name="azure-backup-architecture"></a>Azure 备份体系结构
 
@@ -48,9 +48,9 @@ Azure 备份将备份的数据存储在恢复服务保管库中。 保管库是 
 - 可以监视保管库中的备份项，包括 Azure VM 和本地计算机。
 - 可以使用 Azure [基于角色的访问控制 (RBAC)](/role-based-access-control/role-assignments-portal) 来管理对保管库的访问。
 - 指定如何复制保管库中的数据以实现冗余：
-    - **LRS**：可以使用本地冗余存储 (LRS) 来防范数据中心的故障。 LRS 将数据复制到存储缩放单元。 [了解详情]https://docs.azure.cn/zh-cn/storage/common/storage-redundancy-lrs)。
-    - **GRS**：可以使用异地冗余存储 (GRS)：防范区域范围的服务中断。 GRS 将数据复制到次要区域。 [了解详细信息](https://docs.azure.cn/zh-cn/storage/common/storage-redundancy-lrs)。 
-    - 用于备份的恢复服务保管库默认使用 GRS。 
+  - **LRS**：可以使用本地冗余存储 (LRS) 来防范数据中心的故障。 LRS 将数据复制到存储缩放单元。 [了解详细信息]<https://docs.azure.cn/zh-cn/storage/common/storage-redundancy-lrs>)。
+  - **GRS**：可以使用异地冗余存储 (GRS)：防范区域范围的服务中断。 GRS 将数据复制到次要区域。 [了解详细信息](https://docs.azure.cn/zh-cn/storage/common/storage-redundancy-lrs)。 
+  - 用于备份的恢复服务保管库默认使用 GRS。 
 
 
 

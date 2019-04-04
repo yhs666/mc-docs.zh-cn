@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 07/12/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: f342d3a578b648b1376d3d2d2fcff559a3a190cb
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: e93a64ff862acc20b858bc25f1ed148f78514b91
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666060"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626019"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure 的 Windows 虚拟机上运行的 SQL Server 常见问题解答
 
@@ -104,19 +104,19 @@ ms.locfileid: "56666060"
 
    否。 SQL VM 资源提供程序只是为 Azure VM 上的 SQL Server 启用更多的可管理性，不额外收费。 
 
-1. **SQL VM 资源提供程序是否适用于所有客户？**
+2. **SQL VM 资源提供程序是否适用于所有客户？**
 
    是的。 所有客户都可以将 VM 注册到新的 SQL VM 资源提供程序。 但是，只有享受软件保障权益的客户能够在 SQL Server VM 上激活 [Azure 混合权益 (AHB)](https://www.azure.cn/pricing/hybrid-use-benefit)（或 BYOL）。 
 
-1. **如果移动或删除 VM 资源，_* Microsoft.SqlVirtualMachine_* 资源会发生什么情况？** 
+3. **如果移动或删除 VM 资源，Microsoft.SqlVirtualMachine</em>* 资源会发生什么情况？** 
 
    删除或移动 Microsoft.Compute/VirtualMachine 资源时，会通知关联的 Microsoft.SqlVirtualMachine 资源以异步方式复制此操作。
 
-1. **如果删除 _* Microsoft.SqlVirtualMachine_* 资源，VM 会发生什么情况？**
+4. **如果删除 Microsoft.SqlVirtualMachine</em>* 资源，VM 会发生什么情况？**
 
    删除 Microsoft.SqlVirtualMachine 资源时，Microsoft.Compute/VirtualMachine 资源不受影响。 但是，许可更改会默认回退到原始的映像源。 
 
-1. **是否可以将自行部署的 SQL Server VM 注册到 SQL VM 资源提供程序？**
+5. **是否可以将自行部署的 SQL Server VM 注册到 SQL VM 资源提供程序？**
 
    是的。 如果从自己的媒体部署 SQL Server，并安装 SQL IaaS 扩展，则可将 SQL Server VM 注册到资源提供程序，以便获取 SQL IaaS 扩展提供的可管理性权益。 但是，不能将自行部署的 SQL VM 转换为即用即付。  
 

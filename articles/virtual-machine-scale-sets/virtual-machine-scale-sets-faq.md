@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2019
-ms.date: 03/20/2019
+origin.date: 03/13/2019
+ms.date: 03/28/2019
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 45c032a04338f1a760e1c54d7ef94b7fb314dfe7
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 9d8ed4638df2a6a89bde4047c83d2a873eb3b26d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256382"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625331"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -229,7 +229,7 @@ az sf cluster create -h
 ```
 
 linuxConfiguration 元素名称 | 必须 | 类型 | 说明
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 ssh | 否 | 集合 | 指定 Linux OS 的 SSH 密钥配置
 path | 是 | String | 指定 SSH 密钥或证书应放置到的 Linux 文件路径
 keyData | 是 | String | 指定 base64 编码的 SSH 公钥
@@ -270,9 +270,6 @@ Windows 远程管理 (WinRM) 证书引用必须在 OS 配置文件的 Secrets �
 
 证书将添加到所有 VM，包括现有的 VM。 如果虚拟机规模集的 upgradePolicy 属性设置为“手动”，对 VM 执行手动更新时，证书会添加到该 VM。
 
-### <a name="where-do-i-put-certificates-for-linux-vms"></a>在 Linux VM 上，证书放在哪个位置？
-
-若要了解如何部署 Linux VM 的证书，请参阅[将证书从客户管理的 Key Vault 部署到 VM](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/)。
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>如何将新的保管库证书添加到新的证书对象？
 
@@ -302,9 +299,10 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 
 根据 Azure Key Vault 文档，在未指定版本的情况下，Get Secret REST API 应返回最新版本的机密。
 
-方法 | 代码
---- | ---
-GET | https://mykeyvault.vault.azure.cn/secrets/{secret-name}/{secret-version}?api-version={api-version}
+
+| 方法 |                                                代码                                                 |
+|--------|----------------------------------------------------------------------------------------------------|
+|  GET   | https://mykeyvault.vault.azure.cn/secrets/{secret-name}/{secret-version}?api-version={api-version} |
 
 请将 {*secret-name*} 替换为该名称，将 {*secret-version*} 替换为要检索的机密的版本。 机密版本可能被排除。 在这种情况下，将检索当前的版本。
 
@@ -525,7 +523,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>如何将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中？
 
-要将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中，请参阅 [Azure 资源管理器：获取虚拟机规模集的专用 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
+要将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中，请参阅 [Azure 资源管理器：获取虚拟机规模集的专用 IP](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>能否将规模集与加速网络结合使用？
 
@@ -711,5 +709,28 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 - 想要更快速地启动一组 VM，而不是扩大虚拟机规模集。
   - 出于这种方案，可能创建了自己的自动缩放引擎，并希望以更快的速度完成端到端缩放。
 - 虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，并运行 `start`，可将 VM 均匀地分布到容错域或更新域。
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>如何创建 VMSS 实例的快照？
+从 VMSS 实例创建快照。
+
+```azurepowershell
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "China North"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+从快照创建托管磁盘。
+
+```azurepowershell
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```
 
 <!-- Update_Description: wording update -->

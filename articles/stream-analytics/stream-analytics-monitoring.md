@@ -3,50 +3,54 @@ title: 了解 Azure 流分析中的作业监视
 description: 本文介绍如何在 Azure 流分析中监视作业
 services: stream-analytics
 author: rockboyfor
-ms.author: v-yeche
+ms.author: v-lingliwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 03/28/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 3c86ce76896528a51f0131f708d744a1bab6eefb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 12/07/2018
+ms.openlocfilehash: 510b1a7642d34ecf2943b2f1d2defa48bc2bef70
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650794"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544783"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 
-## <a name="introduction-the-monitor-page"></a>简介：“监视”页
+## <a name="introduction-the-monitor-page"></a>简介：监视页
 Azure 门户提供了可用于监视和排查查询和作业性能问题的关键性能指标。 若要查看这些指标，请浏览到想要查看其指标的流分析作业并查看“概览”页上的“监视”  部分。  
 
-![监视链接](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![流分析作业监视链接](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 此窗口如下所示：
 
-![监视作业仪表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![流分析作业监视仪表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>可用于流分析的指标
 | 指标                 | 定义                               |
 | ---------------------- | ---------------------------------------- |
-| 流单元利用率 %       | 从作业的“比例”选项卡向一个作业分配的流单元利用率。 如果此指标达到 80% 或以上，则很可能会出现事件处理延迟或停止处理的情况。 |
-| 输入事件数           | 流分析作业收到的数据量，以事件计数来衡量。 这可以用于验证正在发送到输入源的事件。 |
-| 输出事件数          | 流分析作业发送到输出目标的数据量，以事件计数来衡量。 |
-| 无序事件数    | 收到的无序事件的数目，系统根据事件排序策略来删除这些事件，或者为其提供一个经过调整的时间戳。 这可能会受“无序容错时段”设置的影响。 |
-| 数据转换错误数 | 流分析作业导致的数据转换错误的数目。 |
-| 运行时错误         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
-| 延迟输入事件数      | 延迟到达的事件的数目，系统根据延迟到达容错时段设置的事件排序策略配置删除这些事件，或者调整其时间戳。 |
-| 函数请求数      | Azure 机器学习函数（如果存在）的调用数。 |
+| 积压的输入事件数       | 积压的输入事件的数量。 此指标的非零值意味着作业无法跟上传入事件的数量。 如果此值缓慢增长或始终为非零，则应横向扩展作业。 可以访问[了解和调整流单元](stream-analytics-streaming-unit-consumption.md)了解详细信息。 |
+| 数据转换错误数 | 无法转换为预期输出架构的输出事件的数量。 可以将错误策略更改为“删除”，以删除遇到此情况的事件。 |
+| 早期输入事件数       | 应用程序时间戳早于其到达时间超过 5 分钟的事件。 |
 | 失败的函数请求数 | 失败的 Azure 机器学习函数（如果存在）调用数。 |
 | 函数事件数        | 发送到 Azure 机器学习函数（如果存在）的事件数。 |
+| 函数请求数      | Azure 机器学习函数（如果存在）的调用数。 |
+| 输入反序列化错误       | 不可反序列化的输入事件数。  |
 | 输入事件字节数      | 流分析作业收到的数据量（以字节为单位）。 这可以用于验证正在发送到输入源的事件。 |
+| 输入事件数           | 从输入事件反序列化的记录数。 |
+| 收到的输入源数       | 作业收到的事件数。 这可以用于验证正在发送到输入源的事件。 |
+| 延迟输入事件数      | 到达时间晚于已配置的延迟到达容错时段的事件。 详细了解 [Azure 流分析事件顺序注意事项](stream-analytics-out-of-order-and-late-events.md)。 |
+| 无序事件数    | 收到的无序事件的数目，系统根据事件排序策略来删除这些事件，或者为其提供一个经过调整的时间戳。 这可能会受“无序容错时段”设置的影响。 |
+| 输出事件数          | 流分析作业发送到输出目标的数据量，以事件计数来衡量。 |
+| 运行时错误         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
+| 流单元利用率 %       | 从作业的“比例”选项卡向一个作业分配的流单元利用率。 如果此指标达到 80% 或以上，则很可能会出现事件处理延迟或停止处理的情况。 |
+| 水印延迟       | 作业中所有输出的所有分区之间的最大水印延迟。 |
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>在 Azure 门户中自定义监视
 可以在“编辑图表”设置中调整图表类型、显示的指标和时间范围。 有关详细信息，请参阅[如何自定义监视](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
-  ![查询监视器时间关系图](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![流分析查询监视器时间图](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 ## <a name="latest-output"></a>最新输出
 对作业进行监视时需要关注的另一个数据点是最后的输出的时间（显示在“概述”页面中）。

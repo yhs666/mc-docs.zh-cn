@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 91580753014116d52743f130ce5dd5d4e2692294
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 04/08/2019
+ms.openlocfilehash: 6e9a8c067f0147751028fa3bd38c7255aefb3c9c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736674"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626634"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -47,21 +47,19 @@ ms.locfileid: "53736674"
 现在需创建“委派终结点”。 该终结点需执行多项操作：
 
 1. 接收以下形式的请求：
-   
+
    > http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}
-   > 
-   > 
-   
+
     登录/注册示例的查询参数：
-   
+
    * **operation**：确定委派请求的类型，在此示例中只能为 **SignIn**
    * **returnUrl**：用户已在其中单击了登录或注册链接的页面的 URL
    * **salt**：用于计算安全哈希的特殊 salt 字符串
    * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 2. 验证请求是否来自 Azure API 管理（可选，但强烈推荐执行以确保安全）
-   
+
    * 根据 **returnUrl** 和 **salt** 查询参数计算字符串的 HMAC-SHA512 哈希（[下文提供了示例代码]）：
-     
+
      > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
@@ -70,14 +68,14 @@ ms.locfileid: "53736674"
 4. 向用户提供登录或注册 UI
 5. 如果用户要注册，则需在 API 管理中为其创建相应的帐户。 请使用 API 管理 REST API [创建用户]。 这样做时，请确保将用户 ID 设置为与用户存储中的用户 ID 相同，或设置为可跟踪的 ID。
 6. 在成功对用户进行身份验证后：
-   
+
    * 通过 API 管理 REST API [请求单一登录 (SSO) 令牌]
    * 将 returnUrl 查询参数追加到从上述 API 调用接收的 SSO URL：
-     
+
      > 例如， https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
-     
+
    * 将用户重定向到上述生成的 URL
 
 除了 **SignIn** 操作，还可以执行帐户管理，只需按上述步骤使用以下某个操作即可：
@@ -105,13 +103,13 @@ ms.locfileid: "53736674"
 然后，确保委派终结点执行下列操作：
 
 1. 接收以下形式的请求：
-   
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
-   > 
-   > 
-   
+
+
+   > <em>http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}</em>
+
+
     产品订阅示例的查询参数：
-   
+
    * **operation**：标识委派请求的类型。 对于产品订阅请求，有效选项包括：
      * “Subscribe”：请求为用户订阅具有所提供的 ID 的给定产品（参见下文）
      * “Unsubscribe”：请求为用户取消订阅某个产品
@@ -121,9 +119,11 @@ ms.locfileid: "53736674"
    * **salt**：用于计算安全哈希的特殊 salt 字符串
    * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 2. 验证请求是否来自 Azure API 管理（可选，但强烈推荐执行以确保安全）
-   
-   * 根据 **productId**、**userId 和 **salt** 查询参数计算字符串的 HMAC-SHA512：
-     
+
+
+   * 根据 **productId**、<strong>userId 和 **salt</strong> 查询参数计算字符串的 HMAC-SHA512：
+
+
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 

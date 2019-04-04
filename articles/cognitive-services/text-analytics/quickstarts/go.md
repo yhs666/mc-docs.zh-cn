@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 02/15/2019
-ms.date: 03/01/2019
+ms.date: 03/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: c680ee7f78a8a34ac28b4fc2d6cafa1ee3a1fb96
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: b63d0cbed7fdf7d84154a9c5615a4a3e7f5f1a06
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204069"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505519"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Go 调用文本分析认知服务 
 <a name="HOLTop"></a>
@@ -42,9 +42,9 @@ ms.locfileid: "57204069"
 1. 将 `subscriptionKey` 值替换为对你的订阅有效的访问密钥。
 1. 将 `uriBase` 中的位置（当前为 `chinaeast2`）替换为进行注册的区域。
 1. 使用“.go”扩展名保存文件。
-1. 在安装了 Go 的计算机上打开命令提示符。
-1. 生成文件，例如：“go build quickstart.go”。
-1. 运行文件，例如：“quickstart”。
+1. 从根文件夹中安装了 Go 的计算机上打开命令提示符。
+1. 生成文件，例如：`go build detect.go`。
+1. 运行文件，例如：`go run detect.go`。
 
 ```golang
 package main
@@ -176,16 +176,16 @@ func main() {
 
 ## <a name="analyze-sentiment-request"></a>分析情绪请求
 
-情绪分析 API 使用 [Sentiment 方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)检测一组文本记录的情绪。 以下示例为两个文档打分，一个是英文文档，另一个是西班牙文文档。
+情绪分析 API 使用 [Sentiment 方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)检测一组文本记录的情绪。 通过在原始文本中分析有关积极和消极情绪的线索，可以使用情绪分析确定客户如何看待你的品牌或主题。 以下示例提供了两个文档的分数，一个是英文文档，另一个是西班牙文文档。
 
 1. 在你喜欢使用的代码编辑器中新建一个 Go 项目。
 1. 添加以下提供的代码。
 1. 将 `subscriptionKey` 值替换为对你的订阅有效的访问密钥。
 1. 将 `uriBase` 中的位置（当前为 `chinaeast2`）替换为进行注册的区域。
 1. 使用“.go”扩展名保存文件。
-1. 在安装了 Go 的计算机上打开命令提示符。
-1. 生成文件，例如：“go build quickstart.go”。
-1. 运行文件，例如：“quickstart”。
+1. 从根文件夹中安装了 Go 的计算机上打开命令提示符。
+1. 生成文件，例如：`go build sentiment.go`。
+1. 运行文件，例如：`go run sentiment.go`。
 
 ```golang
 package main
@@ -269,7 +269,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>分析情绪响应
 
-在 JSON 中返回成功的响应，如以下示例所示： 
+如果得分接近 1.0，则测量结果为积极；如果得分接近 0.0，则测量结果为消极。
+在 JSON 中返回成功的响应，如以下示例所示：
 
 ```json
 {
@@ -291,7 +292,7 @@ func main() {
 
 ## <a name="extract-key-phrases-request"></a>提取关键短语请求
 
-关键短语提取 API 使用[关键短语方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)从文本文档中提取关键短语。 以下示例为英文和西班牙文文档提取关键短语。
+关键短语提取 API 使用[关键短语方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)从文本文档中提取关键短语。 关键短语提取用于快速识别文档或文本的要点。 以下示例为英文和西班牙文文档提取关键短语。
 
 1. 在你喜欢使用的代码编辑器中新建一个 Go 项目。
 1. 添加以下提供的代码。
@@ -299,8 +300,8 @@ func main() {
 1. 将 `uriBase` 中的位置（当前为 `chinaeast2`）替换为进行注册的区域。
 1. 使用“.go”扩展名保存文件。
 1. 在安装了 Go 的计算机上打开命令提示符。
-1. 生成文件，例如：“go build quickstart.go”。
-1. 运行文件，例如：“quickstart”。
+1. 生成文件，例如：`go build key-phrases.go`。
+1. 运行文件，例如：`go run key-phrases.go`。
 
 ```golang
 package main
@@ -385,7 +386,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>提取关键短语响应
 
-在 JSON 中返回成功的响应，如以下示例所示： 
+在 JSON 中返回成功的响应，如以下示例所示：
 
 ```json
 {
@@ -425,9 +426,9 @@ func main() {
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>识别实体请求
+## <a name="identify-entities"></a>识别实体
 
-实体 API 使用[实体方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)识别文本文档中的已知实体。 以下示例识别英文文档的实体。
+实体 API 使用[实体方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)识别文本文档中的已知实体。 [实体](/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)从文本中提取字词。 以下示例识别英文文档的实体。
 
 1. 在你喜欢使用的代码编辑器中新建一个 Go 项目。
 1. 添加以下提供的代码。
@@ -435,8 +436,8 @@ func main() {
 1. 将 `uriBase` 中的位置（当前为 `chinaeast2`）替换为进行注册的区域。
 1. 使用“.go”扩展名保存文件。
 1. 在安装了 Go 的计算机上打开命令提示符。
-1. 生成文件，例如：“go build quickstart.go”。
-1. 运行文件，例如：“quickstart”。
+1. 生成文件，例如：`go build entities.go`。
+1. 运行文件，例如：`go run entities.go`。
 
 ```golang
 package main
@@ -688,4 +689,4 @@ func main() {
  [文本分析概述](../overview.md)  
  [常见问题解答 (FAQ)](../text-analytics-resource-faq.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

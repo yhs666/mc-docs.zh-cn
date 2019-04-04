@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/04/2017
 ms.author: v-yiso
 ms.date: 05/07/2018
-ms.openlocfilehash: 78f02eabd1b012aa159e44682a8b77caac6ab95a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 63adbbcdb9db282cf4029ad471a593494d4f6658
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625253"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>发生影响 Azure 云服务的 Azure 服务中断时该怎么办
 Microsoft 的同仁兢兢业业，只为确保在任何时候都能提供需要的服务。 但有时候会因为不可抗力的影响，造成服务意外中断。
@@ -58,7 +58,7 @@ Azure 已在平台中内置多种功能，用于支持高度可用的应用程�
 ## <a name="option-3-wait-for-recovery"></a>选项 3：等待恢复
 这种情况下，无需进行任何操作，但是在区域还原前服务不可用。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。
 
-##<a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 若要详细了解如何实现灾难恢复和高可用性策略，请参阅 [Azure 应用程序的灾难恢复和高可用性](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)。
 

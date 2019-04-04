@@ -1,6 +1,7 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 05/16/2018 ms.date: 06/13/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date:05/16/2018 ms.date:06/13/2018 ms.author: v-junlch ms.custom: include file
 ---
+
 |  | **点到站点** | **站点到站点** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Azure 支持的服务** |云服务和虚拟机 |云服务和虚拟机 |[服务列表](../articles/expressroute/expressroute-faqs.md#supported-services) |

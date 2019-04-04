@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9bca31723eb496763a025c93e4a4e89926fbaaae
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 94e6f118627a9a12a6e2a164a0e433dca0d5efb3
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674226"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627739"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>有关未认可分发版的信息
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,10 +57,12 @@ Azure 上运行的所有分发版都要满足一些先决条件。 本文的内�
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1 MB。 从原始磁盘转换为 VHD 时，必须根据以下步骤中所述，确保在转换前原始磁盘大小是 1 MB 的倍数。
 
 <!-- Not Available on Line 51 This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
+
 ### <a name="installing-kernel-modules-without-hyper-v"></a>安装无 Hyper-V 的内核模块
 Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的虚拟机，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非 VM 检测到它正在 Hyper-V 环境中运行。 使用不同的虚拟化系统（例如 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd，以便至少 hv_vmbus 和 hv_storvsc 内核模块可在初始 ramdisk 上使用。
 
-<!-- Not Avaiable on This is a known issue at least on systems based on the upstream Red Hat distribution. --> 重新生成 initrd 或 initramfs 映像的机制可能会因发行版而有所不同。 查阅分发的文档或相应过程的支持。  以下示例演示如何使用 `mkinitrd` 实用工具重新生成 initrd：
+<!-- Not Avaiable on This is a known issue at least on systems based on the upstream Red Hat distribution. -->
+重新生成 initrd 或 initramfs 映像的机制可能会因发行版而有所不同。 查阅分发的文档或相应过程的支持。  以下示例演示如何使用 `mkinitrd` 实用工具重新生成 initrd：
 
 1. 备份现有 initrd 映像：
 
@@ -148,9 +150,9 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 必须在内核中包含以下修补程序。 此列表并不完整，并未包括所有分发版。
 
 * [ata_piix：默认情况下，将磁盘交由 Hyper-V 驱动程序处理](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc：解释 RESET 路径中传输中数据包的帐户](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc：考虑 RESET 路径中正在传输的数据包](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc：避免使用 WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc：禁用 RAID 和虚拟主机适配器驱动程序的 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc：对 RAID 和虚拟主机适配器驱动程序禁用 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 * [storvsc：NULL 指针取消引用修补程序](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc：环形缓冲区故障可能会导致 I/O 冻结](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs：防止执行两次 __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
@@ -176,13 +178,13 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
     ```
     图形引导和静默引导不适用于云环境，在该环境中我们希望将所有日志发送到串行端口。 可根据需要配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量至少减少 128 MB，这对于较小的 VM 而言可能是个问题。
 
-2. 安装 Azure Linux 代理。
+1. 安装 Azure Linux 代理。
 
     在 Azure 上预配 Linux 映像需要 Azure Linux 代理。  许多分发版将该代理提供为 RPM 或 Deb 包（该包通常称为 WALinuxAgent 或 walinuxagent）。  还可以按照 [Linux 代理指南](../extensions/agent-linux.md)中的步骤手动安装该代理。
 
-3. 确保已安装 SSH 服务器且已将其配置为在引导时启动。  此配置通常是默认值。
+1. 确保已安装 SSH 服务器且已将其配置为在引导时启动。  此配置通常是默认值。
 
-4. 不要在 OS 磁盘上创建交换空间。
+1. 不要在 OS 磁盘上创建交换空间。
 
     Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 本地资源磁盘是临时磁盘，并可能在取消预配 VM 时被清空。 安装 Azure Linux 代理（上述步骤 2）后，根据需要在 /etc/waagent.conf 中修改以下参数。
     ```  
@@ -192,15 +194,18 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* 运行以下命令以取消预配虚拟机。
 
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-    > [!NOTE]
-    > 运行 `waagent -force -deprovision` 之后，Virtualbox 上可能会出现以下错误，指出 `[Errno 5] Input/output error`。 此错误消息并不关键，可以忽略。
+1. 运行以下命令以取消预配虚拟机。
+
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+
+     > [!NOTE]
+     > 运行 `waagent -force -deprovision` 之后，Virtualbox 上可能会出现以下错误，指出 `[Errno 5] Input/output error`。 此错误消息并不关键，可以忽略。
+
 
 * 关闭虚拟机并将 VHD 上传到 Azure。
 

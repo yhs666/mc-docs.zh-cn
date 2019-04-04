@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: e0fc042f3ed4b423564f6a904d342f42699874fa
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 06098326b62e4a0f2bebdd8d82d114422d40771d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56902967"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625402"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 
@@ -101,7 +101,7 @@ $vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS2 -AvailabilitySet
 # <a name="create-a-virtual-machine"></a>创建虚拟机
 $vm = New-AzVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 
-############### <a name="vm2"></a>VM2 ###############
+###### <a name="-vm2"></a>######### VM2 ###############
 
 # <a name="create-an-public-ip-for-the-second-vm"></a>为第二个 VM 创建公共 IP。
 

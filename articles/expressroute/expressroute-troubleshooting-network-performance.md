@@ -1,5 +1,5 @@
 ---
-title: Azure 虚拟网络性能故障排除
+title: 排查虚拟网络性能问题：Azure | Microsoft Docs
 description: 此页提供一种标准化方法来测试 Azure 网络链接性能。
 services: expressroute
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/20/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 2e344df662c3853cc1582354038603fadb922997
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/08/2019
+ms.openlocfilehash: a39ce5ea1a2c31b3955f2717cd9bab0bfdf02ab6
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650925"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626598"
 ---
 # <a name="troubleshooting-network-performance"></a>网络性能故障排除
 ## <a name="overview"></a>概述
@@ -184,23 +184,25 @@ AzureCT PowerShell 模块有两个组成部分 - [可用性测试][Availability 
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>位置|Azure<br/>区域|估计<br/>距离 (km)|延迟|1 会话<br/>带宽|最大值<br/>带宽|
-| 西雅图 | 美国西部 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec | 21
-| 西雅图 | 美国西部          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec | 20 个
-| 西雅图 | 美国中部       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec | 17
-| 西雅图 | 美国中南部 |  2,877 km |  51 ms |  30.6 Mbits/sec |  2.49 Gbits/sec | 19
-| 西雅图 | 美国中北部 |  2,792 km |  55 ms |  27.7 Mbits/sec |  2.19 Gbits/sec | 18
-| 西雅图 | 美国东部 2        |  3,769 km |  73 ms |  21.3 Mbits/sec |  1.79 Gbits/sec | 16
-| 西雅图 | 美国东部          |  3,699 km |  74 ms |  21.1 Mbits/sec |  1.78 Gbits/sec | 15
-| 西雅图 | 日本东部       |  7,705 km | 106 ms |  14.6 Mbits/sec |  1.22 Gbits/sec | 28
-| 西雅图 | 英国南部         |  7,708 km | 146 ms |  10.6 Mbits/sec |   896 Mbits/sec | 24
-| 西雅图 | 西欧      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec | 23
-| 西雅图 | 澳大利亚东部   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec | 26
-| 西雅图 | 东南亚   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec | 25
-| 西雅图 | 巴西南部*   | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec | 22
-| 西雅图 | 印度南部      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
+
+|                           |                  |                             |         |                         |                       |
+|---------------------------|------------------|-----------------------------|---------|-------------------------|-----------------------|
+| ExpressRoute<br/>位置 | Azure<br/>区域 | 估计<br/>距离 (km) | 延迟 | 1 会话<br/>带宽 | 最大值<br/>带宽 |
+|          西雅图          |    美国西部 2     |           191 km            |  5 ms   |     262.0 Mbits/sec     |    3.74 Gbits/sec     |
+|          西雅图          |     美国西部      |          1,094 km           |  18 ms  |     82.3 Mbits/sec      |    3.70 Gbits/sec     |
+|          西雅图          |    美国中部    |          2,357 km           |  40 ms  |     38.8 Mbits/sec      |    2.55 Gbits/sec     |
+|          西雅图          | 美国中南部 |          2,877 km           |  51 ms  |     30.6 Mbits/sec      |    2.49 Gbits/sec     |
+|          西雅图          | 美国中北部 |          2,792 km           |  55 ms  |     27.7 Mbits/sec      |    2.19 Gbits/sec     |
+|          西雅图          |    美国东部 2     |          3,769 km           |  73 ms  |     21.3 Mbits/sec      |    1.79 Gbits/sec     |
+|          西雅图          |     美国东部      |          3,699 km           |  74 ms  |     21.1 Mbits/sec      |    1.78 Gbits/sec     |
+|          西雅图          |    日本东部    |          7,705 km           | 106 ms  |     14.6 Mbits/sec      |    1.22 Gbits/sec     |
+|          西雅图          |     英国南部     |          7,708 km           | 146 ms  |     10.6 Mbits/sec      |     896 Mbits/sec     |
+|          西雅图          |   西欧    |          7,834 km           | 153 ms  |     10.2 Mbits/sec      |     761 Mbits/sec     |
+|          西雅图          |  澳大利亚东部  |          12,484 km          | 165 ms  |      9.4 Mbits/sec      |     794 Mbits/sec     |
+|          西雅图          |  东南亚  |          12,989 km          | 170 ms  |      9.2 Mbits/sec      |     756 Mbits/sec     |
+|          西雅图          | 巴西南部 \*  |          10,930 km          | 189 ms  |      8.2 Mbits/sec      |     699 Mbits/sec     |
+|          西雅图          |   印度南部    |          12,918 km          | 202 ms  |      7.7 Mbits/sec      |     634 Mbits/sec     |
+
 
 \* 巴西的延迟是一个很好的例子，其中的直线距离明显不同于光纤运行距离。 我以为延迟会在 160 ms 左右，但实际是 189 ms。 与我预期所产生的差异可能表明某处存在网络问题，但最有可能的是，光纤运行并不以直线形式转至巴西，而是从西雅图转至巴西，这一过程另有 1,000 km 左右。
 

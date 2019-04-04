@@ -1,5 +1,5 @@
 ---
-title: Azure 顾问简介 | Microsoft Docs
+title: Azure 顾问简介 | Azure
 description: 使用 Azure 顾问优化 Azure 部署。
 services: advisor
 documentationcenter: NA
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: lingliw
-ms.openlocfilehash: 2c77bd9b3e4b627bb890e31ffc0d7c1f17ad7014
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 0e57232c45a279fc6f1857b134d2527eefef3d33
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964424"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544676"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 顾问简介
 
@@ -29,7 +29,7 @@ ms.locfileid: "57964424"
 * 提高资源的性能、安全性和高可用性，同时确定机会减少总体 Azure 支出。
 * 通过提议的内联操作获取建议。
 
-可通过 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade)访问顾问。 登录到[门户](https://portal.azure.cn)，在导航菜单中查找“顾问”，或在“所有服务”菜单中搜索它。
+可通过 [Azure 门户](https://aka.ms/azureadvisor_cn)访问顾问。 登录到[门户](https://portal.azure.cn)，在导航菜单中查找“顾问”，或在“所有服务”菜单中搜索它。
 
 顾问仪表板显示针对所有订阅的个性化建议。  可为特定的订阅和资源类型应用筛选器，以显示相关建议。  建议分为四类： 
 
@@ -51,7 +51,7 @@ ms.locfileid: "57964424"
 ## <a name="frequently-asked-questions"></a>常见问题
 
 ### <a name="how-do-i-access-advisor"></a>如何访问顾问？
-可通过 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade)访问顾问。 登录到[门户](https://portal.azure.cn)，在导航菜单中查找“顾问”，或在“所有服务”菜单中搜索它。
+可通过 [Azure 门户](https://aka.ms/azureadvisor_cn)访问顾问。 登录到[门户](https://portal.azure.cn)，在导航菜单中查找“顾问”，或在“所有服务”菜单中搜索它。
 
 还可通过虚拟机资源接口查看顾问建议。 选择虚拟机，并滚动到菜单中的顾问建议。 
 

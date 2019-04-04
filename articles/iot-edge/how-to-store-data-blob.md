@@ -6,16 +6,16 @@ manager: philmea
 ms.author: v-yiso
 ms.reviewer: arduppal
 origin.date: 03/07/2019
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ca2cf043a5eb4ec99af383d4d8631ef36cd3464a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 61e53f3ea42f14651d54a8d033ab8bc1509e2c3f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987990"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627319"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>通过 IoT Edge 上的 Azure Blob 存储（预览版）在边缘存储数据
 
@@ -90,7 +90,7 @@ Azure 市场提供了可直接部署到 IoT Edge 设备的 IoT Edge 模块，包
    2. 选择你的 **IoT 中心**。
 
    3. 如果你知道自己的 **IoT Edge 设备名称**，请在文本框中输入该名称。 或者，选择“查找设备”以从 IoT 中心的 IoT Edge 设备列表中进行选择。 
-   
+
    4. 选择“创建” 。
 
    现在，你已从 Azure 市场选择了 IoT Edge 模块，并且选择了要接收该模块的 IoT Edge 设备，接下来，你将转到一个具有三个步骤的向导，该向导可帮助准确定义该模块的部署方式。
@@ -109,7 +109,7 @@ Azure 市场提供了可直接部署到 IoT Edge 设备的 IoT Edge 模块，包
       >调用模块时，Azure IoT Edge 区分大小写，存储 SDK 默认为小写。 为确保与 IoT Edge 上的 Azure Blob 存储模块建立的连接不会中断，请为其提供小写名称。 
 
    2. 默认的“容器创建选项”可以创建容器所需的端口绑定，但你还需要为设备上的存储目录添加存储帐户信息和绑定。 使用以下 JSON 覆盖门户中的 JSON：
-    
+
       ```json
       {
           "Env":[
@@ -134,7 +134,7 @@ Azure 市场提供了可直接部署到 IoT Edge 设备的 IoT Edge 模块，包
 
          * Linux 容器：\<存储路径 >:/blobroot。 例如：/srv/containerdata:/blobroot。 或，my-volume:/blobroot。 
          * Windows 容器：\<存储路径 >:C:/BlobRoot。 例如，C:/ContainerData:C:/BlobRoot。 或，my-volume:C:/blobroot。
-   
+
       > [!IMPORTANT]
       > 请不要更改存储目录绑定值的后半部分，该部分指向模块中的特定位置。 对于 Linux 容器，存储目录绑定应始终以 **:/blobroot** 结尾；对于 Windows 容器，应以 **:C:/BlobRoot** 结尾。
 
@@ -194,7 +194,7 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 
    * Linux 容器：\<存储路径 >:/blobroot。 例如：/srv/containerdata:/blobroot。 或，my-volume:/blobroot。
    * Windows 容器：\<存储路径 >:C:/BlobRoot。 例如，C:/ContainerData:C:/BlobRoot。 或，my-volume:C:/blobroot。
-   
+
    > [!IMPORTANT]
    > 请不要更改存储目录绑定值的后半部分，该部分指向模块中的特定位置。 对于 Linux 容器，存储目录绑定应始终以 **:/blobroot** 结尾；对于 Windows 容器，应以 **:C:/BlobRoot** 结尾。
 
@@ -227,6 +227,7 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 
 ### <a name="auto-tiering-properties"></a>自动分层属性 
 此设置的名称为 `tieringSettings`
+
 | 字段 | 可能的值 | 说明 |
 | ----- | ----- | ---- |
 | tieringOn | true、false | 默认设置为 `false`，若要启用它，可将它设置为 `true`|
@@ -236,6 +237,7 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 
 ### <a name="auto-expiration-properties"></a>自动过期属性
 此设置的名称为 `ttlSettings`
+
 | 字段 | 可能的值 | 说明 |
 | ----- | ----- | ---- |
 | ttlOn | true、false | 默认设置为 `false`，若要启用它，可将它设置为 `true`|
@@ -266,10 +268,9 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
        }
      }
    }
-
    ```
 
- ![设置自动分层和自动过期属性](./media/how-to-store-data-blob/iotedge_custom_module.png)
+  ![设置自动分层和自动过期属性](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **通过“模块标识孪生”功能部署模块后**：转到此模块的“模块标识孪生”，复制所需属性下的 JSON，为每个属性配置适当的值，然后保存属性。 在“模块标识孪生”JSON 中，确保每次添加或更新任何所需属性时，`reported configuration` 部分都会反映所做的更改，并且 `configurationValidation` 部分针对每个属性显示成功消息。
 
@@ -340,6 +341,9 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
     }
 
    ```
+  ## <a name="logs"></a>日志
+
+请按照说明[为 IoT Edge 模块配置 docker 日志](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## <a name="connect-to-your-blob-storage-module"></a>连接到 blob 存储模块
 
@@ -425,6 +429,11 @@ IoT Edge 上的 Blob 存储模块使用相同的 Azure 存储 SDK，并与适用
 
 不受支持：
 * 放置来自 URL 的块
+
+## <a name="feedback"></a>反馈：
+你的反馈对我们非常重要，它会使此模块及其功能有用且易于使用。 请分享你的反馈并告诉我们该如何改进。
+
+你可以通过 absiotfeedback@microsoft.com 联系我们 
 
 ## <a name="next-steps"></a>后续步骤
 

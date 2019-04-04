@@ -16,12 +16,12 @@ ms.workload: azure-vs
 origin.date: 03/26/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 76cede08e6e021ca8c221b75990b9ee15901ea26
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 021751526cfe5460ba7c42e3d46d1601c9a182eb
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463545"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626879"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 简化 Service Fabric 应用程序的编写和管理
 可以通过 Visual Studio 管理 Azure Service Fabric 应用程序和服务。 [设置开发环境](service-fabric-get-started.md)后，可以使用 Visual Studio 创建 Service Fabric 应用程序、添加服务，或在本地开发群集中打包、注册和部署应用程序。
@@ -41,7 +41,7 @@ ms.locfileid: "57463545"
 Visual Studio 提供一个名为“应用程序调试模式”的属性，它控制 Visual Studio 在调试时如何处理应用程序部署。
 
 #### <a name="to-set-the-application-debug-mode-property"></a>设置“应用程序调试模式”属性
-1. 在 Service Fabric 应用程序项目 (*.sfproj) 的快捷菜单上，选择“属性”（或按 **F4** 键）。
+1. 在 Service Fabric 应用程序项目 (<em>.sfproj) 的快捷菜单上，选择“属性”（或按 **F4** 键）。
 2. 在“属性”窗口中，设置“应用程序调试模式”属性。
 
 ![设置“应用程序调试模式”属性][debugmodeproperty]

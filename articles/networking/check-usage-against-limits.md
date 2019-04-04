@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/05/2018
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 8c3a25813bcaeb64999964e9dbc0ef8ed3d85e86
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 5aaf457c0933262120c2aaa2d53d66d55baf2b07
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903004"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625792"
 ---
 # <a name="check-resource-usage-against-limits"></a>根据限制检查资源使用情况
 
@@ -35,16 +35,16 @@ ms.locfileid: "56903004"
 4. 选择要查看其使用情况信息的订阅的名称。
 5. 在“设置”下选择“使用情况 + 配额”。
 6. 可以选择以下选项：
-    - **资源类型**：可以选择所有资源类型，也可以选择要查看的特定资源类型。
-    - **提供程序**：可以选择所有资源提供程序，也可以选择“计算”、“网络”或“存储”。
-    - **位置**：可以选择所有 Azure 位置，也可以选择特定位置。
-    - 可以选择显示所有资源，也可只显示至少部署了一个资源的资源。
+   - **资源类型**：可以选择所有资源类型，也可以选择要查看的特定资源类型。
+   - **提供程序**：可以选择所有资源提供程序，也可以选择“计算”、“网络”或“存储”。
+   - **位置**：可以选择所有 Azure 位置，也可以选择特定位置。
+   - 可以选择显示所有资源，也可只显示至少部署了一个资源的资源。
 
-    下图中的示例显示了在美国东部至少部署了一个资源的所有网络资源：
+     下图中的示例显示了在美国东部至少部署了一个资源的所有网络资源：
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![查看使用情况数据](./media/check-usage-against-limits/view-usage.png)
 
-    可以通过选择列标题来对列进行排序。 显示的限制是订阅的限制。 如果需要增加默认限制，请选择“请求增加”，然后完成并提交支持请求。 所有资源都具有 Azure [限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中列出的最大限制。 如果当前限制已达到最大数量，则不能增加限制。
+     可以通过选择列标题来对列进行排序。 显示的限制是订阅的限制。 如果需要增加默认限制，请选择“请求增加”，然后完成并提交支持请求。 所有资源都具有 Azure [限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中列出的最大限制。 如果当前限制已达到最大数量，则不能增加限制。
 
 ## <a name="powershell"></a>PowerShell
 

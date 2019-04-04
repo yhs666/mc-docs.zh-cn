@@ -16,18 +16,18 @@ ms.topic: article
 origin.date: 12/15/2015
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00a6fe3802a02c48d53d3abcd32abfe4dce7da91
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 9a2892c386466e67785e08b15563b7c1b62db5f9
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674730"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626542"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虚拟机上设置 Tomcat7
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation (ASF) 开发的一个开源 Web 服务器和 servlet 容器。 Tomcat 实现了 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages (JSP) 规范。 Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。 在最简单的配置中，Tomcat 在单个操作系统进程中运行。 此进程运行 Java 虚拟机 (JVM)。 浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。  
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager 模型和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。 若要使用 Resource Manager 模板通过 Open JDK 和 Tomcat 部署 Ubuntu VM，请参阅 [此文](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。 若要使用 Resource Manager 模板通过 Open JDK 和 Tomcat 部署 Ubuntu VM，请参阅 [此文](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 在本文中，我们将在 Linux 映像中安装 Tomcat7，并将其部署到 Azure。  
@@ -125,7 +125,7 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。 如果使用 Azure 
 7. 系统会提示输入用户名。  
 ![显示用户名输入位置的屏幕截图][12]
 
-8. 输入在本文“阶段 1：创建映像”部分中创建虚拟机时使用的用户名。 会显示如下内容：  
+8. 输入在本文“第 1 阶段：创建映像”部分中创建虚拟机时使用的用户名。 会显示如下内容：  
 ![显示身份验证确认的屏幕截图][13]
 
 ## <a name="phase-3-install-software"></a>阶段 3：安装软件
@@ -142,7 +142,7 @@ Tomcat 用 Java 编写。 有关如何获取完全支持的 Java 运行时的信
 可以使用如下命令测试是否已正确安装 Java 运行时环境：  
     java 版本  
 
-应会看到如下消息：![指出成功安装 OpenJDK 的消息][14]
+应看到类似于下面的消息：![指出成功安装 OpenJDK 的消息][14]
 
 如果已安装 Oracle JDK，应会看到如下消息：![指出成功安装 Oracle JDK 的消息][15]
 
@@ -212,30 +212,30 @@ Tomcat 用 Java 编写。 有关如何获取完全支持的 Java 运行时的信
   Tomcat 正在运行，但使用浏览器看不到 Tomcat 默认页。
 #### <a name="possible-root-cause"></a>可能的根本原因   
 
-  * Tomcat 侦听端口与用于 Tomcat 流量的虚拟机终结点的专用端口不同。  
+* Tomcat 侦听端口与用于 Tomcat 流量的虚拟机终结点的专用端口不同。  
 
-     检查公用端口和专用端口终结点设置，确保专用端口与 Tomcat 侦听端口相同。 有关如何为虚拟机配置终结点的说明，请参阅本文的“阶段 1：创建映像”部分。  
+   检查公用端口和专用端口终结点设置，确保专用端口与 Tomcat 侦听端口相同。 有关如何为虚拟机配置终结点的说明，请参阅本文的“阶段 1：创建映像”部分。  
 
-     若要确定 Tomcat 侦听端口，请打开 /etc/httpd/conf/httpd.conf（CentOS 发行版）或 /etc/tomcat7/server.xml（Debian 发行版）。 默认情况下，Tomcat 侦听端口为 8080。 以下是示例：  
+   若要确定 Tomcat 侦听端口，请打开 /etc/httpd/conf/httpd.conf（CentOS 发行版）或 /etc/tomcat7/server.xml（Debian 发行版）。 默认情况下，Tomcat 侦听端口为 8080。 以下是示例：  
         
-        <!-- Change Red Hat to CentOS -->
-        <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
+      <!-- Change Red Hat to CentOS -->
+      <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
-     如果要使用 Debian 或 Ubuntu 等虚拟机并且要更改 Tomcat 侦听的默认端口（例如 8081），则还应为操作系统打开该端口。 首先打开配置文件：  
+   如果要使用 Debian 或 Ubuntu 等虚拟机并且要更改 Tomcat 侦听的默认端口（例如 8081），则还应为操作系统打开该端口。 首先打开配置文件：  
 
-        sudo vi /etc/default/tomcat7  
+      sudo vi /etc/default/tomcat7  
 
-     然后，取消注释最后一行并将“no”更改为“yes”。  
+   然后，取消注释最后一行并将“no”更改为“yes”。  
 
-        AUTHBIND=yes
-  * 防火墙已禁用 Tomcat 的侦听端口。
+      AUTHBIND=yes
+* 防火墙已禁用 Tomcat 的侦听端口。
 
-     只能在本地主机上看到 Tomcat 默认页。 问题的原因很可能是 Tomcat 侦听的端口被防火墙阻止。 可以使用 w3m 工具来浏览网页。 以下命令安装 w3m 并浏览到 Tomcat 默认页面：  
+   只能在本地主机上看到 Tomcat 默认页。 问题的原因很可能是 Tomcat 侦听的端口被防火墙阻止。 可以使用 w3m 工具来浏览网页。 以下命令安装 w3m 并浏览到 Tomcat 默认页面：  
 
-        sudo yum  install w3m w3m-img
+      sudo yum  install w3m w3m-img
 
-        w3m http://localhost:8080  
-#### <a name="solution"></a>解决方案
+      w3m http://localhost:8080  
+  #### <a name="solution"></a>解决方案
 
 * 如果 Tomcat 侦听端口与发往虚拟机的流量的终结点专用端口不同，则需要将该专用端口更改为与 Tomcat 侦听端口相同。   
 * 如果此问题由防火墙/iptables 导致，请将以下行添加到 /etc/sysconfig/iptables。 只有 https 流量才需要第二行：  

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 849fcec97c3e309d184e805cd18abf95ca417f72
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: daeef1a31e37034c6363e1c0f53d01a5f8100c38
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833403"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624169"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用本地编码器执行实时传送视频流以创建多比特率流
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用从本地编码器接收多比特率实时流的频道
 
 > [!NOTE]
 > 自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。
@@ -46,7 +46,7 @@ ms.locfileid: "56833403"
 > [!NOTE]
 > 本文讨论未启用执行实时编码的频道的属性。 若要了解如何使用执行实时编码的频道，请参阅[使用 Azure 媒体服务创建多比特率流的实时传送视频流](media-services-manage-live-encoder-enabled-channels.md)。
 >
->有关建议的本地编码器的详细信息，请参阅[建议的本地编码器](media-services-recommended-encoders.md)。
+>有关建议的本地编码器的信息，请参阅[建议的本地编码器](media-services-recommended-encoders.md)。
 
 下图表示的是一个使用本地实时编码器输出多比特率 RTMP 或分片 MP4（平滑流式处理）流的实时传送视频流工作流。
 
@@ -147,7 +147,7 @@ ms.locfileid: "56833403"
 
 可以在创建频道时获取预览 URL。 若要获取该 URL，频道不一定要处于“正在运行”状态。 在频道开始引入数据后，可以预览流。
 
-当前，不管指定了哪种输入类型，都只能以分片 MP4（平滑流式处理）流格式来传送预览流。 可以使用[平滑流式处理运行状况监视器](http://playready.directtaps.net/smoothstreaming/)播放器来测试平滑流。 还可以使用 Azure 门户中托管的播放器来查看流。
+当前，不管指定了哪种输入类型，都只能以分片 MP4（平滑流式处理）流格式来传送预览流。 可以使用[平滑流式处理运行状况监视器](https://playready.directtaps.net/smoothstreaming/)播放器来测试平滑流。 还可以使用 Azure 门户中托管的播放器来查看流。
 
 #### <a name="allowed-ip-addresses"></a>允许的 IP 地址
 可以定义允许连接到预览终结点的 IP 地址。 如果未指定 IP 地址，则允许任何 IP 地址。 可将允许的 IP 地址指定为以下形式之一：
@@ -186,7 +186,7 @@ ms.locfileid: "56833403"
 下表显示通道状态如何映射到计费模式。
 
 | 通道状态 | 门户 UI 指示器 | 是否计费？ |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **正在启动** |**正在启动** |否（暂时状态） |
 | **正在运行** |**就绪**（没有正在运行的节目）<p><p>或<p>**流式处理**（至少有一个正在运行的节目） |是 |
 | **正在停止** |**正在停止** |否（暂时状态） |

@@ -1,29 +1,28 @@
 ---
-title: 连接到 SAP 系统 - Azure 逻辑应用 | Microsoft Docs
+title: 连接到 SAP 系统 - Azure 逻辑应用
 description: 如何使用 Azure 逻辑应用将工作流自动化，以访问和管理 SAP 资源
 author: ecfan
 manager: jeconnoc
 ms.author: v-yiso
 origin.date: 05/31/2018
-ms.date: 11/12/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 5d41e88d1f4796b00a056867f2acb66c591131b9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 55fb3d27dac0ccc978906f2424f7e50f23e3d06f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675059"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627459"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 SAP 系统
 
 > [!NOTE]
-> 此 SAP 连接器不久将弃用。 我们已发布新的更高级的 SAP 连接器，建议你选择或移至[新的 SAP 连接器](./logic-apps-using-sap-connector.md)。
->  
+> 此 SAP 连接器已计划弃用。 请使用或迁移到[更新更高级的 SAP 连接器](./logic-apps-using-sap-connector.md)。 
 
 本文介绍如何使用 SAP 应用程序服务器和 SAP 消息服务器连接器，从逻辑应用内部访问 SAP 资源。 这样，便可以通过创建逻辑应用来自动执行任务、过程和工作流，以管理 SAP 数据和资源。
 
@@ -68,7 +67,7 @@ ms.locfileid: "52675059"
 
 1. 在 Azure 门户中创建一个空白的逻辑应用，以便打开逻辑应用设计器。 
 
-2. 在搜索框中，输入“http 请求”作为筛选器。 在触发器列表中选择此触发器：“请求 - 当收到 HTTP 请求时”
+2. 在搜索框中，输入“http 请求”作为筛选器。 从触发器列表中选择此触发器：**请求 - 当收到 HTTP 请求时**
 
    ![添加 HTTP 请求触发器](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -94,7 +93,7 @@ ms.locfileid: "52675059"
    * **SAP 应用程序服务器 - 发送到 SAP**
    * **SAP 消息服务器 - 发送到 SAP**
 
-   本示例使用此操作：“SAP 应用程序服务器 - 发送到 SAP”
+   此示例使用以下操作：**SAP 应用程序服务器 - 发送到 SAP**
 
    ![选择“SAP 应用程序服务器”或“SAP 消息服务器”](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -155,7 +154,7 @@ ms.locfileid: "52675059"
 
 1. 在逻辑应用设计器中的 SAP 操作下，选择“新建步骤” > “添加操作”。
 
-2. 在搜索框中，输入“响应”作为筛选器。 在操作列表中选择此操作：“请求 - 响应”
+2. 在搜索框中，输入“响应”作为筛选器。 在操作列表中选择此操作：**请求 - 响应**
 
 3. 在“正文”框中单击，以显示动态内容列表。 在该列表中的“发送到 SAP”下面，选择“正文”字段。 
 
@@ -199,7 +198,7 @@ ms.locfileid: "52675059"
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
+* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
+title: 使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断 | Azure
 services: virtual-machines-windows
 documentationcenter: ''
 description: 了解如何使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5beb35a6a94946ff571fecf64bf42e6452a65577
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 455fec737123f7f8d0b68fdd5dc0917492bfc43e
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666187"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627414"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
 

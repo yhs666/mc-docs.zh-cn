@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 08/18/2017
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: c3bd4db4d901fbb93eaca955ca7181e023f839c5
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: b1d8e8739aac9950dc07c387d95a0bda47d45765
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204198"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626174"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服务的放置策略
 放置策略是可用于在某些不常见的特定情况下控制服务位置的附加规则。 这些情况可能包括：
@@ -45,6 +45,7 @@ ms.locfileid: "57204198"
 凭借 **InvalidDomain** 放置策略，可以指定某个特定容错域对特定服务是无效的。 此策略可确保特定的服务绝对不会在特定的区域中运行（例如，出于地缘政治或公司政策的原因）。 可以通过单独的策略指定多个无效域。
 
 <center>
+
 ![无效域示例][Image1]
 </center>
 
@@ -65,6 +66,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 所需的域放置策略要求服务仅存在于指定域中。 可以通过单独的策略指定多个所需域。
 
 <center>
+
 ![所需域示例][Image2]
 </center>
 
@@ -86,6 +88,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 首选主域指定放置主要副本的容错域。 如果一切运行正常，主要副本最终位于此域中。 如果域或主要副本出现故障或关闭，则主要副本会移到其他位置，理想情况下为同一域中的其他位置。 如果此新位置不在首选域中，群集 Resource Manager 会尽快将主要副本移回首选域。 当然，此设置仅适用于有状态服务。 对于跨越 Azure 区域或多个数据中心的群集，如果该群集的服务希望放置在某个位置，此策略最有用。 使主要副本接近其用户或其他服务有助于降低延迟，尤其是对于默认由主要副本处理的读取操作。
 
 <center>
+
 ![首选主域和故障转移][Image3]
 </center>
 

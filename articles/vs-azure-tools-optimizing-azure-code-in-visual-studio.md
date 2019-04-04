@@ -16,12 +16,12 @@ ms.workload: azure-vs
 origin.date: 11/11/2016
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5c2a5b76f53028756df1e255f9074097ce15c8ac
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8ea559320871b80a96469c0eedca2b6029db3dac
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626945"
 ---
 # <a name="optimizing-your-azure-code"></a>优化 Azure 代码
 对使用 Azure 的应用程序进行编程时，应遵循某些编码做法，以免在云环境中应用程序的伸缩性、行为和性能出现问题。 Microsoft 提供了 Azure 代码分析工具，该工具可识别并确定部分常见问题并帮助你解决这些问题。 可以通过 NuGet 在 Visual Studio 中下载该工具。
@@ -51,7 +51,7 @@ ASP.NET 会话状态支持多种不同的会话状态数据存储选项：InProc
 AP1000
 
 ### <a name="description"></a>说明
-在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法外部创建异步方法（例如 [await](https://msdn.microsoft.com/library/hh156528.aspx)），然后从 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 调用异步方法。 将 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法声明为异步方法会导致辅助角色进入重启循环。
+在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法外部创建异步方法（例如 [await](https://msdn.microsoft.com/library/hh156528.aspx)），然后从 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 调用异步方法。 将 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法声明为异步方法会导致辅助角色进入重启循环。
 
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
@@ -401,7 +401,7 @@ AP4001
 - 对于 IIS 托管的 Web 应用程序，请使用 web.config 来存储连接字符串。
 - 对于 ASP.NET vNext 应用程序，请使用 configuration.json 来存储连接字符串。
 
-有关使用 web.config 或 app.config 等配置文件的相关信息，请参阅 [ASP.NET Web 配置指南](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx)。 有关 Azure 环境变量工作原理的信息，请参阅 [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)（Azure 网站：应用程序字符串和连接字符串的工作原理）。 有关在源代码管理中存储连接字符串的信息，请参阅 [避免将敏感信息（如连接字符串）放置在源代码存储库中存储的文件内](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
+有关使用 web.config 或 app.config 等配置文件的相关信息，请参阅 [ASP.NET Web 配置指南](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx)。 有关 Azure 环境变量如何工作的信息，请参阅 [Azure 网站：应用程序字符串和连接字符串的工作原理](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。 有关在源代码管理中存储连接字符串的信息，请参阅 [避免将敏感信息（如连接字符串）放置在源代码存储库中存储的文件内](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
 
 ## <a name="use-diagnostics-configuration-file"></a>使用诊断配置文件
 ### <a name="id"></a>ID
