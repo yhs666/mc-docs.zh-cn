@@ -5,7 +5,7 @@ services: Azure Service Health
 author: stephbaron
 manager: carolz
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,6 +13,12 @@ ms.topic: landing-page
 origin.date: 03/27/2018
 ms.date: 03/11/2019
 ms.author: v-yiso
+ms.openlocfilehash: 9de97e2576dd68f876aa3edb44d6333ab0fa785f
+ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196613"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 

@@ -8,6 +8,12 @@ origin.date: 09/28/2018
 ms.date: 04/01/2019
 ms.author: v-biyu
 ms.topic: overview
+ms.openlocfilehash: df0f8a3371333a30d4f5182ccc764944a4aab7b9
+ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58135490"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 
