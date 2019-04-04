@@ -10,31 +10,32 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-origin.date: 01/18/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 3a00ff309a1094c0420dbce9411477c91b2dc84f
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 81a306d9755cf8d0b78f1cc3ed8ee5821158289b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905265"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625188"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>管理 Azure Stack 中的存储帐户
+# <a name="manage-azure-stack-storage-accounts"></a>管理 Azure Stack 存储帐户
 
-了解如何管理 Azure Stack 中的存储帐户，以根据业务需求查找、恢复和回收存储容量。
+了解如何管理 Azure Stack 存储帐户。 根据业务需求查找、恢复和回收存储容量。
 
 ## <a name="find-a-storage-account"></a>查找存储帐户
+
 可在 Azure Stack 中通过以下方式查看区域中的存储帐户列表：
 
 1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
 
-2. 选择“所有服务” > “存储帐户”。
+2. 选择“所有服务” > “存储” > “存储帐户”。
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack 存储帐户](media/azure-stack-manage-storage-accounts/image4.png)
 
 默认显示前 10 个帐户。 可以单击列表底部的“加载更多”链接来提取更多的帐户。
 
@@ -46,17 +47,18 @@ OR
 **筛选帐户：**
 
 1. 选择窗格顶部的“筛选”。
-2. 在“筛选”窗格中，可以指定“帐户名”、“订阅 ID”或“状态”，以调整要显示的存储帐户列表。 适当地使用筛选器。
-3. 选择“更新”。 列表会相应地刷新。
+2. 在“筛选”窗格中，可以指定“帐户名”、“订阅 ID”或“状态”，以调整要显示的存储帐户列表。** 适当地使用筛选器。
+3. 键入时，列表会自动应用筛选器。  上获取。
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![筛选 Azure Stack 存储帐户](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. 若要重置筛选器，请选择“筛选”、清除选择内容，然后更新。
 
 使用搜索文本框（位于存储帐户列表窗格的顶部）可以突出显示帐户列表中选择的文本。 无法轻松获取完整名称或 ID 时，可以使用此功能。
 
 可在此处使用任意文本，帮助找到想要查看的帐户。
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![查找 Azure Stack 存储帐户](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>查看帐户详细信息
 找到想要查看的帐户后，可以选择特定帐户查看特定详细信息。 此时将打开新的窗格，其中包含帐户详细信息，例如帐户类型、创建时间、位置等等。
@@ -98,9 +100,8 @@ OR
 
 1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
 2. 在“管理”下选择“所有服务” > “区域管理”。
-3. 从“资源提供程序”列表中选择“存储”。
-4. 选择顶部的“设置”打开设置窗格。
-5. 选择“配置”，然后编辑保留期值。
+3. 选择“资源提供程序” > “存储” > “设置”。 路径为主目录 > *区域* - 资源提供程序 > 存储。
+4. 选择“配置”，然后编辑保留期值。
 
    设置天数并保存。
    

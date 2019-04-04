@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 02/24/2019
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: d7f31f251972535e0f00bf279503736b7a8cc569
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 8ef40639c35eb3be6593e014c849c53a7e2dc378
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256380"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408306"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -554,6 +554,16 @@ module.exports = myObj;
 ```
 
 请在此示例中务必注意，尽管正在导出对象，但无法保证可保留两次执行之间的状态。
+
+## <a name="local-debugging"></a>本地调试
+
+使用 `--inspect` 参数启动时，Node.js 进程会在指定端口上侦听调试客户端。 在 Azure Functions 2.x 中，可以指定要传递到运行代码的 Node.js 进程中的参数，方法是添加环境变量或应用设置 `languageWorkers:node:arguments = <args>`。 
+
+若要在本地进行调试，请在 [local.settings.json](/azure-functions/functions-run-local#local-settings-file) 文件的 `Values` 下添加 `"languageWorkers:node:arguments": "--inspect=5858"`，然后将调试程序附加到端口 5858。
+
+使用 VS Code 进行调试时，系统会使用项目的 launch.json 文件中的 `port` 值自动添加 `--inspect` 参数。
+
+在版本 1.x 中，设置 `languageWorkers:node:arguments` 将无效。 可以在 Azure Functions Core Tools 中使用 [`--nodeDebugPort`](/azure-functions/functions-run-local#start) 参数来选择调试端口。
 
 ## <a name="typescript"></a>TypeScript
 

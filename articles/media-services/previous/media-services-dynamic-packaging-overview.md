@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2018
-ms.date: 12/24/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 179fe3f4f0a746be99fecc71f349c86e8952e74e
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+origin.date: 03/21/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: 6807877cd7f279c5624853a7e03243c82c5da0d2
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656551"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624114"
 ---
 # <a name="dynamic-packaging"></a>动态打包
 
@@ -36,12 +36,14 @@ Microsoft Azure 媒体服务可用于向多种客户端技术（例如，iOS、X
 ![动态编码](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ## <a name="common-scenario"></a>常见方案
+
 1. 上传一个输入文件（称为夹层文件）。 例如，H.264、MP4 或 WMV（有关受支持格式的列表，请参阅[Media Encoder Standard 支持的格式](media-services-media-encoder-standard-formats.md)）。
 2. 将夹层文件编码为 H.264 MP4 自适应比特率集。
 3. 通过创建点播定位符来发布包含自适应比特率 MP4 集的资产。
 4. 生成用于访问和流式传输内容的流 URL。
 
 ## <a name="preparing-assets-for-dynamic-streaming"></a>准备用于动态流式传输的资产
+
 若要准备用于动态流式传输的资产，可以使用以下选项：
 
 - [上传主文件](media-services-dotnet-upload-files.md)。
@@ -50,8 +52,8 @@ Microsoft Azure 媒体服务可用于向多种客户端技术（例如，iOS、X
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>动态打包支持的音频编解码器
 
-动态打包支持 MP4 文件（或平滑流式处理文件），其中包含使用 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC、HE-AAC v1、HE-AAC v2)、[Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)（增强版 AC-3 或 E-AC3）或 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)（DTS Express，DTS LBR、 DTS HD、 DTS HD 无损）编码的音频。
+动态打包支持 MP4 文件，其中包含使用 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)（AAC-LC、HE-AAC v1、HE-AAC v2）、[Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)（增强版 AC-3 或 E-AC3）、Dolby Atmos 或 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)（DTS Express、DTS LBR、DTS HD、DTS HD 无损）编码的音频。 流式传输 Dolby Atmos 内容适用于特定的标准（例如 MPEG-DASH 协议），采用通用流式传输格式 (CSF) 或通用媒体应用程序格式 (CMAF) 分段 MP4，在使用 CMAF 的情况通过 HTTP 实时传送视频流 (HLS) 来进行。
 
-> [!Note]
+> [!NOTE]
 > 动态打包不支持包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音频（它是旧编解码器）的文件。
 

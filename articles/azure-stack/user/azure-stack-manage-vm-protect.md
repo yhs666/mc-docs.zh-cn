@@ -11,28 +11,24 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 12/10/2018
-ms.date: 12/31/2018
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.reviewer: hector.linares
-ms.openlocfilehash: 65a125a902e3836b4873f3d4edc1d92b6e1ab393
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: hectorl
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: a9f08624e8e4aaee9db8cb7af4088da46734eabf
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814669"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503665"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
 使用本文作为指南来制定计划，用以保护用户在 Azure Stack 上部署的虚拟机 (VM)。
 
 为了防止数据丢失和计划外停机，需要为用户应用程序及其数据实施备份恢复或灾难恢复计划。 对于各个应用程序而言，该计划可能各不相同，但会遵循一个框架，而该框架是按组织的综合性业务连续性和灾难恢复 (BC/DR) 策略制定的。 
-
->[!IMPORTANT]
-> 请持续测试你的备份恢复和灾难恢复计划。 必须这样做来确保：
-> * 计划正常工作
-> * 计划仍满足其设计意图。
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Azure Stack 基础结构恢复
 
@@ -47,6 +43,9 @@ Azure Stack 基础结构服务的恢复计划**不**包括恢复用户 VM、存�
 * 使应用程序可以持续为用户请求提供服务
 
 Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](/azure-stack/azure-stack-backup-recover-data)一文。
+
+## <a name="considerations-for-iaas-vms"></a>有关 IaaS VM 的注意事项
+安装在 IaaS VM 中的操作系统会进行限制，确保只有特定的产品可以用来保护其所包含的数据。 对于基于 Windows 的 IaaS VMs，可以使用 Azure 和合作伙伴产品来保护数据。 对于基于 Linux 的 IaaS VM，唯一的选择是使用合作伙伴产品。 请参阅[此数据表，了解其产品适用于 Azure Stack 的所有 BC/DR 合作伙伴](https://aka.ms/azurestackbcdrpartners)。
 
 ## <a name="sourcetarget-combinations"></a>源/目标组合
 

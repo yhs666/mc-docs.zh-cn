@@ -8,15 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 04/25/2018
-ms.date: 12/25/2018
+origin.date: 03/14/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: dc161c353a6bc44fcee48d0ece634e9b60dc0fa9
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: a3c2c3389257c06f6337023ceaa98c3ee02a3c58
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806702"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408273"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -49,6 +49,12 @@ Durable Functions 中的每个任务中心都有一个工作项队列。 它是�
 Durable Functions 中的每个任务中心有多个控制队列。 与较为简单的工作项队列相比，控制队列更加复杂。 控制队列用于触发有状态的业务流程协调程序函数。 由于业务流程协调程序函数实例是有状态的单一实例，无法使用竞争性使用者模型在 VM 之间分配负载。 业务流程协调程序消息会在控制队列之间进行负载均衡。 后续部分将会更详细地介绍此行为。
 
 控制队列包含各种业务流程生命周期消息类型。 示例包括[业务流程协调程序控制消息](durable-functions-instance-management.md)、活动函数响应消息和计时器消息。 在单次轮询中，最多会从一个控制队列中取消 32 条消息的排队。 这些消息包含有效负载数据以及元数据，包括适用的业务流程实例。 如果将多个取消排队的消息用于同一业务流程实例，将会批处理这些消息。
+
+### <a name="queue-polling"></a>队列轮询
+
+Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮询对存储事务成本造成的影响。 当找到消息时，运行时会立即检查另一条消息；如果未找到消息，它将等待一定的时间，然后重试。 如果后续尝试获取队列消息失败，则等待时间会继续增加，直到达到最长等待时间（默认为 30 秒）。
+
+可以通过 [host.json 文件](../functions-host-json.md#durabletask)中的 `maxQueuePollingInterval` 属性配置最大轮询延迟。 将此项设置为较高的值时，可能导致的消息处理延迟也越高。 只有在不活动的时间段过后，才会出现较高的延迟。 将此项设置为较低的值时，可能导致的存储成本会较高，因为存储事务数增高。
 
 ## <a name="storage-account-selection"></a>存储帐户的选择
 
@@ -206,10 +212,10 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 
 规划对生产应用程序使用 Durable Functions 时，必须在规划过程中提前考虑性能要求。 本部分介绍一些基本的使用方案和预期的最大吞吐量数字。
 
-- **顺序活动执行**：此方案描述的业务流程协调程序函数逐个运行一系列活动函数。 它与[函数链接](durable-functions-sequence.md)示例非常类似。
-- **并行活动执行**：此方案描述的业务流程协调程序函数使用[扇出扇入](durable-functions-cloud-backup.md)模式并行执行多个活动函数。
-- **并行响应处理**：此方案是[扇出扇入](durable-functions-cloud-backup.md)模式的后半部分。 它侧重于扇入性能。 必须注意，与扇出不同，扇入是由单个业务流程协调程序函数实例执行的，因此只能在单个 VM 上运行。
-- **外部事件处理**：此方案表示一次等待一个[外部事件](durable-functions-external-events.md)的单个业务流程协调程序函数实例。
+* **顺序活动执行**：此方案描述的业务流程协调程序函数逐个运行一系列活动函数。 它与[函数链接](durable-functions-sequence.md)示例非常类似。
+* **并行活动执行**：此方案描述的业务流程协调程序函数使用[扇出扇入](durable-functions-cloud-backup.md)模式并行执行多个活动函数。
+* **并行响应处理**：此方案是[扇出扇入](durable-functions-cloud-backup.md)模式的后半部分。 它侧重于扇入性能。 必须注意，与扇出不同，扇入是由单个业务流程协调程序函数实例执行的，因此只能在单个 VM 上运行。
+* **外部事件处理**：此方案表示一次等待一个[外部事件](durable-functions-external-events.md)的单个业务流程协调程序函数实例。
 
 > [!TIP]
 > 与扇出不同，扇入操作限制为单个 VM。 如果应用程序使用扇出扇入模式，并且你关注扇入性能，请考虑在多个[子业务流程](durable-functions-sub-orchestrations.md)之间分割活动函数扇出。
@@ -233,3 +239,4 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 > [!div class="nextstepaction"]
 > [使用 C# 创建第一个 Durable Function](durable-functions-create-first-csharp.md)
 
+<!-- Update_Description: wording update -->

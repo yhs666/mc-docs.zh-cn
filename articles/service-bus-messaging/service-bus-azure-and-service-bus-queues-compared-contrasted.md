@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 09/05/2018
-ms.date: 11/26/2018
+ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6531c757dbded17eeda0b5cff9b547bfa6450cc6
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 5e29fb1b39903bafb690e32cd0987c3debb0d134
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674400"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626091"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>存储队列和服务总线队列 - 比较与对照
-本文分析 Azure 目前提供的以下两种队列类型之间的不同点和相似点：存储队列和服务总线队列。 使用该信息可以比较和对照这两种技术，并可以明智地决定哪种解决方案最符合需要。
+本文分析 Azure 目前提供的以下两种队列类型之间的差异和相似性：存储队列和服务总线队列。 使用该信息可以比较和对照这两种技术，并可以明智地决定哪种解决方案最符合需要。
 
 ## <a name="introduction"></a>简介
-Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
+Azure 支持两种队列机制：“存储队列”和“服务总线队列”。
 
 存储队列是 [Azure 存储](https://www.azure.cn/home/features/storage/)基础结构的一部分，具有简单的基于 REST 的 GET/PUT/PEEK 接口，可在服务内部和服务之间提供可靠、持久的消息传送。
 
@@ -84,8 +83,9 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 * 存储队列中的消息通常是先进先出的，但有时其顺序可能会颠倒。例如，当消息的可见性超时持续时间到期时（例如，由于客户端应用程序在处理过程中崩溃），就会发生这种情况。 当可见性超时到期时，消息会再次变成在队列上可见，让另一个工作进程能够取消它的排队。 此时，重新变成可见的消息可以放置在队列中（可以再次取消其排队），位于原先排在它后面的消息之后。
 * 服务总线队列中有保障的 FIFO 模式要求使用消息传送会话。 处理以“扫视与锁定”模式接收的消息时，如果应用程序发生崩溃，下一次队列接收者接受消息传送会话时，它将在失败消息的生存时间 (TTL) 期限过期后开始传递此消息。
 * 存储队列可支持标准队列方案，例如解除应用程序组件之间的关联，增加可伸缩性和容错能力、进行负载分级，以及生成过程工作流。
-* 服务总线队列支持“至少一次”传递保障  。 此外，可以通过使用会话状态来存储应用程序状态，并通过使用事务自动接收消息和更新会话状态，从而支持“最多一次”语义  。
-* 存储队列可在多个队列、表和 Blob 上提供统一和一致的编程模型 - 对于开发人员和运营团队都是如此。
+* 服务总线队列支持“至少一次”传递保障  。 
+* 可以避免在服务总线会话上下文中处理消息时出现的不一致，方法是：使用会话状态来存储应用程序的状态（与处理会话的消息序列的进程相关），以及使用与处理接收的消息和更新会话状态相关的事务。 在其他供应商的产品中，这种一致性有时候称为“一次性处理”。但是，事务故障很明显会导致消息重新发送，因此此术语不是很准确。
+* 存储队列可在多个队列、表和 Blob 上提供统一和一致的编程模型 – 对于开发人员和运营团队都是如此。
 * 服务总线队列为单个队列的上下文中的本地事务提供支持。
 * 服务总线支持的“接收与删除”模式提供了减少消息传送操作计数（和相关成本）以换取降低安全传递保证的能力。
 * 存储队列提供租赁且可延长消息租赁时间。 这使工作进程能够对消息保持短的租赁时间。 因此，如果某个工作进程崩溃，则其他工作进程可以再次快速处理该消息。 此外，如果工作进程处理消息所需的时间比当前租赁时间长，则工作进程可以延长该消息的租赁时间。
@@ -127,12 +127,12 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 * 根据 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 属性的值，服务总线队列支持的重复项检测功能会自动删除发送到队列或主题的重复消息。
 
 ## <a name="capacity-and-quotas"></a>容量和配额
-本部分从适用的[容量和配额](./service-bus-quotas.md)角度对存储队列和服务总线队列进行了比较。
+本节从适用的[容量和配额](service-bus-quotas.md)角度比较存储队列和服务总线队列。
 
 | 比较条件 | 存储队列 | 服务总线队列 |
 | --- | --- | --- |
 | 最大队列大小 |**500 TB**<br/><br/>（限制为[单个存储帐户容量](../storage/common/storage-introduction.md#queue-storage)） |**1 GB 到 80 GB**<br/><br/>（在创建队列和[启用分区](service-bus-partitioning.md)时定义 - 请参阅“其他信息”部分） |
-| 最大消息大小 |**64 KB**<br/><br/>（使用 **Base64** 编码时为 48 KB）<br/><br/>Azure 可以通过合并队列和 Blob 支持大消息 - 此时单个项目排队的消息最多可达到 200 GB。 |**256 KB** 或 **1 MB**<br/><br/>（包含标题和正文，最大标题大小：64 KB）。<br/><br/>取决于[服务层](service-bus-premium-messaging.md)。 |
+| 最大消息大小 |**64 KB**<br/><br/>（使用 **Base64** 编码时为 48 KB）<br/><br/>Azure 可以通过合并队列和 Blob 支持大消息 - 此时单个项目排队的消息最多可达到 200 GB。 |**256 KB** 或 **1 MB**<br/><br/>（包含标头和正文，最大标头大小：64 KB）。<br/><br/>取决于[服务层](service-bus-premium-messaging.md)。 |
 | 最大消息 TTL |**无限**（从 api-version 2017-07-27 开始） |**TimeSpan.Max** |
 | 最大队列数 |**不受限制** |**10,000**<br/><br/>（按服务命名空间） |
 | 并发客户端的最大数目 |**不受限制** |**不受限制**<br/><br/>（100 个并发连接限制仅适用于基于 TCP 协议的通信） |
@@ -193,10 +193,10 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用队列存储服务](../storage/queues/storage-dotnet-how-to-use-queues.md)
-- [使用服务总线中转消息传送改进性能的最佳实践](./service-bus-performance-improvements.md)
-- [Introducing Queues and Topics in Azure Service Bus (blog post)](http://www.code-magazine.com/article.aspx?quickid=1112041)（Azure 服务总线中的队列和主题简介 – 博客文章）
-- [服务总线开发人员指南](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-- [在 Azure 中使用队列服务 ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
+* [使用服务总线中转消息传送改进性能的最佳实践](./service-bus-performance-improvements.md)
+* [Introducing Queues and Topics in Azure Service Bus (blog post)](http://www.code-magazine.com/article.aspx?quickid=1112041)（Azure 服务总线中的队列和主题简介 – 博客文章）
+* [服务总线开发人员指南](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
+* [在 Azure 中使用队列服务 ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.cn
 

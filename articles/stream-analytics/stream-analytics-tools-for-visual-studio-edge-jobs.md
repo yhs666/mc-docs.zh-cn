@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/13/2018
 ms.date: 09/30/2018
-ms.openlocfilehash: f8eb812dbb2b5053ec15581382f46bfb825cab46
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9a00038221fd82a7412265ee7b78d33d4a45128f
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648153"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544721"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -47,18 +47,19 @@ ms.locfileid: "52648153"
 
 ## <a name="define-inputs"></a>定义输入
 
-1. 在“解决方案资源管理器”中展开“输入”节点，应会看到名为 **EdgeInput.json** 的输入。 双击该输入以查看其设置。  
+1. 在“解决方案资源管理器”中展开“输入”节点，应会看到名为 **EdgeInput.json** 的输入。 双击该输出以查看其设置。  
 
-2. 确保“源类型”设置为“数据流”，“源”设置为“Edge 中心”，“事件序列化格式”设置为“Json”，“编码”设置为“UTF8”。 （可选）可以重命名“输入别名”。对于本示例，我们将其保留原样。 如果重命名了输入别名，请在定义查询时使用重命名后的名称。 选择“保存”，保存这些设置。  
-   ![输入配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
+2. 将“源类型”设置为“数据流”。 然后将“源”设置为“Edge 中心”，将“事件序列化格式”设置为“Json”，将“编码”设置为“UTF8”。 （可选）可以重命名“输入别名”。对于本示例，我们将其保留原样。 如果重命名了输入别名，请在定义查询时使用重命名后的名称。 选择“保存”，保存这些设置。  
+   ![流分析作业输入配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
+ 
 
 ## <a name="define-outputs"></a>定义输出
 
 1. 在“解决方案资源管理器”中展开“输出”节点，应会看到名为 **EdgeOutput.json** 的输出。 双击该输出以查看其设置。  
 
 2. 确保“接收器”设置为“Edge 中心”，“事件序列化格式”设置为“Json”，“编码”设置为“UTF8”，“格式”设置为“数组”。 （可选）可以重命名“输出别名”。对于本示例，我们将其保留原样。 如果重命名了输出别名，请在定义查询时使用重命名后的名称。 选择“保存”，保存这些设置。 
-   ![输出配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
-
+   ![流分析作业输出配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
+ 
 ## <a name="define-the-transformation-query"></a>定义转换查询
 
 Edge 环境中部署的流分析作业支持大多数[流分析查询语言参考](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396)，但是，Edge 作业尚不支持以下操作： 
@@ -81,20 +82,20 @@ FROM EdgeInput
 
 若要在本地测试查询，应上传示例数据。 可以通过从 [GitHub 存储库](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json)下载注册数据来获取示例数据，并将其保存到本地计算机。 
 
-1. 上传示例数据，右键单击“EdgeInput.json”文件并选择“添加本地输入”  
+1. 若要上传示例数据，请右键单击 **EdgeInput.json** 文件并选择“添加本地输入”  
 
 2. 在弹出窗口中，**浏览**本地路径中的示例数据，并选择“保存”。
-   ![本地输入配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
-
+   ![Visual Studio 中的本地输入配置](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
+ 
 3. 名为 **local_EdgeInput.json** 的文件会自动添加到输入文件夹。  
 4. 可以在本地运行此文件，或将其提交到 Azure。 若要测试查询，请选择“本地运行”。  
-   ![运行选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
-
+   ![Visual Studio 中的流分析作业运行选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
+ 
 5. 命令提示符窗口会显示作业的状态。 如果作业运行成功，则会在项目文件夹路径“Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42”中创建类似于“2018-02-23-11-31-42”的文件夹。 导航到文件夹路径，查看本地文件夹中的结果：
 
    也可以登录到 Azure 门户并检查是否已创建该作业。 
 
-   ![结果文件夹](./media/stream-analytics-tools-for-visual-studio-edge-jobs/result-folder.png)
+   ![流分析作业结果文件夹](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-job-result-folder.png)
 
 ## <a name="submit-the-job-to-azure"></a>将作业提交到 Azure
 

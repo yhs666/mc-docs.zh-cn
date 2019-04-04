@@ -11,18 +11,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 12/07/2018
-ms.date: 03/18/2019
+ms.topic: conceptual
+origin.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 920e72474eebe222b23d5ae37e80326cdb6b16ab
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7a8a6ea5c8004a925a4643df37015e949e78114d
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987959"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503519"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -30,7 +30,7 @@ ms.locfileid: "57987959"
 
 [配额](azure-stack-plan-offer-quota-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源都可以有自已的配额类型。
 
-## <a name="compute-quota-types"></a>计算配额类型 
+## <a name="compute-quota-types"></a>计算配额类型
 
 | **类型** | **默认值** | **说明** |
 | --- | --- | --- |
@@ -41,6 +41,9 @@ ms.locfileid: "57987959"
 | 标准托管磁盘的最大容量 (GB) | 2048 | 可以在此位置中创建的标准托管磁盘的最大容量。 |
 | 高级托管磁盘的最大容量 (GB) | 2048 | 可以在此位置中创建的高级托管磁盘的最大容量。 |
 
+> [!NOTE]  
+> 非托管磁盘（页 Blob）的最大容量独立于托管磁盘配额，应该在“存储配额”中设置。
+
 ## <a name="storage-quota-types"></a>存储配额类型 
 
 | **项目** | **默认值** | **说明** |
@@ -49,8 +52,7 @@ ms.locfileid: "57987959"
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]  
-> 强制实施存储配额最多可能需要两个小时。
-
+> 强制实施存储配额最多可能需要两个小时。 托管磁盘的最大容量独立于总存储配额，应该在“计算配额”中设置。
 
 ## <a name="network-quota-types"></a>网络配额类型
 
@@ -70,10 +72,10 @@ ms.locfileid: "57987959"
 
 ### <a name="plans"></a>计划
 
-1.  在管理员门户的左侧导航窗格中，选择“计划”。
-2.  单击要查看其详细信息的计划的名称，将其选中。
-3.  在打开的边栏选项卡中，选择“服务和配额”。
-4.  在“名称”列中单击要查看的配额，将其选中。
+1. 在管理员门户的左侧导航窗格中，选择“计划”。
+2. 单击要查看其详细信息的计划的名称，将其选中。
+3. 在打开的边栏选项卡中，选择“服务和配额”。
+4. 在“名称”列中单击要查看的配额，将其选中。
 
     [![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -89,14 +91,14 @@ ms.locfileid: "57987959"
 
 ### <a name="edit-a-plan"></a>编辑计划
 
-1.  在管理员门户的左侧导航窗格中，选择“计划”。
-2.  单击要编辑其配额的计划的名称，将其选中。
-3.  在打开的边栏选项卡中，选择“服务和配额”。
-4.  在“名称”列中单击要编辑的配额，将其选中。
+1. 在管理员门户的左侧导航窗格中，选择“计划”。
+2. 单击要编辑其配额的计划的名称，将其选中。
+3. 在打开的边栏选项卡中，选择“服务和配额”。
+4. 在“名称”列中单击要编辑的配额，将其选中。
     [![配额](media/azure-stack-quota-types/quotas1sm.png "查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  在打开的边栏选项卡中，选择“在计算中编辑”、“在网络中编辑”或“在存储中编辑”。
-    ![配额](media/azure-stack-quota-types/quotas3.png "查看配额")    
+5. 在打开的边栏选项卡中，选择“在计算中编辑”、“在网络中编辑”或“在存储中编辑”。
+    ![配额](media/azure-stack-quota-types/quotas3.png "查看配额")
 
 或者，可以按照以下过程来编辑配额：
 
@@ -107,9 +109,9 @@ ms.locfileid: "57987959"
 
 ### <a name="edit-original-configuration"></a>编辑原始配置
   
-可以选择编辑配额的原始配置，而不[使用附加计划](create-add-on-plan.md)。 编辑配额时，新配置会自动全局应用到使用该配额的所有计划，以及使用这些计划的所有现有订阅。 编辑配额的效果不同于使用用户选择订阅的附加计划来提供修改的配额。 
+可以选择编辑配额的原始配置，而不[使用附加计划](create-add-on-plan.md)。 编辑配额时，新配置会自动全局应用到使用该配额的所有计划，以及使用这些计划的所有现有订阅。 编辑配额的效果不同于使用用户选择订阅的附加计划来提供修改的配额。
 
-该配额的新值将全局应用到使用已修改配额的所有计划，以及使用这些计划的所有现有订阅。 
+该配额的新值将全局应用到使用已修改配额的所有计划，以及使用这些计划的所有现有订阅。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/30/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 102b8f067c4e21bc3f246b36a8da515a36cf1d5c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4f2fe889ae6924f71879bd6ad154c67363e7f304
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645525"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626572"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 JavaScript 客户端库
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "52645525"
 
 ## <a name="supported-platforms"></a>支持的平台
 
-我们将浏览器支持限于当前版本和最新版本的主要浏览器：Google Chrome、Microsoft Edge、Microsoft Internet Explorer 和 Mozilla Firefox。  我们期望 SDK 能与任何相对新式的浏览器一起运作。
+我们将浏览器支持限制为主要浏览器的当前版本和过去版本：Google Chrome、Microsoft Edge、Microsoft Internet Explorer 和 Mozilla Firefox。  我们预期 SDK 可与任何相对现代的浏览器搭配使用。
 
 包作为通用 JavaScript 模块分发，因此支持全局、AMD 和 CommonJS 格式。
 
@@ -60,13 +60,13 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>如何：对用户进行身份验证
-Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权，这些提供者包括：Facebook、Google、Microsoft 帐户和 Twitter。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [Get started with authentication] （身份验证入门）教程。
+Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权：Facebook、Google、Microsoft 帐户和 Twitter。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [身份验证入门] 教程。
 
 支持两种身份验证流：服务器流和客户端流。  服务器流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端流依赖于提供程序特定的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="configure-external-redirect-urls"></a>如何为外部重定向 URL 配置移动应用服务。
+### <a name="configure-external-redirect-urls"></a>如何：为外部重定向 URL 配置移动应用服务。
 
 有多种类型的 JavaScript 应用程序使用环回功能来处理 OAuth UI 流。  这些功能包括：
 
@@ -107,7 +107,7 @@ Azure 应用服务支持使用各种外部标识提供者对应用用户进行�
 
 <!-- URLs. -->
 [Azure Mobile Apps Quick Start]: ./app-service-mobile-cordova-get-started.md
-[Get started with authentication]: ./app-service-mobile-cordova-get-started-users.md
+[身份验证入门]: ./app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md
 
 [Azure 门户]: https://portal.azure.cn/

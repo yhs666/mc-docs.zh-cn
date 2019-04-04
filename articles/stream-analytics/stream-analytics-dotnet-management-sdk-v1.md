@@ -10,15 +10,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/06/2017
 ms.date: 11/26/2018
-ms.openlocfilehash: 242833893d9e79f6549332bce668428ffc602d0f
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f8bfbf5accbcb291b7ec03c7362082df7339600c
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675427"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544830"
 ---
-# <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
-了解如何通过 Management .NET SDK 使用用于 .NET 的流分析 API 设置和运行分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
+# <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
+了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
 
 请参阅 [.NET 版流分析 API 的管理参考文档](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
 
@@ -324,6 +324,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md --> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]： http://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]： http://go.microsoft.com/fwlink/?LinkId=5173011
+<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md -->
+[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!-- Update_Description: wording update, update meta properties -->

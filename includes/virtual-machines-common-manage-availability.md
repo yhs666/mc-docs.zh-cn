@@ -9,12 +9,12 @@ origin.date: 03/27/2018
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: bb07e5cdfdf71d1818be76de6dcc81fbae9ffaf1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ff8e821b4df5b5b1a5a7edd0c8fea00c8c1386ae
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676302"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58633015"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重启 - 维护和停机
 有三种情况可能会导致 Azure 中的虚拟机受影响：计划外硬件维护、意外停机、计划内维护。
@@ -24,8 +24,8 @@ ms.locfileid: "52676302"
 * 意外停机指虚拟机的硬件或物理基础设施意外出现故障。 此类故障可能包括：本地网络故障、本地磁盘故障，或者其他机架级别的故障。 检测到此类故障时，Azure 平台会自动将虚拟机迁移到同一数据中心内的正常物理机（进行修复）。 在修复过程中，虚拟机会经历停机（重启），在某些情况下会丢失临时驱动器。 始终会保留附加的 OS 和数据磁盘。 
 
   在发生会影响整个数据中心甚至整个区域的服务中断或灾难时（这种情况很少见），虚拟机也可能会停机。 针对这种情况，Azure 提供了保护选项，包括可用性区域和配对区域。
-<!-- Not Available on [availability zones](../articles/availability-zones/az-overview.md)-->
-<!-- Not Available on [paired regions](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)-->
+  <!-- Not Available on [availability zones](../articles/availability-zones/az-overview.md)-->
+  <!-- Not Available on [paired regions](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)-->
 
 * 计划内维护事件是指由 21Vianet 对底层 Azure平台进行定期更新，以改进虚拟机运行时所在的平台基础结构的总体可靠性、性能和安全性。 大多数此类更新在执行时不会影响虚拟机或云服务（请参阅 [VM 保留维护](/virtual-machines/windows/preserving-maintenance)）。 虽然 Azure 平台会尝试在所有可能的情况下都使用 VM 保留维护，但在罕见情况下，这些更新需要重启虚拟机，否则无法将所需更新应用到底层基础结构。 在这种情况下，可以在合适的时间窗口为 VM 启动维护，通过“维护-重新部署”操作来执行 Azure 计划内维护。 有关详细信息，请参阅[虚拟机的计划内维护](/virtual-machines/windows/planned-maintenance/)。
 
@@ -33,13 +33,13 @@ ms.locfileid: "52676302"
 
 * [在可用性集中配置多个虚拟机以确保冗余]
 * [为可用性集中的 VM 使用托管磁盘]
-* [使用计划事件对影响事件的 VM 进行主动响应] (https://docs.azure.cn/virtual-machines/virtual-machines-scheduled-events)
+* [使用计划事件对影响事件的 VM 进行主动响应](https://docs.azure.cn/virtual-machines/virtual-machines-scheduled-events)
 * [将每个应用程序层配置到不同的可用性集中]
 * [将负载均衡器与可用性集组合在一起]
     
     <!-- Not Available on Availability Zone -->
-## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>在可用性集中配置多个虚拟机以确保冗余
-要为应用程序提供冗余，建议将两个或更多虚拟机组合到一个可用性集中。 数据中心内的这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用，并满足 99.95% 的 Azure SLA 要求。 有关详细信息，请参阅[虚拟机的 SLA](https://www.azure.cn/support/sla/virtual-machines/)。
+  ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>在可用性集中配置多个虚拟机以确保冗余
+  要为应用程序提供冗余，建议将两个或更多虚拟机组合到一个可用性集中。 数据中心内的这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用，并满足 99.95% 的 Azure SLA 要求。 有关详细信息，请参阅[虚拟机的 SLA](https://www.azure.cn/support/sla/virtual-machines/)。
 
 > [!IMPORTANT]
 > 避免将单实例虚拟机单独地置于可用性集中。 此配置中的 VM 并不符合 SLA 保证，在出现 Azure 计划内维护事件时会停机，除非某个 VM 正在使用 [Azure 高级存储](../articles/virtual-machines/windows/premium-storage.md)。 对于使用高级存储的单一 VM，Azure SLA 适用。
@@ -73,7 +73,8 @@ ms.locfileid: "52676302"
 
 例如，可以将运行 IIS、Apache、Nginx 的应用程序前端的所有虚拟机置于单个可用性集中。 请确保仅将前端虚拟机置于同一可用性集中。 同样，请确保仅将数据层虚拟机置于其自身的可用性集中，例如已复制的 SQL Server 虚拟机或 MySQL 虚拟机。
 
-<!--Image reference--> ![应用程序层](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference-->
+   ![应用程序层](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>将负载均衡器与可用性集组合在一起
 将 [Azure 负载均衡器](../articles/load-balancer/load-balancer-overview.md) 与可用性集组合在一起，以获取最大的应用程序复原能力。 Azure 负载均衡器将流量分布到多个虚拟机中。 对于标准层虚拟机来说，Azure 负载均衡器已包括在内。 并非所有虚拟机层都包括 Azure 负载均衡器。 有关对虚拟机进行负载均衡的更多信息，请阅读[对虚拟机进行负载均衡](../articles/virtual-machines/virtual-machines-linux-load-balance.md)。
@@ -85,6 +86,8 @@ ms.locfileid: "52676302"
 [在可用性集中配置多个虚拟机以确保冗余]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [将每个应用程序层配置到不同的可用性集中]: #configure-each-application-tier-into-separate-availability-sets
 [将负载均衡器与可用性集组合在一起]: #combine-a-load-balancer-with-availability-sets
-<!-- Not Avaiable on [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets --> [为可用性集中的 VM 使用托管磁盘]: #use-managed-disks-for-vms-in-an-availability-set <!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->>
+<!-- Not Avaiable on [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets -->
+[为可用性集中的 VM 使用托管磁盘]: #use-managed-disks-for-vms-in-an-availability-set
+<!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

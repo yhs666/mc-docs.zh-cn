@@ -3,7 +3,7 @@ title: 授权 Microsoft® 平滑流式处理客户端移植工具包
 description: 了解如何为 Microsoft® 平滑流式处理客户端移植工具包授权。
 services: media-services
 documentationcenter: ''
-author: Hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d04536243aa93ca71d0b8a06c2f529281e0081df
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/20/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.openlocfilehash: f99cf1cbc1f0101f04a388e7c55ce13b62812685
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659040"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624209"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包 
 ## <a name="overview"></a>概述
 Microsoft 平滑流式处理客户端移植工具包（简称 **SSPK**）是经过优化的平滑流式处理客户端实现，可帮助嵌入式设备制造商、有线和移动运营商、内容服务提供商、手持设备制造商、独立软件供应商 (ISV) 和解决方案提供商创建产品和服务，用于流式传输平滑流式处理格式的自适应内容。 SSPK 是平滑流式处理客户端的与设备和平台无关的实现，许可接受方可将它移植到任何设备和平台。 
 
@@ -44,7 +44,7 @@ Microsoft 平滑流式处理客户端移植工具包（简称 **SSPK**）是经�
   * 可与硬件 A/V 解码器（解码、绘制）交互的编程接口
 * 数字权限管理 (DRM) 接口 
   * 可通过 DRM 抽象层 (DAL) 处理 DRM 的编程接口
-  * Microsoft PlayReady 移植工具包是单独发售的，但可通过此接口集成。 有关 Microsoft PlayReady 设备许可的详细信息，请单击 [此处](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)。
+  * Microsoft PlayReady 移植工具包是单独发售的，但可通过此接口集成。 有关 Microsoft PlayReady 设备许可的详细信息，请单击 [此处](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)。
 * 实现示例 
   * 适用于 Linux 的 PAL 实现示例
   * 适用于 GStreamer 的 HAL 实现示例
@@ -126,8 +126,9 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmflex Movies Limited
+* FilmFlex Movies Limited
 * Fluendo S.A.
+* FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.

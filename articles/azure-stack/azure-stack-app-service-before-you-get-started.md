@@ -12,17 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2019
-ms.date: 03/18/2019
+origin.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: cdca634af27c0924c534f499c1718b480ceb0c24
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 4021943f96250cb77f2dc148443e71cff563f830
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987977"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626677"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -113,11 +113,12 @@ Azure Stack 上的 Azure 应用服务需要自定义脚本扩展 v1.9.1。  开�
 
 该证书必须采用 .pfx 格式，并且应该是包含三个使用者的通配符证书。 此要求允许一个证书同时涵盖用于源代码管理操作的默认域和 SCM 终结点。
 
-| 格式 | 示例 |
-| --- | --- |
-| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
-| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
+
+|                        格式                         |                    示例                    |
+|-------------------------------------------------------|-----------------------------------------------|
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> |   \*.appservice.redmond.azurestack.external   |
+|  \*.scm.appservice.<region>.<DomainName>.<extension>  | \*.scm.appservice.redmond.azurestack.external |
+|  \*.sso.appservice.<region>.<DomainName>.<extension>  | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API 证书
 
@@ -148,11 +149,11 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>验证证书
-在部署应用服务资源提供程序之前，应当使用 [PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack 准备情况检查器工具来[验证要使用的证书](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)。 Azure Stack 准备情况检查器工具验证生成的 PKI 证书是否适用于应用服务部署。 
 
-作为最佳做法，当使用任何所需的 [Azure Stack PKI 证书](azure-stack-pki-certs.md)时，如果需要，应当计划留出足够的时间来测试和重新颁发证书。 
+在部署应用服务资源提供程序之前，应当使用 [PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack 准备情况检查器工具来[验证要使用的证书](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)。 Azure Stack 准备情况检查器工具验证生成的 PKI 证书是否适用于应用服务部署。
+
+作为最佳做法，当使用任何所需的 [Azure Stack PKI 证书](azure-stack-pki-certs.md)时，如果需要，应当计划留出足够的时间来测试和重新颁发证书。
 
 ## <a name="virtual-network"></a>虚拟网络
 
@@ -171,6 +172,15 @@ Azure Stack 上的 Azure 应用服务允许将资源提供程序部署到现有�
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>所需文件服务器和 SQL Server 的许可问题
+
+Azure Stack 上的 Azure 应用服务需要文件服务器和 SQL Server 才能运行。  可以使用 Azure Stack 部署外部预先存在的资源，也可以将资源部署在其 Azure Stack 默认提供程序订阅的内部。
+
+如果选择将资源部署在 Azure Stack 默认提供程序订阅内部，则这些资源的许可证（Windows Server 许可证和 SQL Server 许可证）会包括在 Azure Stack 上的 Azure 应用服务的成本中，但会受到以下约束：
+
+- 基础结构部署到“默认提供程序订阅”中；
+- 基础结构由 Azure Stack 资源提供程序上的 Azure 应用服务独占使用。  任何其他工作负荷、管理程序（其他资源提供程序，例如 SQL-RP）或租户（例如需要数据库的租户应用程序）都无权使用此基础结构。
+
 ## <a name="prepare-the-file-server"></a>准备文件服务器
 
 Azure 应用服务需要使用文件服务器。 在生产部署中，必须将文件服务器配置为高度可用，且能够应对故障。
@@ -181,7 +191,7 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>高可用性文件服务器和 SQL Server 的快速入门模板
 
-现已推出一个[参考体系结构快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，用于部署文件服务器、SQL Server，并在配置为支持 Azure Stack 上的 Azure 应用服务高可用性部署的虚拟网络中支持 Active Directory 基础结构。  
+现已推出一个[参考体系结构快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，用于部署文件服务器、SQL Server，并在配置为支持 Azure Stack 上的 Azure 应用服务高可用性部署的虚拟网络中支持 Active Directory 基础结构。
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>部署自定义文件服务器的步骤
 
@@ -296,20 +306,19 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 必须能够从所有“应用服务”角色访问 Azure Stack 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack 中的默认提供程序订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack 建立了连接）。 如果使用 Azure 市场映像，请记得相应地配置防火墙。
 
->[!NOTE]
+> [!NOTE]
 > 可通过市场管理功能获取许多 SQL IaaS 虚拟机映像。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
->
-对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
+> 
+> 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
 
 应用服务安装程序将检查以确保 SQL Server 已启用数据库包含。 若要在将托管应用服务数据库的 SQL Server 上启用数据库包含，请运行以下 SQL 命令：
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > 如果选择在现有虚拟网络中部署应用服务，应将 SQL Server 部署到独立于应用服务和文件服务器的子网中。

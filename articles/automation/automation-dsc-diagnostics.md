@@ -7,19 +7,22 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ed17680c2f61408d715d38853fe9bef0643323f1
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 69f7b4a582c39fe09920f504911abc340c15025f
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626993"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
 
-Azure Automation State Configuration 可以将 Desired State Configuration (DSC) 节点状态数据发送到 Log Analytics 工作区。 节点和节点配置中的单个 DSC 资源的符合性状态可以通过 Azure 门户或 PowerShell 查看。 可以使用 Azure Monitor 日志进行以下操作：
+Azure Automation State Configuration 会将节点状态数据保留 30 天。
+如果希望节点状态数据能够保留更长的时间，则可将其发送到 Log Analytics 工作区。
+节点和节点配置中的单个 DSC 资源的符合性状态可以通过 Azure 门户或 PowerShell 查看。
+可以使用 Azure Monitor 日志进行以下操作：
 
 - 获取托管节点和单个资源的符合性信息
 - 基于符合性状态触发电子邮件或警报
@@ -43,25 +46,25 @@ Azure Automation State Configuration 可以将 Desired State Configuration (DSC)
 若要开始将数据从 Azure Automation DSC 导入到 Azure Monitor 日志，请完成以下步骤：
 
 1. 通过 PowerShell 登录 Azure 帐户。 请参阅[使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
-1. 通过运行以下 PowerShell 命令获取自动化帐户的 ResourceId：（如果具有多个自动化帐户，选择想要配置的帐户的 ResourceID）。
+2. 通过运行以下 PowerShell 命令获取自动化帐户的 ResourceId：（如果具有多个自动化帐户，选择想要配置的帐户的 ResourceID）。
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
-1. 通过运行以下 PowerShell 命令获取 Log Analytics 工作区的 ResourceId：（如果具有多个工作区，选择想要配置的工作区的 ResourceID）。
+3. 通过运行以下 PowerShell 命令获取 Log Analytics 工作区的 ResourceId：（如果具有多个工作区，选择想要配置的工作区的 ResourceID）。
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
-1. 运行以下 PowerShell 命令，将 `<AutomationResourceId>` 和 `<WorkspaceResourceId>` 替换为前面每个步骤中的 ResourceId 值：
+4. 运行以下 PowerShell 命令，将 `<AutomationResourceId>` 和 `<WorkspaceResourceId>` 替换为前面每个步骤中的 ResourceId 值：
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
 若要停止将数据从 Azure Automation State Configuration 导入到 Azure Monitor 日志，请运行以下 PowerShell 命令：
 
@@ -82,6 +85,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 单击列表中的每个操作可查看该操作的数据。
 
 还可以通过在 Azure Monitor 日志中进行搜索来查看日志。
+请参阅[使用日志搜索查找数据](/azure-monitor/log-query/log-query-overview)。
 键入以下查询以查找 State Configuration 日志：`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus'`
 
 还可以通过操作名称缩小查询范围。 例如： `AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus' and OperationName=='DscNodeStatusData'`
@@ -199,3 +203,5 @@ Azure Monitor 日志可以更直观地显示 Automation State Configuration 数�
 - 有关 PowerShell cmdlet 参考，请参阅 [Azure Automation State Configuration cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation/#automation)
 - 有关定价信息，请参阅 [Azure Automation State Configuration 定价](https://azure.cn/pricing/details/automation/)
 - 若要查看在持续部署管道中使用 Azure Automation State Configuration 的示例，请参阅[使用 Azure Automation State Configuration 和 Chocolatey 进行持续部署](automation-dsc-cd-chocolatey.md)
+- 若要详细了解如何使用 Azure Monitor 日志构造不同的搜索查询和查看 Automation State Configuration 日志，请参阅 [Azure Monitor 日志中的日志搜索](/azure-monitor/log-query/log-query-overview)
+- 若要了解有关 Azure Monitor 日志和数据收集源的详细信息，请参阅[在 Azure Monitor 日志中收集 Azure 存储数据概述](../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 7f78f1b0941d0566ab3861e17d8df25174e9f13a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 0312b16b457947af0cc4c2e1c857bc6c8d183137
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987963"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503531"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 
@@ -52,9 +52,11 @@ ms.locfileid: "57987963"
 | $sharepath      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
 | $frequencyInHours | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
 | $retentionPeriodInDays | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
-| $encryptioncertpath | 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
+| $encryptioncertpath | 适用于 1901 及更高版本。  参数在 Azure Stack 模块 1.7 及更高版本中提供。 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
+| $encryptionkey | 适用于 1811 或更低版本。 参数在 Azure Stack 模块 1.6 或更低版本中提供。 用于数据加密的加密密钥。 使用 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 来生成新密钥。 |
 |     |     |
 
+### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>使用证书在 1901 及更高版本上启用备份
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -81,6 +83,25 @@ ms.locfileid: "57987963"
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>使用证书在 1811 或更低版本上启用备份
+```powershell
+    # Example username:
+    $username = "domain\backupadmin"
+ 
+    # Example share path:
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $key = New-AzsEncryptionKeyBase64
+    $Securekey = ConvertTo-SecureString -String ($key) -AsPlainText -Force
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $Securekey
+```
+
    
 ##  <a name="confirm-backup-settings"></a>确认备份设置
 
@@ -120,7 +141,7 @@ ms.locfileid: "57987963"
     BackupRetentionPeriodInDays : 5
    ```
 
-###<a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
 用于配置基础结构备份的 PowerShell cmdlet 为 Set-AzsBackupConfiguration。 在以前的版本中，此 cmdlet 为 Set-AzsBackupShare。 此 cmdlet 要求提供一个证书。 如果为基础结构备份配置了加密密钥，则不能更新加密密钥或查看属性。 需使用 1.6 版管理员 PowerShell。 
 
 如果基础结构备份在更新到 1901 之前已进行配置，则可使用 1.6 版管理员 PowerShell 来设置和查看加密密钥。 1.6 版不允许从加密密钥更新到证书文件。

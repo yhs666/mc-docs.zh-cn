@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 09/20/2017
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: b6654a63eeacf0c2e1e514926c75e290bdadf8db
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/08/2019
+ms.openlocfilehash: 65e709484507be61ff38eeefa16819bf1b1f5768
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666718"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627596"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 来宾 OS 可支持性和停用策略
 本页面上的信息与 Azure 来宾操作系统（[来宾 OS](./cloud-services-guestos-update-matrix.md)）相关。来宾 OS 仅适用于云服务辅助角色和 Web 角色 (PaaS)。 而不适用于虚拟机 (IaaS)。 
 
-Microsoft 已发布 [来宾 OS 的支持策略](http://support.microsoft.com/zh-cn/gp/azure-cloud-lifecycle-faq)。 目前正在阅读的页面描述了如何实施该策略。
+Microsoft 已发布 [来宾 OS 的支持策略](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq)。 目前正在阅读的页面描述了如何实施该策略。
 
 该策略规定， 
 
@@ -57,8 +57,9 @@ Microsoft 将继续推出合并了最新 MSRC 更新的新来宾 OS 版本，直
 
 60 天使用期后，版本会“停用”。 “停用”表示已从门户中删除该版本。 再也无法通过 CSCFG 配置文件设置该版本。 现有部署将保持运行。 但是，不允许进行新部署以及针对现有部署的代码和配置更新。
 
-在“停用”后的某个时间，来宾 OS 版本“过期”，仍在运行该版本的任何安装都会强制升级并设置为在将来自动更新来宾 OS。 过期是分批过期的，因此从停用到过期的时间段可能各不相同。
+在“停用”后的某个时间，来宾 OS 版本“过期”，仍在运行该过期版本的任何安装都会面临安全和漏洞问题。 通常情况下，过期是分批过期的，因此从停用到过期的时间段可能各不相同。
 
+客户如何将其服务配置为手动更新来宾 OS，则应确保其服务在受支持的来宾 OS 上运行。 如果将某项服务配置为自动更新来宾 OS，则基础平台会确保符合性，并会升级到最新的来宾 OS。
 这些期间可能会延长，这由 Microsoft 决定，以便于客户过渡。 会在 [Azure 来宾 OS 版本和 SDK 兼容性对照表](./cloud-services-guestos-update-matrix.md)中通告所有更改。
 
 ### <a name="notifications-during-retirement"></a>停用期间的通知

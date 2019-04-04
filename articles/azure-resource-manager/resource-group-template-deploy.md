@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 01/30/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3368ab538d1c4eb45e7d11c3705c7487e15fc5b5
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 70870dc7e1f511e0c80db58c7ce3e4b4686729ba
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348074"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626760"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -36,11 +36,11 @@ ms.locfileid: "58348074"
 需安装 Azure PowerShell 并连接到 Azure：
 - **在本地计算机上安装 Azure PowerShell cmdlet。** 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 - **使用 [Connect-AZAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 连接到 Azure**。 如果有多个 Azure 订阅，则可能还需要运行 [Set-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)。 有关详细信息，请参阅[使用多个 Azure 订阅](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps)。
-- *下载并保存[快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)。 本文中使用的本地文件名称为 **c:\MyTemplates\azuredeploy.json**。
+- <em>下载并保存[快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)。本文中使用的本地文件名为 *c:\MyTemplates\azuredeploy.json</em>**。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-<a name="deploy-local-template" />
+
 ## <a name="deploy-templates-stored-locally"></a>部署本地存储的模板
 
 以下示例将创建一个资源组，并从本地计算机部署模板：

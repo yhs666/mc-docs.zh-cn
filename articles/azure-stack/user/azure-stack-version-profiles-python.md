@@ -11,17 +11,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: cf6c8b1e5c0230f4d5f6be41f1ab196b648392ab
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 9fcd8406d0c0cd128cd5e46d59cfb46cc4a3a047
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218232"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503579"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -60,6 +60,57 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
 | 资源位置 | AZURE_RESOURCE_LOCATION | Azure Stack 环境的资源位置。
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
+
+如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
+
+#### <a name="windows"></a>Windows
+
+1. 在计算机上找到 python 证书存储位置。 该位置根据 Python 的安装位置而异。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    记下证书存储位置。 例如，*~/lib/python3.5/site-packages/certifi/cacert.pem*。 具体的路径取决于安装的 Python 的 OS 和版本。
+
+2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> 如果通过 Python SDK 使用 virtualenv 进行开发（如下所述），则还需向虚拟环境的证书存储添加上述证书。 路径可能类似于“..\mytestenv\Lib\site-packages\certifi\cacert.pem”
+
+
 
 ## <a name="python-samples-for-azure-stack"></a>适用于 Azure Stack 的 Python 示例
 
@@ -134,7 +185,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. 若要运行此示例，Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-Datacenter 映像必须存在于 Azure Stack 市场中。 可以[从 Azure 下载](../azure-stack-download-azure-marketplace-item.md)这些映像或者将其添加到[平台映像存储库](../azure-stack-add-vm-image.md)。
+8. 若要运行此示例，Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-DataCenter 映像必须存在于 Azure Stack 市场中。 可以[从 Azure 下载](../azure-stack-download-azure-marketplace-item.md)这些映像或者将其添加到[平台映像存储库](../azure-stack-add-vm-image.md)。
 
 9. 运行示例：
 

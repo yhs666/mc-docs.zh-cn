@@ -1,27 +1,22 @@
 ---
-title: Azure SQL 数据仓库常见问题解答 | Azure
+title: Azure SQL 数据仓库常见问题解答 | Microsoft Docs
 description: 本文列出客户和开发人员提出的 Azure SQL 数据仓库常见问题
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
+ms.topic: conceptual
+ms.subservice: design
 origin.date: 04/17/2018
-ms.date: 08/20/2017
-ms.author: v-yeche
-ms.openlocfilehash: 088a648bc9b7294beae67bba6dd79985fffd215a
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 9f8cee8a806f74775e13898e1be456e8e70cff29
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858195"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625125"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 
@@ -84,7 +79,11 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 
 问：使用 SQL 数据仓库时，PolyBase 支持哪些文件格式？
 
-答：Orc、RC、Parquet 和平面分隔文本 <!--Azure Data Lake Store not available in Azure.cn-->
+答：Orc、RC、Parquet 和带分隔符的平面文本
+
+问：使用 PolyBase 时，可以从 SQL DW 连接到什么？ 
+
+答：[Azure 存储 Blob]
 
 问：连接 Azure 存储 Blob 或 ADLS 时能否进行计算下推？ 
 
@@ -106,4 +105,5 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [数据类型]: ./sql-data-warehouse-tables-data-types.md
 [不支持的表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md --> [Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]: ./sql-data-warehouse-overview-faq.mdd
+<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md -->
+[Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]: ./sql-data-warehouse-overview-faq.md

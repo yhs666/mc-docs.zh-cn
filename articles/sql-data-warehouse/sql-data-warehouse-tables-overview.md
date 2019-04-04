@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-origin.date: 04/17/2018
-ms.date: 03/25/2019
+origin.date: 03/15/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d4b34f83d7279ab191a68f369faf51bf746d13ab
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: f57db8a532f674a0ac10d7f3529a2355623e316d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348111"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626772"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中设计表
 
@@ -33,20 +33,18 @@ ms.locfileid: "58348111"
 - **集成表**为集成或暂存数据提供位置。 可以将集成表创建为常规表、外部表或临时表。 例如，可将数据加载到临时表，在暂存位置对数据执行转换，然后将数据插入生产表中。
 
 ## <a name="schema-and-table-names"></a>架构和表名称
-在 SQL 数据仓库中，数据仓库是一种数据库。 数据仓库中的所有表包含在同一个数据库中。  无法跨多个数据仓库联接表。 此行为不同于支持跨数据库联接的 SQL Server。 
-
-在 SQL Server 数据库中，可将 fact、dim 或 integrate 用于架构名称。 若要将 SQL Server 数据库迁移到 SQL 数据仓库，最好是将所有事实数据表、维度表和集成表迁移到 SQL 数据仓库中的一个架构内。 例如，可将所有表存储在 [WideWorldImportersDW](https://docs.microsoft.com/sql/sample/world-wide-importers/database-catalog-wwi-olap) 示例数据仓库中一个名为 wwi 的架构内。 以下代码创建名为 wwi 的[用户定义的架构](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql)。
+可通过架构将以相似方式使用的表组合在一起。  若要将多个数据库从本地解决方案迁移到 SQL 数据仓库，最好是将所有事实数据表、维度表和集成表迁移到 SQL 数据仓库中的一个架构内。 例如，可将所有表存储在 [WideWorldImportersDW](https://docs.microsoft.com/sql/sample/world-wide-importers/database-catalog-wwi-olap) 示例数据仓库中一个名为 wwi 的架构内。 以下代码创建名为 wwi 的[用户定义的架构](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql)。
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-若要在 SQL 数据仓库中显示表的组织方式，可以使用 fact、dim 和 int 作为表名称的前缀。 下表显示了 WideWorldImportersDW 的一些架构和表名称。 它将 SQL Server 中的名称和 SQL 数据仓库中的名称进行了对比。 
+若要在 SQL 数据仓库中显示表的组织方式，可以使用 fact、dim 和 int 作为表名称的前缀。 下表显示了 WideWorldImportersDW 的一些架构和表名称。  
 
-| WideWorldImportersDW 表  | 表类型 | SQL Server | SQL 数据仓库 |
+| WideWorldImportersDW 表  | 表类型 | SQL 数据仓库 |
 |:-----|:-----|:------|:-----|
-| 城市 | 维度 | Dimension.City | wwi.DimCity |
-| 顺序 | Fact | Fact.Order | wwi.FactOrder |
+| 城市 | 维度 | wwi.DimCity |
+| 顺序 | Fact | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>表暂留 
@@ -62,19 +60,19 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>临时表
-临时表只在会话持续期间存在。 可以使用临时表来防止其他用户查看临时结果，以及减少清理需求。  由于临时表也利用本地存储，因此对于某些操作来说，临时表可以提供更快速的性能。  有关详细信息，请参阅[临时表](sql-data-warehouse-tables-temporary.md)。
+临时表只在会话持续期间存在。 可以使用临时表来防止其他用户查看临时结果，以及减少清理需求。  临时表利用本地存储来提供快速操作的性能。  有关详细信息，请参阅[临时表](sql-data-warehouse-tables-temporary.md)。
 
 ### <a name="external-table"></a>外部表
 外部表指向位于 Azure 存储 Blob 或 Azure Data Lake Store 中的数据。 与 CREATE TABLE AS SELECT 语句结合使用时，从外部表中选择数据可将数据导入到 SQL 数据仓库。 因此，外部表可用于加载数据。 有关加载教程，请参阅[使用 PolyBase 从 Azure Blob 存储加载数据](load-data-from-azure-blob-storage-using-polybase.md)。
 
 ## <a name="data-types"></a>数据类型
-SQL 数据仓库支持最常用的数据类型。 有关受支持数据类型的列表，请参阅 CREATE TABLE 语句中的 [CREATE TABLE 引用中的数据类型](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)。 最小化数据类型的大小有助于提高查询性能。 有关使用数据类型的指导，请参阅[数据类型](sql-data-warehouse-tables-data-types.md)。
+SQL 数据仓库支持最常用的数据类型。 有关受支持数据类型的列表，请参阅 CREATE TABLE 语句中的 [CREATE TABLE 引用中的数据类型](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)。 有关使用数据类型的指导，请参阅[数据类型](sql-data-warehouse-tables-data-types.md)。
 
 ## <a name="distributed-tables"></a>分布式表
-SQL 数据仓库的一个基本功能是它可以跨 60 个[分布区](massively-parallel-processing-mpp-architecture.md#distributions)对表进行存储和操作的方式。  表将使用循环方法、哈希方法或复制方法进行分布。
+SQL 数据仓库的一个基本功能是它可以跨[分布区](massively-parallel-processing-mpp-architecture.md#distributions)以特定方式对表进行存储和运算。  SQL 数据仓库支持使用以下三种方法来分配数据：轮询机制（默认）、哈希和复制。
 
 ### <a name="hash-distributed-tables"></a>哈希分布表
-哈希分布根据分布列中的值分布行。 对于基于大型表的查询联接，哈希分布表可以实现高性能。 有几种因素会影响分布列的选择。 
+哈希分布表根据分布列中的值来分布行。 根据设计，在对大型表进行查询时，哈希分布表可以实现高性能。 选择分布列时，需考虑多项因素。 
 
 有关详细信息，请参阅[分布式表的设计准则](sql-data-warehouse-tables-distribute.md)。
 
@@ -98,15 +96,19 @@ SQL 数据仓库的一个基本功能是它可以跨 60 个[分布区](massively
 | 过渡        | 对临时表使用轮循机制表。 使用 CTAS 执行加载的速度较快。 将数据存储到临时表后，可以使用 INSERT...SELECT 将数据移到生产表。 |
 
 ## <a name="table-partitions"></a>表分区
-分区表存储根据数据范围存储表行并对其执行操作。 例如，可以按日、月或年将某个表分区。 可以通过分区消除来提高查询性能，否则查询扫描范围将限制为分区中的数据。 还可以通过分区切换来维护数据。 由于 SQL 数据仓库中的数据已经是分布式的，过多的分区可能会降低查询性能。 有关详细信息，请参阅[分区指南](sql-data-warehouse-tables-partition.md)。
+分区表存储根据数据范围存储表行并对其执行操作。 例如，可以按日、月或年将某个表分区。 可以通过分区消除来提高查询性能，否则查询扫描范围将限制为分区中的数据。 还可以通过分区切换来维护数据。 由于 SQL 数据仓库中的数据已经是分布式的，过多的分区可能会降低查询性能。 有关详细信息，请参阅[分区指南](sql-data-warehouse-tables-partition.md)。  以分区切换的方式切换成不为空的表分区时，若要截断现有数据，可考虑在 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 语句中使用 TRUNCATE_TARGET 选项。 以下代码将已转换的日常数据切换成 SalesFact，覆盖任何现有的数据。 
+
+```sql
+ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
+```
 
 ## <a name="columnstore-indexes"></a>列存储索引
-默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 对于大型表而言，这种数据存储形式可以实现较高的数据压缩率和查询性能。  聚集列存储索引通常是最佳选择，但在某些情况下，聚集索引或堆是适当的存储结构。
+默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 对于大型表而言，这种数据存储形式可以实现较高的数据压缩率和查询性能。  聚集列存储索引通常是最佳选择，但在某些情况下，聚集索引或堆是适当的存储结构。  堆表可能特别适用于加载临时数据，例如将转换成最终表的临时表。
 
 有关列存储功能的列表，请参阅[列存储索引的新增功能](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-what-s-new)。 若要提高列存储索引性能，请参阅[最大化列存储索引的行组质量](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
 
 ## <a name="statistics"></a>统计信息
-查询优化器在创建用于执行查询的计划时，使用列级统计信息。 若要提高查询性能，必须基于各个列（尤其是查询联接中使用的列）创建统计信息。 创建和更新统计信息的过程不会自动发生。 在创建表之后[创建统计信息](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql)。 添加或更改了大量的行之后更新统计信息。 例如，在执行加载后更新统计信息。 有关详细信息，请参阅[统计信息指南](sql-data-warehouse-tables-statistics.md)。
+查询优化器在创建用于执行查询的计划时，使用列级统计信息。 若要提高查询性能，必须有基于各个列（尤其是查询联接中使用的列）的统计信息。 [创建统计信息](/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)的过程是自动发生的。  但是，更新统计信息的过程不会自动发生。 添加或更改了大量的行之后更新统计信息。 例如，在执行加载后更新统计信息。 有关详细信息，请参阅[统计信息指南](sql-data-warehouse-tables-statistics.md)。
 
 ## <a name="commands-for-creating-tables"></a>用于创建表的命令
 可以创建一个新的空表。 还可以创建一个表并在其中填充 select 语句的结果。 下面是用于创建表的 T-SQL 命令。
@@ -116,7 +118,7 @@ SQL 数据仓库的一个基本功能是它可以跨 60 个[分布区](massively
 | [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | 通过定义所有表列和选项来创建空表。 |
 | [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) | 创建外部表。 表定义存储在 SQL 数据仓库中。 表数据存储在 Azure Blob 存储或 Azure Data Lake Store 中。 |
 | [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | 在新表中填充 select 语句的结果。 表列和数据类型基于 select 语句的结果。 若要导入数据，此语句可从外部表中进行选择。 |
-| [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql) | 通过将 select 语句的结果导出到外部位置，来创建新的外部表。  该位置为 Azure Blob 存储或 Azure Data Lake Store。 |
+| [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql) | 通过将 select 语句的结果导出到外部位置，来创建新的外部表。  该位置为 Azure Blob 存储。 |
 
 ## <a name="aligning-source-data-with-the-data-warehouse"></a>使源数据与数据仓库相符
 

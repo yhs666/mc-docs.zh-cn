@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: WenJason
 ms.author: v-jay
-origin.date: 02/07/2019
-ms.date: 02/18/2019
+origin.date: 03/07/2019
+ms.date: 04/01/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: digimobile
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b91b2041daea68e9d776896bed4a3aeb71f56306
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: f9ba75a3a1cd887306bb518762717e9115d6a7fb
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218268"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503657"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
 
@@ -67,15 +67,14 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
     > [!Note]  
     > 如果使用 Azure Active Directory 联合身份验证服务 (AD FS) 进行部署，则必须在脚本中的 **$directories** 中添加以下目录：`ADFS`、`Graph`。
 
-4. 运行以下 cmdlet 来启动证书检查：
+4. 将现有的证书（目前在 Azure Stack 中使用）置于相应的目录中。 例如，将 **Admin ARM** 证书置于 `Arm Admin` 文件夹中。 然后，将新创建的托管证书置于 `Admin extension host` 和 `Public extension host` 目录中。
+5. 运行以下 cmdlet 来启动证书检查：
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. 将证书放在合适的目录中。
 
 6. 检查输出和所有证书是否通过所有测试。
 

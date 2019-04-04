@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 12/20/2017
 ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: b53dd9961b7d1a974d58dc0238f9601e74e9a56c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 732c07e4503e4042fb5ff36497f9506827f2b201
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651016"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544720"
 ---
 # <a name="azure-relay-exceptions"></a>Azure 中继异常
 
@@ -30,12 +30,12 @@ ms.locfileid: "52651016"
 
 中继 API 生成的异常可以分为以下类别。 此外还列出了解决这些异常应采取的建议操作。
 
-*   **用户编码错误**：[System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)、[System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)、[System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)、[System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)。 
+*   **用户编码错误**：[System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)。 
 
     **常规操作**：继续之前尝试修复代码。
 *   **设置/配置错误**：[System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)。 
 
-    **常规操作**：检查配置。 必要时更改配置。
+    **常规操作**：查看配置。 必要时更改配置。
 *   **暂时性异常**：[Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)。 
 
     **常规操作**：重试操作或通知用户。
@@ -92,8 +92,8 @@ The time allotted to this operation may have been a portion of a longer timeout.
     有时，中继服务在处理请求时可能会遇到延迟。 例如，在流量高峰时段可能会发生这种情况。 如果发生这种情况，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://azure.microsoft.com/status/)，看是否有已知的服务中断。
 
 ## <a name="next-steps"></a>后续步骤
-* [Azure 中继常见问题](./relay-faq.md)
-* [创建中继命名空间](./relay-create-namespace-portal.md)
-* [Azure 中继和 .NET 入门](./relay-hybrid-connections-dotnet-get-started.md)
-* [Azure 中继和 Node 入门](./relay-hybrid-connections-node-get-started.md)
+* [Azure 中继常见问题](relay-faq.md)
+* [创建中继命名空间](relay-create-namespace-portal.md)
+* [Azure 中继和 .NET 入门](relay-hybrid-connections-dotnet-get-started.md)
+* [Azure 中继和 Node 入门](relay-hybrid-connections-node-get-started.md)
 

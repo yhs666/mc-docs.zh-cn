@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d50c19b0130812d5c5ef54c66ef370973464fd4b
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: fc3c103a5c111b3130c04fcb7bb0be0e1217b47d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903119"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625453"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -96,11 +96,26 @@ az aks create \
 
 若要从本地计算机连接到 Kubernetes 群集，请使用 [kubectl][kubectl]（Kubernetes 命令行客户端）。
 
-如果使用 Azure 本地 Shell，则 `kubectl` 已安装。 也可使用 [az aks install-cli][] 命令在本地安装它：
+<!--MOONCAKE Unique content 03/28/2019-->
+<!--Sync with 3. Install kubectl in https://github.com/Azure/container-service-for-azure-china/tree/master/aks--> 
+
+如果使用 Azure 本地 Shell，也可使用 [az aks install-cli][] 命令在本地安装它：
 
 ```azurecli
-az aks install-cli
+az aks install-cli --install-location <kubectl-download-path>
 ```
+
+> [!NOTE]
+> 原始的 `az aks install-cli` 命令在 Azure 中国区无效，详见[此文](https://mirror.azk8s.cn/help/kubernetes.html)。
+
+* 可以通过 PR [添加适用于 Azure 中国区的“az aks install-cli”支持](https://github.com/Azure/azure-cli/pull/8675)来修复此问题。以下命令会在 Linux 上启动容器化的 azure-cli(`dockerhub.azk8s.cn/andyzhangx/azure-cli:v2.0.60-china`) 将最新的 `kubectl` 版本下载到 `/usr/local/bin/`：
+    ```
+    # docker run -v ${HOME}:/root -v /usr/local/bin/:/kube -it dockerhub.azk8s.cn/andyzhangx/azure-cli:v2.0.60-china
+    root@09feb993f352:/# az cloud set --name AzureChinaCloud
+    root@09feb993f352:/# az aks install-cli --install-location /kube/kubectl
+    ```
+
+<!--MOONCAKE Unique content 03/28/2019-->
 
 ## <a name="connect-to-cluster-using-kubectl"></a>使用 kubectl 连接到群集
 
@@ -145,7 +160,7 @@ aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 [az ad sp create-for-rbac]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [az acr show]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-show
 [az role assignment create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az aks create]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-create
-[az aks install-cli]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-install-cli
-[az aks get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
+[az aks create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az aks install-cli]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az aks get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

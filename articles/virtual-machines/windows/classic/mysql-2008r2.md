@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 23275bb7eedf3199a8499dec12d1eae14ee8faae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ca708cefa03c7988f630d50802db11d827633b00
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658444"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627781"
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>在使用经典部署模型创建的运行 Windows Server 2016 的虚拟机上安装 MySQL
 [MySQL](https://www.mysql.com) 是一种常用的开源 SQL 数据库。 本教程说明如何安装并运行 **MySQL 5.7.18 社区版**作为运行 **Windows Server 2016** 的虚拟机上的 MySQL 服务器。 其他版本的 MySQL 或 Windows Server 所带来的体验可能略有不同。
@@ -29,7 +29,7 @@ ms.locfileid: "52658444"
 有关如何在 Linux 上安装 MySQL 的说明，请参阅：[如何在 Azure 上安装 MySQL](../../linux/mysql-install.md)。
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>创建运行 Windows Server 2016 的虚拟机
@@ -52,7 +52,7 @@ ms.locfileid: "52658444"
 >
 
 1. 使用远程桌面连接到该虚拟机后，从“开始”屏幕单击“Internet Explorer”。
-2. 选择右上角的“工具”按钮（齿轮图标），然后单击“Internet 选项”。 依次单击“安全”选项卡、“受信任的站点”图标、“站点”按钮。 将 http://*.mysql.com 添加到受信任站点列表中。 单击“关闭”，然后单击“确定”。
+2. 选择右上角的“工具”按钮（齿轮图标），然后单击“Internet 选项”。 依次单击“安全”选项卡、“受信任的站点”图标、“站点”按钮。 将 http://<em>.mysql.com 添加到受信任站点列表中。单击“关闭”</em><em>，然后单击“确定”*。
 3. 在 Internet Explorer 的地址栏中，键入 https://dev.mysql.com/downloads/mysql/。
 4. 使用 MySQL 站点查找和下载最新版本的用于 Windows 的 MySQL 安装程序。 选择 MySQL 安装程序时，请下载包含完整文件集的版本（例如 mysql-installer-community-5.7.18.0.msi，文件大小为 352.8 MB），并保存该安装程序。
 5. 当安装程序下载完成后，单击“运行”以启动安装程序。

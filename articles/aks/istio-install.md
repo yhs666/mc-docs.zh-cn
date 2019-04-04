@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 12/03/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: d12626124e85686e589847a6bcc2d2dbdeeedeb7
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 59e26d5e9f355326767f1b1e88398ca9582babe2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903285"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627390"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装和使用 Istio
 
@@ -83,7 +83,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 `istioctl` 客户端二进制文件在客户端计算机上运行，并允许你管理 Istio 路由规则和策略。 同样，各个客户端操作系统之间的安装步骤稍有不同。 为首选环境选择以下安装步骤之一。
 
 > [!IMPORTANT]
-> 运行已在上一部分中下载并解压缩的 Istio 版本的顶层文件夹中的所有剩余步骤。
+> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
 
 ### <a name="macos"></a>MacOS
 
@@ -147,6 +147,12 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 
 ## <a name="install-the-istio-kubernetes-components"></a>安装 Istio Kubernetes 组件
 
+> [!IMPORTANT]
+> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
+
+> [!NOTE]
+> Istio Helm 图表的 `1.0.6` 及更新版本存在中断性变更。 如果选择安装此版本，则需手动创建 Kiali 的机密。 如果已设置 `grafana.security.enabled=true`，则还需手动创建 Grafana 的机密。 请参阅 Istio Helm 图表 [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart)，更详细地了解如何创建这些机密。
+
 若要将 Istio 组件安装到 AKS 群集中，请使用 Helm。 将 Istio 资源安装到 `istio-system` 命名空间中并启用安全性和监视的其他选项，如下所示：
 
 ```azurecli
@@ -172,7 +178,7 @@ kubectl get svc --namespace istio-system --output wide
 以下示例输出显示了现在应正在运行的服务：
 
 - istio-* 服务
-- *jaeger-**、tracing 和 zipkin 加载项跟踪服务
+- *jaeger-*<em>、*tracing</em> 和 *zipkin* 加载项跟踪服务
 - prometheus 加载项指标服务
 - grafana 加载项分析和监视仪表板服务
 - kiali 加载项服务网格仪表板服务

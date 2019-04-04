@@ -3,23 +3,26 @@ title: 在 Azure Kubernetes 服务 (AKS) 中使用门户创建虚拟节点
 description: 了解如何通过 Azure 门户创建使用虚拟节点运行 Pod 的 Azure Kubernetes 服务 (AKS) 群集。
 services: container-service
 author: rockboyfor
+ms.topic: conceptual
 ms.service: container-service
 origin.date: 12/03/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed23545e9388f4b3fd6ccb4199a9966606242f87
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 0ac384977a0960e7016b5d81364d497fdbe5d09c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903291"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625362"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为使用 Azure 门户中的虚拟节点
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>预览 - 创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为使用 Azure 门户中的虚拟节点
 
 若要在 Azure Kubernetes 服务 (AKS) 群集中快速部署工作负荷，可以使用虚拟节点。 使用虚拟节点可快速预配 Pod，并且只需对其执行时间按秒付费。 在缩放方案中，无需等待 Kubernetes 群集自动缩放程序部署 VM 计算节点来运行其他 Pod。 本文介绍如何创建和配置虚拟网络资源以及启用了虚拟节点的 AKS 群集。
 
 > [!IMPORTANT]
-> AKS 的虚拟节点目前提供**预览版**。 需同意[补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。
+> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
+>
+> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
 
 ## <a name="preview-limitations"></a>预览版限制
 
@@ -190,6 +193,7 @@ $ curl -L 10.241.0.4
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md

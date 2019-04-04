@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/19/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 7d44b01bd452b1c6e3c7c80aede2dabf5c435ad0
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 45ecd062849c8424d4f2141593aec320963262b1
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626781"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -31,7 +31,7 @@ ms.locfileid: "56218332"
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>VPN 网关的 IPsec 和 IKE 策略参数
 
-IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若要查看 Azure Stack 支持的参数，请参阅可帮助满足合规或安全要求的  [IPsec/IKE 参数](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)。
+IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若要查看 Azure Stack 支持的参数，请参阅可帮助满足合规或安全要求的 [IPsec/IKE 参数](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)。
 
 本文说明如何创建和配置 IPsec/IKE 策略，并将其应用到新的或现有的连接。
 
@@ -39,9 +39,9 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 使用这些策略时，请注意以下重要事项：
 
-- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。  ** 
+- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。
 
-- 对于一个给定的连接，只能指定 **一个**策略组合。 
+- 一个给定的连接只能指定一个策略组合。
 
 - 必须指定 IKE（主模式）和 IPsec（快速模式）的所有算法和参数。 不允许指定部分策略。
 
@@ -69,16 +69,17 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 下表列出了支持的加密算法和密钥强度，Azure Stack 客户可对其进行配置：
 
-| IPsec/IKEv2                                          | 选项                                                                  |
-|------------------------------------------------------|--------------------------------------------------------------------------|
-| IKEv2 加密                                     | AES256、AES192、AES128、DES3、DES                                        |
-| IKEv2 完整性                                      | SHA384、SHA256、SHA1、MD5                                                |
-| DH 组                                             | ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、无         |
-| IPsec 加密                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无 |
-| IPsec 完整性                                      | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                       |
-| PFS 组                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无                         |
-| QM SA 生存期                                       | （可选：如果未指定，则使用默认值）<br />                         秒（整数；至少为 300 秒/默认为 27000 秒）<br />                         KB（整数；至少为 1024 KB/默认为 102400000 KB） |                                                                          |
-| 流量选择器                                     | Azure Stack 不支持基于策略的流量选择器。         |
+
+|   IPsec/IKEv2    |                                                                                                         选项                                                                                                         |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| IKEv2 加密 |                                                                                            AES256、AES192、AES128、DES3、DES                                                                                            |
+| IKEv2 完整性  |                                                                                                SHA384、SHA256、SHA1、MD5                                                                                                |
+|     DH 组     |                                                                            ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、无                                                                             |
+| IPsec 加密 |                                                                        GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无                                                                         |
+| IPsec 完整性  |                                                                                   GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                                                                                    |
+|    PFS 组     |                                                                                    PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无                                                                                     |
+|  QM SA 生存期  | （可选：如果未指定，则使用默认值）<br />                         秒（整数；至少为 300 秒/默认为 27000 秒）<br />                         KB（整数；至少为 1024 KB/默认为 102400000 KB） |
+| 流量选择器 |                                                                            Azure Stack 不支持基于策略的流量选择器。                                                                             |
 
 - 本地 VPN 设备配置必须匹配，或者必须包含可在 Azure IPsec/IKE 策略中指定的以下算法和参数：
 
@@ -112,7 +113,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 | 20 个                   | ECP384    | ECP384        | 384 位 ECP   |
 | 24                   | DHGroup24 | PFS24         | 2048 位 MODP |
 
-有关详细信息，请参阅  [RFC3526](https://tools.ietf.org/html/rfc3526) 和  [RFC5114](https://tools.ietf.org/html/rfc5114)。
+有关详细信息，请参阅 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
 
 ## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>第 3 部分 - 新建采用 IPsec/IKE 策略的站点到站点 VPN 连接
 
@@ -120,15 +121,15 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 ![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.png)
 
-有关创建站点到站点 VPN 连接的详细分步说明，请参阅 [创建站点到站点 VPN 连接](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
+有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 VPN 连接](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
 
 ### <a name="prerequisites"></a>先决条件
 
 在开始之前，请确保满足以下先决条件：
 
-- Azure 订阅。 如果没有 Azure 订阅，可以注册一个  [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 如果还没有 Azure 订阅，可以注册一个 [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [安装适用于 Azure Stack 的 PowerShell](../azure-stack-powershell-install.md)。 
+- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[安装适用于 Azure Stack 的 PowerShell](../azure-stack-powershell-install.md)。
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>步骤 1 - 创建虚拟网络、VPN 网关和本地网关
 
@@ -162,7 +163,7 @@ $LNGIP6 = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.连接到订阅并创建新资源组
 
-确保切换到 PowerShell 模式，以便使用Resource Manager cmdlet。 有关详细信息，请参阅 [以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+确保切换到 PowerShell 模式，以便使用Resource Manager cmdlet。 有关详细信息，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
@@ -240,7 +241,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 3. 删除连接的 IPsec/IKE 策略
 
 > [!NOTE]
-> IPsec/IKE 策略仅受基于路由的“标准”和“高性能”VPN 网关的支持。 **  **  它不适用于“基本”网关 SKU。
+> IPsec/IKE 策略仅受基于路由的标准 VPN 网关和高性能 VPN 网关支持。 它不适用于“基本”网关 SKU。
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.显示连接的 IPsec/IKE 策略
 
@@ -309,7 +310,7 @@ PfsGroup : None
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3.删除连接的 IPsec/IKE 策略
 
-从连接中删除自定义策略后，Azure VPN 网关将还原为 [默认的 IPsec/IKE 提议](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)，并再次与本地 VPN 设备协商。
+从连接中删除自定义策略后，Azure VPN 网关将还原为[默认的 IPsec/IKE 提议](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)，并再次与本地 VPN 设备协商。
 
 ```powershell
 $RG1 = "TestPolicyRG1"

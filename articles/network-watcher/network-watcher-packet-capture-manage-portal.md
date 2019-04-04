@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/10/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: a604bd3d6d48ceae0ea06146f838e0007e406407
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fd73306871d3cc4ee72d2d66d058e7cf265cc42d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648150"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625993"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>在门户中使用 Azure 网络观察程序管理数据包捕获
 
@@ -57,14 +57,14 @@ ms.locfileid: "52648150"
    - **每个会话的最大字节数**：捕获的字节总数。 一旦达到此值，数据包捕获便停止。
    - **时间限制(秒)**：在停止数据包捕获之前的时间限制。 默认为 18,000 秒。
    - 筛选（可选）。 选择“+ 添加筛选器”
-     - **协议**：要用于针对数据包捕获进行筛选的协议。 可用值为 TCP、UDP 和 Any。
+     - **协议**：要筛选的数据包捕获协议。 可用值为 TCP、UDP 和 Any。
      - **本地 IP 地址**：在数据包捕获中筛选其中的本地 IP 地址与此值匹配的数据包。
      - **本地端口**：在数据包捕获中筛选其中的本地端口与此值匹配的数据包。
-     - **远程 IP 地址**：在数据包捕获中筛选其中的远程 IP 地址与此值匹配的数据包。
+     - **远程 IP 地址**：将数据包捕获筛选为远程 IP 地址与此值匹配的数据包。
      - **远程端口**：在数据包捕获中筛选其中的远程端口与此值匹配的数据包。
 
-    > [!NOTE]
-    > 端口和 IP 地址值可以是单个值、值的范围，或某个范围，例如，可为端口指定 80-1024。 可以根据需要定义任意数量的筛选器。
+     > [!NOTE]
+     > 端口和 IP 地址值可以是单个值、值的范围，或某个范围，例如，可为端口指定 80-1024。 可以根据需要定义任意数量的筛选器。
 
 4. 选择“确定” 。
 

@@ -5,22 +5,28 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 10/08/2018
-ms.date: 03/04/2019
+origin.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4402cbe4112a351d3e066f3a3be5edce35a55e16
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 3d718800ef32829ca71b6ebe8d2b8dce0c4cb34a
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56902961"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626944"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>使用包含 Azure Kubernetes 服务 (AKS) 的内部负载均衡器
 
 若要限制访问 Azure Kubernetes 服务 (AKS) 中的应用程序，可以创建和使用内部负载均衡器。 内部负载均衡使得仅 Kubernetes 群集所在的同一虚拟网络中运行的应用程序能够访问 Kubernetes 服务。 本文介绍如何通过 Azure Kubernetes 服务 (AKS) 创建和使用内部负载均衡器。
 
 > [!NOTE]
-> Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 有关详细信息，请参阅 [Azure 负载均衡器 SKU 比较][azure-lb-comparison]。 AKS 目前支持“基本”SKU。 如果想要使用“*标准*”SKU，可以使用上游 [aks-引擎][aks-engine]。
+> Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 AKS 目前支持“基本”SKU。 如果想要使用“*标准*”SKU，可以使用上游 [aks-引擎][aks-engine]。 有关详细信息，请参阅 [Azure 负载均衡器 SKU 比较][azure-lb-comparison]。
+
+## <a name="before-you-begin"></a>准备阶段
+
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-internal-load-balancer"></a>创建内部负载均衡器
 
@@ -41,9 +47,15 @@ spec:
     app: internal-app
 ```
 
-使用 `kubectl apply -f internal-lb.yaml` 部署后，将会创建一个 Azure 负载均衡器，并使其在与 AKS 群集相同的虚拟网络上可用。
+使用 [kubectl apply]kubectl-apply] 部署内部负载均衡器，并指定 YAML 清单的名称：
 
-查看服务详细信息时，内部负载均衡器的 IP 地址显示在“EXTERNAL-IP”列中。 可能需要一两分钟，IP 地址才会从 \<pending\> 更改为实际的内部 IP 地址，如以下示例所示：
+```console
+kubectl apply -f internal-lb.yaml
+```
+
+Azure 负载均衡器在节点资源组中创建，并连接到 AKS 群集所在的虚拟网络。
+
+查看服务详细信息时，内部负载均衡器的 IP 地址显示在“EXTERNAL-IP”列中。 在此上下文中，*External* 是指负载均衡器的外部接口，不是指收到公共的外部 IP 地址。 可能需要一两分钟，IP 地址才会从 \<pending\> 更改为实际的内部 IP 地址，如以下示例所示：
 
 ```
 $ kubectl get service internal-app
@@ -72,7 +84,7 @@ spec:
     app: internal-app
 ```
 
-查看服务详细信息时，“EXTERNAL-IP”列中的 IP 地址反映了指定的 IP 地址：
+在部署后查看服务详细信息时，“EXTERNAL-IP”列中的 IP 地址反映了指定的 IP 地址：
 
 ```
 $ kubectl get service internal-app
@@ -83,7 +95,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>使用专用网络
 
-创建 AKS 群集时，可以指定高级网络设置。 此方法允许将群集部署到现有 Azure 虚拟网络和子网中。 一种方案是将 AKS 群集部署到连接到本地环境的专用网络，并运行仅在内部可访问的服务。 有关详细信息，请参阅 [AKS 中的高级网络配置][advanced-networking]。
+创建 AKS 群集时，可以指定高级网络设置。 此方法允许将群集部署到现有 Azure 虚拟网络和子网中。 一种方案是将 AKS 群集部署到连接到本地环境的专用网络，并运行仅在内部可访问的服务。 有关详细信息，请参阅“使用 [Kubenet][use-kubenet] 或 [Azure CNI][advanced-networking] 配置你自己的虚拟网络子网”。
 
 在使用专用网络的 AKS 群集中部署内部负载均衡器时，不需要更改先前的步骤。 负载均衡器在与 AKS 群集相同的资源组中创建，但连接到专用虚拟网络和子网，如以下示例所示：
 
@@ -136,3 +148,7 @@ spec:
 [az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[use-kubenet]: configure-kubenet.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2019
-ms.date: 03/04/2019
+ms.date: 04/01/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: f79c581d75362ea841bc65fbbc260d223918d445
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 044e2616bb043826435d4a30b809960eb7a60583
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905283"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503622"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成基础结构备份。 出现[灾难性故障](./azure-stack-backup-recover-data.md)时，硬件合作伙伴可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储、网络配额和 Key Vault 机密。
@@ -68,12 +68,15 @@ ms.locfileid: "56905283"
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 和更高版本**：Azure Stack 接受使用证书加密基础结构备份数据。 请确保将包含公钥和私钥的证书存储在安全位置。 出于安全考虑，我们不建议使用包含公钥和私钥的证书来配置备份设置。 有关如何管理此证书的生命周期的详细信息，请参阅[基础结构备份服务最佳做法](azure-stack-backup-best-practices.md)。
+   > [!Note]
+   > **1901 和更高版本**：Azure Stack 接受使用证书加密基础结构备份数据。 请确保将包含公钥和私钥的证书存储在安全位置。 出于安全考虑，我们不建议使用包含公钥和私钥的证书来配置备份设置。 有关如何管理此证书的生命周期的详细信息，请参阅[基础结构备份服务最佳做法](azure-stack-backup-best-practices.md)。
+   > 
+   > **1811 或更早版本**：Azure Stack 接受使用对称密钥来加密基础结构备份数据。 使用 [New-AzsEncryptionKey64 cmdlet 来创建密钥](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。 从 1811 升级到 1901 以后，备份设置会保留加密密钥。 建议更新备份设置，以便使用证书。 加密密钥支持现在已弃用。 将至少有 3 个版本需要更新设置才能使用证书。 
 
 10. 选择“确定”以保存备份控制器设置。
 
 ![Azure Stack - 备份控制器设置](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>启动备份
 若要启动备份，请单击“立即备份”以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”中确认设置：
@@ -116,7 +119,7 @@ ms.locfileid: "56905283"
 ![Azure Stack - 查看证书指纹](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>后向兼容性模式
-如果在更新到 1901 版本之前配置了备份，则会沿用当前设置，其行为不会发生更改。 在此情况下，支持使用加密密钥来实现后向兼容性。 可以选择更新加密密钥，或改用证书。 有三个版本可继续更新加密密钥。 此借此机会过渡到证书。 
+如果在更新到 1901 版本之前配置了备份，则会沿用当前设置，其行为不会发生更改。 在此情况下，支持使用加密密钥来实现后向兼容性。 可以选择更新加密密钥，或改用证书。 至少有三个版本需继续更新加密密钥。 此借此机会过渡到证书。 若要创建新加密密钥，请使用 [New-AzsEncryptionKeyBase64 cmdlet](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。
 
 ![Azure Stack - 在后向兼容性模式下使用加密密钥](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

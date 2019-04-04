@@ -11,12 +11,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 7232c75054c1b3edddc934eb721eb7adbe8e9f8b
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 1a15157f635399c8484e86cbbb555d41ea8d6456
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905337"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625212"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -72,23 +72,23 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 > [!Note]  
 > Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务。
 
-|目的|目标 URL|协议|端口|源网络|
-|---------|---------|---------|---------|---------|
-|标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|市场联合|https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|公共 VIP - /27|
-|修补程序和更新|https://&#42;.azureedge.net|HTTPS|443|公共 VIP - /27|
-|注册|https://management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
-|使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.cn|HTTPS|443|公共 VIP - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
-|DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|公共 VIP - /27|
-|CRL|（证书上的 CRL 分发点下的 URL）|HTTP|80|公共 VIP - /27|
-|LDAP|为 Graph 集成提供的 Active Directory 林|TCP<br>UDP|389|公共 VIP - /27|
-|LDAP SSL|为 Graph 集成提供的 Active Directory 林|TCP|636|公共 VIP - /27|
-|LDAP GC|为 Graph 集成提供的 Active Directory 林|TCP|3268|公共 VIP - /27|
-|LDAP GC SSL|为 Graph 集成提供的 Active Directory 林|TCP|3269|公共 VIP - /27|
-|AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
-|     |     |     |     |     |
+|         目的         |                                                                                                                                                                                      目标 URL                                                                                                                                                                                      |   协议    |   端口   |                  源网络                   |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|-----------|---------------------------------------------------|
+|        标识         |                                                                                                                    login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br><https://secure.aadcdn.microsoftonline-p.com><br>office.com                                                                                                                    | HTTP<br>HTTPS | 80<br>443 | 公共 VIP - /27<br>公共基础结构网络 |
+| 市场联合 |                                                                                                                   https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://\*.azureedge.net<br>https://&#42;.microsoftazurestack.com                                                                                                                    |     HTTPS     |    443    |                 公共 VIP - /27                  |
+|     修补程序和更新      |                                                                                                                                                                                https://&#42;.azureedge.net                                                                                                                                                                                |     HTTPS     |    443    |                 公共 VIP - /27                  |
+|      注册       |                                                                                                                                                                            https://management.chinacloudapi.cn                                                                                                                                                                            |     HTTPS     |    443    |                 公共 VIP - /27                  |
+|          使用情况          |                                                                                                                                                           https://&#42;.microsoftazurestack.com<br>https://\*.trafficmanager.cn                                                                                                                                                           |     HTTPS     |    443    |                 公共 VIP - /27                  |
+|    Windows Defender     | .wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br><https://msdl.microsoft.com/download/symbols><br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br><https://secure.aadcdn.microsoftonline-p.com><br> |     HTTPS     | 80<br>443 | 公共 VIP - /27<br>公共基础结构网络 |
+|           NTP           |                                                                                                                                                                        （为部署提供的 NTP 服务器的 IP）                                                                                                                                                                         |      UDP      |    123    |                 公共 VIP - /27                  |
+|           DNS           |                                                                                                                                                                        （为部署提供的 DNS 服务器的 IP）                                                                                                                                                                         |  TCP<br>UDP   |    53     |                 公共 VIP - /27                  |
+|           CRL           |                                                                                                                                                                  （证书上的 CRL 分发点下的 URL）                                                                                                                                                                  |     HTTP      |    80     |                 公共 VIP - /27                  |
+|          LDAP           |                                                                                                                                                                  为 Graph 集成提供的 Active Directory 林                                                                                                                                                                   |  TCP<br>UDP   |    389    |                 公共 VIP - /27                  |
+|        LDAP SSL         |                                                                                                                                                                  为 Graph 集成提供的 Active Directory 林                                                                                                                                                                   |      TCP      |    636    |                 公共 VIP - /27                  |
+|         LDAP GC         |                                                                                                                                                                  为 Graph 集成提供的 Active Directory 林                                                                                                                                                                   |      TCP      |   3268    |                 公共 VIP - /27                  |
+|       LDAP GC SSL       |                                                                                                                                                                  为 Graph 集成提供的 Active Directory 林                                                                                                                                                                   |      TCP      |   3269    |                 公共 VIP - /27                  |
+|          AD FS          |                                                                                                                                                                  为 AD FS 集成提供的 AD FS 元数据终结点                                                                                                                                                                   |      TCP      |    443    |                 公共 VIP - /27                  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                           |               |           |                                                   |
 
 > [!Note]  
 > 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载均衡 URL，Azure 可以更新和更改后端终结点，而不会影响客户。 Azure 不共享负载均衡 URL 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/28/2018
+origin.date: 03/20/2019
 ms.date: ''
 ms.author: v-yiso
-ms.openlocfilehash: d3d5306977a5866b2b6fda40d4c68eee05f98099
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9b74382dc37c07f2cd8d43dfa6344443c6b0e77b
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643755"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627051"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 
@@ -30,15 +30,16 @@ ms.locfileid: "52643755"
 
 ## <a name="azure-account"></a>Azure 帐户
 * 使用中的有效 Microsoft Azure 帐户。 需有此帐户才能设置 ExpressRoute 线路。 ExpressRoute 线路是 Azure 订阅中的资源。 即使连接限于非 Azure Microsoft 云服务（例如 Office 365 服务和 Dynamics 365），Azure 订阅也是一个必要条件。
-* 有效的 Office 365 订阅（如果使用的是 Office 365 服务）。 有关详细信息，请参阅本文中的 [Office 365 的具体要求](#office-365-specific-requirements) 部分。
+* 有效的 Office 365 订阅（如果使用的是 Office 365 服务）。 
 
 ## <a name="connectivity-provider"></a>连接服务提供商
 - 可使用 [ExpressRoute 连接合作伙伴](./expressroute-locations.md#partners) 连接到 Microsoft 云。 可以通过[三种方法](./expressroute-introduction.md)在本地网络与 Microsoft 之间设置连接。 
 - 即使提供商不是 ExpressRoute 连接合作伙伴，也可通过[云交换提供商](./expressroute-locations.md#nonpartners)连接到 Microsoft 云。
 
 ## <a name="network-requirements"></a>网络要求
-- **冗余连接**：对于客户与提供商之间的物理连接，没有冗余方面的要求。 即使只有 [一个到云交换的物理连接](./expressroute-faqs.md#onep2plink)，Microsoft 也会要求在 Microsoft 的路由器和对等互连路由器之间建立冗余的 BGP 会话。 
-- 路由：你或你的提供商需设置和管理针对[路由域](./expressroute-circuit-peerings.md)的 BGP 会话，具体取决于连接到 Microsoft 云的方式。 某些以太网连接服务提供商或云交换服务提供商可能会以增值服务的形式提供 BGP 管理。
+* **每个对等互连位置的冗余性**：Microsoft 要求在 Microsoft 的路由器和每个 ExpressRoute 线路上的对等互连路由器之间建立冗余的 BGP 会话（即使只有[一个到云交换的物理连接](expressroute-faqs.md#onep2plink)）。
+* **灾难恢复的冗余**：Microsoft 强烈建议你在不同的对等互连位置设置至少两条 ExpressRoute 线路，避免单点故障。
+* **路由**：你或提供商需设置和管理针对[路由域](expressroute-circuit-peerings.md)的 BGP 会话，具体取决于连接到 Microsoft 云的方式。 某些以太网连接服务提供商或云交换服务提供商可能会以增值服务的形式提供 BGP 管理。
 
 
 

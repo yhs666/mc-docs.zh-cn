@@ -7,16 +7,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 01/25/2019
-ms.date: 03/04/2019
+origin.date: 03/14/2019
+ms.date: 04/08/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d07b6e338b5666a40037b9bdd8b1d3a7af90dc97
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 10d0eb6cb770592bbf417ab01f7874209ab7044c
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988038"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627784"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安装 Azure IoT Edge 运行时
 
@@ -26,8 +26,8 @@ ms.locfileid: "57988038"
 
 本文列出了在 Windows x64 (AMD/Intel) 系统上安装 Azure IoT Edge 运行时的步骤。 Windows 支持目前为预览版。
 
->[!NOTE]
-不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。
+> [!NOTE]
+> 不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,6 +53,8 @@ Azure IoT Edge 根据运行的是 Windows 容器还是 Linux 容器支持不同�
 
 Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器引擎。 对于生产方案，请使用安装脚本中包含的 Moby 引擎在 Windows 设备上运行 Windows 容器。 对于开发和测试，可以在 Windows 设备上运行 Linux 容器，但需要在安装 IoT Edge 之前安装并配置容器。 对于任一方案，请参阅以下部分来了解准备设备时所要满足的先决条件。 
 
+若要在虚拟机上安装 IoT Edge，请启用嵌套虚拟化并分配至少 2-GB 内存。 如何启用嵌套虚拟化取决于所用的虚拟机监控程序。 就 Hyper-V 来说，第 2 代虚拟机已默认启用嵌套虚拟化。 如果使用 VMWare，则可通过切换开关在虚拟机上启用此功能。 
+
 #### <a name="moby-engine-for-windows-containers"></a>适用于 Windows 容器的 Moby 引擎
 
 对于生产方案中运行 IoT Edge 的 Windows 设备而言，Moby 是唯一受支持的容器引擎。 在安装 IoT Edge 之前，安装脚本会自动在设备上安装 Moby 引擎。 通过启用“容器”功能来准备设备。 
@@ -65,7 +67,7 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 如果使用 Windows 开发和测试适用于 Linux 设备的容器，则可以使用[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 作为容器引擎。 可将 Docker 配置为[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。 需要在安装 IoT Edge 之前安装 Docker 并对其进行配置。 生产环境中的 Windows 设备不支持 Linux 容器。 
 
-如果 IoT Edge 设备是 Windows 计算机，请检查它是否符合 Hyper-V 的[系统要求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。 如果该设备是虚拟机，则启用[嵌套虚拟化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)并分配至少 2-GB 内存。
+如果 IoT Edge 设备是 Windows 计算机，请检查它是否符合 Hyper-V 的[系统要求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。
 
 ## <a name="install-iot-edge-on-a-new-device"></a>在新设备上安装 IoT Edge
 

@@ -11,12 +11,12 @@ origin.date: 08/15/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 22616a7027397b0bcb3ec97f2bedd10f590f5676
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 85fe5e9a4d2f99ca5faf6341935ce8d67bdbd1ad
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666410"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627270"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
@@ -80,8 +80,8 @@ Site Recovery 支持多种类型的、停机时间极短或不造成停机的故
 1. 打开 [Azure 门户](https://portal.azure.cn)。
 2. 选择“创建资源” > “管理” > “备份和 Site Recovery (OMS)”。 或者，可以选择“浏览” > “恢复服务保管库” > “添加”。
    >[!NOTE]
-   >备份和 Site Recovery 以前是 ![OMS 套件](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)的一部分。
-1. 指定将 VM 复制到的区域。 若要在同一区域中迁移，请选择源 VM 和源存储帐户所在的区域。 
+   >备份和 Site Recovery 以前是 [OMS 套件](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)的一部分。
+3. 指定将 VM 复制到的区域。 若要在同一区域中迁移，请选择源 VM 和源存储帐户所在的区域。 
 
 ### <a name="step-2-choose-your-protection-goals"></a>步骤 2：选择保护目标 
 
@@ -239,6 +239,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 [12]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-12.PNG
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 
-<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png --> [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
+<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png -->
+[15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
 
 <!-- Update_Description: update meta properties -->

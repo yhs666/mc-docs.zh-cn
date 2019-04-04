@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: eb5e221b9db187860324a32308b0e42b4661f381
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e806379145c590fdda51ee5f19e17b7137706c69
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650902"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625793"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
 创建云服务时，Azure 会将其分配给 **chinacloudapp.cn** 的子域。 例如，如果云服务名为“contoso”，则用户能够在 URL（如 http://contoso.chinacloudapp.cn）上访问应用程序。 Azure 还会分配一个虚拟 IP 地址。
@@ -47,12 +47,10 @@ CNAME（即别名记录）和 A 记录都允许将域名与特定服务器（在
 
 ### <a name="cname-or-alias-record"></a>CNAME 或别名记录
 
-CNAME 记录会将特定域（例如 **contoso.com** 或 **www.contoso.com**）映射到规范域名。 在这种情况下，规范域名是 Azure 托管应用程序的 [myapp].chinacloudapp.cn 域名。 创建完成后，CNAME 将为 [myapp].chinacloudapp.cn 创建一个别名。 CNAME 条目将自动解析为 [myapp].chinacloudapp.cn 服务的 IP 地址，因此，如果该云服务的 IP 地址发生更改，则无需执行任何操作。
+CNAME 记录会将特定域（例如 **contoso.com** 或 <strong>www.contoso.com</strong>）映射到规范域名。 在这种情况下，规范域名是 Azure 托管应用程序的 [myapp].chinacloudapp.cn 域名。 创建完成后，CNAME 将为 [myapp].chinacloudapp.cn 创建一个别名。 CNAME 条目将自动解析为 [myapp].chinacloudapp.cn 服务的 IP 地址，因此，如果该云服务的 IP 地址发生更改，则无需执行任何操作。
 
 > [!NOTE]
 > 某些域注册机构只允许在使用 CNAME 记录（例如 www.contoso.com）和非根名称（例如 contoso.com）时映射子域。 有关 CNAME 记录的详细信息，请参阅注册机构提供的文档、[CNAME 记录上的 Wikipedia 条目](http://en.wikipedia.org/wiki/CNAME_record)或 [IETF 域名 - 实现和规范](http://tools.ietf.org/html/rfc1035)文档。
-> 
-> 
 
 ### <a name="a-record"></a>A 记录
 A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例如 \*.contoso.com）映射到 IP 地址。 使用 Azure 云服务时，映射到该服务的虚拟 IP。 与 CNAME 记录相比，A 记录的主要优势是用户可持有使用通配符的条目，例如 \*.contoso.com，用于处理多个子域（例如 mail.contoso.com、login.contoso.com 或 www.contso.com）的请求。
@@ -70,27 +68,27 @@ A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例�
 
 1. 使用下列方法之一找到分配给云服务的 **.chinacloudapp.cn** 域名。
 
-    * 登录到 [Azure 门户]，选择云服务，查看“概要”部分，然后找到“站点 URL”条目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概要”部分，然后找到“站点 URL”条目。
 
-        ![显示站点 URL 的速览部分][csurl]
+       ![显示站点 URL 的速览部分][csurl]
 
-        **或者**
+       **或者**
 
-    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，并使用以下命令：
+   * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，并使用以下命令：
 
-        ```powershell
-        Get-AzureDeployment -ServiceName yourservicename | Select Url
-        ```
+       ```powershell
+       Get-AzureDeployment -ServiceName yourservicename | Select Url
+       ```
 
-    保存任一方法返回的 URL 中所使用的域名，因为创建 CNAME 记录时需要它。
+     保存任一方法返回的 URL 中所使用的域名，因为创建 CNAME 记录时需要它。
 
-1.  登录到 DNS 注册机构的网站，并转到用于管理 DNS 的页面。 查找标为“域名”、“DNS”或“名称服务器管理”的站点链接或区域。
+2. 登录到 DNS 注册机构的网站，并转到用于管理 DNS 的页面。 查找标为“域名”、“DNS”或“名称服务器管理”的站点链接或区域。
 
-2.  现在找到可以在其中选择或输入 CNAME 记录的位置。 可能需要从下拉列表中选择记录类型，或者需要转到高级设置页面。 应查找“CNAME”、“别名”或“子域”字样。
+3. 现在找到可以在其中选择或输入 CNAME 记录的位置。 可能需要从下拉列表中选择记录类型，或者需要转到高级设置页面。 应查找“CNAME”、“别名”或“子域”字样。
 
-3.  若要为 www.customdomain.com 创建别名，还必须为 CNAME 提供域或子域别名，例如 www。 如果希望为根域创建别名，它可能在注册机构的 DNS 工具中以符号“**@**”的形式列出。
+4. 若要为 www.customdomain.com 创建别名，还必须为 CNAME 提供域或子域别名，例如 www。 如果希望为根域创建别名，它可能在注册机构的 DNS 工具中以符号“**@**”的形式列出。
 
-4. 然后，必须提供规范主机名，在此示例中为应用程序的 **chinacloudapp.cn** 域。
+5. 然后，必须提供规范主机名，在此示例中为应用程序的 **chinacloudapp.cn** 域。
 
 例如，以下 CNAME 记录会将 www.contoso.com 的全部流量都转发至 contoso.chinacloudapp.cn（已部署应用程序的自定义域名）：
 
@@ -99,9 +97,9 @@ A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例�
 | www                       | contoso.chinacloudapp.cn |
 
 > [!NOTE]
-www.contoso.com 的访问者不会看到真正的主机 (contoso.chinacloudapp.cn)，因此，转发过程对最终用户不可见。
-
-> 上述示例仅适用于 **www** 子域的流量。 因为无法为 CNAME 记录使用通配符，所以必须为每个域/子域创建一个 CNAME。 若要将子域（例如 *.contoso.com）的流量定向到 chinacloudapp.cn 地址，则可以在 DNS 设置中配置“URL 重定向”或“URL 转发”条目，或者创建一条 A 记录。
+> www.contoso.com 的访问者不会看到真正的主机 (contoso.chinacloudapp.cn)，因此，转发过程对最终用户不可见。
+> 
+> 上述示例仅适用于 **www** 子域的流量。 因为无法为 CNAME 记录使用通配符，所以必须为每个域/子域创建一个 CNAME。 若要将子域（例如 <em>.contoso.com）的流量定向到 chinacloudapp.cn 地址，则可以在 DNS 设置中配置“URL 重定向</em>”或“URL 转发”条目，或者创建一条 A 记录**。
 
 ## <a name="add-an-a-record-for-your-custom-domain"></a>为自定义域添加 A 记录
 
@@ -109,29 +107,29 @@ www.contoso.com 的访问者不会看到真正的主机 (contoso.chinacloudapp.c
 
 1. 使用以下方法之一来获取云服务的 IP 地址。
 
-    * 登录到 [Azure 门户]，选择云服务，查看“概要”部分，然后找到“公共 IP 地址”条目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概要”部分，然后找到“公共 IP 地址”条目。
 
-        ![显示 VIP 的速览部分][vip]
+       ![显示 VIP 的速览部分][vip]
 
-        **或者**
+       **或者**
 
-    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，然后使用以下命令：
+   * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，然后使用以下命令：
 
-        ```powershell
-        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
-        ```
+       ```powershell
+       get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
+       ```
 
-    保存该 IP 地址，因为创建 A 记录时需要它。
+     保存该 IP 地址，因为创建 A 记录时需要它。
 
-1.  登录到 DNS 注册机构的网站，并转到用于管理 DNS 的页面。 查找标为“域名”、“DNS”或“名称服务器管理”的站点链接或区域。
+2. 登录到 DNS 注册机构的网站，并转到用于管理 DNS 的页面。 查找标为“域名”、“DNS”或“名称服务器管理”的站点链接或区域。
 
-2.  然后找到用于选择或输入 A 记录的位置。 可能需要从下拉列表中选择记录类型，或者需要转到高级设置页面。
+3. 然后找到用于选择或输入 A 记录的位置。 可能需要从下拉列表中选择记录类型，或者需要转到高级设置页面。
 
-4. 选择或输入将使用此 A 记录的域或子域。 例如，如果希望为 **www.customdomain.com** 创建别名，请选择“www”。 如果希望为所有子域创建通配符条目，请输入“*****”。 这将涵盖所有子域，例如 mail.customdomain.com、login.customdomain.com 和 www.customdomain.com。
+4. 选择或输入将使用此 A 记录的域或子域。 例如，若要为 www.customdomain.com 创建别名，请选择“www”。 若要为所有子域创建通配符条目，请输入“**<strong><em>”。这将涵盖所有子域，例如 *</em>mail.customdomain.com</strong>、**login.customdomain.com** 和 <strong>www.customdomain.com</strong>。
 
     如果希望为根域创建 A 记录，它可能在注册机构的 DNS 工具中以符号“**@**”的形式列出。
 
-4. 在提供的字段中输入云服务的 IP 地址。 这会将 A 记录中使用的域条目与云服务部署的 IP 地址相关联。
+5. 在提供的字段中输入云服务的 IP 地址。 这会将 A 记录中使用的域条目与云服务部署的 IP 地址相关联。
 
 例如，以下 A 记录会将 contoso.com 的全部流量都转发至 137.135.70.239（已部署应用程序的 IP 地址）：
 

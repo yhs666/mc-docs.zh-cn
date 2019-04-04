@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 03/14/2019
+ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: ab83b95f401c9092f5c8a88841e2233f074df266
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 06384d8fab61c144290440486e4977fc71d45b4b
+ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672522"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58624171"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
@@ -161,7 +161,7 @@ ms.locfileid: "52672522"
 
 ### <a id="xml"></a>XML 预设
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -239,13 +239,13 @@ ms.locfileid: "52672522"
 * 为 Start/Step/Range 使用的显式时间戳假设输入源的长度至少为 1 分钟。
 * Jpg/Png/BmpImage 元素包含 Start、Step 和 Range 字符串属性 - 这些属性解释如下：
 
-  * 帧数（如果为非负整数），例如："Start": "120"；
-  * 相对于源持续时间（如果以 % 为后缀表示），例如："Start": "15%"，或者
-  * 时间戳（如果以 HH:MM:SS... 格式表示），例如，"Start" : "00:01:00"
+  * 帧数（如果为非负整数），例如，"Start":"120"；
+  * 相对于源持续时间（如果以 % 为后缀表示），例如："Start":"15%"，或者
+  * 时间戳（如果以 HH:MM:SS... 格式表示），例如："Start":"00:01:00"
 
     可以随意混搭使用表示法。
 
-    此外，Start 还支持特殊的宏 {Best}，它会尝试确定第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
+    此外，Start 还支持特殊的宏 {Best}，它会尝试确定第一个“有意义”的内容帧。请注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
   * 默认值：Start:{Best}
 * 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 提供时，MES 会将 JpgVideo 与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
@@ -377,7 +377,7 @@ ms.locfileid: "52672522"
 若要剪裁视频，可以使用[此处](media-services-mes-presets-overview.md)所述的任何 MES 预设，并修改“Sources”元素（如下所示）。
 
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source StartTime="PT4S" Duration="PT14S"/>
       </Sources>
@@ -582,8 +582,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -640,7 +639,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 ### <a name="xml-preset"></a>XML 预设
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source>
           <Streams />
@@ -657,12 +656,10 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>
@@ -753,7 +750,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 
 ## <a id="audio_only"></a>仅音频预设
-本部分介绍两个仅音频 MES 预设：AAC 音频和 AAC 优质音频。
+本节演示了两个仅用于音频的 MES 预设：AAC 音频和 AAC 优质音频。
 
 ### <a name="aac-audio"></a>AAC 音频
     {

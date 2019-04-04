@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 11/22/2018
 ms.date: 12/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a6b9744ba8cdb9f8dd2d0fb0cd289f66cc8555ce
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: 92d1ba9a84682eb8872e1af6883757b9afad0dff
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480161"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626347"
 ---
 <!-- Verify part successfully-->
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则
@@ -79,27 +79,27 @@ ms.locfileid: "55480161"
 
 如果 VM 处于联机状态且可以在同一虚拟网络中的另一个 VM 上对其进行访问，则可以在另一个 VM 上使用[远程注册表](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1.  在故障排除 VM 上启动注册表编辑器 (regedit.exe)，然后选择“文件” > “连接网络注册表”。
+1. 在故障排除 VM 上启动注册表编辑器 (regedit.exe)，然后选择“文件” > “连接网络注册表”。
 
-2.  打开  *TARGET MACHINE*\SYSTEM 分支，然后指定以下值：
+2. 打开 *TARGET MACHINE*\SYSTEM 分支，然后指定以下值：
 
-    * 若要启用规则，请打开以下注册表值：
+   * 若要启用规则，请打开以下注册表值：
 
-        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+       *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将字符串中的 **Active=FALSE** 更改为 **Active=TRUE**：
+       然后，将字符串中的 **Active=FALSE** 更改为 **Active=TRUE**：
 
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+       **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
-    * 若要禁用规则，请打开以下注册表值：
+   * 若要禁用规则，请打开以下注册表值：
 
-        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+       *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将 **Active=TRUE** 更改为 **Active=FALSE**：
+       然后，将 **Active=TRUE** 更改为 **Active=FALSE**：
 
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+       **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
-3.  重启 VM 以应用更改。
+3. 重启 VM 以应用更改。
 
 ### <a name="offline-troubleshooting"></a>脱机故障排除 
 
@@ -107,46 +107,46 @@ ms.locfileid: "55480161"
 
 在执行这些步骤之前，请创建受影响 VM 的系统磁盘的快照作为备份。 有关详细信息，请参阅 [创建磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
-1.  [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
+1. [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
-2.  开始与恢复 VM 建立远程桌面连接。
+2. 开始与恢复 VM 建立远程桌面连接。
 
-3.  确保磁盘在磁盘管理控制台中标记为“联机”。  ****  请注意分配给附加的系统磁盘的驱动器号。
+3. 确保磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的系统磁盘的驱动器号。
 
-4.  在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回滚更改。
+4. 在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回退更改。
 
-5.  在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。
+5. 在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。
 
-6.  突出显示“HKEY_LOCAL_MACHINE”项，然后从菜单中选择“文件” > “加载配置单元”。   **** 
+6. 突出显示 **HKEY_LOCAL_MACHINE** 项，然后从菜单中选择“文件” > “加载配置单元”。
 
-    ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
+   ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
-7.  找到并打开 \windows\system32\config\SYSTEM 文件。 
+7. 找到并打开 \windows\system32\config\SYSTEM 文件。 
 
-    > [!Note]
-    > 系统会提示输入名称。 输入  **BROKENSYSTEM**，然后展开“HKEY_LOCAL_MACHINE”。  **** 现在，可以看到名为  **BROKENSYSTEM** 的附加键。 为了进行故障排除，我们将这些有问题的配置单元装载为  **BROKENSYSTEM**。
+   > [!Note]
+   > 系统会提示输入名称。 输入 **BROKENSYSTEM**，然后展开 **HKEY_LOCAL_MACHINE**。 现在，可以看到名为 **BROKENSYSTEM** 的附加项。 为了进行故障排除，我们将这些有问题的配置单元装载为 **BROKENSYSTEM**。
 
-8.  对 BROKENSYSTEM 分支进行以下更改：
+8. 对 BROKENSYSTEM 分支进行以下更改：
 
-    1.  检查 VM 是从哪个 **ControlSet** 注册表项启动的。 将在 HKLM\BROKENSYSTEM\Select\Current 中看到该项的数值。
+   1. 检查 VM 是从哪个 **ControlSet** 注册表项启动的。 会在 HKLM\BROKENSYSTEM\Select\Current 中看到该项的数值。
 
-    2.  若要启用规则，请打开以下注册表值：
+   2. 若要启用规则，请打开以下注册表值：
 
-        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+      HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将 **Active=FALSE** 更改为 **Active=True**。
+      然后，将 **Active=FALSE** 更改为 **Active=True**。
 
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+      **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
-    3.  若要禁用规则，请打开以下注册表项：
+   3. 若要禁用规则，请打开以下注册表项：
 
-        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+      HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将 **Active=True** 更改为 **Active=FALSE**。
+      然后，将 **Active=True** 更改为 **Active=FALSE**。
 
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+      **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
-9.  突出显示“BROKENSYSTEM”，然后从菜单中选择“文件” > “卸载配置单元”。  **** **** 
+9. 突出显示 BROKENSYSTEM，然后选择菜单中的“文件” > “卸载配置单元”。
 
 10. [拆离系统磁盘并重新创建 VM](troubleshoot-recovery-disks-portal-windows.md)。
 

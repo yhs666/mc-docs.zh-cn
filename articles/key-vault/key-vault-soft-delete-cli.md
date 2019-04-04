@@ -1,19 +1,19 @@
 ---
 title: Azure Key Vault - 如何将软删除与 CLI 配合使用
 description: 使用 CLI 代码剪辑进行软删除的用例示例
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 08/04/2017
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: v-biyu
-ms.openlocfilehash: 94fe7c16bb0fec1f83285efadf2f224cf9a3726d
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 310579e9f0b5b46a4124c4725dd02369002ebd68
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903244"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58625923"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何将 Key Vault 软删除与 CLI 配合使用
 
@@ -168,19 +168,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 像密钥一样，可以使用自己的命令管理机密：
 
 - 删除名为 SQLPassword 的机密： 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - 列出 Key Vault 中所有已删除的机密： 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - 恢复处于已删除状态的机密： 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - 清除处于已删除状态的机密： 
 
@@ -223,6 +223,24 @@ az keyvault purge --location chinanorth --name ContosoVault
 
 >[!IMPORTANT]
 >已清除的保管库对象（由“Scheduled Purge Date”字段触发清除操作）将被永久删除。 不可恢复！
+
+## <a name="enabling-purge-protection"></a>启用清除保护
+
+启用清除保护时，在长达 90 天的保留期到期之前，不能清除处于已删除状态的保管库或对象。 仍可以恢复此类保管库或对象。 此功能可增加保障，在保留期到期之前，永远不会永久删除保管库或对象。
+
+只有启用了软删除，才能启用清除保护。 
+
+若要在创建保管库时同时启用软删除和清除保护，请使用 [az keyvault create](/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 命令：
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location chinanorth --enable-soft-delete true --enable-purge-protection true
+```
+
+若要向现有保管库（已启用软删除）添加清除保护，请使用 [az keyvault update](/cli/keyvault?view=azure-cli-latest#az-keyvault-update) 命令：
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>其他资源
 

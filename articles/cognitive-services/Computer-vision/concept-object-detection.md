@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 12/03/2018
-ms.date: 02/20/2019
+origin.date: 03/11/2019
+ms.date: 03/27/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: a7f5887d7ed322128511a59aaee0531dbf08921b
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 436f93cb4890b819364a115c857353aee8133de0
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582754"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505502"
 ---
 # <a name="object-detection"></a>对象检测
 
 对象检测类似于[标记](concept-tagging-images.md)，但是 API 返回找到的每个对象的边框坐标（以像素为单位）。 例如，如果图像包含狗、猫和人，检测操作将列出这些对象及其在图像中的坐标。 可以使用此功能处理图像中对象之间的关系。 还可以确定图像中是否有多个相同标记的实例。
 
-检测 API 根据图像中识别到的对象或生物应用标记。 请注意，用于标记的分类与用于对象检测的分类之间现在没有正式关系。 从概念上讲，检测 API 仅查找对象和生物，而标记 API 还可以包含诸如“室内”等上下文术语，这些术语不能使用边界框进行本地化。
+检测 API 根据图像中识别到的对象或生物应用标记。 目前，标记分类与对象检测分类之间没有正式关系。 从概念上讲，检测 API 仅查找对象和生物，而标记 API 还可以包含诸如“室内”等上下文术语，这些术语不能使用边界框进行本地化。
 
 ## <a name="object-detection-example"></a>对象检测示例
 
@@ -90,12 +90,16 @@ ms.locfileid: "56582754"
 
 ## <a name="limitations"></a>限制
 
-请务必注意对象检测功能的限制，以便可以避免或缓解误报（缺少对象）和有限详细信息的影响。
-- 如果对象非常小（小于图像的 5%），则通常不删除对象。
-- 如果对象非常紧密地排列在一起（例如一摞盘子），则通常不会检测到对象。
+请务必注意对象检测的限制，以便可以避免或缓解误报（缺少对象）和有限详细信息的影响。
+
+* 如果对象小（小于图像的 5%），则通常不删除对象。
+* 如果对象紧密地排列在一起（例如一摞盘子），则通常不会检测到对象。
 
 ## <a name="use-the-api"></a>使用 API
-对象检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 获取完整 JSON 响应时，只需分析 `"objects"` 部分内容的字符串。
 
+对象检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 获取完整 JSON 响应时，请分析 `"objects"` 部分内容的字符串。
+
+* [快速入门：分析图像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
 
 <!-- Update_Description: wording update -->

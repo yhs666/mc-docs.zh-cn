@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 641f9b31c3ab943284877173bdff906f965ed55d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 91ec95f259155fbbe45e2665afa7415d8f36373d
+ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964464"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505470"
 ---
 # <a name="request-limits-for-translator-text"></a>文本翻译的请求限制
 
@@ -43,7 +43,7 @@ ms.locfileid: "57964464"
 
 ## <a name="latency"></a>延迟
 
-文本翻译的最大延迟为 13 秒。 此时你将收到结果或超时响应。 通常，将在 150 毫秒至 300 毫秒内返回响应。 响应时间将根据大小或请求和语言对而有所不同。
+文本翻译 API 在使用标准模型时的最大延迟为 15 秒。 使用自定义模型时，翻译的最大延迟为 25 秒。 此时你将收到结果或超时响应。 通常，将在 150 毫秒至 300 毫秒内返回响应。 响应时间因请求大小和语言对而异。 如果没有在该时间范围内收到翻译或[错误响应](/cognitive-services/translator/reference/v3-0-reference#errors)，则应检查网络连接并重试。
 
 ## <a name="sentence-length-limits"></a>句子长度限制
 
@@ -65,7 +65,8 @@ ms.locfileid: "57964464"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [价格](https://www.azure.cn/pricing/details/cognitive-services)
+* [价格](https://www.azure.cn/pricing/details/cognitive-services/)
 * [区域可用性](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 * [v3 文本翻译 API 参考](/cognitive-services/translator/reference/v3-0-reference)
 
+<!-- Update_Description: wording update -->

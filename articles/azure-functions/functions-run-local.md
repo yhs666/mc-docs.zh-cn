@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/29/2018
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9781b1c990c91f8e843be9afc370365db137bc4f
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 64ba1dca34b7903d4f7d656fec3e4ca47205edc4
+ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254057"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58408303"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -184,22 +184,22 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | 设置      | 说明                            |
 | ------------ | -------------------------------------- |
-| IsEncrypted | 设置为“true”时，使用本地计算机密钥加密所有值。 与 `func settings` 命令配合使用。 默认值为“false”。 |
-| **值** | 在本地运行时使用的应用程序设置和连接字符串的集合。 这些值对应于 Azure 中你的函数应用中的应用设置，例如 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard**。 许多触发器和绑定都有一个引用连接字符串应用设置的属性，例如 [Blob 存储触发器](functions-bindings-storage-blob.md#trigger---configuration)的 **Connection**。 对于此类属性，你需要一个在 **Values** 数组中定义的应用程序设置。 <br/>对于 HTTP 之外的触发器，**AzureWebJobsStorage** 是一个必需的应用设置。 当在本地安装了 [Azure 存储仿真器](../storage/common/storage-use-emulator.md)时，可以将 **AzureWebJobsStorage** 设置 `UseDevelopmentStorage=true`，核心工具使用此仿真器。 这在开发期间非常有用，但是在部署之前，应当使用实际的存储连接进行测试。 |
-| **主机** | 在本地运行时，本部分中的设置会自定义 Functions 主机进程。 |
-| LocalHttpPort | 设置运行本地 Functions 主机时使用的默认端口（`func host start` 和 `func run`）。 `--port` 命令行选项优先于此值。 |
-| **CORS** | 定义[跨域资源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)可以使用的来源。 以逗号分隔的列表提供来源，其中不含空格。 支持通配符值 (\*)，它允许使用任何来源的请求。 |
-| ConnectionStrings | 不要将此集合用于函数绑定使用的连接字符串。 此集合仅供通常从配置文件的 **ConnectionStrings** 节获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此对象中的连接字符串添加到提供者类型为 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 的环境中。 此集合中的项不使用其他应用设置发布到 Azure 中。 必须将这些值显式添加到函数应用设置的**连接字符串**集合中。 如果要在函数代码中创建 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)，则应将连接字符串值与其他连接一起存储在应用程序设置中。 |
+| **`IsEncrypted`** | 设置为 `true` 时，使用本地计算机密钥加密所有值。 与 `func settings` 命令配合使用。 默认值为 `false`。 |
+| **`Values`** | 在本地运行时使用的应用程序设置和连接字符串的集合。 这些值对应于 Azure 中你的函数应用中的应用设置，例如 [`AzureWebJobsStorage`]。 许多触发器和绑定都有一个引用连接字符串应用设置的属性，例如 [Blob 存储触发器](functions-bindings-storage-blob.md#trigger---configuration)的 `Connection`。 对于此类属性，你需要一个在 `Values` 数组中定义的应用程序设置。 <br/>对于 HTTP 之外的触发器，[`AzureWebJobsStorage`] 是一个必需的应用设置。 <br/>2.x 版的 Functions 运行时需要 [`FUNCTIONS_WORKER_RUNTIME`] 设置，该设置是由 Core Tools 为项目生成的。 <br/> 在本地安装 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)后，可以将 [`AzureWebJobsStorage`] 设置为 `UseDevelopmentStorage=true`，以便 Core Tools 使用此模拟器。 这在开发期间非常有用，但是在部署之前，应当使用实际的存储连接进行测试。 |
+| **`Host`** | 在本地运行时，本部分中的设置会自定义 Functions 主机进程。 |
+| **`LocalHttpPort`** | 设置运行本地 Functions 主机时使用的默认端口（`func host start` 和 `func run`）。 `--port` 命令行选项优先于此值。 |
+| **`CORS`** | 定义[跨域资源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)可以使用的来源。 以逗号分隔的列表提供来源，其中不含空格。 支持通配符值 (\*)，它允许使用任何来源的请求。 |
+| **`ConnectionStrings`** | 不要将此集合用于函数绑定使用的连接字符串。 此集合仅供通常从配置文件的 `ConnectionStrings` 节获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此对象中的连接字符串添加到提供者类型为 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 的环境中。 此集合中的项不使用其他应用设置发布到 Azure 中。 必须将这些值显式添加到函数应用设置的 `Connection strings` 集合中。 如果要在函数代码中创建 [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)，则应将连接字符串值与其他连接一起存储在门户的“应用程序设置”中。 |
 
 还可以在代码中将函数应用设置值读取为环境变量。 有关详细信息，请参阅以下特定于语言的参考主题的“环境变量”部分：
 
-+ [预编译 C#](functions-dotnet-class-library.md#environment-variables)
-+ [C# 脚本 (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F # 脚本 (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [预编译 C#](functions-dotnet-class-library.md#environment-variables)
+* [C# 脚本 (.csx)](functions-reference-csharp.md#environment-variables)
+* [F # 脚本 (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-如果没有为 **AzureWebJobsStorage** 设置有效的存储连接字符串并且没有使用仿真器，则会显示以下错误消息：
+如果没有为 [`AzureWebJobsStorage`] 设置有效的存储连接字符串并且没有使用模拟器，则会显示以下错误消息：
 
 > local.settings.json 中的 AzureWebJobsStorage 缺少值。 该值对除 HTTP 以外的所有触发器都是必需的。 可运行“func azure functionapp fetch-app-settings \<functionAppName\>”或在 local.settings.json 中指定连接字符串。
 
@@ -217,12 +217,12 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 + 使用核心工具通过下列命令之一从 Azure 下载连接字符串：
 
-    + 从现有函数应用下载所有设置：
+  + 从现有函数应用下载所有设置：
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + 获取特定存储帐户的连接字符串。
+  + 获取特定存储帐户的连接字符串。
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -402,10 +402,6 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-### <a name="viewing-log-files-locally"></a>在本地查看日志文件
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## <a name="publish"></a>发布到 Azure
 
 Core Tools 支持两种类型的部署：将函数项目文件直接部署到函数应用，以及部署自定义 Linux 容器（仅在版本 2.x 中受支持）。 必须事先[在 Azure 订阅中创建函数应用](functions-cli-samples.md#create)。
@@ -481,5 +477,7 @@ Azure Functions Core Tools 是[开源工具且托管在 GitHub 上](https://gith
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure 门户]: https://portal.azure.cn 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

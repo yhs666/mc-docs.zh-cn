@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 0f2a40af35a2126e154cc26e5b9a6a1546aabd26
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 175951f295e670dcca089d19c9326daae001ca84
+ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674812"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58544774"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -27,7 +27,7 @@ ms.locfileid: "52674812"
 这些输入资源与流分析作业可以属于同一 Azure 订阅，也可以属于不同的订阅。
 
 ### <a name="compression"></a>压缩
-流分析支持跨所有数据流输入源的压缩功能。 当前支持的引用类型为 None、GZip、和 Deflate 压缩。 对压缩的支持不可用于参考数据。 如果输入格式为压缩的 Avro 数据，则会以透明方式对其进行处理。 不需要通过 Avro 序列化指定压缩类型。 
+流分析支持跨所有数据流输入源的压缩功能。 当前支持的引用类型包括：无、GZip 和 Deflate 压缩。 对压缩的支持不可用于参考数据。 如果输入格式为压缩的 Avro 数据，则会以透明方式对其进行处理。 不需要通过 Avro 序列化指定压缩类型。 
 
 ## <a name="create-edit-or-test-inputs"></a>创建、编辑或测试输入
 可以使用 [Azure 门户](https://portal.azure.cn)来[创建新输入](/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job)以及查看或编辑流式处理作业上的现有输入。 还可以通过示例数据测试输入连接以及测试查询。 编写查询时，将在 FROM 子句中列出输入。 可以在门户的“查询”页中获取可用输入的列表。 若要使用多个输入，可以对其执行 `JOIN` 操作，也可以编写多个 `SELECT` 查询。

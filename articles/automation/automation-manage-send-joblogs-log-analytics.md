@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 02/05/2019
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 8604b4abbb731230391f21ebf59dbe506dbfc793
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 6463be6bf7b0e4856f042ad66cd0c045a7a5b50f
+ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988405"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58503528"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
 
@@ -86,7 +86,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 日志记录
 
-来自 Azure 自动化的诊断将在 Azure Monitor 日志中创建两种类型的记录，并将其标记为 **AzureDiagnostics**。 以下查询使用升级的 Azure Monitor 日志查询语言。
+来自 Azure 自动化的诊断将在 Azure Monitor 日志中创建两种类型的记录，并将其标记为 **AzureDiagnostics**。 以下查询使用升级的 Azure Monitor 日志查询语言。 有关旧查询语言与新 Azure Kusto 查询语言之间的共有查询的相关信息，请访问[新旧 Azure Kusto 查询语言速查表](https://docs.azure.cn/azure-monitor/log-query/get-started-queries?toc=%2Fazure-monitor%2Ftoc.json)。
 
 ### <a name="job-logs"></a>作业日志
 
@@ -148,7 +148,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 2. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`；也可以使用以下命令按 RunbookName 分组：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    如果设置了在工作区中收集来自多个自动化帐户或订阅的日志，则可以按照订阅或自动化帐户来为警报分组。 可以在 JobLogs 搜索中的“资源”字段中找到自动化帐户名称。
-3. 若要打开“创建规则”屏幕，请单击页面顶部的“+ 新建警报规则”。
+3. 若要打开“创建规则”屏幕，请单击页面顶部的“+ 新建警报规则”。 有关用于配置警报的选项的详细信息，请参阅 [Azure 中的日志警报](../azure-monitor/platform/alerts-unified-log.md)。
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>查找已完成但出错的所有作业
 除了在失败时发出警报外，还可以发现 Runbook 作业何时发生非终止错误。 在这些情况下，PowerShell 会生成一个错误流，但非终止错误不会导致作业暂停或失败。    
@@ -186,6 +186,8 @@ Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 Azure Monitor 日志可以更直观地显示自动化作业的运行情况，并且可以帮助更快地解决事件。  
 
 ## <a name="next-steps"></a>后续步骤
+* 若要详细了解如何使用 Azure Monitor 日志构造不同的搜索查询和查看自动化作业日志，请参阅 [Azure Monitor 日志中的日志搜索](/azure-monitor/log-query/log-query-overview)。
 * 若要了解如何通过 Runbook 创建和检索输出及错误消息，请参阅 [Runbook 输出和消息](automation-runbook-output-and-messages.md)。
 * 若要详细了解 Runbook 执行、Runbook 作业监视方式和其他技术细节，请参阅 [跟踪 Runbook 作业](automation-runbook-execution.md)。
+* 若要了解有关 Azure Monitor 日志和数据收集源的详细信息，请参阅[在 Azure Monitor 日志中收集 Azure 存储数据概述](../azure-monitor/platform/collect-azure-metrics-logs.md)。
 

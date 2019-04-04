@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 origin.date: 03/26/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1ba467e7e025857b71b02485014543555185dd47
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 04be03e79adb21d980c74eec57256a017c50d666
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674856"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627058"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 
@@ -34,11 +34,13 @@ ms.locfileid: "52674856"
 
 DSC 扩展支持以下 OS：
 
-Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Server 2008 R2 SP1 和 Windows Client 7/8.1
+Windows Server 2019、Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Server 2008 R2 SP1、Windows Client 10
+
+<!--Not Available on Windows Client 7/8.1-->
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-适用于 Windows 的 DSC 代理扩展要求目标虚拟机已连接到 Internet。 
+适用于 Windows 的 DSC 扩展要求目标虚拟机能够与 Azure 以及配置文件包（.zip 文件）的位置（如果它存储在 Azure 之外的位置）通信。 
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -48,12 +50,12 @@ Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Serv
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -101,10 +103,10 @@ Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Serv
 
 | 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
+| apiVersion | 2018-10-01 | 日期 |
 | 发布者 | Microsoft.Powershell.DSC | 字符串 |
 | type | DSC | 字符串 |
-| typeHandlerVersion | 2.73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>设置属性值
 
@@ -117,7 +119,7 @@ Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Serv
 | settings.configurationArguments | 集合 | 定义想要传递到 DSC 配置的任何参数。 不会加密此属性。
 | settings.configurationData.url | 字符串 | 指定 URL，将从中下载配置数据 (.pds1) 文件用作 DSC 配置的输入。 如果提供的 URL 需要 SAS 令牌才能访问，必须将 protectedSettings.configurationDataUrlSasToken 属性设置为 SAS 令牌的值。
 | settings.privacy.dataEnabled | 字符串 | 启用或禁用遥测数据收集。 此属性的可能值只有“Enable”、“Disable”、" 或 $null。 将此属性留空，否则 null 将启用遥测
-| settings.advancedOptions.forcePullAndApply | Bool | 刷新模式为 Pull 时，启用 DSC 扩展以更新和执行 DSC 配置。
+| settings.advancedOptions.forcePullAndApply | Bool | 此设置旨在增强使用扩展将节点注册到 Azure Automation DSC 的体验。  如果值为 `$true`，则扩展会等待从服务拉取的配置完成第一次运行，然后返回成功/失败。  如果值设置为 $false，则扩展返回的状态仅指节点是否已成功注册到 Azure Automation State Configuration，而在注册过程中不会运行节点配置。
 | settings.advancedOptions.downloadMappings | 集合 | 定义用于下载依赖项（如 WMF 和 .NET）的备用位置
 
 ### <a name="protected-settings-property-values"></a>受保护设置属性值
@@ -130,28 +132,9 @@ Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Serv
 
 ## <a name="template-deployment"></a>模板部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后配置的一个或多个虚拟机时，模板是理想选择。 
-
-<!-- Not Available on Log Analytics agent VM extension [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm)--> 虚拟机扩展的 JSON 配置可以嵌套在虚拟机资源内，或放置在资源管理器 JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 
-
-嵌套扩展资源时，JSON 放置在虚拟机的 `"resources": []` 对象中。 将扩展 JSON 放置在模板的根部时，资源名称包括对父虚拟机的引用，并且类型反映了嵌套的配置。  
-
-## <a name="azure-cli-deployment"></a>Azure CLI 部署
-
-可以使用 Azure CLI 将 VM 扩展部署到现有的虚拟机。
-
-<!-- Not Available on Log Analytics key and Log Analytics ID-->
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
-
-<!-- Notice: SHOULD BE --Name DSC NOT Microsoft.Powershell.DSC-->
+可使用 Azure Resource Manager 模板部署 Azure VM 扩展。
+部署需要部署后配置的一个或多个虚拟机时，模板是理想选择。
+包含 Windows 的 DSC 扩展的示例资源管理器模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)中找到。
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 

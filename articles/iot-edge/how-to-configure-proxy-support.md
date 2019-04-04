@@ -4,17 +4,17 @@ description: 如何将 Azure IoT Edge 运行时和所有面向 Internet 的 IoT 
 author: kgremban
 manager: ''
 ms.author: v-yiso
-origin.date: 12/17/2018
-ms.date: 03/25/2019
+origin.date: 03/20/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7cd60de7c5f2ff591e1264f2e0527e4c6d0308b3
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 59a8cd5cbecfee05d5067fa0435187a4769ae2bc
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988021"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626362"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>将 IoT Edge 设备配置为通过代理服务器进行通信
 
@@ -35,7 +35,7 @@ IoT Edge 设备将发送 HTTPS 请求以与 IoT 中心进行通信。 如果设�
 
 * **protocol** 是 HTTP 或 HTTPS。 Docker 守护程序可以根据容器注册表设置使用任一协议，但 IoT Edge 守护程序和运行时容器应当始终使用 HTTPS。
 
-* **proxy_host** 是代理服务器的地址。 如果你的代理服务器要求进行身份验证，则可以采用 **user**:**password**@**proxy_host** 格式将你的凭据提供为 proxy_host 的一部分。 
+* **proxy_host** 是代理服务器的地址。 如果代理服务器要求进行身份验证，则可采用 **user**:**password**\@**proxy_host** 格式将凭据作为 proxy_host 的一部分提供。
 
 * **proxy_port** 是代理用来响应网络流量的网络端口。 
 
@@ -43,7 +43,7 @@ IoT Edge 设备将发送 HTTPS 请求以与 IoT 中心进行通信。 如果设�
 
 若要在 Linux 设备上安装 IoT Edge 运行时，请将包管理器配置为通过代理服务器访问安装包。 例如，[设置 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)。 配置包管理器后，请按照[在 Linux (ARM32v7/armhf) 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux-arm.md)或[在 Linux (x64) 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)中的说明照常进行操作。 
 
-如果要在 Windows 设备上安装 IoT Edge 运行时，则需要通过代理服务器一次以下载安装程序脚本文件，然后在安装期间再通过代理服务器一次以下载必要的组件。 可以在 Windows 设置中配置代理信息，或直接在安装脚本中包含代理信息。 以下 powershell 脚本是使用 `-proxy` 参数安装 Windows 的示例：
+若要在 Windows 设备上安装 IoT Edge 运行时，需要两次通过代理服务器执行操作。 第一个连接用于下载安装程序脚本文件，第二个连接用于在安装过程中下载必需的组件。 可以在 Windows 设置中配置代理信息，或直接在安装脚本中包含代理信息。 以下 powershell 脚本是使用 `-proxy` 参数安装 Windows 的示例：
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -64,20 +64,22 @@ Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters 
 
 ## <a name="configure-the-daemons"></a>配置守护程序
 
-需要将 IoT Edge 设备上运行的 Docker 和 IoT Edge 守护程序配置为使用代理服务器。 Docker 守护程序发出 Web 请求，以从容器注册表中拉取容器映像。 IoT Edge 守护程序发出 Web 请求，以与 IoT 中心进行通信。
+需要将 IoT Edge 设备上运行的 Moby 和 IoT Edge 守护程序配置为使用代理服务器。 Moby 守护程序发出 Web 请求，以从容器注册表中拉取容器映像。 IoT Edge 守护程序发出 Web 请求，以与 IoT 中心进行通信。
 
-### <a name="docker-daemon"></a>Docker 守护程序
+### <a name="moby-daemon"></a>Moby 守护程序
 
-要使用环境变量配置 Docker 守护程序，请参阅 Docker 文档。 大多数容器注册表（包括 DockerHub 和 Azure 容器注册表）支持 HTTPS 请求，因此，你应当设置的变量为 **HTTPS_PROXY**。 如果要从不支持传输层安全性 (TLS) 的注册表中拉取映像，则应当设置 **HTTP_PROXY**。 
+由于 Moby 是基于 Docker 的，因此若要使用环境变量配置 Moby 守护程序，请参阅 Docker 文档。 大多数容器注册表（包括 DockerHub 和 Azure 容器注册表）支持 HTTPS 请求，因此，你应当设置的变量为 **HTTPS_PROXY**。 如果要从不支持传输层安全性 (TLS) 的注册表中拉取映像，则应当设置 **HTTP_PROXY**。 
 
-选择适用于 Docker 版本的项目： 
+选择适用于 IoT Edge 设备操作系统的文章： 
 
-* [适用于 Linux 的 Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [适用于 Windows 的 Docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+* [在 Linux 上配置 Docker 守护程序](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * Linux 设备上的 Moby 守护程序保留“Docker”这一名称。
+* [在 Windows 上配置 Docker 守护程序](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * Windows 设备上的 Moby 守护程序称为 iotedge-moby。 之所以让这些名称保持不同，是因为可能会在 Windows 设备上并行运行 Docker Desktop 和 Moby。 
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 守护程序
 
-IoT Edge 守护程序以类似的方式配置为 Docker 守护程序。 IoT Edge 发送到 IoT 中心的所有请求都使用 HTTPS。 使用以下步骤根据所使用的操作系统为服务设置环境变量。 
+IoT Edge 守护程序以类似的方式配置为 Moby 守护程序。 IoT Edge 发送到 IoT 中心的所有请求都使用 HTTPS。 使用以下步骤根据所使用的操作系统为服务设置环境变量。 
 
 #### <a name="linux"></a>Linux
 

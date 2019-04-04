@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: d62b95b7edd48cdbdcfc5d4d1c52c61c36c38fa6
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: f0ef502b40f171d5bd986e417a1b4519a37a109d
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903248"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626006"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的身份验证和授权的最佳做法
 
@@ -65,10 +65,10 @@ rules:
   verbs: ["*"]
 ```
 
-然后创建一个角色绑定，用于将 Azure AD 用户 *developer1@contoso.com* 绑定到该角色绑定，如以下 YAML 清单中所示：
+然后创建一个角色绑定，用于将 Azure AD 用户 <em>developer1@contoso.com</em> 绑定到该角色绑定，如以下 YAML 清单中所示：
 
 ```yaml
-ind: RoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: finance-app-full-access-role-binding
@@ -83,7 +83,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-*developer1@contoso.com* 对 AKS 群集进行身份验证后，便对 *finance-app* 命名空间中的资源拥有了完全权限。 这样，即可以逻辑方式隔离和控制对资源的访问权限。 应根据上一部分中所述，将 Kubernetes RBAC 与 Azure AD 集成结合使用。
+<em>developer1@contoso.com</em> 对 AKS 群集进行身份验证后，便对 *finance-app* 命名空间中的资源拥有了完全权限。 这样，即可以逻辑方式隔离和控制对资源的访问权限。 应根据上一部分中所述，将 Kubernetes RBAC 与 Azure AD 集成结合使用。
 
 ## <a name="use-pod-identities"></a>使用 pod 标识
 
@@ -91,7 +91,7 @@ roleRef:
 
 当 pod 需要访问其他 Azure 服务（例如 Cosmos DB、Key Vault 或 Blob 存储）时，pod 需要访问凭据。 可以使用容器映像定义这些访问凭据或将其注入为 Kubernetes 机密，但需要手动创建并分配这些凭据。 通常，凭据会在不同的 pod 之间重复使用，并且不会定期轮换。
 
-使用 Azure 资源的托管标识可以通过 Azure AD 自动请求服务访问权限。 不要手动定义 pod 的凭据。pod 会实时请求访问令牌，并可以使用该令牌来访问仅为它们分配的服务。 在 AKS 中，群集操作员会部署两个组件，以允许 pod 使用托管标识：
+使用 Azure 资源的托管标识（目前作为关联的 AKS 开源项目来实现）可以通过 Azure AD 自动请求服务访问权限。 不要手动定义 pod 的凭据。pod 会实时请求访问令牌，并可以使用该令牌来访问仅为它们分配的服务。 在 AKS 中，群集操作员会部署两个组件，以允许 pod 使用托管标识：
 
 * **节点管理标识 (NMI) 服务器**是在 AKS 群集中每个节点上作为守护程序集运行的 pod。 NMI 服务器侦听发送到 Azure 服务的 pod 请求。
 * **托管标识控制器 (MIC)** 是一个中心 pod，它有权查询 Kubernetes API 服务器，并检查对应于某个 pod 的 Azure 标识映射。
@@ -106,6 +106,8 @@ roleRef:
 1. 部署 NMI 服务器和 MIC，以便将访问令牌的任何 pod 请求中继到 Azure AD。
 1. 开发人员使用托管标识部署一个 pod，该 pod 可通过 NMI 服务器请求访问令牌。
 1. 该令牌将返回给 pod，并用于访问 Azure SQL Server 实例。
+
+托管 Pod 标识是 AKS 开源项目，Azure 技术支持部门不为其提供支持。 提供它是为了从我们的社区收集反馈和 Bug。 建议不要将此项目用于生产。
 
 若要使用 pod 标识，请参阅 [Kubernetes 应用程序的 Azure Active Directory 标识][aad-pod-identity]。
 
