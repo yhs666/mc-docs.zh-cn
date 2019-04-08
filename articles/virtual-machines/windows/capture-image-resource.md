@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ca5213d8b38c59651868d643535afe0f647c7003
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7c15b3b6c7ad61ba35a5f4c1f3ccd0c63019e2f8
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625237"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004103"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -76,15 +76,15 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
     <!--Not Available on [availability zone](../../availability-zones/az-overview.md)-->
     
-8. 选择“创建”以创建映像。
+7. 选择“创建”以创建映像。
 
-9. 创建映像后，在资源组的资源列表中，你会看到它作为“映像”资源而出现。
+8. 创建映像后，在资源组的资源列表中，你会看到它作为“映像”资源而出现。
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>使用 PowerShell 创建 VM 映像
 
 直接从 VM 创建映像，可确保映像包含所有与该 VM 关联的磁盘，包括 OS 磁盘和任何数据磁盘。 本示例演示如何从使用托管磁盘的 VM 创建托管映像。
 
-开始前，请确保具有最新版本的 AzureRM.Compute PowerShell 模块（必须是 5.7.0 版本或更高版本）。 若要查找版本，请在 PowerShell 中运行 `Get-Module -ListAvailable AzureRM.Compute`。 如需升级，请参阅[使用 PowerShellGet 在 Windows 上安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-az-ps)。 如果在本地运行 PowerShell，则运行 `Connect-AzAccount` 以创建与 Azure 的连接。
+开始前，请确保具有最新版本的 AzureRM.Compute PowerShell 模块（必须是 5.7.0 版本或更高版本）。 若要查找版本，请在 PowerShell 中运行 `Get-Module -ListAvailable AzureRM.Compute`。 如需升级，请参阅[使用 PowerShellGet 在 Windows 上安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 如果在本地运行 PowerShell，则运行 `Connect-AzAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 <!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
 
@@ -137,15 +137,14 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
-    $snapshotName = "mySnapshot"
     $imageName = "myImage"
     ```
 
 2. 获取 VM。
 
-   ```powershell
-   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
-   ```
+    ```powershell
+    $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
+    ```
 
 3. 获取托管磁盘的 ID。
 
@@ -181,9 +180,9 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 2. 获取快照。
 
-   ```powershell
-   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
-   ```
+    ```powershell
+    $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+    ```
 
 3. 创建映像配置。
 
@@ -199,7 +198,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
 ## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>从存储帐户中的 VHD 创建映像
 
-从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式如下： https://<em>mystorageaccount</em>.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer 的容器中的 mystorageaccount 中，且 VHD 文件名为 vhdfilename.vhd。
+从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式如下： https://*mystorageaccount*.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer 的容器中的 mystorageaccount 中，且 VHD 文件名为 vhdfilename.vhd。
 
 1.  创建一些变量。
 

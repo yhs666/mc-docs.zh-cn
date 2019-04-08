@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: ashishth
-ms.openlocfilehash: 39e89014bf5bbefc140f25708d16d6b22c2f913f
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: e7707a56287437c2203acaa118dbc15a1f03843b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029205"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004011"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>使用用于 Apache HBase 的 .Net SDK
 
@@ -121,7 +121,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase 可实现 BigTable，因此数据格式如下所示：
+HBase 可实现 [Cloud BigTable](https://cloud.google.com/bigtable/)，因此数据格式如下所示：
 
 ![具有“群集用户”角色的用户](./media/apache-hbase-rest-sdk/table.png)
 

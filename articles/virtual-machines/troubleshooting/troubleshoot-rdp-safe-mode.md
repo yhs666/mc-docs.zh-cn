@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/13/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ce3f45d26dc84670d9db171203de25185c01ca29
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 0a36f4193b65e604df4c433c26e4f69383c87c8e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736260"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003730"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因 VM 启动到安全模式而无法通过 RDP 连接到该 VM
 
@@ -107,5 +107,4 @@ RDP 服务在安全模式下不可用。 VM 启动到安全模式时，只会加
         bcdedit /store F:\boot\bcd /enum
 5. [分离 OS 磁盘并重新创建 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然后检查是否解决了问题。
 
-<!-- Update_Description: new articles on troubleshoot rdp safe mode -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update -->

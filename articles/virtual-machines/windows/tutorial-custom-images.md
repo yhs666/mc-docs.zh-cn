@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 303a89d0aec54805a1f568d10f250a5b81207d4c
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 05cee24aa5377b5508f44feb0d42829e31147585
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666272"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003965"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -41,7 +41,7 @@ ms.locfileid: "56666272"
 
 若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
 
-## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -66,6 +66,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 对 VM 解除分配。
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 Stop-AzVM `
    -ResourceGroupName myResourceGroup `
    -Name myVM -Force

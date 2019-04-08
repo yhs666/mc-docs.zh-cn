@@ -157,9 +157,6 @@ items:
     - name: 使用 Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: 使用 Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: 使用空边缘节点
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
@@ -396,9 +393,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: ebe1b86b9df0d1541214478f519f5b69ffd389d3
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 90c360077aae3e6dd56c0b3c381be609733a67e5
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303031"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004171"

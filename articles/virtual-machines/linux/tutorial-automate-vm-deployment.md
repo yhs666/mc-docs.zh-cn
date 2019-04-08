@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/30/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e77f3ee2ef2daed3b250b0d2e1219673bbf4473f
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 5dfac80420a3f1b70f67a49e4f7e44a6d624e95f
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666414"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003692"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教程 - 如何在 Azure 中的 Linux 虚拟机首次启动时使用 cloud-init 对其进行自定义
 
@@ -71,7 +71,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -85,7 +85,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()
@@ -198,7 +198,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -215,7 +215,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()

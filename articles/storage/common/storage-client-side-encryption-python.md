@@ -1,26 +1,21 @@
 ---
-title: 使用适用于 Azure 存储的 Python 进行客户端加密 | Azure
+title: 针对 Azure 存储使用 Python 的客户端加密 | Microsoft Docs
 description: 适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储应用程序的最高安全性。
 services: storage
-documentationcenter: python
-author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 15fda5e3f3d3191199158f6d8033834a3a825358
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 7fb76ce772ddd557618ce50414b8c37ee803eda7
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627364"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890197"
 ---
 # <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -54,7 +49,7 @@ ms.locfileid: "58627364"
 4. 然后，使用内容加密密钥 (CEK) 解密已加密的用户数据。
 
 ## <a name="encryption-mechanism"></a>加密机制
-存储客户端库使用 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
+存储客户端库使用 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
 
 ### <a name="blobs"></a>Blob
 目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **create*** 方法时支持加密。 对于下载，支持完整下载和范围下载，并且可以并行化上传和下载。

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 98b8f3553a8e90310fdea829788a4225a319ce45
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f4f5428d2c81d1a9e1228e5159cf30fb28eb9dbe
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674810"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004043"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
 通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。
@@ -37,6 +37,7 @@ ms.locfileid: "52674810"
 Azure 中的大多数 Linux VM 默认情况下未安装桌面环境。 通常使用 SSH 连接（而不是桌面环境）来管理 Linux VM。 Linux 中有各种可以选择的桌面环境。 根据所选的桌面环境，可能会占用 1 到 2 GB 的磁盘空间，并需要 5 到 10 分钟来安装和配置所有所需的包。
 
 以下示例在 Ubuntu 16.04 LTS VM 上安装轻型 [xfce4](https://www.xfce.org/) 桌面环境。 其他发行版的命令略有不同（例如，使用 `yum` 在 CentOS 上安装并配置适当的 `selinux` 规则，或者使用 `zypper` 在 SUSE 上安装）。
+
 <!-- Change Red Hat to CentOS -->
 
 首先，通过 SSH 连接到 VM。 以下示例使用用户名 *azureuser* 连接到名为 *myvm.chinanorth.cloudapp.chinacloudapi.cn* 的 VM。 使用自己的值：
@@ -102,7 +103,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 ![通过 xrdp 连接 xfce 桌面环境](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-如果本地 RDP 客户端使用网络级别身份验证 (NLA)，则可能需要禁用该连接设置。 XRDP 目前不支持 NLA。 也可以查看其他支持 NLA 的 RDP 解决方案，例如 [FreeRDP](http://www.freerdp.com)。
+如果本地 RDP 客户端使用网络级别身份验证 (NLA)，则可能需要禁用该连接设置。 XRDP 目前不支持 NLA。 也可以查看其他支持 NLA 的 RDP 解决方案，例如 [FreeRDP](https://www.freerdp.com)。
 
 ## <a name="troubleshoot"></a>故障排除
 如果无法使用远程桌面客户端连接到 Linux VM，请在 Linux VM上使用 `netstat` 验证 VM 是否正在侦听 RDP 连接，如下所示：
@@ -131,6 +132,7 @@ tail -f /var/log/syslog
 ```
 
 其他 Linux 发行版（例如，CentOS 和 SUSE）可能采用其他方式来重启服务并更换要查看的日志文件位置。
+
 <!-- Change Red Hat to CentOS -->
 
 如果用户在远程桌面客户端中未收到任何响应，并且在系统日志中看不到任何事件，则此行为指示远程桌面流量无法到达 VM。 查看网络安全组规则，以确保有规则允许端口 3389 上的 TCP。 有关详细信息，请参阅[排查应用程序连接问题](../windows/troubleshoot-app-connection.md)。

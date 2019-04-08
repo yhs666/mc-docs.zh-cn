@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: f3a57eea35e2cd95d5189ab21a2d050bd0d28b8b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 946b599710edaf30cedec230d96b826d0d50cb7a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626576"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003835"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>在 Azure 中的 Windows VM 上安装和配置 MongoDB
-[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文分步讲解了如何在 Azure 中的 Windows Server 2016 虚拟机 (VM) 上安装和配置 MongoDB。 也可以[在 Azure 中的 Linux VM 上安装 MongoDB](../linux/install-mongodb.md)。
+[MongoDB](https://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文分步讲解了如何在 Azure 中的 Windows Server 2016 虚拟机 (VM) 上安装和配置 MongoDB。 也可以[在 Azure 中的 Linux VM 上安装 MongoDB](../linux/install-mongodb.md)。
 
 ## <a name="prerequisites"></a>先决条件
 在安装和配置 MongoDB 之前，需要创建一个 VM，并且最好将一个磁盘添加到该 VM。 请参阅以下文章创建 VM 并向其添加数据磁盘：
@@ -35,18 +35,18 @@ ms.locfileid: "58626576"
 
 ## <a name="install-mongodb"></a>安装 MongoDB
 > [!IMPORTANT]
-> 默认情况下，不启用 MongoDB 安全功能，例如身份验证和 IP 地址绑定。 在将 MongoDB 部署到生产环境之前，应启用安全功能。 有关详细信息，请参阅 [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication)（MongoDB 安全性和身份验证）。
+> 默认情况下，不启用 MongoDB 安全功能，例如身份验证和 IP 地址绑定。 在将 MongoDB 部署到生产环境之前，应启用安全功能。 有关详细信息，请参阅 [MongoDB Security and Authentication](https://www.mongodb.org/display/DOCS/Security+and+Authentication)（MongoDB 安全性和身份验证）。
 
 1. 使用远程桌面连接到 VM 后，从任务栏打开 Internet Explorer。
 2. 当 Internet Explorer 首次打开时，请选择“使用推荐的安全性、隐私和兼容性设置”，然后单击“确定”。
 3. 默认情况下已启用 Internet Explorer 增强的安全性配置。 将 MongoDB 网站添加到允许的站点列表：
 
-   * 选择右上角的“工具”图标。
-   * 在“Internet 选项”中，选择“安全”选项卡，然后选择“受信任的站点”图标。
-   * 单击“站点”按钮。 将 <em>https://\*.mongodb.com</em> 添加到受信任站点的列表，然后关闭对话框。
+    * 选择右上角的“工具”图标。
+    * 在“Internet 选项”中，选择“安全”选项卡，然后选择“受信任的站点”图标。
+    * 单击“站点”按钮。 将 *https://\*.mongodb.com* 添加到受信任站点的列表，然后关闭对话框。
 
-     ![配置 Internet Explorer 安全设置](./media/install-mongodb/configure-internet-explorer-security.png)
-4. 请转到 [MongoDB - 下载](http://www.mongodb.com/downloads)页 (http://www.mongodb.com/downloads))。
+        ![配置 Internet Explorer 安全设置](./media/install-mongodb/configure-internet-explorer-security.png)
+4. 请转到 [MongoDB - 下载](https://www.mongodb.com/downloads)页 (https://www.mongodb.com/downloads))。
 5. 如果需要，请选择**社区服务器**版本，并选择 *Windows Server 2008 R2 64 位及更高版本*的最新稳定版本。 若要下载安装程序，请单击“下载(msi)”。
 
     ![下载 MongoDB 安装程序](./media/install-mongodb/download-mongodb.png)
@@ -59,20 +59,20 @@ ms.locfileid: "58626576"
 ## <a name="configure-the-vm-and-mongodb"></a>配置 VM 和 MongoDB
 1. MongoDB 安装程序不会更新路径变量。 如果路径变量中不包含 MongoDB `bin` 位置，则每次使用 MongoDB 可执行文件时都需要指定完整路径。 要将位置添加到路径变量，请执行以下操作：
 
-   * 右键单击“开始”菜单，并选择“系统”。
-   * 依次单击“高级系统设置”和“环境变量”。
-   * 在“系统变量”下，选择“路径”，然后单击“编辑”。
+    * 右键单击“开始”菜单，并选择“系统”。
+    * 依次单击“高级系统设置”和“环境变量”。
+    * 在“系统变量”下，选择“路径”，然后单击“编辑”。
 
-     ![配置 PATH 变量](./media/install-mongodb/configure-path-variables.png)
+        ![配置 PATH 变量](./media/install-mongodb/configure-path-variables.png)
 
-     添加 MongoDB `bin` 文件夹的路径。 MongoDB 通常安装在 C:\Program Files\MongoDB 下。 检查 VM 上的安装路径。 以下示例将默认的 MongoDB 安装位置添加到 `PATH` 变量：
+        添加 MongoDB `bin` 文件夹的路径。 MongoDB 通常安装在 C:\Program Files\MongoDB 下。 检查 VM 上的安装路径。 以下示例将默认的 MongoDB 安装位置添加到 `PATH` 变量：
 
-     ```
-     ;C:\Program Files\MongoDB\Server\3.6\bin
-     ```
+        ```
+        ;C:\Program Files\MongoDB\Server\3.6\bin
+        ```
 
-     > [!NOTE]
-     > 请务必添加前置分号 (`;`)，指明要将一个位置添加到 `PATH` 变量。
+        > [!NOTE]
+        > 请务必添加前置分号 (`;`)，指明要将一个位置添加到 `PATH` 变量。
 
 2. 在数据磁盘上创建 MongoDB 数据和日志目录。 在“开始”菜单中，选择“命令提示符”。 以下示例在 F: 驱动器中创建目录：
 
@@ -88,8 +88,8 @@ ms.locfileid: "58626576"
 
     MongoDB 可能需要几分钟来分配日志文件和开始侦听连接。 当 `mongod.exe` 服务器启动和分配日志文件时，所有日志消息将定向到 *F:\MongoLogs\mongolog.log* 文件。
 
-   > [!NOTE]
-   > 当 MongoDB 实例运行时，命令提示符始终停留在此任务上。 将命令提示符窗口保持打开状态，以便继续运行 MongoDB。 或者，如下一步骤的详述，将 MongoDB 作为服务安装。
+    > [!NOTE]
+    > 当 MongoDB 实例运行时，命令提示符始终停留在此任务上。 将命令提示符窗口保持打开状态，以便继续运行 MongoDB。 或者，如下一步骤的详述，将 MongoDB 作为服务安装。
 
 4. 为获得更健全的 MongoDB 体验，请将 `mongod.exe` 作为服务安装。 创建服务意味着不需要每次使用 MongoDB 时都要运行命令提示符。 按如下所示创建服务，并相应地调整数据和日志目录的路径：
 
@@ -99,11 +99,11 @@ ms.locfileid: "58626576"
 
     上述命令创建一个名为“MongoDB”的服务，其描述为“Mongo DB”。 也可以指定以下参数：
 
-   * `--dbpath` 选项指定数据目录的位置。
-   * 必须使用 `--logpath` 选项指定日志文件，因为正在运行的服务不会在命令窗口中显示输出。
-   * `--logappend` 选项指定重启服务可将输出附加到现有日志文件。
+    * `--dbpath` 选项指定数据目录的位置。
+    * 必须使用 `--logpath` 选项指定日志文件，因为正在运行的服务不会在命令窗口中显示输出。
+    * `--logappend` 选项指定重启服务可将输出附加到现有日志文件。
 
-   若要启动 MongoDB 服务，请运行以下命令：
+    若要启动 MongoDB 服务，请运行以下命令：
 
     ```
     net start MongoDB
@@ -164,4 +164,4 @@ New-NetFirewallRule `
 ## <a name="next-steps"></a>后续步骤
 本教程已介绍如何在 Windows VM 上安装和配置 MongoDB。 现在，可以遵循 [MongoDB 文档](https://docs.mongodb.com/manual/)中的高级主题访问 Windows VM 上的 MongoDB。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

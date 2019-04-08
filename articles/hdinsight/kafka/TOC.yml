@@ -40,6 +40,8 @@ items:
     href: apache-kafka-scalability.md
   - name: 数据的高可用性
     href: apache-kafka-high-availability.md
+  - name: 性能调优
+    href: apache-kafka-performance-tuning.md
 - name: 如何
   items:
   - name: 启用自动创建主题功能
@@ -240,9 +242,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 19bded8c2afef8be75a739c85054facf12fbdee5
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: c7fb74cfb1893edae9e71d428c85b8f9511cf51a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302934"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004165"

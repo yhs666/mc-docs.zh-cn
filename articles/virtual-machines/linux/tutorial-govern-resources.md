@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 10/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d6627ede1bce730a51357689d1bcecff96d763fd
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 2a8cca3854948f451b2f5adc76ff6d7e8b687aed
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666051"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004105"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教程：了解如何使用 Azure CLI 管理 Linux 虚拟机
 
@@ -72,7 +72,7 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../../azure-policy/azure-policy-introduction.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
+[Azure Policy](../../governance/policy/overview.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
 
 ```azurecli
 az policy definition list --query "[].[displayName, policyType, name]" --output table

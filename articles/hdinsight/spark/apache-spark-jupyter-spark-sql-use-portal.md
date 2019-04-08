@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: fd0ef71638994a9973dc6df5a7f7df4209e78a1e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7685351183a9fdc6a13d8e35ee2e4a7ce33deede
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625159"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003852"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 HDInsight 中创建 Apache Spark 群集
 了解如何在 Azure HDInsight 中创建 Apache Spark 群集，以及如何对 Hive 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
-在此快速入门中，使用 Azure 门户创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。
+在此快速入门中，使用 Azure 门户创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 > [!IMPORTANT]
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
@@ -43,7 +43,7 @@ ms.locfileid: "58625159"
     |---------|---------|
     |**群集名称**     | 为 HDInsight Spark 群集命名。 用于此快速入门的群集名称为“myspark20180403”。|
     |**订阅**     | 从下拉列表中，选择用于此群集的 Azure 订阅。 用于此快速入门的订阅是 &lt;Azure 订阅。 |
-    |**群集类型**| 展开该项目，然后选择“Spark”作为群集类型，并指定 Spark 群集版本。 <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Slect HDInsight clsuter type" /> |
+    |**群集类型**| 展开该项目，然后选择“Spark”作为群集类型，并指定 Spark 群集版本。 <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Select HDInsight cluster type" /> |
     |**群集登录用户名**| 输入群集登录用户名。  默认名称为 *admin*。在此快速入门中稍后使用该帐户登录到 Jupyter notebook。 |
     |**群集登录密码**| 输入群集登录密码。 |
     |**安全外壳 (SSH) 用户名**| 输入 SSH 用户名。 用于此快速入门的 SSH 用户名为“sshuser”。 默认情况下，此帐户的密码与群集登录用户名帐户的密码相同。 |
@@ -69,7 +69,7 @@ ms.locfileid: "58625159"
 
 4. 在“摘要”页上，选择“创建”。 创建群集大约需要 20 分钟时间。 必须先创建群集，才能继续下一会话。
 
-如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-administer-use-portal-linux.md)。
+如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
 
@@ -126,7 +126,7 @@ SQL（结构化查询语言）是用于查询和定义数据的最常见、最�
 2. 请在 Notebook 的“文件”菜单中选择“关闭并停止”。 关闭 Notebook 会释放群集资源。
 
 ## <a name="clean-up-resources"></a>清理资源
-HDInsight 将数据保存在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
+HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Storage 中，因此可以在未使用群集时安全地删除群集。 此外，还需要为 HDInsight 群集付费，即使不用也是如此。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
 
 切换回 Azure 门户，并选择“删除”。
 

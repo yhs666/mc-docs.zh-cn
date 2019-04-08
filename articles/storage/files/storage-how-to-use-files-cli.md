@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: quickstart
 origin.date: 10/26/2018
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 93de9ba4b38529e9eb3f64407b9304b66f8e4924
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a68e840ae139acbada655b60d38c0f86e18c3929
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665396"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890174"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入门：使用 Azure CLI 创建和管理 Azure 文件共享
 本指南介绍通过 Azure CLI 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准 SMB 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location chinaeast
 ## <a name="create-a-storage-account"></a>创建存储帐户
 存储帐户是一个存储共享池，在其中可以部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无数个文件共享。 一个共享可以存储无数个文件，直到达到存储帐户的容量限制为止。
 
-以下示例使用 [az storage account create](/cli/storage/account) 命令创建名为 mystorageaccount\<随机数字\> 的存储帐户，然后将该存储帐户的名称置于 `$STORAGEACCT` 变量中。 存储帐户名称必须唯一。 使用 `$RANDOM` 将一个数字追加到存储帐户名称末尾即可使之变得唯一。 
+以下示例使用 [az storage account create](/cli/storage/account) 命令创建名为 mystorageaccount\<随机数字\> 的存储帐户，然后将该存储帐户的名称置于 `$STORAGEACCT` 变量中。 存储帐户名称必须是唯一的，因此请确保将“mystorageacct”替换为唯一名称。
 
 ```azurecli 
 STORAGEACCT=$(az storage account create \
@@ -66,7 +66,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
-现在可以创建第一个 Azure 文件共享了。 请使用 [az storage share create](/cli/storage/share#create) 命令创建文件共享。 以下示例创建名为 *myshare* 的 Azure 文件共享： 
+现在可以创建第一个 Azure 文件共享了。 请使用 [az storage share create](/cli/storage/share) 命令创建文件共享。 以下示例创建名为 *myshare* 的 Azure 文件共享： 
 
 ```azurecli
 az storage share create \
@@ -86,7 +86,7 @@ Azure 文件提供两种在 Azure 文件共享中使用文件和文件夹的方�
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>将 Azure 文件共享与文件 REST 协议配合使用 
-可以直接使用文件 REST 协议（即手动进行 REST HTTP 调用），但最常见的使用文件 REST 协议的方式是使用 Azure CLI、[Azure PowerShell 模块](storage-how-to-use-files-powershell.md)或 Azure 存储 SDK，所有这些方式都可以在所选脚本/编程语言中为文件 REST 协议提供很好的包装器。  
+可以直接使用文件 REST 协议（手动进行 REST HTTP 调用），但最常见的使用文件 REST 协议的方式是使用 Azure CLI、[Azure PowerShell 模块](storage-how-to-use-files-powershell.md)或 Azure 存储 SDK，所有这些方式都可以在所选脚本/编程语言中为文件 REST 协议提供很好的包装器。  
 
 我们预计，在使用 Azure 文件时，大多数情况下需要通过 SMB 协议来使用 Azure 文件共享，因为这样可以使用那些预期可以使用的现有应用程序和工具，但某些情况下，使用文件 REST API 比使用 SMB 更具优势，例如：
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/01/2016
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 701541fefe21ef132555baf9a8627fa032e1b662
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d8d9ea1694793f0b1cf828620191cae6f38cb000
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627324"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003703"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>在 Azure 上安装和配置 PostgreSQL
 PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库。 它包含许多企业级功能，比如完整的 ACID 合规性、可靠的事务处理和多版本并发控制。 它还支持 ANSI SQL 和 SQL/MED（包括 Oracle、MySQL、MongoDB 等等的外来数据包装器）等标准。 它具有高度的可扩展性，支持超过 12 种程序语言，并支持 GIN 和 GiST 索引、空间数据，以及面向 JSON 或基于键值的应用程序的多款类似于 NoSQL 的功能。
@@ -45,16 +45,16 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
         # sudo su -
 2. 某些发行版具有在安装 PostgreSQL 之前必须安装的依赖项。 查看此列表中的发行版并运行相应的命令：
 
-   * 基于 CentOS 的 Linux：
+    * 基于 CentOS 的 Linux：
    
        <!-- Change Red Hat to CentOS -->
-           # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-   * 基于 Debian 的 Linux：
+            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+    * 基于 Debian 的 Linux：
 
-           # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
-   * SUSE Linux：
+            # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
+    * SUSE Linux：
 
-           # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 3. 将 PostgreSQL 下载到根目录中，然后对包进行解压缩：
 
         # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
@@ -90,10 +90,10 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
 
         # su - postgres
 
-   > [!NOTE]
-   > 出于安全原因，PostgreSQL 将使用非根用户来初始化、启动或关闭数据库。
-   > 
-   > 
+    > [!NOTE]
+    > 出于安全原因，PostgreSQL 将使用非根用户来初始化、启动或关闭数据库。
+    > 
+    > 
 4. 通过输入以下命令编辑 *bash_profile* 文件。 这些行将添加到 *bash_profile* 文件的末尾：
 
         cat >> ~/.bash_profile <<EOF
@@ -128,9 +128,10 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
 
     你应该会收到以下输出：
 
-![图像](./media/postgresql-install/no1.png)
+    ![图像](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>设置 PostgreSQL
+
 <!--    [postgres@ test ~]$ exit -->
 
 运行以下命令：
@@ -239,6 +240,6 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 ## <a name="get-more-information-about-postgresql"></a>获取有关 PostgreSQL 的详细信息
-现在，你已完成在 Azure Linux VM 中安装 PostgreSQL，你可以在 Azure 中享受使用它的过程。 若要了解有关 PostgreSQL 的详细信息，请访问 [PostgreSQL 网站](http://www.postgresql.org/)。
+现在，你已完成在 Azure Linux VM 中安装 PostgreSQL，你可以在 Azure 中享受使用它的过程。 若要了解有关 PostgreSQL 的详细信息，请访问 [PostgreSQL 网站](https://www.postgresql.org/)。
 
 <!-- Update_Description: update meta propreties, wording update -->

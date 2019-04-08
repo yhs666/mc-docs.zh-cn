@@ -13,14 +13,14 @@ ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 02/15/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: ebc1be1d0737a939eca35e98e7838d4ff3a18669
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 7290b5a4095560a2601dd25f40a61408d8a014fc
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560479"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004088"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -179,20 +179,26 @@ namespace reducer
 
 2. 使用以下命令之一启动 MapReduce 作业：
 
-    使用 __Azure 存储__作为默认存储：
+   * 如果使用 __Data Lake Storage Gen2__ 作为默认存储：
 
-    ```bash
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-    ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    下表描述每个参数的作用：
+   * 如果使用 __Azure 存储__作为默认存储：
 
-    * `hadoop-streaming.jar`：包含流式处理 MapReduce 功能的 jar 文件。
-    * `-files`：将 `mapper.exe` 和 `reducer.exe` 文件添加到此作业。 每个文件前的 `adl:///` 或 `wasb:///` 是指向群集的默认存储根目录的路径。
-    * `-mapper`：指定哪个文件实现映射器。
-    * `-reducer`：指定哪个文件实现化简器。
-    * `-input`：输入数据。
-    * `-output`：输出目录。
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
+
+     下表描述每个参数的作用：
+
+   * `hadoop-streaming.jar`:包含流式处理 MapReduce 功能的 jar 文件。
+   * `-files`:将 `reducer.exe` 和  文件添加到此作业。 每个文件之前的 `abfs:///`、`adl:///` 或 `wasb:///` 是指向群集默认存储根目录的路径。
+   * `-mapper`:指定哪个文件实现映射器。
+   * `-reducer`:指定哪个文件实现化简器。
+   * `-input`:输入数据。
+   * `-output`:输出目录。
 
 3. 完成 MapReduce 作业后，使用以下命令查看结果：
 

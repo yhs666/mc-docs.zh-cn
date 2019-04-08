@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
 origin.date: 04/09/2018
-ms.date: 07/30/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9544a90c7b771ae09cf6073a56642248db8575cf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 526b4b1fd59a069e062aab5708353bf5f4884b3b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632846"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004533"
 ---
 <a name="os-config"></a>
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a>将 IP 地址添加到 VM 操作系统

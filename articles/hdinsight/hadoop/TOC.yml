@@ -65,10 +65,6 @@ items:
         href: apache-hadoop-use-hive-powershell.md
       - name: 使用 .NET SDK
         href: apache-hadoop-use-hive-dotnet-sdk.md
-      - name: 使用远程桌面
-        href: apache-hadoop-use-hive-remote-desktop.md
-      - name: 使用查询控制台
-        href: apache-hadoop-use-hive-query-console.md
     - name: 将 Java UDF 与 Hive 配合使用
       href: apache-hadoop-hive-java-udf.md
     - name: 将 MapReduce 与 Apache Hadoop 配合使用
@@ -189,9 +185,6 @@ items:
     - name: 使用 Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: 使用 Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: 使用 Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
@@ -265,8 +258,11 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: 缩放 HDInsight 群集
+    - name: 手动缩放群集
       href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: 自动缩放群集
+      href: ../hdinsight-autoscale-clusters.md
       maintainContext: true
     - name: 使用外部元数据存储
       href: ../hdinsight-use-external-metadata-stores.md
@@ -402,9 +398,6 @@ items:
     - name: 运行 Apache Hadoop MapReduce 示例
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: 在群集上使用 Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: 使用 Apache Giraph 处理大型图形
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -417,26 +410,14 @@ items:
     - name: 使用 Apache Maven 构建 Java 应用程序
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: 使用 Apache Tez UI 调试 Tez 作业
-      href: ../hdinsight-debug-tez-ui.md
-      maintainContext: true
-    - name: 使用脚本操作进行自定义
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: 访问 Apache Hadoop YARN 应用程序日志
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: 使用 Apache Mahout 生成电影建议
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: 分析航班延误数据
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: 开发脚本操作
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: 使用 Azure 门户管理群集
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: 使用 Apache Ambari API 监视群集
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -455,9 +436,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: f16122d10156a65d2eb4c9b0aa05b80ac980fe62
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 7d958911e18ada69e5bdc8ab5ed5925705766480
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348597"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003798"

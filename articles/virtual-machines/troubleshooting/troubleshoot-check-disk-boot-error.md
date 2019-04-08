@@ -12,21 +12,21 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/31/2018
-ms.date: 10/22/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ec31e7134d1ecd871fd3026ebb2ee20c3ed3f2c6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cd1aae220a6d4feddcd12b69b47431e5b8b22e41
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648761"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004023"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示“正在检查文件系统”
 
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的“正在检查文件系统”错误。
 
 > [!NOTE] 
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用 Resource Manager 部署模型。建议对新部署使用该模型，而不是经典部署模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用 Resource Manager 部署模型。建议对新部署使用该模型，而不是经典部署模型。
 
 ## <a name="symptom"></a>症状 
 

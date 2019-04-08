@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9290e1a40f17c200d3fa1c36e56963abb7fae179
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: a805fbb2518498b168859352e56b0ac718b2f4e4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666330"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004172"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -98,7 +98,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "chinaeast"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
-    public_ip_address_allocation = "dynamic"
+    allocation_method            = "Dynamic"
 
     tags {
         environment = "Terraform Demo"
@@ -146,7 +146,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     ip_configuration {
         name                          = "myNicConfiguration"
         subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
-        private_ip_address_allocation = "dynamic"
+        private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
@@ -295,7 +295,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "chinaeast"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
-    public_ip_address_allocation = "dynamic"
+    allocation_method            = "Dynamic"
 
     tags {
         environment = "Terraform Demo"
@@ -335,7 +335,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     ip_configuration {
         name                          = "myNicConfiguration"
         subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
-        private_ip_address_allocation = "dynamic"
+        private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 

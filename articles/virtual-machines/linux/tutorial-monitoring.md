@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 01/26/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b1cea681f9853989cbae6654435df0181dcd64b6
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 72cf8c6777bd25fdce97a01f2958b549e4a25536
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666384"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003688"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -33,9 +33,9 @@ ms.locfileid: "56666384"
 > * 查看启动诊断
 > * 查看主机指标
 > * 在 VM 上启用诊断扩展
+> * 查看 VM 指标
 > * 基于诊断指标创建警报
 
-<!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
 <!-- Not Available on Monitor changes and inventory-->
 <!-- Not Available on Set up advanced monitoring-->

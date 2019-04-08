@@ -12,14 +12,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/15/2019
-ms.date: 03/18/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1b11ce82182ea051ec1cdbf5119cca29591e2936
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 167f3e46a474694101475def562cad586945d169
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560462"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004111"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Apache Hadoop on HDInsight 与 SQL 数据库之间导入和导出数据
 
@@ -109,7 +109,7 @@ GO
     数据中的字段将通过制表符分隔，并且相关行由换行符终止。
 
     > [!IMPORTANT]
-    > `wasb:///` 路径适用于使用 Azure 存储作为默认群集存储的群集。 对于使用 Azure Data Lake Store 的群集，请改用 `adl:///`。
+    > `wasb:///` 路径适用于使用 Azure 存储作为默认群集存储的群集。 对于使用 Azure Data Lake Storage Gen2 的群集，请改用 `abfs:///`。
 
 2. 完成导入后，可使用以下命令在新目录中列出这些数据：
 
@@ -165,7 +165,7 @@ GO
 现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
 * [将 Apache Oozie 和 HDInsight 配合使用](../hdinsight-use-oozie.md)：在 Oozie 工作流中使用 Sqoop 操作。
-* [使用 HDInsight 分析航班延误数据](../hdinsight-analyze-flight-delay-data.md)：使用 Apache Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库。
+* [使用 HDInsight 分析航班延误数据](../hdinsight-analyze-flight-delay-data-linux.md)：使用 Apache Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库。
 * [将数据上传到 HDInsight](../hdinsight-upload-data.md)：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

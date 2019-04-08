@@ -5,17 +5,17 @@ services: virtual-machines-windows,storage
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 11/15/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.topic: article
-ms.service: virtual-machines
+ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 8978ecb9fe1a4fa083c6badf37ac77cd2ebc385b
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 546f69e724e0951083c25db9e00ca99aae1ca53d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666216"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003792"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Windows 上的 VM 磁盘的可伸缩性和性能目标
 

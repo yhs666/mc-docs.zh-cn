@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/09/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 14990a222abe76942de9d785bdaf5912b587ac60
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 23ed9549c4a25640cf15f1df37d8be8539d10df4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666252"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003744"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 启动在更新 Windows 时停滞
 
@@ -28,7 +28,7 @@ ms.locfileid: "56666252"
 > [!NOTE] 
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用 Resource Manager 部署模型。 建议为新部署使用此模型，而不是使用经典部署模型。
 
- ## <a name="symptom"></a>症状
+## <a name="symptom"></a>症状
 
  Windows VM 不启动。 检查[启动诊断](../troubleshooting/boot-diagnostics.md)窗口中的屏幕截图时，看到启动停滞在更新进程。 下面是可能收到的消息示例：
 
@@ -58,7 +58,7 @@ ms.locfileid: "56666252"
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
 5. 打开 C:\temp\Patch_level.txt 文件，然后从下往上浏览。 查找处于“安装挂起”或“卸载挂起”状态的更新。  以下是更新状态的示例：
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update

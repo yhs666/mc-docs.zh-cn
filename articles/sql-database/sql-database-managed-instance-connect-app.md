@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 11/09/2018
 ms.date: 02/25/2019
-ms.openlocfilehash: b57f24ed5f357eb973ead8045220ca83ca3af61b
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: bd0fcdba9eab4fdf4979cb7f6029e8bb94909689
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663480"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003496"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>将应用程序连接到 Azure SQL 数据库托管实例
 
@@ -144,7 +144,7 @@ ms.locfileid: "56663480"
 |JDBC 驱动程序    | 6.4.0 |
 |Node.js 驱动程序 | 2.1.1 |
 |OLEDB 驱动程序   | 18.0.2.0 |
-|SSMS   | 17.8.1 或[更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 或[更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,21 +6,22 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/07/2017
-ms.author: hrasheed
+origin.date: 04/07/2017
+ms.date: 04/15/2019
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: e587915e4a77933e7886a182d5a5b28366db18d6
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 632f9c55242c9ee6be837e92f28502858ebc5c82
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028648"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004109"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>使用 Ambari API 在 HDInsight 中监视 Hadoop 群集
-了解如何使用 Ambari API 监视 HDInsight 群集。
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>使用 Apache Ambari API 在 HDInsight 中监视 Apache Hadoop 群集
+了解如何使用 Apache Ambari API 监视 HDInsight 群集。
 
 > [!NOTE]
-> 本文中的信息主要针对提供 Ambari REST API 只读版本的基于 Windows 的 HDInsight 群集。 对于基于 Linux 的群集，请参阅[使用 Ambari 管理 Hadoop 群集](hdinsight-hadoop-manage-ambari.md)。
+> 本文中的信息主要针对提供 Ambari REST API 只读版本的基于 Windows 的 HDInsight 群集。 对于基于 Linux 的群集，请参阅[使用 Apache Ambari 管理 Apache Hadoop 群集](hdinsight-hadoop-manage-ambari.md)。
 > 
 > 
 
@@ -120,7 +121,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 使用 Ambari 终结点“https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}”时，*host_name* 字段会返回节点的完全限定域名 (FQDN)，而不是主机名。 在 2014/10/8 版本之前，此示例仅返回 "**headnode0**"。 在 2014/10/8 版本之后，将获取 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"，如以上示例所示。 需要这种改变促进实现可以在一个虚拟网络 (VNET) 中部署多个群集类型（如 HBase 和 Hadoop）的方案。 例如，使用 HBase 作为 Hadoop 的后端平台时，会发生这种情况。
 
 ## <a name="ambari-monitoring-apis"></a>监视 API 的 Ambari
-下表列出了一些最常用的 Ambari 监视 API 调用。 有关该 API 的详细信息，请参阅 [Ambari API 参考][ambari-api-reference]。
+下表列出了一些最常用的 Ambari 监视 API 调用。 有关该 API 的详细信息，请参阅 [Apache Ambari API 参考][ambari-api-reference]。
 
 | 监视 API 调用 | URI | 说明 |
 | --- | --- | --- |
@@ -138,24 +139,24 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 | 获取配置信息 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |配置类型：core-site、hdfs-site、mapred-site、hive-site |
 
 ## <a name="next-steps"></a>后续步骤
-现在已经学习了如何使用 Ambari 监视 API 调用。 若要了解更多信息，请参阅以下文章：
+现在已经学习了如何使用 Apache Ambari 监视 API 调用。 若要了解更多信息，请参阅以下文章：
 
-* [使用 Azure 门户管理 HDInsight 群集][hdinsight-admin-portal]
+* [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
 * [使用 Azure PowerShell 管理 HDInsight 群集][hdinsight-admin-powershell]
 * [使用命令行界面管理 HDInsight 群集][hdinsight-admin-cli]
 * [HDInsight 文档][hdinsight-documentation]
 * [开始使用 HDInsight][hdinsight-get-started]
 
-[ambari-home]: http://ambari.apache.org/
+[ambari-home]: https://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl]: https://curl.haxx.se
+[curl-download]: https://curl.haxx.se/download.html
 
-[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[microsoft-hadoop-SDK]: https://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: d0c888a10a7b9bfa2d1d7692281a4786f09d7a10
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c943e73cb351edb903c0f95c6cdf38ac780ad71a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666277"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004174"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
@@ -106,7 +106,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},
         }
     ]
 }
@@ -117,10 +117,10 @@ DocumentIncarnation 是一个 ETag，它提供了一种简单的方法来检查�
 |属性  |  说明 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：计划将虚拟机暂停几秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：计划重启虚拟机（非永久性内存丢失）。 <li>`Redeploy`：计划将虚拟机移到另一节点（临时磁盘将丢失）。 |
+| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`:计划将虚拟机暂停几秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`:计划重启虚拟机（非永久性内存丢失）。 <li>`Redeploy`:计划将虚拟机移到另一节点（临时磁盘将丢失）。 |
 | ResourceType | 此事件影响的资源的类型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 资源| 此事件影响的资源的列表。 它保证最多只能包含一个[更新域](manage-availability.md)的计算机，但可能不包含该更新域中的所有计算机。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 事件状态 | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态；事件完成后，将不再返回事件。
+| 事件状态 | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`:此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`:此事件已启动。</ul> 不提供 `Completed` 或类似状态；事件完成后，将不再返回事件。
 | NotBefore| 此事件可能会在之后启动的时间。 <br><br> 示例： <br><ul><li> 2016 年 9 月 19 日星期一 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件计划
@@ -179,7 +179,7 @@ function Get-ScheduledEvents($uri)
 
 # How to approve a scheduled event
 function Approve-ScheduledEvent($eventId, $uri)
-{    
+{
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests} 

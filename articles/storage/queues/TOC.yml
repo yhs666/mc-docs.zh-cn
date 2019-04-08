@@ -9,6 +9,7 @@ items:
 - name: 快速入门
   items:
   - name: 创建存储帐户
+    displayName: resource manager, resource manager template, template, ARM
     href: ../common/storage-quickstart-create-account.md?toc=%2fstorage%2fqueues%2ftoc.json
   - name: 管理队列而无需使用代码
     items:
@@ -72,6 +73,8 @@ items:
       href: ../common/storage-e2e-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 监视、诊断和故障排除
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
+    - name: 在 Azure 门户中进行监视
+      href: ../common/storage-monitor-storage-account.md??toc=%2fstorage%2fqueues%2ftoc.json
     - name: 指标和日志记录
       items:
       - name: Azure Monitor 中的指标
@@ -80,8 +83,10 @@ items:
         href: ../common/storage-metrics-migration.md?toc=%2fstorage%2fqueues%2ftoc.json
       - name: 存储分析
         href: ../common/storage-analytics.md?toc=%2fstorage%2fqueues%2ftoc.json
-      - name: 启用和查看指标（经典）
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fstorage%2fqueues%2ftoc.json
+      - name: 存储分析指标（经典）
+        href: ../common/storage-analytics-metrics.md?toc=%2fstorage%2fqueues%2ftoc.json
+      - name: 存储分析日志
+        href: ../common/storage-analytics-logging.md?toc=%2fstorage%2fqueues%2ftoc.json
 - name: 如何
   items:
   - name: 存储帐户
@@ -90,7 +95,7 @@ items:
       href: ../common/storage-account-manage.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 升级存储帐户
       href: ../common/storage-account-upgrade.md?toc=%2fstorage%2fqueues%2ftoc.json
-  - name: 授权对存储的请求
+  - name: 授予对队列数据的访问权限
     items:
     - name: 使用 Azure AD 进行身份验证
       items:
@@ -169,17 +174,17 @@ items:
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby
-    href: http://azure.github.io/azure-storage-ruby
+    href: https://azure.github.io/azure-storage-ruby
   - name: PHP
-    href: http://azure.github.io/azure-storage-php/
+    href: https://azure.github.io/azure-storage-php/
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/storage
   - name: C++
-    href: http://azure.github.io/azure-storage-cpp
+    href: https://azure.github.io/azure-storage-cpp
   - name: iOS
-    href: http://azure.github.io/azure-storage-ios/
+    href: https://azure.github.io/azure-storage-ios/
   - name: Android
-    href: http://azure.github.io/azure-storage-android
+    href: https://azure.github.io/azure-storage-android
   - name: REST
     items:
     - name: Blob、队列、表和文件
@@ -227,7 +232,7 @@ items:
       - name: 资源提供程序
         href: https://github.com/Azure/azure-sdk-for-net
     - name: Node.js
-      href: http://azure.github.io/azure-storage-node/
+      href: https://azure.github.io/azure-storage-node/
     - name: Java
       href: https://github.com/Azure/azure-storage-java
     - name: C++
@@ -240,9 +245,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: 2028d3487defbfbfb1a931d49e00c3a7f24d1fd4
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: dee8330effc41f5ef996c30c7240aa4c6895fe58
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253922"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890101"

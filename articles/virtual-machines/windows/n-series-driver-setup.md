@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24a576e92921d359e8c7bb21251918a143127f73
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 0e70bdf19a0eb86dbcbe21e0774a45a5709e4119
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665856"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004185"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序 
 
@@ -73,6 +73,6 @@ ms.locfileid: "56665856"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 为 NVIDIA Tesla GPU 构建 GPU 加速应用程序的开发人员也可下载并安装最新的 [CUDA 工具包](https://developer.nvidia.com/cuda-downloads)。 有关详细信息，请参阅 [CUDA 安装指南](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)。
+* 为 NVIDIA Tesla GPU 构建 GPU 加速应用程序的开发人员也可下载并安装最新的 [CUDA 工具包](https://developer.nvidia.com/cuda-downloads)。 有关详细信息，请参阅 [CUDA 安装指南](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)。
 
 <!-- Update_Description: wording update, update meta properties -->

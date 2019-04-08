@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 05/30/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 27eaf6cf88f412655a9959e946b76e84bebcc143
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 4e262ce63a7536216263e16d9509594a6ff7b6ae
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665902"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003949"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，可能会由于安全外壳 (SSH) 错误、SSH 连接失败或 SSH 被拒绝而发生问题，本文可帮助你查找并更正这些问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
@@ -121,7 +121,7 @@ az vm user update --resource-group myResourceGroup --name myVM \
 创建包含以下内容的名为 `settings.json` 的文件：
 
 ```json
-{  
+{
     "reset_ssh":"True"
 }
 ```
@@ -253,11 +253,11 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
     完成此操作后，临时磁盘数据会丢失，并且系统会更新与虚拟机关联的动态 IP 地址。
 * 按照[如何为基于 Linux 的虚拟机重置密码或 SSH](../linux/classic/reset-access-classic.md) 中的说明执行以下操作：
 
-  * 重置密码或 SSH 密钥。
-  * 创建 *sudo* 用户帐户。
-  * 重置 SSH 配置。
+    * 重置密码或 SSH 密钥。
+    * 创建 *sudo* 用户帐户。
+    * 重置 SSH 配置。
 * 检查 VM 的资源运行状况，了解是否存在任何平台问题。<br>
-     选择 VM 并向下滚动到“设置” > “检查运行状况”。
+    选择 VM 并向下滚动到“设置” > “检查运行状况”。
 
 ## <a name="additional-resources"></a>其他资源
 * 如果在执行后续步骤之后仍然无法通过 SSH 连接到 VM，请参阅[更详细的故障排除步骤](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，查看其他可以解决问题的步骤。

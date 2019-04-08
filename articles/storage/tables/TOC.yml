@@ -5,11 +5,14 @@ items:
   items:
   - name: Azure 表存储概述
     href: table-storage-overview.md
+  - name: 选择表存储或表 API
+    href: /cosmos-db/table-support
     maintainContext: true
   expanded: true
 - name: 快速入门
   items:
   - name: 创建存储帐户
+    displayName: resource manager, resource manager template, template, ARM
     href: /storage/common/storage-quickstart-create-account
     maintainContext: true
   - name: 在 Azure 门户中创建表
@@ -84,9 +87,9 @@ items:
   - name: 表存储 REST API
     href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
     maintainContext: true
-ms.openlocfilehash: 756a83501236acbd8019615fe3eb5ec215a935c3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 3944648cb341369343511294cb1efb18e36f8180
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665597"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890156"

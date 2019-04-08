@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/15/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 41048b763e4b33957c9956cd13ac6d7d4848b3b6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 03833d597951051166dc0b22f66e357e73cebc4f
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626502"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003803"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 上的 Windows 重启循环
 本文介绍在 Azure 中的 Windows 虚拟机 (VM) 上可能遇到的重启循环。
@@ -117,5 +117,4 @@ ms.locfileid: "58626502"
 >[!NOTE]
 >以下过程应该仅作为最后的手段。 尽管从 regback 还原可以还原对计算机的访问权限，但 OS 并不稳定，因为注册表中将出现数据丢失（在配置单元和当天的时间戳之间）。 需要构建新的 VM 并制订数据迁移计划。
 
-<!-- Update_Description: new articles on troubleshoot -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: wording update -->

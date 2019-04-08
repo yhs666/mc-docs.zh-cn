@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 10/22/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5283496d347eb797615a36469be95676131f0912
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: fc4ad14b8f14f08406fefe6efc176d6addac03df
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660521"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003975"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Linux VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
 
-有关策略的简介，请参阅[什么是 Azure Policy？](../../azure-policy/azure-policy-introduction.md)。
+有关策略的简介，请参阅[什么是 Azure Policy？](../../governance/policy/overview.md)。
 
 ## <a name="permitted-virtual-machines"></a>允许的虚拟机
 若要确保组织的虚拟机与应用程序兼容，可以限制获准操作系统。 在以下策略示例中，只允许创建 Ubuntu 14.04.2-LTS 虚拟机。
@@ -210,8 +210,8 @@ ms.locfileid: "52660521"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 定义策略规则后（如上述示例所示），需要创建策略定义并将其分配给作用域。 作用域可以是订阅、资源组或资源。 若要分配策略，请参阅[使用 Azure 门户分配和管理资源策略](../../azure-policy/assign-policy-definition.md)、[使用 PowerShell 分配策略](../../azure-policy/assign-policy-definition-ps.md)或[使用 Azure CLI 分配策略](../../azure-policy/assign-policy-definition-cli.md)。
-* 有关资源策略的简介，请参阅[什么是 Azure Policy？](../../azure-policy/azure-policy-introduction.md)。
+* 定义策略规则后（如上述示例所示），需要创建策略定义并将其分配给作用域。 作用域可以是订阅、资源组或资源。 若要分配策略，请参阅[使用 Azure 门户分配和管理资源策略](../../governance/policy/assign-policy-portal.md)、[使用 PowerShell 分配策略](../../governance/policy/assign-policy-powershell.md)或[使用 Azure CLI 分配策略](../../governance/policy/assign-policy-azurecli.md)。
+* 有关资源策略的简介，请参阅[什么是 Azure Policy？](../../governance/policy/overview.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
 <!--Update_Description: update meta properties, wording update, update link -->

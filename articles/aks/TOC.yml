@@ -224,17 +224,15 @@ items:
   items:
   - name: 上市区域
     href: https://www.azure.cn/support/service-dashboard/
-  - name: 定价
-    href: https://www.azure.cn/pricing/details/container-service/
   - name: 提供产品反馈
     href: https://www.azure.cn/support/contact/
   - name: 视频
     href: https://www.azure.cn/video-center/
   - name: 常见问题解答
     href: faq.md
-ms.openlocfilehash: 334ca365c601c480badd149435f2432a9a8a9b82
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: cef5056bb107966cf98f54be22f3037c4cbaa7f1
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903060"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003851"

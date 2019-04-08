@@ -9,12 +9,12 @@ origin.date: 01/22/2019
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ce666b6a87350795a51e9acdf11dc8bb3326fb3a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 392dd7a0fcb600f3459301243fae852e583d50e6
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627744"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004540"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure 有哪些可用的磁盘类型？
 
@@ -34,4 +34,5 @@ Azure 托管磁盘当前提供了三种磁盘类型，它们都已公开发布 (
 |最大吞吐量   |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
 |最大 IOPS   |20,000   |6,000   |2,000   |
 
+<!--MOONCAKE: Disk size is less than 4095 GiB-->
 <!--Not Available on## Ultra SSD (preview)-->

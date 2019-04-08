@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 06/25/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: b4258e8eae2064b349f6bd65d3dd59293734f8c0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 08f9df8ede4c0956cb7119c53ef00bc48cd0818e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645303"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003726"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 
-本文介绍如何使用 Azure 门户从 Azure 下载 [Windows 虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 文件。 
+本文介绍如何使用 Azure 门户从 Azure 下载 Windows 虚拟硬盘 (VHD) 文件。
 
 ## <a name="stop-the-vm"></a>停止 VM
 
@@ -79,4 +79,5 @@ ms.locfileid: "52645303"
 - 了解如何[将 VHD 文件上传到 Azure](upload-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 - [从存储帐户中的非托管磁盘创建托管磁盘](attach-disk-ps.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 - [使用 PowerShell 管理 Azure 磁盘](tutorial-manage-data-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+
 <!-- Update_Description: update meta properties， wording update -->

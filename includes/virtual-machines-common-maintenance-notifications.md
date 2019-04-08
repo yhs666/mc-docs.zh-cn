@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/02/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ad6c489775da0e1f5a4d0332edc639dfd8b1831c
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 38abb4c76f9f6d3a40476ed8a139ae7d05f622b1
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736220"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004207"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在门户中查看计划用于维护的虚拟机
 
@@ -32,14 +32,14 @@ ms.locfileid: "53736220"
 
     **维护**：显示 VM 的维护状态。 下面是可能的值：
 
-      | 值 | 说明 |
-      |-------|-------------|
-      | 立即启动 | 虚拟机处于自助维护时段内，用户可以自行启动维护。 请参阅以下内容，了解如何在 VM 上启动维护。 | 
-      | 计划 | 已安排虚拟机进行维护，无需用户启动维护。 若要了解维护时段，可以在此视图中选择“维护 - 计划内”时段，也可以单击 VM。 | 
-      | 已经更新 | VM 已更新，目前不需进一步操作。 | 
-      | 稍后重试 | 已经启动维护，但没有成功。 可以稍后使用自助式维护选项。 | 
-      | 立即重试 | 可以重试以前未成功的自行启动的维护。 | 
-      | - | 计划内维护流程不处理你的 VM。 |
+        | 值 | 说明 |
+        |-------|-------------|
+        | 立即启动 | 虚拟机处于自助维护时段内，用户可以自行启动维护。 请参阅以下内容，了解如何在 VM 上启动维护。 | 
+        | 计划 | 已安排虚拟机进行维护，无需用户启动维护。 若要了解维护时段，可以在此视图中选择“维护 - 计划内”时段，也可以单击 VM。 | 
+        | 已经更新 | VM 已更新，目前不需进一步操作。 | 
+        | 稍后重试 | 已经启动维护，但没有成功。 可以稍后使用自助式维护选项。 | 
+        | 立即重试 | 可以重试以前未成功的自行启动的维护。 | 
+        | - | 计划内维护流程不处理你的 VM。 |
 
     **维护 - 自助时段**：显示可以自行启动 VM 维护的时间范围。
 
@@ -47,7 +47,7 @@ ms.locfileid: "53736220"
 
 ## <a name="notification-and-alerts-in-the-portal"></a>门户中的通知和警报
 
-Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划维护的安排。 可以通过创建 Azure 活动日志警报，为此通信添加其他收件人和频道。 有关详细信息，请参阅[创建有关服务通知的活动日志警报](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。
+Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划维护的安排。 可以通过创建 Azure 活动日志警报，为此通信添加其他收件人和频道。 有关详细信息，请参阅[创建有关服务通知的活动日志警报](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 
 请确保将“事件类型”设置为“计划内维护”，将“服务”设置为“虚拟机规模集”和/或“虚拟机”
 

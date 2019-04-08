@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/25/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: acb636b60253612bc1d65826e58d2e03de3b5319
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 8144dde72bd6590ab2237277cb604e90da88b504
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666402"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003948"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure 市场中查找 Windows VM 映像
 
@@ -38,7 +38,7 @@ ms.locfileid: "56666402"
 此表显示了指示的发布者和产品/服务可用的 SKU 的子集。
 
 | 发布者 | 产品/服务 | SKU |
-|:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |
@@ -140,8 +140,9 @@ Offer
 -----
 WindowsServer
 WindowsServerSemiAnnual
-
 ```
+
+<!--MOONCAKE CUSTOMIZE: invalid on Windows-HUB-->
 
 对于“WindowsServer”产品/服务：
 
@@ -236,6 +237,7 @@ DataDiskImages   : []
 <!--Not Available on ### Deploy using purchase plan parameters-->
 
 ## <a name="next-steps"></a>后续步骤
+
 若要使用基本映像信息通过 `New-AzVM` cmdlet 快速创建虚拟机，请参阅[使用 PowerShell 创建 Windows 虚拟机](quick-create-powershell.md)。
 
 参阅 PowerShell 脚本示例来[创建完全配置的虚拟机](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)。

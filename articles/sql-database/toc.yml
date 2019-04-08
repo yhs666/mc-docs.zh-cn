@@ -15,7 +15,7 @@ items:
     href: sql-database-single-database-quickstart-guide.md
   - name: 创建
     items:
-    - name: 单一数据库
+    - name: 单一数据库 - 门户
       href: sql-database-single-database-get-started.md
   - name: 配置
     items:
@@ -271,6 +271,8 @@ items:
         href: sql-database-advisor.md
   - name: 数据库功能
     items:
+    - name: 概述
+      href: sql-database-features-index.yml
     - name: SQL 功能比较
       href: sql-database-features.md
     - name: 多模型功能
@@ -425,8 +427,12 @@ items:
       href: sql-database-develop-overview.md
     - name: 处理 JSON 数据
       href: sql-database-json-features.md
+    - name: 使用 ASP.NET 应用服务
+      href: /app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
     - name: 使用 Azure Functions
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/sql-database/toc.json
+    - name: 使用 Azure 逻辑应用
+      href: /connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: 使用 Spark 连接器
       href: sql-database-spark-connector.md
     - name: 应用身份验证
@@ -516,9 +522,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: 512fb822125efb8931b652961e3517d4522cd67f
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: d1dca4aaf9fa02a3813a8029cf891dcb12cf923e
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318927"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003466"

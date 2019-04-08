@@ -12,14 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 origin.date: 08/14/2017
-ms.date: 07/30/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: c235c4ae6c77328e0e1bec109d2ac111e96d0143
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+ms.openlocfilehash: d2e886f860a092e9f4c907c7f332d140ee3b53b9
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659522"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003811"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>如何监视 Azure 中的虚拟机
 

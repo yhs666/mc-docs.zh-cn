@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 362942377afdd24b43e9d777962d580a72faafe2
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 178592eeceaaded48df3f649a9039fd7d0d9e487
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666097"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004157"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>使用 Java 创建和管理 Azure 中的 Windows VM
 
@@ -41,7 +41,7 @@ ms.locfileid: "56666097"
 ## <a name="create-a-maven-project"></a>创建 Maven 项目
 
 1. 如果尚未安装 [Java](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)，请安装。
-2. 安装 [Maven](http://maven.apache.org/download.cgi)。
+2. 安装 [Maven](https://maven.apache.org/download.cgi)。
 3. 创建新文件夹和项目：
 
     ```
@@ -173,7 +173,7 @@ ms.locfileid: "56666097"
 2. 若要创建发出请求所需的 Active Directory 凭据，请将此代码添加到 App 类的 main 方法：
 
     ```java
-    try {    
+    try {
         final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
         Azure azure = Azure.configure()
             .withLogLevel(LogLevel.BASIC)
@@ -198,7 +198,7 @@ ms.locfileid: "56666097"
 System.out.println("Creating resource group...");
 ResourceGroup resourceGroup = azure.resourceGroups()
     .define("myResourceGroup")
-    .withRegion(Region.US_EAST)
+    .withRegion(Region.CHINA_EAST)
     .create();
 ```
 
@@ -212,7 +212,7 @@ ResourceGroup resourceGroup = azure.resourceGroups()
 System.out.println("Creating availability set...");
 AvailabilitySet availabilitySet = azure.availabilitySets()
     .define("myAvailabilitySet")
-    .withRegion(Region.US_EAST)
+    .withRegion(Region.CHINA_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withSku(AvailabilitySetSkuTypes.MANAGED)
     .create();
@@ -227,7 +227,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 System.out.println("Creating public IP address...");
 PublicIPAddress publicIPAddress = azure.publicIPAddresses()
     .define("myPublicIP")
-    .withRegion(Region.US_EAST)
+    .withRegion(Region.CHINA_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withDynamicIP()
     .create();
@@ -243,7 +243,7 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
 System.out.println("Creating virtual network...");
 Network network = azure.networks()
     .define("myVN")
-    .withRegion(Region.US_EAST)
+    .withRegion(Region.CHINA_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withAddressSpace("10.0.0.0/16")
     .withSubnet("mySubnet","10.0.0.0/24")
@@ -260,7 +260,7 @@ Network network = azure.networks()
 System.out.println("Creating network interface...");
 NetworkInterface networkInterface = azure.networkInterfaces()
     .define("myNIC")
-    .withRegion(Region.US_EAST)
+    .withRegion(Region.CHINA_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withExistingPrimaryNetwork(network)
     .withSubnet("mySubnet")
@@ -279,7 +279,7 @@ NetworkInterface networkInterface = azure.networkInterfaces()
 System.out.println("Creating virtual machine...");
 VirtualMachine virtualMachine = azure.virtualMachines()
     .define("myVM")
-    .withRegion(Region.US_EAST)
+    .withRegion(Region.CHINA_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withExistingPrimaryNetworkInterface(networkInterface)
     .withLatestWindowsImage("MicrosoftWindowsServer", "WindowsServer", "2012-R2-Datacenter")
@@ -303,7 +303,7 @@ input.nextLine();
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk") 
-    .withRegion(Region.US_EAST) 
+    .withRegion(Region.CHINA_EAST) 
     .withExistingResourceGroup("myResourceGroup") 
     .withWindowsFromVhd("https://mystorage.blob.core.chinacloudapi.cn/vhds/myosdisk.vhd") 
     .withSizeInGB(128) 
@@ -311,7 +311,7 @@ ManagedDisk managedDisk = azure.disks.define("myosdisk")
     .create(); 
 
 azure.virtualMachines.define("myVM") 
-    .withRegion(Region.US_EAST) 
+    .withRegion(Region.CHINA_EAST) 
     .withExistingResourceGroup("myResourceGroup") 
     .withExistingPrimaryNetworkInterface(networkInterface) 
     .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows) 
@@ -452,10 +452,10 @@ input.nextLine();
 
 1. 若要删除资源组，请将此代码添加到 main 方法的 try 块：
 
-```java
-System.out.println("Deleting resources...");
-azure.resourceGroups().deleteByName("myResourceGroup");
-```
+    ```java
+    System.out.println("Deleting resources...");
+    azure.resourceGroups().deleteByName("myResourceGroup");
+    ```
 
 2. 保存 App.java 文件。
 

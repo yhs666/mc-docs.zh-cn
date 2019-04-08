@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/05/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 80bf0fb66948240d00cc62ce4a28bd41e68434ad
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: cefb1b9ce60470ba45fdc6e2b791dee348cbdcc2
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666289"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003846"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Windows 虚拟机
 
@@ -36,11 +36,12 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 > * 查看 VM 主机指标
 > * 安装诊断扩展
 > * 查看 VM 指标
-> * 创建警报 <!-- Not Available on> * Manage Windows updates -->
+> * 创建警报
+<!-- Not Available on> * Manage Windows updates -->
 <!-- Not Available on> * Monitor changes and inventory -->
 <!-- Not Available on> * Set up advanced monitoring -->
 
-## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 

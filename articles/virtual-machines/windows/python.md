@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: bbeb9e1399bef71b754f39deb8aff5f4876cb160
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c38f06acfc1c731f3fc9d34c25279869a9da865b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666064"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003895"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 创建和管理 Windows VM
 
@@ -97,7 +97,7 @@ ms.locfileid: "56666064"
         return credentials
     ```
     
-    <!-- Notice: Add China = True -->
+    <!--MOONCAKE CUSTOMIZED: Add China = True -->
     
     将 application-id、authentication-key 和 tenant-id 替换为前面在创建 Azure Active Directory 服务主体时收集的值。
 
@@ -503,7 +503,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="add-a-data-disk-to-the-vm"></a>将数据磁盘添加到 VM
 
-虚拟机可以有一个或多个存储为 VHD 的[数据磁盘](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+虚拟机可以有一个或多个存储为 VHD 的[数据磁盘](managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 1. 若要将数据磁盘添加到虚拟机，请在 .py 文件中将此函数添加在变量之后： 
 

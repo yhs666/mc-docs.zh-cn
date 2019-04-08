@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 10/30/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8494bead361d350a26224d1b3df69c5c8b24ad94
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f22a1828b2504d2c7dd5755cbef509cf21011f8d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666393"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003779"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>如何加密 Azure 中的 Linux 虚拟机
 
@@ -91,6 +91,8 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
+<!--MOONCAKE: Customize-->
+
 可以使用软件保护来存储加密密钥。  由于创建的是标准密钥保管库，以下示例使用了受软件保护的密钥。
 
 <!--Not Available on or Hardware Security Model (HSM) protection 或硬件安全模型 (HSM) 保护-->
@@ -108,6 +110,8 @@ az keyvault key create \
     --name myKey \
     --protection software
 ```
+
+<!--MOONCAKE: Customize-->
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM 并附加一个 10Gb 数据磁盘。 只有特定市场映像才支持磁盘加密。 以下示例使用 Ubuntu 16.04 LTS 映像创建一个名为 myVM 的 VM：
@@ -128,7 +132,7 @@ az vm create \
 
 使用 [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) 加密 VM。 下面的示例使用之前的 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令中的 *$sp_id* 和 *$sp_password* 变量：
 
-<!--NOTICE: MOONCAKE CUSTOMIZED-->
+<!--MOONCAKE: Customize-->
 
 ```azurecli
 az ad sp create-for-rbac --query [appId,password] -o tsv
@@ -153,7 +157,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-<!--NOTICE: MOONCAKE CUSTOMIZED-->
+<!--MOONCAKE: Customize-->
 
 需要一段时间才能完成磁盘加密过程。 使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) 监视过程状态：
 
@@ -180,7 +184,7 @@ az vm encryption show --resource-group $resourcegroup --name myVM --query 'statu
 
 将数据磁盘添加到 VM 后，重新运行该命令以加密虚拟磁盘，如下所示：
 
-<!--ONLY CUSTOMZIED ON MOONCAKE-->
+<!--MOONCAKE: Customize-->
 
 > [!NOTE]
 > 在运行命令 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 之前，应将 <sp_id> 和 <sp_password> 替换为上一步中的输出值。
@@ -196,7 +200,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-<!--ONLY CUSTOMZIED ON MOONCAKE-->
+<!--MOONCAKE: Customize-->
 
 ## <a name="next-steps"></a>后续步骤
 * 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅 [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md)（使用 CLI 管理密钥保管库）。

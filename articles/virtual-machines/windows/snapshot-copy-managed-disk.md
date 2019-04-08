@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 96f89d89218128430ffa9ce983a1b244a1439249
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: afb0e8f735dad5dff6de71f0a0169040e95357c8
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666416"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003917"
 ---
 # <a name="create-a-snapshot"></a>创建快照
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 247d07e586ad6e1160c8829da2d4d794c308ee7c
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: c6119d9f78ea682139a36181c0c976283dd3b996
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785148"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004045"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机
 
@@ -45,19 +45,21 @@ ms.locfileid: "53785148"
 
 ## <a name="export-and-download-the-vhd"></a>导出和下载 VHD 
 
-将 EC2 实例导出到 Amazon S3 存储桶中的 VHD。 执行 Amazon 文档[使用 VM导入/导出功能导出实例作为 VM](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 中所述的步骤，然后运行 [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 命令将 EC2 实例导出到 VHD 文件。 
+将 EC2 实例导出到 Amazon S3 存储桶中的 VHD。 执行 Amazon 文档[使用 VM导入/导出功能导出实例作为 VM](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 中所述的步骤，然后运行 [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 命令将 EC2 实例导出到 VHD 文件。 
 
-导出的 VHD 文件将保存在你指定的 Amazon S3 存储桶中。 导出 VHD 的基本语法如下所示，只需将 <brackets> 中的占位符文本替换为自己的信息。
+导出的 VHD 文件将保存在你指定的 Amazon S3 存储桶中。 下面是用于导出 VHD 的基本语法，只需将 <brackets> 中的占位符文本替换为你的信息即可。
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-<!--Notice: --target-environment invlove vmware|citrix|microsoft--> 导出 VHD 后，按照[如何从 S3 Bucket 下载对象？](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)中的说明从 S3 Bucket 下载 VHD 文件。 
+<!--Notice: --target-environment invlove vmware|citrix|microsoft-->
+
+导出 VHD 后，按照[如何从 S3 存储桶下载对象？](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)中的说明从 S3 存储桶下载 VHD 文件。 
 
 > [!IMPORTANT]
-> AWS 会收取下载 VHD 所产生的数据传输费用。 有关详细信息，请参阅 [Amazon S3 定价](https://aws.amazon.com/s3/pricing/)。
+> AWS 将收取用于下载 VHD 的数据传输费用。 有关详细信息，请参阅 [Amazon S3 定价](https://aws.amazon.com/s3/pricing/)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -28,6 +28,9 @@ items:
     - name: 使用 Azure 存储
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
+    - name: 使用 Azure Data Lake Storage Gen2
+      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+      maintainContext: true
   - name: 开发
     items:
     - name: 使用 Apache HBase .NET SDK
@@ -329,9 +332,9 @@ items:
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: fdc22308ffd19abf94365c9da9ff4631b5950eb0
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: d7a3f822e9158ba06fdf8b7e6c118d83bb96f112
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303072"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004026"

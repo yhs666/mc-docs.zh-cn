@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/30/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: b6df700b5f0021d796b8a2888e51ca6752c147e0
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 1da95e2b5b837c78c50b800d6c52722825eb82af
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666334"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004124"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>加密 Windows VM 上的虚拟磁盘
 为了增强虚拟机 (VM) 的安全性以及符合性，可以加密 Azure 中的虚拟磁盘。 磁盘是使用 Azure Key Vault 中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure PowerShell 加密 Windows VM 上的虚拟磁盘。 还可[使用 Azure CLI 加密 Linux VM](../linux/encrypt-disks.md)。
@@ -96,7 +96,7 @@ New-AzKeyVault -Location $location `
 <!--Not Available on 或硬件安全模型 (HSM) 保护-->
 <!--Not Available on 高级密钥保管库-->
 
-对于这种保护模型，在启动 VM 以解密虚拟磁盘时，需要向 Azure 平台授予访问权限，使之能够请求加密密钥。 使用 [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) 在 Key Vault 中创建加密密钥。 以下示例创建名为 *myKey* 的密钥：
+对于这种保护模型，在启动 VM 以解密虚拟磁盘时，需要向 Azure 平台授予访问权限，使之能够请求加密密钥。 使用 [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) 在 Key Vault 中创建加密密钥。 以下示例创建名为 *myKey* 的密钥：
 
 <!--Correct for this protection models-->
 
@@ -161,7 +161,7 @@ New-AzVm `
 $keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
-$keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
+$keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
 Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName myVM -AadClientID $app.ApplicationId `
