@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4737d9ab35e9700b5c0e819c64f6af30af48b0ad
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 84f6713f4427cb0540e20f03da9e2c5399c54d15
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029175"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004008"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 运行 Apache Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -28,6 +28,8 @@ ms.locfileid: "54029175"
 > 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅[将 Apache Hive 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-hive.md)。
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * 基于 Linux 的 Apache Hadoop on HDInsight 群集版本 3.4 或更高版本。
 
@@ -44,13 +46,13 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive �
 
 在远程 HDInsight 群集上运行 Hive 查询时，使用以下 Cmdlet：
 
-* `Connect-AzureRmAccount`：在 Azure 订阅中进行 Azure PowerShell 身份验证。
-* `New-AzureRmHDInsightHiveJobDefinition`：使用指定的 HiveQL 语句创建作业定义。
-* `Start-AzureRmHDInsightJob`：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
-* `Wait-AzureRmHDInsightJob`：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
-* `Get-AzureRmHDInsightJobOutput`：用于检索作业的输出。
-* `Invoke-AzureRmHDInsightHiveJob`：用于运行 HiveQL 语句。 此 cmdlet 将阻止查询完成，然后返回结果。
-* `Use-AzureRmHDInsightCluster`：设置要用于 `Invoke-AzureRmHDInsightHiveJob` 命令的当前群集。
+* `Connect-AzAccount`:在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* `New-AzHDInsightHiveJobDefinition`:使用指定的 HiveQL 语句创建作业定义。
+* `Start-AzHDInsightJob`:将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
+* `Wait-AzHDInsightJob`:使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
+* `Get-AzHDInsightJobOutput`:用于检索作业的输出。
+* `Invoke-AzHDInsightHiveJob`:用于运行 HiveQL 语句。 此 cmdlet 将阻止查询完成，然后返回结果。
+* `Use-AzHDInsightCluster`:设置要用于 `Invoke-AzHDInsightHiveJob` 命令的当前群集。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业：
 
@@ -146,7 +148,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive �
    > [!NOTE]
    > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 `Invoke-Hive` cmdlet 来运行 HiveQL 脚本文件。 HiveQL 脚本文件必须上传到 wasb://。
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > 有关 **Here-Strings** 的详细信息，请参阅<a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
@@ -156,7 +158,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive �
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `
@@ -178,4 +180,4 @@ Get-AzureRmHDInsightJobOutput `
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
 * [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 MapReduce 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-mapreduce.md)

@@ -8,19 +8,19 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 85fe5e9a4d2f99ca5faf6341935ce8d67bdbd1ad
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 365ff1fafed4dd0bac49462fd866b1ab7de5342e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627270"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003697"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
-[Azure 高级存储](premium-storage.md)为运行 I/O 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 本指南帮助用户使用 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 将其 VM 磁盘从标准存储帐户迁移到高级存储帐户。
+[Azure 高级 SSD](disks-types.md) 为运行 I/O 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 本指南帮助用户使用 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 将其 VM 磁盘从标准存储帐户迁移到高级存储帐户。
 
 Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器和 VM 到云 (Azure) 或辅助数据中心的复制，来为业务连续性和灾难恢复策略提供辅助。 当主要位置发生故障时，可以故障转移到辅助位置，使应用程序和工作负荷保持可用。 当主要位置恢复正常时，可以故障转移回到主要位置。 
 
@@ -215,7 +215,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 
 有关虚拟机迁移的特定方案，请参阅以下资源：
 
-* [Migrate Azure Virtual Machines between Storage Accounts（在存储帐户之间迁移 Azure 虚拟机）](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [在存储帐户之间迁移 Azure 虚拟机](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [创建 Windows Server VHD 并将其上传到 Azure](upload-generalized-managed.md)
 * [将虚拟机从 Amazon AWS 迁移到 Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
@@ -223,7 +223,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 
 * [Azure 存储](/storage/)
 * [Azure 虚拟机](/virtual-machines/)
-* [高级存储：适用于 Azure 虚拟机工作负载的高性能存储](premium-storage.md)
+* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png
