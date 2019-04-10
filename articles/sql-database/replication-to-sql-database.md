@@ -12,19 +12,19 @@ ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 797c67483e104f18c629795686b17086a63edc43
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/08/2019
+ms.openlocfilehash: df8007f34eac4af2472ef4ca90b142c1d598132d
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663717"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003487"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>复制到 SQL 数据库的单个数据库和池化数据库
 
 可以对 SQL Server 复制进行配置，以便复制到 Azure SQL 数据库中 [SQL 数据库服务器](sql-database-servers.md)上的单一数据库和入池数据库。  
 
-## <a name="supported-configurations"></a>**支持的配置：**
+## **<a name="supported-configurations"></a>支持的配置：**
   
 - SQL Server 可以是在本地运行的 SQL Server 实例，也可以是在云端的 Azure 虚拟机中运行的 SQL Server 实例。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)。  
 - Azure SQL 数据库必须是 SQL Server 发布服务器的推送订阅者。  
@@ -40,7 +40,7 @@ ms.locfileid: "56663717"
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 或 SP3
 - 尝试使用旧版来配置复制可能导致错误 MSSQL_REPL20084（过程无法连接到订阅服务器）和 MSSQL_REPL40532（无法打开登录名所请求的服务器 \<name>。 登录失败）。  
-- 若要使用 Azure SQL 数据库的所有功能，必须使用最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)。  
+- 若要使用 Azure SQL 数据库的所有功能，必须使用最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。  
   
 ## <a name="remarks"></a>备注
 

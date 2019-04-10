@@ -14,22 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/07/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 8f784b8c18575e7fbdc9dcee8125fa24b27925ba
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 0f94c8cdf8e6775d4e12f3ac7599613fed6ca794
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665824"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003922"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虚拟机中 SQL Server 的自动修补 (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [经典](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-自动修补为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，此限制可以确保在数据库的最佳可能时间进行系统更新和任何关联的重新启动。 
+自动修补为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，此限制可以确保在数据库的最佳可能时间发生系统更新和任何关联的重新启动。 
 
 > [!IMPORTANT]
 > 仅安装标记为“重要”的 Windows 更新。 必须手动安装其他 SQL Server 更新，如累积更新。 

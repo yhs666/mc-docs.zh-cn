@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 01/15/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: e2bbd0e7f9eb3e888d189615d55030829a904ab4
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 8b0ce98550877b259c864d6269c8434b42f912ef
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560448"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004083"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>为 Azure HDInsight 中的 Apache Kafka 设置安全套接字层 (SSL) 加密和身份验证
 
@@ -44,34 +44,33 @@ ms.locfileid: "57560448"
 export SRVPASS=<server_password>
 mkdir ssl
 cd ssl
-```
 
-# <a name="create-a-java-keystore-kafkaserverkeystorejks-and-a-ca-certificate"></a>创建 Java 密钥存储 (kafka.server.keystore.jks) 和 CA 证书。
+# Create a java keystore (kafka.server.keystore.jks) and a CA certificate.
 
 keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass $SRVPASS -keypass $SRVPASS -dname "CN=wn0-umakaf.xvbseke35rbuddm4fyvhm2vz2h.cx.internal.cloudapp.net" -storetype pkcs12
 
-# <a name="create-a-signing-request-to-get-the-certificate-created-in-the-previous-step-signed-by-the-ca"></a>创建签名请求，以获取在上一步骤中创建的、由 CA 签名的证书。
+# Create a signing request to get the certificate created in the previous step signed by the CA.
 
 keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass $SRVPASS -keypass $SRVPASS
 
-# <a name="send-the-signing-request-to-the-ca-and-get-this-certificate-signed"></a>将签名请求发送到 CA，使此证书得到签名。
+# Send the signing request to the CA and get this certificate signed.
 
 openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
 
-# <a name="create-a-trust-store-and-import-the-certificate-of-the-ca"></a>创建信任存储并导入 CA 证书。
+# Create a trust store and import the certificate of the CA.
 
 keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
 
-# <a name="import-the-public-ca-certificate-into-the-keystore"></a>将公共 CA 证书导入密钥存储。
+# Import the public CA certificate into the keystore.
 
 keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
 
-# <a name="import-the-signed-certificate-into-the-keystore"></a>将已签名的证书导入密钥存储。
+# Import the signed certificate into the keystore.
 
 keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
 
-# <a name="the-output-should-say-certificate-reply-was-added-to-keystore"></a>输出中应显示“证书回复已添加到密钥存储”
-
+# The output should say "Certificate reply was added to keystore"
+```
 
 将已签名的证书导入密钥存储是为 Kafka 代理配置信任存储和密钥存储所要执行的最后一个步骤。
 
@@ -135,32 +134,32 @@ keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert 
 ```bash
 export CLIPASS=<client_password>
 cd ssl
-```
 
-# <a name="create-a-java-keystore-and-get-a-signed-certificate-for-the-broker-then-copy-the-certificate-to-the-vm-where-the-ca-is-running"></a>创建 Java 密钥存储并获取代理的已签名证书。 然后将该证书复制到运行 CA 的 VM。
+# Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 
 keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass $CLIPASS -keypass $CLIPASS -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
 
 keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS
 
-# <a name="copy-the-cert-to-the-vm-where-the-ca-is"></a>将证书复制到 CA 所在的 VM
+# Copy the cert to the vm where the CA is
 scp client-cert-sign-request3 sshuser@wn0-umakaf:~/tmp1/client-cert-sign-request
 
-# <a name="switch-to-the-ca-machine-wn0-to-sign-the-client-certificate"></a>切换到 CA 计算机 (wn0)，以将客户端证书签名。
-cd ssl openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
+# Switch to the CA machine (wn0) to sign the client certificate.
+cd ssl
+openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
 
-# <a name="return-to-the-client-machine-hn1-navigate-to-ssl-folder-and-copy-signed-cert-to-client-machine"></a>返回到客户端计算机 (hn1)，导航到 ~/ssl 文件夹并将已签名的证书复制到客户端计算机
+# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert to client machine
 scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/tmp1/client-cert-signed
 
-# <a name="import-ca-cert-to-trust-store"></a>将 CA 证书导入到信任存储
+# Import CA cert to trust store
 keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
 
-# <a name="import-ca-cert-to-key-store"></a>将 CA 证书导入到密钥存储
+# Import CA cert to key store
 keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
 
-# <a name="import-signed-client-cert-client-cert-signed1-to-keystore"></a>将已签名的客户端证书 (client-cert-signed1) 导入到密钥存储
+# Import signed client (cert client-cert-signed1) to keystore
 keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS -noprompt
-
+```
 
 最后，运行命令 `cat client-ssl-auth.properties`，以查看文件 `client-ssl-auth.properties`。 该文件应包含以下行：
 
@@ -188,17 +187,16 @@ ssl.key.password=<client_password>
 ```bash
 export CLIPASS=<client_password>
 cd ssl
-```
 
-# <a name="copy-signed-cert-to-client-machine"></a>将已签名的证书复制到客户端计算机
+# Copy signed cert to client machine
 scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/home/sshuser/ssl/ca-cert .
 
-# <a name="import-ca-cert-to-truststore"></a>将 CA 证书导入到信任存储
+# Import CA cert to truststore
 keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
 
-# <a name="import-ca-cert-to-keystore"></a>将 CA 证书导入到密钥存储
-keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
-
+# Import CA cert to keystore
+keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass $CLIPASS -keypass $CLIPASS -noprompt
+```
 
 最后，运行命令 `cat client-ssl-auth.properties`，以查看文件 `client-ssl-auth.properties`。 该文件应包含以下行：
 

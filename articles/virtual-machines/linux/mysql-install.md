@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Linux VM 上设置 MySQL | Azure
+title: 如何在 Azure 上安装 MySQL | Azure
 description: 了解如何在 Azure 中的 Linux 虚拟机（Ubuntu 或 CentOS OS）上安装 MySQL 堆栈
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2016
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ae29ead3bb633f804c4ef520587523a7f787b627
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f2c00d0f8c3165c78a74a9e3e24247e9e9ef1c4a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666221"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003690"
 ---
 <!-- Remove the Red Hat family in meta properties-->
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安装 MySQL
@@ -53,7 +53,7 @@ ms.locfileid: "56666221"
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
 
-    在安装过程中，会看到如下所示的对话窗口弹出，要求设置 MySQL 根密码。需要在此处设置该密码。
+    在安装过程中，会看到如下所示的对话窗口显示，要求设置 MySQL 根密码。需要在此处设置该密码。
 
     ![图像](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 

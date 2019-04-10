@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnick, carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 3ddd1955af7822a587f5d4f6a59ccef348f4d6f9
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 3da8d5ab9ace09ca0e54013181ad2620fee14639
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318944"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003449"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>管理 Azure SQL 数据库中的单一和池化数据库的文件空间
 
@@ -27,6 +27,8 @@ ms.locfileid: "58318944"
 ## <a name="overview"></a>概述
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 使用 Azure SQL 数据库中的单一和池化数据库时，可能存在如下所述的工作负荷模式：其中数据库基础数据文件的分配可能会大于已使用数据页的数量。 如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。 这是因为分配的文件空间不会自动回收。
 
@@ -237,7 +239,7 @@ DBCC SHRINKDATABASE (N'db1')
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-有关此命令的详细信息，请参阅 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) 选项。 
+有关此命令的详细信息，请参阅 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 选项。 
 
 ### <a name="rebuild-indexes"></a>重建索引
 
@@ -248,7 +250,7 @@ ALTER DATABASE [db1] SET AUTO_SHRINK ON
 - 有关数据库最大大小的信息，请参阅：
   - [适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制](sql-database-vcore-resource-limits-single-databases.md)
   - [使用基于 DTU 的购买模型的单一数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
-  - [适用于弹性池的 Azure SQL 数据库基于 vCore 的购买模型限制](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Azure SQL 数据库基于 vCore 的购买模型针对弹性池的限制](sql-database-vcore-resource-limits-elastic-pools.md)
   - [使用基于 DTU 的购买模型的弹性池的资源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 有关 `SHRINKDATABASE` 命令的详细信息，请参阅 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
 - 有关碎片和重新生成索引的详细信息，请参阅[重新组织和重新生成索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。

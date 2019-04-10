@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 03/21/2019
 ms.author: v-yiso
 ms.date: 04/08/2019
-ms.openlocfilehash: 8a14230c9067dae0d23d9f981ed5d635f349de97
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 98d6cb43a915081659de2d21cd38ac6733877a16
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625257"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890171"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -194,7 +194,7 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 1. 确保 IoT DevKit **未连接**到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
 
-2. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Open Examples...”。然后选择“IoT DevKit”作为开发板。
+2. 单击 `F1` 以打开命令面板，键入并选择 **`Azure IoT Device Workbench: Open Examples...`**。 然后选择“IoT DevKit”作为开发板。
 
 3. 在 IoT Workbench 的“示例”页中，找到“入门”并单击“打开示例”。 然后选择用于下载示例代码的默认路径。
 
@@ -210,7 +210,7 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
     > 假定已在 VS code 中安装了扩展“Azure 帐户”。 
 
 
-1. 在打开的新项目窗口中，单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Provision Azure Services...”。遵照分步指南完成预配 Azure IoT 中心和创建 IoT 中心设备的操作。
+1. 在打开的新项目窗口中，单击 `F1` 以打开命令面板，键入并选择 **`Azure IoT Device Workbench: Provision Azure Services...`**。 遵照分步指南完成预配 Azure IoT 中心和创建 IoT 中心设备的操作。
     ![预配命令](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
 
     > [!NOTE]
@@ -243,7 +243,7 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 6. 在右下方的状态栏中，检查选定的开发板是否为 **MXCHIP AZ3166**，以及是否使用了带有 **STMicroelectronics** 的串行端口。
     ![选择开发板和 COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
 
-7. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Configure Device Settings...”，然后选择“Config Device Connection String”（配置设备连接字符串）>“Select IoT Hub Device Connection String”（选择 IoT 中心设备连接字符串）。
+7. 单击 `F1` 打开命令面板，键入并选择 **`Azure IoT Device Workbench: Configure Device Settings...`**，然后选择“配置设备连接字符串”>“选择 IoT 中心设备连接字符串”。
 
 8. 在 DevKit 上，按住**按钮 A** 不放，按下再松开**重置**按钮，然后松开**按钮 A**。DevKit 将进入配置模式并保存连接字符串。
 
@@ -296,7 +296,7 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 
     请注意，该路径可能因 IoT DevKit SDK 的不同版本而异。
 
-11. 再次单击 `F1`，键入并选择“Azure IoT Device Workbench:Upload Device Code”。 它启动编译，并将代码上传到 DevKit。
+11. 再次单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Upload Device Code`**。 它启动编译，并将代码上传到 DevKit。
 
     ![Arduino 上传](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 

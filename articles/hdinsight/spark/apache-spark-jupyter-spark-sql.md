@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 02/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7aca00bb73ba5db87419f361d03a29e2ec503933
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 8440736c0fb3d05e9d6a856649ba44ca689216db
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906193"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004148"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>快速入门：使用模板在 HDInsight 中创建 Apache Spark 群集
 
 了解如何在 Azure HDInsight 中创建 [Apache Spark](https://spark.apache.org/) 群集，以及如何对 [Apache Hive](https://hive.apache.org/) 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
-在本快速入门教程中，可以使用资源管理器模板创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。
+在本快速入门教程中，可以使用资源管理器模板创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 > [!IMPORTANT]
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
@@ -33,7 +33,7 @@ ms.locfileid: "54906193"
 
 1. 选择以下链接在新的浏览器选项卡中打开 Azure 门户中的模板：         
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank">部署到 Azure</a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank">“部署到 Azure”</a>
 
 2. 输入以下值：
 

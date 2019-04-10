@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 479e99bceb6c65f87d5470b12a97a9bdd0e06187
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: e4d51a34e1fbe86e11a207031f845e44eba99534
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348603"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003762"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 中将 Apache Sqoop 与 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -166,10 +166,13 @@ HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定�
 * [将数据上传到 HDInsight][hdinsight-upload-data]：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 
 ## <a name="appendix-a---a-powershell-sample"></a>附录 A - PowerShell 示例
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 PowerShell 示例执行以下步骤：
 
 1. 连接到 Azure。
-2. 创建 Azure 资源组。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. 创建 Azure 资源组。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. 创建一个 Azure SQL 数据库服务器、一个 Azure SQL 数据库和两个表。 
 
     如果改用 SQL Server，请使用以下语句来创建表：
@@ -304,31 +307,31 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Connect-AzureRmAccount -EnvironmentName AzureChinaCloud}
+    try{Get-AzContext}
+    catch{Connect-AzAccount -EnvironmentName AzureChinaCloud}
     #endregion
 
     #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
-        Get-AzureRmResourceGroup -Name $resourceGroupName
+        Get-AzResourceGroup -Name $resourceGroupName
     }
     catch{
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+        New-AzResourceGroup -Name $resourceGroupName -Location $location
     }
     #endregion
 
     #region - Create Azure SQL database server
     Write-Host "`nCreating an Azure SQL Database server ..." -ForegroundColor Green
     try{
-        Get-AzureRmSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
+        Get-AzSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
     catch{
         Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
 
         $sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
         $credential = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
 
-        $sqlDatabaseServerName = (New-AzureRmSqlServer `
+        $sqlDatabaseServerName = (New-AzSqlServer `
                                     -ResourceGroupName $resourceGroupName `
                                     -ServerName $sqlDatabaseServerName `
                                     -SqlAdministratorCredentials $credential `
@@ -337,7 +340,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
 
         Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
         $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
-        New-AzureRmSqlServerFirewallRule `
+        New-AzSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -FirewallRuleName "$fireWallRuleName-workstation" `
@@ -346,7 +349,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
 
         #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
         #Note that this allows Azure traffic from any Azure subscription to access the server.
-        New-AzureRmSqlServerFirewallRule `
+        New-AzSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -FirewallRuleName "$fireWallRuleName-Azureservices" `
@@ -360,14 +363,14 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     Write-Host "`nCreating an Azure SQL database ..." -ForegroundColor Green
 
     try {
-        Get-AzureRmSqlDatabase `
+        Get-AzSqlDatabase `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -DatabaseName $sqlDatabaseName
     }
     catch {
         Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
-        New-AzureRMSqlDatabase `
+        New-AzSqlDatabase `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -DatabaseName $sqlDatabaseName `
@@ -407,20 +410,20 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
 
     # Create the default storage account
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
 
     # Create the default Blob container
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext `
+    $defaultStorageAccountContext = New-AzStorageContext `
                                         -StorageAccountName $defaultStorageAccountName `
                                         -StorageAccountKey $defaultStorageAccountKey 
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name $defaultBlobContainerName `
         -Context $defaultStorageAccountContext 
 
@@ -428,7 +431,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
-    New-AzureRmHDInsightCluster `
+    New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $HDInsightClusterName `
         -Location $location `
@@ -443,7 +446,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
         -DefaultStorageContainer $defaultBlobContainerName 
 
     # Validate the cluster
-    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
+    Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
     #endregion
 
     #region - pre-process the source file
@@ -521,22 +524,22 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     $exportDir_log4j = "/tutorials/usesqoop/data"
 
     # Submit a Sqoop job
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
+    $sqoopDef = New-AzHDInsightSqoopJobDefinition `
         -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1"
-    $sqoopJob = Start-AzureRmHDInsightJob `
+    $sqoopJob = Start-AzHDInsightJob `
                     -ClusterName $hdinsightClusterName `
                     -HttpCredential $httpCredential `
                     -JobDefinition $sqoopDef #-Debug -Verbose
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $hdinsightClusterName `
         -HttpCredential $httpCredential `
         -JobId $sqoopJob.JobId
 
     Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
+    Get-AzHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
     Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
+    Get-AzHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
 
     #endregion
 
@@ -545,84 +548,84 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     $tableName_mobile = "mobiledata"
     $exportDir_mobile = "/hive/warehouse/hivesampletable"
 
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
+$sqoopDef = New-AzHDInsightSqoopJobDefinition `
+    -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
+$sqoopJob = Start-AzHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef #-Debug -Verbose
 
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
+Wait-AzHDInsightJob `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId
 
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardError
+Write-Host "Standard Error" -BackgroundColor Green
+Get-AzHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardError
 
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardOutput
+Write-Host "Standard Output" -BackgroundColor Green
+Get-AzHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardOutput
 
-    #endregion
+#endregion
 
-    #region - import a database
+#region - import a database
 
-    $targetDir_mobile = "/tutorials/usesqoop/importeddata/"
+$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
 
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
+$sqoopDef = New-AzHDInsightSqoopJobDefinition `
+    -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
 
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
+$sqoopJob = Start-AzHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef #-Debug -Verbose
 
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
+Wait-AzHDInsightJob `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId
 
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardError
+Write-Host "Standard Error" -BackgroundColor Green
+Get-AzHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardError
 
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardOutput
+Write-Host "Standard Output" -BackgroundColor Green
+Get-AzHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardOutput
 
-    #endregion
+#endregion
 ```
 
 [azure-management-portal]: https://portal.azure.cn/

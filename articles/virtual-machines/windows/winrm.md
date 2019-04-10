@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/16/2016
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 963ea4620d5ef44d3307aaafb37d657a60bebb1d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 00a9ee97469dd93a9edbd62d653a42effef18455
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666118"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003845"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>为 Azure Resource Manager 中的虚拟机设置 WinRM 访问权限
 
@@ -140,7 +140,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 此模板的源代码可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows) 上找到
 
 > [!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
 #### <a name="powershell"></a>PowerShell
     $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
@@ -157,7 +157,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> 如果以上命令无效，可能需要确保 WinRM 服务正在运行。 可使用 `Get-Service WinRM`
+> 如果以上命令无效，可能需要确保 WinRM 服务正在运行。 可使用以下各项完成此操作 `Get-Service WinRM`
 > 
 > 
 

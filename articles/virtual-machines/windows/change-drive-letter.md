@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 02/05/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 16e9a976b6daef86a4753425f05b9642b24d0247
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 461a6cf331024a9255f7d4764e839ae0d6d1dae4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661982"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003757"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>使用 D: 盘作为 Windows VM 上的数据驱动器
 如果应用程序需要使用 D 盘存储数据，请按照以下说明使用其他驱动器号作为临时磁盘。 切勿使用临时磁盘来存储需要保存的数据。

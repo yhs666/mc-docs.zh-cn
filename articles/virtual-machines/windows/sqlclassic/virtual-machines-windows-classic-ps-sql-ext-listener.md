@@ -14,26 +14,26 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 244e8c25f5a4df5f75e741858089dc2390bdfa22
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: f778f4d283c1de1ebb37b9a3d61f47ea1b6ad233
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675176"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003741"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的外部侦听器
 > [!div class="op_single_selector"]
-> * [内部侦听器](../classic/ps-sql-int-listener.md)
-> * [外部侦听器](../classic/ps-sql-ext-listener.md)
+> * [内部侦听程序](../classic/ps-sql-int-listener.md)
+> * [外部侦听程序](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
 本主题说明如何为 AlwaysOn 可用性组配置一个可以通过 Internet 从外部访问的侦听器。 这通过将云服务的**公共虚拟 IP (VIP)** 地址与侦听器关联来实现。
 
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
 可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。 Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 (VNet) 的多个区域。 下面的步骤假设已经[配置可用性组](../classic/portal-sql-alwayson-availability-groups.md)，但未配置侦听器。
 
@@ -128,7 +128,7 @@ ms.locfileid: "52675176"
 
     sqlcmd -S "mycloudservice.chinacloudapp.cn,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-与前面的示例不同，现在必须使用 SQL 身份验证，因为调用方无法通过 Internet 使用 Windows 身份验证。 有关详细信息，请参阅 [Azure VM 中的 AlwaysOn 可用性组：客户端连接方案](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)。 使用 SQL 身份验证时，请确保在两个副本上创建相同的登录名。 有关排查可用性组登录问题的详细信息，请参阅 [如何映射登录或使用包含的 SQL 数据库用户连接到其他副本并映射到可用性数据库](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
+与前面的示例不同，现在必须使用 SQL 身份验证，因为调用方无法通过 Internet 使用 Windows 身份验证。 有关详细信息，请参阅 [Azure VM 中的 Always On 可用性组：客户端连接方案](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)。 使用 SQL 身份验证时，请确保在两个副本上创建相同的登录名。 有关排查可用性组登录问题的详细信息，请参阅 [如何映射登录或使用包含的 SQL 数据库用户连接到其他副本并映射到可用性数据库](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
 
 如果 AlwaysOn 副本位于不同子网中，客户端必须在连接字符串中指定 **MultisubnetFailover=True** 。 这会导致尝试并行连接到不同子网中的副本。 请注意，这种情况下包括跨区域 AlwaysOn 可用性组部署。
 

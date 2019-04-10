@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: e71f096afbc71c7376a50e70cbbb7191cac47f57
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 4581197b2b63c3478d9762f4b743a4e385a9ab59
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004002"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教程 - 使用 Azure CLI 管理 Azure 磁盘
 
@@ -65,14 +65,7 @@ Azure 提供两种类型的磁盘：标准磁盘和高级磁盘。
 <!--Not Available GS series-->
 
 ### <a name="premium-disk-performance"></a>高级磁盘性能
-
-|高级存储磁盘类型 | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 磁盘大小（向上舍入） | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) |
-| 每个磁盘的最大 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
-| 每个磁盘的吞吐量 | 25 MB/秒 | 50 MB/秒 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 | 250 MB/秒 | 250 MB/秒 |
-
-<!--Not Available on P60-P80-->
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，Standard_GS5 VM 最多可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Linux VM 大小](sizes.md)。
 
@@ -183,7 +176,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail 
 exit
 ```
 
-## <a name="snapshot-a-disk"></a>拍摄磁盘快照
+## <a name="take-a-disk-snapshot"></a>创建磁盘快照
 
 创建磁盘快照时，Azure 会创建磁盘的只读时间点副本。 Azure VM 快照可用于快速保存配置更改前 VM 所处的状态。 如果出现问题或错误，则可使用快照还原 VM。 VM 具有多个磁盘时，将分别对每个磁盘进行快照。 若要执行应用程序一致性备份，请考虑在创建磁盘快照之前停止 VM。 或者使用 [Azure 备份服务](/backup/)，以便在 VM 运行时执行自动备份。
 
@@ -277,6 +270,6 @@ az vm disk attach \
 转到下一教程，了解如何自动配置 VM。
 
 > [!div class="nextstepaction"]
-> [自动配置 VM](./tutorial-automate-vm-deployment.md)
+> [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
 
 <!--Update_Description: update meta properties, update link, wording update -->

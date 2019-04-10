@@ -9,12 +9,12 @@ ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b53fcf4822f06a0134f6535446255ba4ed77cce1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 1f96d0c3835720bc639e2982a44cd2218b2d386e
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674792"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890170"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 Azure 函数
 
@@ -47,7 +47,7 @@ ms.locfileid: "52674792"
 
 1. 在 Visual Studio Code 中，选择“视图” > “集成终端”。
 3. 选择“视图” > “命令面板”。
-4. 在“命令面板”中，输入并运行“Azure IoT Edge: New IoT Edge Solution”命令。 
+4. 在命令面板中，输入并运行命令 **`Azure IoT Edge: New IoT Edge Solution`**。 
 
    ![运行新的 IoT Edge 解决方案](./media/how-to-develop-csharp-module/new-solution.png)
 
@@ -64,8 +64,8 @@ VS Code 采用所提供的信息，创建一个包含 Azure Functions 项目的 
 该解决方案中有四个项： 
 
 * 一个 .vscode 文件夹，包含调试配置。
-* 一个 modules 文件夹，包含每个模块的子文件夹。 现在，只有一个模块。 但是可以通过命令面板使用“Azure IoT Edge: Add IoT Edge Module”命令添加更多模块。
-* 一个 **.env** 文件，列出环境变量。 如果 Azure 容器注册表是注册表，则其中将包含 Azure 容器注册表用户名和密码。 
+* 一个 modules 文件夹，包含每个模块的子文件夹。 现在，只有一个模块。 但是，可以通过命令面板使用 **`Azure IoT Edge: Add IoT Edge Module`** 命令添加更多模块。
+* 一个 .env 文件，列出环境变量。 如果 Azure 容器注册表是注册表，则其中将包含 Azure 容器注册表用户名和密码。 
 
    >[!NOTE]
    >仅当为模块提供了映像存储库时，才会创建环境文件。 如果接受 localhost 默认值在本地进行测试和调试，则不需要声明环境变量。 
@@ -83,7 +83,7 @@ VS Code 采用所提供的信息，创建一个包含 Azure Functions 项目的 
 
     ![生成调试映像](./media/how-to-debug-csharp-function/build-debug-image.png)
 
-2. 重新生成解决方案。 在 VS Code 命令面板中，输入并运行“Azure IoT Edge: Build IoT Edge solution”命令。
+2. 重新生成解决方案。 在 VS Code 命令面板中，输入并运行 **`Azure IoT Edge: Build IoT Edge solution`** 命令。
 3. 在 Azure IoT 中心设备资源管理器中，右键单击 IoT Edge 设备 ID，然后选择“为 Edge 设备创建部署”。 选择 `config` 文件夹中的 `deployment.json` 文件。 将在 VS Code 集成终端中看到已成功创建部署且具有一个部署 ID。
 
 在 VS Code Docker 资源管理器中检查容器状态，或在终端中运行 `docker ps` 命令进行检查。

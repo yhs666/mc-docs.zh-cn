@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: b0b46eb6fe76ec9328dac38a53325744d14ff6c9
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: f630924580c8242268ad7ede49bdb6d8091aafbc
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347083"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003489"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL 数据库托管实例的托管 API 引用
 
@@ -30,6 +30,10 @@ ms.locfileid: "57347083"
 
 ## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell：创建和管理托管实例
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+
 若要使用 Azure PowerShell 创建并管理托管实例，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 > [!TIP]
@@ -37,14 +41,14 @@ ms.locfileid: "57347083"
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|创建 Azure SQL 数据库托管实例 |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|退回有关 Azure SQL 数据库托管实例的详细信息|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|设置 Azure SQL 数据库托管实例的属性|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|删除 Azure SQL 数据库托管实例|
-|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|创建 Azure SQL 数据库托管实例数据库|
-|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|返回有关 Azure SQL 托管实例数据库的信息|
-|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|删除 Azure SQL 托管数据库实例数据库|
-|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|还原 Azure SQL 托管数据库实例数据库|
+|[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|创建 Azure SQL 数据库托管实例 |
+|[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|退回有关 Azure SQL 数据库托管实例的详细信息|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|设置 Azure SQL 数据库托管实例的属性|
+|[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|删除 Azure SQL 数据库托管实例|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|创建 Azure SQL 数据库托管实例数据库|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|返回有关 Azure SQL 托管实例数据库的信息|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|删除 Azure SQL 托管数据库实例数据库|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|还原 Azure SQL 托管数据库实例数据库|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>Azure CLI：创建和管理托管实例
 

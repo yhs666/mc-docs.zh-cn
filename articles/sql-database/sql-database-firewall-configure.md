@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/04/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: e5730a2477f846c4c534b8c0d221c87e3c06f41b
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 0978df7104e88222d72e480847a8aaa1d959f7c2
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319000"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003510"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库 IP 防火墙规则
 
@@ -81,7 +81,7 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>创建和管理 IP 防火墙规则
 
-第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
+第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级别 IP 防火墙规则。
@@ -149,6 +149,8 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>使用 Azure PowerShell 管理服务器级别 IP 防火墙规则
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 | Cmdlet | 级别 | 说明 |
 | --- | --- | --- |

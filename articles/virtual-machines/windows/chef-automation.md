@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 169ae8dce16cef7b25a13a83886b620eb4c6189e
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: bb8f5c6b30cbbefecbac81f9bcd76334cf1ca0dd
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666045"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003970"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -33,7 +33,7 @@ Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 本文介绍如何设置 Chef 环境来预配 Azure 虚拟机，以及如何创建策略或“指南”并将此指南部署到 Azure 虚拟机。
 
 ## <a name="chef-basics"></a>Chef 基础知识
-在开始之前，请[查看 Chef 的基本概念](http://www.chef.io/chef)。
+在开始之前，请[查看 Chef 的基本概念](https://www.chef.io/chef)。
 
 下图描绘了高级别 Chef 体系结构。
 

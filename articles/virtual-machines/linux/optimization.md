@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: c43a0fd717ed41bfd1974e41e5b349517863ae51
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 814f706c879712e18e89b38ce25b06347c3e79db
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666448"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004114"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
@@ -37,7 +37,7 @@ ms.locfileid: "56666448"
 在 Azure 中创建 Linux VM 后，它具有两个与之关联的磁盘。 **/dev/sda** 是 OS 磁盘，**/dev/sdb** 是临时磁盘。  请勿将主要 OS 磁盘 (**/dev/sda**) 用于操作系统以外的用途，因为它已针对快速启动 VM 进行优化，无法为工作负荷提供良好的性能。 要获得持久且经过优化的数据存储，可以将一个或多个磁盘附加到 VM。 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>添加磁盘以实现大小和性能目标
-根据 VM 大小，可以分别在 A 系列、D 系列计算机上额外附加最多 16 个、32 个磁盘，每个磁盘最大可为 1 TB。 可以根据空间和 IOps 要求以及自己的需要添加额外的磁盘。 标准存储的每个磁盘的性能目标为 500 IOps，高级存储的每个磁盘的性能目标最高为 5000 IOps。  有关高级存储磁盘的详细信息，请参阅[高级存储：适用于 Azure VM 的高性能存储](../windows/premium-storage.md)
+根据 VM 大小，可以分别在 A 系列、D 系列计算机上额外附加最多 16 个、32 个磁盘，每个磁盘最大可为 1 TB。 可以根据空间和 IOps 要求以及自己的需要添加额外的磁盘。 标准存储的每个磁盘的性能目标为 500 IOps，高级存储的每个磁盘的性能目标最高为 5000 IOps。
 
 <!--Not Available 64 disks on G-Series -->
 
@@ -137,9 +137,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="next-steps"></a>后续步骤
 请记住，如同有关优化的所有文章中所述，需要在每次更改之前和之后执行测试，以衡量更改所造成的影响。  优化是一个逐序渐进的过程，在环境中不同的计算机上会产生不同的效果。  对某一项配置有用的做法不一定适用于其他配置。
 
-其他有用资源的链接： 
+其他有用资源的链接：
 
-* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md)
 * [Azure Linux 代理用户指南](../extensions/agent-linux.md)
 * [优化 Azure Linux VM 上的 MySQL 性能](classic/optimize-mysql.md)
 * [在 Linux 上配置软件 RAID](configure-raid.md)

@@ -13,14 +13,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/22/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5095c6fd4c66784dbc4e93090a6a2e76b7532991
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: eb94ec5f7d43658b2381535ee9006687115b50e7
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627445"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003853"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -36,7 +36,7 @@ ms.locfileid: "58627445"
 * [curl](https://curl.haxx.se/download.html)。
 
 ## <a name="create-apache-hbase-cluster"></a>创建 Apache HBase 群集
-以下过程使用 Azure 资源管理器模板创建 HBase 群集以及相关的默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
+以下过程使用 Azure 资源管理器模板创建 HBase 群集以及相关的默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 1. 单击下面的图像可在 Azure 门户中打开模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中。
 
@@ -65,7 +65,7 @@ ms.locfileid: "58627445"
 > 
 
 ## <a name="create-tables-and-insert-data"></a>创建表和插入数据
-可以使用 SSH 连接到 HBase 群集，并使用 HBase Shell 来创建 HBase 表以及插入和查询数据。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+可以使用 SSH 连接到 HBase 群集，并使用 [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) 来创建 HBase 表以及插入和查询数据。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 对大多数用户而言，数据以表格形式显示：
 

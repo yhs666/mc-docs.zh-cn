@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1ab2b2278515d88001dfadb7e2b21ddd39fa9a2d
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: 01f8202e6825e22f3cadada0768a65333e3b5a80
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480165"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003947"
 ---
 <!-- Verify part successfully-->
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>在 Azure VM 中禁用来宾 OS 防火墙
@@ -37,9 +37,12 @@ ms.locfileid: "55480165"
 
 #### <a name="mitigation-1-custom-script-extension-feature"></a>缓解措施 1：自定义脚本扩展功能
 
-<!-- Not Available on Run Command feature--> 如果有正在工作的 Azure 代理，则可以使用[自定义脚本扩展](../extensions/custom-script-windows.md)来远程运行以下脚本。
+<!-- Not Available on Run Command feature-->
+
+如果有正在工作的 Azure 代理，则可以使用[自定义脚本扩展](../extensions/custom-script-windows.md)来远程运行以下脚本。
 
 <!-- Not Available on [Run Commands](../windows/run-command.md)-->
+
 > [!Note]
 > * 如果在本地设置防火墙，请运行以下脚本：
 >   ```
@@ -61,7 +64,7 @@ ms.locfileid: "55480165"
 
 #### <a name="mitigation-2-pstools-commands"></a>缓解措施 2：PSTools 命令
 
-1.  在故障排除 VM 上，下载 [PSTools](/sysinternals/downloads/pstools)。
+1.  在故障排除 VM 上，下载 [PSTools](https://docs.microsoft.com/zh-cn/sysinternals/downloads/pstools)。
 
 2.  打开 CMD 实例，然后通过其 DIP 访问 VM。
 
@@ -151,5 +154,4 @@ ms.locfileid: "55480165"
 
 11. 检查是否解决了问题。
 
-<!-- Update_Description: new articles on disbale guest os firewall windows -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update -->

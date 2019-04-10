@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 manager: digimobile
 origin.date: 08/09/2018
 ms.date: 01/21/2019
-ms.openlocfilehash: 15e00cdad2a6ba5f034ca3fb9fa9419a44d8af0b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9b0823208432ce60187ddcebe95fabb6b241ce35
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627478"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003509"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -97,11 +97,11 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 ### <a name="review-the-best-practices-for-data-sync"></a>查看数据同步最佳做法
 
-- [Azure SQL 数据同步最佳实践](sql-database-best-practices-data-sync.md)
+- [Azure SQL 数据同步最佳做法](sql-database-best-practices-data-sync.md)
 
 ### <a name="did-something-go-wrong"></a>出现了错误
 
-- [Azure SQL 数据同步问题疑难解答](sql-database-troubleshoot-data-sync.md)
+- [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="consistency-and-performance"></a>一致性和性能
 
@@ -229,7 +229,7 @@ SQL 数据同步在所有区域中都可用。
 
 SQL 数据同步是否按预期执行？ 若要监视活动和排查问题，请参阅以下文章：
 
-- [Azure SQL 数据同步问题疑难解答](sql-database-troubleshoot-data-sync.md)
+- [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>了解有关 Azure SQL 数据库的详细信息
 

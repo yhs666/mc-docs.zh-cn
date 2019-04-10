@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/29/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 8418d3653dbec321923d0f09a36044642535618a
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: cd3305cb6ae656019b6a0071ace9e03ba72fa2d5
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666308"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003831"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教程 - 使用 Azure PowerShell 管理 Azure 磁盘
 
@@ -36,7 +36,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 > * 磁盘性能
 > * 附加和准备数据磁盘
 
-## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -50,7 +50,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
-可添加额外的数据磁盘，用于安装应用程序和存储数据。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。 
+可添加额外的数据磁盘，用于安装应用程序和存储数据。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -63,14 +63,7 @@ Azure 提供两种类型的磁盘。
 <!-- Not Available on GS Series -->
 
 ### <a name="premium-disk-performance"></a>高级磁盘性能
-
-<!--Notice:  P,E,S 60,70,80 are preview-->
-
-|高级存储磁盘类型 | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 磁盘大小（向上舍入） | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) |
-| 每个磁盘的最大 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
-| 每个磁盘的吞吐量 | 25 MB/秒 | 50 MB/秒 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 | 250 MB/秒 | 250 MB/秒 |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，可向 Standard_GS5 VM 附加 64 个数据磁盘。 如果这些磁盘的大小都为 P30，则最大可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [VM 类型和大小](./sizes.md)。
 
@@ -102,7 +95,7 @@ $diskConfig = New-AzDiskConfig `
     -DiskSizeGB 128
 ```
 
-使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) 命令创建数据磁盘。
+使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk) 命令创建数据磁盘。
 
 ```powershell
 $dataDisk = New-AzDisk `
@@ -143,9 +136,9 @@ Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 创建与虚拟机的 RDP 连接。 打开 PowerShell 并运行此脚本。
 
 ```powershell
-Get-Disk | Where partitionstyle -eq 'raw' | `
-    Initialize-Disk -PartitionStyle MBR -PassThru | `
-    New-Partition -AssignDriveLetter -UseMaximumSize | `
+Get-Disk | Where partitionstyle -eq 'raw' |
+    Initialize-Disk -PartitionStyle MBR -PassThru |
+    New-Partition -AssignDriveLetter -UseMaximumSize |
     Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
@@ -183,7 +176,7 @@ VirtualHardDisk :
 转到下一教程，了解如何自动配置 VM。
 
 > [!div class="nextstepaction"]
-> [自动配置 VM](./tutorial-automate-vm-deployment.md)
+> [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
 
 <!--Update_Description: update meta properties, wording update, update link -->
 

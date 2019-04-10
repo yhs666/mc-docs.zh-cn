@@ -8,21 +8,21 @@ manager: digimobile
 editor: tysonn
 tags: ''
 ms.assetid: ''
-ms.service: virtual-machines-Windows
+ms.service: virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 origin.date: 02/23/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0aef63a9b5a32c529961bc7b1f919ea63043d38c
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fdaf1acced653584b288a0949522f66b7373756b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666055"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003978"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 快速创建虚拟机
 

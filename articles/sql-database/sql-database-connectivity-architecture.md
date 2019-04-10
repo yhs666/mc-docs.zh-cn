@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: cbfafaeac8f5a8de7e44005aaa3b8d57dae496e7
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 66f15f7b1c85f21d2385e342065a5717c32b430b
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318983"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003477"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 连接体系结构
 
@@ -36,7 +36,7 @@ ms.locfileid: "58318983"
 > 在以下方案中，服务终结点用户可能仍会受影响：
 >
 > - 应用程序不常连接到现有的服务器，因此我们的遥测不捕获有关这些应用程序的信息。
-> - 自动部署逻辑创建 SQL 数据库服务器（假设服务终结点连接的默认行为是 `Proxy`）
+> - 自动部署逻辑创建 SQL 数据库服务器，假设服务终结点连接的默认行为是 `Proxy`
 >
 > 如果不能建立到 Azure SQL Server 的服务终结点连接，而你怀疑自己受此更改的影响，请验证是否已将连接类型显式设置为 `Redirect`。 如果是这种情况，则必须对区域中属于端口 11000-12000 的 Sql [服务标记](../virtual-network/security-overview.md#service-tags)的所有 Azure IP 地址启用 VM 防火墙规则和网络安全组 (NSG)。 如果这不是适合自己的选项，请将服务器显式切换为 `Proxy`。
 > [!NOTE]
@@ -97,6 +97,8 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 ## <a name="script-to-change-connection-settings-via-powershell"></a>通过 PowerShell 编写脚本以更改连接设置
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 > [!IMPORTANT]
 > 此脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。

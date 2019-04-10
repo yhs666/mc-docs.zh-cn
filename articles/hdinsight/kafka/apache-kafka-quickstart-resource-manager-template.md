@@ -11,14 +11,15 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 536bff52deee346d35b69af28ef395dd2f416770
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 04/16/2018
+ms.date: 04/15/2019
+ms.author: v-yiso
+ms.openlocfilehash: 2bb4d056012250e5ea75948e3ca4066035f4539e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625493"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003932"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 

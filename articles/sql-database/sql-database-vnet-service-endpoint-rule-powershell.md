@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi, vanto
 manager: digimobile
-origin.date: 02/11/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 90eeba9f284ad690a2fc7f1c00586b2a9a9702fa
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: d36e932505e637a1a9c2ffbdee282fe946055f09
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318935"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003429"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell：创建适用于 SQL 的虚拟网络服务终结点和 VNet 规则
 
@@ -38,6 +38,8 @@ ms.locfileid: "58318935"
 > 如果只需访问或将 SQL 数据库的虚拟服务终结点类型名称添加到子网，则可以直接跳至 [PowerShell 脚本](#a-verify-subnet-is-endpoint-ps-100)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 ## <a name="major-cmdlets"></a>主要 cmdlet
 

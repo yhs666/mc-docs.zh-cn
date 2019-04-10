@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 01/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 7d46ee69ab33a0a1b1adc807422ee5fada36e8d6
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: f98d6e988733dcce1ab1f2271ff79e6df637cfbf
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319020"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003493"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 
@@ -73,6 +73,8 @@ ms.locfileid: "58319020"
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 PowerShell 配置长期保留策略并还原备份
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 以下各部分展示了如何使用 PowerShell 配置长期备份保留、查看 Azure SQL 存储中的备份，以及从 Azure SQL 存储中的备份进行还原。
 

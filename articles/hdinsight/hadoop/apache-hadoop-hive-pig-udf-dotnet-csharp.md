@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 01/14/2019
+origin.date: 02/15/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 464047291539e0dc2e4a36837af3fd0b4d07a6a5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 453c42699752552caae99954d7f5f97e98aabb90
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627433"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003994"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 用户定义函数与 Apache Hive 和 Apache Pig 流式处理配合使用
 
@@ -48,8 +48,6 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
     * [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 
 * HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
-
-[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="net-on-hdinsight"></a>HDInsight 上的 .NET
 
@@ -199,6 +197,8 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
+    -- Uncomment the following if you are using Azure Data Lake Storage Gen2
+    -- add file abfs:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'HiveCSharp.exe' AS
@@ -218,11 +218,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 ## <a name="run-an-apache-pig-job"></a>运行 Apache Pig 作业
 
-1. 使用以下方法之一连接到 HDInsight 群集：
-
-    * 如果使用的是__基于 Linux__ 的 HDInsight 群集，请使用 SSH。 例如，`ssh sshuser@mycluster-ssh.azurehdinsight.cn`。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * 如果使用的是__基于 Windows__ 的 HDInsight 群集，请[使用远程桌面连接到群集](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. 使用 SSH 连接到 HDInsight 群集。 例如，`ssh sshuser@mycluster-ssh.azurehdinsight.cn`。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. 使用以下命令之一启动 Pig 命令行：
 

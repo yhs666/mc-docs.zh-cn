@@ -14,13 +14,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 55aa20d9fde906a54a2f6984e7805d96ddaff534
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.openlocfilehash: 76410d3810e0f049b6c09de7c6524507785f17a7
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625378"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003512"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -159,9 +159,9 @@ ms.locfileid: "58625378"
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub"></a>将服务器的审核设置为事件中心
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>将服务器的审核设置为事件中心或 Azure Monitor 日志
 
-可使用 Azure Monitor 将托管实例的审核日志发送到事件中心。 本部分介绍如何进行以下配置：
+可将托管实例的审核日志发送到事件中心或 Azure Monitor 日志。 本部分介绍如何进行以下配置：
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到托管实例。
 
@@ -171,7 +171,7 @@ ms.locfileid: "58625378"
 
 4. 在日志列表中选择“SQLSecurityAuditEvents”。
 
-5. 选择审核事件的目标 - 事件中心。 为每个目标配置所需的参数。
+5. 选择审核事件的目标 - 事件中心和/或 Azure Monitor 日志。 为每个目标配置所需的参数（例如，Log Analytics 工作区）。
 
 6. 单击“保存” 。
 
@@ -191,7 +191,7 @@ ms.locfileid: "58625378"
    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. 启用在步骤 7 中创建的服务器审核：
+10. 启用在步骤 8 中创建的服务器审核：
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -227,10 +227,10 @@ ms.locfileid: "58625378"
 Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
 
 - 提供了新语法 `TO URL`，该语法允许指定用于放置 `.xel` 文件的 Azure Blob 存储容器的 URL。
-- 提供了新语法 `TO EXTERNAL MONITOR` 以启用事件中心目标。
+- 提供了新语法 `TO EXTERNAL MONITOR` 以启用事件中心和 Azure Monitor 日志这两个目标。
 - **不支持** `TO FILE` 语法，因为 SQL 数据库无法访问 Windows 文件共享。
 - **不支持**关闭选项。
-- **不支持** `queue_delay` 为 0。
+- `queue_delay` 为 0 **不受支持**。
 
 ## <a name="next-steps"></a>后续步骤
 

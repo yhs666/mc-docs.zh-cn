@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9fe0272a1c5094a22cc61868647e77335d87729b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fd30d50d69bece87fdbf0886f8765ca1764874ad
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626293"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003801"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
@@ -197,9 +197,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 在本文中，学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
 * [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
-* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
-* [使用 HDInsight 中 Apache Hadoop上的 Apache Hive 查询控制台分析传感器数据](hadoop/apache-hive-analyze-sensor-data.md)
-* [将 Apache Hive 与 HDInsight 配合使用来分析来自网站的日志](hadoop/apache-hive-analyze-website-log.md)
+* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

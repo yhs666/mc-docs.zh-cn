@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0f6a0b382952bdf4f241f7c42498d636964eccd1
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 89874c115a1d19c3308175e8ed1164971bea6392
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665927"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004056"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>通过将现有托管 OS 磁盘与 PowerShell 配合使用来创建虚拟机
 
@@ -117,7 +117,8 @@ Remove-AzResourceGroup -Name myResourceGroup
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 创建虚拟机。 |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
 
-对于市场映像，使用 [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) 设置计划信息
+对于市场映像，使用 [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) 设置计划信息。
+
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame
 ```

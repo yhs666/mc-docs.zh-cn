@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb7b3b7318dbe683c66c094c42a33cbf3d5499e6
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f1ef31047b9353fcde1072f5f92898f6cc743ebb
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665714"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004021"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 MapReduce 示例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -43,6 +43,7 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
 
 **先决条件**：
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **一个 HDInsight 群集**。 有关可用于创建这类群集的不同方法的说明，请参阅[在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 * **配备 Azure PowerShell 的工作站**。
@@ -69,35 +70,35 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
     $resourceGroupName = "<Resource Group Name>"
     $clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
 
-    Select-AzureRmSubscription -SubscriptionName $subscriptionName
+    Select-AzSubscription -SubscriptionName $subscriptionName
 
     # Define the MapReduce job
-    $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
                                 -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
-    $mrJob = Start-AzureRmHDInsightJob `
+    $mrJob = Start-AzHDInsightJob `
                         -ResourceGroupName $resourceGroupName `
                         -ClusterName $clusterName `
                         -HttpCredential $cred `
                         -JobDefinition $mrJobDefinition
 
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
         -JobId $mrJob.JobId
 
     # Get the job output
-    $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    $cluster = Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.chinacloudapi.cn'
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
     $defaultStorageContainer = $cluster.DefaultStorageContainer
 
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
@@ -108,8 +109,8 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
         -DisplayOutputType StandardError
 
     # Download the job output to the workstation
-    $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
-    Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+    $storageContext = New-AzStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
+    Get-AzStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
     # Display the output file
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
@@ -134,12 +135,12 @@ Hadoop 向 MapReduce 提供了一个流式处理 API，利用它，可以采用 
 
 同时，化简器从进程的 [stdout][stdin-stdout-stderr] 中收集面向行的输出。 将每行转换为一个键/值对（作为化简器的输出收集）。 默认情况下，一行的前缀直至第一个制表符是键，而该行的剩余部分（不包括制表符）是值。
 
-提交 C# 流式处理字数统计作业
+**提交 C# 流式处理字数统计作业**
 
 * 请按照字数统计 - Java 中的步骤操作，并将作业定义替换为以下行：
 
     ```powershell
-    $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightStreamingMapReduceJobDefinition `
                             -Files "/example/apps/cat.exe","/example/apps/wc.exe" `
                             -Mapper "cat.exe" `
                             -Reducer "wc.exe" `
@@ -161,7 +162,7 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
 * 请按照字数统计 - Java 中的步骤操作，并将作业定义替换为以下行：
 
     ```powershell
-    $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
@@ -189,17 +190,17 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
 * 按照字数统计 - Java 中的步骤操作，并使用以下作业定义：
 
     ```powershell
-    $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teragen = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teragen" `
                                 -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
 
-    $terasort = New-AzureRmHDInsightMapReduceJobDefinition `
+    $terasort = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "terasort" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
 
-    $teravalidate = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teravalidate = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teravalidate" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"

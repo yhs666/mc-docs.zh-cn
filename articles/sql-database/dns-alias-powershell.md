@@ -11,20 +11,22 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 7db85874a5cfc6cb2072cfdd355ba7bcf70108e4
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 1306436160a062501cc89db40030b718fa2dce3a
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318844"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003431"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 
 本文提供如何为 Azure SQL 数据库管理 DNS 别名的 PowerShell 脚本。 该脚本运行以下 cmdlet 采用以下操作：
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 代码示例中使用的 cmdlet 如下：
 

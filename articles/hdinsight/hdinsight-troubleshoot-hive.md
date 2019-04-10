@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 86008e0a2ad51176e9a39c6d4cec764af3199ed9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5a4b90aca059485726b95f7784ac5e3d9c24dd2f
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627664"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003892"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Hive 进行故障排除
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hive 进行故障排除
 
 了解处理 Apache Ambari 中的 Apache Hive 有效负载时的最常见问题及其解决方法。
 
@@ -112,7 +112,7 @@ hive -f alltables.sql
 - [Hive 配置属性](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何在群集关键路径上分析 Tez DAG 数据？
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何在群集关键路径上分析 Apache Tez DAG 数据？
 
 
 ### <a name="resolution-steps"></a>解决步骤

@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 1e937c60b57148228bc518830d8d1fafde0a75e6
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: aae118454e75e9bb265a53f3018ed577756dbe6f
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318957"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003501"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
-自动故障转移组是一项 SQL 数据库功能，可用于管理 SQL 数据库服务器中的一组数据库到另一区域的复制和故障转移。 它使用的底层技术与相同[活动异地复制](sql-database-active-geo-replication.md)相同。 可以手动启动故障转移，或者，可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
+自动故障转移组是一项 SQL 数据库功能，可用于管理 SQL 数据库服务器中的一组数据库到另一区域的复制和故障转移。 它使用的底层技术与相同[活动异地复制](sql-database-active-geo-replication.md)相同。 可以手动启动故障转移，也可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
 
 > [!NOTE]
 > 如果在 SQL 数据库服务器上使用单一数据库或入池数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。
@@ -49,11 +49,11 @@ ms.locfileid: "58318957"
 
      使用 SQL 数据库服务器，可以将一个 SQL 数据库服务器上的部分或所有用户数据库放入故障转移组。 此外，SQL 数据库服务器支持一个 SQL 数据库服务器上有多个故障转移组。
 
-- **主要节点**
+- **主要**
 
   托管着故障转移组中的主要数据库的 SQL 数据库服务器。
 
-- **辅助节点**
+- **次要**
 
   托管着故障转移组中的辅助数据库的 SQL 数据库服务器。 辅助节点不能与主要节点位于相同的区域。
 
@@ -97,7 +97,7 @@ ms.locfileid: "58318957"
   - 将数据库重新定位到不同的区域
   - 缓解服务中断（故障回复）后将数据库恢复到主要区域。
 
-- **未计划的故障转移**
+- **计划外故障转移**
 
    计划外故障转移或强制故障转移立即将辅助角色切换为主要角色，而不与主要节点进行任何同步。 此操作会导致数据丢失。 在服务中断期间当主要节点不可访问时，计划外故障转移将用作恢复方法。 原始主要节点重新联机后，将在不进行同步的情况下自动重新连接，并成为新的辅助节点。
 
@@ -112,6 +112,17 @@ ms.locfileid: "58318957"
 - **多个故障转移组**
 
   可为同一对服务器配置多个故障转移组以控制故障转移规模。 每个组均独立进行故障转移。 如果多租户应用程序使用弹性池，则可使用此功能来混合每个池的主数据库和辅助数据库。 采用这种方式可将服务中断的影响范围缩小到一半的租户中。
+## <a name="permissions"></a>权限
+通过[基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 管理故障转移组的权限。 [SQL Server 参与者](../role-based-access-control/built-in-roles.md#sql-server-contributor)角色拥有管理故障转移组所需的全部权限。 
+
+### <a name="create-failover-group"></a>创建故障转移组
+若要创建某个故障转移组，需要对主服务器和辅助服务器，以及该故障转移组中的所有数据库拥有 RBAC 写入访问权限。
+
+### <a name="update-a-failover-group"></a>更新故障转移组
+若要更新某个故障转移组，需要对该故障转移组，以及当前主服务器上的所有数据库拥有 RBAC 写入访问权限。  
+
+### <a name="failover-a-failover-group"></a>对故障转移组进行故障转移
+若要对某个故障转移组进行故障转移，需要对新的主服务器上的故障转移组拥有 RBAC 写入访问权限。 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>有关将故障转移组与单一数据库和弹性池配合使用的最佳做法
 
@@ -183,7 +194,9 @@ ms.locfileid: "58318957"
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升级或降级主数据库
 
-无需断开连接任何辅助数据库，即可将主数据库升级或降级到不同的计算大小（在相同的服务层中，但不在“常规用途”与“业务关键”类型之间）。 升级时，建议先升级辅助数据库，再升级主数据库。 降级时，应反转顺序：先降级主数据库，再降级辅助数据库。 将数据库升级或降级到不同服务层时，将强制执行此建议操作。
+无需断开连接任何辅助数据库，即可将主数据库升级或降级到不同的计算大小（在相同的服务层中，但不在“常规用途”与“业务关键”类型之间）。 升级时，建议先升级所有辅助数据库，再升级主数据库。 降级时，请反转顺序：先降级主数据库，再降级所有辅助数据库。 将数据库升级或降级到不同服务层时，将强制执行此建议操作。
+
+具体而言，建议采用此顺序的目的是避免较低 SKU 上的辅助数据库在过载时出现问题，并且必须在升级或降级过程中重新设定种子。 此外，可以通过将主数据库设为只读来避免问题，代价是针对主数据库的所有读写工作负荷会受到影响。 
 
 > [!NOTE]
 > 如果辅助数据库是作为故障转移组配置的一个部分创建的，则我们不建议对辅助数据库进行降级。 这是为了确保激活故障转移后，数据层有足够的容量来处理常规工作负荷。
@@ -234,8 +247,8 @@ ms.locfileid: "58318957"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 示例脚本请参阅：
-  - [配置单一数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- 有关示例脚本，请参阅：
+  - [使用活动异地复制配置单一数据库并对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [配置入池数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
   - [针对单个数据库配置并故障转移一个故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)

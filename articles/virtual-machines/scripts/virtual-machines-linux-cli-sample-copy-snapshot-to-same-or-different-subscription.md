@@ -14,19 +14,23 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 29fec77d2f6bf98649377379b4fa25898ce1d6f5
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: adda44e6f69301ae5e6055bc57dc52553102eba0
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666367"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003698"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘的快照复制到相同或不同的订阅
 
-此脚本会将托管磁盘的快照复制到相同或不同的订阅。 使用此脚本将快照移到父快照所在区域中的不同订阅。
+此脚本会将托管磁盘的快照复制到相同或不同的订阅。 将此脚本用于以下方案：
+
+1. 将高级存储 (Premium_LRS) 中的快照迁移到标准存储（Standard_LRS 或 Standard_ZRS）以降低成本。
+1. 将快照从本地冗余存储（Premium_LRS、Standard_LRS）迁移到区域冗余存储（Standard_ZRS），以从 ZRS 存储的更高可靠性中受益。
+1. 将快照移到同一区域中的不同订阅，以延长保留时间。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -65,7 +69,7 @@ targetResourceGroupName=mytargetResourceGroupName
 az account set --subscription $targetSubscriptionId
 
 #Copy snapshot to different subscription using the snapshot Id
-az snapshot create --resource-group $targetResourceGroupName --name $snapshotName --source $snapshotId
+az snapshot create --resource-group $targetResourceGroupName --name $snapshotName --source $snapshotId --sku Standard_LRS
 
 ```
 
@@ -80,7 +84,7 @@ az snapshot create --resource-group $targetResourceGroupName --name $snapshotNam
 
 ## <a name="next-steps"></a>后续步骤
 
-[基于快照创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md)
+[从快照创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
 

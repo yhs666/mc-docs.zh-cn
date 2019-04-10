@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 30a809ff07ea23d769a8b78c3fb1d4d8fc721dbc
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: c255eb0137de8845d09a3d36efb23ca5a3749700
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216244"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004005"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>将其他存储帐户添加到 HDInsight
 
-了解如何使用脚本操作，将其他 Azure 存储帐户添加到 HDInsight。 本文档中的步骤会将存储帐户添加到基于 Linux 的现有 HDInsight 群集。
+了解如何使用脚本操作，将其他 Azure 存储帐户添加到 HDInsight。 本文档中的步骤会将存储帐户添加到基于 Linux 的现有 HDInsight 群集。 本文适用于 [Azure 存储](hdinsight-hadoop-use-blob-storage.md)，并且仅适用于额外的存储帐户（而不是默认的群集存储帐户）。 本文不适用于 [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)。
 
 > [!IMPORTANT]  
 > 本文档中的信息是关于在创建群集后将其他存储添加到群集。 有关如何在创建群集期间添加存储帐户的信息，请参阅[使用 Apache Hadoop、Apache Spark、Apache Kafka 等设置 HDInsight 中的群集](hdinsight-hadoop-provision-linux-clusters.md)。

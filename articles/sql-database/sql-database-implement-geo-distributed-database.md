@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/10/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 3cc2c727e7c168bf0df6967733e0fe8298ede9ff
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: fe9802894b965ce9be4cba3d8c14060f3acddaf5
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318962"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003486"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教程：实现地理分散的数据库
 
@@ -34,12 +34,14 @@ ms.locfileid: "58318962"
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要完成本教程，请确保已安装以下项目：
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 - Azure SQL 数据库。 若要创建一个，请使用：
-  - [Portal](sql-database-single-database-get-started.md)
+  - [门户](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 

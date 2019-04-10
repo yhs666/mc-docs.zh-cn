@@ -12,19 +12,30 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/17/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: 37074e906fead65359d75be5a90aa49f99770d5e
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/08/2019
+ms.openlocfilehash: f8eb5d81ce0d15105da0237fe8f092bb9c71e135
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318895"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003474"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL 数据库的多模型功能
 
 使用多模型数据库可以存储和处理以多种数据格式表示的数据，例如关系数据、图形、JSON/XML 文档、键/对，等等。
 
-Azure SQL 数据库设计为使用关系模型，在大多数情况下，该模型可为各种常规用途应用程序提供最佳性能。 但是，Azure SQL 数据库并不局限于关系数据。 Azure SQL 数据库允许使用各种与关系模型紧密集成的非关系格式。 Azure SQL 提供以下多模型功能：
+## <a name="when-to-use-multi-model-capabilities"></a>何时使用多模型功能
+
+Azure SQL 数据库设计为使用关系模型，在大多数情况下，该模型可为各种常规用途应用程序提供最佳性能。 但是，Azure SQL 数据库并不局限于关系数据。 Azure SQL 数据库允许使用各种与关系模型紧密集成的非关系格式。
+对于以下情况，应考虑使用 Azure SQL 数据库的多模型功能：
+- 某些信息或结构更适合 NoSQL 模型，并且你不想要使用独立的 NoSQL 数据库。
+- 大部分数据适合关系模型，并且你需要以 NoSQL 形式为某些数据部分建模。
+- 希望利用丰富的 Transact-SQL 语言来查询和分析关系数据与 NoSQL 数据，并将其集成到可以使用 SQL 语言的各种工具和应用程序。
+- 希望应用[内存中技术](sql-database-in-memory.md)等数据库功能来改善 NoSQL 数据结构的分析或处理性能，使用[只读副本](sql-database-read-scale-out.md)在其他位置创建数据的副本，并减轻主数据库中的某些分析工作负荷。
+
+## <a name="overview"></a>概述
+
+Azure SQL 提供以下多模型功能：
 - [图形功能](#graph-features)：以节点和边缘集的形式呈现数据，并使用通过图形 `MATCH` 运算符增强的标准 Transact-SQL 查询来查询图形数据。
 - [JSON 功能](#json-features)：在表中插入 JSON 文档，将关系数据转换为 JSON 文档，或反之。 可以使用通过 JSON 函数增强的标准 Transact-SQL 语言来分析文档，并使用非聚集索引、列存储索引或内存优化表来优化查询。
 - [空间功能](#spatial-features)：存储地理或几何图形数据、使用空间索引为其编制索引，并使用空间查询检索数据。
@@ -57,7 +68,7 @@ Azure SQL 数据库提供图形数据库功能，用于对数据库中的多对�
 
 ## <a name="json-features"></a>JSON 功能
 
-使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。
+使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](https://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。
 
 JSON 是用于在新式 Web 与移动应用程序中交换数据的流行数据格式。 JSON 还用于将半结构化数据存储在日志文件或 NoSQL 数据库（例如 [Azure Cosmos DB](https://www.azure.cn/zh-cn/home/features/cosmos-db/)）中。 许多 REST Web 服务返回采用 JSON 文本格式的结果，或接受采用 JSON 格式的数据。 大多数 Azure 服务（例如 [Azure 存储](https://www.azure.cn/zh-cn/home/features/storage/)和 [Azure Cosmos DB](https://www.azure.cn/zh-cn/home/features/cosmos-db/)）具有返回或使用 JSON 的 REST 终结点。
 

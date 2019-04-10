@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/12/2018
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6bd880955a7a95756fcb352152c72784a7d46de4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 29f756f40cd141b8918c53dd3f80a7ad61498d3d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626103"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003936"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -103,7 +103,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
     使用“下一步”按钮完成基本配置。
 
 
-5. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。
+6. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
     ![设置 HDInsight 的存储帐户设置](./media/apache-kafka-get-started/storage-configuration.png)
 
 6. 在“应用程序(可选)”中，选择“下一步”以使用默认设置继续。

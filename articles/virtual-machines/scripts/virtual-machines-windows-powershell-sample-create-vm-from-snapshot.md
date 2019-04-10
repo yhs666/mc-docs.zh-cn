@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d96190f9b3a6d88e54c2c56b248571072d812a54
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c3321c5e43ffbbcd81b683197925ee1f0fdab8a8
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666365"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004178"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建虚拟机
 
@@ -76,13 +76,13 @@ $VirtualMachine = New-AzVMConfig -VMName $virtualMachineName -VMSize $virtualMac
 #Use the Managed Disk Resource Id to attach it to the virtual machine. Please change the OS type to linux if OS disk has linux OS
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -CreateOption Attach -Windows
 
-#Create a public IP for the VM  
+#Create a public IP for the VM
 $publicIp = New-AzPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') -ResourceGroupName $resourceGroupName -Location $snapshot.Location -AllocationMethod Dynamic
 
 #Get the virtual network where virtual machine will be hosted
 $vnet = Get-AzVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
 
-# Create NIC in the first subnet of the virtual network 
+# Create NIC in the first subnet of the virtual network
 $nic = New-AzNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') -ResourceGroupName $resourceGroupName -Location $snapshot.Location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id
 
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $nic.Id

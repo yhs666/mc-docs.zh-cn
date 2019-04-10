@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/01/2019
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: decd67e425f0faa8b1b299a16255ece7de4863d0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 16d65a311b361af6ca4c263d7e0ffd361f4265a7
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625713"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004071"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>在基于 Hadoop 的 HDInsight 群集上安装并使用 Presto
 
-本文介绍如何使用脚本操作在基于 Hadoop 的 Adobe HDInsight 群集上安装 Presto。 此外，还介绍如何在现有的 Presto HDInsight 群集上安装 Airpal。
+本文介绍如何使用脚本操作在基于 Hadoop 的 Azure HDInsight 群集上安装 Presto。 此外，还介绍如何在现有的 Presto HDInsight 群集上安装 Airpal。
 
 HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 
@@ -57,7 +57,7 @@ HDInsight 还为 Apache Hadoop 群集提供了 Starburst Presto 应用程序。
 2. 在“高级设置”区域中，选择“脚本操作”。 提供以下信息。 对于脚本类型，还可以选择“安装 Presto”选项：
    
    * **NAME**。 输入脚本操作的友好名称。
-   * **Bash 脚本 URI**。 `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`。
+   * **Bash 脚本 URI**。 `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`上获取。
    * **标头**。 选择此选项。
    * **辅助角色**。 选择此选项。
    * **ZOOKEEPER**。 将此复选框留空。

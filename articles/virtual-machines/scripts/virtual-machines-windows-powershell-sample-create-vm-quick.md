@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2bbe21bdb064d2a7ed4b55f8e5aaef6d4c231f11
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: bc8585589205a91203ed68e65db5fb222defc8a6
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666069"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003689"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>使用 PowerShell 创建虚拟机
 

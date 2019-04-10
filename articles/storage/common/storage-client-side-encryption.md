@@ -1,26 +1,20 @@
 ---
-title: 使用适用于 Azure 存储的 .NET 进行客户端加密 | Azure
+title: 针对 Azure 存储使用 .NET 的客户端加密 | Microsoft Docs
 description: 用于 .NET 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成，以便最大程度地保护 Azure 存储应用程序。
 services: storage
-documentationcenter: .net
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: becfccca-510a-479e-a798-2044becd9a64
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 3/20/2018
-ms.author: v-nany
-ms.openlocfilehash: a91e97c5bdade97e3da701d2bb0ba417aab748e6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 6061a2f0a72517c818d880f833b89cb666d43da5
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627236"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890178"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-azure-storage"></a>Azure 存储的客户端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -55,21 +49,21 @@ ms.locfileid: "58627236"
 4. 然后，使用内容加密密钥 (CEK) 解密已加密的用户数据。
 
 ## <a name="encryption-mechanism"></a>加密机制
-存储客户端库使用 [AES](http://zh.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](http://zh.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
+存储客户端库使用 [AES](https://zh.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](https://zh.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
 
 ### <a name="blobs"></a>Blob
-目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 UploadFrom* 方法或 OpenWrite 方法时支持加密。 对于下载，支持完整下载和范围下载。
+目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **UploadFrom** 方法或 OpenWrite 方法时支持加密。 对于下载，支持完整下载和范围下载。
 
 在加密过程中，客户端库生成 16 字节的随机初始化向量 (IV) 和 32 字节的随机内容加密密钥 (CEK) 并将使用此信息对 Blob 数据执行信封加密。 然后，已包装的 CEK 和一些附加加密元数据将与服务上的已加密 Blob 一起存储为 Blob 元数据。
 
 > [!WARNING]
-> 若要针对 Blob 编辑或上传自己的元数据，需确保此元数据已保留。 如果你在没有此元数据的情况下上传新元数据，则已包装的 CEK、IV 和其他元数据将丢失，而 Blob 内容将永远无法再检索。
+> 若要针对 Blob 编辑或上传自己的元数据，需确保此元数据已保留。 如果在没有此元数据的情况下上传新元数据，则已包装的 CEK、IV 和其他元数据会丢失，而 Blob 内容永远无法再检索。
 > 
 > 
 
-下载已加密的 blob 需要使用 DownloadTo<em>/</em>BlobReadStream* 便捷方法检索整个 blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
+下载已加密的 Blob 需要使用 **DownloadTo**/**BlobReadStream** 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
-下载已加密 blob 中的任意范围（DownloadRange* 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。
+下载已加密 Blob 中的任意范围（**DownloadRange** 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。
 
 所有 Blob 类型（块 Blob、页 Blob 和追加 Blob）都可以使用此方案进行加密/解密。
 
@@ -248,7 +242,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 注意，加密存储数据会导致额外的性能开销。 必须生成内容密钥和 IV，内容本身必须进行加密，并且其他元数据必须进行格式化并上传。 此开销将因所加密的数据量而有所变化。 我们建议客户在开发过程中始终测试其应用程序的性能。
 
 ## <a name="next-steps"></a>后续步骤
-* [教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 Blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * 下载 [适用于 .NET NuGet 包的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage)
-* 下载 Azure Key Vault NuGet [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[客户端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[扩展](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)包  
+* 下载 Azure Key Vault NuGet [核心](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[客户端](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[扩展](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)包  
 * 访问 [Azure 密钥保管库文档](../../key-vault/key-vault-whatis.md)

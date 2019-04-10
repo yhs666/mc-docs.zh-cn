@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 11/01/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5ef1f3a5a163dfc3489f6fb9567ce39d43a5fa5e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a838ea640d5e954b033637991ad1ed79933c5c57
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675072"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004142"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 
@@ -68,46 +68,46 @@ ms.locfileid: "52675072"
 
 Linux 来宾帐户中的 LUN 信息通过使用 `lsscsi` 或类似工具进行检索：
 
-       $ sudo lsscsi
+    $ sudo lsscsi
 
-      [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
+    [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
-      [2:0:0:0] disk Msft Virtual Disk 1.0 /dev/sda
+    [2:0:0:0] disk Msft Virtual Disk 1.0 /dev/sda
 
-      [3:0:1:0] disk Msft Virtual Disk 1.0 /dev/sdb
+    [3:0:1:0] disk Msft Virtual Disk 1.0 /dev/sdb
 
-      [5:0:0:0] disk Msft Virtual Disk 1.0 /dev/sdc
+    [5:0:0:0] disk Msft Virtual Disk 1.0 /dev/sdc
 
-      [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
+    [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
 来宾 LUN 信息与 Azure 订阅元数据一起用于在包含分区数据的 Azure 存储中查找 VHD。 例如，可以使用 `az` CLI：
 
-    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
-    [                                                                                                                                                                  
-    {                                                                                                                                                                  
-    "caching": "None",                                                                                                                                              
-      "createOption": "empty",                                                                                                                                         
-    "diskSizeGb": 1023,                                                                                                                                             
-      "image": null,                                                                                                                                                   
-    "lun": 0,                                                                                                                                                        
-    "managedDisk": null,                                                                                                                                             
-    "name": "testVM-20170619-114353",                                                                                                                    
-    "vhd": {                                                                                                                                                          
-      "uri": "https://testVM.blob.core.chinacloudapi.cn/vhd/testVM-20170619-114353.vhd"                                                       
-    }                                                                                                                                                              
-    },                                                                                                                                                                
-    {                                                                                                                                                                   
-    "caching": "None",                                                                                                                                               
-    "createOption": "empty",                                                                                                                                         
-    "diskSizeGb": 512,                                                                                                                                              
-    "image": null,                                                                                                                                                   
-    "lun": 1,                                                                                                                                                        
-    "managedDisk": null,                                                                                                                                             
-    "name": "testVM-20170619-121516",                                                                                                                    
-    "vhd": {                                                                                                                                                           
-      "uri": "https://testVM.blob.core.chinacloudapi.cn/vhd/testVM-20170619-121516.vhd"                                                       
-      }                                                                                                                                                            
-      }                                                                                                                                                             
+    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
+    [
+      {
+        "caching": "None",
+          "createOption": "empty",
+        "diskSizeGb": 1023,
+          "image": null,
+        "lun": 0,
+        "managedDisk": null,
+        "name": "testVM-20170619-114353",
+        "vhd": {
+          "uri": "https://testVM.blob.core.chinacloudapi.cn/vhd/testVM-20170619-114353.vhd"
+        }
+      },
+      {
+        "caching": "None",
+        "createOption": "empty",
+        "diskSizeGb": 512,
+        "image": null,
+        "lun": 1,
+        "managedDisk": null,
+        "name": "testVM-20170619-121516",
+        "vhd": {
+          "uri": "https://testVM.blob.core.chinacloudapi.cn/vhd/testVM-20170619-121516.vhd"
+        }
+      }
     ]
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>使用 blkid 发现文件系统 UUID

@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/04/2019
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2ce98c0bd2ac134c6772b0f0798e419a86ac2ba7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e514aa7fc0a4b23aee066d4f87de98bd3b12bc4a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625295"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004194"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -218,7 +218,7 @@ ms.locfileid: "58625295"
    ![提交 python 作业结果](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
 8. 工具还支持查询 **SQL 子句**查询。
 
-   ![提交 python 作业结果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)运行查询时，提交状态将显示在底部状态栏的左侧。 当状态为“PySpark 内核(忙)”时，请不要提交其他查询。 
+   ![提交 python 作业结果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 运行查询时，提交状态将显示在底部状态栏的左侧。 当状态为“PySpark 内核(忙)”时，请不要提交其他查询。 
 
 >[!NOTE]
 >群集可以保留会话信息。 定义的变量、函数和相应值将保留在会话中，因此，可在针对同一群集发出的多个服务调用中引用这些信息。 
@@ -379,5 +379,5 @@ Visual Studio Code 的 HDInsight 支持以下功能：
 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:Logout** 命令。  右下角会弹出一个窗口，指出“注销成功!”。
 
 
-
-
+## <a name="next-steps"></a>后续步骤
+有关使用 Visual Studio Code 的 HDInsight 的演示视频，请参阅 [Visual Studio Code 的 HDInsight](https://go.microsoft.com/fwlink/?linkid=858706)

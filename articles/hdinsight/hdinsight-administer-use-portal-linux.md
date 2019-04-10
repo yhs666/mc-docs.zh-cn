@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 12/26/2018
-ms.date: 04/21/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: f3214dab1cee42615318b8cb46a8c857567eb433
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 8bce480de5e51d7ca242e403da6ec717b01ef934
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348616"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004069"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集
 
@@ -37,7 +37,7 @@ ms.locfileid: "58348616"
 2. 在“ANALYTICS”下，选择“HDInsight 群集”。
 
 ## <a name="homePage"></a> 群集主页 
-从[**“HDInsight 群集”** 页](#showClusters)选择群集名称。  此时会打开“概览”视图，该视图类似于下图：
+从“HDInsight 群集”页选择群集名称。  此时会打开“概览”视图，该视图类似于下图：
 
 ![Azure 门户 HDInsight 群集概要](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "58348616"
 - **删除**：删除群集。  
 - **刷新**：刷新视图。
 
-**Left menu:**  
+**左侧菜单：**  
  - **顶部左侧菜单**  
     - **概览**：提供群集的常规信息。
     -  **活动日志**：显示和查询活动日志。
@@ -57,7 +57,7 @@ ms.locfileid: "58348616"
     - **工具**：HDInsight 相关工具的帮助信息。
 
 - **“设置”菜单**  
-  - **群集大小**：检查、增加和减少群集辅助角色节点的数量。 请参阅[缩放群集](hdinsight-administer-use-management-portal.md#scale-clusters)。
+  - **群集大小**：检查、增加和减少群集辅助角色节点的数量。 请参阅[缩放群集](hdinsight-administer-use-portal-linux.md#scale-clusters)。
   - **配额限制**：显示订阅的已使用和可用核心数。
   - **SSH + 群集登录**：显示使用安全 Shell (SSH) 连接与群集建立连接的说明。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
   - **Data Lake Storage Gen1**：配置 Data Lake Storage Gen1 访问。  请参阅[快速入门：在 HDInsight 中设置群集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
@@ -76,7 +76,7 @@ ms.locfileid: "58348616"
   - **诊断设置**：存储诊断指标的位置设置。
   - **Operations Management Suite**：监视 Azure Operations Management Suite (OMS) 和 Azure Monitor 日志中的群集。
 
-- **支持 + 故障排除菜单**
+- **“支持 + 故障排除”菜单**
   - **资源运行状况**：参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。
   - **新建支持请求**：允许用户通过 Microsoft 支持创建支持票证。
     
@@ -125,7 +125,7 @@ ms.locfileid: "58348616"
 使用群集缩放功能可更改 Azure HDInsight 群集使用的辅助角色节点数，而无需重新创建群集。
 
 > [!NOTE]  
-> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅[列出和显示群集](#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅“列出和显示群集”。
 
 在[群集主页](#homePage)中执行以下操作：
 
@@ -186,7 +186,7 @@ ms.locfileid: "58348616"
 
 可以通过许多方式对此过程进行程序性处理：
 
-* 使用 Azure PowerShell。  请参阅[分析航班延误数据](hdinsight-analyze-flight-delay-data.md)。
+* 使用 Azure PowerShell。  请参阅[分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)。
 * 使用 Azure 经典 CLI。 请参阅[使用 Azure 经典 CLI 管理 HDInsight 群集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 请参阅[提交 Apache Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 

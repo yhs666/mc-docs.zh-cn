@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/18/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: ca6a7a60e22d007fcccdcf81d96d85b3b6e71d25
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.openlocfilehash: 6ac1ed74d01f012d0d5281d893cb3fec3ef47468
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625626"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003470"
 ---
 # <a name="in-memory-sample"></a>内存中示例
 
@@ -381,9 +381,9 @@ GO
 
 #### <a name="deeper-information"></a>深入信息
 
-- [了解 Quorum 如何使用 SQL 数据库中的内存中 OLTP 将关键数据库的工作负荷提高一倍，并将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [了解 Quorum 如何通过使用 SQL 数据库的内存中 OLTP，在关键数据库工作负荷加倍的情况下，将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
-- [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)（“Azure SQL 数据库中的内存中 OLTP”博客文章）
+- [“Azure SQL 数据库中的内存中 OLTP”博客文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 - [了解内存中 OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 

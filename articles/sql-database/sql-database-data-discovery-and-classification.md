@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 70913bae42f38771fa1863b517a76269cda81725
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/08/2019
+ms.openlocfilehash: ccea48a66b61cb84b6c6514f4e62a851cd65f0b8
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318972"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003499"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL 数据库数据发现和分类
 
@@ -135,6 +135,13 @@ ms.locfileid: "58318972"
 - [获取](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 获取给定列的敏感度标签
 - [按数据库列出当前项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 获取给定数据库的当前敏感度标签
 - [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的建议敏感度标签
+
+## <a name="permissions"></a>权限
+以下内置角色可以读取 Azure SQL 数据库的数据分类：`Owner`、`Reader`、`Contributor`、`SQL Security Manager`、`User Access Administrator`。
+
+以下内置角色可以修改 Azure SQL 数据库的数据分类：`Owner`、`Contributor`、`SQL Security Manager`。
+
+详细了解 [Azure 资源的 RBAC](/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>后续步骤
 

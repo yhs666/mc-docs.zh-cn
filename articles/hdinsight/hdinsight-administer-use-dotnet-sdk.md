@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 05dcb71909d936df419a2f6345a48dfa12991ec7
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: d557ef1244d4f31b2e172820e92e66b2741063a6
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665686"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003832"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -175,9 +175,9 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
     有关详细信息，请参阅 [Apache Storm 文档](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
     
     HDInsight 群集上提供了 Storm Web UI：
-
-    ![HDInsight Storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
-
+    
+    ![HDInsight Storm 缩放重新平衡](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
     
     ```cli
@@ -232,7 +232,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > 
 > 
 
-也可以通过门户完成此操作。 请参阅[使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]。
+也可以通过门户完成此操作。 请参阅[使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 用户凭据
 此过程与授予/撤销 HTTP 访问权限相同。  如果已授予群集 HTTP 访问权限，必须先撤销该权限。  然后再使用新的 HTTP 用户凭据授予访问权限。
@@ -274,7 +274,7 @@ foreach (var key in results.Configuration.Keys)
 
 ## <a name="see-also"></a>另请参阅
 * [HDInsight .NET SDK 参考文档](https://docs.azure.cn/dotnet/api/overview/hdinsight)
-* [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
 * [使用命令行借口管理 HDInsight][hdinsight-admin-cli]
 * [创建 HDInsight 群集][hdinsight-provision]
 * [将数据上传到 HDInsight][hdinsight-upload-data]

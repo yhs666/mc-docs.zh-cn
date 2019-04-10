@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 大小 - GPU | Azure
+title: GPU 优化虚拟机大小 | Azure
 description: 列出 Azure 中适用于 Linux 虚拟机的各种 GPU 优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1a5f7458f524ceb5cd57262f1632d52591c46e51
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: dece3ed41d5a5faacdba8721e672f2a3c0a89deb
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666444"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003836"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 优化虚拟机大小
 

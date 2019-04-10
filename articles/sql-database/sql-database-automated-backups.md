@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 02/08/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: c63784a5a8de6cde8fe4a717fd32446724b5b186
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 2477e8a9a4ca5fbe880535c5b6b8fcbfd0cd5f7b
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318922"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003488"
 ---
 # <a name="automated-backups"></a>自动备份
 
@@ -124,6 +124,8 @@ Azure SQL 数据库工程团队持续不断地自动测试整个服务中数据�
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>使用 PowerShell 更改 PITR 备份保留期
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28

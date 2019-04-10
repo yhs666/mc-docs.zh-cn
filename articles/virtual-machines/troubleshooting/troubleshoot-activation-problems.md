@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/15/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ae46e1d41efac35930b021433701a505002ae26a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1089a3e2a40911e5ff3ee0e6065277363ae59583
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626464"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003796"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -40,7 +40,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
 
-**错误：0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
+**错误：0xC004F074 软件授权服务报告无法激活计算机。 无法联系任何密钥管理服务(KMS)。 有关其他信息，请参阅应用程序事件日志。**
 
 ## <a name="cause"></a>原因
 通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1688）的连接出现问题，便会出现 Azure VM 激活问题。 
@@ -109,7 +109,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 另请验证是否未以会阻止激活尝试的方式配置来宾防火墙。
 
-5. 验证成功连接到 kms.core.chinacloudapi.cn 后，请在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
+1. 验证成功连接到 kms.core.chinacloudapi.cn 后，在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
 
     ```
     1..12 | % { iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
@@ -117,7 +117,8 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 如果激活成功，会返回如下信息：
 
-正在激活 Windows(R)，已成功激活服务器数据中心版本(12345678-1234-1234-1234-12345678) … 产品。
+**正在激活 Windows(R)，已成功激活服务器数据中心版本(12345678-1234-1234-1234-12345678) …
+产品。**
 
 ## <a name="faq"></a>常见问题 
 

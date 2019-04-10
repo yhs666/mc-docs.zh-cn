@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: craigg
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 27e16c262488c0137b631f8f2698d35440651e58
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 366a85802d2313a746ad87df872a70930b8ed3ba
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318986"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003465"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
 
@@ -115,7 +115,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
 | [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 创建单一数据库或弹性池。 |
 | [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) | 创建存储帐户。 |
-| [Set-AzSqlDatabaseAuditingPolicy](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditingpolicy) | 设置数据库的审核策略。 |
+| [Set-AzSqlDatabaseAuditing](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing) | 设置数据库的审核策略。 |
 | [Set-AzSqlDatabaseThreatDetectionPolicy](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 在数据库上设置威胁检测策略。 |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||

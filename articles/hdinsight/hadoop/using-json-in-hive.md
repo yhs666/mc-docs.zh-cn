@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2019
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3d6bb260765c541a5b69387c822740617178729f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 65a50ce533dfd3f8a9e612ff16f1b2b9db0179e8
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625328"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003933"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 
@@ -66,7 +66,7 @@ ms.locfileid: "58625328"
 
 可以在 wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/上找到该文件。 有关如何将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 HDFS 兼容的 Azure Blob 存储与 HDInsight 中的 Apache Hadoop 配合使用](../hdinsight-hadoop-use-blob-storage.md)。 可以将该文件复制到群集的默认容器。
 
-在本教程中，将使用 Apache Hive 控制台。 有关如何打开 Hive 控制台的说明，请参阅[通过远程桌面在 HDInsight 上将 Apache Hive 与 Apache Hadoop 配合使用](apache-hadoop-use-hive-remote-desktop.md)。
+在本教程中，将使用 Apache Hive 控制台。 有关如何打开 Hive 控制台的说明，请参阅[在 HDInsight 中将 Apache Ambari Hive 视图与 Apache Hadoop 配合使用](apache-hadoop-use-hive-ambari-view.md)。
 
 ## <a name="flatten-json-documents"></a>平展 JSON 文档
 下一部分中所列的方法需要 JSON 文档在单一行中。 因此，必须将 JSON 文档平展成字符串。 如果 JSON 文档已平展，则可以跳过此步骤，直接转到有关分析 JSON 数据的下一部分。 若要平展 JSON 文档，请运行以下脚本：
@@ -160,7 +160,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择。 使用它可以定义 
 相关文章请参阅：
 
 * [在 HDInsight 中将 Apache Hive 和 HiveQL 与 Apache Hadoop 配合使用来分析示例 Apache log4j 文件](../hdinsight-use-hive.md)
-* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](../hdinsight-analyze-flight-delay-data.md)
+* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](../hdinsight-analyze-flight-delay-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

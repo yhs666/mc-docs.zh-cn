@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/26/2018
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 0d09733633316a55798deefe8df84f0fcbce6f05
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: dbde80cd52a08dd7009e0da6c3c8659286f532c4
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625584"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890220"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>为 Azure 存储帐户配置自定义域名
 
@@ -22,33 +22,32 @@ ms.locfileid: "58625584"
 
 > [!IMPORTANT]
 > Azure 存储尚不本机支持对自定义域使用 HTTPS。
->
-
-> [!NOTE]  
+> 
+> 
+> [!NOTE]
 > 暂仅支持为每个存储帐户配置一个自定义域名。 无法将自定义域名映射到 Web 和 Blob 服务终结点。
 
-下表显示了 *mystorageaccount* 存储帐户中的 Blob 数据的一些示例 URL。 为存储帐户注册的自定义子域是 <em>www.contoso.com</em>：
+下表显示了 *mystorageaccount* 存储帐户中的 Blob 数据的一些示例 URL。 为存储帐户注册的自定义子域是 *www\.contoso.com*：
 
-
-|  资源类型  |                                                                                                                                  默认 URL                                                                                                                                  |                                                             自定义域 URL                                                              |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 存储帐户 |                                                                                                              http://mystorageaccount.blob.core.chinacloudapi.cn                                                                                                               |                                                           http://www.contoso.com                                                           |
-|      Blob       |                                                                                                     http://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myblob                                                                                                     |                                                 http://www.contoso.com/mycontainer/myblob                                                  |
-| 根容器  |                                                                        <http://mystorageaccount.blob.core.chinacloudapi.cn/myblob> 或 http://mystorageaccount.blob.core.chinacloudapi.cn/$root/myblob                                                                         |                                   <http://www.contoso.com/myblob> 或 http://www.contoso.com/$root/myblob                                   |
-|       Web       | http://mystorageaccount.[zone].web.core.chinacloudapi.cn/$web/[indexdoc] 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/[indexdoc] 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/$web 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/ | <http://www.contoso.com/$web> 或 <http://www.contoso.com/> 或 http://www.contoso.com/$web/[indexdoc] 或 http://www.contoso.com/[indexdoc] |
+| 资源类型 | 默认 URL | 自定义域 URL |
+| --- | --- | --- |
+| 存储帐户 | http://mystorageaccount.blob.core.chinacloudapi.cn | http://www.contoso.com |
+| Blob |http://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| 根容器 | http://mystorageaccount.blob.core.chinacloudapi.cn/myblob 或 http://mystorageaccount.blob.core.chinacloudapi.cn/$root/myblob| http://www.contoso.com/myblob 或 http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.chinacloudapi.cn/$web/[indexdoc] 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/[indexdoc] 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/$web 或 http://mystorageaccount.[zone].web.core.chinacloudapi.cn/ | http://www.contoso.com/$web 或 http://www.contoso.com/ 或 http://www.contoso.com/$web/[indexdoc] 或 http://www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > 如以下部分中所示，Blob 服务终结点的所有示例同样适用于 Web 服务终结点。
 
 ## <a name="direct-vs-intermediary-cname-mapping"></a>直接 CNAME 映射与中间 CNAME 映射
 
-可通过两种方法之一将带有子域（例如 www.contoso.com）前缀的自定义域指向存储帐户的 Blob 终结点： 
+可通过下述两种方法之一将带有子域（例如 www\.contoso.com）前缀的自定义域指向存储帐户的 Blob 终结点： 
 * 使用直接 CNAME 映射。
 * 使用 *asverify* 中间子域。
 
 ### <a name="direct-cname-mapping"></a>直接 CNAME 映射
 
-第一种方法是创建一个规范名称 (CNAME) 记录。此记录可以将自定义域和子域直接映射到 Blob 终结点。这种方法最简单。 CNAME 记录是一种域名系统 (DNS) 功能，用于将源域映射到目标域。 在本示例中，源域是自定义域和子域（例如 <em>www.contoso.com</em>）。 目标域是你的 Blob 服务终结点（例如 *mystorageaccount.blob.core.chinacloudapi.cn*）。
+第一种方法是创建一个规范名称 (CNAME) 记录。此记录可以将自定义域和子域直接映射到 Blob 终结点。这种方法最简单。 CNAME 记录是一种域名系统 (DNS) 功能，用于将源域映射到目标域。 在示例中，源域是你自己的自定义域和子域（例如 *www\.contoso.com*）。 目标域是你的 Blob 服务终结点（例如 *mystorageaccount.blob.core.chinacloudapi.cn*）。
 
 “注册自定义域”部分介绍了直接方法。
 
@@ -84,11 +83,11 @@ ms.locfileid: "58625584"
 4. 找到用于管理 CNAME 的部分。  
    可能需要转到高级设置页，并查找“CNAME”、“别名”或“子域”。
 
-5. 创建新的 CNAME 记录，输入 **www** 或 **photos** 等子域别名，然后提供主机名。  
+5. 创建新的 CNAME 记录，输入 **www** 或 **photos** 等子域别名（子域是必需的，根域不受支持），然后提供主机名。  
    主机名是 Blob 服务终结点。 主机名格式为 *\<mystorageaccount>.blob.core.chinacloudapi.cn*，其中，*mystorageaccount* 是存储帐户的名称。 要使用的主机名显示在 [Azure 门户](https://portal.azure.cn)的“自定义域”窗格的第 1 项中。
 
 6. 在“自定义域”窗格中的文本框内，输入自定义域的名称，包括子域。  
-   例如，如果域是 *contoso.com*，子域别名是 *www*，请输入 <strong>www.contoso.com</strong>。 如果子域是 *photos*，请输入 **photos.contoso.com**。
+   例如，如果域是 *contoso.com*，子域别名是 *www*，请输入 **www\.contoso.com**。 如果子域是 *photos*，请输入 **photos.contoso.com**。
 
 7. 若要注册自定义域，请选择“保存”。  
    如果注册成功，则门户会通知存储帐户已成功更新。
@@ -115,7 +114,7 @@ ms.locfileid: "58625584"
    主机名是 Blob 服务终结点。 主机名格式为 *asverify.\<mystorageaccount>.blob.core.chinacloudapi.cn*，其中，*mystorageaccount* 是存储帐户的名称。 要使用的主机名显示在 [Azure 门户](https://portal.azure.cn)的“自定义域”窗格的第 2 项中。
 
 6. 在“自定义域”窗格中的文本框内，输入自定义域的名称，包括子域。  
-   请不要包含 asverify 例如，如果域是 *contoso.com*，子域别名是 *www*，请输入 <strong>www.contoso.com</strong>。 如果子域是 *photos*，请输入 **photos.contoso.com**。
+   请不要包含 asverify 例如，如果域是 *contoso.com*，子域别名是 *www*，请输入 **www\.contoso.com**。 如果子域是 *photos*，请输入 **photos.contoso.com**。
 
 7. 选中“使用间接 CNAME 验证”复选框。
 
@@ -131,9 +130,9 @@ ms.locfileid: "58625584"
 
 ## <a name="test-your-custom-domain"></a>测试自定义域
 
-若要确认自定义域是否映射到了 Blob 服务终结点，请在存储帐户中的公共容器内创建一个 Blob。 然后在 Web 浏览器中，使用以下格式的 URI 来访问该 Blob：`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+若要确认自定义域是否映射到了 Blob 服务终结点，请在存储帐户中的公共容器内创建一个 Blob。 然后在 Web 浏览器中，使用以下格式的 URI 来访问该 Blob： `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-例如，若要访问 *photos.contoso.com* 自定义子域中的 *myforms* 容器内的 Web 窗体：可使用以下 URI：`http://photos.contoso.com/myforms/applicationform.htm`
+例如，若要访问 *photos.contoso.com* 自定义子域中的 *myforms* 容器内的 Web 窗体，可使用以下 URI： `http://photos.contoso.com/myforms/applicationform.htm`
 
 ## <a name="deregister-a-custom-domain"></a>取消注册自定义域
 

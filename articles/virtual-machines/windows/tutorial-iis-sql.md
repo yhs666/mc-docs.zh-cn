@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/05/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d48ff15940e84d30480ac879df65da91b4b3c071
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: c6007ff17eb179211d43d47b6e9f9e0ac4cd29b6
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665989"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003889"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows VM 中安装 SQL、IIS、.NET 堆栈
 
@@ -33,7 +33,7 @@ ms.locfileid: "56665989"
 > * 创建运行 SQL Server 的 VM
 > * 安装 SQL Server 扩展
 
-## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 

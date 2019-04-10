@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 63dd18c2d6de4316719731a2c4bb813d66aebd8c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0212f69c50b820b90fec4b6b22a0fbbf297f94dc
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627366"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003814"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Windows 虚拟机上的 Web 服务器
 
@@ -35,7 +35,7 @@ ms.locfileid: "58627366"
 > * 将证书注入 VM 并使用 SSL 绑定配置 IIS
 
 
-## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -64,7 +64,7 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>生成证书并存储在 Key Vault 中
-针对生产用途，应使用 [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azurekeyvaultcertificate) 导入由受信任提供程序签名的有效证书。 在本教程中，以下示例演示了如何使用 [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultcertificate) 生成一个自签名证书，该证书使用 [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azurekeyvaultcertificatepolicy) 指定的默认证书策略： 
+针对生产用途，应使用 [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate) 导入由受信任提供程序签名的有效证书。 在本教程中，以下示例演示了如何使用 [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) 生成一个自签名证书，该证书使用 [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy) 指定的默认证书策略： 
 
 ```powershell
 $policy = New-AzureKeyVaultCertificatePolicy `
@@ -115,7 +115,7 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
 创建 VM 需要几分钟时间。 最后一个步骤通过 [Set-AzVmExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) 使用 Azure 自定义脚本扩展来安装 IIS Web 服务器。
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>将 Key Vault 中的证书添加到 VM
-若要将 Key Vault 中的证书添加到 VM，请使用 [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultsecret) 获取证书的 ID。 使用 [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret) 将证书添加到 VM：
+若要将 Key Vault 中的证书添加到 VM，请使用 [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret) 获取证书的 ID。 使用 [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret) 将证书添加到 VM：
 
 ```powershell
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id

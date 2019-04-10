@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/11/2018
 ms.author: v-yiso
-ms.date: 01/21/2019
-ms.openlocfilehash: 48e1430ce08ccd38a59f9cb9003e9071606b7281
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.date: 04/15/2019
+ms.openlocfilehash: 2ec916e7e7cd55c008fa34aab25b3fe64c9d5a3c
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216262"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003734"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使数据分析管道可操作化
 
@@ -183,7 +183,7 @@ Azure SQL 数据库现已准备就绪。
 
 示例数据现在可用。 但是，管道需要两个用于处理的 Hive 表，一个用于传入数据 (`rawFlights`)，一个用于汇总数据 (`flights`)。 在 Ambari 中创建这些表，如下所示。
 
-1. 通过导航到 [http://headnodehost:8080](http://headnodehost:8080) 登录 Ambari。
+1. 通过导航到 http:\//headnodehost:8080 登录 Ambari。
 2. 从服务列表选择“Hive”。
 
     ![在 Ambari 中选择 Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -558,7 +558,7 @@ day=03
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    协调器负责按照 `frequency` 属性指定的间隔，在 `start` 和 `end` 日期范围内计划操作。 每个计划的操作反过来按配置运行工作流。 在上面的协调器定义中，协调器被配置为从 2017 年 1 月 1 日到 2017 年 1 月 5 日运行操作。 频率通过 [Oozie 表达式语言](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation)频率表达式 `${coord:days(1)}` 设置为 1 天。 通过此操作，协调器会按每天一次的频率计划一个操作（以及工作流）。 对于过去的日期范围，如本示例所示，操作将计划为无延迟运行。 操作运行计划的开始日期称为“名义时间”。 例如，若要处理 2017 年 1 月 1 日的数据，协调器将把操作的名义时间计划为 2017-01-01T00:00:00 GMT。
+    协调器负责按照 `frequency` 属性指定的间隔，在 `start` 和 `end` 日期范围内计划操作。 每个计划的操作反过来按配置运行工作流。 在上面的协调器定义中，协调器被配置为从 2017 年 1 月 1 日到 2017 年 1 月 5 日运行操作。 频率通过 [Oozie 表达式语言](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation)频率表达式 `${coord:days(1)}` 设置为 1 天。 通过此操作，协调器会按每天一次的频率计划一个操作（以及工作流）。 对于过去的日期范围，如本示例所示，操作将计划为无延迟运行。 操作运行计划的开始日期称为“名义时间”。 例如，若要处理 2017 年 1 月 1 日的数据，协调器将把操作的名义时间计划为 2017-01-01T00:00:00 GMT。
 
 * 第 2 点：在工作流的日期范围内，`dataset` 元素指定 HDFS 中查找特定日期范围的数据的位置，并配置 Oozie 如何确定数据是否还可进行处理。
 

@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 06/08/2018
-ms.date: 02/18/2019
+origin.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9d2ebcfbf1c23900fdcd8a0111234f10a7e1ccce
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 960a1a69a495f93779f2d1d13f7a7ed9ff540cee
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666462"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004541"
 ---
 # <a name="enable-write-accelerator"></a>启用写入加速器
 
@@ -43,17 +43,17 @@ ms.locfileid: "56666462"
 
 - 必须将高级磁盘缓存设置为“无”或“只读”。 不支持其他所有缓存模式。
 - 启用了写入加速器的磁盘当前不支持快照。 在备份期间，Azure 备份服务会自动排除连接到 VM 且启用了写入加速器的磁盘。
-- 仅较小的 I/O (<=32 KiB) 大小会采用加速路径。 在以下工作负荷情形下，I/O 写入到磁盘的更改不会采用加速路径：数据大容量加载或者数据在持久保存到存储之前，不同 DBMS 的事务日志缓冲区已较大程度上填满。
+- 仅较小的 I/O (<=512 KiB) 大小会采用加速路径。 在以下工作负荷情形下，I/O 写入到磁盘的更改不会采用加速路径：数据大容量加载或者数据在持久保存到存储之前，不同 DBMS 的事务日志缓冲区已较大程度上填满。
 
 写入加速器在每个 VM 中支持的 Azure 高级存储 VHD 数目有限制。 当前限制为：
 
 | VM SKU | 写入加速器磁盘数 | 每个 VM 的写入加速器磁盘 IOPS |
 | --- | --- | --- |
-| M128ms、128s | 16 | 8000 |
-| M64ms、M64ls、M64s | 8 | 4000 |
-| M32ms、M32ls、M32ts、M32s | 4 | 2000 |
-| M16ms、M16s | 2 | 1000 |
-| M8ms、M8s | 1 | 500 |
+| M128ms、128s | 16 | 20000 |
+| M64ms、M64ls、M64s | 8 | 10000 |
+| M32ms、M32ls、M32ts、M32s | 4 | 5000 |
+| M16ms、M16s | 2 | 2500 |
+| M8ms、M8s | 1 | 1250 |
 
 IOPS 限制是针对每个 VM 而不是每个磁盘。 对于每个 VM，所有写入加速器磁盘具有相同的 IOPS 限制。
 
@@ -90,8 +90,8 @@ Azure PowerShell 模块 5.5.0 和更高版本对相关的 cmdlet 做了更改，
 
 已将新的可选布尔参数（不可为 null）**-OsDiskWriteAccelerator** 添加到以下 cmdlet：
 
-- [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
-- [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
+- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 指定 $true 或 $false 可以控制磁盘对 Azure 写入加速器的支持。
 
@@ -127,7 +127,7 @@ $lunid=8
 #size
 $size=1023
 #Pulls the VM info for later
-$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+$vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
 Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
@@ -148,7 +148,7 @@ $datadiskname = "test-log001"
 #new Write Accelerator status ($true for enabled, $false for disabled) 
 $newstatus = $true
 #Pulls the VM info for later
-$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+$vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
 Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
@@ -168,11 +168,11 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 来启用写入加速器。
 
-若要在现有磁盘上启用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update)；若要将 diskName、VMName 和 ResourceGroup 替换为自己的值，可使用以下示例：`az vm update -g group1 -n vm1 -write-accelerator 1=true`
+若要在现有磁盘上启用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update)；若要将 diskName、VMName 和 ResourceGroup 替换为自己的值，可使用以下示例： `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-若要附加启用了写入加速器的磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach)；若要替换为自己的值，可使用以下示例：`az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+若要附加启用了写入加速器的磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach)；若要替换为自己的值，可使用以下示例： `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-若要禁用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update) 将属性设置为 false：`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+若要禁用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update) 将属性设置为 false： `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>使用 Rest API 启用写入加速器
 
@@ -182,15 +182,15 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 若要运行 armclient，需要通过 Chocolatey 安装它。 可以通过 cmd.exe 或 PowerShell 来安装它。 使用提升的权限执行这些命令（“以管理员身份运行”）。
 
-使用 cmd.exe 运行以下命令：`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+使用 cmd.exe 运行以下命令： `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
-使用 Power Shell 运行以下命令：`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+使用 Power Shell 运行以下命令： `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-现在，可以在 cmd.exe 或 PowerShell 中使用以下命令来安装 armclient：`choco install armclient`
+现在，可以在 cmd.exe 或 PowerShell 中使用以下命令来安装 armclient： `choco install armclient`
 
 ### <a name="getting-your-current-vm-configuration"></a>获取当前的 VM 配置
 
-若要更改磁盘配置的属性，首先需要获取 JSON 文件中的当前配置。 可以执行以下命令来获取当前配置：`armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
+若要更改磁盘配置的属性，首先需要获取 JSON 文件中的当前配置。 可以执行以下命令来获取当前配置： `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 
 将“<<   >>”中的内容替换为自己的数据，包括 JSON 文件应使用的文件名。
 
@@ -293,7 +293,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
         }
 ```
 
-然后使用以下命令更新现有部署：`armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
+然后使用以下命令更新现有部署： `armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
 
 输出应如下所示。 可以看到，为一个磁盘启用了写入加速器。
 

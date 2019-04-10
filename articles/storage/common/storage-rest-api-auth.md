@@ -1,20 +1,20 @@
 ---
-title: 调用包括身份验证的 Azure 存储服务 REST API 操作 | Azure
+title: 调用包括身份验证的 Azure 存储服务 REST API 操作 | Microsoft 文档
 description: 调用包括身份验证的 Azure 存储服务 REST API 操作
 services: storage
-author: yunan2016
-manager: digimobile
+author: WenJason
 ms.service: storage
-ms.topic: how-to
-origin.date: 05/22/2018
-ms.date: 07/02/2018
-ms.author: v-nany
-ms.openlocfilehash: d10736c1ff2d116f6522755b9640da12c7de4cb0
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.topic: conceptual
+origin.date: 03/21/2019
+ms.date: 04/08/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: c99fdc3d87324fc9a2b76106ecd781cbf51e3ee1
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253939"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890214"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 ## <a name="what-is-rest"></a>什么是 REST？
 
-REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)。
+REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)。
 
 基本上，REST 是在调用 API 或使 API 可调用时使用的体系结构。 无论一方发生什么，以及在发送或接收 REST 调用时使用什么其他软件，它都不会受影响。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。 调用 REST API 时，可以传入和/或传出数据。 REST API 不关心从中进行调用的平台 – 重要的是在请求中传递的信息以及在响应中提供的数据。
 
@@ -81,7 +81,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 [请求正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-body)：ListContainers 没有请求正文。 上传 blob 时，会在所有 PUT 操作上使用请求正文，以及 SetContainerAccessPolicy，以允许在要应用的存储访问策略的 XML 列表中发送 blob。 有关存储访问策略，将在[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文中展开讨论。
 
-[响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](https://docs.microsoft.com/rest/api/storageservices/common-rest-api-error-codes)
+[响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](https://docs.microsoft.com/rest/api/storageservices/common-rest-api-error-codes)
 
 [响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：其中包括 Content Type；x-ms-request-id（传入的请求ID，如适用）；x-ms-version（指示所使用的 BLOB 服务的版本）和 Date（UTC，告知发出请求的时间）。
 
@@ -89,7 +89,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 ## <a name="creating-the-rest-request"></a>创建 REST 请求
 
-开始之前的几个注意事项 – 针对在生产中运行时的安全性，请始终使用 HTTPS 而不是 HTTP。 出于本次练习的目的，应使用 HTTP 以便查看请求和响应数据。 若要查看实际 REST 调用中的请求和响应信息，可以下载 [Fiddler](http://www.telerik.com/fiddler) 或类似应用。 在 Visual Studio 解决方案中，存储帐户名称和密钥在类中为硬编码，ListContainersAsyncREST 方法会将存储帐户名称和存储帐户密钥传递给用于创建 REST 请求各个组件的方法。 在实际应用中，存储帐户名称和密钥将驻留在配置文件、环境变量中，或从 Azure Key Vault 中检索。
+开始之前的几个注意事项 – 针对在生产中运行时的安全性，请始终使用 HTTPS 而不是 HTTP。 出于本次练习的目的，应使用 HTTP 以便查看请求和响应数据。 若要查看实际 REST 调用中的请求和响应信息，可以下载 [Fiddler](https://www.telerik.com/fiddler) 或类似应用。 在 Visual Studio 解决方案中，存储帐户名称和密钥在类中为硬编码，ListContainersAsyncREST 方法会将存储帐户名称和存储帐户密钥传递给用于创建 REST 请求各个组件的方法。 在实际应用中，存储帐户名称和密钥将驻留在配置文件、环境变量中，或从 Azure Key Vault 中检索。
 
 在我们的示例项目中，用于创建授权标头的代码位于单独的类中，你可以获取整个类并将其添加到你自己的解决方案中，然后“按原样”使用。 授权标头代码适用于 Azure 存储的大多数 REST API 调用。
 
@@ -183,7 +183,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 GET /?comp=list HTTP/1.1
 ```
 
-请求标头：
+**请求标头：**
 
 ```
 x-ms-date: Thu, 16 Nov 2017 23:34:04 GMT
@@ -193,7 +193,7 @@ Host: contosorest.blob.core.chinacloudapi.cn
 Connection: Keep-Alive
 ```
 
-执行后返回的状态代码和响应标头：
+**执行后返回的状态代码和响应标头：**
 
 ```
 HTTP/1.1 200 OK
@@ -267,7 +267,7 @@ Content-Length: 1511
 ## <a name="creating-the-authorization-header"></a>创建授权标头
 
 > [!TIP]
-> 现在，Azure 存储支持针对存储服务（预览版）的 Azure Active Directory (Azure AD) 集成。 Azure AD 提供更简单的 Azure 存储请求授权体验。 有关使用 Azure AD 授权 REST 操作的详细信息，请参阅 [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)（使用 Azure Active Directory（预览版）进行身份验证）。 有关 Azure AD 与 Azure 存储集成的概述，请参阅[使用 Azure Active Directory（预览版）对 Azure 存储的访问权限进行身份验证](storage-auth-aad.md)。
+> 现在，Azure 存储支持针对存储服务的 Azure Active Directory (Azure AD) 集成。 Azure AD 提供更简单的 Azure 存储请求授权体验。 有关如何使用 Azure AD 授权 REST 操作的详细信息，请参阅 [Authenticate with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)（使用 Azure Active Directory 进行身份验证）。 有关 Azure AD 与 Azure 存储集成的概述，请参阅[使用 Azure Active Directory 对 Azure 存储的访问权限进行身份验证](storage-auth-aad.md)。
 
 有一篇文章从概念上（无代码）介绍了如何执行 [Azure 存储服务的身份验证](https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)。
 让我们就基于此篇文章准确提取所需的内容并显示代码。
@@ -301,7 +301,7 @@ StringToSign = VERB + "\n" +
 
 其中大部分字段都很少用到。 对于 Blob 存储，你可以指定谓词、md5、内容长度、规范化标头和规范化资源。 可以将其他内容留空（但将其置于 `\n` 中，使其知道它们为空）。
 
-规范化标头和规范化资源有哪些？ 问得好。 事实上，规范化究竟是什么意思？ Microsoft Word 甚至无法将其作为一个词识别。 下面是 [Wikipedia 有关标准化的介绍](http://en.wikipedia.org/wiki/Canonicalization)：在计算机科学中，标准化（有时称为规范化或正则化）是将有多种可能表示形式的数据转换为“标准”、“常规”，或规范格式的过程。 在正常情况下，这意味着获取项目列表（例如，在规范化标头情况下的标头），并将它们标准化为所需的格式。 总的来说，Azure 决定使用一种格式，而你需要匹配它。
+规范化标头和规范化资源有哪些？ 问得好。 事实上，规范化究竟是什么意思？ Microsoft Word 甚至无法将其作为一个词识别。 下面是 [Wikipedia 有关标准化的介绍](https://en.wikipedia.org/wiki/Canonicalization)：在计算机科学中，标准化（有时称为规范化或正则化）是将有多种可能表示形式的数据转换为“标准”、“常规”，或规范格式的过程。 在正常情况下，这意味着获取项目列表（例如，在规范化标头情况下的标头），并将它们标准化为所需的格式。 总的来说，Azure 决定使用一种格式，而你需要匹配它。
 
 让我们从这两个规范化字段开始，因为需要它们来创建授权标头。
 
@@ -458,32 +458,32 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 
 在运行此示例时，将获得如下结果：
 
-规范化标头：
+**规范化标头：**
 
 ```
 x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-规范化资源：
+**规范化资源：**
 
 ```
 /contosorest/container-1\ncomp:list\nrestype:container
 ```
 
-MessageSignature：
+**MessageSignature：**
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
   \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
-AuthorizationHeader：
+**AuthorizationHeader：**
 
 ```
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-以下值来自 [Fiddler](http://www.telerik.com/fiddler)：
+以下值来自 [Fiddler](https://www.telerik.com/fiddler)：
 
 **请求：**
 
@@ -491,7 +491,7 @@ SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 GET http://contosorest.blob.core.chinacloudapi.cn/container-1?restype=container&comp=list HTTP/1.1
 ```
 
-请求标头：
+**请求标头：**
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
@@ -501,7 +501,7 @@ Host: contosorest.blob.core.chinacloudapi.cn
 Connection: Keep-Alive
 ```
 
-执行后返回的状态代码和响应标头：
+**执行后返回的状态代码和响应标头：**
 
 ```
 HTTP/1.1 200 OK
@@ -568,4 +568,4 @@ Content-Length: 1135
 
 * [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 * [文件服务 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)
-* [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/queue-service-rest-api)（队列服务 REST API）
+* [队列服务 REST API](https://docs.microsoft.com/rest/api/storageservices/queue-service-rest-api)

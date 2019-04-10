@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/21/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 55b0fede06679f42b26376a0e4ad9e81c8946690
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 3328ab0e7ed0d29c62a9e91311173181dc0808b2
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665833"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004184"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
@@ -36,7 +36,7 @@ ms.locfileid: "56665833"
 
 1. 打开 PowerShell，通过运行 **Connect-AzAccount** 命令建立对 Azure 帐户的访问。
 
-   ```PowerShell
+    ```PowerShell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
 
@@ -58,7 +58,7 @@ $ResourceGroupName = "sqlvm2"
 ### <a name="storage-properties"></a>存储属性
 定义存储帐户，以及虚拟机使用的存储类型。
 
-根据需要进行修改，然后运行以下 cmdlet 以初始化这些变量。 建议对生产工作负荷使用[高级存储](../premium-storage.md)。
+根据需要进行修改，然后运行以下 cmdlet 以初始化这些变量。 我们建议将[高级 SSD](../disks-types.md#premium-ssd) 用于生产工作负载。
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"
@@ -107,29 +107,29 @@ $OSDiskName = $VMName + "OSDisk"
 
 1. 首先，使用 `Get-AzVMImageOffer` 命令列出所有 SQL Server 映像套餐。 此命令将列出 Azure 门户中当前提供的映像，以及只能通过 PowerShell 安装的早期映像：
 
-   ```PowerShell
-   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
-   ```
+    ```PowerShell
+    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+    ```
 
 1. 对于本教程，请使用以下变量指定 Windows Server 2016 上的 SQL Server 2017。
 
-   ```PowerShell
-   $OfferName = "SQL2017-WS2016"
-   $PublisherName = "MicrosoftSQLServer"
-   $Version = "latest"
-   ```
+    ```PowerShell
+    $OfferName = "SQL2017-WS2016"
+    $PublisherName = "MicrosoftSQLServer"
+    $Version = "latest"
+    ```
 
 1. 接下来，列出套餐的可用版本。
 
-   ```PowerShell
-   Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
-   ```
+    ```PowerShell
+    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
+    ```
 
 1. 对于本教程，请使用 SQL Server 2017 Developer Edition (**SQLDEV**)。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
 
-   ```PowerShell
-   $Sku = "SQLDEV"
-   ```
+    ```PowerShell
+    $Sku = "SQLDEV"
+    ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
 若使用 Resource Manager 部署模型，创建的第一个对象就是资源组。 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 Azure 资源组及其资源。 指定前面初始化的资源组名称和位置变量。
@@ -203,26 +203,26 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 1. 首先，为 RDP 创建网络安全组规则，以允许远程桌面连接。
 
-   ```PowerShell
-   $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
+    ```PowerShell
+    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
-   ```
+    ```
 1. 配置一个允许 TCP 端口 1433 上的流量的网络安全组规则。 这样就可以通过 Internet 连接到 SQL Server。
 
-   ```PowerShell
-   $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
+    ```PowerShell
+    $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
-   ```
+    ```
 
 1. 创建网络安全组。
 
-   ```PowerShell
-   $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
+    ```PowerShell
+    $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
-   ```
+    ```
 
 ### <a name="create-the-network-interface"></a>创建网络接口
 现在，可为虚拟机创建网络接口。 使用 [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) cmdlet 在新资源组中创建网络接口。 指定前面定义的名称、位置、子网和公共 IP 地址。
@@ -341,9 +341,9 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 ## <a name="install-the-sql-iaas-agent"></a>安装 SQL IaaS 代理
 SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的自动管理功能。 若要在新 VM 上安装该代理，请在创建 VM 后运行以下命令。
 
-   ```PowerShell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
-   ```
+```PowerShell
+Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+```
 
 ## <a name="stop-or-remove-a-vm"></a>停止或删除 VM
 
@@ -429,8 +429,8 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 
 - 使用 RDP 连接到虚拟机
 - 在门户中为 VM 配置 SQL Server 设置，包括：
-   - [存储设置](virtual-machines-windows-sql-server-storage-configuration.md) 
-   - [自动管理任务](virtual-machines-windows-sql-server-agent-extension.md)
+    - [存储设置](virtual-machines-windows-sql-server-storage-configuration.md) 
+    - [自动管理任务](virtual-machines-windows-sql-server-agent-extension.md)
 - [配置连接](virtual-machines-windows-sql-connect.md)
 - 将客户端和应用程序连接到新的 SQL Server 实例
 

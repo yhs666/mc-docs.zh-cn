@@ -8,13 +8,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 91447385b58f8d59f16e87a428c833b4873d2e54
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+origin.date: 03/19/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 43afa7af31a6f0d05ef175bb4643434bc6268022
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906068"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004129"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或故障问题
 
@@ -57,13 +58,12 @@ Azure 门户可以提供此信息：
 
 ![HDInsight - Azure 门户信息](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-也可以使用 Azure 经典 CLI：
+还可以使用 [Azure CLI](/cli/?view=azure-cli-latest)：
 
+```azurecli
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 另一个选项是使用 PowerShell。 有关详细信息，请参阅[使用 Azure PowerShell 在 HDInsight 中管理 Apache Hadoop 群集](hdinsight-administer-use-powershell.md)。
 
@@ -124,7 +124,7 @@ Apache Hive、Apache Pig 或 Apache Sqoop 作业失败的常见场合之一是 [
 这是来自网关节点的常规消息，也是最常见的故障状态代码。 发生此故障的可能原因之一是活动头节点上的 WebHCat 服务已关闭。 若要检查是否存在这种情况，请使用以下 CURL 命令：
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
+curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari 将显示一条警报，其中指出了 WebHCat 服务已在哪些主机上关闭。 可以通过在相应的主机上重启 WebHCat 服务使其恢复运行。
@@ -153,7 +153,7 @@ Ambari 将显示一条警报，其中指出了 WebHCat 服务已在哪些主机�
 当 WebHCat 承受包含 10 个以上开放套接字的负载时，需要更长的时间来建立新的套接字连接，从而可能导致超时。 若要列出 WebHCat 的源和目标网络连接，请在当前活动头节点上使用 `netstat`：
 
 ```bash
-$ netstat | grep 30111
+netstat | grep 30111
 ```
 
 30111 是 WebHCat 侦听的端口。 开放套接字数应小于 10。
@@ -161,7 +161,7 @@ $ netstat | grep 30111
 如果没有开放套接字，则上述命令不会生成结果。 若要检查 Templeton 是否已启动并在侦听端口 30111，请使用：
 
 ```bash
-$ netstat -l | grep 30111
+netstat -l | grep 30111
 ```
 
 ##### <a name="yarn-level-timeout"></a>YARN 级超时
@@ -215,8 +215,6 @@ Ambari UI 中的“堆栈和版本”页提供有关群集服务配置和服务�
 ## <a name="step-5-examine-the-log-files"></a>步骤 5：检查日志文件
 
 构成 HDInsight 群集的许多服务和组件会生成多种类型的日志。 前文介绍了 [WebHCat 日志文件](#check-your-webhcat-service)。 可以根据以下部分中所述，调查其他多种有用的日志文件来缩小群集问题的范围。
-
-![HDInsight 日志文件示例](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * HDInsight 群集由多个节点组成，其中的大多数节点负责运行已提交的作业。 作业可并发运行，但日志文件只能以线性方式显示结果。 HDInsight 执行新任务，并终止一开始就无法完成的其他任务。 整个活动将记录到 `stderr` 和 `syslog` 文件。
 

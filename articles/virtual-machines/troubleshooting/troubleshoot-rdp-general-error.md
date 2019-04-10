@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/31/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7fac91512eb37579b3e3ee287f32ff38cef06335
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: 47e40f2f064abe48ee5f09b2dd3bd8f4812e56c1
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785151"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003782"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>排查 Azure VM 的常规 RDP 错误
 
@@ -140,5 +140,4 @@ RDP 侦听器配置不当。
 如果仍需帮助，请[联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
 
 
-<!-- Update_Description: new articles on troubleshoot -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: wording update -->

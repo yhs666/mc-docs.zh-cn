@@ -7,16 +7,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 5c2f7d4f4ca9eb67bfa094d6525b8803fff9782e
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f7bb9523d1e572c38b0eef977dc5c9cfc351a0fe
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665400"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890163"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>从 Azure 存储下载大量随机数据
 
@@ -209,5 +209,10 @@ C:\>
 > [!div class="checklist"]
 > * 运行应用程序
 > * 验证连接数
+
+接下来进入本系列的第四部分，验证门户中的吞吐量和延迟指标。
+
+> [!div class="nextstepaction"]
+> [验证门户中的吞吐量和延迟指标](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

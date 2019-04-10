@@ -1,5 +1,5 @@
 ---
-title: 在 Azure VM 上的来宾 OS 中启用或禁用防火墙规则 | Azure
+title: 在 Azure VM 来宾 OS 中启用或禁用防火墙规则 | Azure
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 92d1ba9a84682eb8872e1af6883757b9afad0dff
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 11bd019e4f29ba581f9aeb1905eea46d03bbb1ab
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626347"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003976"
 ---
 <!-- Verify part successfully-->
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则
 
 本文为排查以下问题提供参考：你怀疑来宾操作系统防火墙正在筛选虚拟机 (VM) 上的部分流量。 使用这些参考信息的原因如下：
 
@@ -59,7 +59,7 @@ ms.locfileid: "58626347"
 
 如果 VM 处于联机状态且可以在同一虚拟网络中的另一个 VM 上对其进行访问，则可以使用另一个 VM 执行以下缓解措施。
 
-1.  在故障排除 VM 上，下载 [PSTools](/sysinternals/downloads/pstools)。
+1.  在故障排除 VM 上，下载 [PSTools](https://docs.microsoft.com/zh-cn/sysinternals/downloads/pstools)。
 
 2.  打开 CMD 实例，然后通过 VM 的内部 IP (DIP) 访问该 VM。 
 
@@ -83,21 +83,21 @@ ms.locfileid: "58626347"
 
 2. 打开 *TARGET MACHINE*\SYSTEM 分支，然后指定以下值：
 
-   * 若要启用规则，请打开以下注册表值：
+    * 若要启用规则，请打开以下注册表值：
 
-       *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-       然后，将字符串中的 **Active=FALSE** 更改为 **Active=TRUE**：
+        然后，将字符串中的 **Active=FALSE** 更改为 **Active=TRUE**：
 
-       **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-   * 若要禁用规则，请打开以下注册表值：
+    * 若要禁用规则，请打开以下注册表值：
 
-       *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-       然后，将 **Active=TRUE** 更改为 **Active=FALSE**：
+        然后，将 **Active=TRUE** 更改为 **Active=FALSE**：
 
-       **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
 3. 重启 VM 以应用更改。
 
@@ -119,32 +119,32 @@ ms.locfileid: "58626347"
 
 6. 突出显示 **HKEY_LOCAL_MACHINE** 项，然后从菜单中选择“文件” > “加载配置单元”。
 
-   ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
+    ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7. 找到并打开 \windows\system32\config\SYSTEM 文件。 
 
-   > [!Note]
-   > 系统会提示输入名称。 输入 **BROKENSYSTEM**，然后展开 **HKEY_LOCAL_MACHINE**。 现在，可以看到名为 **BROKENSYSTEM** 的附加项。 为了进行故障排除，我们将这些有问题的配置单元装载为 **BROKENSYSTEM**。
+    > [!Note]
+    > 系统会提示输入名称。 输入 **BROKENSYSTEM**，然后展开 **HKEY_LOCAL_MACHINE**。 现在，可以看到名为 **BROKENSYSTEM** 的附加项。 为了进行故障排除，我们将这些有问题的配置单元装载为 **BROKENSYSTEM**。
 
 8. 对 BROKENSYSTEM 分支进行以下更改：
 
-   1. 检查 VM 是从哪个 **ControlSet** 注册表项启动的。 会在 HKLM\BROKENSYSTEM\Select\Current 中看到该项的数值。
+    1. 检查 VM 是从哪个 **ControlSet** 注册表项启动的。 会在 HKLM\BROKENSYSTEM\Select\Current 中看到该项的数值。
 
-   2. 若要启用规则，请打开以下注册表值：
+    2. 若要启用规则，请打开以下注册表值：
 
-      HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-      然后，将 **Active=FALSE** 更改为 **Active=True**。
+        然后，将 **Active=FALSE** 更改为 **Active=True**。
 
-      **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-   3. 若要禁用规则，请打开以下注册表项：
+    3. 若要禁用规则，请打开以下注册表项：
 
-      HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-      然后，将 **Active=True** 更改为 **Active=FALSE**。
+        然后，将 **Active=True** 更改为 **Active=FALSE**。
 
-      **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 9. 突出显示 BROKENSYSTEM，然后选择菜单中的“文件” > “卸载配置单元”。
 
@@ -152,5 +152,4 @@ ms.locfileid: "58626347"
 
 11. 检查是否解决了问题。
 
-<!-- Update_Description: new articles on enable disable firewall rule guest os -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update -->

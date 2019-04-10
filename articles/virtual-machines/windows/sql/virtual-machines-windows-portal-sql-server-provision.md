@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/04/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 6ecb8acc08910216607e3c5cd69b65d6621e7ce9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9396fb9dd6853f7aef94ad15b9f6c88f386cd8d3
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627699"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003861"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -55,7 +55,7 @@ ms.locfileid: "58627699"
 
 1. 勾选“Microsoft”作为发布者。
 
-   ![Azure 虚拟机窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+    ![Azure 虚拟机窗口](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
     <!--MOONCAKE CUSTOMZIE: Virtual Machines-->
 
@@ -63,13 +63,13 @@ ms.locfileid: "58627699"
 
 1. 选择名为“免费 SQL Server 许可证：Windows Server 2016 上的 SQL Server 2017 Developer”的映像。
 
-   > [!TIP]
-   > 本演示使用 Developer（开发人员）版，因为该版本是 SQL Server 的完整功能版本，并且可免费用于开发测试。 只需支付运行 VM 的成本。 但是，本教程中使用的映像可随意选择。 有关可用映像的说明，请参阅 [SQL Server Microsoft 虚拟机概述](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)。
+    > [!TIP]
+    > 本演示使用 Developer（开发人员）版，因为该版本是 SQL Server 的完整功能版本，并且可免费用于开发测试。 只需支付运行 VM 的成本。 但是，本教程中使用的映像可随意选择。 有关可用映像的说明，请参阅 [SQL Server Microsoft 虚拟机概述](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)。
 
-   > [!TIP]
-   > SQL Server 的许可费用包含在所创建的 VM 的每秒定价中，并随版本和内核而有所不同。 但是，SQL Server 开发人员版可免费用于开发/测试（不可用于生产），而 SQL Express 可免费用于轻型工作负荷（1 GB 内存以内，10 GB 存储以内）。 还可选择自带许可 (BYOL)，只支付 VM 费用。 这些映像名称的前缀为 {BYOL}。 
-   >
-   > 有关这些选项的详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
+    > [!TIP]
+    > SQL Server 的许可费用包含在所创建的 VM 的每秒定价中，并随版本和内核而有所不同。 但是，SQL Server 开发人员版可免费用于开发/测试（不可用于生产），而 SQL Express 可免费用于轻型工作负荷（1 GB 内存以内，10 GB 存储以内）。 还可选择自带许可 (BYOL)，只支付 VM 费用。 这些映像名称的前缀为 {BYOL}。 
+    >
+    > 有关这些选项的详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
 1. 在“选择部署模型”下面，确认已选择“Resource Manager”。 对于新虚拟机，建议使用“Resource Manager”部署模型。 
 
@@ -105,8 +105,8 @@ ms.locfileid: "58627699"
 
 * 在“资源组”框中，键入新资源组的名称。 此外，若要使用现有的资源组，请单击“使用现有项”。 资源组是 Azure（虚拟机、存储帐户、虚拟网络等）中相关资源的集合。
 
-  > [!NOTE]
-  > 如果只是测试或了解 Azure 中的 SQL Server 部署，使用新的资源组很有帮助。 测试完成后，删除资源组会自动删除 VM 和与该资源组相关联的所有资源。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../../azure-resource-manager/resource-group-overview.md)。
+    > [!NOTE]
+    > 如果只是测试或了解 Azure 中的 SQL Server 部署，使用新的资源组很有帮助。 测试完成后，删除资源组会自动删除 VM 和与该资源组相关联的所有资源。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../../azure-resource-manager/resource-group-overview.md)。
 
 * 针对 Azure 区域选择用于托管该部署的“位置”。
 
@@ -136,17 +136,17 @@ ms.locfileid: "58627699"
 
 * 在“存储”的“使用托管磁盘”下，选择“是”。
 
-   > [!NOTE]
-   > Azure 建议为 SQL Server 使用托管磁盘。 托管磁盘在后台处理存储。 此外，当使用托管磁盘的虚拟机位于同一可用性集中时，Azure 会分发存储资源以提供适当冗余。 有关详细信息，请参阅 [Azure 托管磁盘概述][../managed-disks-overview.md)。 有关可用性集中托管磁盘的具体信息，请参阅[为可用性集中的 VM 使用托管磁盘](../manage-availability.md)。
+    > [!NOTE]
+    > Azure 建议为 SQL Server 使用托管磁盘。 托管磁盘在后台处理存储。 此外，当使用托管磁盘的虚拟机位于同一可用性集中时，Azure 会分发存储资源以提供适当冗余。 有关详细信息，请参阅 [Azure 托管磁盘概述][../managed-disks-overview.md)。 有关可用性集中托管磁盘的具体信息，请参阅[为可用性集中的 VM 使用托管磁盘](../manage-availability.md)。
 
 * 在“网络”下，选择“选择公共入站端口”列表中的任意入站端口。 例如，如果想要远程桌面连接到 VM，则选择“RDP (3389)”端口。
 
-   ![入站端口](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+    ![入站端口](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
 
-   > [!NOTE]
-   > 可以选择“MS SQL (1433)”端口以远程访问 SQL Server。 但是，这在此处并不必要，因为“SQL Server 设置”步骤也提供此选项。 如果在此步骤中选择了端口 1433，则无论在“SQL Server 设置”步骤中选择了哪一项，都会打开该端口。
+    > [!NOTE]
+    > 可以选择“MS SQL (1433)”端口以远程访问 SQL Server。 但是，这在此处并不必要，因为“SQL Server 设置”步骤也提供此选项。 如果在此步骤中选择了端口 1433，则无论在“SQL Server 设置”步骤中选择了哪一项，都会打开该端口。
 
-   你可以对网络设置进行其他更改，也可以保留默认值。
+    你可以对网络设置进行其他更改，也可以保留默认值。
 
 * 默认情况下，Azure 会对为 VM 指定的同一个存储帐户启用“监视”功能。 可以在此处更改这些设置。
 
@@ -164,7 +164,7 @@ ms.locfileid: "58627699"
 | [存储配置](#storage-configuration) |
 | [自动修补](#automated-patching) |
 | [自动备份](#automated-backup) |
-| [Azure 密钥保管库集成](#azure-key-vault-integration) |
+| [Azure Key Vault 集成](#azure-key-vault-integration) |
 | [SQL Server 机器学习服务](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>连接
@@ -242,7 +242,7 @@ ms.locfileid: "58627699"
 
 ![SQL 自动备份](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
- 有关详细信息，请参阅 [针对 Azure 虚拟机中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。
+有关详细信息，请参阅 [针对 Azure 虚拟机中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault 集成
 
@@ -252,13 +252,12 @@ ms.locfileid: "58627699"
 
 下表列出了配置 Azure 密钥保管库集成所需的参数。
 
-
-|      参数       |                                                                           说明                                                                            |                   示例                    |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
-|  **密钥保管库 URL**   |                                                                  密钥保管库的位置。                                                                  |   https://contosokeyvault.vault.azure.cn/    |
-|  **主体名称**  |                                  Azure Active Directory 服务主体名称。 该名称也称为客户端 ID。                                  |     fde2b411-33d5-4e11-af04eb07b669ccf2      |
-| **主体密码** |                              Azure Active Directory 服务主体密码。 该密码也称为客户端密码。                              | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **凭据名称**  | **凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |                   mycred1                    |
+| 参数 | 说明 | 示例 |
+| --- | --- | --- |
+| **密钥保管库 URL** |密钥保管库的位置。 |https:\//contosokeyvault.vault.azure.cn/ |
+| **主体名称** |Azure Active Directory 服务主体名称。 该名称也称为客户端 ID。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
+| **主体机密** |Azure Active Directory 服务主体密码。 该密码也称为客户端密码。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **凭据名称** |**凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 为此凭据选择一个名称。 |mycred1 |
 
 有关详细信息，请参阅 [为 Azure VM 上的 SQL Server 配置 Azure 密钥保管库集成](virtual-machines-windows-ps-sql-keyvault.md)。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 OpenSUSE VM 上安装 MySQL | Azure
+title: 在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL | Azure
 description: 了解如何在 Azure 中的 OpenSUSE Linux 虚拟机上安装 MySQL。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ac260a17e04f788feb662926edbf756534bd22ec
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: a4f047a5033afa551861125558f88bf4bb7ceb38
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666077"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004010"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL
 
-[MySQL](http://www.mysql.com) 是一种常用的开源 SQL 数据库。 本教程介绍如何创建运行 OpenSUSE Linux 的虚拟机，然后安装 MySQL。
+[MySQL](https://www.mysql.com) 是一种常用的开源 SQL 数据库。 本教程介绍如何创建运行 OpenSUSE Linux 的虚拟机，然后安装 MySQL。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -155,6 +155,6 @@ quit
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关 MySQL 的详细信息，请参阅 [MySQL 文档](http://dev.mysql.com/doc)。
+有关 MySQL 的详细信息，请参阅 [MySQL 文档](https://dev.mysql.com/doc)。
 
 <!-- Update_Description: update meta properties, update link -->

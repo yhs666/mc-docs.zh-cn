@@ -11,24 +11,30 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 18566f3a11a843f915d305bee7130a0b8d1ae8fc
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/19/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 2d80df621543926551d62c7a944b657b93988323
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318952"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003484"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
-使用 Azure SQL 数据库的内存中技术可以提高应用程序的性能，并潜在地降低数据库的成本。 使用 Azure SQL 数据库的内存中技术可以在各种工作负荷上实现性能改进：
+使用 Azure SQL 数据库的内存中技术可以提高应用程序的性能，并潜在地降低数据库的成本。 
+
+## <a name="when-to-use-in-memory-technologies"></a>何时使用内存中技术
+
+使用 Azure SQL 数据库的内存中技术可以在各种工作负荷上实现性能改进：
 
 - **事务**（联机事务处理 (OLTP)），其中的大多数请求将读取或更新少量的数据（例如 CRUD 操作）。
 - **分析**（联机分析处理 (OLAP)），其中的大多数查询出于报告目的而执行复杂的计算，特定数量的查询会将数据加载和追加到现有的表中（称为“批量加载”）或者从表中删除数据。 
 - **混合**（混合事务/分析处理 (HTAP)），其中针对相同的数据集同时执行 OLTP 和 OLAP 查询。
 
-内存中技术使用查询的本机编译，或者底层硬件上提供的批处理和 SIMD 指令等高级处理来保留应在内存中处理的数据，可以提高这些工作负荷的性能。
+内存中技术使用查询的本机编译，或者底层硬件上提供的批处理和 SIMD 指令等高级处理来保留应在内存中处理的数据，可以提高这些工作负荷的性能。 
+
+## <a name="overview"></a>概述
 
 Azure SQL 数据库采用以下内存中技术：
 - *[内存中 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* 可以增加每秒处理的事务数，并降低事务处理的延迟。 可受益于内存中 OLTP 的情况包括：高吞吐量事务处理（例如贸易和游戏）、从事件或 IoT 设备引入数据、缓存、数据加载以及临时表和表变量等情况。
@@ -78,7 +84,7 @@ Azure SQL 数据库采用以下内存中技术：
 
 - **内存优化的行存储**格式：每个行是一个独立的内存对象。 这是针对高性能 OLTP 工作负荷优化的经典内存中 OLTP 格式。 在内存优化的行存储格式中可以使用两种类型的内存优化表：
   - 持久性表 (SCHEMA_AND_DATA)：服务器重启后会保留内存中的行。 此类表的行为类似于传统的行存储表，同时具有内存中优化的附加优势。
-  - 非持久性表 (SCEMA_ONLY)：重启后不保留行。 此类表适用于临时数据（例如，取代临时表），或者需要快速加载其中的数据，然后将数据移到某个持久性表（称为临时表）的表。
+  - 非持久性表 (SCHEMA_ONLY)：重启后不保留行。 此类表适用于临时数据（例如，取代临时表），或者需要快速加载其中的数据，然后将数据移到某个持久性表（称为临时表）的表。
 - **内存优化的列存储**格式：其中的数据以纵栏表的格式进行组织。 此结构适用于 HTAP 方案，其中，需要针对运行 OLTP 工作负荷的同一数据结构运行分析查询。
 
 > [!Note]
@@ -183,7 +189,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ### <a name="deeper-information"></a>深入信息
 
 - [了解 Quorum 如何通过使用 SQL 数据库的内存中 OLTP，在关键数据库工作负荷加倍的情况下，将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
-- [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)（“Azure SQL 数据库中的内存中 OLTP”博客文章）
+- [“Azure SQL 数据库中的内存中 OLTP”博客文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 - [了解内存中 OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 - [了解列存储索引](https://msdn.microsoft.com/library/gg492088.aspx)
 - [了解实时运行分析](https://msdn.microsoft.com/library/dn817827.aspx)

@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 87e3b34d0773d02f4efb45f9a031d5a2a1b13692
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 237aaff6ad22568a695126b6fe8c685b0eae1d78
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029113"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004162"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 通过 HDInsight 运行 Apache Pig 作业
 
@@ -34,6 +34,8 @@ ms.locfileid: "54029113"
 > 本文档未详细描述示例中使用的 Pig Latin 语句的作用。 有关此示例中使用的 Pig Latin 的信息，请参阅[将 Apache Pig 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-pig.md)。
 
 ## <a id="prereq"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **一个 Azure HDInsight 群集**
 
@@ -48,11 +50,11 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig �
 
 在远程 HDInsight 群集上运行 Pig 作业时，使用以下 Cmdlet：
 
-* **Connect-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
-* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建作业定义。
-* **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
-* **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它会等到作业完成或超出等待时间。
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出。
+* **Connect-AzAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* **New-AzHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建作业定义。
+* **Start-AzHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
+* **Wait-AzHDInsightJob**：使用作业对象来检查作业的状态。 它会等到作业完成或超出等待时间。
+* **Get-AzHDInsightJobOutput**：用于检索作业的输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -131,7 +133,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig �
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds `
@@ -150,4 +152,4 @@ Azure PowerShell 提供了一种简单方法，可在 HDInsight 群集上运行 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
 * [将 Apache Hive 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 MapReduce 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-mapreduce.md)

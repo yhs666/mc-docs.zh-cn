@@ -9,19 +9,19 @@ tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 1245c93c0f20f5d380d6d69ceb3685402ce06f9f
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ffebcea23d6321be7cf67a201eedca4efac1545c
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665946"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003876"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虚拟机上的 SQL Server 是什么？ (Windows)
 
@@ -65,7 +65,7 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 | 版本 | 操作系统 | 版本 |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonWindowsServer2016)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonWindowsServer2016)、[Express](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016)、[Developer](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
-| **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016)、[Express](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016)、[Developer](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
+| **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016)、[Express](https://portal.azure.cn/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016)、[Developer](https://portal.azure.cn/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2)、[Express](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP4EnterpriseWindowsServer2012R2)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP4StandardWindowsServer2012R2)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP4WebWindowsServer2012R2)、[Express](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP4ExpressWindowsServer2012R2) |
 
@@ -80,14 +80,14 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL VM 还
 ###  <a name="bring-your-own-license"></a>自带许可
 你也可以自带许可 (BYOL)。 在此方案中，你只需支付 VM 费用，SQL Server 许可不需要任何额外的费用。  自带许可证长时间会节省资金，因为可以持续使用生产型工作负荷。 有关使用此选项的要求，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md#byol)。
 
-若要自带许可证，可以转换现有的提前付费的 SQL VM，也可以部署前缀为 **{BYOL}** 的映像。 
+若要自带许可证，可以转换现有的按用量付费的 SQL VM，也可以部署前缀为 **{BYOL}** 的映像。 上获取。
 
 <!-- Not Available on [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
 
 | 版本 | 操作系统 | 版本 |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
-| **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016) |
+| **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2)、[Standard BYOL](https://portal.azure.cn/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 

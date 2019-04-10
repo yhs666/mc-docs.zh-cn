@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 35846ef5f00ff04cd8f961ec927a4702d82159a9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d36cafee42c1daf41882ea055d0b25a3c01eeae7
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627787"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003897"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 群集上的 Jupyter notebook 的内核 
 
@@ -141,13 +141,16 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
 如果群集使用 Azure 存储作为默认存储帐户，Jupyter notebook 将保存到 **/HdiNotebooks** 文件夹下的存储帐户。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将 Notebook 上传到 `/HdiNotebooks/mynotebook1.ipynb`中的存储帐户，则可以从 Jupyter 查看该 Notebook。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
 
+> [!NOTE]  
+> 将 Azure Data Lake Storage 作为默认存储的 HDInsight 群集不在关联的存储中存储笔记本。
+
 将笔记本保存到存储帐户的方式与 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 兼容。 因此，如果通过 SSH 访问群集，可以使用如以下代码片段所示的文件管理命令：
 
     hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory - everything in this directory is visible to Jupyter from the home page
     hdfs dfs -copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs -copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
 
-笔记本还会保存在 `/var/lib/jupyter` 中的群集头节点上。
+不论群集是使用 Azure 存储还是 Azure Data Lake Storage 作为默认存储帐户，笔记本还会保存在群集头节点上的 `/var/lib/jupyter` 中。
 
 ## <a name="supported-browser"></a>支持的浏览器
 
@@ -160,22 +163,22 @@ Google Chrome 仅支持 Spark HDInsight 群集中的 Jupyter Notebook。
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>方案
-* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
+* [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
-* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
+* [将外部包与 Jupyter 笔记本配合使用](apache-spark-jupyter-notebook-use-external-packages.md)
+* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
+* [跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业](apache-spark-job-debugging.md)

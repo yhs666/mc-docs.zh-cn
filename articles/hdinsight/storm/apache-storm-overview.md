@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3c525e9d971ad2bc7af205e6d6efd393ce055442
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 58160d1e0cff3bc61e76c129febad110b67d32aa
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348654"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004176"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
@@ -49,7 +49,7 @@ Storm on HDInsight 提供以下功能：
     > [!NOTE]
     > 若要利用通过缩放操作添加的新节点，必须停用运行的拓扑，然后再将其重新激活。
 
-* **使用多个 Azure 服务创建流式处理管道**：Storm on HDInsight 集成其他 Azure 服务，例如事件中心、SQL 数据库和 Azure 存储。
+* **使用多个 Azure 服务创建流式处理管道**：Storm on HDInsight 集成其他 Azure 服务，例如事件中心、SQL 数据库、Azure 存储、Azure Data Lake Storage。
 
     如需集成 Azure 服务的示例解决方案，请参阅[使用 Apache Storm on HDInsight 处理事件中心的事件](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
 
@@ -182,7 +182,7 @@ Storm 使用 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) 来记录�
 了解有关使用 Apache Storm on HDInsight 构建实时分析解决方案的详细信息：
 
 * [HDInsight 上的 Apache Storm 入门][gettingstarted]
-* [HDInsight 上的 Apache Storm 的示例拓扑](apache-storm-example-topology.md)
+* [Apache Storm on HDInsight 的示例拓扑](apache-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining

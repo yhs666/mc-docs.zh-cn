@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: b4386465843cceaef962e80cc020a5fd0233f4ca
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: e7703f3be9ffba181d376575dbc14057c9f80be5
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569233"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003995"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
@@ -51,6 +51,8 @@ bootstrap 的使用方式有 3 种：
 * 使用 .NET SDK
 * 使用 Azure Resource Manager 模板
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 有关在创建时在 HDInsight 群集上安装其他组件的信息，请参阅：
@@ -58,29 +60,29 @@ bootstrap 的使用方式有 3 种：
 * [使用脚本操作自定义 HDInsight 群集 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
-以下 PowerShell 代码自定义 Hive 配置：
+以下 PowerShell 代码将自定义 [Apache Hive](https://hive.apache.org/) 配置：
 
 ```powershell
 # hive-site.xml configuration
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-    $config = New-AzureRmHDInsightClusterConfig `
-        | Set-AzureRmHDInsightDefaultStorage `
-            -StorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-            -StorageAccountKey $defaultStorageAccountKey `
-        | Add-AzureRmHDInsightConfigValues `
-            -HiveSite $hiveConfigValues 
+$config = New-AzHDInsightClusterConfig `
+    | Set-AzHDInsightDefaultStorage `
+        -StorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
+        -StorageAccountKey $defaultStorageAccountKey `
+    | Add-AzHDInsightConfigValues `
+        -HiveSite $hiveConfigValues 
 
-    New-AzureRmHDInsightCluster `
-        -ResourceGroupName $existingResourceGroupName `
-        -ClusterName $clusterName `
-        -Location $location `
-        -ClusterSizeInNodes $clusterSizeInNodes `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.6" `
-        -HttpCredential $httpCredential `
-        -Config $config 
+New-AzHDInsightCluster `
+    -ResourceGroupName $existingResourceGroupName `
+    -ClusterName $clusterName `
+    -Location $location `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -ClusterType Hadoop `
+    -OSType Linux `
+    -Version "3.6" `
+    -HttpCredential $httpCredential `
+    -Config $config 
 ```
 
 可在[附录](#appendix-powershell-sample)中找到完整的有效 PowerShell 脚本。
@@ -114,7 +116,7 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-有关详细信息，请参阅 Azim Uddin 的标题为 [自定义 HDInsight 群集创建](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)的博客。
+有关详细信息，请参阅 Azim Uddin 的标题为 [自定义 HDInsight 群集创建](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)的博客。
 
 ## <a name="use-net-sdk"></a>使用 .NET SDK
 请参阅[使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)。
@@ -136,16 +138,16 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 ![HDInsight Hadoop, 自定义群集, bootstrap, Azure Resource Manager 模板](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>另请参阅
-* [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster] 说明了如何使用其他自定义选项创建 HDInsight 群集。
+* [在 HDInsight 中创建 Apache Hadoop 群集][hdinsight-provision-cluster]提供了有关如何使用其他自定义选项创建 HDInsight 群集的说明。
 * [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]
-* [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]
-* [在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install.md)。
-* [在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+* [在 HDInsight 群集上安装并使用 Apache Spark][hdinsight-install-spark]
+* [在 HDInsight 群集上安装并使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
-[powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "群集创建期间的阶段"
 
@@ -190,8 +192,8 @@ $ErrorActionPreference = "Stop"
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount -EnvironmentName AzureChinaCloud}
+try{Get-AzContext}
+catch{Connect-AzAccount}
 #endregion
 
 #region - Create an HDInsight cluster
@@ -199,24 +201,24 @@ catch{Connect-AzureRmAccount -EnvironmentName AzureChinaCloud}
 # Create dependent components
 ####################################
 Write-Host "Creating a resource group ..." -ForegroundColor Green
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
     -Name  $resourceGroupName `
     -Location $location
 
 Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $defaultStorageAccountName `
     -Location $location `
     -Type Standard_GRS
 
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
-$defaultStorageContext = New-AzureStorageContext `
+$defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
-New-AzureStorageContainer `
+New-AzStorageContainer `
     -Name $defaultBlobContainerName `
     -Context $defaultStorageContext #use the cluster name as the container name
 
@@ -225,11 +227,11 @@ New-AzureStorageContainer `
 ####################################
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-$config = New-AzureRmHDInsightClusterConfig `
-    | Set-AzureRmHDInsightDefaultStorage `
+$config = New-AzHDInsightClusterConfig `
+    | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzureRmHDInsightConfigValues `
+    | Add-AzHDInsightConfigValues `
         -HiveSite $hiveConfigValues 
 
 ####################################
@@ -241,7 +243,7 @@ $httpCredential = New-Object System.Management.Automation.PSCredential($httpUser
 $sshPW = ConvertTo-SecureString -String $sshPassword -AsPlainText -Force
 $sshCredential = New-Object System.Management.Automation.PSCredential($sshUserName,$sshPW)
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
     -ResourceGroupName $resourceGroupName `
     -ClusterName $hdinsightClusterName `
     -Location $location `
@@ -256,7 +258,7 @@ New-AzureRmHDInsightCluster `
 ####################################
 # Verify the cluster
 ####################################
-Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
+Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
 
 #endregion
 ```

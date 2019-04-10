@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 01/29/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: e85767f8d29ffd7bc651989e68662c123ef67bd8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 571fd0d3b52ea2f426a31695b8283b8702e3fcb3
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625477"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004175"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>如何在 Hudson 连续集成中使用 Azure Slave 插件
 适用于 Hudson 的 Azure Slave 插件让你能够在运行分布式构建系统时，预配 Azure 上的从属节点。
@@ -193,7 +193,7 @@ ms.locfileid: "58625477"
 <!-- URL List -->
 
 [Azure Java 开发人员中心]: /develop/java/
-[订阅配置文件]: http://go.microsoft.com/fwlink/?LinkID=396395
+[订阅配置文件]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 10/22/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 723ede88ef9d10002c9e693762edcb197b1400f8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9ac4fc351bb79da15eb570b04dafd9c1412a75a6
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625543"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003868"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建 Linux VM
 
@@ -185,7 +185,7 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
     https://landscape.canonical.com/
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

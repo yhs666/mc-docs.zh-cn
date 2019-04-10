@@ -13,14 +13,14 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: fc87e8a452f5b484d4e6f1d97fd0a023766063ec
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: ecb5d6dbf869809c79b2e15f1be51009298568ae
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348682"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004180"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -56,7 +56,7 @@ ms.locfileid: "58348682"
     |**群集登录用户名和密码**     | 默认登录名为“admin”。密码长度不得少于 10 个字符，且至少必须包含一个数字、一个大写字母和一个小写字母、一个非字母数字字符（' " ` \)字符除外）。 请确保不提供常见密码，如“Pass@word1”。|
     |**SSH 用户名** | 默认用户名为“sshuser”。  可以提供其他名称作为 SSH 用户名。 |
     | **使用与群集登录相同的密码** | 选中此复选框，让 SSH 用户使用与提供给群集登录用户相同的密码。|
-    |**资源组**     | 创建资源组，或选择现有资源组。  资源组是 Azure 组件的容器。  在本例中，资源组包含 HDInsight 群集和依赖的 Azure 存储帐户。 |
+    |**资源组**     | 创建资源组，或选择现有资源组。  资源组是 Azure 组件的容器。  在此示例中，资源组包含 HDInsight 群集和依赖的 Azure 存储帐户。 |
     |**位置**     | 选择要在其中创建群集的 Azure 位置。  选择的位置与你越靠近，性能就越好。 |
         
 3. 选择“群集类型”，然后提供如以下屏幕截图所示的输入：
@@ -147,7 +147,7 @@ ms.locfileid: "58348682"
 ## <a name="clean-up-resources"></a>清理资源
 完成本教程后，可以删除群集。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 
 
-> [!NOTE]
+> [!NOTE]  
 > 如果立即进行下一教程，了解如何使用 Hadoop on HDInsight 运行 ETL 操作，建议保持群集运行。 这是因为该教程中必须再次创建 Hadoop 群集。 但是，如果不立即学习下一教程，则必须立即删除该群集。
 > 
 >  
@@ -166,13 +166,13 @@ ms.locfileid: "58348682"
 本教程已介绍如何使用资源管理器模板创建基于 Linux 的 HDInsight 群集，以及如何执行基本 Hive 查询。 下一篇文章将介绍如何使用 Hadoop on HDInsight 执行提取、转换和加载 (ETL) 操作。
 
 > [!div class="nextstepaction"]
->[使用 Apache Hive on HDInsight 提取、转换和加载数据](../hdinsight-analyze-flight-delay-data-linux.md)
+>[使用 Apache Hive on HDInsight 提取、转换和加载数据 ](../hdinsight-analyze-flight-delay-data-linux.md)
 
 如果已准备好开始处理自己的数据，并需要进一步了解 HDInsight 存储数据的方式或如何将数据导入 HDInsight，请参阅以下文章：
 
 * 有关 HDInsight 如何使用 Azure 存储的信息，请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 * 若要了解如何将数据上传到 HDInsight，请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md)。
-* [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 有关如何使用 HDInsight 分析数据的详细信息，请参阅以下文章：
 

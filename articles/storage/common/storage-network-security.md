@@ -5,22 +5,22 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 02/22/2019
-ms.date: 03/04/2019
+origin.date: 03/21/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 6519985516d04b3120c895fe52d1e0c502301b92
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 4eb53b3128b3e7029a866d27b48633331477eded
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196563"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890199"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 
 Azure 存储提供分层安全模型。 借助此模型，可保护存储帐户，使其仅可供受支持的一组特定网络访问。 配置网络规则后，仅通过指定网络组请求数据的应用程序才能访问存储帐户。
 
-在网络规则生效后访问存储帐户的应用程序需要在请求中提供适当的授权。 支持通过 Azure Active Directory (AD) 凭据（适用于 Blob 和队列）（预览版）、有效帐户访问密钥或 SAS 令牌提供授权。
+在网络规则生效后访问存储帐户的应用程序需要在请求中提供适当的授权。 支持通过 Azure Active Directory (Azure AD) 凭据（适用于 Blob 和队列）、有效的帐户访问密钥或 SAS 令牌进行授权。
 
 > [!IMPORTANT]
 > 默认情况下，除非请求来自在 Azure 虚拟网络 (VNet) 内运行的服务，否则开启存储帐户的防火墙规则会阻止数据传入请求。 被阻止的请求包括来自其他 Azure 服务、来自 Azure 门户、来自日志记录和指标服务等的请求。

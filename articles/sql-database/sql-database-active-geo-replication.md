@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 02/27/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 66507d364e389bd0548ab71cd1d5903b7f2d4446
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 38d902dbf2b3affac0df1fc378b3f50cde1da6b6
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627407"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003479"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>创建并使用活动异地复制
 
@@ -69,7 +69,7 @@ ms.locfileid: "58627407"
 
   只能通过添加到现有数据库来创建辅助数据库。 辅助数据库可在任何 Azure SQL 数据库服务器中创建。 创建完成之后，使用从主数据库复制的数据填充辅助数据库。 这个过程称为种子设定。 创建辅助数据库并设定其种子后，会自动以异步方式将主数据库的更新复制到辅助数据库。 异步复制是指先在主数据库上提交事务，然后将事务复制到辅助数据库。
 
-- **可读取的辅助数据库**
+- **可读的辅助数据库**
 
   应用程序可使用与访问主数据库时所用的相同或不同的安全主体来访问辅助数据库以执行只读操作。 辅助数据库在快照隔离模式下运行，以确保对主数据库的更新的复制（日志重播）不会因辅助数据库上执行的查询操作而延迟。
 
@@ -80,7 +80,7 @@ ms.locfileid: "58627407"
 
   将辅助角色切换为主要角色之前，计划内故障转移在主要数据库与辅助数据库之间执行完全同步。 这可以保证数据不会丢失。 计划内故障转移用于以下方案：(a) 在数据丢失是可以接受的情况下，在生产环境中进行 DR 演练；(b) 将数据库重新定位到另一区域；(c) 缓解服务中断（故障回复）后将数据库恢复到主要区域。
 
-- **未计划的故障转移**
+- **计划外故障转移**
 
   计划外故障转移或强制故障转移立即将辅助角色切换为主要角色，而不与主要节点进行任何同步。 此操作会导致数据丢失。 在服务中断期间当主要节点不可访问时，计划外故障转移将用作恢复方法。 原始主要节点重新联机后，将在不进行同步的情况下自动重新连接，并成为新的辅助节点。
 
@@ -95,7 +95,7 @@ ms.locfileid: "58627407"
 
   每个辅助数据库可单独参与弹性池或根本不在弹性池中。 每个辅助数据库的池选择是单独的，并且不会依赖任何其他辅助数据库的配置（无论是主数据库还是辅助数据库）。 每个弹性池都包含在一个区域内，因此，同一拓扑中的多个辅助数据库永远无法共享弹性池。
 
-- **可配置的辅助数据库计算大小**
+- **辅助数据库的可配置计算大小**
 
   主数据库和辅助数据库都需要有相同的服务层。 另外，强烈建议创建与主数据库具有相同计算大小（DTU 或 vCore）的辅助数据库。 如果辅助数据库的计算大小较低，则会面临复制延迟时间增大、辅助数据库可能不可用等风险，并因此导致在故障转移后丢失大量数据的风险。 因此，发布的 RPO = 5 秒无法保证。 另一个风险是，在故障转移后，在新的主数据库升级到较高的计算大小之前，应用程序的性能将由于新的主数据库缺少计算能力而受影响。 升级时间取决于数据库大小。 此外，当前这类升级要求主数据库和辅助数据库都处于联机状态，因此在中断缓解之前无法完成。 如果决定创建具有较低计算大小的辅助数据库，Azure 门户上的日志 IO 百分比图表提供了一种评估维持复制负荷所需的辅助数据库的最小计算大小的好办法。 例如，如果你的主数据库是 P6 (1000 DTU)，其日志 IO 百分比为 50%，则辅助数据库需要至少为 P4 (500 DTU)。 还可以使用 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 数据库视图检索日志 IO 数据。  有关 SQL 数据库计算大小的详细信息，请参阅[什么是 SQL 数据库服务层](sql-database-purchase-models.md)。
 
@@ -113,6 +113,12 @@ ms.locfileid: "58627407"
 
 > [!NOTE]
 > 如果辅助数据库是作为故障转移组配置的一个部分创建的，则我们不建议对辅助数据库进行降级。 这是为了确保激活故障转移后，数据层有足够的容量来处理常规工作负荷。
+
+> [!IMPORTANT]
+> 不能将故障转移组中的主数据库扩展到更高的层，除非已先将辅助数据库扩展到该层。 如果尝试在扩展辅助数据库之前扩展主数据库，可能会收到以下错误：
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止丢失关键数据
 
@@ -153,6 +159,8 @@ ms.locfileid: "58627407"
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell：管理单一数据库和池化数据库的故障转移
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 | Cmdlet | 说明 |
 | --- | --- |
@@ -181,9 +189,9 @@ ms.locfileid: "58627407"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 示例脚本请参阅：
-  - [配置单一数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [配置入池数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+- 有关示例脚本，请参阅：
+  - [使用活动异地复制配置单一数据库并对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [使用活动异地复制配置共用数据库并对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL 数据库还支持自动故障转移组。 有关详细信息，请参阅[自动故障转移组](sql-database-auto-failover-group.md)。
 - 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
 - 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)。

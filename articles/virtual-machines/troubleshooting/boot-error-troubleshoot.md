@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 15ce13dbfecbbb4f248c1aaab3cfd4cef2eeadc2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 48900cb90b9e44ae747d79f92c5f5b90df4d723c
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626304"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003940"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>对 Azure 虚拟机启动错误进行故障排除
 

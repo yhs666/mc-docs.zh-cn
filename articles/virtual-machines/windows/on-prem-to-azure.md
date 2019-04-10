@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/07/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e4d9e615cd44aec14e847137265165c40e3f17a
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 04d7963a45b3bf20d75998062a374d7639531dd8
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666399"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003966"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>从 Amazon Web Services (AWS) 和其他平台迁移到 Azure 中的托管磁盘
 
@@ -45,11 +45,10 @@ ms.locfileid: "56666399"
 
 ## <a name="overview-of-managed-disks"></a>托管磁盘概述
 
-Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管磁盘还受益于可用性集中 VM 的更佳可靠性。 这可确保将可用性集中不同 VM 的磁盘最大限度地彼此独立，以避免单点故障。 它会自动将可用性集中不同 VM 的磁盘置于不同的存储缩放单元（戳），限制由于硬件和软件故障引起的单个存储缩放单元故障影响。 根据需求，可以从两种类型的存储选项中进行选择： 
+Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管磁盘还受益于可用性集中 VM 的更佳可靠性。 这可确保将可用性集中不同 VM 的磁盘最大限度地彼此独立，以避免单点故障。 它会自动将可用性集中不同 VM 的磁盘置于不同的存储缩放单元（戳），限制由于硬件和软件故障引起的单个存储缩放单元故障影响。
+根据需求，可以从三种类型的存储选项中进行选择。 若要了解可用的磁盘类型，请参阅[选择磁盘类型](disks-types.md)一文。
 
-- [高级托管磁盘](premium-storage.md)是基于固态驱动器 (SSD) 的存储媒体，可为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 可以通过迁移到高级托管磁盘，充分利用这些磁盘的速度和性能。  
-
-- [标准托管磁盘](standard-storage.md)使用基于硬盘驱动器 (HDD) 的存储媒体，最适合用于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。  
+<!--Not Available on Ulter SSD-->
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>计划迁移到托管磁盘
 

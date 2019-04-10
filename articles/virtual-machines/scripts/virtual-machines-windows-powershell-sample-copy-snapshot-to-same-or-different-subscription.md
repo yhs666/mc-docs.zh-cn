@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 06/06/2017
-ms.date: 02/18/2019
+origin.date: 02/28/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9b74e818649a8f1bb24ed05d1770a373035877fe
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 47bc277ccd0daeab7a1025e618493de8ebc01cc9
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666311"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004127"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>在相同或不同订阅中通过 PowerShell 复制托管磁盘的快照
 
-此脚本在同一订阅或不同订阅中创建某个快照的副本。 使用此脚本将快照移到其他订阅中，进行数据保留。 不同订阅中的存储快照可防止意外删除主订阅中的快照。 
+此脚本会将托管磁盘的快照复制到相同或不同的订阅。 将此脚本用于以下方案：
+
+1. 将高级存储 (Premium_LRS) 中的快照迁移到标准存储（Standard_LRS 或 Standard_ZRS）以降低成本。
+1. 将快照从本地冗余存储（Premium_LRS、Standard_LRS）迁移到区域冗余存储（Standard_ZRS），以从 ZRS 存储的更高可靠性中受益。
+1. 将快照移到同一区域中的不同订阅，以延长保留时间。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -36,6 +40,9 @@ ms.locfileid: "56666311"
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+#Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 #Provide the subscription Id of the subscription where snapshot exists
 $sourceSubscriptionId='yourSourceSubscriptionId'
 
@@ -44,9 +51,6 @@ $sourceResourceGroupName='yourResourceGroupName'
 
 #Provide the name of the snapshot
 $snapshotName='yourSnapshotName'
-
-#Sign-in the Azure China Cloud
-Connect-AzAccount -Environment AzureChinaCloud
 
 #Set the context to the subscription Id where snapshot exists
 Select-AzSubscription -SubscriptionId $sourceSubscriptionId
@@ -65,7 +69,7 @@ $targetResourceGroupName='yourTargetResourceGroupName'
 #If snapshot is copied to the same subscription then you can skip this step
 Select-AzSubscription -SubscriptionId $targetSubscriptionId
 
-$snapshotConfig = New-AzSnapshotConfig -SourceResourceId $snapshot.Id -Location $snapshot.Location -CreateOption Copy 
+$snapshotConfig = New-AzSnapshotConfig -SourceResourceId $snapshot.Id -Location $snapshot.Location -CreateOption Copy -SkuName Standard_LRS
 
 #Create a new snapshot in the target subscription and resource group
 New-AzSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $targetResourceGroupName
@@ -82,7 +86,7 @@ New-AzSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGr
 
 ## <a name="next-steps"></a>后续步骤
 
-[从快照创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md)
+[从快照创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 

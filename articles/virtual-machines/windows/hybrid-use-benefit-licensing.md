@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/22/2018
-ms.date: 10/22/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0825afd7f59d0498b95e7ddfa43164a7c66981d7
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 79528e178a5e73395260ee0089d439eebeea6e60
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666176"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004085"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server 的 Azure 混合权益
 对于有软件保障的客户，Windows Server 的 Azure 混合权益可让你使用本地 Windows Server 许可证，并以较低成本在 Azure 中运行 Windows 虚拟机。 可以使用 Windows Server 的 Azure 混合权益部署 Windows OS 的新虚拟机。 本文介绍如何使用 Windows Server 的 Azure 混合权益部署新的 VM 的步骤，以及如何更新现有正在运行的 VM 的步骤。 有关 Windows Server 的 Azure 混合权益许可和成本节约方面的更多信息，请参阅[“Windows Server 的 Azure 混合权益许可”页](https://www.azure.cn/pricing/hybrid-use-benefit/)。
@@ -37,6 +37,8 @@ ms.locfileid: "56666176"
 > 对于经典 VM，仅支持从本地自定义映像部署新的 VM。 若要使用本文支持的功能，必须首先将经典 VM 迁移到资源管理器模型。
 >
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>使用 Windows Server 的 Azure 混合权益的方式
 可以通过以下几种方式将 Windows 虚拟机与 Azure 混合权限配合使用：
 
@@ -51,7 +53,8 @@ Windows Server 的 Azure 混合权益支持所有基于 Windows Server OS 的映
 ### <a name="portal"></a>门户
 若要使用 Windows Server 的 Azure 混合权益创建 VM，请使用“节省资金”部分下的切换。
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
@@ -72,14 +75,15 @@ az vm create \
 ```
 
 <!-- Add --image Win2016Datacenter -->
+
 ### <a name="template"></a>模板
 在资源管理器模板中，必须指定附加参数 `licenseType`。 可以阅读有关[创作 Azure 资源管理器模板](../../resource-group-authoring-templates.md)的详细信息
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>将现有 VM 转换为使用 Windows Server 的 Azure 混合权益
@@ -92,7 +96,7 @@ az vm create \
 ### <a name="portal"></a>门户
 从门户 VM 边栏选项卡中，可以通过选择"配置"选项将 VM 更新为使用 Azure 混合权益，然后切换“Azure 混合权益”选项
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 - 将现有 Windows Server VM 转换为 Windows Server 的 Azure 混合权益
 
     ```powershell
@@ -109,7 +113,8 @@ az vm create \
     Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
-    <!-- Verify successfully--> <!-- pay-in-advance with None, hybrid benefit with Windows_Server-->
+    <!-- Verify successfully-->
+    <!-- pay-in-advance with None, hybrid benefit with Windows_Server-->
 
 ### <a name="cli"></a>CLI
 - 将现有 Windows Server VM 转换为 Windows Server 的 Azure 混合权益
@@ -124,7 +129,7 @@ az vm create \
 ### <a name="portal"></a>门户
 从门户 VM 边栏选项卡中，选择“配置”选项卡即可查看 Windows Server 的 Azure 混合权益的切换。
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 以下示例显示单个 VM 的许可证类型
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
@@ -147,8 +152,9 @@ LicenseType              :
 ### <a name="cli"></a>CLI
 
 <!-- Should be --query licenseType-->
+
 ```azurecli
-az vm get-instance-view -g MyResourceGroup -n MyVM --query licenseType -o table
+az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 > [!NOTE]
@@ -161,9 +167,9 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query licenseType -o table
 ### <a name="portal"></a>门户
 从虚拟机或虚拟机规模集资源边栏选项卡中，可以通过将表列配置为包含“Azure 混合权益”来查看所有 VM 和许可类型的列表。 VM 设置可以处于“已启用”、“未启用”或“不支持”状态。
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -174,9 +180,8 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
-
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>使用 Windows Server 的 Azure 混合权益部署虚拟机规模集
-在虚拟机规模集资源管理器模板内，必须在 VirtualMachineProfile 属性中指定额外参数 `licenseType`。 可以通过 ARM 模板、Powershell、Azure CLI 或 REST，在为规模集创建或更新期间执行此操作。
+在虚拟机规模集资源管理器模板内，必须在 VirtualMachineProfile 属性中指定额外参数 `licenseType`。 可以通过 ARM 模板、PowerShell、Azure CLI 或 REST，在为规模集创建或更新期间执行此操作。
 
 以下示例将 ARM 模板用于 Windows Server 2016 Datacenter 映像：
 ```json
@@ -209,6 +214,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 - 详细了解 [Windows Server 的 Azure 混合权益和 Azure Site Recovery 让应用迁移到 Azure 更具成本效益](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
 <!-- Not Available on [Windows 10 on Azure with Multitenant Hosting Right](/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) -->
+
 - 详细了解如何[使用资源管理器模板](../../azure-resource-manager/resource-group-overview.md)
 
 <!-- Update_Description: update meta properties, wording update -->

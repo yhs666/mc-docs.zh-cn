@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/28/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ac31aad1eb3ed84c532148c651d9ef13734cd787
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 293801e9f6e7ba180f8569247b867fc3cad6d417
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625730"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004181"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -35,9 +35,10 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 > * 调整 VM 的大小
 > * 查看并了解 VM 状态
 
-## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 
 ## <a name="create-resource-group"></a>创建资源组
 
@@ -46,6 +47,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在以下示例中，在“ChinaEast”区域中创建了名为“myResourceGroupVM”的资源组：
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "ChinaEast"

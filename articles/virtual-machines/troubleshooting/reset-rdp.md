@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-origin.date: 10/31/2018
-ms.date: 02/18/2019
+origin.date: 03/25/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: a64370758f20ca8c5102875d6436364aa4a02aaa
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 3be8cff324bd15465a6102524425ccddb2482b48
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666313"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003977"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>重置远程桌面服务或其在 Windows VM 中的管理员密码
 如果无法连接到 Windows 虚拟机 (VM)，可以重置本地管理员密码或远程桌面服务配置（Windows 域控制器不支持此操作）。 若要重置密码，可以使用 Azure 门户或 Azure PowerShell 中的 VM 访问扩展。 登录到 VM 后，重置该本地管理员的密码。  
@@ -36,27 +36,29 @@ ms.locfileid: "56666313"
 
 首先，登录到 [Azure 门户](https://portal.azure.cn)，然后在左侧菜单中选择“虚拟机”。 
 
-### <a name="reset-the-local-administrator-account-password"></a>**重置本地管理员帐户密码**
+### **<a name="reset-the-local-administrator-account-password"></a>重置本地管理员帐户密码**
 
 1. 选择 Windows VM，然后在“支持 + 故障排除”下选择“重置密码”。 此时会显示“重置密码”窗口。
 
-1. 选择“重置密码”，输入用户名和密码，然后选择“更新”。 
+2. 选择“重置密码”，输入用户名和密码，然后选择“更新”。 
 
-1. 尝试重新连接到 VM。
+3. 尝试重新连接到 VM。
 
-### <a name="reset-the-remote-desktop-services-configuration"></a>**重置远程桌面服务配置**
+### **<a name="reset-the-remote-desktop-services-configuration"></a>重置远程桌面服务配置**
+
+此过程将启用 VM 中的远程桌面服务，并为默认 RDP 端口 3389 创建防火墙规则。
 
 1. 选择 Windows VM，然后在“支持 + 故障排除”下选择“重置密码”。 此时会显示“重置密码”窗口。 
 
-1. 依次选择“仅重置配置”、“更新”。 
+2. 依次选择“仅重置配置”、“更新”。 
 
-1. 尝试重新连接到 VM。
+3. 尝试重新连接到 VM。
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>使用 VMAccess 扩展和 PowerShell 重置
 
 首先，请确保已[安装并配置最新的 PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)，然后使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 登录到 Azure 订阅。
 
-### <a name="reset-the-local-administrator-account-password"></a>**重置本地管理员帐户密码**
+### **<a name="reset-the-local-administrator-account-password"></a>重置本地管理员帐户密码**
 
 - 使用 [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet 重置管理员密码或用户名。 `typeHandlerVersion` 设置必须为 2.0 或以上，因为版本 1 已弃用。 
 
@@ -74,7 +76,7 @@ ms.locfileid: "56666313"
     > [!NOTE] 
     > 如果在 VM 上输入不同于当前本地管理员帐户的名称，则 VMAccess 扩展使用该名称添加本地管理员帐户，将指定密码分配给该帐户。 如果 VM 上的本地管理员帐户存在，则 VMAccess 扩展将重置密码。 如果该帐户已禁用，则 VMAccess 扩展会将其启用。
 
-### <a name="reset-the-remote-desktop-services-configuration"></a>**重置远程桌面服务配置**
+### **<a name="reset-the-remote-desktop-services-configuration"></a>重置远程桌面服务配置**
 
 1. 使用 [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet 重置对 VM 的远程访问。 以下示例在名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM 上重置名为 `myVMAccess` 的访问扩展：
 

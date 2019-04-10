@@ -8,15 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 11/26/2018
+ms.date: 12/10/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 6023991b107672a7940a2335c43f1039b455fd18
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.openlocfilehash: ffd7096c57eb426b18ff8b845b2fd1c52903b2bf
+ms.sourcegitcommit: 780fa3d8b5538d324d3e13051abe6f5bd52208e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745215"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58812641"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -37,7 +36,7 @@ ms.locfileid: "52745215"
 > [!NOTE]
 > 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 让我们以 vCPU 配额为例。 如果要根据对 vCPU 的支持请求增加配额，则需要决定要在哪些区域中使用多少 vCPU，然后针对所需的 Azure 资源组 vCPU 配额的数量和区域发出特定请求。 因此，如果需要在中国北部使用 30 个 vCPU 在那里运行应用程序，则应专门在中国北部请求 30 个 vCPU。 但这不会增加任何其他区域的 vCPU 配额 - 仅中国北部会有 30 个 vCPU 配额。
 > <!-- -->
-> 因此，可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
+> 因此，请考虑针对任意区域中的工作负荷来确定所需的 Azure 资源组配额， 然后在需将内容部署到其中的每个区域中请求相应的量。 若要了解如何确定特定区域的当前配额，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
 >
 >
 

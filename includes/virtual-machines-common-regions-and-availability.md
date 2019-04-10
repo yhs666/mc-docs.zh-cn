@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/27/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8faf6d38c52b67416a7b12c901a72b1942f43ef3
-ms.sourcegitcommit: f6a287a11480cbee99a2facda2590f3a744f7e45
+ms.openlocfilehash: e58193020087eedcff438b086a80be5cac6d61c4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786750"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004206"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
 Azure 在中国的四个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
@@ -90,7 +90,7 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 有关不同存储类型和可用性选项的定价信息，请参阅 [Azure 存储器定价](https://www.azure.cn/pricing/details/storage/)。
 
 ## <a name="availability-sets"></a>可用性集
-可用性集是数据中心内的 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级存储](../articles/virtual-machines/windows/premium-storage.md)时，Azure SLA 适用于计划外维护事件。 
+可用性集是数据中心内的 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd) 时，Azure SLA 适用于计划外维护事件。
 
 可用性集由可防止硬件故障以及允许安全应用更新的两个额外分组构成 - 容错域 (FD) 和更新域 (UD)。 详细了解如何管理 [Linux VM](../articles/virtual-machines/linux/manage-availability.md) 或 [Windows VM](../articles/virtual-machines/windows/manage-availability.md) 的可用性。
 

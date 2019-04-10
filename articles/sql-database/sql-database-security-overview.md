@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto, carlrab, emlisa
 manager: digimobile
 origin.date: 02/04/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: c46b9e7a320caa575096399ab2426991893a19a0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.openlocfilehash: 3de8576c4f3f2ae4a222d2e1628dfbecc25f8ef9
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627688"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003469"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 

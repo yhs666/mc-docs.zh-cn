@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 186abe4e20cdfa8e1ded1b1eb477099788eaf82c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 11cb1da2cca1365c2f282cd955ccdab823568949
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625884"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004068"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -42,7 +42,7 @@ ms.locfileid: "58625884"
 > 
 > 
 
-还可以使用 `sudo waagent -deprovision+user` 通用化 Linux VM，并使用 PowerShell 捕获该 VM。 有关使用 CLI 捕获 VM 的信息，请参阅[如何使用 Azure CLI 通用化和捕获 Linux 虚拟机](../linux/capture-image.md)
+还可以使用 `sudo waagent -deprovision+user` 通用化 Linux VM，并使用 PowerShell 捕获该 VM。 有关使用 CLI 捕获 VM 的信息，请参阅[如何使用 Azure CLI 通用化和捕获 Linux 虚拟机](../linux/capture-image.md)。
 
 1. 登录到 Windows 虚拟机。
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 **%windir%\system32\sysprep**，然后运行 `sysprep.exe`。
@@ -122,7 +122,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
 
 ### <a name="set-the-uri-of-the-vhd"></a>设置 VHD 的 URI
 
-VHD 使用的 URI 采用以下格式： https://<strong>mystorageaccount</strong>.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
+VHD 使用的 URI 采用以下格式： https://**mystorageaccount**.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myVhd.vhd"

@@ -10,12 +10,12 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 61e53f3ea42f14651d54a8d033ab8bc1509e2c3f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 956616ff2bfe96e4286b0e46226f842b125f1965
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627319"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890194"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>通过 IoT Edge 上的 Azure Blob 存储（预览版）在边缘存储数据
 
@@ -158,7 +158,7 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 
 1. 选择“视图” > “命令面板”。 
 
-2. 在“命令面板”中，输入并运行 Azure IoT Edge：**New IoT Edge solution** 命令。 按命令面板中的提示创建解决方案。
+2. 在命令面板中，输入并运行命令 **`Azure IoT Edge: New IoT Edge Solution`**。 按命令面板中的提示创建解决方案。
 
    | 字段 | 值 |
    | ----- | ----- |
@@ -352,7 +352,7 @@ Azure IoT Edge 在 Visual Studio Code 中提供模板，以帮助你开发边缘
 将你的 IoT Edge 设备指定为对其进行的任何存储请求的 blob 终结点。 你可以使用 IoT Edge 设备信息和配置的帐户名[为显式存储终结点创建连接字符串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint)。 
 
 1. 对于部署在运行“IoT Edge 上的 Azure Blob 存储”的同一边缘设备上的模块，Blob 终结点为：`http://<module name>:11002/<account name>`。 
-2. 对于部署在不同边缘设备，而非运行“IoT Edge 上的 Azure Blob 存储”的边缘设备上的模块，Blob 终结点为：`http://<device IP >:11002/<account name>`、`http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`，具体取决于设置
+2. 对于部署在不同边缘设备，而非运行“IoT Edge 上的 Azure Blob 存储”的边缘设备上的模块，则根据设置的不同，Blob 终结点为：`http://<device IP >:11002/<account name>`、`http://<IoT Edge device hostname>:11002/<account name>` 或 `http://<FQDN>:11002/<account name>`
 
 ## <a name="deploy-multiple-instances"></a>部署多个实例
 

@@ -7,14 +7,14 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 4e8fa878318f79df02c12387d9a785428e0a7c24
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 6d6016a3f48fe13584e6d5abf347f9738a3d7548
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665527"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890221"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -30,7 +30,7 @@ Azure 存储为 Blob 存储提供三个内置的 RBAC 角色：
 
 - [存储 Blob 数据所有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
 - [存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [存储 Blob 数据读者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [存储 Blob 数据读取者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
 
 通过上述三个内置角色之一或某个自定义角色授予用户或服务主体 RBAC 数据权限后，在授权请求时首先评估这些权限。 如果请求的操作由调用方的 RBAC 分配授权，则立即解析授权，不执行额外的 ACL 检查。 或者，如果调用方没有 RBAC 分配或请求的操作与分配的权限不匹配，则通过执行 ACL 检查来确定调用方是否有权执行请求的操作。
 
@@ -280,7 +280,18 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>为什么我时候在 ACL 中看到了 GUID？
 
-如果条目表示一个用户且该用户不再位于 Azure AD 中，则显示 GUID。 当用户离职，或者其帐户已在 Azure AD 中删除时，往往会发生这种情况。 此外，服务主体和安全组没有用于标识它们的用户主体名称 (UPN)，因此用它们的 OID 属性（即一个 GUID）来表示它们。 
+如果条目表示一个用户且该用户不再位于 Azure AD 中，则显示 GUID。 当用户离职，或者其帐户已在 Azure AD 中删除时，往往会发生这种情况。 此外，服务主体和安全组没有用于标识它们的用户主体名称 (UPN)，因此用它们的 OID 属性（即一个 GUID）来表示它们。
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>如何为服务主体正确设置 ACL？
+
+为服务主体定义 ACL 时，必须使用所创建应用注册的服务主体的对象 ID (OID)。 请务必注意，注册的应用在特定的 Azure AD 租户中具有独立的服务主体。 注册的应用会在 Azure 门户中显示一个 OID，但服务主体具有另一个（不同的）OID。
+
+若要获取服务主体的对应于应用注册的 OID，可以使用 `az ad sp show` 命令。 指定应用程序 ID 作为参数。 以下示例获取服务主体的 OID，该 OID 对应于应用 ID 为 18218b12-1895-43e9-ad80-6e8fc1ea88ce 的应用注册。 在 Azure CLI 中运行以下命令：
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+获取服务主体的正确 OID 后，转到存储资源管理器的“管理访问权限”页，以添加该 OID 并为其分配适当的的权限。 请务必选择“保存”。
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 是否支持 ACL 继承？
 
@@ -291,13 +302,13 @@ ACL 不支持继承。 但是，可以使用默认 ACL 来设置父目录下创�
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>在哪里可以了解 POSIX 访问控制模型的详细信息？
 
 * [Linux 上的 POSIX 访问控制列表](https://www.linux.com/news/posix-acls-linux)
-* [HDFS 权限指南](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [HDFS 权限指南](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [POSIX 常见问题解答](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [Ubuntu 上的 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [在 Linux 上使用访问控制列表 (ACL)](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [在 Linux 上使用访问控制列表 (ACL)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>另请参阅
 

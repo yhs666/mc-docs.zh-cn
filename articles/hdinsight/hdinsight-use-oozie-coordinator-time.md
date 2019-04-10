@@ -13,20 +13,22 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/04/2017
-ms.date: 02/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3c447b5d018e2d20ab7beedc20019ee9b1f81755
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: ebe6816b933a0992cadec9a9e4a04620817e0002
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906140"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004050"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>将基于时间的 Apache Oozie 协调器与 HDInsight 中的 Apache Hadoop 配合使用以定义工作流并协调作业
 在本文中，可以学习如何定义工作流和协调器，以及如何基于时间触发协调器作业。 阅读本文前，浏览[将 Oozie 与 Apache HDInsight 配合使用][hdinsight-use-oozie]很有帮助。 
 
 > [!NOTE]
 > 本文需要基于 Windows 的 HDInsight 群集。 有关在基于 Linux 的群集上使用 Oozie 的信息，包括基于时间的作业，请参阅[在基于 Linux 的 HDInsight 上将 Oozie 与 Hadoop 配合使用以定义和运行工作流](hdinsight-use-oozie-linux-mac.md)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-is-oozie"></a>什么是 Oozie
 Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Hadoop 堆栈集成，支持 Apache Hadoop MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。 此外，还可用于调度系统特定作业，如 Java 程序或 shell 脚本。
@@ -73,23 +75,23 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
 
 * **HDInsight 群集**。 有关创建 HDInsight 群集的信息，请参阅[创建 HDInsight 群集][hdinsight-provision]或 [HDInsight 入门][hdinsight-get-started]。 需要以下数据才能完成本教程：
 
-    <table border = "1">
-    <tr><th>群集属性</th><th>Windows PowerShell 变量名</th><th>值</th><th>说明</th></tr>
-    <tr><td>HDInsight 群集名称</td><td>$clusterName</td><td></td><td>要在其中运行本教程的 HDInsight 群集。</td></tr>
-    <tr><td>HDInsight 群集用户名</td><td>$clusterUsername</td><td></td><td>HDInsight 群集用户名。 </td></tr>
-    <tr><td>HDInsight 群集用户密码 </td><td>$clusterPassword</td><td></td><td>HDInsight 群集用户的密码。</td></tr>
-    <tr><td>Azure 存储帐户名称</td><td>$storageAccountName</td><td></td><td>可用于 HDInsight 群集的 Azure 存储帐户。 在本教程中，使用在群集设置过程中指定的默认存储帐户。</td></tr>
-    <tr><td>Azure Blob 容器名称</td><td>$containerName</td><td></td><td>在此示例中，使用用于默认 HDInsight 群集文件系统的 Azure Blob 存储容器。 默认情况下，该容器与 HDInsight 群集同名。</td></tr>
-    </table>Azure SQL 数据库
-* ****。 必须为 SQL 数据库服务器配置防火墙规则，以允许从工作站访问。 有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅使用 [Azure SQL 数据库入门][sqldatabase-get-started]。 本文提供用于创建本教程所需 Azure SQL 数据库表的 Windows PowerShell 脚本。
+    |群集属性|Windows PowerShell 变量名|值|说明|
+    |---|---|---|---|
+    |HDInsight 群集名称|$clusterName||要在其中运行本教程的 HDInsight 群集。|
+    |HDInsight 群集用户名|$clusterUsername||HDInsight 群集用户名。 |
+    |HDInsight 群集用户密码 |$clusterPassword||HDInsight 群集用户的密码。|
+    |Azure 存储帐户名称|$storageAccountName||可用于 HDInsight 群集的 Azure 存储帐户。 在本教程中，使用在群集设置过程中指定的默认存储帐户。|
+    |Azure Blob 容器名称|$containerName||在此示例中，使用用于默认 HDInsight 群集文件系统的 Azure Blob 存储容器。 默认情况下，该容器与 HDInsight 群集同名。|
 
-    <table border = "1">
-    <tr><th>SQL 数据库属性</th><th>Windows PowerShell 变量名</th><th>值</th><th>说明</th></tr>
-    <tr><td>SQL 数据库服务器名称</td><td>$sqlDatabaseServer</td><td></td><td>作为 Sqoop 数据导出目标的 SQL 数据库服务器。 </td></tr>
-    <tr><td>SQL 数据库登录名</td><td>$sqlDatabaseLogin</td><td></td><td>SQL 数据库的登录名。</td></tr>
-    <tr><td>SQL 数据库登录密码</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL 数据库的登录密码。</td></tr>
-    <tr><td>SQL 数据库名</td><td>$sqlDatabaseName</td><td></td><td>作为 Sqoop 数据导出目标的 Azure SQL 数据库。 </td></tr>
-    </table>
+
+* Azure SQL 数据库。 必须为 SQL 数据库服务器配置防火墙规则以允许从工作站进行访问。 有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅 [开始使用 Azure SQL 数据库][sqldatabase-get-started]。 本文提供了用于创建本教程所需的 Azure SQL 数据库表的 Windows PowerShell 脚本。
+
+    |SQL 数据库属性|Windows PowerShell 变量名|值|说明|
+    |---|---|---|---|
+    |SQL 数据库服务器名称|$sqlDatabaseServer||作为 Sqoop 数据导出目标的 SQL 数据库服务器。 |
+    |SQL 数据库登录名|$sqlDatabaseLogin||SQL 数据库的登录名。|
+    |SQL 数据库登录密码|$sqlDatabaseLoginPassword||SQL 数据库的登录密码。|
+    |SQL 数据库名|$sqlDatabaseName||作为 Sqoop 数据导出目标的 Azure SQL 数据库。 |
 
   > [!NOTE]
   > 默认情况下，可从 Azure 服务（如 Azure HDInsight）连接 Azure SQL 数据库。 如果禁用了此防火墙设置，则必须从 Azure 门户启用它。 有关创建 SQL 数据库和配置防火墙规则的说明，请参阅 [创建和配置 SQL 数据库][sqldatabase-get-started]。
@@ -129,7 +131,7 @@ Oozie 工作流定义是用 hPDL（一种 XML 过程定义语言）编写的。 
 
 **定义工作流**
 
-1. 创建一个内容如下的文本文件：
+1. 创建包含以下内容的文本文件：
 
     ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
@@ -194,30 +196,27 @@ Oozie 工作流定义是用 hPDL（一种 XML 过程定义语言）编写的。 
 
     工作流变量
 
-    <table border = "1">
-    <tr><th>工作流变量</th><th>说明</th></tr>
-    <tr><td>${jobTracker}</td><td>指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 群集版本 3.0 和 2.0 上使用 jobtrackerhost:9010。</td></tr>
-    <tr><td>${nameNode}</td><td>指定 Hadoop 名称节点的 URL。 使用默认的文件系统 wasb:// 地址，例如 <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.chinacloudapi.cn</i>。</td></tr>
-    <tr><td>${queueName}</td><td>指定要将作业提交到的队列名称。 使用“默认”。</td></tr>
-    </table>
+    |工作流变量|说明|
+    |---|---|
+    |${jobTracker}|指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 群集版本 3.0 和 2.0 上使用 jobtrackerhost:9010。|
+    |${nameNode}|指定 Hadoop 名称节点的 URL。 请使用默认的文件系统 wasb:// 地址，例如 *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*。|
+    |${queueName}|指定要将作业提交到的队列名称。 使用“默认”。|
 
     Hive 操作变量
 
-    <table border = "1">
-    <tr><th>Hive 操作变量</th><th>说明</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>Hive Create Table 命令的源目录。</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 语句的输出文件夹。</td></tr>
-    <tr><td>${hiveTableName}</td><td>引用 log4j 数据文件的 Hive 表的名称。</td></tr>
-    </table>
+    |Hive 操作变量|说明|
+    |----|----|
+    |${hiveDataFolder}|Hive Create Table 命令的源目录。|
+    |${hiveOutputFolder}|INSERT OVERWRITE 语句的输出文件夹。|
+    |${hiveTableName}|引用 log4j 数据文件的 Hive 表的名称。|
 
     Sqoop 操作变量
 
-    <table border = "1">
-    <tr><th>Sqoop 操作变量</th><th>说明</th></tr>
-    <tr><td>${sqlDatabaseConnectionString}</td><td>SQL 数据库连接字符串。</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>数据导出的目标 Azure SQL 数据库表。</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 语句的输出文件夹。 这是用于 Sqoop 导出 (export-dir) 的同一个文件夹。</td></tr>
-    </table>
+    |Sqoop 操作变量|说明|
+    |---|---|
+    |${sqlDatabaseConnectionString}|SQL 数据库连接字符串。|
+    |${sqlDatabaseTableName}|数据导出的目标 Azure SQL 数据库表。|
+    |${hiveOutputFolder}|Hive INSERT OVERWRITE 语句的输出文件夹。 这是用于 Sqoop 导出 (export-dir) 的同一个文件夹。|
 
     有关 Oozie 工作流和使用工作流操作的详细信息，请参阅 [Apache Oozie 4.0 文档][apache-oozie-400]（对于 HDInsight 群集 3.0 版）或 [Apache Oozie 3.3.2 文档][apache-oozie-332]（对于 HDInsight 群集 2.1 版）。
 
@@ -336,15 +335,15 @@ HDInsight 使用 Azure Blob 存储进行数据存储。 在 Azure Blob 存储中
 
     ```powershell
     # Create a storage context object
-    $storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+    $storageaccountkey = get-AzStoragekey $storageAccountName | %{$_.Primary}
+    $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
     function uploadOozieFiles()
     {
         Write-Host "Copy HiveQL script, workflow definition and coordinator definition ..." -ForegroundColor Green
-        Set-AzureStorageBlobContent -File $hiveQLScript -Container $containerName -Blob "$destFolder/useooziewf.hql" -Context $destContext
-        Set-AzureStorageBlobContent -File $workflowDefinition -Container $containerName -Blob "$destFolder/workflow.xml" -Context $destContext
-        Set-AzureStorageBlobContent -File $coordDefinition -Container $containerName -Blob "$destFolder/coordinator.xml" -Context $destContext
+        Set-AzStorageBlobContent -File $hiveQLScript -Container $containerName -Blob "$destFolder/useooziewf.hql" -Context $destContext
+        Set-AzStorageBlobContent -File $workflowDefinition -Container $containerName -Blob "$destFolder/workflow.xml" -Context $destContext
+        Set-AzStorageBlobContent -File $coordDefinition -Container $containerName -Blob "$destFolder/coordinator.xml" -Context $destContext
     }
 
     function prepareHiveDataFile()
@@ -670,7 +669,7 @@ HDInsight 使用 Azure Blob 存储进行数据存储。 在 Azure Blob 存储中
 
 **检查作业错误日志**
 
-若要解决工作流的疑难问题，可从群集头节点中的 C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log 位置找到 Oozie 日志文件。 有关 RDP 的信息，请参阅[使用 Azure 门户管理 HDInsight 群集][hdinsight-admin-portal]。
+若要解决工作流的疑难问题，可从群集头节点中的 C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log 位置找到 Oozie 日志文件。 有关 RDP 的信息，请参阅[使用 Azure 门户在 HDInsight 中管理 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
 **重新运行教程**
 
@@ -693,9 +692,9 @@ $sqlDatabaseName = "<SQLDatabaseName>"
 $sqlDatabaseTableName = "log4jLogsCount"
 
 Write-host "Delete the Hive script output file ..." -ForegroundColor Green
-$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-Remove-AzureStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $containerName
+$storageaccountkey = get-AzStoragekey $storageAccountName | %{$_.Primary}
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+Remove-AzStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $containerName
 
 Write-host "Delete all the records from the log4jLogsCount table ..." -ForegroundColor Green
 $conn = New-Object System.Data.SqlClient.SqlConnection

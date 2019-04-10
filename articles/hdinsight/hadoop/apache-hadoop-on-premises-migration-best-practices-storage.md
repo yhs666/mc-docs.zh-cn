@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/25/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 013c92c57af1d70cba79058d778fd34b8d6ca091
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fd4dc5d730f126d22af3fb10dc5821f6e36e7720
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625435"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004116"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 存储最佳做法
 
@@ -76,14 +76,42 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 有关详细信息，请参阅以下文章：
 
 - [将 Azure 存储与 Azure HDInsight 群集配合使用](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure 存储伸缩性和性能目标](../../storage/common/storage-scalability-targets.md)
+- [Azure 存储可伸缩性和性能目标](../../storage/common/storage-scalability-targets.md)
 - [Microsoft Azure 存储性能和可伸缩性清单](../../storage/common/storage-performance-checklist.md)
 - [监视、诊断和排查 Microsoft Azure 存储问题](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [在 Azure 门户中监视存储帐户](../../storage/common/storage-monitor-storage-account.md)
+- [监视 Azure 门户中的存储帐户](../../storage/common/storage-monitor-storage-account.md)
 
 
 
 
+### <a name="azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2（预览版）
+
+Azure Data Lake Storage Gen2 是最新的存储产品/服务，在撰写本文时正处于预览阶段。 它统一了第一代 Azure Data Lake Storage 的核心功能和直接集成到 Azure Blob 存储中的 Hadoop 兼容文件系统。 此增强功能将对象存储的规模和成本优势与通常仅与本地文件系统相关联的可靠性和性能相结合。
+
+ADLS Gen 2 基于  [Azure Blob 存储](../../storage/blobs/storage-blobs-introduction.md)构建，可使用文件系统和对象存储范例与数据进行交互。 在 Data Lake Storage Gen2 中，在添加针对分析工作负载优化的文件系统接口的优点的同时，还保留了对象存储的所有功能。
+
+Data Lake Storage Gen2 的一个基本功能是，在 Blob 存储服务中添加一个 [分层命名空间](../../storage/data-lake-storage/namespace.md) ，将对象/文件组织成用于执行数据访问的目录层次结构。 这种层次结构启用了诸如重命名或删除目录之类的操作在目录上成为单个原子元数据操作，而不是枚举或处理共享目录名称前缀的所有对象。
+
+过去，基于云的分析必须在性能、管理和安全性方面做出妥协。 Azure Data Lake Storage (ADLS) Gen2 的主要功能如下：
+
+- **Hadoop 兼容访问**：使用 Azure Data Lake Storage Gen2，可以像使用  [Hadoop 分布式文件系统 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。  [Azure HDInsight](../index.yml) 中包含的所有 Apache Hadoop 环境中都提供了新的  [ABFS 驱动程序](../../storage/data-lake-storage/abfs-driver.md) 。 通过此驱动程序可访问存储在 Data Lake Storage Gen2 中的数据。
+
+- **POSIX 权限的超集**：Data Lake Gen2 的安全模型完全支持 ACL 和 POSIX 权限，以及特定于 Data Lake Storage Gen2 的一些额外粒度。 可以通过管理工具或 Hive 和 Spark 等框架配置设置。
+
+- **经济高效**：Data Lake Storage Gen2 具有低成本的存储容量和事务。 随着数据在其整个生命周期中的转换，账单费率变化通过诸如 Azure Blob 存储生命周期的内置功能使成本保持在最低水平。
+
+- **使用 Blob 存储工具、框架和应用**：Data Lake Storage Gen2 可以继续使用目前适用于 Blob 存储的各种工具、框架和应用程序。
+
+- **已优化的驱动程序**：Azure Blob 文件系统驱动程序 (ABFS) 针对大数据分析进行了 [专门优化](../../storage/data-lake-storage/abfs-driver.md) 。 相应的 REST API 通过 dfs 终结点 dfs.core.windows.net 进行显示。
+
+可以使用以下格式之一访问存储在 ADLS Gen2 中的数据：
+- `abfs:///`:访问群集的默认 Data Lake Storage。
+- `abfs[s]://file_system@account_name.dfs.core.windows.net`:与非默认 Data Lake Storage 通信时使用。
+有关详细信息，请参阅以下文章：
+
+- [Azure Data Lake Storage Gen2 预览版简介](../../storage/data-lake-storage/introduction.md)
+- [Azure Blob FileSystem 驱动程序 (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>在本地 Hadoop 群集配置中保护 Azure 存储密钥
 
@@ -132,9 +160,9 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 2. SASToken.py 文件附带 `ContainerPermissions.READ + ContainerPermissions.LIST` 权限，可以根据用例进行调整。
 
-3. 按如下所示执行脚本：`python SASToken.py`
+3. 按如下所示执行脚本： `python SASToken.py`
 
-4. 脚本完成后，会显示如以下文本所示的 SAS 令牌：`sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
+4. 脚本完成后，显示如以下文本所示的 SAS 令牌： `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. 要限制对具有共享访问签名的容器的访问，请在“Ambari HDFS 配置高级自定义”核心站点的“添加”属性下为群集的核心站点配置添加自定义条目。
 
@@ -184,7 +212,6 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 有关详细信息，请参阅以下文章：
 - [将其他存储帐户添加到 HDInsight](../hdinsight-hadoop-add-storage.md)
-- [将其他 Azure 存储帐户附加到该群集](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## <a name="next-steps"></a>后续步骤
 

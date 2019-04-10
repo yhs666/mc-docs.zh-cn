@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/21/2018
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: ab59b8615702be312d983250b7bbd706fa066b1e
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: b925b49b5dbd46193412b8519544408e9cd7f83d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302973"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003743"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
@@ -25,7 +25,7 @@ ms.locfileid: "56302973"
 ## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy 泄漏交互式会话
 如果 [Apache Livy](https://livy.incubator.apache.org/) 在某个交互式会话仍保持活动状态的情况下重启（通过 [Apache Ambari](https://ambari.apache.org/) 重启或由于头节点 0 虚拟机重启导致），则会泄漏交互式作业会话。 因此，新作业可能会停滞在“已接受”状态。
 
-**缓解：**
+**缓解措施：**
 
 请使用以下步骤解决该问题：
 
@@ -45,7 +45,7 @@ ms.locfileid: "56302973"
 ## <a name="spark-history-server-not-started"></a>Spark History Server未启动
 创建群集后，Spark History Server 不自动启动。  
 
-**缓解：** 
+**缓解措施：** 
 
 从 Ambari 手动启动 History Server。
 
@@ -57,7 +57,7 @@ java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permissio
 ```
 并且不会写入任何驱动程序日志。 
 
-**缓解：**
+**缓解措施：**
 
 1. 将 hdiuser 添加到 Hadoop 组。 
 2. 创建群集后，提供对 /var/log/spark 的 777 权限。 
@@ -68,7 +68,7 @@ java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permissio
 
 HDInsight Spark 群集不支持 Spark-Phoenix 连接器。
 
-**缓解：**
+**缓解措施：**
 
 必须改用 Spark-HBase 连接器。 相关说明请参阅[如何使用 Spark-HBase 连接器](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
 
@@ -81,7 +81,7 @@ HDInsight Spark 群集不支持 Spark-Phoenix 连接器。
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>加载大型笔记本时发生错误
 加载大型笔记本时，可能会看到错误“ **`Error loading notebook`** 。  
 
-**缓解：**
+**缓解措施：**
 
 收到此错误并不表示数据已损坏或丢失。  笔记本仍在磁盘上的 `/var/lib/jupyter` 中，可以通过 SSH 连接到群集来访问它。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -114,9 +114,9 @@ HDInsight Spark 群集不支持 Spark-Phoenix 连接器。
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>方案
-* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
@@ -128,10 +128,10 @@ HDInsight Spark 群集不支持 Spark-Phoenix 连接器。
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
+* [将外部包与 Jupyter 笔记本配合使用](apache-spark-jupyter-notebook-use-external-packages.md)
+* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
+* [跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业](apache-spark-job-debugging.md)
 

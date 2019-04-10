@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 09/017/2018
-ms.date: 02/18/2019
+origin.date: 09/17/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 12d374c830cf3fc4e2062510c1ffeb0d9a44ed56
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ab8c5d5376576c4bd84d27e76239f0ac1acd2fd4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666312"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004035"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure 中 Windows VM 的时间同步
 
@@ -175,8 +175,8 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 下面是有关时间同步的更多详细信息的链接：
 
 - [Windows 时间服务工具和设置](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Windows Server 2016 Improvements](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)（Windows Server 2016 改进）
+- [Windows Server 2016 改进](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
 - [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)（为高准确性环境配置 Windows 时间服务所需的支持边界）
+- [为高准确性环境配置 Windows 时间服务所需的支持边界](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
 
 <!-- Update_Description: wording update-->

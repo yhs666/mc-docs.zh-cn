@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/18/2019
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: ca12efe40dbee165d4b96583e9cbd16835bc8d09
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 965a4392e8bf0326b81974c151dc9aeb5d9a90f9
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253909"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890143"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -56,7 +56,9 @@ ms.locfileid: "58253909"
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>更改帐户的复制策略是否产生任何费用？
 这取决于转换路径。 从最便宜到最昂贵的冗余产品/服务依次为 LRS、GRS 和 RA-GRS。 例如，从 LRS 转移到其他任何存储会产生额外的费用，因为这是转移到更高级的冗余级别。 转移到 GRS 或 RA-GRS 会产生出口带宽费用，因为（主要区域中的）数据将复制到远程次要区域。 这是在初始设置期间收取的一次性费用。 复制数据后，无需进一步支付转换费用。 只有在复制任何新数据，或者复制现有数据的更新时才要付费。 有关带宽费用的详细信息，请参阅 [Azure 存储定价页面](https://www.azure.cn/pricing/details/storage/blobs/)。
 
-如果从 GRS 更改为 LRS，则不会产生额外的费用，但从次要位置复制的数据将被删除。
+如果将存储帐户从 GRS 转换为 LRS，则不会产生额外的费用，但从次要位置复制的数据将被删除。
+
+如果将存储帐户从 RA-GRS 转换为 GRS 或 LRS，则会在完成转换 30 天后以 RA-GRS 方式对该帐户计费。
 
 ## <a name="see-also"></a>另请参阅
 
@@ -64,6 +66,6 @@ ms.locfileid: "58253909"
 - [异地冗余存储 (GRS)：Azure 存储的跨区域复制](storage-redundancy-grs.md)
 - [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)
 - [使用 RA-GRS 存储设计高度可用的应用程序](../storage-designing-ha-apps-with-ragrs.md)
-- [Azure 存储冗余选项和读取访问异地冗余存储](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Azure 存储冗余选项和读取访问异地冗余存储 ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP 论文 - Azure 存储：具有高度一致性的高可用云存储服务](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 <!--Update_Description: main content struture update-->

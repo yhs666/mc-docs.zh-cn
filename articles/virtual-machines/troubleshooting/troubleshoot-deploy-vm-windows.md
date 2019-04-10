@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/01/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3ad036f85b206c700a188dac504c861bf51e93db
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 4359d6d333573ec442fa759cbe69459708d8bfc3
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666364"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003704"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 

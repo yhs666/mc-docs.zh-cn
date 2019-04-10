@@ -6,14 +6,14 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/11/2018
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
-ms.openlocfilehash: fa037e9f89f508ce4d9484da41030c816a5d0ec4
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 4662de6e03899535b1a714258f2635296370ad49
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665394"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890139"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>在 Azure 门户中管理存储帐户设置
 
@@ -21,9 +21,9 @@ ms.locfileid: "56665394"
 
 ## <a name="access-control"></a>访问控制
 
-Azure 存储支持通过基于角色的访问控制 (RBAC)，针对 Blob 存储和队列存储（预览版）使用 Azure Active Directory 进行身份验证。 有关使用 Azure AD 进行身份验证的详细信息，请参阅[使用 Azure Active Directory验证对 Azure blob 和队列的访问权限（预览版）](storage-auth-aad.md)。
+Azure 存储支持通过基于角色的访问控制 (RBAC)，针对 Blob 存储和队列存储使用 Azure Active Directory 进行身份验证。 有关使用 Azure AD 进行身份验证的详细信息，请参阅[使用 Azure Active Directory验证对 Azure blob 和队列的访问权限](storage-auth-aad.md)。
 
-Azure 门户中的“访问控制”设置提供了一种将 RBAC 角色分配给用户、组、服务主体和托管标识的简单方法。 有关分配 RBAC 角色的详细信息，请参阅[使用 RBAC 管理 blob 和队列数据的访问权限（预览版）](storage-auth-aad-rbac.md)。
+Azure 门户中的“访问控制”设置提供了一种将 RBAC 角色分配给用户、组、服务主体和托管标识的简单方法。 有关分配 RBAC 角色的详细信息，请参阅[使用 RBAC 管理 blob 和队列数据的访问权限](storage-auth-aad-rbac.md)。
 
 > [!NOTE]
 > 与其他授权方式相比，使用 Azure AD 凭据对用户或应用程序进行身份验证可以提供优越的安全性和易用性。 虽然可以继续为应用程序使用共享密钥授权，但是，使用 Azure AD 不需要将帐户访问密钥与代码存储在一起。 也可以继续使用共享访问签名 (SAS) 授予对存储帐户中的资源的精细访问权限，但 Azure AD 提供了类似的功能，并且不需要管理 SAS 令牌，也不需要担心吊销已泄露的 SAS。 

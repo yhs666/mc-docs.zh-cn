@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/30/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 622389688c7f6d6ec1c0ef496dba392532f99cf2
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 08179a8125172d841e2bfc38ee23d185c102111e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666108"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004027"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和部署高度可用的虚拟机
 
@@ -44,9 +44,10 @@ ms.locfileid: "56666108"
 
 在 Azure 中部署基于 VM 的可靠解决方案时，使用可用性集。
 
-## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
+## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 
 ## <a name="create-an-availability-set"></a>创建可用性集
 

@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 90db1befca03ce18e24a02467e41e04f3124b747
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 262b1a9aaf02c92e457faa1c49f801d46b37b047
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736216"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004539"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中将基础结构自动化工具与虚拟机配合使用
 若要以一致的方式大规模创建和管理 Azure 虚拟机 (VM)，通常需要某种形式的自动化。 可以通过许多工具和解决方案来自动完成整个 Azure 基础结构部署和管理生命周期。 本文介绍了一些可以在 Azure 中使用的基础结构自动化工具。 这些工具通常适合以下某个方法：
@@ -59,7 +59,8 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 |CoreOS |CoreOS |Stable |最新 |是 |
 |OpenLogic |CentOS |7-CI |最新 |预览 |
 
-<!-- Not Available on RedHat --> 了解有关 Azure 上的 cloud-init 的更多详细信息：
+<!-- Not Available on RedHat -->
+了解有关 Azure 上的 cloud-init 的更多详细信息：
 
 - [Cloud-init 对 Azure 中 Linux 虚拟机的支持](../articles/virtual-machines/linux/using-cloud-init.md)
 - [试着学习使用 cloud-init 自动进行 VM 配置的教程](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。

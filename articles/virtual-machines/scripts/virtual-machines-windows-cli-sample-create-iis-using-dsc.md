@@ -8,21 +8,21 @@ manager: digimobile
 editor: tysonn
 tags: ''
 ms.assetid: ''
-ms.service: virtual-machines-Windows
+ms.service: virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/23/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1be207d3e740e6643b4ab2d3a2e7392153d786f4
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: e9d24f7f61df469532e55f664d6c5106df50f6db
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666324"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003702"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>使用 DSC 创建具有 IIS 的 VM
 

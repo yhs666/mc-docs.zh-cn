@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 11/02/2018
-ms.date: 03/11/2019
-ms.openlocfilehash: 791bea97070de42e2b52f7c2e8e6f4b8f290f791
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.openlocfilehash: e5ac02407b24e18e4c59a317f5bbe305e6df4e78
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627654"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003511"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -41,7 +41,7 @@ ms.locfileid: "58627654"
 * [Azure 门户](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [命令行接口 (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
 1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
@@ -57,7 +57,7 @@ ms.locfileid: "58627654"
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
 5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则平均 CPU 高于 80% 达到 5 分钟时触发警报。 第一次触发结束后，当平均 CPU 低于 80% 的时间超过 5 分钟时，将再次触发。 每 1 分钟对 CPU 进行一次测量。 请参阅下表，了解支持的时间窗口和每个警报使用的聚合类型（并非所有警报都使用平均值）。   
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。
-7. 触发警报时，如果希望其他电子邮件收到通知，请将其添加到“其他管理员电子邮件”字段下。 用分号隔开多个电子邮件 - <em>email@contoso.com;email2@contoso.com</em>
+7. 触发警报时，如果希望其他电子邮件收到通知，请将其添加到“其他管理员电子邮件”字段下。 用分号隔开多个电子邮件 - *email\@contoso.com;email2\@contoso.com*
 8. 触发警报时，如果希望调用有效的 URI，请将其放入“Webhook”字段。
 9. 警报创建完成后，选择“确定”。   
 

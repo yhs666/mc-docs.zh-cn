@@ -9,32 +9,34 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 05/07/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: dd2bb69ca27c8936e60fbc9c36f75d38b56fecf8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 77d75db3b6a4612cfdab679636b3484cf6b9346c
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626591"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004167"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 HDInsight 中创建 Apache Spark 群集
 了解如何在 Azure HDInsight 中创建 [Apache Spark](https://spark.apache.org/) 群集，以及如何对 [Apache Hive](https://hive.apache.org/) 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
-在此快速入门中，使用 Azure PowerShell 创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。
+在此快速入门中，使用 Azure PowerShell 创建 HDInsight Spark 群集。 群集将 Azure 存储 Blob 用作群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 > [!IMPORTANT]
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
 
 如果没有 Azure 订阅，请在开始之前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="create-an-hdinsight-spark-cluster"></a>创建 HDInsight Spark 群集
 
 创建 HDInsight 群集包括创建以下 Azure 对象和资源：
 
 - Azure 资源组。 Azure 资源组是 Azure 资源的容器。 
-- Azure 存储帐户或 Azure Data Lake Store。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，创建存储帐户。
+- Azure 存储帐户或 Azure Data Lake Storage。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，创建存储帐户。
 - 不同群集类型的 HDInsight 群集。  在本快速入门中，你将创建 Spark 2.3 群集。
 
 使用 PowerShell 脚本创建资源。  运行脚本时，系统会提示输入以下值：
@@ -59,20 +61,20 @@ ms.locfileid: "58626591"
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
     $location = Read-Host -Prompt "Enter the Azure region to create resources in, such as 'China East'"
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     $defaultStorageAccountName = Read-Host -Prompt "Enter the default storage account name"
     
     # Create an Azure storae account and container
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Type Standard_LRS `
         -Location $location
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageContext = New-AzureStorageContext `
+    $defaultStorageContext = New-AzStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
@@ -93,14 +95,14 @@ ms.locfileid: "58626591"
     $defaultBlobContainerName = $clusterName
     
     # Create a blob container. This holds the default data store for the cluster.
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
     $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
-    New-AzureRmHDInsightCluster `
+    New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -Location $location `
@@ -115,11 +117,11 @@ ms.locfileid: "58626591"
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials 
     
-    Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     ```
    创建群集大约需要 20 分钟时间。 必须先创建群集，才能继续下一会话。
 
-如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-administer-use-portal-linux.md)。
+如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
 
@@ -176,7 +178,7 @@ SQL（结构化查询语言）是用于查询和定义数据的最常见、最�
 2. 请在 Notebook 的“文件”菜单中选择“关闭并停止”。 关闭 Notebook 会释放群集资源。
 
 ## <a name="clean-up-resources"></a>清理资源
-HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Store 中，因此可以在未使用群集时安全地删除群集。 此外，还需要为 HDInsight 群集付费，即使不用也是如此。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
+HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Storage 中，因此可以在未使用群集时安全地删除群集。 此外，还需要为 HDInsight 群集付费，即使不用也是如此。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
 
 切换回 Azure 门户，并选择“删除”。
 

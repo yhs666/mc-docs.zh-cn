@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: genemi
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 510db867e2a63cfe588870f282a81b6440bf002b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.openlocfilehash: 52a113c376dbb75cba1ab2d41fc6600a41546424
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626863"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003516"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-在前一示例中，**SqlCommand** 对象从表值参数 <strong>@TestTvp</strong> 插入行。 使用 **SqlCommand.Parameters.Add** 方法将以前创建的 **DataTable** 对象分配到此参数。 对一个调用中的插入进行批处理将显著提高顺序插入的性能。
+在前一示例中，**SqlCommand** 对象从表值参数 **\@TestTvp** 插入行。 使用 **SqlCommand.Parameters.Add** 方法将以前创建的 **DataTable** 对象分配到此参数。 对一个调用中的插入进行批处理将显著提高顺序插入的性能。
 
 若要进一步改进前一个示例，请使用存储过程来替代基于文本的命令。 以下 Transact-SQL 命令创建一个采用 **SimpleTestTableType** 表值参数的存储过程。
 
@@ -299,7 +299,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 ### <a name="entity-framework"></a>实体框架
 
-实体框架当前不支持批处理。 社区中的各个开发人员已尝试寻找解决方法，例如重写 **SaveChanges** 方法。 但是这些解决方法通常很复杂，而且仅适用于特定应用程序和数据模型。 实体框架 codeplex 项目当前已有关于此功能请求的讨论页。 若要查看此讨论，请参阅[设计会议备忘录 - 2012 年 8 月 2 日](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)。
+实体框架当前不支持批处理。 社区中的各个开发人员已尝试寻找解决方法，例如重写 **SaveChanges** 方法。 但是这些解决方法通常很复杂，而且仅适用于特定应用程序和数据模型。 实体框架 codeplex 项目当前已有关于此功能请求的讨论页。 若要查看此讨论，请参阅[设计会议备忘录 - 2012 年 8 月 2 日](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)。
 
 ### <a name="xml"></a>XML
 

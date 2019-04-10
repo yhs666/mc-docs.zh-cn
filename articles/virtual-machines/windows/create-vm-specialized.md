@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 64bb85b7c63c3d5fe9821955a655b24bfa890a76
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 72c194a362a13202633037adb6288d30d3a6b890
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665953"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004170"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -202,7 +202,7 @@ $snapShot = New-AzSnapshot `
    -ResourceGroupName $resourceGroupName
 ```
 
-若要使用快照创建高性能的 VM，请将 `-AccountType Premium_LRS` 参数添加到 New-AzSnapshot 命令。 此参数将创建快照，以便将其存储为高级托管磁盘。 高级托管磁盘的费用比标准托管磁盘更高，因此，在使用该参数之前，请确认需要高级托管磁盘。
+若要使用快照创建高性能的 VM，请将 `-AccountType Premium_LRS` 参数添加到 New-AzSnapshotConfig 命令。 此参数将创建快照，以便将其存储为高级托管磁盘。 高级托管磁盘的费用比标准托管磁盘更高，因此，在使用该参数之前，请确认需要高级托管磁盘。
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>从快照创建新磁盘
 

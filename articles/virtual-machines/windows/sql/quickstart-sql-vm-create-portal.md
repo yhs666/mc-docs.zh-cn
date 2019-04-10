@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/11/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 047b19755aa203a8cd306e11d01e5d7e346bf47f
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b208becbf20a3e50a60d410d8fb24c4dc724cde0
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666155"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004030"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
@@ -155,7 +155,7 @@ ms.locfileid: "56666155"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不需要让 SQL VM 持续运行，可以在不使用它时将它停止，以免产生不必要的费用。 也可以永久删除与该虚拟机关联的所有资源，在门户中删除其关联的资源组即可。 请小心使用此命令，因为它也会永久删除该虚拟机。 有关详细信息，请参阅[通过门户管理 Azure 资源](../../../azure-resource-manager/resource-group-portal.md)。
+如果不需要让 SQL VM 持续运行，可以在不使用它时将它停止，以免产生不必要的费用。 也可以永久删除与该虚拟机关联的所有资源，在门户中删除其关联的资源组即可。 请小心使用此命令，因为它也会永久删除该虚拟机。 有关详细信息，请参阅[通过门户管理 Azure 资源](../../../azure-resource-manager/manage-resource-groups-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

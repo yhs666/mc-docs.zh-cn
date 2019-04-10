@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 03/05/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: e5fa83d50c6cefcff2c6671986cc5946fae93133
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: e0c5ce8c402649a8bac72fc05f4f4f071e264eec
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626689"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003485"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入门：将 BACPAC 文件导入 Azure SQL 数据库中的数据库
 
@@ -75,6 +75,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>使用 PowerShell 从 BACPAC 文件导入单个数据库
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 使用 [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet 向 Azure SQL 数据库服务提交导入数据库请求。 根据数据库大小，导入操作可能需要一些时间才能完成。
 

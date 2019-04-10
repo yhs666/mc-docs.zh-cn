@@ -14,23 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/16/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: e1dbbc0e68ddab52833ced6aa49c943e01c018a0
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 6f988d09c4d1129398319d9fc516019e862acf4a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666133"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003794"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
 本文介绍了如何使用 PowerShell 将新磁盘和现有磁盘附加到 Windows 虚拟机。 
 
 首先，查看以下提示：
+
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机的大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 若要使用高级存储，需要支持高级存储的 VM 类型，如 DS 系列虚拟机。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 若要使用高级 SSD，需要[支持高级存储的 VM 类型](sizes-memory.md)，如 DS 系列虚拟机。
 
 <!-- Not Available on GS-series -->
 
@@ -63,7 +64,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 <!-- Not Available on ### Using managed disks in an Availability Zone-->
 ### <a name="initialize-the-disk"></a>初始化磁盘
 
-添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 [WinRM](https://docs.microsoft.com/zh-cn/windows/desktop/WinRM/portal) 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 
+添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 [WinRM](https://docs.microsoft.com/zh-cn/windows/desktop/WinRM/portal) 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展：
 
 ```powershell
     $location = "location-name"
@@ -93,7 +94,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>将现有数据磁盘附加到 VM
 
-可以将现有托管磁盘作为数据磁盘附加到 VM。 
+可以将现有托管磁盘作为数据磁盘附加到 VM。
 
 ```powershell
 $rgName = "myResourceGroup"

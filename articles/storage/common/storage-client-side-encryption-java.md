@@ -1,32 +1,27 @@
 ---
-title: 使用适用于 Azure 存储的 Java 进行客户端加密 | Azure
+title: 针对 Azure 存储使用 Java 的客户端加密 | Microsoft Docs
 description: 用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储应用程序的最佳安全性。
 services: storage
-documentationcenter: java
-author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d851d2adc6b487057d19bd44ec37b41fea2153c4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 1ca890131387c352ad2f1269a8251bf310151430
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627637"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890187"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-azure-storage"></a>Azure 存储的使用 Java 的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 Java 的 Azure 存储客户端库](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)集成，以便管理存储帐户密钥。
+[用于 Java 的 Azure 存储客户端库](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)集成，以便管理存储帐户密钥。
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>通过信封技术加密和解密
 加密和解密的过程遵循信封技术。  
@@ -49,7 +44,7 @@ ms.locfileid: "58627637"
 4. 然后，使用内容加密密钥 (CEK) 解密已加密的用户数据。
 
 ## <a name="encryption-mechanism"></a>加密机制
-存储客户端库使用 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
+存储客户端库使用 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
 
 ### <a name="blobs"></a>Blob
 目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **upload*** 方法或 **openOutputStream** 方法时支持加密。 对于下载，支持完整下载和范围下载。  
@@ -61,9 +56,9 @@ ms.locfileid: "58627637"
 > 
 > 
 
-下载已加密的 Blob 需要使用 <strong>download*/openInputStream</strong> 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
+下载已加密的 Blob 需要使用 **download**/**openInputStream** 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
-下载已加密的 Blob 中的任意范围（**downloadRange*** 方法）涉及调整用户提供的范围以获取少量的可用于成功解密所请求的范围的附加数据。  
+下载已加密 blob 中的任意范围（**downloadRange** 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。  
 
 所有 Blob 类型（块 Blob、页 Blob 和追加 Blob）都可以使用此方案进行加密/解密。
 
@@ -254,10 +249,10 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 注意，加密存储数据会导致额外的性能开销。 必须生成内容密钥和 IV，内容本身必须进行加密，并且其他元数据必须进行格式化并上传。 此开销将因所加密的数据量而有所变化。 我们建议客户在开发过程中始终测试其应用程序的性能。
 
 ## <a name="next-steps"></a>后续步骤
-* 下载 [适用于 Java 的 Azure 存储客户端库 Maven 程序包](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* 下载 [适用于 Java 的 Azure 存储客户端库 Maven 程序包](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * 从 GitHub 下载 [适用于 Java 的 Azure 存储客户端库源代码](https://github.com/Azure/azure-storage-java)   
 * 下载适用于 Java 的 Azure 密钥保管库 Maven 程序包：
-  * [核心](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 程序包
-  * [客户端](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 程序包
+  * [核心](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 程序包
+  * [客户端](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 程序包
 * 访问 [Azure 密钥保管库文档](../../key-vault/key-vault-whatis.md)
 <!--Update_Description: update link-->

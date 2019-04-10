@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 93d58512c6b7193e9696bde4f6786c9ab3fbd1df
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 71d16de7514e80358b4062d523842dd7252a5a9d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665974"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003941"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>使用 PowerShell 创建 IIS VM
 

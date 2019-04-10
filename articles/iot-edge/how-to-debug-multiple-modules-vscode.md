@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 74f0fa0d9c64b62317db4218a7bafa89febfbb14
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0e0e2166518bc32e02744b062d7394db251bee1a
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675132"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890169"
 ---
 # <a name="use-visual-studio-code-to-debug-multiple-modules-with-azure-iot-edge"></a>使用 Visual Studio Code 通过 Azure IoT Edge 调试多个模块
 本文详细介绍如何使用 [Visual Studio (VS) Code](https://code.visualstudio.com/) 在 IoT Edge 上调试多个模块。
@@ -29,7 +29,7 @@ ms.locfileid: "52675132"
 
 ### <a name="build-your-iot-edge-modules-for-debugging-purpose"></a>生成用于调试的 IoT Edge 模块
 1. 要开始多模块调试，需要使用 **Dockerfile.amd64.debug** 重新生成 docker 映像并重新部署 Edge 解决方案。 在 VS Code 资源管理器中，导航到 `deployment.template.json` 文件。 通过将 `.debug` 添加到末尾，更新映像 URL。 至少需要两个带 `.debug` 的模块映像。 如果使用上一教程中的解决方案，则应拥有 C# 函数模块和 C# 模块。 通过将 `.debug` 添加到末尾来更新这两个映像 URL，并保存此文件。 
-2. 重新生成解决方案。 在 VS Code 命令面板中，键入并运行命令“Azure IoT Edge: Build IoT Edge solution”。
+2. 重新生成解决方案。 在 VS Code 命令面板中，键入并运行 **`Azure IoT Edge: Build IoT Edge solution`** 命令。
 3. 在 Azure IoT 中心设备资源管理器中，右键单击 IoT Edge 设备 ID，然后选择“为 Edge 设备创建部署”。 选择 `config` 文件夹下的 `deployment.json` 文件。 然后可以在 VS Code 集成终端中看到部署已成功创建且具有一个部署 ID。
 
 可在 VS Code Docker 资源管理器中检查容器状态，也可通过终端运行 `docker ps` 命令进行检查。
@@ -41,7 +41,7 @@ ms.locfileid: "52675132"
 4. 在 VS Code 调试视图中，在左侧面板中可以看到变量。 
 
 ### <a name="start-debugging-c-module-at-the-same-time-in-vs-code"></a>同时开始在 VS Code 中调试 C# 模块
-1. 在 VS Code 命令面板中，键入并运行命令“Workspace: Duplicate Workspace in New Window”。 新的 VS Code 窗口将以相同的工作区开始。
+1. 在 VS Code 命令面板中，键入并运行“工作区：新窗口中的重复工作区”。 新的 VS Code 窗口将以相同的工作区开始。
 2. 导航至调试视图，并为 C# 模块远程调试选择对应的调试配置文件。
 3. 导航到 `program.cs`。 在 C# 模块中添加一个断点。
 4. 单击“开始调试”按钮或按 F5，然后选择要附加到的进程。

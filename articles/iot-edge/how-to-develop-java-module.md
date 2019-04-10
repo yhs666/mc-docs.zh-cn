@@ -10,12 +10,12 @@ origin.date: 09/21/2018
 ms.date: 12/10/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2231e08e25d1391176006a89fb8cc7429ddbeba
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f18f2f101e5efb054cc410321be68ee4cdf7ed41
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627452"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890216"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 Java 模块
 
@@ -56,7 +56,7 @@ ms.locfileid: "58627452"
 1. 在 Visual Studio Code 中，选择“视图” > “集成终端”。
 
 3. 在 Visual Studio Code 中，选择“视图” > “命令面板”。 
-4. 在命令面板中，键入并运行 **Azure IoT Edge:** New IoT Edge Solution 命令。
+4. 在命令面板中，键入并运行 **`Azure IoT Edge: New IoT Edge Solution`** 命令。
 
    ![运行新的 IoT Edge 解决方案](./media/how-to-develop-csharp-module/new-solution.png)
 
@@ -73,7 +73,7 @@ VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后�
 
 在解决方案中，你将具有以下三项： 
 * 一个 **.vscode** 文件夹，包含调试配置。
-* 一个 **modules** 文件夹，包含每个模块的子文件夹。 现在，你只有一个模块，但可以使用以下命令在命令面板中添加更多模块：“Azure IoT Edge: Add IoT Edge Module”。 
+* 一个 **modules** 文件夹，包含每个模块的子文件夹。 现在，你只有一个模块，但可以使用 **`Azure IoT Edge: Add IoT Edge Module`** 命令在命令面板中添加更多模块。 
 * 一个 **.env** 文件，列出环境变量。 如果 Azure 容器注册表是注册表，则其中将包含 Azure 容器注册表用户名和密码。
 
    >[!NOTE]
@@ -94,7 +94,7 @@ IoT Edge Java 模块依赖于 Azure IoT Java 设备 SDK。 在默认的模块代
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>为单个模块应用设置 IoT Edge 模拟器
 
-1. 若要设置和启动模拟器，请在 VS Code 命令面板中，键入并选择“Azure IoT Edge: 为单个模块应用启动 IoT Edge 中心模拟器”。 此外，还需要为单个模块应用程序指定输入名称，键入 input1 并按 Enter。 该命令将触发 iotedgehubdev CLI 并启动 IoT Edge 模拟器并测试实用程序模块容器。 如果模拟器已成功以单模块模式启动，则可以在集成终端中看到下面的输出。 还可以看到 `curl` 命令以帮助发送消息。 稍后将使用它。
+1. 若要设置和启动模拟器，请在 VS Code 命令面板中键入并选择 **`Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module`**。 此外，还需要为单个模块应用程序指定输入名称，键入 input1 并按 Enter。 该命令将触发 iotedgehubdev CLI 并启动 IoT Edge 模拟器并测试实用程序模块容器。 如果模拟器已成功以单模块模式启动，则可以在集成终端中看到下面的输出。 还可以看到 `curl` 命令以帮助发送消息。 稍后将使用它。
 
    ![为单个模块应用设置 IoT Edge 模拟器](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -104,7 +104,7 @@ IoT Edge Java 模块依赖于 Azure IoT Java 设备 SDK。 在默认的模块代
 
    edgeHubDev 容器是本地 IoT Edge 模拟器的核心。 它可以在没有 IoT Edge 安全守护程序的情况下在开发计算机上运行，并为本机模块应用或模块容器提供环境设置。 input 容器公开 restAPI 以帮助将消息桥接到模块上的目标输入通道。
 
-2. 在 VS Code 命令面板中，键入并选择“Azure IoT Edge: 将模块凭据设置到用户设置”，以在用户设置中将模块环境设置设为 `azure-iot-edge.EdgeHubConnectionString` 和 `azure-iot-edge.EdgeModuleCACertificateFile`。 可以在 .vscode  >  launch.json 和[ VS Code 用户设置](https://code.visualstudio.com/docs/getstarted/settings)中找到这些环境设置。
+2. 在 VS Code 命令面板中，键入并选择 **`Azure IoT Edge: Set Module Credentials to User Settings`**，以在用户设置中将模块环境设置设为 `azure-iot-edge.EdgeHubConnectionString` 和 `azure-iot-edge.EdgeModuleCACertificateFile`。 可以在 .vscode  >  launch.json 和[ VS Code 用户设置](https://code.visualstudio.com/docs/getstarted/settings)中找到这些环境设置。
 
 ### <a name="debug-java-module-in-launch-mode"></a>在启动模式下调试 Java 模块
 
@@ -128,7 +128,7 @@ IoT Edge Java 模块依赖于 Azure IoT Java 设备 SDK。 在默认的模块代
 
 5. 在 VS Code 调试视图中，将在左侧面板中看到变量。 
 
-6. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5。 并且在 VS Code 命令面板中，键入并选择“Azure IoT Edge: 停止 IoT Edge 模拟器”以停止模拟器并将其清除。
+6. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5。 在 VS Code 命令面板中键入并选择 **`Azure IoT Edge: Stop IoT Edge Simulator`**，停止并清理模拟器。
 
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>生成用于调试的模块容器并在附加模式下进行调试
@@ -158,7 +158,7 @@ IoT Edge Java 模块依赖于 Azure IoT Java 设备 SDK。 在默认的模块代
 
 7. 在 VS Code 调试视图中，将在左侧面板中看到变量。
 
-8. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5。 并且在 VS Code 命令面板中，键入并选择“Azure IoT Edge: 停止 IoT Edge 模拟器”。
+8. 若要停止调试会话，请单击“停止”按钮或按 Shift + F5。 在 VS Code 命令面板中，键入并选择 **`Azure IoT Edge: Stop IoT Edge Simulator`**。
 
 > [!NOTE]
 > 上面的示例展示了如何调试容器上的 Java IoT Edge 模块。 它在模块容器 createOptions 中添加了公开的端口。 完成 Java 模块的调试后，我们建议删除针对生产就绪型 IoT Edge 模块公开的端口。

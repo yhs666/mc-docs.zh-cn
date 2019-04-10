@@ -12,13 +12,13 @@ author: WenJason
 ms.reviewer: sstein
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 62bbee54b6583b0571d444e359a240a65a811f9e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/08/2019
+ms.openlocfilehash: 9574a63d7587140a7468ea79e670477bb7d1b8c6
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625254"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003527"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业
 
@@ -409,19 +409,19 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 |存储过程  |说明  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     添加新的作业。    |
-|[sp_update_job ](#spupdatejob)    |      更新现有的作业。   |
-|[sp_delete_job](#spdeletejob)     |      删除现有的作业。   |
-|[sp_add_jobstep](#spaddjobstep)    |    向作业添加步骤。     |
-|[sp_update_jobstep](#spupdatejobstep)     |     更新作业步骤。    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     删除作业步骤。    |
-|[sp_start_job](#spstartjob)    |  开始执行作业。       |
-|[sp_stop_job](#spstopjob)     |     停止作业的执行。   |
-|[sp_add_target_group](#spaddtargetgroup)    |     添加目标组。    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    删除目标组。     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    向目标组添加一个或一组数据库。     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     从目标组中删除目标组成员。    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    删除作业的历史记录。     |
+|[sp_add_job](#sp_add_job)     |     添加新的作业。    |
+|[sp_update_job](#sp_update_job)    |      更新现有的作业。   |
+|[sp_delete_job](#sp_delete_job)     |      删除现有的作业。   |
+|[sp_add_jobstep](#sp_add_jobstep)    |    向作业添加步骤。     |
+|[sp_update_jobstep](#sp_update_jobstep)     |     更新作业步骤。    |
+|[sp_delete_jobstep](#sp_delete_jobstep)     |     删除作业步骤。    |
+|[sp_start_job](#sp_start_job)    |  开始执行作业。       |
+|[sp_stop_job](#sp_stop_job)     |     停止作业的执行。   |
+|[sp_add_target_group](#sp_add_target_group)    |     添加目标组。    |
+|[sp_delete_target_group](#sp_delete_target_group)     |    删除目标组。     |
+|[sp_add_target_group_member](#sp_add_target_group_member)     |    向目标组添加一个或一组数据库。     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     从目标组中删除目标组成员。    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    删除作业的历史记录。     |
 
 
 
@@ -448,16 +448,16 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
   
 #### <a name="arguments"></a>参数  
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 作业的名称。 名称必须唯一，不能包含百分比 (%) 字符。 job_name 为 nvarchar(128)，没有默认值。
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 作业的说明。 description 为 nvarchar(512)，默认值为 NULL。 如果省略 description，则使用空字符串。
 
-[ **@enabled =** ] enabled  
+[ **\@enabled =** ] enabled  
 作业的计划是否已启用。 enabled 为 bit，默认值为 0（禁用）。 如果为 0，则作业未启用，不会按计划运行，但可手动运行。 如果为 1，则作业会按计划运行，也可手动运行。
 
-[ **@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =**] schedule_interval_type  
 其值指示何时会执行作业。 schedule_interval_type 为 nvarchar(50)，默认值为 Once，可以是下述值之一：
 - 'Once'；
 - 'Minutes'；
@@ -466,16 +466,16 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 - 'Weeks'；
 - 'Months'
 
-[ **@schedule_interval_count =** ] schedule_interval_count  
+[ **\@schedule_interval_count =** ] schedule_interval_count  
 每次执行作业时，其间会出现的 schedule_interval_count 期间数。 schedule_interval_count 为 int，默认值为 1。 该值必须大于或等于 1。
 
-[ **@schedule_start_time =** ] schedule_start_time  
+[ **\@schedule_start_time =** ] schedule_start_time  
 可以开始执行作业的日期。 schedule_start_time 为 DATETIME2，默认值为 0001-01-01 00:00:00.0000000。
 
-[ **@schedule_end_time =** ] schedule_end_time  
+[ **\@schedule_end_time =** ] schedule_end_time  
 可以停止执行作业的日期。 schedule_end_time 为 DATETIME2，默认值为 9999-12-31 11:59:59.0000000。 
 
-[ **@job_id =** ] job_id OUTPUT  
+[ **\@job_id =** ] job_id OUTPUT  
 分配给已成功创建的作业的作业标识号。 job_id 是类型为 uniqueidentifier 的输出变量。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -511,19 +511,19 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 ```
 
 #### <a name="arguments"></a>参数
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要更新的作业的名称。 job_name 为 nvarchar(128)。
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 作业的新名称。 new_name 为 nvarchar(128)。
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 作业的说明。 description 为 nvarchar(512)。
 
-[ **@enabled =** ] enabled  
+[ **\@enabled =** ] enabled  
 指定作业的计划是已启用 (1) 还是未启用 (0)。 enabled 为 bit。
 
-[ <strong>@schedule_interval_type=</strong> ] schedule_interval_type  
+[ **\@schedule_interval_type=** ] schedule_interval_type  
 其值指示何时会执行作业。 schedule_interval_type 为 nvarchar(50)，可以是下述值之一：
 
 - 'Once'；
@@ -533,13 +533,13 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 - 'Weeks'；
 - 'Months'
 
-[ <strong>@schedule_interval_count=</strong> ] schedule_interval_count  
+[ **\@schedule_interval_count=** ] schedule_interval_count  
 每次执行作业时，其间会出现的 schedule_interval_count 期间数。 schedule_interval_count 为 int，默认值为 1。 该值必须大于或等于 1。
 
-[ <strong>@schedule_start_time=</strong> ] schedule_start_time  
+[ **\@schedule_start_time=** ] schedule_start_time  
 可以开始执行作业的日期。 schedule_start_time 为 DATETIME2，默认值为 0001-01-01 00:00:00.0000000。
 
-[ <strong>@schedule_end_time=</strong> ] schedule_end_time  
+[ **\@schedule_end_time=** ] schedule_end_time  
 可以停止执行作业的日期。 schedule_end_time 为 DATETIME2，默认值为 9999-12-31 11:59:59.0000000。 
 
 #### <a name="return-code-values"></a>返回代码值
@@ -568,10 +568,10 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 ```
 
 #### <a name="arguments"></a>参数
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要删除的作业的名称。 job_name 为 nvarchar(128)。
 
-[ **@force =** ] force  
+[ **\@force =** ] force  
 指定是在作业有正在进行的执行操作的情况下删除作业并取消所有正在进行的执行操作 (1)，还是在有正在进行的作业执行操作的情况下让作业失败 (0)。 force 为 bit。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -623,79 +623,79 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 
 #### <a name="arguments"></a>参数
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要向其添加步骤的作业的名称。 job_name 为 nvarchar(128)。
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 作业步骤的序列标识号。 步骤标识号从 1 开始连续递增。 如果某个现有的步骤已经有此 ID，则该步骤以及所有后续步骤的 ID 都会递增，于是这个新步骤就可以插入到序列中。 在未指定的情况下，step_id 会自动分配给步骤序列中的最后一个项。 step_id 为 int。
 
-[ **@step_name =** ] step_name  
+[ **\@step_name =** ] step_name  
 步骤的名称。 必须指定，除非是作业的第一个步骤，（为方便起见），该步骤的默认名称为“JobStep”。 step_name 为 nvarchar(128)。
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 由此 jobstep 执行的命令的类型。 command_type 为 nvarchar(50)，默认值为 TSql，这意味着 @command_type 参数的值为 T-SQL 脚本。
 
 如果指定，此值必须为 TSql。
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 命令存储位置的类型。 command_source 为 nvarchar(50)，默认值为 Inline，这意味着 @command_source 参数的值为命令的文字文本。
 
 如果指定，此值必须为 Inline。
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 命令必须是有效的 T-SQL 脚本，然后才能通过此作业步骤执行该命令。 command 为 nvarchar(max)，默认值为 NULL。
 
-[ @credential_name = ] 'credential_name'  
+[ **\@credential_name =** ] 'credential_name'  
 存储在此作业控制数据库中的数据库范围的凭据的名称，此控制数据库用于在执行此步骤时连接到目标组中的每个目标数据库。 credential_name 为 nvarchar(128)。
 
-[ @target_group_name = ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 包含目标数据库（作业步骤将在其上执行）的目标组的名称。 target_group_name 为 nvarchar(128)。
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 第一次重试尝试之前的延迟，前提是作业步骤在初始执行尝试时失败。 initial_retry_interval_seconds 为 int，默认值为 1。
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 重试尝试之间的最大延迟。 如果重试之间的延迟大于此值，则会将其削减到此值。 maximum_retry_interval_seconds 为 int，默认值为 120。
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 将要应用到重试延迟的乘数，前提是多个作业步骤执行尝试失败。 例如，如果首次重试的延迟为 5 秒，而回退乘数为 2.0，则第二次重试的延迟为 10 秒，第三次重试的延迟为 20 秒。 retry_interval_backoff_multiplier 为 real，默认值为 2.0。
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 重试执行的次数，前提是初始尝试失败。 例如，如果 retry_attempts 值为 10，则初始尝试次数为 1，重试尝试次数为 10，总尝试次数为 11。 如果最后的重试尝试失败，则作业执行操作会终止，生命周期状态为“失败”。 retry_attempts 为 int，默认值为 10。
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 允许步骤执行的最长时间。 如果超出此时间，则作业执行操作会终止，生命周期状态为“超时”。 step_timeout_seconds 为 int，默认值为 43,200 秒（12 小时）。
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 如果不为 null，则为将命令的首个结果集写入到其中的目标的类型。 output_type 为 nvarchar(50)，默认值为 NULL。
 
 如果指定，此值必须为 SqlDatabase。
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 如果不为 null，则为数据库范围的凭据的名称，该凭据用于连接到输出目标数据库。 如果 output_type 等于 SqlDatabase，则必须指定此项。 output_credential_name 为 nvarchar(128)，默认值为 NULL。
 
-[ **@output_subscription_id =** ] 'output_subscription_id'  
+[ **\@output_subscription_id =** ] 'output_subscription_id'  
 需要描述。
 
-[ **@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **\@output_resource_group_name =** ] 'output_resource_group_name'  
 需要描述。
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 如果不为 null，则为服务器的完全限定的 DNS 名称，该服务器包含输出目标数据库。 如果 output_type 等于 SqlDatabase，则必须指定此项。 output_server_name 为 nvarchar(256)，默认值为 NULL。
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 如果不为 null，则为包含输出目标表的数据库的名称。 如果 output_type 等于 SqlDatabase，则必须指定此项。 output_database_name 为 nvarchar(128)，默认值为 NULL。
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 如果不为 null，则为包含输出目标表的 SQL 架构的名称。 如果 output_type 等于 SqlDatabase，则默认值为 dbo。 output_schema_name 为 nvarchar(128)。
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 如果不为 null，则为将命令的首个结果集写入到其中的表的名称。 如果此表不存在，则会根据返回结果集的架构来创建它。 如果 output_type 等于 SqlDatabase，则必须指定此项。 output_table_name 为 nvarchar(128)，默认值为 NULL。
 
-[ **@job_version =** ] job_version OUTPUT  
+[ **\@job_version =** ] job_version OUTPUT  
 一个输出参数，将会为其分配新作业版本号。 job_version 为 int。
 
-[ **@max_parallelism =** ] max_parallelism OUTPUT  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 每个弹性池的最大并行度级别。 如果设置此项，则作业步骤会受到限制，每个弹性池中可以在其上运行作业步骤的数据库会有一个最大数目。 这适用于每个特定的弹性池，该弹性池直接包括在目标组中，或者位于一个服务器中，而该服务器则包括在目标组中。 max_parallelism 为 int。
 
 
@@ -747,79 +747,79 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 ```
 
 #### <a name="arguments"></a>参数
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 步骤所属作业的名称。 job_name 为 nvarchar(128)。
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 要修改的作业步骤的标识号。 必须指定 step_id 或 step_name。 step_id 为 int。
 
-[ **@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 要修改的步骤的名称。 必须指定 step_id 或 step_name。 step_name 为 nvarchar(128)。
 
-[ **@new_id =** ] new_id  
+[ **\@new_id =** ] new_id  
 作业步骤的新序列标识号。 步骤标识号从 1 开始连续递增。 如果某个步骤重新标记顺序，则其他步骤也会自动重新编号。
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 步骤的新名称。 new_name 为 nvarchar(128)。
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 由此 jobstep 执行的命令的类型。 command_type 为 nvarchar(50)，默认值为 TSql，这意味着 @command_type 参数的值为 T-SQL 脚本。
 
 如果指定，此值必须为 TSql。
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 命令存储位置的类型。 command_source 为 nvarchar(50)，默认值为 Inline，这意味着 @command_source 参数的值为命令的文字文本。
 
 如果指定，此值必须为 Inline。
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 命令必须是有效的 T-SQL 脚本，然后才能通过此作业步骤执行该命令。 command 为 nvarchar(max)，默认值为 NULL。
 
-[ @credential_name = ] 'credential_name'  
+[ **\@credential_name =** ] 'credential_name'  
 存储在此作业控制数据库中的数据库范围的凭据的名称，此控制数据库用于在执行此步骤时连接到目标组中的每个目标数据库。 credential_name 为 nvarchar(128)。
 
-[ @target_group_name = ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 包含目标数据库（作业步骤将在其上执行）的目标组的名称。 target_group_name 为 nvarchar(128)。
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 第一次重试尝试之前的延迟，前提是作业步骤在初始执行尝试时失败。 initial_retry_interval_seconds 为 int，默认值为 1。
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 重试尝试之间的最大延迟。 如果重试之间的延迟大于此值，则会将其削减到此值。 maximum_retry_interval_seconds 为 int，默认值为 120。
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 将要应用到重试延迟的乘数，前提是多个作业步骤执行尝试失败。 例如，如果首次重试的延迟为 5 秒，而回退乘数为 2.0，则第二次重试的延迟为 10 秒，第三次重试的延迟为 20 秒。 retry_interval_backoff_multiplier 为 real，默认值为 2.0。
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 重试执行的次数，前提是初始尝试失败。 例如，如果 retry_attempts 值为 10，则初始尝试次数为 1，重试尝试次数为 10，总尝试次数为 11。 如果最后的重试尝试失败，则作业执行操作会终止，生命周期状态为“失败”。 retry_attempts 为 int，默认值为 10。
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 允许步骤执行的最长时间。 如果超出此时间，则作业执行操作会终止，生命周期状态为“超时”。 step_timeout_seconds 为 int，默认值为 43,200 秒（12 小时）。
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 如果不为 null，则为将命令的首个结果集写入到其中的目标的类型。 若要将 output_type 的值重置为 NULL，请将此参数的值设置为 ''（空字符串）。 output_type 为 nvarchar(50)，默认值为 NULL。
 
 如果指定，此值必须为 SqlDatabase。
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 如果不为 null，则为数据库范围的凭据的名称，该凭据用于连接到输出目标数据库。 如果 output_type 等于 SqlDatabase，则必须指定此项。 若要将 output_credential_name 的值重置为 NULL，请将此参数的值设置为 ''（空字符串）。 output_credential_name 为 nvarchar(128)，默认值为 NULL。
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 如果不为 null，则为服务器的完全限定的 DNS 名称，该服务器包含输出目标数据库。 如果 output_type 等于 SqlDatabase，则必须指定此项。 若要将 output_server_name 的值重置为 NULL，请将此参数的值设置为 ''（空字符串）。 output_server_name 为 nvarchar(256)，默认值为 NULL。
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 如果不为 null，则为包含输出目标表的数据库的名称。 如果 output_type 等于 SqlDatabase，则必须指定此项。 若要将 output_database_name 的值重置为 NULL，请将此参数的值设置为 ''（空字符串）。 output_database_name 为 nvarchar(128)，默认值为 NULL。
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 如果不为 null，则为包含输出目标表的 SQL 架构的名称。 如果 output_type 等于 SqlDatabase，则默认值为 dbo。 若要将 output_schema_name 的值重置为 NULL，请将此参数的值设置为 ''（空字符串）。 output_schema_name 为 nvarchar(128)。
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 如果不为 null，则为将命令的首个结果集写入到其中的表的名称。 如果此表不存在，则会根据返回结果集的架构来创建它。 如果 output_type 等于 SqlDatabase，则必须指定此项。 若要将 output_server_name 的值重置为 NULL，请将此参数的值设置为 ''（空字符串）。 output_table_name 为 nvarchar(128)，默认值为 NULL。
 
-[ **@job_version =** ] job_version OUTPUT  
+[ **\@job_version =** ] job_version OUTPUT  
 一个输出参数，将会为其分配新作业版本号。 job_version 为 int。
 
-[ **@max_parallelism =** ] max_parallelism OUTPUT  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 每个弹性池的最大并行度级别。 如果设置此项，则作业步骤会受到限制，每个弹性池中可以在其上运行作业步骤的数据库会有一个最大数目。 这适用于每个特定的弹性池，该弹性池直接包括在目标组中，或者位于一个服务器中，而该服务器则包括在目标组中。 若要将 max_parallelism 的值重置为 null，请将此参数的值设置为 -1。 max_parallelism 为 int。
 
 
@@ -854,16 +854,16 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 ```
 
 #### <a name="arguments"></a>参数
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要从其中删除步骤的作业的名称。 job_name 为 nvarchar(128)，没有默认值。
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 要删除的作业步骤的标识号。 必须指定 step_id 或 step_name。 step_id 为 int。
 
-[ **@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 要删除的步骤的名称。 必须指定 step_id 或 step_name。 step_name 为 nvarchar(128)。
 
-[ **@job_version =** ] job_version OUTPUT  
+[ **\@job_version =** ] job_version OUTPUT  
 一个输出参数，将会为其分配新作业版本号。 job_version 为 int。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -898,10 +898,10 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 ```
 
 #### <a name="arguments"></a>参数
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要从其中删除步骤的作业的名称。 job_name 为 nvarchar(128)，没有默认值。
 
-[ **@job_execution_id =** ] job_execution_id OUTPUT  
+[ **\@job_execution_id =** ] job_execution_id OUTPUT  
 一个输出参数，将会为其分配作业执行操作的 ID。job_version 为 uniqueidentifier。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -929,7 +929,7 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 
 
 #### <a name="arguments"></a>参数
-[ **@job_execution_id =** ] job_execution_id  
+[ **\@job_execution_id =** ] job_execution_id  
 要停止的作业执行操作的标识号。 job_execution_id 为 uniqueidentifier，默认值为 NULL。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -959,10 +959,10 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 
 
 #### <a name="arguments"></a>参数
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 要创建的目标组的名称。 target_group_name 为 nvarchar(128)，没有默认值。
 
-[ **@target_group_id =** ] target_group_id OUTPUT 分配给已成功创建的作业的目标组标识号。 target_group_id 是类型为 uniqueidentifier 的输出变量，默认值为 NULL。
+[ **\@target_group_id =** ] target_group_id OUTPUT 分配给已成功创建的作业的目标组标识号。 target_group_id 是类型为 uniqueidentifier 的输出变量，默认值为 NULL。
 
 #### <a name="return-code-values"></a>返回代码值
 0（成功）或 1（失败）
@@ -989,7 +989,7 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 
 
 #### <a name="arguments"></a>参数
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 要删除的目标组的名称。 target_group_name 为 nvarchar(128)，没有默认值。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -1023,31 +1023,31 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 ```
 
 #### <a name="arguments"></a>参数
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 要向其添加成员的目标组的名称。 target_group_name 为 nvarchar(128)，没有默认值。
 
-[ **@membership_type =** ] 'membership_type'  
+[ **\@membership_type =** ] 'membership_type'  
 指定是包括目标组成员还是将其排除。 target_group_name 为 nvarchar(128)，默认值为 'Include'。 target_group_name 的有效值为 'Include' 或 'Exclude'。
 
-[ **@target_type =** ] 'target_type'  
+[ **\@target_type =** ] 'target_type'  
 目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库、一个分片映射中的所有数据库，或者一个单独的数据库。 target_type 为 nvarchar(128)，没有默认值。 target_type 的有效值为 'SqlServer'、'SqlElasticPool'、'SqlDatabase' 或 'SqlShardMap'。 
 
-[ **@refresh_credential_name =** ] 'refresh_credential_name'  
+[ **\@refresh_credential_name =** ] 'refresh_credential_name'  
 SQL 数据库服务器的名称。 refresh_credential_name 为 nvarchar(128)，没有默认值。
 
-[ **@server_name =** ] 'server_name'  
+[ **\@server_name =** ] 'server_name'  
 应添加到指定目标组的 SQL 数据库服务器的名称。 当 target_type 为 ‘SqlServer’ 时，应指定 server_name。 server_name 为 nvarchar(128)，没有默认值。
 
-[ **@database_name =** ] 'database_name'  
+[ **\@database_name =** ] 'database_name'  
 应添加到指定目标组的数据库的名称。 当 target_type 为 'SqlDatabase' 时，应指定 database_name。 database_name 为 nvarchar(128)，没有默认值。
 
-[ @elastic_pool_name = ] 'elastic_pool_name'  
+[ **\@elastic_pool_name =** ] 'elastic_pool_name'  
 应添加到指定目标组的弹性池的名称。 当 target_type 为 'SqlElasticPool' 时，应指定 elastic_pool_name。 elastic_pool_name 为 nvarchar(128)，没有默认值。
 
-[ @shard_map_name = ] 'shard_map_name'  
+[ **\@shard_map_name =** ] 'shard_map_name'  
 应添加到指定目标组的分片映射池的名称。 当 target_type 为 'SqlSqlShardMap' 时，应指定 elastic_pool_name。 shard_map_name 为 nvarchar(128)，没有默认值。
 
-[ **@target_id =** ] target_group_id OUTPUT  
+[ **\@target_id =** ] target_group_id OUTPUT  
 分配给目标组成员的目标标识号，前提是其已创建并添加到目标组。 target_id 是类型为 uniqueidentifier 的输出变量，默认值为 NULL。
 返回代码值 0（成功）或 1（失败）
 
@@ -1158,13 +1158,13 @@ GO
 ```
 
 #### <a name="arguments"></a>参数
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 要删除其历史记录的作业的名称。 job_name 为 nvarchar(128)，默认值为 NULL。 必须指定 job_id 或 job_name，但不得二者同时指定。
 
-[ **@job_id =** ] job_id  
+[ **\@job_id =** ] job_id  
  要删除其记录的作业的作业标识号。 job_id 为 uniqueidentifier，默认值为 NULL。 必须指定 job_id 或 job_name，但不得二者同时指定。
 
-[ **@oldest_date =** ] oldest_date  
+[ **\@oldest_date =** ] oldest_date  
  要保留在历史记录中的最旧记录。 oldest_date 为 DATETIME2，默认值为 NULL。 指定 oldest_date 后，sp_purge_jobhistory 仅删除比指定值更早的记录。
 
 #### <a name="return-code-values"></a>返回代码值
@@ -1196,13 +1196,13 @@ GO
 
 |查看  |说明  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  显示作业执行历史记录。      |
+|[jobs_executions](#jobs_executions-view)     |  显示作业执行历史记录。      |
 |[jobs](#jobs-view)     |   显示所有作业。      |
-|[job_versions](#jobversions-view)     |   显示所有作业版本。      |
+|[job_versions](#job_versions-view)     |   显示所有作业版本。      |
 |[jobsteps](#jobsteps-view)     |     显示每项作业的当前版本中的所有步骤。    |
-|[jobstep_versions](#jobstepversions-view)     |     显示每项作业的所有版本中的所有步骤。    |
-|[target_groups](#targetgroups-view)     |      显示所有目标组。   |
-|[target_group_members](#targetgroups-view)     |   显示所有目标组的所有成员。      |
+|[jobstep_versions](#jobstep_versions-view)     |     显示每项作业的所有版本中的所有步骤。    |
+|[target_groups](#target_groups-view)     |      显示所有目标组。   |
+|[target_group_members](#target_groups_members-view)     |   显示所有目标组的所有成员。      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions 视图
@@ -1245,7 +1245,7 @@ GO
 |**job_name**|  nvarchar(128)   |作业的名称。|
 |**job_id**|    uniqueidentifier    |作业的唯一 ID。|
 |**job_version**    |int    |作业的版本（每次修改作业时自动更新）。|
-|description    |nvarchar(512)| 作业的说明。 enabled 为 bit    指示作业是已启用还是已禁用。 1 指示作业已启用，0 指示作业已禁用。|
+|**说明**    |nvarchar(512)| 作业的说明。 enabled 为 bit    指示作业是已启用还是已禁用。 1 指示作业已启用，0 指示作业已禁用。|
 |**schedule_interval_type** |nvarchar(50)   |指示何时执行作业的值：'Once'、'Minutes'、'Hours'、'Days'、'Weeks'、'Months'
 |**schedule_interval_count**|   int|    每次执行作业时，其间会出现的 schedule_interval_type 期间数。|
 |**schedule_start_time**    |datetime2(7)|  作业上次开始执行的日期和时间。|
@@ -1331,7 +1331,7 @@ GO
 |**target_type**    |nvarchar(128)| 目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库，或者单个数据库。 target_type 的有效值为 'SqlServer'、'SqlElasticPool'、'SqlDatabase' 或 'SqlShardMap'。|
 |**target_id**  |uniqueidentifier|  目标组成员的唯一 ID。|
 |**refresh_credential_name**    |nvarchar(128)  |用于连接到目标组成员的数据库范围的凭据的名称。|
-|subscription_id    |uniqueidentifier|  订阅的唯一 ID。|
+|**subscription_id**    |uniqueidentifier|  订阅的唯一 ID。|
 |**resource_group_name**    |nvarchar(128)| 目标组成员所在资源组的名称。|
 |**server_name**    |nvarchar(128)  |包含在目标组中的 SQL 数据库服务器的名称。 仅当 target_type 为 'SqlServer' 时指定。 |
 |**database_name**  |nvarchar(128)  |包含在目标组中的数据库的名称。 仅当 target_type 为 'SqlDatabase' 时指定。|

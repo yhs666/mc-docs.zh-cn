@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c24b66816b91cfe767d76c1d061d842ed256c7bc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 82bfdfa22a2ccce16fbca0b10a548516a71e018f
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667195"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890212"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 C 模块
 
@@ -45,7 +45,7 @@ ms.locfileid: "52667195"
 
 1. 在 Visual Studio Code 中，选择“视图” > “集成终端”。
 3. 选择“视图” > “命令面板”。 
-4. 在“命令面板”中，输入并运行“Azure IoT Edge: New IoT Edge Solution”命令。
+4. 在命令面板中，输入并运行命令 **`Azure IoT Edge: New IoT Edge Solution`**。
 
    ![运行新的 IoT Edge 解决方案](./media/how-to-develop-csharp-module/new-solution.png)
 
@@ -62,7 +62,7 @@ VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后�
 
 该解决方案中有四个项： 
 * 一个 .vscode 文件夹，包含调试配置。
-* 一个 modules 文件夹，包含每个模块的子文件夹。 现在，只有一个模块。 但是可以在命令面板中使用“Azure IoT Edge: Add IoT Edge Module”命令添加更多模块。 
+* 一个 modules 文件夹，包含每个模块的子文件夹。 现在，只有一个模块。 但是，可以在命令面板中使用 **`Azure IoT Edge: Add IoT Edge Module`** 命令添加更多模块。 
 * 一个 .env 文件，列出环境变量。 如果 Azure 容器注册表是注册表，则其中将包含 Azure 容器注册表用户名和密码。 
 
    > [!NOTE]
@@ -90,7 +90,7 @@ VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后�
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. 在 VS Code 命令面板中，输入并运行“Azure IoT Edge: 生成并推送 IoT Edge 解决方案”命令。
+2. 在 VS Code 命令面板中，输入并运行 **`Azure IoT Edge: Build and Push IoT Edge solution`** 命令。
 3. 从命令面板中选择解决方案的 `deployment.template.json` 文件。 
 4. 在 Azure IoT 中心 Device Explorer 中，右键单击某个 IoT Edge 设备 ID。 然后，选择“为单个设备创建部署”。 
 5. 打开解决方案的 config 文件夹。 然后选择 `deployment.json` 文件。 选择“选择 Edge 部署清单”。 

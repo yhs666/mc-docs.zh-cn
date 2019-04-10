@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/25/2018
-ms.date: 02/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 00054e9f88766a473bc4e48a2e7f5eed54eed427
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 378d96f3e4485bc0eea2b6d8bd81efb3239c6863
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906053"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003725"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 基础结构最佳做法
 
 本文提供有关管理 Azure HDInsight 群集基础结构的建议。 本文是帮助用户将本地 Apache Hadoop 系统迁移到 Azure HDInsight 的最佳做法系列教程中的其中一篇。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>规划 HDInsight 群集容量
 
@@ -109,14 +111,14 @@ HDInsight 提供预先编写的脚本用于在 HDInsight 群集上安装以下�
 # hive-site.xml configuration
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
-$config = New—AzureRmHDInsightClusterConfig '
-    | Set—AzureRmHDInsightDefaultStorage
+$config = New—AzHDInsightClusterConfig '
+    | Set—AzHDInsightDefaultStorage
     —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
     —StorageAccountKey "defaultStorageAccountKey " `
-    | Add—AzureRmHDInsightConfigValues `
+    | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
 
-New—AzureRmHDInsightCluster `
+New—AzHDInsightCluster `
     —ResourceGroupName $existingResourceGroupName `
     —Cluster-Name $clusterName `
     —Location $location `
@@ -153,7 +155,7 @@ HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点�
 ### <a name="powershell-cmdlet"></a>PowerShell cmdlet
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

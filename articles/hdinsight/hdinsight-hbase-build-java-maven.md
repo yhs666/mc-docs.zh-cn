@@ -12,27 +12,30 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/05/2017
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9779a6d3bc7d2f13e77274f010126031991d1cc5
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: f78766349ff3fab5c72140a35d1101a4a6e099ad
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569234"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004187"
 ---
-# <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
-了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。
+# <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>借助 Apache Maven 生成可将 Apache HBase 与基于 Windows 的HDInsight (Apache Hadoop) 配合使用的 Java 应用程序
+了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](https://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Apache Hadoop)。
 
-[Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 本文介绍如何使用 Maven 创建基本 Java 应用程序，该应用程序可在 Azure HDInsight 群集中创建、查询和删除 HBase 表。
+[Apache Maven](https://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 本文介绍如何使用 Maven 创建基本 Java 应用程序，该应用程序可在 Azure HDInsight 群集中创建、查询和删除 HBase 表。
 
 > [!IMPORTANT]
 > 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * [Java 平台 JDK](https://aka.ms/azure-jdks) 7 或更高版本
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 * 装有 HBase 的基于 Windows 的 HDInsight 群集
 
     > [!NOTE]
@@ -46,7 +49,7 @@ ms.locfileid: "53569234"
 
     此命令将使用 artifactID 参数（本示例中的 hbaseapp）指定的名称在当前位置创建目录。此目录包含以下项：
 
-   * **pom.xml**：项目对象模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
+   * **pom.xml**：项目对象模型 ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
    * **src**：包含 **main\java\com\microsoft\examples** 目录的目录，用户会在其中创作应用程序。
 3. 删除 src\test\java\com\microsoft\examples\apptest.java 文件，因为本示例中不使用该文件。
 
@@ -59,7 +62,7 @@ ms.locfileid: "53569234"
           <version>1.1.2</version>
         </dependency>
 
-    本部分会告知 Maven，项目需要 hbase-client 版本 1.1.2。 在编译时，将从默认的 Maven 存储库下载该依赖项。 可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 搜索来了解有关此依赖性的详细信息。
+    本部分会告知 Maven，项目需要 hbase-client 版本 1.1.2。 在编译时，将从默认的 Maven 存储库下载该依赖项。 可以使用 [Apache Maven 中央存储库搜索](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)来了解有关此依赖项的详细信息。
 
    > [!IMPORTANT]
    > 版本号必须与 HDInsight 群集随附的 HBase 版本匹配。 可以使用下表来查找正确的版本号。
@@ -71,7 +74,7 @@ ms.locfileid: "53569234"
    | 3.2 |0.98.4-hadoop2 |
    | 3.3 |1.1.2 |
 
-    有关 HDInsight 版本和组件的详细信息，请参阅 [HDInsight 提供哪些不同的 Hadoop 组件](hdinsight-component-versioning.md)。
+    有关 HDInsight 版本和组件的详细信息，请参阅 [HDInsight 提供哪些不同的 Apache Hadoop 组件](hdinsight-component-versioning.md)。
 2. 如果使用 HDInsight 3.3 群集，则还必须将以下代码添加到 `<dependencies>` 节：
 
         <dependency>
@@ -133,7 +136,7 @@ ms.locfileid: "53569234"
    >
    >
 
-    `<plugins>` 部分将配置 [Maven 编译器插件](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven 阴影插件](http://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 使用此插件的原因在于，重复的许可证文件会导致 HDInsight 群集在运行时出错。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
+    `<plugins>` 部分将配置 [Apache Maven 编译器插件](https://maven.apache.org/plugins/maven-compiler-plugin/)和 [Apache Maven 阴影插件](https://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 使用此插件的原因在于，重复的许可证文件会导致 HDInsight 群集在运行时出错。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
 
     maven-shade-plugin 还会生成 uber jar（或 fat jar），其中包含应用程序所需的所有依赖项。
 4. 保存 **pom.xml** 文件。
@@ -153,7 +156,7 @@ ms.locfileid: "53569234"
           * "License"); you may not use this file except in compliance
           * with the License.  You may obtain a copy of the License at
           *
-          *     http://www.apache.org/licenses/LICENSE-2.0
+          *     https://www.apache.org/licenses/LICENSE-2.0
           *
           * Unless required by applicable law or agreed to in writing, software
           * distributed under the License is distributed on an "AS IS" BASIS,
@@ -367,7 +370,7 @@ ms.locfileid: "53569234"
    > hbaseapp-1.0-SNAPSHOT.jar 文件是 uber jar（有时称为 fat jar），其中包含运行应用程序所需的所有依赖项。
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>上传 JAR 文件并启动作业
-可使用多种方法将文件上传到 HDInsight 群集，如[在 HDInsight 中为 Hadoop 作业上传数据](hdinsight-upload-data.md)中所述。 以下步骤使用 Azure PowerShell。
+可使用多种方法将文件上传到 HDInsight 群集，如[在 HDInsight 中为 Apache Hadoop 作业上传数据](hdinsight-upload-data.md)中所述。 以下步骤使用 Azure PowerShell。
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -426,32 +429,32 @@ ms.locfileid: "53569234"
         $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
-        $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+        $jobDefinition = New-AzHDInsightMapReduceJobDefinition `
             -JarFile $jarFile `
             -ClassName $className `
             -Arguments $emailRegex
 
         # Get the job output
-        $job = Start-AzureRmHDInsightJob `
+        $job = Start-AzHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $jobDefinition `
             -HttpCredential $creds
         Write-Host "Wait for the job to complete ..." -ForegroundColor Green
-        Wait-AzureRmHDInsightJob `
+        Wait-AzHDInsightJob `
             -ClusterName $clusterName `
             -JobId $job.JobId `
             -HttpCredential $creds
         if($showErr)
         {
         Write-Host "STDERR"
-        Get-AzureRmHDInsightJobOutput `
+        Get-AzHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
         Write-Host "Display the standard output ..." -ForegroundColor Green
-        Get-AzureRmHDInsightJobOutput `
+        Get-AzHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -HttpCredential $creds
@@ -512,7 +515,7 @@ ms.locfileid: "53569234"
             $storage = GetStorage -clusterName $clusterName
 
             # Upload file to storage, overwriting existing files if -force was used.
-            Set-AzureStorageBlobContent -File $localPath `
+            Set-AzStorageBlobContent -File $localPath `
                 -Blob $destinationPath `
                 -force:$force `
                 -Container $storage.container `
@@ -521,10 +524,10 @@ ms.locfileid: "53569234"
 
         function FindAzure {
             # Is there an active Azure subscription?
-            $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+            $sub = Get-AzSubscription -ErrorAction SilentlyContinue
             if(-not($sub))
             {
-                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
+                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzAccount cmdlet to login to your subscription."
             }
         }
 
@@ -533,7 +536,7 @@ ms.locfileid: "53569234"
                 [Parameter(Mandatory = $true)]
                 [String]$clusterName
             )
-            $hdi = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+            $hdi = Get-AzHDInsightCluster -ClusterName $clusterName
             # Does the cluster exist?
             if (!$hdi)
             {
@@ -547,14 +550,14 @@ ms.locfileid: "53569234"
             $resourceGroup = $hdi.ResourceGroup
             $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
             $container=$hdi.DefaultStorageContainer
-            $storageAccountKey=(Get-AzureRmStorageAccountKey `
+            $storageAccountKey=(Get-AzStorageAccountKey `
                 -Name $storageAccountName `
             -ResourceGroupName $resourceGroup)[0].Value
             # Get the resource group, in case we need that
             $return.resourceGroup = $resourceGroup
             # Get the storage context, as we can't depend
             # on using the default storage context
-            $return.context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+            $return.context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
             # Get the container, so we know where to
             # find/store blobs
             $return.container = $container

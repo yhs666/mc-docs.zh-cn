@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/02/2017
-ms.date: 01/14/2018
+origin.date: 12/06/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 114027978624c668b85a366991e6a9446a2c6f92
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 7ffa997eb83ecf6a5b7af9e2637461ca0ebbff7e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806582"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003786"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Spark 进行故障排除
 
@@ -31,7 +31,7 @@ ms.locfileid: "53806582"
 
 ### <a name="resolution-steps"></a>解决步骤
 
-事先在 HDInsight 中设置此过程的配置值。 若要确定需要设置哪些 Spark 配置以及配置值是什么，请参阅[导致 Apache Spark 应用程序出现 OutofMemoryError 异常的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。 
+可以优化 Spark 配置值，避免出现 Apache Spark 应用程序 OutofMemoryError 异常。 以下步骤显示了 Azure HDInsight 中的默认 Spark 配置值： 
 
 1. 在群集列表中选择“Spark2”。
 
@@ -93,14 +93,13 @@ ms.locfileid: "53806582"
 
 ### <a name="additional-reading"></a>其他阅读材料
 
-[在 HDInsight 群集上提交 Apache Spark 作业](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[在 HDInsight 群集上提交 Apache Spark 作业](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a> 如何在群集上使用 Jupyter Notebook 配置 Apache Spark 应用程序？
 
 ### <a name="resolution-steps"></a>解决步骤
 
-1. 若要确定需要设置哪些 Spark 配置以及配置值是什么，请参阅[导致 Apache Spark 应用程序出现 OutofMemoryError 异常的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。
+1. 若要确定需要设置哪些 Spark 配置以及配置值是什么，请参阅导致 Apache Spark 应用程序出现 OutofMemoryError 异常的原因。
 
 2. 在 Jupyter Notebook 的第一个单元格中的 **%%configure** 指令后面，使用有效的 JSON 格式指定 Spark 配置。 根据需要更改实际值：
 
@@ -226,7 +225,7 @@ java.lang.OutOfMemoryError
 
 ### <a name="additional-reading"></a>其他阅读材料
 
-- [Apache Spark 内存管理概述](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark 内存管理概述](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [在 HDInsight 群集上调试 Apache Spark 应用程序](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

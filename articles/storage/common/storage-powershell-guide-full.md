@@ -6,29 +6,29 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: e6ce9584b4b562122a0e8c393a1925f693f56fca
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 28ebf149c47db517443f47797a6eb2ae32f71808
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253919"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890181"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
 Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 针对 Azure 存储，将这些 cmdlet 划分为两个类别 -- 控制平面和数据平面。 控制平面 cmdlet 用于管理存储帐户，即创建存储帐户、设置属性、删除存储帐户、轮换访问密钥等。 数据平面 cmdlet 用于管理存储帐户中存储的数据。 例如，上传 blob、创建文件共享以及将消息添加到队列。
 
-本操作说明文章介绍了使用管理平面 cmdlet 管理存储帐户的常见操作。 你将学习如何执行以下操作： 
+本操作说明文章介绍了使用管理平面 cmdlet 管理存储帐户的常见操作。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 列出存储器帐户
 > * 获取对现有存储帐户的引用
-> * 创建存储帐户 
+> * 创建存储帐户
 > * 设置存储帐户属性
 > * 检索和再生成访问密钥
-> * 保护对存储帐户的访问 
+> * 保护对存储帐户的访问
 > * 启用存储分析
 
 本文提供有关存储的其他几篇 PowerShell 文章的链接，例如，如何启用和访问存储分析、如何使用数据平面 cmdlet，以及如何访问中国云、德国云和政府云等 Azure 独立云。
@@ -43,9 +43,9 @@ Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure �
 
 有关存储帐户的详细信息，请参阅[存储简介](storage-introduction.md)和[关于 Azure 存储帐户](storage-create-storage-account.md)。
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 `Connect-AzAccount` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+运行 `Connect-AzAccount` 命令以登录 Azure 订阅，并按照屏幕上的说明操作。
 
 ```powershell
 Connect-AzAccount -EnvironmentName AzureChinaCloud
@@ -61,9 +61,9 @@ Get-AzStorageAccount | Select StorageAccountName, Location
 
 ## <a name="get-a-reference-to-a-storage-account"></a>获取对存储帐户的引用
 
-接下来，需要对存储帐户的引用。 可以创建一个新存储帐户，也可以获取对现有存储帐户的引用。 下列各部分将演示这两种方法。 
+接下来，需要对存储帐户的引用。 可以创建一个新存储帐户，也可以获取对现有存储帐户的引用。 下列各部分将演示这两种方法。
 
-### <a name="use-an-existing-storage-account"></a>使用现有的存储帐户 
+### <a name="use-an-existing-storage-account"></a>使用现有的存储帐户
 
 若要检索现有的存储帐户，则需要资源组的名称和存储帐户的名称。 为这两个字段设置变量，然后使用 [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/Get-azStorageAccount) cmdlet。 
 
@@ -72,39 +72,39 @@ $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
 
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName 
+  -Name $storageAccountName
 ```
 
 现在，你已有指向现有存储帐户的 $storageAccount。
 
-### <a name="create-a-storage-account"></a>创建存储帐户 
+### <a name="create-a-storage-account"></a>创建存储帐户
 
 以下脚本将演示如何使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) 创建常规用途的存储帐户。 创建帐户后，检索其上下文，该操作可以在后续命令中使用，而不针对每次调用指定身份验证。
 
 ```powershell
 # Get list of locations and select one.
-Get-AzLocation | select Location 
+Get-AzLocation | select Location
 $location = "chinanorth"
 
 # Create a new resource group.
 $resourceGroup = "teststoragerg"
-New-AzResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
-# Set the name of the storage account and the SKU name. 
+# Set the name of the storage account and the SKU name.
 $storageAccountName = "testpshstorage"
 $skuName = "Standard_LRS"
-    
+
 # Create the storage account.
 $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName $skuName
 
-# Retrieve the context. 
+# Retrieve the context.
 $ctx = $storageAccount.Context
 ```
 
-该脚本使用以下 PowerShell cmdlet： 
+该脚本使用以下 PowerShell cmdlet：
 
 *   [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) -- 检索有效位置的列表。 该示例使用 `chinanorth` 作为位置。
 
@@ -116,9 +116,9 @@ SKU 名称指示用于存储帐户的复制类型，如 LRS（本地冗余存储
 
 > [!IMPORTANT]
 > 存储帐户的名称在 Azure 中是唯一的，并且必须采用小写。 有关命名约定和限制的信息，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。
-> 
+>
 
-现在，你有新的存储帐户以及对它的引用。 
+现在，你有新的存储帐户以及对它的引用。
 
 ## <a name="manage-the-storage-account"></a>管理存储帐户
 
@@ -136,7 +136,7 @@ SKU 名称指示用于存储帐户的复制类型，如 LRS（本地冗余存储
 
 * Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热、冷存储层和存档存储层](../blobs/storage-blob-storage-tiers.md)。
 
-* 仅允许 HTTPS 流量。 
+* 仅允许 HTTPS 流量。
 
 ### <a name="manage-the-access-keys"></a>管理访问密钥
 
@@ -154,18 +154,18 @@ $storageAccountKey = `
 ```powershell
 New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
-  -KeyName key1 
+  -KeyName key1
 ```
 
 若要再生成另一个密钥，请将 `key2` 用作密钥名称，而不是 `key1`。
 
 再生成其中一个密钥，然后再次对其进行检索以查看新值。
 
-> [!NOTE] 
+> [!NOTE]
 > 为生产存储帐户再生成密钥之前，应进行仔细的规划。 再生成一个或两个密钥将无法再访问使用已再生成密钥的任何应用程序。 有关详细信息，请参阅[访问密钥](storage-account-manage.md#access-keys)。
 
 
-### <a name="delete-a-storage-account"></a>删除存储帐户 
+### <a name="delete-a-storage-account"></a>删除存储帐户
 
 若要删除存储帐户，请使用 [Remove-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/Remove-azStorageAccount)。
 
@@ -174,12 +174,12 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 ```
 
 > [!IMPORTANT]
-> 在删除存储帐户时，还会删除该帐户中存储的所有资产。 如果意外删除某个帐户，请立即致电支持人员，并创建工单以还原该存储帐户。 不保证数据能得以恢复，但有时上述操作能起作用。 在支持工单得到解决之前，请不要使用相同的旧帐户名创建新的存储帐户。 
+> 在删除存储帐户时，还会删除该帐户中存储的所有资产。 如果意外删除某个帐户，请立即致电支持人员，并创建工单以还原该存储帐户。 不保证数据能得以恢复，但有时上述操作能起作用。 在支持工单得到解决之前，请不要使用相同的旧帐户名创建新的存储帐户。
 >
 
 ### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>使用 VNet 和防火墙保护存储帐户
 
-默认情况下，所有存储帐户均可通过任何有权访问 Internet 的网络进行访问。 但是，可以配置网络规则，仅允许来自特定虚拟网络的应用程序访问存储帐户。 有关详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](storage-network-security.md)。 
+默认情况下，所有存储帐户均可通过任何有权访问 Internet 的网络进行访问。 但是，可以配置网络规则，仅允许来自特定虚拟网络的应用程序访问存储帐户。 有关详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](storage-network-security.md)。
 
 本文将演示如何使用以下 PowerShell cmdlet 管理这些设置：
 * [Add-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
@@ -200,7 +200,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 > 可以使用 PowerShell 启用分钟分析。 此功能在门户中不可用。
 >
 
-* 若要了解如何使用 PowerShell 启用和查看存储度量值数据，请参阅[启用 Azure 存储度量值和查看度量值数据](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell)。
+* 若要了解如何使用 PowerShell 启用和查看存储指标数据，请参阅[存储分析指标](storage-analytics-metrics.md)。
 
 * 若要了解如何使用 PowerShell 启用和检索存储日志记录数据，请参阅[如何使用 PowerShell 启用存储日志记录](https://docs.microsoft.com/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)和[查找存储日志记录的日志数据](https://docs.microsoft.com/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)。
 
@@ -210,12 +210,14 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 了解如何使用 PowerShell 管理存储帐户后，请参阅以下文章了解如何访问存储帐户中的数据对象。
 
-* [如何使用 PowerShell 管理 blob](../blobs/storage-how-to-use-blobs-powershell.md)
+* [如何使用 PowerShell 管理 Blob](../blobs/storage-how-to-use-blobs-powershell.md)
 * [如何使用 PowerShell 管理文件](../files/storage-how-to-use-files-powershell.md)
 * [如何使用 PowerShell 管理队列](../queues/storage-powershell-how-to-use-queues.md)
 * [使用 PowerShell 执行 Azure 表存储操作](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB 表 API 提供了用于表存储的高级功能，如统包全局分发、低延迟读取和写入、自动辅助索引和专用吞吐量。 
+Azure Cosmos DB 表 API 提供了用于表存储的高级功能，如统包全局分发、低延迟读取和写入、自动辅助索引和专用吞吐量。
+
+* 有关详细信息，请参阅 [Azure Cosmos DB 表 API](../../cosmos-db/table-introduction.md)
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Azure 的独立云部署
 
@@ -236,19 +238,19 @@ Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>后续步骤
 
-本操作说明文章介绍了使用管理平面 cmdlet 管理存储帐户的常见操作。 你已了解如何： 
+本操作说明文章介绍了使用管理平面 cmdlet 管理存储帐户的常见操作。 你已了解如何：
 
 > [!div class="checklist"]
 > * 列出存储器帐户
 > * 获取对现有存储帐户的引用
-> * 创建存储帐户 
+> * 创建存储帐户
 > * 设置存储帐户属性
 > * 检索和再生成访问密钥
-> * 保护对存储帐户的访问 
+> * 保护对存储帐户的访问
 > * 启用存储分析
 
 本文还提供了其他几篇参考文章的链接，例如，如何管理数据对象、如何启用存储分析，以及如何访问中国云、德国云和政府云等 Azure 独立云。 下面是一些可供参考的其他相关文章和资源：
 
 * [Azure 存储控制平面 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.storage/)
 * [Azure 存储数据平面 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azure.storage/)
-* [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)（Windows PowerShell 参考）
+* [Windows PowerShell 参考](https://msdn.microsoft.com/library/ms714469.aspx)

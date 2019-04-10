@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 01/02/2019
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: d9e352d5e17333a3c0fbf80ef862109a47e9c7a2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5b206f807009444a3ac874f92fb5cf416a488011
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627145"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004189"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
 
@@ -360,7 +360,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 -   [*HIVE-18907*](https://issues.apache.org/jira/browse/HIVE-18907)：创建实用工具来解决 HIVE-18817 中的 acid 键索引问题。
 
-**Hive 1.2.0 Apache 修补程序**
+**Hive 1.2.0 Apache 修补程序：**
 
 -   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013)：描述表未正确显示 unicode。
 
@@ -828,7 +828,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 本部分介绍此版本中已解决的所有常见漏洞和透露 (CVE) 问题。
 
-### <a name="cve-2017-7676"></a>**CVE-2017-7676**
+### **<a name="cve-2017-7676"></a>CVE-2017-7676**
 
 | **摘要：** Apache Ranger 策略评估忽略“\*”通配符后面的字符 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -840,7 +840,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **修复详细信息：** Ranger 策略资源匹配程序已更新，可以正确处理通配符匹配。           |
 | **建议的操作：** 升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。                                |
 
-### <a name="cve-2017-7677"></a>**CVE-2017-7677**
+### **<a name="cve-2017-7677"></a>CVE-2017-7677**
 
 | **摘要：** 指定了外部位置时，Apache Ranger Hive 授权者应检查 RWX 权限 |
 |--------------------------------------------------------------------------------------------------|
@@ -852,7 +852,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **修复详细信息：** Ranger Hive 授权者已更新，可以使用外部位置正确处理权限检查。 |
 | **建议的操作：** 用户应升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。 |
 
-### <a name="cve-2017-9799"></a>**CVE-2017-9799**
+### **<a name="cve-2017-9799"></a>CVE-2017-9799**
 
 | **摘要：** 可能以 Apache Storm 中错误用户的身份执行代码 |
 |--------------------------------------------------------------------------------------------------|
@@ -863,7 +863,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **影响：** 在某些情况下使用 storm 的配置时，在理论上，拓扑的所有者能够以不同的非 root 用户身份欺骗监督程序来启动辅助角色。 在最坏的情况下，这可能导致其他用户的安全凭据泄密。 此漏洞仅适用于已启用安全性的 Apache Storm 安装。 |
 | **缓解措施：** 目前没有解决方法，只能升级到 HDP 2.6.2.1。  |
 
-### <a name="cve-2016-4970"></a>**CVE-2016-4970**
+### **<a name="cve-2016-4970"></a>CVE-2016-4970**
 
 | **摘要：** 4.0.37.Final 之前的 Netty 4.0.x 以及 4.1.1.Final 之前的 4.1.x 中的 handler/ssl/OpenSslEngine.java 允许远程攻击者造成拒绝服务（无限循环） |
 |--------------------------------------------------------------------------------------------------|
@@ -874,7 +874,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **影响：** 影响较低，因为 Hortonworks 不直接在 Hadoop 代码库中使用 OpenSslEngine.java。     |
 | **建议的操作：** 升级到 HDP 2.6.3。   |
 
-### <a name="cve-2016-8746"></a>**CVE-2016-8746**
+### **<a name="cve-2016-8746"></a>CVE-2016-8746**
 
 | **摘要：** 策略评估中存在 Apache Ranger 路径匹配问题                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
@@ -886,7 +886,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **修复详细信息：** 已修复策略评估逻辑                                                                                          |
 | **建议的操作：** 用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）         |
 
-### <a name="cve-2016-8751"></a>**CVE-2016-8751**
+### **<a name="cve-2016-8751"></a>CVE-2016-8751**
 
 | **摘要：** Apache Ranger 存储跨站点脚本问题  |
 |--------------------------------------------------------------------------------------------------|
@@ -1389,7 +1389,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
     
   **解决方法**
     
-  - **选项\# 1：通过 Ranger Rest API 创建/更新策略**
+  - **选项 \#1：通过 Ranger Rest API 创建/更新策略**
         
       REST URL： http://&lt;host&gt;:6080/service/plugins/policies
         
@@ -1411,7 +1411,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
         
       `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-  - **选项\# 2：应用 Javascript 更改**
+  - **选项 \#2：应用 Javascript 更改**
         
       更新 JS 文件的步骤：
         
@@ -1424,6 +1424,10 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
           val = \_.escape(val);//Line No:460
             
           删除上述行之后，Ranger UI 将允许你创建策略条件可以包含特殊字符的策略，并且针对同一策略执行策略评估将会成功。
+
+**HDInsight 与 ADLS Gen 2 集成：ESP 群集存在用户目录和权限问题**
+    1.  用户的主目录未在头节点 1 上创建。 解决方法是，手动创建这些目录并将所有权更改为相应用户的 UPN。
+    2.  /hdp 的权限当前未设置为 751。 这需要设置为 a.  chmod 751 /hdp b.  chmod -R 755 /hdp/apps
 
 ## <a name="deprecation"></a>弃用
 

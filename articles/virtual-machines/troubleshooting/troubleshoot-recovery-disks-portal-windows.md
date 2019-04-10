@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/013/2018
-ms.date: 02/18/2019
+origin.date: 08/13/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: b24d4646ac7320ebb777f1b3c358fbb95c809388
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 6e1fd71a34be9d0528d502f7874fed513fe89be4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665859"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003954"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM，对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，然后重新创建原始 VM。
@@ -130,7 +130,7 @@ ms.locfileid: "56665859"
 ## <a name="create-vm-from-original-hard-disk"></a>从原始硬盘创建 VM
 若要从原始虚拟硬盘创建 VM，请使用 [此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)。 该模板使用前面命令中的 VHD URL 将 VM 部署到现有的或新的虚拟网络。 单击“部署到 Azure”按钮，如下所示： 
 
-[![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-new-or-existing-vnet%2Fazuredeploy.json)
+[![D部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-new-or-existing-vnet%2Fazuredeploy.json)
 
 ![从 GitHub 中的模板部署 VM](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 

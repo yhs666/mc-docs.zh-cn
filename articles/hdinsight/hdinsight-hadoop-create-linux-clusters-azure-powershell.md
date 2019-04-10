@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/21/2019
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: f650bee4dace97d25f11925a527d5d7d16f34928
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: bef4873ed7d0f86d0b80131002c126aa4805ed9e
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665577"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003772"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中创建基于 Linux 的群集
 
@@ -34,6 +34,9 @@ Azure PowerShell 是一个功能强大的脚本编写环境，可用于在 Azure
 > Azure PowerShell 仅在 Windows 客户端上可用。 如果使用的是 Linux、Unix 或 Mac OS X 客户端，请参阅[使用 Azure 经典 CLI 创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-azure-cli.md)，了解如何使用经典 CLI 创建群集。
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 开始执行此过程之前请做好以下准备：
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -140,9 +143,9 @@ New-AzureRmHDInsightCluster `
 
 ## <a name="create-cluster-configuration-object"></a>创建群集：配置对象
 
-还可以使用 `New-AzureRmHDInsightClusterConfig` cmdlet 创建 HDInsight 配置对象。 然后，可以修改此配置对象，为群集启用其他配置选项。 最后，使用 `New-AzureRmHDInsightCluster` cmdlet 的 `-Config` 参数以利用该配置。
+还可以使用 `New-AzHDInsightClusterConfig` cmdlet 创建 HDInsight 配置对象。 然后，可以修改此配置对象，为群集启用其他配置选项。 最后，使用 `New-AzHDInsightCluster` cmdlet 的 `-Config` 参数以利用该配置。
 
-下面的脚本创建了一个配置对象，用于在 HDInsight 群集类型上配置 ML Services。 该配置支持边缘节点、RStudio 和其他存储帐户。
+下面的脚本创建了一个配置对象，用于在 HDInsight 群集类型上配置 R Server。 该配置支持边缘节点、RStudio 和其他存储帐户。
 ```powershell
 $additionalStorageAccountName = Read-Host -Prompt "Enter the name of the additional storage account"
 
@@ -204,7 +207,7 @@ New-AzureRmHDInsightCluster `
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 群集
 
-* [HDInsight 中的 Apache HBase 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Apache HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [为 Apache HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 群集
@@ -217,6 +220,6 @@ New-AzureRmHDInsightCluster `
 
 * [使用 Scala 创建独立的应用程序](spark/apache-spark-create-standalone-application.md)
 * [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
 

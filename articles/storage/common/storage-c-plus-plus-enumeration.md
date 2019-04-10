@@ -6,21 +6,21 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: e1b1427758a0c9cfb602aaa6d785ec3185040dc3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 4e3654159fe4593b74674183d2abbd5038ff0864
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665427"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890138"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>使用 C++ 列出 Azure 存储资源
 使用 Azure 存储进行开发时，很多情况下列表操作很重要。 本文介绍如何使用用于 C++ 的 Azure 存储客户端库中提供的列表 API 最有效率地枚举 Azure 存储中的对象。
 
 > [!NOTE]
-> 本指南主要面向适用于 C++ 版本 2.x 的 Azure 存储客户端库，该库可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 获取。
+> 本指南主要面向适用于 C++ 版本 2.x 的 Azure 存储客户端库，该库可通过 [NuGet](https://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 获取。
 > 
 > 
 
@@ -35,7 +35,7 @@ ms.locfileid: "56665427"
 使用不同的重载针对不同的方案演示上述每种方法。
 
 ## <a name="asynchronous-versus-synchronous"></a>异步与同步
-由于 C++ 的存储客户端库是在 [C++ REST 库](https://github.com/Microsoft/cpprestsdk)基础上构建的，因此我们实际上也支持使用 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 进行异步操作。 例如：
+由于 C++ 的存储客户端库是在 [C++ REST 库](https://github.com/Microsoft/cpprestsdk)基础上构建的，因此我们实际上也支持使用 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 进行异步操作。 例如：
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -195,7 +195,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 * [如何通过 C++ 使用 Blob 存储](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何通过 C++ 使用表存储](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [如何通过 C++ 使用队列存储](../storage-c-plus-plus-how-to-use-queues.md)
-* [适用于 C++ 的 Azure 存储客户端库 API 文档。](http://azure.github.io/azure-storage-cpp/)
+* [适用于 C++ 的 Azure 存储客户端库 API 文档。](https://azure.github.io/azure-storage-cpp/)
 * [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure 存储文档](/storage/)
 

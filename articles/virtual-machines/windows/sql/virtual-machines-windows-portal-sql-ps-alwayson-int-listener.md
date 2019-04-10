@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/06/2019
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 44c8f457f83980c80b0f4b2b1f0f091156347a3b
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: a054cdb8ab637bddf9815867bf4eb1e84c906c72
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666372"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003886"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：
@@ -40,7 +40,7 @@ ms.locfileid: "56666372"
 相关主题包括：
 
 * [在 Azure VM (GUI) 中配置 AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [使用 Azure Resource Manager 和 PowerShell 配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [使用 Azure 资源管理器和 PowerShell 配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -84,7 +84,7 @@ $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupN
 
 <!-- Not Available on [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
-以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzAccount` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzSubscription ` 设置订阅。 
+以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzSubscription ` 设置订阅。 
 
 ```powershell
 # Connect-AzAccount -Environment AzureChinaCloud

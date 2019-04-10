@@ -6,22 +6,22 @@ author: rockboyfor
 ms.service: multiple
 ms.topic: include
 origin.date: 10/09/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 1ef6aca1b190f4b7f0f0977d57b8f6a5db796012
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: eb2913ea09067b5282059c3487b4fa281aea49f5
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666453"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004536"
 ---
 ## <a name="terminology"></a>术语
 
 Azure 中的市场映像具有以下属性：
 
 * **发布者**：创建映像的组织。 示例:Canonical、MicrosoftWindowsServer
-* **产品/服务**：发布者创建的一组相关映像的名称。 示例:Ubuntu Server、WindowsServer
+* **产品/服务**：发布者创建的一组相关映像的名称。 示例:UbuntuServer、WindowsServer
 * **SKU**：产品/服务的实例，例如分发版的主要版本。 示例:18.04-LTS、2019-Datacenter
 * **版本**：映像 SKU 的版本号。 
 

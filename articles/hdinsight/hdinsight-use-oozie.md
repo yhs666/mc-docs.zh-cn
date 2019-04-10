@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 02/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: b4db9fe60ec4c18c47dbb8e893f35df5d9d703c7
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 1bfc623033079f39b18dfb9373465094794ec128
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906077"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004033"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -61,6 +61,9 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
 > 
 
 ### <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 开始学习本教程之前，必须具备以下项：
 
 * **配备 Azure PowerShell 的工作站**。 
@@ -131,26 +134,23 @@ Oozie 工作流定义是用 hPDL（一种 XML 过程定义语言）编写的。 
 
 RunHiveScript 有几个变量。 在使用 Azure PowerShell 从工作站提交 Oozie 作业时，会传递值。
 
-<table border = "1">
-<tr><th>工作流变量</th><th>说明</th></tr>
-<tr><td>${jobTracker}</td><td>指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 版本 3.0 和 2.1 中使用 jobtrackerhost:9010。</td></tr>
-<tr><td>${nameNode}</td><td>指定 Hadoop 名称节点的 URL。 使用默认的文件系统地址，例如 <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.chinacloudapi.cn</i>。</td></tr>
-<tr><td>${queueName}</td><td>指定作业将提交到的队列名称。 使用默认值。</td></tr>
-</table>
+|工作流变量|说明|
+|---|---|
+|${jobTracker}|指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 版本 3.0 和 2.1 中使用 jobtrackerhost:9010。|
+|${nameNode}|指定 Hadoop 名称节点的 URL。 请使用默认的文件系统地址，例如 wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net。|
+|${queueName}|指定作业将提交到的队列名称。 使用默认值。|
 
-<table border = "1">
-<tr><th>Hive 操作变量</th><th>说明</th></tr>
-<tr><td>${hiveDataFolder}</td><td>指定 Hive Create Table 命令的源目录。</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>指定 INSERT OVERWRITE 语句的输出文件夹。</td></tr>
-<tr><td>${hiveTableName}</td><td>指定引用 log4j 数据文件的 Hive 表的名称。</td></tr>
-</table>
+|Hive 操作变量|说明|
+|---|---|
+|${hiveDataFolder}|指定 Hive Create Table 命令的源目录。|
+|${hiveOutputFolder}|指定 INSERT OVERWRITE 语句的输出文件夹。|
+|${hiveTableName}|指定引用 log4j 数据文件的 Hive 表的名称。|
 
-<table border = "1">
-<tr><th>Sqoop 操作变量</th><th>说明</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>指定 Azure SQL 数据库连接字符串。</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>指定数据将导出到的 Azure SQL 数据库表。</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>指定 Hive INSERT OVERWRITE 语句的输出文件夹。 这是用于 Sqoop 导出 (export-dir) 的同一个文件夹。</td></tr>
-</table>
+|Sqoop 操作变量|说明|
+|---|---|
+|${sqlDatabaseConnectionString}|指定 Azure SQL 数据库连接字符串。|
+|${sqlDatabaseTableName}|指定数据将导出到的 Azure SQL 数据库表。|
+|${hiveOutputFolder}|指定 Hive INSERT OVERWRITE 语句的输出文件夹。 这是用于 Sqoop 导出 (export-dir) 的同一个文件夹。|
 
 有关 Oozie 工作流和使用工作流操作的详细信息，请参阅 [Apache Oozie 4.0 文档][apache-oozie-400]（适用于 HDInsight 3.0 版）或 [Apache Oozie 3.3.2 文档][apache-oozie-332]（适用于 HDInsight 2.1 版）。
 
@@ -245,34 +245,34 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
+    try{Get-AzContext}
     catch{
-        Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-        Select-AzureRmSubscription -SubscriptionId $subscriptionID
+        Connect-AzAccount -EnvironmentName AzureChinaCloud
+        Select-AzSubscription -SubscriptionId $subscriptionID
     }
     #endregion
 
     #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
-        Get-AzureRmResourceGroup -Name $resourceGroupName
+        Get-AzResourceGroup -Name $resourceGroupName
     }
     catch{
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+        New-AzResourceGroup -Name $resourceGroupName -Location $location
     }
     #endregion
 
     #region - Create Azure SQL database server
     Write-Host "`nCreating an Azure SQL Database server ..." -ForegroundColor Green
     try{
-        Get-AzureRmSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
+        Get-AzSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
     catch{
         Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
 
         $sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
         $sqlLoginCredentials = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
 
-        $sqlDatabaseServerName = (New-AzureRmSqlServer `
+        $sqlDatabaseServerName = (New-AzSqlServer `
                                     -ResourceGroupName $resourceGroupName `
                                     -ServerName $sqlDatabaseServerName `
                                     -SqlAdministratorCredentials $sqlLoginCredentials `
@@ -281,7 +281,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 
         Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
         $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
-        New-AzureRmSqlServerFirewallRule `
+        New-AzSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -FirewallRuleName "$fireWallRuleName-workstation" `
@@ -290,7 +290,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
 
         #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
         #Note that this allows Azure traffic from any Azure subscription to access the server.
-        New-AzureRmSqlServerFirewallRule `
+        New-AzSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -FirewallRuleName "$fireWallRuleName-Azureservices" `
@@ -303,13 +303,13 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
 
     try {
-        Get-AzureRmSqlDatabase `
+        Get-AzSqlDatabase `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -DatabaseName $sqlDatabaseName
     }
     catch {
-        New-AzureRMSqlDatabase `
+        New-AzSqlDatabase `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
             -DatabaseName $sqlDatabaseName `
@@ -349,20 +349,20 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
 
     # Create the default storage account
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
 
     # Create the default Blob container
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext `
+    $defaultStorageAccountContext = New-AzStorageContext `
                                         -StorageAccountName $defaultStorageAccountName `
                                         -StorageAccountKey $defaultStorageAccountKey 
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name $defaultBlobContainerName `
         -Context $defaultStorageAccountContext 
 
@@ -370,7 +370,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
-    New-AzureRmHDInsightCluster `
+    New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $HDInsightClusterName `
         -Location $location `
@@ -383,7 +383,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
         -DefaultStorageContainer $defaultBlobContainerName 
 
     # Validate the cluster
-    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
+    Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
     #endregion
 
     #region - copy Oozie workflow and HiveQL files
@@ -391,7 +391,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     Write-Host "Copy workflow definition and HiveQL script file ..." -ForegroundColor Green
 
     # Both files are stored in a public Blob
-    $publicBlobContext = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
+    $publicBlobContext = New-AzStorageContext -StorageAccountName "hditutorialdata" -Anonymous
 
     # WASB folder for storing the Oozie tutorial files.
     $destFolder = "tutorials/useoozie"  # Do NOT use the long path here
@@ -415,12 +415,12 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
         -Force
 
     #validate the copy
-    Get-AzureStorageBlob `
+    Get-AzStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
         -Blob $destFolder/workflow.xml
 
-    Get-AzureStorageBlob `
+    Get-AzStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
         -Blob $destFolder/useooziewf.hql
@@ -440,7 +440,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
         -destBlob "$destFolder/data/sample.log" 
 
     #validate the copy
-    Get-AzureStorageBlob `
+    Get-AzStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
         -Blob $destFolder/data/sample.log
@@ -604,11 +604,11 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     $sqlDatabaseTableName = "log4jLogsCount"
 
     Write-host "Delete the Hive script output file ..." -ForegroundColor Green
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
-    Remove-AzureStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $defaultBlobContainerName
+    $destContext = New-AzStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+    Remove-AzStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $defaultBlobContainerName
 
     Write-host "Delete all the records from the log4jLogsCount table ..." -ForegroundColor Green
     $conn = New-Object System.Data.SqlClient.SqlConnection

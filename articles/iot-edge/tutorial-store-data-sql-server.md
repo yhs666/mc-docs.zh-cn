@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 852df9794eeea8e7cb333249e8aa6a3653ae252a
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 16c061123c2842a1c335305651f3c872cd7629bd
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665634"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890222"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教程：使用 SQL Server 数据库存储边缘中的数据
 
@@ -91,7 +91,7 @@ Azure IoT Edge 设备：
 
 2. 打开 VS Code 命令面板，方法是选择“视图” > “命令面板”。
 
-3. 在命令面板中，键入并运行“Azure IoT Edge: New IoT Edge solution”命令。 在命令面板中提供以下信息，以便创建解决方案： 
+3. 在命令面板中，键入并运行 **`Azure IoT Edge: New IoT Edge Solution`** 命令。 在命令面板中提供以下信息，以便创建解决方案： 
 
    | 字段 | 值 |
    | ----- | ----- |
@@ -300,7 +300,7 @@ Azure IoT Edge 设备：
 
 可以通过 IoT 中心设置设备上的模块，但是也可以通过 Visual Studio Code 访问 IoT 中心和设备。 在此部分，请先设置对 IoT 中心的访问权限，然后使用 VS Code 将解决方案部署到 IoT Edge 设备。 
 
-1. 在 VS Code 命令面板中，选择“Azure IoT 中心: 选择 IoT 中心”。
+1. 在 VS Code 命令面板中，选择 **`Azure IoT Hub: Select IoT Hub`**。
 
 2. 根据提示登录到 Azure 帐户。 
 

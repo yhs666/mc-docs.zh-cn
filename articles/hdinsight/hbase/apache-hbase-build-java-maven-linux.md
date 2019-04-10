@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: cf79e5bbf8f4dadf1d301cf799bbab606fe1136b
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 32b5880bbe102c5bcd332c993b665b5eb7625a76
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029260"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004146"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -34,6 +34,8 @@ ms.locfileid: "54029260"
 > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * [Java 平台 JDK](https://aka.ms/azure-jdks) 8 或更高版本。
 
@@ -474,32 +476,32 @@ ms.locfileid: "54029260"
     $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
-    $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $jobDefinition = New-AzHDInsightMapReduceJobDefinition `
         -JarFile $jarFile `
         -ClassName $className `
         -Arguments $emailRegex
 
     # Get the job output
-    $job = Start-AzureRmHDInsightJob `
+    $job = Start-AzHDInsightJob `
         -ClusterName $clusterName `
         -JobDefinition $jobDefinition `
         -HttpCredential $creds
     Write-Host "Wait for the job to complete ..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ClusterName $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds
     if($showErr)
     {
     Write-Host "STDERR"
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
                 -Clustername $clusterName `
                 -JobId $job.JobId `
                 -HttpCredential $creds `
                 -DisplayOutputType StandardError
     }
     Write-Host "Display the standard output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
                 -Clustername $clusterName `
                 -JobId $job.JobId `
                 -HttpCredential $creds
@@ -560,7 +562,7 @@ ms.locfileid: "54029260"
         $storage = GetStorage -clusterName $clusterName
 
         # Upload file to storage, overwriting existing files if -force was used.
-        Set-AzureStorageBlobContent -File $localPath `
+        Set-AzStorageBlobContent -File $localPath `
             -Blob $destinationPath `
             -force:$force `
             -Container $storage.container `
@@ -569,10 +571,10 @@ ms.locfileid: "54029260"
 
     function FindAzure {
         # Is there an active Azure subscription?
-        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        $sub = Get-AzSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount -EnvironmentName AzureChinaCloud cmdlet to login to your subscription."
+            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzAccount cmdlet to login to your subscription."
         }
     }
 
@@ -581,7 +583,7 @@ ms.locfileid: "54029260"
             [Parameter(Mandatory = $true)]
             [String]$clusterName
         )
-        $hdi = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $hdi = Get-AzHDInsightCluster -ClusterName $clusterName
         # Does the cluster exist?
         if (!$hdi)
         {
@@ -595,14 +597,14 @@ ms.locfileid: "54029260"
         $resourceGroup = $hdi.ResourceGroup
         $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
         $container=$hdi.DefaultStorageContainer
-        $storageAccountKey=(Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzStorageAccountKey `
             -Name $storageAccountName `
         -ResourceGroupName $resourceGroup)[0].Value
         # Get the resource group, in case we need that
         $return.resourceGroup = $resourceGroup
         # Get the storage context, as we can't depend
         # on using the default storage context
-        $return.context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        $return.context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
         # Get the container, so we know where to
         # find/store blobs
         $return.container = $container

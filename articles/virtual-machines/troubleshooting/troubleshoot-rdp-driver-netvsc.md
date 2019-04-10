@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/19/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 30fcb8051432e8ef8e0e27ffedc367bff57e51f2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8af8a2173fcd692ed722b299be1d0391274c8731
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625272"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003998"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>由于 netvsc.sys，无法在 Azure 中远程连接到 Windows 10 或 Windows Server 2016 VM
 
@@ -29,7 +29,7 @@ ms.locfileid: "58625272"
 
 无法使用远程桌面协议 (RDP) 连接到 Azure Windows 10 或 Windows Server 2016 VM。 在[启动诊断](boot-diagnostics.md)中，屏幕在网络接口卡 (NIC) 处显示一个红叉。 这表示操作系统完全加载后 VM 没有连接。
 
-通常，此问题发生在 Windows [内部版本 14393](http://support.microsoft.com/help/4093120/) 和[内部版本 15063](http://support.microsoft.com/help/4015583/) 中。 如果操作系统版本低于这些版本，则本文不适用于你的方案。 
+通常，此问题发生在 Windows [内部版本 14393](https://support.microsoft.com/help/4093120/) 和[内部版本 15063](https://support.microsoft.com/help/4015583/) 中。 如果操作系统版本低于这些版本，则本文不适用于你的方案。 
 
 <!-- Not Available on  [the Serial Access Console feature](serial-console-windows.md)-->
 
@@ -73,8 +73,8 @@ ms.locfileid: "58625272"
 
 12. 下载相应的更新：
 
-    - **10.0.14393.594**：[KB4073562](http://support.microsoft.com/help/4073562)  或更高版本的更新
-    - **10.0.15063.0**：[KB4016240](http://support.microsoft.com/help/4016240) 或更高版本的更新
+    - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
+    - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
 
 13. 将系统磁盘作为数据磁盘附加到可以下载更新的安全 VM 上。
 
@@ -96,5 +96,4 @@ ms.locfileid: "58625272"
 
 如果仍需帮助，请[联系 Azure 支持人员](https://support.azure.cn/zh-cn/support/support-azure/)以快速解决问题。
 
-<!-- Update_Description: new articles on troubleshoot rdp driver netvsc -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: wording update-->

@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/02/2017
-ms.date: 11/25/2017
+origin.date: 12/06/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c59f9807c67d39fd6416d7d8ab662fb94172e9c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b86eeb854198ec153d9d72ffe616141df7e15f5b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625108"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004144"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 YARN 进行故障排除
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop YARN 进行故障排除
 
 了解处理 Apache Ambari 中的 Apache Hadoop YARN 有效负载时的最常见问题及其解决方法。
 
@@ -37,7 +37,7 @@ ms.locfileid: "58625108"
 在此示例中，两个现有队列（**default** 和 **thriftsvr**）的容量都从 50 % 更改为 25%，因此，新队列 (Spark) 具有 50% 的容量。
 
 | 队列 | 容量 | 最大容量 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 默认值 | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
@@ -69,7 +69,7 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 ### <a name="additional-reading"></a>其他阅读材料
 
-- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>如何从群集下载 YARN 日志？
@@ -141,7 +141,7 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 ### <a name="additional-reading-2"></a>其他阅读材料
 
-- [使用 SSH 连接到 HDInsight (Hadoop)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [使用 SSH 连接到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN 的概念和应用](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

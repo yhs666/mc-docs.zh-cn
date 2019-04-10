@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 947ba83caf68cbb2d6ed91bb8aa1d37274494d01
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 306045ce19c1b1fad480ebd5f9652333a8cbb1b6
+ms.sourcegitcommit: 780fa3d8b5538d324d3e13051abe6f5bd52208e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625261"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58812644"
 ---
 # <a name="21vianet-azure-storage-explorer-release-notes"></a>世纪互联 Azure 存储资源管理器发行说明
 
@@ -27,13 +27,115 @@ ms.locfileid: "58625261"
 
 [世纪互联 Azure 存储资源管理器](./vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。
 
+## <a name="version-170"></a>版本 1.7.0
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>下载 Azure 存储资源管理器 1.7.0
+- [适用于 Windows 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [适用于 Linux 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新建
+
+* 现在，在管理 ADLS Gen2 容器、文件或文件夹的访问权限时，可以更改所有者和拥有组。
+* 在 Windows 上，从产品内部更新存储资源管理器现在属于增量安装操作。 这样应该可以加快更新的速度。 如果你偏向于全新安装，可以自行下载[安装程序](https://azure.microsoft.com/en-us/features/storage-explorer/)并手动安装。 #1089
+
+### <a name="preview-features"></a>预览功能
+
+* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。 #938
+* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
+
+### <a name="fixes"></a>修复项
+
+* 现在，在启用 AzCopy 后，可以选择要上传的 Blob 类型。 #1111
+* 以前，如果为 ADLS Gen2 存储帐户启用了静态网站，然后在该帐户中附加名称和密钥，则存储资源管理器将检测不到已启用该分层命名空间。 此问题已解决。 #1081
+* 在 Blob 编辑器中，不再能够按剩余保留天数或状态进行排序。 此问题已解决。 #1106
+* 在版本 1.5.0 之后，存储资源管理器不再会先等待服务器端复制完成，然后在重命名或复制/粘贴操作期间报告成功结果。 此问题已解决。 #976
+* 使用试验性的 AzCopy 功能时，单击“将命令复制到剪贴板”后复制的命令本身不一定始终可运行。 现在，将会复制手动运行传输所需的所有命令。 #1079
+* 以前，如果在代理后面操作，则无法访问 ADLS Gen2 Blob。 这是因为存储 SDK 使用的新网络库中存在一个 bug。 1.7.0 会尝试缓解此问题，但有些人仍可能会遇到问题。 在将来的更新中会发布完整修复措施。 #1090
+* 在 1.7.0 中，“保存文件”对话框现在会正确记住文件的上次保存位置。 #16
+* 在“属性”窗格中，存储帐户的 SKU 层显示为帐户类型。 此问题已解决。 #654
+* 有时，即使正确输入 Blob 的名称，也无法中断该 Blob 的租约。 此问题已解决。 #1070
+
+### <a name="known-issues"></a>已知问题
+
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting)。
+* 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
+* 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
+* 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
+* 如果使用用于 Mac 的 VS 并曾经创建过自定义 AAD 配置，可能无法登录。 若要解决此问题，请删除 ~/.IdentityService/AadConfigurations 的内容。 如果这样做不能对你解除阻止，请对此问题发表评论。
+* Azurite 还没有完全实现所有存储 API。 因此，在使用 Azurite 进行开发存储时可能会出现意外的错误或行为。
+* 在极少数情况下，树焦点可能会停滞在“快速访问”上。 要使焦点取消停滞，可以单击“全部刷新”。
+* 由于 NodeJS 中的 bug，从 OneDrive 文件夹上传不正常工作。 该 bug 已修复，但尚未集成到 Electron 中。 若要在向/从 Blob 容器上传或下载时解决此问题，可以使用试验性的 AzCopy 功能。
+* 当以 Azure Stack 为目标时，将某些文件作为追加 blob 进行上传可能会失败。
+* 对任务单击“取消”后，可能需要一段时间才能取消该任务。 这是因为我们使用的是此处介绍的“取消筛选”解决办法。
+* 如果选择错误的 PIN/智能卡证书，需要重启存储资源管理器，使其忘记该选择。
+* 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
+* Azure Stack 不支持以下功能。 在处理 Azure Stack 资源时尝试使用这些功能可能会导致意外错误。
+   * 文件共享
+   * 访问层级
+   * 软删除
+* 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 对于 Ubuntu 17.04 用户，需要安装 GConf - 通过运行以下命令，然后重启计算机即可完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>以前的版本
+
+* [版本 1.6.2](#version-162)
+* [版本 1.6.1](#version-161)
+* [版本 1.6.0](#version-160)
+* [版本 1.5.0](#version-150)
+* [版本 1.4.4](#version-144)
+* [版本 1.4.3](#version-143)
+* [版本 1.4.2](#version-142)
+* [版本 1.4.1](#version-141)
+* [版本 1.3.0](#version-130)
+* [版本 1.2.0](#version-120)
+* [版本 1.1.0](#version-110)
+* [版本 1.0.0](#version-100)
+* [版本 0.9.6](#version-096)
+* [版本 0.9.5](#version-095)
+* [版本 0.9.4 和 0.9.3](#version-094-and-093)
+* [版本 0.9.2](#version-092)
+* [版本 0.9.1 和 0.9.0](#version-091-and-090)
+* [版本 0.8.16](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [版本 0.8.13](#version-0813)
+* [版本 0.8.12、0.8.11 和 0.8.10](#version-0812-and-0811-and-0810)
+* [版本 0.8.9 和 0.8.8](#version-089-and-088)
+* [版本 0.8.7](#version-087)
+* [版本 0.8.6](#version-086)
+* [版本 0.8.5](#version-085)
+* [版本 0.8.4](#version-084)
+* [版本 0.8.3](#version-083)
+* [版本 0.8.2](#version-082)
+* [版本 0.8.0](#version-080)
+* [版本 0.7.20160509.0](#version-07201605090)
+* [版本 0.7.20160325.0](#version-07201603250)
+* [版本 0.7.20160129.1](#version-07201601291)
+* [版本 0.7.20160105.0](#version-07201601050)
+* [版本 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>版本 1.6.2
 2019/1/9
-
-### <a name="download-azure-storage-explorer-162"></a>下载 Azure 存储资源管理器 1.6.2
-- [适用于 Windows 的 Azure 存储资源管理器 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [适用于 Mac 的 Azure 存储资源管理器 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [适用于 Linux 的 Azure 存储资源管理器 1.6.2](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>修补程序
 * 在 1.6.1 中，通过 ObjectId 添加到 ADLS Gen2 ACL 的实体（非用户）始终作为组添加。 现在，只能将组作为组添加，并将企业应用程序和服务主体等实体添加为用户。 [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -103,42 +205,6 @@ ms.locfileid: "58625261"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>以前的版本
-
-* [版本 1.6.1](#version-161)
-* [版本 1.6.0](#version-160)
-* [版本 1.5.0](#version-150)
-* [版本 1.4.4](#version-144)
-* [版本 1.4.3](#version-143)
-* [版本 1.4.2](#version-142)
-* [版本 1.4.1](#version-141)
-* [版本 1.3.0](#version-130)
-* [版本 1.2.0](#version-120)
-* [版本 1.1.0](#version-110)
-* [版本 1.0.0](#version-100)
-* [版本 0.9.6](#version-096)
-* [版本 0.9.5](#version-095)
-* [版本 0.9.4 和 0.9.3](#version-094-and-093)
-* [版本 0.9.2](#version-092)
-* [版本 0.9.1 和 0.9.0](#version-091-and-090)
-* [版本 0.8.16](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [版本 0.8.13](#version-0813)
-* [版本 0.8.12、0.8.11 和 0.8.10](#version-0812-and-0811-and-0810)
-* [版本 0.8.9 和 0.8.8](#version-089-and-088)
-* [版本 0.8.7](#version-087)
-* [版本 0.8.6](#version-086)
-* [版本 0.8.5](#version-085)
-* [版本 0.8.4](#version-084)
-* [版本 0.8.3](#version-083)
-* [版本 0.8.2](#version-082)
-* [版本 0.8.0](#version-080)
-* [版本 0.7.20160509.0](#version-07201605090)
-* [版本 0.7.20160325.0](#version-07201603250)
-* [版本 0.7.20160129.1](#version-07201601291)
-* [版本 0.7.20160105.0](#version-07201601050)
-* [版本 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-161"></a>版本 1.6.1
 2018/12/18

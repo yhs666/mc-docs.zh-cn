@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 8f09b63b4f0aa811066415142af8f4b6fbf1ca7b
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 8ca9348a88795b7436bb35f0b5f9de52cec6fde4
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318970"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003468"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理弹性池
 
@@ -41,6 +41,8 @@ ms.locfileid: "58318970"
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理弹性池和共用数据库
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要使用 Azure PowerShell 创建并管理 SQL 数据库弹性池和入池数据库，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 若要创建和管理弹性池的 SQL 数据库服务器，请参阅[创建和管理 SQL 数据库服务器](sql-database-servers.md)。 若要创建和管理防火墙规则，请参阅[使用 PowerShell 创建和管理防火墙规则](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell)。
 
@@ -90,7 +92,7 @@ ms.locfileid: "58318970"
 
 | 命令 | 说明 |
 | --- | --- |
-|[CREATE DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/create-database-azure-sql-database)|在现有池中创建新数据库或将其创建为单一数据库。 必须连接到 master 数据库，才能新建数据库。|
+|[CREATE DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/create-database-azure-sql-database)|在现有池中创建新数据库或将其创建为单一数据库。 必须连接到 master 数据库才能新建数据库。|
 |[ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |将数据库移入、移出弹性池或在其之间移动。|
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
 |[sys.elastic_pool_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|返回 SQL 数据库服务器中所有弹性池的资源使用率统计信息。 对于每个弹性池，报告窗口每 15 秒就会提供一行（每分钟四行）。 这包括池中所有数据库的 CPU、IO、日志和存储消耗以及并发的请求/会话利用率。|

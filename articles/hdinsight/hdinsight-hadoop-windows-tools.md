@@ -7,16 +7,16 @@ author: cjgronlund
 manager: jhubbard
 ms.author: v-yiso
 origin.date: 05/17/2017
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a9b3e86f454ec3814b5139bba581bfdc84cd7bbf
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a0e83f00c89bc2c64b860f1abccce44a7624a196
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665475"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003903"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 生态系统中工作
 
@@ -33,7 +33,7 @@ Azure PowerShell 是一个脚本编写环境，使用它可以通过 Windows 在
 * [使用 PowerShell 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-powershell.md)。
 * [使用 PowerShell 管理群集](hdinsight-administer-use-powershell.md)
 
-请遵循[安装和配置 Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 的步骤来获取最新版本。 如果脚本需要修改后才能使用 Azure Resource Manager 的新 cmdlet，请参阅[迁移到基于 Azure Resource Manager 的面向 HDInsight 群集的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)。
+请遵循[安装和配置 Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 的步骤来获取最新版本。 如果脚本需要修改后才能使用 Azure Resource Manager 的新 cmdlet，请参阅[迁移到基于 Azure Resource Manager 的面向 HDInsight 群集的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>可在浏览器中运行的实用工具
 以下实用工具提供可在浏览器中运行的 Web UI：
@@ -85,7 +85,7 @@ HDInsight 中的 Apache Spark 群集包含可与 Jupyter Notebook 配合使用�
 如果在某种情况下，必须使用的某种工具或技术只能在 Linux 上使用，请考虑以下选项：
 
 * **Windows 10 上的 bash (beta)** 在 Windows 上提供一个 Linux 子系统。 Bash 允许直接运行 Linux 实用工具，而无需维护专用的 Linux 安装。 [在 Windows 10 上安装和运行 Bash beta](https://msdn.microsoft.com/commandline/wsl/install_guide)
-* 使用**适用于 Windows 的 Docker** 可以访问许多基于 Linux 的工具，可以直接从 Windows 运行。 例如，可以直接在 Windows 中使用 Docker 来运行适用于 Hive 的 Beeline 客户端。 还可以使用 Docker 运行本地 Jupyter Notebook，以及远程连接到 Spark on HDInsight。 [适用于 Windows 的 Docker 入门](https://docs.docker.com/docker-for-windows/)
+* 使用**适用于 Windows 的 Docker** 可以访问许多基于 Linux 的工具，可以直接从 Windows 运行。 例如，可以直接在 Windows 中使用 Docker 来运行适用于 Hive 的 Beeline 客户端。 还可以使用 Docker 运行本地 Jupyter Notebook，以及远程连接到 Spark on HDInsight。 [用于 Windows 的 Docker 入门](https://docs.docker.com/docker-for-windows/)
 * 使用 **[MobaXTerm](https://mobaxterm.mobatek.net/)** 可以通过 SSH 连接以图形方式浏览群集文件系统。
 
 ## <a name="next-steps"></a>后续步骤

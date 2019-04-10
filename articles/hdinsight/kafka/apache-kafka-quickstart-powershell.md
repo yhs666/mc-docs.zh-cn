@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/16/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: larryfr
-ms.openlocfilehash: de84d8cf0e39b983863a84e569bfc5e72d0db236
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6e300f8aeb7da9e55aa60596bed89191fbabfaeb
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626698"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003783"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -37,6 +37,7 @@ ms.locfileid: "58626698"
 
 ## <a name="prerequisites"></a>先决条件
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 * Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * Azure PowerShell。 有关详细信息，请参阅[Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装和配置 Azure PowerShell ）文档。
@@ -56,54 +57,54 @@ ms.locfileid: "58626698"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-使用 `Login-AzureRmAccount` cmdlet 登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+使用 `Login-AzAccount` cmdlet 登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```powershell
-Login-AzureRmAccount -Environment AzureChinaCloud
+Login-AzAccount -Environment AzureChinaCloud
 ```
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例将提示输入名称和地址，然后创建新的资源组：
+使用 [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例将提示输入名称和地址，然后创建新的资源组：
 
 ```powershell
 $resourceGroup = Read-Input -Prompt "Enter the resource group name"
 $location = Read-Input -Prompt "Enter the Azure region to use"
 
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-当 Kafka on HDInsight 使用 Azure 托管磁盘存储 Kafka 数据时，该群集还使用 Azure 存储来存储信息，例如日志。 使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/new-azurermstorageaccount) 创建新的存储帐户。
+当 Kafka on HDInsight 使用 Azure 托管磁盘存储 Kafka 数据时，该群集还使用 Azure 存储来存储信息，例如日志。 使用 [New-AzStorageAccount](https://docs.microsoft.com/en-us/powershell/module/az.storage/new-azstorageaccount) 创建新的存储帐户。
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
         -ResourceGroupName $resourceGroup `
         -Name $storageName `
         -Type Standard_LRS `
         -Location $location
 ```
 
-HDInsight 在 blob 容器中的存储帐户中存储数据。 使用 [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/Azure.Storage/New-AzureStorageContainer) 创建新容器。
+HDInsight 在 blob 容器中的存储帐户中存储数据。 使用 [New-AzStorageContainer](https://docs.microsoft.com/en-us/powershell/module/Azure.Storage/New-AzStorageContainer) 创建新容器。
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"
 
-$storageKey = (Get-AzureRmStorageAccountKey `
+$storageKey = (Get-AzStorageAccountKey `
                 -ResourceGroupName $resourceGroup `
                 -Name $storageName)[0].Value
-$storageContext = New-AzureStorageContext `
+$storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzureStorageContainer -Name $containerName -Context $storageContext 
+New-AzStorageContainer -Name $containerName -Context $storageContext 
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>创建 Apache Kafka 群集
 
-使用 [New-AzureRmHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 创建 Apache Kafka on HDInsight 群集。
+通过 [New-AzHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/az.HDInsight/New-azHDInsightCluster) 创建 Apache Kafka on HDInsight 群集。
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -121,7 +122,7 @@ $disksPerNode=2
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $kafkaConfig.Add("kafka", "1.0")
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
         -Location $location `
@@ -144,7 +145,7 @@ New-AzureRmHDInsightCluster `
 > [!TIP]
 > `-DisksPerWorkerNode` 参数配置 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 
 >
-> 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzureRmHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 文档。
+> 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/az.HDInsight/New-azHDInsightCluster) 文档。
 
 
 > [!IMPORTANT]
@@ -339,10 +340,10 @@ Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、HDInsight 和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令将其删除。
+如果不再需要资源组、HDInsight 和所有相关的资源，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/remove-azresourcegroup) 命令将其删除。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 > [!WARNING]

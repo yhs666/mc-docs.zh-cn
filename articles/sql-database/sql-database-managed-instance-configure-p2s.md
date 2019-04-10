@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova, jovanpop
 manager: digimobile
-origin.date: 01/17/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: be6cbf03f751fea80de0172aaf42eafe3c577029
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 03/13/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 1761b1930fad777eba13ee7f2dd3cb1b39180be1
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663758"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003481"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 数据库托管实例的点到站点连接
 
@@ -29,12 +29,13 @@ ms.locfileid: "56663758"
 本快速入门：
 
 - 从[创建托管实例](sql-database-managed-instance-get-started.md)中创建的资源着手。
-- 本地客户端计算机需要 PowerShell 5.1 和 Azure PowerShell 5.4.2 或更高版本。 必要时，请根据说明来[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module)。
+- 本地客户端计算机需要 PowerShell 5.1 和 AZ PowerShell 1.4.0 或更高版本。 必要时，请根据说明来[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module)。
 - 需要本地客户端计算机上的最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)。
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>将 VPN 网关附加到托管实例虚拟网络
 
-1. 在本地客户端计算机上打开 Powershell。
+1. 在本地客户端计算机上打开 PowerShell。
+
 2. 复制此 PowerShell 脚本。 此脚本将 VPN 网关附加到在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中创建的托管实例虚拟网络。 此脚本执行以下任务：
 
    - 在客户端计算机上创建并安装证书
@@ -52,12 +53,18 @@ ms.locfileid: "56663758"
        certificateNamePrefix  = '<certificateNamePrefix>'
        }
 
-     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
+     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGatewayAz.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
+
+     > [!IMPORTANT]
+     > 若要使用 Azure PowerShell 资源管理器模块而不是 Az 模块，请使用 `attachVPNGateway.ps1` cmdlet 而不是 `attachVPNGatewayAz.ps1` cmdlet。
 
 3. 在 PowerShell 窗口中粘贴脚本，并提供所需参数。 `<subscriptionId>`、`<resourceGroup>`、`<virtualNetworkName>` 的值应匹配用于[创建托管实例](sql-database-managed-instance-get-started.md)快速入门的值。 `<certificateNamePrefix>` 的值可以是所选字符串。
 
 4. 执行 PowerShell 脚本。
+
+> [!IMPORTANT]
+> 在 PowerShell 脚本完成前，请勿继续操作。
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>创建连接到托管实例的 VPN 连接
 
@@ -66,17 +73,17 @@ ms.locfileid: "56663758"
 3. 选择“点到站点配置”，然后选择“下载 VPN 客户端”。
 
     ![下载 VPN 客户端](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. 在本地客户端计算机上，从 zip 文件中提取文件，然后打开提取的文件夹。
-5. 打开 WindowsAmd64 文件夹，然后打开 **VpnClientSetupAmd64.exe** 文件。
-6. 如果收到“Windows 已保护你的电脑”消息，请选择“更多信息”，然后选择“仍然运行”。
+4. 在本地客户端计算机上，从 zip 文件中提取文件，然后打开包含已提取文件的文件夹。
+5. 打开 **WindowsAmd64** 文件夹，然后打开 **VpnClientSetupAmd64.exe** 文件。
+6. 如果收到“Windows 已保护你的电脑”消息，请单击“更多信息”，然后单击“仍然运行”。
 
     ![安装 VPN 客户端](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. 在“用户帐户控制”对话框中选择“是”，继续下一步。
-8. 在引用虚拟网络的对话框中选择“是”，安装 VPN 客户端。
+7. 在“用户帐户控制”对话框中单击“是”，继续下一步。
+8. 在引用虚拟网络的对话框中选择“是”，为虚拟网络安装 VPN 客户端。
 
 ## <a name="connect-to-the-vpn-connection"></a>连接到 VPN 连接
 
-1. 转到本地客户端计算机上的 VPN 连接，选择“托管实例”虚拟网络，以便建立到此 VNet 的连接。 在下图中，VNet 名为 **MyNewVNet**。
+1. 在本地客户端计算机上的“网络和 Internet”中转到“VPN”，选择“托管实例”虚拟网络，以便建立到此 VNet 的连接。 在下图中，VNet 名为 **MyNewVNet**。
 
     ![VPN 连接](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. 选择“连接” 。
@@ -90,12 +97,11 @@ ms.locfileid: "56663758"
 
     ![VPN 连接](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>使用 SSMS 连接到托管实例
 
 1. 在本地客户端计算机上，打开 SQL Server Management Studio (SSMS)。
-2. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的完全限定**主机名**。 
-1. 选择“SQL Server 身份验证”，提供用户名和密码，然后选择“连接”。
+2. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的完全限定**主机名**。
+3. 选择“SQL Server 身份验证”，提供用户名和密码，然后选择“连接”。
 
     ![ssms 连接](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 

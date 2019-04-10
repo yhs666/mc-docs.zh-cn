@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 90128ff8a7895aeb64e592a0a160053de721c55d
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654238"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890165"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>在 Visual Studio Code 中使用多个模块开发 IoT Edge 解决方案
 
@@ -37,11 +37,11 @@ ms.locfileid: "52654238"
 
 1. 在 Visual Studio Code 中，依次选择“视图” > “集成终端”，打开集成终端。 
 
-1. 在 VS Code 命令面板中，输入并运行“Azure IoT Edge: 新建 IoT Edge 解决方案”命令。 选择工作区文件夹，提供解决方案名称（默认为 EdgeSolution）。 创建一个 C# 模块（名为 PipeModule）作为此解决方案中的第一个用户模块。 C# 模块的默认模板为管道模板，此模板会将消息直接从上游传送至下游。 还需要为你的第一个模块指定 Docker 映像存储库。 默认映像存储库基于本地 Docker 注册表 (**localhost:5000/<first module name>**)。 可以将其更改为 Azure 容器注册表或 Docker 中心。 
+1. 在 VS Code **命令面板**中，输入并运行 **`Azure IoT Edge: New IoT Edge solution`** 命令。 选择工作区文件夹，提供解决方案名称（默认为 EdgeSolution）。 创建一个 C# 模块（名为 PipeModule）作为此解决方案中的第一个用户模块。 C# 模块的默认模板为管道模板，此模板会将消息直接从上游传送至下游。 还需要为你的第一个模块指定 Docker 映像存储库。 默认映像存储库基于本地 Docker 注册表 (**localhost:5000/<first module name>**)。 可以将其更改为 Azure 容器注册表或 Docker 中心。 
 
 2. VS Code 窗口将加载你的 IoT Edge 解决方案空间。 根文件夹包含一个 **modules** 文件夹、一个 **.vscode** 文件夹和一个部署清单模板文件。 调试配置位于 .vscode 文件夹中。 所有用户模块代码都是 modules 文件夹的子文件夹。 deployment.template.json 文件是部署清单模板。 此文件中的某些参数将通过 module.json 文件进行分析，该文件存在于每个模块文件夹中。
 
-3. 向此解决方案项目添加第二个模块。 有多种方法可以将新模块添加到当前解决方案。 输入并运行命令“Azure IoT Edge: 添加 IoT Edge 模块”。 选择要更新的部署模板文件。 或者右键单击模块文件夹或右键单击 deployment.template.json 文件并选择“添加 IoT Edge 模块”。 随即会显示一个用于选择模块类型的下拉列表。 选择名为 PipeFunction 的“Azure Functions - C#”模块及其 Docker 映像存储库。 C# 函数模块的默认模板为管道模板，此模板会将消息直接从上游传送至下游。
+3. 向此解决方案项目添加第二个模块。 有多种方法可以将新模块添加到当前解决方案。 输入并运行 **`Azure IoT Edge: Add IoT Edge module`** 命令。 选择要更新的部署模板文件。 或者右键单击模块文件夹或右键单击 deployment.template.json 文件并选择“添加 IoT Edge 模块”。 随即会显示一个用于选择模块类型的下拉列表。 选择名为 PipeFunction 的“Azure Functions - C#”模块及其 Docker 映像存储库。 C# 函数模块的默认模板为管道模板，此模板会将消息直接从上游传送至下游。
 
 4. 打开 deployment.template.json 文件。 验证文件是否声明了三个模块和一个运行时。 此消息从 tempSensor 模块生成。 此消息通过 SampleModule 和 SampleFunction 模块进行直接的管道传送，然后发送到 IoT 中心。 
 
@@ -59,7 +59,7 @@ ms.locfileid: "52654238"
 
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>生成并部署 IoT Edge 解决方案
 
-1. 在 VS Code 命令面板中，输入并运行“Azure IoT Edge: 生成 IoT Edge 解决方案”命令。 根据每个模块文件夹中的 module.json 文件，此命令将开始生成、收容和推送每个模块 Docker 映像。 然后，此命令将所需的值传递到 deployment.template.json 文件，并使用 config 文件夹中的信息生成 deployment.json 文件。 VS Code 中的集成终端显示生成进度。 
+1. 在 VS Code **命令面板**中，输入并运行 **`Azure IoT Edge: Build IoT Edge solution`** 命令。 根据每个模块文件夹中的 module.json 文件，此命令将开始生成、收容和推送每个模块 Docker 映像。 然后，此命令将所需的值传递到 deployment.template.json 文件，并使用 config 文件夹中的信息生成 deployment.json 文件。 VS Code 中的集成终端显示生成进度。 
 
 2. 在 Azure IoT 中心设备资源管理器中，右键单击 IoT Edge 设备 ID，然后选择“为 Edge 设备创建部署”命令。 选择 config 文件夹中的 deployment.json 文件。 VS Code 中的集成终端显示部署已成功创建，并且有一个部署 ID。
 
@@ -67,8 +67,8 @@ ms.locfileid: "52654238"
 
 ## <a name="view-the-generated-data"></a>查看生成的数据
 
-1. 若要监视到达 IoT 中心的数据，请选择“视图” > “命令面板”， 然后搜索“IoT: 开始监视 D2C 消息”命令。 
-2. 若要停止监视数据，请在“命令面板”中使用“IoT: 停止监视 D2C 消息”命令。 
+1. 若要监视到达 IoT 中心的数据，请选择“视图” > “命令面板”， 然后选择“IoT:开始监视 D2C 消息”命令。 
+2. 若要停止监视数据，请在“命令面板”中使用“IoT:停止监视 D2C 消息”命令。 
 
 ## <a name="next-steps"></a>后续步骤
 

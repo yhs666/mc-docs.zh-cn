@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/19/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: c97419111b394e3fef64355e9cf6d8c29a49f698
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/08/2019
+ms.openlocfilehash: 027aacb841bba3f931b20c509293e1967902a121
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318859"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003472"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>使用 Azure 自动化管理 Azure SQL 数据库
 
@@ -34,7 +34,7 @@ Azure 自动化提供了高度可靠且高度可用的工作流执行引擎，�
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure 自动化如何帮助管理 Azure SQL 数据库？
 
-可以使用 [Azure PowerShell 工具](https://docs.microsoft.com/powershell/azure/overview)中提供的 [Azure SQL 数据库 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) 在 Azure 自动化中管理 Azure SQL 数据库。 Azure 自动化现成地提供了这些 Azure SQL 数据库 PowerShell cmdlet，因此，可以在该服务中执行所有 SQL DB 管理任务。 还可以将 Azure 自动化中的这些 cmdlet 与其他 Azure 服务的 cmdlet 搭配使用，以便跨 Azure 服务和第三方系统自动完成复杂的任务。
+可以使用 [Azure PowerShell 工具](https://docs.microsoft.com/powershell/azure/overview)中提供的 [Azure SQL 数据库 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) 在 Azure 自动化中管理 Azure SQL 数据库。 Azure 自动化现成地提供了这些 Azure SQL 数据库 PowerShell cmdlet，因此，可以在该服务中执行所有 SQL DB 管理任务。 还可以将 Azure 自动化中的这些 cmdlet 与其他 Azure 服务的 cmdlet 搭配使用，以便跨 Azure 服务和第三方系统自动完成复杂的任务。
 
 Azure 自动化还可以通过使用 PowerShell 发出 SQL 命令，与 SQL 服务器直接通信。
 
@@ -51,4 +51,3 @@ Azure 自动化还可以通过使用 PowerShell 发出 SQL 命令，与 SQL 服�
 
 - [Azure 自动化概述](../automation/automation-intro.md)
 - [我的第一个 Runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure 自动化：云中的 SQL 代理](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

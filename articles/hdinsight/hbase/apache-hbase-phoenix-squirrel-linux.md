@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/03/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8dad4a800163a5b71eeab271960231482d9404b2
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 008a85d14d3b4a18d422cba4e2bdef7f101d5694
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029181"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004113"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 与 HDInsight 中基于 Linux 的 Apache HBase 群集配合使用
 了解如何在 Azure HDInsight 中使用 [Apache Phoenix](https://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅[在 15 分钟或更短时间内了解 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Apache Phoenix 语法](https://phoenix.apache.org/language/index.html)。
@@ -41,7 +41,7 @@ ms.locfileid: "54029181"
 
 在连接到 HBase 群集时，需要连接到 [Apache ZooKeeper](https://zookeeper.apache.org/) VM 之一。 每个 HDInsight 群集具有三个 ZooKeeper VM。
 
-获取 ZooKeeper 主机名
+**获取 ZooKeeper 主机名**
 
 1. 通过浏览到 **https://\<群集名称\>.azurehdinsight.net** 打开 [Apache Ambari](https://ambari.apache.org/)。
 2. 要登录，请输入 HTTP（群集）用户名和密码。
@@ -54,7 +54,7 @@ ms.locfileid: "54029181"
 
 2. 在 SSH 中，运行以下命令以运行 SQLLine：
 
-        cd /usr/hdp/2.2.9.1-7/phoenix/bin
+        cd /usr/hdp/current/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. 要创建 HBase 表并插入一些数据，请运行以下命令：
 

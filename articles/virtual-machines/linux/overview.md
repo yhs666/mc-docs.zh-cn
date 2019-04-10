@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: e20b55e7da269cfaf7740652d063285fbbdd73ac
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 990986e269769b52e50ac895bef708de530d517a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666100"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004060"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -31,7 +31,9 @@ Azure 是一个不断增长的集成公有云服务集合，包括分析、虚�
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
 ## <a name="regions"></a>区域
-Azure 资源分布在中国各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  Azure 目前（截至 2018 年 8 月）在中国正式推出了 4 个区域。 可在以下页面上找到现有区域和新宣布推出区域的更新列表：
+Azure 资源分布在中国各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。 Azure 目前（截至 2018 年 8 月）在中国正式推出了 4 个区域。 可在以下页面上找到现有区域和新宣布推出区域的更新列表：
+
+<!--MOONCAKE: CUSTOMIZE ON CHINA-->
 
 * [Azure 中国区域](https://www.azure.cn/support/service-dashboard/)
 
@@ -64,7 +66,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 * [Azure 模板](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  CentOS 和 Fedora 支持 cloud-init。
+Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](https://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  CentOS 和 Fedora 支持 cloud-init。
 
 <!-- Not Available on Red Hat Familiy-->
 

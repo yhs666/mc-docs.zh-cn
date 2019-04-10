@@ -11,23 +11,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 02/08/2019
 ms.date: 03/18/2019
-ms.openlocfilehash: c12a20949cb50b301073ef9e203b66224c9675a9
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: b3beb8dd931e21ea2c557be655980b373fa27707
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560500"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003708"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
-Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage（Gen1 和 Gen2）的功能完备的 Hadoop 分布式文件系统 (HDFS)。 Azure 存储以及 Data lake Storage Gen1 和 Data lake Storage Gen2 设计为一个 HDFS 扩展，为客户提供无缝体验。 它们通过启用 Hadoop 生态系统中的整套组件以直接操作其管理的数据。 Azure 存储、Data Lake Storage Gen1 和 Data lake Storage Gen2 是独特的文件系统，并且已针对数据的存储和计算进行了优化。 
+Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage (Gen2) 的功能完备的 Hadoop 分布式文件系统 (HDFS)。 Azure 存储以及 Data Lake Storage Gen2 设计为 HDFS 扩展，为客户提供无缝体验。 它们通过启用 Hadoop 生态系统中的整套组件以直接操作其管理的数据。 Azure 存储、Data Lake Storage Gen1 和 Data lake Storage Gen2 是独特的文件系统，并且已针对数据的存储和计算进行了优化。 若要了解使用 Azure 存储的益处，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始下一步之前，请注意以下要求：
 
 * 一个 Azure HDInsight 群集。 有关说明，请参阅 [Azure HDInsight 入门][hdinsight-get-started]或[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
-* 学习以下文章：
+* 了解以下文章：
 
     - [将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]
 
@@ -52,10 +52,7 @@ Microsoft 提供以下实用工具用于操作 Azure 存储：
 ## <a id="commandline"></a>Hadoop 命令行
 仅当数据已存在于群集头节点中时，才可以使用 Hadoop 命令行将数据存储到 Azure 存储 Blob。
 
-若要使用 Hadoop 命令，必须先使用以下方法之一连接到头节点：
-
-* **基于 Windows 的 HDInsight**：[使用远程桌面进行连接](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **基于 Linux 的 HDInsight**：使用 [SSH 或 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md) 进行连接。
+若要使用 Hadoop 命令，必须先通过 [SSH 或 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md) 连接到头节点。
 
 连接之后，可以使用以下语法将文件上传到存储。
 
@@ -63,7 +60,7 @@ Microsoft 提供以下实用工具用于操作 Azure 存储：
 hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-例如： `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+例如， `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 由于 HDInsight 的默认文件系统在 Azure 存储中，/example/data.txt 实际是在 Azure 存储中。 也可以将该文件表示为：
 
@@ -86,7 +83,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | 客户端 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [用于 HDInsight 的 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure 存储空间资源管理器](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Azure 存储资源管理器](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [适用于 Microsoft Azure 的 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |

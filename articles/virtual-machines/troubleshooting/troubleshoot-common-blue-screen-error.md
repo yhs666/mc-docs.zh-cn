@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 00/19/2018
-ms.date: 10/22/2018
+origin.date: 09/28/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: a1f285849023f116c0881405a016553e17144f60
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: cf4b00aa71f6bd8e1a2e7f6eea3c41c89981972b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785162"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003719"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示蓝屏错误
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的蓝屏错误。 本文提供用于收集支持票证数据的步骤。 
@@ -95,7 +95,8 @@ Windows VM 不启动。 检查[启动诊断](./boot-diagnostics.md)中的启动�
     1. 请确保磁盘上有足够的空间来分配与 RAM 一样多的内存，具体取决于为此 VM 选择的大小。
     2. 如果没有足够的空间，或者这是大型 VM（E 系列），则可随后更改创建此文件时所在的位置，将该位置指向任何其他附加到 VM 的数据磁盘。 为此，需更改以下密钥：
         
-        <!--Not Available on G, GS series--> reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+        <!--Not Available on G, GS series-->
+            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
             REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
             REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f

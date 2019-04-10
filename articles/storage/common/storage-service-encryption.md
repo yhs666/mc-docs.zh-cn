@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/01/2018
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 9ef8feef6b09b1df9123f27c0d857b1a77a55342
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: bd2a28127d3006a9b411546864aeb5ab05f0fa69
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253904"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890206"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 静态数据的 Azure 存储服务加密可帮助保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储平台可以先自动加密数据，然后将其保存到 Azure 托管磁盘、Azure Blob、队列、表存储或 Azure 文件，并在检索之前解密数据。 存储服务加密中的加密、静态加密、解密和密钥管理的处理对用户是透明的。 通过 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)加密所有写入 Azure 存储平台的数据，AES 加密是现在最强大的分组加密之一。
@@ -34,6 +34,7 @@ ms.locfileid: "58253904"
 
 存储服务加密不影响 Azure 存储服务的性能。
 
+可以将 Azure 托管的加密密钥用于存储服务加密，或者使用你自己的加密密钥。 有关使用自己密钥的详细信息，请参阅[在 Azure Key Vault 中使用客户托管密钥进行存储服务加密](storage-service-encryption-customer-managed-keys.md)。
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>在 Azure 门户中查看加密设置
 要查看存储服务加密设置，请登录 [Azure 门户](https://portal.azure.cn)，并选择存储帐户。 在“设置”窗格中，选择“加密”设置。
@@ -47,7 +48,7 @@ ms.locfileid: "58253904"
 **创建存储帐户时，是否会默认启用存储服务加密？**  
 是的，会为所有存储帐户和所有 Azure 存储服务启用存储服务加密。
 
-**我有一个资源管理器存储帐户。能否对其启用存储服务加密？**  
+**我有一个资源管理器存储帐户。 能否对其启用存储服务加密？**  
 默认对所有现有的资源管理器存储帐户启用存储服务加密。 Azure Blob 存储、Azure 文件、Azure 队列存储和表存储均支持此类加密。 
 
 **是否可以在存储帐户中禁用加密？**  
@@ -56,10 +57,16 @@ ms.locfileid: "58253904"
 **如果启用存储服务加密，需另付多少 Azure 存储费用？**  
 没有任何额外费用。
 
+**我可以使用自己的加密密钥吗？**  
+对于 Azure Blob 存储和 Azure 文件，是的，可使用自己的加密密钥。 Azure 托管磁盘当前不支持客户管理的密钥。 有关详细信息，请参阅 [Azure Key Vault 中使用客户托管密钥的存储服务加密](storage-service-encryption-customer-managed-keys.md)。
+
+**是否可以吊销加密密钥的访问权限？**  
+是的，如果在 Azure Key Vault 中[使用自己的加密密钥](storage-service-encryption-customer-managed-keys.md)。
+
 **存储服务加密与 Azure 磁盘加密有何不同？**  
 Azure 磁盘加密在基于 OS 的解决方案（例如 BitLocker、DM-Crypt 和 Azure KeyVault）之间提供集成。 存储服务加密在虚拟机下面的 Azure 存储平台层上提供本机加密。
 
-**我有一个经典存储帐户。能否对其启用存储服务加密？**  
+**我有一个经典存储帐户。 能否对其启用存储服务加密？**  
 会对所有存储帐户（经典和资源管理器）启用存储服务加密。
 
 **如何在经典存储帐户中加密数据？**  
@@ -68,7 +75,7 @@ Azure 磁盘加密在基于 OS 的解决方案（例如 BitLocker、DM-Crypt 和
 **是否可以使用 Azure PowerShell 和 Azure CLI 创建存储帐户并启用存储服务加密？**  
 在创建任何存储帐户（经典或资源管理器）时默认启用存储服务加密。 可以使用 Azure PowerShell 和 Azure CLI 验证帐户属性。
 
-**我的存储帐户设置为异地冗余复制。如果启用存储服务加密，冗余副本是否也会加密？**  
+**我的存储帐户设置为异地冗余复制。 如果启用存储服务加密，冗余副本是否也会加密？**  
 是的，所有存储帐户的副本都会加密。 支持所有冗余选项 - 本地冗余存储、异地冗余存储和读取访问异地冗余存储。
 
 **存储服务加密是否仅允许在特定区域使用？**  

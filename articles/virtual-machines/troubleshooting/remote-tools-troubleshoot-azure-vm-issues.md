@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 01/11/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: bacefec30ba48d3f5c3eb26693323c0724bfd907
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 0975f34d1c9b8e97361496e66df59822287f0489
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666175"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004093"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -32,7 +32,7 @@ ms.locfileid: "56666175"
 
 ## <a name="remote-cmd"></a>远程 CMD
 
-下载 [PsExec](/sysinternals/downloads/psexec)。 运行以下命令连接到 VM：
+下载 [PsExec](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psexec)。 运行以下命令连接到 VM：
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -172,7 +172,7 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx)
 
-[适用于 Windows 的自定义脚本扩展（使用经典部署模型）](../extensions/custom-script-classic.md)
+[使用经典部署模型完成的适用于 Windows 的自定义脚本扩展](../extensions/custom-script-classic.md)
 
 PsExec 包含在 [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip) 中。
 

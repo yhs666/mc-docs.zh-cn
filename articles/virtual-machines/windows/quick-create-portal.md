@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 09/14/2018
-ms.date: 02/18/2019
+origin.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8332148b2c2bb494feb27776aa2ef58a5d8c5283
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: dc350df9dcda65236aaa5b359d3dd3de0328701b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665854"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003707"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Windows 虚拟机
 
@@ -38,7 +38,7 @@ ms.locfileid: "56665854"
 
 1. 在 Azure 门户的左上角选择“创建资源”。
 
-1. 在 Azure 市场资源列表上方的搜索框中，搜索并选择“Windows Server 2016 Datacenter”，然后选择“创建”。
+1. 在“新建”页的“常用”下，选择“Windows Server 2016 Datacenter”。
 
 1. 在“基本信息”标签页中的“项目详细信息”下，确保选择了正确的订阅，然后选择“新建资源组”。 对于名称，请键入 *myResourceGroup*。 
 
@@ -98,7 +98,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Windows VM 的教程。
+在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要深入了解 Azure 虚拟机，请继续学习 Windows VM 教程。
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)

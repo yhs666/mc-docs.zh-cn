@@ -16,20 +16,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/10/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: d30d9a668b1de15b9e2825ade14d977fbb28b40b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: afd9349d1a99c1f4dada95f7fe87c5c20fb580e2
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627110"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004089"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 
 了解如何在流式处理 MapReduce 操作中使用 Python。 Apache Hadoop 为 MapReduce 提供了一个流式处理 API，使你能够以 Java 之外的其他语言来编写映射和化简函数。 本文档中的步骤实现 Python 中的映射和化简组件。
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * 基于 Linux 的 Apache Hadoop on HDInsight 群集
 

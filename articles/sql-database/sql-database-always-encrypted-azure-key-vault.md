@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 2354d417ef8337ea81049201dfdfc70bbbec207a
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: ab5958c1c40f1f076c35762071d6429ef2c90035
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318932"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003490"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保护敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
@@ -40,6 +40,8 @@ ms.locfileid: "58318932"
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 在本教程中，需要：
 
@@ -610,7 +612,7 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 
    ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-若要使用 SSMS 访问纯文本数据，首先需要确保用户具有 Azure Key Vault 的适当权限：get、unwrapKey 和 verify。 有关详细信息，请参阅[创建和存储列主密钥 (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)。
+若要使用 SSMS 访问纯文本数据，首先需要确保用户具有 Azure Key Vault 的适当权限：get、unwrapKey 和 verify。 有关详细信息，请参阅[创建和存储列主密钥 (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted)。
 
 然后在连接期间添加 *Column Encryption Setting=enabled* 参数。
 
@@ -636,9 +638,9 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 * [迁移已使用始终加密加密的数据](https://msdn.microsoft.com/library/mt621539.aspx)。
 
 ## <a name="related-information"></a>相关信息
-* [始终加密（客户端开发）](https://msdn.microsoft.com/library/mt147923.aspx)
+* [Always Encrypted（客户端开发）](https://msdn.microsoft.com/library/mt147923.aspx)
 * [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
-* [始终加密向导](https://msdn.microsoft.com/library/mt459280.aspx)
-* [始终加密博客](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Always Encrypted 向导](https://msdn.microsoft.com/library/mt459280.aspx)
+* [Always Encrypted 博客](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

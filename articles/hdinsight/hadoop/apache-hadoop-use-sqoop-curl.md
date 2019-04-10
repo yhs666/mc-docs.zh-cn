@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: cb3656424cb91f8d794c82c4dead6648c354a068
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6f2d33e3e839ef5751de4806ac52610a32eb5f9f
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625321"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004022"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 通过 HDInsight 中的 Hadoop 运行 Apache Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -130,7 +130,7 @@ ms.locfileid: "58625321"
  
 * [使用 Azure REST API 创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 * [使用 REST 在 HDInsight 中通过 Apache Hadoop 运行 Apache Hive 查询](apache-hadoop-use-hive-curl.md)
-* [使用 REST 通过 Apache Hadoop on HDInsight 运行 MapReduce 作业](apache-hadoop-use-mapreduce-curl.md)
+* [使用 REST 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业](apache-hadoop-use-mapreduce-curl.md)
 * [使用 cURL 通过 Apache Hadoop on HDInsight 运行 Apache Pig 作业](apache-hadoop-use-pig-curl.md)
 
 

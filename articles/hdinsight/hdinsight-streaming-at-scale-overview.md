@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/19/2018
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 1734d530e06dcbde8917ae980e489744de6d7f66
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/15/2019
+ms.openlocfilehash: 4f57c1d0807cc2a0bb6c380468797220f1b4de14
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906180"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004036"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight 中的大规模流式处理
 
@@ -52,7 +52,7 @@ Spark Streaming 是 Spark 的一个扩展，可让你重复使用执行批处理
 
 ## <a name="scaling-a-cluster"></a>缩放群集
 
-尽管可以在创建过程中指定群集中的节点数，但可能需要扩展或缩减群集才能匹配工作负荷。 所有 HDInsight 群集允许[更改群集中的节点数](hdinsight-administer-use-management-portal.md#scale-clusters)。 由于所有数据都存储在 Azure 存储或 Data Lake Storage 中，因此可以在不丢失数据的情况下删除 Spark 群集。
+尽管可以在创建过程中指定群集中的节点数，但可能需要扩展或缩减群集才能匹配工作负荷。 所有 HDInsight 群集允许[更改群集中的节点数](hdinsight-administer-use-portal-linux.md#scale-clusters)。 由于所有数据都存储在 Azure 存储或 Data Lake Storage 中，因此可以在不丢失数据的情况下删除 Spark 群集。
 
 分离技术可以带来优势。 例如，Kafka 是一种事件缓冲技术，因此它的 IO 开销极高，但不需要大量的处理能力。 相比之下，Spark Streaming 等流处理器是计算密集型的，需要更强大的 VM。 将这些技术分离到不同的群集后，可以单独缩放每个群集，同时充分利用 VM。
 
@@ -72,7 +72,7 @@ Apache Spark 根据应用程序的要求使用三个关键参数来配置其环�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [HDInsight 上的 Apache Storm 入门](storm/apache-storm-tutorial-get-started-linux.md)
-* [HDInsight 上的 Apache Storm 的示例拓扑](storm/apache-storm-example-topology.md)
-* [HDInsight 上的 Apache Spark 简介](spark/apache-spark-overview.md)
-* [HDInsight 上的 Apache Kafka 入门](kafka/apache-kafka-get-started.md)
+* [Apache Storm on HDInsight 入门](storm/apache-storm-tutorial-get-started-linux.md)
+* [Apache Storm on HDInsight 的示例拓扑](storm/apache-storm-example-topology.md)
+* [Apache Spark on HDInsight 简介](spark/apache-spark-overview.md)
+* [Apache Kafka on HDInsight 入门](kafka/apache-kafka-get-started.md)

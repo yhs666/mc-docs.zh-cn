@@ -2,20 +2,20 @@
 title: 管理 HDInsight 群集的日志 - Azure HDInsight
 description: 确定 HDInsight 活动日志文件的类型、大小和保留策略。
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 01/11/2018
-ms.date: 11/19/2018
+origin.date: 03/19/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 386b4a3d55bbbc7d2ffbcd379a0b20de5f2bf6ed
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6d076e0da0b3687109d9a0629e82f9d4112d1100
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626246"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003904"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 
@@ -44,15 +44,14 @@ HDInsight 日志管理的典型步骤如下：
 * 群集状态，包括上次状态更改的详细信息
 * 为主节点、核心节点和任务节点指定的 HDInsight 实例的类型和数量
 
-可以使用 Azure 门户获取其中的大多数顶级信息。  或者，可以使用 Azure 经典 CLI 获取有关 HDInsight 群集的信息：
+可以使用 Azure 门户获取其中的大多数顶级信息。  或者，可以使用 [Azure CLI](/cli/?view=azure-cli-latest) 获取有关 HDInsight 群集的信息：
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-也可以使用 PowerShell 查看此信息。  有关详细信息，请参阅[使用 Azure PowerShell 在 HDInsight 中管理 Hadoop 群集](hdinsight-administer-use-powershell.md)。
+也可以使用 PowerShell 查看此信息。  有关详细信息，请参阅[使用 Azure PowerShell 在 HDInsight 中管理 Apache Hadoop 群集](hdinsight-administer-use-powershell.md)。
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>了解群集上运行的工作负荷
 
@@ -70,7 +69,7 @@ HDInsight 日志管理的典型步骤如下：
 
 * 考虑如何从一个或多个群集收集日志并为其创建排序规则，以进行审核、监视、规划和警报等活动。 可能使用自定义解决方案定期访问和下载日志文件，然后对其进行合并和分析，以提供仪表板视图。 还可以添加其他功能用于发出安全警报或执行故障检测。 可以使用 PowerShell、HDInsight SDK 或可以访问 Azure 经典部署模型的代码生成这些实用工具。
 
-* 考虑监视解决方案或服务是否能够带来好处。 Microsoft System Center 提供了 [HDInsight 管理包](https://www.microsoft.com/download/details.aspx?id=42521)。 可以使用 Chukwa 和 Ganglia 等第三方工具收集和集中处理日志。 许多公司提供了用于监视基于 Hadoop 的大数据解决方案的服务，例如 Centerity、Compuware APM、Sematext SPM 和 Zettaset Orchestrator。
+* 考虑监视解决方案或服务是否能够带来好处。 Microsoft System Center 提供了 [HDInsight 管理包](https://www.microsoft.com/download/details.aspx?id=42521)。 可以使用 Apache Chukwa 和 Ganglia 等第三方工具收集和集中处理日志。 许多公司提供用于监视基于 Hadoop 的大数据解决方案的服务，例如：Centerity、Compuware APM、Sematext SPM 和 Zettaset Orchestrator。
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>步骤 2：管理群集服务版本和查看脚本操作日志
 
@@ -100,7 +99,7 @@ Apache Ambari 提供 Web UI 和 REST API 来简化 HDInsight 群集的管理、�
 
 ### <a name="access-the-hadoop-log-files"></a>访问 Hadoop 日志文件
 
-HDInsight 将其日志文件同时存储在群集文件系统和 Azure 存储中。 若要检查群集中的日志文件，可与群集建立 SSH 连接并浏览文件系统，或者在远程头节点服务器上使用 Hadoop YARN 状态门户。 使用可以访问和下载 Azure 存储中的数据的任何工具，即可检查 Azure 存储中的日志文件。 这些工具包括 AZCopy、CloudXplorer 和 Visual Studio 服务器资源管理器。 此外，可以使用 PowerShell 和 Azure 存储客户端库或 Azure.NET SDK 访问 Azure Blob 存储中的数据。
+HDInsight 将其日志文件同时存储在群集文件系统和 Azure 存储中。 若要检查群集中的日志文件，可与群集建立 [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) 连接并浏览文件系统，或者在远程头节点服务器上使用 Hadoop YARN 状态门户。 使用可以访问和下载 Azure 存储中的数据的任何工具，即可检查 Azure 存储中的日志文件。 这些工具包括 [AzCopy](../storage/common/storage-use-azcopy.md)、[CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) 和 Visual Studio 服务器资源管理器。 此外，可以使用 PowerShell 和 Azure 存储客户端库或 Azure.NET SDK 访问 Azure Blob 存储中的数据。
 
 Hadoop 在群集中的各个节点上以“任务尝试”的形式运行作业。 HDInsight 可以发起推理任务尝试，并终止一开始就无法完成的其他任何任务尝试。 这会即时生成大量的活动并将其记录到控制器、stderr 和 syslog 日志文件。 此外，多个任务尝试会同时运行，但日志文件只能以线性方式显示结果。
 
@@ -169,7 +168,7 @@ YARN ResourceManager UI 在群集头节点上运行，可通过 Ambari Web UI �
 
 ### <a name="other-log-management-techniques"></a>其他日志管理方法
 
-为了避免磁盘空间不足，可以使用一些 OS 工具（例如 `logrotate`）来管理日志文件的处理。 可将 `logrotate` 配置为每日运行，压缩日志文件和删除旧文件。 所用的方法取决于不同的要求，例如，要在本地节点上保留日志文件多久。 
+为了避免磁盘空间不足，可以使用一些 OS 工具（例如 [logrotate](https://linux.die.net/man/8/logrotate)）来管理日志文件的处理。 可将 `logrotate` 配置为每日运行，压缩日志文件和删除旧文件。 所用的方法取决于不同的要求，例如，要在本地节点上保留日志文件多久。  
 
 还可以检查是否为一个或多个服务启用了调试日志记录，这会明显增大输出日志的大小。 
 
@@ -178,5 +177,5 @@ YARN ResourceManager UI 在群集头节点上运行，可通过 Ambari Web UI �
 ## <a name="next-steps"></a>后续步骤
 
 * [适用于 HDInsight 的监视和日志记录做法](https://msdn.microsoft.com/library/dn749790.aspx)
-* [在基于 Linux 的 HDInsight 上访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [如何控制各种 Hadoop 组件的日志文件大小](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [如何控制各种 Apache Hadoop 组件的日志文件大小](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 02/07/2019
-ms.date: 02/25/2019
+origin.date: 03/21/2019
+ms.date: 04/08/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: d1f4068dde97472e608a501992b2499876f82f09
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 58fb67db0a3760dd12b844389f038eaffa3425f1
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665760"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890196"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2 安全指南
 
@@ -83,13 +83,13 @@ Azure Data Lake Storage Gen2 是基于 Azure 存储帐户构建的一组功能�
 * [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)
 
   此文详细说明了 RBAC 中所有可用的内置角色。
-* [了解 Resource Manager 部署和经典部署](../../azure-resource-manager/resource-manager-deployment-model.md)
+* [了解资源管理器部署和经典部署](../../azure-resource-manager/resource-manager-deployment-model.md)
 
 ### <a name="managing-your-storage-account-keys"></a>管理存储帐户密钥
 
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象，例如，Blob、表中的实体、队列消息，以及 Azure 文件共享中的文件。 控制对存储帐户密钥的访问就能控制对该存储帐户的数据平面的访问。
 
-每个存储帐户在 [Azure 门户](http://portal.azure.cn/)和 PowerShell cmdlet 中有两个密钥，分别称为“密钥 1”和“密钥 2”。 可采用多种多种方式手动重新生成这些密钥，包括（但不限于）使用 [Azure 门户](https://portal.azure.cn/)、PowerShell、Azure CLI，或以编程方式使用 .NET 存储客户端库或 Azure 存储服务 REST API。
+每个存储帐户在 [Azure 门户](https://portal.azure.cn/)和 PowerShell cmdlet 中有两个密钥，分别称为“密钥 1”和“密钥 2”。 可采用多种多种方式手动重新生成这些密钥，包括（但不限于）使用 [Azure 门户](https://portal.azure.cn/)、PowerShell、Azure CLI，或以编程方式使用 .NET 存储客户端库或 Azure 存储服务 REST API。
 
 有许多原因会导致重新生成存储帐户密钥。
 
@@ -135,7 +135,7 @@ Azure Data Lake Storage Gen2 是基于 Azure 存储帐户构建的一组功能�
 Azure 存储中数据对象的访问授权有三个选项，包括：
 
 - 使用 Azure AD 授权对文件系统和队列的访问。 进行身份验证时，Azure AD 相对于其他方法具有很多优势，包括不需要将机密存储在代码中。 有关详细信息，请参阅[使用 Azure Active Directory 对 Azure 存储访问进行身份验证](storage-auth-aad.md)。 
-- 使用存储帐户密钥通过共享密钥进行访问授权。 通过共享密钥进行授权需要将存储帐户密钥存储在应用程序中，因此 Azure 建议尽可能改用 Azure AD。 如果使用生产型应用程序，或者要进行 Azure 表和文件的访问授权，请在 Azure AD 集成仍为预览版的情况下继续使用共享密钥。
+- 使用存储帐户密钥通过共享密钥进行访问授权。 通过共享密钥进行授权需要将存储帐户密钥存储在应用程序中，因此 Azure 建议尽可能改用 Azure AD。
 - 使用共享访问签名授予特定时间段对特定数据对象的受控权限。
 
 除通过授权限制访问外，还可使用[防火墙和虚拟网络](storage-network-security.md)来根据网络规则限制对存储帐户的访问。  通过此方法，可拒绝对公共 Internet 流量的访问，并仅向特定 Azure 虚拟网络或公共 Internet IP 地址范围授予访问权限。
@@ -223,7 +223,7 @@ http://mystorage.dfs.core.chinacloudapi.cn/myfilesystem/myfile.txt (URL to the f
     此文提供有关使用服务级别 SAS 配合 Blob、队列、表范围和文件的示例。
   * [构造服务 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [构造帐户 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* 这些教程介绍了如何使用 .NET 客户端库创建共享访问签名和存储访问策略。
+* 这些是使用 .NET 客户端库来创建共享访问签名和存储访问策略的教程。
 
   * [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
   * [共享访问签名，第 2 部分：创建 SAS 并将其用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
@@ -232,7 +232,7 @@ http://mystorage.dfs.core.chinacloudapi.cn/myfilesystem/myfile.txt (URL to the f
 
 * 身份验证
 
-  * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)（Azure 存储服务的身份验证）
+  * [Azure 存储服务的身份验证](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 共享访问签名入门教程
 
   * [SAS 入门教程](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
@@ -253,3 +253,4 @@ http://mystorage.dfs.core.chinacloudapi.cn/myfilesystem/myfile.txt (URL to the f
 
 针对所有存储帐户启用 SSE，并且不能禁用。 将数据写入 Azure 存储时，SSE 自动加密数据。 从 Azure 存储读取数据时，Azure 存储会在返回数据之前将其解密。 SSE 帮助保护数据，而无需修改代码或将代码添加到任何应用程序。
 
+可以使用 Azure 托管的密钥或自己的自定义密钥。 Azure 生成托管密钥，并根据内部 Azure Policy 的定义管理其安全存储和定期轮换。 有关使用自定义密钥的详细信息，请参阅[在 Azure 密钥保管库中使用客户托管密钥进行存储服务加密](storage-service-encryption-customer-managed-keys.md)。

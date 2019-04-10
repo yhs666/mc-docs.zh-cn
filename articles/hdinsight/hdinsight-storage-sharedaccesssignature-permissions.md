@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 04/23/2018
 ms.date: 01/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: cd598bcbbbc36a3b1e6616476f04f252587a8b74
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: e41e189c77b83d6821e0f5d05af46c4fdaf0c9a7
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216258"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003750"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
@@ -33,13 +33,15 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 ## <a name="requirements"></a>要求
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Azure 订阅
 * C# 或 Python。 已提供 C# 示例代码作为 Visual Studio 解决方案。
 
   * Visual Studio 的版本必须是 2013、2015 或 2017
   * Python 的版本必须是 2.7 或更高版本
 
-* 基于 Linux 的 HDInsight 群集或 [Azure PowerShell][powershell] - 如果拥有现有的基于 Linux 的群集，可以使用 Ambari 将共享访问签名添加到群集。 如果没有，则可以使用 Azure PowerShell 创建群集，并在创建群集期间添加共享访问签名。
+* 基于 Linux 的 HDInsight 群集或 [Azure PowerShell][powershell] - 如果拥有现有的基于 Linux 的群集，可以使用 Apache Ambari 将共享访问签名添加到群集。 如果没有，则可以使用 Azure PowerShell 创建群集，并在创建群集期间添加共享访问签名。
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -170,7 +172,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
     出现提示时，请使用 Azure 订阅帐户登录。
 
-    如果帐户与多个 Azure 订阅关联，可能需要使用 `Select-AzureRmSubscription` 来选择要使用的订阅。
+    如果帐户与多个 Azure 订阅关联，可能需要使用 `Select-AzSubscription` 来选择要使用的订阅。
 
 4. 在提示符下，将目录更改为包含 HDInsightSAS.ps1 文件的 `CreateCluster` 目录。 然后使用以下命令来运行脚本
 
@@ -224,13 +226,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 ## <a name="test-restricted-access"></a>测试限制的访问
 
-若要验证是否已限制访问，请使用以下方法：
-
-* 对于 **基于 Windows** 的 HDInsight 群集，请使用远程桌面连接到群集。 有关详细信息，请参阅[使用 RDP 连接到 HDInsight](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)。
-
-    连接后，使用桌面上的“Hadoop 命令行”  图标打开命令提示符。
-
-* 对于**基于 Linux** 的 HDInsight 群集，请使用 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+若要验证是否已限制访问，请通过 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 连接到群集后，使用以下步骤验证是否只能读取和列出 SAS 存储帐户中的项：
 
@@ -284,11 +280,11 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 **症状**：使用 PowerShell 脚本创建群集时，可能会收到以下错误消息：
 
-    New-AzureRmHDInsightCluster : A task was canceled.
+    New-AzHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzureRmHDInsightCluster `
+    +     New-AzHDInsightCluster `
     +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
 **原因**：如果使用群集管理员/HTTP 用户的密码，或（对于基于 Linux 的群集）SSH 用户的密码，则可能发生此错误。

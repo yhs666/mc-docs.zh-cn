@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/01/2018
-ms.date: an Apache
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 90794e00ec4c6833113d8eaf9979ea4cc4f78099
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b38540a2d12aa3009338b33240ff471b45c0c904
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626032"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004051"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 
@@ -113,7 +113,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     有关信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 使用以下命令查找源群集的 Zookeeper 主机：
+2. 使用以下命令查找源群集的 Apache Zookeeper 主机：
 
     ```bash
     # Install jq if it is not installed

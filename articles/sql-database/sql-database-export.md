@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/18/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 708af1da02ad638dc4392b0bfa38f1be0cad2fb6
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/11/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 2f551fb52bf8d774a6c80f54b3b29f7c2860e5f1
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318955"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003495"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
 
@@ -28,8 +28,9 @@ ms.locfileid: "58318955"
 
 - 为保证导出的事务处理方式一致，必须确保导出期间未发生写入活动，或者正在从 Azure SQL 数据库的[事务处理方式一致性副本](sql-database-copy.md)中导出。
 - 如果是导出到 Blob 存储，则 BACPAC 文件的最大大小为 200 GB。 若要存档更大的 BACPAC 文件，请导出到本地存储。
-- 本文介绍的方法不支持将 BACPAC 文件导出到 Azure 高级存储。
-- 如果从 Azure SQL 数据库的导出操作超过 20 个小时，则可能会取消操作。 为提高导出过程中的性能，可以进行如下操作：
+- 不支持使用本文所述方法将 BACPAC 文件导出到 Azure 高级存储。
+- 目前不支持有防火墙的存储。
+- 如果从 Azure SQL 数据库进行的导出操作超过 20 个小时，系统可能会取消该操作。 为提高导出过程中的性能，可以进行如下操作：
 
   - 暂时提高计算大小。
   - 在导出期间终止所有读取和写入活动。
@@ -97,7 +98,7 @@ $exportStatus
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解单一数据库和共用数据库的长期备份保留（作为导出数据库进行存档的替代方法），请参阅[长期备份保留](sql-database-long-term-retention.md)。 可以使用 SQL 代理作业来安排[仅复制数据库备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server)作为长期备份保留的替代方案。
+- 若要了解单一数据库和共用数据库的长期备份保留（作为导出数据库进行存档的替代方法），请参阅[长期备份保留](sql-database-long-term-retention.md)。
 - 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 - 要了解如何将 BACPAC 导入到 SQL Server 数据库，请参阅[将 BACPAC 导入 SQL Server 数据库](https://msdn.microsoft.com/library/hh710052.aspx)。
 - 若要了解如何从 SQL Server 数据库导出 BACPAC，请参阅[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)

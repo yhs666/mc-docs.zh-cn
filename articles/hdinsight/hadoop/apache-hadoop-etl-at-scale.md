@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 65d801b91553f91a761a082da4c8d46cf765c024
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 9aeec9fc1db2d51f35fad71f36047d51103355de
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303013"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003775"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
@@ -63,6 +63,13 @@ Azure 存储还为 Blob 存储提供一个 WebHDFS API 层。  HDInsight 中的�
 
 通常使用 PowerShell、Azure 存储 SDK 或 AZCopy 将数据引入 Azure 存储。
 
+### <a name="azure-data-lake-storage"></a>Azure Data Lake 存储
+
+Azure Data Lake Storage (ADLS) 是一个托管的超大规模存储库，用于分析与 HDFS 兼容的数据。  ADLS 使用类似于 HDFS 的设计范例，并在总容量及单个文件的大小方面提供无限可伸缩性。 ADLS 非常适合与大型文件配合运行，因为大型文件可以跨多个节点存储。  ADLS 中的数据分区在幕后执行。  通过数以千计的并发执行程序，可高效读取和写入数百 TB 的数据，从而可获得极大的吞吐量来运行分析作业。
+
+通常使用 Azure 数据工厂、ADLS SDK、AdlCopy 服务、Apache DistCp 或 Apache Sqoop 将数据引入 ADLS。  要使用其中的哪些服务在很大程度上取决于数据的所在位置。  如果数据当前在现有的 Hadoop 群集中，则可以使用 Apache DistCp、AdlCopy 服务或 Azure 数据工厂。  如果数据在 Azure Blob 存储中，则可以使用 Azure Data Lake Storage .NET SDK、Azure PowerShell 或 Azure 数据工厂。
+
+ADLS 还针对使用 Azure 事件中心或 Apache Storm 运行的事件引入进行了优化。
 
 #### <a name="considerations-for-both-storage-options"></a>两种存储选项的注意事项
 
@@ -128,3 +135,4 @@ Apache Flume 无法与 Azure HDInsight 配合使用。  本地 Hadoop 安装可�
 
 * [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [使用 Apache Hive 作为 ETL 工具](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

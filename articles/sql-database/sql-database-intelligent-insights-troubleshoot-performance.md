@@ -13,20 +13,16 @@ ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 1b5e1b9290237b791a840d1e8a6217c742d73287
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 2ad93e9ecb16290290c7263c45f2dd7c17fe89be
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318958"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890217"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 排查 Azure SQL 数据库性能问题
 
 本页提供有关通过 [Intelligent Insights](sql-database-intelligent-insights.md) 数据库性能诊断日志检测到的 Azure SQL 数据库性能问题的信息。 可将诊断日志遥测数据流式传输到 [Azure 事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、[Azure 存储](sql-database-metrics-diag-logging.md#stream-into-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
-
-> [!NOTE]
-> 有关通过 Intelligent Insights 快速排查 SQL 数据库性能问题的指导，请参阅本文档中的[建议的故障排除流程](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)流程图。
->
 
 ## <a name="detectable-database-performance-patterns"></a>可检测的数据库性能模式
 
@@ -38,10 +34,10 @@ Intelligent Insights 可根据查询执行等待时间、错误或超时自动�
 | [工作负荷增大](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 检测到工作负荷增大，或数据库上的工作负荷持续累积。 这会影响 SQL 数据库性能。 |
 | [内存压力](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 请求内存授予的工作线程必须等待内存分配相当长的时间。 否则，请求内存授予的工作线程数会不断增加。 这会影响 SQL 数据库性能。 |
 | [锁定](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | 检测到过度的数据库锁定，这影响 SQL 数据库性能。 |
-| [MAXDOP 提升](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | 最大并行度选项 (MAXDOP) 发生更改，影响查询执行效率。 这会影响 SQL 数据库性能。 |
+| [增加的 MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | 最大并行度选项 (MAXDOP) 发生更改，影响查询执行效率。 这会影响 SQL 数据库性能。 |
 | [Pagelatch 争用](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 多个线程同时尝试访问相同的内存中数据缓冲区页面，导致等待时间变长并引发 Pagelatch 争用。 这会影响 SQL 数据库性能。 |
-| [缺少索引](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | 检测到索引缺失，这影响 SQL 数据库性能。 |
-| [新建查询](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | 检测到新查询，这影响 SQL 数据库的总体性能。 |
+| [缺失的索引](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | 检测到索引缺失，这影响 SQL 数据库性能。 |
+| [新查询](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | 检测到新查询，这影响 SQL 数据库的总体性能。 |
 | [等待时间延长统计信息](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | 检测到数据库等待时间延长，这影响 SQL 数据库的性能。 |
 | [TempDB 争用](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 多个线程尝试访问相同的 TempDB 资源，导致出现瓶颈。 这会影响 SQL 数据库性能。 |
 | [弹性池 DTU 不足](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 弹性池中的可用 eDTU 不足，影响了 SQL 数据库的性能。 |

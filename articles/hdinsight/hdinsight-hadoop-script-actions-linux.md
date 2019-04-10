@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/10/2018
-ms.date: 03/04/2019
+origin.date: 02/15/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 814df18e815242c195c8e71c6133c27c80cff411
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 7fe56eaa96f3365eb80f98d3d1017f0baa8146ca
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665578"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003955"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -143,7 +143,7 @@ fi
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-在此示例中，`hdfs` 命令以透明方式使用默认群集存储。 对于某些操作，可能需要指定 URI。 例如，`wasb:///example/jars` 适用于 Azure 存储。
+在此示例中，`hdfs` 命令以透明方式使用默认群集存储。 对于某些操作，可能需要指定 URI。 例如，为 Data Lake Storage Gen2 指定 `abfs:///example/jars`，或者为 Azure 存储指定 `wasb:///example/jars`。
 
 ### <a name="bPS7"></a>将信息写入 STDOUT 和 STDERR
 
@@ -279,9 +279,14 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __可公开读取的 URI__。 例如，在 OneDrive、Dropbox 或其他文件托管服务中存储的数据的 URL。
 
+* 与 HDInsight 群集关联的 __Azure Data Lake Storage 帐户__。 有关将 Azure Data Lake Storage 与 HDInsight 配合使用的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+
+    > [!NOTE]  
+    > 用于访问 Data Lake Storage 的服务主体 HDInsight 必须具有对脚本的读取访问权限。
+
 脚本使用的资源也必须公开提供。
 
-将文件存储在 Azure 存储帐户中可以快速访问，因为是在 Azure 网络中进行。
+与在 Azure 网络中一样，在 Azure 存储帐户或 Azure Data Lake Storage 中存储文件可提供快速访问。
 
 > [!NOTE]
 > 用于引用脚本的 URI 格式因所使用的服务而异。 对于与 HDInsight 群集关联的存储帐户，请使用 `wasb://` 或 `wasbs://`。 对于可公开读取的 URI，请使用 `http://` 或 `https://`。

@@ -11,14 +11,14 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 04/13/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2f4a860f01574d3c360697f3e04a3f5e35dbc9fe
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7ca304add2b5e009d8f0bd1e03012d742904c351
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625883"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003729"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中创建、重启 VM 或重设其大小时排查分配失败
 
@@ -26,11 +26,11 @@ ms.locfileid: "58625883"
 
 **错误代码**：AllocationFailed 或 ZonalAllocationFailed
 
-**错误消息**：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 <http://aka.ms/allocation-guidance> 阅读有关提高分配成功可能性的详细信息”
+**错误消息**：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 https:\//aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
 
 本文说明一些常见分配故障的原因，并建议可能的补救方法。
 
-如果本文未解决你的 Azure 问题，请访问 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。 此外，还可以通过在 [Azure 支持](https://www.azure.cn/support/contact/)站点上选择“获取支持”来发出 Azure 支持请求。
+如果本文未解决你的 Azure 问题，请访问 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。 此外，还可以在 [Azure 支持](https://support.windowsazure.cn/support/support-azure)站点上发出 Azure 支持请求。
 
 <!--Not Available on You can post your issue on these forums or to @AzureSupport on Twitter.-->
 
@@ -87,12 +87,12 @@ ms.locfileid: "58625883"
 在扩展 Azure 基础结构的同时，我们会部署旨在支持最新虚拟机类型的更新一代硬件。 某些较旧 VM 系列不在我们最新的基础结构上运行。 为此，客户偶尔可能遇到这些旧版 SKU 的分配失败。 为避免此问题，建议使用旧版虚拟机系列的客户考虑按以下建议迁移至等效的新版 VM：这些 VM 已针对最新的硬件进行优化，具有更高的性价比。 
 
 
-|      旧版 VM 系列/大小      |                                                                                                                                                                                                                                  建议使用新版 VM 系列/大小                                                                                                                                                                                                                                   |                              详细信息                              |
-|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-|           Av1 系列            |                                                                                                                                                                                                                        [Av2 系列](../windows/sizes-general.md#av2-series)                                                                                                                                                                                                                         |         https://azure.microsoft.com/blog/new-av2-series-vm-sizes/          |
-|  Dv1 或 DSv1 系列（D1 到 D5）  |                                                                                                                                                                                                                [Dv3 或 DSv3 系列](../windows/sizes-general.md#dsv3-series-sup1sup)                                                                                                                                                                                                                | https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/ |
-| Dv1 或 DSv1 系列（D11 到 D14） |                                                                                                                                                                                                                     [Ev3 或 ESv3 系列](../windows/sizes-memory.md#ev3-series)                                                                                                                                                                                                                     |                                                                            |
-|         D15v2 或 DS15v2         | 如果你使用资源管理器部署模型以便充分利用更大的 VM 大小，请考虑移动到 D16v3/DS16v3 或 D32v3/DS32v3。 这些为在最新硬件上运行而设计。 如果使用资源管理器部署模型以确保你的 VM 实例独立于单个客户专用的硬件，请考虑移动到新的独立 VM 大小 E64i_v3 或 E64is_v3，它们为在最新硬件上运行而设计。 |   https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/    |
+|旧版 VM 系列/大小|建议使用新版 VM 系列/大小|详细信息|
+|----------------------|----------------------------|--------------------|
+|Av1 系列|[Av2 系列](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 或 DSv1 系列（D1 到 D5）|[Dv3 或 DSv3 系列](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 或 DSv1 系列（D11 到 D14）|[Ev3 或 ESv3 系列](../windows/sizes-memory.md#ev3-series)|
+|D15v2 或 DS15v2|如果你使用资源管理器部署模型以便充分利用更大的 VM 大小，请考虑移动到 D16v3/DS16v3 或 D32v3/DS32v3。 这些为在最新硬件上运行而设计。 如果使用资源管理器部署模型以确保你的 VM 实例独立于单个客户专用的硬件，请考虑移动到新的独立 VM 大小 E64i_v3 或 E64is_v3，它们为在最新硬件上运行而设计。 |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>大型部署（超过 500 个内核）的分配失败
 

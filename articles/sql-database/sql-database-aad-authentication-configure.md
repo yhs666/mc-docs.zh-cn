@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
-origin.date: 03/04/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: f9e617a0cfaf833ca51528ee1b0acd6d9496ea62
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 3fdfd2014dd2ddf05081758ca4f704e4083662a3
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626515"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003518"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -30,12 +30,14 @@ ms.locfileid: "58626515"
 > 不支持使用 Azure Active Directory 帐户连接到 Azure VM 上运行的 SQL Server。 请改用域 Active Directory 帐户。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 ## <a name="create-and-populate-an-azure-ad"></a>创建并填充 Azure AD
 
 创建 Azure AD 并对其填充用户和组。 Azure AD 可以是初始 Azure AD 托管域。 Azure AD 也可以是本地 Active Directory 域服务，该服务可以与 Azure AD 联合。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](/active-directory/fundamentals/add-custom-domain)、[Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 和[混合标识所需端口和协议](../active-directory/hybrid/reference-connect-ports.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](/active-directory/fundamentals/add-custom-domain)、[Microsoft Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview) 和[混合标识所需端口和协议](../active-directory/hybrid/reference-connect-ports.md)。
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>为 Azure SQL Server 创建 Azure AD 管理员
 
@@ -85,8 +87,8 @@ ms.locfileid: "58626515"
 
 若要运行 PowerShell cmdlet，需要已安装并运行 Azure PowerShell。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 若要预配 Azure AD 管理员，请执行以下 Azure PowerShell 命令：
 
-- Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
-- Select-AzureRmSubscription
+- Connect-AzAccount -Environment AzureChinaCloud
+- Select-AzSubscription
 
 用于预配和管理 Azure AD 管理员的 Cmdlet：
 
@@ -142,7 +144,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 | --- | --- |
 |[az sql server ad-admin create](/cli/sql/server/ad-admin#az-sql-server-ad-admin-create) |为 Azure SQL Server 或 Azure SQL 数据仓库预配 Azure Active Directory 管理员。 （必须来自当前订阅。） |
 |[az sql server ad-admin delete](/cli//sql/server/ad-admin#az-sql-server-ad-admin-delete) |删除 Azure SQL Server 或 Azure SQL 数据仓库的 Azure Active Directory 管理员。 |
-|[az sql server ad-admin list](/cli/sql/server/ad-admin#az-sql-server-ad-admin-list) |返回有关为 Azure SQL Server 或 Azure SQL 数据仓库配置的当前 Azure Active Directory 管理员的信息。 |
+|[az sql server ad-admin list](/cli/sql/server/ad-admin#az-sql-server-ad-admin-list) |返回有关当前为 Azure SQL Server 或 Azure SQL 数据仓库配置的 Azure Active Directory 管理员的信息。 |
 |[az sql server ad-admin update](/cli/sql/server/ad-admin#az-sql-server-ad-admin-update) |为 Azure SQL Server 或 Azure SQL 数据仓库更新 Azure Active Directory 管理员。 |
 
 有关 CLI 命令的详细信息，请参阅 [SQL - az sql](https://docs.azure.cn/cli/sql/server)。  
@@ -244,7 +246,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 对于本机或联合身份验证 Azure AD 用户，请使用此方法通过 Azure AD 向 SQL DB/DW 进行身份验证。 本机用户是指以显式方式在 Azure AD 中创建并使用用户名和密码进行身份验证的用户，而联合用户则是指其域与 Azure AD 联合的 Windows 用户。 当用户需要使用其 Windows 凭据（例如使用远程访问），但其本地计算机未加入域时，可以使用后一方法（用户和密码）。 在这种情况下，Windows 用户可以指定其域帐户和密码，然后使用联合凭据向 SQL DB/DW 进行身份验证。
 
 1. 启动 Management Studio 或 Data Tools 后，在“连接到服务器”（或“连接到数据库引擎”）对话框的“身份验证”框中，选择“Active Directory - 密码”。
-2. 在“用户名”框中，以 <strong>username@domain.com</strong> 格式键入 Azure Active Directory 用户名。 用户名必须是来自 Azure Active Directory 的帐户或来自与 Azure Active Directory 联合的域的帐户。
+2. 在“用户名”框中，以 **username\@domain.com** 格式键入 Azure Active Directory 用户名。 用户名必须是来自 Azure Active Directory 的帐户或来自与 Azure Active Directory 联合的域的帐户。
 3. 在“密码”框中，为 Azure Active Directory 帐户或联合域帐户键入用户密码。
 
     ![选择 AD 密码身份验证][12]

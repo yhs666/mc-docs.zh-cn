@@ -18,103 +18,202 @@ origin.date: 04/30/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 3895751e5d26c66a34500912a549311656d8443c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 83b40807e74b15b77c6a47816046072b000458e4
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675441"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890168"
 ---
-# <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>在 Azure 门户中管理网络安全组流日志
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教程：使用 Azure 门户记录出入虚拟机的网络流量
 
-> [!div class="op_single_selector"]
-> - [Azure 门户](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+可以通过网络安全组 (NSG) 筛选虚拟机 (VM) 的入站和出站流量。 可以使用网络观察程序的 NSG 流日志功能记录流经 NSG 的网络流量。 本教程介绍如何执行下列操作：
 
-网络安全组流日志是网络观察程序的一项功能，可用于查看有关通过网络安全组的入口和出口 IP 流量的信息。 这些流日志采用 JSON 格式编写，提供以下重要信息： 
+> [!div class="checklist"]
+> * 通过网络安全组创建 VM
+> * 启用网络观察程序并注册 Microsoft.Insights 提供程序
+> * 使用网络观察程序的 NSG 流日志功能启用 NSG 的流量日志
+> * 下载记录的数据
+> * 查看记录的数据
 
-- 根据规则显示出站和入站流。
-- 该流所适用的 NIC。
-- 有关流（源/目标 IP、源/目标端口和协议）的 5 元组信息。
-- 有关允许或拒绝流的信息。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="create-a-vm"></a>创建 VM
 
-若要完成本文中的步骤，必须已有以下资源：
+1. 选择 Azure 门户左上角的“+ 创建资源”。
+2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”或某一版本的“Ubuntu Server”。
+3. 输入或选择以下信息，保留剩下的默认设置，然后选择“确定”：
 
-- 一个现有的网络观察程序。 若要创建网络观察程序，请参阅[创建网络观察程序实例](network-watcher-create.md)。
-- 一个包含有效虚拟机的现有资源组。 如果没有虚拟机，请创建 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fnetwork-watcher%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fnetwork-watcher%2ftoc.json) 虚拟机。
+    |设置|值|
+    |---|---|
+    |Name|myVm|
+    |用户名| 输入所选用户名。|
+    |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
+    |订阅| 选择订阅。|
+    |资源组| 选择“新建”，并输入 myResourceGroup|
+    |位置| 选择“美国东部”|
+
+4. 选择 VM 的大小，然后选择“选择”。
+5. 保留“设置”下的所有默认设置，然后选择“确定”。
+6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。 部署 VM 需要几分钟时间。 在继续余下的步骤之前，请等待 VM 完成部署。
+
+创建 VM 需要几分钟时间。 在创建完 VM 之前，请勿继续执行剩余的步骤。 门户在创建 VM 的同时，还会创建名为 **myVm-nsg** 的网络安全组并将其关联到 VM 的网络接口。
+
+## <a name="enable-network-watcher"></a>启用网络观察程序
+
+如果已在“美国东部”区域中启用网络观察程序，请跳到[注册 Insights 提供程序](#register-insights-provider)。
+
+1. 在门户中，选择“所有服务”。 在“筛选器”框中，输入“网络观察程序”。 结果中出现“网络观察程序”后，将其选中。
+2. 选择“区域”，以便将其展开，然后选择“美国东部”右侧的“...”，如下图所示：
+
+    ![启用网络观察程序](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
+
+3. 选择“启用网络观察程序”。
 
 ## <a name="register-insights-provider"></a>注册 Insights 提供程序
 
-要使流日志记录正常工作，必须注册 Microsoft.Insights 提供程序。 若要注册提供程序，请采用以下步骤： 
+NSG 流日志记录要求使用 **Microsoft.Insights** 提供程序。 若要注册该提供程序，请完成以下步骤：
 
-1. 转到“订阅”，然后选择要启用流日志的订阅。 
-2. 在“订阅”边栏选项卡上，选择“资源提供程序”。 
-3. 查看提供程序列表，确认是否已注册 microsoft.insights 提供程序。 若未注册，请选择“注册”。
+1. 在门户左上角选择“所有服务”。 在“筛选器”框中，键入“订阅”。 当“订阅”出现在搜索结果中时，请将其选中。
+2. 从订阅列表中选择要为其启用提供程序的订阅。
+3. 在“设置”下，选择“资源提供程序”。
+4. 确认 **microsoft.insights** 提供程序的“状态”为“已注册”，如下图所示。 如果状态为“未注册”，则请选择提供程序右侧的“注册”。
 
-![查看提供程序][providers]
+    ![注册提供程序](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
 
-## <a name="enable-flow-logs"></a>启用流日志
+## <a name="enable-nsg-flow-log"></a>启用 NSG 流日志
 
-这些步骤演示了完成对网络安全组启用流日志的过程。
+1. NSG 流日志数据写入 Azure 存储帐户。 若要创建 Azure 存储帐户，请在门户左上角选择“+ 创建资源”。
+2. 选择“存储”，然后选择“存储帐户 - Blob、文件、表、队列”。
+3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”。
 
-### <a name="step-1"></a>步骤 1
+    | 设置        | 值                                                        |
+    | ---            | ---   |
+    | Name           | 长度为 3-24 个字符，只能包含小写字母和数字，且必须在所有 Azure 存储帐户中唯一。                                                               |
+    | 位置       | 选择“中国北部”                                           |
+    | 资源组 | 选择“使用现有资源组”，然后选择“myResourceGroup” |
 
-转到网络观察程序实例并选择“NSG 流日志”。
+    创建存储帐户可能需要大约一分钟的时间。 在创建好存储帐户之前，请勿继续执行剩余的步骤。 如果使用现有的存储帐户而不是创建一个，请确保在存储帐户的“设置”下针对“防火墙和虚拟网络”选择了“所有网络”（默认设置）。
+4. 在门户左上角选择“所有服务”。 在“筛选器”框中，键入“网络观察程序”。 搜索结果中出现“网络观察程序”后，将其选中。
+5. 在“日志”下选择“NSG 流日志”，如下图所示：
 
-![流日志概述][1]
+    ![NSG](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
-### <a name="step-2"></a>步骤 2
+6. 从 NSG 列表中选择名为 **myVm-nsg** 的 NSG。
+7. 在“流日志设置”下选择“启用”。
+8. 选择流日志记录版本。 版本 2 包含流会话统计信息（字节和数据包）
 
-从列表中选择网络安全组。
+   ![选择流日志版本](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
-![流日志概述][2]
+9. 选择在步骤 3 中创建的存储帐户。
+10. 将“保留期(天)”设置为 5，然后选择“保存”。
 
-### <a name="step-3"></a>步骤 3 
+## <a name="download-flow-log"></a>下载流日志
 
-在“流日志设置”边栏选项卡上，将状态设置为“打开”，然后配置存储帐户。 选择在存储帐户的“设置”下在“防火墙和虚拟网络”下选择了“所有网络”（默认值）的一个现有存储帐户。 选择存储帐户后，选择“确定”，然后选择“保存”。
+1. 在门户的网络观察程序的“日志”下选择“NSG 流日志”。
+2. 选择“可从配置的存储帐户下载流日志”，如下图所示：
 
-![流日志概述][3]
+   ![下载流日志](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
-## <a name="download-flow-logs"></a>下载流日志
+3. 选择在[启用 NSG 流日志](#enable-nsg-flow-log)的步骤 2 中配置的存储帐户。
+4. 在“Blob 服务”下选择“Blob”，然后选择“insights-logs-networksecuritygroupflowevent”容器。
+5. 在容器中，导航浏览文件夹层次结构，直至找到 PT1H.json 文件，如下图所示。 日志文件写入遵循以下命名约定的文件夹层次结构： https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-将流日志保存在存储帐户中。 下载流日志进行查看。
+   ![流日志](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-### <a name="step-1"></a>步骤 1
+6. 选择 PT1H.json 文件右侧的“...”，然后选择“下载”。
 
-若要下载流日志，请选择“可从配置的存储帐户下载流日志”。 此步骤会转到存储帐户视图，在该视图中可以选择要下载的日志。
+## <a name="view-flow-log"></a>查看流日志
 
-![流日志设置][4]
+下面的 json 是一个示例，说明了为每个流记录数据时在 PT1H.json 文件中会看到的内容：
 
-### <a name="step-2"></a>步骤 2
+### <a name="version-1-flow-log-event"></a>版本 1 流日志事件
+```json
+{
+    "time": "2018-05-01T15:00:02.1713710Z",
+    "systemId": "<Id>",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 1,
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+### <a name="version-2-flow-log-event"></a>版本 2 流日志事件
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 
-转到正确的存储帐户。 然后选择“容器” > “insights-log-networksecuritygroupflowevent”。
+在前面的输出中，**mac** 的值是在创建 VM 时创建的网络接口的 MAC 地址。 **flowTuples** 的逗号分隔信息如下所示：
 
-![流日志设置][5]
-
-### <a name="step-3"></a>步骤 3
-
-转到流日志的位置，将其选中，然后选择“下载”。
-
-![流日志设置][6]
-
-有关日志结构的信息，请访问[网络安全组流日志概述](network-watcher-nsg-flow-logging-overview.md)。
+| 示例数据 | 数据代表的内容   | 说明                                                                              |
+| ---          | ---                    | ---                                                                                      |
+| 1542110377   | 时间戳             | 表示流发生时间的时间戳，采用 UNIX EPOCH 格式。 在前面的示例中，转换后的日期为 2018 年 5 月 1 日下午 2:59:05 (GMT)。                                                                                    |
+| 10.0.0.4  | 源 IP 地址      | 充当流源的源 IP 地址。 10.0.0.4 是在[创建 VM](#create-a-vm) 一文中创建的 VM 的专用 IP 地址。
+| 13.67.143.118     | 目标 IP 地址 | 充当流目标的目标 IP 地址。                                                                                  |
+| 44931        | Source Port            | 充当流源的源端口。                                           |
+| 443         | Destination Port       | 充当流目标的目标端口。 由于流目标为端口 443，因此由日志文件中名为 **UserRule_default-allow-rdp** 的规则处理流。                                                |
+| T            | 协议               | 流的协议是 TCP (T) 还是 UDP (U)。                                  |
+| O            | 方向              | 流是入站 (I) 还是出站 (O)。                                     |
+| A            | 操作                 | 是允许 (A) 流还是拒绝 (D) 流。  
+| C            | 流状态**仅限版本 2** | 捕获流的状态。 可能的状态包括 **B**：创建流时开始。 未提供统计信息。 **C**：继续执行正在进行的流。 以 5 分钟的时间间隔提供统计信息。 **E**：在流终止时结束。 已提供统计信息。 |
+| 30 | 发送的数据包数 - 源到目标**仅限版本 2** | 自上次更新以来，从源发送到目标的 TCP 或 UDP 数据包的总数。 |
+| 16978 | 发送的字节数 - 源到目标**仅限版本 2** | 自上次更新以来，从源发送到目标的 TCP 或 UDP 数据包字节的总数。 数据包字节包括数据包标头和有效负载。 | 
+| 24 | 发送的数据包数 - 目标到源**仅限版本 2** | 自上次更新以来，从目标发送到源的 TCP 或 UDP 数据包的总数。 |
+| 14008| 发送的字节数 - 目标到源**仅限版本 2** | 自上次更新以来，从目标发送到源的 TCP 和 UDP 数据包字节的总数。 数据包字节包括数据包标头和有效负载。|
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何[使用 PowerBI 直观地显示 NSG 流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)。
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
-[2]: ./media/network-watcher-nsg-flow-logging-portal/figure2.png
-[3]: ./media/network-watcher-nsg-flow-logging-portal/figure3.png
-[4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
-[5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
-[6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
-
-<!--Update_Description: update link, wording update -->
+本教程介绍了如何为 NSG 启用 NSG 流日志记录， 以及如何下载和查看文件中记录的数据。 json 文件中的原始数据可能难以解释。 

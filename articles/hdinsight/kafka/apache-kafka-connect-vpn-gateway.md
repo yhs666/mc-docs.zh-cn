@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/06/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3f991ad44f0942e4b49b9f57e44ab13d386269b9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3faad28711b79fc1b04cfccb79754ca32436a536
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626289"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003822"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Apache Kafka on HDInsight
 
@@ -24,6 +24,8 @@ ms.locfileid: "58626289"
 
 * 从本地网络中的资源。 使用本地网络上的 VPN 设备（软件或硬件）建立此连接。
 * 使用 VPN 软件客户端从开发环境。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="architecture-and-planning"></a>架构与规划
 
@@ -89,9 +91,9 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 2. 打开 PowerShell 提示符，并使用下列代码登录 Azure 订阅：
 
     ```powershell
-    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzAccount -EnvironmentName AzureChinaCloud
     # If you have multiple subscriptions, uncomment to set the subscription
-    #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
+    #Select-AzSubscription -SubscriptionName "name of your subscription"
     ```
 
 3. 使用下列代码创建包含配置信息的变量：
@@ -135,35 +137,35 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
     ```powershell
     # Create the resource group that contains everything
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
     # Create the subnet configuration
-    $defaultSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
+    $defaultSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $defaultSubnetName `
         -AddressPrefix $defaultSubnetPrefix
-    $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
+    $gatewaySubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
         -AddressPrefix $gatewaySubnetPrefix
 
     # Create the subnet
-    New-AzureRmVirtualNetwork -Name $networkName `
+    New-AzVirtualNetwork -Name $networkName `
         -ResourceGroupName $resourceGroupName `
         -Location $location `
         -AddressPrefix $networkAddressPrefix `
         -Subnet $defaultSubnetConfig, $gatewaySubnetConfig
 
     # Get the network & subnet that were created
-    $network = Get-AzureRmVirtualNetwork -Name $networkName `
+    $network = Get-AzVirtualNetwork -Name $networkName `
         -ResourceGroupName $resourceGroupName
-    $gatewaySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
+    $gatewaySubnet = Get-AzVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
         -VirtualNetwork $network
-    $defaultSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
+    $defaultSubnet = Get-AzVirtualNetworkSubnetConfig -Name $defaultSubnetName `
         -VirtualNetwork $network
 
     # Set a dynamic public IP address for the gateway subnet
-    $gatewayPublicIp = New-AzureRmPublicIpAddress -Name $gatewayPublicIpName `
+    $gatewayPublicIp = New-AzPublicIpAddress -Name $gatewayPublicIpName `
         -ResourceGroupName $resourceGroupName `
         -Location $location `
         -AllocationMethod Dynamic
-    $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $gatewayIpConfigName `
+    $gatewayIpConfig = New-AzVirtualNetworkGatewayIpConfig -Name $gatewayIpConfigName `
         -Subnet $gatewaySubnet `
         -PublicIpAddress $gatewayPublicIp
 
@@ -172,11 +174,11 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
     $rootCertFile = Get-ChildItem $rootCert
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($rootCertFile)
     $certBase64 = [System.Convert]::ToBase64String($cert.RawData)
-    $p2sRootCert = New-AzureRmVpnClientRootCertificate -Name $vpnRootCertName `
+    $p2sRootCert = New-AzVpnClientRootCertificate -Name $vpnRootCertName `
         -PublicCertData $certBase64
 
     # Create the VPN gateway
-    New-AzureRmVirtualNetworkGateway -Name $vpnName `
+    New-AzVirtualNetworkGateway -Name $vpnName `
         -ResourceGroupName $resourceGroupName `
         -Location $location `
         -IpConfigurations $gatewayIpConfig `
@@ -195,20 +197,20 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
     ```powershell
     # Create the storage account
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
         -Type Standard_GRS `
         -Location $location
 
     # Get the storage account keys and create a context
-    $defaultStorageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName `
+    $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
         -Name $storageName)[0].Value
-    $storageContext = New-AzureStorageContext -StorageAccountName $storageName `
+    $storageContext = New-AzStorageContext -StorageAccountName $storageName `
         -StorageAccountKey $defaultStorageKey
 
     # Create the default storage container
-    New-AzureStorageContainer -Name $defaultContainerName `
+    New-AzStorageContainer -Name $defaultContainerName `
         -Context $storageContext
     ```
 
@@ -216,7 +218,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
     ```powershell
     # Create the HDInsight cluster
-    New-AzureRmHDInsightCluster `
+    New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -Location $location `
@@ -297,7 +299,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-    $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+    $clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
     $nodes = @()
     foreach($nic in $clusterNICs) {

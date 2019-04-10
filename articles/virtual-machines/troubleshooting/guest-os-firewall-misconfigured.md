@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8da05ef2ca9e96295b5ca7f58c90e1b06f0165fc
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: abbbcc2893c61dbf5599b8f66596b8bc19461c43
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666106"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003824"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 来宾 OS 防火墙配置不正确
 
@@ -47,10 +47,10 @@ ms.locfileid: "56666106"
 
 ### <a name="offline-mitigations"></a>脱机缓解措施
 
-1.  若要启用或禁用防火墙规则，请参阅[在 Azure VM 来宾 OS 上启用或禁用防火墙规则](enable-disable-firewall-rule-guest-os.md)。
+1. 若要启用或禁用防火墙规则，请参阅[在 Azure VM 来宾 OS 上启用或禁用防火墙规则](enable-disable-firewall-rule-guest-os.md)。
 
-2.  检查自己是否在实施[来宾 OS 防火墙阻止入站流量方案](guest-os-firewall-blocking-inbound-traffic.md)。
+2. 检查自己是否在实施[来宾 OS 防火墙阻止入站流量方案](guest-os-firewall-blocking-inbound-traffic.md)。
 
-3.  如果仍怀疑防火墙是否正在阻止你的访问，请参阅[在 Azure VM 中禁用来宾 OS 防火墙](disable-guest-os-firewall-windows.md)，然后通过使用正确的规则来重新启用来宾系统防火墙。
+3. 如果仍怀疑防火墙是否正在阻止你的访问，请参阅[在 Azure VM 中禁用来宾 OS 防火墙](disable-guest-os-firewall-windows.md)，然后通过使用正确的规则来重新启用来宾系统防火墙。
 
 <!-- Update_Description: wording update -->

@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/02/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f40b37a625378d555e3c1f06fddd72cf2cc4ae5d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: e1f14282eeaf60ce34f8896aad609481bf835d6f
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665885"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003877"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>使用 PowerShell 创建 Docker 主机
 

@@ -17,22 +17,22 @@ ms.topic: article
 origin.date: 04/23/2018
 ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: d8931b13ad2a28f904a24b88654c5c6cdd393523
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c476906632042c190102009ec7870013e4121d0c
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658244"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003804"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight 中的 Apache Hadoop 配合使用生成电影推荐 (PowerShell)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-了解如何使用 [Apache Mahout](http://mahout.apache.org) 机器学习库通过 Azure HDInsight 生成电影推荐。 本文档中的示例使用 Azure PowerShell 运行 Mahout 作业。
+了解如何使用 [Apache Mahout](https://mahout.apache.org) 机器学习库通过 Azure HDInsight 生成电影推荐。 本文档中的示例使用 Azure PowerShell 运行 Mahout 作业。
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅 [开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
 
@@ -46,17 +46,17 @@ ms.locfileid: "52658244"
 > [!WARNING]
 > 本节中的作业通过使用 Azure PowerShell 运行。 许多通过 Mahout 提供的类当前无法与 Azure PowerShell 配合使用。 有关不适用于 Azure PowerShell 的类的列表，请参阅[故障排除](#troubleshooting)部分。
 >
-> 有关使用 SSH 连接到 HDInsight 和直接在群集上运行 Mahout 示例的示例，请参阅[使用 Mahout 和 HDInsight (SSH) 生成电影推荐](hadoop/apache-hadoop-mahout-linux-mac.md)。
+> 有关使用 SSH 连接到 HDInsight 并直接在群集上运行 Mahout 示例的示例，请参阅[使用 Apache Mahout 和 HDInsight 生成电影推荐 (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
 由 Mahout 提供的功能之一是推荐引擎。 此引擎接受 `userID`、`itemId` 和 `prefValue` 格式（项的用户首选项）的数据。 Mahout 使用该数据确定拥有类似项首选项的用户，这些首选项可用于提供建议。
 
 以下示例是对于建议流程的工作原理的简化演练：
 
-* **共现**：Joe、Alice 和 Bob 都喜欢电影《星球大战》、《帝国反击战》和《绝地归来》。 Mahout 可确定喜欢以上电影之一的用户也喜欢其他两部。
+* **共现**：Joe、Alice 和 Bob 都喜欢电影《星球大战》、《帝国反击战》和《绝地大反击》。 Mahout 可确定喜欢以上电影之一的用户也喜欢其他两部。
 
 * **共现**：Bob 和 Alice 还喜欢电影《幽灵的威胁》、《克隆人的进攻》和《西斯的复仇》。 Mahout 确定喜欢前面三部电影的用户也喜欢这些电影。
 
-* **类似性推荐**：由于 Joe 喜欢前三部电影，Mahout 会查看具有类似首选项的其他人喜欢的电影，但是 Joe 还未观看过（喜欢/评价）。 在这种情况下，Mahout 推荐《幽灵的威胁》、《克隆人的进攻》和《西斯的复仇》。
+* **类似性推荐**：由于 Joe 喜欢前三部电影，Mahout 会查看具有类似偏好的其他人已喜欢但 Joe 还未观看过（已喜欢/已评价）的电影。 在这种情况下，Mahout 推荐《幽灵的威胁》、《克隆人的进攻》和《西斯的复仇》。
 
 ### <a name="understanding-the-data"></a>了解数据
 
@@ -322,10 +322,10 @@ Mahout 作业不清理在处理期间创建的临时文件。 此外，作业不
 ```powershell
 # Login to your Azure subscription
 # Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzAccount
 }
 
 # Get cluster info
@@ -333,32 +333,32 @@ $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
 #Get the cluster info so we can get the resource group, storage, etc.
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $resourceGroup = $clusterInfo.ResourceGroup
 $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
 $container = $clusterInfo.DefaultStorageContainer
-$storageAccountKey = (Get-AzureRmStorageAccountKey `
+$storageAccountKey = (Get-AzStorageAccountKey `
     -Name $storageAccountName `
 -ResourceGroupName $resourceGroup)[0].Value
 
 #Create a storage context and upload the file
-$context = New-AzureStorageContext `
+$context = New-AzStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey $storageAccountKey
 
 #Azure PowerShell can't delete blobs using wildcard,
 #so have to get a list and delete one at a time
 # Start with the output
-$blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/out"
+$blobs = Get-AzStorageBlob -Container $container -Context $context -Prefix "example/out"
 foreach($blob in $blobs)
 {
-    Remove-AzureStorageBlob -Blob $blob.Name -Container $container -context $context
+    Remove-AzStorageBlob -Blob $blob.Name -Container $container -context $context
 }
 # Next the temp files
-$blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/temp"
+$blobs = Get-AzStorageBlob -Container $container -Context $context -Prefix "example/temp"
 foreach($blob in $blobs)
 {
-    Remove-AzureStorageBlob -Blob $blob.Name -Container $container -context $context
+    Remove-AzStorageBlob -Blob $blob.Name -Container $container -context $context
 }
 ```
 
@@ -383,24 +383,24 @@ foreach($blob in $blobs)
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-如果要运行使用这些类的作业，请使用 SSH 连接到 HDInsight 群集，并从命令行运行这些作业。 有关使用 SSH 运行 Mahout 作业的示例，请参阅[使用 Mahout 和 HDInsight (SSH) 生成电影推荐](hadoop/apache-hadoop-mahout-linux-mac.md)。
+如果要运行使用这些类的作业，请使用 SSH 连接到 HDInsight 群集，并从命令行运行这些作业。 有关使用 SSH 运行 Mahout 作业的示例，请参阅[使用 Apache Mahout 和 HDInsight 生成电影推荐 (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-既已学习如何使用 Mahout，可探索在 HDInsight 上处理数据的其他方式：
+现在，已经学习了如何使用 Mahout，因此可以探索通过其他方式来使用 Apache HDInsight 上的数据：
 
-* [Hive 和 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
-* [Pig 和 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
-* [MapReduce 和 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 和 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
+[build]: https://mahout.apache.org/developers/buildingmahout.html
 [aps]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

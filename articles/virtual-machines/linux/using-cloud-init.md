@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: fc9bbf659c2d26de31769d95e53e9d6fdb088e14
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 3ed9d81d32b5dd578e9e4d5b181cfb3f8e476b66
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665934"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004070"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>cloud-init 对 Azure 中虚拟机的支持
 本文介绍了在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机缩放集 (VMSS) 的现有支持。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。  
 
 ## <a name="cloud-init-overview"></a>Cloud-init 概述
-[Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。  有关如何正确设置 `#cloud-config` 文件格式的详细信息，请参阅 [cloud-init 文档站点](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 文件是采用 base64 编码的文本文件。
+[Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。  有关如何正确设置 `#cloud-config` 文件格式的详细信息，请参阅 [cloud-init 文档站点](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 文件是采用 base64 编码的文本文件。
 
 Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 或 yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
 
@@ -64,7 +64,7 @@ VM 的 WALA 配置的时限为最大 VM 预配时间。  cloud-init 配置应用
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
-下一步是在当前 shell 中创建名为 cloud-init.txt 的文件并粘贴以下配置。 对于此示例，请在不处于本地计算机上的 Shell 中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+下一步是在当前 shell 中创建名为 cloud-init.txt 的文件并粘贴以下配置。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 <!--Notice: Change Cloud Shell to Shell-->
 
@@ -97,7 +97,7 @@ VM 预配完成后，会在 `--custom-data` 中定义的所有模块和脚本上
 > [!NOTE]
 > 并不是每个模块故障都会导致严重的 cloud-init 整体配置故障。 例如使用 `runcmd` 模块，如果脚本发生故障，cloud-init 依然会报告预配成功，因为 runcmd 模块已执行。
 
-有关 cloud-init 日志的更多详细信息，请参阅 [cloud-init 文档](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+有关 cloud-init 日志的更多详细信息，请参阅 [cloud-init 文档](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>后续步骤
 有关配置更改的 cloud-init 示例，请参阅以下文档：

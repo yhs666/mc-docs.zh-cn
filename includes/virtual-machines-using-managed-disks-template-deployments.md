@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 2a8dff8b1adcb11c2a6a380de000ccf7f475c86d
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: a0f1731bf5ca3c6e7111a031b91591ba76558595
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676394"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004197"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中使用托管磁盘
 
@@ -27,8 +27,8 @@ ms.locfileid: "52676394"
 ```json
 {
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2018-07-01",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2016-01-01",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -42,8 +42,8 @@ ms.locfileid: "52676394"
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -101,8 +101,8 @@ ms.locfileid: "52676394"
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -143,8 +143,8 @@ ms.locfileid: "52676394"
 ```json
 {
     "type": "Microsoft.Compute/disks",
+    "apiVersion": "2018-06-01",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -162,8 +162,8 @@ ms.locfileid: "52676394"
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -207,8 +207,8 @@ ms.locfileid: "52676394"
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
+    "apiVersion": "2018-10-01",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
@@ -226,7 +226,7 @@ ms.locfileid: "52676394"
 以下为创建标准 SSD 盘时资源管理器模板中所需的参数：
 
 * Microsoft.Compute 的 apiVersion 必须设置为 `2018-04-01`（或更高）
-* 将 managedDisk.storageAccountType 指定为 `StandardSSD_LRS`
+* 将 *managedDisk.storageAccountType* 指定为 `StandardSSD_LRS`
 
 以下示例显示了使用标准 SSD 盘的 VM 的 properties.storageProfile.osDisk 部分：
 
@@ -253,8 +253,7 @@ ms.locfileid: "52676394"
 * 有关使用托管磁盘的完整模板，请访问以下 Azure 快速入门存储库链接。
     * [带托管磁盘的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [带托管磁盘的 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Full list of managed disk templates](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-    <!-- URL is correct to append .md file-->（托管磁盘模板的完整列表）
+    * [托管磁盘模板的完整列表](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * 请访问文章 [Azure 托管磁盘概述](../articles/virtual-machines/windows/managed-disks-overview.md)，详细了解托管磁盘。
 * 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
 * 请访问 [Microsoft.Compute/disks 模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/disks)文档，查看磁盘资源的模板参考文档。

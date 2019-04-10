@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb79b427f832fb5be5506eb83a240ac0660becb6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e34bd0030f42ed58463568ccb223dcc2d2da57df
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626953"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003711"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -30,10 +30,11 @@ ms.locfileid: "58626953"
 
 可以使用两个选项：
 * [上传 VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [复制现有 Azure VM 的 VHD](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [复制现有 Azure VM 的 VHD](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
+<a name="option-1-upload-a-specialized-vhd"></a>
 ## <a name="option-1-upload-a-specialized-vhd"></a>选项 1：上传专用 VHD
 
 可从使用本地虚拟化工具（如 Hyper-V）创建的专用 VM 或从另一个云导出的 VM 上传 VHD。
@@ -103,7 +104,8 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 ```
 
 完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小。
-<a name="option-2-copy-an-existing-azure-vm"></a>
+
+<a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>选项 2：从现有 Azure VM 复制 VHD
 
 可将 VHD 复制到另一个存储帐户，以便在创建新的重复 VM 时使用。

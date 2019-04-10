@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 059e09a11b48d2907a15a9d6a20b8a12fd76c26d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2b95fd23d785e413c329ae053036dbf507fab9dd
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626748"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890195"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>通过 VPN 网关诊断本地连接
 
@@ -105,7 +105,7 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 | ConnectionEntityNotFound | 缺少连接配置。 | 否 |
 | ConnectionIsMarkedDisconnected | 连接标记为“断开连接”。 |否|
 | ConnectionNotConfiguredOnGateway | 未在底层服务上配置连接。 | 是 |
-| ConnectionMarkedStandy | 底层服务标记为备用。| 是|
+| ConnectionMarkedStandby | 底层服务标记为备用。| 是|
 | 身份验证 | 预共享密钥不匹配。 | 是|
 | PeerReachability | 无法访问对等网关。 | 是|
 | IkePolicyMismatch | 对等网关中的 IKE 策略不受 Azure 支持。 | 是|

@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6a9f63d398487fe23c9829c78bbc58b9f0a6e1f8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1676792e49d43d00a1ff2081514aca57a2beaeef
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627762"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004202"
 ---
 可用性组侦听器是 SQL Server 可用性组侦听的 IP 地址和网络名称。 若要创建可用性组侦听器，请执行以下操作：
 

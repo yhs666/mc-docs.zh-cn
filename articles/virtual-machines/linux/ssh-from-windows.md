@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: f93bb5924218500d647d599c76468dcc27d7c12d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: a3af70daebff2ef42042e43d9249ad7b8ef85eb4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666316"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004120"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上将 SSH 密钥与 Windows 配合使用
 
@@ -38,9 +38,9 @@ Windows 计算机并不总是装有类似的 SSH 命令。 最新版本的 Windo
 
 以下程序包中包含可以在本地安装的其他常见 Windows SSH 客户端：
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
-* [Git For Windows](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [适用于 Windows 的 Git](https://git-for-windows.github.io/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 <!-- Not Available on [Azure Cloud Shell](../../cloud-shell/overview.md)-->
@@ -62,7 +62,7 @@ ssh-keygen -t rsa -b 2048
 
 ### <a name="create-ssh-keys-with-puttygen"></a>使用 PuTTYgen 创建 SSH 密钥
 
-如果更喜欢使用基于 GUI 的工具创建 SSH 密钥，可使用 [PuTTY 下载包](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)附带的 PuTTYgen 密钥生成器。 
+如果更喜欢使用基于 GUI 的工具创建 SSH 密钥，可使用 [PuTTY 下载包](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)附带的 PuTTYgen 密钥生成器。 
 
 使用 PuTTYgen 创建 SSH RSA 密钥对：
 
@@ -111,7 +111,7 @@ ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 
 ### <a name="connect-with-putty"></a>通过 PuTTY 连接
 
-如果安装了 [PuTTY 下载包](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)并且之前生成了 PuTTY 私钥 (.ppk) 文件，则可以通过 PuTTY 连接到 Linux VM。
+如果安装了 [PuTTY 下载包](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)并且之前生成了 PuTTY 私钥 (.ppk) 文件，则可以通过 PuTTY 连接到 Linux VM。
 
 1. 启动 PuTTY。
 

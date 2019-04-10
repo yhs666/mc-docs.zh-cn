@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 12d910906d54af335b5cc84ec4e69a2a774a86ee
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: f330abd27f1e8ff26b6fcda2fc84f86aee48ba98
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318985"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003463"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 
@@ -59,7 +59,7 @@ ms.locfileid: "58318985"
 
 对于单个订阅，会在要提交和处理的并发还原请求数上有一些限制（包括时间点还原、异地还原和从长期保留备份中还原）：
 
-| | **处理的并发请求数最多为 #** | **提交的并发请求数最多为 #** |
+| | **处理的最大并发请求数** | **提交的最大并发请求数** |
 | :--- | --: | --: |
 |单个数据库（每个订阅）|10 个|60|
 |弹性池（每个池）|4|200|
@@ -93,7 +93,7 @@ ms.locfileid: "58318985"
 
 ## <a name="deleted-database-restore"></a>已删除的数据库还原
 
-通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，可将已删除的数据库还原到同一 SQL 数据库服务器上已删除的数据库的删除时间。 可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 在保留期间将已删除的数据库还原到较早的时间点。
+通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，可将已删除的数据库还原到同一 SQL 数据库服务器上已删除的数据库的删除时间。 可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 在保留期间将已删除的数据库还原到较早的时间点。
 
 > [!TIP]
 > 有关展示如何还原已删除数据库的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
@@ -138,6 +138,8 @@ ms.locfileid: "58318985"
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 - 若要还原独立数据库或入池数据库，请参阅 [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
 

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, jovanpop
 manager: digimobile
-origin.date: 01/17/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 960c143de178233b32c74feeb3444b9f5ed9140d
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 7f4f1ffec83d27e44334828373ff876d3885901d
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663471"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003480"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 数据库托管实例
 
@@ -34,17 +34,21 @@ ms.locfileid: "56663471"
 
 ## <a name="prerequisites"></a>先决条件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+
 若要完成本文中的步骤，需要符合以下先决条件：
 
 - 已在本地服务器上，或者有权访问导出为文件的证书的计算机上，安装了 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 命令行工具。 Pvk2Pfx 工具是[企业 Windows 驱动程序工具包](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)（一个独立的自包含性命令行环境）的一部分。
 - 已安装 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 5.0 或更高版本。
-- [已安装并更新](https://docs.microsoft.com/powershell/azure/install-az-ps) AzureRM PowerShell 模块。
-- [AzureRM.Sql 模块](https://www.powershellgallery.com/packages/AzureRM.Sql) 4.10.0 版或更高版本。
+- [已安装并更新](https://docs.microsoft.com/powershell/azure/install-az-ps) Azure PowerShell 模块。
+- [Az.Sql 模块](https://www.powershellgallery.com/packages/Az.Sql)。
   在 PowerShell 中运行以下命令，以安装/更新 PowerShell 模块：
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>将 TDE 证书导出到个人信息交换 (.pfx) 文件
@@ -115,13 +119,13 @@ ms.locfileid: "56663471"
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. 完成所有准备步骤后，运行以下命令将 base-64 编码的证书上传到目标托管实例：
@@ -132,7 +136,7 @@ ms.locfileid: "56663471"
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 现在，该证书可在指定的托管实例中使用，并且可以成功还原相应的 TDE 保护数据库的备份。

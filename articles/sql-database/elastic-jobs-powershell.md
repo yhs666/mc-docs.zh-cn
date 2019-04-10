@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviwer: sstein
 manager: digimobile
-origin.date: 01/03/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: d5f466aa63dd7cef39f4fca26070ccf7bdb93179
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/13/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 72815ec3c2aae795dbcf3858e8669caa4db05468
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318989"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003476"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -38,39 +38,41 @@ ms.locfileid: "58318989"
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+弹性数据库作业的升级版本有一组新的 PowerShell cmdlet，可在迁移期间使用。 这些新的 cmdlet 将所有现有的作业凭据、目标（包括数据库、服务器、自定义集合）、作业触发器、作业计划、作业内容和作业转移到新的弹性作业代理。
+
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>安装最新的弹性作业 cmdlet
 
 如果还没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-- 安装 **AzureRM.Sql** 4.8.1-preview 模块以获得最新弹性作业 cmdlet。 以管理访问权限在 PowerShell 中运行以下命令。
+安装 **Az.Sql** 1.1.1-preview 模块以获得最新弹性作业 cmdlet。 以管理员访问权限在 PowerShell 中运行以下命令。
 
-  ```powershell
-  # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-  Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
-  
-  # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-  Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
-  
-  # Restart your powershell session with administrative access
-  
-  # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-  Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
-  
-  # Import the AzureRM.Sql 4.8.1 module
-  Import-Module AzureRM.Sql -RequiredVersion 4.8.1
-  
-  # Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-  Get-Module AzureRM.Sql
-  ```
+```powershell
+# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-- 除了 **AzureRM.Sql** 4.8.1-preview 模块之外，本教程还需要 *sqlserver* PowerShell 模块。 有关详细信息，请参阅[安装 SQL Server PowerShell 模块](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)。
+# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+
+# Restart your powershell session with administrative access
+
+# Places Az.Sql preview cmdlets side by side with existing Az.Sql version
+Install-Module�-Name�Az.Sql�-RequiredVersion�1.1.1-preview�-AllowPrerelease
+
+# Import the Az.Sql module
+Import-Module Az.Sql -RequiredVersion 1.1.1
+
+# Confirm if module successfully imported - if the imported version is 1.1.1, then continue
+Get-Module Az.Sql
+```
+
+- 除了 **Az.Sql** 1.1.1-preview 模块之外，本教程还需要 *sqlserver* PowerShell 模块。 有关详细信息，请参阅[安装 SQL Server PowerShell 模块](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)。
 
 
 ## <a name="create-required-resources"></a>创建所需资源
 
 创建弹性作业代理需要一个用作[作业数据库](sql-database-job-automation-overview.md#job-database)的数据库（S0 或更高级别）。 
 
-下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。
+*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。 下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
 
 弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 [Azure 要求](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)即可。
 

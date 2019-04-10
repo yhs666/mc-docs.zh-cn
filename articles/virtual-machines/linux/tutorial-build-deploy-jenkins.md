@@ -1,25 +1,25 @@
 ---
-title: 教程 - 使用 Azure DevOps Services 实现从 Jenkins 到 Azure VM 的 CI/CD | Azure
-description: 本教程介绍如何从 Visual Studio Team Services 或 Azure Team Foundation Server 中的 Release Management，使用 Jenkins 将 Node.js 应用设置为持续集成 (CI) 和持续部署 (CD) 到 Azure VM
+title: 教程 - 使用 Jenkins 和 Azure DevOps Services 将应用部署到 Azure 中的 Linux 虚拟机 | Azure
+description: 本教程介绍如何从 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，通过使用 Jenkins 将 Node.js 应用设置为持续集成 (CI) 和持续部署 (CD) 到 Azure VM
 author: rockboyfor
 manager: digimobile
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 origin.date: 07/31/2018
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: jenkins
-ms.openlocfilehash: 8e3cd5604d775a0d4c7fb2048aecbdbf85357784
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b5519205e8097757c25ecdb8517e8bde696ffbec
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627539"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003735"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教程：使用 Jenkins 和 Azure DevOps Services 将应用部署到 Azure 中的 Linux 虚拟机
 
@@ -27,7 +27,7 @@ ms.locfileid: "58627539"
 
 在本教程中，将使用 Jenkins 生成 Node.js Web 应用。 然后使用 Azure DevOps 将该应用部署到
 
-包含 Linux 虚拟机 (VM) 的[部署组](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts)。 你将学习如何执行以下操作：
+包含 Linux 虚拟机 (VM) 的[部署组](https://docs.microsoft.com/zh-cn/azure/devops/pipelines/release/deployment-groups/index?view=vsts)。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 获取示例应用。
@@ -43,17 +43,18 @@ ms.locfileid: "58627539"
 
 * 需要具有对 Jenkins 服务器的访问权限。 如果尚未创建 Jenkins 服务器，请参阅 [Jenkins 文档](https://jenkins.io/doc/)。 
   
-  <!-- Not Available on [Create a Jenkins master on an Azure virtual machine](/jenkins/install-jenkins-solution-template) -->
-  <!-- Keep the office website -->
-* 登录到 Azure DevOps Services 组织 (<strong>https://{yourorganization}.visualstudio.com</strong>)。 
-  可以[免费创建 Azure DevOps Services 组织](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)。
+    <!-- Not Available on [Create a Jenkins master on an Azure virtual machine](/jenkins/install-jenkins-solution-template) -->
+    <!-- Keep the office website -->
+    
+* 登录到 Azure DevOps Services 组织 (**https://{yourorganization}.visualstudio.com**)。 
+    可以[免费创建 Azure DevOps Services 组织](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)。
 
-  > [!NOTE]
-  > 有关详细信息，请参阅[连接到 Azure DevOps Services](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/connect-to-projects?view=vsts)。
+    > [!NOTE]
+    > 有关详细信息，请参阅[连接到 Azure DevOps Services](https://docs.microsoft.com/zh-cn/azure/devops/organizations/projects/connect-to-projects?view=vsts)。
 
-* 部署目标需用到 Linux 虚拟机。  有关详细信息，请参阅[使用 Azure CLI 创建和管理 Linux VM](/virtual-machines/linux/tutorial-manage-vm)。
+*  部署目标需用到 Linux 虚拟机。  有关详细信息，请参阅[使用 Azure CLI 创建和管理 Linux VM](/virtual-machines/linux/tutorial-manage-vm)。
 
-* 为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/tutorial-filter-network-traffic)。
+*  为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/tutorial-filter-network-traffic)。
 
 ## <a name="get-the-sample-app"></a>获取示例应用
 
@@ -63,7 +64,7 @@ ms.locfileid: "58627539"
 创建此应用的一个分支并记下位置 (URL) 以便在本教程的后续步骤中使用。 有关详细信息，请参阅[分支存储库](https://help.github.com/articles/fork-a-repo/)    
 
 > [!NOTE]
-> 应用是通过 [Yeoman](http://yeoman.io/learning/index.html) 生成的。 它使用 Express、bower 和 grunt。 它还有一些 npm 包作为依赖项。
+> 应用是通过 [Yeoman](https://yeoman.io/learning/index.html) 生成的。 它使用 Express、bower 和 grunt。 它还有一些 npm 包作为依赖项。
 > 示例还包含一个用来设置 Nginx 并部署应用的脚本。 它在虚拟机上执行。 具体而言，脚本将执行以下操作：
 > 1. 安装 Node、Nginx 和 PM2。
 > 2. 配置 Nginx 和 PM2。
@@ -98,13 +99,13 @@ ms.locfileid: "58627539"
 > [!NOTE]
 > 确保用于以下步骤的个人访问令牌 (PAT) 包含 Azure DevOps Services 中的“发布”（读取、写入、执行和管理）权限。
 
-1. 如果没有 PAT，请在 Azure DevOps Services 组织中创建一个 PAT。 Jenkins 需要使用此信息来访问你的 Azure DevOps Services 组织。 确保存储令牌信息以用于本部分后面的步骤。
+1.  如果没有 PAT，请在 Azure DevOps Services 组织中创建一个 PAT。 Jenkins 需要使用此信息来访问你的 Azure DevOps Services 组织。 确保存储令牌信息以用于本部分后面的步骤。
 
-   若要了解如何生成令牌，请阅读[如何为 Azure DevOps Services 创建个人访问令牌？](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts)。
+    若要了解如何生成令牌，请阅读[如何为 Azure DevOps Services 创建个人访问令牌？](https://docs.microsoft.com/zh-cn/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts)。
 2. 在“生成后操作”选项卡中，选择“添加生成后操作”。 选择“存档项目”。
 3. 对于“要存档的文件”，输入 `**/*` 以包括所有文件。
 4. 若要创建其他操作，请选择“添加生成后操作”。
-5. 选择“在 TFS/Team Services 中触发发布” 。 输入 Azure DevOps Services 组织的 URI，例如 <strong>https://{your-organization-name}.visualstudio.com</strong>。
+5. 选择“在 TFS/Team Services 中触发发布” 。 输入 Azure DevOps Services 组织的 URI，例如 **https://{your-organization-name}.visualstudio.com**。
 6. 输入**项目**名称。
 7. 为发布管道选择名称。 （稍后将在 Azure DevOps Services 中创建此发布管道。）
 8. 选择用于连接到 Azure DevOps Services 或 Team Foundation Server 环境的凭据：
@@ -120,7 +121,7 @@ ms.locfileid: "58627539"
 1. 在 Azure DevOps Services 中打开“服务”页面，打开“新服务终结点”列表，然后选择“Jenkins”。
    ![添加 Jenkins 终结点](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. 输入连接的名称。
-3. 输入 Jenkins 服务器的 URL，然后选择“接受不受信任的 SSL 证书”选项。 示例 URL 是 <strong>http://{YourJenkinsURL}.chinaeast.cloudapp.chinacloudapi.cn</strong>。
+3. 输入 Jenkins 服务器的 URL，然后选择“接受不受信任的 SSL 证书”选项。 示例 URL 是 **http://{YourJenkinsURL}.chinaeast.cloudapp.chinacloudapi.cn**。
 4. 输入 Jenkins 帐户的用户名和密码。
 5. 选择“验证连接”确认信息是否正确。
 6. 选择“确定”，创建服务终结点。
@@ -142,7 +143,7 @@ ms.locfileid: "58627539"
 8. 完成安装后，系统将提示你部署组标记。 接受默认值。
 9. 在 Azure DevOps Services 中，在“部署组”下面的“目标”中检查新注册的虚拟机。
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>创建 Azure Pipelines 发布管道
+## <a name="create-an-azure-pipelines-release-pipeline"></a>创建 Azure Pipelines 发布管道
 
 发布管道指定 Azure Pipelines 在部署应用时所用的过程。 在此示例中，你将执行一个 shell 脚本。
 

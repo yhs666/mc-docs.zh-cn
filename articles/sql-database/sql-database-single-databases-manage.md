@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 30d29a82e73a33275e9a8b6041f0d9653ff6638e
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 03791788cfc35aec0d59040b281935085a2061ef
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318951"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003504"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理 SQL 数据库服务器和单一数据库
 
@@ -57,6 +57,8 @@ ms.locfileid: "58318951"
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell：管理 SQL 数据库服务器和单一数据库
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要使用 Azure PowerShell 创建和管理 Azure SQL 数据库服务器、单一数据库和入池数据库以及 SQL 数据库服务器防火墙，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
 
@@ -124,17 +126,17 @@ ms.locfileid: "58318951"
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|新建单一数据库。 必须连接到 master 数据库才能新建数据库。|
 | [ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |修改 Azure SQL 数据库。 |
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
-|[sys.database_service_objectives (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
+|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
 |[sys.dm_db_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| 返回 Azure SQL 数据库中数据库的 CPU、IO 和内存消耗量。 即使数据库中没有活动，也会每隔 15 秒返回一行数据。|
 |[sys.resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|返回 Azure SQL 数据库的 CPU 使用率和存储数据。 在五分钟间隔内收集并聚合数据。|
 |[sys.database_connection_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|包含“SQL 数据库”数据库连接事件的统计信息，提供数据库连接成功和失败状态的概述。 |
 |[sys.event_log（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|返回成功的“Azure SQL 数据库”数据库连接数、连接失败次数和死锁数。 可以使用此信息跟踪 SQL 数据库的数据库活动并排查其问题。|
 |[sp_set_firewall_rule（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|创建或更新 SQL 数据库服务器的服务器级防火墙设置。 此存储过程仅在服务器级别主体登录名的 master 数据库中可用。 只有在拥有 Azure 级权限的用户创建首个服务器级防火墙规则后，才能使用 Transact-SQL 创建服务器级防火墙规则|
-|[sys.firewall_rules (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|返回与 Microsoft Azure SQL 数据库关联的服务器级防火墙设置的相关信息。|
-|[sp_delete_firewall_rule (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|从 SQL 数据库服务器中删除服务器级防火墙设置。 此存储过程仅在服务器级别主体登录名的 master 数据库中可用。|
+|[sys.firewall_rules（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|返回与 Microsoft Azure SQL 数据库关联的服务器级防火墙设置的相关信息。|
+|[sp_delete_firewall_rule（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|从 SQL 数据库服务器中删除服务器级防火墙设置。 此存储过程仅在服务器级别主体登录名的 master 数据库中可用。|
 |[sp_set_database_firewall_rule（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|创建或更新 Azure SQL 数据库或 SQL 数据仓库的数据库级防火墙规则。 可以为 master 数据库以及 SQL 数据库上的用户数据库配置数据库防火墙规则。 使用包含的数据库用户时，数据库防火墙规则非常有用。 |
-|[sys.database_firewall_rules (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|返回与 Microsoft Azure SQL 数据库关联的数据库级防火墙设置的相关信息。 |
-|[sp_delete_database_firewall_rule (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|从 Azure SQL 数据库或 SQL 数据仓库中删除数据库级防火墙规则设置。 |
+|[sys.database_firewall_rules（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|返回与 Microsoft Azure SQL 数据库关联的数据库级防火墙设置的相关信息。 |
+|[sp_delete_database_firewall_rule（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|从 Azure SQL 数据库或 SQL 数据仓库中删除数据库级防火墙规则设置。 |
 
 ## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>REST API：管理 SQL 数据库服务器和单一数据库
 
@@ -143,11 +145,11 @@ ms.locfileid: "58318951"
 | 命令 | 说明 |
 | --- | --- |
 |[服务器 - 创建或更新](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|创建或更新新服务器。|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|删除 SQL Server。|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|获取服务器。|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|返回订阅中的服务器列表。|
+|[服务器 - 删除](https://docs.microsoft.com/rest/api/sql/servers/delete)|删除 SQL Server。|
+|[服务器 - 获取](https://docs.microsoft.com/rest/api/sql/servers/get)|获取服务器。|
+|[服务器 - 列表](https://docs.microsoft.com/rest/api/sql/servers/list)|返回订阅中的服务器列表。|
 |[服务器 - 按资源组列出](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|返回资源组中服务器的列表。|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
+|[服务器 - 更新](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
 |[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
 |[数据库 - 删除](https://docs.microsoft.com/rest/api/sql/databases/delete)|删除数据库。|
 |[数据库 - 获取](https://docs.microsoft.com/rest/api/sql/databases/get)|获取数据库。|

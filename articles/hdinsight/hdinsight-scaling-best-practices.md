@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/26/2018
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: b556073befe210c49a27803ca2342fbfd45cc0b9
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 7d4c796e862d5d0e0dc54c9f5afb460e8ece14cb
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348679"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003906"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -121,7 +121,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 * H100 无法提交语句 show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException:连接到 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] 失败:**连接被拒绝**
 
-* H020 无法建立到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 的连接: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失败:连接被拒绝: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失败:**连接被拒绝**
+* H020 无法建立到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 的连接: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001 [hn0-hdisrv.servername.bx.internal.chinacloudapp.cn/10.0.0.28] 失败:连接被拒绝: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001 [hn0-hdisrv.servername.bx.internal.chinacloudapp.cn/10.0.0.28] 失败:**连接被拒绝**
 
 * 从 Hive 日志中：警告 [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 在 attempt 21 上启动 HiveServer2 时出错，将在 60 秒内重试 java.lang.RuntimeException:在 hive 配置上应用授权策略时出错: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374。 名称节点处于安全模式。
     报告的块数为 0，需要额外的 9 个块才能达到总块数 9 的阈值 0.9900。
@@ -173,7 +173,7 @@ hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
 在未出现块复制数量不足的正常 HDFS 文件系统上执行此命令时，可以看到如下所示的输出：
 
 ```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
+Connecting to namenode via http://hn0-scalin.name.bx.internal.chinacloudapp.cn:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
 FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:07:01 UTC 2017
 ..Status: HEALTHY
  Total size:    53 B
@@ -200,7 +200,7 @@ The filesystem under path '/tmp/hive/hive' is HEALTHY
 相反，在出现块复制数量不足的 HDFS 文件系统上执行 `fsck` 命令时，将看到如下所示的输出：
 
 ```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
+Connecting to namenode via http://hn0-scalin.name.bx.internal.chinacloudapp.cn:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
 FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:13:58 UTC 2017
 .
 /tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info:  Under replicated BP-1867508080-10.0.0.21-1499348422953:blk_1073741826_1002. Target Replicas is 3 but found 1 live replica(s), 0 decommissioned replica(s) and 0 decommissioning replica(s).

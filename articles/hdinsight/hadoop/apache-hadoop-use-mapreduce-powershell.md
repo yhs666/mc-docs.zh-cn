@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 01/14/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: e4082c37b4cd22588a5997ca054bbf8f32b6e332
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: a635539f1e295d6e2d3501146f199817fb7d92d8
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029262"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004073"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业
 
@@ -33,6 +33,8 @@ ms.locfileid: "54029262"
 本文档提供了一个示例，演示了使用 Azure PowerShell 在 HDInsight 的 Hadoop 群集中运行 MapReduce 作业。
 
 ## <a id="prereq"></a>先决条件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Azure HDInsight（HDInsight 上的 Hadoop）群集**
 
@@ -47,15 +49,15 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
 在远程 HDInsight 群集上运行 MapReduce 作业时，会使用以下 Cmdlet。
 
-* **Connect-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* **Connect-AzAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新的作业定义。
+* **New-AzHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新的作业定义。
 
-* **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
+* **Start-AzHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 
-* **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
+* **Wait-AzHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出。
+* **Get-AzHDInsightJobOutput**：用于检索作业的输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -168,7 +170,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

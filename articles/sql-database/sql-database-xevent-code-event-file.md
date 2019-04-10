@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik
 manager: digimobile
-origin.date: 12/19/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: 530d8b0da6454c7c0fe31c35ac00c3393c3e10b3
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2018
+ms.date: 04/08/2019
+ms.openlocfilehash: 105ea3f25b859d89962e704deb379991febb5b11
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318928"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003452"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的事件文件目标代码
 
@@ -39,6 +39,8 @@ ms.locfileid: "58318928"
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 * Azure 帐户和订阅。 可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * 可在其中创建表的任何数据库。
@@ -531,7 +533,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 有关 Azure 存储服务中帐户和容器的详细信息，请参阅：
 
 * [如何通过 .NET 使用 Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [命名和引用容器、Blob 与元数据](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [命名和引用容器、Blob 和元数据](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [使用根容器](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [第 1 课：在 Azure 容器上创建存储访问策略和共享访问签名](https://msdn.microsoft.com/library/dn466430.aspx)
   * [第 2 课：使用共享访问签名创建 SQL Server 凭据](https://msdn.microsoft.com/library/dn466435.aspx)

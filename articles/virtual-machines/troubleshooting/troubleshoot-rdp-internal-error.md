@@ -1,5 +1,5 @@
 ---
-title: 与 Azure 虚拟机建立 RDP 连接时发生内部错误 | Azure
+title: 尝试通过远程桌面连接到 Azure VM 时发生内部错误 | Azure
 description: 了解如何排查 Azure 中的 RDP 内部错误 | Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/22/2018
-ms.date: 12/24/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c9773010374e11c340f5079c90ca5f9ddef1dcd
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 165c2181d4b55d353d38d932fdb40bb2d3b4d8a4
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736109"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004183"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>尝试通过远程桌面连接到 Azure VM 时发生内部错误
 
@@ -67,7 +67,7 @@ ms.locfileid: "53736109"
 
     对于此脚本，我们假设分配给附加 OS 磁盘的驱动器号为 F。请将此驱动器号替换为 VM 中的相应值。
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -97,6 +97,7 @@ ms.locfileid: "53736109"
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
@@ -159,6 +160,4 @@ ms.locfileid: "53736109"
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
 5.  [拆离 OS 磁盘并重新创建 VM](../windows/troubleshoot-recovery-disks-portal.md)，然后检查问题是否得以解决。
 
-
-<!-- Update_Description: new articles on troubleshoot rdp internal error -->
-<!--ms.date: 12/03/2018-->
+<!-- Update_Description: wording update -->

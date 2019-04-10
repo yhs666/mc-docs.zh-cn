@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/09/2018
-ms.date: 02/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 94868e26e7821508ff8eb56765d4e3dce9bb53c2
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: c3d58abd7ff7468ecd229de85fccd2f9a6cf0898
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906204"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004062"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -96,7 +96,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 ## <a name="hdfs-and-azure-storage"></a>HDFS 和 Azure 存储
 
-在大部分的 Hadoop 分发中，HDFS 受群集中计算机上的本地存储的支持。 对基于云的解决方案使用本地存储可能费用高昂，因为计算资源以小时或分钟为单位来计费。
+在大部分 Hadoop 发行版中，数据都存储在 HDFS 中，HDFS 由群集中计算机上的本地存储提供支持。 对基于云的解决方案使用本地存储可能费用高昂，因为计算资源以小时或分钟为单位来计费。
 
 使用 HDInsight 时，数据文件使用 Azure Blob 存储以可缩放和复原的方式存储在云中。 这些服务提供以下优势：
 
@@ -112,17 +112,18 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 在 HDInsight 中，从计算资源中分离数据存储资源。 因此，你可以根据需要创建 HDInsight 群集来执行计算，然后在工作完成后删除该群集，同时，在云存储中安全地将数据文件持久保存所需的任意时长。
 
-### <a name="uri-and-scheme"></a>URI 和方案
 
-某些命令可能需要你在访问文件时会方案指定为 URI 的一部分。 例如，Storm-HDFS 组件就需要指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
+### <a name="URI-and-scheme"></a>URI 和方案
+
+在访问文件时，一些命令可能需要用户将方案指定为 URI 的一部分。 例如，Storm-HDFS 组件就需要指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
 
 使用 __Azure 存储__时，可以使用以下 URI 方案之一：
 
-* `wasb:///`：使用未加密的通信访问默认存储。
+* `wasb:///`:使用未加密的通信访问默认存储。
 
-* `wasbs:///`：使用加密的通信访问默认存储。  仅 HDInsight 3.6 及以上版本支持 wasbs 方案。
+* `wasbs:///`:使用加密的通信访问默认存储。  仅 HDInsight 3.6 及以上版本支持 wasbs 方案。
 
-* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`：与非默认存储帐户通信时使用。 例如，具有其他存储帐户或访问可公开访问的存储帐户中存储的数据时。
+* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`:与非默认存储帐户通信时使用。 例如，具有其他存储帐户或访问可公开访问的存储帐户中存储的数据时。
 
 ### <a name="what-storage-is-the-cluster-using"></a>群集使用的是哪种存储
 
@@ -135,7 +136,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 此命令返回类似于以下 URI 的值：
 
-* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn` 。
+* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn` 如果使用 Azure 存储帐户。
 
     帐户名是 Azure 存储帐户的名称。 容器名称是作为群集存储的根的 blob 容器。
 
@@ -212,7 +213,6 @@ HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，�
 脚本操作是 Bash 脚本。 该脚本在群集创建期间运行，用于安装并配置其他组件。 提供了用于安装以下组件的示例脚本：
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 有关开发自己的脚本操作的信息，请参阅[使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
 

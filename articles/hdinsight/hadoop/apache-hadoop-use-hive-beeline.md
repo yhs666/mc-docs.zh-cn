@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/20/2018
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2606ea14c989ef4baccb7a99cec0aa3465b7ea00
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0a2b16b75306ed3f1e611695fd97012db082c0df
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626274"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004123"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>将 Apache Beeline 客户端与 Apache Hive 配合使用
 
@@ -31,9 +31,9 @@ ms.locfileid: "58626274"
 
 Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 Beeline 使用 JDBC 连接到 HiveServer2，后者是 HDInsight 群集上托管的一项服务。 还可以使用 Beeline 通过 Internet 远程访问 Hive on HDInsight。 以下示例提供最常见的连接字符串，用于从 Beeline 连接到 HDInsight：
 
-* __通过与头节点或边缘节点的 SSH 连接使用 Beeline__：`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __在通过 Azure 虚拟网络连接到 HDInsight 的客户端上使用 Beeline__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __在通过公共 Internet 连接到 HDInsight 的客户端上使用 Beeline__：`-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __通过与头节点或边缘节点的 SSH 连接使用 Beeline__： `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __在通过 Azure 虚拟网络连接到 HDInsight 的客户端上使用 Beeline__： `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __在通过公共 Internet 连接到 HDInsight 的客户端上使用 Beeline__： `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > 将 `admin` 替换为群集的群集登录帐户。
@@ -238,11 +238,11 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 如果本地安装了 Beeline 并通过公共 Internet 进行连接，请使用以下参数：
 
-* __连接字符串__：`-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+* __连接字符串__： `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __群集登录名__：`-n admin`
+* __群集登录名__： `-n admin`
 
-* __群集登录密码__`-p 'password'`
+* __群集登录密码__ `-p 'password'`
 
 将连接字符串中的 `clustername` 替换为 HDInsight 群集名称。
 
@@ -250,7 +250,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 如果本地安装了 Beeline 并通过 Azure 虚拟网络进行连接，请使用以下参数：
 
-* __连接字符串__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __连接字符串__： `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
 若要查找头节点的完全限定域名，请使用[使用 Apache Ambari REST API 管理 HDInsight](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文档中的信息。
 
@@ -281,11 +281,8 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 * [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
-如果将 Tez 与 Hive 配合使用，请参阅以下文档：
+如果将 Tez 与 Hive 配合使用，请参阅以下文档：[在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)。
 
-* [在基于 Windows 的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

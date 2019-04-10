@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f5089892cc746c153a82e15ac077359f92d8eb0a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5924315d178a4f39ca22d1faf5495bb37233f38b
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627312"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890198"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -91,7 +91,7 @@ Azure IoT Edge 设备：
 
 2. 打开 VS Code 命令面板，方法是选择“视图” > “命令面板”。
 
-3. 在命令面板中，输入并运行 **Azure IoT Edge:New IoT Edge solution** 命令。 按命令面板中的提示创建解决方案。
+3. 在命令面板中，输入并运行命令 **`Azure IoT Edge: New IoT Edge Solution`**。 按命令面板中的提示创建解决方案。
 
    | 字段 | 值 |
    | ----- | ----- |
@@ -226,9 +226,9 @@ Azure IoT Edge 设备：
 
 1. 打开 VS Code 命令面板，方法是选择“视图” > “命令面板”。
 
-2. 搜索并运行 **Azure:Sign in** 命令。 按照说明登录 Azure 帐户。 
+2. 搜索并运行 **`Azure: Sign in`** 命令。 按照说明登录 Azure 帐户。 
 
-3. 在命令面板中，搜索并运行 **Azure IoT Hub:Select IoT Hub** 命令。 
+3. 在命令面板中，搜索并运行 **`Azure IoT Hub: Select IoT Hub`** 命令。 
 
 4. 选择包含 IoT 中心的订阅，然后选择要访问的 IoT 中心。
 
@@ -244,11 +244,11 @@ Azure IoT Edge 设备：
 
 ## <a name="view-generated-data"></a>查看生成的数据
 
-若要查看到达 IoT 中心的所有消息，请在命令面板中运行 **Azure IoT Hub:Start Monitoring D2C Message**。
+若要查看到达 IoT 中心的所有消息，请在命令面板中运行 **`Azure IoT Hub: Start Monitoring D2C Message`**。
 
 也可通过筛选视图来查看从特定设备到达 IoT 中心的所有消息。 右键单击“Azure IoT 中心设备”部分的设备，然后选择“开始监视 D2C 消息”。
 
-若要停止监视消息，请在命令面板中运行 **Azure IoT Hub:Start Monitoring D2C Message** 命令。 
+若要停止监视消息，请在命令面板中运行 **`Azure IoT Hub: Stop monitoring D2C message`** 命令。 
 
 
 ## <a name="clean-up-resources"></a>清理资源

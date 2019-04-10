@@ -13,12 +13,12 @@ ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 12/14/2018
 ms.date: 02/25/2019
-ms.openlocfilehash: 750a2259b47f46dae0dfe2dafbf0f7a3ef4fa008
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 94f80410f10ed5a730423a9668a0ffa07b3ebbd2
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663642"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003458"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入门：将数据库还原到托管实例 
 
@@ -48,7 +48,7 @@ ms.locfileid: "56663642"
 
 1. 打开 SMSS 并连接到托管实例。
 2. 在左侧菜单中右键单击托管实例，然后选择“新建查询”，打开新的查询窗口。
-3. 运行以下 SQL 脚本。该脚本使用预配置的存储帐户和 SAS 密钥在托管实例中[创建凭据](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017)。
+3. 运行以下 SQL 脚本。该脚本使用预配置的存储帐户和 SAS 密钥在托管实例中[创建凭据](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)。
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.chinacloudapi.cn/databases] 

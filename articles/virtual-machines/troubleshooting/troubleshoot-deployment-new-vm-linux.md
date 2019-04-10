@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/09/2016
-ms.date: 10/22/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: f22748e3a7d978eeac1378826dcd1204d76206f6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d3524d9b0a170c3724835486ad35990a00280301
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644083"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003705"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -69,25 +69,25 @@ ms.locfileid: "52644083"
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/市场映像；分配失败
 当新的 VM 请求被固定到不支持所请求的 VM 大小、或没有可用空间可处理请求的群集时，便会发生此错误。
 
-**原因 1：** 群集不支持请求的 VM 大小。
+**原因 1：** 群集无法支持所请求的 VM 大小。
 
 **解决方法 1：**
 
 * 使用更小的 VM 大小来重试请求。
 * 如果无法更改请求的 VM 大小：
-  * 停止可用性集中的所有 VM。
+    * 停止可用性集中的所有 VM。
     单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。
-  * 所有 VM 都停止后，创建所需大小的新 VM。
-  * 先启动新 VM，选择每个已停止的 VM，然后单击“启动”。
+    * 所有 VM 都停止后，创建所需大小的新 VM。
+    * 先启动新 VM，选择每个已停止的 VM，然后单击“启动”。
 
-**原因 2：** 群集没有可用的资源。
+**原因 2：** 群集没有空闲的资源。
 
 **解决方法 2：**
 
 * 稍后重试请求。
 * 如果新 VM 属于不同的可用性集
-  * 在不同的可用性集（位于同一区域）中创建新 VM。
-  * 将新 VM 添加到同一虚拟网络。
+    * 在不同的可用性集（位于同一区域）中创建新 VM。
+    * 将新 VM 添加到同一虚拟网络。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动或调整现有 Linux 虚拟机大小时遇到的 Resource Manager 部署问题](../linux/restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

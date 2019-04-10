@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 02/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: bf05795901a29a0c5194e6317302c5f20002396e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b6190d6a5e4d8ce0bee58e0ed7b2a7815a862f3a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627420"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004092"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>通过 storm-starter 示例开始使用 Apache Storm on HDInsight
 
@@ -76,7 +76,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 
 4. 选择群集类型后，使用“选择”按钮设置群集类型。 接下来，使用“下一步”  按钮完成基本配置。
 
-5. 在“存储”部分，选择或创建存储帐户。 对于本文档中的步骤，请让此部分的其他字段保留默认值。 使用“下一步”  按钮保存存储配置。
+5. 在“存储”部分，选择或创建存储帐户。 对于本文档中的步骤，请让此部分的其他字段保留默认值。 使用“下一步”  按钮保存存储配置。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
     ![设置 HDInsight 的存储帐户设置](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
@@ -108,7 +108,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
     此命令启动群集上的示例 WordCount 拓扑。 此拓扑生成随机句子，并计算单词的出现次数。 拓扑的友好名称为 `wordcount`。
 
     > [!NOTE]
-    > 将自己的拓扑提交到群集时，必须先复制包含群集的 jar 文件，此后再使用 `storm` 命令。 使用 `scp` 命令来复制该文件。 例如： `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
+    > 将自己的拓扑提交到群集时，必须先复制包含群集的 jar 文件，此后再使用 `storm` 命令。 使用 `scp` 命令来复制该文件。 例如， `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
     >
     > WordCount 示例和其他 storm-starter 示例已经包含在群集中，其位置为 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
@@ -204,7 +204,7 @@ Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，HDInsight �
 
 如需可与 Storm on HDInsight 配合使用的示例拓扑，请参阅以下示例：
 
-* [HDInsight 上的 Apache Storm 的示例拓扑](apache-storm-example-topology.md)
+* [Apache Storm on HDInsight 的示例拓扑](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: https://storm.incubator.apache.org/documentation/Documentation.html

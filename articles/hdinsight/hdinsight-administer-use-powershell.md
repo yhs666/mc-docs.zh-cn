@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: d35d6f660497ce35bdda1f93f40644703a18c72e
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 372878d932018294833a41e6dee1c33970f7220a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665522"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003888"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -28,6 +28,8 @@ ms.locfileid: "56665522"
 Azure PowerShell 可用于在 Azure 中控制和自动执行工作负荷的部署和管理。 本文介绍了如何使用 Azure PowerShell 管理 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 群集。 有关 HDInsight PowerShell cmdlet 的列表，请参阅 [HDInsight cmdlet 参考](https://msdn.microsoft.com/library/azure/dn479228.aspx)。
 
 **先决条件**
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 在开始阅读本文前，必须具有以下项：
 
@@ -41,7 +43,7 @@ Azure PowerShell 可用于在 Azure 中控制和自动执行工作负荷的部�
 若要检查所安装的 PowerShell 版本，请执行以下操作：
 
 ```powershell
-Get-Module *azure*
+Get-Module *Az*
 ```
 
 若要卸载旧版本，请运行控制面板中的“程序和功能”。
@@ -53,27 +55,27 @@ Get-Module *azure*
 使用以下命令可列出当前订阅中的所有群集：
 
 ```powershell
-Get-AzureRmHDInsightCluster
+Get-AzHDInsightCluster
 ```
 
 ## <a name="show-cluster"></a>显示群集
 使用以下命令可显示当前订阅中特定群集的详细信息：
 
 ```powershell
-Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+Get-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
 ## <a name="delete-clusters"></a>删除群集
 使用以下命令来删除群集：
 
 ```powershell
-Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+Remove-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
 还可以通过删除包含群集的资源组来删除群集。 删除资源群将删除组中的所有资源（包括默认存储帐户）。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name <Resource Group Name>
+Remove-AzResourceGroup -Name <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>缩放群集
@@ -114,7 +116,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
     HDInsight 群集上提供了 Storm Web UI：
 
-    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 
@@ -128,7 +130,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 若要使用 Azure PowerShell 更改 Hadoop 群集大小，请从客户端计算机运行以下命令：
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 
@@ -144,7 +146,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 默认情况下，这些服务会获得访问授权。 可以撤消/授予访问权限。 若要撤消：
 
 ```powershell
-Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+Revoke-AzHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 ```
 
 若要授予：
@@ -161,7 +163,7 @@ $credential = New-Object System.Management.Automation.PSCredential($hadoopUserNa
 # Credential option 2
 #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 ```
 
 > [!NOTE]
@@ -169,7 +171,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 >
 >
 
-也可通过门户执行授予和撤消访问权限。 请参阅[使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]。
+也可通过门户执行授予和撤消访问权限。 请参阅[使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 用户凭据
 此过程与授予/撤销 HTTP 访问权限相同。 如果已授予群集 HTTP 访问权限，必须先撤销该权限。  然后再使用新的 HTTP 用户凭据授予访问权限。
@@ -178,10 +180,10 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 以下 PowerShell 脚本演示了如何获取群集的默认存储帐户名称和相关信息：
 
 ```powershell
-#Connect-AzureRmAccount -Environment AzureChinaCloud
+#Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
 
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
 $defaultStoreageType = $storageInfo[1]
 $defaultStorageName = $storageInfo[0]
@@ -192,8 +194,8 @@ echo "Default Storage account type: $defaultStoreageType"
 if ($defaultStoreageType -eq "blob")
 {
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageAccountContext = New-AzStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
     echo "Default Blob container name: $defaultBlobContainerName"
     echo "Default Storage account key: $defaultStorageAccountKey"
@@ -207,7 +209,7 @@ if ($defaultStoreageType -eq "blob")
 ```powershell
 $clusterName = "<HDInsight Cluster Name>"
 
-$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$cluster = Get-AzHDInsightCluster -ClusterName $clusterName
 $resourceGroupName = $cluster.ResourceGroup
 ```
 
@@ -238,7 +240,7 @@ $resourceGroupName = $cluster.ResourceGroup
 
 ## <a name="see-also"></a>另请参阅
 * [HDInsight cmdlet 参考文档](https://msdn.microsoft.com/library/azure/dn479228.aspx)
-* [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
 * [使用命令行借口管理 HDInsight][hdinsight-admin-cli]
 * [创建 HDInsight 群集][hdinsight-provision]
 * [将数据上传到 HDInsight][hdinsight-upload-data]

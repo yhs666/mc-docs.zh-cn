@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 9cb735aaa4c4d645d837979b1b83c5f10e082683
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 8fc925ea8864a997d5526e054824d89d159eecf8
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318905"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003436"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨云数据库的分布式事务
 
@@ -128,6 +128,8 @@ Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较�
 ## <a name="transactions-across-multiple-servers"></a>跨多个服务器的事务
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 Azure SQL 数据库中支持跨不同 SQL 数据库服务器的弹性数据库事务。 当事务跨越 SQL 数据库服务器边界时，参与的服务器将首先需要进入相互通信关系。 一旦建立了通信关系，任意两个服务器中的任何数据库都可以与另一服务器的数据库参与弹性事务。 当事务跨越两个以上的 SQL 数据库服务器时，任意 SQL 数据库服务器对之间的通信关系需要准备就绪。
 

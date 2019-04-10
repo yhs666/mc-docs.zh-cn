@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 origin.date: 02/23/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 658016f2ee2892ca502615c41cce05c08ee2e120
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 4bf34656912e60fb27b85e688b611ab2297f1080
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665838"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003837"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建虚拟机
 

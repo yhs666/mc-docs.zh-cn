@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 447a1b05568681d66372ea559b92a050fca0fb27
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 9e99b0a18b1ff647eefc04ac998a5d936bf02034
+ms.sourcegitcommit: dd55b3de7e1af671d2631b146d96b478d11db554
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905274"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58899623"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
@@ -31,7 +31,7 @@ ms.locfileid: "56905274"
 
 如果使用 1807 或更低版本的集成系统，则必须下载更新包，将包文件导入到 Azure Stack，然后安装更新包。 有关说明，请参阅[通过下载包更新 Azure Stack](#update-azure-stack-by-downloading-the-package)
 
-这些升级说明适用于 Azure Stack 集成系统。 如果使用 Azure Stack 开发系统，则必须下载最新版本的安装包。 有关说明，请参阅[安装 Azure Stack 开发工具包](.\asdk\asdk-install.md)
+这些升级说明适用于 Azure Stack 集成系统。 如果使用 Azure Stack 开发系统，则必须下载最新版本的安装包。 有关说明，请参阅[安装 Azure Stack 开发工具包](./asdk/asdk-install.md)
 
 ## <a name="update-azure-stack"></a>更新 Azure Stack
 

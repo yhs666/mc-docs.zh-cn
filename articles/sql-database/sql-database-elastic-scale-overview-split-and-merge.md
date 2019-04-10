@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 12/04/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: 88cfedc1d241aaa0778e35547e550dd5378ceb0c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: 57e97b109ff114ead1d83ffd190ad6386f02407a
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625345"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003497"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 
@@ -38,9 +38,9 @@ ms.locfileid: "58625345"
 2. [拆分/合并安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [拆分/合并安全注意事项](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
-5. [迁移要扩大的现有数据库](sql-database-elastic-convert-to-use-elastic-tools.md)
+5. [迁移要扩展的现有数据库](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [弹性数据库工具](sql-database-elastic-scale-introduction.md)
-7. [弹性数据库工具术语表](sql-database-elastic-scale-glossary.md)
+7. [弹性数据库工具词汇表](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>为什么使用拆分/合并工具
 
@@ -48,11 +48,11 @@ ms.locfileid: "58625345"
 
   应用程序需要灵活伸展到超出单个 Azure SQL DB 数据库的限制。 根据需要使用该工具将数据移到新的数据库，同时保留完整性。
 
-- **拆分以实现增长**
+- **通过拆分实现增长**
 
   为了提高处理爆炸性增长的总体容量，需要通过对数据进行分片并将数据分发给越来越多的数据库来提供额外容量，直到满足容量需求。 这是“拆分”功能的一个典型示例。
 
-- **合并以实现缩减**
+- **通过合并实现缩减**
 
   由于业务的季节性，需要缩减容量。 当业务减少时，使用该工具可减少到更少的缩放单元。 弹性缩放拆分/合并服务的“合并”功能可以满足此要求。
 
@@ -218,6 +218,8 @@ ms.locfileid: "58625345"
 ## <a name="deploy-diagnostics"></a>部署诊断
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 针对 NuGet 包所提供的 Web 和辅助角色，若要使用诊断配置启用监视和诊断，请使用 Azure PowerShell 运行以下命令：
 

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: 4391f7e6e03a3b757a1a43f34a4891e7838a2eb1
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/08/2019
+ms.openlocfilehash: e2d4952439cc2ab13af7ee210df290542291b400
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318930"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003406"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
 
@@ -27,8 +27,8 @@ ms.locfileid: "58318930"
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>创建服务主体以便从应用程序访问资源
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-需要安装并运行最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure) 。 有关详细信息，请参阅[如何安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 以下 PowerShell 脚本将创建对 C# 应用进行身份验证所需的 Active Directory (AD) 应用程序和服务主体。 该脚本输出我们需要用于前面 C# 示例的值。 有关详细信息，请参阅[使用 Azure PowerShell 创建服务主体以访问资源](../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
@@ -48,7 +48,7 @@ ms.locfileid: "58318930"
     $uri = "http://{app-name}"
     $secret = "{app-password}"
 
-    # Create a AAD app
+    # Create an AAD app
     $azureAdApplication = New-AzADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
     # Create a Service Principal for the app

@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/12/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 89b55fd7164ec959811e8b48b85ff27efb967c14
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 04/08/2019
+ms.openlocfilehash: e9c09a7ee5a7b54d06b4e5b85680504ad819a4b6
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347121"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003460"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -31,7 +31,7 @@ ms.locfileid: "57347121"
 
   || 单一数据库 |
   |:--- |:--- |
-  | 创建| [Portal](sql-database-single-database-get-started.md) |
+  | 创建| [门户](sql-database-single-database-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
   | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
@@ -69,7 +69,7 @@ ms.locfileid: "57347121"
    | **服务器类型** | 数据库引擎 | 所需的值。 |
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |
    | **身份验证** | SQL Server 身份验证 | 本教程使用 SQL 身份验证。 |
-   | **登录名** | 服务器管理员帐户用户 ID | 用于创建服务器的服务器管理员帐户的用户 ID。 |
+   | **登录** | 服务器管理员帐户用户 ID | 用于创建服务器的服务器管理员帐户的用户 ID。 |
    | **密码** | 服务器管理员帐户密码 | 用于创建服务器的服务器管理员帐户的密码。 |
    ||||
 
@@ -138,17 +138,18 @@ ms.locfileid: "57347121"
    ```sql
    SELECT * FROM [SalesLT].[Product] 
    WHERE Name='myNewProduct' 
+   ```
+   
+2. 选择“执行”。 将显示以下结果。 
 
-2. Select **Execute**. The following result appears. 
-
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![结果](./media/sql-database-connect-query-ssms/result.png)
 
  
-## Update data
+## <a name="update-data"></a>更新数据
 
-Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
+运行此 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 代码以修改新产品。
 
-1. Replace the previous query with this one.
+1. 将之前的查询替换为此查询。
 
    ```sql
    UPDATE [SalesLT].[Product]

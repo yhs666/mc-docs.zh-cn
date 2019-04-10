@@ -13,18 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/30/2018
-ms.date: 02/18/2019
+origin.date: 02/12/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: cdd1eebc42b0ee5894e0478067184cb9891024ef
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 979b144d934a4420de0a51e965b6ff51f4c3193d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665872"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003761"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>更改 Windows VM 的可用性集
 以下步骤说明如何使用 Azure PowerShell 来更改 VM 的可用性集。 只能在创建 VM 时将 VM 添加到可用性集。 若要更改可用性集，必须将虚拟机删除，然后重新创建虚拟机。 
+
+本文最后一次使用 [Azure 本地 Shell](https://shell.azure.com/powershell) 和 [Az PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)版本 1.2.0 在 2019 年 2 月 12 日进行了测试。
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -84,11 +86,20 @@ ms.locfileid: "56665872"
        -CreateOption Attach
     }
 
-# Add NIC(s)
-    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {
-        Add-AzVMNetworkInterface `
-           -VM $newVM `
-           -Id $nic.Id
+# Add NIC(s) and keep the same NIC as primary
+    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {    
+    if ($nic.Primary -eq "True")
+        {
+            Add-AzVMNetworkInterface `
+            -VM $newVM `
+            -Id $nic.Id -Primary
+            }
+        else
+            {
+              Add-AzVMNetworkInterface `
+              -VM $newVM `
+              -Id $nic.Id 
+                }
     }
 
 # Recreate the VM

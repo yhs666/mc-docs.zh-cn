@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/17/2017
-ms.date: 11/26/2018
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: d6927191760c976644c1103a1ebf29544130e48a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 57ca4f3fc643f42a3dd2c2cc7759a5d98b6eaf78
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675430"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003784"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>使用 PowerShell 在 Azure VM 中配置 Always On 可用性组
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "52675430"
 在开始之前，请先假设现在可以在 Azure Resource Manager 模型中完成此任务。 我们建议使用 Azure Resource Manager 模型来进行新的部署。 请参阅 [Azure 虚拟机上的 SQL Server Always On 可用性组](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)。
 
 > [!IMPORTANT]
-> 我们建议在大多数新部署中使用 Resource Manager 模型。 Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。
+> 我们建议在大多数新部署中使用 Resource Manager 模型。 Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。
 
 Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server 系统的成本。 本教程介绍如何在 Azure 环境中使用 SQL Server Always On 端到端实施可用性组。 完成本教程后，Azure 中的 SQL Server AlwaysOn 解决方案包括以下要素：
 
@@ -57,10 +57,10 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         Get-AzurePublishSettingsFile -Environment AzureChinaCloud
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    **Get-AzurePublishSettingsFile** 命令通过 Azure 自动生成管理证书并将其下载到计算机。 将自动打开浏览器，并且系统会提示输入 Azure 订阅的 Azure 帐户凭据。 已下载的 **.publishsettings** 文件包含管理 Azure 订阅所需的所有信息。 将该文件保存到本地目录后，使用 **Import-AzurePublishSettingsFile** 命令将其导入。
+    **Get-AzurePublishSettingsFile -Environment AzureChinaCloud** 命令通过 Azure 自动生成管理证书并将其下载到计算机。 将自动打开浏览器，并且系统会提示输入 Azure 订阅的 Azure 帐户凭据。 已下载的 **.publishsettings** 文件包含管理 Azure 订阅所需的所有信息。 将该文件保存到本地目录后，使用 **Import-AzurePublishSettingsFile** 命令将其导入。
 
-   > [!NOTE]
-   > .publishsettings 文件中包含用于管理 Azure 订阅和服务的凭据（未编码）。 确保此文件安全的最佳做法是，将其暂时存储在用户的源目录的外部（例如存储在 Libraries\Documents 文件夹中），并在导入完成后将其删除。 获得了 .publishsettings 文件访问权的恶意用户可以编辑、创建和删除 Azure 服务。
+    > [!NOTE]
+    > .publishsettings 文件中包含用于管理 Azure 订阅和服务的凭据（未编码）。 确保此文件安全的最佳做法是，将其暂时存储在用户的源目录的外部（例如存储在 Libraries\Documents 文件夹中），并在导入完成后将其删除。 获得了 .publishsettings 文件访问权的恶意用户可以编辑、创建和删除 Azure 服务。
 
 2. 定义要用于创建云 IT 基础结构的一系列变量。
 
@@ -84,10 +84,10 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     请注意以下几点，以确保后面的命令可以成功执行：
 
-   * 变量 **$storageAccountName** 和 **$dcServiceName** 分别用于标识 Internet 上的云存储帐户和云服务器，因此必须唯一。
-   * 为变量 **$affinityGroupName** 和 **$virtualNetworkName** 指定的名称是在稍后使用的虚拟网络配置文档中配置的。
-   * **$sqlImageName** 指定包含 SQL Server 2012 Service Pack 1 Enterprise Edition 的 VM 映像的更新名称。
-   * 为简单起见，在整个教程中使用同一密码 **Contoso!000**。
+    * 变量 **$storageAccountName** 和 **$dcServiceName** 分别用于标识 Internet 上的云存储帐户和云服务器，因此必须唯一。
+    * 为变量 **$affinityGroupName** 和 **$virtualNetworkName** 指定的名称是在稍后使用的虚拟网络配置文档中配置的。
+    * **$sqlImageName** 指定包含 SQL Server 2012 Service Pack 1 Enterprise Edition 的 VM 映像的更新名称。
+    * 为简单起见，在整个教程中使用同一密码 **Contoso!000**。
 
 3. 创建地缘组
 
@@ -104,7 +104,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     配置文件包含以下 XML 文档。 简而言之，它指定了名为 **ContosoAG** 的地缘组中的一个名为 **ContosoNET** 的虚拟网络。 它具有地址空间 **10.10.0.0/16** 和两个子网 **10.10.1.0/24** 和 **10.10.2.0/24**，分别是前端子网和后端子网。 前端子网是可以在其中放置客户端应用程序（例如 Microsoft SharePoint）的位置。 后端子网是将在其中放置 SQL Server VM 的位置。 如果之前更改过 **$affinityGroupName** 和 **$virtualNetworkName** 变量，则还必须更改以下相应名称。
 
-        <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <Dns />
             <VirtualNetworkSites>
@@ -155,10 +155,10 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     这些管道命令执行以下操作：
 
-   * **New-AzureVMConfig** 创建 VM 配置。
-   * **Add-AzureProvisioningConfig** 提供独立 Windows 服务器的配置参数。
-   * **Add-AzureDataDisk** 添加用于存储 Active Directory 数据的数据磁盘，缓存选项设置为 None。
-   * **New-AzureVM** 创建新的云服务，并在新的云服务中创建新的 Azure VM。
+    * **New-AzureVMConfig** 创建 VM 配置。
+    * **Add-AzureProvisioningConfig** 提供独立 Windows 服务器的配置参数。
+    * **Add-AzureDataDisk** 添加用于存储 Active Directory 数据的数据磁盘，缓存选项设置为 None。
+    * **New-AzureVM** 创建新的云服务，并在新的云服务中创建新的 Azure VM。
 
 7. 请等待新 VM 预配完毕，并将远程桌面文件下载到工作目录中。 因为新 Azure VM 要花费很长时间进行预配，所以 `while` 循环会持续轮询新 VM，直到它就绪可使用。
 
@@ -240,7 +240,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    上面指定的 GUID 是计算机对象类型的 GUID。 **CORP\Install** 帐户需要“读取所有属性”和“创建计算对象”权限才能为故障转移群集创建 Active Direct 对象。 默认情况下，已经将“读取所有属性”权限授予 CORP\Install，因此无需显式授予该权限。 有关创建故障转移群集所需权限的详细信息，请参阅[故障转移群集循序渐进指南：在 Active Directory 中配置帐户](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)。
+    上面指定的 GUID 是计算机对象类型的 GUID。 **CORP\Install** 帐户需要“读取所有属性”和“创建计算对象”权限才能为故障转移群集创建 Active Direct 对象。 默认情况下，已经将“读取所有属性”权限授予 CORP\Install，因此无需显式授予该权限。 有关创建故障转移群集所需权限的详细信息，请参阅 [Failover Cluster Step-by-Step Guide:Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)（故障转移群集分步指南：在 Active Directory 中配置帐户）。
 
     现完成 Active Directory 和用户对象的配置，接下来，请创建两个 SQL Server VM 并将其加入此域。
 
@@ -287,10 +287,10 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     注意与上述命令相关的以下几点：
 
-   * **New-AzureVMConfig** 创建具有所需可用性集名称的 VM 配置。 后续 VM 以该可用性集名称创建，因此会加入同一可用性集中。
-   * **Add-AzureProvisioningConfig** 将 VM 加入已创建的 Active Directory 域。
-   * **Set-AzureSubnet** 将 VM 放入后端子网。
-   * **New-AzureVM** 创建新的云服务，并在新的云服务中创建新的 Azure VM。 **DnsSettings** 参数指定新云服务中的服务器的 DNS 服务器具有 IP 地址 **10.10.0.4**。 这是域控制器服务器的 IP 地址。 需要该参数来启用云服务中的新 VM 才能成功加入 Active Directory 域。 如果没有该参数，预配 VM 后必须在 VM 中手动设置 IPv4 设置才能将域控制器服务器作为主 DNS 服务器，这样 VM 才能加入 Active Directory 域。
+    * **New-AzureVMConfig** 创建具有所需可用性集名称的 VM 配置。 后续 VM 以该可用性集名称创建，因此会加入同一可用性集中。
+    * **Add-AzureProvisioningConfig** 将 VM 加入已创建的 Active Directory 域。
+    * **Set-AzureSubnet** 将 VM 放入后端子网。
+    * **New-AzureVM** 创建新的云服务，并在新的云服务中创建新的 Azure VM。 **DnsSettings** 参数指定新云服务中的服务器的 DNS 服务器具有 IP 地址 **10.10.0.4**。 这是域控制器服务器的 IP 地址。 需要该参数来启用云服务中的新 VM 才能成功加入 Active Directory 域。 如果没有该参数，预配 VM 后必须在 VM 中手动设置 IPv4 设置才能将域控制器服务器作为主 DNS 服务器，这样 VM 才能加入 Active Directory 域。
 3. 运行以下管接命令来创建名为 **ContosoSQL1** 和 **ContosoSQL2** 的 SQL Server VM。
 
         # Create ContosoSQL1...
@@ -351,11 +351,11 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     注意与上述命令相关的以下几点：
 
-   * **New-AzureVMConfig** 使用与域控制器服务器相同的可用性集名称，并使用虚拟机库中的 SQL Server 2012 Service Pack 1 Enterprise Edition 映像。 它还将操作系统磁盘设置为只读缓存（无写缓存）。 建议将这些数据库文件迁移到一个附加到 VM 的独立数据磁盘中，并将其配置为无读或写缓存。 不过，次优建议是移除操作系统磁盘上的写缓存，因为无法移除操作系统磁盘上的读缓存。
-   * **Add-AzureProvisioningConfig** 将 VM 加入已创建的 Active Directory 域。
-   * **Set-AzureSubnet** 将 VM 放入后端子网。
-   * **Add-AzureEndpoint** 添加访问端点，以便客户端应用程序能够在 Internet 上访问这些 SQL Server 服务实例。 为 ContosoSQL1 和 ContosoSQL2 提供了不同端口。
-   * **New-AzureVM** 在与 ContosoQuorum 相同的云服务中创建新的 SQL Server VM。 如果这些 VM 需要在同一可用性集中，则必须将它们放置在同一云服务中。
+    * **New-AzureVMConfig** 使用与域控制器服务器相同的可用性集名称，并使用虚拟机库中的 SQL Server 2012 Service Pack 1 Enterprise Edition 映像。 它还将操作系统磁盘设置为只读缓存（无写缓存）。 建议将这些数据库文件迁移到一个附加到 VM 的独立数据磁盘中，并将其配置为无读或写缓存。 不过，次优建议是移除操作系统磁盘上的写缓存，因为无法移除操作系统磁盘上的读缓存。
+    * **Add-AzureProvisioningConfig** 将 VM 加入已创建的 Active Directory 域。
+    * **Set-AzureSubnet** 将 VM 放入后端子网。
+    * **Add-AzureEndpoint** 添加访问端点，以便客户端应用程序能够在 Internet 上访问这些 SQL Server 服务实例。 为 ContosoSQL1 和 ContosoSQL2 提供了不同端口。
+    * **New-AzureVM** 在与 ContosoQuorum 相同的云服务中创建新的 SQL Server VM。 如果这些 VM 需要在同一可用性集中，则必须将它们放置在同一云服务中。
 4. 请等待每个 VM 预配完毕，并等待每个 VM 将其远程桌面文件下载到工作目录中。 `for` 循环会循环访问三个新 VM，并为每个 VM 执行上级大括号内的命令。
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
@@ -386,9 +386,9 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 * 仅限 ContosoSQL1 和 ContosoSQL2：需要将 **CORP\Install** 添加为默认数据库中的 **sysadmin** 角色。
 * 仅限 ContosoSQL1 和 ContosoSQL2：需要将 **NT AUTHORITY\System** 添加为具有以下权限的登录名：
 
-  * 更改任何可用性组
-  * 连接 SQL
-  * 查看服务器状态
+    * 更改任何可用性组
+    * 连接 SQL
+    * 查看服务器状态
 * 仅限 ContosoSQL1 和 ContosoSQL2：在 SQL Server VM 上已启用了 **TCP** 协议。 但是，仍需打开防火墙以便远程访问 SQL Server。
 
 现已准备就绪，可以执行启动操作。 从 **ContosoQuorum**开始，执行以下步骤：

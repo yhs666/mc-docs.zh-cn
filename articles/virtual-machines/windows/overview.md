@@ -12,17 +12,17 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 10/04/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a0cd581d1571de661ce64f5086f8329c6c2abdb7
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9d13e3a87290675b8bb67718305ce91871193b5a
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665964"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004100"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -65,7 +65,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 | --- | --- |
 | Azure 门户 |创建 VM 时，可从列表中选择位置。 |
 | Azure PowerShell |使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 命令。 |
-| REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations)操作。 |
+| REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions)操作。 |
 | Azure CLI |使用 [az account list-locations](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-list-locations) 操作。 |
 
 ### <a name="vm-size"></a>VM 大小
@@ -77,7 +77,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以[开具支持票证](https://support.azure.cn/zh-cn/support/support-azure/)来请求提高限制
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
-虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
+虚拟机使用[虚拟硬盘 (VHD)](managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
 
 Azure 提供许多[市场映像](https://market.azure.cn/zh-cn/marketplace/virtual-machines/)来配合各种版本和类型的 Windows Server 操作系统使用。 市场映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 仅支持 64 位操作系统。 有关受支持的来宾操作系统、角色和功能的详细信息，请参阅 [Azure 虚拟机的 Microsoft 服务器软件支持](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 
@@ -112,8 +112,8 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | [存储帐户](../../storage/common/storage-create-storage-account.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
 | [虚拟网络](../../virtual-network/virtual-networks-overview.md) |是 |VM 必须是虚拟网络的成员。 |
 | [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以向 VM 分配一个公共 IP 地址，以便远程访问它。 |
-| [网络接口](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
-| [数据磁盘](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
+| [Linux](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
+| [数据磁盘数](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何创建第一个 VM？
 可以选择多种方法创建 VM。 选择哪种方法取决于所在的环境。 

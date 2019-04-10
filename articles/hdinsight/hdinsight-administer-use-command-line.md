@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4db18b84a8da81b429a38f9735876bba25aea145
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: ba8a6d6e8f011716992c186e5110569ce857e47b
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569325"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003985"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -75,7 +75,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>缩放群集
-若要更改 Hadoop 群集大小，请执行以下操作：
+若要更改 Apache Hadoop 群集大小，请执行以下命令：
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
@@ -92,7 +92,7 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ## <a name="next-steps"></a>后续步骤
 在本文中，已了解如何执行不同的 HDInsight 群集管理任务。 要了解更多信息，请参阅下列文章：
 
-* [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [Azure HDInsight 入门][hdinsight-get-started]
 * [如何使用 Azure 经典 CLI][azure-command-line-tools]

@@ -7,23 +7,25 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: a5db1214ae43fb204a4c7c48c5ad34bb6e72ff0c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+origin.date: 05/30/2018
+ms.date: 04/15/2019
+ms.author: v-yiso
+ms.openlocfilehash: 7b2eb096b2d897f1631ccc9c689a8997961bbeb2
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028354"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003910"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
 本文档提供了有关 Windows 上的 HDInsight 与 Linux 上的 HDInsight 之间的差异的详细信息。 它还提供了有关如何将现有工作负荷迁移到基于 Linux 的群集的指导。
 
-尽管通过基于 Windows 的 HDInsight 可以轻松地在云中使用 Hadoop，但是可能还是需要迁移到基于 Linux 的群集。 例如，需要充分利用基于 Linux 的工具和技术，这些都是解决方案所需要的。 Hadoop 生态系统中的许多功能都是基于 Linux 的系统开发的，因此可能无法用于基于 Windows 的 HDInsight。 许多书籍、视频和其他培训材料都假设操作 Hadoop 时使用的是 Linux 系统。
+尽管通过基于 Windows 的 HDInsight 可以轻松地在云中使用 Apache Hadoop，但是可能还是需要迁移到基于 Linux 的群集。 例如，需要充分利用基于 Linux 的工具和技术，这些都是解决方案所需要的。 Hadoop 生态系统中的许多功能都是基于 Linux 的系统开发的，因此可能无法用于基于 Windows 的 HDInsight。 许多书籍、视频和其他培训材料都假设操作 Hadoop 时使用的是 Linux 系统。
 
 > [!NOTE]
 > HDInsight 群集使用 Ubuntu 长期支持 (LTS) 作为群集中节点的操作系统。 有关可用于 HDInsight 的 Ubuntu 的版本信息，以及其他组件版本控制信息，请参阅 [HDInsight 组件版本](hdinsight-component-versioning.md)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="migration-tasks"></a>迁移任务
 
@@ -63,7 +65,7 @@ ms.locfileid: "53028354"
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -93,11 +95,11 @@ ms.locfileid: "53028354"
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>在 Azure 存储的 blob 之间直接复制
 
-或者，可能想要使用 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet 在 HDInsight 以外的存储帐户之间复制 Blob。 有关详细信息，请参阅“Using Azure PowerShell with Azure Storage”（在 Azure 存储中使用 Azure PowerShell）一文中的“How to manage Azure Blobs”（如何管理 Azure Blob）部分。
+或者，可能想要使用 `Start-AzStorageBlobCopy` Azure PowerShell cmdlet 在 HDInsight 以外的存储帐户之间复制 Blob。 有关详细信息，请参阅“Using Azure PowerShell with Azure Storage”（在 Azure 存储中使用 Azure PowerShell）一文中的“How to manage Azure Blobs”（如何管理 Azure Blob）部分。
 
 ## <a name="client-side-technologies"></a>客户端技术
 
-[Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs)、[Azure 经典 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 等客户端技术将继续操作基于 Linux 的群集。 这些技术依赖于在两种群集操作系统类型上都一致的 REST API。
+[Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs)、[Azure 经典 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Apache Hadoop](https://hadoopsdk.codeplex.com/) 等客户端技术将继续操作基于 Linux 的群集。 这些技术依赖于在两种群集操作系统类型上都一致的 REST API。
 
 ## <a name="server-side-technologies"></a>服务器端技术
 
@@ -133,7 +135,7 @@ ms.locfileid: "53028354"
 
 另一个自定义功能是 **bootstrap**。 对于 Windows 群集，此功能用于指定其他配合 Hive 使用的库的位置。 在创建群集后，这些库可自动配合 Hive 查询使用，而无需使用 `ADD JAR`。
 
-对于基于 Linux 的群集，bootstrap 功能并不提供此功能。 请改用[在创建群集期间添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)中所述的脚本操作。
+对于基于 Linux 的群集，bootstrap 功能并不提供此功能。 请改用[在创建群集期间添加 Apache Hive 库](hdinsight-hadoop-add-hive-libraries.md)中所述的脚本操作。
 
 ### <a name="virtual-networks"></a>虚拟网络
 
@@ -143,12 +145,12 @@ ms.locfileid: "53028354"
 
 ## <a name="management-and-monitoring"></a>监视和管理
 
-与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 Ambari Web UI 可在基于 Linux 的群集 (https://CLUSTERNAME.azurehdinsight.net) 上获得。
+与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Apache Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 Ambari Web UI 可在基于 Linux 的群集 (https://CLUSTERNAME.azurehdinsight.net) 上获得。
 
 有关使用 Ambari 的详细信息，请参阅以下文档：
 
-* [Ambari Web](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 ### <a name="ambari-alerts"></a>Ambari 警报
 
@@ -165,9 +167,9 @@ Linux 群集文件系统的布局与基于 Windows 的 HDInsight 群集不同。
 
 | 我需要查找... | 文件位于... |
 | --- | --- |
-| 配置 |`/etc`。 例如 `/etc/hadoop/conf/core-site.xml` |
+| 配置 |`/etc`上获取。 例如， `/etc/hadoop/conf/core-site.xml` |
 | 日志文件 |`/var/logs` |
-| Hortonworks 数据平台 (HDP) |`/usr/hdp`。此处有两个目录，一个是当前 HDP 版本，另一个是 `current`。 `current` 目录包含位于版本号目录中的文件和目录的符号链接。 由于版本号随 HDP 版本的更新而更改，因此可将 `current` 目录作为访问 HDP 文件的便利方式。 |
+| Hortonworks 数据平台 (HDP) |`/usr/hdp`此处有两个目录，一个是当前 HDP 版本，另一个是 `current`。 `current` 目录包含位于版本号目录中的文件和目录的符号链接。 由于版本号随 HDP 版本的更新而更改，因此可将 `current` 目录作为访问 HDP 文件的便利方式。 |
 | hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 一般而言，如果知道文件的名称，则可以从 SSH 会话使用以下命令来查找文件路径：
@@ -176,14 +178,14 @@ Linux 群集文件系统的布局与基于 Windows 的 HDInsight 群集不同。
 
 也可以对文件名使用通配符。 例如， `find / -name *streaming*.jar 2>/dev/null` 返回文件名包含“streaming”的任何 Jar 文件的路径。
 
-## <a name="hive-pig-and-mapreduce"></a>Hive、Pig 和 MapReduce
+## <a name="apache-hive-apache-pig-and-mapreduce"></a>Apache Hive、Apache Pig 和 MapReduce
 
 Pig 和 MapReduce 工作负荷在基于 Linux 的群集上很相似。 但是，基于 Linux 的 HDInsight 群集可使用较新版本的 Hadoop、Hive 和 Pig 创建。 这些版本差异可能改变现有解决方案的运行方式。 有关包含在 HDInsight 中的组件版本的详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)）。
 
 基于 Linux 的 HDInsight 不提供远程桌面功能。 可以改用 SSH 远程连接到群集头节点。 有关详细信息，请参阅以下文档：
 
-* [将 Hive 与 SSH 配合使用](hdinsight-hadoop-use-hive-ssh.md)
-* [将 Pig 与 SSH 配合使用](hadoop/apache-hadoop-use-pig-ssh.md)
+* [将 Apache Hive 与 SSH 配合使用](hdinsight-hadoop-use-hive-ssh.md)
+* [将 Apache Pig 与 SSH 配合使用](hadoop/apache-hadoop-use-pig-ssh.md)
 * [将 MapReduce 与 SSH 配合使用](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
@@ -195,11 +197,11 @@ Pig 和 MapReduce 工作负荷在基于 Linux 的群集上很相似。 但是，
 
 | 对于基于 Windows 的群集，我使用... | 对于基于 Linux 的群集... |
 | --- | --- |
-| **Hive 编辑器** |[Ambari 中的 Hive 视图](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;` 以启用 Tez |Tez 是基于 Linux 的群集的默认执行引擎，因此不再需要 set 语句。 |
+| **Hive 编辑器** |[Ambari 中的 Apache Hive 视图](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| `set hive.execution.engine=tez;` 以启用 Tez |Apache Tez 是基于 Linux 的群集的默认执行引擎，因此不再需要 set 语句。 |
 | C# 用户定义函数 | 有关通过基于 Linux 的 HDInsight 验证 C# 组件的信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 服务器上的 CMD 文件或脚本作为 Hive 作业的一部分调用 |使用 Bash 脚本 |
-| 从远程桌面运行 `hive` 命令 |使用 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md)，或者[从 SSH 会话使用 Hive](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` 来自远程桌面的命令 |使用 [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md)，或者[从 SSH 会话使用 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -215,12 +217,12 @@ Pig 和 MapReduce 工作负荷在基于 Linux 的群集上很相似。 但是，
 | C# 映射器和化简器组件 | 有关通过基于 Linux 的 HDInsight 验证 C# 组件的信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 服务器上的 CMD 文件或脚本作为 Hive 作业的一部分调用 |使用 Bash 脚本 |
 
-## <a name="oozie"></a>Oozie
+## <a name="apache-oozie"></a>Apache Oozie
 
 > [!IMPORTANT]
 > 如果使用外部 Oozie 元存储，应先备份元存储，再将它与基于 Linux 的 HDInsight 配合使用。 基于 Linux 的 HDInsight 在较新版本的 Oozie 中提供，但可能与由较早版本创建的元存储不兼容。
 
-Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作系统，以运行命令行命令。 如果现有 Oozie 工作流依赖于 Windows shell，则必须重写工作流以依赖于 Linux shell 环境 (Bash)。 有关将 shell 操作与 Oozie 配合使用的详细信息，请参阅 [Oozie shell 操作扩展](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)。
+Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作系统，以运行命令行命令。 如果现有 Oozie 工作流依赖于 Windows shell，则必须重写工作流以依赖于 Linux shell 环境 (Bash)。 有关将 shell 操作与 Oozie 配合使用的详细信息，请参阅 [Oozie shell 操作扩展](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)。
 
 如果具有使用 C# 应用程序的工作流，请在 Linux 环境中验证这些应用程序。 有关详细信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。
 
@@ -228,15 +230,15 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 
 | 对于基于 Windows 的群集，我使用... | 对于基于 Linux 的群集... |
 | --- | --- |
-| Storm 仪表板 |Storm 仪表板不可用。 请参阅[在基于 Linux 的 HDInsight 上部署和管理 Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)，了解提交拓扑的方法 |
+| Storm 仪表板 |Storm 仪表板不可用。 请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)，了解提交拓扑的方法 |
 | Storm UI |Storm UI 在 https://CLUSTERNAME.azurehdinsight.net/stormui 上提供 |
 | 使用 Visual Studio 创建、部署和管理 C# 或混合拓扑 |可以使用 Visual Studio 在基于 Linux 的 Storm on HDInsight 上创建、部署和管理 C# (SCP.NET) 或混合拓扑。 它只能与在 2016 年 10 月 28 日之后创建的群集一起使用。 |
 
-## <a name="hbase"></a>HBase
+## <a name="apache-hbase"></a>Apache HBase
 
 在基于 Linux 的群集上，HBase 的 znode 父级为 `/hbase-unsecure`。 在使用本机 HBase Java API 的任何 Java 客户端应用程序的配置中设置此值。
 
-有关用于设置此值的示例客户端，请参阅[构建基于 Java 的 HBase 应用程序](hdinsight-hbase-build-java-maven.md)。
+有关用于设置此值的示例客户端，请参阅[构建基于 Java 的 Apache HBase 应用程序](hdinsight-hbase-build-java-maven.md)。
 
 ## <a name="spark"></a>Spark
 
@@ -275,4 +277,4 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 
 * [了解如何创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [使用 Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)

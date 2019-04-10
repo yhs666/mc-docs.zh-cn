@@ -10,20 +10,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/26/2018
-ms.date: 11/19/2018
+origin.date: 11/06/2018
+ms.date: 04/15/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 55fd325bc5b8115426dcddfd8e7e0f6b98c5bd02
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: f399991f5838cdc1f99a28348c0012d863187b6d
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028371"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003890"
 ---
-# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Hadoop)
+# <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Apache Hadoop)
 
-了解如何使用[安全外壳 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 安全地连接到 Azure HDInsight 上的 Hadoop。 
+了解如何使用[安全外壳 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 安全地连接到 Azure HDInsight 上的 Apache Hadoop。 
 
 HDInsight 可以使用 Linux (Ubuntu) 作为 Hadoop 群集中节点的操作系统。 下表包含使用 SSH 客户端连接到基于 Linux 的 HDInsight 时所需的地址和端口信息：
 
@@ -48,6 +48,8 @@ HDInsight 可以使用 Linux (Ubuntu) 作为 Hadoop 群集中节点的操作系�
 >
 > 如果此前已使用同一名称连接到某个服务器，则可能会收到一个警告，指出存储的主机密钥与服务器的主机密钥不匹配。 请参阅 SSH 客户端的文档，了解如何删除服务器名称的现有条目。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="ssh-clients"></a>SSH 客户端
 
 Linux、Unix 和 macOS 系统提供 `ssh` 和 `scp` 命令。 `ssh` 客户端通常用于在基于 Linux 或 Unix 的系统中创建远程命令行会话。 `scp` 客户端用于在客户端和远程系统之间安全地复制文件。
@@ -64,7 +66,7 @@ Linux、Unix 和 macOS 系统提供 `ssh` 和 `scp` 命令。 `ssh` 客户端通
 * [OpenSSH 客户端（beta 版本）](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：这是 Windows 10 Fall Creators Update 中引入的可选功能。
 * [Git (https://git-scm.com/)](https://git-scm.com/)：通过 GitBash 命令行提供 `ssh` 和 `scp` 命令。
 
-还可以使用多个图形 SSH 客户端，例如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 尽管可以使用这些客户端连接到 HDInsight，但连接的过程与使用 `ssh` 实用工具时不同。 有关详细信息，请参阅所用图形客户端的文档。
+还可以使用多个图形 SSH 客户端，例如 [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/)。 尽管可以使用这些客户端连接到 HDInsight，但连接的过程与使用 `ssh` 实用工具时不同。 有关详细信息，请参阅所用图形客户端的文档。
 
 ## <a id="sshkey"></a>身份验证：SSH 密钥
 
@@ -102,7 +104,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 | 创建方法 | 如何使用公钥 |
 | ------- | ------- |
 | **Azure 门户** | 取消选中“使用与群集登录相同的密码”，并选择“公钥”作为 SSH 身份验证类型。 最后，在“SSH 公钥”字段中选择公钥文件，或粘贴该文件的文本内容。</br>![创建 HDInsight 群集时的 SSH 公钥对话框](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | 使用 `New-AzureRmHdinsightCluster` cmdlet 的 `-SshPublicKey` 参数，并以字符串的形式传递公钥内容。|
+| **Azure PowerShell** | 使用 `New-AzHdinsightCluster` cmdlet 的 `-SshPublicKey` 参数，并以字符串的形式传递公钥内容。|
 | **Azure 经典 CLI** | 使用 `azure hdinsight cluster create` 命令的 `--sshPublicKey` 参数，并以字符串的形式传递公钥内容。 |
 | **Resource Manager 模板** | 有关在模板中使用 SSH 密钥的示例，请参阅 [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)（使用 SSH 密钥在 Linux 上部署 HDInsight）。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 文件中的 `publicKeys` 元素用于在创建群集时向 Azure 传递密钥。 |
 
@@ -121,7 +123,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 | 创建方法 | 如何指定密码 |
 | --------------- | ---------------- |
 | **Azure 门户** | 默认情况下，SSH 用户帐户的密码与群集登录帐户的密码相同。 如果要使用不同的密码，请取消选中“使用与群集登录相同的密码”，并在“SSH 密码”字段中输入密码。</br>![创建 HDInsight 群集时的 SSH 密码对话框](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | 使用 `New-AzureRmHdinsightCluster` cmdlet 的 `--SshCredential` 参数，并传递包含 SSH 用户帐户名和密码的 `PSCredential` 对象。 |
+| **Azure PowerShell** | 使用 `New-AzHdinsightCluster` cmdlet 的 `--SshCredential` 参数，并传递包含 SSH 用户帐户名和密码的 `PSCredential` 对象。 |
 | **Azure 经典 CLI** | 使用 `azure hdinsight cluster create` 命令的 `--sshPassword` 参数，并提供密码值。 |
 | **Resource Manager 模板** | 有关在模板中使用密码的示例，请参阅 [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)（使用 SSH 密码在 Linux 上部署 HDInsight）。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 文件中的 `linuxOperatingSystemProfile` 元素用于在创建群集时向 Azure 传递 SSH 帐户名和密码。|
 
@@ -156,7 +158,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 连接以后，提示符会改为指示 SSH 用户名和连接到的节点。 例如，在以 `sshuser` 身份连接到主头节点时，提示符为 `sshuser@hn0-clustername:~$`。
 
-### <a name="connect-to-worker-and-zookeeper-nodes"></a>连接到工作节点和 Zookeeper 节点
+### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>连接到工作节点和 Apache Zookeeper 节点
 
 工作节点和 Zookeeper 节点不能从 Internet 直接访问， 但可以从群集头节点或边缘节点访问。 以下是连接到其他节点的一般步骤：
 
@@ -168,7 +170,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
         ssh sshuser@wn0-myhdi
 
-    若要检索节点名称列表，请参阅[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文档。
+    若要检索节点名称列表，请参阅[使用 Apache Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文档。
 
 如果 SSH 帐户使用某个__密码__进行了保护，请在连接时输入该密码。
 
@@ -238,6 +240,7 @@ scp sshuser@clustername-ssh.azurehdinsight.cn:test.txt .
 
 ## <a name="next-steps"></a>后续步骤
 
+* [对 HDInsight 使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)
 * [对 HDInsight 使用虚拟网络](hdinsight-extend-hadoop-virtual-network.md)
 * [在 HDInsight 中使用边缘节点](hdinsight-apps-use-edge-node.md#access-an-edge-node)
 <!--Update_Description: add 'connect to nodes' and 'copy files' section-->

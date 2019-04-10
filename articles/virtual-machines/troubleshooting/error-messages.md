@@ -11,21 +11,21 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure
 origin.date: 05/22/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc521e6ea822aba09d8bc6c3e968a8a78ccecf83
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 2f34f8ee97fcb606b8784857839b34c59d271a57
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665997"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004099"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解在 Azure 中管理虚拟机时遇到的常见错误消息
 
 本文介绍在 Azure 中创建或管理虚拟机 (VM) 时可能会遇到的一些最常见的错误代码和消息。
 
 >[!NOTE]
-> 可以通过 [Azure 反馈](https://support.azure.cn/zh-cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
+> 可以通过 [Azure 反馈](https://www.azure.cn/support/contact/)使用 #azerrormessage 标记给我们留言。
 
 <!--Not Available on on this page for feedback or-->
 

@@ -1,7 +1,7 @@
 ---
 title: Azure CLI 脚本示例 - 使用 NLB 创建 Windows Server 2016 VM | Azure
 description: Azure CLI 脚本示例 - 使用 NLB 创建 Windows Server 2016 VM
-services: virtual-machines-Windows
+services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/23/2017
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 234ad71dc78c7be49f217c3c1bb2e84255984408
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ad0df5799e1be0b1d9da183e9230c17936799cf6
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666331"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003974"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>对高度可用的虚拟机之间的流量进行负载均衡
 

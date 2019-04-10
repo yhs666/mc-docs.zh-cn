@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 09/19/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7650067cc589f80dc73183944724ee351cafc53e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 163c672e6e819e529f3fe2389f963bbe9dbfd263
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626930"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003967"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Apache Hadoop 组件和版本？
 
@@ -55,11 +55,14 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0、2.2.0、2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1（仅限 Windows） |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1、1.0 *（请参阅下面的“注意”） | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Apache 滑块 |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> 出于系统性能考量，对 Kafka 版本 0.10 的支持已在 2019 年 3 月过期。
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>检查当前的 Hadoop 组件版本信息
 
@@ -85,10 +88,10 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |是 |是 |
 | HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |是 |是 |
 
-*&ast;HDInsight 3.5 支持仅针对 Spark 群集类型进行了扩展*
+*&ast; HDInsight 3.5 支持仅针对 Spark 群集类型进行了扩展*
 
-> [!NOTE]
-> 在对某个版本的支持到期后，不能通过 Microsoft Azure 门户获得该版本。 但是，可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到版本停用的那天为止。
+> [!NOTE]  
+> 在对某个版本的支持到期后，不能通过 Microsoft Azure 门户获得该版本。 但是，可继续使用 Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到版本停用的那天为止。
 >
 
 ### <a name="retired-versions"></a>已停用的版本

@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/12/2018
-ms.date: 02/18/2019
+ms.date: 04/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 39eedfc4acdc3bcbd392cc99c18899b7524c301a
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 670f93fd13ae0307effb4841fe63707d29e422c9
+ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665956"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003781"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 
 | 管理功能 | 说明 |
 | --- | --- |
-| **SQL 自动备份** |对 VM 中的 SQL Server 默认实例自动执行所有数据库的备份计划。 有关详细信息，请参阅 [Azure 虚拟机 (Resource Manager) 中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。 |
+| **SQL 自动备份** |对 VM 中 SQL Server 的默认实例或[已正确安装的](virtual-machines-windows-sql-server-iaas-faq.md#administration)命名实例自动执行所有数据库的备份计划。 有关详细信息，请参阅 [Azure 虚拟机 (Resource Manager) 中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。 |
 | **SQL 自动修补** |配置维护时段，可在此时段对 VM 进行重要的 Windows 更新，避开工作负荷的高峰期。 有关详细信息，请参阅 [Azure 虚拟机 (Resource Manager) 中 SQL Server 的自动修补](virtual-machines-windows-sql-automated-patching.md)。 |
-| **Azure 密钥保管库集成** |可让你在 SQL Server VM 上自动安装和配置 Azure 密钥保管库。 有关详细信息，请参阅[为 Azure VM (Resource Manager) 上的 SQL Server 配置 Azure Key Vault 集成](virtual-machines-windows-ps-sql-keyvault.md)。 |
+| **Azure Key Vault 集成** |可让你在 SQL Server VM 上自动安装和配置 Azure 密钥保管库。 有关详细信息，请参阅[为 Azure VM (Resource Manager) 上的 SQL Server 配置 Azure Key Vault 集成](virtual-machines-windows-ps-sql-keyvault.md)。 |
 
 一旦安装和运行，SQL Server IaaS 代理扩展便可使这些管理功能在 Azure 门户中虚拟机的 SQL Server 面板上获得，也可通过 Azure PowerShell for SQL Server 市场映像和 Azure PowerShell 获得，以手动安装扩展。 
 
