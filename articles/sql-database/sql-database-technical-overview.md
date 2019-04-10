@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 61483043447b6e65b4a1147105ac180c246c7eda
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/08/2019
+ms.openlocfilehash: ed10c832bc97402503a7b6e1613cda33aa9ae5c4
+ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318968"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59003523"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？
 
@@ -82,6 +82,9 @@ SQL 数据库提供以下两种购买模型：
 
 - **Azure 存储**：用于低价存档大量遥测
 - **Azure 事件中心**：用于将 SQL 数据库遥测与自定义监视解决方案或热门管道集成
+- **Azure Monitor 日志**：用于具有报告、警报和缓解功能的内置监视解决方案。
+
+    ![体系结构](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>可用性功能
 
@@ -121,7 +124,7 @@ SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库�
 
 ### <a name="adaptive-query-processing"></a>自适应查询处理
 
-我们还将向 SQL 数据库添加[自适应查询处理](https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
+我们还将向 SQL 数据库添加[自适应查询处理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
 
 ## <a name="advanced-security-and-compliance"></a>高级安全性和符合性
 

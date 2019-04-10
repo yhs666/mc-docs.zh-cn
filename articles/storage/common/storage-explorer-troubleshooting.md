@@ -6,15 +6,14 @@ author: WenJason
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.author: v-jay
-ms.subservice: common
-ms.openlocfilehash: 26ece0a0c66626bb49be889b7f0c0d1088a5deac
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c90a11c7770471479e79d27ed0286749cfa6833b
+ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625371"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890215"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -98,7 +97,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解决此问题，可以尝试使用设备代码流进行登录。 为此，请执行以下步骤：
 
-1. “转到实验”->“使用设备代码登录”。
+1. “转到预览”->“使用设备代码登录”。
 2. 打开“连接”对话框（通过左侧垂直栏上的插头图标或“帐户”面板上的“添加帐户”）。
 3. 选择要登录到的环境。
 4. 单击“登录”按钮。
@@ -156,9 +155,9 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 如果无法通过 UI 删除附加的帐户或存储资源，可以通过删除以下文件夹来手动删除所有附加的资源：
 
-* Windows： `%AppData%/StorageExplorer`
-* macOS：`/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux：`~/.config/StorageExplorer`
+* Windows: `%AppData%/StorageExplorer`
+* macOS： `/Users/<your_name>/Library/Application Support/StorageExplorer`
+* Linux： `~/.config/StorageExplorer`
 
 > [!NOTE]
 > 在删除上述文件夹之前关闭存储资源管理器。
@@ -231,14 +230,46 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 ## <a name="linux-dependencies"></a>Linux 依赖项
 
-对于除 Ubuntu 16.04 以外的 Linux 分发版，可能需要手动安装一些依赖项。 一般情况下，以下包是必需的：
+一般情况下，需要安装以下包才能在 Linux 上运行存储资源管理器：
 
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* `libsecret`
+* [.NET Core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libgnome-keyring-common` 和 `libgnome-keyring-dev`
 * `libgconf-2-4`
-* Up-to-date GCC
 
-根据所用的分发版，可能还需要安装其他包。 存储资源管理器[发行说明](https://docs.azure.cn/vs-azure-tools-storage-explorer-relnotes)中提供了适用于某些分发版的具体步骤。
+根据所用的分发版，可能还需要安装不同的包或其他包。
+
+Ubuntu 18.04、16.04 和 14.04 正式支持存储资源管理器。 全新计算机上的安装步骤如下：
+
+# [<a name="ubuntu-1804"></a>Ubuntu 18.04](#tab/1804)
+
+1. 下载存储资源管理器
+2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
+3. 运行 `sudo apt-get install libgconf-2-4`
+4. 运行 `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+
+# [<a name="ubuntu-1604"></a>Ubuntu 16.04](#tab/1604)
+
+1. 下载存储资源管理器
+2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
+3. 运行 `sudo apt install libgnome-keyring-dev`
+
+# [<a name="ubuntu-1404"></a>Ubuntu 14.04](#tab/1404)
+
+1. 下载存储资源管理器
+2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
+3. 运行 `sudo apt install libgnome-keyring-dev`
+
+---
+
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>修补适用于 .NET Core 更高版本的存储资源管理器 
+如果安装的 .NET Core 版本高于 2.0，而运行的存储资源管理器版本为 1.7.0 或更低，则很有可能需要通过完成以下步骤来修补存储资源管理器：
+1. [从 Nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43) 中下载 StreamJsonRpc 版本 1.5.43。 在页面的右侧找到“下载包”链接。
+2. 下载该包后，将其文件扩展名从 `.nupkg` 更改为 `.zip`
+3. 将包解压缩
+4. 转到 `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+5. 将 `StreamJsonRpc.dll` 复制到存储资源管理器文件夹中的以下位置：
+    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Azure 门户中的“在资源管理器中打开”不起作用
 
