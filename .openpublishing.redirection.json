@@ -13986,7 +13986,29 @@
       "source_path": "articles/aks/create-cluster.md",
       "redirect_url": "https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-certificates.md",
+      "redirect_url": "/automation/shared-resources/certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-variables.md",
+      "redirect_url": "/automation/shared-resources/variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-schedules.md",
+      "redirect_url": "/automation/shared-resources/schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-source-control-integration-legacy.md",
+      "redirect_url": "/automation/source-control-integration-legacy",
+      "redirect_document_id": false
     }
+
+
 
 
 
