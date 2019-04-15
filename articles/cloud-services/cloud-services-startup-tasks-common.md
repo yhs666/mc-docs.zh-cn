@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/17/2018
+ms.date: 04/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: d0708c0c5108dd48671225e378a723fe704da6bb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 24bd1631e2ca37134012da9a97815efdc590993d
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651321"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529477"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常见的云服务启动任务
 
@@ -77,7 +77,7 @@ AppCmd.exe 返回的 errorlevel 在 winerror.h 文件中列出，并且还可以
 
 此示例将 JSON 的压缩节和压缩条目添加到 Web.config 文件，其中包含错误处理和日志记录。
 
-此处显示了 [EndPoints] 文件的相关部分，其中包括将 [executionContext](https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Task) 属性设为 `elevated` 以为 AppCmd.exe 提供足够的权限来更改 Web.config 文件中的设置：
+此处显示了 [ServiceDefinition.csdef] 文件的相关部分，其中包括将 [executionContext](https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Task) 属性设为 `elevated` 以为 AppCmd.exe 提供足够的权限来更改 Web.config 文件中的设置：
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -97,7 +97,7 @@ REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
-REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
+REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
 IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
@@ -130,13 +130,13 @@ EXIT %ERRORLEVEL%
 
 ## <a name="add-firewall-rules"></a>添加防火墙规则
 
-实际上，Azure 中有两个防火墙。 第一个防火墙控制虚拟机与外界之间的连接。 此防火墙由 [EndPoints] 文件中的 [EndPoints] 元素控制。
+实际上，Azure 中有两个防火墙。 第一个防火墙控制虚拟机与外界之间的连接。 此防火墙由 [ServiceDefinition.csdef] 文件中的 [EndPoints] 元素控制。
 
 第二个防火墙控制虚拟机与该虚拟机中的进程之间的连接。 可以通过 `netsh advfirewall firewall` 命令行工具控制此防火墙。
 
 Azure 将为角色中启动的进程创建防火墙规则。 例如，启动服务或程序时，Azure 会自动创建必要的防火墙规则以允许该服务与 Internet 进行通信。 但是，如果创建的服务由角色外部的进程（例如，COM+ 服务或 Windows 计划任务）启动，则将需要手动创建防火墙规则以允许访问该服务。 可以通过使用启动任务来创建这些防火墙规则。
 
-创建防火墙规则的启动任务的 [executionContext][任务] 必须为 **elevated**，则为失败。 将以下启动任务添加到 [EndPoints] 文件。
+创建防火墙规则的启动任务的 [executionContext][任务] 必须为 **elevated**，则为失败。 将以下启动任务添加到 [ServiceDefinition.csdef] 文件。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -167,7 +167,7 @@ EXIT /B %errorlevel%
 
 若要解锁 ApplicationHost.config 文件的 ipSecurity 部分，请先创建角色启动时运行的命令文件。 在 Web 角色的根级别创建一个名为 startup 的文件夹，然后在该文件夹中创建一个名为 startup.cmd 的批处理文件。 将此文件添加到 Visual Studio 项目并将属性设置为“始终复制”以确保此文件包括在包中。
 
-将以下启动任务添加到 [EndPoints] 文件。
+将以下启动任务添加到 [ServiceDefinition.csdef] 文件。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -192,7 +192,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 此任务将导致每次初始化 Web 角色时都运行 startup.cmd 批处理文件，确保所需的 ipSecurity 部分处于解锁状态。
 
-最后，修改 web 角色的 [web.config](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) 文件的 **system.webServer 节** 以添加被授予访问权限的 IP 地址列表，如下面的示例所示：
+最后，修改 web 角色的 [web.config](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) 文件的 **system.webServer 节** 以添加被授予访问权限的 IP 地址列表，如下面的示例所示：
 
 此示例配置 **允许** 所有 IP（两个已定义的 IP 除外）访问服务器
 
@@ -226,7 +226,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 ## <a name="create-a-powershell-startup-task"></a>创建 PowerShell 启动任务
 
-Windows PowerShell 脚本不能直接从 [EndPoints] 文件调用，但它们可以从启动批处理文件中调用。
+Windows PowerShell 脚本不能直接从 [ServiceDefinition.csdef] 文件调用，但它们可以从启动批处理文件中调用。
 
 默认情况下，PowerShell 不会运行未签名的脚本。 除非为脚本签名，否则需要将 PowerShell 配置为运行未签名的脚本。 若要运行未签名的脚本，ExecutionPolicy 必须设置为 Unrestricted。 使用的 **ExecutionPolicy** 设置基于 Windows PowerShell 的版本。
 
@@ -259,7 +259,7 @@ EXIT /B %errorlevel%
 
 可以使用本地存储资源来存储应用程序稍后将访问的启动任务创建的文件。
 
-若要创建本地存储资源，请将 [LocalResources] 部分添加到 [EndPoints] 文件，然后添加 [LocalStorage] 子元素。 为本地存储资源指定唯一名称，并为启动任务指定合适大小。
+若要创建本地存储资源，请将 [LocalResources] 部分添加到 [ServiceDefinition.csdef] 文件，然后添加 [LocalStorage] 子元素。 为本地存储资源指定唯一名称，并为启动任务指定合适大小。
 
 若要在启动任务中使用本地存储资源，需要创建一个环境变量以引用本地存储资源位置。 然后，启动任务和应用程序将能够在本地存储资源中读取和写入文件。
 
@@ -314,7 +314,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 与在计算模拟器中运行时相比，可以让启动任务在云中运行时执行不同的步骤。 例如，仅当在模拟器中运行时，才可能需要使用 SQL 数据的新副本。 或者，可能需要为云做一些性能优化，而在模拟器中运行时不需要做这些优化。
 
-可以通过在 [EndPoints] 文件中创建一个环境变量来实现在计算模拟器中和云中执行不同操作的能力。 然后，在启动任务中针对某个值测试该环境变量。
+可以通过在 [ServiceDefinition.csdef] 文件中创建一个环境变量来实现在计算模拟器中和云中执行不同操作的能力。 然后，在启动任务中针对某个值测试该环境变量。
 
 若要创建环境变量，请添加 [变量]/[RoleInstanceValue] 元素并创建 `/RoleEnvironment/Deployment/@emulated` 的 XPath 值。 在计算模拟器中运行时，%ComputeEmulatorRunning% 环境变量的值为 `true`，而在云中运行时，该值为 `false`。
 
@@ -521,7 +521,7 @@ background 启动任务和 foreground 启动任务之间的区别在于 foregrou
 
 [创建和部署](./cloud-services-how-to-create-deploy-portal.md)云服务包。
 
-[EndPoints]: ./cloud-services-model-and-package.md#csdef
+[ServiceDefinition.csdef]: ./cloud-services-model-and-package.md#csdef
 [任务]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Runtime

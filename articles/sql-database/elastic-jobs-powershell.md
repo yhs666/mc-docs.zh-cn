@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviwer: sstein
 manager: digimobile
 origin.date: 03/13/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 72815ec3c2aae795dbcf3858e8669caa4db05468
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 04/15/2019
+ms.openlocfilehash: 5dfa98e58a80f3ea543371c9b5424c5c5d3999d0
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003476"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529325"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -72,7 +72,7 @@ Get-Module Az.Sql
 
 创建弹性作业代理需要一个用作[作业数据库](sql-database-job-automation-overview.md#job-database)的数据库（S0 或更高级别）。 
 
-*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。 下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
+下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。
 
 弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 [Azure 要求](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)即可。
 
@@ -130,7 +130,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>启用适合订阅的弹性作业预览版
 
-若要使用弹性作业，请运行以下命令（此命令只需在每个需要在其中使用弹性作业的订阅中运行一次），以便在 Azure 订阅中注册此功能：
+若要使用弹性作业，请运行以下命令，在 Azure 订阅中注册此功能。 针对要在其中预配弹性作业代理的订阅运行此命令一次。 如果订阅只包含属于作业目标的数据库，则不需注册此类订阅。
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
