@@ -1,5 +1,5 @@
 ---
-title: 如何配置 ExpressRoute 线路的路由（对等互连）：Azure：经典
+title: 配置线路的对等互连 - ExpressRoute：Azure：经典 | Microsoft Docs
 description: 本文指导完成创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连的步骤。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。
 services: expressroute
 author: cherylmc
@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 12/11/2018
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: a3258b118a7469d4773cf3e490c9e126b6b8e212
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 3f92a923d7af7b869762e3389f26423d3e25591b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626750"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529342"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
@@ -34,6 +34,9 @@ ms.locfileid: "58626750"
 **关于 Azure 部署模型**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
@@ -58,17 +61,17 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。
 
    ```powershell
-   Connect-AzureRmAccount -Environment AzureChinaCloud
+   Connect-AzAccount -Environment AzureChinaCloud
    ```
 2. 检查该帐户的订阅。
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。

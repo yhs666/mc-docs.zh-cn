@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 07/20/2018
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 7839d1af1150b284d6596e11feb21540b82f9362
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/22/2019
+ms.openlocfilehash: 0a1b396e6bd69bccb346f4902e36f98635079951
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906237"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529369"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教程：使用 Azure 逻辑应用自动处理电子邮件和附件
 
@@ -65,7 +65,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | 部署模型 | 资源管理器 | 用于管理资源部署的[部署模型](../azure-resource-manager/resource-manager-deployment-model.md) | 
    | 帐户类型 | 常规用途 | [存储帐户类型](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **位置** | 中国东部 | 用于存储存储帐户信息的区域 | 
-   | **复制** | 本地冗余存储 (LRS) | 此设置指定如何复制、存储、管理和同步数据。 请参阅[复制](../storage/common/storage-introduction.md#replication)。 | 
+   | **复制** | 本地冗余存储 (LRS) | 此设置指定如何复制、存储、管理和同步数据。 请参阅[本地冗余存储 (LRS)：适用于 Azure 存储的低成本数据冗余](../storage/common/storage-redundancy-lrs.md)。 | 
    | **性能** | 标准 | 此设置指定支持的数据类型以及用于存储数据的介质。 请参阅[存储帐户的类型](../storage/common/storage-introduction.md#types-of-storage-accounts)。 | 
    | 需要安全传输 | 已禁用 | 此设置指定从连接进行请求所需的安全性。 请参阅[需要安全传输](../storage/common/storage-require-secure-transfer.md)。 | 
    | **订阅** | <*your-Azure-subscription-name*> | Azure 订阅的名称 | 
@@ -82,7 +82,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
       ![复制并保存存储帐户名称和密钥](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   若要获取存储帐户的访问密钥，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 或 [Azure CLI](/cli//storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)。 
+   若要获取存储帐户的访问密钥，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 或 [Azure CLI](/cli/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)。 
 
 3. 为电子邮件附件创建 Blob 存储容器。
    
@@ -100,7 +100,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
    ![完成的存储容器](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   若要创建存储容器，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 或 [Azure CLI](/cli/storage/container?view=azure-cli-latest#az-storage-container-create)。 
+   若要创建存储容器，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) 或 [Azure CLI](/cli/storage/container?view=azure-cli-latest#az-storage-container-create)。 
 
 接下来，将存储资源管理器连接到存储帐户。
 
@@ -146,6 +146,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | **资源组** | LA-Tutorial-RG | 以前使用过的同一 Azure 资源组 | 
    | **托管计划** | 使用计划 | 此设置决定了如何分配和缩放用于运行函数应用的资源，例如计算能力。 请参阅[托管计划比较](../azure-functions/functions-scale.md)。 | 
    | **位置** | 中国东部 | 以前使用过的同一区域 | 
+   | **运行时堆栈** | 首选语言 | 选择支持你喜欢的函数编程语言的运行时。 对于 C# 和 F# 函数，选择 .NET。 |
    | **存储** | cleantextfunctionstorageacct | 为函数应用创建存储帐户。 只使用小写字母和数字。 <p>**注意：** 此存储帐户包含函数应用，不同于以前创建的用于电子邮件附件的存储帐户。 |
    |||| 
 
@@ -179,25 +180,29 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 5. 打开编辑器后，将模板代码替换为以下示例代码，以便删除 HTML 并将结果返回给调用方：
 
    ``` CSharp
-   using System.Net;
-   using System.Text.RegularExpressions;
+    #r "Newtonsoft.Json"
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"HttpWebhook triggered");
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    using System.Text.RegularExpressions;
 
-      // Parse query parameter
-      string emailBodyContent = await req.Content.ReadAsStringAsync();
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("HttpWebhook triggered");
 
-      // Replace HTML with other characters
-      string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
-      updatedBody = updatedBody.Replace("\\r\\n", " ");
-      updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+        // Parse query parameter
+        string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
 
-      // Return cleaned text
-      return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
+         // Replace HTML with other characters
+        string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
+        updatedBody = updatedBody.Replace("\\r\\n", " ");
+        updatedBody = updatedBody.Replace(@"&nbsp;", " ");
 
-   }
+        // Return cleaned text
+        return (ActionResult) new OkObjectResult(new { updatedBody });
+    }
    ```
 
 6. 完成后，选择“保存”。 若要测试函数，请在编辑器右边缘的箭头 (**<**) 图标下，选择“测试”。 
@@ -477,9 +482,9 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 3. 检查逻辑应用是否已将电子邮件保存到正确的存储容器。 
 
-   1. 在存储资源管理器中展开“(本地和附加)”****> 
-   “存储帐户”****>“attachmentstorageacct (外部)”****> 
-   “Blob 容器”****> **attachments**。
+   1. 在存储资源管理器中展开“(**本地和附加**)”> 
+   “**存储帐户**”>“attachmentstorageacct (**外部**)”> 
+   “**Blob 容器**”> **attachments**。
 
    2. 检查 **attachments** 容器中是否有电子邮件。 
 
@@ -560,9 +565,9 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 3. 检查逻辑应用是否已将电子邮件和附件保存到正确的存储容器。 
 
-   1. 在存储资源管理器中展开“(本地和附加)”****> 
-   “存储帐户”****>“attachmentstorageacct (外部)”****> 
-   “Blob 容器”****> **attachments**。
+   1. 在存储资源管理器中展开“**(本地和附加)**”> 
+   “**存储帐户**”>“**attachmentstorageacct (外部)**”> 
+   “**Blob 容器**”> **attachments**。
 
    2. 检查 **attachments** 容器中是否有电子邮件和附件。
 

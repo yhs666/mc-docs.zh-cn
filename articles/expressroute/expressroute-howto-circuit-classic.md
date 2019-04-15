@@ -6,14 +6,14 @@ author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 04/08/2019
+ms.date: 04/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: a62b20cb13cab4a8b722a4941822e74707fc1b3c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8cefd6a07555e4c5789f739eaa5298ac0bafa809
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625772"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529405"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 
@@ -32,6 +32,9 @@ ms.locfileid: "58625772"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>准备阶段
 
 安装最新版本的 Azure 服务管理 (SM) PowerShell 模块和 ExpressRoute 模块。  使用以下示例时，请注意，当更新版本的 cmdlet 发布时，版本号（在此示例中为 5.1.1）将更改。
@@ -48,17 +51,17 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
    ```powershell
-   Connect-AzureRmAccount -Environment AzureChinaCloud
+   Connect-AzAccount -Environment AzureChinaCloud
    ```
 2. 检查该帐户的订阅。
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
@@ -82,6 +85,7 @@ ServiceProviderName              : Beijing Telecom Ethernet
 ServiceProviderProvisioningState : Provisioned
 Sku                              : Standard
 Status                           : Enabled
+
 ```
 
 可以将服务密钥作为参数传递给调用，从而获取特定 ExpressRoute 线路的相关信息。

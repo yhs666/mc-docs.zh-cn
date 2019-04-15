@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/04/2019
-ms.date: 03/18/2019
+origin.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 10900a621aff97e41b3f1552eeff8286ff78f6ea
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 2ce82f7c05ed9e3437e2177c0717d866576972ff
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348106"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529220"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 
@@ -54,7 +54,7 @@ Resource Manager 提供多种优势：
 
 ## <a name="understand-management-scope"></a>了解管理范围
 
-Azure 提供四个级别的管理范围：管理组、订阅、资源组和资源。 [管理组](../governance/management-groups/index.md)处于预览状态。 下图显示了一个这些层的示例。
+Azure 提供四个级别的管理范围：[管理组](../governance/management-groups/index.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了一个这些层的示例。
 
 ![作用域](./media/resource-group-overview/scope-levels.png)
 
@@ -85,6 +85,8 @@ Azure 提供四个级别的管理范围：管理组、订阅、资源组和资�
 * 资源可与其他资源组中的资源进行交互。 如果两个资源相关，但不共享相同的生命周期，那么这种交互很常见（例如，Web 应用连接到数据库）。
 
 创建资源组时，需要为该资源组提供一个位置。 你可能想知道，“为什么资源组需要一个位置？ 以及，如果资源可以具有与资源组不同的位置，资源组的位置应该不重要啊？ ” 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
+
+如果资源组的区域暂时不可用，则无法更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍可按预期运行，但你不能更新它们。 为了尽量降低风险，请将资源组和资源放入同一个区域。
 
 ## <a name="resource-providers"></a>资源提供程序
 

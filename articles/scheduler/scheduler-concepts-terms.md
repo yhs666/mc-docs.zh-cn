@@ -8,15 +8,15 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 08/18/2016
-ms.date: 02/18/2019
-ms.openlocfilehash: 116979d65eec3617e502f595bfd7732b902e2caa
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 04/15/2019
+ms.openlocfilehash: 696798548797e8db1d4c2ff961d86110856b0a60
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303030"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529223"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 计划程序的概念、术语和实体
 
@@ -78,7 +78,7 @@ Azure 计划程序支持多个作业类型：
 
 | 元素 | 必须 | 说明 | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | 否 | 作业的开始时间，时区偏移量为 [ISO 8601 格式](http://zh.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | 否 | 作业的开始时间，时区偏移量为 [ISO 8601 格式](https://zh.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | 是 | 主操作的详细信息，可以包含 errorAction 对象 | 
 | [**errorAction**](#error-action) | 否 | 主操作失败时运行的辅助操作的详细信息 |
 | [**recurrence**](#recurrence) | 否 | 定期作业的频率和间隔等详细信息 | 
@@ -138,13 +138,13 @@ Azure 计划程序支持多个作业类型：
 
 ## <a name="starttime"></a>startTime
 
-在 startTime 对象中，可以指定 [ISO 8601 格式](http://zh.wikipedia.org/wiki/ISO_8601)的开始时间和时区偏移量。
+在 startTime 对象中，可以指定 [ISO 8601 格式](https://zh.wikipedia.org/wiki/ISO_8601)的开始时间和时区偏移量。
 
 <a name="action"></a>
 
 ## <a name="action"></a>action
 
-计划程序作业基于指定的计划运行主操作。 计划程序支持 HTTP、存储队列、服务总线队列和服务总线主题操作。 如果主操作失败，计划程序可以运行辅助 [**errorAction**](#errorAction) 处理该错误。 操作对象描述了以下元素：
+计划程序作业基于指定的计划运行主操作。 计划程序支持 HTTP、存储队列、服务总线队列和服务总线主题操作。 如果主操作失败，计划程序可以运行辅助 [**errorAction**](#erroraction) 处理该错误。 操作对象描述了以下元素：
 
 * 操作的服务类型
 * 操作的详细信息

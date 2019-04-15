@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 02/01/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 64ac5a6a922edfe00fa17c1a2dfde09e7edf09b5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 19bb2062be6a0f0a68879f2f74026e24d0d1e569
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627413"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529039"
 ---
 # <a name="translator-text-api-30-transliterate"></a>文本翻译 API 3.0：Transliterate
 
@@ -61,7 +61,7 @@ https://api.translator.azure.cn/transliterate?api-version=3.0
   <th width="20%">标头</th>
   <th>说明</th>
   <tr>
-    <td>一个授权<br/>标头</td>
+    <td><em>授权</em><br/><em>headers</em></td>
     <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
@@ -177,7 +177,7 @@ https://api.translator.azure.cn/transliterate?api-version=3.0
 若要在不支持 Unicode 字符的命令行窗口中使用 cURL，请获取以下 JSON 有效负载，并将它保存到 `request.txt` 文件中。 请务必使用 `UTF-8` 编码保存文件。
 
 ```
-curl -X POST "https://api.translator.azure.cn/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
+curl -X POST "https://api.translator.azure.cn/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d @request.txt
 ```
 
 ---

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/12/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 0d1290bbb9c8c7ab32957a7f0af901a341d6f96c
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 35cd8f8073f84de63b2007ce1c32281a96c80931
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347003"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529239"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入门：使用 Python 查询 Azure SQL 数据库
 

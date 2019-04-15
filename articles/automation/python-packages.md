@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 02/25/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: digimonbile
-ms.openlocfilehash: 75d64e32002fdc7a96f19dde72dedbb37fa037de
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 4d7002dc4b68d9015e97ac6e1cc8acc4cdfaede5
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988046"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502631"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>管理 Azure 自动化中的 Python 2 程序包
 
@@ -43,7 +43,7 @@ Azure 自动化不在导入过程中解析 Python 包的依赖项。 可以通�
 
 在安装了 [python2.7](https://www.python.org/downloads/release/latest/python2) 和 [pip](https://pip.pypa.io/en/stable/) 的 Windows 64 位计算机上运行以下命令，以便下载包及其所有依赖项：
 
-```
+```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 

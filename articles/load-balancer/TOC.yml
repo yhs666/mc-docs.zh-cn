@@ -106,9 +106,9 @@ items:
   - name: 代码示例
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.network
+    href: https://docs.microsoft.com/powershell/module/az.network
   - name: Azure CLI
-    href: https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest
+    href: https://docs.azure.cn/zh-cn/cli/network/lb
   - name: .NET
     href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.network.models
   - name: Java
@@ -145,9 +145,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 430ffd086eac6d3190c4a47c98798170f36e9c1b
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.openlocfilehash: 9429e09e05ba5939df17e3bcf4237bc754cb6f02
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54333874"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529441"

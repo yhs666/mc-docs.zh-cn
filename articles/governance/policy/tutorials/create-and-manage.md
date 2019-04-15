@@ -1,21 +1,19 @@
 ---
 title: 创建和管理策略以强制实施符合性
 description: 使用 Azure Policy 强制执行标准、满足法规遵从性、审核需求、控制成本、维护安全和性能的一致性，并实施企业范围的设计原则。
-services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/22/2018
-ms.date: 04/15/2019
+ms.date: 04/22/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 15281558f104d3e3667671d229089e78f5efd6bd
-ms.sourcegitcommit: dbabe5365653ce222005b2b666dddbfed2270063
+ms.openlocfilehash: 03e0414d5f0b3405aefb6371d548023192677896
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58760024"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471981"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -35,14 +33,14 @@ ms.locfileid: "58760024"
 
 1. 在 Azure 门户中单击“所有服务”，然后搜索并选择“策略”，启动 Azure Policy 服务。
 
-   ![搜索策略](../media/create-and-manage/search-policy.png)
+   ![在所有服务中搜索策略](../media/create-and-manage/search-policy.png)
 
 2. 选择“Azure Policy”页左侧的“分配”。 分配即为在特定范围内分配策略以供执行。
-   ![选择分配](../media/create-and-manage/select-assignments.png)
+   ![从“策略概述”页选择“分配”](../media/create-and-manage/select-assignments.png)
 
 3. 在“策略 - 分配”页的顶部选择“分配策略”。
 
-   ![分配策略定义](../media/create-and-manage/select-assign-policy.png)
+   ![从“分配”页分配策略](../media/create-and-manage/select-assign-policy.png)
 
 4. 在“分配策略”页上，通过单击省略号并选择管理组或订阅，选择“范围”。 或者，请选择一个资源组。 范围用于确定对其强制执行策略分配的资源或资源组。  然后在“范围”页的底部单击“选择”。
 
@@ -54,7 +52,7 @@ ms.locfileid: "58760024"
 
 7. 选择“需要 SQL Server 版本 12.0”。 如果不能立即找到它，请在搜索框中键入“需要 SQL Server”，然后按 ENTER 或者单击搜索框的外部。 找到并选择策略定义后，单击“可用定义”页底部的“选择”。
 
-   ![查找策略](../media/create-and-manage/select-available-definition.png)
+   ![使用搜索筛选器来查找策略](../media/create-and-manage/select-available-definition.png)
 
 1. “分配名称”中自动填充了所选的策略名称，但可以更改它。 对于本示例，请保留“需要 SQL Server 版本 12.0”。 还可根据需要添加“说明”。 该说明提供有关此策略分配的详细信息。  将根据登录的用户自动填写“分配者”。 此字段是可选字段，因此可输入自定义值。
 
@@ -62,16 +60,16 @@ ms.locfileid: "58760024"
 
 ## <a name="implement-a-new-custom-policy"></a>实施新的自定义策略
 
-分配内置的策略定义后，可以使用 Azure Policy 执行其他操作。 接下来创建一个新的自定义策略，确保在环境中创建的 VM 不能处于 G 系列，从而节省成本。 这样，当组织中的用户每次尝试创建 G 系列的 VM 时，请求将被拒绝。
+分配内置的策略定义后，可以使用 Azure Policy 执行其他操作。 接下来创建一个新的自定义策略，确保在环境中创建的 VM 不能处于 G 系列，以便节省成本。 这样，当组织中的用户每次尝试创建 G 系列的 VM 时，请求将被拒绝。
 
 1. 选择“Azure Policy”页左侧“创作”下的“定义”。
 
-   ![创作下的定义](../media/create-and-manage/definition-under-authoring.png)
+   ![“创作”组下的定义页](../media/create-and-manage/definition-under-authoring.png)
 
 2. 选择页面顶部的“+ 策略定义”。 此时会打开“策略定义”页。
 3. 输入以下内容：
 
-   - 策略定义保存到的订阅。 使用“定义位置”旁边的省略号进行选择。
+   - 策略定义保存到的管理组或订阅。 使用“定义位置”旁边的省略号进行选择。
 
      > [!NOTE]
      > 若要将此策略定义应用到多个订阅，则位置必须是策略要分配到的订阅所在的管理组。 对于计划定义，也需要确保这一点。
@@ -155,12 +153,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ## <a name="create-a-policy-definition-with-powershell"></a>使用 PowerShell 创建策略定义
 
-在继续完成 PowerShell 示例之前，请确保已安装最新版本的 Azure PowerShell。 版本 3.6.0 中添加了策略参数。 如果使用较早版本，示例会返回一个错误，指示找不到参数。
+在继续完成 PowerShell 示例之前，请确保已安装最新版本的 Azure PowerShell Az 模块。 
 
 可以使用 `New-AzPolicyDefinition` cmdlet 创建策略定义。
 
 要在文件中创建策略定义，请将路径传递给该文件。 对于外部文件，请使用以下示例：
-```powershell
+
+```azurepowershell
 $definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
@@ -324,11 +323,11 @@ az policy definition list
 
 1. 选择“Azure Policy”页左侧“创作”下的“定义”。
 
-   ![选择定义](../media/create-and-manage/definition-under-authoring.png)
+   ![从“定义”页选择定义](../media/create-and-manage/definition-under-authoring.png)
 
 1. 选择页面顶部的“+ 计划定义”打开“计划定义”页。
 
-   ![计划定义](../media/create-and-manage/initiative-definition.png)
+   ![查看计划定义页](../media/create-and-manage/initiative-definition.png)
 
 1. 使用“定义位置”旁边的省略号选择用于存储定义的管理组或订阅。 如果上一页范围仅限于单个管理组或订阅，将自动填充“定义位置”。
 
@@ -348,11 +347,11 @@ az policy definition list
 
    从列表中选择策略定义后，该策略定义会添加到“策略和参数”的下面。
 
-   ![计划定义](../media/create-and-manage/initiative-definition-2.png)
+   ![查看计划定义参数](../media/create-and-manage/initiative-definition-2.png)
 
 1. 如果要添加到计划的策略定义有参数，则这些参数会显示在“策略和参数”区域的策略名称下。 _value_ 可以设置为“设置值”（针对此计划的所有分配进行硬编码）或“使用计划参数”（在每个计划分配期间设置）。 如果选择了“设置值”，则“值”右侧的下拉列表允许输入或选择值。 如果选择了“使用计划参数”，则会显示新的“计划参数”部分，用于定义将要在计划分配期间设置的参数。 此计划参数的允许值可能会进一步限制能够在计划分配期间设置的内容。
 
-   ![计划定义参数](../media/create-and-manage/initiative-definition-3.png)
+   ![更改允许的值中的计划定义参数](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > 在使用某些 `strongType` 参数时，不能自动确定值的列表。 在这种情况下，会在参数行的右侧显示省略号。 单击它会打开“参数范围(&lt;参数名称&gt;)”页。 在此页中，选择用于提供值选项的订阅。 此参数范围仅在创建计划定义过程中使用，对策略评估或分配后的计划范围没有影响。
@@ -365,11 +364,11 @@ az policy definition list
 
 1. 找到前面创建的“保证安全”计划定义并单击它。 选择页面顶部的“分配”，打开“保证安全: 分配计划”页。
 
-   ![分配定义](../media/create-and-manage/assign-definition.png)
+   ![从计划定义页分配定义](../media/create-and-manage/assign-definition.png)
 
    也可右键单击选定的行，或者左键单击上下文菜单行末尾处的省略号。  然后选择“分配”。
 
-   ![右键单击某个行](../media/create-and-manage/select-right-click.png)
+   ![计划的备用选项](../media/create-and-manage/select-right-click.png)
 
 4. 输入以下示例信息，填充“保证安全: 分配计划”页。 可以使用自己的信息。
 
@@ -387,11 +386,11 @@ az policy definition list
 
 1. 找到“获取源”计划。 可能仍处于“未启动”符合性状态。 单击计划，获取有关分配进度的完整详细信息。
 
-   ![符合性 - 未启动](../media/create-and-manage/compliance-status-not-started.png)
+   ![计划符合性页 - 评估未启动](../media/create-and-manage/compliance-status-not-started.png)
 
 1. 完成计划分配后，符合性页会更新为“符合”符合性状态。
 
-   ![符合性 - 符合](../media/create-and-manage/compliance-status-compliant.png)
+   ![计划符合性页 - 资源符合性](../media/create-and-manage/compliance-status-compliant.png)
 
 1. 单击计划符合性页上的任何策略均可打开该策略的符合性详细信息页。 此页提供符合性的资源级别详细信息。
 
@@ -420,7 +419,7 @@ az policy definition list
 
 1. 设置“排除项”：单击省略号并选择要排除的资源组（在本示例中为 *SQLServers_Excluded*）。
 
-   ![请求排除](../media/create-and-manage/request-exclusion.png)
+   ![向策略分配添加排除的资源组](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > 根据策略及其效果，也可以将排除项指定为分配范围内某个资源组中的特定资源。 由于本教程使用了“拒绝”效果，对已存在的特定资源设置排除项没有意义。
@@ -434,7 +433,9 @@ az policy definition list
 如果今后不再使用本教程中的资源，请使用以下步骤删除前面创建的所有分配或定义：
 
 1. 在“Azure Policy”页左侧的“创作”下选择“定义”（如果尝试删除分配，则选择“分配”）。
+
 2. 搜索要删除的新计划或策略定义（或分配）。
+
 3. 右键单击定义（或分配）对应的行或选择其末尾的省略号，然后选择“删除定义”（或“删除分配”）。
 
 ## <a name="next-steps"></a>后续步骤

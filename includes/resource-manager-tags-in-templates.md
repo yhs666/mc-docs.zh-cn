@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: include
 origin.date: 03/11/2019
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: f08dc86fd87df5851747d78bfb83680a54892cb4
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 9c75f00ab3c605f82889d05207477d0e00222d53
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348184"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532681"
 ---
 若要在部署过程中标记资源，请将 `tags` 元素添加到要部署的资源。 提供标记名称和值。
 

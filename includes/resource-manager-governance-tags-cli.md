@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: include
 origin.date: 02/20/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d1700e3cdee741778d4930f120c96e943c433127
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 829b535fa2e8cc0d71006a5e89f0ab1382ade63d
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352431"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532605"
 ---
 若要为资源组添加两个标记，请使用 [az group update](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-update) 命令：
 

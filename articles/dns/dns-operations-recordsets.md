@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 12/21/2016
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-jay
-ms.openlocfilehash: 385881832b64ea29e0285f5555ea750f74d47a43
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 718d7abf8f48f604fa4ffb5f8c968eb0b721f5dd
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987923"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502594"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 记录和记录集
 
@@ -34,9 +34,9 @@ ms.locfileid: "57987923"
 
 本文中的示例假设用户已经[安装并登录 Azure PowerShell 以及创建了 DNS 区域](dns-operations-dnszones.md)。
 
-## <a name="introduction"></a>简介
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>简介
 
 在 Azure DNS 中创建 DNS 记录之前，首先需了解 Azure DNS 如何将 DNS 记录组织到 DNS 记录集中。
 
@@ -94,7 +94,7 @@ New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGr
 
 每个示例中都演示了如何创建包含单条记录的记录集。 可以对“A”记录此前的示例进行修改，以便使用元数据创建其他类型的包含多个记录的记录集，或者创建空记录集。
 
-我们没有提供创建 SOA 记录集的示例，因为 SOA 是随每个 DNS 区域一起创建和删除的，不能单独创建或删除。 但是，[可以修改 SOA，如后面的示例所示](#to-modify-an-SOA-record)。
+我们没有提供创建 SOA 记录集的示例，因为 SOA 是随每个 DNS 区域一起创建和删除的，不能单独创建或删除。 但是，[可以修改 SOA，如后面的示例所示](#to-modify-an-soa-record)。
 
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>创建一个包含一条记录的 AAAA 记录集
 
@@ -399,4 +399,4 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 <br>
 了解如何在使用 Azure DNS 时[保护区域和记录](dns-protect-zones-recordsets.md)。
 <br>
-查看 [Azure DNS PowerShell 参考文档](https://docs.microsoft.com/powershell/module/azurerm.dns)。
+查看 [Azure DNS PowerShell 参考文档](https://docs.microsoft.com/powershell/module/az.dns)。

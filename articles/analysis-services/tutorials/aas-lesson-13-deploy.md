@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 816c8005823699a807032cd1512effd4f925f1a0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c9810342bda2c70b62dac642c899358207e4dfb9
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626939"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529270"
 ---
 # <a name="deploy"></a>部署
 

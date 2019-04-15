@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 312f71e13fe6dbaa9f39ae8688f48a64501b89e5
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/15/2019
+ms.openlocfilehash: 491bfceb52c0ae5e1578110df38f93549b26ba0c
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663553"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529255"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 
@@ -92,7 +92,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
-| [az sql db show-usage](/cli/sql/db) | 显示单一数据库或入池数据库的大小使用情况信息。 |
+| [az sql db show-usage](/cli/sql#az-sql-show-usage) | 显示单一数据库或入池数据库的大小使用情况信息。 |
 | [az sql db update](/cli/sql/db#az-sql-db-update) | 更新数据库属性（如服务层或计算大小），或者将数据库移入、移出弹性池或在弹性池之间移动。 |
 | [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 |||

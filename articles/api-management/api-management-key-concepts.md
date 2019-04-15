@@ -15,12 +15,12 @@ origin.date: 11/15/2017
 ms.date: 12/31/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 398e537b41e75b6f7043548a9e10a198c64e4853
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 24cf9a50efc47df8f0c609893e06842cb5ddf111
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736691"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529359"
 ---
 # <a name="what-is-api-management"></a>什么是 API 管理？
 
@@ -102,7 +102,7 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 ## <a name="policies"></a> 策略
 策略是 API 管理的一项强大功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或 API 的响应时按顺序执行。 流行的语句包含 XML 格式转换为 JSON 和调用速率限制，以限制从开发人员传入的呼叫数，还有许多其他策略可用。
 
-在任何 API 管理策略中，策略表达式都可以用作属性值或文本值，除非策略另行指定。 某些策略（如[控制流](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose)和[设置变量](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies)和[策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。
+在任何 API 管理策略中，策略表达式都可以用作属性值或文本值，除非策略另行指定。 某些策略（如[控制流](/api-management/api-management-advanced-policies#choose)和[设置变量](/azure/api-management/api-management-advanced-policies#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](/azure/api-management/api-management-advanced-policies#AdvancedPolicies)和[策略表达式](/azure/api-management/api-management-policy-expressions)。
 
 
 有关 API 管理策略的完整列表，请参阅[策略参考][Policy reference]。 有关使用和配置策略的详细信息，请参阅 [API 管理策略][API Management policies]。 有关创建具有速率限制和配额策略的产品的教程，请参阅[如何创建和配置高级产品设置][How create and configure advanced product settings]。 

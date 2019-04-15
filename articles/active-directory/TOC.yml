@@ -1,0 +1,169 @@
+items:
+- name: Azure Active Directory 文档
+  href: index.md
+- name: 概述
+  items:
+  - name: 什么是 Azure Active Directory？
+    href: fundamentals/active-directory-whatis.md
+  - name: 了解 Azure 标识解决方案
+    href: fundamentals/understand-azure-identity-solutions.md
+  - name: 常见问题
+    href: fundamentals/active-directory-faq.md
+- name: 入门
+  items:
+  - name: 添加自定义域名
+    href: fundamentals/add-custom-domain.md
+  - name: 将用户添加到 Azure AD
+    href: fundamentals/add-users-azure-active-directory.md
+  - name: 在 Azure AD 中添加组织的隐私信息
+    href: active-directory-properties-area.md
+  - name: 访问 Azure Active Directory 以创建新租户
+    href: fundamentals/active-directory-access-create-new-tenant.md
+- name: 如何
+  items:
+  - name: 规划和设计
+    items:
+    - name: 了解 Azure AD 体系结构
+      href: fundamentals/active-directory-architecture.md
+  - name: 管理用户
+    items:
+    - name: 将新用户添加到 Azure AD
+      href: fundamentals/add-users-azure-active-directory.md
+    - name: 管理用户个人资料
+      href: fundamentals/active-directory-users-profile-azure-portal.md
+    - name: 重置用户密码
+      href: fundamentals/active-directory-users-reset-password-azure-portal.md
+    - name: 将用户分配到管理员角色
+      href: fundamentals/active-directory-users-assign-role-azure-portal.md
+  - name: 管理组和成员
+    href: fundamentals/active-directory-manage-groups.md
+    items:
+    - name: 管理组
+      href: fundamentals/active-directory-groups-create-azure-portal.md
+    - name: 删除组及其成员
+      href: fundamentals/active-directory-groups-delete-group.md
+    - name: 管理组设置
+      href: fundamentals/active-directory-groups-settings-azure-portal.md
+  - name: 管理报表
+    href: reports-monitoring/overview-reports.md
+    items:
+    - name: 审核活动
+      href: reports-monitoring/concept-audit-logs.md
+    - name: 任务
+      items:
+      - name: 下载审核报表
+        href: reports-monitoring/quickstart-download-audit-report.md
+    - name: 参考
+      items:
+      - name: 延迟
+        href: reports-monitoring/reference-reports-latencies.md
+      - name: 审核活动参考
+        href: reports-monitoring/reference-audit-activities.md
+      - name: 解释 Azure Monitor 中的审核日志架构
+        href: reports-monitoring/reference-azure-monitor-audit-log-schema.md
+    - name: 故障排除
+      items:
+      - name: 在 Azure AD 活动日志中缺少数据
+        href: reports-monitoring/troubleshoot-missing-audit-data.md
+  - name: 管理应用
+    items:
+    - name: 管理企业应用
+      items:
+      - name: 查看租户应用
+        href: manage-apps/view-applications-portal.md
+      - name: 分配用户
+        href: manage-apps/assign-user-or-group-access-portal.md
+      - name: 自定义品牌
+        href: manage-apps/change-name-or-logo-portal.md
+      - name: 禁用用户登录
+        href: manage-apps/disable-user-sign-in-portal.md
+      - name: 删除用户
+        href: manage-apps/remove-user-or-group-access-portal.md
+    - name: 了解 Azure AD 应用程序许可体验
+      href: develop/application-consent-experience.md
+    - name: 故障排除
+      items:
+      - name: 应用程序注册
+        items:
+        - name: 为应用程序对象填写字段
+          href: develop/registration-config-specific-application-property-how-to.md
+      - name: 身份验证
+        items:
+        - name: 配置终结点
+          href: develop/registration-config-how-to.md
+      - name: 查找 API
+        items:
+        - name: 查找 API
+          href: develop/api-find-an-api-how-to.md
+      - name: 管理访问权限
+        items:
+        - name: 为应用分配用户和组
+          href: manage-apps/methods-for-assigning-users-and-groups.md
+        - name: 分配了意外的用户
+          href: manage-apps/ways-users-get-assigned-to-applications.md
+        - name: 应用程序列表中的意外应用
+          href: manage-apps/application-types.md
+      - name: 多租户应用
+        items:
+        - name: 配置新应用
+          href: develop/setup-multi-tenant-app.md
+      - name: 权限
+        items:
+        - name: 选择 API 的权限
+          href: develop/perms-for-given-api.md
+        - name: 委派权限与应用程序权限
+          href: develop/delegated-and-app-perms.md
+        - name: 应用程序许可
+          href: develop/consent-framework.md
+      - name: 用户登录问题
+        items:
+        - name: 意外的许可提示
+          href: manage-apps/application-sign-in-unexpected-user-consent-prompt.md
+        - name: “用户同意”错误
+          href: manage-apps/application-sign-in-unexpected-user-consent-error.md
+        - name: 登录到 Microsoft 应用时出现问题
+          href: manage-apps/application-sign-in-problem-first-party-microsoft.md
+        - name: 登录自定义开发的应用时出现的问题
+          href: manage-apps/application-sign-in-problem-custom-dev.md
+  - name: 管理目录
+    items:
+    - name: 具有 Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: 自定义域名
+      items:
+      - name: 快速入门
+        href: fundamentals/add-custom-domain.md
+    - name: 管理目录
+      href: fundamentals/active-directory-administer.md
+    - name: 使用 Azure AD Connect 集成本地标识
+      href: hybrid/whatis-hybrid-identity.md
+- name: 参考
+  items:
+  - name: Azure PowerShell cmdlet
+    href: https://docs.microsoft.com/powershell/azure/overview
+  - name: Java API 参考
+    href: /java/
+- name: 相关内容
+  items:
+  - name: 多重身份验证
+    href: /multi-factor-authentication/
+  - name: 具有 Azure AD Connect
+    href: hybrid/whatis-hybrid-identity.md
+  - name: 适用于开发人员的 Azure AD
+    href: ./develop/active-directory-how-to-integrate.md
+- name: 资源
+  items:
+  - name: Azure 反馈论坛
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: 定价
+    href: https://www.azure.cn/pricing/details/active-directory/
+  - name: 定价计算器
+    href: https://www.azure.cn/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+ms.openlocfilehash: 3ebca34ba7e478247a1ad89167a83ef30a561c7a
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503406"

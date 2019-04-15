@@ -11,16 +11,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 237eeecc772acf848d4ccbc4a231f46d5f58a093
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 75958b550ef278eeb56a3732c35c26ac1e68b40c
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348016"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529149"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教程：利用 Azure 资源管理器模板参考
 
@@ -35,9 +35,11 @@ ms.locfileid: "58348016"
 > [!div class="checklist"]
 > * 打开快速入门模板
 > * 了解模板
-> * 查找模板参考
+
 > * 编辑模板
 > * 部署模板
+
+<!--MOONCAKE: Not Available on > * Find the template reference-->
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8cfaf43bac2ea2a8812db80284999f2d2739657a
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: aff0902c46f72432aca3c9f571f7be3bf33c5acd
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352511"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529227"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>删除 Azure 容器注册表中的容器映像
 

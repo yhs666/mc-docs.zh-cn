@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sstein
 manager: digimobile
 origin.date: 12/18/2018
-ms.date: 03/11/2019
-ms.openlocfilehash: f32136d6f7076c49dfb4983f69fb65714e10ac7b
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 04/15/2019
+ms.openlocfilehash: 7ed670b8f924157de5826eb3b7c366d2768e24ef
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347123"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529216"
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
 
@@ -84,17 +84,17 @@ ms.locfileid: "57347123"
 3. [在服务配置文件中更新 CA 证书](#update-ca-certificate-in-service-configuration-file)
 4. [颁发客户端证书](#issue-client-certificates)
 5. [为客户端证书创建 PFX 文件](#create-pfx-files-for-client-certificates)
-6. [导入客户端证书](#Import-Client-Certificate)
+6. [导入客户端证书](#import-client-certificate)
 7. [复制客户端证书指纹](#copy-client-certificate-thumbprints)
 8. [在服务配置文件中配置允许的客户端](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>使用现有客户端证书
 1. [查找 CA 公钥](#find-ca-public-key)
-2. [将 CA 证书上传到云服务](#Upload-CA-certificate-to-cloud-service)
-3. [在服务配置文件中更新 CA 证书](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [复制客户端证书指纹](#Copy-Client-Certificate-Thumbprints)
+2. [将 CA 证书上传到云服务](#upload-ca-certificate-to-cloud-service)
+3. [在服务配置文件中更新 CA 证书](#update-ca-certificate-in-service-configuration-file)
+4. [复制客户端证书指纹](#copy-client-certificate-thumbprints)
 5. [在服务配置文件中配置允许的客户端](#configure-allowed-clients-in-the-service-configuration-file)
-6. [配置客户端证书吊销检查](#Configure-Client-Certificate-Revocation-Check)
+6. [配置客户端证书吊销检查](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>允许的 IP 地址
 可将对服务终结点的访问限制为特定范围的 IP 地址。

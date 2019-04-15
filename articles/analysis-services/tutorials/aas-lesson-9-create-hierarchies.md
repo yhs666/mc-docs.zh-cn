@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a499180658c869655a287042f87293c500abf741
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cf3fcfc7f35a7bfe82ae818fddbb3190671a782b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626243"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529336"
 ---
 # <a name="create-hierarchies"></a>创建层次结构
 
@@ -54,26 +54,27 @@ ms.locfileid: "58626243"
 
 2. 按顺序添加以下列：
 
-   *  CalendarYear
-   *  CalendarSemester
-   *  CalendarQuarter
-   *  MonthCalendar
-   *  DayNumberOfMonth
+    *  CalendarYear
+    *  CalendarSemester
+    *  CalendarQuarter
+    *  MonthCalendar
+    *  DayNumberOfMonth
 
 3. 在“DimDate”表中，创建“Fiscal”层次结构。 按顺序包括以下列：  
 
-   *  FiscalYear
-   *  FiscalSemester
-   *  FiscalQuarter
-   *  MonthCalendar
-   *  DayNumberOfMonth
+    *  FiscalYear
+    *  FiscalSemester
+    *  FiscalQuarter
+    *  MonthCalendar
+    *  DayNumberOfMonth
 
 4. 最后，在“DimDate”表中，创建“ProductionCalendar”层次结构。 按顺序包括以下列：  
-   *  CalendarYear
-   *  WeekNumberOfYear
-   *  DayNumberOfWeek
+    
+    *  CalendarYear
+    *  WeekNumberOfYear
+    *  DayNumberOfWeek
 
-   ## <a name="whats-next"></a>后续步骤
-   [第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
+## <a name="whats-next"></a>后续步骤
+[第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
 
 <!--Update_Description: update meta properties -->

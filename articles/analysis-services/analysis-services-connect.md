@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 03/29/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 43a1326d4445c49572d0a76cbcb6b7bdb408ce03
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 7cb318b0edb890f3a16267424af41d1be1c31742
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085627"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529173"
 ---
 # <a name="connecting-to-servers"></a>连接到服务器
 
@@ -40,6 +40,8 @@ ms.locfileid: "55085627"
 在 **Azure 门户**中，单击“服务器”>“概述” > “服务器名称”，并复制整个服务器名称。 如果组织中的其他用户也要连接此服务器，则可以将此服务器名称与他们共享。 指定服务器名称时，必须使用完整路径。
 
 ![在 Azure 中获取服务器名称](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+<!--MOONCAKE: Not Available on The protocol for East US 2 region is **aspaaschinaeast2**.-->
 
 ## <a name="connection-string"></a>连接字符串
 

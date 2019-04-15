@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: e9c09a7ee5a7b54d06b4e5b85680504ad819a4b6
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 91edc3094f6a763923d5422569bea98b2cf655f1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003460"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529160"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -31,7 +31,7 @@ ms.locfileid: "59003460"
 
   || 单一数据库 |
   |:--- |:--- |
-  | 创建| [门户](sql-database-single-database-get-started.md) |
+  | 创建| [Portal](sql-database-single-database-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
   | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
@@ -69,7 +69,7 @@ ms.locfileid: "59003460"
    | **服务器类型** | 数据库引擎 | 所需的值。 |
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |
    | **身份验证** | SQL Server 身份验证 | 本教程使用 SQL 身份验证。 |
-   | **登录** | 服务器管理员帐户用户 ID | 用于创建服务器的服务器管理员帐户的用户 ID。 |
+   | **登录名** | 服务器管理员帐户用户 ID | 用于创建服务器的服务器管理员帐户的用户 ID。 |
    | **密码** | 服务器管理员帐户密码 | 用于创建服务器的服务器管理员帐户的密码。 |
    ||||
 

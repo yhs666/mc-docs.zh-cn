@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: bd274f87e1e53c4f13ee71a228c2ac5db5244ced
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: bf8c35f032ac30eee3266d7485ddef0e5d1b1baf
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352500"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529354"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure 容器注册表中的容器映像存储
 

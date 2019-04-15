@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 09/24/2018
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89d2e1b766e7e90fb40c5b7a6226ef6057cc8f3f
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: a15e3d8b693e762e32433b11e3d3f903378bdce8
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352504"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529355"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>使用 Azure 容器注册表作为应用程序图表的 Helm 存储库
 

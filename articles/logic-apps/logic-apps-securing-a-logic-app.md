@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 02/05/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 9a510a492826dd2088b71fbafe1b85e139bcba09
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 26c48d05a7bf7aa598d7e41ecf08033333dfe763
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625813"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529215"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>保护 Azure 逻辑应用中的访问
 
@@ -57,7 +57,7 @@ ms.locfileid: "58625813"
 以下是有关使用共享访问签名保护访问权限的详细信息：
 
 * [重新生成访问密钥](#access-keys)
-* [创建具有到期日期的回调 URL](#)
+* [创建具有到期日期的回调 URL](#expiring-urls)
 * [使用主密钥或辅助密钥创建 URL](#primary-secondary-key)
 
 <a name="access-keys"></a>
@@ -72,7 +72,7 @@ ms.locfileid: "58625813"
 
 1. 选择要重新生成的密钥并完成生成过程。
 
-<a name="expiring-URLs"></a>
+<a name="expiring-urls"></a>
 
 #### <a name="create-callback-urls-with-expiration-dates"></a>创建附带到期日期的回调 URL
 
@@ -161,8 +161,9 @@ POST
 
 要仅允许特定用户或组在逻辑应用上运行操作，可以限制对管理、编辑和查看等任务的访问权限。 逻辑应用支持 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，你可以为订阅中的成员自定义或分配内置角色，例如：
 
-* **逻辑应用参与者**：用户可以查看、编辑和更新逻辑应用。 该角色无法删除逻辑应用或运行管理员操作。
-* **逻辑应用操作员**：用户可以查看逻辑应用和运行历史记录，并启用或禁用逻辑应用。 该角色无法编辑或更新逻辑应用。
+* [逻辑应用参与者](../role-based-access-control/built-in-roles.md#logic-app-contributor)：用户可以查看、编辑和更新逻辑应用。 
+
+* [逻辑应用操作员](../role-based-access-control/built-in-roles.md#logic-app-operator)：用户可以查看逻辑应用和运行历史记录，并启用或禁用逻辑应用。 该角色无法编辑或更新逻辑应用。
 
 要防止他人更改或删除逻辑应用，可以使用 [Azure 资源锁](../azure-resource-manager/resource-group-lock-resources.md)。 此功能可以帮助防止他人更改或删除生产资源。
 

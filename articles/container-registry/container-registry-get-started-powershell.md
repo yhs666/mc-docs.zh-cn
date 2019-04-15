@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: fef5b3e7afe34fbe250c4aa26a02b75a37ca7f2d
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: 4397369db29ad0e3ce30d04ea534a3e0fbee20da
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352509"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529425"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建专用容器注册表
 
@@ -88,7 +88,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 Azure PowerShell 创建 Azure 容器注册表、推送容器映像，以及提取和运行注册表中的映像。 请继续阅读 Azure 容器注册表教程，以更深入地了解 ACR。
+本快速入门介绍了如何使用 Azure PowerShell 创建 Azure 容器注册表、推送容器映像，以及提取和运行注册表中的映像。
 
 <!--Not Available on  Continue to the Azure Container Registry tutorials for a deeper look at ACR.-->
 <!--Not Available on  > [!div class="nextstepaction"]-->

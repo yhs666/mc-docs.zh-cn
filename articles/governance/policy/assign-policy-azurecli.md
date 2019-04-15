@@ -1,21 +1,20 @@
 ---
 title: 使用 Azure CLI 创建策略以识别不符合的资源
 description: 使用 Azure CLI 创建 Azure Policy 分配以识别不符合的资源。
-services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 03/11/2019
+ms.date: 04/22/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9c49b74839de7b87631c7f5c526abcb499043651
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 8e6c4ee9ebe01e5a877e01d4bd4ab612a44f5cf3
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903081"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471966"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>使用 Azure CLI 创建策略分配以识别不符合的资源
 
@@ -57,7 +56,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 - **名称** - 分配的实际名称。  对于此示例，使用 *audit-vm-manageddisks*。
 - **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”。
-- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID。 若要获取策略定义 ID，请运行以下命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID。 若要获取策略定义 ID，请运行以下命令： `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **范围** - 范围确定在其中实施策略分配的资源或资源组。 它可以从订阅延伸至资源组。 请务必将 &lt;scope&gt; 替换为资源组的名称。
 
 ## <a name="identify-non-compliant-resources"></a>识别不合规的资源
@@ -117,7 +116,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 本快速入门已分配一个策略定义用于识别 Azure 环境中的不合规资源。
 
-若要详细了解如何分配策略并确保**将来**创建的资源合规，请继续学习以下教程：
+要了解有关分配策略以验证新资源是否符合要求的详细信息，请继续以下教程：
 
 > [!div class="nextstepaction"]
 > [创建和管理策略](./tutorials/create-and-manage.md)

@@ -4,7 +4,7 @@ description: 了解如何通过使用 Visual Studio Code 连接到 Azure 上的 
 keywords: 连接到 sql 数据库
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/11/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: e9bda96379e8b45b572141cbfb1cf7ad016b7009
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: daac4b630d1910a543c0ec84c3b6a83d6b1531fc
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347127"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529424"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 Visual Studio Code 连接和查询 Azure SQL 数据库
 
@@ -46,7 +46,7 @@ ms.locfileid: "57347127"
 
 ### <a name="mac-os"></a>**Mac OS**
 
-对于 macOS，需安装 OpenSSL，这是 mssql 扩展所使用的 .Net Core 的先决条件。 打开终端并输入以下命令，以便安装 **brew** 和 **OpenSSL**。 
+对于 macOS，需安装 OpenSSL，这是 mssql 扩展所使用的 .NET Core 的先决条件。 打开终端并输入以下命令，以便安装 **brew** 和 **OpenSSL**。 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

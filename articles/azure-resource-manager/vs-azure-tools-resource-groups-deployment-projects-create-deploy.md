@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/21/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: b869d92616d5cfd678ac33837dfffd0f8180cf36
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6a1fa736f72867f9b9ad57effa30e5af0c3ffbbd
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627464"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529204"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 
 使用 Visual Studio 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，并将该基础结构与代码一起部署。 Visual Studio 许多不同的入门模板用于部署常见方案。 本文部署 Web 应用和 SQL 数据库。  
 
 本文介绍如何使用[装有 Azure 开发和 ASP.NET 工作负荷的 Visual Studio 2017](https://docs.azure.cn/zh-cn/dotnet/dotnet-tools?view=azure-dotnet)。 如果使用 Visual Studio 2015 Update 2 以及用于 .NET 2.9 的 Azure SDK，或者将 Visual Studio 2013 与 Azure SDK 2.9 配合使用，则体验大致相同。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>创建 Azure 资源组项目
 
@@ -149,7 +151,7 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时可用�
     > [!NOTE]
     > Visual Studio 可能会要求安装 Azure PowerShell cmdlet。 如果出现提示，请安装 Azure PowerShell cmdlet。 需要安装 Azure PowerShell 模块才能成功部署资源组。 项目中的 PowerShell 脚本不使用新的 [Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。 
     >
-    > 有关详细信息，请参阅[安装和配置 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。
+    > 有关详细信息，请参阅[安装和配置 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
     > 
     > 
 6. 部署可能需要几分钟的时间。 在“输出”  窗口中，可以看到部署的状态。 完成部署后，最后一条消息指示部署成功，其内容与下面的消息类似：
@@ -194,9 +196,9 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时可用�
 
     属性包括：
 
-   * “其他属性”包含要推送到 Azure 存储的 Web 部署包暂存位置。 请记下文件夹 (ExampleApp) 和文件 (package.zip)。 用户需要知道这些值，因为在部署应用时需提供这些值作为参数。 
-   * “包含文件路径”包含创建包所在的路径。 “包含目标”包含部署执行的命令。 
-   * 默认值“生成并打包”可让部署生成并创建 Web 部署包 (package.zip)。  
+    * “其他属性”包含要推送到 Azure 存储的 Web 部署包暂存位置。 请记下文件夹 (ExampleApp) 和文件 (package.zip)。 用户需要知道这些值，因为在部署应用时需提供这些值作为参数。 
+    * “包含文件路径”包含创建包所在的路径。 “包含目标”包含部署执行的命令。 
+    * 默认值“生成并打包”可让部署生成并创建 Web 部署包 (package.zip)。  
 
      不需要使用发布配置文件，因为部署将从属性中获取所需的信息来创建包。
 7. 返回到 WebSiteSQLDatabase.json，向模板添加资源。
@@ -212,10 +214,10 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时可用�
     对于“项目存储帐户” ，请选择部署此资源组时所用的帐户。
 10. 部署完成后，请在门户中选择 Web 应用。 选择 URL，浏览到站点。
 
-     ![浏览站点](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+    ![浏览站点](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
 11. 请注意已成功部署默认的 ASP.NET 应用程序。
 
-     ![显示已部署的应用](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![显示已部署的应用](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="add-an-operations-dashboard-to-your-deployment"></a>将操作仪表板添加到部署
 并不仅限于通过 Visual Studio 界面提供的资源。 可将自定义资源添加到模板来自定义部署。 若要显示如何添加资源，请添加一个操作仪表板来管理部署的资源。

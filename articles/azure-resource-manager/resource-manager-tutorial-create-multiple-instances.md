@@ -10,20 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 11/13/2018
-ms.date: 02/18/2019
+origin.date: 03/04/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 95373c9b57901d330745412a0f2093a5df3a517d
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 0e5ecfbf518daa636d6a137dcd7d3763eb008304
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348182"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529171"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
 
 了解如何在 Azure 资源管理器模板中进行迭代操作，以创建 Azure 资源的多个实例。 在本教程中，你将修改一个模板，以便创建三个存储帐户实例。
+
+![“Azure 资源管理器创建多个实例”示意图](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 本教程涵盖以下任务：
 
@@ -157,9 +159,9 @@ Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，我们已了解如何创建多个存储帐户实例。 下一教程介绍如何在资源组之间移动资源。
+在本教程中，我们已了解如何创建多个存储帐户实例。  在下一篇教程中，我们将开发包含多个资源和多个资源类型的模板。 某些资源具有依赖的资源。
 
 > [!div class="nextstepaction"]
-> [移动资源](./resource-manager-tutorial-move-resources.md)
+> [创建依赖资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
 <!-- Update_Description: wording update, update meta properties, update link -->

@@ -83,7 +83,7 @@ items:
 - name: 参考
   items:
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.dns
+    href: https://docs.microsoft.com/powershell/module/az.dns
   - name: Azure CLI
     href: /cli/network/dns
   - name: .NET
@@ -118,9 +118,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/dns/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/
-ms.openlocfilehash: 28db524a184a11e9f752b014a018dd77351c5088
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 773ed7b4964b97e129bd6f386fb185583ec236d6
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663542"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502612"

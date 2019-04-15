@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 03/11/2019
-ms.openlocfilehash: 5ce6d360e1e53de7379a2fab20c059b811bb6ed5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 0cfc39668fc5b812ae550badb62e451ef0903b9a
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625688"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529467"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -55,7 +55,7 @@ ms.locfileid: "58625688"
 可使用以下选项之一联系我们：
 
 * 在 [API 管理 MSDN 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt)中发布问题。
-* 向 <apimgmt@microsoft.com> 发送电子邮件。
+* 向 <mailto:apimgmt@microsoft.com> 发送电子邮件。
 * 在 [Azure 反馈论坛](https://feedback.azure.com/forums/248703-api-management)中向我们发送功能请求。
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>功能处于预览状态意味着什么？
@@ -98,7 +98,7 @@ ms.locfileid: "58625688"
 4. 使用 URL 访问管理门户。
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>想要添加的策略为何在策略编辑器中不可用？
-如果要添加的策略在策略管理器中显示为变暗或有阴影，请确保你处于该策略的正确范围内。 每个策略声明都设计为在特定范围和策略部分中使用。 若要查看策略部分和策略范围，请参阅 [API 管理策略](https://msdn.microsoft.com/library/azure/dn894080.aspx)中的策略的用法部分。
+如果要添加的策略在策略管理器中显示为变暗或有阴影，请确保你处于该策略的正确范围内。 每个策略声明都设计为在特定范围和策略部分中使用。 若要查看策略部分和策略范围，请参阅 [API 管理策略](/api-management/api-management-policies)中的策略的用法部分。
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在单个 API 中设置多个环境？
 若要在单个 API 中设置多个环境（例如，一个测试环境和一个生产环境），则有两个选项。 方法：

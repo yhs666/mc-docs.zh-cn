@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/23/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1fb8a828c6ea92a63e33b7703225999e0a13eaae
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 2708a81104c781ebcf507dbaa20fda98533f727e
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348105"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529256"
 ---
-# <a name="view-activity-logs-to-audit-actions-on-resources"></a>查看活动日志，以便审核对资源的操作
+# <a name="view-activity-logs-to-audit-actions-on-resources"></a>查看活动日志以审核对资源的操作
 
 通过活动日志，可以确定：
 
@@ -38,7 +38,7 @@ ms.locfileid: "58348105"
 
 ## <a name="the-azure-portal"></a>Azure 门户
 
-1. 若要通过门户查看活动日志，请选择“监视” 。
+1. 若要通过门户查看活动日志，请选择“监视”。
 
     ![选择“监视”](./media/resource-group-audit/select-monitor.png)
 
@@ -168,7 +168,7 @@ ms.locfileid: "58348105"
 
 ## <a name="rest-api"></a>REST API
 
-用于处理活动日志的 REST 操作是 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)的一部分。 若要检索活动日志事件，请参阅 [列出订阅中的管理事件](https://msdn.microsoft.com/library/azure/dn931934.aspx)。
+用于处理活动日志的 REST 操作是 [Insights REST API](https://docs.microsoft.com/rest/api/monitor/)的一部分。 若要检索活动日志事件，请参阅 [列出订阅中的管理事件](https://docs.microsoft.com/rest/api/monitor/activitylogs)。
 
 ## <a name="next-steps"></a>后续步骤
 

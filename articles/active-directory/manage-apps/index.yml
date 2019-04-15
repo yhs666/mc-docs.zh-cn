@@ -1,20 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f9c78fc4ffeb22e5c981354dd76ec46dae13b0f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645901"
 documentType: LandingData
 title: 应用程序管理文档
 metadata:
-  title: Azure Active Directory 应用程序管理文档
-  meta.description: Learn how to manage and deploy applications with Azure Active Directory.
+  title: Azure AD 应用程序管理文档 - Azure Active Directory
+  description: 了解如何使用 Azure Active Directory 管理和部署应用程序。
   services: active-directory
   author: barbkess
   manager: mtillman
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
 origin.date: 09/14/2018
@@ -23,14 +17,14 @@ ms.author: v-junlch
 abstract:
   description: 了解如何使用 Azure Active Directory 管理和部署应用程序。
 sections:
-- title: 5 分钟快速入门
-  items:
-  - type: paragraph
-    text: 了解如何查看用户通过 Azure Active Directory 访问的应用程序。
-  - type: list
-    style: icon48
+  - title: 5 分钟快速入门
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 查看应用程序
-      href: /active-directory/manage-apps/view-applications-portal
+      - type: paragraph
+        text: 了解如何查看用户通过 Azure Active Directory 访问的应用程序。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: 查看应用程序
+            href: /active-directory/manage-apps/view-applications-portal

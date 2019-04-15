@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3d685f50c27bbf909a192041a872a3129bb6a0f8
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a2f25a218b76f72e12b356703ab3fe1f95700444
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005120"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529118"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源
 
@@ -26,7 +26,7 @@ ms.locfileid: "58005120"
 有关资源管理的其他文章：
 
 - [使用 Azure 门户管理 Azure 资源](./manage-resources-portal.md)
-- [使用 Azure PowerShell 管理 Azure 资源](./manage-resources-powershell.md)
+- [使用 Azure CLI 管理 Azure 资源](./manage-resources-cli.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>将资源部署到现有的资源组
 
@@ -34,7 +34,7 @@ ms.locfileid: "58005120"
 
 ### <a name="deploy-a-resource"></a>部署资源
 
-以下脚本可创建存储帐户。
+以下脚本创建一个存储帐户。
 
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -74,7 +74,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="delete-resources"></a>删除资源
 
-以下脚本显示了如何删除存储帐户。
+以下脚本演示如何删除存储帐户。
 
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -83,7 +83,7 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 Remove-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
 ```
 
-若要详细了解 Azure 资源管理器如何管理资源的删除，请参阅 [Azure 资源管理器资源组的删除](./resource-group-delete.md)。
+若要详细了解 Azure 资源管理器如何控制资源的删除，请参阅 [Azure 资源管理器资源组的删除](./resource-group-delete.md)。
 
 ## <a name="move-resources"></a>移动资源
 
@@ -106,7 +106,7 @@ Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId
 
 锁定可以防止组织中的其他用户意外删除或修改关键资源，例如 Azure 订阅、资源组或资源。 
 
-以下脚本锁定了一个存储帐户，因此无法删除该帐户。
+以下脚本锁定一个存储帐户，因此无法删除该帐户。
 
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -138,7 +138,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="tag-resources"></a>标记资源
 
-标记有助于按逻辑方式组织资源组和资源。 有关信息，请参阅[使用标记来组织 Azure 资源](./resource-group-using-tags.md#powershell)。
+标记有助于按逻辑方式组织资源组和资源。 有关信息，请参阅[使用标记组织 Azure 资源](./resource-group-using-tags.md#powershell)。
 
 ## <a name="manage-access-to-resources"></a>管理对资源的访问
 
@@ -152,5 +152,4 @@ Remove-AzResourceLock -LockId $lockId
 - 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
 <!--Pending Verify-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

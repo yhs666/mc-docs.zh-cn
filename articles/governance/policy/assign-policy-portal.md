@@ -1,21 +1,20 @@
 ---
-title: 创建策略以识别不合规资源
+title: 创建策略以识别不符合的资源
 description: 本文引导你完成创建策略定义的步骤，以识别不合规的资源。
-services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 01/14/2019
+ms.date: 04/22/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f8b7ce4daf686e6d0c384755edf2656e20c36161
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: 88d4cc4fd09eb9316a0042af481398479bdf17c5
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996258"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471965"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>创建策略分配以识别不合规资源
 
@@ -32,15 +31,15 @@ ms.locfileid: "53996258"
 
 1. 在 Azure 门户中单击“所有服务”，然后搜索并选择“策略”，启动 Azure Policy 服务。
 
-   ![搜索策略](./media/assign-policy-portal/search-policy.png)
+   ![在所有服务中搜索策略](./media/assign-policy-portal/search-policy.png)
 
 1. 选择“Azure Policy”页左侧的“分配”。 分配即为在特定范围内分配策略以供执行。
 
-   ![选择分配](./media/assign-policy-portal/select-assignments.png)
+   ![从“策略概述”页选择“分配”页](./media/assign-policy-portal/select-assignments.png)
 
 1. 在“策略 - 分配”页的顶部选择“分配策略”。
 
-   ![分配策略定义](./media/assign-policy-portal/select-assign-policy.png)
+   ![从“分配”页分配策略](./media/assign-policy-portal/select-assign-policy.png)
 
 1. 在“分配策略”页上，通过单击省略号并选择管理组或订阅，选择“范围”。 或者，请选择一个资源组。 范围用于确定对其强制执行策略分配的资源或资源组。  然后在“范围”页的底部单击“选择”。
 
@@ -71,7 +70,7 @@ ms.locfileid: "53996258"
 
 选择页面左侧的“符合性”。 然后找到所创建的“审核未使用托管磁盘的 VM”策略分配。
 
-![策略符合性](./media/assign-policy-portal/policy-compliance.png)
+![“策略符合性”页上的符合性详细信息](./media/assign-policy-portal/policy-compliance.png)
 
 如果存在与此新分配不相符的任何现有资源，这些资源会在“不符合的资源”下显示。
 
@@ -94,7 +93,7 @@ ms.locfileid: "53996258"
 
 1. 右键单击“审核未使用托管磁盘的 VM”策略分配并选择“删除分配”。
 
-   ![删除分配](./media/assign-policy-portal/delete-assignment.png)
+   ![从“符合性”页中删除分配](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,19 +3,18 @@ title: include 文件
 description: include 文件
 services: azure-resource-manager
 author: rockboyfor
-manager: digimobile
 ms.service: azure-resource-manager
 ms.topic: include
 origin.date: 02/19/2018
-ms.date: 03/26/2018
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8e12c9944c72bddb0cc81efb79cd78e6c660544c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fe3dbc849f32f1d4003333257bdf06aa2d5a232c
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627776"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532682"
 ---
 将资源部署到 Azure 时，可以灵活选择想要部署的资源类型、资源的位置以及对它们的设置方式。 但是，除了你想要在组织中允许的选项，这种灵活性可能还会开放更多其他选项。 在考虑将资源部署到 Azure 时，你可能想知道以下问题：
 

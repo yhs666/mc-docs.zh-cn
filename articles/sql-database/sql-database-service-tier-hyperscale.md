@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据超大规模库概述 | Microsoft Docs
+title: 超大规模 Azure SQL 数据库概述 | Microsoft Docs
 description: 本文介绍 Azure SQL 数据库中基于 vCore 的采购模型中的超大规模服务层，并说明它与常规用途服务层和业务关键服务层的不同之处。
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 70fc83bf8c4d868f58c0331645c644930a961d5b
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 04/04/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 7e3fbc9ca5bd9517bc495903116ac291eaa01292
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347079"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529299"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>支持高达 100 TB 的超大规模服务层（预览版）
 
@@ -34,8 +34,6 @@ Azure SQL 数据库中的超大规模服务层是基于 vCore 的采购模型中
 > 超大规模服务层目前提供公共预览版，仅可在有限的 Azure 区域中使用。 要获取完整的区域列表，请参阅[超大规模服务层可用区域](#available-regions)。 我们尚不建议在超大规模数据库中运行任何生产工作负荷。 无法将超大规模数据库更新为其他服务层。 出于测试目的，我们建议创建当前数据库的副本，并将副本更新为超大规模服务层。
 > [!NOTE]
 > 有关基于 vCore 的购买模型中的常规用途服务层和业务关键服务层的详细信息，请参阅[常规用途](sql-database-service-tier-general-purpose.md)服务层和[业务关键](sql-database-service-tier-business-critical.md)服务层。 有关基于 vCore 购买模型与基于 DTU 购买模型的比较，请参阅 [Azure SQL 数据库购买模型和资源](sql-database-purchase-models.md)。
-> [!IMPORTANT]
-> 超大规模服务层目前提供公共预览版。 我们尚不建议在超大规模数据库中运行任何生产工作负荷。 无法将超大规模数据库更新为其他服务层。 出于测试目的，我们建议创建当前数据库的副本，并将副本更新为超大规模服务层。
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>超大规模层具有哪些功能
 

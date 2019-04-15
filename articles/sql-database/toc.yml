@@ -78,6 +78,7 @@ items:
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
   - name: Azure Resource Manager
+    displayName: ARM template
     href: sql-database-resource-manager-samples.md
 - name: 概念
   items:
@@ -135,7 +136,7 @@ items:
         href: sql-database-dtu-resource-limits-elastic-pools.md
       - name: 缩放资源
         href: sql-database-elastic-pool-scale.md
-    - name: 创建和管理
+    - name: 管理池资源
       href: sql-database-elastic-pool-manage.md
   - name: 平台即服务
     items:
@@ -174,6 +175,7 @@ items:
     - name: 安全概述
       href: sql-database-security-index.yml
     - name: 安全功能
+      displayName: compliance, fedramp
       href: sql-database-security-overview.md
     - name: 高级数据安全
       items:
@@ -183,7 +185,7 @@ items:
         href: sql-database-data-discovery-and-classification.md
       - name: 漏洞评估
         href: sql-vulnerability-assessment.md
-      - name: 威胁检测
+      - name: 高级威胁防护
         href: sql-database-threat-detection-overview.md
     - name: 服务器级别 IP 防火墙规则
       items:
@@ -217,6 +219,12 @@ items:
         href: sql-database-always-encrypted.md
       - name: 使用 Azure Key Vault
         href: sql-database-always-encrypted-azure-key-vault.md
+    - name: 透明数据加密 (TDE)
+      items:
+      - name: 将 TDE 与 Azure SQL 配合使用
+        href: transparent-data-encryption-azure-sql.md
+      - name: 将 TDE 与自带密钥配合使用
+        href: transparent-data-encryption-byok-azure-sql.md
   - name: 可伸缩性
     items:
     - name: 可伸缩性概述
@@ -417,6 +425,12 @@ items:
       href: sql-database-ssms-mfa-authentication-configure.md
     - name: 配置时态保留策略
       href: sql-database-temporal-tables-retention-policy.md
+    - name: 为 TDE 配置 BYOK
+      href: transparent-data-encryption-byok-azure-sql-configure.md
+    - name: 轮换 TDE BYOK 密钥
+      href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+    - name: 删除 TDE 保护器
+      href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
     - name: 配置内存中 OLTP
       href: sql-database-in-memory-oltp-migration.md
     - name: Azure 自动化
@@ -428,11 +442,11 @@ items:
     - name: 处理 JSON 数据
       href: sql-database-json-features.md
     - name: 使用 ASP.NET 应用服务
-      href: /app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
+      href: /app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/sql-database/toc.json
     - name: 使用 Azure Functions
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/sql-database/toc.json
     - name: 使用 Azure 逻辑应用
-      href: /connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
+      href: /connectors/connectors-create-api-sqlazure?toc=/sql-database/toc.json
     - name: 使用 Spark 连接器
       href: sql-database-spark-connector.md
     - name: 应用身份验证
@@ -490,6 +504,7 @@ items:
   - name: REST
     href: https://docs.microsoft.com/rest/api/sql/
   - name: 用于 SQL 的资源管理器模板
+    displayName: ARM
     href: https://docs.microsoft.com/azure/templates/microsoft.sql/allversions
   - name: SQL Server 工具
     href: https://docs.microsoft.com/sql/tools/overview-sql-tools
@@ -522,9 +537,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: d1dca4aaf9fa02a3813a8029cf891dcb12cf923e
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: 3f3081c03c4a9b1759cbed2e6afd4893be0fd0c1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003466"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529448"

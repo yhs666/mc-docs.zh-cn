@@ -11,20 +11,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/11/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08c1a3dc0981831a672f6fc881190571dc0de4ed
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ef54fbb6ed4a0d99d25842463ab28eeeda9b496e
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625534"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529191"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
 
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。
 
 本文面向对资源管理器模板有一定了解的用户， 其中提供了有关模板结构和语法的详细信息。 有关创建模板的简介，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>模板格式
 
@@ -168,6 +170,7 @@ ms.locfileid: "58625534"
   }
 ]
 ```
+
 ### <a name="template-functions-with-parameters"></a>包含参数的模板函数
 
 为参数指定默认值时，可以使用大多数模板函数。 可以使用另一个参数值生成默认值。 以下模板演示了如何在默认值中使用函数：
@@ -228,6 +231,7 @@ ms.locfileid: "58625534"
 ```
 
 然后，使用点运算符引用参数的子属性。
+
 ```json
 "resources": [
   {
@@ -747,6 +751,7 @@ ms.locfileid: "58625534"
   }
 }
 ```
+
 有关条件输出的简单示例，请参阅[条件输出模板](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)。
 
 部署以后，可以使用脚本来检索该值。 对于 PowerShell，请使用：
@@ -878,7 +883,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 1. 选择“带注释的 JSON”。
 
-   ![选择语言模式](./media/resource-group-authoring-templates/select-json-comments.png)
+    ![选择语言模式](./media/resource-group-authoring-templates/select-json-comments.png)
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
@@ -886,7 +891,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
 * 若要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
-  <!--Not Available on * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md)-->
+* 有关创建模板的建议，请参阅 [Azure 资源管理器模板的最佳做法](template-best-practices.md)。
 * 有关如何创建可以跨所有 Azure 环境和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
 
-<!--Update_Description: update meta properties, wording update, add comments section -->
+<!--Update_Description: update meta properties, wording update -->

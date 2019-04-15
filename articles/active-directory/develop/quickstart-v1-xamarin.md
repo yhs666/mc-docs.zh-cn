@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 220f96ba1e7e8375171db80fe1bb16c72e4ff0c1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 88ddaa826f37a32b15d90b499f7460912baa3226
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644452"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243684"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入门：构建集成 Microsoft 登录的 Xamarin 应用
 
@@ -33,14 +34,14 @@ ms.locfileid: "52644452"
 
 对于需要访问受保护资源的 Xamarin 应用程序，Azure AD 提供 Active Directory 身份验证库 (ADAL)。 在本质上，ADAL 的唯一用途就是方便应用获取访问令牌。 为了演示操作的简单性，本文介绍如何构建 DirectorySearcher 应用，该应用可以：
 
-- 在 iOS、Android、Windows 桌面、Windows Phone 和 Windows 应用商店上运行。
-- 使用单个可移植类库 (PCL) 对用户进行身份验证，并获取 Azure AD 图形 API 的令牌。
-- 在目录中搜索具有给定 UPN 的用户。
+* 在 iOS、Android、Windows 桌面、Windows Phone 和 Windows 应用商店上运行。
+* 使用单个可移植类库 (PCL) 对用户进行身份验证，并获取 Azure AD 图形 API 的令牌。
+* 在目录中搜索具有给定 UPN 的用户。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 下载[框架项目](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)，或下载[已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)。 每个下载内容都是 Visual Studio 2013 解决方案。
-- 还需要一个可在其中创建用户和注册应用的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
+* 下载[框架项目](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)，或下载[已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)。 每个下载内容都是 Visual Studio 2013 解决方案。
+* 还需要一个可在其中创建用户和注册应用的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
 
 准备好后，请按照以下 4 个部分中的步骤操作。
 
@@ -63,7 +64,8 @@ ms.locfileid: "52644452"
     - **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。 输入值 （例如 http://DirectorySearcher)  。
 6. 完成注册后，Azure AD 将为应用分配唯一的应用程序 ID。 复制“应用程序”选项卡中的值，因为稍后需用到此值。
 7. 在“设置”页上，选择“所需权限”，并选择“添加”。
-8. 选择“Microsoft Graph”作为 API。 在“委派权限”下面，添加“读取目录数据”权限。 此操作可让应用查询用户的图形 API。
+8. 选择“Microsoft Graph”作为 API。 在“委派权限”下面，添加“读取目录数据”权限。 
+   此操作可让应用查询用户的图形 API。
 
 ## <a name="step-3-install-and-configure-adal"></a>步骤 3：安装并配置 ADAL
 
@@ -71,39 +73,39 @@ ms.locfileid: "52644452"
 
 1. 使用包管理器控制台将 ADAL 添加到 DirectorySearcher 项目。
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
-    `
+    ```
 
     注意每个项目中添加了两个库：ADAL 的 PCL 部分，和特定于平台的部分。
 2. 在 DirectorySearcherLib 项目中，打开 DirectorySearcher.cs。
 3. 将类成员值替换为在 Azure 门户中输入的值。 只要使用 ADAL，代码就会引用这些值。
 
-    - *tenant* 是 Azure AD 租户的域（例如 contoso.partner.onmschina.cn）。
-    - *clientId* 是从门户中复制的应用的客户端 ID。
-    - returnUri 是在门户中输入的重定向 URI （例如 http://DirectorySearcher)  。
+   * *tenant* 是 Azure AD 租户的域（例如 contoso.partner.onmschina.cn）。
+   * *clientId* 是从门户中复制的应用的客户端 ID。
+   * returnUri 是在门户中输入的重定向 URI （例如 `http://DirectorySearcher`）。
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步骤 4：使用 ADAL 从 Azure AD 获取令牌
 
 几乎所有的应用的身份验证逻辑都位于 `DirectorySearcher.SearchByAlias(...)`。 在特定于平台的项目中，所要做的一切就是将上下文参数传递到 `DirectorySearcher` PCL。
 
-1. 打开 DirectorySearcher.cs，然后将一个新参数添加到 `SearchByAlias(...)` 方法。 `IPlatformParameters` 是上下文参数，用于封装 ADAL 需要对其执行身份验证的特定于平台的对象。
+1. 打开 DirectorySearcher.cs，并将一个新参数添加到 `SearchByAlias(...)` 方法。 `IPlatformParameters` 是上下文参数，用于封装 ADAL 需要对其执行身份验证的特定于平台的对象。
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -199,7 +201,7 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 使用 ADAL 可以方便地将常见标识功能合并到应用中。 它会负责所有的繁琐工作，例如缓存管理、OAuth 协议支持、向用户显示登录 UI，以及刷新过期令牌。 只需知道一个 API 调用，即 `authContext.AcquireToken*(…)`。
 
-- 下载[已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)（无配置值）。
-- 了解如何[使用 Azure AD 保护 .NET Web API](quickstart-v1-dotnet-webapi.md)。
+* 下载[已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)（无配置值）。
+* 了解如何[使用 Azure AD 保护 .NET Web API](quickstart-v1-dotnet-webapi.md)。
 
 <!-- Update_Description: wording update -->

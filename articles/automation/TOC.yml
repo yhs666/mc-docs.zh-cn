@@ -70,6 +70,9 @@ items:
     - name: Runbook 输出
       displayName: message streams, progress records, preference
       href: automation-runbook-output-and-messages.md
+    - name: 源代码管理集成
+      href: source-control-integration-legacy.md
+      displayname: github
   - name: 状态配置
     displayName: DSC
     items:
@@ -99,7 +102,7 @@ items:
   - name: 管理共享资源
     items:
     - name: 计划
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: 模块
       href: shared-resources/modules.md
     - name: 管理 Python 2 程序包
@@ -109,9 +112,9 @@ items:
     - name: 连接
       href: automation-connections.md
     - name: 证书
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: 变量
-      href: automation-variables.md
+      href: shared-resources/variables.md
   - name: 方案
     items:
     - name: 从 Azure 警报启动 Runbook
@@ -147,9 +150,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/automation/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: 26fe28897dc9974368611fda915a876fdeaeb2a8
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 9cf654df69f05ef79a5bd03a728a9a09af3e6d61
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503583"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502599"

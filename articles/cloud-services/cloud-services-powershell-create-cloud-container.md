@@ -11,14 +11,14 @@ ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/18/2016
-ms.date: 09/17/2018
+ms.date: 04/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3868af24f2f5c665318323578cfb45f91277bcd6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 83f37bcc087324dcdc6d6f55a4ac3a716dbfcd8b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654685"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529263"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>使用 Azure PowerShell 命令可创建一个空的云服务容器
 本文介绍如何使用 Azure PowerShell cmdlet 快速创建云服务容器。 请执行以下步骤：
@@ -34,7 +34,7 @@ ms.locfileid: "52654685"
     
 4. 使用 **New-AzureService** cmdlet 创建一个空的 Azure 云服务容器。
 
-   ```powershell
+   ```
    New-AzureService [-ServiceName] <String> [-AffinityGroup] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    ```
@@ -45,7 +45,8 @@ ms.locfileid: "52654685"
    ```
 
 有关创建 Azure 云服务的详细信息，请运行：
-```
+
+```powershell
 Get-help New-AzureService
 ```
 

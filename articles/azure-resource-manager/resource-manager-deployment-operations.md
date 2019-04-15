@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 origin.date: 09/28/2018
-ms.date: 02/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86b52e9237ecec695647defa3437698b299067ac
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 3333a27a5e509705f40c0a02d8845404de23d6dd
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306119"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529170"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署操作
 
@@ -69,13 +69,13 @@ ms.locfileid: "56306119"
     Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
     ```
 
-1. 若要获取相关 ID，请使用：
+2. 若要获取相关 ID，请使用：
 
     ```powershell
     (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
     ```
 
-1. 每个部署包括多个操作。 每个操作代表部署过程中的一个步骤。 为了查明部署何处出现问题，通常需要查看部署操作的详细信息。 可以使用 **Get-AzResourceGroupDeploymentOperation** 查看操作状态。
+3. 每个部署包括多个操作。 每个操作代表部署过程中的一个步骤。 为了查明部署何处出现问题，通常需要查看部署操作的详细信息。 可以使用 **Get-AzResourceGroupDeploymentOperation** 查看操作状态。
 
     ```powershell 
     Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -93,7 +93,7 @@ ms.locfileid: "56306119"
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
     ```
 
-1. 若要获取有关失败操作的更多详细信息，请检索状态为“失败”的操作的属性  。
+4. 若要获取有关失败操作的更多详细信息，请检索状态为“失败”的操作的属性  。
 
     ```powershell
     (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -116,7 +116,7 @@ ms.locfileid: "56306119"
     ```
 
     注意操作的 serviceRequestId 和 trackingId。 与技术支持人员合作排查部署问题时，serviceRequestId 非常有用。 会在下一步使用 trackingId 重点关注特定操作。
-1. 若要获取特定失败操作的状态消息，请使用以下命令：
+5. 若要获取特定失败操作的状态消息，请使用以下命令：
 
     ```powershell
     ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -130,7 +130,7 @@ ms.locfileid: "56306119"
     DnsRecordInUse DNS record dns.chinanorth.cloudapp.chinacloudapi.cn is already used by another public IP. {}
     ```
 
-1. Azure 中的每个部署操作均包括请求和响应内容。 请求内容是在部署过程中发送到 Azure 的内容（例如，创建 VM、OS 磁盘和其他资源）。 响应内容是 Azure 从部署请求发送回的内容。 在部署期间，可以使用 **DeploymentDebugLogLevel** 参数指定将请求和/或响应保留在日志中。 
+6. Azure 中的每个部署操作均包括请求和响应内容。 请求内容是在部署过程中发送到 Azure 的内容（例如，创建 VM、OS 磁盘和其他资源）。 响应内容是 Azure 从部署请求发送回的内容。 在部署期间，可以使用 **DeploymentDebugLogLevel** 参数指定将请求和/或响应保留在日志中。 
 
     使用以下 PowerShell 命令从日志中获取该信息，并将其保存在本地：
 
@@ -148,13 +148,13 @@ ms.locfileid: "56306119"
     az group deployment show -g ExampleGroup -n ExampleDeployment
     ```
 
-1. 返回的值之一是 **correlationId**。 此值可用于跟踪相关事件，在与技术支持人员合作排查部署问题时非常有用。
+2. 返回的值之一是 **correlationId**。 此值可用于跟踪相关事件，在与技术支持人员合作排查部署问题时非常有用。
 
     ```azurecli
     az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
     ```
 
-1. 若要查看部署操作，请使用：
+3. 若要查看部署操作，请使用：
 
     ```azurecli
     az group deployment operation list -g ExampleGroup -n ExampleDeployment

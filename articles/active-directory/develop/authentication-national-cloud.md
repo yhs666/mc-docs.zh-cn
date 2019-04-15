@@ -7,22 +7,23 @@ author: negoe
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/20/2018
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
-ms.openlocfilehash: 7bbe2d57081a22fe8187b0222a5dab8d2f899ce7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8f326508bff678ed9984736ccd5f48c5411052ab
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625683"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243629"
 ---
 # <a name="national-clouds"></a>国家云
 
@@ -42,13 +43,12 @@ ms.locfileid: "58625683"
 
 下表列出了用于为每个国家云注册应用程序的 Azure Active Directory (Azure AD) 终结点的基 URL。
 
-
-|           国家云            |     Azure AD 门户终结点     |
-|-------------------------------------|----------------------------------|
-|     适用于美国政府的 Azure AD      |     https://portal.azure.us      |
-|          Azure AD 德国           | https://portal.microsoftazure.de |
-| 由世纪互联运营的 Azure AD 中国 |     https://portal.azure.cn      |
-|      Azure AD（全局服务）      |     https://portal.azure.com     |
+| 国家云 | Azure AD 门户终结点
+| --- | --- |
+| 适用于美国政府的 Azure AD |`https://portal.azure.us`
+|Azure AD 德国 |`https://portal.microsoftazure.de`
+|由世纪互联运营的 Azure AD 中国 |`https://portal.azure.cn`
+|Azure AD（全局服务）|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD 身份验证终结点
 
@@ -84,9 +84,7 @@ ms.locfileid: "58625683"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解 [Azure 政府](https://docs.microsoft.com/azure/azure-government/)。
 - 详细了解 [Azure 中国世纪互联](https://docs.microsoft.com/azure/china/)。
-- 详细了解 [Azure 德国](https://docs.microsoft.com/azure/germany/)。
 - 了解 [Azure AD 身份验证基础知识](authentication-scenarios.md)。
 
 <!-- Update_Description: wording update -->

@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: fc26fd8543b12364954a5553f5cfb440ea3494b1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ab80269916a2c25a58f6586865eb9a89790408d3
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626302"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529457"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -27,7 +27,7 @@ ms.locfileid: "58626302"
 *  **处理** - 用户可以连接到数据库并对其执行处理操作，分析模型数据库数据。
 *  **读取** - 用户可以使用客户端应用程序连接到模型数据库数据并进行分析。
 
-如果创建表格模型项目，请使用 SSDT 中的角色管理器创建角色并向这些角色添加用户或组。 如果向服务器部署，请使用 SSMS、[Analysis Services PowerShell cmdlet](https://msdn.microsoft.com/library/hh758425.aspx) 或[表格模型脚本语言](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) 添加或删除角色和用户成员。
+如果创建表格模型项目，请使用 SSDT 中的角色管理器创建角色并向这些角色添加用户或组。 如果向服务器部署，请使用 SSMS、[Analysis Services PowerShell cmdlet](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) 或[表格模型脚本语言](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) 添加或删除角色和用户成员。
 
 > [!NOTE]
 > 安全组必须已将 `MailEnabled` 属性设为 `True`。
@@ -121,13 +121,13 @@ ms.locfileid: "58626302"
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>使用 PowerShell 添加角色和用户
 
-[SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) 模块提供任务特定的数据库管理 cmdlet，以及接受表格模型脚本语言 (TMSL) 查询或脚本的通用 Invoke-ASCmd cmdlet。 以下 cmdlet 用于管理数据库角色和用户。
+[SqlServer](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) 模块提供任务特定的数据库管理 cmdlet，以及接受表格模型脚本语言 (TMSL) 查询或脚本的通用 Invoke-ASCmd cmdlet。 以下 cmdlet 用于管理数据库角色和用户。
 
 |Cmdlet|说明|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|向数据库角色添加成员。| 
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|从数据库角色中删除成员。|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|执行 TMSL 脚本。|
+|[Add-RoleMember](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference)|向数据库角色添加成员。| 
+|[Remove-RoleMember](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference)|从数据库角色中删除成员。|   
+|[Invoke-ASCmd](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference)|执行 TMSL 脚本。|
 
 ## <a name="row-filters"></a>行筛选器  
 
@@ -137,7 +137,7 @@ ms.locfileid: "58626302"
 
 行筛选器需要 DAX 公式，该公式的求值结果必须为 TRUE/FALSE，以定义该特定角色的成员可以查询的行。 无法查询未包含在 DAX 公式中的行。 例如，具有以下行筛选器表达式的 Customers 表：*=Customers [Country] = "CHINA"*，Sales 角色的成员只能查看中国境内的客户。  
 
-<!-- Notice: Should Be China-->
+<!--MOONCAKE: Should Be China-->
 
 行筛选器适用于指定的行和相关行。 如果表具有多个关系，筛选器将对处于活动状态的关系应用安全性。 行筛选器与为相关表定义的其他行筛选器相交，示例如下：  
 
@@ -149,7 +149,7 @@ ms.locfileid: "58626302"
 
  净效果是成员可以查询若干行数据，其中客户位于中国，产品类别为自行车，年份是 2016 年。 用户无法查询中国之外的事务、不是自行车的事务或非 2016 年的事务，除非他们属于授予这些权限的另一角色。
 
-<!-- Notice: Should Be China-->
+<!--MOONCAKE: Should Be China-->
 
  可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。
 

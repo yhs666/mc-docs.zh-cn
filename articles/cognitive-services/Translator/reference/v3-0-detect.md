@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 02/01/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 85c6acb85dd8566ee24f95994b69b739c246cb79
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 411cd7ddee531d3a9a10ac61451ee48803009daa
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626847"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529048"
 ---
 # <a name="translator-text-api-30-detect"></a>文本翻译 API 3.0：Detect
 
@@ -49,7 +49,7 @@ https://api.translator.azure.cn/detect?api-version=3.0
   <th width="20%">标头</th>
   <th>说明</th>
   <tr>
-    <td>一个授权<br/>标头</td>
+    <td><em>授权</em><br/><em>headers</em></td>
     <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
@@ -180,7 +180,7 @@ https://api.translator.azure.cn/detect?api-version=3.0
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.translator.azure.cn/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
+curl -X POST "https://api.translator.azure.cn/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
 
 ---

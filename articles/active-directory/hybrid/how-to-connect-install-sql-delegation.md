@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/26/2018
-ms.date: 03/15/2019
+ms.date: 04/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c6f5caf99960794b7e8bd117e0410ea1609ab4d
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: b46ca01391aafa3703f38fdc559e3f7248c59aa5
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186659"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355859"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理员权限安装 Azure AD Connect
 在最新的 Azure AD Connect 版本之前，不支持在部署需要 SQL 的配置时使用管理委派。  若要安装 Azure AD Connect，用户需具有 SQL Server 的服务器管理员 (SA) 权限。
@@ -45,19 +45,19 @@ Azure AD Connect 管理员|安装 Azure AD Connect 并在自定义安装过程�
 >**强烈建议**在创建数据库时选择 Latin1_General_CI_AS 排序规则，虽然这不是必需的。
 
 
- 1. 让 SQL 管理员使用不区分大小写的排序规则序列 **(Latin1_General_CI_AS)** 创建 ADSync 数据库。  数据库必须命名为 **ADSync**。  安装 Azure AD Connect 时，会将恢复模型、兼容性级别和包含类型更新为正确的值。  但是，必须由 SQL 管理员来正确设置排序规则序列，否则 Azure AD Connect 会阻止该安装。  若要进行恢复，SA 必须删除并重新创建数据库。
+1. 让 SQL 管理员使用不区分大小写的排序规则序列 **(Latin1_General_CI_AS)** 创建 ADSync 数据库。  数据库必须命名为 **ADSync**。  安装 Azure AD Connect 时，会将恢复模型、兼容性级别和包含类型更新为正确的值。  但是，必须由 SQL 管理员来正确设置排序规则序列，否则 Azure AD Connect 会阻止该安装。  若要进行恢复，SA 必须删除并重新创建数据库。
  
-     ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
- 2. 向 Azure AD Connect 管理员和域服务帐户授予以下权限：
-    - SQL 登录名 
-    - **数据库所有者 (dbo)** 权限。
+   ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
+2. 向 Azure AD Connect 管理员和域服务帐户授予以下权限：
+   - SQL 登录名 
+   - **数据库所有者 (dbo)** 权限。
  
-    ![权限](./media/how-to-connect-install-sql-delegation/sql3a.png)
+   ![权限](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
-    >[!NOTE]
-    >Azure AD Connect 不支持使用嵌套成员身份登录。  这意味着你的 Azure AD Connect 管理员帐户和域服务帐户必须关联到一个被授予了 dbo 权限的登录名。  它不能仅仅是被分配给某个登录名（具有 dbo 权限）的组的成员。
+   >[!NOTE]
+   >Azure AD Connect 不支持使用嵌套成员身份登录。  这意味着你的 Azure AD Connect 管理员帐户和域服务帐户必须关联到一个被授予了 dbo 权限的登录名。  它不能仅仅是被分配给某个登录名（具有 dbo 权限）的组的成员。
 
- 3. 向 Azure AD Connect 管理员发送一封电子邮件，指出在安装 Azure AD Connect 时应使用的 SQL Server 和实例。
+3. 向 Azure AD Connect 管理员发送一封电子邮件，指出在安装 Azure AD Connect 时应使用的 SQL Server 和实例。
 
 ## <a name="additional-information"></a>其他信息
 预配数据库以后，Azure AD Connect 管理员可以在方便的情况下安装并配置本地同步。

@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c25d763d7b69948527bf4d182dd7483229056347
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 7033e112342e8e0dd65fc36f010687e5e9725ff8
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348149"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529357"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -52,7 +52,7 @@ ms.locfileid: "58348149"
 
 以下示例使用 appID 和密码执行模型数据库刷新操作：
 
-```PowerShell
+```powershell
 Param (
 
         [Parameter(Mandatory=$true)] [String] $AppId,

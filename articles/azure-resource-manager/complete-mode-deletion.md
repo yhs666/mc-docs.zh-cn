@@ -7,12 +7,12 @@ ms.topic: reference
 origin.date: 02/13/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 634ab921fb67c46e2da5388b2bba0c21438a10f7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 664635a1ee1f84ca49e534d819c1beffbfdb9cee
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005148"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355893"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 本文描述了资源类型如何在不是以完全模式部署的模板中进行删除。
@@ -23,34 +23,10 @@ ms.locfileid: "58005148"
 
 若要以逗号分隔值文件的形式获取同一数据，请下载 [complete-mode-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv)。
 
-## <a name="microsoftaad"></a>Microsoft.AAD
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| DomainServices | 是 | 
-| DomainServices/oucontainer | 否 | 
-
-## <a name="microsoftaadiam"></a>microsoft.aadiam
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| diagnosticSettings | 否 | 
-| diagnosticSettingsCategories | 否 | 
-
-## <a name="microsoftaddons"></a>Microsoft.Addons
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| supportProviders | 否 | 
-
-## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| aadsupportcases | 否 | 
-| addsservices | 否 | 
-| 代理 | 否 | 
-| anonymousapiusers | 否 | 
-| 配置 | 否 | 
-| 日志 | 否 | 
-| 报表 | 否 | 
-| services | 否 | 
+<!--Not Available on ## Microsoft.AAD-->
+<!--Not Available on ## microsoft.aadiam-->
+<!--Not Available on ## Microsoft.Addons-->
+<!--Not Available on ## Microsoft.ADHybridHealthService-->
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 | 资源类型 | 完整模式删除 |
@@ -84,10 +60,8 @@ ms.locfileid: "58005148"
 | 服务 | 是 | 
 | validateServiceName | 否 | 
 
-## <a name="microsoftattestation"></a>Microsoft.Attestation
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| attestationProviders | 否 | 
+<!--Not Available on ## Microsoft.Attestation-->
+
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | 资源类型 | 完整模式删除 |
@@ -114,13 +88,8 @@ ms.locfileid: "58005148"
 | automationAccounts/softwareUpdateConfigurations | 否 | 
 | automationAccounts/webhooks | 否 | 
 
-## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| environments | 否 | 
-| environments/accounts | 否 | 
-| environments/accounts/namespaces | 否 | 
-| environments/accounts/namespaces/configurations | 否 | 
+<!--Not Available on ## Microsoft.Azure.Geneva-->
+
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 资源类型 | 完整模式删除 |
@@ -139,88 +108,13 @@ ms.locfileid: "58005148"
 | ------------- | ----------- |
 | batchAccounts | 是 | 
 
-## <a name="microsoftbilling"></a>Microsoft.Billing
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| billingAccounts | 否 | 
-| billingAccounts/billingProfiles | 否 | 
-| billingAccounts/billingProfiles/billingSubscriptions | 否 | 
-| billingAccounts/billingProfiles/invoices | 否 | 
-| billingAccounts/billingProfiles/invoices/pricesheet | 否 | 
-| billingAccounts/billingProfiles/operationStatus | 否 | 
-| billingAccounts/billingProfiles/paymentMethods | 否 | 
-| billingAccounts/billingProfiles/policies | 否 | 
-| billingAccounts/billingProfiles/pricesheet | 否 | 
-| billingAccounts/billingProfiles/products | 否 | 
-| billingAccounts/billingProfiles/transactions | 否 | 
-| billingAccounts/billingSubscriptions | 否 | 
-| billingAccounts/departments | 否 | 
-| billingAccounts/eligibleOffers | 否 | 
-| billingAccounts/enrollmentAccounts | 否 | 
-| billingAccounts/invoices | 否 | 
-| billingAccounts/invoiceSections | 否 | 
-| billingAccounts/invoiceSections/billingSubscriptions | 否 | 
-| billingAccounts/invoiceSections/billingSubscriptions/transfer | 否 | 
-| billingAccounts/invoiceSections/importRequests | 否 | 
-| billingAccounts/invoiceSections/initiateImportRequest | 否 | 
-| billingAccounts/invoiceSections/initiateTransfer | 否 | 
-| billingAccounts/invoiceSections/operationStatus | 否 | 
-| billingAccounts/invoiceSections/products | 否 | 
-| billingAccounts/invoiceSections/transfers | 否 | 
-| billingAccounts/products | 否 | 
-| billingAccounts/projects | 否 | 
-| billingAccounts/projects/billingSubscriptions | 否 | 
-| billingAccounts/projects/importRequests | 否 | 
-| billingAccounts/projects/initiateImportRequest | 否 | 
-| billingAccounts/projects/operationStatus | 否 | 
-| billingAccounts/projects/products | 否 | 
-| billingAccounts/transactions | 否 | 
-| billingPeriods | 否 | 
-| BillingPermissions | 否 | 
-| billingProperty | 否 | 
-| BillingRoleAssignments | 否 | 
-| BillingRoleDefinitions | 否 | 
-| CreateBillingRoleAssignment | 否 | 
-| departments | 否 | 
-| enrollmentAccounts | 否 | 
-| importRequests | 否 | 
-| importRequests/acceptImportRequest | 否 | 
-| importRequests/declineImportRequest | 否 | 
-| invoices | 否 | 
-| transfers | 否 | 
-| transfers/acceptTransfer | 否 | 
-| transfers/declineTransfer | 否 | 
-| transfers/operationStatus | 否 | 
-| usagePlans | 否 | 
+<!--Not Available on ## Microsoft.Billing-->
+<!--Not Available on ## ## Microsoft.BingMaps-->
 
-## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| mapApis | 是 | 
-| updateCommunicationPreference | 否 | 
+<!--Not Available on ## Microsoft.BizTalkServices-->
+<!--Not Available on ## Microsoft.Blueprint-->
+<!--Not Available on ## Microsoft.BotService-->
 
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| BizTalk | 是 | 
-
-## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| blueprintAssignments | 否 | 
-| blueprintAssignments/assignmentOperations | 否 | 
-| blueprintAssignments/operations | 否 | 
-| blueprints | 否 | 
-| blueprints/artifacts | 否 | 
-| blueprints/versions | 否 | 
-| blueprints/versions/artifacts | 否 | 
-
-## <a name="microsoftbotservice"></a>Microsoft.BotService
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| botServices | 是 | 
-| botServices/channels | 否 | 
-| botServices/connections | 否 | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | 资源类型 | 完整模式删除 |
@@ -228,24 +122,7 @@ ms.locfileid: "58005148"
 | Redis | 是 | 
 | RedisConfigDefinition | 否 | 
 
-## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| appliedReservations | 否 | 
-| calculatePrice | 否 | 
-| catalogs | 否 | 
-| commercialReservationOrders | 否 | 
-| reservationOrders | 否 | 
-| reservationOrders/calculateRefund | 否 | 
-| reservationOrders/merge | 否 | 
-| reservationOrders/reservations | 否 | 
-| reservationOrders/reservations/revisions | 否 | 
-| reservationOrders/return | 否 | 
-| reservationOrders/split | 否 | 
-| reservationOrders/swap | 否 | 
-| reservations | 否 | 
-| 资源 | 否 | 
-| validateReservationOrder | 否 | 
+<!--Not Available on ## Microsoft.Capacity-->
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | 资源类型 | 完整模式删除 |
@@ -257,12 +134,7 @@ ms.locfileid: "58005148"
 | profiles/endpoints/origins | 否 | 
 | validateProbe | 否 | 
 
-## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| certificateOrders | 是 | 
-| certificateOrders/certificates | 否 | 
-| validateCertificateRegistrationInformation | 否 | 
+<!-- Not Available on ## Microsoft.CertificateRegistration-->
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 资源类型 | 完整模式删除 |
@@ -350,34 +222,9 @@ ms.locfileid: "58005148"
 | virtualMachineScaleSets/virtualMachines | 否 | 
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | 否 | 
 
-## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| AggregatedCost | 否 | 
-| 余额 | 否 | 
-| 预算 | 否 | 
-| Charges | 否 | 
-| CostTags | 否 | 
-| credits | 否 | 
-| events | 否 | 
-| 预测 | 否 | 
-| lots | 否 | 
-| 市场 | 否 | 
-| Pricesheets | 否 | 
-| products | 否 | 
-| ReservationDetails | 否 | 
-| ReservationRecommendations | 否 | 
-| ReservationSummaries | 否 | 
-| ReservationTransactions | 否 | 
-| 标记 | 否 | 
-| 术语 | 否 | 
-| UsageDetails | 否 | 
+<!--Not Available on ## Microsoft.Consumption-->
+<!--Not Available on ## Microsoft.ContainerInstance-->
 
-## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| containerGroups | 是 | 
-| serviceAssociationLinks | 否 | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 资源类型 | 完整模式删除 |
@@ -411,110 +258,21 @@ ms.locfileid: "58005148"
 | containerServices | 是 | 
 | managedClusters | 是 | 
 
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| applications | 是 | 
-| updateCommunicationPreference | 否 | 
+<!--Not Available on ## Microsoft.ContentModerator-->
+<!--Not Available on ## Microsoft.CortanaAnalytics-->
+<!--Not Available on ## Microsoft.CostManagement-->
+<!--Not Available on ## Microsoft.CustomerInsights-->
+<!--Not Available on ## Microsoft.DataBox-->
+<!--Not Available on ## Microsoft.DataBoxEdge-->
+<!--Not Available on ## Microsoft.Databricks-->
+<!--Not Available on ## Microsoft.DataCatalog-->
+<!--Not Available on ## Microsoft.DataConnect-->
+<!--Not Available on ## Microsoft.DataFactory-->
+<!--Not Available on ## Microsoft.DataLakeAnalytics-->
+<!--Not Available on ## Microsoft.DataLakeStore-->
+<!--Not Available on ## Microsoft.DataMigration-->
+<!--Not Available on ## Microsoft.DBforMariaDB-->
 
-## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-
-## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| 警报 | 否 | 
-| BillingAccounts | 否 | 
-| 连接器 | 是 | 
-| Departments | 否 | 
-| 维度 | 否 | 
-| EnrollmentAccounts | 否 | 
-| 查询 | 否 | 
-| register | 否 | 
-| Reportconfigs | 否 | 
-| 报告 | 否 | 
-
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| hubs | 是 | 
-| hubs/authorizationPolicies | 否 | 
-| hubs/connectors | 否 | 
-| hubs/connectors/mappings | 否 | 
-| hubs/interactions | 否 | 
-| hubs/kpi | 否 | 
-| hubs/links | 否 | 
-| hubs/profiles | 否 | 
-| hubs/roleAssignments | 否 | 
-| hubs/roles | 否 | 
-| hubs/suggestTypeSchema | 否 | 
-| hubs/views | 否 | 
-| hubs/widgetTypes | 否 | 
-
-## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| jobs | 是 | 
-
-## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| DataBoxEdgeDevices | 是 | 
-
-## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| workspaces | 是 | 
-| workspaces/virtualNetworkPeerings | 否 | 
-
-## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| catalogs | 是 | 
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| connectionManagers | 是 | 
-
-## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| dataFactories | 是 | 
-| dataFactories/diagnosticSettings | 否 | 
-| dataFactorySchema | 否 | 
-| factories | 是 | 
-| factories/integrationRuntimes | 否 | 
-
-## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-| accounts/dataLakeStoreAccounts | 否 | 
-| accounts/storageAccounts | 否 | 
-| accounts/storageAccounts/containers | 否 | 
-
-## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-| accounts/eventGridFilters | 否 | 
-| accounts/firewallRules | 否 | 
-
-## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| services | 是 | 
-| services/projects | 是 | 
-
-## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| servers | 是 | 
-| servers/recoverableServers | 否 | 
-| servers/virtualNetworkRules | 否 | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 资源类型 | 完整模式删除 |
@@ -542,18 +300,9 @@ ms.locfileid: "58005148"
 | ProvisioningServices | 是 | 
 | usages | 否 | 
 
-## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| 控制器 | 是 | 
+<!--Not Available on ## Microsoft.DevSpaces-->
+<!--Not Available on ## Microsoft.DevTestLab-->
 
-## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| labs | 是 | 
-| labs/serviceRunners | 是 | 
-| labs/virtualMachines | 是 | 
-| schedules | 是 | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 资源类型 | 完整模式删除 |
@@ -561,31 +310,10 @@ ms.locfileid: "58005148"
 | databaseAccountNames | 否 | 
 | databaseAccounts | 是 | 
 
-## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| domains | 是 | 
-| domains/domainOwnershipIdentifiers | 否 | 
-| generateSsoRequest | 否 | 
-| topLevelDomains | 否 | 
-| validateDomainRegistrationInformation | 否 | 
+<!--Not Available on ## Microsoft.DomainRegistration-->
+<!--Not Available on ## Microsoft.DynamicsLcs-->
+<!--Not Available on ## Microsoft.EventGrid-->
 
-## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| lcsprojects | 否 | 
-| lcsprojects/clouddeployments | 否 | 
-| lcsprojects/connectors | 否 | 
-
-## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| domains | 是 | 
-| 域/主题 | 否 | 
-| eventSubscriptions | 否 | 
-| extensionTopics | 否 | 
-| topics | 是 | 
-| topicTypes | 否 | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 资源类型 | 完整模式删除 |
@@ -604,21 +332,7 @@ ms.locfileid: "58005148"
 | features | 否 | 
 | providers | 否 | 
 
-## <a name="microsoftgallery"></a>Microsoft.Gallery
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| enroll | 否 | 
-| galleryitems | 否 | 
-| generateartifactaccessuri | 否 | 
-| myareas | 否 | 
-| myareas/areas | 否 | 
-| myareas/areas/areas | 否 | 
-| myareas/areas/areas/galleryitems | 否 | 
-| myareas/areas/galleryitems | 否 | 
-| myareas/galleryitems | 否 | 
-| register | 否 | 
-| 资源 | 否 | 
-| retrieveresourcesbyid | 否 | 
+<!--Not Available on ## Microsoft.Gallery-->
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 | 资源类型 | 完整模式删除 |
@@ -626,10 +340,8 @@ ms.locfileid: "58005148"
 | guestConfigurationAssignments | 否 | 
 | software | 否 | 
 
-## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| hanainstances | 是 | 
+<!--Not Available on ## Microsoft.HanaOnAzure-->
+
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 资源类型 | 完整模式删除 |
@@ -642,14 +354,8 @@ ms.locfileid: "58005148"
 | ------------- | ----------- |
 | jobs | 是 | 
 
-## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| labelGroups | 否 | 
-| labelGroups/labels | 否 | 
-| labelGroups/labels/conditions | 否 | 
-| labelGroups/labels/subLabels | 否 | 
-| labelGroups/labels/subLabels/conditions | 否 | 
+<!--Not Available on ## Microsoft.InformationProtection-->
+
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | 资源类型 | 完整模式删除 |
@@ -683,21 +389,10 @@ ms.locfileid: "58005148"
 | webtests | 是 | 
 | workbooks | 是 | 
 
-## <a name="microsoftintune"></a>Microsoft.Intune
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| diagnosticSettings | 否 | 
-| diagnosticSettingsCategories | 否 | 
+<!--Not Available on ## Microsoft.Intune-->
+<!--Not Available on ## Microsoft.IoTCentral-->
+<!--Not Available on ## Microsoft.IoTSpaces-->
 
-## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| IoTApps | 是 | 
-
-## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| Graph | 是 | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 资源类型 | 完整模式删除 |
@@ -707,34 +402,12 @@ ms.locfileid: "58005148"
 | vaults/accessPolicies | 否 | 
 | vaults/secrets | 否 | 
 
-## <a name="microsoftkusto"></a>Microsoft.Kusto
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| clusters | 是 | 
-| clusters/databases | 否 | 
-| clusters/databases/dataconnections | 否 | 
-| clusters/databases/eventhubconnections | 否 | 
+<!--Not Available on ## Microsoft.Kusto-->
+<!--Not Available on ## Microsoft.LabServices-->
+<!--Not Available on ## Microsoft.LocationBasedServices-->
+<!--Not Available on ## Microsoft.LocationServices-->
+<!--Not Available on ## Microsoft.LogAnalytics-->
 
-## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| labaccounts | 是 | 
-| users | 否 | 
-
-## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-
-## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-
-## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| 日志 | 否 | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 资源类型 | 完整模式删除 |
@@ -742,33 +415,11 @@ ms.locfileid: "58005148"
 | integrationAccounts | 是 | 
 | workflows | 是 | 
 
-## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| commitmentPlans | 是 | 
-| webServices | 是 | 
-| 工作区 | 是 | 
+<!--Not Available on ## Microsoft.MachineLearning-->
+<!--Not Available on ## Microsoft.MachineLearningExperimentation-->
+<!--Not Available on ## Microsoft.MachineLearningModelManagement-->
+<!--Not Available on ## Microsoft.MachineLearningServices-->
 
-## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-| accounts/workspaces | 是 | 
-| accounts/workspaces/projects | 是 | 
-| teamAccounts | 是 | 
-| teamAccounts/workspaces | 是 | 
-| teamAccounts/workspaces/projects | 是 | 
-
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-
-## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| workspaces | 是 | 
-| workspaces/computes | 否 | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 资源类型 | 完整模式删除 |
@@ -785,37 +436,11 @@ ms.locfileid: "58005148"
 | startTenantBackfill | 否 | 
 | tenantBackfillStatus | 否 | 
 
-## <a name="microsoftmaps"></a>Microsoft.Maps
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
-| accounts/eventGridFilters | 否 | 
+<!--Not Available on ## Microsoft.Maps-->
+<!--Not Available on ## Microsoft.Marketplace-->
+<!--Not Available on ## Microsoft.MarketplaceApps-->
+<!--Not Available on ## Microsoft.MarketplaceOrdering-->
 
-## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| offers | 否 | 
-| offerTypes | 否 | 
-| offerTypes/publishers | 否 | 
-| offerTypes/publishers/offers | 否 | 
-| offerTypes/publishers/offers/plans | 否 | 
-| offerTypes/publishers/offers/plans/agreements | 否 | 
-| offerTypes/publishers/offers/plans/configs | 否 | 
-| offerTypes/publishers/offers/plans/configs/importImage | 否 | 
-| privategalleryitems | 否 | 
-| products | 否 | 
-
-## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| classicDevServices | 是 | 
-| updateCommunicationPreference | 否 | 
-
-## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| 协议 | 否 | 
-| offertypes | 否 | 
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | 资源类型 | 完整模式删除 |
@@ -837,10 +462,8 @@ ms.locfileid: "58005148"
 | mediaservices/transforms | 否 | 
 | mediaservices/transforms/jobs | 否 | 
 
-## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| projects | 是 | 
+<!--Not Available on ## Microsoft.Migrate-->
+
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | 资源类型 | 完整模式删除 |
@@ -953,10 +576,8 @@ ms.locfileid: "58005148"
 | ------------- | ----------- |
 | capacities | 是 | 
 
-## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| accounts | 是 | 
+<!--Not Available on ## Microsoft.ProjectOxford-->
+ 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 资源类型 | 完整模式删除 |
@@ -974,11 +595,8 @@ ms.locfileid: "58005148"
 | namespaces/wcfrelays | 否 | 
 | namespaces/wcfrelays/authorizationrules | 否 | 
 
-## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| 资源 | 否 | 
-| subscriptionsStatus | 否 | 
+<!--Not Available on ## Microsoft.ResourceGraph-->
+
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 | 资源类型 | 完整模式删除 |
@@ -1009,11 +627,8 @@ ms.locfileid: "58005148"
 | subscriptions/tagNames/tagValues | 否 | 
 | tenants | 否 | 
 
-## <a name="microsoftsaas"></a>Microsoft.SaaS
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| applications | 是 | 
-| saasresources | 否 | 
+<!--Not Available on ## Microsoft.SaaS-->
+
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 资源类型 | 完整模式删除 |
@@ -1021,52 +636,10 @@ ms.locfileid: "58005148"
 | flows | 是 | 
 | jobcollections | 是 | 
 
-## <a name="microsoftsearch"></a>Microsoft.Search
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| resourceHealthMetadata | 否 | 
-| searchServices | 是 | 
+<!-- Not Available on ## Microsoft.Search-->
+<!-- Not Available on ## Microsoft.Security-->
+<!-- Not Available on ## Microsoft.SecurityGraph-->
 
-## <a name="microsoftsecurity"></a>Microsoft.Security
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| advancedThreatProtectionSettings | 否 | 
-| alerts | 否 | 
-| allowedConnections | 否 | 
-| appliances | 否 | 
-| applicationWhitelistings | 否 | 
-| AutoProvisioningSettings | 否 | 
-| Compliances | 否 | 
-| dataCollectionAgents | 否 | 
-| discoveredSecuritySolutions | 否 | 
-| externalSecuritySolutions | 否 | 
-| InformationProtectionPolicies | 否 | 
-| jitNetworkAccessPolicies | 否 | 
-| monitoring | 否 | 
-| monitoring/antimalware | 否 | 
-| monitoring/baseline | 否 | 
-| monitoring/patch | 否 | 
-| 策略 | 否 | 
-| pricings | 否 | 
-| securityContacts | 否 | 
-| securitySolutions | 否 | 
-| securitySolutionsReferenceData | 否 | 
-| securityStatus | 否 | 
-| securityStatus/endpoints | 否 | 
-| securityStatus/subnets | 否 | 
-| securityStatus/virtualMachines | 否 | 
-| securityStatuses | 否 | 
-| securityStatusesSummaries | 否 | 
-| 设置 | 否 | 
-| 任务 | 否 | 
-| topologies | 否 | 
-| workspaceSettings | 否 | 
-
-## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| diagnosticSettings | 否 | 
-| diagnosticSettingsCategories | 否 | 
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 资源类型 | 完整模式删除 |
@@ -1089,28 +662,10 @@ ms.locfileid: "58005148"
 | clusters | 是 | 
 | clusters/applications | 否 | 
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| applications | 是 | 
-| gateways | 是 | 
-| networks | 是 | 
-| secrets | 是 | 
-| volumes | 是 | 
+<!-- Not Available on ## Microsoft.ServiceFabricMesh-->
+<!-- Not Available on ## Microsoft.SignalRService-->
+<!-- Not Available on ## Microsoft.Solutions-->
 
-## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| SignalR | 是 | 
-
-## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| applianceDefinitions | 是 | 
-| appliances | 是 | 
-| applicationDefinitions | 是 | 
-| applications | 是 | 
-| jitRequests | 是 | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | 资源类型 | 完整模式删除 |
@@ -1139,12 +694,7 @@ ms.locfileid: "58005148"
 > [!NOTE]
 > Master 数据库不支持标记，但其他数据库（包括数据仓库数据库）支持标记。
 
-## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| SqlVirtualMachineGroups | 是 | 
-| SqlVirtualMachineGroups/AvailabilityGroupListeners | 否 | 
-| SqlVirtualMachines | 是 | 
+<!-- Not Available on ## Microsoft.SqlVirtualMachine-->
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 资源类型 | 完整模式删除 |
@@ -1157,20 +707,9 @@ ms.locfileid: "58005148"
 | storageAccounts/tableServices | 否 | 
 | usages | 否 | 
 
-## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| storageSyncServices | 是 | 
-| storageSyncServices/registeredServers | 否 | 
-| storageSyncServices/syncGroups | 否 | 
-| storageSyncServices/syncGroups/cloudEndpoints | 否 | 
-| storageSyncServices/syncGroups/serverEndpoints | 否 | 
-| storageSyncServices/workflows | 否 | 
+<!-- Not Available on ## Microsoft.StorageSync-->
+<!-- Not Available on ## Microsoft.StorSimple-->
 
-## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| managers | 是 | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 资源类型 | 完整模式删除 |
@@ -1181,38 +720,12 @@ ms.locfileid: "58005148"
 > [!NOTE]
 > Streamingjobs 运行时无法添加标记。 停止要添加标记的资源。
 
-## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| CreateSubscription | 否 | 
-| SubscriptionDefinitions | 否 | 
-| SubscriptionOperations | 否 | 
+<!-- Not Available on ## Microsoft.Subscription-->
+<!-- Not Available on ## microsoft.support-->
+<!-- Not Available on ## Microsoft.TerraformOSS-->
+<!-- Not Available on ## Microsoft.TimeSeriesInsights-->
+<!-- Not Available on ## microsoft.visualstudio-->
 
-## <a name="microsoftsupport"></a>microsoft.support
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| supporttickets | 否 | 
-
-## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| providerRegistrations | 是 | 
-| 资源 | 是 | 
-
-## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| environments | 是 | 
-| environments/accessPolicies | 否 | 
-| environments/eventsources | 是 | 
-| environments/referenceDataSets | 是 | 
-
-## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| 帐户 | 是 | 
-| account/extension | 是 | 
-| account/project | 是 | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 资源类型 | 完整模式删除 |
@@ -1261,26 +774,10 @@ ms.locfileid: "58005148"
 | validate | 否 | 
 | verifyHostingEnvironmentVnet | 否 | 
 
-## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| diagnosticSettings | 否 | 
-| diagnosticSettingsCategories | 否 | 
+<!--Not Available on ## Microsoft.WindowsDefenderATP-->
+<!--Not Available on ## Microsoft.WindowsIoT-->
+<!--Not Available on ## Microsoft.WorkloadMonitor-->
 
-## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| DeviceServices | 是 | 
-
-## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| 资源类型 | 完整模式删除 |
-| ------------- | ----------- |
-| components | 否 | 
-| componentsSummary | 否 | 
-| monitorInstances | 否 | 
-| monitorInstancesSummary | 否 | 
-| monitors | 否 | 
-| notificationSettings | 否 | 
 
 ## <a name="next-steps"></a>后续步骤
 若要了解如何将标记应用于资源，请参见[使用标记来组织 Azure 资源](resource-group-using-tags.md)。

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 12/31/2018
-ms.openlocfilehash: 9f0dfeb2520cf3ac43e718e367316f67cf963f44
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: 99182cba719a5d792cd776816cdddc50bb6e0c9e
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529303"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -339,21 +339,21 @@ ms.locfileid: "53736698"
 ```  
   
 ### <a name="controls"></a>控制  
- `Operation` 模板不允许使用任何[页面控件](./api-management-page-controls.md)。  
+ `Operation` 模板不允许使用任何[页面控件](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>数据模型  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|apiId|字符串|当前 API 的 ID。|  
-|apiName|字符串|API 的名称。|  
-|apiDescription|字符串|API 的说明。|  
-|api|[API 摘要](./api-management-template-data-model-reference.md#APISummary)实体。|当前 API。|  
-|operation|[操作](./api-management-template-data-model-reference.md#Operation)|当前显示的操作。|  
-|sampleUrl|字符串|当前操作的 URL。|  
-|operationMenu|[操作菜单](./api-management-template-data-model-reference.md#Menu)|此 API 的操作菜单。|  
-|consoleUrl|URI|“试用”按钮的 URI。|  
-|示例|[代码示例](./api-management-template-data-model-reference.md#Sample)实体的集合。|当前操作的代码示例。|  
+|`apiId`|字符串|当前 API 的 ID。|  
+|`apiName`|字符串|API 的名称。|  
+|`apiDescription`|字符串|API 的说明。|  
+|`api`|[API 摘要](api-management-template-data-model-reference.md#APISummary)实体。|当前 API。|  
+|`operation`|[操作](api-management-template-data-model-reference.md#Operation)|当前显示的操作。|  
+|`sampleUrl`|字符串|当前操作的 URL。|  
+|`operationMenu`|[操作菜单](api-management-template-data-model-reference.md#Menu)|此 API 的操作菜单。|  
+|`consoleUrl`|URI|“试用”按钮的 URI。|  
+|`samples`|[代码示例](api-management-template-data-model-reference.md#Sample)实体的集合。|当前操作的代码示例。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   

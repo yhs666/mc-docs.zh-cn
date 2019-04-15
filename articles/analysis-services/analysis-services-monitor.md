@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: d90caaa8434a547185ed4d690e5df50ffcd3a3d2
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 2104267e04ebca87bbb58a0f6be4da082cef8059
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085684"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529387"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
@@ -33,6 +33,7 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
     ![“监视”图表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 ## <a name="server-metrics"></a>服务器指标
+
 使用此表来确定哪些指标最适合监视方案。 在同一图表上只能显示同一单位的指标。
 
 |指标|指标显示名称|计价单位|聚合类型|说明|
@@ -84,6 +85,6 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
 ## <a name="next-steps"></a>后续步骤
 [在 Azure 中监视](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Azure 中的指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Azure Monitor REST API 中的指标](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Azure Monitor REST API 中的指标](https://docs.microsoft.com/rest/api/monitor/metrics)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

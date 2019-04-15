@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 03/29/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9346de689b35039960546a3a3e910eb1542a7834
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cfb0812b6958899a2f7f1a127a2808ceb4ffb4b2
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58633598"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529044"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>文本翻译 API 3.0：字典查找
 
@@ -57,7 +57,7 @@ https://api.translator.azure.cn/dictionary/lookup?api-version=3.0
   <th width="20%">标头</th>
   <th>说明</th>
   <tr>
-    <td>一个授权<br/>标头</td>
+    <td><em>授权</em><br/><em>headers</em></td>
     <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
@@ -144,7 +144,7 @@ https://api.translator.azure.cn/dictionary/lookup?api-version=3.0
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
+curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
 
 ---
@@ -195,7 +195,7 @@ curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
+curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
 ```
 
 ---

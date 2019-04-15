@@ -19,9 +19,8 @@ items:
   - name: 利用模板参考
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: 创建多个实例
+    displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
-  - name: 移动资源
-    href: resource-manager-tutorial-move-resources.md
   - name: 设置资源部署顺序
     displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -58,8 +57,6 @@ items:
     href: templates-cloud-consistency.md
   - name: 资源提供程序和类型
     href: resource-manager-supported-services.md
-  - name: 管理组
-    href: management-groups-overview.md
   - name: 部署模式
     href: deployment-modes.md
   - name: 资源的删除
@@ -73,27 +70,31 @@ items:
     - name: 创建模板
       href: how-to-create-template.md
     - name: 在订阅级别创建资源组和资源
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: 定义资源依赖关系
       href: resource-group-define-dependencies.md
     - name: 将模板模块化
+      displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: 管理机密
       href: resource-manager-keyvault-parameter.md
       displayname: key vault
     - name: 创建多个实例
       href: resource-group-create-multiple.md
-    - name: 使用模板扩展
-      href: resource-manager-use-extensions.md
   - name: 部署模板
     items:
     - name: 部署 - 门户
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: 部署 - CLI
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: 部署 - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: 部署 - REST API
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: 使用 SAS 令牌保护模板
       items:
@@ -211,11 +212,11 @@ items:
   - name: REST - 部署管理器
     href: https://docs.microsoft.com/rest/api/deploymentmanager/
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.resources
+    href: https://docs.microsoft.com/powershell/module/az.resources
   - name: Azure CLI
     href: https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest
   - name: .NET
-    href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.resourcemanager?view=azure-dotnet
+    href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.resourcemanager
   - name: Java
     href: https://docs.azure.cn/java/api/com.microsoft.azure.management.resources
   - name: Python
@@ -230,9 +231,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 视频
     href: https://www.azure.cn/zh-cn/video-center/
-ms.openlocfilehash: b1cd68adcf0248c40ae6375d3dd9e3e8a71b6abc
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 49af2e9a29354f58beb37cc7171cee8401c1e304
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348138"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529436"

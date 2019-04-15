@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4a9762f1c5285c6bf3b5e459d34e3c1c7a0cef3a
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 060b08feaefb54aeb28bc0cb7e4a427df37cc32a
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505513"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529038"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>快速入门：通过 C# 使用双语字典查找字词
 
@@ -125,8 +125,9 @@ request.RequestUri = new Uri(host + route);
 // Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 
-// Add the authorization header
+// Add the authorization headers
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Region", "your region");
 
 // Send request, get response
 var response = client.SendAsync(request).Result;

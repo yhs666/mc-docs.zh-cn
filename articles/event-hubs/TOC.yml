@@ -21,7 +21,7 @@ items:
       href: event-hubs-resource-manager-namespace-event-hub.md
   - name: 将事件发送到事件中心
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
     - name: .NET framework
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -37,7 +37,7 @@ items:
       href: event-hubs-node-get-started-send.md
   - name: 从事件中心接收事件
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
     - name: .NET framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
@@ -106,7 +106,7 @@ items:
     items:
     - name: 异常
       href: event-hubs-messaging-exceptions.md
-  - name: 使用 IP 筛选器
+  - name: 使用防火墙
     href: event-hubs-ip-filtering.md
   - name: 自动缩放吞吐量单位
     href: event-hubs-auto-inflate.md
@@ -146,9 +146,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 3359192163c81d507516ae0c1dc5fb267c6234b2
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 516c8bbe4e835b84a761aed5c5fece3e764dbd1b
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785234"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355841"

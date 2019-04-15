@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: b41633ab95242568cdd92a0aee3fa4bc243daf8f
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8b38ffac7fcdf8edf58fad6cb78aa027b36c1f4f
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005152"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529152"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源
 
@@ -26,7 +26,7 @@ ms.locfileid: "58005152"
 有关资源管理的其他文章：
 
 - [使用 Azure 门户管理 Azure 资源](./manage-resources-portal.md)
-- [使用 Azure CLI 管理 Azure 资源](./manage-resources-cli.md)
+- [使用 Azure PowerShell 管理 Azure 资源](./manage-resources-powershell.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>将资源部署到现有的资源组
 
@@ -153,5 +153,4 @@ az lock delete --ids $lockId
 - 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
 <!--Pending Verify-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

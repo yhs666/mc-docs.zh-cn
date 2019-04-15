@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2018
 ms.author: v-yiso
 ms.date: 03/11/2019
-ms.openlocfilehash: f4344c0d2bb02a29701d86afb7d83f041dfd5110
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: aaba38edaf3b4ea59811e73eb067fec4d14ad54f
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196639"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529250"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>使用 Azure API 管理、事件中心和 Moesif 监视 API
 [API 管理服务](api-management-key-concepts.md)提供许多功能来增强发送到 HTTP API 的 HTTP 请求的处理。 但是，请求和响应都是暂时性存在的。 在请求发出后，将通过 API 管理服务流送到后端 API。 API 将处理该请求，然后将响应返回给 API 使用者。 API 管理服务保留要在 Azure 门户仪表板中显示的有关 API 的一些重要统计信息，但除此之外不显示详细信息。
@@ -48,7 +48,7 @@ Azure 事件中心旨在引入大量数据，它能够处理的事件数目远�
 
 另一个做法是使用 HTTP 规范 [RFC 7230](https://tools.ietf.org/html/rfc7230) 中所述的 `application/http` 媒体类型。 此媒体类型使用的格式与用于通过网络实际发送 HTTP 消息的格式完全相同，但整个消息可以放在另一个 HTTP 请求的正文中。 在本例中，我们将使用该正文作为消息发送到事件中心。 [Microsoft ASP .NET Web API 2.2 客户端](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/)库中有一个分析器可以分析此格式并将其转换为本机 `HttpRequestMessage` 和 `HttpResponseMessage` 对象，相当方便。
 
-若要创建此消息，需要在 Azure API 管理中使用基于 C# 的[策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 下面是可将 HTTP 请求消息发送到 Azure 事件中心的策略。
+若要创建此消息，需要在 Azure API 管理中使用基于 C# 的[策略表达式](/api-management/api-management-policy-expressions)。 下面是可将 HTTP 请求消息发送到 Azure 事件中心的策略。
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -83,7 +83,7 @@ Azure 事件中心旨在引入大量数据，它能够处理的事件数目远�
 为了确保消息依次传递给使用者并使用分区的负载分配功能，我已选择将 HTTP 请求消息发送到一个分区，将 HTTP 响应消息发送到另一个分区。 这可以确保负载平均分配，并且按顺序使用所有请求和所有响应。 响应有可能在相应请求之前使用，但这不成问题，因为我们有不同的机制能使请求与响应相互关联，并且我们知道请求始终出现在响应之前。
 
 ### <a name="http-payloads"></a>HTTP 有效负载
-在构建 `requestLine` 之后，请查看是否应截断请求正文。 请求正文被截断成只有 1024 个字符。 可以增大此值，不过单个事件中心消息受限于 256 KB，因此有些 HTTP 消息正文可能无法放入单个消息。 执行日志记录和分析时，可以从 HTTP 请求行与标头派生大量信息。 此外，许多 API 请求只返回小型正文，因此相比于降低传输、处理和存储成本来保留所有正文内容，截断大型正文所造成的信息价值损失相当微小。 有关处理正文的最后一个注意事项是需要将 `true` 传递给 As<string>() 方法，因为虽然我们可以读取正文内容，但也希望后端 API 能够读取正文。 将 true 传递给此方法后，正文会缓冲，以便进行第二次读取。 必须要注意 API 是否上传极大型文件或使用很长的轮询。 在这种情况下，最好完全避免读取正文。   
+在构建 `requestLine` 之后，请查看是否应截断请求正文。 请求正文被截断成只有 1024 个字符。 可以增大此值，不过单个事件中心消息受限于 256 KB，因此有些 HTTP 消息正文可能无法放入单个消息。 执行日志记录和分析时，可以从 HTTP 请求行与标头派生大量信息。 此外，许多 API 请求只返回小型正文，因此相比于降低传输、处理和存储成本来保留所有正文内容，截断大型正文所造成的信息价值损失相当微小。 有关处理正文的最后一个注意事项是，需要将 `true` 传递给 `As<string>()` 方法，因为虽然我们可以读取正文内容，但也希望后端 API 能够读取正文。 将 true 传递给此方法后，正文会缓冲，以便进行第二次读取。 必须要注意 API 是否上传极大型文件或使用很长的轮询。 在这种情况下，最好完全避免读取正文。
 
 ### <a name="http-headers"></a>HTTP 标头
 HTTP 标头可以转换为采用简单键/值对格式的消息格式。 我们已选择去除某些安全机密字段，以免不必要地泄漏凭据信息。 API 密钥和其他凭据不太可能用于分析。 如果想要分析用户及其使用的特定产品，可以从 `context` 对象获取这些信息，然后将其添加到消息。     
@@ -316,4 +316,4 @@ Azure API 管理服务提供了一个理想位置用于捕获 API 的双向 HTTP
 * 了解有关 API 管理和事件中心集成的详细信息
   * [如何在 Azure API 管理中将事件记录到 Azure 事件中心](./api-management-howto-log-event-hubs.md)
   * [记录器实体引用](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [log-to-eventhub 策略引用](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [log-to-eventhub 策略引用](/api-management/api-management-advanced-policies#log-to-eventhub)

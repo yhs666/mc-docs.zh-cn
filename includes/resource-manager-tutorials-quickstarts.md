@@ -12,15 +12,15 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 01/15/2019
-ms.date: 02/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d9399df883acfe7f59c8278c6b4c748fd84f60be
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: b6c7e2d268be5092987720e6dfcba136a2598ad1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306274"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529486"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入门和教程
 
@@ -34,7 +34,7 @@ ms.locfileid: "56306274"
     |[使用 Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 创建和编辑模板，以及如何使用 Azure Shell 部署模板。|
     |[使用 Visual Studio](../articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|使用 Visual Studio 创建、编辑和部署模板。|
 
-  <!--Not Available on Azure Cloud Shell-->
+    <!--Not Available on Azure Cloud Shell-->
     
 - 教程
 
@@ -42,7 +42,6 @@ ms.locfileid: "56306274"
     |------|-----|
     |[利用模板参考](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|利用模板参考文档来开发模板。 在本教程中，找到存储帐户架构，并使用相关信息来创建加密的存储帐户。|
     |[创建多个实例](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|创建多个 Azure 资源的实例。 在本教程中，将创建多个存储帐户实例。|
-    |[移动资源](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|将资源在资源组之间移动。 在本教程中，运行现有模板以创建两个资源组和一个存储帐户，然后运行 Azure PowerShell cmdlet 以将存储帐户移动到另一个资源组。|
     |[设置资源部署顺序](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|定义资源依赖关系。 在本教程中，将创建虚拟网络、虚拟机和相关 Azure 资源。 了解如何定义依赖关系。|
     |[使用条件](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|基于某些参数值来部署资源。 在本教程中，基于参数的值定义一个模板以创建新的存储帐户或使用现有存储帐户。|
     |[集成 Key Vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|从 Azure Key Vault 检索机密/密码。 在本教程中，将创建虚拟机。  从 Key Vault 检索虚拟机管理员密码。|

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2017
 ms.author: v-yiso
-ms.date: 02/25/2019
-ms.openlocfilehash: 099d879dd424a65c53a9b563ad29a5d19cb372e4
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 04/22/2019
+ms.openlocfilehash: 8a765cd82e2b8cc417178e1b5f050cb2ca01d7d2
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302976"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529300"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>如何使用 API 管理中的客户端证书身份验证确保 API 安全
 
@@ -48,7 +48,7 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API（即
 
 ```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != 'trusted-issuer' || context.Request.Certificate.SubjectName != 'expected-subject-name')" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName.Name != "expected-subject-name")" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -88,5 +88,5 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API（即
 ## <a name="next-step"></a>后续步骤
 
 *  [如何使用客户端证书身份验证确保后端服务安全](./api-management-howto-mutual-certificates.md)
-*  [如何上传证书](./api-management-howto-mutual-certificates.md#a-namestep1-aupload-a-client-certificate)
+*  [如何上传证书](./api-management-howto-mutual-certificates.md)
 

@@ -85,14 +85,6 @@ items:
           href: v1-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 客户端凭据授予
           href: v1-oauth2-client-creds-grant-flow.md
-      - name: SAML 2.0 协议
-        items:
-        - name: 单一登录
-          href: single-sign-on-saml-protocol.md
-        - name: 注销
-          href: single-sign-out-saml-protocol.md
-        - name: Azure AD 使用 SAML 协议的方式
-          href: active-directory-saml-protocol-reference.md
       - name: WS 联合身份验证
         items:
         - name: 联合元数据
@@ -199,9 +191,9 @@ items:
   - name: 获取帮助
     displayName: support, help options
     href: developer-support-help-options.md
-ms.openlocfilehash: fc28de9417dd4a1cbc93a635c63f8c16c87770ba
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 899b49737b1ea07b8a4bc1425b08430905b1b49b
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462369"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243673"

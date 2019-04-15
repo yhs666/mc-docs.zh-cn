@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 11/29/2018
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: e415ad12c80e332b32aa1a52a5b1129a5ce0e942
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 0116b7376c034c56a6c9fc526522ce4e40182152
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675397"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529222"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API 管理中的策略
 
@@ -60,7 +60,7 @@ ms.locfileid: "52675397"
 </policies> 
 ```
 
-如果在处理请求的过程中出错，则会忽略 `inbound`、`backend` 或 `outbound` 部分中的其余步骤，跳到 `on-error` 部分执行相关语句。 将策略语句置于 `on-error` 部分以后，即可使用 `context.LastError` 属性查看错误、使用 `set-body` 策略检查和自定义错误响应，以及配置发生错误时的应对措施。 错误代码可针对内置步骤，也可针对在处理策略语句的过程中会发生的错误。 有关详细信息，请参阅 [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx)（API 管理策略中的错误处理）。
+如果在处理请求的过程中出错，则会忽略 `inbound`、`backend` 或 `outbound` 部分中的其余步骤，跳到 `on-error` 部分执行相关语句。 将策略语句置于 `on-error` 部分以后，即可使用 `context.LastError` 属性查看错误、使用 `set-body` 策略检查和自定义错误响应，以及配置发生错误时的应对措施。 错误代码可针对内置步骤，也可针对在处理策略语句的过程中会发生的错误。 有关详细信息，请参阅 [Error handling in API Management policies](/api-management/api-management-error-handling-policies)（API 管理策略中的错误处理）。
 
 ## <a name="scopes"> </a>如何配置策略
 
@@ -127,6 +127,7 @@ ms.locfileid: "52675397"
 [Policy Reference]: ./api-management-policies.md
 [Product]: ./api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
+[Operation]: api-management-howto-add-operations.md
 
 [Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
 [Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose

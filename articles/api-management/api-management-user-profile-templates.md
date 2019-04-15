@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 1418492c617f923d3928f8bbc7dd26d17ebac9f4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 38478b8eb5058721933c4b1da6aded52710c58e3
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625252"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529466"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -37,7 +37,7 @@ ms.locfileid: "58625252"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
-> [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="Profile"></a> 配置文件  
  **配置文件**模板用于自定义开发人员门户中用户配置文件页的用户配置文件部分。  
@@ -106,17 +106,17 @@ ms.locfileid: "58625252"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|firstName|字符串|当前用户的名字。|  
-|lastName|字符串|当前用户的姓氏。|  
-|companyName|字符串|当前用户所在公司的名称。|  
-|addresserEmail|字符串|当前用户的电子邮件地址。|  
-|developersUsageStatisticsLinkk|字符串|相对 URL，用于查看当前用户的分析。|  
-|subscriptions|[订阅](./api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
-|applications|[应用程序](./api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
-|changePasswordUrl|字符串|相对 URL，用于更改当前用户的密码。|  
-|changeNameOrEmailUrl|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
-|canChangePassword|布尔值|当前用户是否可更改其密码。|  
-|isSystemUser|布尔值|当前用户是否为某个内置[组](./api-management-key-concepts.md#groups)的成员。|  
+|`firstName`|字符串|当前用户的名字。|  
+|`lastName`|字符串|当前用户的姓氏。|  
+|`companyName`|字符串|当前用户所在公司的名称。|  
+|`addresserEmail`|字符串|当前用户的电子邮件地址。|  
+|`developersUsageStatisticsLink`|字符串|相对 URL，用于查看当前用户的分析。|  
+|`subscriptions`|[订阅](api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
+|`applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
+|`changePasswordUrl`|字符串|相对 URL，用于更改当前用户的密码。|  
+|`changeNameOrEmailUrl`|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
+|`canChangePassword`|布尔值|当前用户是否可更改其密码。|  
+|`isSystemUser`|布尔值|当前用户是否为某个内置[组](api-management-key-concepts.md#groups)的成员。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -327,17 +327,17 @@ ms.locfileid: "58625252"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|firstName|字符串|当前用户的名字。|  
-|lastName|字符串|当前用户的姓氏。|  
-|companyName|字符串|当前用户所在公司的名称。|  
-|addresserEmail|字符串|当前用户的电子邮件地址。|  
-|developersUsageStatisticsLinkk|字符串|相对 URL，用于查看当前用户的分析。|  
-|subscriptions|[订阅](./api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
-|applications|[应用程序](./api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
-|changePasswordUrl|字符串|相对 URL，用于更改当前用户的密码。|  
-|changeNameOrEmailUrl|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
-|canChangePassword|布尔值|当前用户是否可更改其密码。|  
-|isSystemUser|布尔值|当前用户是否为某个内置[组](./api-management-key-concepts.md#groups)的成员。|  
+|`firstName`|字符串|当前用户的名字。|  
+|`lastName`|字符串|当前用户的姓氏。|  
+|`companyName`|字符串|当前用户所在公司的名称。|  
+|`addresserEmail`|字符串|当前用户的电子邮件地址。|  
+|`developersUsageStatisticsLink`|字符串|相对 URL，用于查看当前用户的分析。|  
+|`subscriptions`|[订阅](api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
+|`applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
+|`changePasswordUrl`|字符串|相对 URL，用于更改当前用户的密码。|  
+|`changeNameOrEmailUrl`|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
+|`canChangePassword`|布尔值|当前用户是否可更改其密码。|  
+|`isSystemUser`|布尔值|当前用户是否为某个内置[组](api-management-key-concepts.md#groups)的成员。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -490,17 +490,17 @@ ms.locfileid: "58625252"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|firstName|字符串|当前用户的名字。|  
-|lastName|字符串|当前用户的姓氏。|  
-|companyName|字符串|当前用户所在公司的名称。|  
-|addresserEmail|字符串|当前用户的电子邮件地址。|  
-|developersUsageStatisticsLinkk|字符串|相对 URL，用于查看当前用户的分析。|  
-|subscriptions|[订阅](./api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
-|applications|[应用程序](./api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
-|changePasswordUrl|字符串|相对 URL，用于更改当前用户的密码。|  
-|changeNameOrEmailUrl|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
-|canChangePassword|布尔值|当前用户是否可更改其密码。|  
-|isSystemUser|布尔值|当前用户是否为某个内置[组](./api-management-key-concepts.md#groups)的成员。|  
+|`firstName`|字符串|当前用户的名字。|  
+|`lastName`|字符串|当前用户的姓氏。|  
+|`companyName`|字符串|当前用户所在公司的名称。|  
+|`addresserEmail`|字符串|当前用户的电子邮件地址。|  
+|`developersUsageStatisticsLink`|字符串|相对 URL，用于查看当前用户的分析。|  
+|`subscriptions`|[订阅](api-management-template-data-model-reference.md#Subscription)实体的集合。|当前用户的订阅。|  
+|`applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|当前用户的应用程序。|  
+|`changePasswordUrl`|字符串|相对 URL，用于更改当前用户的密码。|  
+|`changeNameOrEmailUrl`|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
+|`canChangePassword`|布尔值|当前用户是否可更改其密码。|  
+|`isSystemUser`|布尔值|当前用户是否为某个内置[组](api-management-key-concepts.md#groups)的成员。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   

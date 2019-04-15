@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6fbfc2974f2780801c39870c8983b606f0e964a
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: d390b4e6b0a5555b5f85fc3d3668eb9693fa8dae
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085668"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529438"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -33,7 +33,7 @@ ms.locfileid: "55085668"
 
 1. 依次单击“+ 创建资源” > “数据 + 分析” > “Analysis Services”。
 
-    <!--Mooncake is **Data + Analytics** format-->
+    <!--MOONCAKE is **Data + Analytics** format-->
     
     ![门户](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "55085668"
     * **备份存储设置**：可选。 如果已有[存储帐户](../storage/common/storage-introduction.md)，则可将其指定为默认模型数据库备份帐户。 稍后还可指定[备份和还原](analysis-services-backup.md)设置。
     * **存储密钥有效期**：可选。 指定存储密钥的有效期。
 
-创建服务器通常不超过一分钟的时间。 如果选择“添加到门户”，请导航到门户查看新服务器。 或者，导航到“所有服务” > “Analysis Services”，查看服务器是否就绪。
+创建服务器通常不超过一分钟的时间。 如果选择“添加到门户”，请导航到门户查看新服务器。 或者，导航到“所有服务” > “Analysis Services”，查看服务器是否就绪。 服务器支持 1200 和更高兼容级别的表格模型。 模型兼容性级别在 SSDT 或 SSMS 中指定。
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -10,14 +10,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
 manager: digimobile
-origin.date: 02/12/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 9533a06a102dd6b5d6054fb696bf1f2f53cda800
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 88858c97a3db8a1b3f634bceb6892f25a32eaa7e
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347015"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529334"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入门：使用 Java 查询 Azure SQL 数据库
 

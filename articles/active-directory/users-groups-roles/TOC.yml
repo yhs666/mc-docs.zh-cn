@@ -64,6 +64,10 @@ items:
       href: roles-delegate-by-task.md
     - name: Microsoft 365 角色
       href: roles-m365-workload-docs.md
+  - name: 管理登录
+    items:
+    - name: 主领域发现
+      href: signin-realm-discovery.md
   expanded: true
 - name: 参考
   items:
@@ -71,9 +75,9 @@ items:
     href: /cli/ad
   - name: Azure AD 服务限制
     href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 446ff23efc897bedba4cc8db644e0290940f9225
-ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
+ms.openlocfilehash: 37c1e4110f88c09d6f2316008ca305023666e0c0
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409403"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502605"

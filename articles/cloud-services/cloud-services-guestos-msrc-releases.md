@@ -11,22 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 03/14/2019
+origin.date: 03/26/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: f08f0960a4332f1d23c871e21d5ebb02e1bc775a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 8e787e5990138362d5c5bf41525a9ad55dd94255
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627200"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529267"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
-
->[!NOTE]
->目前，我们正在将 3 月来宾 OS 推广到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 3 月 OS 中包含以下修补程序。 此列表可能随时变动。
-
 
 ## <a name="march-2019-guest-os"></a>2019 年 3 月来宾 OS
 

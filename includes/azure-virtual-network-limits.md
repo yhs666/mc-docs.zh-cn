@@ -9,12 +9,12 @@ origin.date: 02/07/2019
 ms.date: 03/25/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 913c91b160289fbf19baf671f824e067ec137b07
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 01b7319cdffb49ba7fdfab345771b542b156ae2b
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632959"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59363232"
 ---
 <a name="virtual-networking-limits-classic"></a>以下限制仅适用于每个订阅通过经典部署模型托管的网络资源。 了解如何[针对订阅限制查看当前资源使用情况](../articles/networking/check-usage-against-limits.md)。
 
@@ -55,15 +55,15 @@ ms.locfileid: "58632959"
 |                          网络接口卡数                          |                                                 65,536                                                  |
 |                          网络安全组                          |                                                  5,000                                                  |
 |                             每个 NSG 的 NSG 规则数                             |                                                  1,000                                                  |
-|                           <!-- 不可用于                           |             为安全规则中的源或目标指定的 IP 地址和范围数              |
 |                        应用程序安全组                        |                                                  3,000                                                  |
-|                           <!-- 不可用于                           |                        每个 IP 配置和每个 NIC 的应用程序安全组数                        |
-|                           <!-- 不可用于                           |                            每个应用程序安全组的 IP 配置数                             |
-|                           <!-- 不可用于                           | 可在网络安全组的所有安全规则中指定的应用程序安全组数 |
 |                         用户定义路由表数                         |                                                   200                                                   |
 |                    每个路由表的用户定义的路由数                    |                                                   400                                                   |
 |           每个 Azure VPN 网关的点到站点根证书数           |                                                   20 个                                                    |
 
+<!-- Not Available on |             IP addresses and ranges specified for source or destination in a security rule              |-->
+<!-- Not Available on |                        Application security groups per IP configuration, per NIC                        |-->
+<!-- Not Available on |                            IP configurations per application security group                             |-->
+<!-- Not Available on | Application security groups that can be specified within all security rules of a network security group |-->
 <!-- Not Available on | Virtual network TAPs |100 |-->
 <!-- Not Available on | Network interface TAP configurations per virtual network TAP |100 |-->
 

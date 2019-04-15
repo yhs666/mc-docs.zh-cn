@@ -10,14 +10,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
 manager: digimobile
-origin.date: 11/26/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: be00b0d7aa331546e84706b8b9efdd5d7fe920c9
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 4785a5377931798840cd3e104fb15dd03e817295
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347062"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529471"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入门：使用 Node.js 查询 Azure SQL 数据库
 
@@ -62,8 +62,8 @@ ms.locfileid: "57347062"
 
   ```bash
   npm init -y
-  npm install tedious
-  npm install async
+  npm install tedious@5.0.3
+  npm install async@2.6.2
   ```
 
 ## <a name="add-code-to-query-database"></a>添加用于查询数据库的代码
@@ -79,8 +79,13 @@ ms.locfileid: "57347062"
     // Create connection to database
     var config =
     {
-        userName: 'your_username', // update me
-        password: 'your_password', // update me
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
         server: 'your_server.database.chinacloudapi.cn', // update me
         options:
         {

@@ -4,17 +4,16 @@ description: 列出可移到新资源组或订阅的 Azure 资源类型。
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 02/13/2019
-ms.date: 03/18/2019
+origin.date: 03/22/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: f09bdc81b53bf9e9a97f2b3b03b6fe8b41150ef4
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: e53d1822db1e81a9420103c288995794f61528ab
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348109"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529339"
 ---
-<!--pending for verify -->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
 
 本文列出某个 Azure 资源类型是否支持移动操作。 尽管某个资源类型支持移动操作，但某些条件可能会阻止该资源的移动。 有关影响移动操作的条件的详细信息，请参阅[将资源移到新的资源组或订阅](resource-group-move-resources.md)。
@@ -34,6 +33,7 @@ ms.locfileid: "58348109"
 | ------------- | ---------------| -----------  |
 | 服务 | 是 | 是 |
 
+<!--Not Available on ## Microsoft.AppService-->
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | ---------------| -----------  |
@@ -66,6 +66,7 @@ ms.locfileid: "58348109"
 <!-- Not Available on ## ## Microsoft.BatchAI-->
 <!-- Not Available on ## Microsoft.BingMaps-->
 <!-- Not Available on ## Microsoft.BizTalkServices-->
+<!-- Not Available on ## Microsoft.Blockchain-->
 <!-- Not Available on ## Microsoft.Blueprint-->
 <!-- Not Available on ## Microsoft.BotService-->
 
@@ -142,6 +143,7 @@ ms.locfileid: "58348109"
 | openshiftmanagedclusters | 否 | 否 |
 
 <!-- Not Available on ## Microsoft.ContentModerator-->
+<!-- Not Available on ## Microsoft.CortanaAnalytics-->
 <!-- Not Available on ## Microsoft.CostManagement-->
 <!-- Not Available on ## Microsoft.CustomerInsights-->
 <!-- Not Available on ## Microsoft.DataBox-->
@@ -196,14 +198,13 @@ ms.locfileid: "58348109"
 
 <!-- Not Available on ## Microsoft.Genomics-->
 <!-- Not Available on ## Microsoft.HanaOnAzure-->
-<!-- Not Available on ## Microsoft.HardwareSecurityModules-->
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
 | clusters | 是 | 是 |
 
-!-- 在 ## Microsoft.HybridData 上不可用-->
+<!-- Not Available on ## Microsoft.HybridData-->
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |
@@ -252,7 +253,6 @@ ms.locfileid: "58348109"
 <!-- Not Available on ## Microsoft.MachineLearningCompute-->
 <!-- Not Available on ## Microsoft.MachineLearningExperimentation-->
 <!-- Not Available on ## Microsoft.MachineLearningModelManagement-->
-
 <!-- Not Available on ## Microsoft.MachineLearningOperationalization-->
 <!-- Not Available on ## Microsoft.MachineLearningServices-->
 
@@ -456,6 +456,6 @@ ms.locfileid: "58348109"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
+有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
 
 <!-- Update_Description: Update meta properties, wording update -->

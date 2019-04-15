@@ -13,12 +13,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 01/01/2018
 ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8e153d952339036b7701d3ed372e9de2fb329b2a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2e482a430e020483b628ee48c78ac04d32612b7f
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626164"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529356"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>为 Azure 逻辑应用中的逻辑应用定义创建、编辑或扩展 JSON
 
@@ -376,6 +376,5 @@ ms.locfileid: "58626164"
 * [基于不同的值运行步骤（switch 语句）](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [运行并重复执行步骤（循环）](../logic-apps/logic-apps-control-flow-loops.md)
 * [运行或合并并行步骤（分支）](../logic-apps/logic-apps-control-flow-branches.md)
-* [基于分组的操作状态运行步骤（作用域）](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * 详细了解 [Azure 逻辑应用的工作流定义语言架构](../logic-apps/logic-apps-workflow-definition-language.md)
 * 详细了解 [Azure 逻辑应用的工作流操作和触发器](../logic-apps/logic-apps-workflow-actions-triggers.md)

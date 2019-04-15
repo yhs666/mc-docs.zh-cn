@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/27/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: aefb1f5fe65d5bf3adeea40a076a993a910b3565
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 04/22/2019
+ms.openlocfilehash: 268bf1cdcd8f045cda04a3121221832e06ba633b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736682"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529176"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>添加缓存以提高 Azure API 管理中的性能
 API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减少 API 延迟、带宽消耗和不经常更改数据的 web 服务负载。
@@ -34,6 +34,8 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 > [!div class="checklist"]
 > * 为 API 添加响应缓存
 > * 验证作用的缓存
+
+
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -70,6 +72,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 
     **持续时间** 指定缓存响应的过期时间间隔。 此示例中的时间间隔为 **20** 秒。
 
+
 ## <a name="test-operation"> </a>调用操作和测试缓存
 若要查看作用的缓存，请从开发人员门户调用操作。
 
@@ -83,6 +86,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 ## <a name="next-steps"></a>后续步骤
 * 有关缓存策略的详细信息，请参阅 [API 管理策略参考][API Management policy reference]中的[缓存策略][Caching policies]。
 * 有关使用策略表达式按密钥缓存项目的信息，请参阅 [Azure API 管理中的自定义缓存](api-management-sample-cache-by-key.md)。
+
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

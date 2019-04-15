@@ -9,12 +9,12 @@ ms.author: v-yiso
 origin.date: 10/10/2018
 ms.reviewer: klam, LADocs
 ms.date: 02/04/2019
-ms.openlocfilehash: 15ef94e7844cb7f9627652e423ac6b19d9e79e6b
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 6544fd856c470b32ef2192555993cd0aa27010b0
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906054"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529252"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>创建或联接 Azure 逻辑应用中的工作流的并行分支
 
@@ -195,4 +195,3 @@ ms.locfileid: "54906054"
 * [基于条件运行步骤（条件语句）](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [基于不同的值运行步骤（switch 语句）](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [运行并重复执行步骤（循环）](../logic-apps/logic-apps-control-flow-loops.md)
-* [基于分组的操作状态运行步骤（作用域）](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

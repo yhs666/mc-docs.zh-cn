@@ -1,20 +1,19 @@
 ---
-title: 使用资源管理器模板创建策略分配以识别不合规的资源
+title: 使用资源管理器模板创建策略分配
 description: 本文逐步讲解如何使用资源管理器模板创建策略分配，以识别不合规的资源。
-services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 03/13/2019
-ms.date: 04/15/2019
+ms.date: 04/22/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 10f4428ff80389ee7addb3c6b60d9811c94ef80a
-ms.sourcegitcommit: dbabe5365653ce222005b2b666dddbfed2270063
+ms.openlocfilehash: 41e87918f959af8702655bbec454ed09cd8a21a8
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58760029"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471970"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>使用资源管理器模板创建策略分配以识别不合规的资源
 
@@ -101,7 +100,7 @@ ms.locfileid: "58760029"
 
 选择页面左侧的“符合性”。 然后找到所创建的“审核未使用托管磁盘的 VM”策略分配。
 
-![策略符合性](./media/assign-policy-template/policy-compliance.png)
+![策略符合性概述页](./media/assign-policy-template/policy-compliance.png)
 
 如果存在与此新分配不相符的任何现有资源，这些资源会在“不符合的资源”下显示。
 
@@ -115,7 +114,7 @@ ms.locfileid: "58760029"
 
 1. 右键单击“审核不使用托管磁盘的 VM”策略分配并选择“删除分配”。
 
-   ![删除分配](./media/assign-policy-template/delete-assignment.png)
+   ![从符合性概述页中删除分配](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>后续步骤
 

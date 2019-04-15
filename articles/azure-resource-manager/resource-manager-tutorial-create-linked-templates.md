@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 01/16/2019
-ms.date: 03/18/2019
+origin.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: d33004c8e3e275b9e91cd73f7fb13b586d727d4a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f7cf75dbf1550faec9ba07ee62c0ff0633df75fd
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625628"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529426"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
 
 了解如何创建 Azure 资源管理器链接模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 在本教程中使用的模板与在[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的模板相同，该模板用于创建虚拟机、虚拟网络以及其他依赖资源（包括存储帐户）。 请将存储帐户资源创建功能分隔到链接的模板。
+
+调用链接的模板就像执行函数调用一样。  你还将了解如何将参数值传递给链接的模板，以及如何从链接的模板中获取“返回值”。
 
 本教程涵盖以下任务：
 
@@ -36,6 +38,8 @@ ms.locfileid: "58625628"
 > * 配置依赖项
 > * 部署模板
 > * 其他做法
+
+有关详细信息，请参阅[部署 Azure 资源时使用链接的和嵌套的模板](./resource-group-linked-templates.md)。
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -69,13 +73,13 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 选择“打开”以打开该文件。
 4. 有五个通过此模板定义的资源：
 
-   * `Microsoft.Storage/storageAccounts`。
-   * `Microsoft.Network/publicIPAddresses`。
-   * `Microsoft.Network/virtualNetworks`。
-   * `Microsoft.Network/networkInterfaces`。
-   * `Microsoft.Compute/virtualMachines`。
+    * `Microsoft.Storage/storageAccounts`。
+    * `Microsoft.Network/publicIPAddresses`。
+    * `Microsoft.Network/virtualNetworks`。
+    * `Microsoft.Network/networkInterfaces`。
+    * `Microsoft.Compute/virtualMachines`。
     
-     <!-- Not Available on templates reference-->
+    <!-- Not Available on templates reference-->
     
      在自定义模板之前，不妨对其进行一些基本的了解。
 5. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
@@ -83,83 +87,85 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="create-the-linked-template"></a>创建链接模板
 
-链接模板可创建存储帐户。 链接模板与用于创建存储帐户的单独模板几乎完全相同。 在本教程中，链接模板需将一个值传回主模板。 该值在 `outputs` 元素中定义。
+链接模板可创建存储帐户。 链接的模板可以用作独立模板来创建存储帐户。 在本教程中，链接的模板采用两个参数，并将值传递给主模板。 此“返回”值在 `outputs` 元素中定义。
 
 1. 在 Visual Studio Code 中打开 linkedTemplate.json（如果此文件尚未打开）。
 2. 进行以下更改：
 
-   * 删除除存储帐户之外的所有资源。 删除总共四项资源。
-   * 将存储帐户资源的 **name** 元素的值更新为：
+    * 删除除 location 之外的所有参数。
+    * 添加名为 **storageAccountName** 的参数。 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        存储帐户名称和位置作为参数从主模板传递给链接的模板。
 
-       ```json
-         "name": "[parameters('storageAccountName')]",
-       ```
-   * 删除 **variables** 元素以及所有变量定义。
-   * 删除除 **location** 之外的所有参数。
-   * 添加名为 **storageAccountName** 的参数。 存储帐户名称作为参数从主模板传递给链接模板。
+    * 删除 **variables** 元素以及所有变量定义。
+    * 删除除存储帐户之外的所有资源。 删除总共四项资源。
+    * 将存储帐户资源的 **name** 元素的值更新为：
 
-       ```json
-       "storageAccountName":{
-       "type": "string",
-       "metadata": {
-           "description": "Azure Storage account name."
-       }
-       },
-       ```
-   * 更新 **outputs** 元素，使之如下所示：
+        ```json
+          "name": "[parameters('storageAccountName')]",
+        ```
 
-       ```json
-       "outputs": {
-           "storageUri": {
-               "type": "string",
-               "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-             }
-       }
-       ```
-       **storageUri** 在主模板中是虚拟机资源定义所需要的。  请将值作为输出值传回主模板。
+    * 更新 **outputs** 元素，使之如下所示：
 
-     完成后，模板应如下所示：
+        ```json
+        "outputs": {
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
+        }
+        ```
+        **storageUri** 在主模板中是虚拟机资源定义所需要的。  请将值作为输出值传回主模板。
 
-     ```json
-     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "storageAccountName":{
-           "type": "string",
-           "metadata": {
-             "description": "Azure Storage account name."
-           }
-         },
-         "location": {
-           "type": "string",
-           "defaultValue": "[resourceGroup().location]",
-           "metadata": {
-             "description": "Location for all resources."
-           }
-         }
-       },
-       "resources": [
-         {
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[parameters('storageAccountName')]",
-           "apiVersion": "2016-01-01",
-           "location": "[parameters('location')]",
-           "sku": {
-             "name": "Standard_LRS"
-           },
-           "kind": "Storage",
-           "properties": {}
-         }
-       ],
-       "outputs": {
-           "storageUri": {
-               "type": "string",
-               "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-             }
-       }
-     }
-     ```
+        完成后，模板应如下所示：
+
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
+          }
+        }
+        ```
 3. 保存更改。
 
 ## <a name="upload-the-linked-template"></a>上传链接模板
@@ -306,8 +312,6 @@ echo "Linked template URI with SAS token: $templateURI"
     *linkedTemplate* 是部署资源的名称。  
 3. 更新 **properties/diagnosticsProfile/bootDiagnostics/storageUri**，如上一屏幕截图所示。
 4. 保存修订的模板。
-
-有关详细信息，请参阅[部署 Azure 资源时使用链接模板和嵌套模板](./resource-group-linked-templates.md)
 
 ## <a name="deploy-the-template"></a>部署模板
 

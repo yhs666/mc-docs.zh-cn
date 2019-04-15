@@ -181,6 +181,8 @@ items:
     items:
     - name: Azure 门户
       href: howto-restart-server-portal.md
+    - name: Azure CLI
+      href: howto-restart-server-cli.md
 - name: 参考
   items:
   - name: Azure CLI
@@ -203,9 +205,9 @@ items:
       href: videos.md
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: d31697f5166865dc3a5de961b8e8df77366ea39c
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 23d40cc7ce7ce04ddc52a8aba93be6bdf6e33d01
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503542"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529207"

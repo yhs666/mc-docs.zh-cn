@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/12/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: e0da374abf916fb9c8e5e9793427515e1669237f
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: ee99d8660204992bfad2fafdedaefefd365d6a19
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347212"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529192"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库
 

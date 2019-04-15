@@ -9,17 +9,17 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1d69d55f0695405b1e617bf3f6cd5c1abc9703
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1b32d45e39112a9453c1a726bf0ce3a98db7a96f
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626354"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355844"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -60,9 +60,9 @@ ms.locfileid: "58626354"
 
 2. 填写“用户”页：
 
-   - **名称：** 键入 Alain Charon。
+    - **名称：** 键入 Alain Charon。
 
-   - **用户名：** 键入 alain@contoso.com。
+    - **用户名：** 键入 alain\@contoso.com。
 
 3. 复制“密码”框中提供的自动生成的密码，然后选择“创建”。
 
@@ -128,4 +128,4 @@ ms.locfileid: "58626354"
     >[!Important]
     >这不会删除用户 Alain Charon，而只会删除他在该组中的成员身份。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

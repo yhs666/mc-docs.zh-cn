@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 08/08/2018
-ms.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: d9cdf0b6a03220e83d123a8a67346cc36aae6bd0
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: e53acfc37f36a4d05e4981fb7795790091d898b3
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352499"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529154"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
 
@@ -104,5 +104,4 @@ spec:
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [image-pull-secret]: https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets
 
-<!-- Update_Description: new articles on container registry auth aks -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: wording update -->

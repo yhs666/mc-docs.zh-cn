@@ -12,20 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 83cb3bdb2121f228ef01b5ce826fa650fa4cb406
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: d49c2a59f833bfb8804ed5f45e8d46d937c9bde8
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348108"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529116"
 ---
 <!--Verified Successfully-->
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 资源策略的 RequestDisallowedByPolicy 错误
 
 本文说明了 RequestDisallowedByPolicy 错误的原因，它还提供了此错误的解决方案。
-
 
 ## <a name="symptom"></a>症状
 
@@ -50,7 +49,7 @@ ms.locfileid: "58348108"
 
 在 PowerShell 中，提供该策略标识符作为 `Id` 参数，检索有关阻止部署的策略的详细信息。
 
-```PowerShell
+```powershell
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
@@ -62,7 +61,7 @@ ms.locfileid: "58348108"
 
 ```azurecli
 az policy definition list --query [*].name  #get all the name collection with Azure CLI
-az policy definition show --name {region_Policy_Assignment}
+az policy definition show --name {regionPolicyAssignment}
 ```
 
 ## <a name="solution"></a>解决方案

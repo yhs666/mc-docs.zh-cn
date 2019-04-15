@@ -1,25 +1,25 @@
 ---
-title: 教程：创建自定义 Java 模块 - Azure IoT Edge | Microsoft Docs
+title: 自定义 Java 模块教程 - Azure IoT Edge | Microsoft Docs
 description: 本教程介绍如何使用 Java 代码创建 IoT Edge 模块并将其部署到边缘设备。
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 01/04/2019
-ms.date: 03/04/2019
+origin.date: 04/04/2019
+ms.date: 04/22/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4067e94c0e83431f5305ee50fb93988aee693163
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 130cacbdeb4f3a586691b5a3769e2f2cab010d1d
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890208"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529186"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 Java IoT Edge 模块并将其部署到模拟设备
 
-可以使用 Azure IoT Edge 模块部署代码，直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入门的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
+可以使用 Azure IoT Edge 模块部署代码，直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Linux](quickstart-linux.md) 快速入门的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code，根据 Azure IoT Edge maven 模板包和 Azure IoT Java 设备 SDK 创建 IoT Edge Java 模块。
@@ -37,8 +37,8 @@ ms.locfileid: "58890208"
 
 Azure IoT Edge 设备：
 
-* 可以遵循适用于 [Linux](quickstart-linux.md) 或 [Windows](quickstart.md) 的快速入门中的步骤来设置 IoT Edge 设备。
-* 对于 Windows 设备上的 IoT Edge，版本 1.0.5 不支持 Java 模块。 有关详细信息，请参阅 [1.0.5 发行说明](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 有关如何安装特定版本的步骤，请参阅[更新 IoT Edge 安全守护程序和运行时](how-to-update-iot-edge.md)。
+* 可以按照适用于 [Linux](quickstart-linux.md) 的快速入门中的步骤，将 Azure 虚拟机用作 IoT Edge 设备。 
+* 用于 IoT Edge 的 Java 模块不支持 Windows 容器。 
 
 云资源：
 
@@ -147,6 +147,7 @@ Azure IoT Edge 设备：
 4. 将 **MessageCallbackMqtt** 执行方法替换为以下代码。 每当模块从 IoT Edge 中心接收 MQTT 消息，就会调用此方法。 此方法筛选掉那些所报告温度低于温度阈值（通过孪生模块进行设置）的消息。
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
@@ -174,6 +175,7 @@ Azure IoT Edge 设备：
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 5. 将下面的两个静态内部类添加到 **App** 类中。 当模块孪生的所需属性发生更改时，这些类将更新 tempThreshold 变量。 所有模块都有自己的孪生模块，因此可以直接从云配置在模块中运行的代码。
@@ -265,8 +267,9 @@ Azure IoT Edge 设备：
 >[!TIP]
 >如果你在尝试生成并推送模块时收到错误，请进行以下检查：
 >* 你在 Visual Studio Code 中登录到 Docker 时是否使用了来自容器注册表的凭据？ 这些凭据不同于用来登录到 Azure 门户的凭据。
->* 你的容器存储库是否正确？ 打开“模块” > “cmodule” > “module.json”并查找 **repository** 字段。 映像存储库应当类似于 **\<registryname\>.azurecr.cn/javamodule**。 
->* 你在生成的容器是否为开发计算机运行的同一类型的容器？ Visual Studio Code 默认生成 Linux amd64 容器。 如果开发计算机运行的是 Windows 容器或 Linux arm32v7 容器，请在 VS Code 窗口底部的蓝色状态栏上更新平台，以匹配你的容器平台。
+>* 你的容器存储库是否正确？ 打开“模块” > “JavaModule” > “module.json”并查找 **repository** 字段。 映像存储库应当类似于 **\<registryname\>.azurecr.io/javamodule**。 
+>* 你在生成的容器是否为开发计算机运行的同一类型的容器？ Visual Studio Code 默认生成 Linux amd64 容器。 如果开发计算机运行的是 Linux arm32v7 容器，请在 VS Code 窗口底部的蓝色状态栏上更新平台，以匹配你的容器平台。
+>* 用于 IoT Edge 的 Java 模块不支持 Windows 容器。
 
 ## <a name="deploy-and-run-the-solution"></a>部署并运行解决方案
 
@@ -322,7 +325,7 @@ Azure IoT Edge 设备：
 在本教程中，你已创建一个 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 可以继续阅读后续教程，了解如何使用 Azure IoT Edge 通过其他方式将数据转化为边缘业务见解。
 
 > [!div class="nextstepaction"]
-> [使用 SQL Server 数据库存储边缘中的数据](tutorial-store-data-sql-server.md)
+> [使用 SQL Server 数据库在边缘存储数据](tutorial-store-data-sql-server.md)
 
 <!-- Links -->
 [lnk-tutorial1-win]: quickstart.md

@@ -11,12 +11,12 @@ ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 1eb65f552f1156f994e6e8682529c8153abf6bbe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f4ad96a7bb3733f2931e11c18e7d4605e324966e
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648461"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243670"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>部署基于云的 Azure 多重身份验证
 
@@ -37,7 +37,7 @@ Azure 多重身份验证 (Azure MFA) 入门是一个直截了当的过程。
 
 ## <a name="choose-authentication-methods"></a>选择身份验证方法
 
-根据组织的要求至少为用户启用一种身份验证方法。 我们发现，如果为用户启用了身份验证，则 Microsoft Authenticator 应用可提供最佳用户体验。 如需了解哪些方法可用及其设置方法，请参阅[有哪些身份验证方法](concept-authentication-methods.md)一文。
+根据组织的要求至少为用户启用一种身份验证方法。 我们发现，如果为用户启用了身份验证，则 Microsoft Authenticator 应用可提供最佳用户体验。
 
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>结合条件访问启用多重身份验证
@@ -46,7 +46,7 @@ Azure 多重身份验证 (Azure MFA) 入门是一个直截了当的过程。
 
 ### <a name="choose-verification-options"></a>选择验证选项
 
-在启用 Azure 多重身份验证之前，组织必须确定允许的验证选项。 在本练习中，我们将启用电话呼叫和手机短信身份验证方法，因为这是大多数人都可以使用的常规选项。 有关身份验证方法及其用法的详细信息，请参阅[有哪些身份验证方法？](concept-authentication-methods.md)一文。
+在启用 Azure 多重身份验证之前，组织必须确定允许的验证选项。 在本练习中，我们将启用电话呼叫和手机短信身份验证方法，因为这是大多数人都可以使用的常规选项。 
 
 1. 浏览至“Azure Active Directory”、“用户”、“多重身份验证”。
 

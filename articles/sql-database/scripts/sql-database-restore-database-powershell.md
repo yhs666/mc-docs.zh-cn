@@ -1,6 +1,6 @@
 ---
 title: PowerShell 示例 - 还原备份 - Azure SQL 数据库 | Microsoft Docs
-description: 通过异地冗余备份还原 Azure SQL 单一数据库的 Azure PowerShell 示例脚本
+description: 通过 Azure PowerShell 示例脚本演示如何使用自动备份将 Azure SQL 单一数据库还原到更早的时间点
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 5a00bfbfba6e77acf41fff31dfa52f3e9df98b6f
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/27/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: d907875527acb69726403989cbb69e92eb7237f9
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318881"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529403"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>使用 PowerShell 通过备份还原 Azure SQL 单一数据库
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>使用 PowerShell 将 Azure SQL 单一数据库还原到更早的时间点
 
-此 PowerShell 脚本示例从异地冗余备份还原 Azure SQL 数据库，根据最新备份还原已删除的 Azure SQL 数据库，并将 Azure SQL 数据库还原到特定的时间点。  
+此 PowerShell 脚本示例将 Azure SQL 数据库还原到特定的时间点。  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

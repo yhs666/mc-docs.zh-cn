@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 134ab897e374227cf23a93597e804eaa35936ce5
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 5373c6ad539578f3de97d60a0b33685eb80d808f
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505435"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529037"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>快速入门：使用 C# 通过文本翻译 API 对文本进行直译
 
@@ -125,8 +125,9 @@ request.RequestUri = new Uri(host + route);
 // Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 
-// Add the authorization header
+// Add the authorization headers
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Region", "your region");
 
 // Send request, get response
 var response = client.SendAsync(request).Result;

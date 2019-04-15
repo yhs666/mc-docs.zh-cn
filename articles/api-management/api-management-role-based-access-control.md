@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/20/2018
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: c5f95e2311e074dc60f8e11f97147d438dccdeb5
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 04/22/2019
+ms.openlocfilehash: 8dcc71b6e9200f1a6d033c3c78d6db0df89ca720
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348657"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529460"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用基于角色的访问控制
 Azure API 管理依赖于 Azure 基于角色的访问控制 (RBAC) 来为 API 管理服务和实体（例如，API 和策略）启用精细访问管理。 本文概述 API 管理中的内置角色和自定义角色。 有关 Azure 门户中的访问管理的详细信息，请参阅 [Azure 门户中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
@@ -33,7 +33,7 @@ API 管理目前提供了三个内置角色，不久之后会再添加两个角�
 下表提供内置角色的简短说明。 可以使用 Azure 门户或其他工具（包括 Azure [PowerShell](/role-based-access-control/role-assignments-powershell)、[Azure CLI](/role-based-access-control/role-assignments-cli) 和 [REST API](/role-based-access-control/role-assignments-rest)）分配这些角色。 有关如何分配内置角色的详细信息，请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](/role-based-access-control/role-assignments-portal)。
 
 | 角色          | 读取访问权限<sup>[1]</sup> | 写入访问权限<sup>[2]</sup> | 服务创建、删除、缩放，VPN 和自定义域配置 | 对旧版发布者门户拥有访问权限 | 说明
-| ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ------------- | ---- | ---- | ---- | ---- | ---- 
 | Azure API 管理服务参与者 | ✓ | ✓ | ✓ | ✓ | 超级用户。 对 API 管理服务和实体（例如，API 和策略）拥有完全 CRUD 访问权限。 对旧版发布者门户拥有访问权限。 |
 | Azure API 管理服务读取者 | ✓ | | || 对 API 管理服务和实体拥有只读访问权限。 |
 | Azure API 管理服务操作员 | ✓ | | ✓ | | 可以管理 API 管理服务，但不能管理实例。|
@@ -53,7 +53,7 @@ API 管理目前提供了三个内置角色，不久之后会再添加两个角�
 
 创建自定义角色时，从某个内置角色着手会更为轻松。 编辑属性以添加 **Actions**、**NotActions** 或 **AssignableScopes**，然后将所做的更改保存为新角色。 以下示例从“Azure API 管理服务读取者”角色着手，创建名为“计算器 API 编辑者”的自定义角色。 可以将自定义角色分配给特定的 API。 因此，此角色仅有权访问该 API。 
 
-```
+```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"
 $role.Id = $null
 $role.Name = 'Calculator API Contributor'

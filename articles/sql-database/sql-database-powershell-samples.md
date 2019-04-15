@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 22c6eb9b11041a34ae64aaeef47290f21b8629d5
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 6789432bf924820d5a0834d6bfb8f36869cf0ba2
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318864"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529358"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure PowerShell 示例
 
@@ -58,3 +58,6 @@ Azure SQL 数据库允许你使用 Azure PowerShell 配置数据库、实例和�
 
 详细了解[单一数据库 Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)。
 
+## <a name="additional-resources"></a>其他资源
+
+此页上列出的示例使用 [Azure SQL 数据库 cmdlet](https://docs.microsoft.com/powershell/module/az.sql/) 来创建和管理 Azure SQL 资源。 用于运行查询和执行多个数据库任务的其他 cmdlet 位于 [sqlserver](https://docs.microsoft.com/powershell/module/sqlserver/) 模块中。 有关详细信息，请参阅 [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell/)。

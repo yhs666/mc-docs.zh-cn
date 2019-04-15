@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/25/2018
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: ecaa9f3f30d014b0ba924dde3315c0b9e748f772
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 68456905c57bbf5bcb3a7af4eccced8b7e084f54
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625163"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529217"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理策略中使用命名值
 API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 可以使用文字文本值、策略表达式和命名值构造策略语句。 
@@ -35,7 +35,7 @@ API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置
 
 ![命名值](./media/api-management-howto-properties/named-values.png)
 
-属性值可以包含文本字符串和[策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 例如，`ExpressionProperty` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 属性 `ContosoHeaderValue` 被标记为密钥，因此未显示其值。
+属性值可以包含文本字符串和[策略表达式](/api-management/api-management-policy-expressions)。 例如，`ExpressionProperty` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 属性 `ContosoHeaderValue` 被标记为密钥，因此未显示其值。
 
 | Name | 值 | 密钥 | 标记 |
 | --- | --- | --- | --- |
@@ -113,8 +113,8 @@ API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何使用策略
   * [API 管理中的策略](./api-management-howto-policies.md)
-  * [策略参考](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [策略参考](/api-management/api-management-policies)
+  * [策略表达式](/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

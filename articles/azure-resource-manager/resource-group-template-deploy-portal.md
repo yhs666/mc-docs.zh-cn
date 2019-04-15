@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/03/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 643413bfe75c022ce7fa492c70fbcc1dce496c5c
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 0268fbb6de0ef69637c85ff4756e3774a5f7d577
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348141"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529206"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -135,9 +135,10 @@ ms.locfileid: "58348141"
     ![部署已保存模板](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>后续步骤
-* 若要查看审核日志，请参阅[使用 Resource Manager 进行审核操作](resource-group-audit.md)。
-* 若要排查部署错误，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
-* 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+
+- 若要查看审核日志，请参阅[使用资源管理器审核操作](./resource-group-audit.md)。
+- 若要排查部署错误，请参阅[查看部署操作](./resource-manager-deployment-operations.md)。
+- 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
 
 <!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
 <!--Update_Description: update meta properties, update link -->

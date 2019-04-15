@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/09/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: ca631c5e9e0dde5e08159d3c5aca633bf711ba3e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fe33df45c7b68eed8a1b3a343ef8ede42d18ceb0
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625232"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529423"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -30,6 +30,7 @@ Azure 在很多位置提供了面向企业的智能云服务，其中包括：
 
 * 全球 Azure 平台，该平台由全球各区域不断扩大的 Microsoft 托管数据中心的网络提供支持。
 * 独立主权云，例如 Azure 德国、Azure 美国政府和 Azure 中国（由世纪互联运营的 Azure）。 主权云提供具有大部分相同的强大功能的一致平台，全球 Azure 客户均有权访问。
+    <!--MOONCAKE: sovereign cloud correct-->
 * Azure Stack，一种混合云平台，可从组织数据中心提供 Azure 服务。 企业可以在自己的数据中心中设置 Azure Stack，或者使用服务提供商提供的 Azure 服务，在他们的设施（有时称为托管区域）中运行 Azure Stack。
 
 在所有这些云的核心，Azure 资源管理器提供一个 API，用于实现各种用户界面与 Azure 平台的通信。 此 API 提供了强大的基础结构即代码功能。 使用 Azure 资源管理器可以部署和配置 Azure 云平台上提供的任何类型的资源。 只用一个模板即可将完整的应用程序部署和配置为操作结束状态。
@@ -452,7 +453,7 @@ API 配置文件可确保 API 版本可跨位置使用，因此不需要手动�
 一般情况下，请避免在模板中使用硬编码终结点。 最佳做法是使用引用模板函数动态检索终结点。 例如，最常进行硬编码的终结点是存储帐户的终结点命名空间。 每个存储帐户均有唯一的 FQDN，它通过连接存储帐户的名称与终结点命名空间来构造。 名为 mystorageaccount1 的 blob 存储帐户会因为云的不同而产生不同的 FQDN：
 
 * 在全球 Azure 云上创建时会产生 mystorageaccount1.blob.core.windows.net。
-  <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
+    <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
 * 在 Azure 中国云中创建时会产生 mystorageaccount1.blob.core.chinacloudapi.cn。
 
 以下引用模板函数从存储资源提供程序中检索终结点命名空间：

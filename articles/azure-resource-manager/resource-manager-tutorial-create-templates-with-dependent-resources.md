@@ -11,19 +11,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 7ce9bd449f1596e1b32b0a9dbdc3e935249cf1ce
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9f9f284b526cbce826d543e97ccc4a18ac3215b7
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626573"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529372"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
-了解如何创建 Azure 资源管理器模板，以便部署多个资源。  创建模板以后，你将通过本地电脑使用 Azure CLI 和 PowerShell 部署该模板。
+了解如何创建 Azure 资源管理器模板以部署多个资源和配置部署顺序。  创建模板以后，你将通过本地电脑使用 Azure CLI 和 PowerShell 部署该模板。
 
 <!--Not Available on Cloud Shell-->
 
@@ -80,11 +80,11 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
     有五个通过此模板定义的资源：
 
-   * `Microsoft.Storage/storageAccounts`。
-   * `Microsoft.Network/publicIPAddresses`。
-   * `Microsoft.Network/virtualNetworks`。
-   * `Microsoft.Network/networkInterfaces`。
-   * `Microsoft.Compute/virtualMachines`。
+    * `Microsoft.Storage/storageAccounts`。
+    * `Microsoft.Network/publicIPAddresses`。
+    * `Microsoft.Network/virtualNetworks`。
+    * `Microsoft.Network/networkInterfaces`。
+    * `Microsoft.Compute/virtualMachines`。
     
      <!-- Not Available on template -->
      在自定义模板之前，不妨对其进行一些基本的了解。
@@ -123,6 +123,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 ## <a name="deploy-the-template"></a>部署模板
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 可通过多种方法来部署模板。 在本教程中，你将从本地电脑使用 Azure CLI 和 PowerShell。
 
 <!--Not Available on Cloud Shell-->
@@ -135,7 +136,6 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 2. 在本地 Shell 中运行以下 PowerShell 命令。 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
 
     ```azurepowershell
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -143,7 +143,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
