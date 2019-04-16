@@ -13,12 +13,12 @@ ms.topic: landing-page
 origin.date: 08/16/2018
 ms.date: 10/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: f455925c4853db71ee536261e05f8d9eaa027763
-ms.sourcegitcommit: 6cd0a8d22061aba7390579a80e19cb9d2f7faf12
+ms.openlocfilehash: 826a57971b38f4b41d6ebb72d02a74acafd44e36
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53233770"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243668"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 
@@ -65,7 +65,6 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                     <div class="cardText">
                         <h3>身份验证</h3>
                         <p>
-                        <a href="/active-directory/authentication/concept-sspr-howitworks">密码</a><br/>
                         <a href="/active-directory/authentication/concept-mfa-howitworks">多重身份验证</a><br/>
                         <a href="/active-directory/authentication/active-directory-certificate-based-authentication-get-started">基于证书的身份验证</a><br/>
                         <a href="authentication/index.yml"><i>查看更多 &gt;</i></a>

@@ -3,8 +3,8 @@ documentType: LandingData
 title: Azure SQL 数据库托管实例
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL 数据库托管实例文档 - 教程和 API 参考
-  meta.description: Learn how to use Azure SQL Database Managed Instance.
+  title: 托管实例文档 - 教程和 API 参考
+  meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
   author: WenJason
   manager: digimobile
@@ -15,17 +15,17 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   origin.date: 01/03/2019
-  ms.date: 04/08/2019
+  ms.date: 04/15/2019
   ms.author: v-jay
 abstract:
-  description: Azure SQL 数据库托管实例是托管在 Azure 云中的一个完全托管的 SQL Server 数据库引擎实例。 这是将 SQL Server 数据库迁移到云的最佳 PaaS 选项。 使用快速入门、教程和示例，了解如何创建和使用托管实例。
+  description: Azure SQL 数据库中的托管实例是承载在 Azure 云中的一个完全托管的 SQL Server 数据库引擎实例。 这是将 SQL Server 数据库迁移到云的最佳 PaaS 选项。 使用快速入门、教程和示例，了解如何创建和使用托管实例。
   aside:
     image:
       alt: null
       height: 110
       src: media/sql-database-managed-instance-index/intro.png
       width: 250
-    title: '介绍 Azure SQL 数据库托管实例 (5:38)'
+    title: 'Azure SQL 数据库中的托管实例简介 (5:38)'
     href: 'https://www.youtube.com/watch?v=W8feSZXm2Ec'
     width: 250
 sections:
@@ -37,7 +37,7 @@ sections:
         items:
           - title: 概述
             href: /sql-database/sql-database-managed-instance
-            html: <p>了解关于 Azure SQL 数据库托管实例服务的更多信息。</p>
+            html: <p>了解 Azure SQL 数据库中的托管实例的更多信息。</p>
           - title: 丰富的外围应用
             href: '/sql-database/sql-database-managed-instance#sql-features-supported'
             html: <p>SQL 功能与最新版 SQL Server 数据库引擎的兼容度接近 100%。</p>
@@ -49,7 +49,7 @@ sections:
             html: <p>使用本机还原可以轻松地将本地数据库迁移到 Azure 云。</p>
           - title: 定价
             href: 'https://azure.cn/pricing/hybrid-benefit/'
-            html: <p>使用 Azure Hybrid Benefit (AHB) 和现有的本地许可证最多可节省 40% 的费用。</p>
+            html: <p>使用 Azure 混合权益 (AHB) 和现有的本地许可证最多可节省 40% 的费用。</p>
           - title: PaaS 功能
             href: /sql-database/sql-database-paas
             html: <p>Azure PaaS 使实例的可用性高达 99.99% 且管理量最少。</p>
@@ -116,7 +116,7 @@ sections:
             values:
               - href: null
               - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/'
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library'
+              - href: 'https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase#examples'
               - href: null
           - title: 还原已删除的数据库
             values:
@@ -133,7 +133,7 @@ sections:
         items:
           - html: 借助我们的快速入门指南，了解如何快速<a href="sql-database-managed-instance-quickstart-guide.md">开始使用托管实例</a>。
           - html: 了解<a href="/sql-database/sql-database-managed-instance-resource-limits">硬件特征和限制</a>、<a href="/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL 语言差异</a>和<a href="/sql-database/sql-database-managed-instance-create-manage">用于配置托管实例的 Transact-SQL、PowerShell、Azure CLI API<a/>。
-          - html: '在部署托管实例的位置<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">配置</a> Azure VNet。'
+          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">配置</a>将在其中部署托管实例的 Azure VNet。'
           - html: '<a href="/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">验证</a>现有的 Azure VNet 可以用于部署托管实例。'
           - html: '使用 <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure 虚拟机</a>、<a href="/sql-database/sql-database-managed-instance-configure-p2s">点到站点连接</a>或<a href="/sql-database/sql-database-managed-instance-connect-app">应用程序</a>连接到实例。'
           - html: '验证可以使用<a href="https://www.microsoft.com/download/details.aspx?id=53595">数据迁移助手</a>或<a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">数据库实验助手</a>迁移数据库。'
@@ -152,4 +152,4 @@ sections:
           - title: 常见问题
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
           - title: 培训材料
-            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">动手实验室</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">教师指导的实验室</a></p>'
+            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">动手实验</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">教师指导的实验</a></p>'

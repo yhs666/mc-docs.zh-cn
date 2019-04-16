@@ -5,15 +5,15 @@ author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 origin.date: 09/28/2018
-ms.date: 04/01/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.topic: overview
-ms.openlocfilehash: df0f8a3371333a30d4f5182ccc764944a4aab7b9
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: eb058cb33c48d46d4bc3ea45d7e07d0b478a4999
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135490"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471976"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 
@@ -25,7 +25,7 @@ ms.locfileid: "58135490"
 
 可以生成管理组和订阅的灵活层次结构，以便将资源组织成用于统一策略和访问管理的层次结构。 下图显示了使用管理组创建用于调控的层次结构的示例。
 
-![树](./media/tree.png)
+![管理组层次结构树的示例](./media/tree.png)
 
 创建层次结构以便可以应用策略，例如，将 VM 位置限制到“生产”组中的“美国西部区域”。 此策略将继承到该管理组下的两个 EA 订阅，并应用到这些订阅下的所有 VM。 此安全策略不能由资源或订阅所有者更改，因此增强了治理效果。
 
@@ -121,7 +121,7 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (RBAC)](../../rol
 
 若要了解有关管理组的详细信息，请参阅：
 
-- [创建管理组来组织 Azure 资源](create.md)
+- [创建用于整理 Azure 资源的管理组](create.md)
 - [如何更改、删除或管理管理组](manage.md)
 - [在 Azure PowerShell 资源模块中查看管理组](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0#resources)
 - [在 REST API 中查看管理组](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups)
