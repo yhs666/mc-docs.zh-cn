@@ -14006,7 +14006,13 @@
       "source_path": "articles/automation/automation-source-control-integration-legacy.md",
       "redirect_url": "/automation/source-control-integration-legacy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
+      "redirect_url": "/data-factory/tutorial-deploy-ssis-packages-azure",
+      "redirect_document_id": false
     }
+
 
 
 
