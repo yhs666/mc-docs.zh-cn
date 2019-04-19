@@ -14011,7 +14011,13 @@
       "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
       "redirect_url": "/data-factory/tutorial-deploy-ssis-packages-azure",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-auth-aad-rbac.md",
+      "redirect_url": "/storage/common/storage-auth-aad-rbac-portal",
+      "redirect_document_id": true
     }
+
 
 
 
