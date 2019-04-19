@@ -14016,7 +14016,13 @@
       "source_path": "articles/storage/common/storage-auth-aad-rbac.md",
       "redirect_url": "/storage/common/storage-auth-aad-rbac-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/how-to-use-elastic-query-with-sql-data-warehouse.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-integrate",
+      "redirect_document_id": false
     }
+
 
 
 
