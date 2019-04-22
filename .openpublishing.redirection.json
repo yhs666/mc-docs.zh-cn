@@ -14021,7 +14021,13 @@
       "source_path": "articles/sql-data-warehouse/how-to-use-elastic-query-with-sql-data-warehouse.md",
       "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-integrate",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-credentials.md",
+      "redirect_url": "/automation/shared-resources/credentials",
+      "redirect_document_id": false
     }
+
 
 
 
