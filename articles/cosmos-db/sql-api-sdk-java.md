@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 11/29/2018
-ms.date: 03/04/2019
+origin.date: 03/13/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad8a317707f1b1dd4701e8ec3f43f86edd7e3e24
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: dd05f0fe7aa3c3fd0a1cdfb1ca84e885e8390440
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987958"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615173"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.locfileid: "56987958"
 > * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
-
-<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API Async Java SDK](sql-api-sdk-async-java.md)。 
 

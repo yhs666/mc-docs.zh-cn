@@ -10,15 +10,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29a7055e3cdef41229655d26018e2668160c2ed0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 70b4627e645580c347b74c916d521c5bcf42971c
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005119"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529476"
 ---
+<!--Verfiy successfully-->
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源管理器资源组
 
 了解如何将 Azure CLI 与 [Azure 资源管理器](resource-group-overview.md)配合使用来管理 Azure 资源组。 若要管理 Azure 资源，请参阅[使用 Azure CLI 管理 Azure 资源](./manage-resources-cli.md)。
@@ -83,6 +84,10 @@ az group delete --name $resourceGroupName
 ## <a name="deploy-a-resource-group-and-resources"></a>部署资源组和资源
 
 可以使用资源管理器模板创建一个资源组并将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+
+## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
+
+此功能也称为“出错时回滚”。 有关详细信息，请参阅[在部署失败时重新部署](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails)。
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>移到另一个资源组或订阅
 
@@ -152,6 +157,5 @@ az group export --name $resourceGroupName
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
 - 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
-<!--Pending Verify-->
-<!--Update_Description: new articles on  -->
+<!--Update_Description: wording update -->
 <!--ms.date: 03/18/2019-->

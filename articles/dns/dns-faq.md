@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/16/2019
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 0c590014b090a57f424939ba4e56217471446048
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 1545bc47aee68c3bddbecb29e703184cd75aaa38
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663693"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502600"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -43,7 +43,7 @@ Azure 保证在任何情况下，有效的 DNS 请求将从至少一个 Azure DN
 
 域在域名系统中具有唯一名称。 例如 contoso.com。
 
-DNS 区域用来托管某个特定域的 DNS 记录。 例如，域 contoso.com 可能包含几条 DNS 记录。 这些记录可能包含 mail.contoso.com（用于邮件服务器）和 www.contoso.com（用于网站）。 这些记录托管在 DNS 区域 contoso.com 中。
+DNS 区域用来托管某个特定域的 DNS 记录。 例如，域 contoso.com 可能包含几条 DNS 记录。 这些记录可能包含 mail.contoso.com（用于邮件服务器）和 www\.contoso.com（用于网站）。 这些记录托管在 DNS 区域 contoso.com 中。
 
 域名仅是一个名称。 DNS 区域是包含域名的 DNS 记录的数据资源。 可以使用 Azure DNS 托管 DNS 区域，以及管理 Azure 中域的 DNS 记录。 它还提供 DNS 名称服务器，用于回答来自 Internet 的 DNS 查询。
 
@@ -81,7 +81,7 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS 是否支持区域传送 (AXFR/IXFR)？
 
-否。 Azure DNS 目前不支持区域传送。 可[使用 Azure CLI 将 DNS 区域导入 Azure DNS](dns-import-export.md)。 然后，可通过 [Azure DNS 管理门户](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/azurerm.dns)、[SDK](dns-sdk.md)、[PowerShell cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)来托管 DNS 记录。
+否。 Azure DNS 目前不支持区域传送。 可[使用 Azure CLI 将 DNS 区域导入 Azure DNS](dns-import-export.md)。 然后，可通过 [Azure DNS 管理门户](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/az.dns)、[SDK](dns-sdk.md)、[PowerShell cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)来托管 DNS 记录。
 
 我们正在 Azure DNS 积压工作中跟踪区域传送功能。
 
@@ -103,13 +103,13 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 
 ## <a name="use-azure-dns"></a>使用 Azure DNS
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>是否可以使用 Azure DNS 和其他 DNS 提供程序共同托管域？
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>是否可以使用 Azure DNS 和其他 DNS 提供程序共同托管域？
 
 是的。 Azure DNS 支持与其他 DNS 服务共同托管域。
 
 若要设置共同托管，请将域的 NS 记录修改为指向这两个提供程序的名称服务器。 名称服务器 (NS) 记录控制哪些提供程序接收域的 DNS 查询。 可在 Azure DNS、另一提供程序以及父区域中修改这些 NS 记录。 父区域通常是通过域名注册机构配置的。 有关 DNS 委派的详细信息，请参阅[DNS 域委派](dns-domain-delegation.md)。
 
-此外，请确保域的 DNS 记录在 DNS 提供程序之间进行同步。 Azure DNS 目前不支持 DNS 区域传送。 必须使用 [Azure DNS 管理门户](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/azurerm.dns)、[SDK](dns-sdk.md)、[PowerShell cmdlets](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)同步 DNS 记录。
+此外，请确保域的 DNS 记录在 DNS 提供程序之间进行同步。 Azure DNS 目前不支持 DNS 区域传送。 必须使用 [Azure DNS 管理门户](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/az.dns)、[SDK](dns-sdk.md)、[PowerShell cmdlets](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)同步 DNS 记录。
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>是否需向全部四个 Azure DNS 名称服务器委托我的域？
 
@@ -158,8 +158,7 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解 Azure DNS](dns-overview.md)。
-<br>
-- [详细了解 DNS 区域和记录](dns-zones-records.md)。
-<br>
-- [Azure DNS 入门](dns-getstarted-portal.md)。
 
+- [详细了解 DNS 区域和记录](dns-zones-records.md)。
+
+- [Azure DNS 入门](dns-getstarted-portal.md)。

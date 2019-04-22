@@ -1,38 +1,45 @@
 items:
-- name: Azure 门户自定义文档
+- name: Azure 门户文档
   href: index.yml
-- name: Azure 仪表板
+- name: 概述
+  items:
+  - name: 关于 Azure 门户
+    href: azure-portal-overview.md
+  - name: 支持的浏览器和设备
+    href: azure-portal-supported-browsers-devices.md
+- name: 概念
   items:
   - name: 创建并共享 Azure 仪表板
     href: azure-portal-dashboards.md
-  - name: 使用自定义 markdown 磁贴
-    href: azure-portal-markdown-tile.md
   - name: 使用基于角色的访问控制共享仪表板
     href: azure-portal-dashboard-share-access.md
-  - name: Azure 仪表板结构
-    href: azure-portal-dashboards-structure.md
   - name: 以编程方式创建 Azure 仪表板
     href: azure-portal-dashboards-create-programmatically.md
-- name: 设置
+- name: 操作指南
+  items:
+  - name: 启用高对比度或更改主题
+    href: azure-portal-change-theme-high-contrast.md
+  - name: 对收藏夹执行添加、删除和排序操作
+    href: azure-portal-add-remove-sort-favorites.md
+  - name: 使用自定义 markdown 磁贴
+    href: azure-portal-markdown-tile.md
+  - name: 导出或删除用户设置
+    href: azure-portal-export-delete-settings.md
+- name: 参考
   items:
   - name: 键盘快捷方式
     href: azure-portal-keyboard-shortcuts.md
-  - name: 支持的浏览器和设备
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: 启用高对比度或更改主题
-    href: azure-portal-change-theme-high-contrast.md
-  - name: 导出或删除用户设置
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Azure 仪表板结构
+    href: azure-portal-dashboards-structure.md
 - name: 资源
   items:
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-management-portal
-ms.openlocfilehash: b77de116f32fa8b2bfc948deedcfb8db8e100ab1
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: c052e409546074c9b1f975909f9eb17a5bde5862
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409066"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566355"

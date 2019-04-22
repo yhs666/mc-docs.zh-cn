@@ -11,12 +11,12 @@ ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 6e097f7efac6823195874a75ec726fcc0cadef66
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.openlocfilehash: 0309f3e6d2c42391495b4e08b2d8022e9e8c8e54
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440324"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243643"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>有哪些方法可用来进行身份验证？
 
@@ -51,11 +51,7 @@ Azure 多重身份验证 (MFA) 是 Microsoft 的双重验证解决方案。 使�
 
 ## <a name="next-steps"></a>后续步骤
 
-下一个步骤是深入了解并配置自助服务密码重置和 Azure 多重身份验证。
-
-若要开始使用自助服务密码重置，请参阅[启用 SSPR 快速入门文章](quickstart-sspr.md)。
-
-若要详细了解自助服务密码重置，请参阅[工作原理：Azure AD 自助服务密码重置](concept-sspr-howitworks.md)一文
+下一个步骤是深入了解并配置 Azure 多重身份验证。
 
 若要详细了解 Azure 多重身份验证，请参阅[工作原理：Azure 多重身份验证](concept-mfa-howitworks.md)一文
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: c46ace5fb840dbcef5334d94ec14af67b83b4edc
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: e79ebdbbad7c929d64b7e8c3aee968e975ee8e5a
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505405"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502552"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>快速入门：使用 Go 通过文本翻译 API 来确定句子长度
 
@@ -130,6 +130,7 @@ if err != nil {
 }
 // Add required headers to the request
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Region", "your region")
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API
@@ -195,7 +196,7 @@ go run sentence-length.go
 
 * [翻译文本](quickstart-go-translate.md)
 * [直译文本](quickstart-go-transliterate.md)
-* [按输入确定语言](quickstart-go-detect.md)
+* [根据输入确定语言](quickstart-go-detect.md)
 * [获取备用翻译](quickstart-go-dictionary.md)
 * [获取支持的语言的列表](quickstart-go-languages.md)
 

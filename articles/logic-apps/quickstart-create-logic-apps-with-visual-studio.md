@@ -1,26 +1,27 @@
 ---
-title: 使用 Visual Studio 创建自动执行工作流的逻辑应用 - Azure 逻辑应用 | Microsoft Docs
-description: 本快速入门介绍如何在 Visual Studio 中使用 Azure 逻辑应用自动执行任务、流程和工作流
+title: 使用 Visual Studio 创建自动化工作流 - Azure 逻辑应用
+description: 使用 Azure 逻辑应用和 Visual Studio 将有关企业集成的任务、业务流程与工作流自动化
 services: logic-apps
 ms.service: logic-apps
-ms.workload: logic-apps
+ms.workload: azure-vs
+author: ecfan
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 07/31/2018
+origin.date: 04/02/2019
 ms.author: v-yiso
-ms.date: 12/10/2018
-ms.openlocfilehash: 1ff337de38f8db818f16074e0a8325202bab02ec
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 74f95abcd2b9232edb35df010985442a28a811cb
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626567"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529371"
 ---
-# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入门：使用 Azure 逻辑应用创建并自动执行任务、流程和工作流 - Visual Studio
+# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入门：使用 Azure 逻辑应用创建自动化任务、流程和工作流 - Visual Studio
 
-可以通过 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和 Visual Studio 创建工作流，以便自动完成用于跨企业和组织集成应用、数据、系统和服务的任务和流程。 本快速入门介绍如何在 Visual Studio 中创建逻辑应用并将这些应用部署到云中的 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>，以便设计并生成这些工作流。 尽管可以在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>中执行这些任务，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为不同的部署环境创建 Azure 资源管理器模板时，也可以使用 Visual Studio。 
+可以通过 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和 Visual Studio 创建工作流，以便自动完成用于跨企业和组织集成应用、数据、系统和服务的任务和流程。 本快速入门介绍如何在 Visual Studio 中创建逻辑应用并将这些应用部署到云中的 Azure，以便设计并生成这些工作流。 尽管可以在 Azure 门户中执行这些任务，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为不同的部署环境创建 Azure 资源管理器模板时，也可以使用 Visual Studio。
 
 如果不熟悉 Azure 逻辑应用，只希望了解基本概念，则可尝试[关于如何在 Azure 门户中创建逻辑应用的快速入门](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 逻辑应用设计器在 Azure 门户和 Visual Studio 中用起来类似。 
 
@@ -30,28 +31,39 @@ ms.locfileid: "58626567"
 
 <a name="prerequisites"></a>
 
-在开始之前，请确保做好以下各项准备：
+在开始之前，请务必遵循以下快速入门准备好以下各项：
 
 * 如果没有 Azure 订阅，请<a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">注册一个 Azure 试用帐户</a>。
 
 * 下载并安装以下工具（如果没有）： 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 或 Visual Studio 2015 - Community Edition 或更高版本</a>。 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019、2017 或 2015 - Community Edition 或更高版本</a>。 
   本快速入门使用免费的 Visual Studio Community 2017。
 
-  * <a href="/downloads/" target="_blank">用于 .NET 的 Microsoft Azure SDK（2.9.1 或更高版本）</a>和 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>。详细了解<a href="https://docs.azure.cn/zh-cn/dotnet/dotnet-tools?view=azure-dotnet&tabs=windows">用于 .NET 的 Azure SDK</a>。
+    > [!IMPORTANT]
+    > 安装 Visual Studio 2019 或 2017 时，请务必选择“Azure 开发”工作负荷。
+    > 对于 Visual Studio 2019，Cloud Explorer 可在 Azure 门户中打开逻辑应用设计器，但目前无法打开嵌入式逻辑应用设计器。
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">适用于 Visual Studio 2017 的 Azure 逻辑应用工具</a>或 <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 版</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">用于 .NET 的 Microsoft Azure SDK（2.9.1 或更高版本）</a>。 详细了解<a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">用于 .NET 的 Azure SDK</a>。
 
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * 适用于 Visual Studio 所需版本的 Azure 逻辑应用工具：
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+  
     可以直接从 Visual Studio Marketplace 下载并安装 Azure 逻辑应用工具，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何从 Visual Studio 内部安装此扩展</a>。 
     完成安装后，请务必重启 Visual Studio。
-
-* 逻辑应用支持的（例如 Office 365 Outlook、Outlook.com 或 Gmail）电子邮件帐户。 至于其他提供商，请<a href="/connectors/" target="_blank">查看此处的连接器列表</a>。 此逻辑应用使用 Office 365 Outlook。 如果使用其他提供商，整个步骤仍然是相同的，但 UI 可能稍有不同。
-
 * 使用嵌入式逻辑应用设计器时访问 Web
 
   设计器需要通过 Internet 连接在 Azure 中创建资源，以及从逻辑应用中的连接器读取属性和数据。 
   例如，如果使用 Dynamics CRM Online 连接器，则设计器在 CRM 实例中检查可用的默认属性和自定义属性。
+
+* 逻辑应用支持的（例如 Office 365 Outlook、Outlook.com 或 Gmail）电子邮件帐户。 至于其他提供商，请<a href="/connectors/" target="_blank">查看此处的连接器列表</a>。 此逻辑应用使用 Office 365 Outlook。 如果使用其他提供商，整个步骤仍然是相同的，但 UI 可能稍有不同。
 
 ## <a name="create-azure-resource-group-project"></a>创建 Azure 资源组项目
 
@@ -67,7 +79,16 @@ ms.locfileid: "58626567"
 
    ![创建 Azure 资源组项目](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
-4. 选择“逻辑应用”模板。 
+   > [!NOTE]
+   > 如果“云”类别或“Azure 资源组”项目不存在，请确保已安装 Azure SDK for Visual Studio。
+
+   如果使用 Visual Studio 2019，请执行以下步骤：
+
+   1. 在“创建新项目”框中，选择适用于 Visual C# 或 Visual Basic 的“Azure 资源组”项目模板，然后选择“下一步”。
+
+   1. 提供所需的 Azure 资源组名称和其他项目信息。 完成后，选择“创建”。
+
+1. 在模板列表中，选择“逻辑应用”模板。
 
    ![选择逻辑应用模板](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 

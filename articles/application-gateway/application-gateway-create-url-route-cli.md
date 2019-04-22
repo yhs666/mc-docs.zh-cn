@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6fc151c298604cc2fc68c6583f43b22b56060598
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 5beef9fa351f0c1c5d0c0332eb1db041ef40bf91
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836967"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686385"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>通过 Azure CLI 使用基于 URL 路径的路由规则创建应用程序网关
 
@@ -31,7 +31,7 @@ ms.locfileid: "56836967"
 
 ![URL 路由示例](./media/application-gateway-create-url-route-cli/scenario.png)
 
-如果没有 Azure 订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -219,7 +219,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，*http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, 或 *http://40.121.222.19:8080/video/test.htm*。
+若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，`http://40.121.222.19`、`http://40.121.222.19:8080/images/test.htm` 或 `http://40.121.222.19:8080/video/test.htm`。
 
 ```azurepowershell
 az network public-ip show \
@@ -250,4 +250,4 @@ az network public-ip show \
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

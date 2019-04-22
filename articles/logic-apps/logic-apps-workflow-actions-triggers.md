@@ -8,15 +8,15 @@ ms.author: v-yiso
 manager: jeconnoc
 ms.topic: reference
 origin.date: 06/22/2018
-ms.date: 02/04/2019
+ms.date: 04/22/2019
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 620557a4899dfa4cd5fa3009b8f2d61a028cca65
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 1994afc01b953b106fa3bb9631f85bc32b63793b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906236"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529442"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的触发器和操作类型引用
 
@@ -339,7 +339,7 @@ ms.locfileid: "54906236"
 
 为很好地配合逻辑应用进行工作，终结点必须符合特定触发器模式或协定，并识别以下属性：  
   
-| 响应 | 必须 | 说明 | 
+| 响应 | 必需 | 说明 | 
 |----------|----------|-------------|  
 | 状态代码 | 是 | “200 OK”状态代码启动运行。 其他任何状态代码均不会启动运行。 | 
 | 重试间隔标头 | 否 | 逻辑应用再次轮询终结点之前所要经过的秒数 | 
@@ -790,7 +790,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 | 值 | 类型 | 说明 | 
 |-------|------|-------------|
-| <retry-behavior> | JSON 对象 | 自定义状态代码为 408、429 和 5XX 的间歇性故障以及任何连接异常的重试行为。 有关详细信息，请参阅[重试策略](#retry-policies)。 | 
+| <retry-behavior> | JSON 对象 | 自定义状态代码为 408、429 和 5XX 的间歇性故障以及任何连接异常的重试行为。 | 
 | <runtime-config-options> | JSON 对象 | 对于某些操作，可通过设置 `runtimeConfiguration` 属性在运行时更改操作的行为。 有关详细信息，请参阅[运行时配置设置](#runtime-config-options)。 | 
 | <operation-option> | String | 对于某些操作，可通过设置 `operationOptions` 属性更改默认行为。 有关详细信息，请参阅[操作选项](#operation-options)。 | 
 |||| 
@@ -2027,7 +2027,7 @@ ID,Product_Name
 
 ### <a name="scope-action"></a>Scope 操作
 
-此操作按照逻辑将操作分组到范围，以便在该范围内的操作完成运行后，获取这些操作的自身状态。 然后，可使用该范围的状态确定是否运行其他操作。 了解[如何创建范围](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)。
+此操作按照逻辑将操作分组到范围，以便在该范围内的操作完成运行后，获取这些操作的自身状态。 然后，可使用该范围的状态确定是否运行其他操作。 
 
 ```json
 "Scope": {
@@ -2559,7 +2559,7 @@ ID,Product_Name
 
 <a name="connector-authentication"></a>
 
-## <a name="authenticate-triggers-or-actions"></a>对触发器或操作进行身份验证
+## <a name="authenticate-http-triggers-and-actions"></a>对 HTTP 触发器和操作进行身份验证
 
 HTTP 终结点支持不同类型的身份验证。 可为以下 HTTP 触发器和操作设置身份验证：
 
@@ -2573,27 +2573,30 @@ HTTP 终结点支持不同类型的身份验证。 可为以下 HTTP 触发器�
 * [客户端证书身份验证](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth 身份验证](#azure-active-directory-oauth-authentication)
 
+> [!IMPORTANT]
+> 确保保护逻辑应用工作流定义所处理的任何敏感信息。 使用安全的参数，并根据需要对数据进行编码。 有关使用和保护参数的详细信息，请[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
+
 <a name="basic-authentication"></a>
 
 ### <a name="basic-authentication"></a>基本身份验证
 
-对于这种身份验证，触发器或操作定义可以包含具有以下属性的 `authentication` JSON 对象：
+对于使用 Azure Active Directory 的基本身份验证，触发器或操作定义可以包括 `authentication` JSON 对象，它具有下表指定的属性。 要在运行时访问参数值，可以使用[工作流定义语言](https://aka.ms/logicappsdocs)提供的 `@parameters('parameterName')` 表达式。 
 
-| 属性 | 必须 | 值 | 说明 | 
+| 属性 | 必需 | Value | 说明 | 
 |----------|----------|-------|-------------| 
 | **类型** | 是 | "Basic" | 要使用的身份验证类型，此处为“Basic” | 
-| **username** | 是 | "@parameters('userNameParam')" | 一个参数，它传递用于身份验证的用户名，以访问目标服务终结点 |
-| **password** | 是 | "@parameters('passwordParam')" | 一个参数，它传递用于身份验证的密码，以访问目标服务终结点 |
+| **username** | 是 | "@parameters('userNameParam')" | 用于对目标服务终结点访问进行身份验证的用户名 |
+| **password** | 是 | "@parameters('passwordParam')" | 用于对目标服务终结点访问进行身份验证的密码 |
 ||||| 
 
-例如，下面是触发器或操作定义中 `authentication` 对象的格式。 有关保护参数的详细信息，请参阅[保护敏感信息](#secure-info)。 
+在此示例 HTTP 操作定义中，`authentication` 节指定 `Basic` 身份验证。 有关使用和保护参数的详细信息，请[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "Basic",
          "username": "@parameters('userNameParam')",
@@ -2603,112 +2606,85 @@ HTTP 终结点支持不同类型的身份验证。 可为以下 HTTP 触发器�
   "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> 确保保护逻辑应用工作流定义所处理的任何敏感信息。 使用安全的参数，并根据需要对数据进行编码。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
 <a name="client-certificate-authentication"></a>
 
 ### <a name="client-certificate-authentication"></a>客户端证书身份验证
 
-对于这种身份验证，触发器或操作定义可以包含具有以下属性的 `authentication` JSON 对象：
+对于使用 Azure Active Directory 的[基于证书的身份验证](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)，触发器或操作定义可以包括 `authentication` JSON 对象，它具有下表指定的属性。 要在运行时访问参数值，可以使用[工作流定义语言](https://aka.ms/logicappsdocs)提供的 `@parameters('parameterName')` 表达式。 有关可以使用的客户端证书数的限制，请参阅 [Azure 逻辑应用的限制和配置](../logic-apps/logic-apps-limits-and-config.md)。
 
-| 属性 | 必须 | 值 | 说明 | 
-|----------|----------|-------|-------------| 
-| **类型** | 是 | "ClientCertificate" | 安全套接字层 (SSL) 客户端证书使用的身份验证类型 | 
-| **pfx** | 是 | <*base64-encoded-pfx-file*> | 个人信息交换 (PFX) 文件中的 base64 编码内容 |
-| **password** | 是 | "@parameters('passwordParam')" | 包含用于访问 PFX 文件的密码的参数 |
+| 属性 | 必需 | Value | 说明 |
+|----------|----------|-------|-------------|
+| **类型** | 是 | "ClientCertificate" | 安全套接字层 (SSL) 客户端证书使用的身份验证类型。 虽然支持自签名证书，但不支持用于 SSL 的自签名证书。 |
+| **pfx** | 是 | "@parameters('pfxParam') | 个人信息交换 (PFX) 文件中的 base64 编码内容 |
+| **password** | 是 | "@parameters('passwordParam')" | 用于访问 PFX 文件的密码 |
 ||||| 
 
-例如，下面是触发器或操作定义中 `authentication` 对象的格式。 有关保护参数的详细信息，请参阅[保护敏感信息](#secure-info)。 
+在此示例 HTTP 操作定义中，`authentication` 节指定 `ClientCertificate` 身份验证。 有关使用和保护参数的详细信息，请[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
-```javascript
-"authentication": {
-   "password": "@parameters('passwordParam')",
-   "pfx": "aGVsbG8g...d29ybGQ=",
-   "type": "ClientCertificate"
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://www.microsoft.com",
+      "authentication": {
+         "type": "ClientCertificate",
+         "pfx": "@parameters('pfxParam')",
+         "password": "@parameters('passwordParam')"
+      }
+   },
+   "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> 确保保护逻辑应用工作流定义所处理的任何敏感信息。 使用安全的参数，并根据需要对数据进行编码。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
 ### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth 身份验证
 
-对于这种身份验证，触发器或操作定义可以包含具有以下属性的 `authentication` JSON 对象：
+对于 [Azure AD OAuth 身份验证](../active-directory/develop/authentication-scenarios.md)，触发器或操作定义可以包括 `authentication` JSON 对象，它具有下表指定的属性。 要在运行时访问参数值，可以使用[工作流定义语言](https://aka.ms/logicappsdocs)提供的 `@parameters('parameterName')` 表达式。
 
-| 属性 | 必须 | 值 | 说明 | 
-|----------|----------|-------|-------------| 
-| **类型** | 是 | `ActiveDirectoryOAuth` | 要使用的身份验证类型，即“ActiveDirectoryOAuth”（代表 Azure AD OAuth） | 
-| **authority** | 否 | <*URL-for-authority-token-issuer*> | 提供身份验证令牌的颁发机构的 URL |  
-| **tenant** | 是 | <*tenant-ID*> | Azure AD 租户的租户 ID | 
-| **audience** | 是 | <*resource-to-authorize*> | 需要授权使用的资源，例如 `https://management.core.windows.net/` | 
-| **clientId** | 是 | <*client-ID*> | 请求授权的应用的客户端 ID | 
-| **credentialType** | 是 | "Secret" 或 "Certificate" | 客户端用来请求授权的凭据类型。 此属性和值不会显示在基础定义中，但确定了凭据类型的所需参数。 | 
-| **password** | 是（仅适用于 "Certificate" 凭据类型） | "@parameters('passwordParam')" | 包含用于访问 PFX 文件的密码的参数 | 
-| **pfx** | 是（仅适用于 "Certificate" 凭据类型） | <*base64-encoded-pfx-file*> | 个人信息交换 (PFX) 文件中的 base64 编码内容 |
-| **secret** | 是（仅适用于 "Secret" 凭据类型） | <*secret-for-authentication*> | 客户端用来请求授权的 base64 编码机密 |
-||||| 
+| 属性 | 必需 | Value | 说明 |
+|----------|----------|-------|-------------|
+| **类型** | 是 | `ActiveDirectoryOAuth` | 要使用的身份验证类型，即“ActiveDirectoryOAuth”（代表 Azure AD OAuth） |
+| **authority** | 否 | <*URL-for-authority-token-issuer*> | 提供身份验证令牌的颁发机构的 URL |
+| **tenant** | 是 | <*tenant-ID*> | Azure AD 租户的租户 ID |
+| **audience** | 是 | <*resource-to-authorize*> | 要用于授权的资源，例如 `https://management.core.windows.net/` |
+| **clientId** | 是 | <*client-ID*> | 请求授权的应用的客户端 ID |
+| **credentialType** | 是 | “Certificate”或“Secret” | 客户端用来请求授权的凭据类型。 此属性和值不会显示在基础定义中，但确定了凭据类型的所需参数。 |
+| **pfx** | 是（仅适用于 "Certificate" 凭据类型） | "@parameters('pfxParam') | 个人信息交换 (PFX) 文件中的 base64 编码内容 |
+| **password** | 是（仅适用于 "Certificate" 凭据类型） | "@parameters('passwordParam')" | 用于访问 PFX 文件的密码 |
+| **secret** | 是（仅适用于 "Secret" 凭据类型） | “@parameters('secretParam')” | 用于请求授权的客户端密码 |
+|||||
 
-例如，下面是触发器或操作定义使用“Secret”凭据类型时，`authentication` 对象的格式：有关保护参数的详细信息，请参阅[保护敏感信息](#secure-info)。 
+在此示例 HTTP 操作定义中，`authentication` 节指定 `ActiveDirectoryOAuth` 身份验证和“Secret”凭据类型。 有关使用和保护参数的详细信息，请[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
-```javascript
-"authentication": {
-   "audience": "https://management.core.windows.net/",
-   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "type": "ActiveDirectoryOAuth"
-}
-```
-
-<a name="secure-info"></a>
-
-## <a name="secure-sensitive-information"></a>保护敏感信息
-
-若要保护触发器和操作定义中用于身份验证的敏感信息（例如用户名和密码），可以使用参数和 `@parameters()` 表达式，以便在保存逻辑应用后隐藏这些信息。 
-
-例如，假设你在触发器或操作定义中使用了 "Basic" 身份验证。 下面是指定用户名和密码的示例 `authentication` 对象：
-
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
+         "type": "ActiveDirectoryOAuth",
+         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+         "audience": "https://management.core.windows.net/",
+         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+         "secret": "@parameters('secretParam')"
+     }
+   },
+   "runAfter": {}
 }
 ```
 
-在逻辑应用定义的 `parameters` 节中，定义触发器或操作定义中使用的参数：
-
-```javascript
-"definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "HTTP": {
-      }
-   },
-   "parameters": {
-      "passwordParam": {
-         "type": "securestring"
-      },
-      "userNameParam": {
-         "type": "securestring"
-      }
-   },
-   "triggers": {
-      "HTTP": {
-      }
-   },
-   "contentVersion": "1.0.0.0",
-   "outputs": {}
-},
-```
-
-若要创建或使用 Azure 资源管理器部署模板，则还必须为模板定义包含一个外部 `parameters` 节。 有关保护参数的详细信息，请参阅[安全访问逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 
+> [!IMPORTANT]
+> 确保保护逻辑应用工作流定义所处理的任何敏感信息。 使用安全的参数，并根据需要对数据进行编码。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
 ## <a name="next-steps"></a>后续步骤
 

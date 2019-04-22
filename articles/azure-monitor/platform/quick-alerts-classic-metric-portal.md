@@ -5,27 +5,28 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: quickstart
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: 8af670b7b616f5f1148b313fcba6bbd780b8a6a2
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f962c07696484a1ef1f245fe891dc37ff67ae176
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906206"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686337"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 
 Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关资源的性能和运行状况。 在许多情况下，指标值可以指出某个资源发生错误。 可以创建指标警报以监视异常行为，并在异常行为发生时收到通知。 本快速入门分步介绍了如何创建逻辑应用、创建作业，并使逻辑应用的指标可视化。 然后，它将完成创建警报，并接收逻辑应用资源的指标的通知。
 
+有关指标和指标警报的详细信息，请参阅 [Azure Monitor 指标概述](data-platform.md)和 [Azure Monitor 警报概述](alerts-overview.md)。 
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/free/)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
-登录到 [Azure 门户](https://portal.azure.com/)。
+登录到 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-a-logic-app"></a>创建逻辑应用
 

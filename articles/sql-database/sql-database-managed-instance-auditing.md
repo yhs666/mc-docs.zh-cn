@@ -13,21 +13,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 76410d3810e0f049b6c09de7c6524507785f17a7
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/08/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 740380eb719802a42f2f8e6b16363a0a1ddf50ec
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003512"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529174"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
 [托管实例](sql-database-managed-instance.md)审核会跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：
 
 - 帮助保持合规性、了解数据库活动，以及深入了解可以指明业务考量因素或疑似安全违规的偏差和异常。
-- 实现并促进遵从合规标准，但不能保证合规性。 有关支持标准法规的 Azure 计划的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)。
+- 实现并促进遵从合规标准，但不能保证合规性。 有关支持标准符合性的 Azure 程序的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)，可以从中找到 SQL 数据库符合性认证的最新列表。
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>将服务器的审核设置为 Azure 存储
 
@@ -230,10 +230,10 @@ Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
 - 提供了新语法 `TO EXTERNAL MONITOR` 以启用事件中心和 Azure Monitor 日志这两个目标。
 - **不支持** `TO FILE` 语法，因为 SQL 数据库无法访问 Windows 文件共享。
 - **不支持**关闭选项。
-- `queue_delay` 为 0 **不受支持**。
+- **不支持** `queue_delay` 为 0。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关审核日志使用方法的完整列表，请参阅 [SQL 数据库审核入门](sql-database-auditing.md)。
-- 有关支持标准法规的 Azure 计划的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)。
+- 有关支持标准符合性的 Azure 程序的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)，可以从中找到 SQL 数据库符合性认证的最新列表。
 

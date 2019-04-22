@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: d10daafbf840efcc2c956dc710e3ce19c2f24562
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 0099e68dbd495fcdd6a46cc20b17032cd8808820
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505423"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502585"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>快速入门：使用文本翻译 API 通过 Node.js 来检测文本语言
 
@@ -81,6 +81,7 @@ let options = {
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Ocp-Apim-Subscription-Region': 'your region',
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },

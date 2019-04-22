@@ -3,20 +3,18 @@ title: 管理 Web 流量 - Azure PowerShell
 description: 了解如何通过 Azure PowerShell 使用虚拟机规模集创建应用程序网关以管理 Web 流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-origin.date: 06/05/2018
-ms.date: 03/12/2019
+origin.date: 03/20/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a56a570663301c2a4666586650f651ef46febbf9
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: af464353284552a3614e58d13e52e5eaf95d448f
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788745"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686330"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>通过 Azure PowerShell 使用应用程序网关管理 Web 流量
 
@@ -29,7 +27,7 @@ ms.locfileid: "57788745"
 > * 创建应用程序网关
 > * 使用默认后端池创建虚拟机规模集
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -87,7 +85,7 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
@@ -182,13 +180,13 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
   -Location chinanorth `
   -SkuCapacity 2 `
-  -SkuName Standard_DS2 `
+  -SkuName Standard_DS2_v2 `
   -UpgradePolicyMode Automatic
 
 Set-AzVmssStorageProfile $vmssConfig `
@@ -266,4 +264,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-powershell.md)
 
-<!-- Update_Description: code and links update -->
+<!-- Update_Description: code update -->

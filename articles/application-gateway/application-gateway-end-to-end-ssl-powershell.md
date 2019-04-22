@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 01/10/2019
-ms.date: 03/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: c5272664ebd7905341f315682d6ec461eb90da43
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d7576bdb3e7c1e900bb1520459ca604b61e8d4a7
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627358"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686444"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 SSL
 
@@ -206,17 +206,17 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
 
 11. 配置要在应用程序网关上使用的 SSL 策略。 应用程序网关支持设置 SSL 协议最低版本的功能。
 
-      以下值是可以定义的协议版本的列表：
+    以下值是可以定义的协议版本的列表：
 
     - **TLSV1_0**
     - **TLSV1_1**
     - **TLSV1_2**
+    
+    以下示例将最低协议版本设置为 TLSv1_2 并仅启用 TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256、TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 和 TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256。
 
-      以下示例将最低协议版本设置为 TLSv1_2 并仅启用 TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256、TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 和 TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256。
-
-      ```powershell
-      $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
-      ```
+    ```powershell
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    ```
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
 
@@ -240,6 +240,7 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
    ```
 
 3. 最后，更新网关。 最后一步是耗时较长的任务。 完成后，应用程序网关上即已配置端到端 SSL。

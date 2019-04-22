@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7d81f4d83635808fb2ab4174b288796cac91565f
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 33bf037c0835b2a397258a02bf2a2f077118b125
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964478"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502618"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>快速入门：使用 Python 通过文本翻译 API 来确定句子长度
 
@@ -63,6 +63,7 @@ else:
 # If you want to set your subscription key as a string, uncomment the line
 # below and add your subscription key.
 #subscriptionKey = 'put_your_key_here'
+region = 'put_your_region_here'
 ```
 
 文本翻译全局终结点设置为 `base_url`。 `path` 设置 `breaksentence` 路由并确定我们需使用 API 的版本 3。
@@ -88,6 +89,7 @@ constructed_url = base_url + path + params
 ```python
 headers = {
     'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Region': region,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -158,7 +160,7 @@ python sentence-length.py
 
 * [翻译文本](quickstart-python-translate.md)
 * [直译文本](quickstart-python-transliterate.md)
-* [按输入确定语言](quickstart-python-detect.md)
+* [根据输入确定语言](quickstart-python-detect.md)
 * [获取备用翻译](quickstart-python-dictionary.md)
 * [获取支持的语言的列表](quickstart-python-languages.md)
 

@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik
 manager: digimobile
 origin.date: 12/19/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 97b6678bb0b2e3c52d8bbd323d74ea8b768c3d8a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/15/2019
+ms.openlocfilehash: 8e482a9120d2e93a2a6e27d039c3069fdd054207
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663712"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529400"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL 数据库性能建议
 
@@ -86,6 +86,10 @@ SQL 数据库持续监视正在运行的查询，并发现可以提升性能的�
 | 213 |列名称或所提供值的数目与表定义不匹配。 |
 | 2812 |找不到存储过程“*”。 |
 | 8144 |为过程或函数 * 指定了过多的参数。 |
+
+## <a name="custom-applications"></a>自定义应用程序
+
+开发人员可以考虑使用针对 Azure SQL 数据库的性能建议来开发自定义应用程序。 可以通过 [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API 访问门户中列出的针对数据库的所有建议。
 
 ## <a name="next-steps"></a>后续步骤
 监视建议并继续应用它们以优化性能。 数据库工作负荷是动态的，并且不断地更改。 SQL 数据库顾问继续监视和提供可能提高数据库性能的建议。 

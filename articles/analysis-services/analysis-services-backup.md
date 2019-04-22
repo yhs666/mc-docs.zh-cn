@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: da836fde9adcbdbdc006abab57f7bdb821044427
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: d0505acafe0fc2824998a8d2302891aa12073595
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085648"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529456"
 ---
 # <a name="backup-and-restore"></a>备份和还原
 
@@ -25,7 +25,7 @@ ms.locfileid: "55085648"
 > 
 > 
 
-使用 abf 扩展名保存备份。 对于内存中表格模型，将存储模型数据和元数据。 对于 DirectQuery 表格模型，将仅存储模型元数据。 备份可以进行压缩和加密，具体取决于选择的选项。 
+备份以 .abf 扩展名保存。 对于内存中表格模型，将存储模型数据和元数据。 对于 DirectQuery 表格模型，将仅存储模型元数据。 备份可以进行压缩和加密，具体取决于选择的选项。
 
 ## <a name="configure-storage-settings"></a>配置存储设置
 备份前，需要为服务器配置存储设置。

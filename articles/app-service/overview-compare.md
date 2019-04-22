@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 07/07/2016
-ms.date: 01/21/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 7e56e8fa76d6a5b3c65df022d0c79ca9651be475
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: c7bfaec6c8affcf7e4c64460d74aa52de572dc50
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083945"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355887"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure 应用服务、虚拟机、Service Fabric 和云服务的比较
 
@@ -30,7 +30,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 
 如果要创建新应用或重新编写现有应用以使用微服务体系结构，Service Fabric 是不错的选择。 在共享计算机池上运行的应用可以从小规模开始，根据需要扩展为包含成百上千个计算机的大规模。 有状态服务可轻松地以一致且可靠的方式存储应用状态，而 Service Fabric 会自动管理服务分区、缩放和可用性。  Service Fabric 也支持具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 的 WebAPI。  与应用服务相比，Service Fabric 也能更好地控制或直接访问基础结构。 可以远程登录服务器，或配置服务器启动任务。 云服务的控制和易用程度类似于 Service Fabric，但它现在是旧版服务，因此建议将 Service Fabric 用于新的开发。
 
-如果现有应用程序需要大幅修改才能在应用服务或 Service Fabric 中运行，可选择虚拟机来简化到云的迁移。 但相比于 Azure 应用服务和 Service Fabric，正确配置、保护和维护 VM 需要更多的时间和 IT 专业知识。 如果你考虑采用 Azure 虚拟机，请确保将修补、更新和管理 VM 环境所需的持续性维护工作纳入考虑。 Azure 虚拟机是服务架构 (IaaS)，而应用服务和 Service Fabric 是平台即服务 (Paas)。 
+如果现有应用程序需要大幅修改才能在应用服务或 Service Fabric 中运行，可选择虚拟机来简化到云的迁移。 但相比于 Azure 应用服务和 Service Fabric，正确配置、保护和维护 VM 需要更多的时间和 IT 专业知识。 如果你考虑采用 Azure 虚拟机，请确保将修补、更新和管理 VM 环境所需的持续性维护工作纳入考虑。 Azure 虚拟机是服务架构 (IaaS)，而应用服务和 Service Fabric 是平台即服务 (Paas)。
 
 ## <a name="features"></a>功能比较
 下表比较了应用服务、云服务、虚拟机和 Service Fabric 的功能，帮助用户做出最佳选择。 若要了解每个选项的 SLA 的当前信息，请参阅 [Azure 服务级别协议](https://www.azure.cn/support/legal/sla/)。
@@ -54,7 +54,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 | 向外扩展到多个实例且无需重新部署 |X |X |X |X |虚拟机可以扩大到多个实例，但必须编写这些虚拟机上运行的服务，来处理向外扩展。必须配置负载均衡器以在计算机之间路由请求，并且请确保[可用性集](../virtual-machines/windows/manage-availability.md)中有多个 VM 实例。 |
 | 支持 SSL |X |X |X |X |对于应用服务 Web 应用，只有基本和标准模式支持自定义域名的 SSL。 若要了解如何结合使用 SSL 和 Web 应用，请参阅[为 Azure 网站配置 SSL 证书](app-service-web-tutorial-custom-ssl.md)。 |
 | Visual Studio 集成 |X |X |X |X | |
-| 远程调试 |X |X |X | | |
+| 远程调试 |X |X |X |X | |
 | 使用 TFS 部署代码 |X |X |X |X | |
 | 使用 [Azure 虚拟网络](/virtual-network/)进行网络隔离 |X |X |X |X |另请参阅 [Azure 网站的虚拟网络集成](/app-service/web-sites-integrate-with-vnet) |
 | 支持 [Azure 流量管理器](/traffic-manager/) |X |X |X |X | |
@@ -67,7 +67,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 ## <a name="scenarios"></a>方案和建议
 以下是一些常见的应用程序方案，其中每个方案都包含有关最适合的 Azure Web 托管选项的建议。
 
-* [需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。](#onprem)
+* [我需要一个具有后台处理的 Web 前端和一个数据库后端，用以运行与本地资产集成的业务应用程序。](#onprem)
 * [我需要一种可靠的方式来托管公司网站，既可以进行良好地扩展也能实现全国性覆盖。](#corp)
 * [我具有在 Windows Server 2003 上运行的 IIS6 应用程序。](#iis6)
 * [我是小型企业所有者，我需要使用一种成本较低的方式来托管站点，同时也要兼顾将来的业务增长。](#smallbusiness)
@@ -76,7 +76,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 * [我的应用程序依赖高度自定义的 Windows 或 Linux 的环境，我想将其转移到云中。](#custom)
 * [我的站点使用开放源代码软件，我希望在 Azure 中托管它。](#oss)
 * [我有一个需要连接到公司网络的业务线应用程序。](#lob)
-* [我想为移动客户端托管 REST API 或 Web 服务。](#mobile)
+* [我想为移动客户端托管 REST API 或 web 服务。](#mobile)
 
 ### <a id="onprem"></a> 需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。
 Azure 应用服务是针对复杂业务应用程序的理想解决方案。 可以通过该网站开发应用，这些应用可以在负载均衡平台上自动缩放、使用 Active Directory 进行保护并连接到本地资源。 使用该网站，可以通过世界级门户和 API 轻松地管理这些应用，并且还能通过应用洞察工具深入了解客户使用这些应用的情况。 [Webjobs][Webjobs] 功能允许将后台进程和任务作为 Web 层的一部分运行，而混合连接和 VNET 功能则可实现轻松地重新连接到本地资源。 Azure 应用服务针对 Web 应用提供三个 9 的 SLA，且能够：
@@ -146,7 +146,7 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 如果应用服务不支持开源框架，则可在其他某个 Azure Web 托管选项上运行该框架。 使用虚拟机，可以在计算机映像（基于 Windows 或 Linux）上安装和配置软件。
 
 ### <a id="lob"></a>我有一个需要连接到公司网络的业务线应用程序
-如果想要创建业务线应用程序，网站可能需要直接访问公司网络上的服务或数据。 可在应用服务、Service Fabric 和虚拟机上使用 [Azure 虚拟网络服务](/virtual-network/)来实现此目的。 可在应用服务上使用 [VNET 集成功能](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)，该功能使 Azure 应用程序能够像在公司网络上一样运行。
+如果想要创建业务线应用程序，网站可能需要直接访问公司网络上的服务或数据。 可在应用服务、Service Fabric 和虚拟机上使用 [Azure 虚拟网络服务](/virtual-network/)来实现此目的。 可在应用服务上使用 [VNet 集成功能](/app-service/web-sites-integrate-with-vnet)，该功能使 Azure 应用程序能够像在公司网络上一样运行。
 
 ### <a id="mobile"></a>我想为移动客户端托管 REST API 或 web 服务
 利用基于 HTTP 的 Web 服务，可以支持各种客户端，包括移动客户端。 如 ASP.NET Web API 的框架与 Visual Studio 集成，能够更加轻松地创建和使用 REST 服务。  这些服务来自 web 端点，因此可使用 Azure 上的任何 web 托管技巧支持此方案。 但应用服务托管 REST API 的理想选择。 通过应用服务，可以：

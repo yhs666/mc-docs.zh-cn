@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 02/26/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 4ecfe46dd6e0f6ad54fce9cd5ff045ca1cba8b6f
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 04/15/2019
+ms.openlocfilehash: f98f60db729ca0079fe960399e039fe7c9b2fe15
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003514"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529185"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构 
 
@@ -68,7 +68,7 @@ Azure 管理和部署服务在虚拟网络外部运行。 托管实例和 Azure 
 
 ![虚拟群集的连接体系结构](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-客户端通过采用 `<mi_name>.<dns_zone>.database.chinacloudapi.cn` 形式的主机名连接到托管实例。 尽管此主机名在公用 DNS 区域中注册且可公开解析，但它仍解析为专用 IP 地址。 `zone-id` 于群集创建时自动生成。 如果新创建的群集托管辅助托管实例，它会将其区域 ID 与主群集共享。
+客户端使用 `<mi_name>.<dns_zone>.database.chinacloudapi.cn` 格式的主机名连接到托管实例。 此主机名将解析为专用 IP 地址，不过，它将在公共域名系统 (DNS) 区域中注册，且可公开解析。 `zone-id` 是创建群集时自动生成的。 如果新建的群集托管辅助托管实例，它会将其区域 ID 与主群集共享。
 
 此专用 IP 地址属于将流量定向到托管实例网关 (GW) 的托管实例内部负载均衡器 (ILB)。 由于多个托管实例可能在同一群集中运行，因此 GW 使用托管实例主机名来将流量重新定向到正确的 SQL 引擎服务。
 
@@ -108,8 +108,11 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 
 | Name       |端口          |协议|源           |目标|操作|
 |------------|--------------|--------|-----------------|-----------|------|
-|管理  |80、443、12000|TCP     |任意              |Internet   |允许 |
+|管理  |80、443、12000|TCP     |任意              |AzureChinaCloud  |允许 |
 |mi_subnet   |任意           |任意     |任意              |MI SUBNET*  |允许 |
+
+> [!IMPORTANT]
+> 确保端口 9000、9003、1438、1440、1452 只有一个入站规则，端口 80、443、12000 只有一个出站规则。 如果单独为每个端口配置入站和出站规则，则无法通过 ARM 部署预配托管实例。 如果这些端口在单独的规则中，则部署将会失败并出现错误代码 `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI SUBNET 是指子网的 IP 地址范围，采用 10.x.x.x/y 格式。 可以在 Azure 门户上的子网属性中找到此信息。
 
@@ -168,6 +171,6 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 - [计算用于部署托管实例的子网的大小](sql-database-managed-instance-determine-size-vnet-subnet.md)。
 - 了解如何通过以下方式创建托管实例：
   - 通过 [Azure 门户](sql-database-managed-instance-get-started.md)。
-  - 使用 [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)。
+  - 通过使用 PowerShell 设置。
   - 使用 [Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)。
   - 使用 [Azure 资源管理器模板（使用包含 SSMS 的 JumpBox）](https://portal.azure.cn/)。

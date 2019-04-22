@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 02/01/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6e63a07976a1d25a37913e49bcc6c64001626a31
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a9a38314652635901be06984e754408f30e4c426
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625992"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529042"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>文本翻译 API 3.0：BreakSentence
 
@@ -57,8 +57,8 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
   <th width="20%">标头</th>
   <th>说明</th>
   <tr>
-    <td>一个授权<br/>标头</td>
-    <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
+    <td><em>授权</em><br/><em>标头</em></td>
+    <td><em>必需的请求标头</em>。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -176,7 +176,7 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.translator.azure.cn/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
+curl -X POST "https://api.translator.azure.cn/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
 
 ---

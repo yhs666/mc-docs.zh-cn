@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/06/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 657b44ed4d8f9e036210c146d45a799ad85c4b95
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/15/2019
+ms.openlocfilehash: 12ab119d14bc1dd2cc58ceb4390ac0c99d01bd5b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318925"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529422"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL 数据库中的自动优化
 
@@ -51,7 +51,7 @@ Azure SQL 数据库自动优化与 SQL Server 自动优化引擎共享其核心�
 
 ## <a name="use-automatic-tuning"></a>使用自动优化
 
-需在订阅上手动启用自动优化。 若要使用 Azure 门户启用自动优化，请参阅[启用自动优化](sql-database-automatic-tuning-enable.md)。
+需要在订阅上启用自动优化。 若要使用 Azure 门户启用自动优化，请参阅[启用自动优化](sql-database-automatic-tuning-enable.md)。
 
 自动优化可通过自动应用优化建议（包括性能提升的自动验证）自主操作。 
 
@@ -69,11 +69,13 @@ Azure SQL 数据库中可用的自动优化选项包括：
 
  1. **创建索引** - 标识可提高工作负载性能的索引，创建索引，并自动验证查询性能是否有所提高。
  2. **删除索引** - 每日识别冗余和重复的索引，但不包括唯一索引和长时间（>90 天）未使用的索引。 请注意，目前此选项与使用分区切换和索引提示的应用程序不兼容。
- 3. **强制执行上一卓越计划** - 标识使用执行计划的 SQL 查询（该执行计划速度慢于上一卓越计划），并标识使用上一已知卓越计划的查询而不是回归计划。
+ 3. **强制执行上一卓越计划**（自动更正计划）- 标识使用执行计划的 SQL 查询（该执行计划速度慢于上一卓越计划），并标识使用上一已知卓越计划的查询而不是回归计划。
 
 自动优化确定可以优化数据库性能的“创建索引”、“删除索引”和“强制执行上一个卓越计划”建议，在 [Azure 门户](sql-database-advisor-portal.md)中显示它们，并通过 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 公开它们。 
 
-可以使用门户手动应用优化建议，也可以让“自动优化”自主为你应用优化建议。 让系统自主为你应用优化建议的好处是，它会自动验证对工作负荷性能是否有正向提升，如果检测不到显著的性能改进，它会自动还原优化建议。 请注意，按照设计，如果受优化建议影响的查询不是频繁执行，则验证阶段可能要花费长达 72 小时。 如果是手动应用优化建议，则自动性能验证和回退机制不可用。
+可以使用门户手动应用优化建议，也可以让“自动优化”自主为你应用优化建议。 让系统自主为你应用优化建议的好处是，它会自动验证对工作负荷性能是否有正向提升，如果检测不到显著的性能改进，它会自动还原优化建议。 请注意，按照设计，如果受优化建议影响的查询不是频繁执行，则验证阶段可能要花费长达 72 小时。
+
+如果是手动应用优化建议，则自动性能验证和回退机制不可用。 此外，手动应用的建议在系统自动撤消它们之前， 将在 24-48 小时内保持活动状态并显示在建议列表中。 如果你想要更快地删除建议，可以手动放弃它。
 
 每个数据库都可以独立启用或禁用自动优化选项，也可以在 SQL 数据库服务器上配置这些选项，并将其应用于从服务器继承设置的每个数据库。 SQL 数据库服务器可继承 Azure 默认值，用于自动调整设置。 目前 Azure 默认值设为启用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，禁用 DROP_INDEX。
 

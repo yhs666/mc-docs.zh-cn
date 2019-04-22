@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 01/16/2019
-ms.date: 02/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 37ee626ebf730c8cf291b60f1a3f98cb2364aef4
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.topic: conceptual
+ms.openlocfilehash: ac1d145db3694b4819b2ac5b2b2f977d7061371b
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079662"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686303"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>应用程序网关的多站点托管功能
 
@@ -124,4 +125,4 @@ ms.locfileid: "56079662"
 
 了解多站点托管以后，请转到[创建使用多站点托管的应用程序网关](application-gateway-create-multisite-azureresourcemanager-powershell.md)，以便创建能够支持多个 Web 应用程序的应用程序网关。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab, emlisa
 manager: digimobile
 origin.date: 02/04/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 3de8576c4f3f2ae4a222d2e1628dfbecc25f8ef9
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: ab930913cb937c7c3e04a22e9422fdb1a1319896
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003469"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529278"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 
@@ -89,6 +89,33 @@ SQL 数据库审核可跟踪数据库活动，通过将数据库事件记录到�
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
+## <a name="information-protection-and-encryption"></a>信息保护和加密
+
+### <a name="transport-layer-security-tls-encryption-in-transit"></a>传输层安全性 TLS（传输中加密）
+
+SQL 数据库通过使用[传输层安全](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)加密动态数据来保护客户数据。
+
+SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
+
+作为最佳做法，我们建议在应用程序的连接字符串中指定加密的连接，而不要信任服务器证书。__ 这会强制应用程序验证服务器证书，因此可以防止中间人攻击利用应用程序的漏洞。
+
+例如，使用 ADO.NET 驱动程序时，可以通过 **Encrypt=True** 和 **TrustServerCertificate=False** 实现此目的。如果从 Azure 门户获取连接字符串，其中会包含正确的设置。
+
+> [!IMPORTANT]
+> 请注意，某些非 Azure 驱动程序默认可能不使用 TLS，或者依赖于旧版 TLS (<2.0) 来正常运行。 在这种情况下，SQL Server 仍允许连接到数据库。 但是，我们建议评估允许此类驱动程序和应用程序连接到 SQL 数据库所带来的安全风险，尤其是存储敏感数据时。 
+>
+> 有关 TLS 和连接的更多信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
+
+### <a name="transparent-data-encryption-encryption-at-rest"></a>透明数据加密（静态加密）
+
+[Azure SQL 数据库的透明数据加密 (TDE)](transparent-data-encryption-azure-sql.md) 进一步加强了安全性，帮助保护静态数据不受未经授权或脱机访问原始文件或备份的影响。 常见方案包括数据中心被盗或对硬件或媒体（如磁盘驱动器和备份磁带）的不安全处置。 TDE 使用 AES 加密算法加密整个数据库，无需应用程序开发人员对现有应用程序进行任何更改。
+
+在 Azure 中，所有新创建的 SQL 数据库都默认处于加密状态，且数据库加密密钥通过一个内置的服务器证书保护。  证书维护和轮换由服务管理，无需用户输入。 喜欢控制加密密钥的客户可以管理 [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) 中的密钥。
+
+### <a name="key-management-with-azure-key-vault"></a>使用 Azure Key Vault 的密钥管理
+
+[创建自己的密钥](transparent-data-encryption-byok-azure-sql.md) (BYOK) 支持 [透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE)，允许客户使用  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)（Azure 基于云的外部密钥管理系统）来获得密钥管理和轮换的所有权。 如果撤销了数据库对密钥保管库的访问权限，则无法解密数据库和将其读入内存。 Azure Key Vault 提供集中密钥管理平台，利用严格监控的硬件安全模块 (HSM)，并可在密钥与数据管理之间实现职责分离，以帮助满足安全合规性要求。
+
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted（使用中加密）
 
 ![azure-database-ae.png](media/sql-database-security-overview/azure-database-ae.png)
@@ -125,7 +152,7 @@ SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来�
 
 ### <a name="compliance"></a>合规性
 
-除了上述有助于应用程序符合各项安全要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/)，可以从中找到 [SQL 数据库法规认证](https://www.trustcenter.cn/compliance/)的最新列表。
+除了上述有助于应用程序符合各项安全要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/zh-cn/compliance/default.html)，可以从中找到 SQL 数据库合规认证的最新列表。
 
 ## <a name="next-steps"></a>后续步骤
 

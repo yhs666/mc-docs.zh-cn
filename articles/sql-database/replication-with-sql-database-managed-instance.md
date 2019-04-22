@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: e008002987947c312f12cb2e69a36ef547f8dd83
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/15/2019
+ms.openlocfilehash: a138b2457f8d494c8587081e539d33ac4d448b0a
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663534"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529233"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL 数据库托管实例数据库中配置复制
 
@@ -46,13 +46,13 @@ ms.locfileid: "56663534"
 支持：
 
 - 对本地实例和 Azure SQL 数据库中的托管实例混合使用事务复制和快照复制。
-- 订阅服务器可以位于本地 SQL Server 数据库中、Azure SQL 数据库中的单一数据库中，也可以位于 Azure SQL 数据库弹性池中的入池数据库中。
+- 订阅服务器可以位于本地 SQL Server 数据库中、Azure SQL 数据库中的单一数据库/托管实例中，也可以位于 Azure SQL 数据库弹性池中的入池数据库中。
 - 单向或双向复制。
 
 Azure SQL 数据库中的托管实例不支持以下功能：
 
 - 可更新的订阅。
-- 活动异地复制。
+- 如果配置了事务复制，则不应使用[活动异地复制](sql-database-active-geo-replication.md)和[自动故障转移组](sql-database-auto-failover-group.md)。
 
 ## <a name="configure-publishing-and-distribution-example"></a>配置发布和分发示例
 

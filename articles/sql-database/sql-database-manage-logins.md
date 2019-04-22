@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: b88c47bbde0364bf3ad05ae850e86bfd9d2fa623
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/26/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 58e2b86a2bee917cbacd2ee1db028156c5ca9041
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347100"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529311"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 
@@ -193,7 +193,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 - 若要连接到用户数据库，必须在连接字符串中提供数据库的名称。
 - 只有服务器级别主体登录名和 **master** 数据库中**loginmanager** 数据库角色的成员才有权执行 `CREATE LOGIN`、`ALTER LOGIN` 和 `DROP LOGIN` 语句。
 - 在 ADO.NET 应用程序中执行 `CREATE/ALTER/DROP LOGIN` 和 `CREATE/ALTER/DROP DATABASE` 语句时，不允许使用参数化命令。 有关详细信息，请参阅 [命令和参数](https://msdn.microsoft.com/library/ms254953.aspx)。
-- 在执行 `CREATE/ALTER/DROP DATABASE` 和 `CREATE/ALTER/DROP LOGIN` 语句时，上述每个语句都必须是 Transact-SQL 批中的唯一语句。 否则会出错。 例如，以下 Transact-SQL 检查该数据库是否存在。 如果该数据库存在，则调用 `DROP DATABASE` 语句删除该数据库。 因为 `DROP DATABASE` 语句不是该批处理中的唯一语句，所以执行以下 Transact-SQL 将导致错误。
+- 在执行 `CREATE/ALTER/DROP DATABASE` 和 `CREATE/ALTER/DROP LOGIN` 语句时，上述每个语句都必须是 Transact-SQL 批中的唯一语句。 否则会出错。 例如，以下 Transact-SQL 检查该数据库是否存在。 如果该数据库存在，则调用 `DROP DATABASE` 语句删除该数据库。 因为 `DROP DATABASE` 语句不是该批处理中的唯一语句，所以执行以下 Transact-SQL 会导致错误。
 
   ```sql
   IF EXISTS (SELECT [name]
@@ -201,6 +201,12 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  请改用以下 Transact-SQL 语句：
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - 在使用 `FOR/FROM LOGIN` 选项执行 `CREATE USER` 语句时，该语句必须是 Transact-SQL 批中的唯一语句。

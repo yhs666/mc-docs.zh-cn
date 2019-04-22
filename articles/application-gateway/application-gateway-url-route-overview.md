@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 01/08/2019
-ms.date: 02/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: a5be469a60dbd8aa3473fce1b0f95cb9f29e6c04
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.topic: conceptual
+ms.openlocfilehash: d457e05a6d7f7a5cb59496b17a1964e95b204312
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079635"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686289"
 ---
 # <a name="url-path-based-routing-overview"></a>基于 URL 路径的路由概述
 
@@ -109,4 +110,4 @@ PathBasedRouting 规则的代码片段：
 
 了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](application-gateway-create-url-route-portal.md)，使用 URL 路由规则创建应用程序网关。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

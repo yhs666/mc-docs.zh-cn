@@ -7,15 +7,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 04/01/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 69f7b4a582c39fe09920f504911abc340c15025f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 779e814c87761bd0222fd7195d813d1928dd3d69
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626993"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502602"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
 
@@ -45,7 +45,7 @@ Azure Automation State Configuration 会将节点状态数据保留 30 天。
 
 若要开始将数据从 Azure Automation DSC 导入到 Azure Monitor 日志，请完成以下步骤：
 
-1. 通过 PowerShell 登录 Azure 帐户。 请参阅[使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. 通过 PowerShell 登录 Azure 帐户。 请参阅[使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
 2. 通过运行以下 PowerShell 命令获取自动化帐户的 ResourceId：（如果具有多个自动化帐户，选择想要配置的帐户的 ResourceID）。
 
    ```powershell
@@ -86,9 +86,11 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 还可以通过在 Azure Monitor 日志中进行搜索来查看日志。
 请参阅[使用日志搜索查找数据](/azure-monitor/log-query/log-query-overview)。
-键入以下查询以查找 State Configuration 日志：`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus'`
+键入以下查询以查找 State Configuration 日志：
+`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus'`
 
-还可以通过操作名称缩小查询范围。 例如： `AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus' and OperationName=='DscNodeStatusData'`
+还可以通过操作名称缩小查询范围。 例如：
+`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus' and OperationName=='DscNodeStatusData'`
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>State Configuration 符合性检查失败时发送一封电子邮件
 
@@ -97,7 +99,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 若要创建预警规则，需要首先针对应调用警报的 State Configuration 报表记录创建日志搜索。 单击“+ 新建警报规则”按钮以创建并配置警报规则。
 
 1. 在“Log Analytics 工作区概述”页中，单击“日志”。
-1. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：`AzureDiagnostics | where Category=='DscNodeStatus' and NodeName_s=='DSCTEST1' and OperationName=='DscNodeStatusData' and ResultType=='Failed'`
+1. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：  `AzureDiagnostics | where Category=='DscNodeStatus' and NodeName_s=='DSCTEST1' and OperationName=='DscNodeStatusData' and ResultType=='Failed'`
 
    如果已设置在工作区中收集来自多个自动化帐户或订阅的日志，则可以按照订阅或自动化帐户来为警报分组。  
    自动化帐户名称可能派生自 DscNodeStatusData 搜索中的 Resource 字段。  
@@ -109,7 +111,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 若要查找失败的 DSC 资源的所有实例。
 
 1. 在“Log Analytics 工作区概述”页中，单击“日志”。
-1. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：`AzureDiagnostics | where Category=='DscNodeStatus' and OperationName=='DscResourceStatusData' and ResultType=='Failed'`
+1. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：  `AzureDiagnostics | where Category=='DscNodeStatus' and OperationName=='DscResourceStatusData' and ResultType=='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>查看历史 DSC 节点状态
 

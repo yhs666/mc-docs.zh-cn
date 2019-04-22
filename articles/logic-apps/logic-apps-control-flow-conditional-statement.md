@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2e476f59f7629b1f65bb975ebe3b5b67ac66f00b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f16ee35c23c7ec1d272980ca0f73a1713ab5f7d9
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656091"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529429"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>在 Azure 逻辑应用中创建控制工作流操作的条件语句
 
@@ -47,7 +47,7 @@ ms.locfileid: "52656091"
 
    如果想要在工作流末尾添加条件，请在逻辑应用的底部选择“新建步骤”>“添加操作”。
 
-1. 在搜索框中，输入“条件”作为筛选器。 选择此操作：**条件 - 控制**
+1. 在搜索框中，输入“条件”作为筛选器。 选择以下操作：**条件 - 控制**
 
    ![添加条件](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
@@ -123,4 +123,3 @@ ms.locfileid: "52656091"
 * [基于不同的值运行步骤（switch 语句）](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [运行并重复执行步骤（循环）](../logic-apps/logic-apps-control-flow-loops.md)
 * [运行或合并并行步骤（分支）](../logic-apps/logic-apps-control-flow-branches.md)
-* [基于分组的操作状态运行步骤（作用域）](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

@@ -12,15 +12,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/29/2018
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 44cf0b49d8fcb878e3fd3dff51660ea550365857
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 75816575bc80a6ad7c5f508c1edc9a446fd9b3b9
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788701"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686313"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>使用 Azure PowerShell 限制 Web 流量
 
@@ -228,7 +228,7 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 | [Add-AzVmssNetworkInterfaceConfiguration](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | 定义规模集的网络接口。 |
 | [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 创建虚拟机规模集。 |
 | [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) | 创建存储帐户。 |
-| [Set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-1.4.0) | 配置诊断以记录数据。 |
+| [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) | 配置诊断以记录数据。 |
 | [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) | 获取应用程序网关的公用 IP 地址。 |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 | 
 ## <a name="next-steps"></a>后续步骤
@@ -237,4 +237,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 可以在 [Azure 应用程序网关文档](../powershell-samples.md)中找到其他应用程序网关 PowerShell 脚本示例。
 
-<!-- Update_Description: link and code update -->
+<!-- Update_Description: link update -->

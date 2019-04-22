@@ -8,13 +8,13 @@ manager: jeconnoc
 ms.topic: reference
 origin.date: 04/30/2018
 ms.author: v-yiso
-ms.date: 09/03/2018
-ms.openlocfilehash: 4f436bf045f1e7f73c3a5d3eaf37979de5df6ee4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/22/2019
+ms.openlocfilehash: 331cdbef6777f9c8d351e0de31aadf91346150eb
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662547"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529275"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的架构引用
 
@@ -37,15 +37,15 @@ ms.locfileid: "52662547"
 }
 ```
   
-| 元素 | 必须 | 说明 | 
+| 元素 | 必需 | 说明 | 
 |---------|----------|-------------| 
 | 定义 | 是 | 工作流定义的起始元素 | 
-| $schema | 仅当在外部引用工作流定义时才使用 | 描述工作流定义语言版本的 JSON 架构文件的位置。可在以下位置找到该文件： <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
+| $schema | 仅当在外部引用工作流定义时才使用 | 描述工作流定义语言版本的 JSON 架构文件的位置。可在以下位置找到该文件： <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | 否 | 工作流定义的版本号，默认为“1.0.0.0”。 为了帮助在部署工作流时识别并确认正确的定义，请指定要使用的值。 | 
-| 参数 | 否 | 用于将数据传入工作流的一个或多个参数的定义 <p><p>参数数目上限：50 | 
-| 触发器 | 否 | 用于实例化工作流的一个或多个触发器的定义 可以定义多个触发器，但只能使用工作流定义语言来定义，而不能通过逻辑应用设计器以可视方式进行定义。 <p><p>触发器数目上限：10 | 
-| actions | 否 | 要在工作流运行时执行的一个或多个操作的定义 <p><p>操作数目上限：250 | 
-| outputs | 否 | 从工作流运行返回的输出的定义 <p><p>输出数目上限：10 |  
+| 参数 | 否 | 用于将数据传入工作流的一个或多个参数的定义 <p><p>参数数量上限：50 | 
+| 触发器 | 否 | 用于实例化工作流的一个或多个触发器的定义 可以定义多个触发器，但只能使用工作流定义语言来定义，而不能通过逻辑应用设计器以可视方式进行定义。 <p><p>触发器数量上限：10 个 | 
+| actions | 否 | 要在工作流运行时执行的一个或多个操作的定义 <p><p>操作数量上限：250 | 
+| outputs | 否 | 从工作流运行返回的输出的定义 <p><p>输出数量上限：10 个 |  
 |||| 
 
 ## <a name="parameters"></a>parameters
@@ -69,12 +69,12 @@ ms.locfileid: "52662547"
 },
 ```
 
-| 元素 | 必须 | 类型 | 说明 |  
-|---------|----------|------|-------------|  
-| type | 是 | int、float、string、securestring、bool、array、JSON 对象、secureobject <p><p>**注意**：对于所有密码、密钥和机密，请使用 `securestring` 和 `secureobject` 类型，因为 `GET` 操作不会返回这些类型。 | 参数的类型 |
-| defaultValue | 否 | 与 `type` 相同 | 在工作流实例化时未指定值的情况下使用的默认参数值 | 
-| allowedValues | 否 | 与 `type` 相同 | 包含参数可接受的值的数组 |  
-| metadata | 否 | JSON 对象 | 其他任何参数详细信息，例如，逻辑应用的名称或可读说明，或者 Visual Studio 或其他工具使用的设计时数据 |  
+| 元素 | 必需 | 类型 | 说明 |
+|---------|----------|------|-------------|
+| type | 是 | int、float、string、securestring、bool、array、JSON 对象、secureobject <p><p>**注意**：对于所有密码、密钥和机密，请使用 `securestring` 和 `secureobject` 类型，因为 `GET` 操作不会返回这些类型。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 参数的类型 |
+| defaultValue | 是 | 与 `type` 相同 | 在工作流实例化时未指定值的情况下使用的默认参数值 |
+| allowedValues | 否 | 与 `type` 相同 | 包含参数可接受的值的数组 |
+| metadata | 否 | JSON 对象 | 其他任何参数详细信息，例如，逻辑应用的名称或可读说明，或者 Visual Studio 或其他工具使用的设计时数据 |
 ||||
 
 ## <a name="triggers-and-actions"></a>触发器和操作  
@@ -99,7 +99,7 @@ ms.locfileid: "52662547"
 } 
 ```
 
-| 元素 | 必须 | 类型 | 说明 | 
+| 元素 | 必需 | 类型 | 说明 | 
 |---------|----------|------|-------------| 
 | <*key-name*> | 是 | String | 输出返回值的密钥名称 |  
 | type | 是 | int、float、string、securestring、bool、array、JSON 对象 | 输出返回值的类型 | 
@@ -147,7 +147,7 @@ ms.locfileid: "52662547"
 
 | JSON 值 | 结果 |
 |------------|--------| 
-| "Sophia Owen" | 返回这些字符：'Sophia Owen' |
+| "Sophia Owen" | 返回这些字符：“Sophia Owen” |
 | "array[1]" | 返回这些字符：'array[1]' |
 | "\@\@" | 以单字符字符串的形式返回这些字符：'\@' |   
 | " \@" | 以双字符字符串的形式返回这些字符：' \@' |
@@ -164,13 +164,13 @@ ms.locfileid: "52662547"
 
 | JSON 表达式 | 结果 |
 |-----------------|--------| 
-| "\@parameters('myBirthMonth')" | 返回此字符串："January" |  
-| "\@{parameters('myBirthMonth')}" | 返回此字符串："January" |  
+| "\@parameters('myBirthMonth')" | 返回此字符串：“January” |  
+| "\@{parameters('myBirthMonth')}" | 返回此字符串：“January” |  
 | "\@parameters('myAge')" | 返回此数字：42 |  
-| "\@{parameters('myAge')}" | 以字符串形式返回此数字："42" |  
-| "My age is \@{parameters('myAge')}" | 返回此字符串："My age is 42" |  
-| "\@concat('我的年龄是 ', string(parameters('myAge')))" | 返回此字符串："My age is 42" |  
-| "My age is \@\@{parameters('myAge')}" | 返回包含表达式的此字符串："My age is \@{parameters('myAge')}` | 
+| "\@{parameters('myAge')}" | 以字符串形式返回此数字：“42” |  
+| "My age is \@{parameters('myAge')}" | 返回此字符串：“My age is 42” |  
+| "\@concat('我的年龄是 ', string(parameters('myAge')))" | 返回此字符串：“My age is 42” |  
+| "My age is \@\@{parameters('myAge')}" | 返回此字符串，其中包括表达式：“My age is \@{parameters('myAge')}` | 
 ||| 
 
 在逻辑应用设计器中以可视方式操作时，可以通过表达式生成器创建表达式，例如： 

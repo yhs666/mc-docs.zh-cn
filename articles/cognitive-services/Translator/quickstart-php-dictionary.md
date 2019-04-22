@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/08/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1fcd407ba95fe07f87656da8a2fe9964ccaeb366
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 2422214eb1e713f4538eac0453ea2e32a9888ada
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964474"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502581"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>快速入门：通过 PHP 使用双语字典查找字词
 
@@ -49,7 +49,7 @@ ms.locfileid: "57964474"
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
+$region = 'your region';
 $host = "https://api.translator.azure.cn";
 $path = "/dictionary/lookup?api-version=3.0";
 
@@ -70,11 +70,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function DictionaryLookup ($host, $path, $key, $params, $content) {
+function DictionaryLookup ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -98,7 +99,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = DictionaryLookup ($host, $path, $key, $params, $content);
+$result = DictionaryLookup ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
@@ -189,7 +190,7 @@ echo $json;
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
+$region = 'your region';
 $host = "https://api.translator.azure.cn";
 $path = "/dictionary/examples?api-version=3.0";
 
@@ -211,11 +212,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function DictionaryExamples ($host, $path, $key, $params, $content) {
+function DictionaryExamples ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -240,7 +242,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = DictionaryExamples ($host, $path, $key, $params, $content);
+$result = DictionaryExamples ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:

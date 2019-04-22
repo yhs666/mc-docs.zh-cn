@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 61b5b09a44dc5960aafcbff50d9cc56bc1785b70
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ff651e796187802996d8db657cc8451afee47feb
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627566"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566272"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>使用 Azure Monitor 监视 Active Directory 复制状态
 

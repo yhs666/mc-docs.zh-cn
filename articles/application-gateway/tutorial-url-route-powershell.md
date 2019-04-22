@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 10/25/2018
-ms.date: 03/12/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a3ce415e2c5196a6f43cccc47c5662609d8c8645
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 39d19db130701812249d8b613bcef1d6b89520fd
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788728"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686302"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 基于 URL 对 Web 流量进行路由
 
@@ -412,7 +412,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取应用程序网关的公共 IP 地址。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，*http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, 或 *http://52.168.55.24:8080/video/test.htm*。
+使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取应用程序网关的公共 IP 地址。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，`http://52.168.55.24`、`http://52.168.55.24:8080/images/test.htm` 或 `http://52.168.55.24:8080/video/test.htm`。
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -448,4 +448,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [基于 URL 重定向 Web 流量](./tutorial-url-redirect-powershell.md)
 
-<!-- Update_Description: code and links update -->
+<!-- Update_Description: wording update -->

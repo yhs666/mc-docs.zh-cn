@@ -5,15 +5,15 @@ services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-origin.date: 08/30/2018
-ms.date: 03/25/2019
+origin.date: 03/26/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 625187dded011c46a60acd2c7d7c7464d90732d2
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: fe1b349b5e99ba38190e643b7eabd7e62fd604e4
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352503"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529408"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -21,36 +21,21 @@ Azure 容器注册表 (ACR) 分为多个服务层（称为“SKU”）。 这些
 
 | SKU | 托管 | 说明 |
 | --- | :-------: | ----------- |
-| **基本** | 是 | 供开发者了解 Azure 容器注册表的入口点（已优化过成本）。 基本注册表的编程功能（Azure Active Directory 身份验证集成、映像删除和 Webhook）与标准注册表和高级注册表相同。 但其附带的存储和映像吞吐量最适合使用较少的场景。 |
+| **基本** | 是 | 供开发者了解 Azure 容器注册表的入口点（已优化过成本）。 基本注册表的编程功能（例如 Azure Active Directory [身份验证集成](container-registry-authentication.md#individual-login-with-azure-ad)、[映像删除][container-registry-delete]和 [Webhook][container-registry-webhook]）与标准注册表和高级注册表相同。 但其附带的存储和映像吞吐量最适合使用较少的场景。 |
 | **标准** | 是 | 标准注册表的功能与基本注册表相同。不同之处在于，前者附带更多的存储和映像吞吐量。 标准注册表应能够满足大部分生产方案的需求。 |
 | **高级** | 是 | 高级注册表附带的存储和并发操作数最多，支持大容量方案。 |
-| 经典<sup>1</sup> | 否 | 此 SKU 在 Azure 中启用了初始版 Azure 容器注册表服务。 经典注册表由 Azure 在订阅中创建的存储帐户提供支持，这会限制 ACR 提供更高级功能，如增加吞吐量和异地复制。 |
+|  经典（*在 2019 年 4 月后不可用*） | 否 | 此 SKU 在 Azure 中启用了初始版 Azure 容器注册表服务。 经典注册表由 Azure 在订阅中创建的存储帐户提供支持，这会限制 ACR 提供更高级功能，例如，增大的吞吐量。 |
 
 <!--Not Available on Line 23 Premium adds features like [geo-replication][container-registry-geo-replication]-->
 <!--Not Available on [content trust (preview)](container-registry-content-trust.md)-->
+<!--Not Available on [firewalls and virtual networks (preview)](container-registry-vnet.md)-->
+<!--Not Available on and geo-replication-->
 
-<sup>1</sup> 经典 SKU 将在 **2019 年 3 月** **弃用**。 请对所有新的容器注册表使用基本、标准或高级 SKU。
-
-选择更高级别的 SKU 可以提供更好的性能和缩放，但是，所有托管的 SKU 都提供相同的编程功能。 使用多个服务层，你可以从基本层开始，然后随着注册表使用量增长转换到标准和高级层。
-
-## <a name="managed-vs-unmanaged"></a>托管的与非托管的
-
-基本、标准和高级 SKU 统称为“托管的”注册表，而经典注册表是“非托管的”。 两者之间的主要区别是容器映像的存储方式。
-
-### <a name="managed-basic-standard-premium"></a>托管的（基本、标准、高级）
-
-托管的注册表受益于完全由 Azure 托管的映像存储。 也就是说，存储映像的存储帐户不会显示在 Azure 订阅中。 使用托管的注册表 SKU 可以获得几个优势，[Azure 容器注册表中的容器映像存储][container-registry-storage]中对此进行了深入讨论。 本文重点介绍托管的注册表 SKU 及其功能。
-
-### <a name="unmanaged-classic"></a>非托管的（经典）
 
 > [!IMPORTANT]
-> 经典 SKU 已弃用，2019 年 3 月后将无法使用。 请对所有新的注册表使用基本、标准或高级 SKU。
+> 经典注册表 SKU 即将**弃用**，**2019 年 4 月**之后将不可用。 对于所有新的注册表，建议使用基本、标准或高级 SKU。 应在 2019 年 4 月之前升级所有现有的经典注册表。 有关升级信息，请参阅[升级经典注册表][container-registry-upgrade]。
 
-经典注册表是“非托管的”，这是因为，为经典注册表提供支持的存储帐户位于“你的” Azure 订阅中。 因此，将由你负责管理存储着你的容器映像的存储帐户。 使用非托管的注册表时，无法在需求发生变化时在各种 SKU 之间切换（除非[升级][container-registry-upgrade]到托管的注册表），并且无法使用托管的注册表的多项功能（例如，容器映像删除和 [Webhook][container-registry-webhook]）。
-
-<!-- Not Available on [异地复制][container-registry-geo-replication]-->
-
-若要详细了解如何将经典注册表升级到托管的 SKU 之一，请参阅[升级经典注册表][container-registry-upgrade]。
+基本、标准和高级 SKU（统称为“托管注册表”）全都提供相同的编程功能。 它们也全都可以从完全由 Azure 托管的[映像存储][container-registry-storage]受益。 选择的 SKU 级别越高，性能和可缩放性就越高。 使用多个服务层，你可以从基本层开始，然后随着注册表使用量增长转换到标准和高级层。
 
 ## <a name="sku-feature-matrix"></a>SKU 功能矩阵
 
@@ -76,13 +61,7 @@ az acr update --name myregistry --sku Premium
 
 ![在 Azure 门户中更新容器注册表 SKU][update-registry-sku]
 
-如果你有经典注册表，则无法在 Azure 门户中选择托管的 SKU。 而只能先[升级][container-registry-upgrade]到托管的注册表（请参阅[转换经典注册表](#changing-from-classic)）。
-
-## <a name="changing-from-classic"></a>转换经典注册表
-
-将非托管的经典注册表迁移到托管的基本、标准或高级 SKU 之一时，需要考虑一些其他注意事项。 如果你的经典注册表包含大量映像，并且其大小为许多 GB，则迁移过程可能要花费一些时间。 此外，在迁移完成之前，`docker push` 操作会被禁用。
-
-若要详细了解如何将经典注册表升级到托管的 SKU 之一，请参阅[升级经典容器注册表][container-registry-upgrade]。
+如果你有经典注册表，则无法在 Azure 门户中选择托管的 SKU。 而是必须先[升级][container-registry-upgrade]到托管的注册表。
 
 ## <a name="pricing"></a>定价
 
@@ -104,14 +83,18 @@ az acr update --name myregistry --sku Premium
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
 
 <!-- LINKS - External -->
-[acr-roadmap]: https://aka.ms/acr/roadmap
 [container-registry-pricing]: https://www.azure.cn/pricing/details/container-registry/
 [container-registry-uservoice]: https://www.azure.cn/support/contact/
 
 <!-- LINKS - Internal -->
 [az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
+
 <!--Not Avaialble on [container-registry-geo-replication]: container-registry-geo-replication.md-->
-[container-registry-upgrade]: container-registry-upgrade.md [container-registry-storage]: container-registry-storage.md [container-registry-webhook]: container-registry-webhook.md
+
+[container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
+[container-registry-delete]: container-registry-delete.md
+[container-registry-webhook]: container-registry-webhook.md
 
 <!-- Update_Description: update meta properties, wording update -->
 

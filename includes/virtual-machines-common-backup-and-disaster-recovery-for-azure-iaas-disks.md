@@ -9,12 +9,12 @@ origin.date: 06/05/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f2e2ea7e071ae2920b1b8511ccee4ff8b494b74c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 32ab42a990d9074e7fa0e643abd0fe174a21ba21
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661593"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566562"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁盘的备份和灾难恢复
 
@@ -64,7 +64,7 @@ Azure 平台旨在从这些故障中复原。 重大灾难可能会导致大量�
 
 DR 注意事项可能包括以下方面：
 
-- 高可用性：应用程序能够以正常状态继续运行，而没有显著增加故障时间。 “正常状态”是指，应用程序有响应，用户可以连接到应用程序，并与之交互。 某些任务关键型应用程序和数据库可能需要始终可用，即使平台上有故障，也不例外。 对于这些工作负荷，可能需要为应用程序和数据计划冗余。
+- 高可用性：应用程序能够以正常状态继续运行，而没有显著增加停机时间。 “正常状态”是指，应用程序有响应，用户可以连接到应用程序，并与之交互。 某些任务关键型应用程序和数据库可能需要始终可用，即使平台上有故障，也不例外。 对于这些工作负荷，可能需要为应用程序和数据计划冗余。
 
 - 数据持续性：在某些情况下，主要注意事项是确保在灾难发生时保留数据。 因此，可能需要在不同站点中备份数据。 对于此类工作负荷，可能不需要为应用程序计划完全冗余，只需定期备份磁盘即可。
 
@@ -153,7 +153,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 1.  配置备份策略，再从同一 UI 中选择 VM。
 
-1.  确保在 VM 上安装了备份代理。 如果 VM 是使用 Azure 库映像创建而成，表明备份代理已安装。 否则（即使用的是自定义映像），请根据相关说明[在虚拟机中安装 VM 代理](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)。
+1.  确保在 VM 上安装了备份代理。 如果 VM 是使用 Azure 库映像创建而成，表明备份代理已安装。 否则（即使用的是自定义映像），请根据相关说明[在虚拟机中安装 VM 代理](../articles/backup/backup-azure-arm-vms-prepare.md)。
 
 1.  确保 VM 允许备份服务的网络连接功能正常运行。 遵循[网络连接](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)的说明。
 
@@ -171,9 +171,9 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 有关详细信息，请参阅[使用 Azure 门户还原虚拟机](../articles/backup/backup-azure-arm-restore-vms.md)的说明。 这篇文档还逐步介绍了在主数据中心发生灾难时，如何使用异地冗余备份保管库将已备份 VM 还原到已配对数据中心。 在这种情况下，Azure 备份使用次要区域中的计算服务来创建还原后的虚拟机。
 
-也可以使用 PowerShell [还原 VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) 或[通过还原后的磁盘新建 VM](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
+也可以使用 PowerShell [还原 VM](../articles/backup/backup-azure-arm-restore-vms.md) 或[通过还原后的磁盘新建 VM](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
 
-## <a name="alternative-solution-consistent-snapshots"></a>备用解决方案：一致性快照
+## <a name="alternative-solution-consistent-snapshots"></a>替代解决方案：一致性快照
 
 如果无法使用 Azure 备份，可以使用快照实现自己的备份机制。 为 VM 使用的所有磁盘创建一致性快照，再将这些快照复制到另一个区域的过程比较复杂。 因此，Azure 认为相对于生成自定义解决方案，使用备份服务是更好的选择。 
 

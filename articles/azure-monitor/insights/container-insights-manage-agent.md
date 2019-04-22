@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: b7f6660fd775132a6a78c1c25f22f117f5269cea
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 04e561ceda607a2c61514414cd805bb09354c84e
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441006"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566281"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>如何管理用于容器的 Azure Monitor 代理
 用于容器的 Azure Monitor 使用适用于 Linux 的 Log Analytics 代理的容器化版本。 初始部署之后，在其生命周期内可能需要执行一些例程或可选任务。 本文详细介绍如何手动升级代理并禁用来自特定容器的环境变量集合。 
@@ -29,13 +29,13 @@ ms.locfileid: "56441006"
 如果该代理升级失败，可参阅本文中的手动升级代理过程。 要关注发布的版本，请参阅[代理发布公告](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)。   
 
 ### <a name="upgrading-agent-on-monitored-kubernetes-cluster"></a>在受监视的 Kubernetes 群集上升级代理
-升级代理的过程包括两个明确的步骤。 第一个步骤是使用 Azure CLI 禁止通过用于容器的 Azure Monitor 进行监视。  请遵循[禁用监视](container-insights-optout.md?toc=%2fmonitoring%2ftoc.json#azure-cli)一文中介绍的步骤。 可以使用 Azure CLI 从群集的节点中删除代理，不会影响解决方案以及工作区中存储的相应数据。 
+升级代理的过程包括两个明确的步骤。 第一个步骤是使用 Azure CLI 禁止通过用于容器的 Azure Monitor 进行监视。  请遵循[禁用监视](container-insights-optout.md?#azure-cli)一文中介绍的步骤。 可以使用 Azure CLI 从群集的节点中删除代理，不会影响解决方案以及工作区中存储的相应数据。 
 
 >[!NOTE]
 >执行此维护活动时，群集中的节点不会转发所收集的数据，并且性能视图不会显示从删除代理到安装新版本这段时间内的数据。 
 >
 
-若要安装代理的新版本，请使用 Azure CLI 遵循[加入监视](container-insights-onboard.md?toc=%2fmonitoring%2ftoc.json#enable-monitoring-using-azure-cli)一文中介绍的步骤来完成此过程。  
+若要安装代理的新版本，请使用 Azure CLI 遵循[加入监视](container-insights-onboard.md?#enable-using-azure-cli)一文中介绍的步骤来完成此过程。  
 
 启用监视后，可能需要约 15 分钟才能查看群集的更新后运行状况指标。 若要验证代理是否成功升级，请运行以下命令：`kubectl logs omsagent-484hw --namespace=kube-system`
 

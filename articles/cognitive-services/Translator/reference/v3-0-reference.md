@@ -11,12 +11,12 @@ ms.topic: reference
 origin.date: 03/29/2018
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: f0e1a3a7989dadae14221d16bb86738fbd425816
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7c0d0262286a6d236bd99c62fc197fc989ac7514
+ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964463"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529040"
 ---
 # <a name="translator-text-api-v30"></a>文本翻译 API v3.0
 
@@ -32,24 +32,17 @@ ms.locfileid: "57964463"
 
 ## <a name="base-urls"></a>基 URL
 
-Microsoft Translator 位于多个数据中心位置之外。 目前位于 6 个 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions)中：
+Microsoft Translator 位于多个数据中心位置之外。 目前位于 2 个 Azure 中国区域中：
 
-* **美洲：** 美国西部 2 和美国中西部 
-* **亚太区：** 亚洲东南部和韩国南部
-* **欧洲：** 欧洲北部和欧洲西部
-* **中国：** 中国北部、中国北部 2、中国东部和中国东部 2
+* **中国：** 中国北部和中国东部 2 
 
 在大多数情况下，对 Microsoft 文本翻译 API 的请求由距离请求的来源位置最近的数据中心处理。 如果数据中心发生故障，则可能会在该区域之外路由请求。
 
-若要强制特定数据中心处理该请求，请将 API 请求中的全球终结点更改为所需的区域终结点：
-
 |说明|区域|基 URL|
 |:--|:--|:--|
-|Azure|全局|  api.cognitive.microsofttranslator.com|
-|Azure|北美|   api-nam.cognitive.microsofttranslator.com|
-|Azure|欧洲|  api-eur.cognitive.microsofttranslator.com|
-|Azure|亚太区|    api-apc.cognitive.microsofttranslator.com|
-|Azure|中国|   api.translator.azure.cn|
+|Azure|中国北部| chinanorth.api.cognitive.azure.cn|
+|Azure|中国东部 2| chinaeast2.api.cognitive.azure.cn|
+|Azure|中国| api.translator.azure.cn|
 
 ## <a name="authentication"></a>身份验证
 
@@ -61,6 +54,7 @@ Microsoft Translator 位于多个数据中心位置之外。 目前位于 6 个 
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果要传递密钥，请与认知服务订阅一起使用。<br/>该值是文本翻译 API 订阅的 Azure 密钥。|
 |授权|如果要传递身份验证令牌，请与认知服务订阅一起使用。<br/>该值是持有者令牌：`Bearer <token>`。|
+|Ocp-Apim-Subscription-Region|在调用 api.translator.azure.cn endpoint 并直接传递机密密钥时所需的请求标头。 指定你的订阅所在的区域（例如 ` Chinanorth` 或 `Chinaeast2`）。|
 
 ###  <a name="secret-key"></a>密钥
 第一个选项是使用 `Ocp-Apim-Subscription-Key` 标头进行身份验证。 只需将 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 标头添加到你的请求。
@@ -70,16 +64,16 @@ Microsoft Translator 位于多个数据中心位置之外。 目前位于 6 个 
 
 | 环境     | 身份验证服务 URL                                |
 |-----------------|-----------------------------------------------------------|
-| Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Azure           | `https://<your region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 以下是根据给定密钥获取令牌的示例请求：
 
 ```
 // Pass secret key using header
-curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://<your region>.api.cognitive.microsoft.com/sts/v1.0/issueToken'
 
 // Pass secret key using query string parameter
-curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
+curl --data "" 'https://<your region>.api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
 
 成功的请求会在响应正文中将编码的访问令牌作为纯文本返回。 有效的令牌在授权中作为持有者令牌传递给翻译服务。

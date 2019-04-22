@@ -1,10 +1,10 @@
 ---
-title: 创建和管理弹性池 - Azure SQL 数据库 | Microsoft Docs
+title: 管理弹性池 - Azure SQL 数据库 | Microsoft Docs
 description: 创建和管理 Azure SQL 弹性池。
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
@@ -12,15 +12,15 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 8ca9348a88795b7436bb35f0b5f9de52cec6fde4
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 04/15/2019
+ms.openlocfilehash: a8f68ef76253ea2e708fdb51210e886a3517cadc
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003468"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529289"
 ---
-# <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理弹性池
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中管理弹性池
 
 使用弹性池，可以确定弹性池处理其数据库工作负载所需的资源量，以及每个入池数据库的资源量。
 
@@ -92,7 +92,7 @@ ms.locfileid: "59003468"
 
 | 命令 | 说明 |
 | --- | --- |
-|[CREATE DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/create-database-azure-sql-database)|在现有池中创建新数据库或将其创建为单一数据库。 必须连接到 master 数据库才能新建数据库。|
+|[CREATE DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/create-database-azure-sql-database)|在现有池中创建新数据库或将其创建为单一数据库。 必须连接到 master 数据库，才能新建数据库。|
 |[ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |将数据库移入、移出弹性池或在其之间移动。|
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
 |[sys.elastic_pool_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|返回 SQL 数据库服务器中所有弹性池的资源使用率统计信息。 对于每个弹性池，报告窗口每 15 秒就会提供一行（每分钟四行）。 这包括池中所有数据库的 CPU、IO、日志和存储消耗以及并发的请求/会话利用率。|

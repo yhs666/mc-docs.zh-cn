@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 origin.date: 12/03/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: 3d31fef718bab1151b55dce74f4aaae6d73c2a14
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: df27f914e7406aa72752f1d6d7a6eb81df47991c
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626012"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615214"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>教程：将数据迁移到 Azure Cosmos DB 中的 Cassandra API 帐户
@@ -58,7 +58,7 @@ ms.locfileid: "58626012"
     foreach (string key in insertResult.Info.IncomingPayload)
       {
          byte[] valueInBytes = customPayload[key];
-         string value = Encoding.UTF8.GetString(valueInBytes);
+         double value = Encoding.UTF8.GetString(valueInBytes);
          Console.WriteLine($"CustomPayload:  {key}: {value}");
       }
     ```
@@ -100,10 +100,10 @@ ms.locfileid: "58626012"
 
 通过以下步骤使用 Spark 将数据迁移到 Cassandra API 帐户：
 
-- 预配 [HDInsight 群集](cassandra-spark-hdinsight.md) 
+- 预配 [HDInsight 群集](cassandra-spark-hdinsight.md)
 
-    <!--Not Available on [Azure Databricks cluster](cassandra-spark-databricks.md)-->
-    
+    <!--Not Available on [Azure Databricks cluster](cassandra-spark-databricks.md)--> 
+
 - 使用[表复制操作](cassandra-spark-table-copy-ops.md)将数据移动到目标 Cassandra API 终结点 
 
 如果有数据驻留在 Azure 虚拟机或任何其他云的现有群集中，则建议使用 Spark 作业迁移数据。 此选项需要将 Spark 设置为一次性的中介，或者定期引入。 可以通过在本地与 Azure 之间使用 Azure ExpressRoute 连接来加快此迁移。 
@@ -118,6 +118,5 @@ ms.locfileid: "58626012"
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB 中的可优化数据一致性级别](../cosmos-db/consistency-levels.md)
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on cassandra import data -->
-<!--ms.date: 03/18/2019-->
+
+<!--Update_Description: update link,-->

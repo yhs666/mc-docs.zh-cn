@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 02/07/2019
-ms.date: 02/18/2019
+origin.date: 03/26/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c63df567698545d1e1a6b1a00f64b9e0d9113ae8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 90b925e2351f506d5b7a02f6314d212b7df91a2e
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627045"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529158"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -22,16 +22,16 @@ ms.locfileid: "58627045"
 
 ## <a name="azure-data-sources"></a>Azure 数据源
 
-|数据源  |内存中  |直接连接  |
-|---------|---------|---------|
-|Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
-|Azure SQL 数据仓库     |   是      |   是       |
-|Azure Blob 存储<sup>[1](#tab1400a)</sup>     |   是       |    否      |
-|Azure 表存储<sup>[1](#tab1400a)</sup>    |   是       |    否      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>    |   是       |   否       |
-||||
+|                    数据源                      |  内存中  | 直接连接 |
+|----------------------------------------------------|-------------|-------------|
+|Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |     是     |    是      |
+|              Azure SQL 数据仓库              |     是     |    是      |
+|   Azure Blob 存储<sup>[1](#tab1400a)</sup>      |     是     |     否      |
+|   Azure 表存储<sup>[1](#tab1400a)</sup>     |     是     |     否      |
+|   Azure Cosmos DB<sup>[1](#tab1400a)</sup>         |     是     |     否      |
+|   Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>    |     是     |     否      |
+|   Azure HDInsight Spark<sup>[1](#tab1400a)</sup>   |     是     |     否      |
+|                                                    |             |             |
 
 
 <!--Not Available on |Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |-->
@@ -69,6 +69,7 @@ ms.locfileid: "58627045"
 |    Active Directory<sup>[1](#tab1400b)</sup>    |
 |                Analysis Services                |
 |            分析平台系统            |
+|                    CSV 文件                     |
 |      Dynamics CRM<sup>[1](#tab1400b)</sup>      |
 |                 Excel 工作簿                  |
 |        Exchange<sup>[1](#tab1400b)</sup>        |
@@ -87,6 +88,7 @@ ms.locfileid: "58627045"
 | SAP Business Warehouse<sup>[1](#tab1400b)</sup> |
 |       SharePoint<sup>[1](#tab1400b)</sup>       |
 |                 Sybase 数据库                 |
+|                     TXT 文件                    |
 |       XML 表<sup>[1](#tab1400b)</sup>        |
 |                                                 |
 

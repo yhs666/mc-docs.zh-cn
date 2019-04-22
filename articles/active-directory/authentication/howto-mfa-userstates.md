@@ -1,23 +1,23 @@
 ---
-title: Azure 多重身份验证用户状态
+title: Azure 多重身份验证用户状态 - Azure Active Directory
 description: 了解 Azure 多重身份验证中的用户状态。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 01/11/2019
-ms.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ac96d0981b1ddb415671dfa7715b7537718d494
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 870d0904725ffd038598456d7f65b821c1df789b
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462363"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243674"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求对用户进行双重验证
 
@@ -44,7 +44,7 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 1. 以管理员身份登录到 [Azure 门户](https://portal.azure.cn)。
 2. 转到“Azure Active Directory” > “用户和组” > “所有用户”。
 3. 选择“多重身份验证”。
-   选择“多重身份验证”![](./media/howto-mfa-userstates/selectmfa.png)
+   ![选择“多重身份验证”](./media/howto-mfa-userstates/selectmfa.png)
 4. 此时会打开一个新页面，其中显示了用户状态。
    ![多重身份验证用户状态 - 屏幕截图](./media/howto-mfa-userstates/userstate1.png)
 
@@ -52,10 +52,10 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 1. 使用前文的步骤访问 Azure 多重身份验证“用户”页面。
 2. 找到希望对其启用 Azure MFA 的用户。 可能需要在顶部更改视图。
-   ![查找用户 - 屏幕截图](./media/howto-mfa-userstates/enable1.png)
+   ![从“用户”选项卡选择要更改状态的用户](./media/howto-mfa-userstates/enable1.png)
 3. 勾选用户名旁边的框。
 4. 在右侧，在“快速步骤”下，选择“启用”或“禁用”。
-   ![启用选定的用户 - 屏幕截图](./media/howto-mfa-userstates/user1.png)
+   ![通过在快速步骤菜单上单击“启用”来启用所选用户](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > “已启用”的用户在注册 Azure MFA 后会自动切换到“强制”。 不应手动将用户状态更改为“强制”。
@@ -68,53 +68,60 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 若要使用 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview) 更改用户状态，请更改 `$st.State`。 有三种可能的状态：
 
-- Enabled
-- 强制
-- 已禁用  
+* Enabled
+* 强制
+* 已禁用  
 
-不要直接将用户移动到“强制”状态。 如果这样做了，则非基于浏览器的应用将停止工作，因为用户尚未完成 Azure MFA 注册并获得应用密码。
+不要直接将用户移动到“强制”状态。 如果这样做了，则非基于浏览器的应用将停止工作，因为用户尚未完成 Azure MFA 注册并获得[应用密码](howto-mfa-mfasettings.md#app-passwords)。
 
 先使用以下命令安装模块：
 
-       Install-Module MSOnline
-       
+   ```PowerShell
+   Install-Module MSOnline
+   ```
+
 > [!TIP]
 > 不要忘记先使用 **Connect-MsolService -AzureEnvironment AzureChinaCloud** 进行连接
 
+此示例 PowerShell 脚本为单个用户启用 MFA：
 
- 此示例 PowerShell 脚本为单个用户启用 MFA：
-
-        Import-Module MSOnline
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```PowerShell
+   Import-Module MSOnline
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```
 
 当需要批量启用用户时，使用 PowerShell 是一个不错的选择。 例如，以下脚本循环访问用户列表并在其帐户上启用 MFA：
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-    
+   ```PowerShell
+   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+   foreach ($user in $users)
+   {
+       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+       $st.RelyingParty = "*"
+       $st.State = "Enabled"
+       $sta = @($st)
+       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+   }
+   ```
+
 若要禁用 MFA，请使用此脚本：
 
-    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
-    
+   ```PowerShell
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   ```
+
 该脚本还可缩写为：
 
-    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```PowerShell
+   Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```
 
 ## <a name="next-steps"></a>后续步骤
 
-若要配置其他设置（例如受信任的 IP、自定义语音消息和欺诈警报），请参阅[配置 Azure 多重身份验证设置](howto-mfa-mfasettings.md)一文
+* 若要配置其他设置（例如受信任的 IP、自定义语音消息和欺诈警报），请参阅[配置 Azure 多重身份验证设置](howto-mfa-mfasettings.md)一文
+* 有关管理 Azure 多重身份验证的用户设置的信息，请参阅[管理云中 Azure 多重身份验证的用户设置](howto-mfa-userdevicesettings.md)一文
 
-有关管理 Azure 多重身份验证的用户设置的信息，请参阅[管理云中 Azure 多重身份验证的用户设置](howto-mfa-userdevicesettings.md)一文
-
-<!-- Update_Description: wording update -->

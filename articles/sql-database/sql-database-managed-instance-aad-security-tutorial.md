@@ -10,13 +10,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/20/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 20ccbeb3b6eda53d39325bd8369356d6a71a7b03
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/15/2019
+ms.openlocfilehash: a0638357534f986e888c45b1a673ce2014f8fff2
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626475"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529361"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教程：使用 Azure AD 服务器主体（登录名）确保 Azure SQL 数据库中托管实例的安全性
 
@@ -50,7 +50,7 @@ ms.locfileid: "58626475"
 - [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Azure SQL 数据库托管实例
   - 遵循以下文章：[快速入门：创建 Azure SQL 数据库托管实例](sql-database-managed-instance-get-started.md)
-- 能够访问托管实例，并且[为托管实例预配了 Azure AD 管理员](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。 若要了解更多信息，请参阅以下文章：
+- 能够访问你的托管实例，并且为托管实例预配了 Azure AD 管理员。 若要了解更多信息，请参阅以下文章：
     - [将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md) 
     - [托管实例连接体系结构](sql-database-managed-instance-connectivity-architecture.md)
     - [使用 SQL 配置和管理 Azure Active Directory 身份验证](sql-database-aad-authentication-configure.md)

@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0eb29ea3b8a6d40201acada25a5894f27db7c799
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 8ed416b19ea570bf5ee3c11ceac14cb89e0f21bb
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505514"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502568"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>快速入门：通过 Python 使用双语字典查找字词
 
@@ -63,6 +63,7 @@ else:
 # If you want to set your subscription key as a string, uncomment the line
 # below and add your subscription key. Then, be sure to delete your "os" import.
 # subscriptionKey = 'put_your_key_here'
+region = 'put_your_region_here'
 ```
 
 文本翻译全局终结点设置为 `base_url`。 `path` 设置 `dictionary/lookup` 路由并确定我们需使用 API 的版本 3。
@@ -88,6 +89,7 @@ constructed_url = base_url + path + params
 ```python
 headers = {
     'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Region': region,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -172,7 +174,7 @@ python alt-translations.py
 
 * [翻译文本](quickstart-python-translate.md)
 * [直译文本](quickstart-python-transliterate.md)
-* [按输入确定语言](quickstart-python-detect.md)
+* [根据输入确定语言](quickstart-python-detect.md)
 * [获取支持的语言的列表](quickstart-python-languages.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)
 

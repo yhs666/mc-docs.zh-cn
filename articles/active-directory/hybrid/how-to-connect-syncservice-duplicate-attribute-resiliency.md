@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/15/2018
-ms.date: 02/13/2019
+ms.date: 04/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: a8ec963a6d4a602bff88edd4246a8b7a66c55274
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fac31c779d8734a85f91a0eee6a83d3c8eeebeff
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626276"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355862"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 **UserPrincipalName** 和 **ProxyAddress** 冲突所造成的不便。
@@ -40,7 +41,7 @@ ms.locfileid: "58626276"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>重复属性复原的行为
 Azure Active Directory 并不是完全无法预配或更新具有重复属性的对象，而是“隔离”违反唯一性约束的重复属性。 如果预配时需要此属性（例如 UserPrincipalName），则服务将分配占位符值。 这些临时值的格式为  
-“<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.partner.onmschina.cn”。  
+“***\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.partner.onmschina.cn***”。  
 如果不需要此属性（例如 **ProxyAddress**），则 Azure Active Directory 只隔离冲突属性并继续创建或更新对象。
 
 隔离属性后，有关冲突的信息以旧行为中使用的相同错误报告电子邮件发送。 但是，此信息只出现在错误报告中一次，发生隔离时，不会继续记录在以后的电子邮件中。 此外，由于此对象已成功导出，因此同步客户端不会记录错误，并且不会在后续的同步周期中重试创建/更新操作。
@@ -66,13 +67,13 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 > 为租户启用“重复属性复原”功能之前，将不再能够使用 Set-MsolDirSyncFeature cmdlet 来主动启用该功能。 若要能够测试该功能，需创建新的 Azure Active Directory 租户。
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>识别具有 DirSyncProvisioningErrors 的对象
-目前有两种方法可识别因为重复属性冲突而发生错误的对象：Azure Active Directory PowerShell 和 Office 365 管理门户。 我们已计划将来扩展到其他基于门户的报告。
+目前有两种方法可识别因为重复属性冲突而发生错误的对象：Azure Active Directory PowerShell 和 Microsoft 365 管理中心。 我们已计划将来扩展到其他基于门户的报告。
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 本主题中的 PowerShell cmdlet 具有以下特点：
 
-- 以下所有 cmdlet 都区分大小写。
-- 始终必须包含 **-ErrorCategory PropertyConflict** 。 目前没有其他类型的 **ErrorCategory**，但将来可能会扩展此项。
+* 以下所有 cmdlet 都区分大小写。
+* 始终必须包含 **-ErrorCategory PropertyConflict** 。 目前没有其他类型的 **ErrorCategory**，但将来可能会扩展此项。
 
 首先，应运行 **Connect-MsolService -AzureEnvironment AzureChinaCloud** 并输入租户管理员的凭据。
 
@@ -113,17 +114,17 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>以有限的数量或全部
-1. **MaxResults <Int>** 可用于将查询限制为特定数目的值。
+1. **MaxResults \<Int>** 可用于将查询限制为特定数目的值。
 2. **All** 可用于确保在有大量错误的情况下检索所有结果。
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Office 365 管理门户
-可以在 Office 365 管理中心查看目录同步错误。 Office 365 门户中的报告只显示存在这些错误的 **User** 对象。 它不显示有关 Groups 和 Contacts 之间的冲突的信息。
+## <a name="microsoft-365-admin-center"></a>Microsoft 365 管理中心
+可以在 Microsoft 365 管理中心查看目录同步错误。 Microsoft 365 管理中心的报告只显示存在这些错误的 **User** 对象。 它不显示有关 Groups 和 Contacts 之间的冲突的信息。
 
 ![活动用户](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "活动用户")
 
-有关如何在 Office 365 管理中心查看目录同步错误的说明，请参阅 [识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
+有关如何在 Microsoft 365 管理中心查看目录同步错误的说明，请参阅[识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
 
 ### <a name="identity-synchronization-error-report"></a>标识同步错误报告
 使用此新行为处理具有重复属性冲突的对象时，通知包含在标准标识同步错误报告电子邮件中，而该电子邮件将发送给租户的技术通知联系人。 但是，此行为有一项重大变化。 在过去，有关重复属性冲突的信息包含在每个后续错误报告中，直到解决冲突为止。 使用此新行为，给定冲突的错误通知只出现一次 - 在冲突属性被隔离时。
@@ -144,9 +145,9 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 1. 具有特定属性配置的对象继续收到导出错误，而不是重复属性被隔离。  
    例如：
    
-    a. 新用户在 AD 中创建，其 UPN 为 <strong>Joe@contoso.com</strong>，ProxyAddress 为 <strong>smtp:Joe@contoso.com</strong>。
+    a. 在 AD 中创建一个新用户，其 UPN 为 **Joe\@contoso.com**，ProxyAddress 为 **smtp:Joe\@contoso.com**
    
-    b. 此对象的属性与现有 Group 发生冲突，其中 ProxyAddress 为 <strong>SMTP:Joe@contoso.com</strong>。
+    b. 此对象的属性与现有 Group 发生冲突，其中 ProxyAddress 为 **SMTP:Joe\@contoso.com**。
    
     c. 导出时，将引发“ProxyAddress 冲突”错误，而非隔离冲突属性。 此操作在每个后续的同步周期中重试，就如同在启用复原功能之前一样。
 2. 如果在本地创建两个具有相同 SMTP 地址的组，则其中一个组在首次尝试预配时会失败并返回标准的重复 **ProxyAddress** 错误。 但是，重复值会在下一个同步周期被适当隔离。
@@ -156,13 +157,13 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 1. UPN 冲突集中两个对象的详细错误消息是相同的。 这意味着，它们的 UPN 都已更改/隔离，此时，实际上只有其中一个对象的数据发生更改。
 2. UPN 冲突的详细错误消息对已更改/隔离其 UPN 的用户显示不正确的 displayName。 例如：
    
-    a. **用户 A** 首先使用 <strong>UPN = User@contoso.com</strong> 同步。
+    a. **用户 A** 首先使用 **UPN = User\@contoso.com** 同步。
    
-    b. 然后，尝试使用 <strong>UPN = User@contoso.com</strong> 同步**用户 B**。
+    b. 然后，尝试使用 **UPN = User\@contoso.com** 同步**用户 B**。
    
-    c. **用户 B** 的 UPN 已更改为 <strong>User1234@contoso.partner.onmschina.cn</strong>，<strong>User@contoso.com</strong> 已添加到 **DirSyncProvisioningErrors**。
+    c. **用户 B 的** UPN 已更改为**User1234\@contoso.partner.onmschina.cn**，**User\@contoso.com** 已添加到 **DirSyncProvisioningErrors**。
    
-    d. **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 <strong>User@contoso.com</strong>，但却显示**用户 B** 自己的 displayName。
+    d. **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 **User\@contoso.com**，但却显示**用户 B** 自己的 displayName。
 
 **标识同步错误报告**：
 
@@ -172,9 +173,9 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 它应指向 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)。
 
 ## <a name="see-also"></a>另请参阅
-- [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
-- [识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

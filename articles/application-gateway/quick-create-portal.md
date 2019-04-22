@@ -6,21 +6,24 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/08/2019
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8106a20b8d5c7eef6897df57911542b70c35c8b8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 83f5bf97b37d3a5d581495556abe6e10d13c3d43
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627038"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686474"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
 本快速入门介绍如何使用 Azure 门户创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -126,7 +129,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -137,7 +140,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
       -Location ChinaNorth
     ```
 
-3. 使用以前完成的步骤创建第二个虚拟机并安装 IIS。 使用 *myVM2* 作为虚拟机名称，以及作为 **Set-AzureRmVMExtension** cmdlet 的 **VMName** 设置。
+3. 使用以前完成的步骤创建第二个虚拟机并安装 IIS。 使用 *myVM2* 作为虚拟机名称，以及作为 **Set-AzVMExtension** cmdlet 的 **VMName** 设置。
 
 ### <a name="add-backend-servers-to-backend-pool"></a>将后端服务器添加到后端池
 

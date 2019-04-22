@@ -3,17 +3,18 @@ title: Azure 容器注册表 - 角色和权限
 description: 使用 Azure 基于角色的访问控制 (RBAC) 以及标识和访问管理 (IAM)，提供对 Azure 容器注册表中资源的细粒度访问权限。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: article
-origin.date: 02/20/2019
-ms.date: 03/25/2019
+origin.date: 03/20/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 28d86a14be769cfa2e7f9c372ec1ff581aff329c
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: 855d73cd99b6d0e7fc597858bf5f5789edbddee0
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352506"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529333"
 ---
 <!--Verify successfully-->
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure 容器注册表角色和权限
@@ -25,8 +26,9 @@ Azure 容器注册表服务支持一组 Azure 角色，这些角色提供访问 
 | 所有者 | X | X | X | X | X | X |  |  
 | 参与者 | X | X | X |  X | X | X |  |  
 | 读取器 | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | X |  |  |  
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>区分用户和服务
@@ -63,7 +65,7 @@ Azure 资源管理器访问权限是 Azure 门户和使用 [Azure CLI](https://d
 
 ## <a name="delete-image-data"></a>删除映像数据
 
-[删除容器映像或存储库](container-registry-delete.md)的功能。
+能够从注册表中[删除容器映像](container-registry-delete.md)或者删除其他[受支持的项目](container-registry-image-formats.md)，例如 Helm 图表。
 
 ## <a name="change-policies"></a>更改策略
 
@@ -81,5 +83,4 @@ Azure 资源管理器访问权限是 Azure 门户和使用 [Azure CLI](https://d
 
 * 了解适用于 Azure 容器注册表的[身份验证选项](container-registry-authentication.md)。
 
-<!--Update_Description: new articles on container registry roles -->
-<!--ms.date: 02/18/2019-->
+<!--Update_Description: wording update -->

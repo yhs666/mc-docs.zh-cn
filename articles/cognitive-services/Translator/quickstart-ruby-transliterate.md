@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/08/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 782d5efdc74c0cbe56352d051f07a416d76119ea
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 1d11ab53f642fafe6c8d8c2163164d217f4922ab
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964482"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502576"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>快速入门：使用文本翻译 REST API (Ruby) 对文本进行直译
 
@@ -50,7 +50,7 @@ require 'securerandom'
 
 # Replace the key string value with your valid subscription key.
 key = 'ENTER KEY HERE'
-
+region = 'your region'
 host = 'https://api.translator.azure.cn'
 path = '/transliterate?api-version=3.0'
 
@@ -68,6 +68,7 @@ request = Net::HTTP::Post.new(uri)
 request['Content-type'] = 'application/json'
 request['Content-length'] = content.length
 request['Ocp-Apim-Subscription-Key'] = key
+request['Ocp-Apim-Subscription-Region'] = region
 request['X-ClientTraceId'] = SecureRandom.uuid
 request.body = content
 

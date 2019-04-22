@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 64cd9df7a1353064c7467600e5acb3ca679937c0
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 2a2e8167a659f29252da46444ff70ee81ea709c1
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505431"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502553"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>快速入门：通过 Java 使用双语字典查找字词
 
@@ -130,6 +130,7 @@ public String Post() throws IOException {
     Request request = new Request.Builder()
             .url(url).post(body)
             .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Region", "your region")
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -252,7 +253,7 @@ gradle run
 
 * [翻译文本](quickstart-java-translate.md)
 * [直译文本](quickstart-java-transliterate.md)
-* [按输入确定语言](quickstart-java-detect.md)
+* [根据输入确定语言](quickstart-java-detect.md)
 * [获取支持的语言的列表](quickstart-java-languages.md)
 * [根据输入确定句子长度](quickstart-java-sentences.md)
 

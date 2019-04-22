@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 12/03/2018
-ms.date: 03/11/2019
+ms.date: 04/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 38fcd4412c4164860b88706450a29266a1710b95
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: fbbfa2ab4a2771159cf9b931af0ed443ac127e4c
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788689"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686298"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 SSL 策略版本和密码套件
 
@@ -162,7 +162,7 @@ $subnet = $vnet.Subnets[0]
 # Create a public IP address
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "China North" -AllocationMethod Dynamic
 
-# Create a ip configuration object
+# Create an ip configuration object
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool for backend web servers
@@ -227,4 +227,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 请访问[应用程序网关重定向概述](application-gateway-redirect-overview.md)，了解如何将 HTTP 流量重定向至 HTTPS 终结点。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

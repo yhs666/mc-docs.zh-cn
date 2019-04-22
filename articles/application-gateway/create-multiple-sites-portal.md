@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: ce3769ea65665a0ab747ac8d0c075c5a5c58bd5a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d6d669f0ffd0edf08905c5cd3eb407cedb128bba
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627146"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686362"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 门户创建和配置托管多个网站的应用程序网关
 
@@ -31,7 +31,7 @@ ms.locfileid: "58627146"
 
 ![多站点路由示例](./media/create-multiple-sites-portal/scenario.png)
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -138,12 +138,12 @@ ms.locfileid: "58627146"
 2. 为侦听器输入以下值：
     
    - *contosoListener* - 作为侦听器的名称。
-   - <em>www.contoso.com</em> - 将此主机名示例替换为自己的域名。
+   - *www.contoso.com* - 将此主机名示例替换为自己的域名。
 
 3. 单击 **“确定”**。
-4. 使用名称 *fabrikamListener* 并使用第二个域名创建第二个侦听器。 在此示例中，使用 <em>www.fabrikam.com</em>。
+4. 使用名称 *fabrikamListener* 并使用第二个域名创建第二个侦听器。 在此示例中，使用 *www.fabrikam.com*。
 
-    ![多站点侦听器](./media/create-multiple-sites-portal/be-listeners.png)
+![多站点侦听器](media/create-multiple-sites-portal/be-listeners.png)
 
 ## <a name="create-routing-rules"></a>创建路由规则
 
@@ -186,4 +186,4 @@ ms.locfileid: "58627146"
 
 [使用应用程序网关配置应用服务](create-web-app.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

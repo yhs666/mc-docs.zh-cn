@@ -4,24 +4,25 @@ description: 本文档介绍如何使用 O365 与 Azure AD 来设置和配置多
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/31/2017
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 76cb132f28a22a1f0c886a249bc1592f7754dff9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 71c01dbc59006798f95116f95f4b34fc09112a08
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627126"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355883"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>与 Azure AD 联合的多域支持
 以下文档提供了有关与 Office 365 或 Azure AD 域联合时如何使用多个顶级域和子域的指导。
@@ -51,9 +52,9 @@ ms.locfileid: "58627126"
 ### <a name="supportmultipledomain-parameter"></a>SupportMultipleDomain 参数
 若要避免此约束，需要添加一个不同的 IssuerUri，可以使用 `-SupportMultipleDomain` 参数来实现此目的。  此参数可配合以下 cmdlet 使用：
 
-- `New-MsolFederatedDomain`
-- `Convert-MsolDomaintoFederated`
-- `Update-MsolFederatedDomain`
+* `New-MsolFederatedDomain`
+* `Convert-MsolDomaintoFederated`
+* `Update-MsolFederatedDomain`
 
 此参数可让 Azure AD 根据域名称设置 IssuerUri。  IssuerUri 在 Azure AD 中的所有目录中将是唯一的。  使用参数可让 PowerShell 命令成功完成。
 
@@ -69,7 +70,7 @@ ms.locfileid: "58627126"
 
 因此，在 Azure AD 或 Office 365 上进行身份验证期间，会使用用户令牌中的 IssuerUri 元素来查找 Azure AD 中的域。  如果找不到匹配项，身份验证将会失败。
 
-例如，如果用户的 UPN 是 bsimon@bmcontoso.com，则 AD FS 颁发的令牌中的 IssuerUri 元素将设置为 http://bmcontoso.com/adfs/services/trust。 此元素将匹配 Azure AD 配置，并且身份验证会成功。
+例如，如果用户的 UPN 是 bsimon@bmcontoso.com，则 AD FS 颁发的令牌中的 IssuerUri 元素将设置为 <http://bmcontoso.com/adfs/services/trust>。 此元素将匹配 Azure AD 配置，并且身份验证会成功。
 
 以下是实现此逻辑的自定义声明规则：
 
@@ -107,13 +108,13 @@ ms.locfileid: "58627126"
 4. 在已安装[适用于 Windows PowerShell 的 Azure Active Directory 模块](https://msdn.microsoft.com/library/azure/jj151815.aspx)的计算机上运行以下命令：`$cred=Get-Credential`。  
 5. 输入要联合的 Azure AD 域的全局管理员用户名和密码。
 6. 在 PowerShell 中输入 `Connect-MsolService -AzureEnvironment AzureChinaCloud -Credential $cred`
-7. 在 PowerShell 中，输入 `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`。  此更新是针对原始域的。  因此，使用上述域后，命令将是：`Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
+7. 在 PowerShell 中，输入 `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`。  此更新是针对原始域的。  因此，使用上述域后，命令将是：  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 使用以下步骤通过 PowerShell 添加新的顶级域
 
 1. 在已安装[适用于 Windows PowerShell 的 Azure Active Directory 模块](https://msdn.microsoft.com/library/azure/jj151815.aspx)的计算机上运行以下命令：`$cred=Get-Credential`。  
 2. 输入要联合的 Azure AD 域的全局管理员用户名和密码
-3. 在 PowerShell 中，输入 `Connect-MsolService -Credential $cred`
+3. 在 PowerShell 中，输入 `Connect-MsolService -AzureEnvironment AzureChinaCloud -Credential $cred`
 4. 在 PowerShell 中，输入 `New-MsolFederatedDomain -SupportMultipleDomain -DomainName`
 
 使用以下步骤通过 Azure AD Connect 添加新的顶级域
@@ -137,7 +138,7 @@ ms.locfileid: "58627126"
 ## <a name="support-for-subdomains"></a>对子域的支持
 添加子域时，因为 Azure AD 处理域的方式，导致子域继承父项的设置。  因此，IssuerUri 需要与父项匹配。
 
-例如，假设我有 bmcontoso.com，后来又添加了 corp.bmcontoso.com。  corp.bmcontoso.com 中的用户的 IssuerUri 将需要是 **<http://bmcontoso.com/adfs/services/trust>。**  但是，为 Azure AD 实现的上述标准规则将生成颁发者为 **<http://corp.bmcontoso.com/adfs/services/trust> 的令牌。** 这与域的所需值不匹配，身份验证将失败。
+例如，假设我有 bmcontoso.com，后来又添加了 corp.bmcontoso.com。  corp.bmcontoso.com 中的用户的 IssuerUri 将需要是 **http://bmcontoso.com/adfs/services/trust。**  但是，为 Azure AD 实现的上述标准规则将生成颁发者为 **http://corp.bmcontoso.com/adfs/services/trust 的令牌。** 这与域的所需值不匹配，身份验证将失败。
 
 ### <a name="how-to-enable-support-for-subdomains"></a>如何启用对子域的支持
 若要避免此行为，需要更新 Microsoft Online 的 AD FS 信赖方信任。  为此，必须配置自定义声明规则，使其在构造自定义 Issuer 值时能够从用户的 UPN 后缀中删除任何子域。
@@ -175,3 +176,4 @@ ms.locfileid: "58627126"
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

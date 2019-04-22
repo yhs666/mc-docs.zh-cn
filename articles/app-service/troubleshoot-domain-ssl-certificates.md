@@ -13,21 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/18/2018
-ms.date: 04/08/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: bcc620ca8746c1cb4b2848c528eea5cdb0052dd9
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 30e8c34710af1d10db8e947d13a9b8528b7fd438
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505536"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355886"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 SSL 证书问题
 
 本文列出了为 Azure 应用服务中的 Web 应用配置域或 SSL 证书时可能遇到的常见问题。 此外，还描述了这些问题的可能原因和解决方案。
 
 对于本文中的任何内容，如果需要更多帮助，可以联系 [MSDN 和 Stack Overflow 论坛](https://azure.microsoft.com/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://azure.microsoft.com/support/options/)并选择“获取支持”。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>证书问题
 
@@ -112,7 +115,7 @@ ms.locfileid: "58505536"
 
 配置的自定义域缺少 CNAME 或 A 记录。 
 
-**原因 1 的解决方法**
+**原因 1 的解决方案**
 
 - 如果添加了 A 记录，请确保同时添加 TXT 记录。 有关详细信息，请参阅[创建 A 记录](./app-service-web-tutorial-custom-domain.md#create-the-a-record)。
 - 如果不需要对应用使用根域，我们建议使用 CNAME 记录，而不要使用 A 记录。
@@ -122,7 +125,7 @@ ms.locfileid: "58505536"
 
 Internet 浏览器可能仍在缓存域的旧 IP 地址。 
 
-**原因 2 的解决方法**
+**原因 2 的解决方案**
 
 清除浏览器缓存。 对于 Windows 设备，可以运行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 验证域是否指向应用的 IP 地址。 
 
@@ -280,11 +283,11 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 是的，可将该域指向 VM、存储等。有关详细信息，请参阅[在 Azure 门户中创建 Windows VM 的自定义 FQDN](../virtual-machines/windows/portal-create-fqdn.md)。
 
-**我的域是由 GoDaddy 还是 Azure DNS 托管？**
+**我的域是由 GoDaddy 还是由 Azure DNS 托管？**
 
 应用服务域使用 GoDaddy 进行域注册，使用 Azure DNS 来托管域。 
 
-**我已启用自动续订，但仍收到了有关域续订的电子邮件通知。**
+**我已启用自动续订，但仍收到了有关域续订的电子邮件通知。 我该怎么办？**
 
 如果你已启用自动续订，则不需要执行任何操作。 电子邮件通知旨在告诉你该域即将过期，如果未启用自动续订，则需要手动续订。
 
@@ -292,7 +295,7 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 最初的域购买费用仅适用于域注册。 除了注册费用以外，Azure DNS 还会根据用量收费。 有关详细详细，请参阅 [Azure DNS 定价](https://www.azure.cn/zh-cn/home/features/dns)。
 
-**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。该如何处理？**
+**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。 该如何处理？**
 
 不一定非要迁移到 Azure DNS 托管。 如果你确实想要迁移到 Azure DNS，Azure 门户中的域管理体验会提供有关转移到 Azure DNS 的步骤信息。 如果域通过应用服务购买的，则从 GoDaddy 托管迁移到 Azure DNS 的过程相对较为顺畅。
 
@@ -314,7 +317,7 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 **是否可将域从一个订阅转移到另一个订阅？**
 
-可以使用 [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet 将域转移到另一个订阅/资源组。
+可以使用 [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet 将域转移到另一个订阅/资源组。
 
 **如果我当前没有 Azure 应用服务应用，该如何管理自定义域？**
 

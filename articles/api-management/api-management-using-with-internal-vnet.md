@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 42894ee4ffac31a590e79763cfa16c9180305ee4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: 91c8c41dadf7a2bf11976948e214d480ebba6beb
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627446"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529159"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -46,6 +46,7 @@ ms.locfileid: "58627446"
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **一个 Azure API 管理实例**。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
++ 当 API 管理服务部署在虚拟网络中时，将使用[列表中的端口](./api-management-using-with-vnet.md#required-ports)并且需要重新打开它们。 
 
 ## <a name="enable-vpn"> </a>在内部虚拟网络中创建 API 管理
 内部虚拟网络中的 API 管理服务托管在[内部负载均衡器（经典）](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud)后面。 这是唯一可用的选项，不能更改。

@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7619fc19b34789be63db42ef4a84b87e0fb59c3a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0459dad290a8effb404f1bb0fa450d009c237223
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628642"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686439"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>创建证书用于将 Azure 应用程序网关中的后端加入白名单
 

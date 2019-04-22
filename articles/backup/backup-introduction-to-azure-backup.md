@@ -7,15 +7,15 @@ manager: digimobile
 keywords: 备份和还原;恢复服务;备份解决方案
 ms.service: backup
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 28ca46df153bc28fa5f6e725b772e9f7a9fb99f6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9d861d7430db873c6533c4e7f808ac1f31547b1e
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625727"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566370"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -42,7 +42,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 **长期保留** - 可以将恢复服务保管库用于短期和长期数据保留。 Azure 不会限制恢复服务保管库中数据的保留时间长度。 可以根据需要设置数据在保管库中的保留时间。 Azure 备份的限制为每个受保护实例仅限 9999 个恢复点。 请参阅本文的[备份和保留](backup-introduction-to-azure-backup.md#backup-and-retention)部分，了解此限制对用户备份需求的影响。
 
 ## <a name="which-azure-backup-components-should-i-use"></a>应使用哪些 Azure 备份组件？
-通过下表了解可以对每个 Azure 备份组件进行保护的内容。 
+通过下表了解可以对每个 Azure 备份组件进行保护的内容。
 
 | 组件 | 优点 | 限制 | 哪些内容受到保护？ | 备份存储在何处？ |
 | --- | --- | --- | --- | --- |
@@ -61,7 +61,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | Azure IaaS VM 备份 |<p>**是**</p><p>Azure 结构的一部分</p><p>专用于[备份 Azure 基础结构即服务 (IaaS) 虚拟机](backup-azure-vms-introduction.md)。</p> |<p>**否**</p> <p>使用 System Center DPM 备份数据中心内的虚拟机。</p> |<p>恢复服务保管库</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>可以备份哪些应用程序和工作负荷？
-下表提供了可使用 Azure 备份保护的数据和工作负荷的矩阵。 Azure 备份解决方案列具有该解决方案部署文档的链接。 
+下表提供了可使用 Azure 备份保护的数据和工作负荷的矩阵。 Azure 备份解决方案列具有该解决方案部署文档的链接。
 
 | 数据或工作负荷 | 源环境 | Azure 备份解决方案 |
 | --- | --- | --- |
@@ -80,17 +80,17 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 下表显示了 Linux 支持的 Azure 备份组件。  
 
 **组件** | **Linux（Azure 认可）**
---- | --- 
-Azure 备份 (MARS) 代理 | 否（仅限基于 Windows 的代理） 
+--- | ---
+Azure 备份 (MARS) 代理 | 否（仅限基于 Windows 的代理）
 System Center DPM | 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/><br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原</br></br> 文件一致性备份不适用于 Azure VM
-Azure 备份服务器 | 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/><br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原</br></br> 文件一致性备份不适用于 Azure VM 
-Azure IaaS VM 备份 | 应用一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/><br/> [文件级恢复](backup-azure-restore-files-from-vm.md)<br/><br/> [从还原的磁盘创建 VM](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [从恢复点创建 VM](backup-azure-arm-restore-vms.md#create-new-create-a-vm)。
+Azure 备份服务器 | 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/><br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原</br></br> 文件一致性备份不适用于 Azure VM
+Azure IaaS VM 备份 | 应用一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/><br/> [文件级恢复](backup-azure-restore-files-from-vm.md)<br/><br/> [从还原的磁盘创建 VM](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [从恢复点创建 VM](backup-azure-arm-restore-vms.md#create-a-vm)。
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>结合使用高级存储 VM 和 Azure 备份
-Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅文章：[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../virtual-machines/windows/premium-storage.md)。
+## <a name="using-premium-storage-vms-with-azure-backup"></a>将高级存储 VM 与 Azure 备份配合使用
+Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储和其他磁盘类型的详细信息，请参阅[选择磁盘类型](../virtual-machines/windows/disks-types.md)一文。
 
 ### <a name="back-up-premium-storage-vms"></a>备份高级存储 VM
-在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置大小与恢复点快照大小相同。 请确保高级存储帐户有足够的可用空间，可以容纳临时暂存位置。 有关详细信息，请参阅[高级存储限制](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)一文。 备份作业完成后，会删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../virtual-machines/windows/premium-storage.md#pricing-and-billing)一致。
+在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置大小与恢复点快照大小相同。 请确保高级存储帐户有足够的可用空间，可以容纳临时暂存位置。 有关详细信息，请参阅 [Azure 存储可伸缩性目标](../storage/common/storage-scalability-targets.md)中的文章。 备份作业完成后，会删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../virtual-machines/windows/disks-types.md)一致。
 
 > [!NOTE]
 > 请不要修改或编辑暂存位置。
@@ -114,14 +114,14 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 
 ### <a name="storage"></a>存储
 
-|                    功能                    | Azure 备份代理 |  System Center DPM   | Azure 备份服务器  | Azure IaaS VM 备份 |
-|-----------------------------------------------|--------------------|----------------------|----------------------|----------------------|
-|            恢复服务保管库            |   ![是][green]    |    ![是][green]     |    ![是][green]     |    ![是][green]     |
-|                 磁盘存储                  |                    |    ![是][green]     |    ![是][green]     |                      |
-|                 表存储                  |                    |    ![是][green]     |                      |                      |
-| 压缩 <br/>（在恢复服务保管库中） |   ![是][green]    |    ![是][green]     |    ![是][green]     |                      |
-|              增量备份               |   ![是][green]    |    ![是][green]     |    ![是][green]     |    ![是][green]     |
-|              磁盘重复数据删除               |                    | ![部分][yellow] | ![部分][yellow] |                      |
+| 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
+| --- | --- | --- | --- | --- |
+| 恢复服务保管库 |![是][green] |![是][green] |![是][green] |![是][green] |
+| 磁盘存储 | |![是][green] |![是][green] | |
+| 表存储 | |![是][green] | | |
+| 压缩 <br/>（在恢复服务保管库中） |![是][green] |![是][green] |![是][green] | |
+| 增量备份 |![是][green] |![是][green] |![是][green] |![是][green] |
+| 磁盘重复数据删除 | |![部分][yellow] |![部分][yellow] | |
 
 ![表键](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -132,7 +132,7 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 
 
 #### <a name="disk-deduplication"></a>磁盘重复数据删除
-在 [Hyper-V 虚拟机](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)上部署 System Center DPM 或 Azure 备份服务器时，可使用重复数据删除。 Windows Server 会在以备份存储形式附加到虚拟机的虚拟硬盘 (VHD) 上执行主机级别的重复数据删除。
+在 [Hyper-V 虚拟机](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)上部署 System Center DPM 或 Azure 备份服务器时，可使用重复数据删除。 Windows Server 会在以备份存储形式附加到虚拟机的虚拟硬盘 (VHD) 上执行主机级别的重复数据删除。
 
 > [!NOTE]
 > 重复数据删除不适用于 Azure 中的所有备份组件。 如果 System Center DPM 和备份服务器部署在 Azure 中，则附加到 VM 的存储磁盘无法进行重复数据删除。

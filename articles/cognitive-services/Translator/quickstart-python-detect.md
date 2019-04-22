@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 05815331202a6847a9eca9bc90a6c1b160d97c72
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 87a803ec7e9de7ca2979668ca9ed6b199c3a28fc
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505517"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502557"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>快速入门：使用文本翻译 API 通过 Python 来检测文本语言
 
@@ -63,6 +63,7 @@ else:
 # If you want to set your subscription key as a string, uncomment the line
 # below and add your subscription key.
 #subscriptionKey = 'put_your_key_here'
+region = 'put_your_region_here'
 ```
 
 文本翻译全局终结点设置为 `base_url`。 `path` 设置 `detect` 路由并确定我们需使用 API 的版本 3。
@@ -85,6 +86,7 @@ constructed_url = base_url + path
 ```python
 headers = {
     'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Region': region,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

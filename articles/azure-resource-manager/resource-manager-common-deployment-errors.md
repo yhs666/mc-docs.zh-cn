@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 02/15/2019
 ms.date: 03/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 936f1a852318ad406f069474a55b045dcd248e95
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 85e1ce7753cfe0df9eddc7cf21c68f8247497599
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348117"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355869"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -60,7 +60,7 @@ ms.locfileid: "58348117"
 | LinkedAuthorizationFailed | 检查帐户所属的租户是否与要部署到的资源组所属的租户相同。 | |
 | LinkedInvalidPropertyId | 无法正确解析资源的资源 ID。 请检查是否提供了资源 ID 的所有必需值，包括订阅 ID、资源组名称、资源类型、父资源名称（如果需要）、资源名称。 | |
 | LocationRequired | 提供资源的位置。 | [设置位置](resource-group-authoring-templates.md#resource-location) |
-| MismatchingResourceSegments | 请确保嵌套资源的名称和类型中包含正确数量的段。 | [解决资源段](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
+| MismatchingResourceSegments | 请确保嵌套资源的名称和类型中包含正确数量的段。 | [解决资源段问题](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 检查资源提供程序注册状态，以及支持的位置。 | [解决注册问题](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向资源提供程序注册订阅。 | [解决注册问题](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 检查资源提供程序注册状态。 | [解决注册问题](resource-manager-register-provider-errors.md) |
@@ -74,7 +74,7 @@ ms.locfileid: "58348117"
 | RequestDisallowedByPolicy | 订阅中的某个资源策略阻止你在部署期间尝试执行的操作。 请找出阻止该操作的策略。 如果可能，请修补部署，使之符合策略的限制。 | [解决策略问题](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | 提供不包含保留名称的资源名称。 | [保留的资源名称](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等待删除操作完成。 | |
-| ResourceGroupNotFound | 检查部署的目标资源组的名称。 它必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/zh-cn/cli/account??view=azure-cli-latest#az-account-set) [PowerShell](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | 检查部署的目标资源组的名称。 它必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-set) [PowerShell](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | 部署引用了一个无法解析的资源。 请验证所使用的 reference 函数是否包括方案所需的参数。 | [解决引用问题](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | 部署尝试创建的资源超过了订阅、资源组或区域的配额。 请尽可能修改基础结构，使之保持在配额范围内。 否则，请考虑请求更改配额。 | [解决配额问题](resource-manager-quota-errors.md) |
 | SkuNotAvailable | 选择可在所选位置中使用的 SKU（例如 VM 大小）。 | [解决 SKU 问题](resource-manager-sku-not-available-errors.md) |

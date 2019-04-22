@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: 45659cb4de1fedfdc4d56e755986fb83ad7b95a1
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.date: 04/15/2019
+ms.openlocfilehash: af06ef96ff141122259a7d8ec6a7912f7251e7db
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988388"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615145"
 ---
 <!--Verify sucessfully-->
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Spark 上的 Azure Cosmos DB Cassandra API 表聚合操作 
@@ -259,7 +259,9 @@ spark
 select max(book_price) from books_vw;
 ```
 **输出：**
-```22.45 ```
+```
+22.45
+```
 
 ## <a name="sum-operation"></a>操作总数
 
@@ -370,5 +372,4 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 * [表复制操作](cassandra-spark-table-copy-ops.md)
 
 <!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

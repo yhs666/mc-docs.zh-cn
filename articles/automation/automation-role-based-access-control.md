@@ -8,15 +8,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/17/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 24883155028845328da47dede271fdc171844a0a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5807f4097ee2a8905242e41eb0e1072208862438
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987938"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502614"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -176,7 +176,7 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
 |Microsoft.Insights/components/*|管理 Application Insights 组件。|
 |Microsoft.Insights/DiagnosticSettings/*|管理诊断设置。|
 |Microsoft.Insights/eventtypes/*|列出订阅中的活动日志事件（管理事件）。 此权限适用于对活动日志的编程和门户访问。|
-|Microsoft.Insights/LogDefinitions/*|需要通过门户访问活动日志的用户必须拥有此权限。 列出活动日志中的日志类别。|
+|Microsoft.Insights/LogDefinitions/*|此权限对于需要通过门户访问活动日志的用户是必需的。 列出活动日志中的日志类别。|
 |Microsoft.Insights/MetricDefinitions/*|读取指标定义（资源的可用指标类型的列表）。|
 |Microsoft.Insights/Metrics/*|读取资源的指标。|
 |Microsoft.Insights/Register/Action|注册 Microsoft.Insights 提供程序。|
@@ -257,7 +257,7 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
 
 还可以使用以下 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md) 为自动化帐户配置基于角色的访问权限：
 
-[Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) 列出 Azure Active Directory 中提供的所有 RBAC 角色。 可以使用此命令和 **Name** 属性来列出特定角色可以执行的所有操作。
+[Get-AzureRmRoleDefinition](https://docs.microsoft.com/previous-versions/azure/mt603792(v=azure.100)) 列出 Azure Active Directory 中提供的所有 RBAC 角色。 可以使用此命令和 **Name** 属性来列出特定角色可以执行的所有操作。
 
 ```powershell
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -276,7 +276,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) 列出指定作用域中的 Azure AD RBAC 角色分配。 在没有任何参数的情况下，此命令返回在订阅下进行的所有角色分配。 使用 **ExpandPrincipalGroups** 参数可列出针对指定用户和该用户所在组的访问权限分配。
+[Get-AzureRmRoleAssignment](https://docs.microsoft.com/previous-versions/azure/mt619413(v=azure.100)) 列出指定作用域中的 Azure AD RBAC 角色分配。 在没有任何参数的情况下，此命令返回在订阅下进行的所有角色分配。 使用 **ExpandPrincipalGroups** 参数可列出针对指定用户和该用户所在组的访问权限分配。
     **示例：** 使用以下命令列出自动化帐户中的所有用户及其角色。
 
 ```powershell
@@ -297,7 +297,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) 为特定范围内的用户、组和应用程序分配访问权限。
+[New-AzureRmRoleAssignment](https://docs.microsoft.com/previous-versions/azure/mt603580(v=azure.100)) 为特定范围内的用户、组和应用程序分配访问权限。
     **示例：** 使用以下命令为“自动化帐户”范围中的用户分配“自动化操作员”角色。
 
 ```powershell
@@ -318,7 +318,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-使用 [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) 从特定范围中删除指定用户、组或应用程序的访问权限。
+使用 [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/previous-versions/azure/mt603781(v=azure.100)) 从特定范围中删除指定用户、组或应用程序的访问权限。
     **示例：** 使用以下命令从“自动化帐户”范围的“自动化操作员”角色中删除用户。
 
 ```powershell

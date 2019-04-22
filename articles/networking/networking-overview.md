@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/19/2017
-ms.date: 01/07/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
-ms.openlocfilehash: 83a35c74af72997b8933a2b3872e37c3a0c820dc
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: 0be029f8f670f88da66d6c035bc85816a8bafa44
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785330"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471979"
 ---
 # <a name="azure-networking"></a>Azure 网络
 
@@ -35,9 +35,9 @@ Azure 提供可以结合使用或单独使用的各种网络功能。 请单击�
 - [可管理性](#manageability)：监视和管理 Azure 网络资源。
 - [部署和配置工具](#tools)：使用基于 Web 的门户或跨平台命令行工具来部署和配置网络资源。
 
-## <a name="Connectivity"></a>Azure 资源之间的连接
+## <a name="connectivity"></a>Azure 资源之间的连接
 
-虚拟机、云服务、虚拟机规模集和 Azure 应用服务环境等 Azure 资源可以通过 Azure 虚拟网络 (VNet) 进行私密通信。 VNet 是对专用于[订阅](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 云进行的逻辑隔离。 可在每个 Azure 订阅和 Azure [区域](https://www.azure.cn/zh-cn/home/features/products-by-region)中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
+虚拟机、云服务和虚拟机规模集等 Azure 资源可以通过 Azure 虚拟网络 (VNet) 进行私密通信。 VNet 是对专用于[订阅](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 云进行的逻辑隔离。 可在每个 Azure 订阅和 Azure [区域](https://www.azure.cn/zh-cn/home/features/products-by-region)中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
 
 - 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向连接到 VNet 的资源分配一个专用 IP 地址。
 - 将 VNet 细分为一个或多个子网，并向每个子网分配一部分 VNet 地址空间。
@@ -60,7 +60,7 @@ Azure 提供可以结合使用或单独使用的各种网络功能。 请单击�
 
 可组合使用以下任何选项将本地网络连接到 VNet：
 
-点到站点（基于 SSTP 的 VPN）
+**点到站点（基于 SSTP 的 VPN）**
 
 下图显示了多台计算机与一个 VNet 之间的独立点到站点连接：
 
@@ -136,7 +136,7 @@ Azure 创建默认的路由表，使用这些路由表可让连接到 VNet 中�
 ## <a name="manageability"></a>可管理性
 
 Azure 提供以下工具用于监视和管理网络：
-- **活动日志：** 所有 Azure 资源都有活动日志，记录执行的操作、操作状态以及操作发起者。 若要详细了解活动日志，请参阅[活动日志概述](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)一文。
+- **活动日志：** 所有 Azure 资源都会生成活动日志，其中提供有关执行的操作、操作状态以及操作发起者的信息。 若要详细了解活动日志，请参阅[活动日志概述](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)一文。
 - **诊断日志：** 定期和自发性事件由网络资源创建，记录在 Azure 存储帐户中并发送到事件中心或 Azure Log Analytics。 诊断日志提供资源运行状况的见解。 诊断日志是针对负载均衡器（面向 Internet）、网络安全组、路由和应用程序网关提供的。 若要详细了解诊断日志，请参阅[诊断日志概述](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)一文。
 - **指标：** 指标是在一段时间内从资源收集的性能度量与计数器。 使用指标可以基于阈值触发警报。 指标目前适用于应用程序网关。 若要详细了解指标，请参阅[指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)一文。
 - **故障排除：** 可直接在 Azure 门户中访问故障排除信息。 这些信息可帮助诊断 ExpressRoute、VPN 网关、应用程序网关、网络安全日志、路由、DNS、负载均衡器和流量管理器的常见问题。

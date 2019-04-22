@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 12/04/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 37bc1b3d4024135621d114f85e2ad993b1c57633
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f337e8d64e13403b08860e1e69f40d6029efda97
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626901"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355900"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -238,8 +238,12 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>是否可以在另一区域创建到 VNet 的对等互连连接？
 是的。 全球 VNet 对等互连可以将不同区域中的 VNet 对等互连。 全球 VNet 对等互连适用于所有中国云区域。
 
+<!--MOONCAKE: difference AAD tenant not support peering -->
+
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>如果虚拟网络所属的订阅位于不同的 Azure Active Directory 租户中，能否启用 VNet 对等互连？
-是的。 如果订阅属于不同的 Azure Active Directory 租户，则可以建立 VNet 对等互连（无论是本地还是全球）。 可以通过 PowerShell 或 CLI 来执行此操作。 尚不支持门户。
+否。 在 Azure 中国，如果虚拟网络属于不同 Azure Active Directory 租户中的订阅，则当前不支持 Vnet 对等互连。 
+
+<!--MOONCAKE: difference AAD tenant not support peering -->
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 对等互连连接处于“已启动”状态，为什么我不能连接？
 如果对等互连连接处于“已启动”状态，则意味着只创建了一个链接。 必须创建双向链接才能成功建立连接。 例如，若要从 VNet A 对等互连到 VNet B，必须创建从 VNetA 到 VNetB 以及从 VNetB 到 VNetA 的链接。 创建两个链接后，状态会更改为“已连接”。

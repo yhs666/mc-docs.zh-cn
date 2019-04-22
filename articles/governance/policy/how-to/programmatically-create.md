@@ -1,21 +1,20 @@
 ---
 title: 以编程方式创建策略和查看符合性数据
 description: 本文逐步讲解如何以编程方式创建和管理适用于 Azure Policy 的策略。
-services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 05/24/2018
-ms.date: 04/15/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ca0482daba2f9a6d53e845c1ff442dc1a06a9418
-ms.sourcegitcommit: dbabe5365653ce222005b2b666dddbfed2270063
+ms.openlocfilehash: f0c2ac537d0aabbb4df9c1443e9f89e9df034440
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58760025"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471980"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
 
@@ -68,6 +67,7 @@ ms.locfileid: "58760025"
    ```
 
    有关编写策略定义的详细信息，请参阅 [Azure Policy 定义结构](../concepts/definition-structure.md)。
+
 2. 运行以下命令，使用 AuditStorageAccounts.json 文件创建策略定义。
 
    ```powershell
@@ -92,8 +92,8 @@ ms.locfileid: "58760025"
 
    将 _ContosoRG_ 替换为所需资源组的名称。
 
-   `New-AzPolicyAssignment` 上的 **Scope** 参数也可用于订阅和管理组。 该参数使用完整资源路径，它将返回 `Get-AzResourceGroup` 的 **ResourceId** 属性。 每个容器的**范围**模式如下所示。
-   将 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分别替换为你的资源名称、资源组名称、订阅 ID 和管理组名称。 `{rType}` 将替换为资源的**资源类型**，例如 VM 的 `Microsoft.Compute/virtualMachines`。
+   `New-AzPolicyAssignment` 的 **scope** 参数适用于管理组、订阅、资源组或单个资源。 该参数使用完整资源路径，它将返回 `Get-AzResourceGroup` 的 **ResourceId** 属性。 每个容器的**范围**模式如下所示。 将 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分别替换为你的资源名称、资源组名称、订阅 ID 和管理组名称。
+   `{rType}` 将替换为资源的**资源类型**，例如，表示 VM 的 `Microsoft.Compute/virtualMachines`。
 
    - 资源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 资源组 - `/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -154,13 +154,13 @@ ms.locfileid: "58760025"
 
    ```json
    {
-      "properties": {
-          "description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
-          "displayName": "Audit Storage Accounts Open to Public Networks Assignment",
-          "parameters": {},
-          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
-          "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      }
+       "properties": {
+           "description": "This policy assignment makes sure that storage accounts with exposure to Public Networks are audited.",
+           "displayName": "Audit Storage Accounts Open to Public Networks Assignment",
+           "parameters": {},
+           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
+           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
+       }
    }
    ```
 
@@ -182,20 +182,20 @@ ms.locfileid: "58760025"
 
    ```json
    {
-      "if": {
-          "allOf": [{
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-              },
-              {
-                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                  "equals": "Allow"
-              }
-          ]
-      },
-      "then": {
-          "effect": "audit"
-      }
+       "if": {
+           "allOf": [{
+                   "field": "type",
+                   "equals": "Microsoft.Storage/storageAccounts"
+               },
+               {
+                   "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                   "equals": "Allow"
+               }
+           ]
+       },
+       "then": {
+           "effect": "audit"
+       }
    }
    ```
 
@@ -221,7 +221,7 @@ ms.locfileid: "58760025"
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   `az policy assignment create` 的 **--scope** 参数适用于管理组、订阅、资源组或单个资源。 该参数使用完整资源路径。 每个容器的 **--scope** 模式如下所示。 将 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分别替换为你的资源名称、资源组名称、订阅 ID 和管理组名称。 `{rType}` 将替换为资源的**资源类型**，例如 VM 的 `Microsoft.Compute/virtualMachines`。
+   `az policy assignment create` 的 **--scope** 参数适用于管理组、订阅、资源组或单个资源。 该参数使用完整资源路径。 每个容器的 **--scope** 模式如下所示。 将 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分别替换为你的资源名称、资源组名称、订阅 ID 和管理组名称。 `{rType}` 将替换为资源的**资源类型**，例如，表示 VM 的 `Microsoft.Compute/virtualMachines`。
 
    - 资源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 资源组 - `/subscriptions/{subID}/resourceGroups/{rgName}`

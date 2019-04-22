@@ -18,12 +18,12 @@ ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9d1c9388de5af85ceb789e45cbb8b41a843a0463
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7c506f894106a6438a0e7a9e0ca0b051ec51c261
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627492"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243635"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD SAML 令牌参考
 
@@ -158,7 +158,5 @@ Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多�
 
 ## <a name="related-content"></a>相关内容
 - 请参阅 Azure AD Graph [策略操作](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations)和[策略实体](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)以了解有关通过 Azure AD Graph API 管理令牌生存期策略的详细信息。
-- 使用[带 SAML 的单一登录 (SSO)](single-sign-on-saml-protocol.md)。
-- 使用 [Azure 单一注销 SAML 协议](single-sign-out-saml-protocol.md)
 
 <!-- Update_Description: link update -->

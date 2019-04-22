@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 origin.date: 09/24/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: d3b24d3c696f7ed6d0c65267bde43aa19fb103c8
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.date: 04/15/2019
+ms.openlocfilehash: 37a50f03cb28e8dc754ac75a7529f90af1c50bc2
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988449"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615228"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支持的 Apache Cassandra 功能 
 
@@ -47,7 +47,7 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 数据类型：
 * Blob  
 * 布尔值  
 * counter  
-* 日期  
+* date  
 * decimal  
 * Double  
 * float  
@@ -147,7 +147,7 @@ var insertResult = await tableInsertStatement.ExecuteAsync();
 foreach (string key in insertResult.Info.IncomingPayload) 
         { 
             byte[] valueInBytes = customPayload[key]; 
-            string value = Encoding.UTF8.GetString(valueInBytes); 
+            double value = Encoding.UTF8.GetString(valueInBytes); 
             Console.WriteLine($"CustomPayload:  {key}: {value}"); 
         } 
 ```

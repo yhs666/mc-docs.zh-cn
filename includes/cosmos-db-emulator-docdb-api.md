@@ -14,15 +14,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 04/13/2018
-ms.date: 07/02/2018
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a9058e6834a9553226e40b614bc46585c7295aa6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ac903426bc66c52ca2688fb899fc5cfe4702748e
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643927"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615272"
 ---
-可以使用 URI 为 https://localhost:8081 的 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)。 [对请求进行身份验证](../articles/cosmos-db/local-emulator.md#authenticating-requests)中提供了主密钥。
-<!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
+可以使用 URI 为 `https://localhost:8081` 的 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)。 [对请求进行身份验证](../articles/cosmos-db/local-emulator.md#authenticating-requests)中提供了主密钥。

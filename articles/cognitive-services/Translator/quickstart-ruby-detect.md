@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/08/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: e9227ddda5f10d70d88fddf544eda408ae13aa61
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 2960d5539852811b31ed7f3de1f2a35268004236
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964451"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502571"
 ---
 # <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>快速入门：使用文本翻译 REST API (Ruby) 识别文本中的语言
 
@@ -50,7 +50,7 @@ require 'securerandom'
 
 # Replace the key string value with your valid subscription key.
 key = 'ENTER KEY HERE'
-
+region = 'your region'
 host = 'https://api.translator.azure.cn'
 path = '/detect?api-version=3.0'
 
@@ -64,6 +64,7 @@ request = Net::HTTP::Post.new(uri)
 request['Content-type'] = 'application/json'
 request['Content-length'] = content.length
 request['Ocp-Apim-Subscription-Key'] = key
+request['Ocp-Apim-Subscription-Region'] = region
 request['X-ClientTraceId'] = SecureRandom.uuid
 request.body = content
 

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 02/13/2019
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b6594cf7d57dad76c85f352dcb92e3828c2dff
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: f1441866b202cdf565c07ea9a8415a0e08f075e5
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186678"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243683"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -31,6 +31,8 @@ ms.locfileid: "58186678"
 
 > [!NOTE]
 > 本文中的信息属于初步信息，随时可能更改。 遇到了问题或者找不到所需的内容？ 请创建 GitHub 问题，或查看[面向开发人员的支持和帮助选项](active-directory-develop-help-support.md)来了解其他可以获得帮助和支持的方法。
+>
+> 本文档是为开发者和管理员提供的指导，但决不应当被客户自己使用。 错误代码可能会随时更改，以便提供更详细的错误消息，以在开发者构建应用程序时为其提供帮助。 依赖于文本或错误代码的应用程序随着时间的推移将会损坏。  
 
 ## <a name="aadsts-error-codes"></a>AADSTS 错误代码
 
@@ -57,7 +59,7 @@ ms.locfileid: "58186678"
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 未找到此应用的合作伙伴加密证书。 请向 Microsoft [开具支持票证](https://support.azure.cn/en-us/support/support-azure/)以解决此问题。 |
 | AADSTS50008 | InvalidSamlToken - SAML 断言在令牌中缺失或配置错误。 请联系联合提供者。 |
 | AADSTS50010 | AudienceUriValidationFailed - 由于未配置令牌受众，应用的受众 URI 验证失败。 |
-| AADSTS50011 | InvalidReplyTo - 回复地址缺失、配置错误或者与为应用配置的回复地址不匹配。 如果仍然出现问题，请联系应用所有者或应用管理员。 |
+| AADSTS50011 | InvalidReplyTo - 回复地址缺失、配置错误或者与为应用配置的回复地址不匹配。  作为一种解决方法，请确保将此缺失的回复地址添加到 Azure Active Directory 应用程序，或者让有权在 Active Directory 中管理你的应用程序的人为你执行此操作。|
 | AADSTS50012 | AuthenticationFailed - 身份验证由于以下原因之一而失败：<ul><li>未授权签名证书的使用者名称</li><li>找不到与已授权使用者名称匹配的受信任颁发机构策略</li><li>证书链无效</li><li>签名证书无效</li><li>未在租户中配置策略</li><li>未授权签名证书的指纹</li><li>客户端断言包含无效的签名</li></ul> |
 | AADSTS50013 | InvalidAssertion - 多种原因导致断言无效 - 令牌颁发者与令牌有效时间范围内的 API 版本不匹配 - 已过期 - 格式不正确 - 断言中的刷新令牌不是主要刷新令牌。 |
 | AADSTS50014 | GuestUserInPendingState - 用户兑换处于挂起状态。 尚未完全创建来宾用户帐户。 |

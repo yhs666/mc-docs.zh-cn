@@ -5,22 +5,22 @@ services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: overview
-origin.date: 09/25/2018
-ms.date: 03/25/2019
+origin.date: 04/03/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9117732af8db402d634df29cdcf878ad492bb10a
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: dc2f08c7b650422847488f841fbd0082e2da9484
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352501"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529479"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 
 Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注册表](https://docs.docker.com/registry/)服务。 可以创建和维护 Azure 容器注册表来存储与管理专用的 [Docker 容器](https://www.docker.com/what-docker)映像。
 
-可将 Azure 中的容器注册表与现有的容器开发和部署管道配合使用。 使用 Azure 容器注册表生成 (ACR Build) 在 Azure 中生成容器映像。 可以通过源代码提交和基础映像更新生成触发器按需生成或完全自动生成。
+<!--MOONCAKE: Not Available on Use container registries in Azure with your existing container development and deployment pipelines, or use [ACR Tasks](#azure-container-registry-tasks) to build container images in Azure. Build on demand, or fully automate builds with source code commit and base image update build triggers.-->
 
 有关 Docker 和容器的背景信息，请参阅 [Docker 概述](https://docs.docker.com/engine/docker-overview/)。
 
@@ -35,19 +35,21 @@ Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注�
 
 <!--Not Available on [ACR Tasks](#azure-container-registry-build) -->
 
+Azure 提供包括 Azure 命令行界面、Azure 门户和 API 支持在内的工具，用于管理 Azure 容器注册表。 可以选择安装[适用于 Visual Studio Code 的 Docker 扩展](https://code.visualstudio.com/docs/azure/docker)以及适用于 Azure 容器注册表的 [Azure 帐户](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)扩展。 通过 Azure 容器注册表拉取和推送映像，或者运行 ACR 任务，这一切都可以在 Visual Studio Code 中进行。
+
 ## <a name="key-concepts"></a>关键概念
 
-* **注册表** - 在 Azure 订阅中创建一个或多个容器注册表。 注册表以三种 SKU 形式提供：[基本、标准和高级](container-registry-skus.md)，每一种都支持 Webhook 集成、通过 Azure Active Directory 进行注册表身份验证，以及删除功能。 在与部署相同的 Azure 位置创建注册表，充分利用容器映像的本地闭合网络存储。 完全限定的注册表名称采用以下格式：`myregistry.azurecr.cn`。
+* **注册表** - 在 Azure 订阅中创建一个或多个容器注册表。 注册表以三种 SKU 形式提供：[基本、标准和高级](container-registry-skus.md)，每一种都支持 Webhook 集成、通过 Azure Active Directory 进行的注册表身份验证，以及删除功能。 在与部署相同的 Azure 位置创建注册表，充分利用容器映像的本地闭合网络存储。 完全限定的注册表名称采用以下格式：`myregistry.azurecr.cn`。
   
-  <!-- Not Available on [geo-replication](container-registry-geo-replication.md)-->
+    <!-- Not Available on [geo-replication](container-registry-geo-replication.md)-->
   
-  可以使用 Azure 标识、Azure Active Directory 支持的[服务主体](../active-directory/develop/app-objects-and-service-principals.md)或提供的管理员帐户来[控制访问](container-registry-authentication.md)（针对容器注册表）。 使用 Azure 命令行界面或标准的 `docker login` 命令登录到注册表。
+    可以使用 Azure 标识、Azure Active Directory 支持的[服务主体](../active-directory/develop/app-objects-and-service-principals.md)或提供的管理员帐户来[控制访问](container-registry-authentication.md)（针对容器注册表）。 使用 Azure CLI 或标准的 `docker login` 命令登录到注册表。
 
-* **存储库** - 一个注册表包含一个或多个存储库，用于存储容器映像组。 Azure 容器注册表支持多级存储库命名空间。 使用多级命名空间可将特定应用相关的映像集合分组，或者将特定开发或运营团队的应用集合分组。 例如：
+* **存储库** - 一个注册表包含一个或多个存储库，该库是包含容器映像的虚拟组，而这些映像使用相同的名称但不同的标记或摘要。 Azure 容器注册表支持多级存储库命名空间。 使用多级命名空间可将特定应用相关的映像集合分组，或者将特定开发或运营团队的应用集合分组。 例如：
 
-  * `myregistry.azurecr.cn/aspnetcore:1.0.1` 表示企业范围的映像
-  * `myregistry.azurecr.cn/warrantydept/dotnet-build` 表示用于构建 .NET 应用、在保修部门之间共享的映像
-  * `myregistry.azurecr.cn/warrantydept/customersubmissions/web` 表示一个 Web 映像，它已在客户提交应用中分组，由保修部门拥有
+    * `myregistry.azurecr.cn/aspnetcore:1.0.1` 表示企业范围的映像
+    * `myregistry.azurecr.cn/warrantydept/dotnet-build` 表示用于构建 .NET 应用、在保修部门之间共享的映像
+    * `myregistry.azurecr.cn/warrantydept/customersubmissions/web` 表示一个 Web 映像，它已在客户提交应用中分组，由保修部门拥有
 
 * **映像** - 存储在存储库中，每个映像是兼容 Docker 的容器的只读快照。 Azure 容器注册表可以包含 Windows 和 Linux 映像。 可以控制所有容器部署的映像名称。 使用标准 [Docker 命令](https://docs.docker.com/engine/reference/commandline/)可将映像推送到存储库，或者从存储库中提取映像。 除了容器映像，Azure 容器注册表还存储[相关的内容格式](container-registry-image-formats.md)，例如 [Helm 图表](container-registry-helm-repos.md)，用于将应用程序部署到 Kubernetes。
 

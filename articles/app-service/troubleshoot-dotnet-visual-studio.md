@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 01/21/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 0df54137f14217345c2874c7c826e94a926803e9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: db73f4e49fedf51d50b36030789f7a969e28064d
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627644"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355910"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的应用进行故障排除
 ## <a name="overview"></a>概述
@@ -36,7 +36,7 @@ ms.locfileid: "58627644"
 * 如何查看 Web 服务器日志，包括详细的错误消息和失败请求跟踪。
 * 如何将诊断日志发送至 Azure 存储帐户并在其中进行查看。
 
-如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) 进行调试。 本教程未介绍 IntelliTrace。
+如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](https://docs.microsoft.com/zh-cn/visualstudio/debugger/intellitrace) 进行调试。 本教程未介绍 IntelliTrace。
 
 ## <a name="prerequisites"></a>先决条件
 本教程适用于在[在 Azure 应用服务中创建 ASP.NET 应用](app-service-web-get-started-dotnet-framework.md)中设置的开发环境、Web 项目和应用服务应用。 对于 WebJobs 部分，需要用到在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的应用程序。
@@ -241,7 +241,7 @@ public ActionResult About()
 ```
 * 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[指定是否仅使用 Visual Studio 中的“仅我的代码”调试用户代码](https://docs.microsoft.com/visualstudio/debugger/just-my-code)。
 * 启用远程调试功能时，服务器上会出现一个计时器，48 小时后该功能自动关闭。 这一 48 小时的限制是出于安全性与性能的考虑。 可以根据需要轻松地多次重启该功能。 我们建议，在不主动进行调试的时候，保持其处于禁用状态。
-* 可以手动将调试器附加到任何进程，而不仅仅是应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
+* 可以手动将调试器附加到任何进程，而不仅仅是应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](https://docs.microsoft.com/zh-cn/visualstudio/debugger/debugging-in-visual-studio)。
 
 ## <a name="logsoverview"></a>诊断日志概述
 在应用服务应用中运行的 ASP.NET 应用程序可以创建以下几类日志：
@@ -257,16 +257,16 @@ public ActionResult About()
 
 日志记录会影响应用性能，因此 Azure 允许根据需要启用或禁用各种类型的日志。 对于应用程序日志，可以指定只写入特定严重级别以上的日志。 创建新的应用时，默认禁用所有日志记录。
 
-日志将写入应用文件系统中 *LogFiles* 文件夹内的文件，并可通过 FTP 访问。 Web 服务器日志和应用程序日志也可写入 Azure 存储帐户。 可在存储帐户中为日志留出大于文件系统预留量的空间。 使用文件系统时，最多可存储 100 兆字节的日志。 （文件系统日志仅适合短期保留。 达到限制后，Azure 会删除旧日志文件以便为新日志腾出空间。）  
+日志将写入应用文件系统中 *LogFiles* 文件夹内的文件，并可通过 FTP 访问。 Web 服务器日志和应用程序日志也可写入到 Azure 存储帐户。 可在存储帐户中为日志留出大于文件系统预留量的空间。 使用文件系统时，最多可存储 100 兆字节的日志。 （文件系统日志仅适合短期保留。 达到限制后，Azure 会删除旧日志文件以便为新日志腾出空间。）  
 
 ## <a name="apptracelogs"></a>创建并查看应用程序跟踪日志
 在本部分中执行以下任务：
 
 * 将跟踪语句添加到在 [Azure 和 ASP.NET 入门](app-service-web-get-started-dotnet-framework.md)中创建的 Web 项目。
-* 本地运行该项目时查看日志。
+* 在本地运行该项目时查看日志。
 * 查看由运行于 Azure 中的应用程序生成的日志。
 
-有关如何在 WebJobs 中创建应用程序日志的信息，请参阅[如何使用 WebJobs SDK 处理 Azure 队列存储 - 如何写入日志](https://github.com/Azure/azure-webjobs-sdk/wiki)。 以下有关查看日志以及控制其在 Azure 中的存储方式的说明，同样适用于 Web 作业创建的应用程序日志。
+有关如何在 Web 作业中创建应用程序日志的信息，请参阅[如何使用 WebJobs SDK 处理 Azure 队列存储 - 如何写入日志](https://github.com/Azure/azure-webjobs-sdk/wiki)。 以下有关查看日志以及控制其在 Azure 中的存储方式的说明，同样适用于 WebJobs 创建的应用程序日志。
 
 ### <a name="add-tracing-statements-to-the-application"></a>向应用程序添加跟踪语句
 1. 打开 *Controllers\HomeController.cs* 并将 `Index`、`About` 和 `Contact` 方法替换为以下代码，以便为 `System.Diagnostics` 添加 `Trace` 语句和 `using` 语句：
@@ -357,7 +357,7 @@ public ActionResult Contact()
     在 Visual Studio 发布更新后，会打开一个主页的浏览器窗口（假设没有清除“连接”选项卡上的“目标 URL”）。
 3. 在“服务器资源管理器”中，右键单击应用，并选择“查看流式处理日志”。
 
-    ![上下文菜单中的查看流式传输日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+    ![上下文菜单中的查看流式处理日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
     “输出”窗口显示已连接至日志流式传输服务，每过一分钟没有要显示的日志，就添加一个通知行。
 
@@ -372,7 +372,7 @@ public ActionResult Contact()
 
     ![应用程序日志记录关闭](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
-    然而，如果选择“查看流式传输日志”，Visual Studio 会自动将“应用程序日志记录(文件系统)”更改为“错误”，这意味着将报告错误级日志。 为了查看所有跟踪日志，可将该设置更改为“详细”。 如果选择的严重级别低于错误，也会报告所有更高严重级别的日志。 因此，如果选择“详细”，还可查看信息、警告以及错误日志。  
+    然而，如果选择“查看流式处理日志”，Visual Studio 会自动将“应用程序日志记录(文件系统)”更改为“错误”，这意味着将报告错误级日志。 为了查看所有跟踪日志，可将该设置更改为“详细”。 如果选择的严重级别低于错误，也将报告所有更高严重级别的日志。 因此，如果选择“详细”，还可查看信息、警告以及错误日志。  
 
 5. 在“服务器资源管理器”中，右键单击应用，并与之前一样单击“查看设置”。
 6. 将“应用程序日志记录(文件系统)”更改为“详细”，并单击“保存”。
@@ -417,7 +417,7 @@ Web 服务器日志将记录应用上所有的 HTTP 活动。 若要在“输出
     ![监视 Web 服务器日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 4. 在显示应用的浏览器窗口中，依次单击“主页”、“关于”、“联系人”。
 
-    应用程序日志通常第一个显示，其后是 Web 服务器日志。 可能需要等待一段时间日志才会显示。
+    应用程序日志通常首先显示，其后是 Web 服务器日志。 可能需要等待一段时间才会显示日志。
 
     ![输出窗口中的 Web 服务器日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
@@ -449,7 +449,7 @@ Web 服务器日志将记录应用上所有的 HTTP 活动。 若要在“输出
 ## <a name="downloadlogs"></a>下载文件系统日志
 任何可在“输出”窗口中监视的日志都可作为 *.zip* 文件进行下载。
 
-1. 在“输出”窗口中单击“下载流式传输日志”。
+1. 在“输出”窗口中单击“下载流式处理日志”。
 
     ![日志选项卡按钮](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
 
@@ -525,7 +525,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
     ![单击刷新](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-    “诊断摘要”部分默认显示过去 15 分钟的日志。 可以更改此时间以查看更多日志。
+    “诊断摘要”部分默认显示过去 15 分钟的日志。 可以更改此时段以查看更多日志。
 
     （如果收到“表未找到”错误，请验证是否在启用“应用程序日志记录(存储)”，并随后单击“保存”之后已浏览至执行跟踪的页面。）
 
@@ -546,7 +546,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     ![服务器资源管理器中的跟踪表](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
    -->
    ## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
-   在出现诸如 URL 重写或身份验证问题之类的情况下，需要详细了解 IIS 如何处理 HTTP 请求时可求助于失败请求跟踪日志。
+   如果需要详细了解 IIS 如何处理 HTTP 请求（在出现 URL 重写或身份验证问题等情况下），失败请求跟踪日志十分有用。
 
 应用服务应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟踪功能。 IIS 设置经过配置可记录指定错误，但无法访问该设置。 启用失败请求跟踪后，所有错误都会纳入捕获范围内。
 
@@ -669,7 +669,7 @@ catch (Exception ex)
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   用于查看 Web 服务器日志（*.log* 文件）中的数据的工具。
-* [使用 LogParser 解决 IIS 性能问题或应用程序错误](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [使用 LogParser 解决 IIS 性能问题或应用程序错误 ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   可用于分析 Web 服务器日志的 Log Parser 工具介绍。
 * [Robert McMurray 有关 LogParser 使用的博客文章](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0、IIS 7.5 以及 IIS 8.0 中的 HTTP 状态代码](https://support.microsoft.com/kb/943891)

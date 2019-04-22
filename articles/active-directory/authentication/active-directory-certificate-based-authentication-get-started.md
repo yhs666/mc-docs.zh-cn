@@ -1,22 +1,23 @@
 ---
-title: Azure Active Directory 基于证书的身份验证入门
+title: 基于证书的身份验证入门 - Azure Active Directory
 description: 了解如何在环境中配置基于证书的身份验证
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 origin.date: 01/15/2018
-ms.date: 11/30/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 0b68d2702d81ac2e7e6ab878a57d5e51bada0acc
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 65f9402dc5df347900d58649dbb55f748b0a9630
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028549"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243676"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory 中基于证书的身份验证入门
 
@@ -60,8 +61,8 @@ ms.locfileid: "53028549"
 
 若要在 Azure Active Directory 中配置证书颁发机构，请为每个证书颁发机构上传以下内容：
 
-- 证书的公共部分，格式为 *.cer*
-- 证书吊销列表 (CRL) 所在的面向 Internet 的 URL
+* 证书的公共部分，格式为 *.cer*
+* 证书吊销列表 (CRL) 所在的面向 Internet 的 URL
 
 证书颁发机构的架构如下所示：
 
@@ -144,7 +145,7 @@ ms.locfileid: "53028549"
 
 以下步骤概述了通过设置 **StsRefreshTokenValidFrom** 字段更新授权令牌并使其失效的过程。
 
-**若要配置吊销，请执行以下操作：**
+**若要配置撤销，请执行以下操作：**
 
 1. 使用管理员凭据连接到 MSOL 服务：
 
@@ -208,4 +209,4 @@ EAS 配置文件必须包含以下信息：
 
 [有关 iOS 设备上基于证书的身份验证的其他信息。](active-directory-certificate-based-authentication-ios.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

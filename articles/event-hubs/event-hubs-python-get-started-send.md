@@ -1,6 +1,6 @@
 ---
 title: 使用 Python 发送事件 - Azure 事件中心
-description: 本文提供了一个演练，说明如何创建发送事件到 Azure 事件中心的 Node.js 应用程序。
+description: 本文提供了创建 Python 应用程序的演练，该应用程序用于将事件发送到 Azure 事件中心。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -8,14 +8,14 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 origin.date: 07/26/2018
-ms.date: 01/07/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
-ms.openlocfilehash: d5b541ec8c8fdcd4d57d67706a37497599718ba9
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: a15414d70030d97a1392c6de107a05409e80c33a
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785222"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355894"
 ---
 <!-- Verify successfully-->
 # <a name="send-events-to-event-hubs-using-python"></a>使用 Python 将事件发送到事件中心

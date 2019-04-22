@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f87b320c4af6d08861381df89d5548cf30aa5a6c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e74388b4c8c02383672ae8d15cf422164f488f2a
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655795"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243679"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>快速入门：从 .NET 桌面 (WPF) 应用将用户登录并调用 Microsoft Graph API
 
@@ -33,9 +34,9 @@ ms.locfileid: "52655795"
 
 在本快速入门中，你将学习如何生成具有以下功能的 .NET WPF 待办事项列表应用程序：
 
-- 使用 OAuth 2.0 身份验证协议获取用于调用 Azure AD Graph API 的访问令牌。
-- 在目录中搜索具有给定别名的用户。
-- 将用户注销。
+* 使用 OAuth 2.0 身份验证协议获取用于调用 Azure AD Graph API 的访问令牌。
+* 在目录中搜索具有给定别名的用户。
+* 将用户注销。
 
 要构建完整的工作应用程序，需要：
 
@@ -47,8 +48,8 @@ ms.locfileid: "52655795"
 
 开始前，请完成这些先决条件：
 
-- [下载应用框架](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
-- 拥有你可在其中创建用户和注册应用程序的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
+* [下载应用框架](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
+* 拥有你可在其中创建用户和注册应用程序的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>步骤 1：注册 DirectorySearcher 应用程序
 
@@ -59,13 +60,13 @@ ms.locfileid: "52655795"
 3. 选择左侧导航栏中的“所有服务”，并选择“Azure Active Directory”。
 4. 在“应用注册”上，选择“添加”。
 5. 根据提示创建一个新的“本机”客户端应用程序。
-    - 应用程序的“名称”将向最终用户描述应用程序
-    - “重定向 URI”  是 Azure AD 要用来返回令牌响应的方案与字符串组合。 输入特定于你的应用程序的值，例如 `http://DirectorySearcher`。
+    * 应用程序的“名称”将向最终用户描述应用程序
+    * “重定向 URI”  是 Azure AD 要用来返回令牌响应的方案与字符串组合。 输入特定于你的应用程序的值，例如 `http://DirectorySearcher`。
 
 6. 完成注册后，AAD 将为应用分配唯一的应用程序 ID。 在后面的部分中会用到此值，因此，请从应用程序页复制此值。
 7. 在“设置”页上，依次选择“所需权限”和“添加”。 选择“Microsoft Graph”作为 API，并在“委派的权限”下添加“读取目录数据”权限。 设置此权限后，应用程序便可以在图形 API 中查询用户。
 
-## <a name="step-2-install-and-configure-adal"></a>步骤 2：安装和配置 ADAL
+## <a name="step-2-install-and-configure-adal"></a>步骤 2：安装并配置 ADAL
 
 将应用程序注册到 Azure AD 后，可以安装 ADAL 并编写标识相关的代码。 为了使 ADAL 能够与 Azure AD 进行通信，需要为 ADAL 提供一些有关应用注册的信息。
 
@@ -77,9 +78,9 @@ ms.locfileid: "52655795"
 
 1. 在 `DirectorySearcher` 项目中，打开 `app.config`。
 1. 替换 `<appSettings>` 节中的元素值，以反映你在 Azure 门户中输入的值。 只要使用 ADAL，代码就会引用这些值。
-    - `ida:Tenant` 是 Azure AD 租户的域，例如，contoso.partner.onmschina.cn
-    - `ida:ClientId` 是你从门户中复制的应用程序的客户端 ID。
-    - `ida:RedirectUri` 是你在门户中注册的 URL。
+   * `ida:Tenant` 是 Azure AD 租户的域，例如，contoso.partner.onmschina.cn
+   * `ida:ClientId` 是你从门户中复制的应用程序的客户端 ID。
+   * `ida:RedirectUri` 是你在门户中注册的 URL。
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>步骤 3：使用 ADAL 从 Azure AD 获取令牌
 
@@ -87,7 +88,7 @@ ADAL 遵守的基本原理是，每当应用需要访问令牌时，它只需调
 
 1. 在 `DirectorySearcher` 项目中，打开 `MainWindow.xaml.cs`。
 1. 找到 `MainWindow()` 方法。 
-1. 初始化你的应用的 `AuthenticationContext` - ADAL 的主类。 你将在 `AuthenticationContext` 中传递 ADAL 与 Azure AD 通信时所需的坐标，并告诉 ADAL 如何缓存令牌。
+1. 初始化你的应用的 `AuthenticationContext` - ADAL 的主类。 `AuthenticationContext` 用于传递 ADAL 与 Azure AD 通信时所需的坐标，并告诉 ADAL 如何缓存令牌。
 
     ```csharp
     public MainWindow()
@@ -135,8 +136,8 @@ ADAL 遵守的基本原理是，每当应用需要访问令牌时，它只需调
     ```
 
     当应用程序通过调用 `AcquireTokenAsync(...)`请求令牌时，ADAL 将尝试返回一个令牌，而不要求用户输入凭据。
-    - 如果 ADAL 确定用户需要登录以获取令牌，就会显示登录对话框，收集用户的凭据，并在身份验证成功后返回令牌。 
-    - 如果 ADAL 出于任何原因无法返回令牌，则会引发 `AdalException`。
+    * 如果 ADAL 确定用户需要登录以获取令牌，就会显示登录对话框，收集用户的凭据，并在身份验证成功后返回令牌。 
+    * 如果 ADAL 出于任何原因无法返回令牌，则会引发 `AdalException`。
 
 1. 请注意，`AuthenticationResult` 对象包含 `UserInfo` 对象，后者可用于收集应用程序可能需要的信息。 在 DirectorySearcher 中，`UserInfo` 用于使用用户 ID 自定义应用的 UI。
 1. 当用户选择“注销”按钮时，请确保 `AcquireTokenAsync(...)` 的后续调用将要求用户登录。 你可以通过清除令牌缓存轻松使用 ADAL 执行此操作：
@@ -172,7 +173,7 @@ ADAL 遵守的基本原理是，每当应用需要访问令牌时，它只需调
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

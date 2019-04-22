@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 927b07b6824ae0b1d4868f98a9e288626770d6f2
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 997147f3320e799d3dd0a94aa8a1a1abaa1de88f
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505436"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502578"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>快速入门：使用文本翻译 API 通过 Java 来检测文本语言
 
@@ -130,6 +130,7 @@ public String Post() throws IOException {
     Request request = new Request.Builder()
             .url(url).post(body)
             .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Region", "your region")
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -220,7 +221,7 @@ gradle run
 
 * [翻译文本](quickstart-java-translate.md)
 * [直译文本](quickstart-java-transliterate.md)
-* [按输入确定语言](quickstart-java-detect.md)
+* [根据输入确定语言](quickstart-java-detect.md)
 * [获取备用翻译](quickstart-java-dictionary.md)
 * [获取支持的语言的列表](quickstart-java-languages.md)
 * [根据输入确定句子长度](quickstart-java-sentences.md)

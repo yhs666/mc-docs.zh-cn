@@ -3,20 +3,21 @@ title: Azure AD Connect：什么是 ADConnectivityTool PowerShell 模块 | Micro
 description: 本文档介绍了新的 ADConnectivity PowerShell 模块
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/19/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: df972362fff247d1fd477c56a82b6c260553e08b
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2559f973e310f6924b4095dbc3547ebbb7dc090
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029147"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355847"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>什么是 ADConnectivityTools PowerShell 模块？
 
@@ -41,13 +42,13 @@ ADConnectivity 工具是一个 PowerShell 模块，可在以下任一情形下�
 每当发现任何这些问题时，AADConnect 向导中都会显示相关的错误消息：
 
 
-![错误](media\how-to-connect-adconnectivitytools\error1.png)
+![错误](./media/how-to-connect-adconnectivitytools/error1.png)
 
 例如，当我们尝试在“连接目录”屏幕上添加目录时，Azure AD Connect 需要对此进行验证，并应能够通过端口 389 与域控制器进行通信。  如果不能，我们将看到上面屏幕截图中显示的错误。  
 
 Azure AD Connect 实际上正在后台调用 `Start-NetworkConnectivityDiagnosisTools` 函数。  当凭据验证由于网络连接问题而失败时，将调用此函数。
 
-最后，只要从向导调用工具，就会生成详细的日志文件。 该日志位于 C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log
+最后，只要从向导调用工具，就会生成详细的日志文件。 该日志位于 **C:\ProgramData\AADConnect\ADConnectivityTool-\<date>-\<time>.log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools 安装后
 安装 Azure AD Connect 后，可以使用 ADConnectivityTools PowerShell 模块中的任何函数。  
@@ -80,3 +81,4 @@ Azure AD Connect 实际上正在后台调用 `Start-NetworkConnectivityDiagnosis
 - [ADConnectivityTools 参考](reference-connect-adconnectivitytools.md)
 
 
+<!-- Update_Description: wording update -->

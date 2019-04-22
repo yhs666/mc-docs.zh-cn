@@ -3,7 +3,7 @@ title: Azure Active Directory 门户中的“审核活动”报告 | Microsoft D
 description: Azure Active Directory 门户中的审核活动报告简介
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 11/13/2018
-ms.date: 03/19/2019
+ms.date: 04/09/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7871a31d924a7c40ae409b16e0ea42f285d09d2
-ms.sourcegitcommit: d42af5f52f7861399ded094cca11116711cc9ee6
+ms.openlocfilehash: baeaac7220a0408072c1e6e7533cf25975ce70be
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187481"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471977"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 
@@ -38,7 +38,7 @@ ms.locfileid: "58187481"
  
 ## <a name="who-can-access-the-data"></a>谁可以访问该数据？
 
-* 具有**安全管理员**、**安全读者**、**报表读者**或**全局管理员**角色的用户
+* 具有**安全管理员**、**安全读取者**、**报表读取者**或**全局管理员**角色的用户
 * 此外，所有用户（非管理员）都可以都查看其自己的审核活动
 
 ## <a name="audit-logs"></a>审核日志
@@ -201,7 +201,7 @@ Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访�
 
 ## <a name="office-365-activity-logs"></a>Office 365 活动日志
 
-可以从 [Office 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 尽管 Office 365 活动和 Azure AD 活动日志共享大量的目录资源，但只有 Office 365 管理中心提供 Office 365 活动日志的完整视图。 
+可以从 [Microsoft 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 尽管 Office 365 活动和 Azure AD 活动日志共享大量的目录资源，但只有 Microsoft 365 管理中心提供 Office 365 活动日志的完整视图。 
 
 此外可以使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) 以编程方式访问 Office 365 活动日志。
 
@@ -210,3 +210,4 @@ Azure AD 审核日志提供系统活动的记录以实现符合性。 若要访�
 - [Azure AD 审核活动参考](reference-audit-activities.md)
 - [Azure AD 日志延迟参考](reference-reports-latencies.md)
 
+<!-- Update_Description: wording update -->

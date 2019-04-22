@@ -9,20 +9,18 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 10/04/2018
-ms.date: 03/15/2019
+origin.date: 03/26/2019
+ms.date: 04/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b05dba023ecf83f1a6740037cd5db5c6fdefda40
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: e3cd65952cf2da9ad11896f70cb8f937050b3855
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186681"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355892"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
@@ -36,11 +34,11 @@ ms.locfileid: "58186681"
 ### <a name="install-required-components"></a>安装所需的组件
 安装同步服务时，可以将可选配置部分保留未选中状态，Azure AD Connect 会自动完成所有设置。 这会设置 SQL Server 2012 Express LocalDB 实例、创建相应的组并分配权限。 如果想要更改默认设置，可以使用下表来了解可用的可选配置选项。
 
-![所需的组件](./media/how-to-connect-install-custom/requiredcomponents.png)
+![所需的组件](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | 可选配置 | 说明 |
 | --- | --- |
-| 使用现有的 SQL Server |允许指定 SQL Server 名称和实例名称。 如果已有一个要使用的数据库服务器，请选择此选项。 如果 SQL Server 没有启用浏览，请在“实例名称”  中输入实例名称，后接逗号和端口号。 |
+| 使用现有的 SQL Server |允许指定 SQL Server 名称和实例名称。 如果已有一个要使用的数据库服务器，请选择此选项。 如果 SQL Server 没有启用浏览，请在“实例名称”  中输入实例名称，后接逗号和端口号。  然后指定 Azure AD Connect 数据库的名称。  你的 SQL 权限决定了将创建新数据库还是 SQL 管理员必须提前创建数据库。  如果你有 SQL SA 权限，请参阅[如何使用现有数据库进行安装](how-to-connect-install-existing-database.md)。  如果为你委派了权限 (DBO)，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md)。 |
 | 使用现有的服务帐户 |默认情况下，Azure AD Connect 将虚拟服务帐户用于为要使用的同步服务。 如果使用远程 SQL 服务器或使用需要身份验证的代理，则需使用**托管服务帐户**，或者使用域中的服务帐户并知道密码。 在这些情况下，请输入要使用的帐户。 确保运行安装的用户是 SQL 中的 SA，以便可以创建服务帐户的登录名。  请参阅 [Azure AD Connect 帐户和权限](reference-connect-accounts-permissions.md#adsync-service-account)。 </br></br>现在，在使用最新版本的情况下，可以由 SQL 管理员在带外进行数据库预配，然后由具有数据库所有者权限的 Azure AD Connect 管理员完成安装。  有关详细信息，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md)。|
 | 指定自定义同步组 |默认情况下，在安装同步服务时，Azure AD Connect 会在服务器本地创建四个组。 这些组是：管理员组、操作员组、浏览组和密码重置组。 在此可以指定自己的组。 组必须在服务器本地，并且不能位于域中。 |
 
@@ -319,7 +317,7 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 有关详细信息，请参阅[过渡模式](how-to-connect-sync-staging-server.md)。
 
 ### <a name="verify-your-federation-configuration"></a>验证联合配置
-单击“验证”按钮时，Azure AD Connect 会验证 DNS 设置。
+单击“验证”按钮后，Azure AD Connect 会验证 DNS 设置。
 
 **Intranet 连接检查**
 
@@ -372,4 +370,4 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

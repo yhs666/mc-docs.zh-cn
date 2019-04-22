@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 origin.date: 12/07/2017
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: f42ba9b8840bceda0cf447b519e06682eda1de9b
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: e4114a2db3e97af29bd1b9684b462f42073dbcaf
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988546"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615213"
 ---
 <!--Verify sucessfully-->
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>将数据迁移到 Azure Cosmos DB 表 API 帐户
@@ -53,6 +53,8 @@ ms.locfileid: "57988546"
         /OverwriteErrorLog: Optional. Overwrite error log file
         /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
         /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
+        /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
+        /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
 
 ### <a name="command-line-source-settings"></a>命令行源设置
 

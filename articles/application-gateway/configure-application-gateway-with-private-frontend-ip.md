@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/26/2019
-ms.date: 03/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 10c62b535f0e0a6066e5d047d790209e07d48428
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cdb741fba86a1c961e55333a1f0d85d1865f3059
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625330"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686255"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>使用内部负载均衡器 (ILB) 终结点配置应用程序网关
 
@@ -25,6 +25,9 @@ ms.locfileid: "58625330"
 
 - 为应用程序网关创建专用前端 IP 配置
 - 使用专用前端 IP 配置创建应用程序网关
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -83,7 +86,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 2. 运行以下命令以在虚拟机上安装 IIS：
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -101,7 +104,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 
@@ -126,3 +129,4 @@ In this tutorial, you learned how to:
 
 If you want to monitor the health of your backend, see [Application Gateway Diagnostics](/application-gateway/application-gateway-diagnostics).
 
+<!-- Update_Description: wording update -->

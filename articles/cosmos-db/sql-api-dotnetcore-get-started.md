@@ -7,21 +7,23 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 03/12/2018
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 622be2748dd9ff174ce309f2e75aabbe01ef1c8d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 74dc53f6ae5d16167f2358d78063aa63d86fa25d
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309289"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615236"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>教程：生成 .NET Core 应用以管理 SQL API 帐户中存储的数据
 
 > [!div class="op_single_selector"]
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core（预览版）](sql-api-dotnet-core-get-started-preview.md)
 > * [.NET](sql-api-get-started.md)
+> * [.NET（预览版）](sql-api-dotnet-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -76,7 +78,7 @@ ms.locfileid: "54309289"
 
    ![项目的右键单击菜单的屏幕截图](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. 在“NuGet”选项卡上，选择窗口顶部的“浏览”，并在搜索框中输入 azure documentdb。
+6. 在“NuGet”选项卡上，选择窗口顶部的“浏览”，并在搜索框中输入 azure documentdb。 确保“包括预发行版”复选框已选中。
 
 7. 在结果中找到 Microsoft.Azure.DocumentDB.Core，然后选择“安装”。
 
@@ -209,7 +211,7 @@ private async Task GetStartedDemo()
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -305,7 +307,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 然后插入两个文档，Andersen Family 和 Wakefield Family 各一个。 将 `// ADD THIS PART TO YOUR CODE` 后面的代码复制并粘贴到文档集合创建下的 **GetStartedDemo** 方法。
 
 ```csharp
-await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 

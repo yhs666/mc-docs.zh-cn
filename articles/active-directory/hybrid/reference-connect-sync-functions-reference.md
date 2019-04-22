@@ -4,24 +4,25 @@ description: 在 Azure AD Connect 同步中引用声明性设置表达式。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 origin.date: 07/12/2017
-ms.date: 01/21/2019
-ms.component: hybrid
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: a8defdc5d355cc5d1af3959e5a13c32f87de6ccc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 42afd3f8c0a0f625826ddd25946e30f080574002
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626633"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355901"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -34,37 +35,37 @@ ms.locfileid: "58626633"
 
 类型使用以下语法表示：
 
-- **bin** — 二进制
-- **bool** — 布尔值
-- **dt** — UTC 日期/时间
-- **enum** — 已知常量的枚举
-- **exp** — 表达式，计算结果预计为布尔值
-- **mvbin** — 多值二进制
-- **mvstr** — 多值字符串
-- **mvref** — 多值引用
-- **num** — 数值
-- **ref** — 引用
-- **str** — 字符串
-- **var** –（几乎）任何其他类型的变体
-- **void** — 不返回值
+* **bin** — 二进制
+* **bool** — 布尔值
+* **dt** — UTC 日期/时间
+* **enum** — 已知常量的枚举
+* **exp** — 表达式，计算结果预计为布尔值
+* **mvbin** — 多值二进制
+* **mvstr** — 多值字符串
+* **mvref** — 多值引用
+* **num** — 数值
+* **ref** — 引用
+* **str** — 字符串
+* **var** –（几乎）任何其他类型的变体
+* **void** — 不返回值
 
 mvbin、mvstr 和 mvref 类型的函数只适用于多值属性。 bin、str 和 ref 类型的函数适用于单值和多值属性。
 
 ## <a name="functions-reference"></a>函数引用
 
 | 函数列表 |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
-| 证书 | | | | |
+| --- | --- | --- | --- | --- |
+| **证书** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **转换** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **日期/时间** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -77,21 +78,21 @@ mvbin、mvstr 和 mvref 类型的函数只适用于多值属性。 bin、str 和
 | **数学** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **多值** | | | | |
-| [Contains](#contains) |[计数](#count) |[项目](#item) |[ItemOrNull](#itemornull) | |
+| [Contains](#contains) |[Count](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[拆分](#split) | | |
 | **程序流** | | | | |
-| [错误](#error) |[IIF](#iif) |[选择](#select) |[Switch](#switch) | |
+| [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
 | [Where](#where) |[With](#with) | | | |
 | **文本** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[将](#replace) | |
+| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Replace](#replace) | |
 | [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
 - - -
 ### <a name="bitand"></a>BitAnd
-**说明：**  
+**说明:**  
 BitAnd 函数设置值的指定位。
 
 **语法：**  
@@ -113,7 +114,7 @@ BitAnd 函数设置值的指定位。
 
 - - -
 ### <a name="bitor"></a>BitOr
-**说明：**  
+**说明:**  
 BitOr 函数设置值的指定位。
 
 **语法：**  
@@ -126,7 +127,7 @@ BitOr 函数设置值的指定位。
 
 - - -
 ### <a name="cbool"></a>CBool
-**说明：**  
+**说明:**  
 CBool 函数基于计算的表达式返回布尔值
 
 **语法：**  
@@ -142,7 +143,7 @@ CBool 函数基于计算的表达式返回布尔值
 
 - - -
 ### <a name="cdate"></a>CDate
-**说明：**  
+**说明:**  
 CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原生属性类型，但被某些函数使用。
 
 **语法：**  
@@ -163,7 +164,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertExtensionOids <a name="certextensionoids"></a>
-**说明：**  
+**说明:**  
 返回证书对象所有关键扩展的 Oid 值。
 
 **语法：**  
@@ -172,7 +173,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertFormat <a name="certformat"></a>
-**说明：**  
+**说明:**  
 返回此 X.509v3 证书的格式名称。
 
 **语法：**  
@@ -181,7 +182,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertFriendlyName <a name="certfriendlyname"></a>
-**说明：**  
+**说明:**  
 返回证书的关联别名。
 
 **语法：**  
@@ -190,7 +191,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertHashString <a name="certhashstring"></a>
-**说明：**  
+**说明:**  
 以十六进制字符串的形式返回 X.509v3 证书的 SHA1 哈希值。
 
 **语法：**  
@@ -199,7 +200,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertIssuer <a name="certissuer"></a>
-**说明：**  
+**说明:**  
 返回颁发此 X.509v3 证书的证书颁发机构名称。
 
 **语法：**  
@@ -208,7 +209,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertIssuerDN <a name="certissuerdn"></a>
-**说明：**  
+**说明:**  
 返回证书颁发者的可分辨名称。
 
 **语法：**  
@@ -217,7 +218,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertIssuerOid <a name="certissueroid"></a>
-**说明：**  
+**说明:**  
 返回证书颁发者的 Oid。
 
 **语法：**  
@@ -226,7 +227,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertKeyAlgorithm <a name="certkeyalgorithm"></a>
-**说明：**  
+**说明:**  
 以字符串形式返回此 X.509v3 证书的密钥算法信息。
 
 **语法：**  
@@ -235,7 +236,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertKeyAlgorithmParams <a name="certkeyalgorithmparams"></a>
-**说明：**  
+**说明:**  
 以十六进制字符串的形式返回此 X.509v3 证书的密钥算法参数。
 
 **语法：**  
@@ -244,7 +245,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertNameInfo <a name="certnameinfo"></a>
-**说明：**  
+**说明:**  
 返回证书中的使用者和颁发者名称。
 
 **语法：**  
@@ -255,7 +256,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertNotAfter <a name="certnotafter"></a>
-**说明：**  
+**说明:**  
 返回证书不再有效后的本地时间日期。
 
 **语法：**  
@@ -264,7 +265,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertNotBefore <a name="certnotbefore"></a>
-**说明：**  
+**说明:**  
 返回证书开始生效的本地时间日期。
 
 **语法：**  
@@ -273,7 +274,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertPublicKeyOid <a name="certpublickeyoid"></a>
-**说明：**  
+**说明:**  
 返回此 X.509v3 证书的公钥 Oid。
 
 **语法：**  
@@ -282,7 +283,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertPublicKeyParametersOid <a name="certpublickeyparametersoid"></a>
-**说明：**  
+**说明:**  
 返回此 X.509v3 证书的公钥参数 Oid。
 
 **语法：**  
@@ -291,7 +292,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertSerialNumber <a name="certserialnumber"></a>
-**说明：**  
+**说明:**  
 返回 X.509v3 证书的序列号。
 
 **语法：**  
@@ -300,7 +301,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertSignatureAlgorithmOid <a name="certsignaturealgorithmoid"></a>
-**说明：**  
+**说明:**  
 返回用于创建证书签名的算法 Oid。
 
 **语法：**  
@@ -309,7 +310,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertSubject <a name="certsubject"></a>
-**说明：**  
+**说明:**  
 获取证书中使用者的可分辨名称。
 
 **语法：**  
@@ -318,7 +319,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertSubjectNameDN <a name="certsubjectnamedn"></a>
-**说明：**  
+**说明:**  
 返回证书中使用者的可分辨名称。
 
 **语法：**  
@@ -327,7 +328,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertSubjectNameOid <a name="certsubjectnameoid"></a>
-**说明：**  
+**说明:**  
 返回证书中使用者名称的 Oid。
 
 **语法：**  
@@ -336,7 +337,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertThumbprint <a name="certthumbprint"></a>
-**说明：**  
+**说明:**  
 返回证书的指纹。
 
 **语法：**  
@@ -345,7 +346,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### CertVersion <a name="certversion"></a>
-**说明：**  
+**说明:**  
 返回证书的 X.509 格式版本。
 
 **语法：**  
@@ -354,7 +355,7 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 - - -
 ### <a name="cguid"></a>CGuid
-**说明：**  
+**说明:**  
 CGuid 函数将 GUID 的字符串表示转换为其二进制表示形式。
 
 **语法：**  
@@ -364,7 +365,7 @@ CGuid 函数将 GUID 的字符串表示转换为其二进制表示形式。
 
 - - -
 ### <a name="contains"></a>Contains
-**说明：**  
+**说明:**  
 Contains 函数查找多值属性内的字符串
 
 **语法：**  
@@ -388,11 +389,11 @@ Contains 函数查找多值属性内的字符串
 
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
-**说明：**  
+**说明:**  
 ConvertFromBase64 函数将指定的 base64 编码值转换为规则的字符串。
 
 **语法：**  
-`str ConvertFromBase64(str source)` - 假设采用 Unicode 编码  
+`str ConvertFromBase64(str source)` - 采用 Unicode 编码  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 - source：Base64 编码的字符串  
@@ -406,7 +407,7 @@ ConvertFromBase64 函数将指定的 base64 编码值转换为规则的字符串
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
-**说明：**  
+**说明:**  
 ConvertFromUTF8Hex 函数将指定的 UTF8 Hex 编码值转换为字符串。
 
 **语法：**  
@@ -424,7 +425,7 @@ ConvertFromUTF8Hex 函数将指定的 UTF8 Hex 编码值转换为字符串。
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
-**说明：**  
+**说明:**  
 ConvertToBase64 函数将字符串转换为 Unicode base64 字符串。  
 将整数数组的值转换为其等效字符串表示形式，该表示形式使用 base 64 数字编码。
 
@@ -437,7 +438,7 @@ ConvertToBase64 函数将字符串转换为 Unicode base64 字符串。
 
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
-**说明：**  
+**说明:**  
 ConvertToUTF8Hex 函数将字符串转换为 UTF8 Hex 编码的值。
 
 **语法：**  
@@ -452,7 +453,7 @@ ConvertToUTF8Hex 函数将字符串转换为 UTF8 Hex 编码的值。
 
 - - -
 ### <a name="count"></a>计数
-**说明：**  
+**说明:**  
 Count 函数返回多值属性中的元素数量
 
 **语法：**  
@@ -460,7 +461,7 @@ Count 函数返回多值属性中的元素数量
 
 - - -
 ### <a name="cnum"></a>CNum
-**说明：**  
+**说明:**  
 CNum 函数使用字符串并返回数值数据类型。
 
 **语法：**  
@@ -468,7 +469,7 @@ CNum 函数使用字符串并返回数值数据类型。
 
 - - -
 ### <a name="cref"></a>CRef
-**说明：**  
+**说明:**  
 将字符串转换为引用属性
 
 **语法：**  
@@ -479,7 +480,7 @@ CNum 函数使用字符串并返回数值数据类型。
 
 - - -
 ### <a name="cstr"></a>CStr
-**说明：**  
+**说明:**  
 CStr 函数转换为字符串数据类型。
 
 **语法：**  
@@ -495,7 +496,7 @@ CStr 函数转换为字符串数据类型。
 
 - - -
 ### <a name="dateadd"></a>DateAdd
-**说明：**  
+**说明:**  
 返回日期，其中包含已添加制定时间间隔的日期。
 
 **语法：**  
@@ -521,7 +522,7 @@ CStr 函数转换为字符串数据类型。
 
 - - -
 ### <a name="datefromnum"></a>DateFromNum
-**说明：**  
+**说明:**  
 DateFromNum 函数将 AD 的日期格式的值转换为 DateTime 类型。
 
 **语法：**  
@@ -534,7 +535,7 @@ DateFromNum 函数将 AD 的日期格式的值转换为 DateTime 类型。
 
 - - -
 ### <a name="dncomponent"></a>DNComponent
-**说明：**  
+**说明:**  
 DNComponent 函数返回从左边起的指定 DN 组件的值。
 
 **语法：**  
@@ -549,7 +550,7 @@ DNComponent 函数返回从左边起的指定 DN 组件的值。
 
 - - -
 ### <a name="dncomponentrev"></a>DNComponentRev
-**说明：**  
+**说明:**  
 DNComponentRev 函数返回从右边起（末尾）的指定 DN 组件的值。
 
 **语法：**  
@@ -568,7 +569,7 @@ DNComponentRev 函数返回从右边起（末尾）的指定 DN 组件的值。
 
 - - -
 ### <a name="error"></a>错误
-**说明：**  
+**说明:**  
 Error 函数用于返回自定义错误。
 
 **语法：**  
@@ -580,7 +581,7 @@ Error 函数用于返回自定义错误。
 
 - - -
 ### <a name="escapedncomponent"></a>EscapeDNComponent
-**说明：**  
+**说明:**  
 EscapeDNComponent 函数使用 DN 的一个组件，并对其进行转义，以便它可以在 LDAP 中表示。
 
 **语法：**  
@@ -592,7 +593,7 @@ EscapeDNComponent 函数使用 DN 的一个组件，并对其进行转义，以�
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**说明：**  
+**说明:**  
 FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格式
 
 **语法：**  
@@ -602,7 +603,7 @@ FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格�
 - format：表示要转换为的格式的字符串。
 
 **备注：**  
-可以从以下位置找到格式的可能值：[FORMAT 函数的自定义日期和时间格式](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function)。
+格式的可能值可以在此处找到：[FORMAT 函数的自定义日期和时间格式](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function)。
 
 **示例：**  
 
@@ -614,7 +615,7 @@ FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格�
 
 - - -
 ### <a name="guid"></a>Guid
-**说明：**  
+**说明:**  
 函数 GUID 生成新的随机 GUID
 
 **语法：**  
@@ -622,7 +623,7 @@ FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格�
 
 - - -
 ### <a name="iif"></a>IIF
-**说明：**  
+**说明:**  
 IIF 函数基于指定的条件返回一组可能值中的其中一个值。
 
 **语法：**  
@@ -638,7 +639,7 @@ IIF 函数基于指定的条件返回一组可能值中的其中一个值。
 
 - - -
 ### <a name="instr"></a>InStr
-**说明：**  
+**说明:**  
 InStr 函数查找字符串中第一次出现的子字符串
 
 **语法：**  
@@ -664,7 +665,7 @@ InStr 函数查找字符串中第一次出现的子字符串
 
 - - -
 ### <a name="instrrev"></a>InStrRev
-**说明：**  
+**说明:**  
 InStrRev 函数查找字符串中最后一次出现的子字符串
 
 **语法：**  
@@ -686,7 +687,7 @@ InStrRev 函数查找字符串中最后一次出现的子字符串
 
 - - -
 ### <a name="isbitset"></a>IsBitSet
-**说明：**  
+**说明:**  
 函数 IsBitSet 测试是否设置了位
 
 **语法：**  
@@ -700,7 +701,7 @@ InStrRev 函数查找字符串中最后一次出现的子字符串
 
 - - -
 ### <a name="isdate"></a>IsDate
-**说明：**  
+**说明:**  
 如果表达式可以计算为 DateTime 类型，则 IsDate 函数计算结果为 True。
 
 **语法：**  
@@ -711,7 +712,7 @@ InStrRev 函数查找字符串中最后一次出现的子字符串
 
 - - -
 ### IsCert <a name="iscert"></a>
-**说明：**  
+**说明:**  
 如果原始数据可以序列化为 .NET X509Certificate2 证书对象，则返回 true。
 
 **语法：**  
@@ -719,7 +720,7 @@ InStrRev 函数查找字符串中最后一次出现的子字符串
 *   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
 - - -
 ### <a name="isempty"></a>IsEmpty
-**说明：**  
+**说明:**  
 如果属性出现在 CS 或 MV 中，但计算结果为空字符串，则 IsEmpty 函数计算结果为 True。
 
 **语法：**  
@@ -727,7 +728,7 @@ InStrRev 函数查找字符串中最后一次出现的子字符串
 
 - - -
 ### <a name="isguid"></a>IsGuid
-**说明：**  
+**说明:**  
 如果字符串可以转换为 GUID，则 IsGuid 函数计算结果为 true。
 
 **语法：**  
@@ -744,7 +745,7 @@ GUID 定义为遵循以下其中一种模式的字符串：xxxxxxxx-xxxx-xxxx-xx
 
 - - -
 ### <a name="isnull"></a>IsNull
-**说明：**  
+**说明:**  
 如果表达式的计算结果为 Null，则 IsNull 函数返回 true。
 
 **语法：**  
@@ -759,7 +760,7 @@ GUID 定义为遵循以下其中一种模式的字符串：xxxxxxxx-xxxx-xxxx-xx
 
 - - -
 ### <a name="isnullorempty"></a>IsNullOrEmpty
-**说明：**  
+**说明:**  
 如果表达式为 null 或空字符串，则 IsNullOrEmpty 函数返回 true。
 
 **语法：**  
@@ -775,7 +776,7 @@ GUID 定义为遵循以下其中一种模式的字符串：xxxxxxxx-xxxx-xxxx-xx
 
 - - -
 ### <a name="isnumeric"></a>IsNumeric
-**说明：**  
+**说明:**  
 IsNumeric 函数返回布尔值，该值指示表达式是否可以计算为数字类型。
 
 **语法：**  
@@ -786,7 +787,7 @@ IsNumeric 函数返回布尔值，该值指示表达式是否可以计算为数�
 
 - - -
 ### <a name="isstring"></a>IsString
-**说明：**  
+**说明:**  
 如果表达式可以计算为字符串类型，则 IsString 函数计算结果为 True。
 
 **语法：**  
@@ -797,7 +798,7 @@ IsNumeric 函数返回布尔值，该值指示表达式是否可以计算为数�
 
 - - -
 ### <a name="ispresent"></a>IsPresent
-**说明：**  
+**说明:**  
 如果表达式的计算结果为字符串，该字符串不是 Null 且不为空，则 IsPresent 函数返回 true。
 
 **语法：**  
@@ -811,7 +812,7 @@ IsNumeric 函数返回布尔值，该值指示表达式是否可以计算为数�
 
 - - -
 ### <a name="item"></a>项目
-**说明：**  
+**说明:**  
 Item 函数返回多值字符串/属性中的一个项。
 
 **语法：**  
@@ -831,7 +832,7 @@ Item 函数与 Contains 函数一起使用很有利，因为后一函数返回�
 
 - - -
 ### <a name="itemornull"></a>ItemOrNull
-**说明：**  
+**说明:**  
 ItemOrNull 函数返回多值字符串/属性中的一个项。
 
 **语法：**  
@@ -847,7 +848,7 @@ ItemOrNull 函数与 Contains 函数一起使用很有利，因为后一函数�
 
 - - -
 ### <a name="join"></a>Join
-**说明：**  
+**说明:**  
 Join 函数使用多值字符串，并返回每个项之间插入指定分隔符的单值字符串。
 
 **语法：**  
@@ -866,7 +867,7 @@ Join 和 Split 函数之间没有奇偶校验。 Join 函数使用字符串数�
 
 - - -
 ### <a name="lcase"></a>LCase
-**说明：**  
+**说明:**  
 LCase 函数将字符串中的所有字符都转换为小写。
 
 **语法：**  
@@ -878,7 +879,7 @@ LCase 函数将字符串中的所有字符都转换为小写。
 
 - - -
 ### <a name="left"></a>Left
-**说明：**  
+**说明:**  
 Left 函数从字符串左侧起返回指定的字符数。
 
 **语法：**  
@@ -902,7 +903,7 @@ Left 函数从字符串左侧起返回指定的字符数。
 
 - - -
 ### <a name="len"></a>Len
-**说明：**  
+**说明:**  
 Len 函数返回字符串中的字符数。
 
 **语法：**  
@@ -914,7 +915,7 @@ Len 函数返回字符串中的字符数。
 
 - - -
 ### <a name="ltrim"></a>LTrim
-**说明：**  
+**说明:**  
 LTrim 函数从字符串中删除前导空格。
 
 **语法：**  
@@ -926,7 +927,7 @@ LTrim 函数从字符串中删除前导空格。
 
 - - -
 ### <a name="mid"></a>Mid
-**说明：**  
+**说明:**  
 Mid 函数从字符串指定位置起返回指定的字符数。
 
 **语法：**  
@@ -957,7 +958,7 @@ Mid 函数从字符串指定位置起返回指定的字符数。
 
 - - -
 ### <a name="now"></a>Now
-**说明：**  
+**说明:**  
 Now 函数根据计算机的系统日期和时间返回指定当前日期和时间的 DateTime。
 
 **语法：**  
@@ -965,7 +966,7 @@ Now 函数根据计算机的系统日期和时间返回指定当前日期和时�
 
 - - -
 ### <a name="numfromdate"></a>NumFromDate
-**说明：**  
+**说明:**  
 NumFromDate 函数返回 AD 的日期格式的日期。
 
 **语法：**  
@@ -977,7 +978,7 @@ NumFromDate 函数返回 AD 的日期格式的日期。
 
 - - -
 ### <a name="padleft"></a>PadLeft
-**说明：**  
+**说明:**  
 PadLeft 函数使用提供的填充字符将字符串从左侧填充到指定长度。
 
 **语法：**  
@@ -1002,7 +1003,7 @@ PadLeft 函数使用提供的填充字符将字符串从左侧填充到指定长
 
 - - -
 ### <a name="padright"></a>PadRight
-**说明：**  
+**说明:**  
 PadRight 函数使用提供的填充字符将字符串从右侧填充到指定长度。
 
 **语法：**  
@@ -1027,7 +1028,7 @@ PadRight 函数使用提供的填充字符将字符串从右侧填充到指定�
 
 - - -
 ### <a name="pcase"></a>PCase
-**说明：**  
+**说明:**  
 PCase 函数将字符串中每个空格分隔词的第一个字符转换为大写形式，并将所有其他字符都转换为小写形式。
 
 **语法：**  
@@ -1046,7 +1047,7 @@ PCase 函数将字符串中每个空格分隔词的第一个字符转换为大�
 
 - - -
 ### <a name="randomnum"></a>RandomNum
-**说明：**  
+**说明:**  
 RandomNum 函数返回指定间隔之间的随机数字。
 
 **语法：**  
@@ -1061,7 +1062,7 @@ RandomNum 函数返回指定间隔之间的随机数字。
 
 - - -
 ### <a name="removeduplicates"></a>RemoveDuplicates
-**说明：**  
+**说明:**  
 RemoveDuplicates 函数使用多值字符串，并确保每个值都是唯一值。
 
 **语法：**  
@@ -1073,7 +1074,7 @@ RemoveDuplicates 函数使用多值字符串，并确保每个值都是唯一值
 
 - - -
 ### <a name="replace"></a>Replace
-**说明：**  
+**说明:**  
 Replace 函数将所有出现的某一字符串替换为另一个字符串。
 
 **语法：**  
@@ -1096,7 +1097,7 @@ Replace 函数将所有出现的某一字符串替换为另一个字符串。
 
 - - -
 ### <a name="replacechars"></a>ReplaceChars
-**说明：**  
+**说明:**  
 ReplaceChars 函数替换 ReplacePattern 字符串中找到的所有出现的字符。
 
 **语法：**  
@@ -1129,7 +1130,7 @@ ReplaceChars 函数替换 ReplacePattern 字符串中找到的所有出现的字
 
 - - -
 ### <a name="right"></a>Right
-**说明：**  
+**说明:**  
 Right 函数从字符串右侧（末尾）起返回指定的字符数。
 
 **语法：**  
@@ -1155,7 +1156,7 @@ NumChars 字符从字符串的最后位置返回。
 
 - - -
 ### <a name="rtrim"></a>RTrim
-**说明：**  
+**说明:**  
 RTrim 函数从字符串中删除尾随空格。
 
 **语法：**  
@@ -1167,7 +1168,7 @@ RTrim 函数从字符串中删除尾随空格。
 
 - - -
 ### 选择 <a name="select"></a>
-**说明：**  
+**说明:**  
 根据指定函数处理多值属性（或表达式输出）中的所有值。
 
 **语法：**  
@@ -1179,13 +1180,13 @@ RTrim 函数从字符串中删除尾随空格。
 - expression：一个返回值集合的表达式
 - condition：可以处理属性中某个项的任何函数
 
-**示例：**  
+**示例:**  
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 在删除连字符 (-) 后，返回多值属性 otherPhone 中的所有值。
 
 - - -
 ### <a name="split"></a>拆分
-**说明：**  
+**说明:**  
 Split 函数使用采用分隔符分隔的字符串，并使其成为多值字符串。
 
 **语法：**  
@@ -1202,7 +1203,7 @@ Split 函数使用采用分隔符分隔的字符串，并使其成为多值字�
 
 - - -
 ### <a name="stringfromguid"></a>StringFromGuid
-**说明：**  
+**说明:**  
 StringFromGuid 函数使用二进制 GUID，并将其转换为字符串
 
 **语法：**  
@@ -1210,7 +1211,7 @@ StringFromGuid 函数使用二进制 GUID，并将其转换为字符串
 
 - - -
 ### <a name="stringfromsid"></a>StringFromSid
-**说明：**  
+**说明:**  
 StringFromSid 函数包含安全标识符的字节数组转换为字符串。
 
 **语法：**  
@@ -1218,7 +1219,7 @@ StringFromSid 函数包含安全标识符的字节数组转换为字符串。
 
 - - -
 ### <a name="switch"></a>Switch
-**说明：**  
+**说明:**  
 Switch 函数用于基于计算的条件返回单个值。
 
 **语法：**  
@@ -1247,7 +1248,7 @@ Switch 对所有表达式求值，即使它只返回其中一个结果。 为此
 
 - - -
 ### <a name="trim"></a>Trim
-**说明：**  
+**说明:**  
 Trim 函数从字符串中删除前导空格和尾随空格。
 
 **语法：**  
@@ -1262,7 +1263,7 @@ Trim 函数从字符串中删除前导空格和尾随空格。
 
 - - -
 ### <a name="ucase"></a>UCase
-**说明：**  
+**说明:**  
 UCase 函数将字符串中的所有字符都转换为大写形式。
 
 **语法：**  
@@ -1275,7 +1276,7 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 - - -
 ### Where <a name="where"></a>
 
-**说明：**  
+**说明:**  
 根据指定条件，从多值属性（或表达式输出）中返回值子集。
 
 **语法：**  
@@ -1292,7 +1293,7 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 
 - - -
 ### With <a name="with"></a>
-**说明：**  
+**说明:**  
 通过使用变量来表示在复杂表达式中出现一次或多次的子表达式，With 函数提供了一种简化复杂表达式的方法。
 
 **语法：**
@@ -1310,7 +1311,7 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 
 - - -
 ### <a name="word"></a>Word
-**说明：**  
+**说明:**  
 基于描述要使用的分隔符与要返回的单词数的参数，Word 函数返回字符串中包含的单词。
 
 **语法：**  
@@ -1336,7 +1337,7 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 返回 "has"
 
 ## <a name="additional-resources"></a>其他资源
-- [了解声明性预配表达式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+- [了解声明性设置表达式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 - [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 

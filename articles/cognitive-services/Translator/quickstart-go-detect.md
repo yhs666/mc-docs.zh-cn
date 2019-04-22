@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6be785a64231a22887584adb82bddf8e43b9894e
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 25365b9bb2286ad8dee9eaa1de8a8bfc832c591a
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505410"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502555"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>快速入门：使用文本翻译 API 通过 Go 来检测文本语言
 
@@ -129,6 +129,7 @@ if err != nil {
 }
 // Add required headers
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Region", "your region")
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 724272318c939a32c479f7f991d47fb3dfae1087
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 04/22/2019
+ms.openlocfilehash: 4bb53edf6f1e5493e448e84fd5c75f6a5cba80ee
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736709"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529362"
 ---
 # <a name="api-management-caching-policies"></a>API 管理缓存策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -50,7 +50,7 @@ ms.locfileid: "53736709"
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" cache-preference="internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" caching-type="prefer-external | external | internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -72,7 +72,7 @@ ms.locfileid: "53736709"
 <policies>  
     <inbound>  
         <base />  
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" cache-preference="internal" >  
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" caching-type="internal" >
             <vary-by-query-parameter>version</vary-by-query-parameter>  
         </cache-lookup>           
     </inbound>  
@@ -107,7 +107,7 @@ ms.locfileid: "53736709"
   
 ### <a name="elements"></a>元素  
   
-|Name|说明|必须|  
+|名称|说明|必需|  
 |----------|-----------------|--------------|  
 |cache-lookup|根元素。|是|  
 |vary-by-header|开始按指定标头（例如 Accept、Accept-Charset、Accept-Encoding、Accept-Language、Authorization、Expect、From、Host、If-Match）的值缓存响应。|否|  
@@ -115,9 +115,10 @@ ms.locfileid: "53736709"
   
 ### <a name="attributes"></a>属性  
   
-|Name|说明|必须|默认|  
+|名称|说明|必需|默认|  
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 |allow-private-response-caching|设置为 `true` 即可缓存包含 Authorization 标头的请求。|否|false|  
+| caching-type               | 在以下属性值之间进行选择：<br />- `internal` 使用内置的 API 管理缓存；<br />- `prefer-external` 如果外部缓存已配置，则使用外部缓存，否则使用内部缓存。 | 否       | `prefer-external` |
 |downstream-caching-type|此属性必须设置为以下值之一。<br /><br /> -   none - 不允许下游缓存。<br />-   private - 允许下游专用缓存。<br />-   public - 允许专用和共享下游缓存。|否|无|  
 |must-revalidate|启用下游缓存时，此属性会启用或关闭网关响应中的 `must-revalidate` 缓存控制指令。|否|是|  
 | vary-by-developer              | 设置为 `true` 即可按[订阅密钥](/api-management/api-management-subscriptions#what-is-subscriptions)缓存响应。                                                                                                                                                                                                                                                                                                         | 是      |                   |
@@ -185,13 +186,13 @@ ms.locfileid: "53736709"
   
 ### <a name="elements"></a>元素  
   
-|Name|说明|必须|  
+|名称|说明|必需|  
 |----------|-----------------|--------------|  
 |cache-store|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|Name|说明|必须|默认|  
+|名称|说明|必需|默认|  
 |----------|-----------------|--------------|-------------|  
 |duration|缓存条目的生存时间，以秒为单位指定。|是|不适用|  
   
@@ -214,7 +215,7 @@ ms.locfileid: "53736709"
 <cache-lookup-value key="cache key value"   
     default-value="value to use if cache lookup resulted in a miss"   
     variable-name="name of a variable looked up value is assigned to"
-    cache-preference="internal" />  
+    caching-type="prefer-external | external | internal" />
 ```  
   
 ### <a name="example"></a>示例  
@@ -229,13 +230,13 @@ ms.locfileid: "53736709"
   
 ### <a name="elements"></a>元素  
   
-|Name|说明|必须|  
+|名称|说明|必需|  
 |----------|-----------------|--------------|  
 |cache-lookup-value|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|Name|说明|必须|默认|  
+|名称|说明|必需|默认|  
 |----------|-----------------|--------------|-------------|  
 |default-value|在缓存密钥查找未命中的情况下，会分配给变量的值。 如果未指定此属性，则会分 `null`。|否|`null`|  
 |key|要在查找中使用的缓存密钥值。|是|不适用|  
@@ -257,7 +258,7 @@ ms.locfileid: "53736709"
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" cache-preference="internal" />  
+<cache-store-value key="cache key value" value="value to cache" duration="seconds" caching-type="prefer-external | external | internal" />
 ```  
   
 ### <a name="example"></a>示例  
@@ -272,14 +273,15 @@ ms.locfileid: "53736709"
   
 ### <a name="elements"></a>元素  
   
-|Name|说明|必须|  
+|名称|说明|必需|  
 |----------|-----------------|--------------|  
 |cache-store-value|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|Name|说明|必须|默认|  
+|名称|说明|必需|默认|  
 |----------|-----------------|--------------|-------------|  
+| caching-type | 在以下属性值之间进行选择：<br />- `internal` 使用内置的 API 管理缓存；<br />- `prefer-external` 如果外部缓存已配置，则使用外部缓存，否则使用内部缓存。 | 否       | `prefer-external` |
 |duration|会根据提供的期间值（以秒为单位指定）将值缓存一段时间。|是|不适用|  
 |key|缓存密钥，会在其下存储值。|是|不适用|  
 |value|要缓存的值。|是|不适用|  
@@ -298,7 +300,7 @@ ms.locfileid: "53736709"
   
 ```xml  
   
-<cache-remove-value key="cache key value" cache-preference="internal"  />  
+<cache-remove-value key="cache key value" caching-type="prefer-external | external | internal"  />
   
 ```  
   
@@ -312,14 +314,15 @@ ms.locfileid: "53736709"
   
 #### <a name="elements"></a>元素  
   
-|Name|说明|必须|  
+|名称|说明|必需|  
 |----------|-----------------|--------------|  
 |cache-remove-value|根元素。|是|  
   
 #### <a name="attributes"></a>属性  
   
-|Name|说明|必须|默认|  
+|名称|说明|必需|默认|  
 |----------|-----------------|--------------|-------------|  
+| caching-type | 在以下属性值之间进行选择：<br />- `internal` 使用内置的 API 管理缓存；<br />- `prefer-external` 如果外部缓存已配置，则使用外部缓存，否则使用内部缓存。 | 否       | `prefer-external` |
 |key|以前所缓存的值（将从缓存中删除）的密钥。|是|不适用|  
   
 #### <a name="usage"></a>使用情况  

@@ -5,22 +5,22 @@ documentationcenter: ''
 author: lingliw
 manager: digimobile
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0ba9ef25bb700631b29ed54663cb6a4b52285677
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 1cbebc937a2294de5f0b58314984f5ec864315b0
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440419"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686287"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure Monitor 中的数据的来源
-本文介绍了由 Azure Monitor 收集的用于监视资源及其上运行的应用程序的运行状况和性能的数据的来源。 这些资源可能在 Azure 中，在其他云中或在本地。  有关此数据如何存储以及如何查看它的详细信息，请参阅 [Azure Monitor 收集的数据](data-collection.md)。
+本文介绍了由 Azure Monitor 收集的用于监视资源及其上运行的应用程序的运行状况和性能的数据的来源。 这些资源可能在 Azure 中，在其他云中或在本地。  有关此数据如何存储以及如何查看它的详细信息，请参阅 [Azure Monitor 收集的数据](data-platform.md)。
 
 Azure 中的监视数据来自各种来源，这些来源可以组织为层，最高的层是你的应用程序和任何操作系统，较低的层是 Azure 平台的组件。 下图对此进行了描述，每个层在以下各部分详细说明。
 
@@ -43,12 +43,12 @@ Azure 中的监视数据来自各种来源，这些来源可以组织为层，�
 ![Azure 订阅集合](media/data-sources/azure-collection.png)
 
 ### <a name="azure-service-health"></a>Azure 服务运行状况
-[Azure 服务运行状况](service-notifications.md)提供订阅中应用程序和资源所依赖的 Azure 服务的运行状况信息。 可以根据当前的以及预期的可能会影响应用程序的关键问题创建警报，以便到时获得通知。 服务运行状况记录存储在 [Azure 活动日志](activity-logs-overview.md)中，你可以在活动日志资源管理器中查看，并将其复制到 Azure Monitor 日志中。
+[Azure 服务运行状况](service-notifications.md)提供订阅中应用程序和资源所依赖的 Azure 服务的运行状况信息。 可以根据当前的以及预期的可能会影响应用程序的关键问题创建警报，以便到时获得通知。 服务运行状况记录存储在 [Azure 活动日志](activity-logs-overview.md)中，因此你可以在活动日志资源管理器中查看它们，并将其复制到 Azure Monitor 日志中。
 
 ### <a name="azure-activity-log"></a>Azure 活动日志
 [Azure 活动日志](activity-logs-overview.md)包含服务运行状况记录，以及对 Azure 资源所做的配置更改的记录。 活动日志可供所有 Azure 资源使用，代表其外部视图。 活动日志中记录的具体类型在 [Azure 活动日志事件架构](activity-log-schema.md)中介绍。
 
-可以在 Azure 门户中特定资源的页面上查看其活动日志，或在[活动日志资源管理器](activity-logs-overview.md)中的多个资源处查看日志。 可以将日志项目复制到 Azure Monitor 中，与其他监视数据组合在一起，这特别有用。 也可使用[事件中心](activity-logs-stream-event-hubs.md)将其发送到其他位置。
+可以在 Azure 门户中特定资源的页面上查看其活动日志，或在[活动日志资源管理器](activity-logs-overview.md)中查看来自多个资源的日志。 可以将日志项目复制到 Azure Monitor 中，与其他监视数据组合在一起，这特别有用。 也可使用[事件中心](activity-logs-stream-event-hubs.md)将其发送到其他位置。
 
 
 
@@ -59,11 +59,11 @@ Azure 中的监视数据来自各种来源，这些来源可以组织为层，�
 
 
 ### <a name="metrics"></a>指标
-大多数 Azure 服务会生成反映其性能和运行的[平台指标](data-collection.md#metrics)。 具体[指标因资源类型而异](metrics-supported.md)。  这些指标可以在指标分析中访问，并且可以复制到日志中以使用 Log Analytics 进行趋势推断和其他分析。
+大多数 Azure 服务会生成反映其性能和运行的[平台指标](data-platform-metrics.md)。 具体[指标因资源类型而异](metrics-supported.md)。  这些指标可以在指标分析中访问，并且可以复制到日志中以使用 Log Analytics 进行趋势推断和其他分析。
 
 
 ### <a name="resource-diagnostic-logs"></a>资源诊断日志
-活动日志提供在 Azure 资源上执行的操作的信息，而资源级[诊断日志](diagnostic-logs-overview.md)则可用于了解资源本身的操作。
+活动日志提供在 Azure 资源上执行的操作的信息，而资源级[诊断日志](diagnostic-logs-overview.md)则提供有关资源本身的操作的见解。
 不能直接在 Azure 门户中查看诊断日志，但可以[将它们发送到 Azure 存储进行存档](archive-diagnostic-logs.md)，然后将它们导出到[事件中心](../../event-hubs/event-hubs-about.md)以便重定向到其他服务，或者导出[到 Azure Monitor](diagnostic-logs-stream-log-store.md) 进行分析。 某些资源可以直接写入到 Azure Monitor 中，而另一些资源则只能先写入到存储帐户，然后再[导入 Log Analytics 中](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)。
 
 ### <a name="monitoring-solutions"></a>监视解决方案
@@ -94,7 +94,7 @@ Windows 或 Linux 虚拟机或物理计算机的全面监视和管理是通过 L
 
 
 ### <a name="application-data"></a>应用程序数据
-通过安装检测包为应用程序启用 Application Insights 后，它就会收集与应用程序的性能和运行相关的指标 和日志。 这包括有关页面视图、应用程序请求和异常的详细信息。 Application Insights 将它收集的数据存储在 Azure Monitor 中。 它包括各种用于分析此数据的工具，但是也可使用指标分析和日志分析之类的工具分析来自其他源的数据。
+通过安装检测包为应用程序启用 Application Insights 后，它就会收集与应用程序的性能和运行相关的指标和日志。 这包括有关页面视图、应用程序请求和异常的详细信息。 Application Insights 将它收集的数据存储在 Azure Monitor 中。 它包括各种用于分析此数据的工具，但是也可使用指标分析和日志分析之类的工具分析来自其他源的数据。
 
 
 ### <a name="dependencies"></a>依赖项
@@ -113,7 +113,7 @@ Azure Monitor 可以使用[数据收集器 API](../../azure-monitor/platform/dat
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解 [Azure Monitor 收集的监视数据的类型](data-collection.md)以及如何查看和分析此数据。
+- 详细了解 [Azure Monitor 收集的监视数据的类型](data-platform.md)以及如何查看和分析此数据。
 
 
 

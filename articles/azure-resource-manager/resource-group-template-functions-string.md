@@ -4,23 +4,21 @@ description: 介绍了可在 Azure Resource Manager 模板中用来处理字符�
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/11/2019
-ms.date: 03/18/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ce491cbfd051620963d4396c8a02aae13ba8280
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 718d342712f90aba5f5725954106aca5dc30508c
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348180"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529234"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的字符串函数
 
@@ -36,6 +34,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
@@ -715,9 +714,66 @@ Resource Manager 提供以下用于处理字符串的函数：
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## <a name="format"></a>格式
+
+`format(formatString, arg1, arg2, ...)`
+
+基于输入值创建带格式的字符串。
+
+### <a name="parameters"></a>parameters
+
+| 参数 | 必须 | 类型 | 说明 |
+|:--- |:--- |:--- |:--- |
+| formatString | 是 | 字符串 | 复合格式字符串。 |
+| arg1 | 是 | 字符串、整数或布尔值 | 要包含在带格式字符串中的值。 |
+| 其他参数 | 否 | 字符串、整数或布尔值 | 要包含在带格式字符串中的附加值。 |
+
+### <a name="remarks"></a>备注
+
+使用此函数来为模板中的字符串设置格式。 此函数使用的格式设置选项与 .NET 中的 [System.String.Format](https://docs.azure.cn/zh-cn/dotnet/api/system.string.format?view=azure-dotnet) 方法相同。
+
+### <a name="examples"></a>示例
+
+以下示例模板演示如何使用 format 函数。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+上述示例中使用默认值的输出为：
+
+| Name | 类型 | 值 |
+| ---- | ---- | ----- |
+| formatTest | String | Hello, User。 带格式的数字：8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 基于以参数形式提供的值创建一个采用全局唯一标识符格式的值。
 
@@ -732,7 +788,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 
 当需要以全局唯一标识符格式创建值时，此功能十分有用。 提供参数值，这些值用于限制结果的唯一性范围。 可以指定该名称对于订阅、资源组或部署是否唯一。
 
-返回的值不是随机字符串，而是参数中哈希函数的结果。 返回的值长度为 36 个字符。 并非全局唯一。 若要创建不是基于该参数哈希值的新 GUID，请使用 [newGuid](#newguid) 函数。
+返回的值不是随机字符串，而是参数中哈希函数的结果。 返回的值长度为 36 个字符。 此值并非全局唯一。 若要创建不是基于该参数哈希值的新 GUID，请使用 [newGuid](#newguid) 函数。
 
 以下示例演示如何使用 guid 创建常用级别唯一值。
 
@@ -1776,7 +1832,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 当需要创建资源的唯一名称时，此函数很有帮助。 提供参数值，这些值用于限制结果的唯一性范围。 可以指定该名称对于订阅、资源组或部署是否唯一。 
 
-返回的值不是随机字符串，而是哈希函数的结果。 返回的值长度为 13 个字符。 并非全局唯一。 可能需要根据命名约定使用前缀来组合值，以创建有意义的名称。 以下示例显示了返回值的格式。 实际值取决于提供的参数。
+返回的值不是随机字符串，而是哈希函数的结果。 返回的值长度为 13 个字符。 此值并非全局唯一。 可能需要根据命名约定使用前缀来组合值，以创建有意义的名称。 以下示例显示了返回值的格式。 实际值取决于提供的参数。
 
     tcvhiyu5h2o5o
 
@@ -1809,7 +1865,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
     ...
 ```
 
-如果每次部署模板都需要创建新的唯一名称并且不希望更新资源，可以结合 uniqueString 使用 [utcNow](#utcnow) 函数。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcNow)。
+如果每次部署模板都需要创建新的唯一名称并且不希望更新资源，可以结合 uniqueString 使用 [utcNow](#utcnow) 函数。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcnow)。
 
 ### <a name="return-value"></a>返回值
 
@@ -2126,4 +2182,4 @@ URI 编码值的解码后字符串。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update, update powershell az cmdlet -->
+<!--Update_Description: update meta properties, wording update -->

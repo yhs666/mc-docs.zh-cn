@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 01/31/2019
-ms.date: 02/18/2019
+origin.date: 03/18/2019
+ms.date: 04/11/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 650b8f21b3937ac39f52f923e6d46186825d0d54
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8ab7d224ec6f1d193207ae2edf2e73cbb6c9caae
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627169"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502610"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中委托应用管理员角色
 
@@ -37,8 +38,8 @@ ms.locfileid: "58627169"
 1. 使用符合租户中全局管理员角色条件的帐户登录 [Azure AD 租户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 拥有足够权限后，打开[“角色和管理员”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)。
 3. 打开以下角色之一，以查看它的成员分配：
-   - **应用管理员**
-   - **云应用管理员**
+   * **应用程序管理员**
+   * **云应用程序管理员**
 4. 在角色的“成员”页上，选择“添加成员”。
 5. 选择一个或多个要添加到角色的成员。 <!--Members can be users or groups.-->
 
@@ -50,25 +51,25 @@ ms.locfileid: "58627169"
 
 1. 使用符合租户中全局管理员角色条件的帐户登录 [Azure AD 租户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 拥有足够权限后，执行以下一个或两个设置：
-   - 在[租户的“用户设置”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，将“用户可以注册应用”设置为“否”。
-   - 在[企业应用的“用户设置”](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，将“用户可以自行同意应用访问公司数据”设置为“否”。
+   * 在[租户的“用户设置”页](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，将“用户可以注册应用”设置为“否”。
+   * 在[企业应用的“用户设置”](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，将“用户可以自行同意应用访问公司数据”设置为“否”。
 3. 然后，根据需要，将需要此权限的用户分配为“应用开发人员”角色的成员。
 
 注册应用后，用户自动添加为应用的第一个所有者。
 
 ## <a name="delegate-app-ownership"></a>委托应用所有权
 
-应用所有者和应用注册所有者可以分别仅管理他们拥有的应用或应用注册。 例如，如果你添加 Salesforce 应用的所有者，此所有者可以管理对 Salesforce 的访问权限和配置，但无法管理其他任何应用。 一个应用可以有多个所有者，一个用户可以是多个应用的所有者。
+应用所有者和应用注册所有者只能分别管理他们拥有的应用程序或应用注册。 例如，如果你添加 Salesforce 应用的所有者，此所有者可以管理对 Salesforce 的访问权限和配置，但无法管理其他任何应用。 一个应用可以有多个所有者，一个用户可以是多个应用的所有者。
 
 应用所有者可以：
 
-- 更改应用属性，如应用请求获取的名称和权限
-- 管理凭据
-- 配置单一登录
-- 分配用户访问权限
-- 添加或删除其他所有者
-- 编辑应用清单
-- 将应用发布到应用库
+* 更改应用属性，如应用请求获取的名称和权限
+* 管理凭据
+* 配置单一登录
+* 分配用户访问权限
+* 添加或删除其他所有者
+* 编辑应用清单
+* 将应用发布到应用库
 
 > [!IMPORTANT]
 > 分配有此角色的用户可以将凭据添加到应用，并使用这些凭据模拟应用标识。 模拟应用标识可能是一种特权提升（与用户在 Azure AD 中分配有的其他角色相比）。 分配有此角色的用户可能会在模拟应用时创建或更新用户或其他对象。
@@ -79,8 +80,8 @@ ms.locfileid: "58627169"
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
 2. On the [Roles and administrators page](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators), open one of the following roles to see its member assignments:
-  - **Enterprise Application Owner**
-  - **Application Registration Owner**
+  * **Enterprise Application Owner**
+  * **Application Registration Owner**
 3. On the **Members** page for the role, select **Add member**.
 4. Select one or more members to add to the role. -->
 
@@ -101,5 +102,6 @@ ms.locfileid: "58627169"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure AD 管理员角色参考](directory-assign-admin-roles.md)
+* [Azure AD 管理员角色参考](directory-assign-admin-roles.md)
 
+<!-- Update_Description: wording update -->

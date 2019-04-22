@@ -10,15 +10,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 03/18/2019
+origin.date: 04/04/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4474e5ea20f59324b2294209df0ce8da3a9a8695
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4df734ed427ca14c0c82163355b08948d909b659
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626575"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529439"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -52,70 +52,65 @@ ms.locfileid: "58626575"
 
 ## <a name="services-that-can-be-moved"></a>可以移动的服务
 
-以下列表提供了可移动到新资源组和订阅的 Azure 服务的一般摘要。 有关更多详细信息，请参阅[资源的移动操作支持](move-support-resources.md)。
+以下列表提供了可移动到新资源组和订阅的 Azure 服务的一般摘要。 对于支持移动的资源类型列表，请参阅[支持移动操作的资源](move-support-resources.md)。
 
 * Analysis Services
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书 - 请参阅[应用服务证书限制](#app-service-certificate-limitations)
 * 自动化 - Runbook 必须与自动化帐户存在于同一资源组中。
-  <!-- Not Available * Azure Active Directory B2C-->
+    <!-- Not Available * Azure Active Directory B2C-->
 * Azure Redis 缓存 - 如果 Azure Redis 缓存实例配置了虚拟网络，则实例无法被移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
-* Azure Cosmos DB
+* Azure Cosmos DB   <!-- Not Available * Azure Data Explorer-->
+    <!-- Not Available * Azure Database for MariaDB-->
 * Azure Database for MySQL
-* Azure Database for PostgreSQL
-  <!-- Not Available * Azure DevOps-->
-  <!-- Not Available * Azure Maps-->
-  <!-- Not Available * Azure Relay-->
+* Azure Database for PostgreSQL   <!-- Not Available * Azure DevOps-->
+    <!-- Not Available * Azure Maps-->
+    <!-- Not Available * Azure Monitor logs-->
+    <!-- Not Available * Azure Relay-->
 * Azure Stack - 注册
-* 批处理
-  <!-- Not Available * BizTalk Services-->
-  <!-- Not Available * Bot Service-->
+* Batch   <!-- Not Available * BizTalk Services-->
+    <!-- Not Available * Bot Service-->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
 * 容器注册表 - 启用异地复制后无法移动容器注册表。
-* 内容审查器
-  <!-- Not Available * Cost Management-->
-  <!-- Not Available * Customer Insights-->
-  <!-- Not Available * Data Catalog-->
-  <!-- Not Available * Data Factory-->
-  <!-- Not Available * Data Lake Analytics-->
-  <!-- Not Available * Data Lake Store-->
-  <!-- Not Available * DNS-->
-  <!-- Not Available * Event Grid-->
-* 事件中心
-  <!-- Not Available * Front Door-->
+* 内容审查器   <!-- Not Available * Cost Management-->
+    <!-- Not Available * Customer Insights-->
+    <!-- Not Available * Data Catalog-->
+    <!-- Not Available * Data Factory-->
+    <!-- Not Available * Data Lake Analytics-->
+    <!-- Not Available * Data Lake Store-->
+    <!-- Not Available * DNS-->
+    <!-- Not Available * Event Grid-->
+* 事件中心   <!-- Not Available * Front Door-->
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
-  <!-- Not Available * Iot Central-->
+    <!-- Not Available * Iot Central-->
 * IoT 中心
 * Key Vault - 用于磁盘加密的 Key Vault 不能移动到同一订阅中的资源组，也不能跨订阅移动。
 * 负载均衡器 - 可以移动基本 SKU 负载均衡器。 不能移动标准 SKU 负载均衡器。
-  <!-- Not Available * Log Analytics-->
-* Logic Apps
-  <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
-  <!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
-  <!-- Not Available * Managed Identity - user-assigned-->
+    <!-- Not Available * Log Analytics-->
+* 逻辑应用   <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+    <!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
+    <!-- Not Available * Managed Identity - user-assigned-->
 * 媒体服务
 * 监视器 - 确保移动到新订阅时，不会超出[订阅配额](../azure-subscription-service-limits.md#monitor-limits)
-* 通知中心
-  <!-- Not Available * Operational Insights-->
-  <!-- Not Available * Operations Management-->
+* 通知中心   <!-- Not Available * Operational Insights-->
+    <!-- Not Available * Operations Management-->
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 可以移动基本 SKU 公共 IP。 不能移动标准 SKU 公共 IP。
-  <!--MOONCAKE: Not Available on * Recovery Services vault - enroll in a [preview](#recovery-services-limitations)-->
-* 计划程序
-  <!-- Not Available * Search-->
+    <!--MOONCAKE: Not Available on * Recovery Services vault - enroll in a [preview](#recovery-services-limitations)-->
+    <!--Pending Verify on * SAP HANA on Azure-->
+* 计划程序   <!-- Not Available * Search-->
 * 服务总线
-* Service Fabric
-  <!-- Not Available * Service Fabric Mesh-->
-  <!-- Not Available * SignalR Service-->
+* Service Fabric   <!-- Not Available * Service Fabric Mesh-->
+    <!-- Not Available * SignalR Service-->
 * 存储 - 不同区域的存储帐户无法通过同一操作进行移动。 请改为对每个区域使用单独的操作。
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
-  <!-- Not Available * Time Series Insights-->
+    <!-- Not Available * Time Series Insights-->
 * 流量管理器
 * 虚拟机 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -129,28 +124,22 @@ ms.locfileid: "58626575"
 
 <!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
-* 应用程序网关
-  <!-- Not Available * Azure Database Migration-->
-  <!-- Not Available * Azure Databricks-->
-  <!-- Not Available * Azure Firewall-->
-  <!-- Not Available * Azure Migrate-->
-  <!-- Not Available * Azure NetApp Files-->
+* 应用程序网关   <!-- Not Available * Azure Database Migration-->
+    <!-- Not Available * Azure Databricks-->
+    <!-- Not Available * Azure Firewall-->
+* Azure Kubernetes 服务 (AKS)   <!-- Not Available * Azure Migrate-->
+    <!-- Not Available * Azure NetApp Files-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
-  <!-- Not Available * Container Instances-->
-  <!-- Not Available * Container Service-->
-  <!-- Not Available * Data Box-->
-  <!-- Not Available * Dev Spaces-->
-  <!-- Not Available * Dynamics LCS-->
-* Express Route
-  <!-- Not Available * Kubernetes Service-->
-  <!-- Not Available * Lab Services-->
-  <!-- Not Available * Managed Applications-->
-  <!-- Not Available * Azure Genomics-->
-  <!-- Not Available * NetApp-->
-  <!-- Not Available * SAP HANA on Azure-->
+* 经典应用程序   <!-- Not Available * Container Instances-->
+    <!-- Not Available * Container Service-->
+    <!-- Not Available * Data Box-->
+    <!-- Not Available * Dev Spaces-->
+    <!-- Not Available * Dynamics LCS-->
+* Express Route   <!-- Not Available * Lab Services-->
+    <!-- Not Available * Managed Applications-->
+    <!-- Not Available * Azure Genomics-->
 * 安全性
-* 站点恢复
-  <!-- Not Available * StorSimple Device Manager-->
+* Site Recovery   <!-- Not Available * StorSimple Device Manager-->
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
 ## <a name="limitations"></a>限制
@@ -189,8 +178,9 @@ ms.locfileid: "58626575"
 * 如果在 CLI 中，则使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
 * 使用类型 `Microsoft.Compute/restorePointCollections` 找到具有命名模式 `AzureBackup_<name of your VM that you're trying to move>_###########` 的资源
 * 删除此资源。 此操作仅删除即时恢复点，不删除保管库中的备份数据。
-* 删除完成后，即可移动虚拟机。 可以将保管库和虚拟机移到目标订阅。 移动后即可继续备份，不会丢失数据。
-* 若要了解如何移动恢复服务保管库以完成备份，请参阅[恢复服务限制](#recovery-services-limitations)。
+* 删除完成后，即可移动虚拟机。
+    <!--MOONCAKE: CUSTOMIZED ON Not Available on  You can move the vault and virtual machine to the target subscription. After the move, you can continue backups with no loss in data.-->
+    <!--MOONCAKE: Not Available on * For information about moving Recovery Service vaults for backup, see [Recovery Services limitations](#recovery-services-limitations)-->
 
 ### <a name="virtual-networks-limitations"></a>虚拟网络限制
 

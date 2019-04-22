@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/07/2017
-ms.date: 12/29/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7a1af78b68f6f1ed73faf8cbff28391d16b1d333
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a6e0276ccfc360b88ed7ae7722f55ecd88fdd285
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996346"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243688"
 ---
 # <a name="federation-metadata"></a>联合元数据
 对于配置为接受 Azure Active Directory 颁发的安全令牌的服务，Azure Active Directory (Azure AD) 发布了一个联合元数据文档。 [Web Services 联合身份验证语言（WS 联合身份验证）版本 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) 中介绍了联合元数据文档格式，该文章还扩展了 [OASIS 安全断言标记语言 (SAML) v2.0 元数据](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)。
@@ -40,8 +41,8 @@ Azure AD 会在 `https://login.partner.microsoftonline.cn/<TenantDomainName>/Fed
 
 对于特定于租户的终结点，`TenantDomainName` 可以是以下类型之一：
 
-- Azure AD 租户的已注册域名，例如： `contoso.partner.onmschina.cn`
-- 域的不可变租户 ID，例如 `72f988bf-86f1-41af-91ab-2d7cd011db45`。
+* Azure AD 租户的已注册域名，例如： `contoso.partner.onmschina.cn`
+* 域的不可变租户 ID，例如 `72f988bf-86f1-41af-91ab-2d7cd011db45`。
 
 对于独立于租户的终结点，`TenantDomainName` 为 `common`。 此文档仅列出了托管在 login.partner.microsoftonline.cn 上的所有 Azure AD 租户通用的联合元数据元素。
 
@@ -161,4 +162,4 @@ https://login.partner.microsoftonline.cn/common/wsfed
   </IDPSSODescriptor>
 ```
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

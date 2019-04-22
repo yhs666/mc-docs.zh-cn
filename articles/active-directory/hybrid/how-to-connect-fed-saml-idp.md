@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 03/15/2019
+ms.date: 04/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6659af97ab8bf4576ac7d23bbc879ce479fa8e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3ad976ef9eaffdc68abccfc26434e9238a234d44
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627457"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355896"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
@@ -215,8 +215,8 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 
 有关“Set-MsolDomainAuthentication”的详细信息，请参阅：[https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)。
 
-> [!NOTE]
-> 仅当为标识提供者设置了 ECP 扩展时，才必须使用 `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` 来运行。 除 Outlook Web Application (OWA) 之外的 Exchange Online 客户端依赖于基于 POST 的活动终结点。 如果 SAML 2.0 STS 实现的活动终结点类似于 Shibboleth 对活动终结点的 ECP 实现，则这些富客户端可能会与 Exchange Online 服务交互。
+>[!NOTE]
+>仅当为标识提供者设置了 ECP 扩展时，才必须使用 `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` 来运行。 除 Outlook Web Application (OWA) 之外的 Exchange Online 客户端依赖于基于 POST 的活动终结点。 如果 SAML 2.0 STS 实现的活动终结点类似于 Shibboleth 对活动终结点的 ECP 实现，则这些富客户端可能会与 Exchange Online 服务交互。
 
 配置联合后，可切换回“非联合”（或“托管”），但是此更改最长需要两个小时才能完成，并且需要为每个用户分配新的随机密码以用于基于云的登录。 在某些情况下，可能需切换回“托管”模式才能在设置中重置错误。 有关域转换的详细信息，请参阅：[https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
 
@@ -232,16 +232,17 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 
 1. 以租户管理员身份连接到 Azure AD Directory：Connect-MsolService -AzureEnvironment AzureChinaCloud。
 2. 创建新用户主体：
-
-    ` New-MsolUser
-        -UserPrincipalName elwoodf1@contoso.com
-        -ImmutableId ABCDEFG1234567890
-        -DisplayName "Elwood Folk"
-        -FirstName Elwood 
-        -LastName Folk 
-        -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-        -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
-        -UsageLocation "China North" ` 
+    ```powershell
+    New-MsolUser
+      -UserPrincipalName elwoodf1@contoso.com
+      -ImmutableId ABCDEFG1234567890
+      -DisplayName "Elwood Folk"
+      -FirstName Elwood 
+      -LastName Folk 
+      -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
+      -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+      -UsageLocation "China North" 
+    ```
 
 有关“New-MsolUser”签出的详细信息，请参阅：[https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
@@ -303,4 +304,4 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 - [Azure AD 联合身份验证兼容性列表](how-to-connect-fed-compatibility.md)
 - [Azure AD Connect 自定义安装](how-to-connect-install-custom.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

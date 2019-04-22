@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1d82aeac3ed90860f2257c79e77d4ee7698f44ef
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 199f15a9bfe76f80941ab5fe54aa6aefd599b580
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628601"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686375"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>使用应用程序网关配置应用服务
 

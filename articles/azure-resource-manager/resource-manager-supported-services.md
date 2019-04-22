@@ -4,23 +4,21 @@ description: 介绍支持 Resource Manager 的资源提供程序及其架构和�
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/30/2019
-ms.date: 02/18/2019
+origin.date: 03/25/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: a7193943842588024b486a9d47823dd5c5c23630
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5435c57f9ece6b7b3eba1928da65426c5c897457
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626048"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529416"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
@@ -48,10 +46,10 @@ ms.locfileid: "58626048"
 5. 选择“资源提供程序”并查看可用的资源提供程序列表。
 
     ![显示资源提供程序](./media/resource-manager-supported-services/show-resource-providers.png)
-
+    
+    <!--MOONCAKE CUSTOMIZED: Microsoft.Batch to replace Microsoft.Blueprint--> 
+    
 6. 通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。 若要注册资源提供程序，请选择“注册”。 在上一屏幕截图中，针对 **Microsoft.Batch** 突出显示了“注册”链接。
-
-   <!--MOONCAKE CUSTOMIZED: Microsoft.Batch to replace Microsoft.Blueprint--> 
 
     当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
@@ -85,7 +83,7 @@ ms.locfileid: "58626048"
 
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
-```azurepowershell
+```powershell
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
@@ -103,7 +101,7 @@ Microsoft.CognitiveServices      Registered
 
 通过注册资源提供程序来配置订阅，以供资源提供程序使用。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
 
-```azurepowershell
+```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -120,7 +118,7 @@ Locations         : {China North, China East, China East 2, China North 2}
 
 若要查看特定资源提供程序的信息，请使用：
 
-```azurepowershell
+```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -137,7 +135,7 @@ Locations         : {China North, China East, China East 2, China North 2}
 
 若要查看资源提供程序的资源类型，请使用：
 
-```azurepowershell
+```powershell
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
@@ -154,7 +152,7 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 
 若要获取资源类型的可用 API 版本，请使用：
 
-```azurepowershell
+```powershell
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
@@ -172,7 +170,7 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 
 若要获取资源类型支持的位置，请使用：
 
-```azurepowershell
+```powershell
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
@@ -211,7 +209,7 @@ Microsoft.CognitiveServices      Registered
 az provider register --namespace Microsoft.Batch
 ```
 
-这将返回“注册正在进行中”的信息。
+这会返回一条消息，指出注册正在进行。
 
 当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 

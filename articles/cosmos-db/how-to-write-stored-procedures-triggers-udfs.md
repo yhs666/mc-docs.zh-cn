@@ -5,20 +5,23 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 12/11/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 813562b4d5cd4d011f759b308a438de4a9ddf2e2
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: ab11b08476f919267459d1668f9358262974104d
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987961"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615263"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中编写存储过程、触发器和用户定义的函数
 
 Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行用于编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 在 Azure Cosmos DB 中使用 SQL API 时，可以采用 JavaScript 语言定义存储过程、触发器和 UDF。 可在 JavaScript 中编写逻辑，并在数据库引擎内部执行该逻辑。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Cosmos DB 中的 JavaScript 语言集成式查询 API](javascript-query-api.md) 和 [Cosmos DB SQL API 客户端 SDK](sql-api-dotnet-samples.md) 来创建及执行触发器、存储过程与 UDF。 
 
 若要调用存储过程、触发器和用户定义的函数，需将其注册。 有关详细信息，请参阅[如何在 Azure Cosmos DB 中使用存储过程、触发器和用户定义的函数](how-to-use-stored-procedures-triggers-udfs.md)。
+
+> [!NOTE]
+> 对于已分区的容器，在执行存储过程时，必须在请求选项中提供分区键值。 存储过程的范围始终限定为分区键。 存储过程看不到具有不同分区键值的项。 这一点也适用于触发器。
 
 <a name="stored-procedures"></a>
 ## <a name="how-to-write-stored-procedures"></a>如何编写存储过程
@@ -283,7 +286,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-必须注意的一个要点是 Azure Cosmos DB 中触发器的事务执行。 在执行“创建 Azure Cosmos DB 项”操作所用的同一事务期间，将运行此后触发器。 因此，如果在执行后触发器期间收到异常（例如，无法更新元数据项），则整个事务将会失败并回滚。 因此，会创建 Azure Cosmos DB 项并返回异常。
+必须注意的一个要点是 Azure Cosmos DB 中触发器的事务执行。 后触发器作为基础项本身的同一事务的一部分运行。 后触发器执行期间的异常将导致整个事务失败。 提交的任何内容都将回退并返回异常。
 
 有关如何注册和调用前触发器的示例，请参阅[前触发器](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)和[后触发器](how-to-use-stored-procedures-triggers-udfs.md#post-triggers)文章。 
 
@@ -294,9 +297,9 @@ function updateMetadataCallback(err, items, responseOptions) {
 
 ```json
 {
-   name = "Satya Nadella",
-   country = "USA",
-   income = 70000
+   "name": "Satya Nadella",
+   "country": "USA",
+   "income": 70000
 }
 ```
 

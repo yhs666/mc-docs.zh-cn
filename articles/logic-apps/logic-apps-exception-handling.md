@@ -11,12 +11,12 @@ ms.date: 04/08/2019
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e01d24ad3f79dbd905f6dabc61af5e995948ddd1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bff8ec6e318c5a7a67e20391b2bfd6ecdc952db1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626275"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529420"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>在 Azure 逻辑应用中处理错误和异常
 
@@ -213,7 +213,7 @@ ms.locfileid: "58626275"
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>评估具有作用域的操作及其结果
 
-与通过 **runAfter** 属性在个别操作之后运行步骤类似，你可以将操作组合到[作用域](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)中。 如果希望以逻辑方式将各个操作组合在一起，可以使用作用域，评估作用域的聚合状态，并基于该状态执行操作。 当某个作用域中的所有操作都完成运行后，该作用域本身也确定了其自己的状态。 
+与通过 **runAfter** 属性在个别操作之后运行步骤类似，你可以将操作组合到作用域中。 如果希望以逻辑方式将各个操作组合在一起，可以使用作用域，评估作用域的聚合状态，并基于该状态执行操作。 当某个作用域中的所有操作都完成运行后，该作用域本身也确定了其自己的状态。 
 
 若要检查作用域的状态，可以使用与用来检查逻辑应用运行状态（例如 **Succeeded**、**Failed**，等等）的条件相同的条件。 
 

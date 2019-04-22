@@ -4,24 +4,25 @@ description: 介绍影子属性在 Azure AD Connect 同步服务中的工作方�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 85d639eb550c2f797a3851b69700da9eb70a54d3
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab589dafb6915e1b8276933f52f801934730db12
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625396"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355871"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步服务影子属性
 大多数属性在 Azure AD 中的表示方式与其在本地 Active Directory 中的表示方式相同。 但是，一些属性有一些特殊的处理方式，而且 Azure AD 中的属性值可能不同于 Azure AD Connect 所同步的属性值。
@@ -38,12 +39,11 @@ ms.locfileid: "58625396"
 ### <a name="userprincipalname"></a>userPrincipalName
 用户在非验证域中具有下列属性值：
 
-
-|            属性             |                  值                   |
-|----------------------------------|------------------------------------------|
-|  本地 userPrincipalName   |         lee.sperry@fabrikam.com          |
-| Azure AD shadowUserPrincipalName |         lee.sperry@fabrikam.com          |
-|    Azure AD userPrincipalName    | lee.sperry@fabrikam.partner.onmschina.cn |
+| 属性 | 值 |
+| --- | --- |
+| 本地 userPrincipalName | lee.sperry@fabrikam.com |
+| Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
+| Azure AD userPrincipalName | lee.sperry@fabrikam.partner.onmschina.cn |
 
 userPrincipalName 属性是在使用 PowerShell 时看到的值。
 
@@ -54,13 +54,12 @@ proxyAddress 也会发生这个只包括验证域的相同过程，但有一些�
 
 对于邮箱用户（不管是在本地还是在 Exchange Online 中），仅显示验证域的值。 它看起来可能如下所示：
 
-
-|           属性            |                                                      值                                                       |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------|
-|   本地 proxyAddress   |   SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com    |
+| 属性 | 值 |
+| --- | --- |
+| 本地 proxyAddress | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddress | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-在本示例中删除了 <strong>smtp:abbie.spencer@fabrikam.com</strong> ，因为该域尚未验证。 不过，Exchange 也添加了 <strong>SIP:abbie.spencer@fabrikamonline.com</strong>。 Fabrikam 尚未使用本地 Lync/Skype，但 Azure AD 和 Exchange Online 为其做了准备。
+在本例中，**smtp:abbie.spencer\@fabrikam.com** 已删除，因为该域尚未验证。 但是，Exchange 还添加了 **SIP:abbie.spencer\@fabrikamonline.com**。 Fabrikam 尚未使用本地 Lync/Skype，但 Azure AD 和 Exchange Online 为其做了准备。
 
 这个针对 proxyAddress 的逻辑称为 **ProxyCalc**。 每当出现以下情况，导致用户出现变化时，就会调用 ProxyCalc：
 
@@ -77,6 +76,7 @@ ProxyCalc 可能需要一些时间才能处理对用户的更改，并且不与 
 存在重复的属性值时，也会使用影子属性。 有关详细信息，请参阅[重复属性复原](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
 
 ## <a name="see-also"></a>另请参阅
-- [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)。
+* [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)。
 
+<!-- Update_Description: wording update -->

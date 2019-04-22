@@ -8,13 +8,13 @@ ms.author: v-yeche
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: c1a30c374eefee5e511fbfb398a6830f1daf803a
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.date: 04/15/2019
+ms.openlocfilehash: e49f5c1a5d968ce1a6d75052de94499e7207121b
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988605"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615229"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -147,7 +147,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 5. 保存 Program.cs 文件。
 
-## <a name="run-the-net-app"></a>运行.Net 应用
+## <a name="run-the-net-app"></a>运行 .NET 应用
 
 1. 在 Visual Studio 中，选择“工具” > “NuGet 包管理器” > “包管理器控制台”。
 
@@ -181,5 +181,4 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 Cassandra 数据导入 Azure Cosmos DB](cassandra-import-data.md)
 
-<!--Update_Description: new articles on create cassandra dotnet -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

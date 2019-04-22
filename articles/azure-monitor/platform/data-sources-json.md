@@ -11,19 +11,19 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0e552225b10d41aa6e3b4c4e0086ceb8ca2135b2
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 94ee29284268c533df7c4cdce96349a5b83f982f
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440619"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686374"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>在 Azure Monitor 中使用适用于 Linux 的 Log Analytics 代理收集自定义 JSON 数据源
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-可以使用适用于 Linux 的 Log Analytics 代理将自定义 JSON 数据源收集到 [Azure Monitor](data-collection.md) 中。  这些自定义数据源可以是返回 JSON 的简单脚本，例如 [curl](https://curl.haxx.se/) 或 [FluentD 的 300 多个插件](http://www.fluentd.org/plugins/all)之一。 本文介绍此数据收集所需的配置。
+可以使用适用于 Linux 的 Log Analytics 代理将自定义 JSON 数据源收集到 [Azure Monitor](data-platform.md) 中。  这些自定义数据源可以是返回 JSON 的简单脚本，例如 [curl](https://curl.haxx.se/) 或 [FluentD 的 300 多个插件](https://www.fluentd.org/plugins/all)之一。 本文介绍此数据收集所需的配置。
 
 
 > [!NOTE]

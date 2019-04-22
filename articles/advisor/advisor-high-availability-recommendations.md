@@ -3,17 +3,17 @@ title: 使用 Azure 顾问提高应用程序的可用性 | Azure
 description: 使用 Azure 顾问提高 Azure 部署的高可用性。
 services: advisor
 documentationcenter: NA
-author: kasparks
-ms.author: lingliw
+author: lingliw
+ms.author: v-lingwu
 ms.service: advisor
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: d84abfd9f9e09659abf624ed7fe4121da3b2fa3a
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.date: 04/12/19
+ms.openlocfilehash: e39fff5c48e5bf18a5c7f193ffc192503c602fee
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544672"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566365"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>使用 Azure 顾问提高应用程序的可用性
 
@@ -35,7 +35,6 @@ Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可�
 具有共享存储帐户或存储缩放单元的磁盘的可用性集中的虚拟机在中断期间不可对单个存储规模单元故障进行复原。 顾问将确定这些可用性集，并建议迁移到 Azure 托管磁盘。 这将确保可用性集中的不同虚拟机的磁盘彼此完全独立，以避免单点故障。 
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>确保应用程序网关容错
-
 
 此建议可确保由应用程序网关提供支持的任务关键型应用程序的业务连续性。 顾问会标识未针对容错进行配置的应用程序网关实例，并且会建议可以执行的修正操作。 顾问会标识中型或大型单实例应用程序网关，并建议至少再添加一个实例。 它还标识单实例或多实例小型应用程序网关，并建议迁移到中型或大型 SKU。 顾问建议执行这些操作以确保应用程序网关实例配置为满足这些资源的当前 SLA 要求。
 

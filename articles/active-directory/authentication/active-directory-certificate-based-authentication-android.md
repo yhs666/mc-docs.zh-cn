@@ -1,50 +1,50 @@
 ---
-title: Android 上 Azure Active Directory 基于证书的身份验证
+title: Android 上基于证书的身份验证 - Azure Active Directory
 description: 了解 Android 设备的解决方案中配置基于证书的身份验证的支持方案和要求
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 origin.date: 01/15/2018
-ms.date: 10/11/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: b62d69b1f8ac2b0b5fc48316423e29f4421cabdf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1b68c6600c914e838dd588b6718878d7c47cb137
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644050"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243672"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android 上 Azure Active Directory 基于证书的身份验证
 
 连接到以下项时，Android 设备可以通过基于证书的身份验证 (CBA) 在其设备上使用客户端证书向 Azure Active Directory 进行身份验证：
 
-- Office 移动应用程序，例如 Microsoft Outlook 和 Microsoft Word
-- Exchange ActiveSync (EAS) 客户端
+* Office 移动应用程序，例如 Microsoft Outlook 和 Microsoft Word
+* Exchange ActiveSync (EAS) 客户端
 
 如果配置了此功能，就无需在移动设备上的某些邮件和 Microsoft Office 应用程序中输入用户名和密码组合。
 
-本主题面向 Office 365 企业版、商业版、教育版、美国政府计划、中国计划和德国计划中的租户用户，提供在 iOS(Android) 设备上配置 CBA 时的要求和受支持方案。
+本主题提供了在 iOS(Android) 设备上为 Office 365 企业版、商业版、教育版和中国版租户的用户配置 CBA 时的要求和支持的方案。
 
-此功能在 Office 365 US Government Defense 和 Federal 计划中以预览形式提供。
 
 ## <a name="microsoft-mobile-applications-support"></a>Microsoft 移动应用程序支持
 
 | 应用 | 支持 |
 | --- | --- |
-| Azure 信息保护应用 |![勾选标记][1] |
-| Intune 公司门户 |![勾选标记][1] |
-| Microsoft Teams |![勾选标记][1] |
-| OneNote |![勾选标记][1] |
-| OneDrive |![勾选标记][1] |
-| Outlook |![勾选标记][1] |
-| Power BI |![勾选标记][1] |
-| Skype for Business |![勾选标记][1] |
-| Word/Excel/PowerPoint |![勾选标记][1] |
-| Yammer |![勾选标记][1] |
+| Azure 信息保护应用 |![对号，表示支持此应用程序][1] |
+| Intune 公司门户 |![对号，表示支持此应用程序][1] |
+| Microsoft Teams |![对号，表示支持此应用程序][1] |
+| OneNote |![对号，表示支持此应用程序][1] |
+| OneDrive |![对号，表示支持此应用程序][1] |
+| Outlook |![对号，表示支持此应用程序][1] |
+| Power BI |![对号，表示支持此应用程序][1] |
+| Skype for Business |![对号，表示支持此应用程序][1] |
+| Word/Excel/PowerPoint |![对号，表示支持此应用程序][1] |
+| Yammer |![对号，表示支持此应用程序][1] |
 
 ### <a name="implementation-requirements"></a>实现要求
 
@@ -54,15 +54,15 @@ ms.locfileid: "52644050"
 
 若要让 Azure Active Directory 吊销客户端证书，ADFS 令牌必须具有以下声明：
 
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`（客户端证书的序列号）
-- `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`（客户端证书颁发者的字符串）
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`（客户端证书的序列号）
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`（客户端证书颁发者的字符串）
 
 如果 ADFS 令牌（或任何其他 SAML 令牌）具有这些声明，Azure Active Directory 会将这些声明添加到刷新令牌中。 当需要验证刷新令牌时，此信息可用于检查吊销。
 
 最佳做法是，应该使用以下信息更新组织的 ADFS 错误页：
 
-- 在 Android 设备上安装 Microsoft Authenticator 的要求。
-- 有关如何获取用户证书的说明。
+* 在 Android 设备上安装 Microsoft Authenticator 的要求。
+* 有关如何获取用户证书的说明。
 
 有关详细信息，请参阅[自定义 AD FS 登录页](https://technet.microsoft.com/library/dn280950.aspx)。
 
@@ -82,3 +82,4 @@ ms.locfileid: "52644050"
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
 
+<!-- Update_Description: wording update -->

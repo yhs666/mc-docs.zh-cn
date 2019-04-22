@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 05/15/2018
-ms.date: 12/11/2018
+ms.date: 04/15/2019
 ms.author: v-jay
-ms.openlocfilehash: b7876fa1d7dd7bb2913ee7ba90d34a4811da8978
-ms.sourcegitcommit: 5c059fe358e1298ef96450b2c620054afe89de1c
+ms.openlocfilehash: 6955f953d68f975722e07101f3e8a91f6c37d225
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53234111"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502615"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure DNS 中的 DNS 记录和记录集
 
@@ -57,7 +57,7 @@ ms.locfileid: "53234111"
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-若要在区域（在本例中为“contoso.com”）顶点中创建记录集，请使用记录名称 \“\@\”（包括引号）：
+若要在区域（在本例中为“contoso.com”）顶点中创建记录集，请使用记录名称“\@”（包括引号）：
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -93,7 +93,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 
 在每种情况下，我们都演示了如何创建单个记录。 记录将添加到现有记录集或隐式创建的记录集。 有关创建记录集和显式定义记录集参数的详细信息，请参阅[创建 DNS 记录集](#create-a-dns-record-set)。
 
-我们没有提供创建 SOA 记录集的示例，因为 SOA 是随每个 DNS 区域一起创建和删除的，不能单独创建或删除。 但是，[可以修改 SOA，如后面的示例所示](#to-modify-an-SOA-record)。
+我们没有提供创建 SOA 记录集的示例，因为 SOA 是随每个 DNS 区域一起创建和删除的，不能单独创建或删除。 但是，[可以修改 SOA，如后面的示例所示](#to-modify-an-soa-record)。
 
 ### <a name="create-an-aaaa-record"></a>创建 AAAA 记录
 
@@ -120,7 +120,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>创建 MX 记录
 
-在此示例中，使用记录集名称“@”在区域顶端（在本例中为“contoso.com”）创建 MX 记录。
+在此示例中，使用记录集名称“\@”在区域顶端（在本例中为“contoso.com”）创建 MX 记录。
 
 ```azurecli
 az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -142,7 +142,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>创建 SRV 记录
 
-创建 [SRV 记录集](dns-zones-records.md#srv-records)时，请在记录集名称中指定 *\_service* 和 *\_protocol*。 在区域顶点创建 SRV 记录集时，无需在记录集名称中包括\“\@\”。
+创建 [SRV 记录集](dns-zones-records.md#srv-records)时，请在记录集名称中指定 *\_service* 和 *\_protocol*。 在区域顶点创建 SRV 记录集时，无需在记录集名称中包括“\@”。
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 03/11/2019
+ms.date: 04/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: cab7372739c52b00f6aee24e23a64fee6fd0a546
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2e04523693292175ee5706bac76b0dc470c671a7
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626783"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686380"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用适用于 Azure Resource Manager 的 PowerShell 创建 Azure 应用程序网关的自定义探测
 
@@ -40,7 +40,7 @@ ms.locfileid: "58626783"
 
 ### <a name="sign-in-and-create-resource-group"></a>登录并创建资源组
 
-1. 使用 `Connect-AzAccount` 进行身份验证。
+1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 进行身份验证。
 
    ```powershell
    Connect-AzAccount -Environment AzureChinaCloud
@@ -106,7 +106,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -
 |**规则**| 基于 HTTP 设置将流量路由到相应的后端。|
 
 ```powershell
-# Creates a application gateway Frontend IP configuration named gatewayIP01
+# Creates an application gateway Frontend IP configuration named gatewayIP01
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 #Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.
@@ -208,4 +208,4 @@ DnsSettings              : {
 访问以下文档，了解如何配置 SSL 卸载：[配置 SSL 卸载](application-gateway-ssl-arm.md)
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

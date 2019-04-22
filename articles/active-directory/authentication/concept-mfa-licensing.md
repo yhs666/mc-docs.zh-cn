@@ -1,22 +1,23 @@
 ---
-title: Azure MFA 版本 | Microsoft Docs
+title: Azure MFA 版本和使用计划 - Azure Active Directory
 description: 有关多重身份验证客户端以及可用的方法和版本的信息。
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 01/11/2019
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 0edabe4eea27e5806e539d98446317da3a4b0157
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 11e08ac19054fa272f3852e963be7a72aa35461f
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440358"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243669"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何获取 Azure 多重身份验证
 
@@ -60,4 +61,4 @@ Azure AD 租户中被分配了全局管理员角色的用户可以免费为其 A
 
 - 有关定价详细信息，请参阅 [Azure MFA 定价](https://www.azure.cn/pricing/details/multi-factor-authentication/)。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

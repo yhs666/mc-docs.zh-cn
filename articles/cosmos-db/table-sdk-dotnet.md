@@ -8,16 +8,17 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 08/17/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: 627d76e52a02ab95f1c21b035ded59b18a4c54a7
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.date: 04/15/2019
+ms.openlocfilehash: 02ffaff2366e0ab32c23851c57b95d33ab71c559
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988459"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615175"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -37,53 +38,8 @@ ms.locfileid: "57988459"
 > 如果已在预览期间创建表 API 帐户，请[新建表 API 帐户](create-table-dotnet.md#create-a-database-account)，这样才能使用正式版表 API SDK。
 >
 
-## <a name="release-notes"></a>发行说明
-
-### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
-* Bug 修复
-
-### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* 添加了多区域写入支持
-* 修复了 NuGet 包对 Microsoft.Azure.DocumentDB、Microsoft.OData.Core、Microsoft.OData.Edm、Microsoft.Spatial 的依赖性
-
-### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
-* 修复了 NuGet 包对 Microsoft.Azure.Storage.Common 和 Microsoft.Azure.DocumentDB 的依赖关系。
-* 修复了配置 JsonConvert.DefaultSettings 时表序列化的 Bug。
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* 针对直接模式下格式不正确的 ETAG 添加了验证。
-* 修复了网管模式下的 LINQ 查询 Bug。
-* 同步 API 现于 SynchronizationContext 的线程池上运行。
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* 将 TableQueryMaxItemCount、TableQueryEnableScan、TableQueryMaxDegreeOfParallelism 和 TableQueryContinuationTokenLimitInKb 添加到 TableRequestOptions
-* Bug 修复
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* 正式发布版
-
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
-* 初始预览版
-
-## <a name="release-and-retirement-dates"></a>发布日期和停用日期
-Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺利转换为更高版本/受支持版本。
-
-[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) 预览包已弃用，已被 [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 包取代。 WindowsAzure.Storage-PremiumTable SDK 将在 2018 年 11 月 15 日停用，到时将不允许向已停用的 SDK 发出请求。 `Microsoft.Azure.CosmosDB.Table` 库目前仅适用于 .NET Standard，尚不可用于 .NET Core。
-
-新特性和功能以及优化仅添加到当前 SDK，因此建议始终尽早升级到最新的 SDK 版本。 
-
-使用已停用的 SDK 对 Azure Cosmos DB 发出的任何请求都会遭服务拒绝。
-<br/>
-
-| 版本 | 发布日期 | 停用日期 |
-| --- | --- | --- |
-| [2.1.0](#2.1.0) |2019 年 1 月 22 日|--- |
-| [2.0.0](#2.0.0) |2018 年 9 月 26 日|--- |
-| [1.1.3](#1.1.3) |2018 年 7 月 17 日|--- |
-| [1.1.1](#1.1.1) |2018 年 3 月 26 日|--- |
-| [1.1.0](#1.1.0) |2018 年 2 月 21 日|--- |
-| [1.0.0](#1.0.0) |2017 年 11 月 15 日|--- |
-| 0.9.0-preview |2017 年 11 月 11 日 |--- |
+<!--Not Available on ## Release notes-->
+<!--Not Available on ## Release and Retirement dates-->
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -97,7 +53,8 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 可以使用下列两种方法之一解决此问题：
 
 * 使用包管理器控制台安装 Microsoft.Azure.CosmosDB.Table 包及其依赖项。 为此，请在解决方案的包管理器控制台中键入以下代码。 
-    ```
+
+    ```powershell
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
 
@@ -108,6 +65,7 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>另请参阅
+
 若要了解有关 Azure Cosmos DB 表 API 的详细信息，请参阅 [Azure Cosmos DB 表 API 简介](table-introduction.md)。
 
 <!--Update_Description: new articles on table sdk dotnet -->

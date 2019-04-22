@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/02/2018
-ms.date: 01/02/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4d959291e255c1d66106f6191ee179fbd0f09149
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c1fb291c16770000c5ea38f3b3dd020d35fc66f0
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996224"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243678"
 ---
 # <a name="whats-new-for-authentication"></a>身份验证的新增功能 
 
@@ -42,6 +43,37 @@ ms.locfileid: "53996224"
 ## <a name="upcoming-changes"></a>即将推出的更改
 
 目前没有计划。 
+
+## <a name="march-2019"></a>2019 年 3 月
+
+### <a name="looping-clients-will-be-interrupted"></a>循环客户端将会中断
+
+**生效日期**：2019 年 3 月 25 日
+
+**受影响的终结点**：v1.0 和 v2.0
+
+**受影响的协议**：所有流
+
+客户端应用程序有时可能会出现行为异常，在短时间内发出数百个相同的登录请求。  这些请求不一定会成功，但会导致用户体验变得糟糕，增大 IDP 的工作负荷，增大所有用户的延迟，并降低 IDP 的可用性。  这些应用程序的工作范围超过了正常的使用边界，应予以更新才能让其保持正常的行为。  
+
+将为多次发出重复请求的客户端设置 `invalid_grant` 错误：`AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`。 
+
+大多数客户端无需改变行为即可避免此错误。  此错误只会影响配置不当的客户端（没有令牌缓存的客户端，或已经出现提示循环的客户端）。  根据以下因素，在本地按实例跟踪客户端（通过 Cookie）：
+
+* 用户提示（如果有）
+
+* 请求的范围或资源
+
+* 客户端 ID
+
+* 重定向 URI
+
+* 响应类型和模式
+
+在短时间（5 分钟）内发出多个请求（15 个以上）的应用将会收到 `invalid_grant` 错误，指出它们正在循环。  所请求的令牌具有足够长的生存期（最短 10 分钟，默认为 60 分钟），因此，在此时间段内发出的重复请求都是没有必要的。  
+
+所有应用应该通过显示交互式提示来处理 `invalid_grant`，而不是以静默方式请求令牌。  若要避免此错误，客户端应确保正确缓存它们收到的令牌。
+
 
 ## <a name="october-2018"></a>2018 年 10 月
 
@@ -72,3 +104,4 @@ ms.locfileid: "53996224"
 1. 客户端应用程序通过 `response_type=id_token` 请求 id_token 时，还会请求上面创建的 Web API 的访问令牌 (`response_type=token`)。 在 v1.0 终结点上，`resource` 参数应为 Web API 应用 URI。
 1. 将此访问令牌传递到中间层，代替 id_token。  
 
+<!-- Update_Description: wording update -->

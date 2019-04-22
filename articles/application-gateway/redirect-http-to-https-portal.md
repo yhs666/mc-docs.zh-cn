@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 12/07/2018
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1755d5e9f49bf39f3fab60911fdda3d498e7d878
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9b5c9405c110914312fd35e6d9dc6f55262ab8e4
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626524"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686410"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>使用 Azure 门户创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -28,7 +28,7 @@ ms.locfileid: "58626524"
 > * 添加侦听器和重定向规则
 > * 使用默认后端池创建虚拟机规模集
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -228,4 +228,3 @@ Update-AzVmss `
 
 了解如何[创建支持内部重定向的应用程序网关](redirect-internal-site-powershell.md)。
 
-<!-- Update_Description: code and links update -->

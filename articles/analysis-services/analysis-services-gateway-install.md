@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/08/2019
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 40714a6ffc99a9adb9cc5997a80c61729fecd29f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7e54f61cd54d5183a1c8b5a6dcce043f47b29bcb
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627017"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529249"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 
@@ -41,15 +41,17 @@ ms.locfileid: "58627017"
 * 在计算机处于开启但未处于休眠状态下安装网关。
 * 不要在使用无线网络连接的计算机上安装网关。 否则，可能会降低性能。
 * 安装网关时，你用来登录到计算机的用户帐户必须具有“作为服务登录”权限。 安装完成后，本地数据网关服务使用 NT SERVICE\PBIEgwService 帐户作为服务登录。 可以在安装期间指定一个不同的帐户，也可以在安装完成后在“服务”中指定一个不同的帐户。 请确保组策略设置同时允许你在安装时登录的帐户以及你选择的具有“作为服务登录”权限的服务帐户。
-* 在 Azure AD 中使用与要在其中注册网关的订阅相同[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
+* 在 Azure AD 中使用与要在其中注册网关的订阅相同[租户](https://docs.microsoft.com/zh-cn/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant)的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 * 如果数据源位于 Azure 虚拟网络 (VNet) 上，则必须配置 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 服务器属性。
 
-<!-- * The (unified) gateway described here is not supported in Azure China Cloud, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. -->
+<!--MOONCAKE Not Available on * The (unified) gateway described here is not supported in Azure Germany regions. Instead, use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal.-->
 
 <a name="download"></a>
 ## <a name="download"></a>下载
 
- [下载网关](https://aka.ms/azureasgateway)
+[下载网关](https://aka.ms/azureasgateway)
+
+<!--MOONCAKE URL correct on (https://aka.ms/azureasgateway)-->
 
 <a name="install"></a>
 ## <a name="install"></a>安装
@@ -58,14 +60,14 @@ ms.locfileid: "58627017"
 
 2. 选择位置，接受条款，并单击“安装”。
 
-   ![安装位置和许可条款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
+    ![安装位置和许可条款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
 3. 登录 Azure。 该帐户必须在租户的 Azure Active Directory 中。 这是网关管理员使用的帐户。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 
-   ![登录 Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+    ![登录 Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
-   > [!NOTE]
-   > 如果使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
+    > [!NOTE]
+    > 如果使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
 
 <a name="register"></a>
 ## <a name="register"></a>注册
@@ -81,7 +83,7 @@ ms.locfileid: "58627017"
     > [!IMPORTANT]
     > 将恢复密钥保存在安全位置。 接管、迁移或还原网关时需要使用恢复密钥。 
 
-   ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+    ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 <a name="create-resource"></a>
 ## <a name="create-an-azure-gateway-resource"></a>创建 Azure 网关资源
@@ -94,17 +96,17 @@ ms.locfileid: "58627017"
 
 2. 在“创建连接网关”中，输入以下设置：
 
-   * **名称**：输入网关资源的名称。 
+    * **名称**：输入网关资源的名称。 
 
-   * **订阅**：选择要与网关资源关联的 Azure 订阅。 
+    * **订阅**：选择要与网关资源关联的 Azure 订阅。 
 
-     默认订阅取决于用来登录的 Azure 帐户。
+        默认订阅取决于用来登录的 Azure 帐户。
 
-   * **资源组**：创建资源组，或选择现有资源组。
+    * **资源组**：创建资源组，或选择现有资源组。
 
-   * **位置**：选择网关的注册区域。
+    * **位置**：选择网关的注册区域。
 
-   * **安装名称**：如果尚未选择网关安装，请选择注册的网关。 
+    * **安装名称**：如果尚未选择网关安装，请选择注册的网关。 
 
      完成后，单击“创建”。
 
@@ -113,11 +115,11 @@ ms.locfileid: "58627017"
 
 1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”。
 
-   ![将服务器连接到网关](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+    ![将服务器连接到网关](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
 2. 在“选择要连接的本地数据网关”中选择自己的网关资源，并单击“连接选定网关”。
 
-   ![将服务器连接到网关资源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+    ![将服务器连接到网关资源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
     > 如果列表中不显示你的网关，很可能是你的服务器与你注册网关时指定的区域不在同一个区域。 

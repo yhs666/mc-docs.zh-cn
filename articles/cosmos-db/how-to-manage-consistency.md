@@ -5,18 +5,20 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 10/17/2018
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ab2b56be5062d9a74d844367c713453c40c5132
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 9c329707076938baf21c842572c7a1f5a8de2a16
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309110"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615234"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
 本文介绍了如何在 Azure Cosmos DB 中管理一致性级别。 你将了解如何配置默认一致性级别、替代默认一致性、手动管理会话令牌以及了解概率有限过期 (PBS) 指标。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-the-default-consistency-level"></a>配置默认一致性级别
 
@@ -36,7 +38,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 此示例创建在“中国东部”和“中国北部”区域中启用了多主数据库的一个新 Azure Cosmos DB 帐户。 默认一致性策略设置为会话。
 
-```PowerShell
+```powershell
 $locations = @(@{"locationName"="China East"; "failoverPriority"=0},
              @{"locationName"="China North"; "failoverPriority"=1})
 
@@ -50,7 +52,7 @@ $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "ipRangeFilter"=$iprangefilter;
                         "enableMultipleWriteLocations"="true"}
 
-New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -ApiVersion "2015-04-08" `
   -ResourceGroupName "myResourceGroup" `
   -Location "China East" `

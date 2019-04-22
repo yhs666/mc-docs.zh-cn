@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: d3ae7e047b9d64b60d67d3c6b93c24fe69b1f573
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6f8e85069b8a3a0532a030f91a88432f13cea72f
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625801"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529177"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
@@ -41,12 +41,12 @@ ms.locfileid: "58625801"
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 选择“创建资源” > “存储” > “存储帐户”。
   
-   <!--Not Available on - blob, file, table, queue-->
+   <!--MOONCAKE: Not Available on - blob, file, table, queue-->
   
     ![使用 Azure 门户创建 Azure 存储帐户](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 输入以下信息：
 
-    |Name|值|
+    |名称|值|
     |----|----|
     |**资源组**|选择“新建”，然后指定所选资源组的名称。 在屏幕截图中，资源组名称为 *mystorage1016rg*。 资源组是 Azure 资源的容器。 资源组方便 Azure 资源的管理。 |
     |**名称**|为存储帐户指定唯一的名称。 存储帐户名称在整个 Azure 中必须是唯一的，且仅包含小写字母和数字。 名称长度必须介于 3 到 24 个字符之间。 如果收到错误消息“存储帐户名称‘mystorage1016’已被占用”，请尝试使用“&lt;名称>存储&lt;MMDD 格式的今日日期>”，例如“johndolestorage1016”。 |
@@ -90,103 +90,101 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 
     ![Azure 资源管理器模板库](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
 4. 选择“创建” 。
-5. 选择“编辑模板”。
-  
-   <!--MOONCAKE CUSTOMIZE: Correct on Edit template-->
-  
-6. 选择“加载文件”，然后按说明加载在上部分下载的 template.json。
-7. 添加一个变量，如以下屏幕截图所示：
 
-    ```json
-        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-    ```
+    <!--MOONCAKE CUSTOMIZE: Correct on Edit template-->
+    
+5. 选择“编辑模板”。
+6. 选择“加载文件”，然后按说明加载在上部分下载的 template.json。
+7. 对模板进行以下三处更改：
+
     ![Azure Resource Manager 模板](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    此处使用了两个模板函数：`concat()` 和 `uniqueString()`。
+    - 删除“storageAccountName”参数，如上一屏幕截图所示。
+    - 添加一个名为“storageAccountName”的变量，如上一屏幕截图所示：
 
-8. 删除上面屏幕截图中突出显示的 **storageAccountName** 参数。
-9. 更新 **Microsoft.Storage/storageAccounts** 资源的 name 元素，以使用新定义的变量而不是参数：
+        ```json
+        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        ```
 
-    ```json
-    "name": "[variables('storageAccountName')]",
-    ```
+        此处使用了两个模板函数：`concat()` 和 `uniqueString()`。
 
-    最终的模板应如下所示：
+    - 更新 **Microsoft.Storage/storageAccounts** 资源的 name 元素，以使用新定义的变量而不是参数：
 
-    ```json
-    {
+        ```json
+        "name": "[variables('storageAccountName')]",
+        ```
+
+        最终的模板应如下所示：
+
+        ```json
+        {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "location": {
-                "type": "string"
-            },
-            "accountType": {
-                "type": "string"
-            },
-            "kind": {
-                "type": "string"
-            },
-            "accessTier": {
-                "type": "string"
-            },
-            "supportsHttpsTrafficOnly": {
-                "type": "bool"
-            }
+           "location": {
+               "type": "string"
+           },
+           "accountType": {
+               "type": "string"
+           },
+           "kind": {
+               "type": "string"
+           },
+           "accessTier": {
+               "type": "string"
+           },
+           "supportsHttpsTrafficOnly": {
+               "type": "bool"
+           }
         },
         "variables": {
-            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
         },
         "resources": [
-            {
-                "name": "[variables('storageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2018-07-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "accessTier": "[parameters('accessTier')]",
-                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-                },
-                "dependsOn": [],
-                "sku": {
-                    "name": "[parameters('accountType')]"
-                },
-                "kind": "[parameters('kind')]"
-            }
+           {
+               "name": "[variables('storageAccountName')]",
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-07-01",
+               "location": "[parameters('location')]",
+               "properties": {
+                   "accessTier": "[parameters('accessTier')]",
+                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               },
+               "dependsOn": [],
+               "sku": {
+                   "name": "[parameters('accountType')]"
+               },
+               "kind": "[parameters('kind')]"
+           }
         ],
         "outputs": {}
-    }
-    ```
-10. 选择“其他安全性验证” 。
+        }
+        ```
+8. 选择“其他安全性验证” 。
 
     <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
   
-11. 输入以下值：
+9. 输入以下值：
     - “部署解决方案模板”面板。
-        - **资源组**：选择“新建”，然后使用唯一的名称为资源组命名。
-        - **资源组位置**：选择资源组的位置。 例如，**中国北部**。 
+        |名称|值| |**资源组**| 选择“新建”并将你的资源组命名为一个唯一名称。| |**资源组位置**| 为资源组选择一个位置。 例如，**中国北部**。 |
     - 选择“编辑参数”，显示“参数”面板。
-        - **位置**：选择存储帐户的位置。 例如，**中国北部**。
-        - **帐户类型**：对于本快速入门，请输入 **Standard_LRS**。
-        - **种类**：对于本快速入门，请输入“StorageV2”。
-        - **访问层**：对于本快速入门，请输入“热”。
-        - **启用仅限 Https 流量**。  对于本快速入门，请选择“true”。
-        - 选择“确定” 。
+        |名称|值| |**位置**| 为存储帐户选择一个位置。 例如，**中国北部**。| |**帐户类型**| 对于本快速入门，请输入 **Standard_LRS**。| |**种类**| 对于本快速入门，请输入 **StorageV2**。| |**访问层**| 对于本快速入门，请输入 **Hot**。| |**启用仅限 Https 流量**| 对于本快速入门，请选择 **true**。|
+     - 选择“确定” 。
 
-      下面是示例部署的屏幕截图：
+        下面是示例部署的屏幕截图：
 
-      ![Azure 资源管理器模板部署](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
+        ![Azure 资源管理器模板部署](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
 
-12. 选择“查看法律条款”，然后选择“创建”。
-13. 选择“创建” 。
+10. 选择“查看法律条款”，然后选择“创建”。
+11. 选择“创建” 。
 
     <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
    
-14. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
+12. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
 
     ![Azure 资源管理器模板部署通知](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
 
-15. 从通知窗格选择“转到资源组”。 将看到类似于以下的屏幕：
+13. 从通知窗格选择“转到资源组”。 将看到类似于以下的屏幕：
 
     ![Azure 资源管理器模板部署资源组](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 

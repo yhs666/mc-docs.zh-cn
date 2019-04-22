@@ -13,12 +13,12 @@ ms.reviwer: sstein
 manager: digimobile
 origin.date: 03/13/2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 5dfa98e58a80f3ea543371c9b5424c5c5d3999d0
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 285b5f2d0a3f69b6c5b205a7066c50d6b5a6c0f0
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529325"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566315"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -56,7 +56,7 @@ Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 # Restart your powershell session with administrative access
 
 # Places Az.Sql preview cmdlets side by side with existing Az.Sql version
-Install-Module�-Name�Az.Sql�-RequiredVersion�1.1.1-preview�-AllowPrerelease
+Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
 
 # Import the Az.Sql module
 Import-Module Az.Sql -RequiredVersion 1.1.1
@@ -72,7 +72,7 @@ Get-Module Az.Sql
 
 创建弹性作业代理需要一个用作[作业数据库](sql-database-job-automation-overview.md#job-database)的数据库（S0 或更高级别）。 
 
-下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。
+*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
 
 弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 [Azure 要求](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)即可。
 

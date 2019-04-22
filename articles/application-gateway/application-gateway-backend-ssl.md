@@ -3,25 +3,25 @@ title: 在 Azure 应用程序网关上启用端到端 SSL | Microsoft Docs
 description: 此页概述应用程序网关的端到端 SSL 支持。
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: amsriva
+manager: rossort
 editor: amsriva
 ms.assetid: 3976399b-25ad-45eb-8eb3-fdb736a598c5
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 09/13/2017
+ms.date: 04/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 898c96d4539c5bdbdc7c2339867931cb0426ab90
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: da70331d123757abb30b52758c126713cf168d22
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662930"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686308"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>应用程序网关的端到端 SSL 概述
 
@@ -49,4 +49,4 @@ ms.locfileid: "52662930"
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: d2573c8ec512baabd62a4178f55f0550d886b0ac
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 04/08/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 295304dde3dae65d6847be9f4bd88da4c22b6fbb
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318906"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529367"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -26,7 +26,7 @@ ms.locfileid: "58318906"
 
 - 帮助保持合规性、了解数据库活动，以及深入了解可以指明业务考量因素或疑似安全违规的偏差和异常。
 
-- 实现并促进遵从合规标准，但不能保证合规性。 有关支持标准法规的 Azure 计划的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)。
+- 实现并促进遵从合规标准，但不能保证合规性。 有关支持标准符合性的 Azure 程序的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/compliance/)，可以从中找到 SQL 数据库符合性认证的最新列表。
 
 
 > [!NOTE] 
@@ -104,7 +104,7 @@ ms.locfileid: "58318906"
 ## <a id="subheading-3"></a>分析审核日志和报告
 如果选择将审核日志写入到 Azure 存储帐户，可以使用多种方法来查看日志：
 
-- 审核日志会在安装期间选择的帐户中进行聚合。 可使用 [Azure 存储资源管理器](http://storageexplorer.com/)等工具浏览审核日志。 在 Azure 存储中，审核日志以 Blob 文件集合的形式保存在名为 **sqldbauditlogs** 的容器中。 有关存储文件夹层次、命名约定和日志格式的详细信息，请参阅 [Blob 审核日志格式参考](https://go.microsoft.com/fwlink/?linkid=829599)。
+- 审核日志会在安装期间选择的帐户中进行聚合。 可使用 [Azure 存储资源管理器](https://storageexplorer.com/)等工具浏览审核日志。 在 Azure 存储中，审核日志以 Blob 文件集合的形式保存在名为 **sqldbauditlogs** 的容器中。 有关存储文件夹层次、命名约定和日志格式的详细信息，请参阅 [Blob 审核日志格式参考](https://go.microsoft.com/fwlink/?linkid=829599)。
 
 - 使用 [Azure 门户](https://portal.azure.cn)。  打开相关数据库。 在数据库的“审核”页的顶部，单击“查看审核日志”。
 
@@ -131,7 +131,7 @@ ms.locfileid: "58318906"
     4. 合并的文件会在 SSMS 中打开，可在其中进行查看和分析，以及将其作为 XEL 或 CSV 文件导出或导出到表中。
 
 - 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 如需详细信息并访问可下载的模板，请参阅[在 Power BI 中分析审核日志数据](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/)。
-- 通过门户或使用 [Azure 存储资源管理器](http://storageexplorer.com/)等工具从 Azure 存储 blob 容器下载日志文件。
+- 通过门户或使用 [Azure 存储资源管理器](https://storageexplorer.com/)等工具从 Azure 存储 blob 容器下载日志文件。
   - 在本地下载日志文件后，可双击打开文件，然后在 SSMS 中查看和分析日志。
   - 也可通过 Azure 存储资源管理器同时下载多个文件。 为此，请右键单击特定子文件夹，然后选择“另存为”，以便在本地文件夹中进行保存。
 
@@ -140,7 +140,6 @@ ms.locfileid: "58318906"
   - 下载多个文件或包含日志文件的子文件夹后，可以按照前述 SSMS 合并审核文件说明在本地合并它们。
   - 以编程方式查看 blob 审核日志：
 
-    - 使用[扩展事件读取器](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# 库。
     - 使用 PowerShell [查询扩展事件文件](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)。
 
 ## <a id="subheading-5"></a>生产做法
@@ -223,6 +222,9 @@ ms.locfileid: "58318906"
 可以使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)模板管理 Azure SQL 数据库审核，如以下示例中所示：
 
 - [部署启用了审核的 Azure SQL Server，以将审核日志写入 Azure Blob 存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> 链接的示例在外部公共存储库上并且“按现样”提供，不提供任何担保，并非在任何 Azure 支持计划/服务下都受支持。
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

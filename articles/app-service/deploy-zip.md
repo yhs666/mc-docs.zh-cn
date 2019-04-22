@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/07/2018
-ms.date: 01/21/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: b8f323312fa3efbf630d2d7931d893bfa6f564b1
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 59a43494fa23d8e665a3cc36dc33048395200e1e
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083660"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355851"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
@@ -32,6 +32,7 @@ ms.locfileid: "54083660"
 - 启用默认生成过程的选项，包括包还原。
 - [部署自定义](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings)，包括运行部署脚本。  
 - 部署日志。 
+- 文件大小上限是 512 MB。
 
 有关详细信息，请参阅 [Kudu 文档](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。
 
@@ -119,4 +120,4 @@ Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64A
 ## <a name="more-resources"></a>更多资源
 
 * [Kudu：从 zip 文件部署](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
-* [ 部署凭据](deploy-ftp.md)
+* [Azure 应用服务部署凭据](deploy-ftp.md)

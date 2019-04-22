@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 02/18/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 1e171d09806366c3cacf9855e4f6c9c5ab78798e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9ccd39a7277adc521d216aa5df1f5163faab5909
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625943"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529430"
 ---
 <!-- Verify Successfully-->
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板部署虚拟机扩展
@@ -70,17 +70,17 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 若要打开该文件，请选择“打开”。  
     该模板定义五个资源：
 
-   * `Microsoft.Storage/storageAccounts`。 
-   * `Microsoft.Network/publicIPAddresses`。 
-   * `Microsoft.Network/virtualNetworks`。 
-   * `Microsoft.Network/networkInterfaces`。 
-   * `Microsoft.Compute/virtualMachines`。 
+    * `Microsoft.Storage/storageAccounts`。 
+    * `Microsoft.Network/publicIPAddresses`。 
+    * `Microsoft.Network/virtualNetworks`。 
+    * `Microsoft.Network/networkInterfaces`。 
+    * `Microsoft.Compute/virtualMachines`。 
     
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworks)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/networkinterfaces)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
 
      在自定义模板之前，不妨对其进行一些基本的了解。
 
@@ -89,6 +89,16 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 ## <a name="edit-the-template"></a>编辑模板
 
 将虚拟机扩展资源添加到包含以下内容的现有模板：
+
+> [!NOTE]
+> 你应当创建一个新的存储帐户，使其包含名为 **usescriptextensions** 的 blob 容器，并将 [**installWebServer.ps1**](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1) 文件上传到它。
+> fileUris 部分看起来类似于以下格式：
+> ```
+> "fileUris": [
+>    "https://<your-storage-account>.blob.core.chinacloudapi.cn/usescriptextensions/installWebServer.ps1"`
+> ],
+> ```
+    
 
 ```json
 {
@@ -106,7 +116,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://<your-storage-account>.blob.core.chinacloudapi.cn/usescriptextensions/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -119,7 +129,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 下面是一些重要元素：
 
-* **name**：由于扩展资源是虚拟机对象的子资源，因此其名称必须有虚拟机名称前缀。 请参阅[子资源](./resource-manager-templates-resources.md#child-resources)。
+* **name**：由于扩展资源是虚拟机对象的子资源，因此其名称必须有虚拟机名称前缀。 请参阅[子资源](./resource-group-authoring-templates.md#child-resources)。
 * **dependsOn**：在创建虚拟机以后创建扩展资源。
 * **fileUris**：存储脚本文件的位置。 如果不使用提供的位置，则需更新这些值。
 * **commandToExecute**：此命令调用脚本。  
@@ -132,9 +142,9 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 1. 在 Azure 门户中选择 VM。
 1. 在 VM 概述中，选择“单击进行复制”复制 IP 地址，并将其粘贴到浏览器标签页中。  
-   此时会打开默认的 Internet Information Services (IIS) 欢迎页：
+    此时会打开默认的 Internet Information Services (IIS) 欢迎页：
 
-![Internet Information Services 欢迎页](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+    ![Internet Information Services 欢迎页](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

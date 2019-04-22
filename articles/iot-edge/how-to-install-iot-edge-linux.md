@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 03/25/2019
+origin.date: 03/21/2019
+ms.date: 04/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 48c9c3e1f60b0139d860d8dfc235ec4600c8e346
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: b7c8e06006b2369e5ca31852665371d142f5b478
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988052"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529437"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux 上安装 Azure IoT Edge 运行时 (x64)
 
@@ -23,7 +23,7 @@ ms.locfileid: "57988052"
 
 若要了解详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-本文列出了在 Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
+本文列出了在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
 
 >[!NOTE]
 >Linux 软件存储库中的包受到每个包中的许可条款限制 (/usr/share/doc/*package-name*)。 使用程序包之前请阅读许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用包。
@@ -33,12 +33,21 @@ ms.locfileid: "57988052"
 准备设备，以便安装 IoT Edge 运行时。
 
 
-安装存储库配置。 根据 Ubuntu 的版本，将 **\<release\>** 替换为 **16.04** 或 **18.04**。
+安装存储库配置。 根据你的 Ubuntu 版本选择合适的 **16.04** 或 **18.04** 代码片段：
 
+> [!NOTE]
+> 确保根据你的 Ubuntu 版本从正确的代码框中选择代码片段。
+
+* 对于 **Ubuntu 16.04**：
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
 
+* 对于 **Ubuntu 18.04**：
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
 复制生成的列表。
 
    ```bash

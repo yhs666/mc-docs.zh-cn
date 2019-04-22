@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 03/15/2019
+ms.date: 04/09/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f93b037bc6ed79e212568d808dddaaa6a974fe
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 47e299e8cb0c67758830f86e7f9d57dd73f5287f
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186653"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355873"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect：从 DirSync 升级
 Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 DirSync 升级的方式。 这些步骤不适用于从另一个版本的 Azure AD Connect 或从 Azure AD Sync 升级。
 
 开始安装 Azure AD Connect 之前，确保[下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)，并完成 [Azure AD Connect：硬件和先决条件](how-to-connect-install-prerequisites.md)。 特别是，请阅读以下内容，因为其中描述了与 DirSync 不同的方面：
 
-* .Net 和 PowerShell 的要求版本。 服务器上的版本应高于 DirSync 要求的版本。
+* 必需的 .NET 和 PowerShell 版本。 服务器上的版本应高于 DirSync 要求的版本。
 * 代理服务器配置。 如果使用代理服务器连接 Internet，则必须在升级之前配置该设置。 DirSync 始终使用安装时为用户配置的代理服务器，但是 Azure AD Connect 使用计算机设置。
 * 代理服务器中需要打开的 URL。 就基本方案来说，DirSync 也支持这些方案，要求相同。 如果要使用 Azure AD Connect 的一些新功能，则必须打开一些新 URL。
 
@@ -40,7 +40,7 @@ Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 D
 根据当前的 DirSync 部署，可以使用不同的升级选项。 如果升级时间预计少于 3 小时，建议进行就地升级。 如果升级时间预计超过 3 小时，建议在另一台服务器上进行并行部署。 如果对象数超过 50,000 个，预计需要 3 个多小时才能完成升级。
 
 | 方案 |
-| --- | --- |
+| --- |
 | [就地升级](#in-place-upgrade) |
 | [并行部署](#parallel-deployment) |
 
@@ -219,4 +219,4 @@ Azure AD Connect 现在是活动服务器，用户不得切换回去使用现有
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 origin.date: 05/15/2018
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: ba89f802efd99ba2dbd74ef5e17cef3b15d5489a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a969e8f40d0c981092f2aa511ba513cb86328426
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626578"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686353"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端配置应用程序网关
 
@@ -29,7 +29,7 @@ ms.locfileid: "58626578"
 > * 使用证书创建应用程序网关
 > * 创建用作后端服务器的虚拟机
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -185,4 +185,3 @@ Export-PfxCertificate `
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
-<!-- Update_Description: code update -->

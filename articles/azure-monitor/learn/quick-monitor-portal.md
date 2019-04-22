@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: a6281023ebb32a2c70a42c8c0e8f6cbdcd8b3dc0
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: d270457446906aabbe8903817c0499cccf883b37
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440855"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566348"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>开始监视 ASP.NET Web 应用程序
 
@@ -61,21 +61,21 @@ Application Insights 收集应用程序的遥测数据，而不考虑应用程�
 
 现在可以在 Azure 门户中打开 Application Insights，查看有关正在运行的应用程序的各种详细信息。
 
-1. 在解决方案资源管理器中右键单击“连接的服务 Application Insights”文件夹，然后单击“打开 Application Insights 门户”。  可以看到有关应用程序的一些信息和各种选项。
+1. 在解决方案资源管理器中展开“连接的服务”文件夹（云和插头图标），然后右键单击 **Application Insights** 文件夹，单击“打开 Application Insights 门户”。  可以看到有关应用程序的一些信息和各种选项。
 
-    ![应用程序地图](media/quick-monitor-portal/overview-001.png)
+    ![应用程序地图](media/quick-monitor-portal/4overview.png)
 
 2. 单击“应用程序映射”以获取应用程序组件之间依赖关系的可视布局。  每个组件均显示 KPI，如负载、性能、失败和警报。
 
-    ![应用程序地图](media/quick-monitor-portal/application-map-001.png)
+    ![应用程序地图](media/quick-monitor-portal/5appmap.png)
 
-3. 单击应用程序组件之一上的“应用分析”图标 ![应用程序映射](media/quick-monitor-portal/app-analytics-icon.png)。  这将打开“Application Insights Analytics”，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。  在本示例中，将生成以图表形式呈现请求计数的查询。  可以编写自己的查询来分析其他数据。
+3. 单击应用程序组件之一上的“应用分析”图标 ![应用程序映射](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中查看**。 这将打开“Application Insights Analytics”，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。  在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
 
-    ![分析](media/quick-monitor-portal/analytics.png)
+    ![分析](media/quick-monitor-portal/6viewanalytics.png)
 
-4. 返回到“概述”页，单击“实时流”。  这将显示有关正在运行的应用程序的实时统计信息。  这包括传入请求数、这些请求的持续时间和发生的任何故障等信息。  还可以检查处理器和内存等关键性能指标。
+4. 在“调查”下，单击左侧的“实时指标流”。 这将显示有关正在运行的应用程序的实时统计信息。 这包括传入请求数、这些请求的持续时间和发生的任何故障等信息。 还可以检查处理器和内存等关键性能指标。
 
-    ![实时流](media/quick-monitor-portal/live-stream.png)
+    ![实时流](media/quick-monitor-portal/7livemetrics.png)
 
     如果已准备好在 Azure 中托管应用程序，则可以立即发布它。 按照[创建 ASP.NET Web 应用快速入门](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy)中所述的步骤进行操作。
 

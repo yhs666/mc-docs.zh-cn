@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/24/2018
-ms.date: 03/12/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7fbf75c0623e7f68680f6cfe4bc15c3026779b1d
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: ee01e30a52d7a2f16c344077a63bbaab68b7f7c7
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788710"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686468"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持外部重定向的应用程序网关
 
@@ -29,7 +29,7 @@ ms.locfileid: "57788710"
 > * 创建侦听器和重定向规则
 > * 创建应用程序网关
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -170,4 +170,3 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](./application-gateway-introduction.md)
 
-<!-- Update_Description: code and links update -->

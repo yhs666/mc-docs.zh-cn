@@ -13,12 +13,12 @@ ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 03/12/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 5041175cabb998d4d05e039e3e2cd1520136f976
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: b9c783dc1904428a590fff9a14d4c7ead3ac0776
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003519"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529248"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
@@ -66,14 +66,19 @@ ms.locfileid: "59003519"
 | [所有指标](#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、物理数据读取百分比、日志写入百分比、成功/失败/防火墙阻止的连接数、会话百分比、辅助角色百分比、存储、存储百分比和 XTP 存储百分比。 | 是 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含有关查询运行时统计信息的信息，例如 CPU 使用率、查询持续时间统计信息。 | 是 |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含有关查询等待统计信息的信息（查询正在等待什么），例如 CPU、日志和锁定。 | 是 |
-| [Errors](#errors-dataset):包含有关数据库发生的 SQL 错误的信息。 | 是 |
+| [错误](#errors-dataset)：包含有关数据库发生的 SQL 错误的信息。 | 是 |
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含有关数据库针对不同等待类型花费多少时间等待的信息。 | 是 |
 | [Timeouts](#time-outs-dataset)：包含有关数据库发生的超时的信息。 | 是 |
 | [Blocks](#blockings-dataset)：包含有关数据库发生的阻塞事件的信息。 | 是 |
-| [SQLInsights](#intelligent-insights-dataset)：包含性能的智能见解。 有关详细信息，请参阅[智能见解](sql-database-intelligent-insights.md)。 | 是 |
+| [死锁数](#deadlocks-dataset)：包含有关数据库发生的死锁事件的信息。 | 是 |
+| [AutomaticTuning](#automatic-tuning-dataset)：包含有关数据库的自动优化建议的信息。 | 是 |
+| [SQLInsights](#intelligent-insights-dataset)：包含针对数据库性能的智能见解。 有关详细信息，请参阅[智能见解](sql-database-intelligent-insights.md)。 | 是 |
 
 > [!IMPORTANT]
 > 弹性池将自己的诊断遥测数据与所包含的数据库隔开。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
+
+> [!NOTE]
+> 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
 
 ## <a name="azure-portal"></a>Azure 门户
 
@@ -85,7 +90,7 @@ ms.locfileid: "59003519"
 
 若要为单一数据库或入池数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 转到 Azure SQL 数据库资源。
+1. 转到 Azure **SQL 数据库**资源。
 1. 选择“诊断设置”。
 1. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置
    - 最多可以创建三个并行连接用于流式传输诊断遥测数据。
@@ -93,14 +98,13 @@ ms.locfileid: "59003519"
 
    ![为单一数据库或入池数据库启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 输入设置名称供自己参考。
-1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”或“流式传输到事件中心”。
+1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”或“发送到 Log Analytics”。
 1. 选中数据库诊断日志遥测对应的以下复选框：“SQLInsights”、“AutomaticTuning”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”、“Errors”、“DatabaseWaitStatistics”、“Timeouts”、“Blocks”和“Deadlocks”。
 1. 选择“其他安全性验证” 。
-
-   ![为单一数据库或入池数据库配置诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+1. 针对要监视的每个数据库重复上述步骤。
 
 > [!NOTE]
-> 无法从数据库诊断设置启用安全审核日志。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
+> 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
 > [!TIP]
 > 针对要监视的每个 Azure SQL 数据库重复上述步骤。
 
@@ -282,7 +286,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 
 ## <a name="metrics-and-logs-available"></a>可用的指标和日志
 
-收集的监视遥测数据可用于你自己的_自定义分析_，并结合 [SQL Analytics 语言](/azure-monitor/log-query/get-started-queries)用于_应用程序开发_。
+下面记录了为 Azure SQL 数据库提供的监视遥测数据。 可以使用 [Azure Monitor 日志查询](/azure-monitor/log-query/get-started-queries)语言将在 SQL Analytics 内收集的监视遥测数据用于你自己的自定义分析和应用程序开发。
 
 ## <a name="all-metrics"></a>所有指标
 
@@ -290,7 +294,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 
 ### <a name="all-metrics-for-azure-sql-databases"></a>Azure SQL 数据库的所有指标
 
-|**资源**|**指标**|
+|**资源**|**度量值**|
 |---|---|
 |Azure SQL 数据库|DTU 百分比、已用 DTU、DTU 限制、CPU 百分比、物理数据读取百分比、日志写入百分比、成功/失败/防火墙阻止的连接数、会话百分比、辅助角色百分比、存储、存储百分比、XTP 存储百分比和死锁 |
 

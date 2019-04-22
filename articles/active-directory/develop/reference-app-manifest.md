@@ -14,16 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/18/2018
-ms.date: 02/14/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 7b807e4ce1c644f6f92cdd23206ef3170a2d2c21
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 625df998975065c2ff35b5130e2846acc28403c2
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262180"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243685"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 应用清单
 
@@ -31,17 +32,17 @@ ms.locfileid: "56262180"
 
 可以通过 Azure 门户或者使用 Microsoft Graph 以编程方式配置应用的属性。 但是，在某些情况下，需要编辑应用清单来配置应用的属性。 这些方案包括：
 
-- 如果已将应用注册为 Azure AD 多租户和个人 Microsoft 帐户，则不能在 UI 中更改支持的 Microsoft 帐户。 而是必须使用应用程序清单编辑器来更改支持的帐户类型。
-- 如果需要定义你的应用支持的权限和角色，则必须修改应用程序清单。
+* 如果已将应用注册为 Azure AD 多租户和个人 Microsoft 帐户，则不能在 UI 中更改支持的 Microsoft 帐户。 而是必须使用应用程序清单编辑器来更改支持的帐户类型。
+* 如果需要定义你的应用支持的权限和角色，则必须修改应用程序清单。
 
 ## <a name="configure-the-app-manifest"></a>配置应用清单
 
 若要配置应用程序清单，请执行以下操作：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 选择“Azure Active Directory”服务，然后选择“应用注册”。
-1. 选择要配置的应用。
-1. 选择“清单”部分。 此时会打开一个基于 Web 的清单编辑器，可在其中编辑门户中的清单。 （可选）可以选择“下载”以在本地编辑清单，然后使用“上传”将清单重新应用于应用程序。
+2. 选择“Azure Active Directory”服务，然后选择“应用注册”。
+3. 选择要配置的应用。
+4. 选择“清单”部分。 此时会打开一个基于 Web 的清单编辑器，可在其中编辑门户中的清单。 （可选）可以选择“下载”以在本地编辑清单，然后使用“上传”将清单重新应用于应用程序。
 
 ## <a name="manifest-reference"></a>清单参考
 
@@ -77,10 +78,18 @@ ms.locfileid: "56262180"
 | `signInAudience` | 字符串 | 指定当前应用程序支持哪些 Microsoft 帐户。 支持的值是：<ul><li>**AzureADMyOrg** - 在我的组织的 Azure AD 租户（即，单租户）中具有 Microsoft 工作或学校帐户的用户</li><li>**AzureADMultipleOrgs** - 在任何组织的 Azure AD 租户（即，多租户）中具有 Microsoft 工作或学校帐户的用户</li> <li>**AzureADandPersonalMicrosoftAccount** - 在任何组织的 Azure AD 租户中具有个人 Microsoft 帐户、工作或学校帐户的用户</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | 字符串数组 | 可用来对应用程序进行分类和标识的自定义字符串。 | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
+
+## <a name="manifest-limits"></a>清单限制
+应用程序清单包含多个称为集合的属性，例如 approles、keycredentials、knownClientApplications、identifierUris、rediretUris、requiredResourceAccess、oauth2Permissions，等等。 在任一应用程序的完整应用程序清单中，所有合并集合中的条目总数不能超过 1200 个。 如果已在应用程序清单指定了 100 个重定向 URI，则在构成该清单的其他所有合并集合中，只剩下 1100 个条目可供使用。
+
+> [!NOTE]
+> 如果尝试在应用程序清单中添加 1200 个以上的条目， 可能会收到错误 **“无法更新应用程序 xxxxxx”。错误详细信息: 清单大小已超过其限制。请减少值数，然后重试请求。**”
+
+
 ## <a name="next-steps"></a>后续步骤
 
-- 有关应用的应用程序对象与服务主体对象之间关系的详细信息，请参阅 [Azure AD 中的应用程序对象和服务主体对象](app-objects-and-service-principals.md)。
-- 请参阅[Azure AD 开发人员术语表](developer-glossary.md)了解 Azure Active Directory (AD) 开发人员某些核心概念的定义。
+* 有关应用的应用程序对象与服务主体对象之间关系的详细信息，请参阅 [Azure AD 中的应用程序对象和服务主体对象](app-objects-and-service-principals.md)。
+* 请参阅[Azure AD 开发人员术语表](developer-glossary.md)了解 Azure Active Directory (AD) 开发人员某些核心概念的定义。
 
 使用以下评论部分提供反馈，帮助我们改进和组织内容。
 

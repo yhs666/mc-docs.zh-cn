@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 95d958f00fffb9d75fef008230a03d77da19ccad
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/15/2019
+ms.openlocfilehash: 45f2f1749bedc8ba77cc3e5ea8285dd000063f1b
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663489"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529388"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>使用 Azure 门户重启 Azure Database for MySQL 服务器
 
@@ -27,7 +27,7 @@ ms.locfileid: "56663489"
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本操作指南，需要：
-- [Azure Database for MySQL 服务器和数据库](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>执行服务器重启
 
@@ -41,15 +41,15 @@ ms.locfileid: "56663489"
 
 3. 单击“是”以确认重启服务器。
 
-   ![Azure Database for MySQL - 重启确认 ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database for MySQL - 重启确认](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. 观察到服务器状态更改为“正在重启”。
 
-   ![Azure Database for MySQL - 重启状态 ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for MySQL - 重启状态](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. 确认服务器重启成功。
 
-   ![Azure Database for MySQL - 重启成功 ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for MySQL - 重启成功](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>后续步骤
 

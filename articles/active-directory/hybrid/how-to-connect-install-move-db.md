@@ -3,20 +3,21 @@ title: 将 Azure AD Connect 数据库从 SQL Server Express 移到 SQL Server。
 description: 本文档介绍如何将 Azure AD Connect 数据库从本地 SQL Server Express 服务器移到远程 SQL Server。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 03/19/2018
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: a379631b119d59071414dfc9a609762a0eec8e39
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1e245157d559f75e7774e74a4cdd4d7cbcac03cc
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626021"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355858"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>将 Azure AD Connect 数据库从 SQL Server Express 移到 SQL Server 
 
@@ -31,7 +32,7 @@ ms.locfileid: "58626021"
 请执行以下步骤，将 Azure AD Connect 数据库移到远程 SQL Server。
 
 1. 在 Azure AD Connect 服务器上转到“服务”，然后停止 **Azure AD Sync** 服务。
-2. 找到 **%Program Files%\Azure AD Sync/Data/** 文件夹，将 **ADSync.mdf** 和 **ADSync_log.mdf** 文件复制到远程 SQL Server。
+2. 找到 **%Program Files%\Azure AD Sync/Data/** 文件夹，将 **ADSync.mdf** 和 **ADSync_log.ldf** 文件复制到远程 SQL Server。
 3. 在 Azure AD Connect 服务器上重启 **Azure AD Sync** 服务。
 4. 转到“控制面板”>“程序”>“程序和功能”，以便卸载 Azure AD Connect。  选择“Azure AD Connect”，然后单击顶部的“卸载”。
 5. 在远程 SQL Server 上，打开 SQL Server Management Studio。
@@ -42,7 +43,7 @@ ms.locfileid: "58626021"
 8. 附加数据库以后，请返回到 Azure AD Connect 服务器并安装 Azure AD Connect。
 9. MSI 安装完成后，将启动 Azure AD Connect 向导，进入快速模式安装。 单击“退出”图标关闭屏幕。
    ![欢迎使用](./media/how-to-connect-install-move-db/db1.png)
-10. 启动新的命令提示符或 PowerShell 会话。 导航到 <drive>\program files\Azure AD Connect 文件夹。 运行命令 .\AzureADConnect.exe /useexistingdatabase，在“使用现有数据库”安装模式下启动 Azure AD Connect 向导。
+10. 启动新的命令提示符或 PowerShell 会话。 导航到 \<drive>\program files\Azure AD Connect 文件夹。 运行命令 .\AzureADConnect.exe /useexistingdatabase，在“使用现有数据库”安装模式下启动 Azure AD Connect 向导。
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. 出现“欢迎使用 Azure AD Connect”屏幕。 同意许可条款和隐私声明后，单击“继续”。
     ![欢迎使用](./media/how-to-connect-install-move-db/db3.png)
@@ -53,7 +54,7 @@ ms.locfileid: "58626021"
     ![连接](./media/how-to-connect-install-move-db/db5.png)
  
 14. 在“连接目录”屏幕上，为目录同步配置的现有 AD 林旁边显示有红色十字图标。 若要同步本地 AD 林中的更改，需要 AD DS 帐户。 Azure AD Connect 向导无法检索存储在 ADSync 数据库中的 AD DS 帐户凭据，因为凭据已加密，只能由先前的 Azure AD Connect 服务器进行解密。 单击“更改凭据”为 AD 林指定 AD DS 帐户。
-    ![Directories](./media/how-to-connect-install-move-db/db6.png)
+    ![目录](./media/how-to-connect-install-move-db/db6.png)
  
  
 15. 在弹出对话框中，可以 (i) 提供企业管理员凭据，并让 Azure AD Connect 为你创建 AD DS 帐户，或 (ii) 自行创建 AD DS 帐户，并将其凭据提供给 Azure AD Connect。 选择一个选项并提供必要凭据后，单击“确定”关闭弹出对话框。
@@ -77,3 +78,4 @@ ms.locfileid: "58626021"
 - [使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md)
 
 
+<!-- Update_Description: wording update -->

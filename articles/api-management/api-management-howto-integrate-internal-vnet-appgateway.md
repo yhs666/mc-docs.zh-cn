@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2018
 ms.author: sasolank
-ms.date: 04/08/2019
-ms.openlocfilehash: 150757a592f2256429a77dd51ea8233522913d7d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: e586076c253f0e2723da50ef6acd9ddc6f903f6a
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627522"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529115"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -52,7 +52,7 @@ ms.locfileid: "58627522"
 
 本文介绍如何对内部和外部使用者使用单个 API 管理服务，并使其充当本地和云 API 的单一前端。 另外，它还介绍了如何使用应用程序网关中提供的路由功能，仅公开一部分 API（在示例中以绿色突出显示）供外部使用。
 
-在第一个设置示例中，只能从虚拟网络内部管理所有 API。 内部使用者（以橙色突出显示）可以访问所有内部和外部 API。 流量永远不会外发到 Internet，并且可以通过 Express Route 线路提供较高的性能。
+在第一个设置示例中，只能从虚拟网络内部管理所有 API。 内部使用者（以橙色突出显示）可以访问所有内部和外部 API。 流量永远不会外发到 Internet。 将通过 Express Route 线路提供高性能连接。
 
 ![url 路由](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 

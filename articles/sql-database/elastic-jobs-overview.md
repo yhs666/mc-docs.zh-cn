@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 manager: digimobile
 origin.date: 12/18/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 3cdab61b1e80f4ed914002f155ac0fd804211211
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/15/2019
+ms.openlocfilehash: 81e4c38d36efd76a72bfcbbf5efd28b760ab4e5d
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663766"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529240"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>创建、配置和管理弹性作业
 
@@ -76,6 +76,8 @@ ms.locfileid: "56663766"
 ### <a name="prevent-jobs-from-reducing-target-database-performance"></a>防止作业降低目标数据库性能
 
 若要确保针对 SQL 弹性池中的数据库运行作业时资源不会超负荷，可以对作业进行配置，限制可以在同一时间对其运行作业的数据库数。
+
+通过在 T-SQL 中设置 `sp_add_jobstep` 存储过程的 `@max_parallelism` 参数，或者通过在 PowerShell 中设置 `Add-AzSqlElasticJobStep -MaxParallelism`，来设置作业运行的并发数据库数。
 
 ## <a name="best-practices-for-creating-jobs"></a>创建作业的最佳做法
 

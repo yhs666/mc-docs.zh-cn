@@ -5,27 +5,22 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c02df00dc58c88f1d8775891721b60ac2b42729
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: c5b2ea8c058089066ec0a59d5cb6eef974ac6a53
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085659"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529208"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 
-“兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 兼容性级别的更改通常与 SQL Server 主要版本一致。 还会在 Azure Analysis Services 中实现这些更改，以保持平台间的奇偶校验。 兼容性级别更改还会影响表格模型中的可用功能。 例如，DirectQuery 和表格对象元数据的实现因兼容性级别而异。 在 Visual Studio (SSDT) 的表格模型项目中指定兼容性级别。 从 Power BI Desktop 中创建和导入的表格模型的兼容级别仅为 1400。
+“兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 兼容性级别的更改通常与 SQL Server 主要版本一致。 还会在 Azure Analysis Services 中实现这些更改，以保持平台间的奇偶校验。 兼容性级别更改还会影响表格模型中的可用功能。 例如，DirectQuery 和表格对象元数据的实现因兼容性级别而异。 在 Visual Studio (SSDT) 的表格模型项目中指定兼容性级别。
 
-Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。 
-
-<!--Not Available on Level 1465-->
-<!--Not Available on [Import a Power BI Desktop file](analysis-services-import-pbix.md)-->
-
-最新兼容性级别是 1400。 此级别与 SQL Server 2017 Analysis Services 一致。 1400 兼容性级别中的主要功能包括：
+Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。 最新兼容性级别是 1400。 此级别与 SQL Server 2017 Analysis Services 一致。 1400 兼容性级别中的主要功能包括：
 
 *  新功能用于在 TOM API 和 TMSL 脚本的支持下连接和导入数据。 
 *  通过使用“获取数据”和 M 表达式实现数据转换和数据混合功能。
@@ -33,6 +28,9 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
 *  表和列名称，以及其中数据的对象级别安全性。
 *  不规则层次结构的增强支持。
 *  性能和监视改进。
+
+
+<!--Not Available on Level 1465-->
 
 ## <a name="set-compatibility-level"></a>设置兼容性级别
 
@@ -54,9 +52,10 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
 
  此属性指定在服务器上运行的数据库的最高兼容性级别（包括预览版）。 不可更改支持的兼容性级别。  
 
-## <a name="next-steps"></a>后续步骤
+> [!NOTE]
+> 在 SSMS 中，当连接到 Azure Analysis Services 服务器时，“支持的兼容性级别”属性将显示 **1200**。 这是一个已知问题，将在即将发布的 SSMS 更新中解决。 在解决后，此属性将显示所支持的最高兼容性级别。
 
-<!-- Not Available on [Create a model in Azure portal](analysis-services-create-model-portal.md)-->
+## <a name="next-steps"></a>后续步骤
 
 [管理 Analysis Services](analysis-services-manage.md)
 

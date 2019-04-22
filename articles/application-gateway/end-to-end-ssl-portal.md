@@ -6,15 +6,15 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 169ea940915162f5f65864a27e791514e3fd430f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 37f3510e065d91a8385638046ca100dbd12235eb
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628605"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686359"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>在门户中使用应用程序网关配置端到端 SSL
 

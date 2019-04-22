@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 02/14/2019
-ms.date: 03/25/2019
+origin.date: 04/01/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 61e6d4dc5df493bbf1d3075180af4898afb45fcc
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 0e691001d32c781a7200386bc277df9a2d0d99d6
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348128"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529386"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -40,9 +40,9 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 可在基本层和标准层中使用 Azure Analysis Services。 每个层中的计划成本因处理能力、QPU 数和内存大小而异。 创建服务器时，会在层内选择计划。 可以在同一层内上下更改计划，或者升级到更高的层，但不能从较高的层降级到较低的层。
 
-<!-- Not Available on **Developer** -->
+<!--MOONCAKE Not Available on **Developer** -->
 
-<!-- Not Available on ### Developer tier-->
+<!--MOONCAKE Not Available on ### Developer tier-->
 ### <a name="basic-tier"></a>基本层
 
 建议在具有小型表格模型的生产解决方案、限制用户并发性和要求简单数据刷新的场合下使用该层。 查询副本横向扩展不适用于此层。 此层不支持透视图、多个分区和 DirectQuery 表格模型功能。  
@@ -63,17 +63,21 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
 
-<!--Notice: Standared tier from S0,S1,S2,S4 in Mooncake-->
+<!--MOONCAKE Notice: Standared tier from S0,S1,S2,S4-->
+<!--MOONCAKE: Available on China East 2 and China North regions-->
 
 ## <a name="availability-by-region"></a>按区域列出的可用性
 
-在中国，“中国北部”区域目前支持 Azure Analysis Services。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
+在中国，Azure Analysis Services 目前在“中国东部 2”和“中国北部”区域受支持。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
 
 ### <a name="china"></a>中国
 
 |区域  | 支持的计划 |查询副本（仅限标准计划） |
 |---------|---------|---------|
+|中国东部 2    |    B1, B2, S0, S1, S2, S4    | 1 |
 |中国北部     |    B1, B2, S0, S1, S2, S4    | 1 |
+
+<!--MOONCAKE: Available on China East 2 and China North regions-->
 <!--Notice: Standared tier from S0,S1,S2,S4 in Mooncake-->
 
 ## <a name="scale-to-your-needs"></a>按需求缩放
@@ -111,6 +115,11 @@ DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 �
 Azure Analysis Services 中的表格模型支持各种数据源：从简单的文本文件到大数据。 若要了解详细信息，请参阅 [Azure Analysis Services 中支持的数据源](analysis-services-datasource.md)。
 
 <!-- Not Available on Azure Data Lake Store-->
+
+## <a name="compatibility-level"></a>兼容性级别
+
+“兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 Azure Analysis Services 支持 1200 和更高兼容级别的表格模型。 若要了解详细信息，请参阅 [Analysis Services 表格模型的兼容性级别](analysis-services-compat-level.md)。
+
 
 ## <a name="your-data-is-secure"></a>数据是安全的
 
@@ -163,7 +172,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ### <a name="visual-studio"></a>Visual Studio
 
-使用免费的[适用于 Visual Studio 的 SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) 开发和部署模型。 SSDT 包括适用于快速入门的 Analysis Services 项目模板。 SSDT 现在包括适用于表格 1400 模型的新式“获取数据”数据源查询和混合功能。 如果熟悉 Power BI Desktop 和 Excel 2016 中的“获取数据”功能，则已知道创建高度自定义的数据源查询很容易。 
+使用免费的[适用于 Visual Studio 的 SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 开发和部署模型。 SSDT 包括适用于快速入门的 Analysis Services 项目模板。 SSDT 现在包括适用于表格 1400 模型的新式“获取数据”数据源查询和混合功能。 如果熟悉 Power BI Desktop 和 Excel 2016 中的“获取数据”功能，则已知道创建高度自定义的数据源查询很容易。 
 
 如果使用 Visual Studio 2017，则会以免费可安装 VSIX 包的形式提供 Azure Analysis Services 项目。 [从市场下载](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)。
 
@@ -177,7 +186,9 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ### <a name="object-model-and-scripting"></a>对象模型和脚本
 
-表格模型提供快速开发功能，其自定义程度可以很高。 表格模型包括用于描述模型对象的[表格对象模型](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 通过[表格模型脚本语言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 在 JSON 中公开，通过 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 命名空间在 AMO 数据定义语言中公开。 
+表格模型提供快速开发功能，其自定义程度可以很高。 表格模型包括用于描述模型对象的[表格对象模型](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 通过[表格模型脚本语言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 在 JSON 中公开，通过 [Microsoft.AnalysisServices.Tabular](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.analysisservices.tabular?view=analysisservices-dotnet) 命名空间在 AMO 数据定义语言中公开。 
+
+<!--MOONCAKE URL correct on [Microsoft.AnalysisServices.Tabular](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.analysisservices.tabular?view=analysisservices-dotnet)-->
 
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 
@@ -189,9 +200,8 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特定指标来帮助监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用 [Azure 资源诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)。若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
 
-<!--Not Available on [Azure resource diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)-->
-<!--Not Available on [Log Analytics](https://www.azure.cn/home/features/log-analytics/)-->
-<!--Not Available on [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)-->
+<!--Not Avaialble on  [Azure Monitor logs](https://www.azure.cn/home/features/log-analytics/)-->
+<!--Not Avaialble on  [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)-->
 
 Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
 

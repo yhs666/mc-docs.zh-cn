@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: b35a3d3373d8ce799bb015c818478c1bb8e87e17
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: e8320f16a4fc9fbe67a09609d589de565d7af38c
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505399"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502619"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>快速入门：使用 Go 通过文本翻译 API 对文本进行直译
 
@@ -132,6 +132,7 @@ if err != nil {
 }
 // Add required headers to the request
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Region", "your region")
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API
@@ -189,7 +190,7 @@ go run transliterate-text.go
 了解如何使用文本翻译 API 执行以下操作：
 
 * [翻译文本](quickstart-go-translate.md)
-* [按输入确定语言](quickstart-go-detect.md)
+* [根据输入确定语言](quickstart-go-detect.md)
 * [获取备用翻译](quickstart-go-dictionary.md)
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)

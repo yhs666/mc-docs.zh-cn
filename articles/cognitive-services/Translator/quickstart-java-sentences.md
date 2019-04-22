@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2c9fb5ab8edb1c812e8eecb0692500f1d7120f27
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: e82e64b338c465e7749ba5138d06e882a9828449
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505527"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502570"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>快速入门：使用 Java 通过文本翻译 API 来确定句子长度
 
@@ -130,6 +130,7 @@ public String Post() throws IOException {
     Request request = new Request.Builder()
             .url(url).post(body)
             .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Region", "your region")
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -211,7 +212,7 @@ gradle run
 
 * [翻译文本](quickstart-java-translate.md)
 * [直译文本](quickstart-java-transliterate.md)
-* [按输入确定语言](quickstart-java-detect.md)
+* [根据输入确定语言](quickstart-java-detect.md)
 * [获取备用翻译](quickstart-java-dictionary.md)
 * [获取支持的语言的列表](quickstart-java-languages.md)
 * [根据输入确定句子长度](quickstart-java-sentences.md)

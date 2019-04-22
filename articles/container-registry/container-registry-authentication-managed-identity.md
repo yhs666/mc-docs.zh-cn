@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/16/2019
-ms.date: 02/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2b2843b086bc7ee5b236cf2a3fe63d1d5b8c56ff
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 7a0598e2dfc82ea057a044fb50a1cf5a74fbab61
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440969"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529301"
 ---
 <!--Verify successfully-->
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 托管标识向 Azure 容器注册表验证身份 
@@ -178,13 +178,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 通过 SSH 连接到配置了标识的 Docker 虚拟机。 使用 VM 上安装的 Azure CLI 运行以下 Azure CLI 命令。
 
-首先，使用在 VM 上配置的标识，通过 [az login][az-login] 登录 Azure CLI。 对于 <userID>，请替换成在上一步中检索到的标识 ID。 
+首先，使用在 VM 上配置的标识，通过 [az login][az-login] 在 Azure CLI 中进行身份验证。 对于 \<userID\>，请将其替换为在上一步中检索到的标识 ID。 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-然后，使用 [az acr login][az-acr-login] 登录注册表。 使用此命令时，CLI 使用运行 `az login` 时创建的 Active Directory 令牌，以无缝的方式向容器注册表验证会话的身份。 （根据 VM 的设置，可能需要使用 `sudo` 运行此命令和 docker 命令。）
+然后，使用 [az acr login][az-acr-login] 在注册表中进行身份验证。 使用此命令时，CLI 使用运行 `az login` 时创建的 Active Directory 令牌，以无缝的方式向容器注册表验证会话的身份。 （根据 VM 的设置，可能需要使用 `sudo` 运行此命令和 docker 命令。）
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -230,13 +230,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 通过 SSH 连接到配置了标识的 Docker 虚拟机。 使用 VM 上安装的 Azure CLI 运行以下 Azure CLI 命令。
 
-首先，使用 VM 上的系统分配标识通过 [az login][az-login] 登录 Azure CLI。
+首先，使用 VM 上的系统分配标识通过 [az login][az-login] 在 Azure CLI 中进行身份验证。
 
 ```azurecli
 az login --identity
 ```
 
-然后，使用 [az acr login][az-acr-login] 登录注册表。 使用此命令时，CLI 使用运行 `az login` 时创建的 Active Directory 令牌，以无缝的方式向容器注册表验证会话的身份。 （根据 VM 的设置，可能需要使用 `sudo` 运行此命令和 docker 命令。）
+然后，使用 [az acr login][az-acr-login] 在注册表中进行身份验证。 使用此命令时，CLI 使用运行 `az login` 时创建的 Active Directory 令牌，以无缝的方式向容器注册表验证会话的身份。 （根据 VM 的设置，可能需要使用 `sudo` 运行此命令和 docker 命令。）
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -278,5 +278,4 @@ docker pull mycontainerregistry.azurecr.cn/aci-helloworld:v1
 [az-identity-show]: https://docs.azure.cn/zh-cn/cli/identity?view=azure-cli-latest#az-identity-show
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 
-<!--Update_Description: new articles on container registry authentication managed identity -->
-<!--ms.date: 02/18/2019-->
+<!--Update_Description: wording update-->

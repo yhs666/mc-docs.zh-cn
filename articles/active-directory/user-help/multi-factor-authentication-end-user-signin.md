@@ -10,18 +10,18 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-origin.date: 04/02/2017
-ms.date: 03/19/2019
+origin.date: 03/19/2019
+ms.date: 04/10/2019
 ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5277b259c2a80f0daa2248e702ff55ae5f4cb6ba
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5bec9efe2269b19845306c8f620c4dc5ecbd3a95
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627170"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471969"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]
@@ -34,8 +34,8 @@ ms.locfileid: "58627170"
 | --- |
 | [通过拨打我的手机或办公电话](#signing-in-with-a-phone-call) |
 | [通过向我的手机发送短信](#signing-in-with-a-text-message)
-| [使用来自 Microsoft 验证器应用的通知](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
-| [使用来自 Microsoft 验证器应用的验证代码](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
+| [使用来自 Microsoft Authenticator 应用的通知](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| 使用来自 Microsoft Authenticator 应用的验证码
 | [使用备用方法，因为我暂时无法使用首选方法](#signing-in-with-an-alternate-method) |
 
 ## 电话登录 <a name="signing-in-with-a-phone-call"></a>

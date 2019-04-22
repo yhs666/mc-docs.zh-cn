@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/27/2019
-ms.date: 03/18/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3b4dc523880a55ee9913f7d26aa3255bece501d7
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 95b193816edc340083d5f69061f6a7f51620a81d
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348027"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529261"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure 资源管理器部署模式
 
@@ -34,6 +34,8 @@ ms.locfileid: "58348027"
 例如，如果资源组包含 DNS 区域（Microsoft.Network/dnsZones 资源类型）和 CNAME 记录（Microsoft.Network/dnsZones/CNAME 资源类型），则 DNS 区域是 CNAME 记录的父资源。 如果使用完整模式部署并且模板中不包含 DNS 区域，则 DNS 区域和 CNAME 记录都将被删除。 如果在模板中包含 DNS 区域但不包含 CNAME 记录，则不会删除 CNAME。 
 
 有关资源类型如何处理删除的列表，请参阅[针对完全模式部署的 Azure 资源删除](complete-mode-deletion.md)。
+
+如果资源组被[锁定](resource-group-lock-resources.md)，则完整模式不会删除资源。
 
 > [!NOTE]
 > 仅根级别模板支持完整部署模式。 对于[链接模板或嵌套模板](resource-group-linked-templates.md)，必须使用增量模式。 

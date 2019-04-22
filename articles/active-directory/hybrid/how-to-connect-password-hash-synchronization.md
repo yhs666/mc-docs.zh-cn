@@ -4,21 +4,24 @@ description: 介绍密码哈希同步的工作原理及设置方法。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-origin.date: 12/06/2018
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.topic: conceptual
+origin.date: 04/02/2019
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 40f4329244f989f21024038c62d86dc712df10e4
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+search.appverid:
+- MET150
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b6255de67172fe3f8d01f5e1029552e44d04b56c
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996210"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355870"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步实现密码哈希同步
 本文提供将用户密码从本地 Active Directory 实例同步到基于云的 Azure Active Directory (Azure AD) 实例时所需的信息。
@@ -46,7 +49,7 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>密码哈希同步工作原理的详细说明
 以下部分将深入说明 Active Directory 与 Azure AD 之间的密码哈希同步工作原理。
 
-![详细的密码流程](./media/how-to-connect-password-hash-synchronization/arch3.png)
+![详细的密码流程](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. 每隔两分钟，AD Connect 服务器上的密码哈希同步代理都会从 DC 请求存储的密码哈希（unicodePwd 属性）。  此请求通过用于同步 DC 之间数据的标准 [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) 复制协议进行。 服务帐户必须具有“复制目录更改”和“复制所有目录更改”AD 权限（默认情况下，在安装时授予），才能获取密码哈希。
@@ -69,8 +72,8 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 ### <a name="password-policy-considerations"></a>密码策略注意事项
 有两种类型的密码策略受启用密码哈希同步的影响：
 
-- 密码复杂性策略
-- 密码过期策略
+* 密码复杂性策略
+* 密码过期策略
 
 #### <a name="password-complexity-policy"></a>密码复杂性策略  
 启用密码哈希同步时，本地 Active Directory 实例中的密码复杂性策略会覆盖云中为同步的用户定义的复杂性策略。 可以使用本地 Active Directory 实例的所有有效密码来访问 Azure AD 服务。
@@ -125,11 +128,11 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 下面显示了此代码片段的大致情况，供参考：
 
 ```
-<configuration>
-    <runtime>
-        <enforceFIPSPolicy enabled="false"/>
-    </runtime>
-</configuration>
+    <configuration>
+        <runtime>
+            <enforceFIPSPolicy enabled="false"/>
+        </runtime>
+    </configuration>
 ```
 
 有关安全性与 FIPS 的信息，请参阅 [Azure AD password hash sync, encryption, and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)（Azure AD 密码哈希同步、加密和 FIPS 符合性）。
@@ -138,8 +141,8 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 如果遇到密码哈希同步问题，请参阅[排查密码哈希同步问题](tshoot-connect-password-hash-synchronization.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
-- [获取有关从 ADFS 迁移到密码哈希同步的分步部署计划](https://aka.ms/authenticationDeploymentPlan)
+* [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [获取有关从 ADFS 迁移到“密码哈希同步”的分步部署计划](https://aka.ms/authenticationDeploymentPlan)
 
 <!-- Update_Description: wording update -->

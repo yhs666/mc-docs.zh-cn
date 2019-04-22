@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 476be753827056b2d8518ea4ae88506451510ca2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0a31f0dc1861d1f2d0c8fd3158c50d95e5c136e4
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664592"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566368"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>在 Azure Stack 上备份 SharePoint 场
 在 Azure Stack 上使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
@@ -220,9 +220,9 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
 4. 单击 MABS“恢复”选项卡中显示的 SharePoint 对象，以获取内容数据库结构。 右键单击相应的项，并单击“恢复”。
 
     ![MABS SharePoint 保护 13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. 此时，请按照[本文前面介绍的恢复步骤](#restore-a-sharepoint-item-from-disk-using-dpm)，从磁盘恢复 Sharepoint 内容数据库。
+5. 此时，请按照本文前面介绍的恢复步骤，从磁盘恢复 Sharepoint 内容数据库。
 
-## <a name="faqs"></a>常见问题解答
+## <a name="faqs"></a>常见问题
 问：如果使用 SQL AlwaysOn（使用磁盘上保护）配置了 SharePoint，我是否能将 SharePoint 项恢复到原始位置？<br>
 答：可以，该项可以恢复到原始 SharePoint 站点。
 

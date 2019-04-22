@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/08/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 154d26e126e66368cee050b0b4e2993d198d05de
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 20161664284613494c11533b72257acbcd050ea5
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964446"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502588"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>快速入门：使用文本翻译 REST API (PHP) 对文本进行直译
 
@@ -49,7 +49,7 @@ ms.locfileid: "57964446"
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
+$region = 'your region';
 $host = "https://api.translator.azure.cn";
 $path = "/transliterate?api-version=3.0";
 
@@ -71,11 +71,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function Transliterate ($host, $path, $key, $params, $content) {
+function Transliterate ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -99,7 +100,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = Transliterate ($host, $path, $key, $params, $content);
+$result = Transliterate ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:

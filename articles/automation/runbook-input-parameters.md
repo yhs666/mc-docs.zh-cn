@@ -10,12 +10,12 @@ origin.date: 02/14/2019
 ms.date: 03/04/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 457a28ab8d46bc6d3f41546eeccdc8318c33cb2c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9294c229dc248196ff97c3a1b3eb0bf7be153cc7
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626665"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502613"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -31,10 +31,10 @@ Azure 自动化中的 PowerShell 和 PowerShell 工作流 Runbook 支持通过�
 
 | **属性** | **说明** |
 |:--- |:--- |
-| 类型 |必需。 参数值所需的数据类型。 任何 .NET 类型均有效。 |
-| Name |必需。 参数的名称。 在 Runbook 中必须唯一，并且只能包含字母、数字或下划线字符。 必须以字母开头。 |
-| 必需 |可选。 指定是否必须为该参数提供值。 如果将此项设置为 \$true，则启动 Runbook 时必须提供一个值。 如果将此项设置为 \$false，则值是可选的。 |
-| 默认值 |可选。 指定在启动 Runbook 时未传入值的情况下要用于参数的值。 可为任何参数设置默认值，此值会使参数自动成为可选，而不管 Mandatory 设置为何。 |
+| `Type` |必需。 参数值所需的数据类型。 任何 .NET 类型均有效。 |
+| `Name` |必需。 参数的名称。 在 Runbook 中必须唯一，并且只能包含字母、数字或下划线字符。 必须以字母开头。 |
+| `Mandatory` |可选。 指定是否必须为该参数提供值。 如果将此项设置为 \$true，则启动 Runbook 时必须提供一个值。 如果将此项设置为 \$false，则值是可选的。 |
+| `Default value` |可选。 指定在启动 Runbook 时未传入值的情况下要用于参数的值。 可为任何参数设置默认值，此值会使参数自动成为可选，而不管 Mandatory 设置为何。 |
 
 Windows PowerShell 支持的输入参数属性比此处所列的多，例如验证、别名和参数集。 但是，Azure 自动化目前仅支持上述输入参数。
 
@@ -95,11 +95,11 @@ Param
 
    | **属性** | **说明** |
    |:--- |:--- |
-   | Name |必需。 参数的名称。 在 Runbook 中必须唯一，并且只能包含字母、数字或下划线字符。 必须以字母开头。 |
-   | 说明 |可选。 有关输入参数用途的说明。 |
-   | 类型 |可选。 参数值的预期数据类型。 支持的参数类型包括 **String**、**Int32**、**Int64**、**Decimal**、**Boolean**、**DateTime** 和 **Object**。 如果未选择数据类型，将默认为 **String**。 |
-   | 必需 |可选。 指定是否必须为该参数提供值。 如果选择“是”，则启动 Runbook 时必须提供一个值。 如果选择“否”，则启动 Runbook 时不需要提供值，并且可以设置一个默认值。 |
-   | 默认值 |可选。 指定在启动 Runbook 时未传入值的情况下要用于参数的值。 对于不是必需的参数，可以设置默认值。 若要设置默认值，请选择“自定义”。 除非在 Runbook 启动时提供了其他值，否则将使用此值。 如果不想提供任何默认值，请选择“无”。 |
+   | `Name` |必需。 参数的名称。 在 Runbook 中必须唯一，并且只能包含字母、数字或下划线字符。 必须以字母开头。 |
+   | `Description` |可选。 有关输入参数用途的说明。 |
+   | `Type` |可选。 参数值的预期数据类型。 支持的参数类型包括 **String**、**Int32**、**Int64**、**Decimal**、**Boolean**、**DateTime** 和 **Object**。 如果未选择数据类型，将默认为 **String**。 |
+   | `Mandatory` |可选。 指定是否必须为该参数提供值。 如果选择“是”，则启动 Runbook 时必须提供一个值。 如果选择“否”，则启动 Runbook 时不需要提供值，并且可以设置一个默认值。 |
+   | `Default Value` |可选。 指定在启动 Runbook 时未传入值的情况下要用于参数的值。 对于不是必需的参数，可以设置默认值。 若要设置默认值，请选择“自定义”。 除非在 Runbook 启动时提供了其他值，否则将使用此值。 如果不想提供任何默认值，请选择“无”。 |
 
     ![添加新输入](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. 使用以下属性，创建 Get-AzureRmVm 活动使用的两个参数：
@@ -227,7 +227,8 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>使用 REST API 启动 Runbook 并分配参数
 
-可以通过 Azure 自动化 REST API 并配合使用 **PUT** 方法及以下请求 URI 来创建和启动 Runbook 作业：`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
+可在以下请求 URI 中使用 **PUT** 方法通过 Azure 自动化 REST API 来创建并启动 Runbook 作业：
+`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
 
 
 在请求 URI 中替换以下参数：
@@ -350,7 +351,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
    ```
 
-   `JsonPath` 是保存 JSON 文件的位置路径。
+   `JsonPath` 是保存 JSON 文件的路径。
 
 3. 将 `$json` 的字符串内容转换为 PowerShell 对象：
 

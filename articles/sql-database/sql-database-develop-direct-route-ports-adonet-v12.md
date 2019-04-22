@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 manager: digimobile
-origin.date: 11/07/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: 064e530e2dc25122f5696d7a143728d624d1e139
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 04/03/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 4a3eef6acffb96bd35461108dabe2ba2f565e3c9
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318988"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529302"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>用于 ADO.NET 4.5 的非 1433 端口
 
@@ -44,11 +44,11 @@ ms.locfileid: "58318988"
 
 1. ADO.NET 4.5（或更高版本）发起与 Azure 云的简短交互，并接收动态识别的端口号。
 
-   * 动态识别的端口号范围为 11000-11999 或 14000-14999。
+   * 动态识别的端口号范围为 11000-11999。
 2. 然后，ADO.NET 不通过任何中间件直接连接到 SQL 数据库服务器。
 3. 查询直接发送到数据库，结果直接返回到客户端。
 
-确保 Azure 客户端计算机上 11000-11999 和 14000-14999 的端口范围已保留，供 ADO.NET 4.5 客户端与 SQL 数据库的交互使用。
+确保 Azure 客户端计算机上 11000-11999 的端口范围已保留，供 ADO.NET 4.5 客户端与 SQL 数据库的交互使用。
 
 * 具体而言，范围中的端口必须没有其他任何出站阻塞器。
 * 在 Azure VM 上， **高级安全 Windows 防火墙** 控制端口设置。

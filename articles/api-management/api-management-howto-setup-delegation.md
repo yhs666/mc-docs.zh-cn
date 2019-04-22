@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2016
+origin.date: 04/04/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 6e9a8c067f0147751028fa3bd38c7255aefb3c9c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: e8e0519079cb0bf807c1c5f0be482bb1142caafc
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626634"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529214"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -28,7 +28,7 @@ ms.locfileid: "58626634"
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="delegate-signin-up"> </a>委派开发人员登录和注册
-要将开发人员登录和注册委派给现有网站，需在站点上创建一个特殊的委派终结点，充当从 API 管理开发人员门户中发起的任何此类请求的入口点。
+若要委托开发人员登录并注册现有网站，需要在该站点上创建一个特殊的委托终结点。 该终结点需要充当从 API 管理开发人员门户发起的任何此类请求的入口点。
 
 最终工作流将如下所示：
 
@@ -94,13 +94,13 @@ ms.locfileid: "58626634"
 ## <a name="delegate-product-subscription"> </a>委派产品订阅
 委派产品订阅在操作方面与委派用户登录/注册类似。 最终工作流将如下所示：
 
-1. 开发人员在 API 管理开发人员门户中选择一个产品，并单击“订阅”按钮
-2. 浏览器重定向到委派终结点
-3. 委派终结点执行所需的产品订阅步骤 - 这取决于用户，可能需要重定向到其他请求计费信息的页面，需要提问更多问题，或者只需存储信息而不需任何用户操作
+1. 开发人员在 API 管理开发人员门户中选择一个产品，并单击“订阅”按钮。
+2. 浏览器将重定向到委托终结点。
+3. 委托终结点执行所需的产品订阅步骤。 具体的步骤由你设计。 步骤可以包括重定向到另一个用于请求计费信息的页面、提出更多提问，或者只是存储信息而不要求执行任何用户操作
 
 若要启用此功能，请在“委派”页上单击“委派产品订阅”。
 
-然后，确保委派终结点执行下列操作：
+接下来，确保委托终结点执行以下操作：
 
 1. 接收以下形式的请求：
 
@@ -115,24 +115,31 @@ ms.locfileid: "58626634"
      * “Unsubscribe”：请求为用户取消订阅某个产品
      * “Renew”：请求续订某个订阅（例如即将到期的订阅）
    * **productId**：用户请求订阅的产品的 ID
+   * **subscriptionId**（*Unsubscribe* 和 *Renew*）中 - 产品订阅的 ID
    * **userId**：提出请求时所针对的用户的 ID
    * **salt**：用于计算安全哈希的特殊 salt 字符串
    * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 2. 验证请求是否来自 Azure API 管理（可选，但强烈推荐执行以确保安全）
 
 
-   * 根据 **productId**、<strong>userId 和 **salt</strong> 查询参数计算字符串的 HMAC-SHA512：
+   * 根据 **productId**、**userId** 和 **salt** 查询参数计算字符串的 HMAC-SHA512：
 
 
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果两个哈希匹配，则转到下一步，否则拒绝该请求。
-3. 根据在 **operation** 中请求的操作类型（例如请求计费信息、提问更多问题，等等）进行产品订阅处理。
+3. 根据在 **operation** 中请求的操作类型（例如请求计费信息、提问更多问题，等等）处理产品订阅。
 4. 在这一端成功为用户订阅产品以后，即可[调用产品订阅 REST API] 为用户订阅 API 管理产品。
 
 ## <a name="delegate-example-code"> </a> 示例代码
-这些代码示例演示了如何使用*委派验证密钥*，该密钥在发布者门户的“委派”屏幕中设置，用于创建 HMAC，后者随后又可用于验证签名，证明传递的 returnUrl 的有效性。 同样的代码也适用于 productId 和 userId，只需进行轻微修改。
+
+这些代码示例演示如何：
+
+* 提取发布者门户的“委托”屏幕中设置的委托验证密钥
+* 创建 HMAC，随后它将用于验证签名，以证实所传递的 returnUrl 的有效性。
+
+同样的代码也适用于 productId 和 userId，只需进行轻微修改。
 
 **用于生成 returnUrl 哈希的 C# 代码**
 

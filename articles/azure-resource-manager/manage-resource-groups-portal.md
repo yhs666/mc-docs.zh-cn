@@ -9,15 +9,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/11/2019
-ms.date: 03/18/2019
+origin.date: 03/26/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 621e384cf80ceb5664e3f8ce44ed61ad6da3ed43
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 540b6f2dc52fde4469b0e1bae7403bc99821f879
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626381"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529169"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -123,7 +123,7 @@ ms.locfileid: "58626381"
 
 此方法导出特定部署的模板。 如果已在门户中更改了资源，或者在多个部署中添加/删除了资源，请参阅[从资源组导出模板](#export-templates-from-resource-groups)。
 
-1. 打开要删除的资源组。  参阅[打开资源组](#open-resource-groups)。
+1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
 2. 在左窗格中选择“部署”，或者选择“部署”下的链接。  以下屏幕截图显示**有 4 项操作成功**，因为其中显示了四个具有不同部署名称的独立部署。 你可能会看到**有 1 项操作成功**。
 
     ![Azure 资源组 - 导出模板](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -149,8 +149,8 @@ ms.locfileid: "58626381"
 
 如果在门户中更改了资源，或者在多个部署中添加/删除了资源，则从部署历史记录中检索模板不能反映资源组的当前状态。 本部分介绍如何导出反映资源组当前状态的模板。 它用作资源组的快照，可用来重新部署到同一资源组。 若要将导出的模板用于其他解决方案，必须大幅修改它。
 
-1. 打开要删除的资源组。  参阅[打开资源组](#open-resource-groups)。
-2. 在左窗格中选择“自动化脚本”。 Resource Manager 检索以下六个文件：
+1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
+2. 在左窗格中选择“导出模板”。 Resource Manager 检索以下六个文件：
 
    - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
    - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
@@ -187,6 +187,4 @@ ms.locfileid: "58626381"
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
 - 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
-<!--Pending Verify-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

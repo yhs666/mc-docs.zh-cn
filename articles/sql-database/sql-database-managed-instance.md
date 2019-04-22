@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: digimobile
-origin.date: 02/20/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 0b42c67b9e87bf87b1151dbd3bfbf7b1f10534aa
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 04/08/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 4b024df93202271e3fd3024d4fc3ab461961c393
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318953"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529199"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用具有虚拟网络和近 100% 兼容性的 SQL 数据库高级数据安全性
 
@@ -42,13 +42,16 @@ ms.locfileid: "58318953"
 托管实例结合了 Azure SQL 数据库和 SQL Server 数据库引擎提供的最佳功能。
 
 > [!IMPORTANT]
-> 托管实例使用最新版 SQL Server 的所有功能（包括联机操作、自动计划更正和其他企业性能增强功能）运行。 [功能比较：Azure SQL 数据库与 SQL Server](sql-database-features.md)中对可用功能进行了比较。
+> 托管实例使用最新版 SQL Server 的所有功能（包括联机操作、自动计划更正和其他企业性能增强功能）运行。 [功能比较：Azure SQL 数据库与 SQL Server](sql-database-features.md)Azure SQL 数据库与 SQL Server](sql-database-features.md)。
 
 | **PaaS 优势** | **业务连续性** |
 | --- | --- |
 |无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置[高可用性](sql-database-high-availability.md) <br>使用[自动备份](sql-database-automated-backups.md)保护数据 <br>客户可配置的备份保留期 <br>用户发起的[备份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[数据库时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)功能 |
 |**安全性和符合性** | **Management**|
 |隔离的环境（[VNet 集成](sql-database-managed-instance-connectivity-architecture.md)、单租户服务、专用的计算和存储资源） <br>[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 身份验证](sql-database-aad-authentication.md)、单一登录支持 <br> <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 服务器主体（登录名）</a>（公开预览版） <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>[SQL 审核](sql-database-managed-instance-auditing.md) <br>[威胁检测](sql-database-managed-instance-threat-detection.md) |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务
+
+> [!IMPORTANT]
+> Azure SQL 数据库（所有部署选项）已通过了许多符合性标准的认证。 有关详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/compliance/default.html)，可以从中找到 SQL 数据库符合性认证的最新列表。
 
 下表显示托管实例的主要功能：
 

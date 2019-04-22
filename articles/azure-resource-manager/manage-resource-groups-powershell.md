@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc8d940b80ed93809745746c9a262bbe52ba866a
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8f5e4a5db6c4b6171de13198e2d8906fca296242
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005118"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529440"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源管理器资源组
 
@@ -34,7 +34,7 @@ ms.locfileid: "58005118"
 
 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
-” 资源组存储与资源有关的元数据。 当指定资源组的位置时，也就指定了元数据的存储位置。
+” 资源组存储与资源有关的元数据。 指定资源组的位置时，也会指定元数据的存储位置。
 
 ## <a name="create-resource-groups"></a>创建资源组
 
@@ -87,9 +87,13 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 可以使用资源管理器模板创建一个资源组并将资源部署到该组。 有关详细信息，请参阅[创建资源组并部署资源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
 
-## <a name="move-to-another-resource-group-or-subscription"></a>转移至另一个资源组或订阅
+## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-可以将组中的资源移到另一个资源组。 有关详细信息，请参阅[将资源移到新资源组或订阅](./resource-group-move-resources.md#move-resources)。
+此功能也称为“出错时回滚”。 有关详细信息，请参阅[在部署失败时重新部署](./resource-group-template-deploy.md#redeploy-when-deployment-fails)。
+
+## <a name="move-to-another-resource-group-or-subscription"></a>移到另一个资源组或订阅
+
+可将组中的资源移到另一个资源组。 有关详细信息，请参阅[将资源移到新资源组或订阅](./resource-group-move-resources.md#move-resources)。
 
 ## <a name="lock-resource-groups"></a>锁定资源组
 
@@ -115,13 +119,13 @@ Get-AzResourceLock -ResourceGroupName $resourceGroupName
 
 ## <a name="tag-resource-groups"></a>标记资源组
 
-可以将标记应用到资源组和资源，以按照逻辑组织资产。 有关信息，请参阅[使用标记来组织 Azure 资源](./resource-group-using-tags.md#powershell)。
+可以将标记应用到资源组和资源，以按照逻辑组织资产。 有关信息，请参阅[使用标记组织 Azure 资源](./resource-group-using-tags.md#powershell)。
 
 ## <a name="export-resource-groups-to-templates"></a>将资源组导出到模板
 
 成功设置资源组后，可能需要查看资源组的资源管理器模板。 导出模板有两个好处：
 
-- 由于模板包含所有完整的基础结构，因此将来可以自动完成解决方案的部署。
+- 由于模板包含整个基础结构，因此将来可以自动完成解决方案的部署。
 - 通过查看代表解决方案的 JavaScript 对象表示法 (JSON)，了解模板语法。
 
 ```powershell
@@ -143,6 +147,4 @@ Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
 - 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
-<!--Pending Verify-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update  -->

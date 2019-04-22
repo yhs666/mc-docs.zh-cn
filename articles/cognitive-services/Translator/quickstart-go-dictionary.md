@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 063cb0fb41adf34ad32a5ed71e8c3259ce4d9fef
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 63303b092aa61aa9b5ba13630dac35e7c514f302
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505384"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502569"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>快速入门：通过 Go 使用双语字典查找字词
 
@@ -131,6 +131,7 @@ if err != nil {
 }
 // Add required headers to the request
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Region", "your region")
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API
@@ -239,7 +240,7 @@ go run alt-translations.go
 
 * [翻译文本](quickstart-go-translate.md)
 * [直译文本](quickstart-go-transliterate.md)
-* [按输入确定语言](quickstart-go-detect.md)
+* [根据输入确定语言](quickstart-go-detect.md)
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 

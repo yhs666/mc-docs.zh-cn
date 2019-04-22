@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 03/18/2019
-ms.date: 04/01/2019
+origin.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: d9a5bfb2ba69ae6df65dfcd550396dc940410501
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 79cdf39ba5ba300864492a2b1e67e76ff3a38e74
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503543"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529201"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -34,6 +34,8 @@ Azure 自动化中的 Runbook 可以在 Azure 中的沙盒上运行。 沙盒是
 ## <a name="runbook-behavior"></a>Runbook 行为
 
 Runbook 基于其内部定义的逻辑执行操作。 如果 Runbook 中断，则 Runbook 将在开始时重启。 这种行为要求 runbook 以某种方式进行编写，在此方式中，如果存在瞬态问题，runbook 支持重启。
+
+从在 Azure 沙盒中运行的 Runbook 启动的 PowerShell 作业在完整语言模式下可能无法运行。 若要了解有关 PowerShell 语言模式的详细信息，请参阅 [PowerShell 语言模式](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes)。 有关如何与 Azure 自动化中的作业进行交互的更多详细信息，请参阅[使用 PowerShell 检索作业状态](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>创建资源
 
@@ -225,9 +227,9 @@ function Get-ContosoFiles
 3. 在所选 runbook 的页上，单击“作业”磁贴。
 4. 单击列表中的一个作业，然后可在 runbook 作业详细信息页上查看其详细信息和输出。
 
-## <a name="retrieving-job-status-using-windows-powershell"></a>使用 Windows PowerShell 检索作业状态
+## <a name="retrieving-job-status-using-powershell"></a>使用 PowerShell 检索作业状态
 
-可以使用 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) 检索为 Runbook 创建的作业和特定作业的详细信息。 如果在 Windows PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动 Runbook，则会返回生成的作业。 使用 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) 可以获取作业的输出。
+可以使用 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) 检索为 Runbook 创建的作业和特定作业的详细信息。 如果在 PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动 Runbook，则会返回生成的作业。 使用 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) 可以获取作业的输出。
 
 以下示例命令检索示例 Runbook 的最后一个作业，并显示其状态、为 Runbook 参数提供的值以及作业的输出。
 
@@ -264,12 +266,30 @@ foreach($item in $output)
 
 ```powershell
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$RunbookName = "Test-Runbook"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    { 
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## <a name="fair-share"></a>公平共享

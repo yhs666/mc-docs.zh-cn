@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 02/23/2017
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: b6a977d5ff80d7991fb6ab9714232cececa07dde
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 46aa3176b948cc6616e93331527934c3f97edc64
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004697"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615188"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 
@@ -415,7 +415,7 @@ def vote():
     ![将 Bottle、Flask 和 Django 应用发布到应用服务后的结果](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > 如果该网页未出现，或者仍然出现“由于发生内部服务器错误，无法显示该页” 消息，请在 Kudo 中打开 web.config 文件，将 ` <httpErrors errorMode="Detailed"></httpErrors>` 添加到 system.webServer 节，并刷新页面。 这样就会在浏览器中提供详细的错误输出。 
+    > 如果该网页未出现，或者仍然出现“由于发生内部服务器错误，无法显示该页” 消息，请在 Kudo 中打开 web.config 文件，将 `<httpErrors errorMode="Detailed"></httpErrors>` 添加到 system.webServer 节，并刷新页面。 这样就会在浏览器中提供详细的错误输出。 
 
 ## <a name="troubleshooting"></a>故障排除
 如果这是在计算机上运行的第一个 Python 应用程序，请确保下列文件夹（或等效的安装位置）包括在 PATH 变量中：

@@ -5,23 +5,25 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 11/22/2018
+origin.date: 12/19/2018
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5551cc1241415789049a3ec4ecf9b7c7c9529d8c
-ms.sourcegitcommit: 3a76c6e128d667b7863daf2ff622e88ed59399ec
+ms.openlocfilehash: 2c713f38ed38c1989429cb453cd2cab3f7c03ce4
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480164"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529443"
 ---
-# <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
-本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 
+# <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用本地数据网关连接到本地数据源
+本地数据网关提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 
 
 首次安装网关的过程由四个部分组成：
 
-- **下载并运行安装程序** - 此步骤在组织中的计算机上安装网关服务。 还在[租户的](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD 中使用帐户登录到 Azure。 不支持 Azure B2B（来宾）帐户。
+- **下载并运行安装程序** - 此步骤在组织中的计算机上安装网关服务。 还需要使用你的租户的 Azure AD 中的一个帐户登录到 Azure。 不支持 Azure B2B（来宾）帐户。
+    
+    <!--MOONCAKE: Not Available on [tenant's](https://docs.microsoft.com/zh-cn/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant)-->
 
 - **注册网关** - 在这一步中，指定网关的名称和恢复密钥，然后选择区域，在网关云服务中注册你的网关。 网关资源可以注册在任何区域中，但我们建议处于与 Analysis Services 服务器位于同一区域。 
 
@@ -53,7 +55,7 @@ ms.locfileid: "55480164"
 ## <a name="ports"> </a>端口
 网关会创建与 Azure 服务总线之间的出站连接。 它在以下出站端口上进行通信：TCP 443（默认值）、5671、5672、9350 到 9354。  网关不需要入站端口。
 
-我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)。 该列表每周都会进行更新。
+我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 该列表每周都会进行更新。
 
 > [!NOTE]
 > Azure 数据中心 IP 列表中列出的 IP 地址使用的是 CIDR 表示法。 若要了解详细信息，请参阅 [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)（无类别域际路由）。
@@ -112,7 +114,7 @@ ms.locfileid: "55480164"
 **问**：对于网络带宽是否有要求？ <br/>
 **答**：建议为网络连接配置较高的吞吐量。 每个环境是不同的，所发送的数据量会影响效果。 使用 ExpressRoute 可以帮助保证本地与 Azure 数据中心之间的吞吐量级别。
 
-<!--Not Available on You can use the third-party tool Azure Speed Test app to help gauge your throughput.-->
+<!--MOONCAKE Not Available on You can use the third-party tool Azure Speed Test app to help gauge your throughput.-->
 
 **问**：从网关运行对数据源的查询时的延迟是多少？ 最佳体系结构是什么？ <br/>
 **答**：若要降低网络延迟，请将网关安装在尽可能靠近数据源的位置。 如果可以在实际数据源上安装网关，这种距离可最大程度降低造成的延迟。 还需考虑数据中心。 例如，如果服务使用中国北部的数据中心，而你在 Azure VM 中托管 SQL Server，则 Azure VM 也应该位于中国北部。 这种距离可最大程度降低延迟并避免 Azure VM 产生传出费用。
@@ -137,6 +139,9 @@ ms.locfileid: "55480164"
 
 <a name="high-availability"></a>
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
+
+**问**：如何具有更高可用性？  
+**答**：可在另一台计算机上安装网关以创建群集。 若要了解详细信息，请参阅 Power BI Gateway 文档中的[本地数据网关的高可用性群集](https://docs.microsoft.com/zh-cn/power-bi/service-gateway-high-availability-clusters)。
 
 **问**：有哪些选项可用于灾难恢复？ <br/>
 **答**：可以使用恢复密钥还原或移动网关。 安装网关时，指定恢复密钥。

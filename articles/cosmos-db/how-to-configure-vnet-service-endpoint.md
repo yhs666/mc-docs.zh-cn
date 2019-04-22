@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: ca86717a7a17e774ed3fd85cafb22eb0b829f9c4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: aa3e9f3f5afa152296309796dfe1616c7f0771df
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627738"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615181"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>配置从虚拟网络 (VNet) 访问
 
@@ -28,6 +28,8 @@ ms.locfileid: "58627738"
 > 有关详细信息，请参阅本文的[从 IP 防火墙规则迁移到虚拟网络访问控制列表](#migrate-from-firewall-to-vnet)部分所述的步骤。 
 
 以下部分介绍如何为 Azure Cosmos DB 帐户配置虚拟网络服务终结点。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 <a name="configure-using-portal"></a>
 ## <a name="configure-a-service-endpoint-by-using-the-azure-portal"></a>使用 Azure 门户配置服务终结点
@@ -93,7 +95,7 @@ ms.locfileid: "58627738"
 
 在 Azure PowerShell 中使用以下步骤配置 Azure Cosmos DB 帐户的服务终结点：  
 
-1. 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。  
+1. 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。  
 
 1. 为虚拟网络的现有子网启用服务终结点。  
 
@@ -103,18 +105,18 @@ ms.locfileid: "58627738"
    $sname = "<Subnet name>"
    $subnetPrefix = "<Subnet address range>"
 
-   Get-AzureRmVirtualNetwork `
+   Get-AzVirtualNetwork `
     -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+    -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
     -Name $sname  `
     -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
    ```
 
 1. 获取虚拟网络信息。
 
    ```powershell
-   $vnProp = Get-AzureRmVirtualNetwork `
+   $vnProp = Get-AzVirtualNetwork `
      -Name $vnName `
      -ResourceGroupName $rgName
    ```
@@ -125,7 +127,7 @@ ms.locfileid: "58627738"
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -165,7 +167,7 @@ ms.locfileid: "58627738"
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -176,7 +178,7 @@ ms.locfileid: "58627738"
 1. 运行以下命令，验证是否已使用上一步骤中配置的虚拟网络服务终结点更新 Azure Cosmos DB 帐户：
 
    ```powershell
-   $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
+   $UpdatedcosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -230,7 +232,7 @@ ms.locfileid: "58627738"
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -273,7 +275,7 @@ ms.locfileid: "58627738"
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
       -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
       -ApiVersion $apiVersion `
       -ResourceGroupName $rgName `
@@ -293,12 +295,12 @@ ms.locfileid: "58627738"
     $sname = "<Subnet name>"
     $subnetPrefix = "<Subnet address range>"
 
-    Get-AzureRmVirtualNetwork `
+    Get-AzVirtualNetwork `
        -ResourceGroupName $rgname `
-       -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+       -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
        -Name $sname `
        -AddressPrefix $subnetPrefix `
-       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
     ```
 
 1. 删除子网的 IP 防火墙规则。

@@ -11,16 +11,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: aaad2d6722f990ac9b637d7e706422501a11f43c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f8e47c47b564aac927e21b2cea6c8cc0789bd186
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626636"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529353"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教程：在资源管理器模板部署中集成 Azure Key Vault
@@ -101,28 +101,23 @@ ms.locfileid: "58626636"
     <!-- Notice: URL is correct on Farmtutorials.blob.core.windows.net-->
     <!--MOONCAKE CUSTOMIZE: ADD NEW PAGE due to Mooncake template is different with global-->
     
-1. 从左窗格选择“编辑模板”，在第 93 行中将 **centralus** 替换为 **chinanorth**，然后单击“保存”。
+2. 从左窗格选择“编辑模板”，在第 93 行中将 **centralus** 替换为 **chinanorth**，然后单击“保存”。
     ![资源管理器模板 Key Vault 集成部署门户](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal-chenye-edit-template.png)
     
     <!--MOONCAKE CUSTOMIZE: ADD NEW PAGE due to Mooncake template is different with global-->
     <!--MOONCAKE CUSTOMIZE: We update **Create** due to Mooncake template is different with global-->
     
-2. 选择或输入以下值。  输入值后不要选择“创建”。
+3. 选择或输入以下值。  输入值后不要选择“创建”。
     
     <!--MOONCAKE CUSTOMIZE: We update **Create** due to Mooncake template is different with global-->
     
     ![资源管理器模板 Key Vault 集成部署门户](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
     
     * “部署解决方案模板”部分。
-        * **订阅**：选择一个 Azure 订阅。
-        * **资源组**：分配唯一的名称。 记下此名称，因为在下一个会话中将使用同一资源组来部署虚拟机。 将 Key Vault 和虚拟机放在同一资源组中可以在本教程结束时更轻松地清理资源。
-        * **资源组位置**：选择一个位置。  默认位置为“中国北部”。
+        |名称|值| | **订阅**| 选择一个 Azure 订阅。| | **资源组**| 分配一个唯一名称。 记下此名称，因为在下一个会话中将使用同一资源组来部署虚拟机。 将密钥保管库和虚拟机放在同一资源组中可以在本教程结束时更轻松地清理资源。| | **资源组位置**| 选择一个位置。  默认位置为“中国北部”。|
     * 在“参数”部分选择“编辑参数”。
-        * **Key Vault 名称**：分配唯一的名称。 
-        * **租户 ID**：模板函数会自动检索租户 ID。不要更改默认值。
-        * **AD 用户 ID**：输入在上一过程中检索到的 Azure AD 用户对象 ID。
-        * **机密名称**：默认名称为 **vmAdminPassword**。 如果更改机密名称，则需要在部署虚拟机时更新机密名称。
-        * **机密值**：输入你的机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。
+        |名称|值| |**密钥保管库名称**：分配一个唯一名称。 
+        |**租户 Id**| 模板函数会自动检索租户 ID。不要更改默认值。| |**AD 用户 ID**| 输入你在上一过程中检索到的 Azure AD 用户对象 ID。| |**机密名称**| 默认名称为 **vmAdminPassword**。 如果你在此处更改机密名称，则在部署虚拟机时需要更新机密名称。| |**机密值**| 输入你的机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。|
     
 3. 选择左窗格中的“编辑模板”以查看模板。
 
@@ -173,11 +168,11 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 3. 选择“打开”以打开该文件。 它是[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中所用的同一个方案。
 4. 有五个通过此模板定义的资源：
 
-   * `Microsoft.Storage/storageAccounts`。
-   * `Microsoft.Network/publicIPAddresses`。
-   * `Microsoft.Network/virtualNetworks`。
-   * `Microsoft.Network/networkInterfaces`。
-   * `Microsoft.Compute/virtualMachines`。
+    * `Microsoft.Storage/storageAccounts`。
+    * `Microsoft.Network/publicIPAddresses`。
+    * `Microsoft.Network/virtualNetworks`。
+    * `Microsoft.Network/networkInterfaces`。
+    * `Microsoft.Compute/virtualMachines`。
 
      <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
      <!-- Not Available on  [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
@@ -226,12 +221,11 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 <!--Not Available on You need to upload both **azuredeploy.json** and **azuredeploy.parameters.json** to the Cloud shell-->
 
 ```powershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
@@ -244,7 +238,7 @@ New-AzResourceGroupDeployment -Name $deploymentName `
 成功部署虚拟机后，使用 Key Vault 中存储的密码来测试登录。
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。
-2. 选择“资源组”/**<YourResourceGroupName>**/“simpleWinVM”
+2. 选择“资源组”/**\<YourResourceGroupName\>**/**simpleWinVM**
 3. 选择顶部的“连接”。
 4. 选择“下载 RDP 文件”，然后遵照说明使用 Key Vault 中存储的密码登录到虚拟机。
 

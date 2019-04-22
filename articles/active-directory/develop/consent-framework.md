@@ -7,22 +7,23 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/30/2018
-ms.date: 12/29/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: ffa2a1bf34a3c3f2d0ae305e85c512d4212700fd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92891835106b977428cdaa8c90f30e378f432326
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625676"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243637"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 许可框架
 
@@ -58,17 +59,18 @@ ms.locfileid: "58625676"
 
     **同意应用的委托权限**
 
-   1. 转到应用程序的“设置”页
-   2. 选择“所需权限”。
-   3. 单击“授予权限”按钮。
+    1. 转到应用程序的“设置”页
+    2. 选择“所需权限”。
+    3. 单击“授予权限”按钮。
 
-      ![授予权限以获得管理员的显式许可](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+       ![授予权限以获得管理员的显式许可](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-   > [!IMPORTANT]
-   > 使用 ADAL.js 的单页应用程序 (SPA) 目前要求使用“授予权限”按钮授予显式许可。 否则，在请求访问令牌时应用程序会失败。
+    > [!IMPORTANT]
+    > 使用 ADAL.js 的单页应用程序 (SPA) 目前要求使用“授予权限”按钮授予显式许可。 否则，在请求访问令牌时应用程序会失败。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅[如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)
-- 如需更深入的了解，请参阅[如何在授权代码授予流程中在 OAuth 2.0 协议层提供许可支持](/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)。
+* 请参阅[如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)
+* 如需更深入的了解，请参阅[如何在授权代码授予流程中在 OAuth 2.0 协议层提供许可支持](/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)。
 
+<!-- Update_Description: wording update -->

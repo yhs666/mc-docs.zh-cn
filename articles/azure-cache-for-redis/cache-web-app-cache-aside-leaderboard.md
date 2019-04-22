@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 03/30/2018
-ms.date: 02/27/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 01dcb9eb9da04f280f90d1b23b4457bb967775cf
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 951686fb6b42d91a9edd85ce98206954af6ed1b9
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903112"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686347"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教程：在 ASP.NET 中创建缓存端排行榜
 
@@ -41,11 +41,11 @@ ms.locfileid: "56903112"
 
 若要完成本教程，必须满意以下先决条件：
 
-- 本教程是[用于 Redis 的 Azure 缓存的 ASP.NET 快速入门](cache-web-app-howto.md)的延续。 如果尚未学习此快速入门，请先学习它。
-- 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
-    - ASP.NET 和 Web 开发
-    - Azure 开发
-    - 使用 SQL Server Express LocalDB 或 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express) 进行 .NET 桌面开发。
+* 本教程是[用于 Redis 的 Azure 缓存的 ASP.NET 快速入门](cache-web-app-howto.md)的延续。 如果尚未学习此快速入门，请先学习它。
+* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+    * ASP.NET 和 Web 开发
+    * Azure 开发
+    * 使用 SQL Server Express LocalDB 或 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express) 进行 .NET 桌面开发。
 
 ## <a name="add-a-leaderboard-to-the-project"></a>将排行榜添加到项目
 
@@ -80,7 +80,7 @@ ms.locfileid: "56903112"
     using System.Data.Entity.SqlServer;
     ```
 
-1. 将 `Team` 类的定义替换为以下代码片段，其中包含更新的 `Team` 类定义以及某些其他实体框架帮助器类。 本教程对实体框架使用代码优先方法。 此方法可让实体框架通过代码创建数据库。 有关本教程中使用的实体框架 Code First 方法的详细信息，请参阅 [对新数据库使用 Code First](https://msdn.microsoft.com/data/jj193542)。
+1. 将 `Team` 类的定义替换为以下代码片段，其中包含更新的 `Team` 类定义以及某些其他实体框架帮助器类。 本教程对实体框架使用代码优先方法。 此方法可让实体框架通过代码创建数据库。 有关本教程中使用的实体框架 Code First 方法的详细信息，请参阅 [对新数据库使用 Code First](https://docs.microsoft.com/ef/ef6/modeling/code-first/workflows/new-database)。
 
     ```csharp
     public class Team
@@ -747,5 +747,4 @@ ms.locfileid: "56903112"
 > [!div class="nextstepaction"]
 > [如何缩放用于 Redis 的 Azure 缓存](./cache-how-to-scale.md)
 
-<!-- Update_Description: update metedata properties -->
-
+<!-- Update_Description: link update -->

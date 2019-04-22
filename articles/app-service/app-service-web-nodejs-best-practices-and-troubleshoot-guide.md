@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 01/21/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 5f15499b68a7b2286e5f3c7ba508b0267bce5d4d
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: c970709d28a1b871fbfce29eb6fb99cc2cfb222f
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906117"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355899"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
@@ -134,7 +134,7 @@ agentkeepalive 模块确保在 Azure Web 应用 VM 上重复使用套接字。 �
 [agentKeepALive 配置](https://www.npmjs.com/package/agentkeepalive)示例：
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -156,9 +156,9 @@ var keepaliveAgent = new Agent({
 例如，假设需要分析如下所示的 hello world 应用：
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -186,12 +186,12 @@ http.createServer(function (req, res) {
 现在，编辑 server.js 以分析应用程序。
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -202,10 +202,10 @@ function HandleRequest() {
     fs.writeFileSync('profile.cpuprofile', JSON.stringify(profiler.stopProfiling('HandleRequest')));
 }
 
-http.createServer(function (req, res) {    
-    res.writeHead(200, {'Content-Type': 'text/html'});    
-    HandleRequest();    
-    res.end('Hello world!');    
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    HandleRequest();
+    res.end('Hello world!');
 }).listen(process.env.PORT);
 ```
 
@@ -274,14 +274,14 @@ node.exe 随机关闭的原因有多种：
 | 503 |1002 |检查 win32 错误代码的实际原因 - 无法将请求分派到 node.exe。 |
 | 503 |1003 |命名管道太忙 - 验证 node.exe 是否正在消耗过多的 CPU |
 
-NODE.exe 具有名为 `NODE_PENDING_PIPE_INSTANCES` 的设置。 在 Azure 应用服务中，此值设置为 5000。 这表示 node.exe 在命名管道上一次可以接受 5000 个请求。 此值应足以满足 Azure 应用服务中运行的大多数 node 应用程序。 Azure 应用服务中不应出现 503.1003，因为 `NODE_PENDING_PIPE_INSTANCES` 的值较高
+NODE.exe 具有名为 `NODE_PENDING_PIPE_INSTANCES` 的设置。 在 Azure 应用服务中，此值设置为 5000。 这表示 node.exe 在命名管道上一次可以接受 5000 个请求。 此值应足以满足 Azure 应用服务中运行的大多数 node 应用程序。 Azure 应用服务中不应出现 503.1003，因为较高值 `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>更多资源
 
 请访问以下链接，详细了解 Azure App Service 上的 node.js 应用程序。
 
-* [Azure 应用服务中的 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
-* [如何在 Azure App Service 中调试 Node.js Web 应用](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [在 Azure 应用服务中 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
+* [如何在 Azure 应用服务中调试 Node.js Web 应用](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
 * [Azure 应用服务 Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)

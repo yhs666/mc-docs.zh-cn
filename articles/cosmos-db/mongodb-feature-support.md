@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 12/26/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 4ae84df2e876c018ba9bf7b49a50fd1774eb90c1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ba79a0431d3948a4d7ce80f08bc95a021b3afc36
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626198"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615191"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB：支持的功能和语法
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可通过任何开源 MongoDB 客户端[驱动程序](https://docs.mongodb.org/ecosystem/drivers)与 Azure Cosmos DB 的用于 MongoDB 的 API 通信。 Azure Cosmos DB 的用于 MongoDB 的 API 允许按照 MongoDB [线路协议](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)使用现有的客户端驱动程序。
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可通过任何开源 MongoDB 客户端[驱动程序](https://docs.mongodb.org/ecosystem/drivers)与 Azure Cosmos DB 的用于 MongoDB 的 API 通信。 Azure Cosmos DB 的用于 MongoDB 的 API 允许按照 MongoDB [线路协议](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)使用现有的客户端驱动程序。
 
 通过使用 Azure Cosmos DB 的用于 MongoDB 的 API，可以像以往一样从 MongoDB 中受益，并且可使用 Cosmos DB 提供的所有企业功能：[多区域分发](distribute-data-globally.md)、[自动分片](partition-data.md)、可用性和延迟保证、自动编制每个字段的索引、静态加密和备份等。
 
@@ -213,26 +213,24 @@ Cosmos DB 在公共预览版中支持聚合管道。 请参阅 [Azure 博客](ht
 }
 ```
 
-
-| 运算符 |                                      示例                                      |
-|----------|-----------------------------------------------------------------------------------|
-|   $eq    |                  ``` { "Volcano Name": { $eq: "Rainier" } } ```                   |
-|   $gt    |                      ``` { "Elevation": { $gt: 4000 } } ```                       |
-|   $gte   |                      ``` { "Elevation": { $gte: 4392 } } ```                      |
-|   $lt    |                      ``` { "Elevation": { $lt: 5000 } } ```                       |
-|   $lte   |                      ``` { "Elevation": { $lte: 5000 } } ```                      |
-|   $ne    |                        ``` { "Elevation": { $ne: 1 } } ```                        |
-|   $in    |  ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ```   |
-|   $nin   |      ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ```       |
-|   $or    | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ```  |
-|   $and   | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-|   $not   |                 ``` { "Elevation": { $not: { $gt: 5000 } } } ```                  |
-|   $nor   | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |
-| $exists  |                      ``` { "Status": { $exists: true } } ```                      |
-|  $type   |                     ``` { "Status": { $type: "string" } } ```                     |
-|   $mod   |                    ``` { "Elevation": { $mod: [ 4, 0 ] } } ```                    |
-|  $regex  |                  ``` { "Volcano Name": { $regex: "^Rain"} } ```                   |
-
+| 运算符 |                                      示例                                  |     |
+|----------|-------------------------------------------------------------------------------|-----|
+|   $eq    |                  ` { "Volcano Name": { $eq: "Rainier" } } `                   |  -  |
+|   $gt    |                      ` { "Elevation": { $gt: 4000 } } `                       |  -  |
+|   $gte   |                      ` { "Elevation": { $gte: 4392 } } `                      |  -  |
+|   $lt    |                      ` { "Elevation": { $lt: 5000 } } `                       |  -  |
+|   $lte   |                      ` { "Elevation": { $lte: 5000 } } `                      |  -  |
+|   $ne    |                        ` { "Elevation": { $ne: 1 } } `                        |  -  |
+|   $in    |  ` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } `   |  -  |
+|   $nin   |      ` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } `       |  -  |
+|   $or    | ` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } `  |  -  |
+|   $and   | ` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ` |  -  |
+|   $not   |                 ` { "Elevation": { $not: { $gt: 5000 } } } `                  |  -  |
+|   $nor   | ` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ` |  -  |
+| $exists  |                      ` { "Status": { $exists: true } } `                      |  -  |
+|  $type   |                     ` { "Status": { $type: "string" } } `                     |  -  |
+|   $mod   |                    ` { "Elevation": { $mod: [ 4, 0 ] } } `                    |  -  |
+|  $regex  |                  ` { "Volcano Name": { $regex: "^Rain"} } `                   |  -  |
 ### <a name="notes"></a>说明
 
 在 $regex 查询中，左定位表达式允许索引搜索。 但是，使用“i”修饰符（不区分大小写）和“m”修饰符（多行）会导致在所有表达式中进行集合扫描。
@@ -269,19 +267,19 @@ Cosmos DB 在公共预览版中支持聚合管道。 请参阅 [Azure 博客](ht
 
 ### <a name="geospatial-operators"></a>地理空间运算符
 
-|    运算符    |                                                                                                 示例                                                                                                 |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   $geoWithin   |                                                        ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }```                                                         |
-| $geoIntersects | ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` |
-|     $near      |     ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```      |
-|  $nearSphere   |                                                          ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }```                                                          |
-|   $geometry    |   ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```   |
-|  $minDistance  |                        ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }```                         |
-|  $maxDistance  |                                                          ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }```                                                          |
-|    $center     |                                                            ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }```                                                             |
-| $centerSphere  |                                                        ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }```                                                         |
-|      $box      |                                                         ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }```                                                         |
-|    $polygon    |     ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```      |
+|    运算符    |                                                                                                 示例                                                                                                 |     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
+|   $geoWithin   |                                                        ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }```                                                         | 是 |
+| $geoIntersects | ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
+|     $near      |     ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```      | 是 |
+|  $nearSphere   |                                                          ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }```                                                          | 是 |
+|   $geometry    |   ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```   | 是 |
+|  $minDistance  |                        ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }```                         | 是 |
+|  $maxDistance  |                                                          ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }```                                                          | 是 |
+|    $center     |                                                            ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }```                                                             | 是 |
+| $centerSphere  |                                                        ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }```                                                         | 是 |
+|      $box      |                                                         ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }```                                                         | 是 |
+|    $polygon    |     ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }```      | 是 |
 
 ## <a name="sort-operations"></a>排序操作
 使用 `findOneAndUpdate` 操作时，支持基于单个字段的排序操作，但不支持基于多个字段的排序操作。

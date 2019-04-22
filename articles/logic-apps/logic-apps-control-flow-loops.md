@@ -10,13 +10,13 @@ manager: jeconnoc
 origin.date: 01/05/2019
 ms.topic: article
 ms.reviewer: klam, LADocs
-ms.date: 02/04/2019
-ms.openlocfilehash: ccd9985e3341a88cf6ec8b9cd3f5b5692c169a18
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/22/2019
+ms.openlocfilehash: 50477c60f046ccb23c3a333ca4a76d825274b022
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906119"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529375"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure 逻辑应用中添加循环以重复执行操作或处理数组
 
@@ -155,7 +155,9 @@ ms.locfileid: "54906119"
 
 ## <a name="until-loop"></a>Until 循环
   
-若要重复操作直到满足条件或状态发生变化，请将这些操作放在“Until”循环中。 下面是可以在其中使用“Until”循环的一些常见场景：
+若要运行并重复操作直到满足条件或状态发生变化，请将这些操作放在“Until”循环中。 你的逻辑应用将首先运行循环内的所有操作，然后检查条件或状态。 如果满足该条件，则循环将停止。 否则，循环将继续进行。
+
+下面是可以在其中使用“Until”循环的一些常见场景：
 
 * 调用某个终结点，直至获得想要的响应。
 
@@ -342,4 +344,3 @@ Until 循环具有默认限制，用于在发生下列任一条件时停止执�
 * [基于条件运行步骤（条件语句）](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [基于不同的值运行步骤（switch 语句）](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [运行或合并并行步骤（分支）](../logic-apps/logic-apps-control-flow-branches.md)
-* [基于分组的操作状态运行步骤（作用域）](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

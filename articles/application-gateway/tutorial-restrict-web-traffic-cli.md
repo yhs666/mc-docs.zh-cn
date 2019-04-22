@@ -8,17 +8,25 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f0dd1bad3f7deeb187e433a4dd664d75814869c3
-ms.sourcegitcommit: 713cf33290efd4ccc7a3eab2668e3ceb0b51686f
+ms.openlocfilehash: 363de6773ae1ac93ee3592dc346c2295f49885f4
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56079650"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686267"
 ---
-# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>教程：使用 Azure CLI 启用 Web 应用程序防火墙
+# <a name="enable-web-application-firewall-using-the-azure-cli"></a>使用 Azure CLI 启用 Web 应用程序防火墙
+
+> [!div class="op_single_selector"]
+>
+> - [Azure 门户](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 在[应用程序网关](overview.md)上使用 [Web 应用程序防火墙](waf-overview.md) (WAF) 限制流量。 WAF 使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 规则保护应用程序。 这些规则包括针对各种攻击（例如 SQL 注入、跨站点脚本攻击和会话劫持）的保护。 
 
@@ -34,7 +42,7 @@ ms.locfileid: "56079650"
 
 如果需要，可以使用 [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) 完成本教程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -139,7 +147,7 @@ az vmss extension set `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>创建存储帐户和配置诊断
 
-在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用事件中心来记录数据。 
+在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Azure Monitor 日志或事件中心来记录数据。 
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -203,4 +211,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

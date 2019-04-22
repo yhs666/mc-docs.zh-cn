@@ -3,22 +3,23 @@ title: 体系结构概述 - Azure Active Directory | Microsoft Docs
 description: 了解什么是 Azure Active Directory 租户，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/23/2018
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 8cd4d9adf4f735409d69b9f07630e34d417b83d7
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c5282ba7e6f0aab6be4932e1a28e2740a769d044
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440372"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355882"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什么是 Azure Active Directory 体系结构？
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)
@@ -37,17 +38,17 @@ Azure AD 的地理分布式体系结构整合了全面监视、自动重新路�
 ### <a name="service-architecture-design"></a>服务体系结构设计
 构建可访问、可用且数据丰富的系统的最常见方法是通过独立的构建块或缩放单元。 对于 Azure AD 数据层，缩放单元称为“分区”。 
 
-数据层包含多个可提供读写功能的前端服务。 下图显示了单目录分区的组件在整个地理分布式数据中心内的分布方式。 
+数据层包含多个可提供读写功能的前端服务。 下图显示了单目录分区的组件在整个地理分布式数据中心内的交付方式。 
 
-  ![单目录分区](./media/active-directory-architecture/active-directory-architecture.png)
+  ![单目录分区图示](./media/active-directory-architecture/active-directory-architecture.png)
 
 Azure AD 体系结构的组件包括主副本和辅助副本。
 
 **主副本**
 
-*主副本*接收它所属的分区的所有*写入*操作。 在向调用方返回成功消息之前，任何写入操作将立即复制到不同数据中心内的次要副本，从而确保写入操作具有异地冗余的持久性。
+*主副本*接收它所属的分区的所有*写入*操作。 在向调用方返回成功消息之前，任何写入操作立即复制到不同数据中心内的辅助副本，从而确保写入操作具有异地冗余的持久性。
 
-**辅助副本**
+**次要副本**
 
 所有目录*读取*操作会通过物理分散在不同地理区域的数据中心内的*辅助副本*提供服务。 由于数据是以异步方式复制的，因此存在许多次要副本。 目录读取操作（例如身份验证请求）将通过靠近客户的数据中心提供服务。 次要副本负责提供读取可伸缩性。
 
@@ -63,13 +64,13 @@ Azure AD 体系结构的组件包括主副本和辅助副本。
 
 可用性（或运行时间）是指系统无中断运行的能力。 Azure AD 提供高可用性的重要原因是，我们的服务可跨多个地理分散的数据中心快速转移流量。 数据中心彼此独立，因此可以实现互不相干的故障模式。
 
-与企业 AD 设计相比，Azure AD 的分区设计得以简化，使用单主设计，其中包括精心编排的确定性主要副本故障转移过程。
+与企业 AD 设计相比，Azure AD 的分区设计更精简，它使用单一主控设计，其中融入了精心协调的确定性主副本故障转移过程。
 
 **容错**
 
 如果系统能够承受硬件、网络和软件故障，则可用性更高。 目录的每个分区中有一个高度可用的主控副本：主要副本。 此副本中只执行针对分区的写入。 此副本持续受到密切的监视，一旦检测到故障，可立即将写入操作转移到其他副本（该副本将变成新的主要副本）。 故障转移期间，通常会出现 1-2 分钟的写入可用性损失。 读取可用性在此期间不受影响。
 
-读取操作（比写入操作要多出许多个量级）只会转到辅助副本。 由于次要副本是幂等的，因此，通过将读取操作定向到其他副本（通常在同一数据中心内），即可轻松补偿给定分区中发生的任一副本丢失。
+读取操作（比写入操作要多出许多个量级）只会转到辅助副本。 由于辅助副本是幂等的，因此，通过将读取操作定向到其他副本（通常在同一数据中心内），即可轻松补偿给定分区中发生的任一副本丢失。
 
 **数据持久性**
 
@@ -85,9 +86,9 @@ Azure AD 的副本存储在分布于世界各地的数据中心内。 有关详�
 
 Azure AD 可跨数据中心运行，其特征如下：
 
- - 身份验证、Graph 其他 AD 服务驻留在网关服务的后面。 网关管理这些服务的负载均衡。 如果使用事务运行状况探测检测到任何不正常的服务器，网关会自动故障转移。 网关根据这些运行状况探测，将流量动态路由到正常的数据中心。
- - 对于*读取*操作，目录提供辅助副本以及在多个数据中心运行的、采用主动-主动配置的相应前端服务。 当整个数据中心发生故障时，流量会自动路由到其他数据中心。
- - 对于写入操作，目录将通过计划的（将新的主要副本同步到旧的主要副本）或紧急故障转移过程，跨数据中心故障转移主要（主控）副本。 通过将所有提交项复制到至少两个数据中心来实现数据持久性。
+ * 身份验证、Graph 其他 AD 服务驻留在网关服务的后面。 网关管理这些服务的负载均衡。 如果使用事务运行状况探测检测到任何不正常的服务器，网关会自动故障转移。 网关根据这些运行状况探测，将流量动态路由到正常的数据中心。
+ * 对于*读取*操作，目录提供辅助副本以及在多个数据中心运行的、采用主动-主动配置的相应前端服务。 当整个数据中心发生故障时，流量会自动路由到其他数据中心。
+ * 对于写入操作，目录将通过计划的（将新的主要副本同步到旧的主要副本）或紧急故障转移过程，跨数据中心故障转移主要（主控）副本。 通过将所有提交项复制到至少两个数据中心来实现数据持久性。
 
 **数据一致性**
 
@@ -115,7 +116,7 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 
 **安全操作**
 
-针对任一操作采用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [受信任的云](https://www.trustcenter.cn)。
+针对任一操作使用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [受信任的云](https://www.trustcenter.cn)。
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide)

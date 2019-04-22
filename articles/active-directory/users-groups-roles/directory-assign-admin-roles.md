@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 02/16/2019
-ms.date: 03/19/2019
+origin.date: 03/27/2019
+ms.date: 04/11/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7d4482f00345a76a3e7af8d8776b5894782c845
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e9238c620a4bff65e9081e10fd7896061f3327ce
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625620"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502624"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
-使用 Azure Active Directory (Azure AD) 时，可以指定有限的管理员在权限较低的角色中提供相关功能。 可以在 Azure AD 门户中指定管理员用于执行各种任务，例如，添加或更改用户、分配管理角色、重置用户密码、管理用户许可证，以及管理域名。 只能在 Azure AD 的用户设置中更改默认用户权限。
+使用 Azure Active Directory (Azure AD) 时，可以指定有限的管理员以权限较低的角色来管理标识任务。 可以分配管理员来执行各种任务，例如，添加或更改用户、分配管理角色、重置用户密码、管理用户许可证，以及管理域名。 只能在 Azure AD 的用户设置中更改默认用户权限。
 
 全局管理员有权使用所有管理功能。 默认情况下，系统会将注册 Azure 订阅的人员指派为目录的全局管理员角色。 只有全局管理员和特权角色管理员可以委托管理员角色。 为了降低业务风险，我们建议仅将此角色分配给你的公司中的少数人。
 
@@ -37,15 +37,15 @@ ms.locfileid: "58625620"
 
 提供以下管理员角色：
 
-- **[应用程序管理员](#application-administrator)**：充当此角色的用户可以创建和管理企业应用程序、应用程序注册和应用程序代理设置的所有方面。 此角色还可以同意委派权限，以及除 Microsoft Graph 和 Azure AD Graph 之外的应用程序权限。 在创建新应用程序注册或企业应用程序时，不会将此角色的成员添加为所有者。
+* **[应用程序管理员](#application-administrator)**：充当此角色的用户可以创建和管理企业应用程序、应用程序注册和应用程序代理设置的所有方面。 此角色还可以同意委派权限，以及除 Microsoft Graph 和 Azure AD Graph 之外的应用程序权限。 在创建新应用程序注册或企业应用程序时，不会将分配到此角色的用户添加为所有者。
 
   <b>重要说明</b>：此角色授予管理应用程序凭据这一功能。 分配有此角色的用户可以将凭据添加到应用程序，并使用这些凭据模拟应用程序的标识。 如果已向应用程序的标识授予 Azure Active Directory 访问权限，如创建或更新用户或其他对象，那么分配到此角色的用户在模拟应用程序时可以执行这些操作。 这种模拟应用程序标识的能力可能是用户在 Azure AD 中角色分配的基础上的权限提升。 请务必了解，向用户分配应用程序管理员角色，会赋予其模拟应用程序标识的能力。
 
-- **[应用程序开发人员](#application-developer)**：在将设置“用户可以注册应用程序”设置为“否”时，充当此角色的用户可以创建应用程序注册。 在设置“用户可以同意应用代表他们访问公司数据”设置为“否”时，此角色还使成员能够代表自己授予同意。 在创建新应用程序注册或企业应用程序时，会将此角色的成员添加为所有者。
+* **[应用程序开发人员](#application-developer)**：在将设置“用户可以注册应用程序”设置为“否”时，充当此角色的用户可以创建应用程序注册。 当“用户可以同意应用代表他们访问公司数据”设置设为“否”时，此角色还能够代表自己授权同意。 在创建新应用程序注册或企业应用程序时，会将分配到此角色的用户添加为所有者。
 
 - **[计费管理员](#billing-administrator)**：进行采购、管理订阅、管理支持票证，以及监视服务运行状况。
 
-- **[云应用程序管理员](#cloud-application-administrator)**：充当此角色的用户具有与应用程序管理员角色相同的权限，但不包括管理应用程序代理的权限。 此角色授予创建和管理企业应用程序和应用程序注册的所有方面的权限。 此角色还可以同意委派权限，以及除 Microsoft Graph 和 Azure AD Graph 之外的应用程序权限。 在创建新应用程序注册或企业应用程序时，不会将此角色的成员添加为所有者。
+* **[云应用程序管理员](#cloud-application-administrator)**：充当此角色的用户具有与应用程序管理员角色相同的权限，但不包括管理应用程序代理的权限。 此角色授予创建和管理企业应用程序和应用程序注册的所有方面的权限。 此角色还可以同意委派权限，以及除 Microsoft Graph 和 Azure AD Graph 之外的应用程序权限。 在创建新应用程序注册或企业应用程序时，不会将分配到此角色的用户添加为所有者。
 
   <b>重要说明</b>：此角色授予管理应用程序凭据这一功能。 分配有此角色的用户可以将凭据添加到应用程序，并使用这些凭据模拟应用程序的标识。 如果已向应用程序的标识授予 Azure Active Directory 访问权限，如创建或更新用户或其他对象，那么分配到此角色的用户在模拟应用程序时可以执行这些操作。 这种模拟应用程序标识的能力可能是用户在 Azure AD 中角色分配的基础上的权限提升。 请务必了解，向用户分配云应用程序管理员角色，会赋予其模拟应用程序标识的能力。
 - **[合规性管理员](#compliance-administrator)**：具有此角色的用户具有 Office 365 安全与合规中心以及 Exchange 管理中心的管理权限。 有关详细信息，请参阅 [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)（关于 Office 365 管理员角色）。
@@ -87,7 +87,7 @@ ms.locfileid: "58625620"
 
   <b>重要说明</b>：此角色授予管理所有 Azure AD 角色成员身份（包括全局管理员角色）的能力。 此角色不包括 Azure AD 中的任何其他权限功能，如创建或更新用户。 但是，分配到此角色的用户可通过分配其他角色，授予自己或其他人额外的特权。
 
-- **[安全管理员](#security-administrator)**：具有此角色的用户具有安全读者角色的所有只读权限，并且能够管理安全相关服务的配置：Azure Active Directory Identity Protection、Azure 信息保护和 Office 365 安全与合规中心。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
+- **[安全管理员](#security-administrator)**：具有此角色的用户具有安全读取者角色的所有只读权限，并且能够管理安全相关服务的配置：Azure Active Directory Identity Protection、Azure 信息保护和 Office 365 安全与合规中心。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
 
 
   |                                         In                                         |                                                                                               有权执行的操作                                                                                                |
@@ -126,9 +126,9 @@ ms.locfileid: "58625620"
 
 - **[Teams 管理员](#teams-administrator)**：充当此角色的用户可以通过 Microsoft Teams 和 Skype for Business 管理中心以及相应的 PowerShell 模块来管理 Microsoft Teams 工作负荷的所有方面。 这包括（但不限于）与电话、消息、会议和 Teams 自身相关的所有管理工具。 此外，此角色还能够创建和管理所有 Office 365 组、管理支持票证和监视服务运行状况。
   > [!NOTE]
-  > 在 Microsoft 图形 API、Azure AD 图形 API 和 Azure AD PowerShell 中，此角色标识为“Teams 服务管理员”。 它是 Azure 门户中的“Teams 管理员”。
+  > 在 Microsoft 图形 API、Azure AD 图形 API 和 Azure AD PowerShell 中，此角色标识为“Teams 服务管理员”。 它是 [Azure 门户](https://portal.azure.cn)中的“Teams 管理员”。
 
-- **[用户帐户管理员](#user-account-administrator)**：具有此角色的用户可以创建用户和管理用户的所有方面，但具有一定限制（参阅下文）。 此外，具有此角色的用户可以创建和管理所有组。 此角色还能够创建和管理用户视图、管理支持票证和监视服务运行状况。
+- **[用户管理员](#user-administrator)**：具有此角色的用户可以创建用户和管理用户的所有方面，但具有一定限制（参阅下文）。 此外，具有此角色的用户可以创建和管理所有组。 此角色还能够创建和管理用户视图、管理支持票证和监视服务运行状况。
 
   | | |
   | --- | --- |
@@ -698,7 +698,7 @@ ms.locfileid: "58625620"
 | microsoft.office365.supportTickets/allEntities/allTasks | 创建和管理 Office 365 支持票证。 |
 | microsoft.office365.usageReports/allEntities/read | 阅读 Office 365 使用情况报告。 |
 
-### <a name="user-account-administrator"></a>用户帐户管理员
+### <a name="user-administrator"></a>用户管理员
 可以管理用户和组的所有方面，包括重置有限管理员的密码。
 
 | **操作** | **说明** |

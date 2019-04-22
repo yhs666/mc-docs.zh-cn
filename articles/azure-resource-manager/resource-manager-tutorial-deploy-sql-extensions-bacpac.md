@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 02/25/2019
-ms.date: 03/18/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: a3c6df8b6ce498bd977193294a66339099b54bf0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7c432fb08a0120a1ab0da6e4fbf3d61926cde225
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626129"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529128"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件
@@ -55,25 +55,25 @@ BACPAC 文件在[可以公开访问的 Azure 存储帐户](https://armtutorials.
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
-Azure 快速入门模板是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 在本教程中使用的模板称为[部署带威胁检测的 Azure SQL Server](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-server-policy-optional-db/)。
+本教程中使用的模板存储在 [Azure 存储帐户](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json)中。 
 
 1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
 2. 在“文件名”中粘贴以下 URL：
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. 选择“打开”以打开该文件。
 
     有三个在此模板中定义的资源：
 
-   * `Microsoft.Sql/servers`。
-   * `Microsoft.SQL/servers/securityAlertPolicies`。
-   * `Microsoft.SQL.servers/databases`。
+    * `Microsoft.Sql/servers`。
+    * `Microsoft.SQL/servers/securityAlertPolicies`。
+    * `Microsoft.SQL.servers/databases`。
 
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers)-->
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/securityalertpolicies)-->
-     <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/securityalertpolicies)-->
+    <!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
     
      在自定义模板之前，不妨对其进行一些基本的了解。
 4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
@@ -107,7 +107,10 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 * 使用以下 JSON 将 SQL 数据库扩展资源添加到数据库定义：
 
     > [!NOTE]
-    > 应该创建新的存储帐户并使用以下类似格式 `"storageUri": "https://<your-storage-account>.blob.core.chinacloudapi.cn/sqlextensionbacpac/SQLDatabaseExtension.bacpac"` 将 SQLDatabaseExtension.bacpac 文件上传到它。
+    > 你应当创建一个新的存储帐户，使其包含名为 **sqlextensionbacpac** 的 blob 容器，并将 [**SQLDatabaseExtension.bacpac**](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) 文件上传到它。
+    > storageUri 部分看起来类似于以下格式：`"storageUri": "https://<your-storage-account>.blob.core.chinacloudapi.cn/sqlextensionbacpac/SQLDatabaseExtension.bacpac"`。
+    
+    <!--MOONCAKE: storageUri should be https://<your-storage-account>.blob.core.chinacloudapi.cn-->
     
     ```json
     "resources": [
@@ -149,14 +152,13 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)部分。 改用以下 PowerShell 部署脚本：
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `

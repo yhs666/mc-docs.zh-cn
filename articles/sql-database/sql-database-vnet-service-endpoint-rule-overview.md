@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, genemi
 manager: digimobile
-origin.date: 02/20/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 4e1b4286efa96aa7b1042478f37711d101bf07eb
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 03/12/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 42a5d085e29fcea129a6695de31270ca68f4be48
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627133"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529179"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>为数据库服务器使用虚拟网络服务终结点和规则
 
@@ -170,6 +170,8 @@ PolyBase 通常用于将数据从 Azure 存储帐户加载到 Azure SQL 数据�
 #### <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 1.  按照此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安装 Azure PowerShell。
 2.  如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户升级到常规用途 v2 帐户。
@@ -190,14 +192,14 @@ PolyBase 通常用于将数据从 Azure 存储帐户加载到 Azure SQL 数据�
    > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户**升级到 v2** 帐户。
    > - 若要了解 Azure Data Lake Storage Gen2 的已知问题，请参阅此[指南](/storage/data-lake-storage/known-issues)。
     
-2. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。 向 SQL 数据库服务器分配“存储 Blob 数据参与者(预览版)”RBAC 角色。
+2. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。 向 SQL 数据库服务器分配“存储 Blob 数据参与者”RBAC 角色。
 
    > [!NOTE] 
    > 只有具有“所有者”特权的成员能够执行此步骤。 若要了解 Azure 资源的各种内置角色，请参阅此[指南](/role-based-access-control/built-in-roles)。
   
 3. **通过 Polybase 连接到 Azure 存储帐户：**
 
-   1. 创建数据库**[主密钥](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)**（如果此前尚未创建）：
+   1. 创建数据库**[主密钥](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)**（如果此前尚未创建）：
        ```SQL
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
@@ -217,7 +219,7 @@ PolyBase 通常用于将数据从 Azure 存储帐户加载到 Azure SQL 数据�
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.chinacloudapi.cn', CREDENTIAL = msi_cred);
        ```
        > [!NOTE] 
-       > - 如果已经有外部表关联到常规用途 v1 或 Blob 存储帐户，则应先删除这些外部表，然后删除相应的外部数据源。 然后，使用 abfss:// 方案按照上面的步骤创建连接到常规用途 v2 存储帐户的外部数据源，并使用该新建的外部数据源重新创建所有外部表。 可以通过[生成和发布脚本向导](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017)为所有外部表生成 create-script，以方便使用。
+       > - 如果已经有外部表关联到常规用途 v1 或 Blob 存储帐户，则应先删除这些外部表，然后删除相应的外部数据源。 然后，使用 abfss:// 方案按照上面的步骤创建连接到常规用途 v2 存储帐户的外部数据源，并使用该新建的外部数据源重新创建所有外部表。 可以通过[生成和发布脚本向导](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard)为所有外部表生成 create-script，以方便使用。
        > - 有关 abfss:// 方案的详细信息，请参阅此[指南](/storage/data-lake-storage/introduction-abfs-uri)。
        > - 有关 CREATE EXTERNAL DATA SOURCE 的详细信息，请参阅此[指南](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)。
         

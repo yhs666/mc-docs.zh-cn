@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 08/20/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: bd8962cdafa5185f5ac1480c735372c8f460862c
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.date: 04/15/2019
+ms.openlocfilehash: e81352a02d7861827673616af949828687f86ff9
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990133"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529335"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>对 Azure Database for MySQL 使用虚拟网络服务终结点和规则
 
@@ -105,6 +105,8 @@ RBAC 备用：
 ## <a name="limitations"></a>限制
 
 对于 Azure Database for MySQL，虚拟网络规则功能具有以下限制：
+
+- Web 应用可以映射到 VNet/子网中的专用 IP。 即使已从给定 VNet/子网启用服务终结点，从 Web 应用到服务器的连接也将具有 Azure 公共 IP 源，而不是 VNet/子网源。 若要启用从 Web 应用到具有 VNet 防火墙规则的服务器的连接，必须在该服务器上允许 Azure 服务访问服务器。
 
 - 在 Azure Database for MySQL 的防火墙中，每个虚拟网络规则都引用一个子网。 引用的所有这些子网都必须托管在同一个托管 Azure Database for MySQL 的地理区域内。
 

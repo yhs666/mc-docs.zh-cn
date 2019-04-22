@@ -8,18 +8,26 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 07/13/2018
-ms.date: 03/12/2019
+origin.date: 03/25/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f8d658fa38a8e2ec2bba296c484fccb43a20ad1b
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: a53eb982ebeef67d2f5da90307dedde0861ec7d8
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788740"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686435"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>使用 Azure PowerShell 启用 Web 应用程序防火墙
+
+> [!div class="op_single_selector"]
+>
+> - [Azure 门户](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 在[应用程序网关](overview.md)上使用 [Web 应用程序防火墙](waf-overview.md) (WAF) 限制流量。 WAF 使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 规则保护应用程序。 这些规则包括针对各种攻击（例如 SQL 注入、跨站点脚本攻击和会话劫持）的保护。 
 
@@ -35,7 +43,7 @@ ms.locfileid: "57788740"
 
 如果需要，也可以使用 [Azure CLI](tutorial-restrict-web-traffic-cli.md) 完成本教程中的步骤。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -249,7 +257,7 @@ Update-AzVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>创建存储帐户和配置诊断
 
-在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用事件中心来记录数据。
+在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Azure Monitor 日志或事件中心来记录数据。
 
 ### <a name="create-the-storage-account"></a>创建存储帐户
 
@@ -265,7 +273,7 @@ $storageAccount = New-AzStorageAccount `
 
 ### <a name="configure-diagnostics"></a>配置诊断
 
-使用 [Set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-1.4.0) 配置诊断以将数据记录到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 日志中。
+使用 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) 配置诊断以将数据记录到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 日志中。
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway `
@@ -316,4 +324,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [使用 SSL 终端创建应用程序网关](./tutorial-ssl-powershell.md)
 
-<!-- Update_Description: code and link update -->
+<!-- Update_Description: wording update -->

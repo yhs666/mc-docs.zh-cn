@@ -15,12 +15,12 @@ ms.workload: logic-apps
 origin.date: 01/31/2018
 ms.author: v-yiso
 ms.date: 12/10/2018
-ms.openlocfilehash: 6cac23fe23de8b4dd5d68d793e27ceed4fed1115
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c881e97dc90ff4412252a9c65c42eb9bc977d701
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674852"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529431"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure 逻辑应用的常见方案、示例、教程和演练
 
@@ -72,7 +72,6 @@ ms.locfileid: "52674852"
 
 * 基于[条件语句](../logic-apps/logic-apps-control-flow-conditional-statement.md)和 [Switch 语句](../logic-apps/logic-apps-control-flow-switch-statement.md)执行不同操作
 * [使用循环重复执行步骤或处理数组和集合中的项](../logic-apps/logic-apps-control-flow-loops.md)
-* [使用范围将操作组合在一起](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [工作流中的授权错误和异常处理](../logic-apps/logic-apps-exception-handling.md)
 * [用例：医疗保健公司如何将逻辑应用异常处理用于 HL7 FHIR 工作流](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [在现有的逻辑应用上启用监视、日志记录和警报](../logic-apps/logic-apps-monitor-your-logic-apps.md)

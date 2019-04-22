@@ -10,17 +10,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 01/31/2019
-ms.date: 03/05/2019
+ms.date: 04/11/2019
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58f376421245fee0ae5fdc21834fdbfcbb0f5d2
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 8c6f07c40b7e6b260271727511f661d7a64b0c5e
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462366"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502608"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 
@@ -34,7 +34,7 @@ ms.locfileid: "57462366"
 2. 选择“Azure Active Directory” 。
 3. 选择“自定义域名”。
   
-   ![打开“用户管理”](./media/domains-manage/add-custom-domain.png)
+   ![打开用户管理页面](./media/domains-manage/add-custom-domain.png)
 4. 选择你希望设为主域的域名。
 5. 选择“设置主域”命令。 出现提示时确认所做的选择。
   
@@ -60,9 +60,9 @@ ms.locfileid: "57462366"
 
 要删除自定义域名，则必须先确保目录中没有任何资源依赖域名。 在以下情况下，，无法从目录删除域名：
 
-- 任何用户都有包含域名的用户名、电子邮件地址或代理地址。
-- 任何组都有包含域名的电子邮件地址或代理地址。
-- Azure AD 中的任何应用程序都具有包含域名的应用 ID URI。
+* 任何用户都有包含域名的用户名、电子邮件地址或代理地址。
+* 任何组都有包含域名的电子邮件地址或代理地址。
+* Azure AD 中的任何应用程序都具有包含域名的应用 ID URI。
 
 必须更改或删除 Azure AD 目录中的任何此类资源，才能删除自定义域名。
 
@@ -71,15 +71,15 @@ ms.locfileid: "57462366"
 **问：为何域删除操作失败，并显示错误“此域名包含 Exchange 主控的组”？** <br>
 **答:** 目前，某些组（例如，支持邮件的安全组和分发列表）由 Exchange 预配，需要手动在 [Exchange 管理中心 (EAC)](https://outlook.office365.com/ecp/) 清理这些组。 可能有遗留的 ProxyAddresses 依赖于自定义域名，需要手动将其更新为另一个域名。 
 
-**问：我以 admin@contoso.com 身份登录，但无法删除域名“contoso.com”，为什么？**<br>
+**问：我以 admin\@contoso.com 身份登录，但无法删除域名“contoso.com”，为什么？**<br>
 **答:** 无法引用你尝试在用户帐户名中删除的自定义域名。 请确保全局管理员帐户使用初始默认域名 (.partner.onmschina.cn)，例如 admin@contoso.partner.onmschina.cn。 使用不同的全局管理员帐户（例如 admin@contoso.partner.onmschina.cn），或帐户为 admin@fabrikam.com 的另一个自定义域名（例如“fabrikam.com”）登录。
 
-**问：我单击了“删除域”按钮，但看到删除操作的状态为 `In Progress`。需要多长时间？如果该操作失败，会发生什么情况？**<br>
+**问：我单击了“删除域”按钮，但看到删除操作的状态为 `In Progress`。 需要多长时间？ 如果该操作失败，会发生什么情况？**<br>
 **答:** 域删除操作是一个异步后台任务，会重命名对域名的所有引用。 它在一两分钟内应会完成。 如果域删除失败，请确保不存在以下情况：
 
-- 使用 appIdentifierURI 在域名中配置了应用
-- 有任何支持邮件的组引用了自定义域名
-- 对域名的引用超过 1000 个
+* 使用 appIdentifierURI 在域名中配置了应用
+* 有任何支持邮件的组引用了自定义域名
+* 对域名的引用超过 1000 个
 
 如果不符合上述任何情况，请手动清理引用，然后重试删除域。
 
@@ -87,13 +87,13 @@ ms.locfileid: "57462366"
 
 针对 Azure Active Directory 中域名的大多数管理任务也可以使用 Microsoft PowerShell 或者使用 Azure AD 图形 API 以编程方式来完成。
 
-- [使用 PowerShell 管理 Azure AD 中的域名](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-- [使用图形 API 管理 Azure AD 中的域名](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [使用 PowerShell 管理 Azure AD 中的域名](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+* [使用图形 API 管理 Azure AD 中的域名](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [添加自定义域名](/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
-- [在 Exchange 管理中心删除 Azure AD 的自定义域名中支持 Exchange 邮件的安全组](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-- [使用 Microsoft 图形 API 强制删除自定义域名](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [添加自定义域名](/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [在 Exchange 管理中心删除 Azure AD 的自定义域名中支持 Exchange 邮件的安全组](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
+* [使用 Microsoft 图形 API 强制删除自定义域名](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

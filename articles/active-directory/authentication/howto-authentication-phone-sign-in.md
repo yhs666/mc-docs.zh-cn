@@ -1,29 +1,30 @@
 ---
-title: 使用 Microsoft Authenticator 应用（预览版）进行无密码 Azure AD 登录
+title: 使用 Microsoft Authenticator 应用（预览版）进行无密码登录 - Azure Active Directory
 description: 不使用密码通过 Microsoft Authenticator 应用（公共预览版）登录到 Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 02/19/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
-ms.openlocfilehash: 2aaa861016497dffe997d27ae8135489041d5f19
-ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 95a6efc479c518916028ff22c6be93dcf97d69f8
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409402"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243671"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>使用 Microsoft Authenticator 应用（公共预览版）进行无密码手机登录
 
 使用 Microsoft Authenticator 应用可以登录到任何 Azure AD 帐户，且无需输入密码。 Microsoft Authenticator 使用基于密钥的身份验证来启用绑定到设备的用户凭据，并使用生物识别或 PIN。
 
-![要求用户在其 Microsoft Authenticator 应用中批准登录尝试的浏览器登录示例](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![要求用户批准登录的浏览器登录示例](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 在 Microsoft Authenticator 应用中启用手机登录的用户在输入用户名后，看到的不是密码提示，而是一条消息，告知他们在应用中点击一个数字。 在应用中，该用户必须输入匹配的数字，选择“批准”，提供 PIN 或生物识别特征，然后身份验证将会完成。
 
@@ -33,24 +34,27 @@ ms.locfileid: "56409402"
 
 ### <a name="tenant-prerequisites"></a>租户先决条件
 
-- Azure Active Directory
-- 为最终用户启用了 Azure 多重身份验证
-- 用户可以注册其设备
+* Azure Active Directory
+* 为最终用户启用了 Azure 多重身份验证
+* 用户可以注册其设备
 
 ### <a name="steps-to-enable"></a>启用步骤
 
 1. 确保已安装 Azure Active Directory V2 PowerShell 模块的最新公共预览版。 你可能希望通过执行以下命令卸载并重新安装以确认这一点：
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. 向 Azure AD 租户进行身份验证以使用 Azure AD V2 PowerShell 模块。 所用帐户必须是安全管理员或全局管理员。
+
     ```powershell
     Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
     ```
 
 3. 创建 Authenticator 登录策略：
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

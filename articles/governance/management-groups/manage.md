@@ -1,18 +1,18 @@
 ---
-title: 如何在 Azure 中更改、删除或管理管理组 - Azure 治理
+title: 如何更改、删除或管理管理组 - Azure 治理
 description: 了解如何查看、维护、更新和删除管理组层次结构。
 author: rthorn17
 ms.service: azure-resource-manager
 origin.date: 09/18/2018
-ms.date: 04/01/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.topic: conceptual
-ms.openlocfilehash: fe4c5c5bdc37d287daff7150271bee787823ceb6
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 25f268035465d47c03107f9af4fa77736bb259e5
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135516"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471972"
 ---
 <!--Verify successfully-->
 # <a name="manage-your-resources-with-management-groups"></a>使用管理组管理资源
@@ -39,11 +39,11 @@ ms.locfileid: "58135516"
 
 1. 选择页面顶部的“重命名组”选项。
 
-   ![“重命名组”选项](./media/detail_action_small.png)
+   ![“管理组”页面上的“重命名组”选项](./media/detail_action_small.png)
 
 1. 菜单打开后，请输入要显示的新名称。
 
-   ![“重命名组”窗格](./media/rename_context.png)
+   ![用于重命名管理组的“重命名组”窗格](./media/rename_context.png)
 
 1. 选择“其他安全性验证” 。
 
@@ -69,9 +69,9 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 该管理组下面没有任何子管理组或订阅。
 
-   - 若要将订阅移出管理组，请参阅[将订阅移到另一个管理组](#Move-subscriptions-in-the-hierarchy)。
+   - 若要将订阅移出管理组，请参阅[将订阅移到另一个管理组](#Move subscriptions in the hierarchy)。
 
-   - 若要将管理组移到另一个管理组，请参阅[在层次结构中移动管理组](#Move-management-groups-in-the-hierarchy)。
+   - 若要将管理组移到另一个管理组，请参阅[在层次结构中移动管理组](#Move management groups in the hierarchy)。
 
 1. 你在管理组（“所有者”、“参与者”或“管理组参与者”）中拥有写入权限。 若要查看自己拥有哪些权限，请选择管理组，然后选择“IAM”。 有关 RBAC 角色的详细信息，请参阅[使用 RBAC 管理访问权限和权限](../../role-based-access-control/overview.md)。  
 
@@ -225,7 +225,7 @@ az account management-group show --name 'Contoso' -e -r
 
 1. 在列表中选择具有正确 ID 的订阅。
 
-   ![子级](./media/add_context_sub.png)
+   ![可以添加到管理组的订阅](./media/add_context_sub.png)
 
 1. 选择“保存”。
 
@@ -239,13 +239,13 @@ az account management-group show --name 'Contoso' -e -r
 
 1. 在列表中，选择要移动的订阅所在行末尾的椭圆。
 
-   ![“移动”选项](./media/move_small.png)
+   ![管理组上的“移动”选项](./media/move_small.png)
 
 1. 选择“移动”。
 
 1. 在打开的菜单中，选择“父管理组”。
 
-   ![“移动”窗格](./media/move_small_context.png)
+   ![用于更改父组的“移动”窗格](./media/move_small_context.png)
 
 1. 选择“其他安全性验证” 。
 
@@ -296,7 +296,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - 选择新管理组将创建一个新管理组。
    - 选择现有管理组将显示所有管理组的下拉列表，这些管理组可移动到此管理组。  
 
-   ![移动](./media/add_context_MG.png)
+   ![将管理组移动到新的或现有组](./media/add_context_MG.png)
 
 1. 选择“其他安全性验证” 。
 
@@ -305,7 +305,8 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 在 PowerShell 中使用 Update-AzManagementGroup 命令将管理组移到不同的组下面。
 
 ```PowerShell
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
+$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>在 Azure CLI 中移动管理组
@@ -313,7 +314,7 @@ Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Ma
 在 Azure CLI 中使用 update 命令移动管理组。
 
 ```azurecli
-az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
+az account management-group update --name 'Contoso' --parent ContosoIT
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>使用活动日志审核管理组
@@ -346,7 +347,7 @@ GET https://management.chinacloudapi.cn/providers/Microsoft.Management/managemen
 
 若要了解有关管理组的详细信息，请参阅：
 
-- [创建管理组来组织 Azure 资源](create.md)
+- [创建用于整理 Azure 资源的管理组](create.md)
 - [如何更改、删除或管理管理组](manage.md)
 - [在 Azure PowerShell 资源模块中查看管理组](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0#resources)
 - [在 REST API 中查看管理组](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups)

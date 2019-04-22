@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 60a20ba6e9f687ec022de775ab04efc6969e6135
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 480a264a87145d0e41d7bfac813a4759b00ca216
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505390"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502558"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>快速入门：使用 Node.js 通过文本翻译 API 来翻译字符串
 
@@ -83,6 +83,7 @@ let options = {
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Ocp-Apim-Subscription-Region': 'your region',
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
@@ -157,7 +158,7 @@ node translate-text.js
 除了语言检测，还请了解如何使用文本翻译 API 执行以下操作：
 
 * [直译文本](quickstart-nodejs-transliterate.md)
-* [按输入确定语言](quickstart-nodejs-detect.md)
+* [根据输入确定语言](quickstart-nodejs-detect.md)
 * [获取备用翻译](quickstart-nodejs-dictionary.md)
 * [获取支持的语言的列表](quickstart-nodejs-languages.md)
 * [根据输入确定句子长度](quickstart-nodejs-sentences.md)

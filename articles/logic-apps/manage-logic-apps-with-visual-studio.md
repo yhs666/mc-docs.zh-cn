@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: mvc
-origin.date: 03/15/2018
+origin.date: 04/02/2019
 ms.author: v-yiso
-ms.date: 02/04/2019
-ms.openlocfilehash: 149e76b7558f8d224f85814ad4fe4c2aef2a0347
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/22/2019
+ms.openlocfilehash: bb6ce162fe7e0bbde9816094653e0bf976e245c1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626523"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529478"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
-尽管可以在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>中创建、编辑、管理和部署逻辑应用，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为不同的部署环境创建 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板时，也可以使用 Visual Studio。 使用 Visual Studio Cloud Explorer 可以查找和管理逻辑应用以及其他 Azure 资源。 例如，可以打开、下载、编辑、运行、禁用和启用已在 Azure 门户中部署的逻辑应用，以及查看其运行历史记录。 如果你还不太熟悉如何在 Visual Studio 中处理 Azure 逻辑应用，请参阅[如何使用 Visual Studio 创建逻辑应用](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+尽管可以在 <a href="https://portal.azure.com" target="_blank">Azure 门户</a>中创建、编辑、管理和部署逻辑应用，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为各种部署环境创建 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板时，也可以使用 Visual Studio。 使用 Visual Studio Cloud Explorer 可以查找和管理逻辑应用以及其他 Azure 资源。 例如，可以打开、下载、编辑、运行、禁用和启用已在 Azure 门户中部署的逻辑应用，以及查看其运行历史记录。 如果你还不太熟悉如何在 Visual Studio 中处理 Azure 逻辑应用，请参阅[如何使用 Visual Studio 创建逻辑应用](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 > [!IMPORTANT]
 > 从 Visual Studio 部署或发布逻辑应用会覆盖该应用在 Azure 门户中的版本。 因此，若要在 Azure 门户进行更改并保存这些更改，请务必通过 Azure 门户[刷新 Visual Studio 中的逻辑应用](#refresh)，然后，便可以通过 Visual Studio 部署或发布该应用。
@@ -38,13 +38,30 @@ ms.locfileid: "58626523"
 
 * 下载并安装以下工具（如果没有）： 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 或 Visual Studio 2015 - Community Edition 或更高版本</a>。 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019、2017 或 2015 - Community Edition 或更高版本</a>。 
   本快速入门使用免费的 Visual Studio Community 2017。
 
-  * <a href="/downloads/" target="_blank">Azure SDK（2.9.1 或更高版本）</a>和 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > 安装 Visual Studio 2019 或 2017 时，请务必选择“Azure 开发”工作负荷。
+    > 有关详细信息，请参阅[在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
+    >
+    > 在 Visual Studio 2019 中，Cloud Explorer 可在 Azure 门户中打开逻辑应用设计器，但目前无法打开嵌入式逻辑应用设计器。
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">适用于 Visual Studio 2017 的 Azure 逻辑应用工具</a>或 <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 版</a> 
-  
+    若要安装 Cloud Explorer for Visual Studio 2015，请[从 Visual Studio Marketplace 下载 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
+    有关详细信息，请参阅[在 Visual Studio Cloud Explorer (2015) 中管理与 Azure 帐户关联的资源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK（2.9.1 或更高版本）</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * 适用于 Visual Studio 所需版本的 Azure 逻辑应用工具：
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     可以直接从 Visual Studio Marketplace 下载并安装 Azure 逻辑应用工具，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何从 Visual Studio 内部安装此扩展</a>。 
     完成安装后，请务必重启 Visual Studio。
 
@@ -183,7 +200,7 @@ ms.locfileid: "58626523"
 在逻辑应用设计器中打开逻辑应用项目时，可能无法获取用于选择 Azure 订阅的选项。 而在逻辑应用打开时，Azure 订阅并非所要使用的订阅。 之所以发生此行为，原因在于当你打开逻辑应用的 .json 文件后，Visual Studio 将缓存首次选择的订阅，以供将来使用。 若要解决该问题，请尝试执行以下步骤之一：
 
 * 重命名逻辑应用的 .json 文件。 订阅缓存依赖于该文件名。 
-* 若要删除解决方案中以前针对所有逻辑应用选择的订阅，请删除该解决方案目录中隐藏的 .vs 文件夹。 此位置用于存储订阅信息。 
+* 若要删除解决方案中以前针对所有逻辑应用选择的订阅，请删除该解决方案目录中隐藏的 Visual Studio 设置文件夹 (.vs)。 此位置用于存储订阅信息。
 
 ## <a name="next-steps"></a>后续步骤
 

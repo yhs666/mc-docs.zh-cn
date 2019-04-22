@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/19/2019
 ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: bc663fa2044274f97fde2eebf34f983d39ab8e56
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3c52c67f3e1cff5f13e5f96850ba8339c51d98ed
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626795"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529268"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>锁定 Azure 容器注册表中的容器映像
 
@@ -36,6 +36,24 @@ ms.locfileid: "58626795"
 有关示例，请参阅以下部分。
 
 ## <a name="lock-an-image-or-repository"></a>锁定映像或存储库 
+
+### <a name="show-the-current-repository-attributes"></a>显示当前存储库属性
+若要查看存储库的当前属性，请使用下面的 [az acr repository show][az-acr-repository-show] 命令：
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### <a name="show-the-current-image-attributes"></a>显示当前映像属性
+若要查看标记的当前属性，请使用下面的 [az acr repository show][az-acr-repository-show] 命令：
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### <a name="lock-an-image-by-tag"></a>按标记锁定映像
 
@@ -139,3 +157,5 @@ az acr repository update \
 [az-acr-repository-show-manifests]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [container-registry-delete]: container-registry-delete.md
+
+<!--Update_Description: wording update -->

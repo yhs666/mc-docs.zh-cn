@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/30/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4e8018f3ff1c6070652c6137b7e281eef04ccfbc
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: e65e76fe4f55d1a0db2c56f7075bd674a78bff0b
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988027"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615212"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户通过 Xamarin 构建待办事项应用
 
@@ -27,12 +27,12 @@ ms.locfileid: "56988027"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 
 > [!NOTE]
 > 在 GitHub 上的[此文档](https://github.com/xamarinhq/app-geocontacts)中，可以找到整个规范示例 Xamarin 应用的示例代码，其中展示了多个 Azure 产品，包括 CosmosDB。 此应用演示如何查看地理分散的联系人，并让这些联系人更新其位置。
 
-本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户、文档数据库和集合， 然后演示如何使用 [Xamarin.Forms](https://docs.microsoft.com/zh-cn/xamarin/#pivot=platforms&panel=XamarinForms) 和 [MVVM 体系结构模式](https://docs.microsoft.com/zh-cn/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)生成并部署一个基于 [SQL .NET API](sql-api-sdk-dotnet.md) 和 [Xamarin](https://docs.microsoft.com/zh-cn/xamarin/#pivot=platforms&panel=Cross-Platform) 的待办事项列表 Web 应用。
+本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户、文档数据库和集合， 然后演示如何使用 [Xamarin.Forms](https://docs.microsoft.com/zh-cn/xamarin/) 和 [MVVM 体系结构模式](https://docs.microsoft.com/zh-cn/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)生成并部署一个基于 [SQL .NET API](sql-api-sdk-dotnet.md) 和 [Xamarin](https://docs.microsoft.com/zh-cn/xamarin/) 的待办事项列表 Web 应用。
 
 ![在 iOS 上运行的 Xamarin ToDo 应用](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 

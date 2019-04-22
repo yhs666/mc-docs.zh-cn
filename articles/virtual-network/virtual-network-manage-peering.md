@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 09/24/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe99e14dda456adc8f61d9c9cfe20c7d9493a741
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ff13dc62288f9d653a21f29f7b61458c1f18f30d
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626799"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355888"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -92,7 +92,7 @@ ms.locfileid: "58626799"
 6. 更改相应的设置。 针对每个设置的相关选项，请参阅“创建对等”部分的[第 6 步](#add-peering)。 
 7. 选择“其他安全性验证” 。
 
-命令
+**命令**
 
 - **Azure CLI**：[az network vnet peering list](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-list) 可列出虚拟网络的对等，[az network vnet peering show](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-show) 可显示特定对等的设置，[az network vnet peering update](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-update) 可更改对等设置。|
 - PowerShell：[Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) 可检索视图对等互连设置，[Set-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) 可更改设置。
@@ -113,7 +113,7 @@ ms.locfileid: "58626799"
 5. 在要删除的对等右侧，依次选择“...”、“删除”和“是”，从第一个虚拟网络删除对等。
 6. 完成先前的步骤，从处于对等互连状态的另一个虚拟网络中删除对等互连。
 
-命令
+**命令**
 
 - **Azure CLI**：[az network vnet peering delete](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-delete)
 - PowerShell：[Remove-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
@@ -126,7 +126,9 @@ ms.locfileid: "58626799"
   <!--MOONCAKE: Customized on globla peering, , but not in Government cloud regions-->
 - 一个虚拟网络中的资源无法与全球对等互连虚拟网络中 Azure 内部负载均衡器的前端 IP 地址通信。 负载均衡器以及与之通信的资源必须位于相同区域中的同一虚拟网络。 但是，如果对等互连的虚拟网络位于相同区域，则任一虚拟网络中的资源可以与进行对等互连的任一虚拟网络中的 Azure 内部负载均衡器的前端 IP 地址通信。
 - 无法使用远程网关或允许网关在全球对等互连的虚拟网络中传输。 若要使用远程网关或允许网关传输，对等互连的虚拟网络必须位于同一区域中。
-- 虚拟网络可以位于相同或不同的订阅中。 如果对等虚拟网络位于不同的订阅中，两个订阅可关联到同一个或不同的 Azure Active Directory 租户。 如果还没有 AD 租户，可以快速[创建一个](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)。 门户中不支持通过与不同 Azure Active Directory 租户相关联的订阅跨虚拟网络进行对等互连。 可使用 CLI、PowerShell 或模板。
+<!--MOONCAKE: VNet must be 两个订阅要关联到同一个 Azure Active Directory 租户-->
+- 虚拟网络可以位于相同或不同的订阅中。 如果对等虚拟网络位于不同的订阅中，两个订阅应当关联到同一 Azure Active Directory 租户。 如果还没有 AD 租户，可以快速[创建一个](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)。 可使用 CLI、PowerShell 或模板。
+<!--MOONCAKE: VNet must be 两个订阅要关联到同一个 Azure Active Directory 租户-->
 - 进行对等互连的虚拟网络的 IP 地址空间不得重叠。
 - 虚拟网络与另一个虚拟网络对等后，不能向其添加或从中删除地址范围。 若要添加或删除地址范围，请删除对等，添加或删除地址范围，然后重新创建对等。 若要为虚拟网络添加或删除地址范围，请参阅[管理虚拟网络](manage-virtual-network.md)。
 - 可以对等互连两个通过 Resource Manager 部署的虚拟网络，或对等互连一个通过 Resource Manager 部署的虚拟网络与一个通过经典部署模型部署的虚拟网络。 不能对等互连两个通过经典部署模型创建的虚拟网络。 如果不熟悉 Azure 部署模型，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)一文。 可以使用 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#V2V)来连接两个通过经典部署模型创建的虚拟网络。

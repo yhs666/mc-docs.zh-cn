@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 02/21/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: caa9045c2f9cbe4ea84aec040f8d526e9f8c2650
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8aa0a160cc9a88ee1b1bd0b200b46dfccb0d146e
+ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964477"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502551"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>快速入门：使用 Node.js 通过文本翻译 API 来确定句子长度
 
@@ -81,6 +81,7 @@ let options = {
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Ocp-Apim-Subscription-Region': 'your region',
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
@@ -147,7 +148,7 @@ node sentence-length.js
 
 * [翻译文本](quickstart-nodejs-translate.md)
 * [直译文本](quickstart-nodejs-transliterate.md)
-* [按输入确定语言](quickstart-nodejs-detect.md)
+* [根据输入确定语言](quickstart-nodejs-detect.md)
 * [获取备用翻译](quickstart-nodejs-dictionary.md)
 * [获取支持的语言的列表](quickstart-nodejs-languages.md)
 

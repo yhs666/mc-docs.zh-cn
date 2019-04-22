@@ -2,8 +2,8 @@
 title: 在云服务中配置自定义域名 | Azure
 description: 了解如何通过配置 DNS 设置在自定义域上向 Internet 公开 Azure 应用程序或数据。  这些示例使用 Azure 门户。
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 08/20/2018
+ms.date: 04/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: e806379145c590fdda51ee5f19e17b7137706c69
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 05d67806bd614a6632b8604fe6a5a7ae6638e0a0
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625793"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529348"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
 创建云服务时，Azure 会将其分配给 **chinacloudapp.cn** 的子域。 例如，如果云服务名为“contoso”，则用户能够在 URL（如 http://contoso.chinacloudapp.cn）上访问应用程序。 Azure 还会分配一个虚拟 IP 地址。
@@ -68,7 +68,7 @@ A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例�
 
 1. 使用下列方法之一找到分配给云服务的 **.chinacloudapp.cn** 域名。
 
-   * 登录到 [Azure 门户]，选择云服务，查看“概要”部分，然后找到“站点 URL”条目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“站点 URL”条目。
 
        ![显示站点 URL 的速览部分][csurl]
 
@@ -107,7 +107,7 @@ A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例�
 
 1. 使用以下方法之一来获取云服务的 IP 地址。
 
-   * 登录到 [Azure 门户]，选择云服务，查看“概要”部分，然后找到“公共 IP 地址”条目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“公共 IP 地址”条目。
 
        ![显示 VIP 的速览部分][vip]
 

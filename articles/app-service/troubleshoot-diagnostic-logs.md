@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 03/25/2019
+ms.date: 04/22/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 12b3e6559c0e69f498004b6134b343101896cc4b
-ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
+ms.openlocfilehash: 2baedd798bbf65dac157f54ade22b413585e4c67
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57787316"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355881"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -116,7 +116,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-此命令将名为“appname”的应用的日志保存到当前目录中名为 **diagnostics.zip** 的文件。
+此命令将名为“appname”的应用的日志保存到当前目录中名为 **webapp_logs.zip** 的文件。
 
 > [!NOTE]
 > 如果尚未安装 Azure CLI，或尚未将其配置为使用你的 Azure 订阅，请参阅[如何使用 Azure CLI](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
@@ -203,7 +203,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](app-service
 
 ![在浏览器中查看失败请求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
-### <a name="detailed-error-logs"></a>详细错误日志
+### <a name="detailed-error-logs"></a>详细的错误日志
 详细的错误日志是 HTML 文档，可提供有关发生的 HTTP 错误的详细信息。 由于它们只是 HTML 文档，所以可以使用 Web 浏览器查看。
 
 ### <a name="web-server-logs"></a>Web 服务器日志

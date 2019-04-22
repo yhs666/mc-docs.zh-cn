@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 超大规模数据库 FAQ | Microsoft Docs
+title: 超大规模 Azure SQL 数据库常见问题解答 | Microsoft Docs
 description: 对客户关于超大规模服务层中的 Azure SQL 数据库（通常称为超大规模数据库）提出的常见问题的回答。
 services: sql-database
 ms.service: sql-database
@@ -11,21 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/06/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: b6c832be209a528725b9027b50f623fc84e3ba3b
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 03/26/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 84a2f29f1aa12856c7171e06cd3640c0c757da4c
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347176"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529190"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>关于 Azure SQL 超大规模数据库的 FAQ
 
 本文就客户对 Azure SQL 数据库超大规模服务层中的数据库（通常称为超大规模数据库，当前为公共预览版）提出的常见问题作出回答。 本文介绍超大规模支持的方案，并且跨功能服务通常与 SQL 超大规模数据库兼容。
 
 - 本常见问题解答适用于对超大规模服务层有基本了解并希望其具体问题得到解答的读者。
-- 它不是指南，不解答关于如何使用 SQL 超大规模数据库的问题。 为此，建议参考 [Azure SQL 超大规模数据库](sql-database-service-tier-hyperscale.md)文档。
+- 它不是指南，不解答关于如何使用 SQL 超大规模数据库的问题。 为此，建议参考[超大规模 Azure SQL 数据库](sql-database-service-tier-hyperscale.md)文档。
 
 ## <a name="general-questions"></a>一般问题
 
@@ -46,7 +46,7 @@ ms.locfileid: "57347176"
 - 业务关键服务层适用于需优先考虑 IO 延迟的业务工作负荷。
 
 | | 资源类型 | 常规用途 |  超大规模 | 业务关键 |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **最适用于** |全部|  大多数业务工作负荷。 提供以预算导向的、均衡的计算和存储选项。 | 数据容量要求高且能够流畅地自动缩放存储和流畅缩放计算的数据应用程序。 | 事务率较高、延迟 IO 最低的 OLTP 应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
 |  **资源类型** ||单一数据库/弹性池/托管实例 | 单一数据库 | 单一数据库/弹性池/托管实例 |
 | **计算大小**|单一数据库/弹性池* | 1 - 80 个 vCore | 1 - 80 个 vCore* | 1 - 80 个 vCore |
@@ -217,7 +217,7 @@ SQL 超大规模数据库支持所有 SQL Server 工作负荷，但它主要针�
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>迁移到超大规模服务层后，是否会丢失一些功能
 
-是的。 公共预览期间，部分 Azure SQL 数据库功能不受支持，包括但不限于 TDE 和长期保留备份。 将数据库迁移到超大规模服务层后，这些功能将停止运行。
+是的。 公共预览期间，部分 Azure SQL 数据库功能不受支持，包括但不限于长期保留备份。 将数据库迁移到超大规模服务层后，这些功能将停止运行。
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>能否将我的本地 SQL Server 数据库或 SQL Server 虚拟机数据库迁移到超大规模服务层
 

@@ -3,20 +3,16 @@ title: 创建支持基于 URL 路径的重定向的应用程序网关 - Azure Po
 description: 了解如何使用 Azure PowerShell 创建支持基于 URL 路径的重定向流量的应用程序网关。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-origin.date: 11/13/2018
-ms.date: 03/12/2019
+origin.date: 04/03/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
-ms.custom: mvc
-ms.openlocfilehash: e8795573df4c4920019deabe7757e5a6b0e71835
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: de0314830e974305d4c182c52185307bae3004d4
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788717"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686350"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持基于 URL 路径的重定向的应用程序网关
 
@@ -36,7 +32,7 @@ ms.locfileid: "57788717"
 
 如果需要，也可以使用 [Azure CLI](tutorial-url-redirect-cli.md) 完成本教程中的步骤。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -131,9 +127,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>创建默认侦听器和规则
 
-应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将创建多个侦听器。 第一个基本侦听器应在根 URL 收到流量。 其他侦听器应在特定 URL（如 http://52.168.55.24:8080/images/ 或 http://52.168.55.24:8081/video/）收到流量。
+应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将创建多个侦听器。 第一个基本侦听器应在根 URL 收到流量。 其他侦听器应在特定 URL（如 `http://52.168.55.24:8080/images/` 或 `http://52.168.55.24:8081/video/`）收到流量。
 
-使用 [New-AzApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayhttplistener) 以及前面创建的前端配置和前端端口创建名为 *defaultListener* 的侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 创建一个名为 *rule1* 的基本规则。
+使用 [New-AzApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayhttplistener) 以及前面创建的前端配置和前端端口创建名为 defaultListener 的侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 创建一个名为 *rule1* 的基本规则。
 
 ```azurepowershell
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -493,7 +489,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-可以使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取应用程序网关的公共 IP 地址。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如， *http://52.168.55.24*、 *http://52.168.55.24:8080/images/test.htm*、 *http://52.168.55.24:8080/video/test.htm* 或 *http://52.168.55.24:8081/images/test.htm*。
+可以使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取应用程序网关的公共 IP 地址。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，`http://52.168.55.24`、`http://52.168.55.24:8080/images/test.htm`、`http://52.168.55.24:8080/video/test.htm` 或 `http://52.168.55.24:8081/images/test.htm`。
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -501,7 +497,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在应用程序网关中测试基 URL](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到如以下示例所示的内容：
+将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.htm（将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到如以下示例所示的内容：
 
 ![在应用程序网关中测试映像 URL](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 
@@ -523,4 +519,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: code and links update -->
+<!-- Update_Description: wording update -->

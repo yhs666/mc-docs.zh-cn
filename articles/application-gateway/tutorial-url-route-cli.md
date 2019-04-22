@@ -6,17 +6,17 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 origin.date: 10/25/2018
-ms.date: 11/21/2018
+ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 80e0ed346bbf0c7d3720ecdb29e1acbb66d0876c
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 79cd0b6d274e6a2b9f61c85ff11c78eba5482c47
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673060"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686390"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>教程 - 使用 Azure CLI 基于 URL 对 Web 流量进行路由
+# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>教程：使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
 作为管理 Web 流量的 IT 管理员，你希望帮助客户或用户尽快获取其需要的信息。 若要优化其体验，一种方法是将不同类型的 Web 流量路由到不同的服务器资源。 本教程介绍如何使用 Azure CLI 为应用程序中的不同类型的流量设置和配置应用程序网关路由。 然后，路由会根据 URL 将流量定向到不同的服务器池。
 
@@ -233,7 +233,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，请使用 az network public-ip show。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，*http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, 或 *http://40.121.222.19:8080/video/test.htm*。
+若要获取应用程序网关的公共 IP 地址，请使用 az network public-ip show。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，`http://40.121.222.19`、`http://40.121.222.19:8080/images/test.htm` 或 `http://40.121.222.19:8080/video/test.htm`。
 
 ```azurecli
 az network public-ip show `

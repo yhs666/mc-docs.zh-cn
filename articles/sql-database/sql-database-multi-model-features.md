@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 12/17/2018
 ms.date: 04/08/2019
-ms.openlocfilehash: f8eb5d81ce0d15105da0237fe8f092bb9c71e135
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: 8aaf7e60514fffac695470294fef5b3ef8014cf1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003474"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529320"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL 数据库的多模型功能
 

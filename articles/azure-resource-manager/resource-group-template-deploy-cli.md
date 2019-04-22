@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 和模板部署资源 | Azure
-description: 使用 Azure Resource Manager 和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
+description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -10,25 +10,41 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/14/2019
-ms.date: 03/18/2019
+origin.date: 03/28/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 52f0e6317f881e3b8e8a0e58beef5112c6f5c177
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: aa6d3bf8b80e097ac9a111e2a7d224ef78fd3897
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348028"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529444"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
 本文介绍了如何将 Azure CLI 与资源管理器模板配合使用将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure 资源管理器概述](resource-group-overview.md)。  
 
-所部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板是 [GitHub 中的一个存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)。
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 <!-- Not Available on Cloud Shell -->
+
+## <a name="deployment-scope"></a>部署范围
+
+可将部署目标设定为 Azure 订阅或订阅中的资源组。 大多数情况下，我们会将以资源组指定为部署目标。 可以使用订阅部署在整个订阅中应用策略和角色分配。 还可以使用订阅部署创建资源组并向其部署资源。 根据部署范围使用不同的命令。
+
+若要部署到**资源组**，请使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create)：
+
+```azurecli
+az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
+若要部署到**订阅**，请使用 [az deployment create](https://docs.azure.cn/zh-cn/cli/deployment?view=azure-cli-latest#az-deployment-create)：
+
+```azurecli
+az deployment create --location <location> --template-file <path-to-template>
+```
+
+本文中的示例使用资源组部署。 有关订阅部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
 ## <a name="deploy-local-template"></a>部署本地模板
 
@@ -59,7 +75,7 @@ az group deployment create \
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>部署外部模板
+## <a name="deploy-remote-template"></a>部署远程模板
 
 你可能更愿意将 Resource Manager 模板存储在外部位置，而不是存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
 
@@ -76,24 +92,16 @@ az group deployment create \
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
-<!-- Not Available on Cloud Shell -->
-
-在 Azure Shell 中使用以下命令：
-
-```azurecli
-az group create --name examplegroup --location "China East"
-az group deployment create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
-
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署到多个资源组或订阅
-
-通常情况下，将模板中的所有资源部署到单个资源组。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 在单个部署中可以仅部署到五个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](resource-manager-cross-resource-group-deployment.md)。
+<!--MOONCAKE: Not Available on Cloud Shell and corresponding code -->
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `--rollback-on-error` 参数。
+此功能也称为“出错时回滚”。 部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `--rollback-on-error` 参数。 如果基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
+
+- 重新部署使用与以前运行它时相同的参数以相同的方式运行。 无法更改参数。
+- 以前的部署是使用[完整模式](./deployment-modes.md#complete-mode)运行的。 以前的部署中未包括的任何资源都将被删除，任何资源配置都将设置为以前的状态。 请确保你完全理解[部署模式](./deployment-modes.md)。
+- 重新部署只会影响资源，不会影响任何数据更改。
+- 只有资源组部署支持此功能，订阅级部署不支持此功能。 有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](./deploy-to-subscription.md)。
 
 若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
 
@@ -252,11 +260,12 @@ az group deployment validate \
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 本文中的示例将资源部署到默认订阅中的资源组。 若要使用其他订阅，请参阅[管理多个 Azure 订阅](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。
-* 若要指定如何处理存在于资源组中但未在模板中定义的资源，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
-* 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
-* 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
-* 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
+
+- 本文中的示例将资源部署到默认订阅中的资源组。 若要使用其他订阅，请参阅[管理多个 Azure 订阅](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。
+- 若要指定如何处理存在于资源组中但未在模板中定义的资源，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
+- 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
+- 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
+- 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
 <!--Update_Description: update meta properties, wording update-->

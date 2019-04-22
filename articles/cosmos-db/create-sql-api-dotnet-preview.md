@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 12/01/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4565cfa0cb90ed0a3e9ab6ad8f2a0610219a2d66
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 7fd5d3f0c5debacbbd48c27eb41189d5c36532be
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004692"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615150"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户构建 ASP.NET Web 应用
 
@@ -144,7 +144,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式高可用性多模型�
     ![项目的右键菜单的屏幕截图](./media/create-sql-api-dotnet/manage-nuget-package.png)
 1. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中键入 **Microsoft.Azure.Cosmos**。
 1. 在结果中找到“Microsoft.Azure.Cosmos”，并单击“安装”。
-   Azure Cosmos DB SQL API 客户端库的包 ID 是 [Azure Cosmos DB 客户端库](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)。
+    Azure Cosmos DB SQL API 客户端库的包 ID 是 [Azure Cosmos DB 客户端库](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)。
 
     ![用于查找 Azure Cosmos DB 客户端 SDK 的 NuGet 菜单的屏幕截图](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
@@ -154,7 +154,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式高可用性多模型�
 
 1. 在浏览器中选择“新建”，并在“待办事项”应用中创建一些新任务。 此外还会看到在[添加示例数据](#add-sample-data)中创建的任务
 
-   ![包含示例数据的“待办事项”应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list-preview.png)
+    ![包含示例数据的“待办事项”应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list-preview.png)
 
 现可返回到数据资源管理器，查看查询、修改和处理此新数据。 
 

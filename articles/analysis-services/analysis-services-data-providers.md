@@ -5,29 +5,29 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 03/11/2019
-ms.date: 03/25/2019
+origin.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92af18862e3198f62c4750842cd90e406570ec18
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: d0ce642c7ff5cda9c33078a252badc70d15574e1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348056"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529475"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 
-客户端应用程序和工具连接到 Analysis Services 服务器时需要使用客户端库。 
+客户端应用程序和工具连接到 Analysis Services 服务器时需要使用客户端库。 Microsoft 客户端应用程序（例如 Power BI Desktop、Excel、SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT)）会安装全部三个客户端库并通过定期的应用程序更新来更新它们。 在某些情况下，可能需要安装较新版本的客户端库。 自定义客户端应用程序还需要安装客户端库。
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>下载最新客户端库 (Windows Installer)  
 
 |下载  |产品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.11.19    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.11.19      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.15.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.15.0.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.15.26    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.15.26      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.17.1.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.17.1.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD（NuGet 包）
 
@@ -35,8 +35,8 @@ Analysis Services Management Objects (AMO) 和 ADOMD 客户端库在 [NuGet.org]
 
 |程序包  | 产品版本  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.15.0.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.15.0.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |
 
 NuGet 包程序集 AssemblyVersion 遵循语义版本控制：MAJOR.MINOR.PATCH。 NuGet 引用加载预期的版本，即使 GAC 中存在不同的版本（由 MSI 安装导致的）。 PATCH 将随每次发布递增。 AMO 和 ADOMD 版本保持同步。
 
@@ -52,22 +52,23 @@ Microsoft 客户端应用程序（例如 Power BI Desktop 和 Excel）会安装�
 
 ### <a name="analysis-services-ole-db-provider-msolap"></a>Analysis Services OLE DB 提供程序 (MSOLAP) 
 
- Analysis Services OLE DB 提供程序 (MSOLAP) 是用于建立 Analysis Services 数据库连接的本机客户端库。 ADOMD.NET 和 AMO 间接使用它向数据提供程序委托连接请求。 也可以直接从应用程序代码调用 OLE DB 提供程序。  
+Analysis Services OLE DB 提供程序 (MSOLAP) 是用于建立 Analysis Services 数据库连接的本机客户端库。 ADOMD.NET 和 AMO 间接使用它向数据提供程序委托连接请求。 也可以直接从应用程序代码调用 OLE DB 提供程序。  
 
- 用于访问 Analysis Services 数据库的大多数工具和客户端应用程序可自动安装 Analysis Services OLE DB 提供程序。 必须将它安装在用于访问 Analysis Services 数据的计算机上。  
+用于访问 Analysis Services 数据库的大多数工具和客户端应用程序可自动安装 Analysis Services OLE DB 提供程序。 必须将它安装在用于访问 Analysis Services 数据的计算机上。  
 
- OLE DB 提供程序通常在连接字符串中指定。 Analysis Services 连接字符串使用不同的命名法来引用 OLE DB 提供程序：MSOLAP.\<版本>.dll。
+OLE DB 提供程序通常在连接字符串中指定。 Analysis Services 连接字符串使用不同的命名法来引用 OLE DB 提供程序：MSOLAP.\<版本>.dll。
 
 ### <a name="amo"></a>AMO  
 
- AMO 是用于服务器管理和数据定义的托管客户端库。 它由工具和客户端应用程序安装和使用。 例如，SQL Server Management Studio (SSMS) 使用 AMO 连接到 Analysis Services。 使用 AMO 的连接通常非常精简，由 `"data source=\<servername>"` 组成。 建立连接后，可以使用 API 来处理数据库集合和主要对象。 SSDT 和 SSMS 都使用 AMO 连接到 Analysis Services 实例。  
+AMO 是用于服务器管理和数据定义的托管客户端库。 它由工具和客户端应用程序安装和使用。 例如，SQL Server Management Studio (SSMS) 使用 AMO 连接到 Analysis Services。 使用 AMO 的连接通常非常精简，由 `"data source=\<servername>"` 组成。 建立连接后，可以使用 API 来处理数据库集合和主要对象。 SSDT 和 SSMS 都使用 AMO 连接到 Analysis Services 实例。  
 
 ### <a name="adomd"></a>ADOMD
 
- ADOMD.NET 是用于查询 Analysis Services 数据的托管数据客户端库。 它由工具和客户端应用程序安装和使用。 
+ADOMD.NET 是用于查询 Analysis Services 数据的托管数据客户端库。 它由工具和客户端应用程序安装和使用。 
 
- 连接到数据库时，所有三个库的连接字符串属性相似。 使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) 为 ADOMD.NET 定义的几乎任何连接字符串同样适用于 AMO 和 Analysis Services OLE DB 提供程序 (MSOLAP)。 若要了解详细信息，请参阅[连接字符串属性 &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)。  
+连接到数据库时，所有三个库的连接字符串属性相似。 使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring?view=analysisservices-dotnet#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) 为 ADOMD.NET 定义的几乎任何连接字符串同样适用于 AMO 和 Analysis Services OLE DB 提供程序 (MSOLAP)。 若要了解详细信息，请参阅[连接字符串属性 &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)。  
 
+<!--MOONCAKE: URL CORRECT on https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring?view=analysisservices-dotnet#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString-->
 <a name="bkmk_LibUpdate"></a>
 ##  <a name="how-to-determine-client-library-version"></a>如何确定客户端库版本   
 

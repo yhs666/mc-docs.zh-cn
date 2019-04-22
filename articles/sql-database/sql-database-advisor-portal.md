@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: digimobile
-origin.date: 04/01/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 69e4de813755c94e61b93c8349abf98d60e8fa4b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 12/19/2018
+ms.date: 04/15/2019
+ms.openlocfilehash: 38fcdc23ab54286b2ef5973a679288941d90fb61
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649555"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529164"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
@@ -79,6 +79,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 所选的建议将在数据库上应用。
 
 ### <a name="removing-recommendations-from-the-list"></a>从列表中删除建议
+
 如果建议的列表中包含你想要删除的项则可放弃建议：
 
 1. 选择“建议”列表中的建议打开详细信息。
@@ -111,18 +112,21 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 
 选择所需配置后，请单击“应用”。
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>手动运行建议的 T-SQL 脚本
+### <a name="manually-apply-recommendations-through-t-sql"></a>通过 T-SQL 手动应用建议
+
 选择任意建议，然后单击“查看脚本”。 针对数据库运行此脚本以手动应用建议。
 
-不通过该服务监视和验证手动执行的索引的性能影响，因此建议在创建后监视这些索引以验证它们是否提供性能提升，并在必要时调整或删除它们。 有关创建索引的详细信息，请参阅 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。
+不通过该服务监视和验证手动执行的索引的性能影响，因此建议在创建后监视这些索引以验证它们是否提供性能提升，并在必要时调整或删除它们。 有关创建索引的详细信息，请参阅 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。 此外，手动应用的建议在系统自动撤消它们之前， 将在 24-48 小时内保持活动状态并显示在建议列表中。 如果你想要更快地删除建议，可以手动放弃它。
 
 ### <a name="canceling-recommendations"></a>取消建议
+
 可以取消处于“待定”、“正在验证”或“成功”状态的建议。 不能取消状态为“正在执行”的建议。
 
 1. 在“优化历史记录”区域中选择建议，打开“建议详细信息”页。
 2. 单击“取消”可中止应用建议的过程。
 
 ## <a name="monitoring-operations"></a>监视操作
+
 可能不会立刻应用建议。 该门户提供了有关建议状态的详细信息。 以下是索引可能处于的状态：
 
 | 状态 | 说明 |

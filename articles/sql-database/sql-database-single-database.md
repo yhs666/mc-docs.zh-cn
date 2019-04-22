@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/08/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 93feafedb8019270a048bf770b032376821b2d39
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 04/08/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: ce953658af702cd768d1b884d5779414c7b619e2
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318940"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529383"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什么是 Azure SQL 数据库中的单一数据库
 
@@ -55,6 +55,9 @@ Microsoft SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的
 ## <a name="security"></a>安全性
 
 SQL 数据库提供一系列[内置安全性和符合性](sql-database-security-overview.md)功能，帮助应用程序满足各种安全性和符合性要求。
+
+> [!IMPORTANT]
+> Azure SQL 数据库（所有部署选项）已通过了许多符合性标准的认证。 有关详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/compliance/default.html)，可以从中找到 SQL 数据库符合性认证的最新列表。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86128eb2ac4ecae0d1e800fb8fffdffb099144fa
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: bc83b0d296004c7c68a3b83e2d79674fec297d78
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988026"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615190"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
 
@@ -108,9 +108,10 @@ ms.locfileid: "56988026"
      "name": "[parameters('databaseAccountName')]",
      "location": "[resourceGroup().location]",
      "properties": {
-     "databaseAccountOfferType": "Standard",
-     "name": "[parameters('databaseAccountName')]",
-     "ipRangeFilter":"183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+       "databaseAccountOfferType": "Standard",
+       "name": "[parameters('databaseAccountName')]",
+       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+     }
    }
 ```
 
@@ -130,7 +131,7 @@ az cosmosdb create \
   --resource-group $resourceGroupName \
   --max-interval 10 \
   --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 若要更新现有帐户的防火墙设置，请运行以下命令：
@@ -139,7 +140,7 @@ az cosmosdb create \
 az cosmosdb update \
       --name $name \
       --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 <a name="troubleshoot-ip-firewall"></a>
@@ -154,9 +155,7 @@ az cosmosdb update \
 使用不在允许列表内的计算机访问 Azure Cosmos DB 资源时，将返回一般的“403 禁止访问”响应，但不提供其他任何详细信息。 验证帐户的允许 IP 列表并确保 Azure Cosmos DB 帐户中应用了正确的策略配置。 
 
 ### <a name="source-ips-in-blocked-requests"></a>受阻止请求中的源 IP
-对 Azure Cosmos DB 帐户启用诊断日志记录。 这些日志显示每个请求和响应。 会记录带有 403 返回代码的防火墙相关消息。 通过筛选这些消息，可以查看已阻止请求的源 IP。
-
-<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md)-->
+对 Azure Cosmos DB 帐户启用诊断日志记录。 这些日志显示每个请求和响应。 会记录带有 403 返回代码的防火墙相关消息。 通过筛选这些消息，可以查看已阻止请求的源 IP。 请参阅 [Azure Cosmos DB 诊断日志记录](logging.md)。
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>来自已启用 Azure Cosmos DB 服务终结点的子网的请求
 来自虚拟网络中已启用 Azure Cosmos DB 服务终结点的子网的请求向 Azure Cosmos DB 帐户发送虚拟网络和子网标识。 这些请求不包含源的公共 IP，因此 IP 筛选器将拒绝它们。 若要允许从虚拟网络中的特定子网进行访问，请添加[如何为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)中所述的访问控制列表。 应用防火墙规则最多可能需要 15 分钟。

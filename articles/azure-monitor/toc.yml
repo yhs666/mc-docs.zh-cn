@@ -128,10 +128,6 @@ items:
         href: platform/roles-permissions-security.md
       - name: 工作区
         href: platform/manage-access.md
-      - name: 应用程序
-        href: app/resources-roles-access-control.md
-      - name: IP 地址
-        href: app/ip-addresses.md
     - name: 管理工作区
       items:
       - name: 创建工作区
@@ -212,22 +208,10 @@ items:
         href: platform/data-sources-custom-logs.md
       - name: 自定义字段
         href: platform/custom-fields.md
-      - name: ASP.NET 应用
-        items:
-        - name: Web 应用
-          href: app/asp-net.md
       - name: Java 应用
         items:
         - name: 配置 Spring Boot Initializer 应用
           href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-      - name: 网页
-        items:
-        - name: Javascript
-          href: app/javascript.md
-      - name: 故障排除
-        items:
-        - name: 分析
-          href: app/analytics-troubleshooting.md
     - name: Azure 资源
       items:
       - name: Azure 活动日志
@@ -240,8 +224,6 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Azure 存储中的诊断或日志数据
         href: platform/azure-storage-iis-table.md
-      - name: 关联自定义数据源
-        href: app/custom-data-correlation.md
     - name: 收集自定义数据
       items:
       - name: Log Analytics 数据收集器 API
@@ -274,14 +256,6 @@ items:
     items:
     - name: 监视应用程序
       items:
-      - name: Visual Studio
-        items:
-        - name: 使用 F5 获取见解
-          href: app/visual-studio.md
-      - name: 使用情况
-        items:
-        - name: 工作簿
-          href: app/usage-workbooks.md
       - name: Web 应用分析解决方案
         href: insights/azure-web-apps-analytics.md
     - name: 监视容器
@@ -431,8 +405,6 @@ items:
           href: log-query/app-expression.md
       - name: 日志数据
         items:
-        - name: 应用程序数据
-          href: app/analytics.md
         - name: 统一应用程序数据资源
           href: log-query/unify-app-resource-data.md
         - name: 分析文本数据
@@ -483,10 +455,6 @@ items:
           href: platform/migrate-management-alerts.md
         - name: 针对服务通知配置警报
           href: platform/alerts-activity-log-service-notifications.md
-      - name: 使用应用程序警报
-        items:
-        - name: 指标警报
-          href: app/alerts.md
       - name: 将操作组与警报配合使用
         items:
         - name: 创建操作组
@@ -663,9 +631,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 代码示例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: a920f036252e04a46535ae61fd688be1b986cacc
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: c0a5213167f7e123977a51aa800b131c91148d0e
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204128"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686379"

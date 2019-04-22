@@ -8,15 +8,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 04/08/2019
+ms.date: 04/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 10d0eb6cb770592bbf417ab01f7874209ab7044c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9f093a9504f1387c20e64dfb3eeee26664835996
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627784"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529384"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安装 Azure IoT Edge 运行时
 
@@ -27,7 +27,12 @@ ms.locfileid: "58627784"
 本文列出了在 Windows x64 (AMD/Intel) 系统上安装 Azure IoT Edge 运行时的步骤。 Windows 支持目前为预览版。
 
 > [!NOTE]
+> 当 IoT Edge 模块（进程隔离的 Windows Nano Server 容器）正在运行时，一个已知的 Windows 操作系统问题会阻止转换到睡眠和休眠电源状态。 此问题会影响设备的电池寿命。
+>
+> 作为解决方法，在使用这些电源状态之前，请使用 `Stop-Service iotedge` 命令停止任何正在运行的 IoT Edge 模块。 
+
 > 不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。
+不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。 
 
 ## <a name="prerequisites"></a>先决条件
 

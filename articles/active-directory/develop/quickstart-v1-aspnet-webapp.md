@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cf48bd0178e1399cb31aff65c85857e22b1f311
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e0a76da5ce33e70f1fa33f0733de29062a38b39b
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627393"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243638"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
@@ -95,7 +95,7 @@ ms.locfileid: "58627393"
 > [!TIP]
 > 如果项目的根文件夹中没有 `Startup.cs` 文件，请执行以下操作：<br/>
 > 1. 右键单击项目的根文件夹：>   “添加”>“新建项”...>“OWIN Startup 类”<br/>
-> 2. 将其命名为 `Startup.cs`<br/>
+> 2. 将它命名为 `Startup.cs`<br/>
 >
 >> 确保选择的类是 OWIN Startup 类，而不是标准 C# 类。 通过检查是否在命名空间上看到 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` 来进行确认。
 
@@ -239,7 +239,7 @@ ms.locfileid: "58627393"
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>创建应用的主页，通过登录按钮来登录用户
+## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>步骤 6：创建应用的主页，通过登录按钮来登录用户
 
 在 Visual Studio 中，创建新视图来添加登录按钮并在身份验证后显示用户信息：
 
@@ -494,7 +494,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 此步骤测试作为匿名用户对 Claims 控制器的访问：<br/>
 选择注销用户的链接并完成注销过程。<br/>
-现在浏览器中键入 http://localhost:{port}/claims，访问受 `[Authorize]` 属性保护的控制器
+现在浏览器中键入 `http://localhost:{port}/claims`，访问受 `[Authorize]` 属性保护的控制器
 
 #### <a name="expected-results"></a>预期结果
 
@@ -517,4 +517,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 <!--end-test-->
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

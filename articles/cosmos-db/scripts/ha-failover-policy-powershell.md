@@ -8,18 +8,20 @@ ms.devlang: PowerShell
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 05/10/2017
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 337552f0bb5216ff8d1b051952c8031b40e71eab
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: ca561dfe49e25898cedfd3250cd42dd2f152841b
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309146"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615261"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 故障转移策略以实现高可用性
 
 此示例 PowerShell 脚本创建 Azure Cosmos DB 的故障转移策略以实现高可用性。 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -31,7 +33,7 @@ $resourceGroupName = "myResourceGroup"
 $resourceGroupLocation = "chinaeast"
 
 # Create the resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 
 # Database name
 $DBName = "testdb"
@@ -53,7 +55,7 @@ $DBProperties = @{"databaseAccountOfferType"="Standard";
                           "consistencyPolicy"=$consistencyPolicy}
 
 # Create the database
-New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -ApiVersion "2015-04-08" `
                     -ResourceGroupName $resourceGroupName `
                     -Location $resourceGroupLocation `
@@ -67,7 +69,7 @@ $failoverPolicies = @(@{"locationName"="chinaeast";
                         "failoverPriority"=0})
 
 # Update an existing database with the failover policies
-Invoke-AzureRmResourceAction -Action failoverPriorityChange `
+Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" `
     -ResourceGroupName "<resource-group-name>" `
@@ -82,7 +84,7 @@ Invoke-AzureRmResourceAction -Action failoverPriorityChange `
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -91,10 +93,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [Invoke-AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | 对 Azure CosmosDB 帐户调用某个操作。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 对 Azure CosmosDB 帐户调用某个操作。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
@@ -102,4 +104,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update -->

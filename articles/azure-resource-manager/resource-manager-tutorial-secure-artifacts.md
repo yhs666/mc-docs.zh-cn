@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 02/25/2019
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 4bf3d6fe2ba3a8ce120358275c5272af76ff13a6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 030e7961d383dac6d356adad8db1f872974de494
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625502"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529350"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -72,19 +72,29 @@ ms.locfileid: "58625502"
 1. 选择以下映像在 Azure 门户中打开一个资源管理器模板。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json" target="_blank"><img src="./media/resource-manager-tutorial-secure-artifacts/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. 输入以下属性：
 
-    * **订阅**：选择 Azure 订阅。
-    * **资源组**：选择“新建”并指定名称。 资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。
-    * **位置**：选择区域。 例如，**中国北部**。 
-    * **存储帐户类型**：使用默认值“Standard_LRS”。
-    * **位置**：使用默认值“[resourceGroup().location]”。 这意味着，要使用存储帐户的资源组位置。
-    * **我同意上述条款和条件**：（选中）
-3. 选择“购买”。
-4. 选择门户右上角的通知图标（钟形图标）查看部署状态。
+    <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
+    
+2. 选择“编辑模板”。
+
+3. 输入以下属性：
+    
+    - “部署解决方案模板”面板。
+        |名称|值| |**订阅**| 选择你的 Azure 订阅。| |**资源组**| 选择“新建”并为其提供一个名称。 资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。| |**资源组位置**|选择一个区域。 例如，**中国北部**。 |
+    - 选择“编辑参数”，显示“参数”面板。
+        |**存储帐户类型**|使用默认值，即 **Standard_LRS**。| |**位置**| 使用默认值，即 **[resourceGroup().location]**。 这意味着，你将使用存储帐户的资源组位置。|
+        
+        <!--MOONCAKE : Not Available on * **I agree to the terms and conditions started above**: (selected)-->
+        
+    - 选择“确定” 。
+
+4. 选择“查看法律条款”，然后选择“创建”。
+5. 选择“创建” 。
+    <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
+6. 选择门户右上角的通知图标（钟形图标）查看部署状态。
 
     ![资源管理器教程门户通知窗格](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
-5. 成功部署存储帐户后，在通知窗格中选择“转到资源组”打开该资源组。
+7. 成功部署存储帐户后，在通知窗格中选择“转到资源组”打开该资源组。
 
 ### <a name="create-a-blob-container"></a>创建 Blob 容器
 
@@ -146,14 +156,20 @@ ms.locfileid: "58625502"
 3. 选择“打开”以打开该文件。
 
     该模板中定义了五个资源：
+    
+    * `Microsoft.Sql/servers`。
+    * `Microsoft.SQL/servers/securityAlertPolicies`。
+    * `Microsoft.SQL/servers/filewallRules`。
+    * `Microsoft.SQL/servers/databases`。
+    * `Microsoft.SQL/server/databases/extensions`。
 
-   * `Microsoft.Sql/servers`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers)。
-   * `Microsoft.SQL/servers/securityAlertPolicies`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)。
-   * `Microsoft.SQL/servers/filewallRules`。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)。
-   * `Microsoft.SQL/servers/databases`。  请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)。
-   * `Microsoft.SQL/server/databases/extensions`。  请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)。
-
-     在自定义模板之前，不妨对其进行一些基本的了解。
+    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)-->
+    
+    在自定义模板之前，不妨对其进行一些基本的了解。
 4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
 
 ## <a name="edit-the-template"></a>编辑模板
@@ -199,7 +215,6 @@ ms.locfileid: "58625502"
 有关部署过程，请参阅[部署模板](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)部分。 改用以下 PowerShell 部署脚本：
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
 $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -209,7 +224,7 @@ $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS
 $bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `

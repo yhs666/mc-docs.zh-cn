@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 2a84125c939f44d848123062c1124d1aedf8d1ed
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9bb69937088ee0813b5a888d16e849ec42565bcc
+ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646237"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59243680"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入门：从 iOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -33,8 +34,8 @@ ms.locfileid: "52646237"
 
 在本快速入门中，你将构建具有以下功能的一个 Objective C 待办事项列表应用程序：
 
-- 使用 OAuth 2.0 身份验证协议获取调用 Azure AD 图形 API 的访问令牌
-- 在目录中搜索具有给定别名的用户
+* 使用 OAuth 2.0 身份验证协议获取调用 Azure AD 图形 API 的访问令牌
+* 在目录中搜索具有给定别名的用户
 
 要构建完整的工作应用程序，需要：
 
@@ -46,8 +47,8 @@ ms.locfileid: "52646237"
 
 开始前，请完成这些先决条件：
 
-- [下载应用框架](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)。
-- 拥有可在其中创建用户和注册应用程序的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
+* [下载应用框架](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)。
+* 拥有可在其中创建用户和注册应用程序的 Azure AD 租户。 如果还没有租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
 
 > [!TIP]
 > 试用[开发人员门户](https://identity.microsoft.com/Docs/iOS)，只需花费几分钟时间，它就能帮助你开始使用 Azure AD。 开发人员门户可指导完成注册应用并将 Azure AD 集成到代码的整个过程。 完成上述过程后，会获得一个可对租户中的用户进行身份验证的简单应用程序，以及一个可以接受令牌并执行验证的后端。
@@ -62,8 +63,8 @@ ms.locfileid: "52646237"
 <app-scheme>://<bundle-id>
 ```
 
-- **app-scheme** - 在 XCode 项目中注册的，它是其他应用程序的调用方式。 可以在 **Info.plist > URL types > URL Identifier** 下找到 app-scheme。 如果尚未配置一个或多个 app-scheme，请创建一个。
-- **bundle-id** - 是捆绑标识符，位于 XCode 项目设置中的“标识符”下。
+* **app-scheme** - 在 XCode 项目中注册的，它是其他应用程序的调用方式。 可以在 **Info.plist > URL types > URL Identifier** 下找到 app-scheme。 如果尚未配置一个或多个 app-scheme，请创建一个。
+* **bundle-id** - 是捆绑标识符，位于 XCode 项目设置中的“标识符”下。
 
 此快速入门代码的示例：
 
@@ -78,8 +79,8 @@ ms.locfileid: "52646237"
 3. 在最左侧的导航窗格中选择“所有服务”，并选择“Azure Active Directory”。
 4. 选择“应用注册”，并选择“添加”。
 5. 根据提示创建新的“本机”客户端应用程序。
-    - **名称**是应用程序名称，它向最终用户描述该应用程序。
-    - **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。 请输入特定于应用程序并基于之前的重定向 URI 信息的一个值。
+    * **名称**是应用程序名称，它向最终用户描述该应用程序。
+    * **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。 请输入特定于应用程序并基于之前的重定向 URI 信息的一个值。
 6. 完成注册后，Azure AD 将为应用分配一个唯一的应用程序 ID。 在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. 从“设置”页上，选择“所需权限”>“添加”>“Microsoft Graph”，然后在“委派的权限”下添加“读取目录数据”权限。 此权限将应用程序设置为在 Azure AD Graph API 中查询用户。
 
@@ -112,13 +113,13 @@ ms.locfileid: "52646237"
 
 1. 在快速入门项目中，打开 plist 文件 `settings.plist`。
 1. 替换节中的元素值，以使用你在 Azure 门户中输入的值。 每当使用 ADAL 时，代码都会引用这些值。
-    - `tenant` 是 Azure AD 租户的域，例如，contoso.partner.onmschina.cn。
-    - `clientId` 是从门户复制的应用程序的客户端 ID。
-    - `redirectUri` 是你在门户中注册的重定向 URL。
+    * `tenant` 是 Azure AD 租户的域，例如，contoso.partner.onmschina.cn。
+    * `clientId` 是从门户复制的应用程序的客户端 ID。
+    * `redirectUri` 是你在门户中注册的重定向 URL。
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步骤 4：使用 ADAL 从 Azure AD 获取令牌
 
-ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只需调用 completionBlock `+(void) getToken : `，ADAL 就会负责其余的工作。
+ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只需调用 completionBlock `+(void) getToken :`，ADAL 就会负责其余的工作。
 
 1. 在 `QuickStart` 项目中，打开 `GraphAPICaller.m` 并找到靠近顶部位置的 `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` 注释。
 
@@ -259,7 +260,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 现在，可以转到其他方案。 我们建议尝试以下后续操作：
 
-- [使用 Azure AD 保护 Node.JS Web API](quickstart-v1-nodejs-webapi.md)
-- 了解[如何使用 ADAL 在 iOS 上启用跨应用 SSO](howto-v1-enable-sso-ios.md)  
+* [使用 Azure AD 保护 Node.JS Web API](quickstart-v1-nodejs-webapi.md)
 
 <!-- Update_Description: wording update -->

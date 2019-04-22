@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ab2f5113d197dc6e21754c4dadfe401ef8134591
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 786e06dc161d584f135f3d37b81748ca58ac3ef1
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987948"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529283"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>准备在生产环境中部署 IoT Edge 解决方案
 
@@ -173,7 +173,7 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
    | \*.azurecr.io | 443 | 个人和第三方容器注册表 |
    | \*.blob.core.windows.net | 443 | 下载映像增量数据 | 
    | \*.azure-devices.net | 5671、8883、443 | IoT 中心访问 |
-   | \*.docker.io  | 443 | Docker 访问（可选） |
+   | \*.docker.io  | 443 | Docker 中心访问（可选） |
 
 ### <a name="configure-communication-through-a-proxy"></a>配置为通过代理进行通信
 
@@ -187,16 +187,57 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
 
 ### <a name="set-up-logs-and-diagnostics"></a>设置日志和诊断
 
-在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 可以使用命令行工具 `journalctl` 查询守护程序日志。 在 Windows 上，IoT Edge 守护程序使用 PowerShell 诊断。 使用 `Get-WinEvent` 可以查看守护程序的日志。 IoT Edge 模块使用 JSON 驱动程序（Docker 默认设置）进行日志记录。  
+在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 可以使用命令行工具 `journalctl` 查询守护程序日志。 在 Windows 上，IoT Edge 守护程序使用 PowerShell 诊断。 使用 `Get-WinEvent` 可以查看守护程序的日志。 IoT Edge 模块使用 JSON 驱动程序（默认设置）进行日志记录。  
 
 测试 IoT Edge 部署时，通常可以访问设备来检索日志和进行故障排除。 在部署方案中，可能做不到这一点。 考虑如何收集有关生产环境中设备的信息。 一种做法是使用日志记录模块从其他模块收集信息，然后将其发送到云中。 日志记录模块的一个示例是 [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics)，你也可以设计自己的模块。 
 
-如果担心资源受限的设备上的日志变得过大，可以通过几种做法来减少内存用量。 
+### <a name="place-limits-on-log-size"></a>施加日志大小限制
 
-* 具体而言，可以在 Docker 守护程序本身中限制所有 Docker 日志文件的大小。 对于 Linux，可在 `/etc/docker/daemon.json` 中配置守护程序。 对于 Windows，可在 `C:\ProgramData\docker\confige\daemon.json` 中配置守护程序。 
-* 可在每个模块的 CreateOptions 中调整每个容器的日志文件大小。 
-* 通过将日志设置为 Docker 的默认日志记录驱动程序，将 Docker 配置为自动管理日志。 
-* 安装适用于 Docker 的 logrotate 工具，以便从设备中定期删除旧日志。 使用以下文件规范： 
+默认情况下，Moby 容器引擎不会设置容器日志大小限制。 一段时间后，这可能会导致设备中填满了日志，因此出现磁盘空间不足的情况。 请考虑采用以下选项来防止这种情况：
+
+**选项：设置应用到所有容器模块的全局限制**
+
+可以在容器引擎日志选项中限制所有容器日志文件的大小。 以下示例将日志驱动程序设置为 `json-file`（建议），并对文件的大小和数量施加限制：
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+将此信息添加（或附加）到名为 `daemon.json` 的文件，然后将此文件放到设备平台上的适当位置。
+
+| 平台 | 位置 |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+必须重启容器引擎才能使更改生效。
+
+**选项：调整每个容器模块的日志设置**
+
+可在每个模块的 **createOptions** 中执行此操作。 例如：
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Linux 系统上的其他选项**
+
+* 通过将 `journald` 设置为默认的日志记录驱动程序，将容器引擎配置为向 `systemd` [日记](https://docs.docker.com/config/containers/logging/journald/)发送日志。 
+
+* 安装 logrotate 工具，以便从设备中定期删除旧日志。 使用以下文件规范： 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

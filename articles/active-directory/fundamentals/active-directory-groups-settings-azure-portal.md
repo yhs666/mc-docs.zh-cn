@@ -3,22 +3,23 @@ title: 编辑组信息 - Azure Active Directory | Microsoft Docs
 description: 有关如何使用 Azure Active Directory 编辑组信息的说明。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 origin.date: 08/27/2018
-ms.date: 01/21/2019
+ms.date: 04/08/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: b4787072fd51cf1fbc4751d3343b921f63740652
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca72635885e9480e44a472cd6ee5dc32a57ca834
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440362"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355854"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>使用 Azure Active Directory 编辑组信息
 
@@ -39,7 +40,7 @@ ms.locfileid: "54440362"
 
 4. 选择“MDM 策略 - 西部”组，然后从“管理”区域中选择“属性”。
 
-    ![“组概述”页面，其中突出显示了数字和成员以及成员选项](./media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![“组概述”页面，其中突出显示了“成员”选项和信息](./media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. 根据需要更新“常规设置”信息，包括：
 

@@ -5,14 +5,14 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 22cfb18107ff0acb3859f91793332b5824985d0f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4184d28f248f85d0dd017f7b12804ca2bfc968cb
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627274"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686266"
 ---
 # <a name="what-are-classic-alerts-in-21vianet-azure"></a>什么是世纪互联 Azure 中的经典警报？
 
@@ -39,7 +39,7 @@ ms.locfileid: "58627274"
 -   **智能警报整合**和**设置警报状态** - 新式警报包括了自动分组功能，它将类似的警报显示在一起以降低用户界面中的开销。 
 
 与经典指标警报相比，新式指标警报具有以下优点：
--   **延迟降低**：新型指标警报的运行频率可达每分钟一次。 旧式指标警报每 5 分钟方可运行 1 次。 新式警报从问题发生到发出通知或采取操作的延迟更小（3 到 5 分钟）。 旧式警报需要 5 到 15 分组，具体取决于类型。  由于要花费时间来引入日志，日志警报通常有 10 到 15 分钟的延迟，但新式处理方法减小了该时间。 
+-   **延迟降低**：新型指标警报的运行频率可达每分钟一次。 旧式指标警报每 5 分钟方可运行 1 次。 新式警报从问题发生到发出通知或采取操作的延迟更小（3 到 5 分钟）。 旧式警报需要 5 到 15 分组，具体取决于类型。  由于要花费时间来引入日志，日志警报通常有 10 到 15 分钟的延迟，但新式处理方法缩短了该时间。 
 -   **支持多维指标**：支持对维度指标发出警报，从而可监视所关注的指标段。
 -   **更好地控制指标条件**：可以定义更丰富的警报规则。 新型警报支持监视指标的最大值、最小值、平均值和总值。
 -   **综合监视多个指标**：可以使用单个规则监视多个指标（目前最多为两个指标）。 如果两个指标在指定时间段内违反其各自的阈值，则会触发警报。
@@ -93,9 +93,12 @@ Webhook 可实现自动化和修复，例如使用：
 * 配置[经典指标警报 PowerShell](alerts-classic-portal.md)
 * 配置[经典指标警报命令行接口 (CLI)](alerts-classic-portal.md)
 * 配置[经典指标警报 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* 详细了解[活动日志](../../azure-monitor/platform/activity-logs-overview.md)
-* [通过 Azure 门户配置活动日志警报](../../azure-monitor/platform/activity-log-alerts.md)
+* 详细了解[活动日志](activity-logs-overview.md)
+* [通过 Azure 门户配置活动日志警报](activity-log-alerts.md)
 * [通过 Resource Manager 配置活动日志警报](alerts-activity-log.md)
-* 查看[活动日志警报 webhook 架构](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* 详细了解[操作组](../../azure-monitor/platform/action-groups.md)
-* 配置[较新的警报](../../azure-monitor/platform/alerts-metric.md)
+* 查看[活动日志警报 webhook 架构](activity-log-alerts-webhook.md)
+* 详细了解[操作组](action-groups.md)
+* 配置[较新的警报](alerts-metric.md)
+
+
+

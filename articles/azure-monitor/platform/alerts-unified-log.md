@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 017f39d79b154edf1e296ffd673453d231376071
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 26f3c6599013410c20e14d3a3afd9d1721ca06a2
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440281"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686307"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor 中的日志警报
 本文提供日志警报的详细信息，该警报是 [Azure 警报](../platform/alerts-overview.md)中支持的警报类型之一，允许用户使用 Azure 分析平台作为警报的基础。
@@ -53,7 +53,7 @@ ms.locfileid: "56440281"
 
 ### <a name="number-of-results-alert-rules"></a>“结果数”警报规则
 
-当搜索查询返回的记录数超出指定的阈值时，“结果数”警报规则将创建一个警报。 此类预警规则适用于处理 Windows 事件日志、Syslog、WebApp Response 和自定义日志等事件。  生成特定错误事件时，或在特定时间段内生成多个错误事件时，就可能需要创建警报。
+当搜索查询返回的记录数超出指定的阈值时，“结果数”警报规则将创建一个警报。 此类警报规则适用于处理 Windows 事件日志、Syslog、WebApp Response 和自定义日志等事件。  生成特定错误事件时，或在特定时间段内生成多个错误事件时，就可能需要创建警报。
 
 **阈值**：“结果数”警报规则的阈值要么超出某个特定值，要么低于该值。  如果日志搜索返回的记录数与此条件匹配，则创建警报。
 
@@ -150,7 +150,6 @@ ms.locfileid: "56440281"
 * 了解如何[在 Azure 中创建日志警报](../platform/alerts-log.md)。
 * 了解 [Azure 日志警报中的 Webhook](alerts-log-webhook.md)。
 * 了解 [Azure 警报](../platform/alerts-overview.md)。
-* 详细了解 [Application Insights](../app/analytics.md)。
 * 详细了解 [Azure Monitor 日志查询](../log-query/log-query-overview.md)。    
 
 

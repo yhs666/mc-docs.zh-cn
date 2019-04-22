@@ -11,12 +11,12 @@ origin.date: 10/08/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.date: 11/12/2018
-ms.openlocfilehash: afafe85aa8a8c79fc1489b763bae9d04f49370fe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 225ce203f38463e287b520a511ceac187c78a625
+ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653897"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59529247"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>基于 Azure 逻辑应用中的特定值创建运行工作流操作的 Switch 语句
 
@@ -34,7 +34,7 @@ ms.locfileid: "52653897"
 
 * 若要执行本文中的示例，请使用 Outlook.com 或 Office 365 Outlook 帐户[创建此示例逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-  1. 添加用于发送电子邮件的操作时，请改为查找并选择此操作：“发送审批电子邮件”
+  1. 添加用于发送电子邮件的操作时，请改为查找并选择此操作：**发送审批电子邮件**
 
      ![选择“发送审批电子邮件”](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "52653897"
 
    如果想要在步骤之间添加 switch 语句，请将指针移到要添加 switch 语句的箭头上。 选择出现的**加号** (**+**)，然后选择“添加操作”。
 
-1. 在搜索框中，输入“switch”作为筛选器。 选择此操作：**Switch - 控制**
+1. 在搜索框中，输入“switch”作为筛选器。 选择以下操作：**Switch - 控制**
 
    ![添加 switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -134,4 +134,3 @@ ms.locfileid: "52653897"
 * [基于条件运行步骤（条件语句）](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [运行并重复执行步骤（循环）](../logic-apps/logic-apps-control-flow-loops.md)
 * [运行或合并并行步骤（分支）](../logic-apps/logic-apps-control-flow-branches.md)
-* [基于分组的操作状态运行步骤（作用域）](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

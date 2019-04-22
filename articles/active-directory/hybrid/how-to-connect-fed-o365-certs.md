@@ -4,24 +4,25 @@ description: 本文向 Office 365 用户说明了如何解决向其发送证书�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/20/2017
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.date: 04/09/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: bef99e8cc9e226d0545adfea5790d35313b1e47a
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4c88f44d804f5fa7124daad5535cda94d4c6d79c
+ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028388"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59355897"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>续订 Office 365 和 Azure Active Directory 的联合身份验证证书
 ## <a name="overview"></a>概述
@@ -29,14 +30,14 @@ ms.locfileid: "53028388"
 
 本文提供了一些附加信息，帮助在以下情况下管理令牌签名证书，并使证书与 Azure AD 保持同步：
 
-- 未部署 Web 应用程序代理，因此无法在 Extranet 中获取联合元数据。
-- 未对令牌签名证书使用默认的 AD FS 配置。
-- 正在使用第三方标识提供者。
+* 未部署 Web 应用程序代理，因此无法在 Extranet 中获取联合元数据。
+* 未对令牌签名证书使用默认的 AD FS 配置。
+* 正在使用第三方标识提供者。
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>令牌签名证书的默认 AD FS 配置
 令牌签名证书和令牌解密证书通常是自签名证书，有效期为一年。 默认情况下，AD FS 包含名为 **AutoCertificateRollover**的自动续订进程。 如果使用的是 AD FS 2.0 或更高版本，Office 365 和 Azure AD 会在证书过期之前自动对其进行更新。
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>来自 Office 365 门户或电子邮件的续订通知
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>来自 Microsoft 365 管理中心或电子邮件的续订通知
 > [!NOTE]
 > 如果收到电子邮件或门户通知，要求续订 Office 证书，请参阅[管理对令牌签名证书的更改](#managecerts)，检查是否需要采取任何操作。 Microsoft 已知可能有问题会导致发送证书续订通知，即使并不需要用户采取任何操作。
 >
@@ -44,8 +45,8 @@ ms.locfileid: "53028388"
 
 Azure AD 将尝试监视联合元数据，并按照此元数据的指示更新令牌签名证书。 在令牌签名证书过期前 30 天，Azure AD 会通过轮询联合元数据，检查是否已有新的证书。
 
-- 如果它能成功轮询联合元数据并检索到新证书，则不会向用户发送电子邮件通知，或者在 Office 365 门户中显示警告。
-- 如果由于无法访问联合元数据或者未启用自动证书滚动更新而无法检索新的令牌签名证书，Azure AD 会发出电子邮件通知，并在 Office 365 门户中显示警告。
+* 如果它能成功轮询联合元数据并检索到新证书，则不会向用户发送电子邮件通知，或者在 Microsoft 365 管理中心内显示警告。
+* 如果由于无法访问联合元数据或者未启用自动证书滚动更新而无法检索新的令牌签名证书，Azure AD 会发出电子邮件通知，并在 Microsoft 365 管理中心内显示警告。
 
 ![Office 365 门户通知](./media/how-to-connect-fed-o365-certs/notification.png)
 
@@ -107,25 +108,25 @@ Azure AD 将尝试监视联合元数据，并按照此元数据的指示更新�
 ## 自动续订令牌签名证书（建议）<a name="autorenew"></a>
 如果同时满足以下两个条件，则不需要执行任何手动步骤：
 
-- 已部署 Web 应用程序代理，能够从 Extranet 访问联合元数据。
-- 所使用的是 AD FS 默认配置（已启用 AutoCertificateRollover）。
+* 已部署 Web 应用程序代理，能够从 Extranet 访问联合元数据。
+* 所使用的是 AD FS 默认配置（已启用 AutoCertificateRollover）。
 
 检查以下事项以确认能够自动更新证书。
 
 **1.AD FS 属性 AutoCertificateRollover 必须设置为 True。** 这表示 AD FS 会在旧证书到期之前，自动生成新的令牌签名证书和令牌解密证书。
 
-**2.可公开访问 AD FS 联合元数据。** 从公共 Internet（企业网络之外）上的计算机导航到以下 URL，查看你的联合元数据是否可以公开访问：
+**2.AD FS 联合元数据可公开访问。** 从公共 Internet（企业网络之外）上的计算机导航到以下 URL，查看你的联合元数据是否可以公开访问：
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-其中，`(your_FS_name) `将替换成组织使用的联合身份验证服务主机名，例如 fs.contoso.com。  如果能够成功验证这两项设置，则无需执行任何其他操作。  
+其中，`(your_FS_name)` 将替换为你的组织使用的联合身份验证服务主机名，例如 fs.contoso.com。  如果能够成功验证这两项设置，则无需执行任何其他操作。  
 
 示例： https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## 手动续订令牌签名证书 <a name="manualrenew"></a>
 可以选择手动续订令牌签名证书。 例如，在以下情况下，可能更合适手动续订：
 
-- 令牌签名证书不是自签名证书。 这种情况最常见的原因是，组织通过组织证书颁发机构来管理注册的 AD FS 证书。
-- 网络安全性不允许公开提供联合元数据。
+* 令牌签名证书不是自签名证书。 这种情况最常见的原因是，组织通过组织证书颁发机构来管理注册的 AD FS 证书。
+* 网络安全性不允许公开提供联合元数据。
 
 在这些案例中，每当更新令牌签名证书时，还必须使用 PowerShell 命令 Update-MsolFederatedDomain 更新 Office 365 域。
 
@@ -134,7 +135,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 若使用 AD FS 的非默认配置（即 **AutoCertificateRollover** 设置为 **False**），则很有可能你使用的是自定义证书（非自签名）。 有关如何续订 AD FS 令牌签名证书的详细信息，请阅读 [Guidance for customers not using AD FS self-signed certificates](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)（针对未使用 AD FS 自签名证书的客户的指南）。
 
-**无法公开获取联盟元数据**
+**联合元数据不可公开访问**
 
 另一方面，如果 **AutoCertificateRollover** 设置为 **True**，但无法公开访问联合元数据，请先确保 AD FS 已生成新的令牌签名证书。 执行以下步骤，确认有新的令牌签名证书：
 
@@ -182,4 +183,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 有关 AD FS 中令牌签名证书的详细信息，请参阅[获取和配置 AD FS 令牌签名证书和令牌解密证书](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
