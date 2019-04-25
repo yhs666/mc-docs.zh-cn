@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2624c6fd8caf363071a3ae81dced4cc87a058e0b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cd0fe8227cd4ce337cf76f9a34c6514bba838f53
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625744"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566349"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -32,8 +32,7 @@ ms.locfileid: "58625744"
 设置备份时，你想要一起恢复的服务器数据应使用相同密码。 如果要将恢复隔离到一个特定服务器或多个服务器，仅使用该服务器的密码。 例如，人力资源服务器可能使用一个加密通行短语，会计结算服务器使用另一个通行短语，而存储服务器使用第三个通行短语。
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>是否可以在订阅之间移动我的保管库？
-
-否。 保管库是在订阅级别创建的，无法重新分配到另一订阅。
+是的。 若要移动恢复服务保管库，请参阅此[文章](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>是否可以将备份数据移动到另一个保管库？
 
@@ -100,40 +99,39 @@ ms.locfileid: "58625744"
 
 Azure 备份支持操作系统对文件和文件夹以及使用 Azure 备份服务器和 DPM 保护的工作负载应用程序进行备份。
 
-
-|                **OS**                 |                                **SKU**                                |                            **详细信息**                            |
-|---------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------|
-|              工作站              |                                                                       |                                                                   |
-|           Windows 10 64 位           |                         Enterprise、Pro、Home                         | 计算机应运行最新服务包和更新。 |
-|          Windows 8.1 64 位           |                            Enterprise、Pro                            | 计算机应运行最新服务包和更新。 |
-|           Windows 8 64 位            |                            Enterprise、Pro                            | 计算机应运行最新服务包和更新。 |
-|           Windows 7 64 位            | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 计算机应运行最新服务包和更新。 |
-|                服务器                 |                                                                       |                                                                   |
-|      Windows Server 2016 64 位       |                   Standard、Datacenter、Essentials                    |               使用最新服务包/更新。               |
-|     Windows Server 2012 R2 64 位     |                   Standard、Datacenter、Foundation                    |              使用最新服务包/更新。               |
-|      Windows Server 2012 64 位       |                   Datacenter、Foundation、Standard                    |              使用最新服务包/更新。               |
-|  Windows Storage Server 2016 64 位   |                          Standard、Workgroup                          |              使用最新服务包/更新。               |
-| Windows Storage Server 2012 R2 64 位 |                    Standard、Workgroup、Essential                     |              使用最新服务包/更新。               |
-|  Windows Storage Server 2012 64 位   |                          Standard、Workgroup                          |              使用最新服务包/更新。               |
-|   Windows Server 2008 R2 SP1 64 位   |             Standard、Enterprise、Datacenter、Foundation              |                     使用最新更新。                      |
-|      Windows Server 2008 64 位       |                   Standard、Enterprise、Datacenter                    |                       使用最新更新。                        |
+**OS** | **SKU** | **详细信息**
+--- | --- | ---
+工作站 | |
+Windows 10 64 位 | Enterprise、Pro、Home | 计算机应运行最新服务包和更新。
+Windows 8.1 64 位 | Enterprise、Pro | 计算机应运行最新服务包和更新。
+Windows 8 64 位 | Enterprise、Pro | 计算机应运行最新服务包和更新。
+Windows 7 64 位 | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 计算机应运行最新服务包和更新。
+服务器 | |
+Windows Server 2019 64 位 | Standard、Datacenter、Essentials | 使用最新服务包/更新。
+Windows Server 2016 64 位 | Standard、Datacenter、Essentials | 使用最新服务包/更新。
+Windows Server 2012 R2 64 位 | Standard、Datacenter、Foundation | 使用最新服务包/更新。
+Windows Server 2012 64 位 | Datacenter、Foundation、Standard | 使用最新服务包/更新。
+Windows Storage Server 2016 64 位 | Standard、Workgroup | 使用最新服务包/更新。
+Windows Storage Server 2012 R2 64 位 | Standard、Workgroup、Essential | 使用最新服务包/更新。
+Windows Storage Server 2012 64 位 | Standard、Workgroup | 使用最新服务包/更新。
+Windows Server 2008 R2 SP1 64 位 | Standard、Enterprise、Datacenter、Foundation | 使用最新更新。
+Windows Server 2008 64 位 | Standard、Enterprise、Datacenter | 使用最新更新。
 
 对于 Azure VM Linux 备份，Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 和 32 位操作系统除外。 只要 VM 上装有 VM 代理且支持 Python，其他自带 Linux 发行版应该也能正常运行。
 
-## <a name="are-there-size-limits-for-data-backup"></a>是否存在数据备份的大小限制？
 
+### <a name="are-there-size-limits-for-data-backup"></a>是否存在数据备份的大小限制？
 大小限制如下所示：
 
 OS/计算机 | 数据源的大小限制
---- | --- | ---
+--- | --- 
 Windows 8 或更高版本 | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 或更高版本 | 54,400 GB
 Windows Server 2008、Windows Server 2008 R2 | 1700 GB
 Azure VM | 16 个数据磁盘<br/><br/> 数据磁盘最大为 4095 GB
 
-## <a name="how-is-the-data-source-size-determined"></a>如何确定数据源大小？
-
+### <a name="how-is-the-data-source-size-determined"></a>如何确定数据源大小？
 下表说明了如何确定每个数据源大小。
 
 **数据源** | **详细信息**
@@ -148,14 +146,8 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 
 对可以使用恢复服务保管库进行备份的数据量没有限制。
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>如果在备份作业开始后取消，是否会删除已传输的备份数据？
-否。 在备份作业取消之前传输到保管库中的所有数据会保留在保管库中。 Azure 备份使用检查点机制，在备份过程中偶尔要对备份数据添加检查点。 由于备份数据中有检查点，下次备份过程可以验证文件的完整性。 下一备份作业会在已备份数据的基础上进行增量备份。 增量备份仅传输新的或已更改的数据，这相当于更好地利用带宽。
-
-如果取消 Azure VM 的备份作业，则会忽略任何已传输的数据。 下次备份作业将传输上次成功的备份作业之后的增量数据。
-
-## <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>为什么传输到恢复服务保管库的数据的大小小于选择进行备份的数据？
-
- 从 Azure 备份代理、DPM 和 Azure 备份服务器备份的数据都会在传输之前进行压缩和加密。 应用压缩和加密后，保管库中的数据将减少 30-40%。
+### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>为什么传输到恢复服务保管库的数据的大小小于选择进行备份的数据？
+从 Azure 备份代理、DPM 和 Azure 备份服务器备份的数据都会在传输之前进行压缩和加密。 应用压缩和加密后，保管库中的数据将减少 30-40%。
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>可以从保管库中的恢复点删除单个文件吗？
 不可以，Azure 备份不支持从存储的备份中删除或清除单个项。
@@ -166,6 +158,8 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 - Azure 备份使用检查点机制，在备份过程中偶尔要对备份数据添加检查点。
 - 由于备份数据中有检查点，下次备份过程可以验证文件的完整性。
 - 下一备份作业会在已备份数据的基础上进行增量备份。 增量备份仅传输新的或已更改的数据，这相当于更好地利用带宽。
+
+如果取消 Azure VM 的备份作业，则会忽略任何已传输的数据。 下次备份作业将传输上次成功的备份作业之后的增量数据。
 
 ## <a name="retention-and-recovery"></a>保留和恢复
 
@@ -181,7 +175,7 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 ![计划备份和保持](./media/backup-azure-backup-faq/Schedule.png)
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>如果备份保留了很长一段时间，是否需要更多时间才能恢复较旧的数据点？ <br/>
-否，恢复最旧或最新时间点所需的时间相同。 每个恢复点的行为类似一个完整的点。
+否。 恢复最旧或最新时间点所需的时间相同。 每个恢复点的行为类似一个完整的点。
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>如果每个恢复点相当于完整的点，它会影响总体可计费备份存储吗？
 
@@ -227,7 +221,6 @@ Azure 备份存储体系结构在这两方面都能提供最佳性能，它以�
 Azure 不会在任何时候解密备份数据。
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>用于加密备份数据的加密密钥的最小长度是多少？
-
 使用 Azure 备份代理时，加密密钥至少应该为 16 个字符。 就 Azure VM 来说，Azure KeyVault 所使用的密钥没有长度限制。
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-azure-recover-the-data"></a>如果我丢失了加密密钥，会发生什么情况？ 能否恢复数据？ Azure 能否恢复数据？

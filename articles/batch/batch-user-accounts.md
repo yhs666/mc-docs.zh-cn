@@ -1,9 +1,9 @@
 ---
-title: 在 Azure Batch 中的用户帐户下运行任务 | Microsoft Docs
+title: 在用户帐户下运行任务 - Azure Batch | Azure Docs
 description: 配置用于在 Azure Batch 中运行任务的用户帐户
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 05/22/2017
-ms.date: 08/08/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9f82ca16e82124d19a6b7827c031fc655c72fc1f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.custom: seodec18
+ms.openlocfilehash: b93840f315c55869349ed2f15932738b84511e93
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649857"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566331"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的用户帐户下运行任务
 
@@ -66,7 +66,7 @@ Azure Batch 提供两种类型的用户帐户来运行任务：
 
 默认情况下，任务在 Batch 中的自动用户帐户下，以没有提升访问权限但具有任务范围的标准用户身份运行。 如果为任务范围配置了自动用户规范，Batch 服务只为该任务创建自动用户帐户。
 
-任务范围的替代设置为池范围。 如果为池范围配置了某个任务的自动用户规范，该任务将在可供池中任何任务使用的自动用户帐户下运行。 有关池范围的详细信息，请参阅[以具有池范围的自动用户身份运行任务](#run-a-task-as-the-autouser-with-pool-scope)。   
+任务范围的替代设置为池范围。 如果为池范围配置了某个任务的自动用户规范，该任务将在可供池中任何任务使用的自动用户帐户下运行。 有关池范围的详细信息，请参阅标题为“以具有池范围的自动用户身份运行任务”部分。   
 
 在 Windows 和 Linux 节点上，默认范围不同：
 
@@ -328,8 +328,8 @@ Batch 服务版本 2017-01-01.4.0 引入了一项重大更改，已将早期版�
 
 | 如果代码使用...                      | 请更新为...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `run_elevated=True`                       | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
-| `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
+| `run_elevated=True`                       | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
+| `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
 | `run_elevated` 未指定 | 无需更新                                                                                                                                  |
 
 

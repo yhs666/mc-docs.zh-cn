@@ -5,25 +5,25 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/18/2019
+origin.date: 03/31/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: f442dfc50132b3af615e887ac184d0b46ef08d91
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b7dd73d5122dc60653662d30ca43f96f2b258014
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627611"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615211"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB SQL 语言参考 
 
-Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本文提供与 SQL API 帐户兼容的 SQL 查询语言的文档。 有关示例 SQL 查询的演练，请参阅 [Cosmos DB 中的 SQL 查询](how-to-sql-query.md)。  
+Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本文提供的文档适用于在 SQL API 帐户中使用的 SQL 查询语言语法。 有关示例 SQL 查询的演练，请参阅 [Cosmos DB 中的 SQL 查询示例](how-to-sql-query.md)。  
 
-请访问[查询操场](https://www.documentdb.com/sql/demo)，可在其中尝试 Cosmos DB，并针对数据集运行 SQL 查询。  
+请访问[查询操场](https://www.documentdb.com/sql/demo)，可在其中尝试 Cosmos DB，并针对示例数据集运行 SQL 查询。  
 
 ## <a name="select-query"></a>SELECT 查询  
-每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 语法约定部分中以表格方式显示了用于描述 SELECT 语句的约定。 有关示例，请参阅 [SELECT 查询示例](how-to-sql-query.md#SelectClause)
+每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常情况下，对于每个查询，需枚举 FROM 子句中的源，然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 有关示例，请参阅 [SELECT 查询示例](how-to-sql-query.md#SelectClause)
 
 **语法**  
 
@@ -67,7 +67,8 @@ SELECT 语句中的子句必须按照以上所示进行排序。 任何可选子
 
 虽然空格字符和注释在语法中没有任何意义，但必须使用它们来分隔标记。 例如：`-1e5` 是一个单一数字标记，而 `: - 1 e5` 是一个减号标记，后跟数字 1 和标识符 e5。  
 
-##  <a name="bk_select_query"></a> SELECT 子句  
+<a name="bk_select_query"></a>
+## <a name="select-clause"></a>SELECT 子句  
 SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句都可以省略。 但是，如果使用可选子句，则它们必须以正确的顺序出现。 有关示例，请参阅 [SELECT 查询示例](how-to-sql-query.md#SelectClause)。
 
 **语法**  
@@ -82,29 +83,30 @@ SELECT <select_specification>
 
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
+
 ```  
 
  **参数**  
 
 - `<select_specification>`  
 
-  要为结果集选择的属性或值。  
+    要为结果集选择的属性或值。  
 
 - `'*'`  
 
-  指定应当在不进行任何更改的情况下检索值。 指定如果处理的值是一个对象，则将检索所有属性。  
+    指定应当在不进行任何更改的情况下检索值。 指定如果处理的值是一个对象，则将检索所有属性。  
 
 - `<object_property_list>`  
 
-  指定要检索的属性的列表。 每个返回值都是具有指定属性的对象。  
+    指定要检索的属性的列表。 每个返回值都是具有指定属性的对象。  
 
 - `VALUE`  
 
-  指定应当检索 JSON 值而非整个 JSON 对象。 不同于 `<property_list>`，这不会将投影的值包装在对象中。  
+    指定应当检索 JSON 值而非整个 JSON 对象。 不同于 `<property_list>`，这不会将投影的值包装在对象中。  
 
 - `<scalar_expression>`  
 
-  表示待计算值的表达式。 有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
+    表示待计算值的表达式。 有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
 
 **备注**  
 
@@ -114,22 +116,23 @@ SELECT <select_specification>
 
 1. `SELECT * FROM ... AS from_alias ...`  
 
-   等效于：  
+    等效于：  
 
-   `SELECT from_alias FROM ... AS from_alias ...`  
+    `SELECT from_alias FROM ... AS from_alias ...`  
 
 2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
 
-   等效于：  
+    等效于：  
 
-   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
 
 **另请参阅**  
 
 [标量表达式](#bk_scalar_expressions)  
 [SELECT 子句](#bk_select_query)  
 
-##  <a name="bk_from_clause"></a> FROM 子句  
+<a name="bk_from_clause"></a>
+## <a name="from-clause"></a>FROM 子句  
 指定源或联接的源。 FROM 子句是可选的，除非稍后在查询中对源进行筛选或投影。 此子句的目的在于指定必须对其执行查询的数据源。 通常情况下，整个容器作为源，但可以改为指定容器的子集作为源。 如果未指定此子句，其他子句仍将继续执行，如同 FROM 子句提供了单个文档。 有关示例，请参阅 [FROM 子句示例](how-to-sql-query.md#FromClause)
 
 **语法**  
@@ -156,43 +159,43 @@ FROM <from_specification>
 
 - `<from_source>`  
 
-  指定数据源，可以带别名，也可以不带别名。 如果未指定别名，则会使用以下规则从 `<container_expression>` 推断别名：  
+    指定数据源，可以带别名，也可以不带别名。 如果未指定别名，则会使用以下规则从 `<container_expression>` 推断别名：  
 
-  -  如果表达式为 container_name，那么 container_name 将用作别名。  
+    -  如果表达式为 container_name，那么 container_name 将用作别名。  
 
-  -  如果表达式是 `<container_expression>`，则会将 property_name 用作别名。 如果表达式为 container_name，那么 container_name 将用作别名。  
+    -  如果表达式是 `<container_expression>`，则会将 property_name 用作别名。 如果表达式为 container_name，那么 container_name 将用作别名。  
 
 - AS `input_alias`  
 
-  指定 `input_alias` 为基础容器表达式返回的一组值。  
+    指定 `input_alias` 为基础容器表达式返回的一组值。  
 
 - `input_alias` IN  
 
-  指定 `input_alias` 应表示通过遍历由基础容器表达式返回的每个数组的所有数组元素获得的一组值。 基础容器表达式返回的非数组的任何值都将被忽略。  
+    指定 `input_alias` 应表示通过遍历由基础容器表达式返回的每个数组的所有数组元素获得的一组值。 基础容器表达式返回的非数组的任何值都将被忽略。  
 
 - `<container_expression>`  
 
-  指定要用于检索文档的容器表达式。  
+    指定要用于检索文档的容器表达式。  
 
 - `ROOT`  
 
-  指定应从当前连接的默认容器中检索文档。  
+    指定应从当前连接的默认容器中检索文档。  
 
 - `container_name`  
 
-  指定应从当前提供的容器中检索文档。 容器的名称必须匹配当前连接到的容器名称。  
+    指定应从当前提供的容器中检索文档。 容器的名称必须匹配当前连接到的容器名称。  
 
 - `input_alias`  
 
-  指定应当从由提供的别名定义的其他源检索文档。  
+    指定应当从由提供的别名定义的其他源检索文档。  
 
 - `<container_expression> '.' property_`  
 
-  指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
+    指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
 
 - `<container_expression> '[' "property_name" | array_index ']'`  
 
-  指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
+    指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
 
 **备注**  
 
@@ -308,7 +311,8 @@ FROM <from_specification>
 
  [SELECT 子句](#bk_select_query)  
 
-##  <a name="bk_where_clause"></a> WHERE 子句  
+<a name="bk_where_clause"></a>
+## <a name="where-clause"></a>WHERE 子句  
  指定查询返回的文档的搜索条件。 有关示例，请参阅 [WHERE 子句示例](how-to-sql-query.md#WhereClause)
 
  **语法**  
@@ -333,7 +337,8 @@ WHERE <filter_condition>
 
   指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
 
-##  <a name="bk_orderby_clause"></a> ORDER BY 子句  
+<a name="bk_orderby_clause"></a>
+## <a name="order-by-clause"></a>ORDER BY 子句  
  指定查询返回的结果的排序顺序。 有关示例，请参阅 [ORDER BY 子句示例](how-to-sql-query.md#OrderByClause)
 
  **语法**  
@@ -371,7 +376,8 @@ ORDER BY <sort_specification>
 
   虽然查询语法支持多个排序依据属性，但 Cosmos DB 查询运行时支持仅按单个属性排序，以及仅按属性名称排序（不支持按计算属性排序）。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
 
-##  <a name="bk_scalar_expressions"></a> 标量表达式  
+<a name="bk_scalar_expressions"></a>
+## <a name="scalar-expressions"></a>标量表达式  
  标量表达式是符号和运算符的组合，可以对该组合进行计算来获得单个值。 简单表达式可以是常量、属性引用、数组元素引用、别名引用或函数调用。 可以使用运算符将简单表达式组合成复杂表达式。 有关示例，请参阅[标量表达式示例](how-to-sql-query.md#scalar-expressions)
 
  有关标量表达式可能包含的值的详细信息，请参阅[常数](#bk_constants)部分。  
@@ -464,7 +470,8 @@ ORDER BY <sort_specification>
 
   在创建数组时，将跳过任何分配有 **undefined** 值的元素值并且不会将其包括在创建的对象中。 这将导致下一个已定义元素取代其位置，这样，创建的数组将不会具有跳过的索引。  
 
-##  <a name="bk_operators"></a> 运算符  
+<a name="bk_operators"></a>
+## <a name="operators"></a>运算符  
  本部分介绍了支持的运算符。 每个运算符都只能分配到一个类别。  
 
  有关如何处理 **undefined** 值、对输入值的类型要求以及如何处理类型不匹配的值等方面的详细信息，请参阅**运算符类别**。  
@@ -499,10 +506,9 @@ ORDER BY <sort_specification>
 
  **三元运算符：**  
 
-
-| 三元运算符 | ? | 如果第一个参数的求值结果为 **true**，则返回第二个参数，否则返回第三个参数。 |
-|------------------|---|---------------------------------------------------------------------------------------------------------------|
-|                  |   |                                                                                                               |
+|**名称**|**运算符**|**详细信息**| 
+|-|-|-|  
+|三元运算符|?|如果第一个参数的求值结果为 **true**，则返回第二个参数，否则返回第三个参数。|  
 
  **进行比较的值的排序**  
 
@@ -529,7 +535,8 @@ ORDER BY <sort_specification>
 
  如果两个对象定义了相同的属性并且匹配属性的值也相等，则这两个对象相等。 如果对任何属性值对进行比较时导致 undefined，则对象比较结果为 undefined。  
 
-##  <a name="bk_constants"></a> 常量  
+<a name="bk_constants"></a>
+## <a name="constants"></a>常量  
  常量也称为文本或标量值，是一个表示特定数据值的符号。 常量的格式取决于它表示的值的数据类型。  
 
  **支持的标量数据类型：**  
@@ -631,7 +638,8 @@ ORDER BY <sort_specification>
 |\t|tab 键|U+0009|  
 |\uXXXX|由 4 个十六进制数位定义的 Unicode 字符。|U+XXXX|  
 
-##  <a name="bk_query_perf_guidelines"></a> 查询性能准则  
+<a name="bk_query_perf_guidelines"></a>
+## <a name="query-performance-guidelines"></a>查询性能准则  
  为了能够对大型容器高效地执行查询，应使用可通过由一个或多个索引服务的筛选器。  
 
  对于索引查找，将考虑以下筛选器：  
@@ -673,7 +681,8 @@ ORDER BY <sort_specification>
     |[ ,...n ]|表示前面的项可以重复 n 次。 各个实例以逗号分隔。|  
     |[ ...n ]|表示上述项可重复 n 次。 各个实例以空格分隔。|  
 
-##  <a name="bk_built_in_functions"></a> 内置函数  
+<a name="bk_built_in_functions"></a>
+##  <a name="built-in-functions"></a>内置函数  
  Cosmos DB 提供多个内置 SQL 函数。 下面列出了内置函数的类别。  
 
 |函数|说明|  
@@ -684,7 +693,8 @@ ORDER BY <sort_specification>
 |[数组函数](#bk_array_functions)|该数组函数对数组输入值执行操作，并返回数值、布尔值或数组值。|  
 |[空间函数](#bk_spatial_functions)|该空间函数对控件对象输入值执行操作，并返回数值或布尔值。|  
 
-###  <a name="bk_mathematical_functions"></a> 数学函数  
+<a name="bk_mathematical_functions"></a>
+###  <a name="mathematical-functions"></a>数学函数  
  以下函数每个均执行一个计算（通常基于作为参数提供的输入值）并返回数值。  
 
 ||||  
@@ -698,7 +708,8 @@ ORDER BY <sort_specification>
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
 
-####  <a name="bk_abs"></a> ABS  
+<a name="bk_abs"></a>
+#### <a name="abs"></a>ABS  
  返回指定数值表达式的绝对（正）值。  
 
  **语法**  
@@ -722,16 +733,17 @@ ABS (<numeric_expression>)
   以下示例显示了对三个不同数字使用 ABS 函数的结果。  
 
 ```  
-SELECT ABS(-1), ABS(0), ABS(1)  
+SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 1, $2: 0, $3: 1}]  
+[{abs1: 1, abs2: 0, abs3: 1}]  
 ```  
 
-####  <a name="bk_acos"></a> ACOS  
+<a name="bk_acos"></a>
+#### <a name="acos"></a>ACOS  
  返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。  
 
  **语法**  
@@ -755,16 +767,17 @@ ACOS(<numeric_expression>)
   以下示例返回 -1 的 ACOS。  
 
 ```  
-SELECT ACOS(-1)  
+SELECT ACOS(-1) AS acos 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 3.1415926535897931}]  
+[{"acos": 3.1415926535897931}]  
 ```  
 
-####  <a name="bk_asin"></a> ASIN  
+<a name="bk_asin"></a>
+#### <a name="asin"></a>ASIN  
  返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。  
 
  **语法**  
@@ -788,16 +801,17 @@ ASIN(<numeric_expression>)
   以下示例返回 -1 的 ASIN。  
 
 ```  
-SELECT ASIN(-1)  
+SELECT ASIN(-1) AS asin  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": -1.5707963267948966}]  
+[{"asin": -1.5707963267948966}]  
 ```  
 
-####  <a name="bk_atan"></a> ATAN  
+<a name="bk_atan"></a>
+#### <a name="atan"></a>ATAN  
  返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。  
 
  **语法**  
@@ -821,16 +835,17 @@ ATAN(<numeric_expression>)
   以下示例返回指定值的 ATAN。  
 
 ```  
-SELECT ATAN(-45.01)  
+SELECT ATAN(-45.01) AS atan  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": -1.5485826962062663}]  
+[{"atan": -1.5485826962062663}]  
 ```  
 
-####  <a name="bk_atn2"></a> ATN2  
+<a name="bk_atn2"></a>
+#### <a name="atn2"></a>ATN2  
  返回 y/x 的反正切的主体值，以弧度表示。  
 
  **语法**  
@@ -854,16 +869,17 @@ ATN2(<numeric_expression>, <numeric_expression>)
   以下示例为指定的 x 和 y 组件计算 ATN2。  
 
 ```  
-SELECT ATN2(35.175643, 129.44)  
+SELECT ATN2(35.175643, 129.44) AS atn2  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 1.3054517947300646}]  
+[{"atn2": 1.3054517947300646}]  
 ```  
 
-####  <a name="bk_ceiling"></a> CEILING  
+<a name="bk_ceiling"></a>
+#### <a name="ceiling"></a>CEILING  
  返回大于或等于指定数值表达式的最小整数值。  
 
  **语法**  
@@ -887,16 +903,17 @@ CEILING (<numeric_expression>)
   以下示例显示了如何对正值、负值和零值使用 CEILING 函数。  
 
 ```  
-SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
+SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 124, $2: -123, $3: 0}]  
+[{c1: 124, c2: -123, c3: 0}]  
 ```  
 
-####  <a name="bk_cos"></a> COS  
+<a name="bk_cos"></a>
+#### <a name="cos"></a>COS  
  返回指定表达式中指定角度的三角余弦（弧度）。  
 
  **语法**  
@@ -920,16 +937,17 @@ COS(<numeric_expression>)
   以下示例计算指定角度的 COS。  
 
 ```  
-SELECT COS(14.78)  
+SELECT COS(14.78) AS cos  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": -0.59946542619465426}]  
+[{"cos": -0.59946542619465426}]  
 ```  
 
-####  <a name="bk_cot"></a> COT  
+<a name="bk_cot"></a>
+#### <a name="cot"></a>COT  
  返回指定数值表达式中指定角度的三角余切。  
 
  **语法**  
@@ -953,16 +971,17 @@ COT(<numeric_expression>)
   以下示例计算指定角度的 COT。  
 
 ```  
-SELECT COT(124.1332)  
+SELECT COT(124.1332) AS cot  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": -0.040311998371148884}]  
+[{"cot": -0.040311998371148884}]  
 ```  
 
-####  <a name="bk_degrees"></a> DEGREES  
+<a name="bk_degrees"></a>
+#### <a name="degrees"></a>DEGREES  
  返回指定角度（弧度）的相应角度（度）。  
 
  **语法**  
@@ -986,16 +1005,17 @@ DEGREES (<numeric_expression>)
   以下示例返回 PI/2 弧度表示的角度的度数。  
 
 ```  
-SELECT DEGREES(PI()/2)  
+SELECT DEGREES(PI()/2) AS degrees  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 90}]  
+[{"degrees": 90}]  
 ```  
 
-####  <a name="bk_floor"></a> FLOOR  
+<a name="bk_floor"></a>
+#### <a name="floor"></a>FLOOR  
  返回小于或等于指定数值表达式的最大整数。  
 
  **语法**  
@@ -1019,16 +1039,17 @@ FLOOR (<numeric_expression>)
   以下示例显示了如何对正值、负值和零值使用 FLOOR 函数。  
 
 ```  
-SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
+SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 123, $2: -124, $3: 0}]  
+[{fl1: 123, fl2: -124, fl3: 0}]  
 ```  
 
-####  <a name="bk_exp"></a> EXP  
+<a name="bk_exp"></a>
+#### <a name="exp"></a>EXP  
  返回指定数值表达式的指数值。  
 
  **语法**  
@@ -1060,28 +1081,29 @@ EXP (<numeric_expression>)
   以下示例声明一个变量并返回指定变量 (10) 的指数值。  
 
 ```  
-SELECT EXP(10)  
+SELECT EXP(10) AS exp  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 22026.465794806718}]  
+[{exp: 22026.465794806718}]  
 ```  
 
  以下示例返回 20 的自然对数的指数值和 20 的指数的自然对数。 因为这些函数是另一个的反函数，因此，在两个示例中，返回值在进行浮点算术舍入后都是 20。  
 
 ```  
-SELECT EXP(LOG(20)), LOG(EXP(20))  
+SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 19.999999999999996, $2: 20}]  
+[{exp1: 19.999999999999996, exp2: 20}]  
 ```  
 
-####  <a name="bk_log"></a> LOG  
+<a name="bk_log"></a>
+#### <a name="log"></a>LOG  
  返回指定数值表达式的自然对数。  
 
  **语法**  
@@ -1117,28 +1139,29 @@ LOG (<numeric_expression> [, <base>])
   以下示例声明一个变量并返回指定变量 (10) 的对数值。  
 
 ```  
-SELECT LOG(10)  
+SELECT LOG(10) AS log  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 2.3025850929940459}]  
+[{log: 2.3025850929940459}]  
 ```  
 
  以下示例计算某个数字的指数的 LOG。  
 
 ```  
-SELECT EXP(LOG(10))  
+SELECT EXP(LOG(10)) AS expLog  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 10.000000000000002}]  
+[{expLog: 10.000000000000002}]  
 ```  
 
-####  <a name="bk_log10"></a> LOG10  
+<a name="bk_log10"></a>
+#### <a name="log10"></a>LOG10  
  返回指定数值表达式以 10 为底的对数。  
 
  **语法**  
@@ -1166,16 +1189,17 @@ LOG10 (<numeric_expression>)
   以下示例声明一个变量并返回指定变量 (100) 的 LOG10 值。  
 
 ```  
-SELECT LOG10(100)  
+SELECT LOG10(100) AS log10 
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 2}]  
+[{log10: 2}]  
 ```  
 
-####  <a name="bk_pi"></a> PI  
+<a name="bk_pi"></a>
+#### <a name="pi"></a>PI  
  返回 PI 的常数值。  
 
  **语法**  
@@ -1199,16 +1223,17 @@ PI ()
   以下示例返回 PI 的值。  
 
 ```  
-SELECT PI()  
+SELECT PI() AS pi 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 3.1415926535897931}]  
+[{"pi": 3.1415926535897931}]  
 ```  
 
-####  <a name="bk_power"></a> POWER  
+<a name="bk_power"></a>
+#### <a name="power"></a>POWER  
  返回指定表达式的指定幂的值。  
 
  **语法**  
@@ -1236,16 +1261,17 @@ POWER (<numeric_expression>, <y>)
   以下数字演示了如何求某个数字的 3 次幂（数字的立方）。  
 
 ```  
-SELECT POWER(2, 3), POWER(2.5, 3)  
+SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 8, $2: 15.625}]  
+[{pow1: 8, pow2: 15.625}]  
 ```  
 
-####  <a name="bk_radians"></a> RADIANS  
+<a name="bk_radians"></a>
+#### <a name="radians"></a>RADIANS  
  返回输入的数值表达式（度）的弧度。  
 
  **语法**  
@@ -1269,22 +1295,23 @@ RADIANS (<numeric_expression>)
   以下示例采用几个角度作为输入并返回其对应的弧度值。  
 
 ```  
-SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIANS(197.1099392)  
+SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
 
  下面是结果集。  
 
 ```  
 [{  
-       "$1": -0.7855726963226477,  
-       "$2": -3.1592204790349356,  
-       "$3": 0,  
-       "$4": 0.0025704127119236249,  
-       "$5": 3.4402174274458375  
+       "r1": -0.7855726963226477,  
+       "r2": -3.1592204790349356,  
+       "r3": 0,  
+       "r4": 0.0025704127119236249,  
+       "r5": 3.4402174274458375  
    }]  
 ```  
 
-####  <a name="bk_round"></a> ROUND  
+<a name="bk_round"></a>
+#### <a name="round"></a>ROUND  
  返回一个数值，四舍五入到最接近的整数值。  
 
  **语法**  
@@ -1308,16 +1335,17 @@ ROUND(<numeric_expression>)
   以下示例将以下正数和负数舍入到最接近的整数。  
 
 ```  
-SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
+SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
+[{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
 
-####  <a name="bk_sign"></a> SIGN  
+<a name="bk_sign"></a>
+#### <a name="sign"></a>SIGN  
  返回指定数值表达式的正数 (+1)、零 (0) 或负数 (-1)。  
 
  **语法**  
@@ -1341,16 +1369,17 @@ SIGN(<numeric_expression>)
   以下示例返回数字 -2 到 2 的 SIGN 值。  
 
 ```  
-SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
+SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
+[{s1: -1, s2: -1, s3: 0, s4: 1, s5: 1}]  
 ```  
 
-####  <a name="bk_sin"></a> SIN  
+<a name="bk_sin"></a>
+#### <a name="sin"></a>SIN  
  返回指定表达式中指定角度的三角正弦（弧度）。  
 
  **语法**  
@@ -1374,16 +1403,17 @@ SIN(<numeric_expression>)
   以下示例计算指定角度的 SIN。  
 
 ```  
-SELECT SIN(45.175643)  
+SELECT SIN(45.175643) AS sin  
 ```  
 
- 结果集如下。  
+ 下面是结果集。  
 
 ```  
-[{"$1": 0.929607286611012}]  
+[{"sin": 0.929607286611012}]  
 ```  
 
-####  <a name="bk_sqrt"></a> SQRT  
+<a name="bk_sqrt"></a>
+#### <a name="sqrt"></a>SQRT  
  返回指定数值的平方根。  
 
  **语法**  
@@ -1407,16 +1437,17 @@ SQRT(<numeric_expression>)
   以下示例返回数字 1-3 的平方根。  
 
 ```  
-SELECT SQRT(1), SQRT(2.0), SQRT(3)  
+SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
+[{s1: 1, s2: 1.4142135623730952, s3: 1.7320508075688772}]  
 ```  
 
-####  <a name="bk_square"></a> SQUARE  
+<a name="bk_square"></a>
+#### <a name="square"></a>SQUARE  
  返回指定数字值的平方。  
 
  **语法**  
@@ -1440,16 +1471,17 @@ SQUARE(<numeric_expression>)
   以下示例返回数字 1-3 的平方。  
 
 ```  
-SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
+SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 1, $2: 4, $3: 9}]  
+[{s1: 1, s2: 4, s3: 9}]  
 ```  
 
-####  <a name="bk_tan"></a> TAN  
+<a name="bk_tan"></a>
+#### <a name="tan"></a>TAN  
  返回在指定表达式中以弧度表示的指定角度的正切。  
 
  **语法**  
@@ -1473,16 +1505,17 @@ TAN (<numeric_expression>)
   以下示例计算 PI()/2 的正切。  
 
 ```  
-SELECT TAN(PI()/2);  
+SELECT TAN(PI()/2) AS tan 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 16331239353195370 }]  
+[{"tan": 16331239353195370 }]  
 ```  
 
-####  <a name="bk_trunc"></a> TRUNC  
+<a name="bk_trunc"></a>
+#### <a name="trunc"></a>TRUNC  
  返回一个数值，截断到最接近的整数值。  
 
  **语法**  
@@ -1506,16 +1539,17 @@ TRUNC(<numeric_expression>)
   以下示例将以下正数和负数截断到最接近的整数值。  
 
 ```  
-SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
+SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, TRUNC(-2.6) AS t5  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
+[{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```  
 
-###  <a name="bk_type_checking_functions"></a> 类型检查函数  
+<a name="bk_type_checking_functions"></a>
+### <a name="type-checking-functions"></a>类型检查函数  
  以下函数支持针对输入值执行类型检查，并且每个函数将返回一个布尔值。  
 
 ||||  
@@ -1524,7 +1558,8 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 |[IS_NULL](#bk_is_null)|[IS_NUMBER](#bk_is_number)|[IS_OBJECT](#bk_is_object)|  
 |[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
 
-####  <a name="bk_is_array"></a> IS_ARRAY  
+<a name="bk_is_array"></a>
+#### <a name="isarray"></a>IS_ARRAY  
  返回一个布尔值，指示指定表达式类型是否为数组。  
 
  **语法**  
@@ -1549,22 +1584,23 @@ IS_ARRAY(<expression>)
 
 ```  
 SELECT   
- IS_ARRAY(true),   
- IS_ARRAY(1),  
- IS_ARRAY("value"),  
- IS_ARRAY(null),  
- IS_ARRAY({prop: "value"}),   
- IS_ARRAY([1, 2, 3]),  
- IS_ARRAY({prop: "value"}.prop2)  
+ IS_ARRAY(true) AS isArray1,   
+ IS_ARRAY(1) AS isArray2,  
+ IS_ARRAY("value") AS isArray3,  
+ IS_ARRAY(null) AS isArray4,  
+ IS_ARRAY({prop: "value"}) AS isArray5,   
+ IS_ARRAY([1, 2, 3]) AS isArray6,  
+ IS_ARRAY({prop: "value"}.prop2) AS isArray7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
+[{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
 ```  
 
-####  <a name="bk_is_bool"></a> IS_BOOL  
+<a name="bk_is_bool"></a>
+#### <a name="isbool"></a>IS_BOOL  
  返回一个布尔值，指示指定表达式的类型是否为布尔表达式。  
 
  **语法**  
@@ -1589,22 +1625,23 @@ IS_BOOL(<expression>)
 
 ```  
 SELECT   
-    IS_BOOL(true),   
-    IS_BOOL(1),  
-    IS_BOOL("value"),   
-    IS_BOOL(null),  
-    IS_BOOL({prop: "value"}),   
-    IS_BOOL([1, 2, 3]),  
-    IS_BOOL({prop: "value"}.prop2)  
+    IS_BOOL(true) AS isBool1,   
+    IS_BOOL(1) AS isBool2,  
+    IS_BOOL("value") AS isBool3,   
+    IS_BOOL(null) AS isBool4,  
+    IS_BOOL({prop: "value"}) AS isBool5,   
+    IS_BOOL([1, 2, 3]) AS isBool6,  
+    IS_BOOL({prop: "value"}.prop2) AS isBool7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
+[{"isBool1":true,"isBool2":false,"isBool3":false,"isBool4":false,"isBool5":false,"isBool6":false,"isBool7":false}]
 ```  
 
-####  <a name="bk_is_defined"></a> IS_DEFINED  
+<a name="bk_is_defined"></a>
+#### <a name="isdefined"></a>IS_DEFINED  
  返回一个布尔，它指示属性是否已经分配了值。  
 
  **语法**  
@@ -1628,19 +1665,17 @@ IS_DEFINED(<expression>)
   以下示例检查指定的 JSON 文档中是否存在某个属性。 第一个示例返回 true，因为“a” 存在；第二个示例返回 false，因为“b”不存在。  
 
 ```  
-SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
+SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isDefined2 
 ```  
 
  下面是结果集。  
 
 ```  
-[{  
-       "$1": true,    
-       "$2": false   
-   }]  
+[{"isDefined1":true,"isDefined2":false}]  
 ```  
 
-####  <a name="bk_is_null"></a> IS_NULL  
+<a name="bk_is_null"></a>
+#### <a name="isnull"></a>IS_NULL  
  返回一个布尔值，指示指定表达式的类型是否为 null。  
 
  **语法**  
@@ -1665,22 +1700,23 @@ IS_NULL(<expression>)
 
 ```  
 SELECT   
-    IS_NULL(true),   
-    IS_NULL(1),  
-    IS_NULL("value"),   
-    IS_NULL(null),  
-    IS_NULL({prop: "value"}),   
-    IS_NULL([1, 2, 3]),  
-    IS_NULL({prop: "value"}.prop2)  
+    IS_NULL(true) AS isNull1,   
+    IS_NULL(1) AS isNull2,  
+    IS_NULL("value") AS isNull3,   
+    IS_NULL(null) AS isNull4,  
+    IS_NULL({prop: "value"}) AS isNull5,   
+    IS_NULL([1, 2, 3]) AS isNull6,  
+    IS_NULL({prop: "value"}.prop2) AS isNull7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
+[{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
 ```  
 
-####  <a name="bk_is_number"></a> IS_NUMBER  
+<a name="bk_is_number"></a>
+#### <a name="isnumber"></a>IS_NUMBER  
  返回一个布尔值，指示指定表达式的类型是否为数字。  
 
  **语法**  
@@ -1705,22 +1741,23 @@ IS_NUMBER(<expression>)
 
 ```  
 SELECT   
-    IS_NUMBER(true),   
-    IS_NUMBER(1),  
-    IS_NUMBER("value"),   
-    IS_NUMBER(null),  
-    IS_NUMBER({prop: "value"}),   
-    IS_NUMBER([1, 2, 3]),  
-    IS_NUMBER({prop: "value"}.prop2)  
+    IS_NUMBER(true) AS isNum1,   
+    IS_NUMBER(1) AS isNum2,  
+    IS_NUMBER("value") AS isNum3,   
+    IS_NUMBER(null) AS isNum4,  
+    IS_NUMBER({prop: "value"}) AS isNum5,   
+    IS_NUMBER([1, 2, 3]) AS isNum6,  
+    IS_NUMBER({prop: "value"}.prop2) AS isNum7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
+[{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
 ```  
 
-####  <a name="bk_is_object"></a> IS_OBJECT  
+<a name="bk_is_object"></a>
+#### <a name="isobject"></a>IS_OBJECT  
  返回一个布尔值，指示指定表达式的类型是否为 JSON 对象。  
 
  **语法**  
@@ -1745,22 +1782,23 @@ IS_OBJECT(<expression>)
 
 ```  
 SELECT   
-    IS_OBJECT(true),   
-    IS_OBJECT(1),  
-    IS_OBJECT("value"),   
-    IS_OBJECT(null),  
-    IS_OBJECT({prop: "value"}),   
-    IS_OBJECT([1, 2, 3]),  
-    IS_OBJECT({prop: "value"}.prop2)  
+    IS_OBJECT(true) AS isObj1,   
+    IS_OBJECT(1) AS isObj2,  
+    IS_OBJECT("value") AS isObj3,   
+    IS_OBJECT(null) AS isObj4,  
+    IS_OBJECT({prop: "value"}) AS isObj5,   
+    IS_OBJECT([1, 2, 3]) AS isObj6,  
+    IS_OBJECT({prop: "value"}.prop2) AS isObj7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
+[{"isObj1":false,"isObj2":false,"isObj3":false,"isObj4":false,"isObj5":true,"isObj6":false,"isObj7":false}]
 ```  
 
-####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
+<a name="bk_is_primitive"></a>
+#### <a name="isprimitive"></a>IS_PRIMITIVE  
  返回一个布尔值，指示指定表达式的类型是否为一个（字符串、布尔、数值或 null）。  
 
  **语法**  
@@ -1785,22 +1823,23 @@ IS_PRIMITIVE(<expression>)
 
 ```  
 SELECT   
-           IS_PRIMITIVE(true),   
-           IS_PRIMITIVE(1),  
-           IS_PRIMITIVE("value"),   
-           IS_PRIMITIVE(null),  
-           IS_PRIMITIVE({prop: "value"}),   
-           IS_PRIMITIVE([1, 2, 3]),  
-           IS_PRIMITIVE({prop: "value"}.prop2)  
+           IS_PRIMITIVE(true) AS isPrim1,   
+           IS_PRIMITIVE(1) AS isPrim2,  
+           IS_PRIMITIVE("value") AS isPrim3,   
+           IS_PRIMITIVE(null) AS isPrim4,  
+           IS_PRIMITIVE({prop: "value"}) AS isPrim5,   
+           IS_PRIMITIVE([1, 2, 3]) AS isPrim6,  
+           IS_PRIMITIVE({prop: "value"}.prop2) AS isPrim7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": true, "$2": true, "$3": true, "$4": true, "$5": false, "$6": false, "$7": false}]  
+[{"isPrim1": true, "isPrim2": true, "isPrim3": true, "isPrim4": true, "isPrim5": false, "isPrim6": false, "isPrim7": false}]  
 ```  
 
-####  <a name="bk_is_string"></a> IS_STRING  
+<a name="bk_is_string"></a>
+#### <a name="isstring"></a>IS_STRING  
  返回一个布尔值，指示指定表达式的类型是否为字符串。  
 
  **语法**  
@@ -1825,37 +1864,38 @@ IS_STRING(<expression>)
 
 ```  
 SELECT   
-       IS_STRING(true),   
-       IS_STRING(1),  
-       IS_STRING("value"),   
-       IS_STRING(null),  
-       IS_STRING({prop: "value"}),   
-       IS_STRING([1, 2, 3]),  
-       IS_STRING({prop: "value"}.prop2)  
+       IS_STRING(true) AS isStr1,   
+       IS_STRING(1) AS isStr2,  
+       IS_STRING("value") AS isStr3,   
+       IS_STRING(null) AS isStr4,  
+       IS_STRING({prop: "value"}) AS isStr5,   
+       IS_STRING([1, 2, 3]) AS isStr6,  
+       IS_STRING({prop: "value"}.prop2) AS isStr7  
 ```  
 
  下面是结果集。  
 
 ```  
-[{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
+[{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
 
-###  <a name="bk_string_functions"></a> 字符串函数  
+<a name="bk_string_functions"></a>
+### <a name="string-functions"></a>字符串函数  
  下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。  
 
+||||  
+|-|-|-|  
+|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
 
-|                                        |                                  |                                      |
-|----------------------------------------|----------------------------------|--------------------------------------|
-|          [CONCAT](#bk_concat)          |     [CONTAINS](#bk_contains)     |       [ENDSWITH](#bk_endswith)       |
-|        [INDEX_OF](#bk_index_of)        |         [LEFT](#bk_left)         |         [LENGTH](#bk_length)         |
-|           [LOWER](#bk_lower)           |        [LTRIM](#bk_ltrim)        |        [REPLACE](#bk_replace)        |
-|       [REPLICATE](#bk_replicate)       |      [REVERSE](#bk_reverse)      |          [RIGHT](#bk_right)          |
-|           [RTRIM](#bk_rtrim)           |   [STARTSWITH](#bk_startswith)   |  [StringToArray](#bk_stringtoarray)  |
-| [StringToBoolean](#bk_stringtoboolean) | [StringToNull](#bk_stringtonull) | [StringToNumber](#bk_stringtonumber) |
-|  [StringToObject](#bk_stringtoobject)  |    [SUBSTRING](#bk_substring)    |       [ToString](#bk_tostring)       |
-|            [TRIM](#bk_trim)            |        [UPPER](#bk_upper)        |                                      |
-
-####  <a name="bk_concat"></a> CONCAT  
+<a name="bk_concat"></a>
+#### <a name="concat"></a>CONCAT  
  返回一个字符串，该字符串是连接两个或多个字符串值的结果。  
 
  **语法**  
@@ -1879,16 +1919,17 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   以下示例返回将指定值串联后形成的字符串。  
 
 ```  
-SELECT CONCAT("abc", "def")  
+SELECT CONCAT("abc", "def") AS concat  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "abcdef"}  
+[{"concat": "abcdef"}  
 ```  
 
-####  <a name="bk_contains"></a> CONTAINS  
+<a name="bk_contains"></a>
+#### <a name="contains"></a>CONTAINS  
  返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。  
 
  **语法**  
@@ -1912,16 +1953,17 @@ CONTAINS(<str_expr>, <str_expr>)
   以下示例检查“abc”是否包含“ab”以及是否包含“d”。  
 
 ```  
-SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
+SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": true, "$2": false}]  
+[{"c1": true, "c2": false}]  
 ```  
 
-####  <a name="bk_endswith"></a> ENDSWITH  
+<a name="bk_endswith"></a>
+#### <a name="endswith"></a>ENDSWITH  
  返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。  
 
  **语法**  
@@ -1945,16 +1987,17 @@ ENDSWITH(<str_expr>, <str_expr>)
   以下示例的返回结果指示“abc”是否以“b”和“bc”结尾。  
 
 ```  
-SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
+SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": false, "$2": true}]  
+[{"e1": false, "e2": true}]  
 ```  
 
-####  <a name="bk_index_of"></a> INDEX_OF  
+<a name="bk_index_of"></a>
+#### <a name="indexof"></a>INDEX_OF  
  返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。  
 
  **语法**  
@@ -1978,16 +2021,17 @@ INDEX_OF(<str_expr>, <str_expr>)
   以下示例返回“abc”内的各个子字符串的索引。  
 
 ```  
-SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
+SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 0, "$2": 1, "$3": -1}]  
+[{"i1": 0, "i2": 1, "i3": -1}]  
 ```  
 
-####  <a name="bk_left"></a> LEFT  
+<a name="bk_left"></a>
+#### <a name="left"></a>LEFT  
  返回具有指定字符数的字符串的左侧部分。  
 
  **语法**  
@@ -2015,16 +2059,17 @@ LEFT(<str_expr>, <num_expr>)
   以下示例根据不同的长度值返回“abc”的左侧部分。  
 
 ```  
-SELECT LEFT("abc", 1), LEFT("abc", 2)  
+SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "a", "$2": "ab"}]  
+[{"l1": "a", "l2": "ab"}]  
 ```  
 
-####  <a name="bk_length"></a> LENGTH  
+<a name="bk_length"></a>
+#### <a name="length"></a>LENGTH  
  返回指定字符串表达式的字符数。  
 
  **语法**  
@@ -2048,16 +2093,17 @@ LENGTH(<str_expr>)
   以下示例返回某个字符串的长度。  
 
 ```  
-SELECT LENGTH("abc")  
+SELECT LENGTH("abc") AS len 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 3}]  
+[{"len": 3}]  
 ```  
 
-####  <a name="bk_lower"></a> LOWER  
+<a name="bk_lower"></a>
+#### <a name="lower"></a>LOWER  
  返回在将大写字符数据转换为小写后的字符串表达式。  
 
  **语法**  
@@ -2081,17 +2127,18 @@ LOWER(<str_expr>)
   以下示例演示了如何在查询中使用 LOWER。  
 
 ```  
-SELECT LOWER("Abc")  
+SELECT LOWER("Abc") AS lower
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "abc"}]  
+[{"lower": "abc"}]  
 
 ```  
 
-####  <a name="bk_ltrim"></a> LTRIM  
+<a name="bk_ltrim"></a>
+#### <a name="ltrim"></a>LTRIM  
  返回删除前导空格后的字符串表达式。  
 
  **语法**  
@@ -2115,16 +2162,17 @@ LTRIM(<str_expr>)
   以下示例演示了如何在查询中使用 LTRIM。  
 
 ```  
-SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
+SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "abc", "$2": "abc", "$3": "abc   "}]  
+[{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
 
-####  <a name="bk_replace"></a> REPLACE  
+<a name="bk_replace"></a>
+#### <a name="replace"></a>REPLACE  
  将出现的所有指定字符串值替换为另一个字符串值。  
 
  **语法**  
@@ -2148,16 +2196,17 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   以下示例演示了如何在查询中使用 REPLACE。  
 
 ```  
-SELECT REPLACE("This is a Test", "Test", "desk")  
+SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "This is a desk"}]  
+[{"replace": "This is a desk"}]  
 ```  
 
-####  <a name="bk_replicate"></a> REPLICATE  
+<a name="bk_replicate"></a>
+#### <a name="replicate"></a>REPLICATE  
  将一个字符串值重复指定的次数。  
 
  **语法**  
@@ -2188,16 +2237,17 @@ REPLICATE(<str_expr>, <num_expr>)
   以下示例演示了如何在查询中使用 REPLICATE。  
 
 ```  
-SELECT REPLICATE("a", 3)  
+SELECT REPLICATE("a", 3) AS replicate  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "aaa"}]  
+[{"replicate": "aaa"}]  
 ```  
 
-####  <a name="bk_reverse"></a> REVERSE  
+<a name="bk_reverse"></a>
+#### <a name="reverse"></a>REVERSE  
  返回字符串值的逆序排序形式。  
 
  **语法**  
@@ -2221,16 +2271,17 @@ REVERSE(<str_expr>)
   以下示例演示了如何在查询中使用 REVERSE。  
 
 ```  
-SELECT REVERSE("Abc")  
+SELECT REVERSE("Abc") AS reverse  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "cbA"}]  
+[{"reverse": "cbA"}]  
 ```  
 
-####  <a name="bk_right"></a> RIGHT  
+<a name="bk_right"></a>
+#### <a name="right"></a>RIGHT  
  返回具有指定字符数的字符串的右侧部分。  
 
  **语法**  
@@ -2258,16 +2309,17 @@ RIGHT(<str_expr>, <num_expr>)
   以下示例根据不同的长度值返回“abc”的右侧部分。  
 
 ```  
-SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
+SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "c", "$2": "bc"}]  
+[{"r1": "c", "r2": "bc"}]  
 ```  
 
-####  <a name="bk_rtrim"></a> RTRIM  
+<a name="bk_rtrim"></a>
+#### <a name="rtrim"></a>RTRIM  
  返回删除尾随空格后的字符串表达式。  
 
  **语法**  
@@ -2291,16 +2343,17 @@ RTRIM(<str_expr>)
   以下示例演示了如何在查询中使用 RTRIM。  
 
 ```  
-SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
+SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "   abc", "$2": "abc", "$3": "abc"}]  
+[{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
 ```  
 
-####  <a name="bk_startswith"></a> STARTSWITH  
+<a name="bk_startswith"></a>
+#### <a name="startswith"></a>STARTSWITH  
  返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头。  
 
  **语法**  
@@ -2324,16 +2377,17 @@ STARTSWITH(<str_expr>, <str_expr>)
   以下示例检查字符串“abc”是否以“b”和“a”开头。  
 
 ```  
-SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
+SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": false, "$2": true}]  
+[{"s1": false, "s2": true}]  
 ```  
 
-#### <a name="bk_stringtoarray"></a> StringToArray  
+  <a name="bk_stringtoarray"></a>
+#### <a name="stringtoarray"></a>StringToArray  
  返回已转换为数组的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
  **语法**  
@@ -2346,7 +2400,7 @@ StringToArray(<expr>)
 
 - `expr`  
 
-   是任何有效的 JSON 数组表达式。 请注意，字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
+   是否会将任何有效的标量表达式作为 JSON 数组表达式来计算？ 请注意，嵌套字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
 
   **返回类型**  
 
@@ -2354,31 +2408,62 @@ StringToArray(<expr>)
 
   **示例**  
 
-以下示例演示 StringToArray 在不同类型中的行为方式。 
+  以下示例演示 StringToArray 在不同类型中的行为方式。 
 
-```  
+ 下面是输入有效的示例。
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
 
- 下面是结果集。  
+ 下面是结果集。
 
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ 下面是输入无效的示例。 
+
+ 在数组中使用单引号不是有效的 JSON。
+即使它们在查询中有效，系统也不会将其解析为有效数组。 必须将数组字符串中的字符串转义为 "[\\"\\"]"，否则其引号必须为单个 '[""]'。
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ 下面是结果集。
+
+```
+[{}]
+```
+
+ 下面是输入无效的示例。
+
+ 传递的表达式将会解析为 JSON 数组；下面的示例不会计算为类型数组，因此返回未定义。
+
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ 下面是结果集。
+
+```
+[{}]
+```
 
 <a name="bk_stringtoboolean"></a>
-####  <a name="stringtoboolean"></a>StringToBoolean  
+#### <a name="stringtoboolean"></a>StringToBoolean  
  返回已转换为布尔值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
  **语法**  
@@ -2391,7 +2476,7 @@ StringToBoolean(<expr>)
 
 - `expr`  
 
-   是任何有效的表达式。  
+   是否会将任何有效的标量表达式作为布尔表达式来计算？  
 
   **返回类型**  
 
@@ -2399,29 +2484,60 @@ StringToBoolean(<expr>)
 
   **示例**  
 
-以下示例演示 StringToBoolean 在不同类型中的行为方式。 
+  以下示例演示 StringToBoolean 在不同类型中的行为方式。 
+
+ 下面是输入有效的示例。
+
+ 只能在 "true"/"false" 之前或之后使用空格。
 
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
 ```  
 
-#### <a name="bk_stringtonull"></a> StringToNull  
+ 下面是输入无效的示例。
+
+ 布尔值区分大小写，必须全用小写字符（即 "true" 和 "false"）来表示。
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ 下面是结果集。  
+
+```  
+[{}]
+``` 
+
+ 传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ 下面是结果集。  
+
+```  
+[{}]
+```  
+
+<a name="bk_stringtonull"></a>
+#### <a name="stringtonull"></a>StringToNull  
  返回已转换为 Null 的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
  **语法**  
@@ -2434,7 +2550,7 @@ StringToNull(<expr>)
 
 - `expr`  
 
-   是任何有效的表达式。  
+   是否会将任何有效的标量表达式作为 Null 表达式来计算？
 
   **返回类型**  
 
@@ -2442,28 +2558,59 @@ StringToNull(<expr>)
 
   **示例**  
 
-以下示例演示 StringToNull 在不同类型中的行为方式。 
+  以下示例演示 StringToNull 在不同类型中的行为方式。 
+
+ 下面是输入有效的示例。
+
+ 只能在 "null" 之前或之后使用空格。
 
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
 ```  
 
-#### <a name="bk_stringtonumber"></a> StringToNumber  
+ 下面是输入无效的示例。
+
+ Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+
+ 下面是结果集。  
+
+```  
+[{}]
+```  
+
+ 传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+
+ 下面是结果集。  
+
+```  
+[{}]
+```  
+
+<a name="bk_stringtonumber"></a>
+#### <a name="stringtonumber"></a>StringToNumber  
  返回已转换为数字值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
  **语法**  
@@ -2476,7 +2623,7 @@ StringToNumber(<expr>)
 
 - `expr`  
 
-   是任何有效的 JSON 数字表达式。 JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
+   是否会将任何有效的标量表达式作为 JSON 数字表达式来计算？ JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
 
   **返回类型**  
 
@@ -2484,31 +2631,57 @@ StringToNumber(<expr>)
 
   **示例**  
 
-以下示例演示 StringToNumber 在不同类型中的行为方式。 
+  以下示例演示 StringToNumber 在不同类型中的行为方式。 
+
+ 只能在 Number 之前或之后使用空格。
 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
 
  下面是结果集。  
 
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-#### <a name="bk_stringtoobject"></a> StringToObject  
+ 在 JSON 中，有效的 Number 必须是整数或浮点数。
+
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+
+ 下面是结果集。  
+
+```  
+{{}}
+```  
+
+ 传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+
+ 下面是结果集。  
+
+```  
+{{}}
+```  
+
+<a name="bk_stringtoobject"></a>
+#### <a name="stringtoobject"></a>StringToObject  
  返回已转换为对象的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
  **语法**  
@@ -2521,7 +2694,7 @@ StringToObject(<expr>)
 
 - `expr`  
 
-   是任何有效的 JSON 对象表达式。 请注意，字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
+   是否会将任何有效的标量表达式作为 JSON 对象表达式来计算？ 请注意，嵌套字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
 
   **返回类型**  
 
@@ -2529,28 +2702,75 @@ StringToObject(<expr>)
 
   **示例**  
 
-以下示例演示 StringToObject 在不同类型中的行为方式。 
+  以下示例演示 StringToObject 在不同类型中的行为方式。 
 
-```  
+ 下面是输入有效的示例。
+
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ 下面是结果集。
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+
+ 下面是输入无效的示例。
+即使它们在查询中有效，系统也不会将其解析为有效对象。 必须将对象字符串中的字符串转义为 "{\\"a\\":\\"str\\"}"，否则其引号必须为单个 '{"a": "str"}'。
+
+ 属性名称的单引号不是有效的 JSON。
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ 下面是结果集。
+
+```  
+[{}]
 ```  
 
- 下面是结果集。  
+ 没有引号的属性名称不是有效的 JSON。
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ 下面是结果集。
 
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
-```  
+[{}]
+``` 
+
+ 下面是输入无效的示例。
+
+ 传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
+
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+
+ 下面是结果集。
+
+```
+[{}]
+```
 
 <a name="bk_substring"></a>
 ####  <a name="substring"></a>SUBSTRING  
@@ -2581,15 +2801,16 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   以下示例返回“abc”中从位置 1 开始且长度为 1 个字符的子字符串。  
 
 ```  
-SELECT SUBSTRING("abc", 1, 1)  
+SELECT SUBSTRING("abc", 1, 1) AS substring  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "b"}]  
+[{"substring": "b"}]  
 ```  
-####  <a name="bk_tostring"></a> ToString  
+<a name="bk_tostring"></a>
+#### <a name="tostring"></a>ToString  
  返回标量表达式的字符串表示形式。 
 
  **语法**  
@@ -2613,14 +2834,21 @@ ToString(<expr>)
   以下示例演示 ToString 在不同类型中的行为方式。   
 
 ```  
-SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
-ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+SELECT 
+    ToString(1.0000) AS str1, 
+    ToString("Hello World") AS str2, 
+    ToString(NaN) AS str3, 
+    ToString(Infinity) AS str4,
+    ToString(IS_STRING(ToString(undefined))) AS str5, 
+    ToString(0.1234) AS str6, 
+    ToString(false) AS str7, 
+    ToString(undefined) AS str8
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+[{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
 ```  
  给定以下输入：
 ```  
@@ -2664,7 +2892,8 @@ JOIN n IN food.nutrients
 {"nutrientID":"309","nutritionVal":"null"}]
  ``` 
 
-####  <a name="bk_trim"></a> TRIM  
+<a name="bk_trim"></a>
+#### <a name="trim"></a>TRIM  
  返回删除前导空格和尾随空格后的字符串表达式。  
 
  **语法**  
@@ -2688,15 +2917,16 @@ TRIM(<str_expr>)
   以下示例介绍了如何在查询中使用 TRIM。  
 
 ```  
-SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+[{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  
 ``` 
-####  <a name="bk_upper"></a> UPPER  
+<a name="bk_upper"></a>
+#### <a name="upper"></a>UPPER  
  返回在将小写字符数据转换为大写后的字符串表达式。  
 
  **语法**  
@@ -2720,16 +2950,17 @@ UPPER(<str_expr>)
   以下示例演示了如何在查询中使用 UPPER。  
 
 ```  
-SELECT UPPER("Abc")  
+SELECT UPPER("Abc") AS upper  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": "ABC"}]  
+[{"upper": "ABC"}]  
 ```  
 
-###  <a name="bk_array_functions"></a> 数组函数  
+<a name="bk_array_functions"></a>
+###  <a name="array-functions"></a>数组函数  
  下面的标量函数对数组输入值执行运算，并返回数值、布尔值或数组值  
 
 ||||  
@@ -2737,7 +2968,8 @@ SELECT UPPER("Abc")
 |[ARRAY_CONCAT](#bk_array_concat)|[ARRAY_CONTAINS](#bk_array_contains)|[ARRAY_LENGTH](#bk_array_length)|  
 |[ARRAY_SLICE](#bk_array_slice)|||  
 
-####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
+<a name="bk_array_concat"></a>
+#### <a name="arrayconcat"></a>ARRAY_CONCAT  
  返回一个数组，该数组是连接两个或更多数组值的结果。  
 
  **语法**  
@@ -2761,16 +2993,17 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   以下示例演示了如何连接两个数组。  
 
 ```  
-SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
+SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": ["apples", "strawberries", "bananas"]}]  
+[{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
 ```  
 
-####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
+<a name="bk_array_contains"></a>
+#### <a name="arraycontains"></a>ARRAY_CONTAINS  
 返回一个布尔，它指示数组是否包含指定的值。 可以通过在命令中使用布尔表达式来检查对象的部分匹配或完全匹配。 
 
  **语法**  
@@ -2803,36 +3036,37 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 ```  
 SELECT   
-           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples"),  
-           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes")  
+           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
+           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": true, "$2": false}]  
+[{"b1": true, "b2": false}]  
 ```  
 
  以下示例介绍了如何使用 ARRAY_CONTAINS 检查数组内是否存在 JSON 字符串的部分匹配字符串。  
 
 ```  
 SELECT  
-    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true), 
-    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}),
-    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true) AS b1, 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}) AS b2,
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) AS b3 
 ```  
 
  下面是结果集。  
 
 ```  
 [{
-  "$1": true,
-  "$2": false,
-  "$3": false
+  "b1": true,
+  "b2": false,
+  "b3": false
 }] 
 ```  
 
-####  <a name="bk_array_length"></a> ARRAY_LENGTH  
+<a name="bk_array_length"></a>
+#### <a name="arraylength"></a>ARRAY_LENGTH  
  返回指定数组表达式的元素数。  
 
  **语法**  
@@ -2856,16 +3090,17 @@ ARRAY_LENGTH(<arr_expr>)
   以下示例演示了如何使用 ARRAY_LENGTH 获取数组的长度。  
 
 ```  
-SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
+SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
 ```  
 
  下面是结果集。  
 
 ```  
-[{"$1": 3}]  
+[{"len": 3}]  
 ```  
 
-####  <a name="bk_array_slice"></a> ARRAY_SLICE  
+<a name="bk_array_slice"></a>
+#### <a name="arrayslice"></a>ARRAY_SLICE  
  返回部分数组表达式。
 
  **语法**  
@@ -2898,13 +3133,13 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 
 ```  
 SELECT   
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1) AS s1,  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1) AS s2,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1) AS s3,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2) AS s4,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0) AS s5,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000) AS s6,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100) AS s7      
 
 ```  
 
@@ -2912,26 +3147,25 @@ SELECT
 
 ```  
 [{  
-           "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"],
-           "$3": ["strawberries"],  
-           "$4": ["strawberries", "bananas"], 
-           "$5": [],
-           "$6": ["strawberries", "bananas"],
-           "$7": [] 
+           "s1": ["strawberries", "bananas"],   
+           "s2": ["strawberries"],
+           "s3": ["strawberries"],  
+           "s4": ["strawberries", "bananas"], 
+           "s5": [],
+           "s6": ["strawberries", "bananas"],
+           "s7": [] 
 }]  
 ```  
 
-###  <a name="bk_spatial_functions"></a> 空间函数  
+<a name="bk_spatial_functions"></a>
+### <a name="spatial-functions"></a>空间函数  
  以下标量函数对标量对象输入值执行操作，并返回数值或布尔值。  
 
 
-|                                              |                            |                                    |
-|----------------------------------------------|----------------------------|------------------------------------|
-|        [ST_DISTANCE](#bk_st_distance)        | [ST_WITHIN](#bk_st_within) | [ST_INTERSECTS](#bk_st_intersects) |
-| [ST_ISVALIDDETAILED](#bk_st_isvaliddetailed) |                            |                                    |
+|                                              |                            |                                    |                            | |----------------------------------------------|----------------------------|------------------------------------|--------------------    ----| |        [ST_DISTANCE](#bk_st_distance)        | [ST_WITHIN](#bk_st_within) | [ST_INTERSECTS](#bk_st_intersects) |[ST_ISVALID](#bk_st_isvalid)| | [ST_ISVALIDDETAILED](#bk_st_isvaliddetailed) |                            |                                    |                            |
 
-####  <a name="bk_st_distance"></a> ST_DISTANCE  
+<a name="bk_st_distance"></a>
+####  <a name="stdistance"></a>ST_DISTANCE  
  返回两个 GeoJSON 点、多边形或 LineString 表达式之间的距离。  
 
  **语法**  
@@ -2968,7 +3202,8 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```  
 
-####  <a name="bk_st_within"></a> ST_WITHIN  
+<a name="bk_st_within"></a>
+#### <a name="stwithin"></a>ST_WITHIN  
  返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（点、多边形或 LineString）是否位于第二个参数中的 GeoJSON（点、多边形或 LineString）内。  
 
  **语法**  
@@ -3010,7 +3245,8 @@ WHERE ST_WITHIN(f.location, {
 [{ "id": "WakefieldFamily" }]  
 ```  
 
-####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
+<a name="bk_st_intersects"></a>
+#### <a name="stintersects"></a>ST_INTERSECTS  
  返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（点、多边形或 LineString）是否与第二个参数中的 GeoJSON（点、多边形或 LineString）相交。  
 
  **语法**  
@@ -3052,7 +3288,8 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
 
-####  <a name="bk_st_isvalid"></a> ST_ISVALID  
+<a name="bk_st_isvalid"></a>
+#### <a name="stisvalid"></a>ST_ISVALID  
  返回一个布尔值，该值指示指定的 GeoJSON 点、多边形或 LineString 表达式是否有效。  
 
  **语法**  
@@ -3080,22 +3317,23 @@ ST_ISVALID(<spatial_expr>)
   对于多边形，若要创建闭合的形状，GeoJSON 规范要求所提供的最后一个坐标对应该与第一个坐标对相同。 多边形内的点必须以逆时针顺序指定。 以顺时针顺序指定的多边形表示其中的区域倒转。  
 
 ```  
-SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
+SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
 ```  
 
  下面是结果集。  
 
 ```  
-[{ "$1": false }]  
+[{ "b": false }]  
 ```  
 
-####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
+<a name="bk_st_isvaliddetailed"></a>
+#### <a name="stisvaliddetailed"></a>ST_ISVALIDDETAILED  
  如果指定的 GeoJSON 点、多边形或 LineString 表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外加上作为字符串值的原因。  
 
  **语法**  
 
 ```  
-ST_ISVALID(<spatial_expr>)  
+ST_ISVALIDDETAILED(<spatial_expr>)  
 ```  
 
  **参数**  
@@ -3116,14 +3354,14 @@ ST_ISVALID(<spatial_expr>)
 SELECT ST_ISVALIDDETAILED({   
   "type": "Polygon",   
   "coordinates": [[ [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] ]]  
-})  
+}) AS b  
 ```  
 
  下面是结果集。  
 
 ```  
 [{  
-  "$1": {   
+  "b": {   
     "valid": false,   
     "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points."   
   }  

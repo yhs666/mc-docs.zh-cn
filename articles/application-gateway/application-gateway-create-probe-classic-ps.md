@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 12/19/2018
+ms.date: 04/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8e10860492ffcac8bfae583201e0e43e411f4377
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bdbcfb462525afcc88e79634aa862fad20ada10f
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627422"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686413"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
@@ -149,15 +149,14 @@ Get-AzureApplicationGateway AppGwTest
 
 配置参数为：
 
-
-|       参数        |                                                                                                                                                说明                                                                                                                                                |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        **名称**        |                                                                                                                                     自定义探测的引用名称。                                                                                                                                      |
-|      **协议**      |                                                                                                                            使用的协议（可能的值为 HTTP 或 HTTPS）。                                                                                                                             |
-| **Host** 和 **Path**  | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http://contoso.com/ ， 则可以为“ <http://contoso.com/path/custompath.htm> ”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。 |
-|      **时间间隔**      |                                                                                                                             配置探测检查间隔（以秒为单位）。                                                                                                                              |
-|      **超时**       |                                                                                                                          定义 HTTP 响应检查的探测超时。                                                                                                                           |
-| **UnhealthyThreshold** |                                                                                                         将后端实例标记为“不正常”所需的失败 HTTP 响应数目。                                                                                                          |
+|参数|说明|
+|---|---|
+|**名称** |自定义探测的引用名称。 |
+| **协议** | 使用的协议（可能的值为 HTTP 或 HTTPS）。|
+| **Host** 和 **Path** | 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。 例如，如果网站为 http:\//contoso.com/，则可以为“http:\//contoso.com/path/custompath.htm”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。|
+| **时间间隔** | 配置探测检查间隔（以秒为单位）。|
+| **超时** | 定义 HTTP 响应检查的探测超时。|
+| **UnhealthyThreshold** | 将后端实例标记为“不正常”所需的失败 HTTP 响应数目。|
 
 \<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
 
@@ -214,4 +213,4 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 如果要将应用程序网关配置为与内部负载均衡器配合使用，请参阅 [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md)（创建具有内部负载均衡器 (ILB) 的应用程序网关）。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

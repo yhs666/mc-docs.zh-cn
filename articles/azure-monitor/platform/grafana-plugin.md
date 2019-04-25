@@ -3,18 +3,18 @@ title: 使用 Grafana 监视 Azure 服务和应用程序
 description: 路由 Azure Monitor 和 Application Insights 数据，以便在 Grafana 中进行查看。
 services: azure-monitor
 keywords: ''
-author: rboucher
-ms.author: robb
-ms.date: 11/06/2017
+author: lingliw
+ms.author: v-lingwu
+ms.date: 04/12/19
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: ''
-ms.openlocfilehash: c620b9b9c76887cfe548ea1d8308f9a6ded71f1e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.subservice: ''
+ms.openlocfilehash: 867ac8e817091cc902e375c90199b2355611ff05
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627575"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686460"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中监控 Azure 服务
 你现在可以使用 [Azure Monitor 数据源插件](https://grafana.com/plugins/grafana-azure-monitor-datasource)从 [Grafana](https://grafana.com/) 监控 Azure 服务和应用程序。 该插件收集 Azure Monitor 所收集的应用程序性能数据，包括各种日志和指标。 随后，可以在 Grafana 仪表板上显示此数据。
@@ -26,7 +26,8 @@ ms.locfileid: "58627575"
 ## <a name="set-up-a-grafana-server"></a>设置 Grafana 服务器
 
 ### <a name="set-up-grafana-locally"></a>本地设置 Grafana
-若要设置本地的 Grafana 服务器，请[在本地环境下载并安装 Grafana](https://grafana.com/grafana/download)。 若要使用插件的 Log Analytics 集成，请安装 Grafana 5.3 或更高版本。
+若要设置本地的 Grafana 服务器，请[在本地环境下载并安装 Grafana](https://grafana.com/grafana/download)。 若要使用插件的 Azure Monitor 集成，请安装 Grafana 5.3 或更高版本。
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>通过 Azure 市场在 Azure 上设置 Grafana
 1. 转到 Azure 市场并选取 Grafana Labs 的 Grafana。
 
@@ -46,7 +47,7 @@ ms.locfileid: "58627575"
 
 7. 获取 Grafana 服务器的公共 IP 地址 - 返回到资源列表，然后选择“公共 IP 地址”。
 
-## <a name="log-in-to-grafana"></a>登录到 Grafana
+## <a name="sign-in-to-grafana"></a>登录到 Grafana
 
 1. 使用服务器的 IP 地址在浏览器中打开登录页 http://\<IP 地址\>:3000 或 \<DNSName>\:3000。 尽管默认端口为 3000，但请注意可能在设置期间选择了其他端口。 你应看到生成的 Grafana 服务器登录页。
 
@@ -66,19 +67,19 @@ ms.locfileid: "58627575"
 
 3. 创建服务主体 - Grafana 使用 Azure Active Directory 服务主体连接到 Azure Monitor API 并收集数据。 必须创建新的或使用现有的服务主体，以管理对 Azure 资源的访问权限。
     * 请参阅[这些说明](../../azure-resource-manager/resource-group-create-service-principal-portal.md)以创建服务主体。 复制并保存租户 ID（目录 ID）、客户端 ID（应用程序 ID）和客户端密码（应用程序密钥值）。
-    * 请参阅[将应用程序分配到角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)，以向要监视的订阅、资源组或资源上的 Azure Active Directory 应用程序分配读者角色。 
+    * 请参阅[将应用程序分配到角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)，以向要监视的订阅、资源组或资源上的 Azure Active Directory 应用程序分配读者角色。 
     Log Analytics API 需要 [Log Analytics 读者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)，其中包括读者角色权限并向其添加。
 
 4. 为要使用的 API 提供连接详细信息。 可以连接到所有或其中部分。 
-   * 如果同时连接到 Azure Monitor（以收集指标）和 Azure Log Analytics（针对日志数据），可以通过选择“与 Azure Monitor API 相同的详细信息”重复使用相同的凭据。
-   * 配置插件时，可以指示插件要监控哪个 Azure 云（公共、Azure 美国政府、Azure 德国或 Azure 中国）。
-   * 如果使用 Application Insights，还可以包含Application Insights API 和应用程序 ID，以收集基于 Application Insights 的指标。 有关详细信息，请参阅[获取 API 密钥和应用程序 ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)。
+    * 如果连接到两个指标并登录 Azure Monitor，可以通过选择“与 Azure Monitor API 相同的详细信息”重复使用相同的凭据。
+    * 配置插件时，可以指示插件要监控哪个 Azure 云（公共、Azure 美国政府、Azure 德国或 Azure 中国）。
+    * 如果使用 Application Insights，还可以包含Application Insights API 和应用程序 ID，以收集基于 Application Insights 的指标。 有关详细信息，请参阅[获取 API 密钥和应用程序 ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)。
 
-     > [!NOTE]
-     > 某些数据源字段的命名方式不同于其关联的 Azure 设置：
-     > * 租户 ID 是 Azure 目录 ID
-     > * 客户端 ID 是 Azure Active Directory 应用程序 ID
-     > * 客户端密钥是 Azure Active Directory 应用程序密钥值
+        > [!NOTE]
+        > 某些数据源字段的命名方式不同于其关联的 Azure 设置：
+        > * 租户 ID 是 Azure 目录 ID
+        > * 客户端 ID 是 Azure Active Directory 应用程序 ID
+        > * 客户端密钥是 Azure Active Directory 应用程序密钥值
 
 5. 如果使用 Application Insights，还可以包含Application Insights API 和应用程序 ID，以收集基于 Application Insights 的指标。 有关详细信息，请参阅[获取 API 密钥和应用程序 ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)。
 
@@ -97,7 +98,7 @@ ms.locfileid: "58627575"
 4. 选择已配置的 Azure Monitor 数据源。
    * 收集 Azure Monitor 指标 - 在服务下拉列表中选择“Azure Monitor”。 随即将显示选择器列表，可在其中选择此图表中要监视的资源和指标。 若要收集 VM 的指标，请使用命名空间 Microsoft.Compute/VirtualMachines。 选择 VM 和指标后，即可开始在仪表板中查看其数据。
      ![适用于 Azure Monitor 的 Grafana 图形配置](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * 收集 Azure Log Analytics 数据 - 在下拉列表中选择“Azure Log Analytics”。 选择要查询的工作区并设置查询文本。 可在此处复制已有的任何 Log Analytics 查询，或新建一个查询。 在查询中键入时，IntelliSense 将显示并建议自动完成选项。 选择可视化类型“时间序列表”，并运行查询。
+   * 收集 Azure Monitor 日志数据 - 在下拉列表中选择“Azure Log Analytics”。 选择要查询的工作区并设置查询文本。 可在此处复制已有的任何日志查询，或新建一个查询。 在查询中键入时，IntelliSense 将显示并建议自动完成选项。 选择可视化类型“时间序列表”，并运行查询。
     
      > [!NOTE]
      >
@@ -121,7 +122,7 @@ ms.locfileid: "58627575"
 
  - [使用 Grafana、InfluxDB 和 Telegraf 监控 Docker 资源指标](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
- - [用于 Docker 主机、容器和容器化服务的监控解决方案](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
+ - [用于 Docker 主机、容器和容器化服务的监视解决方案](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 包含 Azure Monitor 和 Application Insights 指标的完整 Grafana 仪表板的图像如下。
 ![Grafana 示例指标](media/grafana-plugin/grafana8.png)
@@ -166,4 +167,4 @@ Usage
 2. 在资源组页上，单击“删除”，在文本框中键入“Grafana”，然后单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
-* [Azure Monitor 指标概述](../../azure-monitor/platform/data-collection.md)
+* [Azure Monitor 指标概述](data-platform.md)

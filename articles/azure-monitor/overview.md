@@ -1,8 +1,8 @@
 ---
-title: Azure Monitor 概述 | Microsoft Docs
-description: 适用于 Azure 服务和应用程序的完整监视策略所涉及的 Microsoft 服务及功能的概述。
-author: bwren
-manager: carmonm
+title: Azure Monitor 概述 | Azure Docs
+description: 适用于 Azure 服务和应用程序的完整监视策略所涉及的 Azure 服务及功能的概述。
+author: lingliw
+manager: digimobile
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/09/2018
-ms.author: bwren
-ms.openlocfilehash: 717331bbb738ff74bcbf4d60832407013b0d7eb3
-ms.sourcegitcommit: 6c2fccfec948d2d7906d9b23374331f6acf7090c
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.openlocfilehash: 86388d0f189efdfff8863f748f3bb0a161ba1903
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204969"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686360"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 概述
 
@@ -27,20 +27,21 @@ Azure Monitor 提供用于收集、分析和处理来自云与本地环境的遥
 ## <a name="overview"></a>概述
 下图提供了 Azure Monitor 的概要视图。 示意图的中心是用于存储指标和日志（Azure Monitor 使用的两种基本类型的数据）的数据存储。 左侧是用于填充这些[数据存储](platform/data-collection.md)的监视数据源。 右侧是 Azure Monitor 针对这些收集的数据执行的不同功能，例如分析、警报和流式传输到外部系统。
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure Monitor 概述](media/overview/overview.png)
 
 
 ## <a name="monitoring-data-platform"></a>监视数据平台
-Azure Monitor 收集的所有数据属于以下两种基本类型之一：[指标和日志](platform/data-collection.md)。 [指标](platform/data-collection.md#metrics)是数字值，用于描述系统某些方面在特定时间点的情况。 指标是轻型数据，可以支持近实时方案。 [日志](platform/data-collection.md#logs)包含不同类型的已经整理成记录的数据，每种类型都有不同的属性集。 与性能数据一样，事件和跟踪等遥测数据也作为日志存储，因此，可将它们合并以进行分析。
+Azure Monitor 收集的所有数据属于以下两种基本类型之一：指标和日志。 指标是数字值，用于描述系统某些方面在特定时间点的情况。 指标是轻型数据，可以支持近实时方案。 日志包含不同类型的已经整理成记录的数据，每种类型都有不同的属性集。 与性能数据一样，事件和跟踪等遥测数据也作为日志存储，因此，可将它们合并以进行分析。
 
 Azure 门户中的“概述”页会直接显示 Azure Monitor 针对许多 Azure 资源收集的数据。 例如，在查看任一虚拟机时，多个图表会显示性能指标。 单击任一图形会在 Azure 门户上的[指标资源管理器](platform/metrics-charts.md)中打开数据，可在其中绘制多个指标在不同时间段的值的图表。  可以通过交互方式查看图表，也可以将其固定到某个仪表板，与其他可视化效果一起查看。
 
 ![指标](media/overview/metrics.png)
 
-Azure Monitor 收集的日志数据存储在 Log Analytics 中。Log Analytics 包含一种丰富的查询语言，可以快速检索、合并与分析收集的数据。  你可以使用 Azure 门户中的 Log Analytics 页创建和测试查询，然后可以直接使用这些工具分析数据，或者保存查询以便与可视化效果或[警报规则](platform/alerts-overview.md)配合使用。
+可以使用[查询](log-query/log-query-overview.md)来分析 Azure Monitor 收集的日志数据，这些查询可以快速检索、合并和分析所收集的数据。  可以使用 Azure 门户中的 [Log Analytics](log-query/portals.md) 创建和测试查询，然后可以直接使用这些工具分析数据，或者保存查询以便与可视化效果或[警报规则](platform/alerts-overview.md)配合使用。
 
-Azure Monitor 使用[数据资源管理器查询语言](/azure/kusto/query/)的某个版本，该查询语言适用于简单的日志查询，但也包括高级功能，例如聚合、联接、智能分析。 可以通过多个课程快速了解此查询语言。  特定指南提供给已熟悉 SQL 和 Splunk 的用户。
+Azure Monitor 使用 Azure 数据资源管理器使用的 [Kusto 查询语言](https://docs.microsoft.com/zh-cn/azure/kusto/query/)的某个版本，该查询语言适用于简单的日志查询，但也包括高级功能，例如聚合、联接和智能分析。 可以通过[多个课程](log-query/get-started-queries.md)快速了解此查询语言。  特定指南提供给已熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的用户。
 
 ![日志](media/overview/logs.png)
 
@@ -73,7 +74,7 @@ Azure Monitor 可以使用数据收集器 API 从任何 REST 客户端收集日�
 ![App Insights](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
-用于容器的 Azure Monitor 功能旨在监视部署到 Azure Kubernetes 服务 (AKS) 上托管的托管 Kubernetes 群集的容器工作负荷的性能。 它通过指标 API 从 Kubernetes 中提供的控制器、节点和容器收集内存和处理器指标，来提供性能可见性。 容器日志也会收集。  从 Kubernetes 群集启用监视后，将通过适用于 Linux 的 Log Analytics 代理的容器化版本自动收集这些指标和日志。
+用于容器的 Azure Monitor 功能旨在监视部署到 Azure Kubernetes 服务 (AKS) 上托管的托管 Kubernetes 群集的容器工作负荷的性能。 它通过指标 API 从 Kubernetes 中提供的控制器、节点和容器收集内存和处理器指标，来提供性能可见性。 容器日志也会被收集。  从 Kubernetes 群集启用监视后，将通过适用于 Linux 的 Log Analytics 代理的容器化版本自动收集这些指标和日志。
 
 ![容器运行状况](media/overview/container-insights.png)
 
@@ -129,12 +130,10 @@ Azure Monitor 中的警报规则使用[操作组](platform/action-groups.md)，�
 ### <a name="event-hub"></a>事件中心
 [Azure 事件中心](https://docs.microsoft.com/azure/event-hubs)是一个流式传输平台和事件引入服务，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储数据。 使用事件中心可[将 Azure Monitor 中的日志数据流式传输](platform/stream-monitoring-data-event-hubs.md)到合作伙伴 SIEM 和监视工具。
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Logic Apps
 使用[逻辑应用](https://azure.microsoft.com/services/logic-apps)服务可以通过与不同系统和服务集成的工作流将任务和业务流程自动化。 其中提供了用于在 Azure Monitor 中读取和写入指标与日志的活动，使你能够生成与其他各种系统相集成的工作流。
 
-![逻辑应用](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 可以使用多个 API 从/向 Azure Monitor 读取和写入指标与日志，以及访问生成的警报。 还可以配置和检索警报。 这样，几乎可以不受限制地生成与 Azure Monitor 集成的自定义解决方案。
@@ -142,4 +141,4 @@ Azure Monitor 中的警报规则使用[操作组](platform/action-groups.md)，�
 ## <a name="next-steps"></a>后续步骤
 了解有关以下方面的详细信息：
 
-* [指标和日志](platform/data-collection.md)，了解由 Azure Monitor 收集的数据。
+* [指标和日志](platform/data-collection.md)，以了解由 Azure Monitor 收集的数据。

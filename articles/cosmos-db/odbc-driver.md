@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/22/2018
-ms.date: 03/04/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2827391113edca9deb18056c6b80de2138e71186
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 49fac0a0e36ade7226da81d6b0aa7bbffa93e86f
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987992"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615254"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -101,7 +101,7 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
 
 1. 完成定义架构后，请单击“文件” | “保存”，导航到用于保存该架构的目录，并单击“保存”。
 
-    以后如果想要配合 DSN 使用此架构，请打开“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口（通过“ODBC 数据源管理器”），单击“高级选项”，并在“架构文件”框中导航到保存的架构。 将架构文件保存到现有 DSN 会将 DSN 连接范围修改为架构定义的数据和结构。
+1. 若要配合 DSN 使用此架构，请打开“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口（通过“ODBC 数据源管理器”），单击“高级选项”，并在“架构文件”框中导航到保存的架构。 将架构文件保存到现有 DSN 会将 DSN 连接范围修改为架构定义的数据和结构。
 
 <a name="schema-editor"></a>
 <a name="table-mapping"></a>

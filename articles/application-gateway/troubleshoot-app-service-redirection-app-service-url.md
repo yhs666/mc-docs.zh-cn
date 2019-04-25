@@ -6,20 +6,26 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: be11c45166e206f3e5dbec2653fff855976aaa16
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6e222ae1db26547a386c85f9ea8a44674caa0c05
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626548"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686320"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service---redirection-to-app-services-url"></a>排查应用程序网关与应用服务的问题 - 重定向到应用服务的 URL
+# <a name="troubleshoot-application-gateway-with-app-service"></a>排查包含应用服务的应用程序网关的问题
 
- 了解如何诊断和解决公开应用服务 URL 的应用程序网关的重定向问题。
+了解如何诊断和解决充当后端服务器的应用程序网关和应用服务遇到的问题。
 
 ## <a name="overview"></a>概述
+
+本文介绍如何排查以下问题：
+
+> [!div class="checklist"]
+> * 有重定向时，应用服务的 URL 公开在浏览器中
+> * 应用服务的 ARRAffinity Cookie 域设置为应用服务主机名 (example.chinacloudsites.cn) 而不是原始主机
 
 在应用程序网关后端池中配置面向公众的应用服务时，如果在应用程序代码中配置了重定向，访问应用程序网关时你可能会看到，浏览器会直接将你重定向到应用服务 URL。
 
@@ -29,6 +35,8 @@ ms.locfileid: "58626548"
 - Azure AD 身份验证导致重定向。
 - 在应用程序网关的 HTTP 设置中启用了“从后端地址中选取主机名”开关。
 - 未将自定义域注册到应用服务。
+
+另外，在应用程序网关后面使用应用服务并使用自定义域来访问应用程序网关时，可能会看到由应用服务设置的 ARRAffinity Cookie 的域值带有“example.chinacloudsites.cn”域名。 如果希望原始主机名也是 Cookie 域，则请按本文中解决方案的要求操作。
 
 ## <a name="sample-configuration"></a>示例配置
 
@@ -95,6 +103,16 @@ X-Powered-By: ASP.NET
 - 将自定义探测重新关联到后端 HTTP 设置，并验证后端的运行状况是否正常。
 
 - 这样做后，应用程序网关应会将相同的主机名“www.contoso.com”转发到应用服务，并且同一个主机名上会发生重定向。 可以查看下面的示例请求和响应标头。
+
+若要针对现有设置使用 PowerShell 来实施上述步骤，请按下面的示例 PowerShell 脚本操作。 请注意，我们没有在探测和 HTTP 设置配置中使用 -PickHostname 开关。
+
+```azurepowershell
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.chinacloudsites.cn" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 
@@ -120,3 +138,4 @@ X-Powered-By: ASP.NET
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 
+<!-- Update_Description: wording update -->

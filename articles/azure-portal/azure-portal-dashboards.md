@@ -1,32 +1,31 @@
 ---
-title: 创建和共享 Azure 门户仪表板 | Microsoft 文档
+title: 创建和共享 Azure 门户仪表板 | Azure Docs
 description: 本文介绍如何在 Azure 门户中创建和编辑仪表板。
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: doubeby
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/06/2016
-ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 4aee8f90adc45f809f02ef3d6dc004d5aa220ccd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-biyu
+ms.date: 04/29/2019
+ms.openlocfilehash: e45da67a02a7ee9c1946662c6452fc7704536bfc
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654648"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566300"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 门户中创建和共享仪表板
 可以创建多个仪表板，并与对 Azure 订阅有访问权限的其他用户共享。  本文介绍创建、编辑、发布和管理仪表板访问权限的基础知识。
 
 ## <a name="create-a-dashboard"></a>创建仪表板
-
 若要创建仪表板，请选择当前仪表板名称旁边的“新建仪表板”  按钮。  
 
 ![创建仪表板](./media/azure-portal-dashboards/new-dashboard.png)
@@ -42,7 +41,6 @@ ms.locfileid: "52654648"
 ![添加 Markdown](./media/azure-portal-dashboards/add-markdown.png)
 
 ## <a name="edit-a-dashboard"></a>编辑仪表板
-
 创建仪表板后，可以固定来自磁贴库的磁贴或以磁贴形式表示的边栏选项卡。 让我们来固定资源组的表示形式。 可以在浏览项时固定，也可以从资源组边栏选项卡固定。 这两种方法都可以固定以磁贴形式表示的资源组。
 
 ![固定到仪表板](./media/azure-portal-dashboards/pin-to-dashboard.png)
@@ -75,7 +73,6 @@ ms.locfileid: "52654648"
 完成自定义仪表板后，只需选择“自定义完成”即可退出自定义模式，或右键单击并从上下文菜单中选择“自定义完成”。
 
 ## <a name="publish-a-dashboard-and-manage-access-control"></a>发布仪表板和管理访问控制
-
 创建仪表板时，默认该仪表板是专用的，这意味着只有你才可以看到它。  若要让其对其他人可见，请使用与其他仪表板命令一起出现的“共享”  按钮。
 
 ![共享仪表板](./media/azure-portal-dashboards/share-dashboard.png)
@@ -97,5 +94,6 @@ ms.locfileid: "52654648"
 ![管理访问控制](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 若要管理资源，请参阅[通过门户管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
+- 若要管理资源，请参阅[使用 Azure 门户管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
 - 若要部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户部署资源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
+

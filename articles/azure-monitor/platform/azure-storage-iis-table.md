@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 中使用适用于 IIS 的 blob 存储和适用于事件的表存储 | Azure Docs
-description: Log Analytics 可以读取将诊断写入到表存储或将 IIS 日志写入到 Blob 存储的 Azure 服务的日志。
+title: 在 Azure Monitor 中使用适用于 IIS 的 blob 存储和适用于事件的表存储 | Azure Docs
+description: Azure Monitor 可以读取将诊断写入到表存储的 Azure 服务的日志或写入到 Blob 存储的 IIS 日志。
 services: log-analytics
 documentationcenter: ''
 author: lingliw
@@ -11,30 +11,30 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 21825951748a408a10d2518a11bbdf297b93c0e6
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 385ecb4663fe491cea6401bb74eefc997a9f33ce
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440638"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686344"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>将适用于 IIS 的 Azure Blob 存储和适用于事件的 Azure 表存储与 Log Analytics 配合使用
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>将适用于 IIS 的 Azure Blob 存储和适用于事件的 Azure 表存储与 Azure Monitor 配合使用
 
-Log Analytics 可以读取将诊断写入到表存储或将 IIS 日志写入到 Blob 存储的以下服务的日志：
+Azure Monitor 可以读取将诊断写入到表存储的以下服务的日志或写入到 Blob 存储的 IIS 日志：
 
 * Service Fabric 群集（预览版）
 * 虚拟机
 * Web/辅助角色
 
-必须启用 Azure 诊断之后，Log Analytics 才可以收集这些资源的数据。
+必须启用 Azure 诊断之后，Azure Monitor 才可以将这些资源的数据收集到 Log Analytics 工作区中。
 
-诊断已启用后，可以使用 Azure 门户或 PowerShell 配置 Log Analytics 收集日志。
+诊断已启用后，可以使用 Azure 门户或 PowerShell 配置工作区以收集日志。
 
-Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机收集诊断数据的 Azure 扩展。 该数据存储在 Azure 存储帐户中，可以由 Log Analytics 进行收集。
+Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机收集诊断数据的 Azure 扩展。 该数据存储在 Azure 存储帐户中，可以由 Azure Monitor 进行收集。
 
-为了使 Log Analytics 能够收集这些 Azure 诊断日志，这些日志必须位于以下位置：
+为了使 Azure Monitor 能够收集这些 Azure 诊断日志，这些日志必须位于以下位置：
 
 | 日志类型 | 资源类型 | 位置 |
 | --- | --- | --- |
@@ -84,7 +84,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 以下示例配置文件从应用程序日志和系统日志中收集 IIS 日志和所有事件：
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -108,7 +108,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 确保 ConfigurationSettings 指定了存储帐户，如以下示例中所示：
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -116,10 +116,11 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 可以在 Azure 门户中的存储帐户仪表板的“管理访问密钥”下找到 **AccountName** 和 **AccountKey** 值。 连接字符串的协议必须为 **https**。
 
-更新的诊断配置应用到云服务并且该服务正在将诊断写入到 Azure 存储后，可以配置 Log Analytics。
+更新的诊断配置应用到云服务并且该服务正在将诊断写入到 Azure 存储后，可以配置 Log Analytics 工作区。
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>使用 Azure 门户从 Azure 存储中收集日志
-可以使用 Azure 门户将 Log Analytics 配置为收集以下 Azure 服务的日志：
+
+可以使用 Azure 门户将 Azure Monitor 中的 Log Analytics 工作区配置为收集以下 Azure 服务的日志：
 
 * Service Fabric 群集
 * 虚拟机
@@ -136,9 +137,9 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 5. 将基于数据类型自动填充源的值，不能更改
 6. 单击“确定”保存配置
 
-对于其他存储帐户和想要 Log Analytics 收集的数据类型，请重复执行步骤 2 到步骤 6。
+对于其他存储帐户和想要收集到工作区中的数据类型，请重复执行步骤 2 到步骤 6。
 
-在大约 30 分钟过后，能够在 Log Analytics 中看到存储帐户中的数据。 在应用了配置后，只能看到写入到存储中的数据。 Log Analytics 不会从存储帐户中读取预先存在的数据。
+在大约 30 分钟过后，能够在 Log Analytics 工作区中看到存储帐户中的数据。 在应用了配置后，只能看到写入到存储中的数据。 工作区不会从存储帐户中读取预先存在的数据。
 
 > [!NOTE]
 > 该门户不会验证源是否存在于存储帐户中，或者是否正在写入新数据。
@@ -146,7 +147,10 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>使用 PowerShell 在虚拟机中为事件日志和 IIS 日志收集启用 Azure 诊断
-通过[将 Log Analytics 配置为编制 Azure 诊断索引](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics)中的步骤，将 PowerShell 用于从写入表存储的 Azure 诊断读取。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+通过[将 Azure Monitor 配置为编制 Azure 诊断索引](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage)中的步骤，将 PowerShell 用于从写入表存储的 Azure 诊断读取。
 
 使用 Azure PowerShell 可以更精确地指定要写入 Azure 存储的事件。
 有关详细信息，请参阅[在 Azure 虚拟机中启用诊断](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
@@ -158,7 +162,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 查看以下脚本示例、复制它、根据需要修改它、将该示例保存为 PowerShell 脚本文件，然后运行该脚本。
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -177,7 +181,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
     #Construct Azure diagnostics private config
 
-    $wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
+    $wad_storage_account_key = (Get-AzStorageKey $wad_storage_account_name).Primary
     $wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
 
     #Enable Diagnostics Extension for Virtual Machine

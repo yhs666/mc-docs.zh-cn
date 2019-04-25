@@ -4,20 +4,20 @@ description: 了解如何在 Azure Cosmos DB 中管理数据库帐户
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 10/17/2018
-ms.date: 03/04/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3210ff888680f76ffc3b3e1d22cbb6bb870b1157
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 13d372d982336d7bc82c51edb4b1168357eda3fd
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987957"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615156"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
 
-本文介绍了如何管理你的 Azure Cosmos DB 帐户。 你将了解如何设置多宿主功能、添加或删除区域、配置多个写入区域，以及设置故障转移优先级。 
+本文介绍了如何管理 Azure Cosmos 帐户。 你将了解如何设置多宿主功能、添加或删除区域、配置多个写入区域，以及设置故障转移优先级。 
 
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
@@ -109,9 +109,10 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 <a name="add-remove-regions-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 导航到你的 Azure Cosmos DB 帐户，打开“全局复制数据”菜单。
+1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单。
 
-2. 若要添加区域，请在地图上选择带有 **+** 标签且与你所需的区域对应的六边形。 若要添加某个区域，请选择“+ 添加区域”选项，然后从下拉菜单中选择一个区域。
+    <!--MOONCAKE: submene correct on **Replicate data globally**-->
+2. 若要添加区域，请在地图上选择带有 **+** 标签且与你所需的区域对应的六边形。 另外，若要添加某个区域，请选择“+ 添加区域”选项，然后从下拉菜单中选择一个区域。
 
 3. 若要删除区域，请选择带对号的蓝色六边形以从地图中清除一个或多个区域。 或者选择右侧位于区域旁边的“废纸篓”(🗑) 图标。
 
@@ -127,14 +128,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ### <a name="azure-cli"></a>Azure CLI
 
 ```bash
-# Given an account created with 1 region like so
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'chinaeast=0'
+# Create an account with 1 region
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations chinaeast=0
 
-# Add a new region by adding another region to the list
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'chinaeast=0 chinanorth=1'
+# Add a region
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations chinaeast=0 chinanorth=1
 
-# Remove a region by removing a region from the list
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'chinanorth=0'
+# Remove a region
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations chinanorth=0
 ```
 
 ## <a name="configure-multiple-write-regions"></a>配置多个写入区域
@@ -156,7 +157,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 <a name="configure-multiple-write-regions-arm"></a>
 ### <a name="resource-manager-template"></a>Resource Manager 模板
 
-以下 JSON 代码是 Azure 资源管理器模板的一个示例。 可以使用它部署采用有限过期一致性策略的 Azure Cosmos DB 帐户。 最大过期时间间隔设置为 5 秒。 可以容忍的过期请求的最大数量设置为 100。 若要了解资源管理器模板的格式和语法，请参阅[资源管理器](../azure-resource-manager/resource-group-authoring-templates.md)。
+以下 JSON 代码是 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)模板的一个示例。 可以使用它部署采用[有限过期一致性级别](consistency-levels.md)的 Azure Cosmos 帐户。 最大过期时间间隔设置为 5 秒。 可以容忍的过期请求的最大数量设置为 100。 若要了解资源管理器模板的格式和语法，请参阅[资源管理器](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 ```json
 {
@@ -211,30 +212,30 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 ```
 
 <a name="manual-failover"></a>
-## <a name="enable-manual-failover-for-your-azure-cosmos-db-account"></a>为 Azure Cosmos DB 帐户启用手动故障转移
+## <a name="enable-manual-failover-for-your-azure-cosmos-account"></a>为 Azure Cosmos 帐户启用手动故障转移
 
 <a name="enable-manual-failover-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 导航到你的 Azure Cosmos DB 帐户，打开“全局复制数据”菜单。
-
+1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单。
+    <!--MOONCAKE: submene correct on **Replicate data globally**-->
 2. 在菜单顶部，选择“手动故障转移”。
 
-   ![“复制多区域数据”菜单](./media/how-to-manage-database-account/replicate-data-globally.png)
+    ![“多区域复制数据”菜单](./media/how-to-manage-database-account/replicate-data-globally.png)
 
 3. 在“手动故障转移”菜单上，选择你的新写入区域。 选中相应的复选框，以指示你了解此选项会更改你的写入区域。
 
 4. 若要触发故障转移，请选择“确定”。
 
-   ![手动故障转移门户菜单](./media/how-to-manage-database-account/manual-failover.png)
+    ![手动故障转移门户菜单](./media/how-to-manage-database-account/manual-failover.png)
 
 <a name="enable-manual-failover-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
 
 ```bash
-# Given your account currently has regions with priority like so: 'chinaeast=0 chinanorth=1'
+# Given your account currently has regions with priority: chinaeast=0 chinanorth=1
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'chinaeast=1 chinanorth=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations chinaeast=1 chinanorth=0
 ```
 
 <a name="automatic-failover"></a>
@@ -244,10 +245,12 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 ### <a name="azure-portal"></a>Azure 门户
 
 1. 在 Azure Cosmos DB 帐户中，打开“全局复制数据”窗格。 
+    
+    <!--MOONCAKE: submene correct on **Replicate data globally**-->
 
 2. 在窗格顶部选择“自动故障转移”。
 
-   ![“复制多区域数据”菜单](./media/how-to-manage-database-account/replicate-data-globally.png)
+   ![“多区域复制数据”菜单](./media/how-to-manage-database-account/replicate-data-globally.png)
 
 3. 在“自动故障转移”窗格中，确保将“启用自动故障转移”设置为“开”。 
 
@@ -271,16 +274,18 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-azure-cosmos-db-account"></a>为 Azure Cosmos DB 帐户设置故障转移优先级
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>为 Azure Cosmos 帐户设置故障转移优先级
 
 <a name="set-failover-priorities-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 在 Azure Cosmos DB 帐户中，打开“全局复制数据”窗格。 
+1. 在 Azure Cosmos 帐户中，打开“全局复制数据”窗格。 
 
+    <!--MOONCAKE: submene correct on **Replicate data globally**-->
+    
 2. 在窗格顶部选择“自动故障转移”。
 
-   ![“复制多区域数据”菜单](./media/how-to-manage-database-account/replicate-data-globally.png)
+    ![“多区域复制数据”菜单](./media/how-to-manage-database-account/replicate-data-globally.png)
 
 3. 在“自动故障转移”窗格中，确保将“启用自动故障转移”设置为“开”。 
 
@@ -288,7 +293,7 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 
 5. 选择“保存”。
 
-   ![自动故障转移门户菜单](./media/how-to-manage-database-account/automatic-failover.png)
+    ![自动故障转移门户菜单](./media/how-to-manage-database-account/automatic-failover.png)
 
 不能在此菜单上修改写入区域。 若要手动更改写入区域，必须执行手动故障转移。
 
@@ -296,16 +301,22 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 ### <a name="azure-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'chinaeast=0 chinanorth=2 chinaeast2=1'
+# Assume region order is initially chinaeast=0 chinanorth=1 automatic failover on account creation
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies chinanorth=0 chinaeast=1
 ```
 
 <!--MOONCAKE CUSTOMIZE:  chinaeast2=1-->
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何管理 Azure Cosmos DB 中的一致性级别和数据冲突。 请参阅以下文章：
+请阅读以下文章：
 
 * [管理一致性](how-to-manage-consistency.md)
 * [管理区域之间的冲突](how-to-manage-conflicts.md)
+* [多区域分布 - 揭秘](global-dist-under-the-hood.md)
+* [如何在应用程序中配置多主数据库](how-to-multi-master.md)
+* [配置多宿主客户端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [在 Azure Cosmos DB 帐户中添加或删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 
 <!-- Update_Description: update meta properties, wording update-->

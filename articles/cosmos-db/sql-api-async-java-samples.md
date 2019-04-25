@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: sample
 origin.date: 06/18/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6f67d9234d220056f535efe5cc5084d438c0dc19
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 4f584549dec4c4f3d8e8b066a40eca22cf9e7524
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004574"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615246"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的异步 Java 示例
 

@@ -6,14 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
 origin.date: 01/29/2019
-ms.date: 03/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6bab11c1d672de5bbbeae7443955b8ef5d41d80f
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.topic: conceptual
+ms.openlocfilehash: 5501cb76ee33a6c565de4c36a005776739702e02
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788714"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686281"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 应用程序防火墙请求大小限制和排除列表
 
@@ -21,7 +22,7 @@ Azure 应用程序网关 Web 应用程序防火墙 (WAF) 可为 Web 应用程序
 
 ## <a name="waf-request-size-limits"></a>WAF 请求大小限制
 
-![请求大小限制](./media/application-gateway-waf-configuration/waf-requestsizelimit.png)
+![请求大小限制](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
 Web 应用程序防火墙允许你在下限和上限内配置请求大小限制。 有以下两个大小限制配置可用：
 
@@ -32,7 +33,7 @@ WAF 还提供了可配置的旋钮以打开或关闭请求正文检查。 默认
 
 ## <a name="waf-exclusion-lists"></a>WAF 排除列表
 
-![waf-exclusion.png](./media/application-gateway-waf-configuration/waf-exclusion.png)
+![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示例是 Active Directory 插入的令牌，这些令牌用于身份验证或密码字段。 此类属性容易在 WAF 规则中包含可能触发误报的特殊字符。 将某个属性添加到 WAF 排除列表后，任何已配置且激活的 WAF 规则都不会考虑该属性。 排除列表的范围具有全局性。
 
@@ -54,6 +55,7 @@ WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示�
 - **开头为**：此运算符与以指定选择器值开头的所有字段匹配。
 - **结尾为**：此运算符与以指定选择器值结尾的所有请求字段匹配。
 - **包含**：此运算符与包含指定选择器值的所有请求字段匹配。
+- **等于任何值**：此运算符与所有请求字段匹配。 * 将是选择器值。
 
 在所有情况下，匹配不区分大小写，并且正则表达式不允许作为选择器。
 
@@ -97,4 +99,4 @@ $firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -E
 
 配置 WAF 设置后，可以了解如何查看 WAF 日志。 有关详细信息，请参阅[应用程序网关诊断](application-gateway-diagnostics.md#diagnostic-logging)。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

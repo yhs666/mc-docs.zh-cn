@@ -5,18 +5,18 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 3711ace11422c6c91b284de8c68eb99983886027
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 63dbdf25d2a485593d6eeb77b457483b1d6f739b
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906200"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686450"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活动日志事件架构
-通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件。 本文介绍了每种数据类别的事件架构。 数据架构各有不同，具体取决于是在门户、PowerShell、CLI，或直接通过 REST API 读取数据，还是[使用日志配置文件将数据流式传输到存储或事件中心](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 以下示例显示的是通过门户、PowerShell、CLI 和 REST API 获得的架构。 本文末尾提供了这些属性到 [Azure 诊断日志架构](./tutorial-dashboards.md)的映射。
+通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件。 本文介绍了每种数据类别的事件架构。 数据架构各有不同，具体取决于是在门户、PowerShell、CLI，或直接通过 REST API 读取数据，还是[使用日志配置文件将数据流式传输到存储或事件中心](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 以下示例显示的是通过门户、PowerShell、CLI 和 REST API 获得的架构。 本文末尾提供了这些属性到 [Azure 诊断日志架构](./diagnostic-logs-schema.md)的映射。
 
 ## <a name="administrative"></a>管理
 此类别包含对通过资源管理器执行的所有创建、更新、删除和操作的记录。 此类别中的事件类型的示例包括“创建虚拟机”和“删除网络安全组”。用户或应用程序通过资源管理器所进行的每一个操作都会作为特定资源类型上的操作建模。 如果操作类型为“写入”、“删除”或“操作”，则该操作的开始、成功或失败记录都会记录在管理类别中。 管理类别还包括任何对订阅中基于角色的访问控制进行的更改。
@@ -119,10 +119,13 @@ ms.locfileid: "54906200"
 | correlationId |通常为字符串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
 | 说明 |事件的静态文本说明。 |
 | eventDataId |事件的唯一标识符。 |
+| eventName | 管理事件的易记名称。 |
+| category | 始终为“Administrative” |
 | httpRequest |描述 Http 请求的 Blob。 通常包括 "clientRequestId"、"clientIpAddress" 和 "method"（HTTP 方法， 例如 PUT）。 |
 | 级别 |事件的级别。 以下值之一：“Critical”、“Error”、“Warning”和“Informational” |
 | resourceGroupName |受影响资源的资源组的名称。 |
 | resourceProviderName |受影响资源的资源提供程序的名称 |
+| resourceType | 受“管理”事件影响的资源类型。 |
 | ResourceId |受影响资源的资源 ID。 |
 | operationId |在多个事件（对应于单个操作）之间共享的 GUID。 |
 | operationName |操作的名称。 |
@@ -355,10 +358,11 @@ ms.locfileid: "54906200"
 | correlationId | 字符串格式的 GUID。 |
 | 说明 |警报事件的静态文本说明。 |
 | eventDataId |警报事件的唯一标识符。 |
+| category | 始终为“Alert” |
 | 级别 |事件的级别。 以下值之一：“Critical”、“Error”、“Warning”和“Informational” |
-| resourceGroupName |受影响资源的资源组的名称（如果是指标警报）。 对其它警报类型而言，这是包含警报本身的资源组的名称。 |
-| resourceProviderName |受影响资源的资源提供程序的名称（如果是指标警报）。 对其它警报类型而言，这是警报本身的资源提供程序的名称。 |
-| ResourceId | 受影响资源的资源 ID 的名称（如果是指标警报）。 对其它警报类型而言，这是警报资源本身的资源 ID。 |
+| resourceGroupName |受影响资源的资源组的名称（如果是指标警报）。 对于其他警报类型，它是包含警报本身的资源组的名称。 |
+| resourceProviderName |受影响资源的资源提供程序的名称（如果是指标警报）。 对于其他警报类型，它是警报本身的资源提供程序的名称。 |
+| ResourceId | 受影响资源的资源 ID 的名称（如果是指标警报）。 对于其他警报类型，它是警报资源本身的资源 ID。 |
 | operationId |在多个事件（对应于单个操作）之间共享的 GUID。 |
 | operationName |操作的名称。 |
 | properties |`<Key, Value>` 对集合（即字典），描述事件的详细信息。 |
@@ -553,6 +557,7 @@ ms.locfileid: "54906200"
 | 说明 |安全事件的静态文本说明。 |
 | eventDataId |安全事件的唯一标识符。 |
 | eventName |安全事件的友好名称。 |
+| category | 始终为“Security” |
 | id |安全事件的唯一资源标识符。 |
 | 级别 |事件的级别。 以下值之一：“Critical”、“Error”、“Warning”或“Informational” |
 | resourceGroupName |资源的资源组名称。 |
@@ -741,22 +746,22 @@ ms.locfileid: "54906200"
 | authorization | 事件的 RBAC 属性数组。 对于新资源，这是触发评估的请求的操作和范围。 对于现有资源，操作是“Microsoft.Resources/checkPolicyCompliance/read”。 |
 | caller | 对于新资源，为启动部署的标识。 对于现有资源，这是世纪互联 Azure Policy Insights RP 的 GUID。 |
 | channels | Policy 事件仅使用“操作”通道。 |
-| claims | Active Directory 使用 JWT 令牌来验证用户或应用程序，以在资源管理器中执行此操作。 |
+| 声明 | Active Directory 使用 JWT 令牌来验证用户或应用程序，以在资源管理器中执行此操作。 |
 | correlationId | 通常为字符串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
-| description | 对于 Policy 事件，此字段是空白的。 |
+| 说明 | 对于 Policy 事件，此字段是空白的。 |
 | eventDataId | 事件的唯一标识符。 |
 | eventName | “BeginRequest”或“EndRequest”。 “BeginRequest”用于延迟的 auditIfNotExists 和 deployIfNotExists 评估，并且在 deployIfNotExists 效果启动模板部署时使用。 所有其他操作返回“EndRequest”。 |
 | category | 将活动日志事件声明为属于“Policy”。 |
 | eventTimestamp | 处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
 | id | 特定资源中的事件的唯一标识符。 |
-| level | 事件的级别。 审核使用“警告”，拒绝使用“错误”。 auditIfNotExists 或 deployIfNotExists 错误可以根据严重性生成“警告”或“错误”。 所有其他 Policy 事件使用“信息”。 |
+| 级别 | 事件的级别。 审核使用“警告”，拒绝使用“错误”。 auditIfNotExists 或 deployIfNotExists 错误可以根据严重性生成“警告”或“错误”。 所有其他 Policy 事件使用“信息”。 |
 | operationId | 在多个事件（对应于单个操作）之间共享的 GUID。 |
 | operationName | 操作的名称，与策略效果直接相关。 |
 | resourceGroupName | 评估的资源的资源组名称。 |
 | resourceProviderName | 评估的资源的资源提供程序名称。 |
 | resourceType | 对于新资源，它是评估的类型。 对于现有资源，返回“Microsoft.Resources/checkPolicyCompliance”。 |
 | ResourceId | 评估的资源的资源 ID。 |
-| status | 用于描述 Policy 评估结果状态的字符串。 大多数 Policy 评估返回“成功”，但拒绝效果返回“失败”。 auditIfNotExists 或 deployIfNotExists 中的错误也返回“失败”。 |
+| 状态 | 用于描述 Policy 评估结果状态的字符串。 大多数 Policy 评估返回“成功”，但拒绝效果返回“失败”。 auditIfNotExists 或 deployIfNotExists 中的错误也返回“失败”。 |
 | subStatus | 对于 Policy 事件，此字段是空白的。 |
 | submissionTimestamp | 事件可供查询的时间戳。 |
 | subscriptionId | Azure 订阅 ID。 |
@@ -768,7 +773,7 @@ ms.locfileid: "54906200"
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>映射到诊断日志架构
 
-将 Azure 活动日志流式传输到存储帐户或事件中心命名空间时，数据将遵循 [Azure 诊断日志架构](./tutorial-dashboards.md)。 以下是从上述架构到诊断日志架构的属性映射：
+将 Azure 活动日志流式传输到存储帐户或事件中心命名空间时，数据将遵循 [Azure 诊断日志架构](./diagnostic-logs-schema.md)。 以下是从上述架构到诊断日志架构的属性映射：
 
 | 诊断日志架构属性 | 活动日志 REST API 架构属性 | 注释 |
 | --- | --- | --- |
@@ -778,14 +783,14 @@ ms.locfileid: "54906200"
 | category | 操作名称的一部分 | 操作类型分类：“写入”/“删除”/“操作” |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | description |  |
+| resultDescription | 说明 |  |
 | durationMs | 不适用 | 始终为 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
-| identity | claims 和 authorization 属性 |  |
-| Level | Level |  |
+| identity | 声明和授权属性 |  |
+| 级别 | 级别 |  |
 | location | 不适用 | 处理事件的位置。 这不是资源所在位置，而是处理事件的位置。未来更新中将删除此属性。 |
-| Properties | properties.eventProperties |  |
+| 属性 | properties.eventProperties |  |
 | properties.eventCategory | category | 如果不存在 properties.eventCategory，则 category 是“管理” |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |

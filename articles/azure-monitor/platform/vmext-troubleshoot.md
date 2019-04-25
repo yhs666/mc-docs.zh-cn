@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics VM 扩展故障排除 | Azure Docs
+title: Azure Monitor 中的 Azure Log Analytics VM 扩展故障排除 | Azure Docs
 description: 针对 Windows 和 Linux Azure VM 的 Log Analytics VM 扩展的最常见问题，描述症状、原因和解决方法。
 services: log-analytics
 documentationcenter: ''
@@ -11,21 +11,21 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 9cdf9ccf52fa7f0eb7773a73a354f124c3678cbd
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 656c886aa3e5163f57f743168069c2680ce6ca7f
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440838"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686434"
 ---
-# <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM 扩展故障排除
+# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics VM 扩展故障排除
 本文可帮助排查使用世纪互联 Azure 上运行的 Windows 和 Linux 虚拟机的 Log Analytics VM 扩展时可能遇到的错误，并建议解决这些问题可能的解决方案。
 
 若要验证扩展的状态，请从 Azure 门户执行以下步骤。
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“虚拟机”。 开始键入时，会根据输入筛选该列表。 选择“虚拟机”。
 3. 在虚拟机列表中，找到并选择该虚拟机。
 3. 在虚拟机上，单击“扩展”。

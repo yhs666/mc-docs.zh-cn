@@ -1,24 +1,24 @@
 ---
 title: 在 Azure 中配置服务映射 | Azure Docs
 description: 服务映射是 Azure 中的解决方案，可自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 本文提供了有关在环境中部署服务映射并在各种方案中使用它的详细信息。
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 253e0fa2967d6ae025e6d3def8f3174c614ae224
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: fa0576ff168518b8e66ff93942fdcdd112b5be8f
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441051"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566286"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中配置服务映射
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 借助它，你可以按照自己的想法，将服务器作为提供重要服务的互连系统。 服务映射显示任何 TCP 连接的体系结构中服务器、进程和端口之间的连接，只需安装代理，无需任何其他配置。
@@ -40,6 +40,8 @@ ms.locfileid: "56441051"
 >
 
 ### <a name="windows-server"></a>Windows Server
+
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -54,22 +56,17 @@ ms.locfileid: "56441051"
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>受支持的 Linux 操作系统
-以下部分列出了Red Hat Enterprise Linux、CentOS Linux 和 Oracle Linux（具有 RHEL 内核）上 Dependency Agent 支持的操作系统。  
+
+以下部分列出了 Linux 上 Dependency Agent 支持的操作系统。  
 
 - 仅默认版本和 SMP Linux 内核版本受支持。
 - 任何 Linux 分发版都不支持非标准内核版本（例如 PAE 和 Xen）。 例如，不支持版本字符串为“2.6.16.21-0.8-xen”的系统。
 - 不支持自定义内核（包括标准内核的重新编译）。
-- 不支持 CentOSPlus 内核。
-- 本文后面部分会介绍 Oracle Unbreakable Enterprise Kernel (UEK)。
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | OS 版本 | 内核版本 |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -78,49 +75,37 @@ ms.locfileid: "56441051"
 
 | OS 版本 | 内核版本 |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+
+| OS 版本 | 内核版本 |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | OS 版本 | 内核版本 |
 |:--|:--|
-| Ubuntu 18.04 | 内核 4.15.* |
+| Ubuntu 18.04 | 内核 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | 内核 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>具有 Unbreakable Enterprise Kernel 的 Oracle Enterprise Linux 6
-| OS 版本 | 内核版本
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>具有 Unbreakable Enterprise Kernel 的 Oracle Enterprise Linux 5
+### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | OS 版本 | 内核版本
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | OS 版本 | 内核版本
 |:--|:--|
-|12 SP2 | 4.4.* |
-|12 SP3 | 4.4.* |
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
 ## <a name="dependency-agent-downloads"></a>Dependency Agent 下载
 
@@ -130,6 +115,7 @@ ms.locfileid: "56441051"
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>连接的源
+
 服务映射从 Azure Dependency Agent 获取其数据。 Dependency Agent 依赖 Log Analytics 代理连接到 Log Analytics。 这意味着服务器必须首先安装和配置 Log Analytics 代理，然后再安装 Dependency Agent。  下表介绍了服务映射解决方案支持的连接的源。
 
 | 连接的源 | 支持 | 说明 |
@@ -173,12 +159,14 @@ Azure 通过使用服务映射服务，自动收集使用情况和性能数据�
 
 ## <a name="installation"></a>安装
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="azure-vm-extension"></a>Azure VM 扩展
 Windows 有一个扩展 (DependencyAgentWindows)，Linux 也有一个扩展 (DependencyAgentLinux)。可以使用 Azure VM 扩展轻松地将 Dependency Agent 部署到 Azure VM。  借助 Azure VM 扩展，可以通过 PowerShell 脚本或直接在 VM 中使用 Azure 资源管理器模板将 Dependency Agent 部署到 Windows 和 Linux VM。  如果通过 Azure VM 扩展部署代理，则代理可以自动更新到最新版本。
 
 若要通过 PowerShell 部署 Azure VM 扩展，可以使用以下示例：
 
-```PowerShell
+```powershell
 #
 # Deploy the Dependency agent to every VM in a Resource Group
 #
@@ -188,7 +176,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
     ""
     $name = $_.Name
@@ -198,7 +186,7 @@ ForEach-Object {
     "${name}: ${os} (${location})"
     Date -Format o
     $ext = $OsExtensionMap.($os.ToString())
-    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    $result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
     -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
     $result.IsSuccessStatusCode
 }
@@ -290,7 +278,8 @@ Dependency Agent 的文件放置在以下目录中：
 要在多台服务器上同时轻松部署 Dependency Agent，可以使用以下脚本示例在 Windows 或 Linux 上下载和安装 Dependency Agent。
 
 ### <a name="powershell-script-for-windows"></a>适用于 Windows 的 PowerShell 脚本
-```PowerShell
+
+```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
@@ -304,7 +293,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ## <a name="desired-state-configuration"></a>Desired State Configuration
 若通过期望状态配置 (DSC) 部署 Dependency Agent，可通过如下示例代码使用 xPSDesiredStateConfiguration 模块：
 
-```
+```powershell
 configuration ServiceMap {
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration

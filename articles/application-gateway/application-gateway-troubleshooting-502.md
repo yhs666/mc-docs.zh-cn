@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 03/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 220cbc0022fb3324a265813a972beb7c63c74687
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e89ae5c3e62b93bdaa6a1d31f2505201748bc901
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625799"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686299"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
 
@@ -82,19 +82,18 @@ ms.locfileid: "58625799"
 
 此外，出现 502 错误经常意味着默认的运行状况探测无法访问后端 VM。 预配某个应用程序网关实例时，该实例会使用 BackendHttpSetting 的属性自动将默认的运行状况探测配置到每个 BackendAddressPool。 无需用户输入即可设置此探测。 具体而言，在配置负载均衡规则时，会在 BackendHttpSetting 与 BackendAddressPool 之间建立关联。 默认探测是针对其中每个关联配置的，而应用程序网关会在 BackendHttpSetting 元素中指定的端口上，与 BackendAddressPool 中每个实例发起周期性运行状况检查连接。 下表列出了与默认运行状况探测关联的值。
 
-
-|   探测属性    |       值       |                                                           说明                                                            |
-|---------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------|
-|      探测 URL      | http://127.0.0.1/ |                                                             URL 路径                                                             |
-|      时间间隔       |        30         |                                                    探测间隔（秒）                                                     |
-|      超时       |        30         |                                                    探测超时（秒）                                                     |
-| 不正常阈值 |         3         | 探测重试计数。 连续探测失败计数达到不正常阈值后，将后端服务器标记为故障。 |
+| 探测属性 | 值 | 说明 |
+| --- | --- | --- |
+| 探测 URL |`http://127.0.0.1/` |URL 路径 |
+| 时间间隔 |30 |探测间隔（秒） |
+| 超时 |30 |探测超时（秒） |
+| 不正常阈值 |3 |探测重试计数。 连续探测失败计数达到不正常阈值后，将后端服务器标记为故障。 |
 
 ### <a name="solution"></a>解决方案
 
 * 确定默认站点已配置且正在侦听 127.0.0.1。
 * 如果 BackendHttpSetting 指定的端口不是 80，则应将默认站点配置为侦听指定的端口。
-* 对 http://127.0.0.1:port 的调用应返回 HTTP 结果代码 200。 应在 30 秒超时期限内返回此代码。
+* 对 `http://127.0.0.1:port` 的调用应返回 HTTP 结果代码 200。 应在 30 秒超时期限内返回此代码。
 * 确保配置的端口已打开，并且没有任何防火墙或 Azure 网络安全组在配置的端口上阻止传入或传出流量。
 * 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)。
 * 如果 VM 是通过 Azure Resource Manager 配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/security-overview.md)配置为允许在所需端口上进行访问。
@@ -120,7 +119,7 @@ ms.locfileid: "58625799"
 根据上表验证是否已正确配置自定义运行状况探测。 除了上述故障排除步骤以外，另请确保符合以下要求：
 
 * 确保已根据[指南](application-gateway-create-probe-ps.md)正确指定了探测。
-* 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为“127.0.0.1”。
+* 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为 `127.0.0.1`。
 * 确保对 http://\<host\>:\<port\>\<path\> 的调用返回 HTTP 结果代码 200。
 * 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
 * 如果使用 HTTPS 探测器，请通过在后端服务器本身上配置回退证书，确保后端服务器不需要 SNI。
@@ -196,4 +195,4 @@ BackendAddressPoolsText：
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn https://www.azure.cn/support/contact/)。
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

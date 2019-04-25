@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 中视图设计器磁贴的参考指南 | Azure Docs
-description: 使用 Log Analytics 中的视图设计器，可在 Azure 门户中创建自定义视图，用于显示 Log Analytics 工作区中的各种数据可视化效果。 本文针对自定义视图中可用的磁贴，提供设置方面的参考指南。
+title: Azure Monitor 中视图设计器磁贴的参考指南 | Azure Docs
+description: 可以通过 Azure Monitor 中的视图设计器创建自定义视图，此类视图在 Azure 门户中显示，包含 Log Analytics 工作区中的多种基于数据的可视化效果。 本文针对自定义视图中可用的磁贴，提供设置方面的参考指南。
 services: log-analytics
 documentationcenter: ''
 author: lingliw
@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: a61ca87a6ab84a451a6ba5b6ba7efa5ec9b3e6ad
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 72f83462995191a063ee808c38c79b0db3f11954
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440478"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686400"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics 中视图设计器磁贴的参考指南
-使用 Azure Log Analytics 中的视图设计器，可在 Azure 门户中创建自定义视图，用于显示 Log Analytics 工作区中的各种数据可视化效果。 本文针对自定义视图中可用的磁贴，提供设置方面的参考指南。
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure Monitor 中视图设计器磁贴的参考指南
+在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文针对自定义视图中可用的磁贴，提供设置方面的参考指南。
 
 有关视图设计器的详细信息，请参阅：
 
@@ -41,6 +41,9 @@ ms.locfileid: "56440478"
 | [两条时间线](#two-timelines-tile) | 具有两个序列的柱状图，每个序列基于一个单独的查询。 |
 
 后续部分将详细介绍磁贴类型及其属性。
+
+> [!NOTE]
+> 视图中的磁贴基于 Log Analytics 工作区中的[日志查询](../log-query/log-query-overview.md)。 它们目前不支持使用[跨资源查询](../log-query/cross-workspace-query.md)从 Application Insights 检索数据。
 
 ## <a name="number-tile"></a>数字磁贴
 **数字**磁贴显示一个日志查询中的记录数，具有一个标签。
@@ -177,7 +180,7 @@ ms.locfileid: "56440478"
 
 
 ## <a name="next-steps"></a>后续步骤
-* 了解有关[日志搜索](../../azure-monitor/log-query/log-query-overview.md)以支持磁贴中的查询。
+* 了解有关[日志查询](../log-query/log-query-overview.md)以支持磁贴中的查询。
 * 将[可视化部件](view-designer-parts.md)添加到自定义视图。
 
 

@@ -1,22 +1,22 @@
 ---
-title: 分析 Azure Monitor 日志中的文本数据 | Microsoft Docs
+title: 分析 Azure Monitor 日志中的文本数据 | Azure Docs
 description: 介绍了用于在引入数据时以及在查询中检索时分析 Azure Monitor 记录中的日志数据的不同选项，比较了每个选项的相对优点。
 documentationcenter: ''
-author: bwren
-manager: carmonm
+author: lingliw
+manager: digimobile
 editor: tysonn
 ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
-ms.author: bwren
-ms.openlocfilehash: 15763a9a8782b5b03cfbc3e84947b9370cc34b19
-ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.openlocfilehash: c8fc3e072f31a9961a42783e72af62a5b9a6aefd
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58545267"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566319"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>分析 Azure Monitor 日志中的文本数据
 Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的自定义日志。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。

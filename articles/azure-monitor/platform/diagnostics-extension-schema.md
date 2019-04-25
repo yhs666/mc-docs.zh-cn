@@ -2,22 +2,22 @@
 title: Azure 诊断扩展配置架构版本历史记录
 description: 有关收集 Azure 虚拟机、VM 规模集、Service Fabric 和云服务中的性能计数器的信息。
 services: azure-monitor
-author: rboucher
+author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
-ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 81fd552c2e5dd8b0386d44513d0e15c8e538d919
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 531c7126f5b661356ac8e90192d4346abe0d15c0
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141763"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686448"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
-此页为 Microsoft Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
+此页为世纪互联 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
 
 > [!NOTE]
 > Azure 诊断扩展是用来从以下各项收集性能计数器和其他统计信息的组件：
@@ -29,7 +29,7 @@ ms.locfileid: "54141763"
 >
 > 在使用以下某个服务时，才需要参阅此页。
 
-Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor、Application Insights 和 Log Analytics）结合使用。 有关详细信息，请参阅 [Microsoft 监视工具概述](../../azure-monitor/overview.md)。
+Azure 诊断扩展可以与其他 Azure 诊断产品（例如 Azure Monitor，其中包含 Application Insights 和 Log Analytics）结合使用。 有关详细信息，请参阅 [Microsoft 监视工具概述](../../azure-monitor/overview.md)。
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 和诊断版本随附图  
 
@@ -199,7 +199,7 @@ Azure 诊断扩展可以与其他 Microsoft 诊断产品（例如 Azure Monitor�
 * .cscfg 文件中的诊断连接字符串优先于 .wadcfgx 文件中的存储帐户。 如果在 .cscfg 文件中指定了诊断连接字符串，则 Visual Studio 使用该字符串，而忽略 .wadcfgx 中的存储帐户。
 
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>“更新开发存储连接字符串...”复选框的作用
-“在发布到 Microsoft Azure 时使用 Microsoft Azure 存储帐户凭据更新诊断和缓存的开发存储连接字符串”复选框提供了使用发布过程中指定的 Azure 存储帐户更新任何开发存储帐户连接字符串的简便方法。
+“在发布到世纪互联 Azure 时使用世纪互联 Azure 存储帐户凭据更新诊断和缓存的开发存储连接字符串”复选框提供了使用发布过程中指定的 Azure 存储帐户更新任何开发存储帐户连接字符串的简便方法。
 
 例如，假设你选中此复选框，并且诊断连接字符串指定 `UseDevelopmentStorage=true`。 将项目发布到 Azure 时，Visual Studio 将自动使用发布向导中指定的存储帐户更新诊断连接字符串。 但是，如果已将实际的存储帐户指定为诊断连接字符串，则将改用该帐户。
 

@@ -1,19 +1,19 @@
 ---
 title: 用于 Azure 警报中日志警报的 Webhook 操作
-description: 本文介绍了使用 Log Analytics 或 application insights 的日志警报规则如何作为 HTTP Webhook 推送数据，以及可能的不同自定义设置的详细信息。
-author: msvijayn
+description: 本文介绍了使用 Log Analytics 工作区或 Application Insights 的日志警报规则如何作为 HTTP Webhook 推送数据，以及可能的不同自定义设置的详细信息。
+author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: vinagara
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 8e8fefae6115b385ddb561b8bd5598fe1b36948a
-ms.sourcegitcommit: d432d263a559f414395c3fdf159e49718ace0f91
+ms.openlocfilehash: e223e6382da2d704c70bb9cc25f59484179727e8
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985651"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686355"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>用于日志警报规则的 Webhook 操作
 在 Azure 中创建日志警报时，可以选择使用操作组配置以执行一个或多个操作。  本文介绍可用的不同 Webhook 操作，以及有关配置基于 JSON 的自定义 Webhook 的详细信息。
@@ -54,7 +54,7 @@ Webhooks 包括 URL 和 JSON 格式的负载（即发送到外部服务的数据
 | 订阅 ID |#subscriptionid |用于 Application Insights 的 Azure 订阅的 ID。 
 
 > [!NOTE]
-> LinkToSearchResults 将参数（如 SearchQuery、搜索时间间隔开始时间和搜索时间间隔结束时间）传递到 Azure 门户的 URL，以便在“Analytics”部分中查看。 Azure 门户的 URI 大小限制约为 2000 个字符，如果参数值超过此限制，将不会打开警报中提供的链接。 用户可手动输入详细信息，以在 Analytics 门户中查看结果，或使用 [Application Insights Analytics REST API ](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://dev.loganalytics.io/reference) 以编程方式检索结果 
+> LinkToSearchResults 将参数（如 SearchQuery、搜索时间间隔开始时间和搜索时间间隔结束时间）传递到 Azure 门户的 URL，以便在“Analytics”部分中查看。 Azure 门户的 URI 大小限制约为 2000 个字符，如果参数值超过此限制，将不会打开警报中提供的链接。 用户可手动输入详细信息，以在 Analytics 门户中查看结果，或使用 [Application Insights Analytics REST API ](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/) 以编程方式检索结果 
 
 例如，可以指定以下自定义负载，其中包含名为 *text* 的单一参数。  该 Webhook 调用的服务将需要此参数。
 
@@ -77,9 +77,6 @@ Webhooks 包括 URL 和 JSON 格式的负载（即发送到外部服务的数据
 
 ## <a name="sample-payloads"></a>示例有效负载
 此部分显示用于日志警报的 Webhook 的示例有效负载，包括有效负载是标准有效负载时以及是自定义有效负载时。
-
-> [!NOTE]
-> 为了确保向后兼容性，使用 Azure Log Analytics 的警报的标准 Webhook 有效负载与 [Log Analytics 警报管理](alerts-metric.md)相同。 
 
 ### <a name="standard-webhook-for-log-alerts"></a>用于日志警报的标准 Webhook 
 这两个示例都声明了仅包含两列和两行的虚拟有效负载。
@@ -120,6 +117,10 @@ Webhooks 包括 URL 和 JSON 格式的负载（即发送到外部服务的数据
  }
  ```   
 
+> [!NOTE]
+> 如果在 Log Analytics 上针对日志警报[切换了 API 首选项](alerts-log-api-switch.md)，则“严重性”字段值可能会更改。
+
+
 #### <a name="log-alert-for-azure-application-insights"></a>Application Insights 的日志警报
 下面是用于基于 Application Insights 的日志警报时*不带自定义 Json 选项*的标准 Webhook 的示例有效负载。
     
@@ -154,7 +155,7 @@ Webhooks 包括 URL 和 JSON 格式的负载（即发送到外部服务的数据
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }
@@ -196,4 +197,10 @@ Webhooks 包括 URL 和 JSON 格式的负载（即发送到外部服务的数据
 ```
 
 
+## <a name="next-steps"></a>后续步骤
+- 了解 [Azure 警报中的日志警报](alerts-unified-log.md)
+- 了解如何[在 Azure 中管理日志警报](alerts-log.md)
+- 创建和管理 [Azure 门户中的操作组](action-groups.md)
+- 详细了解 [Application Insights](../../azure-monitor/app/analytics.md)
+- 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。 
 

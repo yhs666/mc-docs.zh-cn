@@ -1,5 +1,5 @@
 ---
-title: 使用适用于 .NET 的文件约定库将作业和任务输出持久保存到 Azure 存储 - Azure Batch | Azure
+title: 使用适用于 .NET 的文件约定库将作业和任务输出持久保存到 Azure 存储 - Azure Batch | Azure Docs
 description: 了解如何在 Azure 门户中使用适用于 .NET 的 Azure Batch 文件约定库将 Batch 任务和作业输出持久保存到 Azure 存储，并查看持久保存的输出。
 services: batch
 documentationcenter: .net
@@ -12,16 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 11/14/2018
-ms.date: 11/26/2018
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8aaa6a5c19281bab276e0fdb068205be283f091e
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: ac9d4ea7100bee1d5afee95de6547cff49c4127f
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675372"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566322"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储 
 
@@ -111,12 +110,12 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-[TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) 方法的 `kind` 参数可以将持久保存的文件分类。 有四种预定义的 [TaskOutputKind][net_taskoutputkind] 类型：`TaskOutput`、`TaskPreview`、`TaskLog`、`TaskIntermediate.`也可定义输出的自定义类别。
+[TaskOutputStorage](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage?view=azure-dotnet).[SaveAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync?view=azure-dotnet#overloads) 方法的 `kind` 参数可以将持久保存的文件分类。 有四种预定义的 [TaskOutputKind][net_taskoutputkind] 类型：`TaskOutput`、`TaskPreview`、`TaskLog`、`TaskIntermediate.`也可定义输出的自定义类别。
 
-以后在 Batch 中查询给定任务的已保存输出时，可以使用这些输出类型来指定要列出哪种类型的输出。 换而言之，列出某个任务的输出时，可以根据某种输出类型来筛选列表。 例如，“列出任务 *109* 的预览输出。” 本文稍后的[检索输出](#retrieve-output)部分中会详细介绍如何列出和检索输出。
+以后在 Batch 中查询给定任务的已保存输出时，可以使用这些输出类型来指定要列出哪种类型的输出。 换而言之，列出某个任务的输出时，可以根据某种输出类型来筛选列表。 例如，“列出任务 *109* 的预览输出。” 本文稍后的“检索输出”部分中会详细介绍如何列出和检索输出。
 
 > [!TIP]
-> 输出类型还决定了特定的文件显示在 Azure 门户中的哪个位置：TaskOutput 类别的文件显示在“任务输出文件”下，TaskLog 文件显示在“任务日志”下。
+> 输出种类还决定了特定文件在 Azure 门户中的显示位置：TaskOutput 类别的文件显示在“任务输出文件”下，TaskLog 文件显示在“任务日志”下。
 
 ### <a name="store-job-outputs"></a>存储作业输出
 
@@ -194,11 +193,11 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>在 Azure 门户中查看输出文件
 
-Azure 门户显示使用 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)持久保存到关联的 Azure 存储帐户中的任务输出文件和日志。 可以使用所选语言自行实现这些约定，也可以在 .NET 应用程序中使用文件约定库。
+Azure 门户将显示使用 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)保存到链接的 Azure 存储帐户的任务输出文件和日志。 可以使用所选语言自行实现这些约定，也可以在 .NET 应用程序中使用文件约定库。
 
 若要在门户中显示输出文件，必须满足以下要求：
 
-1. [将 Azure 存储帐户链接](#requirement-linked-storage-account)到 Batch 帐户。
+1. 将 Azure 存储帐户链接到 Batch 帐户。
 2. 保存输出时遵循存储容器和文件的预定义命名约定。 可在文件约定库的[自述文件][github_file_conventions_readme]中找到这些约定的定义。 如果使用 [Azure Batch 文件约定][nuget_package]库来持久保存输出，则按文件约定标准来持久保存文件。
 
 若要在 Azure 门户中查看任务输出文件和日志，请导航到要查看其输出的任务，然后单击“保存的输出文件”或“保存的日志”。 下图显示了 ID 为“007”的任务的“保存的输出文件”：
@@ -220,9 +219,9 @@ Azure 门户显示使用 [Batch 文件约定标准](https://github.com/Azure/azu
 
 ### <a name="get-the-batch-file-conventions-library-for-net"></a>获取适用于 .NET 的 Batch 文件约定库
 
-[NuGet][nuget_package] 上提供适用于 .NET 的 Batch 文件约定库。 该库使用新方法扩展了 [CloudJob][net_cloudjob] 和 [CloudTask][net_cloudtask] 类。 另请参阅文件约定库的[参考文档](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files)。
+[NuGet][nuget_package] 上提供适用于 .NET 的 Batch 文件约定库。 该库使用新方法扩展了 [CloudJob][net_cloudjob] 和 [CloudTask][net_cloudtask] 类。 另请参阅文件约定库的[参考文档](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files?view=azure-dotnet)。
 
-GitHub 的用于 .NET 的 Azure SDK 存储库提供文件约定库的 [源代码][github_file_conventions]。 
+GitHub 的用于 .NET 的世纪互联 Azure SDK 存储库提供文件约定库的 [源代码][github_file_conventions]。 
 
 ### <a name="explore-other-approaches-for-persisting-output-data"></a>了解持久保存输出数据的其他方法
 

@@ -13,23 +13,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/02/2018
-ms.date: 11/05/2018
+ms.date: 04/29/2019
 ms.author: v-biyu
 ms.custom: accessibility
-ms.openlocfilehash: a68a48869e24ea7b89e7c2a135c84b3bd51803bd
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 8caf31a959cd3cbae39f08b20df1d33117cba494
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219555"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566276"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 门户支持的浏览器和设备
-可在所有新式台式机、平板电脑设备和浏览器上运行 [Azure 门户](https://portal.azure.cn)。
+# <a name="supported-devices"></a>支持的设备
 
-### <a name="supported-devices"></a>支持的设备
-Azure 门户可在新式电脑、Mac 和平板电脑上平稳运行。 如果需要从移动设备管理 Azure 资源，请尝试在 iPhone 和 Android 上可用的 Azure 移动应用。 有关详细信息，请参阅 [Azure 移动应用](https://www.azure.cn/en-us/home/features/app-service/mobile-apps/)。
+[Azure 门户](https://portal.azure.cn)是基于 Web 的控制台，可在所有新式的台式机和平板电脑设备的浏览器中运行。 如果需要从移动设备管理 Azure 资源，请尝试 [Azure 移动应用](https://www.azure.cn/zh-cn/home/features/app-service/mobile-apps/)。 它适用于 iOS 和 Android。
 
-### <a name="supported-browsers"></a>支持的浏览器
+## <a name="recommended-browsers"></a>建议的浏览器
+
 建议使用与操作系统兼容的最新浏览器。 支持以下浏览器：
 
 * Microsoft Edge（最新版本）
@@ -37,4 +36,3 @@ Azure 门户可在新式电脑、Mac 和平板电脑上平稳运行。 如果需
 * Safari（最新版本，仅限 Mac）
 
 * Firefox（最新版本）
-

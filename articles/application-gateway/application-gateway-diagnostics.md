@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 01/11/2019
-ms.date: 03/11/2019
+origin.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: b5cac1090021ea9ff6c3bdcc236277c177597901
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: c638d02894410e5feea744bd0d9f367ccd2c4115
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788711"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686314"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -93,16 +93,16 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ## <a name="diagnostic-logging"></a>诊断日志
 
-可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中某些日志。 所有日志都可从 Azure Blob 存储提取并在 Excel 和 PowerBI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
+可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中部分日志。 所有日志都可从 Azure Blob 存储提取并在 Excel 和 PowerBI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
 
 * **访问日志**：可以使用此日志查看应用程序网关访问模式并分析重要信息。 此日志包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例由 instanceId 属性标识。
 * **性能日志**：可使用此日志查看应用程序网关实例的执行情况。 此日志会捕获每个实例的性能信息，包括服务的总请求数、吞吐量（以字节为单位）、失败请求计数、正常和不正常的后端实例计数。 每隔 60 秒会收集一次性能日志。
 * **防火墙日志**：可使用此日志查看通过应用程序网关（配置有 Web 应用程序防火墙）的检测模式或阻止模式记录的请求。
 
 > [!NOTE]
-> 日志仅适用于在 Azure Resource Manager 部署模型中部署的资源。 不能将日志用于经典部署模型中的资源。 若要更好地了解两种模型，请参阅[了解 Resource Manager 部署和经典部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
+> 日志仅适用于在 Azure 资源管理器部署模型中部署的 Azure 资源。 不能将日志用于经典部署模型中的资源。 若要更好地了解两种模型，请参阅[了解 Resource Manager 部署和经典部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
-可以通过 2 个选项来存储日志：
+有 2 个选项可用来存储日志：
 
 - **存储帐户**：如果日志存储时间较长并且希望能根据需要随时查看，则最好使用存储帐户。
 - **事件中心**：若要集成其他安全信息和事件管理 (SEIM) 工具，获取资源警报，则事件中心是很好的选择。
@@ -130,23 +130,23 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="enable-logging-through-the-azure-portal"></a>通过 Azure 门户启用日志记录
 
-1. 在 Azure 门户中找到资源，然后单击“诊断日志”。
+1. 在 Azure 门户中找到资源，然后选择“诊断设置”。
 
-   对于应用程序网关，可以使用三种日志：
+   对于应用程序网关，提供 3 种日志：
 
    * 访问日志
    * 性能日志
    * 防火墙日志
 
-2. 若要开始收集数据，请单击“启用诊断” 。
+2. 若要开始收集数据，请选择“启用诊断”。
 
    ![启用诊断][1]
 
-3. “诊断设置”边栏选项卡提供诊断日志的设置。 
+3. “诊断设置”页提供用于诊断日志的设置。 本示例使用 Log Analytics 存储日志。 也可使用事件中心和存储帐户保存诊断日志。
 
    ![启动配置过程][2]
 
-4. 确认设置，然后单击“保存”。
+5. 键入设置的名称，确认设置，然后选择“保存”。
 
    ![包含选择的“诊断设置”边栏选项卡][3]
 
@@ -316,18 +316,18 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
 
-浏览到应用程序网关，并在“监视”下单击“指标”。 若要查看可用值，请选择“指标”下拉列表。
+浏览到应用程序网关，并在“监视”下选择“指标”。 若要查看可用值，请选择“指标”下拉列表。
 
 在下图中可以看到过去 30 分钟显示的三个指标的示例：
 
-[![](./media/application-gateway-diagnostics/figure5.png "度量值视图")](./media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "度量值视图")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
+若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../azure-monitor/platform/metrics-supported.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Visualize your Azure Activity Log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx)（使用 Power BI 直观显示 Azure 活动日志）博客文章。
-* [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）博客文章。
+* [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）博客文章。
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
 [2]: ./media/application-gateway-diagnostics/figure2.png

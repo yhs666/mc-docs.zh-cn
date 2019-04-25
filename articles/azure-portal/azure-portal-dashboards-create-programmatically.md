@@ -1,25 +1,25 @@
 ---
-title: 以编程方式创建 Azure 仪表板 | Microsoft Docs
+title: 以编程方式创建 Azure 仪表板 | Azure Docs
 description: 本文介绍如何以编程方式创建 Azure 仪表板。
 services: azure-portal
 documentationcenter: ''
-author: adamab
-manager: timlt
+author: adamabmsft
+manager: dougeby
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/01/2017
 ms.author: adamab
-ms.date: 08/13/2018
-ms.openlocfilehash: 2d96d54b16a22ec66c52f1c0b5fb926006e945ec
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 04/29/2019
+ms.openlocfilehash: 6eb10d3ad5c10c90bdc036c82a61d89a8de894f7
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906164"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566360"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 

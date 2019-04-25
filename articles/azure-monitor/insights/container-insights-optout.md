@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 356e9b8daf4e86042a4598adee6cc994c8a07093
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 30e7997b45292cc55bd1547da71f6ffb82515a3d
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441007"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566278"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -26,13 +26,13 @@ ms.locfileid: "56441007"
 
 
 ## <a name="azure-cli"></a>Azure CLI
-使用 [az aks disable-addons](https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Log Analytics 资源中的解决方案或数据。  
+使用 [az aks disable-addons](https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-若要重新启用对群集的监视，请参阅[使用 Azure CLI 启用监视](container-insights-onboard.md#enable-monitoring-using-azure-cli)。
+若要重新启用对群集的监视，请参阅[使用 Azure CLI 启用监视](container-insights-onboard.md#enable-using-azure-cli)。
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
 下面提供了两个 Azure 资源管理器模板，以支持在资源组中一致且重复地删除解决方案资源。 一个是 JSON 模板，用于指定配置为“停止监视”，另一个模板包含配置的参数值，用于指定在其中部署群集的 AKS 群集资源 ID 和资源组。 
@@ -53,7 +53,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
     ```json
     {
-      "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "aksResourceId": {
@@ -95,7 +95,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
     ```json
     {
-     "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
        "aksResourceId": {
@@ -134,12 +134,14 @@ ProvisioningState       : Succeeded
 
 ### <a name="remove-the-solution-using-powershell"></a>使用 PowerShell 删除解决方案
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 在包含模板的文件夹中执行以下 PowerShell 命令以删除解决方案并从 AKS 群集中清除配置。    
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
-New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
+Connect-AzAccount -Environment AzureChinaCloud
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
 配置更改可能需要几分钟才能完成。 完成后，系统会返回包含结果的消息，如下所示：
@@ -148,7 +150,7 @@ New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGro
 ProvisioningState       : Succeeded
 ```
 
-如果创建的工作区仅用于支持监视群集且不再被需要，则需要手动删除它。 如果不熟悉如何删除工作区，请参阅[使用 Azure 门户删除 Azure Log Analytics 工作区](../platform/delete-workspace.md)。 不要忘记之前在步骤 4 中复制的“工作区资源 ID”，稍后将会需要。 
+如果创建的工作区仅用于支持监视群集且不再被需要，则需要手动删除它。 不要忘记之前在步骤 4 中复制的“工作区资源 ID”，稍后将会需要。 
 
 
 

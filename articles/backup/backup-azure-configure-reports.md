@@ -6,16 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/29/2018
-ms.date: 11/26/2018
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 442b24a7aec72ac436b9f378a44a1fa7b714dcd9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 3ad142b750dab3c68f7083fcf9844a70229fb7c1
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675632"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566367"
 ---
 # <a name="configure-azure-backup-reports"></a>配置 Azure 备份报表
 本文介绍使用恢复服务保管库为 Azure 备份配置报表所需执行的步骤。 另外还介绍如何通过 Power BI 访问报表。 完成这些步骤后，可直接转到 Power BI，以便查看、自定义和创建报表。
@@ -40,14 +38,12 @@ ms.locfileid: "52675632"
 
 ## <a name="configure-storage-account-for-reports"></a>配置报表的存储帐户
 请按以下步骤操作，使用 Azure 门户配置恢复服务保管库的存储帐户。 这是一次性配置。 配置存储帐户后，可以直接转到 Power BI 来查看内容包并使用报表。
+
 1. 如果已打开恢复服务保管库，请转到下一步。 如果未打开恢复服务保管库，则请在 Azure 门户中选择“所有服务”。
 
    * 在资源列表中，输入“恢复服务”。
    * 开始键入时，会根据输入筛选该列表。 出现“恢复服务保管库”时，请选择它。
-
-      ![创建恢复服务保管库步骤 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
-   * 此时会显示恢复服务保管库列表。 在恢复服务保管库列表中选择一个保管库。
+   * 此时显示恢复服务保管库列表。 在恢复服务保管库列表中选择一个保管库。
 
      此时会打开选定的保管库仪表板。
 2. 在保管库下显示的项列表中，选择“监视和报表”部分下的“备份报表”，以配置报表的存储帐户。
@@ -56,7 +52,7 @@ ms.locfileid: "52675632"
 3. 在“备份报表”边栏选项卡上，选择“诊断设置”链接。 此链接将打开用于将数据推送到客户存储帐户的**诊断设置** UI。
 
       ![启用诊断 - 第 3 步](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
-4. 选择“启用诊断”，打开用于配置存储帐户的 UI。 
+4. 选择“启用诊断”，打开用于配置存储帐户的 UI。
 
       ![启用诊断 - 第 4 步](./media/backup-azure-configure-reports/enable-diagnostics.png)
 5. 在“名称”框中，输入设置名称。 选择“存档到存储帐户”复选框，这样报表数据就可以开始流向存储帐户。
@@ -116,39 +112,34 @@ ms.locfileid: "52675632"
 
       ![Azure 备份报表选项卡](./media/backup-azure-configure-reports/reports-tab-view.png)
 
+
 ## <a name="frequently-asked-questions"></a>常见问题
 
-**如何确定报表数据是否已开始流向存储帐户？**
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>如何确定报表数据是否已开始流向存储帐户？
+转到配置的存储帐户，并选择容器。 如果容器包含 insights-logs-azurebackupreport 条目，则表示报表数据已开始流向存储帐户。
 
-   转到配置的存储帐户，并选择容器。 如果容器包含 insights-logs-azurebackupreport 条目，则表示报表数据已开始流向存储帐户。
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>数据多久向存储帐户和 Power BI 中的 Azure 备份内容包推送一次？
+  在用户配置存储帐户后，数据大约需要 24 小时才能推送到存储帐户。 在这一次初始推送完成后，将按下图中所示频率刷新数据。
 
-**数据多久向存储帐户和 Power BI 中的 Azure 备份内容包推送一次？**
+  * 与“作业”、“警报”、“备份项”、“保管库”、“受保护的服务器”和“策略”相关的数据：在客户登录时推送到客户存储帐户。
 
-   在用户配置存储帐户后，数据大约需要 24 小时才能推送到存储帐户。 在这一次初始推送完成后，将按下图中所示频率刷新数据。 
-      
-    * 与“作业”、“警报”、“备份项”、“保管库”、“受保护的服务器”和“策略”相关的数据：在客户登录时推送到客户存储帐户。
-      
-    * 与“存储”相关的数据：每 24 小时推送到客户存储帐户一次。
-   
-    ![Azure 备份报表数据推送频率](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+  * 与“存储”相关的数据：每 24 小时推送到客户存储帐户一次。
 
-* Power BI [计划每天刷新一次](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)。 对于内容包，可以在 Power BI 中手动刷新数据。
+       ![Azure 备份报表数据推送频率](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-**报表可以保留多长时间？**
+  * Power BI [计划每天刷新一次](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)。 对于内容包，可以在 Power BI 中手动刷新数据。
 
-   配置存储帐户时，可以在存储帐户中选择报表数据的保留期。 请按照前面所述的“配置报表的存储帐户”部分中的步骤 6 执行操作。 此外，还可以[在 Excel 中分析报表](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)，并保存报表以根据需要延长保持期。
+### <a name="how-long-can-i-retain-reports"></a>报表可以保留多长时间？
+配置存储帐户时，可以在存储帐户中选择报表数据的保持期。 请按照[配置报表的存储帐户](backup-azure-configure-reports.md#configure-storage-account-for-reports)部分中的步骤 6 执行操作。 此外，还可以[在 Excel 中分析报表](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)，并保存报表以根据需要延长保持期。
 
-**配置存储帐户后，报表中是否会显示我的所有数据？**
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>配置存储帐户后，报表中是否会显示我的所有数据？
+ 配置存储帐户后生成的所有数据都会推送到存储帐户，并会显示在报表中。 不会为报表推送正在进行的作业。 作业完成或失败后，会将其发送到报表。
 
-   配置存储帐户后生成的所有数据都会推送到存储帐户，并会显示在报表中。 不会为报表推送正在进行的作业。 作业完成或失败后，会将其发送到报表。
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>如果我已配置存储帐户来查看报表，能否更改配置以使用其他存储帐户？
+能，可以将配置更改为指向不同的存储帐户。 连接到 Azure 备份内容包时，可使用新配置的存储帐户。 此外，配置其他存储帐户后，新数据便会流向该存储帐户。 更改配置前的旧数据仍会保留在旧存储帐户中。
 
-**如果我已配置存储帐户来查看报表，能否更改配置以使用其他存储帐户？**
-
-   能，可以将配置更改为指向不同的存储帐户。 连接到 Azure 备份内容包时，可使用新配置的存储帐户。 此外，配置其他存储帐户后，新数据便会流向该存储帐户。 更改配置前的旧数据仍会保留在旧存储帐户中。
-
-**能否跨保管库和订阅查看报表？**
-
-   能，可以跨各种保管库配置同一存储帐户，以便跨保管库查看报表。 此外，还可以跨订阅为保管库配置同一存储帐户。 然后，可以在连接到 Power BI 中的 Azure 备份内容包时使用此存储帐户来查看报表。 所选存储帐户必须位于恢复服务保管库所在的区域。
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>能否跨保管库和订阅查看报表？
+能，可以跨各种保管库配置同一存储帐户，以便跨保管库查看报表。 此外，还可以跨订阅为保管库配置同一存储帐户。 然后，可以在连接到 Power BI 中的 Azure 备份内容包时使用此存储帐户来查看报表。 所选存储帐户必须位于恢复服务保管库所在的区域。
 
 ## <a name="troubleshooting-errors"></a>排查错误
 | 错误详细信息 | 解决方法 |

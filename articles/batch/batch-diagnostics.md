@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 12/05/2018
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.custom: ''
-ms.openlocfilehash: cd7792b9f51fdf8c917c34cb4c1fb9dda76b9596
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.custom: seodec18
+ms.openlocfilehash: 16ae9d89639b70426b4f2fe40d014d5ee90b09a2
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987042"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566332"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
  
-本文介绍如何使用 [Azure Monitor](../azure-monitor/overview.md) 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](../azure-monitor/platform/data-collection.md#metrics)和[诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../azure-monitor/platform/alerts-overview.md)，以便在某项指标达到指定值时收到通知。 
+本文介绍如何使用 [Azure Monitor](../azure-monitor/overview.md) 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../azure-monitor/platform/alerts-overview.md)，以便在某项指标达到指定值时收到通知。 
 
 ## <a name="batch-metrics"></a>Batch 指标
 
@@ -61,15 +61,17 @@ ms.locfileid: "56987042"
 
 ## <a name="batch-metric-alerts"></a>Batch 指标警报
 
-（可选）配置准实时指标警报。当指定指标的值超过分配的阈值时，会触发这些警报。 当警报状态为“已激活”（超过阈值并满足警报条件）以及“已解决”（再次超过阈值，并且不再满足条件）时，警报将生成所选的[通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。 
+（可选）配置准实时指标警报。当指定指标的值超过分配的阈值时，会触发这些警报。 当警报状态为“已激活”（超过阈值并满足警报条件）以及“已解决”（再次超过阈值，并且不再满足条件）时，警报将生成所选的[通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。 建议不要使用基于单一数据点的警报，因为指标可能会出现乱序送达、数据丢失和/或数据重复。 警报应当使用阈值来应对这些不一致。
 
-例如，你可能想要配置一个当低优先级核心计数降到特定级别时触发的指标警报，以便能够调整池的组成部分。
+例如，你可能想要配置一个当低优先级核心计数降到特定级别时触发的指标警报，以便能够调整池的组成部分。 建议设置 10 分钟或 10 分钟以上的周期，如果平均低优先级核心计数在整个周期内低于阈值，则触发警报。 建议不要基于 1-5 分钟的周期发出警报，因为指标可能仍在聚合。
 
 在门户中配置指标警报：
 
 1. 单击“所有服务” > “Batch 帐户”，然后单击 Batch 帐户的名称。
 2. 在“监视”下，单击“警报规则” > “添加指标警报”。
 3. 选择一个指标、一个警报条件（例如，在某个时间段内当某个指标超过特定的值时）和一个或多个通知。
+
+还可以使用 [REST API](https://docs.microsoft.com/rest/api/monitor/) 配置准实时警报。 有关详细信息，请参阅[警报概述](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Batch 诊断
 
@@ -97,7 +99,7 @@ ms.locfileid: "56987042"
 
 1. 在门户中，单击“所有服务” > “Batch 帐户”，然后单击 Batch 帐户的名称。
 2. 在“监视”下，单击“诊断日志” > “启用诊断”。
-3. 在“诊断设置”中，输入设置的名称，并选择日志目标（现有存储帐户、事件中心或 Log Analytics）。 选择“ServiceLog”和/或“AllMetrics”。
+3. 在“诊断设置”中，输入设置的名称，并选择日志目标（现有存储帐户、事件中心或 Azure Monitor 日志）。 选择“ServiceLog”和/或“AllMetrics”。
 
     选择存储帐户时，请选择性地设置保留策略。 如果未指定保留天数，则数据在存储帐户的生存期内会一直保留。
 

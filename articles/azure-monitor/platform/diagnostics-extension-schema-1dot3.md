@@ -6,15 +6,15 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.component: diagnostic-extension
-ms.openlocfilehash: dd38e05061c7c1f4667daf0840a3d2d90b0c49c5
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: f0de9698f2e075aa6d1c10c4890b0901fb83804a
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363570"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686324"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "54363570"
 
 此处描述的配置文件用来在诊断监视器启动时设置诊断配置设置。  
 
-此扩展可以与其他 Azure 诊断产品（例如 Azure Monitor、Application Insights 和 Log Analytics）结合使用。
+此扩展可以与其他 Azure 诊断产品（例如 Azure Monitor，其中包含 Application Insights 和 Log Analytics）结合使用。
 
 
 
@@ -459,7 +459,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|说明|  
 |--------------------|-----------------|  
 |**CrashDumps**|在此页的其他位置查看说明。|  
-|**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于解决诊断系统本身的故障。 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于排查诊断系统本身的故障。 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Directories**|在此页的其他位置查看说明。|  
 |**EtwProviders**|在此页的其他位置查看说明。|  
 |**度量值**|在此页的其他位置查看说明。|  
@@ -494,7 +494,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|说明|  
 |--------------------|-----------------|  
 |**IISLogs**|在配置中包括此元素可启用收集 IIS 日志：<br /><br /> **containerName** - Azure 存储帐户中用于存储 IIS 日志的 blob 容器的名称。|   
-|**FailedRequestLogs**|在配置中包括此元素可启用收集有关对 IIS 站点或应用程序的失败请求日志。 还必须在 **Web.config** 文件中的 **system.WebServer** 下启用跟踪选项。|  
+|**FailedRequestLogs**|在配置中包括此元素可启用收集有关对 IIS 站点或应用程序的失败请求的日志。 还必须在 **Web.config** 文件中的 **system.WebServer** 下启用跟踪选项。|  
 |**DataSources**|要监视的目录的列表。|
 
 

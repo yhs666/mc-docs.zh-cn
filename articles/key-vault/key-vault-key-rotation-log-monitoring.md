@@ -12,20 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/12/2018
-ms.date: 03/11/2019
+ms.date: 04/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: c5b365f64c7b1ec21110827e6aecb902951b4fa2
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a9f6d7ffc6f57bc28aac0f0a9a52c8f2b6d789c4
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903151"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566268"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用密钥轮换和审核设置 Azure Key Vault
 
 ## <a name="introduction"></a>简介
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 有了密钥保管库以后，即可用它来存储密钥和机密。 应用程序不再需要保存密钥或机密，但可以根据需要从保管库请求它们。 使用 Key Vault 可以更新密钥和机密，而不会影响应用程序，同时可以各种可能的方法管理密钥和机密。
 
@@ -40,6 +38,8 @@ ms.locfileid: "56903151"
 
 > [!NOTE]
 > 本文不详细说明 Key Vault 的初始设置。 有关信息，请参阅[什么是 Azure 密钥保管库？](key-vault-overview.md)。 有关跨平台命令行接口的说明，请参阅[使用 Azure CLI 管理 Key Vault](key-vault-manage-with-cli2.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>设置密钥保管库
 
@@ -167,6 +167,9 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 ## <a name="key-rotation-using-azure-automation"></a>使用 Azure 自动化进行密钥轮替
 
+> [!IMPORTANT]
+> Azure 自动化 Runbook 仍需使用 `AzureRM` 模块。
+
 现在，对于存储为 Key Vault 机密的值，可以设置轮换策略。 可通过多种方式轮换机密：
 
 - 手动轮换
@@ -211,7 +214,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount -Environment AzureChinaCloud`
+    Connect-AzureRmAccount -Environment AzureChinaCloud`
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -236,12 +239,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 在编辑器窗格中，选择“测试”窗格以测试脚本。 正常运行脚本后，可以选择“发布”，并在 Runbook 配置窗格中应用 Runbook 的计划。

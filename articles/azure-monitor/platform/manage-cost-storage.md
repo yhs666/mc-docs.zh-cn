@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 9fe33b89c24de78d87740ca2aeb58bf231bc5414
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8f03acac9f5fce622e4193efc170a731e6b3a864
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625236"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686473"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>管理 Log Analytics 的使用情况和成本
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>管理 Azure Monitor 中的 Log Analytics 的使用情况和成本
 
 > [!NOTE]
 > 本文介绍如何通过设置数据保留期来控制 Log Analytics 中的成本。  相关信息请参阅以下文章。
 > - [在 Log Analytics 中分析数据使用情况](manage-cost-storage.md)介绍了如何根据数据使用情况进行分析和警告。
 > - [监视使用情况及预估成本](usage-estimated-costs.md)介绍了如何针对不同的定价模型查看多个 Azure 监视功能的使用情况及预估成本。 它还介绍了如何更改定价模型。
 
-Log Analytics 用于调整和支持来自任何源的巨量数据的每日收集、索引和存储，这些源部署在企业或 Azure 中。  尽管这可能是组织的主要驱动力，但成本效益最终是基本驱动力。 为此，必须了解 Log Analytics 工作区的成本不仅仅是基于收集的数据量，而且也取决于所选的计划，以及连接源生成的数据的存储时间长短。  
+Azure Monitor 中的 Log Analytics 用于调整和支持来自任何源的巨量数据的每日收集、索引和存储，这些源部署在企业或 Azure 中。  尽管这可能是组织的主要驱动力，但成本效益最终是基本驱动力。 为此，必须了解 Log Analytics 工作区的成本不仅仅是基于收集的数据量，而且也取决于所选的计划，以及连接源生成的数据的存储时间长短。  
 
 本文介绍如何主动监视数据量和存储增长，以及定义限制来控制这些关联的成本。 
 
@@ -114,9 +114,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 如果要将工作区移到当前定价层，则需要[在 Azure Monitor 中更改订阅的监视定价模型](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)，这将更改该订阅中所有工作区的定价层。
 
-> [!NOTE]
-> 如果工作区关联到自动化帐户，则在选择“单独(按 GB)”定价层之前，必须删除任何“自动化和控制”解决方案，并取消自动化帐户的关联。 在工作区边栏选项卡的“常规”下，单击“解决方案”查看和删除解决方案。 若要取消自动化帐户的关联，请在“定价层”边栏选项卡上单击自动化帐户的名称。
-> 
+
 > [!NOTE]
 > 可以详细了解（如何通过 ARM 设置定价层）[<https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace>]以及如何确保 ARM 部署无论在订阅处于旧定价模型还是新定价模型的情况下都会成功。 
 
@@ -138,10 +136,39 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>排查使用量超出预期的原因
 使用量较高是由下面的一个或两个原因引起的：
-- 发送到 Log Analytics 的数据量超出预期
 - 将数据发送到 Log Analytics 的节点数超出预期
+- 发送到 Log Analytics 的数据量超出预期
 
-### <a name="data-volume"></a>数据量 
+后续部分介绍
+
+## <a name="understanding-nodes-sending-data"></a>了解发送数据的节点
+
+若要了解在上个月每天报告数据的计算机（节点）数，请使用：
+
+`Heartbeat | where TimeGenerated > startofday(ago(31d))
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
+| render timechart`
+
+若要获取发送**计费数据类型**的计算机列表（某些数据类型是免费的），请使用 [_IsBillable](log-standard-properties.md#_isbillable) 属性：
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+请谨慎使用这些 `union withsource = tt *` 查询，因为跨数据类型执行扫描的开销很大。 此查询将使用 Usage 数据类型替换旧的查询单个计算机信息的方式。  
+
+这可以扩展为返回每小时发送计费数据类型的计算机数量（这是 Log Analytics 为旧版“按节点”定价层计算可计费节点的方式）：
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+## <a name="understanding-ingested-data-volume"></a>了解引入的数据量 
+
 在“使用情况和预估成本”页上，“单个解决方案的数据引入”图表显示发送的总数据量以及每个解决方案发送的量。 这样就可以确定趋势，例如总数据使用量（或特定解决方案的使用量）是正在增长、保持平稳还是正在下降。 用于生成此指标的查询是：
 
 `Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
@@ -155,39 +182,17 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 | where DataType == "W3CIISLog"
 | summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
 
-### <a name="nodes-sending-data"></a>发送数据的节点
+### <a name="data-volume-by-computer"></a>按计算机的数据量
 
-若要了解在上个月每天报告数据的计算机（节点）数，请使用：
+若要查看每台计算机引入的可计费事件的**大小**，请使用 `_BilledSize` 属性 ([log-standard-properties#_billedsize.md](learn more))（以字节为单位提供大小）：
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
-
-若要获取发送**计费数据类型**的计算机列表（某些数据类型是免费的），请使用 _IsBillable 属性：
-
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
-请谨慎使用这些 `union withsource = tt *` 查询，因为跨数据类型执行扫描的开销很大。 
-
-这可以扩展为返回每小时发送计费数据类型的计算机数量：
-
-`union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
-
-若要查看每台计算机引入的可计费事件的**大小**，请使用 `_BilledSize` 属性（以字节为单位提供大小）：
-
-`union withsource = tt * 
-| where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
-
-此查询将使用 Usage 数据类型替换旧的查询方式。 
+`_IsBillable` 属性指定引入的数据是否会收费（[log-standard-properties.md#_isbillable](Learn more)。）
 
 若要查看每台计算机引入的事件数，请使用：
 
@@ -202,13 +207,40 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 若要查看向特定计算机发送数据的计费数据类型计数，请使用：
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
+
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>按 Azure 资源、资源组或订阅计算的数据量
+
+对于托管在 Azure 中的节点中的数据，可以__按计算机__获取引入的可计费事件的**大小**，以及使用 `_ResourceId` 属性，该属性提供资源的完整路径 ([log-standard-properties.md#_resourceid](learn more))：
+
+```
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
+
+对于托管在 Azure 中的节点中的数据，可以__按 Azure 订阅__获取引入的可计费事件的**大小**，并可将 `_ResourceId` 属性解析为：
+
+```
+union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
+
+将 `subscriptionId` 更改为 `resourceGroup` 后，就会显示可计费的已引入数据量（按 Azure 资源组计算）。 
+
 
 > [!NOTE]
 > 使用情况数据类型的某些字段虽然仍在架构中，但已弃用，其值将不再填充。 这些是**计算机**以及与引入相关的字段（**TotalBatches**、**BatchesWithinSla**、**BatchesOutsideSla**、**BatchesCapped** 和 **AverageProcessingTimeMs**）。
+
+### <a name="querying-for-common-data-types"></a>查询常见的数据类型
 
 若要更深入地了解特定数据类型的数据源，请使用下面这些有用的示例查询：
 
@@ -235,13 +267,13 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 | 高数据量来源 | 如何减少数据量 |
 | -------------------------- | ------------------------- |
 | 安全性事件            | 选择[通用或最低安全性事件](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> 更改安全审核策略，只收集所需事件。 具体而言，请查看是否需要收集以下对象的事件： <br> - [审核筛选平台](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [审核注册表](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [审核文件系统](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [审核内核对象](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [审核句柄操作](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 审核可移动存储 |
-| 性能计数器       | 更改性能计数器配置如下： <br> - 降低收集频率 <br> - 减少性能计数器数 |
+| 性能计数器       | 更改[性能计数器配置](data-sources-performance-counters.md)如下： <br> - 降低收集频率 <br> - 减少性能计数器数 |
 | 事件日志                 | 更改[事件日志配置](data-sources-windows-events.md)如下： <br> - 减少收集的事件日志数 <br> - 仅收集必需的事件级别。 例如，不收集“信息”级别事件 |
 | Syslog                     | 更改 [syslog 配置](data-sources-syslog.md)如下： <br> - 减少收集的设施数 <br> - 仅收集必需的事件级别。 例如，不收集“信息”和“调试”级别事件 |
-| AzureDiagnostics           | 更改资源日志集合，以便： <br> - 减少到 Log Analytics 的资源发送日志的数目 <br> - 仅收集必需的日志 |
-| 不需解决方案的计算机中的解决方案数据 | 使用解决方案目标，只从必需的计算机组收集数据。 |
+| AzureDiagnostics           | 更改资源日志集合，以便： <br> - 减少向 Log Analytics 发送日志的资源数目 <br> - 仅收集必需的日志 |
+| 不需解决方案的计算机中的解决方案数据 | 使用[解决方案目标](../insights/solution-targeting.md)，只从必需的计算机组收集数据。 |
 
-### <a name="getting-node-counts"></a>获取节点计数 
+### <a name="getting-security-and-automation-node-counts"></a>获取安全性和自动化节点计数 
 
 如果你位于“按节点(OMS)”定价层，则根据所用节点和解决方案数收费，需付费的 Insights and Analytics 节点数将显示在“使用情况和预估成本”页的表中。  
 
@@ -271,7 +303,8 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 若要查看不同自动化节点的数目，请使用以下查询：
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -279,7 +312,8 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>当数据收集量高于预期时创建警报
 本部分介绍如何在以下情况下创建警报：

@@ -9,18 +9,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 03/11/2019
+ms.date: 04/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 329832ed952ebd8324d757f657c9fc3ef4f98a43
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cd09b7ead5f5d1708a0bb31a1dc11bafecfc2cb7
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626263"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686443"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 门户创建托管多个站点的应用程序网关
 
-创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure 门户配置[多个网站的托管](application-gateway-multi-site-overview.md)。 本教程中使用虚拟机规模集创建后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达池中的相应服务器。 本教程假定你拥有多个域，并使用示例 <em>www.contoso.com</em> 和 <em>www.fabrikam.com</em>。
+创建[应用程序网关](application-gateway-introduction.md)时可以使用 Azure 门户配置[多个网站的托管](application-gateway-multi-site-overview.md)。 本教程中使用虚拟机规模集创建后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达池中的相应服务器。 本教程假定你拥有多个域，并使用示例 www\.contoso.com 和 www\.fabrikam.com。
 
 在本文中，学习如何：
 
@@ -33,7 +33,7 @@ ms.locfileid: "58626263"
 
 ![多站点路由示例](./media/application-gateway-create-multisite-portal/scenario.png)
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -137,10 +137,10 @@ ms.locfileid: "58626263"
 2. 为侦听器输入以下值：
     
    - *contosoListener* - 作为侦听器的名称。
-   - <em>www.contoso.com</em> - 将此主机名示例替换为自己的域名。
+   - *www\.contoso.com* - 将此主机名示例替换为自己的域名。
 
 3. 单击 **“确定”**。
-4. 使用名称 *fabrikamListener* 并使用第二个域名创建第二个侦听器。 在此示例中，使用 <em>www.fabrikam.com</em>。
+4. 使用名称 *fabrikamListener* 并使用第二个域名创建第二个侦听器。 在此示例中，使用 *www\.fabrikam.com*。
 
 规则按其列出的顺序进行处理，并且流量使用匹配的第一个规则进行定向，而无论特殊性如何。 例如，如果在同一端口上同时有使用基本侦听器的规则和使用多站点侦听器的规则，则使用多站点侦听器的规则必须在使用基本侦听器的规则之前列出，多站点规则才能正常运行。 
 
@@ -191,4 +191,4 @@ ms.locfileid: "58626263"
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

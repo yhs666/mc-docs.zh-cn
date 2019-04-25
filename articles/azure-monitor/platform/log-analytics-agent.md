@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7a3461745704c3c449df5008c183506e76a9b440
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: ab1b4aecbfaab6428d1c78754f5d833749dce512
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440567"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686354"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理收集日志数据
 
@@ -36,11 +36,14 @@ Azure Log Analytics 代理，以前称为 Azure Monitoring Agent (MMA) 或 OMS L
 
 如果使用 System Center Operations Manager 2012 R2 或更高版本监视计算机，该计算机可以与 Log Analytics 服务进行多宿主连接，以便收集数据并将数据转发到该服务，且仍受 [Operations Manager](../../azure-monitor/platform/om-agents.md) 监视。 受 Operations Manager 管理组监视并与 Log Analytics 集成的 Linux 计算机不通过管理组接收数据源配置，也不转发收集的数据。 Windows 代理最多可以向四个 Log Analytics 工作区报告，而 Linux 代理只支持向单个工作区报告。  
 
+适用于 Linux 和 Windows 的代理不仅可连接到 Log Analytics，还支持使用 Azure 自动化来托管混合 Runbook 辅助角色和其他服务（例如[更改跟踪](../../automation/automation-change-tracking.md)和[更新管理](../../automation/automation-update-management.md)）。 有关混合 Runbook 辅助角色的详细信息，请参阅 [Azure 自动化混合 Runbook 辅助角色](../../automation/automation-hybrid-runbook-worker.md)。  
+
 ## <a name="supported-windows-operating-systems"></a>支持的 Windows 操作系统
 Windows 代理官方支持以下版本的 Windows 操作系统：
 
-* Windows Server 2008 R2 或更高版本
-* Windows 7 SP1 及更高版本。
+* Windows Server 2019
+* Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
+* Windows 7 SP1 及更高版本
 
 ## <a name="supported-linux-operating-systems"></a>受支持的 Linux 操作系统
 本部分提供有关受支持的 Linux 分发版的详细信息。    

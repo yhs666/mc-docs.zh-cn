@@ -1,58 +1,53 @@
 ---
-title: Azure Monitor 指标资源管理器
-description: 了解 Azure Monitor 指标资源管理器中的新功能
-author: vgorbenko
+title: Azure 指标资源管理器的高级功能
+description: 了解 Azure Monitor 指标资源管理器的高级功能
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
-ms.author: vitaly.gorbenko
-ms.component: metrics
-ms.openlocfilehash: 429e124d9ed11261f9126d010b4bac501b2fa3a1
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.subservice: metrics
+ms.openlocfilehash: 942c2ae1195ca05c1a0ff51331037411cc00214c
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141734"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686442"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 指标资源管理器
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 指标资源管理器的高级功能
 
-Azure Monitor 指标资源管理器是 Microsoft Azure 门户的一个组件，通过它可以绘制图表、以直观的形式关联趋势及研究指标值的上升和下降。 指标资源管理器是研究 Azure 托管的或 Azure Monitor 服务监视的应用程序，以及基础结构存在的各种性能问题和可用性问题的基本起始点。
+> [!NOTE]
+> 本文假定使用者熟悉指标资源管理器的基本功能。 如果你是新用户，希望了解如何创建第一个指标图表，请参阅 [Azure 指标资源管理器入门](metrics-getting-started.md)。
 
 ## <a name="metrics-in-azure"></a>Azure 中的指标
 
-Microsoft Azure 中的指标是随着时间的推移收集和存储的一系列测量值和计数。 有标准（或“平台”）指标和自定义指标。 标准指标由 Azure 平台本身提供。 标准指标反映 Azure 资源的运行状况和使用情况统计信息。 而自定义指标是由应用程序通过[自定义事件的 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) 发送给 Azure 的。 自定义指标与其他特定于应用程序的指标存储在 Application Insights 资源中。
+[Azure Monitor 中的指标](data-platform-metrics.md)是随着时间的推移收集和存储的一系列测量值和计数。 有标准（或“平台”）指标和自定义指标。 标准指标由 Azure 平台本身提供。 标准指标反映 Azure 资源的运行状况和使用情况统计信息。 而自定义指标是由应用程序通过[用于自定义事件和指标的 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)、[Windows Azure 诊断 (WAD) 扩展](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)或 [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api) 发送给 Azure 的。
 
-## <a name="create-a-new-chart"></a>创建新图表
+## <a name="create-views-with-multiple-metrics-and-charts"></a>使用多个指标和图表创建视图
 
-1. 打开 Azure 门户
-2. 导航到新的“监视”选项卡，并选择“指标”。
+可以创建一次绘制多个指标行或显示多个指标图表的图表。 此功能用于：
 
-   ![指标图像](./media/metrics-charts/00001.png)
+- 将同一图形中的相关指标关联到一起，看一个值如何与另一个值相关联。
+- 显示很临近但具有不同度量单位的指标
+- 以视觉方式聚合和比较来自多个源的指标
 
-3. “指标选择器”将自动打开。 从列表中选择一个资源，查看它关联的指标。 列表将只显示具有指标的资源。
+例如，你有 5 个存储帐户，想要知道在其中消耗了多少总空间，则可创建一个（堆积的）面积图表，以便显示特定时间点的各个值以及所有值的总计。
 
-   ![指标图像](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>同一图表上的多个指标
 
-   > [!NOTE]
-   >如果有多个 Azure 订阅，指标资源管理器将拉取“门户设置 -> 按订阅筛选”列表中选定的所有订阅中的资源。 若要更改此设置，请单击屏幕顶部的“门户设置”齿轮图标，然后选择要使用的订阅。
-
-4. 对于某些资源类型（即存储帐户和虚拟机），选择指标前必须先选择**命名空间**。 每个命名空间都带有自己的指标集，这些指标只与此命名空间有关，而与其他命名空间无关。
-
-   例如，每个 Azure 存储空间都包含针对次级服务“Blob”、“文件”、“队列”和“表”（这些均是存储帐户的组成部分）的指标。 但是，指标“队列消息计数”必然只适用于次级服务“队列”，而不适用于任何其他存储帐户次级服务。
-
-   ![指标图像](./media/metrics-charts/00003.png)
-
-5. 从列表中选择一个指标。 如果知道所需指标的部分名称，可以将其键入，即可看到可用指标的筛选列表：
-
-   ![指标图像](./media/metrics-charts/00004.png)
-
-6. 选择指标后，将显示图表，其中包含对所选指标的默认聚合。 此时，在“指标选择器”之外单击即可将其关闭。 也可以选择将图表切换到不同的聚合。 对于一些指标，可以通过切换聚合选择想要在图表上看到的值。 例如，可以在平均值、最小值和最大值之间切换。 
-
-7. 通过单击“添加指标”并重复步骤 3-6，你可以在同一个图表上添加其他指标。
+首先，[创建新图表](metrics-getting-started.md#create-your-first-metric-chart)。 单击“添加指标”，然后通过同样的步骤在同一图表上添加另一指标。
 
    > [!NOTE]
    > 通常情况下，你不会想要在一个图表上拥有度量单位不同（即“毫秒”和“千字节”）或刻度差异显著的多个指标。 此时，可考虑使用多个图表。 单击“添加图表”按钮，即可在指标资源管理器中创建多个图表。
+
+### <a name="multiple-charts"></a>多个图表
+
+单击“添加图表”，使用另一指标创建另一图表。
+
+### <a name="order-or-delete-multiple-charts"></a>将多个图表排序或将其删除
+
+若要将多个图表排序或将其删除，请单击省略号 ( **...** )，以便打开图表菜单并选择适当的菜单项：**向上移动**、**向下移动**或**删除**。
 
 ## <a name="apply-filters-to-charts"></a>向图表应用筛选器
 
@@ -76,16 +71,18 @@ Microsoft Azure 中的指标是随着时间的推移收集和存储的一系列�
 
 5. 可以重复步骤 1-4 将多个筛选器应用到同一个图表。
 
-## <a name="segment-a-chart"></a>分割图表
 
-可以按维度拆分指标，以直观地显示指标不同部分之间的差异，并标识出某个维度的边远部分。 
 
-### <a name="to-segment-a-chart"></a>分割图表
+## <a name="apply-splitting-to-a-chart"></a>对图表应用拆分
+
+可以按维度拆分指标，以直观地显示指标不同部分之间的差异，并标识出某个维度的边远部分。
+
+### <a name="apply-splitting"></a>应用拆分
 
 1. 单击图表上方的“应用拆分”。
  
    > [!NOTE]
-   > 任何单个图表上都可以有多个筛选器，但只能有一个拆分/分段值。
+   > 不能对包含多个指标的图表使用拆分。 另外，你可以有多个筛选器，但只能对任何单个图表应用一个拆分维度。
 
 2. 选择想要用于分割图表的维度：
 
@@ -99,20 +96,6 @@ Microsoft Azure 中的指标是随着时间的推移收集和存储的一系列�
 
    > [!NOTE]
    > 在同一个维度上同时使用筛选和拆分，可以隐藏与你的方案无关的部分，使图表更易读取。
-
-### <a name="new-alert-rule"></a>新建警报规则
-
-还可以使用你设置的条件将指标可视化为基于指标的警报规则的底层逻辑的基础。 
-
-如果单击“新建警报规则”
-
-![以红色突出显示的“新建警报规则”按钮](./media/metrics-charts/015.png)
-
-则会转到警报规则创建窗格，其中预先填充了来自你的图表的底层指标维度，以便更轻松地生成自定义警报规则。
-
-![创建警报规则](./media/metrics-charts/016.png)
-
-若要详细了解如何设置指标警报，请查看此[文章](alerts-metric.md)。
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>锁定图表 y 轴的边界
 
@@ -138,6 +121,30 @@ Microsoft Azure 中的指标是随着时间的推移收集和存储的一系列�
 配置图表后，单击图表右上角的“图表操作”菜单，然后单击“固定到仪表板”。
 
 ![图表上的](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>创建警报规则
+
+可以使用设置的条件将指标可视化为基于指标的警报规则的基础。 新的警报规则将包括图表的目标资源、指标、拆分和筛选器维度。 稍后将能够在警报规则创建窗格上修改这些设置。
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>单击“新建警报规则”，创建新的警报规则
+
+![以红色突出显示的“新建警报规则”按钮](./media/metrics-charts/015.png)
+
+则会转到警报规则创建窗格，其中预先填充了来自你的图表的底层指标维度，以便更轻松地生成自定义警报规则。
+
+![创建警报规则](./media/metrics-charts/016.png)
+
+若要详细了解如何设置指标警报，请查看此[文章](alerts-metric.md)。
+
+## <a name="troubleshooting"></a>故障排除
+
+*图表中未显示任何数据。*
+
+* 筛选器将应用到窗格中的所有图表。 将焦点放在某个图表上时，请确保未在其他图表上设置会排除所有数据的筛选器。
+
+* 如果想要在不同的图表上设置不同的筛选器，请在不同的边栏选项卡中创建图表，将它们保存为独立的收藏项。 如果需要，可将这些图表固定到仪表板，以便并排查看这些图表。
+
+* 如果根据指标上未定义的属性对图表进行分段，则图表中不会显示任何数据。 请尝试清除分段（拆分），或选择其他属性。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,19 +1,19 @@
 ---
 title: 将 Azure 监视数据流式传输到事件中心
-description: 了解如何将所有 Azure 监视数据流式传输到事件中心，以将数据获取到合作伙伴 SIEM 或分析工具。
+description: 了解如何将 Azure 监视数据流式传输到事件中心，以将数据获取到合作伙伴 SIEM 或分析工具。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.component: ''
-ms.openlocfilehash: ff5ddb4791786517831b9b8a5adbc7745937a1a8
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.subservice: ''
+ms.openlocfilehash: 2e77826c021c57ca8db07ccf88dcaefa744911af
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363390"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686418"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -25,14 +25,14 @@ Azure Monitor 提供了获取 Azure 环境中所有监视数据访问权限的�
 
 在 Azure 环境中，有多“层”监视数据，访问每层数据的方法略有不同。 通常情况下，这些层可描述为：
 
-- **应用程序监视数据：** 有关已编写并在 Azure 上运行的代码的性能和功能的数据。 应用程序监视数据的示例包括性能跟踪、应用程序日志及用户遥测。 通常以下列的一种方式收集应用程序监视数据：
-   - 运行侦听应用程序运行于的计算机上的新应用程序日志的监视代理，如 [Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
+- **应用程序监视数据：** 有关已编写并在 Azure 上运行的代码的性能和功能的数据。 应用程序监视数据的示例包括性能跟踪、应用程序日志及用户遥测数据。 通常以下列的一种方式收集应用程序监视数据：
+   - 运行一个监视代理（如 [Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)），以便侦听运行应用程序的计算机上的新应用程序日志。
 - **来宾 OS 监视数据：** 有关运行应用程序的操作系统的数据。 来宾 OS 监视数据的示例有 Linux syslog 或 Windows 系统日志。 若要收集此类型的数据，需安装代理，如[ Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
 - **Azure 资源监视数据：** 有关 Azure 资源操作的数据。 对于某些 Azure 资源类型（如虚拟机），该 Azure 服务中会监视来宾 OS 和应用程序。 对于其他 Azure 资源（如网络安全组），资源监视数据是可用数据的最高层（因为没有 来宾 OS 或应用程序在这些资源中运行）。 可以使用[资源诊断设置](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)收集这些数据。
 - **Azure 订阅监视数据：** 有关 Azure 订阅操作和管理的数据，以及有关 Azure 本身运行状况和操作的数据。 [活动日志](./../../azure-monitor/platform/activity-logs-overview.md)包含大多数订阅监视数据，例如服务运行状况事件和 Azure 资源管理器审核。 可以使用日志配置文件收集此数据。
 - **Azure 租户监视数据：** 有关租户级 Azure 服务（例如 Azure Active Directory）操作的数据。 Azure Active Directory 审核和登录是租户监视数据的示例。 可以使用租户诊断设置收集此数据。
 
-可将任何层的数据发送到事件中心，以便将其拉取到合作伙伴工具。 以下各节描述了如何将每层数据配置为流式传输到事件中心。 这些步骤假定你拥有处于要监视的层的资产。
+可将任何层的数据发送到事件中心，以便将其拉取到合作伙伴工具。 可将某些源配置为直接向事件中心发送数据，同时，可能需要使用另一个进程（例如逻辑应用）来检索所需的数据。 以下各节描述了如何将每层数据配置为流式传输到事件中心。 这些步骤假定你拥有处于要监视的层的资产。
 
 ## <a name="set-up-an-event-hubs-namespace"></a>设置事件中心命名空间
 
@@ -64,14 +64,15 @@ Azure 订阅监视数据可以在 [Azure 活动日志](./../../azure-monitor/pla
 若要将数据从 Azure 活动日志发送到事件中心命名空间，请在订阅上设置日志配置文件。 [按照本指南](./activity-logs-stream-event-hubs.md)在订阅上设置日志配置文件。 对要监视每个订阅执行一次此操作。
 
 > [!TIP]
-> 日志配置当前仅允许选择一个事件中心命名空间，并将在其中创建名为“insights-operational-logs”的事件日志。 尚不可在日志配置文件中指定自己的事件中心名称。
+> 日志配置文件当前仅允许选择一个事件中心命名空间，并将在其中创建名为“insights-operational-logs”的事件日志。 尚不可在日志配置文件中指定自己的事件中心名称。
 
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure 资源指标和诊断日志
 
 Azure 资源将发出两种类型的监视数据：
-1. [资源诊断日志](./../../azure-monitor/platform/diagnostic-logs-overview.md)
+1. [资源诊断日志](diagnostic-logs-overview.md)
+2. [度量值](data-platform.md)
 
-使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
+使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](diagnostic-logs-stream-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
 
 > [!TIP]
 > 可使用 Azure Policy，[在策略规则中使用 DeployIfNotExists 效果](../../governance/policy/concepts/definition-structure.md#policy-rule)，确保特定范围内的每个资源始终设置了诊断设置。

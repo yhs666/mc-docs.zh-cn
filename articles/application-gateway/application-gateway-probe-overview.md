@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/06/2018
-ms.date: 03/11/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8de9add2d5eb06a40bb9937705241f052887aa0f
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 73d18dbdfff48c982c52edf7c02346fdaf5259a9
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788742"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686309"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
@@ -47,7 +47,7 @@ ms.locfileid: "57788742"
 
 例如：
 
-```powershell
+```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -65,7 +65,7 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 > [!NOTE]
 > 该端口与后端 HTTP 设置的端口相同。
 
-默认探测只查看 http://127.0.0.1:\<port\> 来判断运行状况。 如果需要配置运行状况探测以使其转到自定义 URL 或修改任何其他设置，必须使用自定义探测。
+默认探测只查看 http:\//127.0.0.1:\<端口\> 来判断运行状况。 如果需要配置运行状况探测以使其转到自定义 URL 或修改任何其他设置，必须使用自定义探测。
 
 ### <a name="probe-intervals"></a>探测间隔
 
@@ -106,4 +106,4 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

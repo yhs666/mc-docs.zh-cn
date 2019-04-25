@@ -3,24 +3,23 @@ title: Key Vault 证书入门
 description: 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
 services: key-vault
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 10/22/2018
+ms.date: 04/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: 851532ee60de0dbf2fb6b181fc2cef6e33168803
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1357f6ba39efea8203e59a04d924282be825502c
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627362"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566239"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
@@ -104,6 +103,17 @@ ms.locfileid: "58627362"
 
 -   另外，用户可以编辑策略。策略在导入时生效，但其包含的默认设置在导入时并未指定任何信息。 例如： 无颁发者信息  
 
+### <a name="formats-of-import-we-support"></a>我们支持的导入格式
+对于 PEM 文件格式，我们支持以下导入类型。 单个 PEM 编码的证书，以及一个包含以下内容的 PKCS#8 编码和解密的密钥
+
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+
+-----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
+
+进行证书合并时，我们支持 2 种基于 PEM 的格式。 可以合并单个 PKCS#8 编码的证书或 base64 编码的 P7B 文件。 -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+
+我们目前不支持 PEM 格式的 EC 密钥。
+
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>使用不与 Key Vault 配合使用的 CA 创建证书  
  此方法允许使用除 Key Vault 的合作提供者之外的其他 CA，也就是说，组织可以使用自选的 CA。  
 
@@ -124,4 +134,3 @@ ms.locfileid: "58627362"
 ## <a name="see-also"></a>另请参阅
 
 - [关于键、密钥和证书](about-keys-secrets-and-certificates.md)
-

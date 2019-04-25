@@ -1,36 +1,27 @@
 ---
-title: Azure 密钥保管库的安全特性
+title: Azure Key Vault 的安全特性
 description: 用于计算 Azure 密钥保管库的常见安全特性的清单
 services: key-vault
 documentationcenter: ''
 author: msmbaldwin
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 01/31/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: f78536ccf3d134e3155a2857e5d83bf90ef2a330
-ms.sourcegitcommit: b066ffa5ad735a6ea167044fe390cfd891d37df1
+ms.openlocfilehash: 7bb1c67f8734b6bae29af0b252766c5ee2ad7606
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409090"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566267"
 ---
-# <a name="security-attributes-for-azure-key-vault"></a>Azure 密钥保管库的安全特性
+# <a name="security-attributes-for-azure-key-vault"></a>Azure Key Vault 的安全特性
 
-安全已集成到 Azure 服务的各个方面。 本文介绍 Azure 密钥保管库中内置的安全特性。 安全特性是促使 Azure 服务能够防范、检测或响应安全漏洞的一种服务质量或功能功能。
+安全性已集成到 Azure 服务的各个方面。 本文记录了内置到 Azure Key Vault 中的常见安全特性。 
 
-安全属性分为以下几类：
-* 预防
-* 网络分段
-
-* 标识和访问管理支持
-
-* 访问控制（如果使用）
-* 配置管理（如果使用）
-
-在每个类别中，我们会确定是否使用某个属性（是/否）。 对于一些服务，某个属性可能不适用并显示为 N/A。 还可能会提供有关某个属性的注释或详细信息链接。
+[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-[!INCLUDE [security-attributes-key-vault](../../includes/security-attributes-key-vault.md)]
+[!INCLUDE [Security Attributes for Key Vault](../../includes/security-attributes-key-vault.md)]

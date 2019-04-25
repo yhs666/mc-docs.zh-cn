@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1eb0e177fd68773f4224f84211a1d88d84ba8382
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 6026270790d8e4b394218722dde086852b62f8f3
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788724"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686310"
 ---
 # <a name="how-application-gateway-works"></a>应用程序网关的工作原理
 
@@ -37,7 +37,7 @@ ms.locfileid: "57788724"
 
 内部应用程序网关仅使用专用 IP 地址。 内部应用程序网关的 DNS 名称可在内部解析为其专用 IP 地址。 因此，内部负载均衡器只能路由有权访问应用程序网关 VNET 的客户端发出的请求。
 
-请注意，面向 Internet 的应用程序网关和内部应用程序网关都使用专用 IP 地址将请求路由到后端服务器。 如果后端池资源包含专用 IP 地址、VM NIC 配置或内部可解析地址，并且后端池是公共终结点，则应用程序网关会使用其前端公共 IP 来访问服务器。 如果尚未预配前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
+如果后端池包含可以在内部解析的 FQDN 或专用 IP 地址，应用程序网关会使用其实例的专用 IP 地址将请求路由到后端服务器。 如果后端池包含外部终结点或者可以在外部解析的 FQDN，应用程序网关会使用其前端的公共 IP 地址将请求路由到后端服务器。 DNS 解析基于专用 DNS 区域或自定义 DNS 服务器（如果已配置），或者会采用默认的 Azure 提供的 DNS。 如果尚未预配前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
 
 ### <a name="modifications-to-the-request"></a>对请求的修改
 

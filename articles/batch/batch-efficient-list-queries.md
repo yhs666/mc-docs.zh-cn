@@ -1,10 +1,10 @@
 ---
-title: 设计有效的列表查询 - Azure Batch | Microsoft Docs
+title: 设计高效列表查询 - Azure Batch | Azure Docs
 description: 在请求批处理资源（例如池、作业、任务和计算节点）的相关信息时对查询进行筛选可提高性能。
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
@@ -12,16 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 06/26/2018
-ms.date: 08/09/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 783232eb67b54f7be95cecc5e8de1a47d4ed3076
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.custom: seodec18
+ms.openlocfilehash: 9958388693b58e81011c61e291c51464911af378
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660140"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566336"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
 
@@ -71,48 +70,47 @@ IPagedEnumerable<CloudTask> completedTasks =
 ### <a name="filter"></a>筛选器
 filter 字符串是一个表达式，用于减少返回的项数。 例如，只列出作业的运行中任务，或者只列出已做好运行任务准备的计算节点。
 
-- filter 字符串包含一个或多个表达式，其中一个表达式包含属性名称、运算符和值。 可指定哪些属性取决于查询的每个实体类型，每个属性所支持的运算符也是这样。
-- 可以使用逻辑运算符 `and` 和 `or` 将多个表达式组合到一起。
-- 此示例性 filter 字符串仅列出正在运行的“render”任务：`(state eq 'running') and startswith(id, 'renderTask')`。
+* filter 字符串包含一个或多个表达式，其中一个表达式包含属性名称、运算符和值。 可指定哪些属性取决于查询的每个实体类型，每个属性所支持的运算符也是这样。
+* 可以使用逻辑运算符 `and` 和 `or` 将多个表达式组合到一起。
+* 此示例性 filter 字符串仅列出正在运行的“render”任务：`(state eq 'running') and startswith(id, 'renderTask')`。
 
 ### <a name="select"></a>选择
 select 字符串用于限制为每个项返回的属性值。 可以指定属性名称的列表，仅在查询结果中返回项目的这些属性值。
 
-- select 字符串包含逗号分隔的属性名称列表。 可以指定所查询实体类型的任意属性。
-- 此示例性的 select 字符串指定每个任务只应返回三项属性值： `id, state, stateTransitionTime`。
+* select 字符串包含逗号分隔的属性名称列表。 可以指定所查询实体类型的任意属性。
+* 此示例性的 select 字符串指定每个任务只应返回三项属性值： `id, state, stateTransitionTime`。
 
 ### <a name="expand"></a>展开
 expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 expand 字符串时，单次 API 调用可以获取每个项目的更多信息。 不必首先获取实体的列表，然后请求列表中每个项目的信息。可以使用 expand 字符串通过单次 API 调用获取相同的信息。 API 调用数较少意味着性能较高。
 
-- 与 select 字符串类似，expand 字符串用于控制是否允许某些数据包括在列表查询结果中。
-- expand 字符串在列出作业、作业计划、任务和池中使用时才受支持。 目前仅支持统计信息。
-- 当所有属性都是必需属性且没有指定 select 字符串时， *必须* 使用 expand 字符串来获取统计信息。 如果使用了 select 字符串来获取属性的子集，则可在 select 字符串中指定 `stats` ，不需指定 expand 字符串。
-- 此示例性 expand 字符串指定列表中的每个项都应返回统计信息：`stats`。
+* 与 select 字符串类似，expand 字符串用于控制是否允许某些数据包括在列表查询结果中。
+* expand 字符串在列出作业、作业计划、任务和池中使用时才受支持。 目前仅支持统计信息。
+* 当所有属性都是必需属性且没有指定 select 字符串时， *必须* 使用 expand 字符串来获取统计信息。 如果使用了 select 字符串来获取属性的子集，则可在 select 字符串中指定 `stats` ，不需指定 expand 字符串。
+* 此示例性 expand 字符串指定列表中的每个项都应返回统计信息：`stats`。
 
 > [!NOTE]
-> 构造这三种查询字符串类型（filter、select 和 expand）中的任意一种类型时，必须确保属性名称和大小写与其 REST API 元素的对应项相匹配。 例如，在使用 .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) 类时，必须指定 **state** 而非 **State**，即使 .NET 属性为 [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state)。 请参阅下表中 .NET 和 REST API 之间的属性映射。
+> 构造这三种查询字符串类型（filter、select 和 expand）中的任意一种类型时，必须确保属性名称和大小写与其 REST API 元素的对应项相匹配。 例如，在使用 .NET [CloudTask](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudtask?view=azure-dotnet#microsoft_azure_batch_cloudtask) 类时，必须指定 **state** 而非 **State**，即使 .NET 属性为 [CloudTask.State](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudtask?view=azure-dotnet#microsoft_azure_batch_cloudtask.state)。 请参阅下表中 .NET 和 REST API 之间的属性映射。
 > 
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>filter、select 和 expand 字符串的规则
-- filter、select 和 expand 字符串中属性名称的显示方式应与其在 [Batch REST][api_rest] API 中的显示方式相同，即使用户使用 [Batch .NET][api_net] 或其他某个批处理 SDK 时也是如此。
-- 所有属性名称均区分大小写，但属性值不区分大小写。
-- 日期/时间字符串可以采用两种格式中的一种，并且必须在前面加上 `DateTime`。
+* filter、select 和 expand 字符串中属性名称的显示方式应与其在 [Batch REST][api_rest] API 中的显示方式相同，即使用户使用 [Batch .NET][api_net] 或其他某个批处理 SDK 时也是如此。
+* 所有属性名称均区分大小写，但属性值不区分大小写。
+* 日期/时间字符串可以采用两种格式中的一种，并且必须在前面加上 `DateTime`。
   
-  - W3C-DTF 格式示例： `creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  - RFC 1123 格式示例：`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
-- 布尔值字符串为 `true` 或 `false`。
-- 如果指定了无效的属性或运算符，则会导致 `400 (Bad Request)` 错误。
+  * W3C-DTF 格式示例： `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * RFC 1123 格式示例：`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+* 布尔值字符串为 `true` 或 `false`。
+* 如果指定了无效的属性或运算符，则会导致 `400 (Bad Request)` 错误。
 
 ## <a name="efficient-querying-in-batch-net"></a>在 Batch .NET 中进行高效查询
-
 在 [Batch .NET][api_net] API 中，将通过 [ODATADetailLevel][odata] 类来提供 filter、select 和 expand 字符串以列出相应操作。 ODataDetailLevel 类有三个公共字符串属性，这些属性可以在构造函数中指定，也可以直接在对象上设置。 然后即可将 ODataDetailLevel 对象作为参数传递给不同的列表操作，例如 [ListPools][net_list_pools]、[ListJobs][net_list_jobs] 和 [ListTasks][net_list_tasks]。
 
-- [ODATADetailLevel][odata].[FilterClause][odata_filter]：限制返回的项数。
-- [ODATADetailLevel][odata].[SelectClause][odata_select]：指定随每个项返回的属性值。
-- [ODATADetailLevel][odata].[ExpandClause][odata_expand]：通过单个 API 调用检索所有项的数据，不必针对每个项分别进行调用。
+* [ODATADetailLevel][odata] [FilterClause][odata_filter]：限制返回的项数。
+* [ODATADetailLevel][odata] [SelectClause][odata_select]：指定随每个项返回的属性值。
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]：通过单个 API 调用检索所有项的数据，不必针对每个项分别进行调用。
 
-以下代码段使用 Batch .NET API 对 Batch 服务进行有效的查询，查询其中是否存在特定池集的统计信息。 在此方案中，Batch 用户既有测试池又有生产池。 测试池 ID 具有“test”前缀，生产池 ID 具有“prod”前缀。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 类实例。
+以下代码段使用 Batch .NET API 对 Batch 服务进行有效的查询，查询其中是否存在特定池集的统计信息。 在此方案中，Batch 用户既有测试池又有生产池。 测试池 ID 具有“test”前缀，生产池 ID 具有“prod”前缀。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet#microsoft_azure_batch_batchclient) 类实例。
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -141,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> 使用 Select 和 Expand 子句配置的 [ODATADetailLevel][odata] 实例也可以传递给相应的 Get 方法（例如 [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx)），以便限制返回的数据量。
+> 使用 Select 和 Expand 子句配置的 [ODATADetailLevel][odata] 实例也可以传递给相应的 Get 方法（例如 [PoolOperations.GetPool](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.pooloperations?view=azure-dotnet#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__)），以便限制返回的数据量。
 > 
 > 
 
@@ -149,8 +147,8 @@ List<CloudPool> testPools =
 filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST API 对应项，不管是名称本身还是大小写。 下表提供了 .NET 和 REST API 的对应项之间的映射。
 
 ### <a name="mappings-for-filter-strings"></a>filter 字符串的映射
-- **.NET 列表方法**：此列中的每个 .NET API 方法都接受 [ODATADetailLevel][odata] 对象作为参数。
-- **REST 列表请求**：此列中的每个 REST API 页面都包含一个表，该表指定了 *filter* 字符串中允许的属性和操作。 在构造 [ODATADetailLevel.FilterClause][odata_filter] 字符串时，需使用这些属性名称和操作。
+* **.NET 列表方法**：此列中的每个 .NET API 方法都接受 [ODATADetailLevel][odata] 对象作为参数。
+* **REST 列表请求**：此列中的每个 REST API 页面都包含一个表，该表指定了 filter 字符串中允许的属性和操作。 在构造 [ODATADetailLevel.FilterClause][odata_filter] 字符串时，需使用这些属性名称和操作。
 
 | .NET 列表方法 | REST 列表请求 |
 | --- | --- |
@@ -166,8 +164,8 @@ filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST A
 | [PoolOperations.ListPools][net_list_pools] |[列出帐户中的池][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>select 字符串的映射
-- **批处理 .NET 类型**：批处理 .NET API 类型。
-- **REST API 实体**：此列中的每一页都包含一个或多个表，其中列出了类型的 REST API 属性名称。 在构造 *select* 字符串时使用这些属性名称。 在构造 [ODATADetailLevel.SelectClause][odata_select] 字符串时，需使用这些相同的属性名称。
+* **Batch.NET 类型**：Batch.NET API 类型。
+* **REST API 实体**：此列中的每一页都包含一个或多个表，其中列出了类型的 REST API 属性名称。 在构造 *select* 字符串时使用这些属性名称。 在构造 [ODATADetailLevel.SelectClause][odata_select] 字符串时，需使用这些相同的属性名称。
 
 | 批处理 .NET 类型 | REST API 实体 |
 | --- | --- |
@@ -248,9 +246,9 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [通过并发节点任务最大限度提高 Azure Batch 计算资源的使用率](batch-parallel-node-tasks.md)是另一篇与批处理应用程序性能相关的文章。 在数量较少但规模更大的计算节点上执行并行任务适合某些类型的工作负荷。 若需详细了解此类方案，请查看文章中的[示例方案](batch-parallel-node-tasks.md#example-scenario)。
 
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
 [github_samples]: https://github.com/Azure/azure-batch-samples

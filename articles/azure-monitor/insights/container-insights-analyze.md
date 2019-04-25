@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 802d7024af7be183bc25f95cd23dea450c0a9c7c
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 0c09b71470bd767e1bcf06c0e0e353008c568371
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440767"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566265"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 AKS 群集性能 
 借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度（直接从 AKS 群集查看，或是从 Azure Monitor 查看订阅中的所有 AKS 群集）查看 Azure Kubernetes 服务 (AKS) 群集的工作负载。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例 (ACI)。
@@ -99,6 +99,33 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 - **活动 Pod 计数**：Kubernetes 提供的 Pod 计数和状态。 表示的 Pod 状态为“全部”、“挂起”、“正在运行”和“未知”，可通过图表上的选择器单独筛选或以组合方式进行筛选。 
 
 可以使用向左键/向右键循环浏览图表上的每个数据点，使用向上键/向下键循环显示百分位线。
+
+适用于容器的 Azure Monitor 也支持 Azure Monitor 指标资源管理器。在该管理器中，你可以创建自己的绘图图表、将趋势相关联并对其进行调查，以及将内容固定到仪表板。 在指标资源管理器中，还可以使用所设置的条件将指标可视化为[基于指标的警报规则](../platform/alerts-metric.md)的基础。  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>在指标资源管理器中查看容器指标
+在指标资源管理器中，可以通过适用于容器的 Azure Monitor 查看聚合的节点和 Pod 利用率指标。 下表汇总了详细信息，这些信息有助于你了解如何使用指标图表来可视化容器指标。
+
+|命名空间 | 指标 |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+可以应用指标[拆分](../platform/metrics-charts.md)，以便按维度来查看它，并以可视化方式表现其片段相互之间的不同之处。 对于节点，可以按“主机”维度将图表分段，并可在 Pod 中按以下维度将其分段：
+
+* 控制器
+* Kubernetes 命名空间
+* 节点
+* 阶段
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>分析节点、控制器和容器运行状况
 
 切换到“节点”、“控制器”和“容器”选项卡时，页面右侧会自动显示“属性”窗格。  它显示所选项的属性，包括定义用于组织 Kubernetes 对象的标签。 单击窗格中的 >> 链接以查看\隐藏窗格。  
 

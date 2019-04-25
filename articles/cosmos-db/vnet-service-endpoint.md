@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 03/18/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 2ff2d71f663e54295d142fe65e94bee2872387db
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 4726e3f00ae8e5ee12b2ee8d4ba5b1a79eb2c9e2
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004581"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615233"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>从虚拟网络 (VNet) 访问 Azure Cosmos DB
 

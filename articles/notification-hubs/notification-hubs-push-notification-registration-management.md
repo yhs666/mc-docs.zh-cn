@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 02/25/2019
 ms.author: v-biyu
-ms.openlocfilehash: 44536a7e0477df8df3db79a7a6cfa04dcc39de49
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.date: 04/29/2019
+ms.openlocfilehash: f1130c4ec595508107e2db84b50dad9f2f7c5061
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222597"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566288"
 ---
 # <a name="registration-management"></a>注册管理
 
@@ -46,12 +46,12 @@ ms.locfileid: "56222597"
 以下是使用安装的一些主要优点：
 
 - 创建或更新安装是完全幂等的。 因此可以重试该操作，而不需要顾虑重复注册的情况。
-- 安装模型可让你轻松地执行每次推送（以特定设备为目标）。 每次执行基于安装的注册时，都会自动添加一个系统标记“$InstallationId:[installationId]”。 因此，无需编写任何额外的代码，就能对此标记调用 send 以针对特定的设备。
+- 此安装模型支持特殊的标记格式 (`$InstallationId:{INSTALLATION_ID}`)，该格式允许将通知直接发送到特定的设备。 例如，如果应用的代码为此特定设备设置了安装 ID `joe93developer`，则开发人员在向 `$InstallationId:{joe93developer}` 标记发送通知时，可以将此设备作为目标。 这样，无需编写任何额外的代码，就能将特定设备作为目标。
 - 使用安装还能执行部分注册更新。 可以使用 [JSON-Patch standard](https://tools.ietf.org/html/rfc6902)以 PATCH 方法来请求部分安装更新。 想要更新注册中的标记时，此方法很有用。 用户不需要删除整个注册，并重新发送前面的所有标记。
 
 安装可包含以下属性。 有关完整的安装属性列表，请参阅[使用 REST API 创建或覆盖安装](https://msdn.microsoft.com/library/azure/mt621153.aspx)或[安装属性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -169,7 +169,7 @@ var channel = await PushNotificationChannelManager.CreatePushNotificationChannel
 string installationId = null;
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored a installation id in application data, create and store as application data.
+// If we have not stored an installation id in application data, create and store as application data.
 if (!settings.ContainsKey("__NHInstallationId"))
 {
     installationId = Guid.NewGuid().ToString();

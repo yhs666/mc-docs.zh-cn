@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 83aabbcdc2a7df8effbf4f099c3d4c41570a4b34
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8ad39d231031e819adb51a06f263582b7d525b4a
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627297"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686402"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持内部重定向的应用程序网关
 
-你可以使用 Azure CLI 配置 [web 流量重定向](multiple-site-overview.md)创建时[应用程序网关](overview.md)。 在本教程中，将使用虚拟机规模集定义后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达相应池。 本教程假定你拥有多个域，并使用示例 <em>www.contoso.com</em> 和 <em>www.contoso.org</em>。
+你可以使用 Azure CLI 配置 [web 流量重定向](multiple-site-overview.md)创建时[应用程序网关](overview.md)。 在本教程中，将使用虚拟机规模集定义后端池。 然后，基于所拥有的域配置侦听器和规则，以确保 Web 流量可到达相应池。 本教程假定你拥有多个域，并使用示例 *www\.contoso.com* 和 *www\.contoso.org*。
 
 在本文中，学习如何：
 
@@ -100,7 +100,7 @@ az network application-gateway create `
 
 ## <a name="add-listeners-and-rules"></a>添加侦听器和规则 
 
-应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 <em>www.contoso.com</em> 和 <em>www.contoso.org</em> 创建侦听器。
+应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 *www\.contoso.com* 和 *www\.contoso.org* 创建侦听器。
 
 使用 [az network application-gateway http-listener create](/cli/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) 添加路由流量所需的后端侦听器。
 
@@ -123,7 +123,7 @@ az network application-gateway http-listener create `
 
 ### <a name="add-the-redirection-configuration"></a>添加重定向配置
 
-使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create) 在应用程序网关中添加从 <em>www.consoto.org</em> 将流量发送到 <em>www.contoso.com</em> 的侦听器的重定向配置。
+使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create) 在应用程序网关中添加从 *www\.consoto.org* 将流量发送到 *www\.contoso.com* 的侦听器的重定向配置。
 
 ```azurecli
 az network application-gateway redirect-config create `
@@ -216,7 +216,7 @@ az network public-ip show `
 
 ![在应用程序网关中测试 contoso 站点](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-将地址更改为其他域（例如 <http://www.contoso.org>），应会看到流量已被重定向回 www.contoso.com 的侦听器。
+将地址更改为其他域（例如 http://www.contoso.org），应会看到流量已被重定向回 www\.contoso.com 的侦听器。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -228,3 +228,4 @@ az network public-ip show `
 > * 使用后端池创建虚拟机规模集
 > * 在域中创建 CNAME 记录
 
+<!-- Update_Description: wording update -->

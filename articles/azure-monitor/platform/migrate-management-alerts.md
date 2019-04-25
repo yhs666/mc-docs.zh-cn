@@ -5,38 +5,37 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 5cd7d27884ee3b1d75956b588b77effd35adea39
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: bcac0f5ea68dd23e6ecc49b39c339479ce23a977
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906216"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686321"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>将管理事件的 Azure 警报迁移到活动日志警报
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
 > 有关管理事件的警报将于 10 月 1 日当天或之后关闭。 请使用以下说明进行操作，以了解你是否具有这些警报，如果有，请将其迁移。
->
-> 
 
 ## <a name="what-is-changing"></a>有什么变化
 
 Azure Monitor（以前称为 Azure Insights）提供了创建警报的功能，可触发管理事件并生成发送到 webhook URL 或电子邮件地址的通知。 你可能已通过下列任一方式创建了下列任一警报：
 * 在某些资源类型的 Azure 门户中，在“监视”->“警报”->“添加警报”下，其中“警报”被设置为“事件”
-* 通过运行 Add-AzureRmLogAlertRule PowerShell cmdlet
+* 通过运行 Add-AzLogAlertRule PowerShell cmdlet
 * 通过直接使用 odata.type = “ManagementEventRuleCondition” 以及 dataSource.odata.type = “RuleManagementEventDataSource” 的[警报 REST API](https://docs.microsoft.com/rest/api/monitor/alertrules)
  
 以下 PowerShell 脚本将返回订阅中所具有的有关管理事件的所有警报列表，以及每个警报所设置的条件。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 $alerts = $null
-foreach ($rg in Get-AzureRmResourceGroup ) {
-  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+foreach ($rg in Get-AzResourceGroup ) {
+  $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
 }
 foreach ($alert in $alerts) {
   if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {
@@ -105,7 +104,7 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * 按照我们的有关[如何在 Azure 门户中创建警报的指南](../../azure-monitor/platform/activity-log-alerts.md)进行操作
 * 了解如何[使用资源管理器模板创建警报](../../azure-monitor/platform/alerts-activity-log.md)
  
-有关你以前创建的管理事件的通知将不会自动迁移到活动日志警报。 你需要使用上述 PowerShell 脚本，列出当前已配置的管理事件警报，并手动将它们重新创建为活动日志警报。 此操作必须在 10 月 1 日之前完成，在此之后，有关管理事件的警报将不再显示在 Azure 订阅中。 其他类型的 Azure 警报，包括 Azure Monitor 指标警报、Application Insights 警报和 Log Analytics 警报都不会受此更改的影响。 如果你有任何问题，请在下面评论中提出。
+有关你以前创建的管理事件的通知将不会自动迁移到活动日志警报。 你需要使用上述 PowerShell 脚本，列出当前已配置的管理事件警报，并手动将它们重新创建为活动日志警报。 此操作必须在 10 月 1 日之前完成，在此之后，有关管理事件的警报将不再显示在 Azure 订阅中。 其他类型的 Azure 警报，包括 Azure Monitor 指标警报、Application Insights 警报和日志搜索警报都不会受此更改的影响。 如果你有任何问题，请在下面评论中提出。
 
 
 ## <a name="next-steps"></a>后续步骤

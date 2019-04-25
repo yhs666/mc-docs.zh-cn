@@ -1,19 +1,19 @@
 ---
 title: Azure 活动日志概述
 description: 了解什么是 Azure 活动日志，以及如何通过它了解发生在 Azure 订阅中的事件。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 0bcddc3b90118972a9c4ddca9f46c9f3edac8055
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.subservice: logs
+ms.openlocfilehash: c86eacefd64dd9a30205f4ce4413fdb6e5906696
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625762"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686282"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 
@@ -23,7 +23,7 @@ ms.locfileid: "58625762"
 
 图 1：活动日志与其他类型的日志
 
-活动日志不同于 [诊断日志](diagnostic-logs-overview.md)。 活动日志提供有关从外部（“控制面”）对资源所执行操作的数据。 诊断日志由资源发出，并提供有关该资源（“数据面”）的操作信息。
+活动日志不同于[诊断日志](diagnostic-logs-overview.md)。 活动日志提供有关从外部（“控制面”）对资源所执行操作的数据。 诊断日志由资源发出，并提供有关该资源（“数据平面”）的操作信息。
 
 > [!WARNING]
 > Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作出现在活动日志中。 如果在 Azure 资源管理器代理外部与经典资源类型进行交互，则操作只会记录在操作日志中。 可以在门户的一个单独部分中浏览操作日志。
@@ -45,7 +45,7 @@ ms.locfileid: "58625762"
 * 此类别包含基于订阅中定义的任何自动缩放设置的自动缩放引擎操作相关的所有事件记录。 可在此类别中看到的事件类型示例如“自动缩放扩展操作失败”。 使用自动缩放，可在支持的资源类型中，通过自动缩放设置基于日期和/或负载（指标）数据来自动增加或减少实例的数量。 满足纵向扩展或缩减条件时，开始、成功或失败的事件会记录到此类别中。
 * **建议** - 此类别包含 Azure 顾问提供的建议事件。
 * **安全性** - 此类别包含 Azure 安全中心生成的任何警报记录。 可在此类别中看到的事件类型示例为“执行了可疑的双扩展名文件”。
-* **策略** - 此类别不包含任何事件；它预留给将来使用。 
+* **Policy** - 此类别包含 Azure Policy 执行的所有效果操作的记录。 在此类别中看到的事件类型示例包括“审核”和“拒绝”。 Policy 执行的每个操作建模为对资源执行的操作。
 
 ## <a name="event-schema-per-category"></a>每个类别的事件架构
 [请参阅此文章，了解每个类别的活动日志事件架构。](../../azure-monitor/platform/activity-log-schema.md)
@@ -83,7 +83,7 @@ ms.locfileid: "58625762"
 
 定义了一组筛选器后，可以将查询固定到 Azure 仪表板上，以便始终关注特定事件。
 
-若要获得更强大的功能，可以单击“日志”图标，这会在 [Log Analytics Activity Log Analytics 解决方案](../../azure-monitor/platform/collect-activity-logs.md)中显示活动日志数据。 活动日志边栏选项卡提供对日志的基础筛选/浏览体验，但是 Log Analytics 可以以更强大的方式对数据进行透视、查询和可视化。
+若要获得更强大的功能，可以单击“日志”图标，这会在[收集和分析活动日志解决方案](../../azure-monitor/platform/collect-activity-logs.md)中显示活动日志数据。 “活动日志”边栏选项卡提供对日志的基础筛选/浏览体验，但 Azure Monitor 日志功能能够以更强大的方式对数据进行透视、查询和可视化。
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>使用日志配置文件导出活动日志
 **日志配置文件** 控制如何导出活动日志。 可以使用日志配置文件配置：
@@ -92,19 +92,11 @@ ms.locfileid: "58625762"
 * 应发送哪些事件类别（写入、删除、操作）。 *日志配置文件中“类别”的含义与活动日志事件中不同。在日志配置文件中，“类别”表示操作类型（写入、删除、操作）。在活动日志事件中，“类别”属性表示事件的来源或类型（例如，管理、服务运行状况、警报，等等）。*
 * 应该导出哪些区域（位置）。 确保包含“全局”，因为活动日志中的事件多为全局事件。
 * 活动日志应当在存储帐户中保留多长时间。
-    - 保留期为零天表示日志将永久保留。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
+    - 保留期为 0 天表示永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 365 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择了“事件中心”或“Log Analytics”选项），则保留策略无效。
-    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从 UTC 晚上 12 点开始，但请注意，可能需要最多 24 小时才能将日志从存储帐户中删除。
+    - 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。
 
-可以使用与发出日志的存储帐户或事件中心命名空间不在同一订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
-
-> [!NOTE]
->  当前无法将数据存档到受保护虚拟网络后面的存储帐户。
-
-> [!WARNING]
-> 存储帐户中日志数据的格式已在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
+可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置此设置的用户必须对两个订阅都具有合适的 RBAC 访问权限。
 
 可通过门户中“活动日志”边栏选项卡的“导出”选项配置这些设置。 还可 [使用 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell cmdlet 或 CLI 以编程方式配置这些设置。 一个订阅只能有一个日志配置文件。
 
@@ -120,7 +112,7 @@ ms.locfileid: "58625762"
 3. 在显示的边栏选项卡中，可以选择：  
    * 想要导出其事件的区域
    * 要保存事件的存储帐户
-   * 想要在存储中保留这些事件的天数。 设置为 0 天可以永久保留日志。
+   * 想要在存储中保留这些事件的天数。 设置为 0 天将永久保留日志。
    * 想要在其中创建用于流式处理这些事件的事件中心的服务总线命名空间。
 
      ![“导出活动日志”边栏选项卡](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
@@ -128,16 +120,18 @@ ms.locfileid: "58625762"
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>通过 Azure PowerShell Cmdlet 配置日志配置文件
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### <a name="get-existing-log-profile"></a>获取现有的日志配置文件
 
-```
-Get-AzureRmLogProfile
+```powershell
+Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>添加日志配置文件
 
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+```powershell
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | 属性 | 必须 | 说明 |
@@ -150,8 +144,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | 类别 |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。 |
 
 #### <a name="remove-a-log-profile"></a>删除日志配置文件
-```
-Remove-AzureRmLogProfile -name my_log_profile
+
+```powershell
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### <a name="configure-log-profiles-using-the-azure-cli"></a>使用 Azure CLI 配置日志配置文件
@@ -174,7 +169,7 @@ az monitor log-profiles create --name <profile name> \
     --categories <category1 category2 ...>
 ```
 
-有关使用 CLI 创建监视器配置文件的完整文档，请参阅 [CLI 命令参考](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
+有关使用 CLI 创建监视器配置文件的完整文档，请参阅 [CLI 命令参考](https://docs.azure.cn/zh-cn/cli/monitor/log-profiles?view=azure-cli-latest#az-monitor-log-profiles-create)
 
 #### <a name="remove-a-log-profile"></a>删除日志配置文件
 

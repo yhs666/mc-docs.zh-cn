@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: e67c8fb537edcfb6066a73f47e2fd9962e89b173
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 34285d11daed8b0c2bd264be69d7a9c12b9a19a7
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625516"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566341"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 运行状况检查（预览版）解决方案优化环境
 
@@ -40,7 +40,7 @@ ms.locfileid: "58625516"
 
 ## <a name="installing-and-configuring-the-solution"></a>安装和配置解决方案
 
-该解决方案适用于 Azure System Operations Manager 2012 Service Pack (SP) 1 和 2012 R2。
+解决方案适用于 Azure System Center 2012 Operations Manager Service Pack 1、Azure System Center 2012 R2 Operations Manager、Azure System Center 2016 Operations Manager、Azure System Center 2016 Operations Manager 以及 Azure System Center Operations Manager 1807
 
 使用以下信息安装和配置解决方案。
 
@@ -57,9 +57,9 @@ ms.locfileid: "58625516"
 1. [设置 System Center Operations Manager 运行状况检查的运行方式帐户](#operations-manager-run-as-accounts-for-log-analytics)  
 2. 配置 System Center Operations Manager 运行状况检查规则
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 评估数据收集详细信息
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager 运行状况检查数据收集详细信息
 
-System Center Operations Manager 评估从以下源收集数据：
+System Center Operations Manager 运行状况检查解决方案从以下源收集数据：
 
 * 注册表
 * Windows Management Instrumentation (WMI)
@@ -97,7 +97,7 @@ Log Analytics 基于工作负荷的管理包生成，提供增值服务。 每�
 2. 在“分发”选项卡上，单击“选定的计算机”框旁边的“添加”，添加要将该帐户分发到的管理服务器。  单击“确定”两次以保存更改。
 3. 在“运行方式配置”下，单击“配置文件”。
 4. 搜索“SCOM 评估配置文件”。
-5. 配置文件名称应为：“Microsoft System Center Advisor SCOM 评估运行方式配置文件”。
+5. 配置文件名称应为：Microsoft System Center Operations Manager 运行状况检查运行方式配置文件。
 6. 右键单击该配置文件并更新其属性，添加最近创建的运行方式帐户。
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>向运行方式帐户授予具体权限的 SQL 脚本
@@ -151,9 +151,9 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>配置运行状况检查规则
 
-System Center Operations Manager 运行状况检查解决方案的管理包中包含一个名为“Microsoft System Center Advisor SCOM 评估运行评估规则”的规则。 此规则负责执行运行状况检查。 若要启用该规则并配置频率，请使用以下过程。
+System Center Operations Manager 运行状况检查解决方案的管理包中包含一个名为“Microsoft System Center Operations Manager 运行运行状况检查规则”的规则。 此规则负责执行运行状况检查。 若要启用该规则并配置频率，请使用以下过程。
 
-Azure System Center Advisor SCOM 评估运行评估规则默认已禁用。 若要执行运行状况检查，必须在管理服务器上启用该规则。 使用以下步骤。
+默认情况下，“Azure System Center Operations Manager 运行运行状况检查规则”处于禁用状态。 若要执行运行状况检查，必须在管理服务器上启用该规则。 使用以下步骤。
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>为特定的管理服务器启用规则
 
@@ -169,7 +169,7 @@ Azure System Center Advisor SCOM 评估运行评估规则默认已禁用。 若�
 
 评估默认配置为每隔 10,080 分钟（即七天）运行一次。 最小可以将该值重写为 1440 分钟（即一天）。 该值表示连续运行评估的最小间隔时间。 若要重写该间隔，请使用以下步骤。
 
-1. 在 Operations Manager 控制台的“创作”工作区的“规则”部分中，搜索规则“Microsoft System Center Advisor SCOM 评估运行评估规则”。
+1. 在 Operations Manager 控制台的“创作”工作区的“规则”部分中，搜索规则“Microsoft System Center Operations Manager 运行运行状况检查规则”。
 2. 在搜索结果中，选择包含文本“类型:管理服务器”的规则。
 3. 右键单击该规则，并单击“重写规则” > “对于类为管理服务器的所有对象”。
 4. 将“间隔”参数值更改为所需的间隔值。 在以下示例中，该值设置为 1440 分钟（一天）。<br><br> ![间隔参数](./media/scom-assessment/interval.png)<br>  
@@ -276,7 +276,7 @@ Azure System Center Advisor SCOM 评估运行评估规则默认已禁用。 若�
 
 是否有某种方法可配置检查的运行频率？ 是的。 请参阅[配置运行频率](#configure-the-run-frequency)。
 
-如果添加 System Center Operations Manager 评估解决方案后发现另一台服务器，那么是否会检查它？ 是的，发现之后，即会对它进行检查，默认情况下每隔七天检查一次。
+如果添加 System Center Operations Manager 运行状况检查解决方案后发现另一台服务器，那么是否会检查它？ 是的，发现之后，即会对它进行检查，默认情况下每隔七天检查一次。
 
 *执行数据收集的进程的名称是什么？* AdvisorAssessment.exe
 
@@ -296,7 +296,7 @@ Azure System Center Advisor SCOM 评估运行评估规则默认已禁用。 若�
 
 *仅显示前 10 条建议的原因* 我们不会提供名目繁多的详尽任务列表，只是建议先按优先级着重实施建议的方法。 在解决这些建议后，其他建议将变为可用。 如果想要查看详细的列表，可以使用日志搜索查看所有建议。
 
-*有没有方法来忽略建议？* 是的，请参阅[忽略建议](#Ignore-recommendations)。
+
 
 
 ## <a name="next-steps"></a>后续步骤

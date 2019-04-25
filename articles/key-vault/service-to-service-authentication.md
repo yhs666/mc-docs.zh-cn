@@ -7,16 +7,16 @@ manager: barbkess
 services: key-vault
 ms.author: v-biyu
 origin.date: 11/15/2017
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: fb69c81efcee42fc53d27ca34d6b69ab1929281a
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: bf2a729b0982df9f355a5623e51800edf4234e52
+ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135489"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566233"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
@@ -30,7 +30,7 @@ ms.locfileid: "58135489"
 
 `Microsoft.Azure.Services.AppAuthentication` 库支持使用 Microsoft Visual Studio、Azure CLI 或 Azure AD 集成身份验证进行本地开发。 
 
-<a name="asal"></a>
+
 ## <a name="using-the-library"></a>使用库
 
 对于 .NET 应用程序，若要使用托管标识，最简单的方式是通过 `Microsoft.Azure.Services.AppAuthentication` 包。 下面介绍如何入门：
@@ -219,7 +219,8 @@ az account list
 | `RunAs=Developer; DeveloperTool=AzureCli` | 本地开发 | AzureServiceTokenProvider 使用 AzureCli 来获取令牌。 |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 本地开发 | AzureServiceTokenProvider 使用 Visual Studio 来获取令牌。 |
 | `RunAs=CurrentUser` | 本地开发 | AzureServiceTokenProvider 使用 Azure AD 集成身份验证来获取令牌。 |
-| `RunAs=App;` | Azure 资源的托管标识 | AzureServiceTokenProvider 使用托管标识来获取令牌。 |
+| `RunAs=App` | Azure 资源的托管标识 | AzureServiceTokenProvider 使用托管标识来获取令牌。 |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | Azure 资源的用户分配标识 | AzureServiceTokenProvider 使用用户分配标识来获取令牌。 |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | 服务主体 | `AzureServiceTokenProvider` 使用证书从 Azure AD 获取令牌。 |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | 服务主体 | `AzureServiceTokenProvider` 使用证书从 Azure AD 获取令牌|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | 服务主体 |`AzureServiceTokenProvider` 使用机密从 Azure AD 获取令牌。 |

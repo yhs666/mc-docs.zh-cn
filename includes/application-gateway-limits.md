@@ -2,15 +2,15 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 03/11/2019
+origin.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: e7b791e866dfa63d43b29e6cf7e89f258838c435
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: ca032ba196d4690c5240b6ca49aafff9e5afb373
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788802"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59736889"
 ---
 | 资源 | 默认限制 | 注意 |
 | --- | --- | --- |
@@ -30,14 +30,13 @@ ms.locfileid: "57788802"
 | 请求超时最大值 |24 小时 | |
 | 站点数 |100<sup>1</sup> |每个 HTTP 侦听器 1 个 |
 | 每个侦听器的 URL 映射 |1 | |
-| 每个 URL 映射基于路径的最大规则数|[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)|
+| 每个 URL 映射基于路径的最大规则数|[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)||
 | 重定向配置数 |100<sup>1</sup>| |
-| 并发 WebSocket 连接 |5,000| |
+| 并发 WebSocket 连接 |中型网关 20k<br> 大型网关 50k| |
 | 最大 URL 长度|[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)|
-| 最大文件上传大小标准 |[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/) | |
+| 最大文件上传大小：标准 |[请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/) | |
 | 最大文件上传大小 WAF |中型 WAF 网关 - [请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)<br>大型 WAF 网关 - [请联系支持部门以了解详细信息](https://www.azure.cn/zh-cn/support/contact/)| |
 | WAF 正文大小限制，不带文件|128 KB||
 
 <sup>1</sup> 对于启用了 WAF 的 SKU，建议将资源数限制为 40 以实现最佳性能。
 
-<!-- ms.date: 03/11/2019 -->

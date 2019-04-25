@@ -4,20 +4,20 @@ description: 通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/14/2018
-ms.date: 03/18/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ed589d437978c1c0445212086fa0bac4c0b3528b
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 9515d54ef9bade8e356ad28ae88323edf073681d
+ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004526"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615227"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 (TTL) 
 
-利用“生存时间”(TTL)，Azure Cosmos DB 能够在特定一段时间后自动将项从容器中删除。 默认情况下，可以在容器级别设置生存时间，并基于每个项替代该值。 在容器或项级别设置 TTL 后，Azure Cosmos DB 会在一段时间（自上次修改项的时间开始算起）后自动删除这些项。 配置的生存时间值以秒为单位。 配置 TTL 后，系统会基于 TTL 值自动删除已过期的项；这与客户端应用程序显式发出的 delete 操作不同。
+利用**生存时间**（简称 TTL），Azure Cosmos DB 能够在特定一段时间后自动将项从容器中删除。 默认情况下，可以在容器级别设置生存时间，并基于每个项替代该值。 在容器或项级别设置 TTL 后，Azure Cosmos DB 会在一段时间（自上次修改项的时间开始算起）后自动删除这些项。 配置的生存时间值以秒为单位。 配置 TTL 后，系统会基于 TTL 值自动删除已过期的项，不需要客户端应用程序显式发出的 delete 操作。
 
 ## <a name="time-to-live-for-containers-and-items"></a>容器和项的生存时间
 
@@ -39,7 +39,7 @@ ms.locfileid: "58004526"
 
 ## <a name="time-to-live-configurations"></a>生存时间配置
 
-* 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。  如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据配置的 TTL 值过期。 
+* 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。  如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。 
 
 * 如果未针对某个容器设置 TTL，则此容器中的项的生存时间不起作用。 
 

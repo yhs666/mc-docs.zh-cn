@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 06/07/2018
+ms.date: 04/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: a3b97ff4b9b9eb538136b15c51bf9a8d1254674a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2db743bde4532e768c67a7d4ffce0f32742730a5
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626579"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686273"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关的自定义探测
 
@@ -40,7 +40,7 @@ ms.locfileid: "58626579"
 
 可通过门户分两步配置探测。 第一步是创建探测。 第二步是将探测添加到应用程序网关的后端 http 设置。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可以注册 [1 元试用版](https://www.azure.cn/pricing/1rmb-trial)
 
 2. 在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 在“所有资源”边栏选项卡中单击应用程序网关。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“partners.contoso.net”， 轻松访问应用程序网关。
 
@@ -55,7 +55,7 @@ ms.locfileid: "58626579"
    |**名称**|customProbe|此值是可在门户中访问的探测的友好名称。|
    |**协议**|HTTP 或 HTTPS | 运行状况探测使用的协议。|
    |**主机**|例如 contoso.com|此值是用于探测的主机名。 仅在应用程序网关上配置了多站点的情况下适用，否则使用“127.0.0.1”。 此值与 VM 主机名不同。|
-   |**路径**|/ 或另一个路径|自定义探测的完整 URL 的其余部分。 有效路径以“/”开头。 默认路径 http://contoso.com 只需使用“/” |
+   |**路径**|/ 或另一个路径|自定义探测的完整 URL 的其余部分。 有效路径以“/”开头。 对于默认路径 http:\//contoso.com，只需使用“/” |
    |**间隔(秒)**|30|运行探测来检查运行状况的频率。 建议不要将时间间隔设置为短于 30 秒。|
    |**超时(秒)**|30|超时之前探测的等待时间。超时间隔必须足够长，以便进行 http 调用，确保后端运行状况页可用。|
    |**不正常阈值**|3|系统认为不正常的失败尝试次数。 阈值为 0 意味着，如果运行状况检查失败，则会立即将后端确定为不正常。|
@@ -84,5 +84,4 @@ ms.locfileid: "58626579"
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
 
 
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

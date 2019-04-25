@@ -6,22 +6,22 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.component: diagnostic-extension
-ms.openlocfilehash: aa171cf4fd2bbe8edbebf96c6030f13aba5be0d6
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 07d30f39625360b666a56b0aeab465f03b84975d
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363413"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686391"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 诊断 1.0 配置架构
 > [!NOTE]
 > Azure 诊断是一个组件，用于从 Azure 虚拟机、虚拟机规模集、Service Fabric 和云服务收集性能计数器和其他统计信息。  在使用以下某个服务时，才需要参阅此页。
 >
 
-Azure 诊断可以与其他 Azure 诊断产品（例如 Azure Monitor、Application Insights 和 Log Analytics）结合使用。
+Azure 诊断可以与其他 Azure 诊断产品（例如 Azure Monitor，其中包含 Application Insights 和 Log Analytics）结合使用。
 
 Azure 诊断配置文件定义用于初始化诊断监视器的值。 此文件用于在诊断监视器启动时初始化诊断配置设置。  
 
@@ -109,7 +109,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs 元素  
 定义由基础诊断基础结构生成的日志的缓冲区配置。
 
-父元素：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。  
+父元素：DiagnosticMonitorConfiguration 元素。  
 
 属性：
 
@@ -122,7 +122,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="logs-element"></a>Logs 元素  
  定义基本 Azure 日志的缓冲区配置。
 
- 父元素：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。  
+ 父元素：DiagnosticMonitorConfiguration 元素。  
 
 属性：  
 
@@ -135,7 +135,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directories-element"></a>Directories 元素  
 为可以定义的基于文件的日志定义缓冲区配置。
 
-父元素：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。  
+父元素：DiagnosticMonitorConfiguration 元素。  
 
 
 属性：  
@@ -148,7 +148,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  定义故障转储目录。
 
- 父元素：[Directories 元素](#Directories)。  
+ 父元素：Directories 元素。  
 
 属性：  
 
@@ -160,7 +160,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs 元素  
  定义失败的请求日志目录。
 
- 父元素：[Directories 元素](#Directories)。  
+ 父元素：Directories 元素。  
 
 属性：  
 
@@ -172,7 +172,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ##  <a name="iislogs-element"></a>IISLogs 元素  
  定义 IIS 日志目录。
 
- 父元素：[Directories 元素](#Directories)。  
+ 父元素：Directories 元素。  
 
 属性：  
 
@@ -184,12 +184,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasources-element"></a>DataSources 元素  
  定义零个或多个其他日志目录。
 
- 父元素：[Directories 元素](#Directories)。
+ 父元素：Directories 元素。
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 元素  
  定义要监视的日志文件的目录。
 
- 父元素：[DataSources 元素](#DataSources)。
+ 父元素：DataSources 元素。
 
 属性：
 
@@ -201,7 +201,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="absolute-element"></a>Absolute 元素  
  定义要使用可选环境扩展监视的目录的绝对路径。
 
- 父元素：[DirectoryConfiguration 元素](#DirectoryConfiguration)。  
+ 父元素：DirectoryConfiguration 元素。  
 
 属性：  
 
@@ -213,7 +213,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="localresource-element"></a>LocalResource 元素  
  定义服务定义中定义的本地资源的相对路径。
 
- 父元素：[DirectoryConfiguration 元素](#DirectoryConfiguration)。  
+ 父元素：DirectoryConfiguration 元素。  
 
 属性：  
 
@@ -225,7 +225,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  定义要收集的性能计数器的路径。
 
- 父元素：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。
+ 父元素：DiagnosticMonitorConfiguration 元素。
 
 
  属性：  
@@ -238,7 +238,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 元素  
  定义要收集的性能计数器。
 
- 父元素：[PerformanceCounters 元素](#PerformanceCounters)。  
+ 父元素：PerformanceCounters 元素。  
 
  属性：  
 
@@ -250,7 +250,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
  定义要监视的事件日志。
 
- 父元素：[DiagnosticMonitorConfiguration 元素](#DiagnosticMonitorConfiguration)。
+ 父元素：DiagnosticMonitorConfiguration 元素。
 
   属性：
 
@@ -263,7 +263,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasource-element"></a>DataSource 元素  
  定义要监视的事件日志。
 
- 父元素：[WindowsEventLog 元素](#windowsEventLog)。  
+ 父元素：WindowsEventLog 元素。  
 
  属性：
 

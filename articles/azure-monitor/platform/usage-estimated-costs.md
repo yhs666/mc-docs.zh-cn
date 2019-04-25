@@ -5,19 +5,26 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
 ms.reviewer: Dale.Koetke
-ms.component: ''
-ms.openlocfilehash: a486c4c7a5de6744e4a553640ce08738a96a8b59
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.subservice: ''
+ms.openlocfilehash: 29dae92701dee46df69cf93e0ea90c9ceb21f6d1
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363544"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686301"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>监视使用情况和预估成本
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure Monitor 中监视使用情况和预估成本
 
+> [!NOTE]
+> 本文介绍如何针对不同的定价模型查看多个 Azure 监视功能的使用情况和估算成本。  相关信息请参阅以下文章。
+> - [通过在 Log Analytics 中控制数据量和保留期管理成本](manage-cost-storage.md)介绍如何通过更改数据保留期来控制成本。
+> - [在 Log Analytics 中分析数据使用情况](../../azure-monitor/platform/data-usage.md)介绍了如何根据数据使用情况进行分析和警告。
+> - [在 Application Insights 中管理定价和数据量](../../azure-monitor/app/pricing.md)介绍如何在 Application Insights 中分析数据使用情况。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)、[Azure Log Analytics](https://www.azure.cn/pricing/details/log-analytics/) 及 [Azure Application Insights](https://www.azure.cn/pricing/details/application-insights/) 等核心监视功能的使用情况。 对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析产品/服务购买的 Log Analytics 使用情况功能。
 
@@ -37,7 +44,7 @@ ms.locfileid: "54363544"
 
 ## <a name="new-pricing-model"></a>新定价模型
 
-2018 年 4 月[发布了新的监控定价模型](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)。  此模型采用适合云的基于消耗的定价。 客户只需为使用的资源付费，且无需基于节点做出承诺。 我们已提供适用于[警报、指标和通知](https://azure.microsoft.com/pricing/details/monitor/)、[Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 及 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 的新定价模型的详细信息。 
+2018 年 4 月[发布了新的监控定价模型](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)。  此模型采用适合云的基于消耗的定价。 客户只需为使用的资源付费，且无需基于节点做出承诺。 我们已提供适用于[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)的新定价模型的详细信息。
 
 对于在 2018 年 4 月 2 日之后加入 Log Analytics 或 Application Insights 的客户，新定价模型是唯一选项。 对于已使用这些服务的客户，可以选择性地转移到新定价模型。
 
@@ -68,7 +75,7 @@ ms.locfileid: "54363544"
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>新定价模型和 Operations Management Suite 订阅权利
 
-购买了 Azure Operations Management Suite E1 和 E2 的客户有资格享受 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans) 的每节点数据引入权利。 若要在给定的订阅中享受 Log Analytics 工作区或 Application Insights 资源的这些权利： 
+购买了 Azure Operations Management Suite E1 和 E2 的客户有资格享受 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) 的每节点数据引入权利。 若要在给定的订阅中享受 Log Analytics 工作区或 Application Insights 资源的这些权利： 
 
 - 该订阅的定价模型必须保持为 2018 年 4 月之前的定价模型。
 - Log Analytics 工作区应使用“按节点 (OMS)”定价层。
@@ -107,14 +114,14 @@ ms.locfileid: "54363544"
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>自动转移到新定价模型
 
-下面的脚本需要使用 Azure PowerShell 模块。 若要检查是否拥有最新版本，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0)。
+下面的脚本需要使用 Azure PowerShell 模块。 若要检查是否拥有最新版本，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
-在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Connect-AzureRmAccount -Environment AzureChinaCloud``。
+在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Connect-AzAccount -Environment AzureChinaCloud``。
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -133,7 +140,7 @@ isGrandFatherableSubscription optedInDate
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action migratetonewpricingmodel `
@@ -144,7 +151,7 @@ Invoke-AzureRmResourceAction `
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -165,7 +172,7 @@ optInDate 现在包含此订阅加入到新定价模型时的时间戳。
 
 ```PowerShell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action rollbacktolegacypricingmodel `
@@ -179,7 +186,7 @@ Invoke-AzureRmResourceAction `
 ```PowerShell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
-$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
 ```
 
@@ -189,7 +196,7 @@ $Subscriptions = $Tenant.Id
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -207,7 +214,7 @@ Invoke-AzureRmResourceAction `
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzureRmResourceAction `
+$Result= Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -239,7 +246,7 @@ $Result= Invoke-AzureRmResourceAction `
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action migratetonewpricingmodel `

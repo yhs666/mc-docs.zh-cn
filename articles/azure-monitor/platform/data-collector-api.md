@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 45bd5f47eba5a7e23771d5c04c28b9521aeb36db
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: cd59400efa6505a2fed97e70e32cf80537680460
+ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440495"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59686478"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor
 本文介绍如何使用 HTTP 数据收集器 API 从 REST API 客户端将日志数据发送到 Azure Monitor。  其中说明了对于脚本或应用程序收集的数据，如何设置其格式、将其包含在请求中，并由 Azure Monitor 授权该请求。  将针对 PowerShell、C# 和 Python 提供示例。
@@ -61,6 +61,7 @@ Log Analytics 工作区中的所有数据都存储为具有某种特定记录类
 | 授权 |授权签名。 在本文的后面部分，可以了解有关如何创建 HMAC-SHA256 标头的信息。 |
 | Log-Type |指定正在提交的数据的记录类型。 此参数的大小限制为 100 个字符。 |
 | x-ms-date |处理请求的日期，采用 RFC 1123 格式。 |
+| x-ms-AzureResourceId | 应该与数据关联的 Azure 资源的资源 ID。 这样会填充 [_ResourceId](log-standard-properties.md#_resourceid) 属性，并允许将数据包括在[以资源为中心](manage-access.md#access-modes)的查询中。 如果未指定此字段，则不会将数据包括在以资源为中心的查询中。 |
 | time-generated-field |数据中包含数据项时间戳的字段名称。 如果指定某一字段，其内容用于 **TimeGenerated**。 如果未指定此字段，**TimeGenerated** 的默认值是引入消息的时间。 消息字段的内容应遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
 ## <a name="authorization"></a>授权
@@ -166,6 +167,11 @@ Azure Monitor 对每个属性所使用的数据类型取决于新记录的记录
 如果提交了后续条目，在记录类型创建前，Azure Monitor 将创建具有以下三个属性的记录：**number_s**、**boolean_s** 和 **string_s**。 在此条目中，每个初始值都采用字符串的格式：
 
 ![示例记录 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>保留的属性
+以下属性为保留属性，不应在自定义记录类型中使用。 如果有效负载中包含这些属性名称中的任何一个，则会收到错误。
+
+- tenant
 
 ## <a name="data-limits"></a>数据限制
 发布到 Azure Monitor 数据收集 API 的数据有一些限制。
@@ -465,6 +471,8 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+## <a name="alternatives-and-considerations"></a>替代方法和注意事项
+虽然数据收集器 API 应该满足你将自由格式数据收集到 Azure 日志中的大部分需求，但有时候也可能需要替代方法来克服此 API 的某些限制。 所有选项如下所示，包括了主要的考虑事项：
 
 ## <a name="next-steps"></a>后续步骤
 - 使用[日志搜索 API](../log-query/log-query-overview.md) 从 Log Analytics 工作区中检索数据。
