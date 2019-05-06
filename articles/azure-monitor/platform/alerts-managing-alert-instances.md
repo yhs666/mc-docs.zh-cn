@@ -23,11 +23,13 @@ ms.locfileid: "58625939"
    + 在[门户](https://portal.azure.cn/)中选择“监视器”，然后在“监视器”部分下选择“警报”。  
      ![监视](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-   + 可以从特定**资源**的上下文中导航到“警报”。 打开某个资源后，在其目录中导航到“监视”部分，选择“警报”，登陆页面将针对该特定资源的警报进行预先筛选。   
+   + 可以从特定**资源**的上下文中导航到“警报”。 打开某个资源后，在其目录中导航到“监视”部分，选择“警报”，登陆页面将针对该特定资源的警报进行预先筛选。
+   
      ![监视](media/alerts-managing-alert-instances/alert-resource.JPG)
     
-   + 可以从特定**资源组**的上下文中导航到“警报”。 打开某个资源组后，在其目录中导航到“监视”部分，选择“警报”，登陆页面将针对该特定资源组的警报进行预先筛选。   
-    ![监视](media/alerts-managing-alert-instances/alert-rg.JPG)
+   + 可以从特定**资源组**的上下文中导航到“警报”。 打开某个资源组后，在其目录中导航到“监视”部分，选择“警报”，登陆页面将针对该特定资源组的警报进行预先筛选。    
+   
+     ![监视](media/alerts-managing-alert-instances/alert-rg.JPG)
 
 2. 你将登陆到“警报摘要”页面，该页面提供了你在整个 Azure 中的所有警报实例的概述。 可以通过选择**多个订阅**（最多 5 个）或通过在**资源组**、特定**资源**或**时间范围**中进行筛选来修改摘要视图。 单击“警报总数”或严重性区段可以转到警报的列表视图。     
    ![警报摘要](media/alerts-managing-alert-instances/alerts-summary.jpg)
