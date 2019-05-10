@@ -28,16 +28,16 @@ API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置
 
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |
-| 显示名称 |字符串 |策略中用于引用属性的数字字母字符串。 |
-| 值 |字符串 |属性的值。 不能为空或只由空格组成。 |
-| 密钥 |布尔值 |确定值是否为密钥以及是否应加密。 |
-| 标记 |字符串数组 |可选标记，提供后可用来筛选属性列表。 |
+| Display name |字符串 |策略中用于引用属性的数字字母字符串。 |
+| Value |字符串 |属性的值。 不能为空或只由空格组成。 |
+| Secret |布尔值 |确定值是否为密钥以及是否应加密。 |
+| Tags |字符串数组 |可选标记，提供后可用来筛选属性列表。 |
 
 ![命名值](./media/api-management-howto-properties/named-values.png)
 
 属性值可以包含文本字符串和[策略表达式](/api-management/api-management-policy-expressions)。 例如，`ExpressionProperty` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 属性 `ContosoHeaderValue` 被标记为密钥，因此未显示其值。
 
-| Name | 值 | 密钥 | 标记 |
+| Name | Value | Secret | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
