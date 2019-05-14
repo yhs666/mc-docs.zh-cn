@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/13/2019
 ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 42102775d4ff65133d2b88a42942dd949248ef4d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9124315dc03ffea2540711cf9e20d7028ece9b5c
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627703"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63823229"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 

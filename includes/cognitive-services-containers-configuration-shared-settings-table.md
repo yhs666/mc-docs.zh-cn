@@ -1,16 +1,10 @@
 ---
-author: diberry
-ms.author: v-junlch
-ms.service: cognitive-services
-ms.topic: include
-origin.date: 01/22/2019
-ms.date: 03/01/2019
-ms.openlocfilehash: 34265b3fa0ba8767d3db07b83b57d6acc9c43c0b
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 8d2a7f4a6c99d244f84d10a91a743e90ca599a65
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204205"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855630"
 ---
 此容器具有以下配置设置：
 

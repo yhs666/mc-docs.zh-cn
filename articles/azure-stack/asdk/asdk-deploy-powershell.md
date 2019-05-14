@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 origin.date: 02/08/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 26f759741fd4922734892dea05dfa90d54f732f6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d5b5aa3720c4f1bff1cb88550378502fbc2be197
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625449"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855334"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>从命令行部署 ASDK
 ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
@@ -162,7 +162,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 **[ASDK 后部署任务](asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>注册到 Azure
-必须将 Azure Stack 注册到 Azure，以便[将 Azure 市场项下载](asdk-marketplace-item.md)到 Azure Stack。
+必须将 Azure Stack 注册到 Azure，以便[将 Azure 市场项下载](../operator/azure-stack-create-and-publish-marketplace-item.md)到 Azure Stack。
 
 **[将 Azure Stack 注册到 Azure](asdk-register.md)**
 

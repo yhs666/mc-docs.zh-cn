@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/08/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 52a85a34d6ac6fc4550633013d35ccaae6bc48b4
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 3f7b7e29a790b0deafebaed2a5746ab021e1c183
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408299"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855615"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -189,13 +189,16 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为“timerTrigger”。 在 Azure 门户中创建触发器时，会自动设置此属性。|
-|direction | 不适用 | 必须设置为“in”。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
+|**direction** | 不适用 | 必须设置为“in”。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 | 在函数代码中表示计时器对象的变量的名称。 | 
 |**schedule**|**ScheduleExpression**|[CRON 表达式](#cron-expressions)或 [TimeSpan](#timespan) 值。 只能对在应用服务计划中运行的函数应用使用 `TimeSpan`。 可以将计划表达式放在应用设置中并将此属性设置为用 **%** 符号括起的应用设置名称，例如此示例中的“%ScheduleAppSetting%”。 |
 |**runOnStartup**|**RunOnStartup**|如果为 `true`，则在运行时启动时调用此函数。 例如，当函数应用从由于无活动而进入的空闲状态醒来后，运行时会启动。 当函数应用由于函数更改而重新启动时，以及当函数应用横向扩展时。因此 **runOnStartup** 应该很少设置为 `true`，特别是在生产中。 |
 |**useMonitor**|**UseMonitor**|设置为 `true` 或 `false` 以指示是否应当监视计划。 计划监视在各次计划发生后会持续存在，以帮助确保即使在函数应用实例重新启动的情况下也能正确维护计划。 如果未显式设置，则对于重复周期间隔大于 1 分钟的计划，默认值为 `true`。 对于每分钟触发多次的计划，默认值为 `false`。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> 在生产中不建议将 runOnStartup 设置为 `true`。 使用此设置会使代码在非常不可预测的时间执行。 在某些生产设置中，这些额外执行可能会导致消耗计划中托管的应用产生明显更高的成本。 例如，在启用了 runOnStartup 时，只要扩展函数应用进行缩放，便会调用触发器。 在生产中启用 runOnStartup 之前，请确保完全了解函数的生产行为。
 
 ## <a name="usage"></a>使用情况
 

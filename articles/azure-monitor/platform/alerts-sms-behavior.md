@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: a9b945f0310b0accec91abbae0fa14ecb98ffa74
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5d04ea176aa5443172dad914e630c48e3793d3f4
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626486"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586896"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>操作组中的短信通知行为
 ## <a name="overview"></a>概述 ##
@@ -32,8 +32,8 @@ ms.locfileid: "58626486"
 
 | 回复 | 说明 |
 | ----- | ----------- |
-| DISABLE <Action Group Short name> | 禁用来自操作组的进一步短信 |
-| ENABLE <Action Group Short name> | 重新启用来自操作组的短信 |
+| DISABLE `<Action Group Short name>` | 禁用来自操作组的进一步短信 |
+| ENABLE `<Action Group Short name>` | 重新启用来自操作组的短信 |
 | STOP | 禁用来自所有操作组的进一步短信 |
 | START | 重新启用来自所有操作组的短信 |
 | HELP | 将向用户发送带本文链接的回复信息。 |

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/10/2019
 ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: d7576bdb3e7c1e900bb1520459ca604b61e8d4a7
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: e6d00db93ae6f2c6853f111257423b9f0dc4e1b0
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686444"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829926"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 SSL
 

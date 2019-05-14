@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: b84fdb1838447cbc7585be8be0eebc8b6e2a8ed4
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: d2413036fbae1568c1913fd9544b8b6a943009ee
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503522"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855296"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 基于角色的访问控制管理对资源的访问权限
 
@@ -41,28 +41,6 @@ Azure Stack 有三个可应用于所有资源类型的基本角色：
 * **所有者**可以管理所有内容，包括对资源的访问权限。
 * **参与者**可以管理除了对资源的访问权限以外的所有内容。
 * **读者**可以查看所有内容，但不能进行任何更改。
-
-### <a name="resource-hierarchy-and-inheritance"></a>资源层次结构和继承
-
-Azure Stack 具有以下资源层次结构：
-
-* 每个订阅属于一个目录。
-* 每个资源组属于一个订阅。
-* 每个资源属于一个资源组。
-
-子范围将继承在父范围授予的访问权限。 例如：
-
-* 将读者角色分配给订阅范围内的 Azure AD 组。 该组的成员可以查看订阅中的每个资源组和资源。
-* 将参与者角色分配给资源组范围内的应用程序。 该应用程序可以管理该资源组中所有类型的资源，但不能管理订阅中的其他资源组。
-
-### <a name="assigning-roles"></a>分配角色
-
-可以向一位用户分配多个角色，并且每个角色可以与不同的范围相关联。 例如：
-
-* 向 TestUser-A 分配 Subscription-1 的“读者”角色。
-* 向 TestUser-A 分配 TestVM-1 的“所有者”角色。
-
-Azure [角色分配](/role-based-access-control/role-assignments-portal)一文提供了有关查看、分配和删除角色的详细信息。
 
 ### <a name="resource-hierarchy-and-inheritance"></a>资源层次结构和继承
 

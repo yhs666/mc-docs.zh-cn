@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 01/26/2018
 ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: d96ab27f50b0c16987bd1356892fc4f7551a4583
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 7b76960a3ef8cac766d9f20e4826a91881e293d6
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686280"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829951"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>通过 Azure PowerShell 使用基于 URL 路径的路由规则创建应用程序网关
 

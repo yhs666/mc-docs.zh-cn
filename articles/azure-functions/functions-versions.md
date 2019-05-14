@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 10/03/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: d2dda4963f285cf3ddd6598cc206b372dd93d718
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 26d055e5570c194aa927078eea81e8f585d58c5f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408291"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855057"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 
@@ -68,7 +68,9 @@ Azure Functions 1.x 试验性语言不会更新为使用新模型，因此它们
 
 * 函数应用中的所有函数必须共享相同的语言。 创建函数应用时，必须选择该应用的运行时堆栈。 运行时堆栈由应用程序设置中的 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 值指定。 增加此项要求的目的是减少占用空间和启动时间。 进行本地开发时，还必须在 [local.settings.json 文件](functions-run-local.md#local-settings-file)中包含此设置。
 
-* 应用服务计划中函数的默认超时已更改为 30 分钟。 可以使用 host.json 中的 [functionTimeout](functions-host-json.md#functiontimeout) 设置，将超时手动改回到无限。
+* 应用服务计划中函数的默认超时已更改为 30 分钟。 可以使用 host.json 中的 [functionTimeout](functions-host-json.md#functiontimeout) 设置，将超时手动改回到 unlimited（无限）。
+
+* 默认情况下，将对消耗计划函数实施 HTTP 并发性限制，每个实例的并发请求数默认为 100。 可以在 host.json 文件中的 [`maxConcurrentRequests`](functions-host-json.md#http) 设置内更改此值。
 
 * 由于 [.NET Core 的限制](https://github.com/Azure/azure-functions-host/issues/3414)，已删除对 F# 脚本 (.fsx) 函数的支持。 编译的 F# 函数 (.fs) 仍受支持。
 

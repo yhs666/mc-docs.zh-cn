@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 01/24/2019
-ms.date: 02/13/2019
+origin.date: 04/24/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: d1ec37d450002363d3e9558ee197657d2f1e821a
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4aaa8e8bcc749d03eed23da117515be4e6b100ce
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222705"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520761"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -158,7 +159,6 @@ ms.locfileid: "56222705"
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | st |X |X | | |
@@ -241,7 +241,6 @@ ms.locfileid: "56222705"
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | st |X |X | | |
@@ -294,7 +293,6 @@ ms.locfileid: "56222705"
 | preferredLanguage |X | | | |
 | ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
-| securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | st |X |X | | |
@@ -317,7 +315,6 @@ ms.locfileid: "56222705"
 | objectSID |X | |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
 | ProxyAddresses |X |X |X |机械属性。 由 Azure AD 使用。 包含用户的所有辅助电子邮件地址。 |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 |
-| securityEnabled | | |X |派生自 groupType。 |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | usageLocation |X | | |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
 | userPrincipalName |X | | |此 UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
@@ -336,7 +333,6 @@ ms.locfileid: "56222705"
 | objectSID |X | |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
 | ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
-| securityEnabled | | |X |派生自 groupType |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | usageLocation |X | | |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
 | userPrincipalName |X | | |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
@@ -364,7 +360,6 @@ ms.locfileid: "56222705"
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
-| securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | st |X |X | | |
@@ -450,8 +445,8 @@ ms.locfileid: "56222705"
 | targetAddress | X |  |
 
 ## <a name="notes"></a>注释
-- 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）将与 Azure AD 属性 userPrincipalName 同步。
-- 在上述列表中，对象类型 User 也适用于对象类型 iNetOrgPerson。
+* 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）将与 Azure AD 属性 userPrincipalName 同步。
+* 在上述列表中，对象类型 User 也适用于对象类型 iNetOrgPerson。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。

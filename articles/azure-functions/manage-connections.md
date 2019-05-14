@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 02/25/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: ea50924a3707b6f744cd2b2dcf7073517cd39e7e
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 2755dc1087b697f0149a494738adce8f561bc307
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408274"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855493"
 ---
 # <a name="manage-connections-in-azure-functions"></a>管理 Azure Functions 中的连接
 
@@ -24,7 +24,7 @@ ms.locfileid: "58408274"
 
 可用连接数量受到限制，部分原因是函数应用在[沙盒环境](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)中运行。 沙盒对代码施加的限制之一是每个实例的[连接数上限（目前，活动连接数上限为 600 个，总连接数上限为 1,200 个）](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits)。 达到此限制时，函数运行时会创建一个包含以下消息的日志：`Host thresholds exceeded: Connections`。
 
-此限制是按实例施加的。  [缩放控制器添加函数应用实例](functions-scale.md)以处理更多请求时，每个实例都有单独的连接限制。 这意味着没有全局连接限制，你可以跨所有活动实例建立比 600 个活动连接多得多的连接。
+此限制是按实例施加的。  [缩放控制器添加函数应用实例](functions-scale.md#how-the-consumption-plans-work)以处理更多请求时，每个实例都有单独的连接限制。 这意味着没有全局连接限制，你可以跨所有活动实例建立比 600 个活动连接多得多的连接。
 
 ## <a name="static-clients"></a>静态客户端
 

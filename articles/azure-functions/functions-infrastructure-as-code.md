@@ -12,14 +12,14 @@ ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: d05ad15d62e7ae939b40424b1f73f57d307f3001
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: d3cce67583d07a2b6e7e42bcbe3c445fdb7e5c14
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408266"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854935"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -28,6 +28,7 @@ ms.locfileid: "58408266"
 有关创建模板的详细信息，请参阅[创作 Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 有关示例模板，请参阅：
+- [基于消耗计划的函数应用]
 - [基于 Azure 应用服务计划的函数应用]
 
 ## <a name="required-resources"></a>所需资源
@@ -35,7 +36,7 @@ ms.locfileid: "58408266"
 函数应用需要以下资源：
 
 * [Azure 存储](/storage)帐户
-* 托管计划（应用服务计划）
+* 托管计划（消耗计划或应用服务计划）
 * 函数应用 
 
 有关这些资源的 JSON 语法和属性，请参阅：
@@ -80,7 +81,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 ### <a name="hosting-plan"></a>托管计划
 
-托管计划的定义取决于是否使用应用服务计划。 请参阅[基于应用服务计划部署函数应用](#app-service-plan)。
+托管计划的定义取决于是使用消耗计划还是使用应用服务计划。 请参阅[基于消耗计划部署函数应用](#consumption)和[基于应用服务计划部署函数应用](#app-service-plan)。
 
 ### <a name="function-app"></a>函数应用
 
@@ -98,6 +99,77 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     ]
 ```
+
+<a name="consumption"></a>
+
+## <a name="deploy-a-function-app-on-the-consumption-plan"></a>基于消耗计划部署函数应用
+
+可以在两种不同的模式下运行函数应用：消耗计划和应用服务计划。 代码运行时，消耗计划会自动分配计算能力，根据处理负载的需要进行扩展，然后在代码停止运行时进行缩减。 因此，无需为空闲的 VM 付费，且无需提前保留容量。 若要详细了解托管计划，请参阅 [Azure Functions 消耗计划和应用服务计划](functions-scale.md)。
+
+有关 Azure 资源管理器模板示例，请参阅[基于消耗计划的函数应用]。
+
+### <a name="create-a-consumption-plan"></a>创建消耗计划
+
+消耗计划是一种特殊的“serverfarm”资源。 可以通过为 `computeMode` 和 `sku` 属性使用 `Dynamic` 值来指定：
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "computeMode": "Dynamic",
+        "sku": "Dynamic"
+    }
+}
+```
+
+### <a name="create-a-function-app"></a>创建函数应用
+
+此外，消耗计划还需要站点配置中的两个附加设置：`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 和 `WEBSITE_CONTENTSHARE`。 这些属性用于配置存储函数应用代码和配置的存储帐户和文件路径。
+
+```json
+{
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",            
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsDashboard",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTSHARE",
+                    "value": "[toLower(variables('functionAppName'))]"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~1"
+                }
+            ]
+        }
+    }
+}
+```                    
 
 
 <a name="app-service-plan"></a> 
@@ -225,6 +297,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 <!-- LINKS -->
 
+[基于消耗计划的函数应用]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
 [基于 Azure 应用服务计划的函数应用]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 
 <!-- Update_Description: link update -->

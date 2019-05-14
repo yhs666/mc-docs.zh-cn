@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 4184d28f248f85d0dd017f7b12804ca2bfc968cb
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 5efed82b0c14c32229f90f97751c5607be446451
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686266"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586853"
 ---
 # <a name="what-are-classic-alerts-in-21vianet-azure"></a>什么是世纪互联 Azure 中的经典警报？
 
@@ -88,7 +88,7 @@ Webhook 可实现自动化和修复，例如使用：
 ## <a name="next-steps"></a>后续步骤
 了解警报规则以及如何使用以下工具来配置这些规则：
 
-
+* 详细了解[指标](data-platform.md)
 * [通过 Azure 门户配置经典指标警报](alerts-classic-portal.md)
 * 配置[经典指标警报 PowerShell](alerts-classic-portal.md)
 * 配置[经典指标警报命令行接口 (CLI)](alerts-classic-portal.md)

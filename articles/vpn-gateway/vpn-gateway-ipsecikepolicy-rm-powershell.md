@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: c515a7e7676523f8da94848e567e8e969a5f51df
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: aeb288eb00e4a87a09437c9806190661f844923c
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833184"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63856127"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略
 

@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 origin.date: 08/16/2018
-ms.date: 03/25/2019
+ms.date: 05/06/2019
 ms.author: v-biyu
-ms.openlocfilehash: 4b2e6c186f43c353ab17614795d888476f62baee
-ms.sourcegitcommit: b1a411528581081a0c93f44741a29bdd6b450f0e
+ms.openlocfilehash: 95bc8ccd109788aef8fbe56cc05a159507e65193
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57787313"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854650"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -92,10 +92,16 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程：  
+在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅“发送和接收事件”教程： 
 
-- **将事件发送到事件中心**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- **从事件中心接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.cn/

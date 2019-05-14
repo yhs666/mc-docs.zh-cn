@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
 origin.date: 02/20/2019
-ms.date: 03/01/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: a7acd37bc07da16a2b740515dd19b7145974ce2c
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 8c8057daf9858158d2d45f1d9c5993035feab7ca
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204050"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855268"
 ---
 # <a name="what-is-azure-content-moderator"></a>什么是 Azure 内容审查器？
 
@@ -40,15 +40,16 @@ Azure 内容审查器 API 是一项认知服务，用于检查文本、图像和
 
 内容审查器服务包括适用于以下方案的 API。
 
-| 操作 | 说明 |
+| API 组 | 说明 |
 | ------ | ----------- |
-|[**文本审查**](text-moderation-api.md)| 扫描文本中是否存在冒犯性内容、明确的或暗示性的色情内容、不雅内容和个人身份信息 (PII)。|
+|[**文本审查**](text-moderation-api.md)| 扫描文本中是否存在冒犯性内容、明确的或暗示性的色情内容、不雅内容和个人数据。|
 |[**自定义术语列表**](try-terms-list-api.md)| 扫描文本中是否存在内置的术语和一系列的自定义术语。 根据你自己的内容策略，使用自定义列表阻止或允许内容。|  
 |[**图像审查**](image-moderation-api.md)| 扫描图像中是否存在成人内容或不雅内容，通过光学字符识别 (OCR) 功能检测图像中的文本，以及检测人脸。|
 |[**自定义图像列表**](try-image-list-api.md)| 针对自定义图像列表对图像进行扫描。 使用自定义图像列表筛选掉常常反复出现的内容的实例，这些实例不需再次分类。|
 |[**视频审查**](video-moderation-api.md)| 扫描视频中是否存在成人内容或挑逗性内容，并针对上述内容返回时间标记。|
+
 ## <a name="data-privacy-and-security"></a>数据隐私和安全性
-与所有认知服务一样，使用内容审查器服务的开发人员应该了解 Microsoft 针对客户数据的政策。 请参阅 Microsoft 信任中心上的[“认知服务”页面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)来了解详细信息。
 
+与所有认知服务一样，使用内容审查器服务的开发人员应该了解 Microsoft 针对客户数据的政策。 请参阅 Microsoft 信任中心上的[“认知服务”页面](https://www.trustcenter.cn)来了解详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

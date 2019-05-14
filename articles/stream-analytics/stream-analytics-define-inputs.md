@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 175951f295e670dcca089d19c9326daae001ca84
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 50c0ee7bd5aece5bb8c2bf8be6478bf4563494a5
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544774"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63824372"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: f7de4fac9c747e579556b78931d678f143237d4b
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: a4942fd13026be466d87734881f87e251cebdb55
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566333"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63824237"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>将 Azure VM 备份到恢复服务保管库中
 

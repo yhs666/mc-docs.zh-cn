@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/28/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 10899804f45c86a9df5900873b1bbaeb3b1b7417
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5479130a59c5f989d648ecc83e5ea8a9ad7a1be5
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626427"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520691"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中实现业务连续性和灾难恢复的最佳做法
 
@@ -34,12 +34,15 @@ ms.locfileid: "58626427"
 
 一个 AKS 群集部署到单个区域中。 为防止区域故障，可以跨不同区域将应用程序部署到多个 AKS 群集中。 当计划在哪些区域部署 AKS 群集时，应注意以下事项：
 
-* [AKS 区域可用性](/aks/container-service-quotas#region-availability)
-  * 选择靠近用户的区域。 AKS 正不断向新区域扩展。
+* [AKS 区域可用性](/aks/quotas-skus-regions#region-availability)
+    * 选择靠近用户的区域。 AKS 正不断向新区域扩展。
 * [Azure 配对区域](/best-practices-availability-paired-regions)
-  * 对于你的地理区域，选择两个相互配对的区域。 这些区域协调平台更新，并在需要时确定恢复工作的优先级。
+
+    <!--Not Available on [Azure paired regions](/best-practices-availability-paired-regions)-->
+    
+    * 对于你的地理区域，选择两个相互配对的区域。 这些区域协调平台更新，并在需要时确定恢复工作的优先级。
 * 服务可用性级别（热/热、热/暖、热/冷）
-  * 是否希望同时运行两个区域，一个区域已准备好开始提供流量，一个区域需要时间来准备好提供流量。
+    * 是否希望同时运行两个区域，一个区域已准备好开始提供流量，一个区域需要时间来准备好提供流量。
 
 AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部署到配对区域中，这些区域旨在一起管理区域灾难恢复。 例如，AKS 在*中国东部*和*中国北部*提供。 这些区域也是配对的。 创建 AKS 业务连续性/灾难恢复策略时，建议使用这两个区域。
 
@@ -59,14 +62,9 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 
 流量管理器用于执行 DNS 查找，并为用户返回最适当的终结点。 可以使用嵌套的配置文件，并为主位置指定优先级。 例如，用户应主要连接到最近的地理区域。 如果该区域有问题，流量管理器会将其定向到次要区域。 此方式确保客户始终可以连接到应用程序实例，即使最近的地理区域不可用。
 
-有关如何设置这些终结点和路由的步骤，请参阅[使用流量管理器配置地理流量路由方法](/traffic-manager/traffic-manager-configure-geographic-routing-method)。
-
-### <a name="layer-7-application-routing-with-azure-front-door"></a>第 7 层应用程序路由与 Azure Front Door
-
-Azure 流量管理器使用 DNS（第 3 层）来塑造流量。 [Azure Front Door（目前为预览版）](/frontdoor/front-door-overview)提供了一个 HTTP/HTTPS（第 7 层）路由选项。 Front Door 的附加功能包括 SSL 终止、自定义域、Web 应用程序防火墙、URL 重写和会话相关性。
-
-查看应用程序流量的需求，以了解哪种解决方案是最合适。
-
+<!--Not Available on [Configure the geographic traffic routing method using Traffic Manager](/traffic-manager/traffic-manager-configure-geographic-routing-method)-->
+<!--Not Available on Preview content ### Layer 7 application routing with Azure Front Door-->
+<!--Not Avaialble on [Azure Front Door (currently in preview)](/frontdoor/front-door-overview)-->
 ## <a name="enable-geo-replication-for-container-images"></a>为容器映像启用异地复制
 
 **最佳实践指南** - 将容器映像存储在 Azure 容器注册表，并将注册表异地复制到每个 AKS 区域。

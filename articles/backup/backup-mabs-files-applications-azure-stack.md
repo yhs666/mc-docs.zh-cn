@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/05/2018
 ms.date: 08/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3431537eee194d715325b2f4f2b8de34d4ac3d2f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: dc44f4c33c5e37449a05db4aae59b52e7464f4a5
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645920"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555442"
 ---
 # <a name="back-up-files-on-azure-stack"></a>备份 Azure Stack 中的文件
 可以使用 Azure 备份保护（或备份）Azure Stack 上的文件和应用程序。 若要备份文件和应用程序，请将 Azure 备份服务器安装为 Azure Stack 上运行的虚拟机。 可以保护相同虚拟网络中任何 Azure Stack 服务器上的文件。 安装 Azure 备份服务器后，可添加 Azure 磁盘以增加可用于短期备份数据的本地存储。 Azure 备份服务器将 Azure 存储用于长期保留。
@@ -50,7 +50,7 @@ ms.locfileid: "52645920"
 
     ![“新建保护组”向导打开](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft 建议将共用保护策略的所有数据放入同一个保护组。 有关规划和部署保护组的完整信息，请参阅 System Center DPM 文章[部署保护组](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
+    Microsoft 建议将共用保护策略的所有数据放入同一个保护组。 有关规划和部署保护组的完整信息，请参阅 System Center DPM 文章[部署保护组](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
 
 4. 在“选择数据保护方法”屏幕中，键入保护组的名称。 选中“我想使用以下介质进行短期保护:”和“我需要在线保护”对应的复选框。 单击“下一步”。
 
@@ -77,7 +77,7 @@ ms.locfileid: "52645920"
 7. 在“选择副本创建方法”中，选择要如何处理初始完整数据复制。 如果确定通过网络复制，Azure 建议选择非高峰时间。 如果数据量很大或网络状态欠佳，请考虑使用可移动媒体复制数据。
 
 8. 在“选择一致性检查选项”中，选择要如何自动执行一致性检查。 使一致性检查仅在数据复制变得不一致时才运行，或根据计划运行。 如果不想配置自动一致性检查，可随时通过以下方式运行手动检查：
-    - 在 Azure 备份服务器控制台的“保护”区域中，右键单击保护组，并选择“执行一致性检查”。
+    * 在 Azure 备份服务器控制台的“保护”区域中，右键单击保护组，并选择“执行一致性检查”。
 
 9. 如果选择备份到 Azure，请在“指定在线保护数据”页上，确保选择要备份到 Azure 的工作负荷。
 
@@ -105,16 +105,16 @@ ms.locfileid: "52645920"
 
 5. 可按如下所述恢复数据：
 
-    - **恢复到原始位置** - 如果已通过 VPN 连接客户端计算机，则此选项不起作用。 请改用备用位置，然后从该位置复制数据。
-    - **恢复到备用位置**
+    * **恢复到原始位置** - 如果已通过 VPN 连接客户端计算机，则此选项不起作用。 请改用备用位置，然后从该位置复制数据。
+    * **恢复到备用位置**
 
 6. 指定恢复选项：
 
-    - 对于“现有版本恢复行为”，请选择“创建副本”、“跳过”或“覆盖”。 仅当恢复到原始位置时才能使用“覆盖”。
-    - 对于“还原安全性”，请选择“应用目标计算机的设置”或“应用恢复点版本的安全设置”。
-    - 对于“网络带宽使用限制”，请单击“修改”启用网络带宽使用限制。
-    - **通知**单击“恢复完成时发送电子邮件”，并指定通知的收件人。 使用逗号分隔电子邮件地址。
-    - 完成选择后，单击“下一步”
+    * 对于“现有版本恢复行为”，请选择“创建副本”、“跳过”或“覆盖”。 仅当恢复到原始位置时才能使用“覆盖”。
+    * 对于“还原安全性”，请选择“应用目标计算机的设置”或“应用恢复点版本的安全设置”。
+    * 对于“网络带宽使用限制”，请单击“修改”启用网络带宽使用限制。
+    * **通知**单击“恢复完成时发送电子邮件”，并指定通知的收件人。 使用逗号分隔电子邮件地址。
+    * 完成选择后，单击“下一步”
 
 7. 检查恢复设置，单击“恢复”。 
 

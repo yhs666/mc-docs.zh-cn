@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: quickstart
 origin.date: 02/01/2019
-ms.date: 03/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 7491e5e3ce1c6bdb61eb589e6f63bc9eaa16ba7a
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: e9b3322c70b5a7e3b998001e8c35a2cfe446030e
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253899"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549964"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>快速入门：使用 Windows 虚拟机创建和管理 Azure 文件存储共享
 

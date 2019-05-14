@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/17/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 14b45ed9c167ed088f4c522b88a9c78216860185
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1951f0ec39fa65eb33532e709884e9cbb055acc2
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625736"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63859974"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 从不同的部署模型连接虚拟网络
 

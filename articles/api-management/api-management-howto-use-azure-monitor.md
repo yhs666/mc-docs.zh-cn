@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: apimpm
-ms.openlocfilehash: a00882387809eb00a58f93cfa193941c5cb58895
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: e3f72a063e6e8fc7e9ad4f50c36b898c7055d802
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529427"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855300"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -107,7 +107,7 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 ![活动日志](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
 
-查看活动日志：
+要查看活动日志，请执行以下操作：
 
 1. 选择 APIM 服务实例。
 2. 单击“活动日志”。
@@ -129,7 +129,7 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 3. 单击“启用诊断”。 可以将诊断日志与指标一起存档到存储帐户，将其流式传输到事件中心，或者将其发送到 Azure Monitor 日志。 
 
-API 管理当前提供有关单个 API 请求的诊断日志（每小时进行批处理），其中每个条目具有以下架构：
+“API 管理”当前提供有关单个 API 请求的诊断日志（每小时进行批处理），其中每个条目具有以下架构：
 
 ```json
 {  
@@ -177,7 +177,7 @@ API 管理当前提供有关单个 API 请求的诊断日志（每小时进行�
 ```
 
 
-|        属性        |   类型    |                                                                       说明                                                                        |
+|        properties        |   类型    |                                                                       说明                                                                        |
 |------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    isRequestSuccess    |  布尔值  |                                   如果 HTTP 请求完成时，响应状态代码在 2xx 或 3xx 范围内，则为 true                                   |
 |          time          | 日期时间 |                                                  网关接收 HTTP 请求的时间戳                                                  |
@@ -210,12 +210,12 @@ API 管理当前提供有关单个 API 请求的诊断日志（每小时进行�
 |         userId         |  字符串   |                                                        当前请求的用户实体标识符                                                        |
 |   apimSubscriptionId   |  字符串   |                                                    当前请求的订阅实体标识符                                                    |
 |       backendId        |  字符串   |                                                      当前请求的后端实体标识符                                                       |
-|       LastError        |  object   |                                                              上一个请求处理错误                                                               |
-|        已用时间         |  integer  |                               从网关收到请求到发生错误经过的时间（毫秒）                               |
+|       lastError        |  object   |                                                              上一个请求处理错误                                                               |
+|        elapsed         |  integer  |                               从网关收到请求到发生错误经过的时间（毫秒）                               |
 |         source         |  字符串   |                                            导致错误的策略或内部处理程序的名称                                            |
 |         scope          |  字符串   |                                         导致错误的策略所在策略文档的范围                                         |
 |        section         |  字符串   |                                        导致错误的策略所在策略文档的节                                        |
-|         原因         |  字符串   |                                                                       错误原因                                                                       |
+|         reason         |  字符串   |                                                                       错误原因                                                                       |
 |        message         |  字符串   |                                                                      错误消息                                                                       |
 
 ## <a name="next-steps"></a>后续步骤

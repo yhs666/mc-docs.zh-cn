@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/11/2019
-ms.date: 03/26/2019
+origin.date: 03/27/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 74e54ee88a51f8f91dcf936cc61813646e72dd3d
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 8d0a9f4de3c938680abe98e39126330a02849ef2
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505558"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854479"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>快速入门：在计算机视觉中使用 REST API 和 cURL 生成缩略图
 
@@ -63,7 +63,7 @@ ms.locfileid: "58505558"
 
 ## <a name="examine-the-response"></a>检查响应
 
-成功的响应会将缩略图写入 `<thumbnailFile>` 中指定的文件。 如果请求失败，则响应包含错误代码和消息，以帮助确定问题所在。
+成功的响应会将缩略图写入 `<thumbnailFile>` 中指定的文件。 如果请求失败，则响应包含错误代码和消息，以帮助确定问题所在。 如果请求似乎是成功的，但创建的缩略图不是有效的图像文件，则可能是因为订阅密钥无效。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -72,3 +72,4 @@ ms.locfileid: "58505558"
 > [!div class="nextstepaction"]
 > [探索计算机视觉 API](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44)
 
+<!-- Update_Description: wording update -->

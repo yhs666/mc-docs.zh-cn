@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/13/2018
 ms.date: 09/30/2018
-ms.openlocfilehash: 9a00038221fd82a7412265ee7b78d33d4a45128f
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: bcf824157b7f98a13d5c39d2eed0e0dc3ec5f9c1
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544721"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63848675"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -33,11 +33,11 @@ ms.locfileid: "58544721"
 
 在 Visual Studio 中，选择“文件” > “新建” > “项目”。 导航到左侧的“模板”列表，展开“Azure 流分析” > “流分析 Edge” > “Azure 流分析 Edge 应用程序”。 提供项目的名称、位置和解决方案名称，选择“确定”。
 
-![新 Edge 项目](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-edge-project.png)
+![Visual Studio 中的新 Edge 项目](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 创建项目后，导航到“解决方案资源管理器”查看文件夹层次结构。
 
-![解决方案资源管理器视图](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![流分析 Edge 作业的解决方案资源管理器视图](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
 ## <a name="choose-the-correct-subscription"></a>选择正确的订阅
 
@@ -105,19 +105,19 @@ FROM EdgeInput
 
 3. 此时会打开一个弹出窗口，可在其中选择更新现有的或创建新的 Edge 作业。 更新现有作业时，会替换所有作业配置，在这种情况下，需要发布新作业。 选择“创建新的 Azure 流分析作业”，为作业输入类似于 **MyASAEdgeJob** 的名称，选择所需的**订阅**、**资源组**和**位置**，然后选择“提交”。
 
-   ![提交到 Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
-
-   <!-- Not Available on [Run jobs on IoT Edge tutorial](stream-analytics-edge.md)-->
+   ![从 Visual Studio 将流分析作业提交到 Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
+ 
+   创建流分析 Edge 作业后，可以参阅[在 IoT Edge 中运行作业的教程](stream-analytics-edge.md)，了解如何将作业部署到设备。 
 
 ## <a name="manage-the-job"></a>管理作业 
 
-可以通过服务器资源管理器查看作业和作业关系图。 在“服务器资源管理器” > “流分析”中，展开部署了 Edge 作业的订阅和资源组，可以查看状态为“已创建”的 MyASAEdgejob。 展开作业节点，并双击该节点打开作业视图。
+可以通过服务器资源管理器查看作业和作业关系图。 从“服务器资源管理器”中的“流分析”中，展开你在其中部署了 Edge 作业的订阅和资源组。 你可以查看状态为“已创建”的 MyASAEdgejob。 展开作业节点，并双击该节点打开作业视图。
 
-![服务器资源管理器选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
+![服务器资源管理器作业管理选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
+ 
+作业视图窗口中提供了刷新作业、删除作业以及从 Azure 门户打开作业等操作。
 
-作业视图窗口中提供了刷新作业、删除作业、从 Azure 门户打开作业等操作。
-
-![作业关系图和其他选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
+![Visual Studio 中的作业关系图和其他选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
 <!-- Not Available on ## Next steps-->
 

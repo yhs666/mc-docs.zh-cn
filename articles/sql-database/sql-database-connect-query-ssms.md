@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/25/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 91edc3094f6a763923d5422569bea98b2cf655f1
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 04/29/2019
+ms.openlocfilehash: 77b09552819f6f22e1707d2745bfecfc514e07a9
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529160"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854473"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -40,7 +40,7 @@ ms.locfileid: "59529160"
 
 ## <a name="install-the-latest-ssms"></a>安装最新的 SSMS
 
-在开始之前，请确保已安装最新的 [SSMS][ssms-install-latest-84g]。 
+在开始之前，请确保已安装最新的 [SSMS][ssms-install-latest-84g]。
 
 ## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
@@ -54,7 +54,7 @@ ms.locfileid: "59529160"
 
 ## <a name="connect-to-your-database"></a>连接到数据库
 
-在 SMSS 中，连接到 Azure SQL 数据库服务器。 
+在 SMSS 中，连接到 Azure SQL 数据库服务器。
 
 > [!IMPORTANT]
 > Azure SQL 数据库服务器在端口 1433 上进行侦听。 若要从公司防火墙后连接到 SQL 数据库服务器，该防火墙必须打开此端口。
@@ -64,8 +64,8 @@ ms.locfileid: "59529160"
 
 2. 输入以下信息：
 
-   | 设置      | 建议的值    | 说明 | 
-   | ------------ | ------------------ | ----------- | 
+   | 设置      | 建议的值    | 说明 |
+   | ------------ | ------------------ | ----------- |
    | **服务器类型** | 数据库引擎 | 所需的值。 |
    | **服务器名称** | 完全限定的服务器名称 | 类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |
    | **身份验证** | SQL Server 身份验证 | 本教程使用 SQL 身份验证。 |
@@ -79,7 +79,7 @@ ms.locfileid: "59529160"
 
    ![连接到服务器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. 选择“连接” 。 此时会打开“对象资源管理器”窗口。 
+4. 选择“连接” 。 此时会打开“对象资源管理器”窗口。
 
 5. 要查看数据库的对象，请展开“数据库”，然后展开“mySampleDatabase”。
 
@@ -136,15 +136,14 @@ ms.locfileid: "59529160"
 1. 将之前的查询替换为此查询。
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. 选择“执行”。 将显示以下结果。 
+
+2. 选择“执行”。 将显示以下结果。
 
    ![结果](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>更新数据
 
 运行此 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 代码以修改新产品。
@@ -184,8 +183,6 @@ ms.locfileid: "59529160"
 - 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
 - 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

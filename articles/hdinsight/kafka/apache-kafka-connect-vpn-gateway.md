@@ -11,12 +11,12 @@ ms.workload: big-data
 origin.date: 11/06/2018
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3faad28711b79fc1b04cfccb79754ca32436a536
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: cfce82f7dbeb1a34356fe75c25604633791ab79a
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003822"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63857598"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Apache Kafka on HDInsight
 

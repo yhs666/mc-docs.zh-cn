@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 76bf9955bc12e1224cc4086119cadcdf9e2ad231
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 3b505f2849d8ac8425e0449f37df4b019b27a570
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906056"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586645"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)（称为“WAD”或“诊断”）支持从作为虚拟机、云服务或 Service Fabric 群集的一部分运行的来宾操作系统（来宾 OS）中收集指标和日志。 该扩展可将遥测数据发送到[许多不同的位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
 
@@ -143,7 +145,7 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 1. 启动 PowerShell 并登录。
 
     ```powershell
-    Login-AzureRmAccount -Environment AzureChinaCloud
+    Login-AzAccount -Environment AzureChinaCloud
     ```
 
 1. 一开始将上下文设置为经典 VM。
@@ -155,7 +157,7 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 1. 设置通过 VM 创建的经典存储帐户的上下文。
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.  使用以下命令将诊断文件路径设置为一个变量：

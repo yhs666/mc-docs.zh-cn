@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b3730ea5aeab2d9206cdfa119380906c90716718
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1b92ea633aa6866eded0f59508a2f21a8bb57208
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625126"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520681"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中运行应用程序
 
@@ -53,12 +53,12 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-将 *microsoft* 替换为 ACR 登录服务器名称。 映像名称位于清单文件的第 47 行。 以下示例展示了默认映像名称：
+将 *microsoft* 替换为 ACR 登录服务器名称。 映像名称位于清单文件的第 51 行。 以下示例展示了默认映像名称：
 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
+  image: dockerhub.azk8s.cn/microsoft/azure-vote-front:v1
 ```
 
 提供自己的 ACR 登录服务器名称，使清单文件如以下示例所示：

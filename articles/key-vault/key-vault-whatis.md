@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 01/26/2017
 ms.date: 04/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: cb73ab7f9ce957e56fadd17cbd38a0792d0ab2f8
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: f68bcb3fb27bfb47b73caa6faf642641f1107c2f
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135510"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63820791"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 

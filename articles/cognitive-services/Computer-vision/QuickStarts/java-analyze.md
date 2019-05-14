@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 02/08/2019
-ms.date: 03/26/2019
+origin.date: 03/27/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 1a113433c008237aeb47d2420d7a6b36e1320284
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 09bcc0a69ebba5a795a1efcb7da9ff458dceb3ed
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505555"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855295"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>快速入门：使用计算机视觉 REST API 和 Java 分析远程图像
 
@@ -58,8 +58,6 @@ ms.locfileid: "58505555"
    1. 将 `subscriptionKey` 的值替换为你的订阅密钥。
    1. 如有必要，请将 `uriBase` 的值替换为获取的订阅密钥所在的 Azure 区域中的[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的终结点 URL。
    1. （可选）将 `imageToAnalyze` 的值替换为要分析的其他图像的 URL。
-1. 保存，然后生成 Java 项目。
-1. 如果使用的是 IDE，请运行 `Main`。 否则，请打开一个命令提示窗口，然后使用 `java` 命令运行已编译的类。 例如，`java Main`。
 
 ```java
 public class Main {
@@ -118,6 +116,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>编译并运行程序
+
+1. 保存，然后生成 Java 项目。
+1. 如果使用的是 IDE，请运行 `Main`。
+
+另外，如果从命令行窗口运行此程序，请运行以下命令。 这些命令假设你的库在名为 `libs` 的文件夹中，该文件夹与 `Main.java` 位于同一文件夹中；否则，你需要将 `libs` 替换为库路径。
+
+1. 编译 `Main.java` 文件。
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. 运行该程序。 它向 QnA Maker API 发送创建知识库的请求，然后每隔 30 秒轮询一次结果。 每个响应都将输出到命令行窗口中。
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>检查响应
 
@@ -191,3 +208,4 @@ REST Response:
 > [!div class="nextstepaction"]
 > [计算机视觉 API Java 教程](../Tutorials/java-tutorial.md)
 
+<!-- Update_Description: wording update -->

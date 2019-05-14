@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 46f2684323aeb27b834afee920676ceb4deaea7a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 80ee24a7a2b7562f21128c00f1d2e51d2980baaf
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625847"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63859024"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>使用适用于 IoT 中心设备预配服务的 Node.js 设备 SDK 创建和预配 X.509 模拟设备
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -117,7 +117,7 @@ Azure IoT 设备预配服务支持两类注册：
 4. 编辑 **register\_x509.js** 文件。 进行下述更改，然后保存文件。
     - 将 `provisioning host` 替换为在上面的“步骤 1”中注明的“全局设备终结点”。
     - 将 `id scope` 替换为在上面的“步骤 1”中注明的“ID 范围”。 
-    - 将 `registration id` 替换为在上一部分中记下的**_注册 ID_**。
+    - 将 `registration id` 替换为在上一部分中记下的 **_注册 ID_** 。
     - 将 `cert filename` 和 `key filename` 替换为在上面的“步骤 2”中复制的文件。 
 
 5. 执行脚本，验证该设备是否已成功预配。

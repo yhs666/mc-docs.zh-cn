@@ -16,12 +16,12 @@ origin.date: 06/01/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf43de4711822cd5a2105bdeeff552a859010b0c
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.openlocfilehash: 4eec43d6dd16e4db1f0af713ab75c4344b9022e4
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745216"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586833"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -37,7 +37,7 @@ ms.locfileid: "52745216"
 
 “云服务配置”*只*提供 Windows 计算节点。 [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md)（云服务的大小）中列出了可用的计算节点大小，[Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了可用的操作系统。 创建包含 Azure 云服务节点的池时，需指定上述文章中所述的节点大小和 OS 系列。 对于 Windows 计算节点池，最常使用的是云服务。
 
-“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
+“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
 
 ### <a name="virtual-machine-image-reference"></a>虚拟机映像引用
 Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)提供虚拟机配置中的计算节点。 可指定 [Azure 市场][vm_marketplace]中的一个映像，或者提供一个准备好的自定义映像。 有关自定义映像的详细信息，请参阅[使用自定义映像创建池](batch-custom-images.md)。
@@ -52,7 +52,7 @@ Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-mac
 | 版本 |最新 |
 
 > [!TIP]
-> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出市场映像。 请注意，目前并非所有市场映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
+> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出市场映像。 请注意，目前并非所有市场映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
 >
 >
 

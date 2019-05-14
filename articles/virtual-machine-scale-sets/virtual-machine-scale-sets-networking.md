@@ -12,16 +12,16 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 07/17/2017
-ms.date: 02/12/2019
+ms.date: 04/24/2019
 ms.author: v-junlch
-ms.openlocfilehash: aab9968f0fe35fde5c31e0b359e0ab2e1e03b371
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 709daedf5b1dd90550735882cf6325e1f1e29abe
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101581"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854819"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -171,12 +171,12 @@ az vmss create `
 若要通过 CLI 列出分配到规模集虚拟机的公共 IP 地址，请使用 az vmss list-instance-public-ips 命令。
 
 若要使用 PowerShell 列出规模集的公共 IP 地址，请使用_Get-AzPublicIpAddress_ 命令。 例如：
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 也可以通过直接引用公共 IP 地址配置的资源 ID 来查询公共 IP 地址。 例如：
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 

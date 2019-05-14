@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 874a882665821b6baf4eb7746ac5e6cc788192cd
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 7901ca79daea1e488bb259f0681f0368b60fab41
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319012"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854927"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 BACPAC 文件导入 Azure SQL 数据库
 
@@ -127,7 +127,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName `
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -141,7 +141,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
-| [New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule) | 创建一个 SQL 数据库服务器防火墙规则，允许从输入的 IP 地址范围访问 SQL 数据库服务器上的所有单一数据库和入池数据库。 |
+| [New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule) | 创建一个 SQL 数据库服务器防火墙规则，允许从输入的 IP 地址范围访问 SQL 数据库服务器上的所有单一数据库和共用数据库。 |
 | [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport) | 导入 BACPAC 文件，并在服务器上创建一个新数据库。 |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 

@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 02/08/2019
-ms.date: 03/18/2019
-ms.openlocfilehash: b3beb8dd931e21ea2c557be655980b373fa27707
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.date: 05/20/2019
+ms.openlocfilehash: 6f089742c80be6456ef2dc40032cf9235f3949c3
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003708"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520772"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
@@ -30,6 +30,7 @@ Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage (Gen2
 * 了解以下文章：
 
     - [将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]
+    - [将 Data Lake Storage Gen2 与 HDInsight 配合使用](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>将数据上传到 Azure 存储
 
@@ -60,7 +61,7 @@ Microsoft 提供以下实用工具用于操作 Azure 存储：
 hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-例如， `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+例如： `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 由于 HDInsight 的默认文件系统在 Azure 存储中，/example/data.txt 实际是在 Azure 存储中。 也可以将该文件表示为：
 
@@ -83,7 +84,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | 客户端 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [用于 HDInsight 的 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure 存储资源管理器](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Azure 存储空间资源管理器](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [适用于 Microsoft Azure 的 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
@@ -93,7 +94,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ## <a name="mount-azure-storage-as-local-drive"></a>将 Azure 存储装载为本地驱动器
 请参阅[将 Azure 存储装载为本地驱动器](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
 
-### <a name="upload-using-services"></a>使用服务上传
+## <a name="upload-using-services"></a>使用服务上传
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后回过来将数据导出到 RDBMS。
 

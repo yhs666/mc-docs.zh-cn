@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 08/02/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: f73dfb6860a799124eb922d33f301bf280d9a464
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 37d70ec564f6e482a6c4d2492aad394553fefcb8
+ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651405"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597989"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序排查连接问题
 
@@ -39,7 +39,7 @@ ms.locfileid: "52651405"
 * 用以排查连接问题的虚拟机。
 
 > [!IMPORTANT]
-> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
@@ -303,7 +303,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_chinaeast"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "http://bing.com"
+$destinationAddress = "https://bing.com"
 $destinationPort = "0"
 $requestBody = @"
 {
@@ -468,6 +468,7 @@ null
 
 ## <a name="next-steps"></a>后续步骤
 
-<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) --> 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM。
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
+访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM。
 
 <!--Update_Description: update link, wording update -->

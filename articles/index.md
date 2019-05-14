@@ -1,11 +1,17 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 title: Azure 文档
 description: 了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、示例代码、教程等等。
 ms.topic: hub-page
 featureFlags:
-  - clicktale
+- clicktale
+ms.openlocfilehash: db4206e5f65514b6dbb3897baf65b1335ca1de2e
+ms.sourcegitcommit: 731da97453f3bd6b333dc2ec1058b9b91031d240
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64871507"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3276,7 +3282,7 @@ Azure PowerShell </a>
                                                     <a href="/java">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api">API 参考</a>
+                                                    <a href="/java/api/overview">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>

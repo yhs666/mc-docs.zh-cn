@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/08/2018
-ms.date: 12/27/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: df93954d7dd22275b8cf94fb1493a61f9e804394
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 04b3c6a00736ce7caf49367926fdceeb3f833e00
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806571"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854508"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
@@ -100,7 +100,7 @@ ms.locfileid: "53806571"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。 在版本 2.x 中，应用服务计划的默认值为 30 分钟。 在版本 1.x 中，它为 *null*，表示无超时。
+指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。 在版本 2.x 中，应用服务计划的默认值为 30 分钟。 在版本 1.x 中，它为 *null*，表示无超时。
 
 ```json
 {

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 06384d8fab61c144290440486e4977fc71d45b4b
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 85ee801a4e164b535ffee0caa2d0f2e5e75ba794
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624171"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550018"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
@@ -28,11 +28,7 @@ ms.locfileid: "58624171"
 
 本主题演示如何自定义 Media Encoder Standard 预设。 [通过使用自定义预设的 Media Encoder Standard 进行编码](media-services-custom-mes-presets-with-dotnet.md)主题演示如何使用 .NET 创建编码任务和执行此任务的作业。 自定义预设后，请将自定义预设提供给编码任务。 
 
->[!NOTE]
->如果使用的是 XML 预设，请务必保留元素顺序，如下面的 XML 示例所示（例如，KeyFrameInterval 应在 SceneChangeDetection 前面）。
->
-
-本主题演示了执行以下编码任务的自定义预设。
+如果使用的是 XML 预设，请务必保留元素顺序，如下面的 XML 示例所示（例如，KeyFrameInterval 应在 SceneChangeDetection 前面）。
 
 ## <a name="support-for-relative-sizes"></a>支持相对大小
 

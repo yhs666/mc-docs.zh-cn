@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 53b919e9a6322fd3efd3bd93ef92fa4c841464fd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cc197dcd3c0ebd2a9a97ab11b8f0c6dc6db32f00
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625260"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520736"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念
 
@@ -53,7 +53,7 @@ Kubernetes 群集分为两个组件：
 
 AKS 为单租户群集主机提供专用 API 服务器、计划程序等。定义节点的数量和大小，Azure 平台可以对群集主机和节点之间的安全通信进行配置。 通过 Kubernetes API（例如 `kubectl` 或 Kubernetes 仪表板）与群集主机进行交互。
 
-此托管群集主机意味着无需配置高可用性 etcd 存储等组件，但这也意味着无法直接访问群集主机。 通过 Azure CLI 或 Azure 门户安排 Kubernetes 升级，后者先升级群集主机，然后升级节点。 要解决可能出现的问题，可以通过 Azure Monitor 日志查看群集主日志。
+此托管群集主机意味着无需配置高可用性 etcd 存储等组件，但这也意味着无法直接访问群集主机。 通过 Azure CLI 或 Azure 门户安排 Kubernetes 升级，后者先升级群集主机，然后升级节点。 要解决可能出现的问题，可以通过 Azure Monitor 日志查看群集主服务器日志。
 
 如果需要以特定方式配置群集主机或直接对其进行访问，可以使用 [aks-engine][aks-engine] 部署自己的 Kubernetes 群集。
 
@@ -102,7 +102,10 @@ AKS 为单租户群集主机提供专用 API 服务器、计划程序等。定�
 
 具有相同配置的节点将统一合并成节点池。 Kubernetes 群集包含一个或多个节点池。 创建 AKS 群集时会定义初始节点数和大小，从而创建默认节点池。 AKS 中的此默认节点池包含运行代理节点的基础 VM。
 
+<!--Not Available on Multiple node pool support is currently in preview in AKS.-->
+
 缩放或升级 AKS 群集时，将对默认节点池执行操作。 对于升级操作，将在节点池中的其他节点上计划正在运行的容器，直到成功升级所有节点。
+<!--Not Available on [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools]-->
 
 ## <a name="pods"></a>Pod
 
@@ -143,7 +146,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: dockerhub.azk8s.cn/nginx:1.15.2
         ports:
         - containerPort: 80
         resources:
@@ -198,6 +201,7 @@ Deployment 控制器使用 Kubernetes 计划程序在具有可用资源的任何
 
 有关详细信息，请参阅 [Kubernetes DaemonSet][kubernetes-daemonset]。
 
+<!--Not Available on [Virtual Nodes add-on](virtual-nodes-cli.md#enable-virtual-nodes-addon)-->
 ## <a name="namespaces"></a>命名空间
 
 Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中。 这些分组提供了一种以逻辑方式划分 AKS 群集并限制创建、查看或管理资源访问权限的方法。 例如，可以创建命名空间以分隔业务组。 用户只能与分配的命名空间内的资源进行交互。
@@ -243,3 +247,7 @@ Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中�
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+
+<!--Not Available on [use-multiple-node-pools]: use-multiple-node-pools.md-->
+
+<!-- Update_Description: wording update, update link -->

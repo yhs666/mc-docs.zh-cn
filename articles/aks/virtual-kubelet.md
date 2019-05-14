@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 08/14/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 79f88496f48d861cfe8d3286c9fde41e46eafabe
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 4318bc8e624ebad7fe084952d448a87c3413cfaf
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903023"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854420"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>结合使用虚拟 Kubelet 和 Azure Kubernetes 服务 (AKS)
 
@@ -23,9 +23,12 @@ Azure 容器实例 (ACI) 提供托管环境，以便在 Azure 中运行容器。
 在 Azure 容器实例中使用虚拟 Kubelet 提供程序时，可以在容器实例上安排 Linux 和 Windows 容器，就像容器实例是一个标准的 Kubernetes 节点一样。 此配置允许你利用 Kubernetes 的功能以及容器实例的管理价值和成本优势。
 
 > [!NOTE]
-> AKS 现在对 ACI 上的计划容器（称为“虚拟节点”）提供内置支持。 目前虚拟节点支持 Linux 容器实例。 如果需要计划 Windows 容器实例，可以继续使用虚拟 Kubelet。 否则，应使用虚拟节点，而不是本文中所述的手动虚拟 Kubelet 说明。 可通过 [Azure CLI][virtual-nodes-cli] 或 [Azure 门户][virtual-nodes-portal]开始使用虚拟节点。
+> AKS 现在对 ACI 上的计划容器（称为“虚拟节点”）提供内置支持。 目前虚拟节点支持 Linux 容器实例。 如果需要计划 Windows 容器实例，可以继续使用虚拟 Kubelet。 否则，应使用虚拟节点，而不是本文中所述的手动虚拟 Kubelet 说明。
 >
 > 虚拟 Kubelet 是实验性开放源代码项目，并且应该这样使用。 若要参与问题讨论、提交问题以及阅读有关虚拟 kubelet 的详细信息，请参阅[虚拟 Kubelet GitHub 项目][vk-github]。
+
+<!--Not Available on  [Azure CLI][virtual-nodes-cli]-->
+<!--Not Available on  [Azure portal][virtual-nodes-portal]-->
 
 ## <a name="prerequisite"></a>先决条件
 
@@ -70,9 +73,12 @@ clusterrolebinding.rbac.authorization.k8s.io/tiller created
 
 配置 Helm 以使用 Tiller 服务帐户：
 
+<!--MOONCAKE: helm init with tiller-images-->
+
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0
 ```
+<!--MOONCAKE: helm init with tiller-images-->
 
 现在可以继续将虚拟 Kubelet 安装到 AKS 群集。
 
@@ -233,11 +239,12 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
-[aks-remove-connector]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-remove-connector
-[az-container-list]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-list
-[aks-install-connector]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-install-connector
-[virtual-nodes-cli]: virtual-nodes-cli.md
-[virtual-nodes-portal]: virtual-nodes-portal.md
+[aks-remove-connector]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-remove-connector
+[az-container-list]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-list
+[aks-install-connector]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-install-connector
+
+<!--Not Available on [virtual-nodes-cli]: virtual-nodes-cli.md-->
+<!--Not Available on [virtual-nodes-portal]: virtual-nodes-portal.md-->
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: overview
 origin.date: 12/05/2017
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 962983bcb796a9a575c5a49d1783ea3537deb9d7
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: d3def13008bbd3d868a2ab08200b0818f0df0084
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903229"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520713"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 与 Azure 托管服务进行集成
 
@@ -165,7 +165,7 @@ chmod +x ./svcat
 ./svcat get classes
 ```
 
-最后，列出所有可用的服务计划。 服务计划是 Azure 托管服务的服务层。 例如，对于 Azure Database for MySQL，计划范围为 `basic50`（具有 50 个数据传输单位 (DTU) 的基本层）到 `standard800`（具有 800 个 DTU 的标准层）。
+最后，列出所有可用的服务计划。 服务计划是 Azure 托管服务的服务层级。 例如，对于 Azure Database for MySQL，计划范围为 `basic50`（具有 50 个数据传输单位 (DTU) 的基本层）到 `standard800`（具有 800 个 DTU 的标准层）。
 
 ```azurecli
 ./svcat get plans

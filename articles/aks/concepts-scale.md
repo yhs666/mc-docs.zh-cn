@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 70f2e8fb7cb9ee5e25f2b9edd307de55657b663d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9c7b834092771d8573dd633cbd5cda767493e411
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626612"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520733"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序缩放选项
 
@@ -23,8 +23,9 @@ ms.locfileid: "58626612"
 
 - [手动缩放](#manually-scale-pods-or-nodes)
 - [水平 Pod 自动缩放程序 (HPA)](#horizontal-pod-autoscaler)
-- [群集自动缩放程序](#cluster-autoscaler)
-- [Azure 容器实例 (ACI) 与 AKS 集成](#burst-to-azure-container-instances)
+
+<!--Not Available on - [Cluster autoscaler](#cluster-autoscaler)-->
+<!--Not Available on - [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instances)-->
 
 ## <a name="manually-scale-pods-or-nodes"></a>手动缩放 Pod 或节点
 
@@ -50,15 +51,7 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 
 可能需要调整这些冷却时间值。 默认的冷却时间值可能会让人认为是水平 Pod 自动缩放程序没有足够快速地缩放副本计数。 例如，要更快地增加正在使用的副本数量，请在使用 `kubectl` 创建水平 Pod 自动缩放程序定义时减少 `--horizontal-pod-autoscaler-upscale-delay`。
 
-## <a name="cluster-autoscaler"></a>群集自动缩放程序
-
-为响应不断变化的 Pod 需求，Kubernetes 有一个群集自动缩放程序（目前在 AKS 中预览），可根据节点池中请求的计算资源调整节点数。 默认情况下，群集自动缩放程序每隔 10 秒检查一次 API 服务器，以了解节点计数所需的任何更改。 如果群集自动缩放程序确定需要进行更改，则 AKS 群集中的节点数会相应增加或减少。 群集自动缩放程序适用于运行 Kubernetes 1.10.x 或更高版本的支持 RBAC 的 AKS 群集。
-
-![Kubernetes 群集自动缩放程序](media/concepts-scale/cluster-autoscaler.png)
-
-群集自动缩放程序通常与水平 Pod 自动缩放程序配合使用。 当两者组合在一起时，水平 Pod 自动缩放程序会根据应用程序需求增加或减少 Pod 数量，群集自动缩放程序会根据需要调整节点数以相应地运行额外的 Pod。
-
-若要开始使用 AKS 中的群集自动缩放程序，请参阅 [AKS 上的群集自动缩放程序][aks-cluster-autoscaler]。
+<!--Not Available on ## Cluster autoscaler-->
 
 ### <a name="scale-up-events"></a>纵向扩展事件
 
@@ -76,17 +69,7 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 
 当群集自动缩放程序减少节点数时，由于在不同节点上计划 Pod，应用程序可能会发生一些中断。 为最大限度地减少中断，请避免使用单个 Pod 实例的应用程序。
 
-## <a name="burst-to-azure-container-instances"></a>迸发到 Azure 容器实例
-
-若要快速缩放 AKS 群集，可以与 Azure 容器实例 (ACI) 集成。 Kubernetes 具有内置组件，可缩放副本和节点数。 但是，如果应用程序需要快速缩放，则水平 Pod 自动缩放程序可以计划比节点池中现有计算资源提供的更多 Pod。 如果已配置，则此方案将触发群集自动缩放程序在节点池中部署其他节点，但可能需要几分钟后，这些节点才能成功配置并允许 Kubernetes 计划程序在其上运行 Pod。
-
-![Kubernetes 迸发缩放到 ACI](media/concepts-scale/burst-scaling.png)
-
-使用 ACI，可以快速部署容器实例，而无需额外的基础结构开销。 当与 AKS 连接时，ACI 会成为 AKS 群集的安全逻辑扩展。 虚拟 Kubelet 组件安装在 AKS 群集中，将 ACI 显示为虚拟 Kubernetes 节点。 然后，Kubernetes 可以计划通过虚拟节点作为 ACI 实例运行的 Pod，而不是直接在 AKS 群集中的 VM 节点上运行的 Pod。 虚拟节点目前在 AKS 中预览。
-
-应用程序无需修改即可使用虚拟节点。 集群自动缩放程序在 AKS 集群中部署新节点后，部署可以跨 AKS 和 ACI 进行缩放，且没有延迟。
-
-虚拟节点将部署到与 AKS 群集相同的虚拟网络中的其他子网。 此虚拟网络配置可以保护 ACI 和 AKS 之间的流量。 与 AKS 群集一样，ACI 实例是独立于其他用户的安全逻辑计算资源。
+<!--Not Available on ## Burst to Azure Container Instances-->
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -118,3 +101,5 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-network]: concepts-network.md
+
+<!-- Update_Description: wording update, update link -->

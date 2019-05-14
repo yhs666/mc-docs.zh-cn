@@ -8,17 +8,17 @@ manager: digimobile
 ms.service: azure-stack
 ms.topic: quickstart
 origin.date: 03/11/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 14880ee05df2200e7bb53e9b0c0d1fa4f6774879
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9a2979ca604f778183177954f1e87dafe57064cb
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626707"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854468"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 
@@ -38,7 +38,7 @@ ms.locfileid: "58626707"
 
 * **Azure Stack 市场中的 Linux 映像**
 
-   默认情况下，Azure Stack 市场中没有 Linux 映像。 请检查是否已经让 Azure Stack 操作员在市场中提供了 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+   默认情况下，Azure Stack 市场中没有 Linux 映像。 请检查是否已经让 Azure Stack 操作员在市场中提供了 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
 * **可以访问 SSH 客户端**
 

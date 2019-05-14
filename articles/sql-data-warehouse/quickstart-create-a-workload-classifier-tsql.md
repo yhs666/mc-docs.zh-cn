@@ -8,22 +8,22 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
 origin.date: 03/13/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea7446aba39e7632ffd072db951a14354d91a759
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 733d375a835520e179accc01be3b889c8cff6ba8
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628632"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854913"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>快速入门：使用 T-SQL（预览版）创建工作负荷分类器
 
 在本快速入门中，我们将为组织的 CEO 快速创建一个具有较高重要性的工作负荷分类器。 此工作负荷分类器允许 CEO 查询的优先级高于队列中重要性更低的其他查询。
 
 > [!Note]
-> 在第 2 代 SQL 数据仓库中可以使用工作负荷分类。
+> SQL 数据仓库第 2 代已提供工作负载分类预览。 工作负载管理分类和重要性预览适用于发布日期为 2019 年 4 月 9 日或之后的版本。  用户应避免使用早于此日期的版本来进行工作负载管理测试。  要确定你的版本是否支持工作负载管理，请在连接到 SQL 数据仓库实例时运行select @@version。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -52,7 +52,9 @@ END
 ;
 ```
 
-## <a name="create-theceo-user-in-mysampledatawarehouse"></a>在 mySampleDataWarehouse 中创建 TheCEO 用户
+## <a name="create-user"></a>创建用户
+
+在 mySampleDataWarehouse 中[创建用户](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest)“TheCEO”
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -62,7 +64,9 @@ END
 ;
 ```
 
-## <a name="create-a-workload-classifier-for-theceo-with-high-importance"></a>为 TheCEO 创建具有较高重要性的工作负荷分类器
+## <a name="create-a-workload-classifier"></a>创建工作负荷分类器
+
+为“TheCEO”创建具有较高重要性的[工作负荷分类器](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)。
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];

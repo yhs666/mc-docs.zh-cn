@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8582fd3d5cbaa1cd2cdb4b7a757cffca3cb5ba0b
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c4c27dba84345c2b6bc3a6b5a74f3029dc183538
+ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675120"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597992"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用网络观察程序和开源工具执行网络入侵检测
 
@@ -59,7 +59,7 @@ Suricata 就是这样的一种开源工具，它是一个 IDS 引擎，可使用
 下载该规则集，并将其复制到目录：
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
@@ -285,7 +285,7 @@ tail -f /var/log/suricata/fast.log
 ## <a name="next-steps"></a>后续步骤
 <!--Not Available on [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) -->
 
-访问[使用 Power BI 可视化 NSG 流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化 NSG 流日志
+访问 [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)（使用 Power BI 可视化 NSG 流日志），了解如何使用 Power BI 可视化 NSG 流日志
 
 <!-- images -->
 [1]: ./media/network-watcher-intrusion-detection-open-source-tools/figure1.png

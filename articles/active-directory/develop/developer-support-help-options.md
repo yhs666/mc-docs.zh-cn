@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/14/2019
-ms.date: 03/05/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1996f4f972fee75e43845ff7e83655508c18010d
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: fe3b722945674fe30052d9245a323124684b46fc
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462371"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517479"
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项
 
@@ -64,7 +64,7 @@ Stack Overflow 是开发相关问题的首选渠道。 在这里，开发人员�
 
 如果通过搜索未找到你的问题的解答，请在 Stack Overflow 中提交新问题。 在提问时请使用以下标记之一，以便社区更快速地识别问题和解答问题：
 
-|组件/区域  | 标记 |
+|组件/区域  | Tags |
 |---------|---------|
 | ADAL 库 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 库     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
@@ -74,8 +74,8 @@ Stack Overflow 是开发相关问题的首选渠道。 在这里，开发人员�
 
 Stack Overflow 中的以下帖子包含有关如何提问和如何添加源代码的提示。 遵循以下准则可提高社区成员快速评估和响应问题的可能性：
 
-- [如何正确提问](https://stackoverflow.com/help/how-to-ask)
-- [How to create a minimal, complete, and verifiable example](https://stackoverflow.com/help/mcve)（如何创建最小、完整且可验证的示例）
+* [如何正确提问](https://stackoverflow.com/help/how-to-ask)
+* [How to create a minimal, complete, and verifiable example](https://stackoverflow.com/help/mcve)（如何创建最小、完整且可验证的示例）
 
 ## <a name="create-a-github-issue"></a>创建 GitHub 问题
 
@@ -83,15 +83,16 @@ Stack Overflow 中的以下帖子包含有关如何提问和如何添加源代�
 
 若要查看库及其 GitHub 存储库的列表，请参阅以下文章：
 
-- [ADAL](active-directory-authentication-libraries.md) 库和 GitHub 存储库
+* [ADAL](active-directory-authentication-libraries.md) 库和 GitHub 存储库
+* [MSAL](reference-v2-libraries.md) 库和 GitHub 存储库
 
 ## <a name="open-a-support-request"></a>提出支持请求
 
-如果需要与某人交流，可以提出支持请求。 Azure 客户可以使用多个支持选项。 若要比较计划，请参阅[此页](https://www.azure.cn/support/plans/)。 
+如果需要与某人交流，可以提出支持请求。 Azure 客户可以使用多个支持选项。 若要比较计划，请参阅[此页](https://www.azure.cn/support/plans/)。 开发人员支持也适用于 Azure 客户。 有关如何购买开发人员支持计划的信息，请参阅[此页](https://www.azure.cn/support/plans/)。
 
-- 如果已有 Azure 支持计划，请[在此处提出支持请求](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+* 如果已有 Azure 支持计划，请[在此处提出支持请求](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-- 如果你不是 Azure 客户，也可以通过[我们的商业支持](https://support.microsoft.com/gp/contactus81?Audience=Commercial)向 Microsoft 提出支持请求。
+* 如果你不是 Azure 客户，也可以通过[我们的商业支持](https://support.microsoft.com/gp/contactus81?Audience=Commercial)向 Microsoft 提出支持请求。
 
 还可以尝试通过[虚拟代理](https://support.microsoft.com/contactus/?ws=support)获取支持或提出问题。
 

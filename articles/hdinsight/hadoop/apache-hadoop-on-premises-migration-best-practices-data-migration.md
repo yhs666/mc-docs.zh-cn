@@ -7,15 +7,15 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 04/15/2019
+origin.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4c2a5d024b43092a29e6ec43f8a37ab0613fedea
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 176d727888428a1b0b073b3a15b9add61f64eccd
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003727"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520788"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 数据迁移最佳做法
 
@@ -30,7 +30,6 @@ ms.locfileid: "59003727"
     2. Express Route - ExpressRoute 是一项 Azure 服务，允许在 Microsoft 数据中心与本地环境或共同租用设施中的基础结构之间创建专用连接。 ExpressRoute 连接不通过公共 Internet，与通过 Internet 的典型连接相比，提供更高的安全性、可靠性、速度和更低的延迟。 有关详细信息，请参阅[创建和修改 ExpressRoute 线路](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)。
     1. Data Box 联机数据传输 - Data Box Edge 和 Data Box Gateway 是联机数据传输产品，它们用作网络存储网关来管理站点和 Azure 之间的数据。 Data Box Edge 是一种本地网络设备，可将数据传入和传出 Azure，并使用支持人工智能 (AI) 的边缘计算来处理数据。 Data Box Gateway 是具有存储网关功能的虚拟设备。 有关详细信息，请参阅 [Azure Data Box 文档 - 联机传输](https://docs.microsoft.com/azure/databox-online/)。
 1.  脱机寄送数据
-    1. 导入 / 导出服务 - 你可以将物理磁盘发送到 Azure，他们将为你上传数据。 有关详细信息，请参阅[什么是 Azure 导入/导出服务？](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)
     1. Data Box 脱机数据传输 - Data Box、Data Box Disk 和 Data Box Heavy 设备可在网络不可用时将大量数据传输到 Azure。 这些脱机数据传输设备在组织和 Azure 数据中心之间往返运输。 它们使用 AES 加密来帮助保护传输中的数据，还在上传后执行一个清理过程，从设备中删除你的数据。 有关详细信息，请参阅 [Azure Data Box 文档 - 脱机传输](https://docs.microsoft.com/azure/databox/)。
 
 下表根据数据量和网络带宽列出了大致的数据传输持续时间。 如果数据迁移预计需要花费三周以上，请使用 Data Box。
@@ -102,7 +101,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>使用数据库复制迁移 Hive 元存储
 
-- 在本地 Hive 元存储数据库与 HDInsight 元存储数据库之间设置数据库复制
+- 在本地 Hive 元存储 DB 与 HDInsight 元存储 DB 之间设置数据库复制。
 - 使用“Hive MetaTool”将 HDFS URL 替换为 WASB/ADLS/ABFS URL，例如：
 
 ```bash
@@ -119,4 +118,4 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 阅读本系列教程的下一篇文章：
 
-- [有关从本地迁移到 Azure HDInsight Hadoop 的安全性和 DevOps 最佳做法](apache-hadoop-on-premises-migration-best-practices-security-devops.md)
+- [有关从本地迁移到 Azure HDInsight Hadoop 的安全和 DevOps 最佳做法](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

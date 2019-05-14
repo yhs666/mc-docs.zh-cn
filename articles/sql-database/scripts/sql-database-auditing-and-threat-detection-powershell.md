@@ -3,7 +3,7 @@ title: PowerShell 示例-审核-威胁检测-Azure SQL 数据库 | Microsoft Doc
 description: 在 Azure SQL 数据库中配置审核和威胁检测的 Azure PowerShell 示例脚本
 services: sql-database
 ms.service: sql-database
-ms.subservice: threat-detection
+ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: craigg
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 366a85802d2313a746ad87df872a70930b8ed3ba
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 04/29/2019
+ms.openlocfilehash: 1193a32525e436e98a91839b24d1cd247acd8dff
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003465"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855589"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
 
@@ -99,7 +99,7 @@ Set-AzSqlDatabaseThreatDetectionPolicy -ResourceGroupName $resourceGroupName `
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -125,4 +125,3 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-<!--Update_Description: wording update-->

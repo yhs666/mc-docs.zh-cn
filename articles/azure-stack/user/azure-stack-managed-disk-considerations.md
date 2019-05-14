@@ -13,22 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: fa50acf016826afd2987750a783195d6f1555dff
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 005443d7323cbcd3bbf937f8dfaababed1ee620e
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503614"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854644"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
-本文汇总了 [Azure Stack 托管磁盘](azure-stack-manage-vm-disks.md)与 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)之间的已知差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
+本文汇总了 [Azure Stack 托管磁盘](azure-stack-manage-vm-disks.md)与 [Azure 托管磁盘](/virtual-machines/windows/managed-disks-overview)之间的已知差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
-托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../azure-stack-manage-storage-accounts.md)简化了 IaaS VM 的磁盘管理。
+托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)简化了 IaaS VM 的磁盘管理。
 
 > [!Note]  
 > 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 从 1811 更新开始，使用 Azure Stack 门户创建虚拟机时，默认会启用托管磁盘。
@@ -74,7 +74,7 @@ Azure Stack 托管磁盘支持以下 API 版本：
 ```powershell
 $subscriptionId = 'subid'
 
-# The name of your resource group
+# The name of your resource group where your VM to be converted exists
 $resourceGroupName ='rgmgd'
 
 # The name of the managed disk
@@ -90,8 +90,9 @@ $vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm2018
 # The storage type for the managed disk; PremiumLRS or StandardLRS.
 $accountType = 'StandardLRS'
 
-# The Azure Stack location where the managed disk is located.
+# The Azure Stack location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
+# Configure the new managed VM point to the old unmanaged VM's configuration (network config, vm name, location).
 $location = 'local'
 $virtualMachineName = 'mgdvm'
 $virtualMachineSize = 'Standard_D1'
@@ -101,6 +102,9 @@ $nicname = 'unmgdvm295'
 
 # Set the context to the subscription ID in which the managed disk will be created
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+#Delete old VM, but keep the OS disk
+Remove-AzureRmVm -Name $virtualMachineName -ResourceGroupName $resourceGroupName
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
 
@@ -152,13 +156,13 @@ Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管�
 
 执行此步骤之前，请务必正确通用化 VM。 通用化之后，不再可以使用此 VM。 基于未正确通用化的映像创建 VM 会导致 **VMProvisioningTimeout** 错误。
 
-遵照[此处](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account)的说明，从存储帐户中的通用化 VHD 创建托管映像。 以后可以使用此映像创建托管 VM。
+遵照[此处](/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)的说明，从存储帐户中的通用化 VHD 创建托管映像。 以后可以使用此映像创建托管 VM。
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>情况 2：使用 PowerShell 基于托管映像创建托管 VM
 
-使用[此处](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell)的脚本从现有托管磁盘 VM 创建映像之后，以下示例脚本从现有映像对象创建类似的 Linux VM：
+使用[此处](/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)的脚本从现有托管磁盘 VM 创建映像之后，以下示例脚本从现有映像对象创建类似的 Linux VM：
 
-Azure Stack PowerShell 模块 1.7.0 或更高版本：请遵照[此处](../../virtual-machines/windows/create-vm-generalized-managed.md)的说明操作。
+Azure Stack PowerShell 模块 1.7.0 或更高版本：请遵照[此处](/virtual-machines/windows/create-vm-generalized-managed)的说明操作。
 
 Azure Stack PowerShell 模块 1.6.0 或更低版本：
 
@@ -212,7 +216,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-也可以使用门户基于托管映像创建 VM。 有关详细信息，请参阅 Azure 托管映像文章：[在 Azure 中创建通用化 VM 的托管映像](../../virtual-machines/windows/capture-image-resource.md)和[从托管映像创建 VM](../../virtual-machines/windows/create-vm-generalized-managed.md)。
+也可以使用门户基于托管映像创建 VM。 有关详细信息，请参阅 Azure 托管映像文章：[在 Azure 中创建通用化 VM 的托管映像](/virtual-machines/windows/capture-image-resource)和[从托管映像创建 VM](/virtual-machines/windows/create-vm-generalized-managed)。
 
 ## <a name="configuration"></a>配置
 
@@ -221,7 +225,7 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 - 如果订阅是在应用 1808 更新之前创建的，请遵循以下步骤来更新订阅。 否则，在此订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器发生内部错误。”
    1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
    2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
-- 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中发生内部错误。”
+- 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中发生内部错误。”
 
 ## <a name="next-steps"></a>后续步骤
 

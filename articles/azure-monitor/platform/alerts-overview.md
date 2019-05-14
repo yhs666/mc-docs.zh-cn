@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: a5996d0badcff1605585d15707d59b9de6b0b61c
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f67ef5b01ff308bcf98527d9aca44f7ee4de652c
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363508"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586854"
 ---
 # <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 
@@ -23,7 +23,7 @@ ms.locfileid: "54363508"
 ## <a name="what-are-alerts-in-21vianet-azure"></a>什么是世纪互联 Azure 中的警报？
 在监视数据中发现重要情况时，警报会以主动的方式通知你。 有了警报，你就可以在系统的用户注意到问题之前确定和解决这些问题。 
 
-本文讨论 Azure Monitor 中的统一警报体验，其现在包括 Log Analytics 和 Application Insights。 [以前的警报体验](alerts-overview.md)和警报类型称为“经典警报”。 单击警报页顶部的“查看经典警报”即可查看这个旧的体验和旧的警报类型。 
+本文讨论 Azure Monitor 中的统一警报体验，其现在包括由 Log Analytics 和 Application Insights 管理的警报。 [以前的警报体验](alerts-classic.overview.md)和警报类型称为“经典警报”。 单击警报页顶部的“查看经典警报”即可查看这个旧的体验和旧的警报类型。 
 
 ## <a name="overview"></a>概述
 
@@ -99,7 +99,7 @@ ms.locfileid: "54363508"
 
 选择“警报”页面顶部的以下值打开另一个页面。
 
-| 值 | 说明 |
+| Value | 说明 |
 |:---|:---|
 | 警报总数 | 符合选定条件的警报总数。 选择此值会打开未经筛选的“所有警报”视图。 |
 | 智能组 | 从符合选定条件的警报创建的智能组总数。 选择此值会在“所有警报”视图中打开智能组列表。
@@ -124,12 +124,7 @@ ms.locfileid: "54363508"
 
 可以在[使用 Azure Monitor 创建、查看和管理警报](../../azure-monitor/platform/alerts-metric.md)中详细了解如何创建警报规则。
 
-
-以前，Azure Monitor、Application Insights、Log Analytics 和服务运行状况都有单独的警报功能。 随着时间推移，Azure 改进并组合了用户界面和不同的警报方法。 此整合仍在进行中。 因此，仍有一些警报功能未出现在新的警报系统中。  
-
-| **监视器源** | **信号类型**  | **说明** | 
-|-------------|----------------|-------------|
-| 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
+警报可在多个 Azure 监视服务中使用。 有关如何以及何时使用其中每种服务的信息，请参阅[监视 Azure 应用程序和资源](../../azure-monitor/overview.md)。 
 
 
 ## <a name="all-alerts-page"></a>“所有警报”页 
@@ -144,7 +139,7 @@ ms.locfileid: "54363508"
 | 订阅 | 最多可选择五个 Azure 订阅。 只有选定订阅中的警报才会包含在视图中。 |
 | 资源组 | 选择单个资源组。 只有包含选定资源组中的目标的警报才会包含在视图中。 |
 | 资源类型 | 选择一个或多个资源类型。 只有包含选定类型中的目标的警报才会包含在视图中。 仅在指定资源组后，才显示此列。 |
-| 资源 | 选择资源。 只有包含该资源（作为目标）的警报才会包含在视图中。 仅在指定资源类型后，才显示此列。 |
+| Resource | 选择资源。 只有包含该资源（作为目标）的警报才会包含在视图中。 仅在指定资源类型后，才显示此列。 |
 | 严重性 | 选择警报严重性，或选择“所有”以包含所有严重性的警报。 |
 | 监视条件 | 选择监视条件，或选择“所有”以包括所有条件的警报。 |
 | 警报状态 | 选择警报状态，或选择“所有”以包含所有状态的警报。 |

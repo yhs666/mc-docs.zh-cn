@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 053ecfa5e93a2b40d205d0856559ab5f3a5e6215
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 304ce469358e9bed05ab6d5307f018a101db7c1f
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349008"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858821"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授予对环境的数据访问权限
 

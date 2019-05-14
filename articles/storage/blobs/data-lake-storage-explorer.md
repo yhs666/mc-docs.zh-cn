@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 12/05/2018
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 6e80463bbf0d25d55dbba449efe3f5f42b5909e3
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 2b9286492c1e79f04ee0ff0f9fd9376a9c05eaa4
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665449"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549977"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>快速入门：使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中管理数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "56665449"
 
 本快速入门要求安装 Azure 存储资源管理器。 若要安装适用于 Windows、Macintosh 或 Linux 的 Azure 存储资源管理器，请参阅 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。
 
-## <a name="log-in-to-storage-explorer"></a>登录到存储资源管理器
+## <a name="sign-in-to-storage-explorer"></a>登录到存储资源管理器
 
 首次启动时，会显示“Microsoft Azure 存储资源管理器 - 连接”窗口。 尽管存储资源管理器提供了几种连接到存储帐户的方法，但是目前只有一种方法支持管理 ACL。
 
@@ -43,11 +43,11 @@ ms.locfileid: "56665449"
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-filesystem"></a>创建文件系统
+## <a name="create-a-file-system"></a>创建文件系统
 
 始终将 Blob 上传到目录中。 这样，就能够整理 blob 组，就像在计算机的文件夹中整理文件一样。
 
-要创建目录，请展开在前面的步骤中创建的存储帐户。 选择“Blob 容器”，然后右键单击并选择“创建 Blob 容器”。 输入文件系统的名称。 完成后，按 Enter 创建文件系统。 成功创建 Blob 目录后，该目录会显示在所选存储帐户的“Blob 容器”文件夹下。
+要创建目录，请展开在前面的步骤中创建的存储帐户。 选择“Blob 容器”，然后右键单击并选择“创建 Blob 容器”。 输入文件系统的名称。 完成后，按 **Enter** 创建文件系统。 成功创建 Blob 目录后，该目录会显示在所选存储帐户的“Blob 容器”文件夹下。
 
 ![Microsoft Azure 存储资源管理器 - 创建文件系统](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 

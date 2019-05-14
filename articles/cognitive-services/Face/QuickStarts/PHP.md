@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 02/07/2019
-ms.date: 03/13/2019
+origin.date: 03/27/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3b16ca50e9a16f9e946fa8a47906bf1591d4a798
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: e9bd3a79a8d17590e3a7232215486f4170250bb1
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964435"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854832"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
@@ -25,8 +25,8 @@ ms.locfileid: "57964435"
 ## <a name="prerequisites"></a>先决条件
 
 - 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
-
-- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
+- 代码编辑器，例如 [Visual Studio Code](https://code.visualstudio.com/download)。
+- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 包。
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 文件
 
@@ -290,4 +290,4 @@ catch (HttpException $ex)
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

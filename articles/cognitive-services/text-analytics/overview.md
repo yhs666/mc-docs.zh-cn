@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
 origin.date: 03/01/2019
-ms.date: 03/13/2019
+ms.date: 04/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4ea3eeea043c2c15dce9713fea87c9d6d3866df2
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a0c20717f7724574afbd11cf4e73e9de5c1399c5
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964448"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855547"
 ---
 # <a name="what-is-text-analytics-api"></a>什么是文本分析 API？
 
@@ -37,8 +37,8 @@ ms.locfileid: "57964448"
 ## <a name="language-detection"></a>语言检测
 可以针对多达 120 种语言[检测输入文本是使用哪种语言编写的](how-tos/text-analytics-how-to-language-detection.md)，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
 
-## <a name="entity-recognition"></a>实体识别
-在文本中[识别实体并将其分类](how-tos/text-analytics-how-to-entity-linking.md)为人员、地点、组织、日期/时间、数量、百分比、货币等。 已知实体也可以在 Web 上识别并链接到更多信息。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API。
+## <a name="entity-recognition-preview"></a>实体识别（预览版）
+[识别文本中的实体并将其分类](how-tos/text-analytics-how-to-entity-linking.md)为人员、地点、组织、日期/时间、数量、百分比、货币等。 已知实体也可以在 Web 上识别并链接到更多信息。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API。
 
 ## <a name="use-containers"></a>使用容器
 
@@ -72,13 +72,13 @@ ms.locfileid: "57964448"
 
 所有的文本分析 API 终结点都接受原始文本数据。 当前限制为每个文档最多包含 5,120 个字符；如果需要分析更大的文档，可将它们分解成较小的区块。 
 
-| 限制 | 值 |
+| 限制 | Value |
 |------------------------|---------------|
 | 单个文档的最大大小 | 5,120 个字符，由 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 度量。 |
 | 整个请求的最大大小 | 1 MB |
 | 一个请求中的文档数上限 | 1,000 个文档 |
 
-速率限制为每分钟 100 次调用。 请注意，可在单次调用中提交大量的文档（最多 1,000 个文档）。
+速率限制为每秒 100 个请求，每分钟 1000 个请求。 可以在单次调用中提交大量的文档（最多 1000 个文档）。
 
 ## <a name="unicode-encoding"></a>Unicode 编码
 
@@ -90,3 +90,4 @@ ms.locfileid: "57964448"
 
 + [快速入门](quickstarts/csharp.md)演练了以 C# 编写的 REST API 调用。 了解如何以少量的代码提交文本、选择分析，并查看结果。 如果你愿意，可以改从 [Python 快速入门](quickstarts/python.md)着手。
 
+<!-- Update_Description: wording update -->

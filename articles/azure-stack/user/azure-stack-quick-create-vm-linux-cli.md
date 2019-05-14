@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 01/14/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 644e2b7ac3d128f9a94553d1f8662e4e0d8c7248
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: c40f0d1b1d9fc0137fd6a24a0f86634ebf21cb37
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503619"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854623"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Linux 服务器虚拟机
 
@@ -37,11 +37,11 @@ ms.locfileid: "58503619"
 
 * **Azure Stack 市场中的 Linux 映像**
 
-   默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+   默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
-* Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[已通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），按照相应的步骤[安装并配置 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
+* Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)，或登录到基于 Windows 的外部客户端（如果[已通过 VPN 建立了连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)），按照相应的步骤[安装并配置 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
 
-* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
+* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](/virtual-machines/linux/ssh-from-windows)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -67,7 +67,6 @@ az vm create \
   --image "UbuntuLTS" \
   --admin-username "Demouser" \
   --admin-password "Demouser@123" \
-  --use-unmanaged-disk \
   --location local
 ```
 

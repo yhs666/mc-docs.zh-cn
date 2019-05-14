@@ -9,12 +9,12 @@ origin.date: 05/17/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: d515bcb9d5add460babf21102ceb2d5736652c94
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 8174b5e9477f33fe989460d7cd021d3054387a42
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192817"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829663"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>查看 Azure 导入/导出作业的状态
 

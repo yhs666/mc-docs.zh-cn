@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1d6d526ab55a58833ce62af726dbd827377bc28b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c17575c3858a0f566b2dc132b062ccf2e6fb3b31
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627477"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555439"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>监视 Azure 虚拟机备份的警报
 警报是服务发出的响应，指出已达到或超过了某个事件阈值。 了解问题何时开始出现可能是控制业务成本的关键所在。 警报通常不会按计划发生，因此在警报发生后尽快知晓会很有用。 例如，当备份或还原作业失败时，在失败后的 5 分钟内发生警报。 在保管库仪表板中，“备份警报”磁贴显示了“关键”和“警告”级别的事件。 在“备份警报”设置中，可以查看所有事件。 但是，如果在处理某个单独的问题时发生警报，该怎么办呢？ 如果不知道警报何时发生，则无法确定相关的问题只是一个小小的麻烦，还是会导致数据透露。 为了确保适当的人员能够意识到发生了警报（何时发生警报），可以将服务配置为通过电子邮件发送警报通知。 有关设置电子邮件通知的详细信息，请参阅 [Configure notifications](backup-azure-monitor-vms.md#configure-notifications)（配置通知）。
@@ -40,7 +40,7 @@ ms.locfileid: "58627477"
 
     ![事件详细信息](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    若要自定义列表中显示的属性，请参阅 [View additional event attributes](backup-azure-monitor-vms.md#view-additional-event-attributes)（查看其他事件属性）
+    若要自定义列表中显示的属性，请参阅 [View additional event attributes](backup-azure-monitor-vms.md)（查看其他事件属性）
 
 ## <a name="configure-notifications"></a>Configure notifications
  可以将服务配置为针对过去一小时发生的警报发送电子邮件通知，或者在发生特定类型的事件时发送电子邮件通知。
@@ -62,7 +62,7 @@ ms.locfileid: "58627477"
 5. 在“**严重性**”对话框中，选择要触发电子邮件通知的一个或多个严重级别。
 6. 单击“保存” 。
 
-   ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 备份有哪些警报类型？
+### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 备份有哪些警报类型
 
    | 警报级别 | 发送的警报 |
    | --- | --- |
@@ -82,22 +82,22 @@ ms.locfileid: "58627477"
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>使用活动日志获取成功备份的通知
 
 > [!NOTE]
-> 我们已改用一个新模型，该模型可以从恢复服务保管库的 Azure 备份抽取活动日志。 遗憾的是，这影响了 Azure 主权云中活动日志的生成。 如果 Azure 主权云用户通过本文所述的 Azure Monitor 根据活动日志创建/配置了任何警报，这些警报不会被触发。 在这种情况下，建议这些用户使用诊断设置和 LA 工作区或 [PowerBI 报告解决方案](backup-azure-configure-reports.md)获取相关信息。 另外，在所有 Azure 公共区域，如果用户将恢复服务活动日志收集到 Log Analytic 工作区（如[此文](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)所述），则这些日志也不会显示。
+> 我们已经转移到新的模型，即从恢复服务保管库上的 Azure 备份中抽取活动日志。 遗憾的是，这影响了 Azure 主权云中活动日志的生成。 如果 Azure 主权云用户通过此处提及的 Azure Monitor 从活动日志中创建/配置任何警报，警报将不会触发。 在这种情况下，建议这些用户使用诊断设置和 LA 工作区或 [PowerBI 报告解决方案](backup-azure-configure-reports.md)获取相关信息。 此外，在所有 Azure 公共区域中，如果用户正在将恢复服务活动日志收集到[此处](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)提到的 Log Analytics 工作区中，那么这些日志也不会显示。
 
-如果想要在成功备份后收到通知，则可以使用基于保管库[活动日志](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)的警报。
+如果想要在成功备份后收到通知，则可以使用基于保管库[活动日志](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)生成的警报。
 
 ### <a name="login-into-azure-portal"></a>登录到 Azure 门户
 登录到 Azure 门户并转到相关的 Azure 恢复服务保管库，单击属性中的“活动日志”部分。
 
 ### <a name="identify-appropriate-log"></a>找出相应日志
 
-应用下图所示的筛选器，验证是否接收到成功备份的活动日志。 相应地更改时间跨度以查看视图。
+应用下图所示的筛选器，以便验证是否接收到成功备份的活动日志。 相应地更改时间跨度以查看视图。
 
 ![活动日志](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
 可以单击“JSON”段，获取更多详细信息，并将其复制粘贴到文本编辑器进行查看。 其中应该显示出保管库详细信息和触发活动日志的项（即备份项）。
 
-然后单击“添加活动日志警报”，生成所有此类日志的警报。
+然后单击“添加活动日志警报”以生成所有此类日志的警报。
 
 ### <a name="add-activity-log-alert"></a>添加活动日志警报
 
@@ -115,7 +115,7 @@ ms.locfileid: "58627477"
 
 ![活动日志操作组](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-单击“确定”后，将生成活动日志警报，并且用于记录成功备份的后续活动日志将触发操作组中定义的操作。
+单击“确定”后，将生成活动日志警报，并且为成功备份记录的后续活动日志将触发操作组中定义的操作。
 
 ### <a name="limitations-on-alerts"></a>对警报的限制
 基于事件的警报存在以下限制：

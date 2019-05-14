@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 15b4780ce8536dc307c8ed9a3a4dc22a068ebd00
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 2fdea5aac457076d5ed6af92152033a8bcb3bc58
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854453"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -50,9 +50,9 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
   - 在 Ruby 安装过程中根据提示安装开发工具包。
   - 接下来，使用以下命令安装捆绑程序：  
     `Gem install bundler`
-- 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 [此处](../azure-stack-subscribe-plan-provision-vm.md)提供创建订阅的说明。
-- 创建服务主体并保存其 ID 和机密。 [此处](../azure-stack-create-service-principals.md)提供创建 Azure Stack 服务主体的说明。
-- 确保服务主体在订阅上具有“参与者/所有者”角色。 [此处](../azure-stack-create-service-principals.md)提供如何为服务主体分配角色的说明。
+- 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 [此处](../operator/azure-stack-subscribe-plan-provision-vm.md)提供创建订阅的说明。
+- 创建服务主体并保存其 ID 和机密。 [此处](../operator/azure-stack-create-service-principals.md)提供创建 Azure Stack 服务主体的说明。
+- 确保服务主体在订阅上具有“参与者/所有者”角色。 [此处](../operator/azure-stack-create-service-principals.md)提供如何为服务主体分配角色的说明。
 
 ## <a name="install-the-rubygem-packages"></a>安装 Rubygem 包
 
@@ -86,13 +86,13 @@ gem install 'azure_sdk'
 
 若要将 Ruby Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 请参阅表后针对操作系统的说明，了解如何设置环境变量。
 
-| 值 | 环境变量 | 说明 |
+| Value | 环境变量 | 说明 |
 | --- | --- | --- |
-| 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](/azure-stack/azure-stack-identity-overview) 的值。 |
+| 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。  |
-| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的套餐。 |
+| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
-| 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md)。  |
+| 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](#the-azure-stack-resource-manager-endpoint)。  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack 资源管理器终结点
 
@@ -230,7 +230,7 @@ end
 
 3. 使用 PowerShell 创建 Azure 服务主体，然后检索所需的值。
 
-   有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../azure-stack-create-service-principals.md)。
+   有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../operator/azure-stack-create-service-principals.md)。
 
    所需值为：
    - 租户 ID
@@ -302,7 +302,7 @@ end
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
 - [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
 <!-- Update_Description: wording update -->

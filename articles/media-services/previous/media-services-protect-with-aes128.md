@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 10/22/2018
+origin.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 9b520f33d5292d18b13a5e23996efef4b880cabb
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 737eefb493b060a20992b6d552baa835c7c4edab
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627256"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549951"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
@@ -29,18 +29,7 @@ ms.locfileid: "58627256"
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
 
-> [!NOTE]
-> 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[用于 Azure 媒体服务的 Java 客户端 SDK 入门](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
-> 若要下载最新的用于媒体服务的 PHP SDK，请在 [Packagist 存储库](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中查找 0.5.7 版 Microsoft/WindowsAzure 包。  
-
-## <a name="overview"></a>概述
-> [!NOTE]
-> 有关如何使用高级加密标准 (AES) 加密内容并传送到 macOS 上的 Safari 的信息，请参阅[此博客文章](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。
-> 有关如何使用 AES 加密保护媒体内容的概述，请参阅[此视频](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption)。
-> 
-> 
-
- 借助媒体服务，可以传送使用 AES 加密的 HTTP Live Streaming (HLS) 和平滑流（使用 128 位加密密钥）。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 如果需要媒体服务来加密资产，则需要将加密密钥与资产相关联，并配置密钥的授权策略。 当播放器请求流时，媒体服务将使用指定的密钥通过 AES 加密来动态加密内容。 为了解密流，播放器将从密钥传送服务请求密钥。 为了确定用户是否被授权获取密钥，服务将评估你为密钥指定的授权策略。
+借助媒体服务，可以传送使用 AES 加密的 HTTP Live Streaming (HLS) 和平滑流（使用 128 位加密密钥）。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 如果需要媒体服务来加密资产，则需要将加密密钥与资产相关联，并配置密钥的授权策略。 当播放器请求流时，媒体服务将使用指定的密钥通过 AES 加密来动态加密内容。 为了解密流，播放器将从密钥传送服务请求密钥。 为了确定用户是否被授权获取密钥，服务将评估你为密钥指定的授权策略。
 
 媒体服务支持通过多种方式对发出密钥请求的用户进行身份验证。 内容密钥授权策略可能有一种或多种授权限制：开放或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用[简单 Web 令牌](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) 格式和 [JSON Web 令牌](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的令牌。 有关详细信息，请参阅[配置内容密钥授权策略](media-services-protect-with-aes128.md#configure_key_auth_policy)。
 
@@ -147,7 +136,7 @@ ms.locfileid: "58627256"
 在上一步骤中，构造了指向清单文件的 URL。 客户端需要从流清单文件提取必要的信息，以便向密钥传送服务发出请求。
 
 ### <a name="manifest-files"></a>清单文件
-客户端需要从清单文件提取 URL（也包含内容密钥 ID [kid]）值。 然后，客户端将尝试从密钥传送服务获取加密密钥。 客户端还需要提取 IV 值，并使用该值来解密流。 下面的代码片段演示平滑流式处理清单的 <Protection> 元素。
+客户端需要从清单文件提取 URL（也包含内容密钥 ID [kid]）值。 然后，客户端将尝试从密钥传送服务获取加密密钥。 客户端还需要提取 IV 值，并使用该值来解密流。 下面的代码片段演示平滑流式处理清单的 `<Protection>` 元素。
 
 ```xml
     <Protection>
@@ -255,7 +244,7 @@ ms.locfileid: "58627256"
 ### <a id="example"></a>示例
 
 使用本部分中所示的代码覆盖 Program.cs 文件中的代码。
-
+ 
 >[!NOTE]
 >不同媒体服务策略的策略数限制为 1,000,000 个（例如，Locator 策略或 ContentKeyAuthorizationPolicy 就是如此）。 如果始终使用相同的天数/访问权限，请使用相同的策略 ID。 例如，适用于需要长期保留使用的定位符的策略（非上传策略）。 有关详细信息，请参阅[使用媒体服务 .NET SDK 管理资产和相关的实体](media-services-dotnet-manage-entities.md#limit-access-policies)中的“限制访问策略”部分。
 

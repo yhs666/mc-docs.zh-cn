@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: fcf5185bd055ac5cdf5ad3942a254e2cd67491b7
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: e261105c0c1156c22e3343492e16ea9b561b8bc5
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408308"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854939"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -119,6 +119,22 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 |---|------------|
 |FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
+## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+
+仅用于消耗计划。 存储函数应用代码和配置的存储帐户的连接字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
+
+|键|示例值|
+|---|------------|
+|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
+
+仅用于消耗计划。 函数应用代码和配置的文件路径。 与 WEBSITE_CONTENTAZUREFILECONNECTIONSTRING 结合使用。 默认值是以函数应用名称开头的唯一字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
+
+|键|示例值|
+|---|------------|
+|WEBSITE_CONTENTSHARE|functionapp091999e2|
+
 ## <a name="websitemaxdynamicapplicationscaleout"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
 函数应用可以横向扩展到的最大实例数。 默认值为无限制。
@@ -152,7 +168,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 默认情况下，Functions 代理将使用快捷方式从代理直接将 API 调用发送到同一 Function App 中的函数，而不是创建新的 HTTP 请求。 此设置让你能够禁用该行为。
 
-|键|值|说明|
+|键|Value|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|是|具有指向本地函数应用中的函数的后端 URL 的调用将不再直接发送到该函数，而是定向回 Function App 的 HTTP 前端|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|这是默认值。 具有指向 Function App 中的函数的后端 URL 的调用将直接转发到该函数|
@@ -162,7 +178,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 此设置控制 %2F 在路由参数插入后端 URL 时是否在路由参数中解码为斜杠。 
 
-|键|值|说明|
+|键|Value|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|是|包含编码斜杠的路由参数会将其解码。 `example.com/api%2ftest` 将成为 `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|这是默认行为。 所有路由参数在传递时将保持不变|

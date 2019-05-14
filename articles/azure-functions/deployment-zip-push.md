@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 08/12/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: ad08116c6de31715f7e16334736287047d8f7206
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 9f261522ec00e3134a7a9996837adda3537b6ef6
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408268"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855325"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 Zip 部署
 
@@ -29,6 +29,7 @@ Azure Functions 具有完整的持续部署范围，以及由 Azure 应用服务
 + 删除之前的部署留下的文件。
 + 部署自定义，包括运行部署脚本。
 + 部署日志。
++ 在[消耗计划](functions-scale.md)函数应用中同步函数触发器。
 
 有关详细信息，请参阅 [.zip 部署参考](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。
 

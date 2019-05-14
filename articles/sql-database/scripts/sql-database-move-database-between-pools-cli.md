@@ -12,17 +12,17 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 10c8b8d06afee787d9186edca2dd1016798c7a04
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/29/2019
+ms.openlocfilehash: 25c46f5ce256297712c44839e1f448b1f9a12847
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318982"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855448"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 
-此 Azure CLI 脚本示例创建两个弹性池，将 Azure SQL 数据库从一个 SQL 弹性池移到另一个 SQL 弹性池中，然后将数据库移出弹性池，并转为单一数据库计算大小。 
+此 Azure CLI 脚本示例创建两个弹性池，将 Azure SQL 数据库从一个 SQL 弹性池移到另一个 SQL 弹性池中，然后将数据库移出弹性池，并转为单一数据库计算大小。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -92,7 +92,7 @@ az sql db create \
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -116,5 +116,3 @@ az group delete --name myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-
-<!--Update_Description: update Global CLI 2.O links to Mooncake CLI 2.O links-->

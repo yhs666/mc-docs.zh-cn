@@ -10,12 +10,12 @@ origin.date: 03/05/2018
 ms.date: 04/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c014b01570105ab02cd90ad0c1653cdd61e00e80
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5fa6122de636f55ecd5bb7f90396bfa0429742a5
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626088"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855236"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
@@ -161,7 +161,7 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 首先，为 Cosmos DB 创建一个新的资源组。
 
 ```azurecli
-az group create --name serverless-backing --location chinaeast
+az group create --name serverless-backing --location chinaeast2
 ```
 
 部署一个 `MongoDB` 类型的 CosmosDB 实例。 此实例需要一个唯一的名称，请将 `openfaas-cosmos` 更新为环境中唯一的某个名称。

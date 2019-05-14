@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 01/26/2018
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 55d5a19300a98c1e3264046aead2cf9af0ef106e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7eefcae8ae847f958d4857cb31acd7387275a4e5
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626991"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829974"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>使用 Azure PowerShell 创建托管多个站点的应用程序网关
 

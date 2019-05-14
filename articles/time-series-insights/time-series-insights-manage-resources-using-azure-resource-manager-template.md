@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 00dd01f46e3dc020b1930272a3b00273180c65c7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5f61d46aa27e5d9b33c93eb9054bc1707600ddff
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625955"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858544"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建时序见解资源
 
@@ -24,7 +24,7 @@ ms.locfileid: "58625955"
 
 时序见解支持以下资源：
 
-   | 资源 | 说明 |
+   | Resource | 说明 |
    | --- | --- |
    | 环境 | 时序见解环境是从事件中转站读取的、经存储的并可供查询使用的事件的逻辑分组。 有关详细信息，请参阅[规划 Azure 时序见解环境](time-series-insights-environment-planning.md) |
    | 事件源 | 事件源是与事件中转站建立的连接，时序见解从该中转站读取和引入事件至环境。 目前支持的事件源是 IoT 中心和事件中心。 |

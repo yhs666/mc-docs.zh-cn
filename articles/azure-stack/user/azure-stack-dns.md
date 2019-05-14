@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 1976c66bc071ce668123ac1899f3042cd9695745
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 1adf3769fa09be6e98345903142f93b9be270b0c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905393"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855435"
 ---
 # <a name="using-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 
@@ -37,7 +37,7 @@ Azure Stack 支持以下域名系统 (DNS) 功能：
 
 例如，如果在本地 Azure Stack 位置创建一个以 **contoso** 作为域名标签的公共 IP 资源，则[完全限定的域名 (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) **contoso.local.cloudapp.azurestack.external** 将解析为该资源的公共 IP 地址。 可以使用此 FQDN 创建自定义域 CNAME 记录，该记录指向 Azure Stack 中的公共 IP 地址。
 
-若要了解有关名称解析的详细信息，请参阅 [DNS 解析](../../dns/dns-for-azure-services.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)一文。
+若要了解有关名称解析的详细信息，请参阅 [DNS 解析](/dns/dns-for-azure-services?toc=%2fvirtual-machines%2fwindows%2ftoc.json)一文。
 
 > [!IMPORTANT]
 > 创建的每个域名标签在其 Azure Stack 位置中必须是唯一的。
@@ -68,9 +68,9 @@ Azure Stack 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外：
 
 * **标记、元数据和 Etag**：Azure Stack DNS 在处理标记、元数据、Etag 和限制的方式方面也有一些细微差异。
 
-若要了解有关 Azure DNS 的更多信息，请参阅 [DNS 区域和记录](../../dns/dns-zones-records.md)。
+若要了解有关 Azure DNS 的更多信息，请参阅 [DNS 区域和记录](/dns/dns-zones-records)。
 
-### <a name="tags"></a>标记
+### <a name="tags"></a>Tags
 
 Azure Stack DNS 支持在 DNS 区域资源上使用 Azure 资源管理器标记。 它不支持在 DNS 记录集上使用标记，不过作为替代方法，在 DNS 记录集上支持“元数据”，如下一部分所述。
 
@@ -99,7 +99,7 @@ Etag 是在 Azure Stack DNS REST API 级别使用 HTTP 标头指定的。 下表
 
 使用 Azure Stack DNS 时，以下默认限制适用：
 
-| 资源| 默认限制|
+| Resource| 默认限制|
 |---------|--------------|
 | 每个订阅的区域数| 100|
 | 每个区域的记录集数| 5000|

@@ -16,12 +16,12 @@ origin.date: 10/05/2017
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa28627c7338d0e53b11f20a511deb1a438565f5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ea956777b3e93502e102d135cfb8405290ec74e4
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626541"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63843345"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 

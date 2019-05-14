@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 01/25/2018
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: f03d23c2eaa7d4104f6a8c9f5d971e281010c3f4
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 633c057d50a26908e3d2c04dad803505dd7734f7
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788690"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829786"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>通过 Azure PowerShell 使用 SSL 终端创建应用程序网关
 

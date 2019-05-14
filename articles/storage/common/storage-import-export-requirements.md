@@ -9,12 +9,12 @@ origin.date: 12/07/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 21e7fdbdf06b958a2156645766e032707f634127
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: 7bef598a3f4b0e393c0e459e94edb3600477ec13
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192868"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63852140"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 

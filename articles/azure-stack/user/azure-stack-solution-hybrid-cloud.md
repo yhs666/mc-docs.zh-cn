@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 01/25/2019
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: df46e3b5009029993638f4f59922731e9024120a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8fb42883cf2e44af5f55dcfe2a2153c607b266b6
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625942"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854557"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 
@@ -52,7 +52,7 @@ ms.locfileid: "58625942"
 本教程假设你对全球 Azure 和 Azure Stack 有基本的了解。 若要在开始本教程之前了解详细信息，请查看以下文章：
 
  - [Azure 简介](https://www.azure.cn/zh-cn/home/features/what-is-azure/)
- - [Azure Stack 的重要概念](/azure-stack/azure-stack-key-features)
+ - [Azure Stack 的重要概念](../operator/azure-stack-overview.md)
 
 本教程还假设你有一个 Azure 订阅。 如果没有订阅，可在开始之前[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "58625942"
 
 在开始本教程之前，请确保可以满足以下要求：
 
-- Azure Stack 开发工具包 (ASDK)，或 Azure Stack 集成系统的订阅。 若要部署 Azure Stack 开发工具包，请遵照[使用安装程序部署 ASDK](../asdk/asdk-deploy.md) 中的说明操作。
+- Azure Stack 开发工具包 (ASDK)，或 Azure Stack 集成系统的订阅。 若要部署 Azure Stack 开发工具包，请遵照[使用安装程序部署 ASDK](../asdk/asdk-install.md) 中的说明操作。
 - Azure Stack 安装中应包含以下组件：
   - Azure 应用服务。 请与 Azure Stack 操作员协作，在环境中部署并配置 Azure 应用服务。 在本教程中，应用服务必须至少有一 (1) 个可用的专用辅助角色。
   - Windows Server 2016 映像
@@ -143,7 +143,7 @@ Azure 应用服务简化了运行和管理 Web 应用程序的过程。 由于 A
 
 Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用户能够访问你的应用程序。 如果 Azure Stack 可从 Internet 访问，请记下 Azure Stack Web 应用的面向公众的 IP 地址或 URL。
 
-如果使用 ASDK，则可以[配置静态 NAT 映射](/azure-stack/azure-stack-create-vpn-connection-one-node#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal)，以便在虚拟环境外部公开应用服务。
+如果使用 ASDK，则可以[配置静态 NAT 映射](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal)，以便在虚拟环境外部公开应用服务。
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>将 Azure 中的 Web 应用连接到混合网络
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 03/26/2019
 ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 540b6f2dc52fde4469b0e1bae7403bc99821f879
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 632b21a5ab720daf0287dcdbca312f324762ab60
+ms.sourcegitcommit: d9b907342ceea2e30f411e74164d6d386b6a7099
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529169"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211913"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -36,7 +36,7 @@ ms.locfileid: "59529169"
 
 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
-” 资源组存储与资源有关的元数据。 指定资源组的位置时，也会指定元数据的存储位置。
+<!--MOONCAKE: DUPLICATE ON The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored.-->
 
 ## <a name="create-resource-groups"></a>创建资源组
 
@@ -131,12 +131,12 @@ ms.locfileid: "59529169"
 3. 从列表中选择一个部署。
 4. 在左窗格中选择“模板”。 Resource Manager 检索以下六个文件：
 
-   - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-   - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-   - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-   - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-   - **.NET** - 可用于部署该模板的 .NET 类。
-   - **Ruby** - 可用于部署模板的 Ruby 类。
+    - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
+    - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
+    - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
+    - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
+    - **.NET** - 可用于部署该模板的 .NET 类。
+    - **Ruby** - 可用于部署模板的 Ruby 类。
 
      默认情况下，门户会显示模板。
 
@@ -152,12 +152,12 @@ ms.locfileid: "59529169"
 1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
 2. 在左窗格中选择“导出模板”。 Resource Manager 检索以下六个文件：
 
-   - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-   - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-   - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-   - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-   - **.NET** - 可用于部署该模板的 .NET 类。
-   - **Ruby** - 可用于部署模板的 Ruby 类。
+    - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
+    - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
+    - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
+    - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
+    - **.NET** - 可用于部署该模板的 .NET 类。
+    - **Ruby** - 可用于部署模板的 Ruby 类。
 
      默认情况下，门户会显示模板。
 3. 选择“下载”，将模板导出到本地计算机。

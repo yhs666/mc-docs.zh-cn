@@ -17,12 +17,12 @@ origin.date: 03/27/2018
 ms.date: 02/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 9d40b4165621a5b3345067b81e8e0afd055d0b98
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 19b7f294756bcdb6106b16c1ad83fddc957c6c1a
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101580"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63860457"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>教程：通过 Azure PowerShell 创建和使用虚拟机规模集的自定义映像
 

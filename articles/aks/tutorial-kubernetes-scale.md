@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d57c28763f28dcfd6f377e09796c2a21c13c8880
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 53e264f6da0d71a9a6418786624d22cf85deee05
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626992"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520680"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 
@@ -159,11 +159,11 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 [metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
-[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
+[metrics-server]: https://v1-12.docs.kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-scale
+[az-aks-scale]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-scale
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show

@@ -11,17 +11,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 9fcd8406d0c0cd128cd5e46d59cfb46cc4a3a047
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: ce9ee5ce3754587612d2bc888c010bc2b832f89f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503579"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855206"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -44,19 +44,19 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 1. 从[官方站点](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)安装 Git。
 2. 有关如何安装 Python SDK 的说明，请参阅[面向 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python)。
-3. 如果此文不适用，请创建订阅，并保存订阅 ID 供以后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../azure-stack-subscribe-plan-provision-vm.md)。
-4. 创建服务主体并保存其 ID 和机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../azure-stack-create-service-principals.md)。
-5. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配到服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../azure-stack-create-service-principals.md)。
+3. 如果此文不适用，请创建订阅，并保存订阅 ID 供以后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
+4. 创建服务主体并保存其 ID 和机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
+5. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配到服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要将 Python Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 请参阅表后针对操作系统的说明，了解如何设置环境变量。
 
-| 值 | 环境变量 | 说明 |
+| Value | 环境变量 | 说明 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../azure-stack-identity-overview.md) 的值。 |
+| 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文上一部分创建服务主体时保存的服务主体应用程序 ID。 |
-| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
+| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
 | 资源位置 | AZURE_RESOURCE_LOCATION | Azure Stack 环境的资源位置。
@@ -172,7 +172,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
     pip install -r requirements.txt
     ```
 
-6. 创建要用于 Azure Stack 的[服务主体](../azure-stack-create-service-principals.md)。 确保该服务主体在你的订阅上具有[参与者/所有者角色](../azure-stack-create-service-principals.md#assign-a-role)。
+6. 创建要用于 Azure Stack 的[服务主体](../operator/azure-stack-create-service-principals.md)。 确保该服务主体在你的订阅上具有[参与者/所有者角色](../operator/azure-stack-create-service-principals.md#assign-a-role)。
 
 7. 设置以下变量并将这些环境变量导出到当前 shell 中：
 
@@ -185,7 +185,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. 若要运行此示例，Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-DataCenter 映像必须存在于 Azure Stack 市场中。 可以[从 Azure 下载](../azure-stack-download-azure-marketplace-item.md)这些映像或者将其添加到[平台映像存储库](../azure-stack-add-vm-image.md)。
+8. 若要运行此示例，Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-DataCenter 映像必须存在于 Azure Stack 市场中。 可以[从 Azure 下载](../operator/azure-stack-download-azure-marketplace-item.md)这些映像或者将其添加到[平台映像存储库](../operator/azure-stack-add-vm-image.md)。
 
 9. 运行示例：
 

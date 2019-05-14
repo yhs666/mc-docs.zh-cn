@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: fcc9830e376f9de553b6558d055d3e0fb9a1cffa
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 5aa934e498f17124ac79aca9b7726424e16f3c13
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318898"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854821"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>使用 PowerShell 将 SQL 数据库复制到新服务器
 
@@ -97,7 +97,7 @@ $databaseCopy = New-AzSqlDatabaseCopy -ResourceGroupName $sourceResourceGroupNam
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $sourceresourcegroupname
@@ -122,4 +122,3 @@ Remove-AzResourceGroup -ResourceGroupName $targetresourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-<!--Update_Description: update "Clean up deployment" script-->

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/29/2018
 ms.date: 12/03/2018
 ms.author: v-jay
-ms.openlocfilehash: 7c574ed9973202dce9d7002c412263c1940c004e
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 965260ba585be914507f075105a3852dd59a9c4d
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672479"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858163"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码** 及其可能原因的列表。  

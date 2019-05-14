@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 12/01/2016
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 7bf96a818a26b17e25cbd666e85d3741af73a5fc
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 5bd36e0e0feef2345185269280ae4bffa822df31
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903135"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63844723"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>授予多个应用程序访问密钥保管库的权限
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 01/14/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 75980829d841546fac3ba1e4187abee59f38b62a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f7a7f8800a6bcd30a2f24acebb4bdfbb590e5eb4
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625876"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854609"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 配置混合云连接
 
@@ -57,7 +57,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 本教程假设你对 Azure 和 Azure Stack 有一些基本的了解。 若要在开始本教程之前了解更多信息，请阅读以下文章：
 
  - [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
- - [Azure Stack 的重要概念](/azure-stack/azure-stack-key-features)
+ - [Azure Stack 的重要概念](../operator/azure-stack-overview.md)
 
 ### <a name="azure"></a>Azure
 
@@ -70,9 +70,9 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
    >[!Note]
    >部署 ASDK 可能需要长达 7 小时的时间，因此请进行相应的计划。
 
- - 将 [应用服务](/azure-stack/azure-stack-app-service-deploy) PaaS 服务部署到 Azure Stack。
- - 在 Azure Stack 环境中[创建计划和套餐](/azure-stack/azure-stack-plan-offer-quota-overview)。
- - 在 Azure Stack 环境中[创建租户订阅](/azure-stack/azure-stack-subscribe-plan-provision-vm)。
+ - 将 [应用服务](../operator/azure-stack-app-service-deploy.md) PaaS 服务部署到 Azure Stack。
+ - 在 Azure Stack 环境中[创建计划和套餐](../operator/azure-stack-plan-offer-quota-overview.md)。
+ - 在 Azure Stack 环境中[创建租户订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
 ### <a name="before-you-begin"></a>准备阶段
 
@@ -120,7 +120,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 若要在 Azure 中创建 VNet，请执行以下操作：
 
-1. 使用浏览器连接到 [Azure 门户](http://portal.azure.cn/) 并使用 Azure 帐户进行登录。
+1. 使用浏览器连接到 [Azure 门户](https://portal.azure.cn/) 并使用 Azure 帐户进行登录。
 2. 选择“创建资源”。 **** 在“在市场中搜索”字段中输入 `virtual network`。 ****  在结果列表中找到“虚拟网络”，然后选择“虚拟网络”。 ****  ****
 3. 从“选择部署模型”列表中选择“资源管理器”，然后选择“创建”。  **** ****
 4. 在“创建虚拟网络”中配置 VNet 设置。 必填字段名称带有红色星号前缀。  输入有效值时，该星号变为绿色复选标记。
@@ -133,7 +133,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 将虚拟网络连接到网关之前，需创建要连接的虚拟网络的网关子网。 网关服务使用在网关子网中指定的 IP 地址。
 
-在  [Azure 门户](http://portal.azure.cn/)中，导航到要在其中创建虚拟网关的资源管理器虚拟网络。
+在  [Azure 门户](https://portal.azure.cn/)中，导航到要在其中创建虚拟网关的资源管理器虚拟网络。
 
 1. 选择 vNet，以便打开“虚拟网络”页。
 2. 在“设置” **** 中，选择“子网”。 ****

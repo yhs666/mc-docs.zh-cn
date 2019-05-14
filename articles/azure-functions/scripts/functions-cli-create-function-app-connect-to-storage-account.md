@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 04/20/2017
-ms.date: 10/18/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 5ab7821cf52b371e66a648bfc173b9d9b52e33d7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f08e7ea681013c53582a651f980b1af0f2f607ca
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650009"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854989"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>创建一个可连接到 Azure 存储帐户的函数应用
 
@@ -87,7 +87,7 @@ az functionapp config appsettings set `
 |---|---|
 | [az group create](/cli/group#az-group-create) | 使用相关位置创建资源组。 |
 | [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
-| [az functionapp create](/cli/functionapp#az-functionapp-create) |   |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../functions-scale.md#consumption-plan)中创建函数应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 

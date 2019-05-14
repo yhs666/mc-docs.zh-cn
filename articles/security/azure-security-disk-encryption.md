@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.openlocfilehash: 2892ca2a24b25a221b6181b44d8a55fd97bac7c1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 91a70e1ccdf7253003b52df79dbc8db9a775fa5c
+ms.sourcegitcommit: 2f31ac5e07e682a9ed03eb0b80c36962529b4139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626788"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "64339119"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>适用于 Windows 和 Linux IaaS VM 的 Azure 磁盘加密
 Microsoft Azure 坚决承诺确保数据隐私权和数据所有权，并通过各种先进技术来加密、控制和管理加密密钥以及控制和审核对数据的访问，使你能够控制 Azure 托管的数据。 这样，Azure 客户便可以灵活选择最符合其业务需求的解决方案。 在本文中，我们将会介绍新的技术解决方案“适用于 Windows 和 Linux IaaS VM 的 Azure 磁盘加密”，以帮助你保护数据，使你的组织能够信守在安全性与符合性方面所做的承诺。 本文提供有关如何使用 Azure 磁盘加密功能的详细指导，包括支持的方案和用户体验。
@@ -890,7 +890,7 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 设置值为“Encrypted”，表明�
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
-  建议不要在 OS 加密正在进行时登录 VM。 仅当其他两个方法都失败时再复制日志。
+  建议不要在 OS 加密正在进行时登录 VM。 仅当其他两个方法都失败时复制日志。
 
 #### <a name="prepare-a-pre-encrypted-linux-vhd"></a>准备预加密的 Linux VHD
 ##### <a name="ubuntu-16"></a>Ubuntu 16

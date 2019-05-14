@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/112019
 ms.author: v-biyu
-ms.openlocfilehash: df5876a774d409b51b87b42af201bb3a69681a51
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a48bf0522268a21f983d11dcb9c0ab0a98b8f70b
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903032"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63827152"
 ---
 # <a name="peer-two-virtual-networks"></a>对等互连两个虚拟网络
 

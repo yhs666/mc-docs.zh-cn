@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 01/14/2019
-ms.date: 02/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 389247c63ee7c77207edca69e101f8a197aeefe1
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 24bd18a383fc67732103ab560ebe1d90e376504e
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218329"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854763"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>使用存储在 Azure Stack 密钥保管库中的安全密码创建虚拟机
 
@@ -38,7 +38,7 @@ ms.locfileid: "56218329"
 ## <a name="prerequisites"></a>先决条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
+* [安装适用于 Azure Stack 的 PowerShell。](../operator/azure-stack-powershell-install.md)
 * [配置 PowerShell 环境。](azure-stack-powershell-configure-user.md)
 
 以下步骤说明通过检索 Key Vault 中存储的密码创建虚拟机所需的过程：
@@ -54,7 +54,7 @@ ms.locfileid: "56218329"
 
 以下脚本创建密钥保管库，并将密码作为机密存储在密钥保管库中。 创建密钥保管库时，请使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -119,7 +119,7 @@ Set-AzureKeyVaultSecret `
 
 现在，使用以下 PowerShell 脚本部署模板：
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

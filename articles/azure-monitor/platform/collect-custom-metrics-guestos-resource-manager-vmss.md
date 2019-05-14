@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: e9146c8069e38e071356a3000e1c1c05098e3460
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 8d75847d8f3dd54534cb85635314f1817d134203
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906137"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586759"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虚拟机规模集的 Azure 资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 使用 Azure Monitor [Windows Azure 诊断 (WAD) 扩展](diagnostics-extension-overview.md)，可以从作为虚拟机、云服务或 Azure Service Fabric 群集的一部分运行的来宾操作系统（来宾 OS）收集指标和日志。 该扩展可将遥测数据发送到之前链接的文章中列出的许多不同位置。  
 
@@ -25,9 +27,9 @@ ms.locfileid: "54906137"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)。 
+- 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)。 
 
-- 需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)，但也可以使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 
+- 需要安装 [Azure PowerShell](/powershell/azure)，但也可以使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>将 Azure Monitor 设置为数据接收器 
@@ -236,17 +238,17 @@ MSI 扩展中的以下代码还会将诊断扩展和配置作为扩展资源添�
 若要部署资源管理器模板，请使用 Azure PowerShell：  
 
 1. 启动 PowerShell。 
-1. 使用 `Login-AzureRmAccount -Environment AzureChinaCloud` 登录到 Azure 门户。
-1. 使用 `Get-AzureRmSubscription` 获取订阅列表。
+1. 使用 `Login-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。
+1. 使用 `Get-AzSubscription` 获取订阅列表。
 1. 设置要在其中创建或更新虚拟机的订阅： 
 
-   ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   ```powershell
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. 为所要部署的 VM 创建新资源组。 运行以下命令： 
 
-   ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+   ```powershell
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -257,8 +259,8 @@ MSI 扩展中的以下代码还会将诊断扩展和配置作为扩展资源添�
    > [!NOTE]  
    > 若要更新现有的规模集，请将 **-Mode Incremental** 添加到该命令的末尾。 
  
-   ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   ```powershell
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. 部署成功后，Azure 门户中应会显示该虚拟机规模集。 该规模应该会向 Azure Monitor 发出指标。 

@@ -12,17 +12,17 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 287afbfaf98a65c172ca698420b017ea4415007d
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 04/29/2019
+ms.openlocfilehash: db618397ef047fee4376f6cbd73ed05a8bbc0607
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347006"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854834"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放弹性池
 
-此 Azure CLI 脚本示例创建弹性池、移动入池数据库，并更改弹性池计算大小。 
+此 Azure CLI 脚本示例创建弹性池、移动共用数据库，并更改弹性池计算大小。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,7 +83,7 @@ az sql elastic-pools update \
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -98,7 +98,7 @@ az group delete --name myResourceGroup
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
 | [az sql elastic-pools create](/cli/sql/elastic-pool#az-sql-elastic-pool-create) | 创建弹性池。 |
-| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建单一数据库或入池数据库。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建单一数据库或共用数据库。 |
 | [az sql elastic-pools update](/cli/sql/elastic-pool#az-sql-elastic-pool-update) | 更新弹性池，在此示例中更改分配的 eDTU。 |
 | [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
@@ -107,4 +107,3 @@ az group delete --name myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-<!--Update_Description: update Global CLI 2.O links to Mooncake CLI 2.O links-->

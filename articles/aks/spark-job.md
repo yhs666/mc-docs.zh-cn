@@ -10,12 +10,12 @@ origin.date: 03/15/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 95c806f66173fe9b8463b9c18731d4276b5b16ff
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d6c02fcd2ed699bb0938f5b3906834e6c8878969
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625138"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854715"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 中运行 Apache Spark 作业
 
@@ -41,7 +41,7 @@ Spark 用于大规模数据处理，要求根据 Spark 资源的要求调整 Kub
 为群集创建资源组。
 
 ```azurecli
-az group create --name mySparkCluster --location chinaeast
+az group create --name mySparkCluster --location chinaeast2
 ```
 
 创建 AKS 群集，其中包含大小为 `Standard_D3_v2` 的节点。
@@ -177,7 +177,7 @@ sbt assembly
 ```azurecli
 RESOURCE_GROUP=sparkdemo
 STORAGE_ACCT=sparkdemo$RANDOM
-az group create --name $RESOURCE_GROUP --location chinaeast
+az group create --name $RESOURCE_GROUP --location chinaeast2
 az storage account create --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT --sku Standard_LRS
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT -o tsv`
 ```

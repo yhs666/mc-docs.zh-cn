@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
 origin.date: 08/16/2018
-ms.date: 03/11/2019
+ms.date: 05/06/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1fa261397cc48bd98cda3746baa328d3ffaf9c46
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: a3b18eefcea0558c0100137fb76c9980600606b9
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903206"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854790"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
@@ -59,20 +59,27 @@ New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namesp
 
 ## <a name="create-an-event-hub"></a>创建事件中心
 
-创建事件中心命名空间后，在该命名空间中创建事件中心：
-
+创建事件中心命名空间后，在该命名空间中创建事件中心：  
+`MessageRetentionInDays` 的允许期限为 1 到 7 天。
 ```PowerShell
-New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
+New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
-祝贺！ 现已使用 Azure PowerShell 创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 
+祝贺你！ 现已使用 Azure PowerShell 创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，我们已创建事件中心命名空间，并使用示例应用程序从事件中心发送和接收事件。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程： 
+在本文中，我们已创建事件中心命名空间，并使用示例应用程序从事件中心发送和接收事件。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅**发送和接收事件**教程： 
 
-- **将事件发送到事件中心**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- **从事件中心接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
+
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps

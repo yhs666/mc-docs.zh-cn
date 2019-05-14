@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 11/05/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: ac760c7b8a4c0c87bce1bced0547df2821a83759
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/29/2019
+ms.openlocfilehash: 799925fda53a7650d9d6d8b544896a8170d3ba0b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318920"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854467"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 
@@ -22,13 +22,13 @@ ms.locfileid: "58318920"
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MySQL 提供了各种指标来帮助用户深入了解服务器的行为。
 
 ## <a name="metrics"></a>指标
-所有 Azure 指标的频率都是一分钟，每个指标提供 30 天的历史记录。 其他任务包括设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+所有 Azure 指标的频率都是一分钟，每个指标提供 30 天的历史记录。 可针对指标配置警报。 有关分步指南，请参阅[如何设置警报](howto-alert-on-metric.md)。 其他任务包括设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 ### <a name="list-of-metrics"></a>指标列表
 这些指标适用于 Azure Database for MySQL：
 
 |指标|指标显示名称|计价单位|说明|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU 百分比|百分比|使用的 CPU 百分比。|
 |memory_percent|内存百分比|百分比|使用的内存百分比。|
 |io_consumption_percent|IO 百分比|百分比|使用的 IO 百分比。|
@@ -46,7 +46,8 @@ ms.locfileid: "58318920"
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。|
 
 ## <a name="server-logs"></a>服务器日志
-可以在服务器上启用慢查询日志记录。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。
+可以在服务器上启用慢查询日志记录。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要了解有关日志记录的详细信息，请访问 [服务器日志](concepts-server-logs.md)页。
 
 ## <a name="next-steps"></a>后续步骤
+- 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-on-metric.md)。
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

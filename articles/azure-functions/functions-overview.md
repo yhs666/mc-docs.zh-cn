@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 origin.date: 10/03/2017
-ms.date: 11/22/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: df9c20bc14f3462f6f409e58878ec58af3274903
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 572cf61f2c15df2cd92dc3650c006edbe80db8fd
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672611"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854813"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 简介  
 Azure Functions 是用于在云中轻松运行小段代码或“函数”的一个解决方案。 用户可以只编写解决现有问题所需的代码，而无需担心要运行该代码的整个应用程序或基础结构。 Functions 可使开发更有效率，并可以使用自己所选的开发语言，例如 C#、F#、Node.js、Java 或 PHP。 只需为代码运行的时间付费，并可信任 Azure 会根据需要进行调整。 使用 Azure Functions 可以在 Azure 上开发[无服务器](https://azure.microsoft.com/solutions/serverless/)应用程序。
@@ -64,7 +64,10 @@ Azure Functions 可与各种 Azure 和第三方服务集成。 这些服务可�
 - 本地（使用服务总线）
 
 ## <a name="pricing"></a>Functions 的费用是多少？
-**应用服务计划** - 将函数像 Web 应用一样运行。 如果已对其他应用程序使用应用服务，可以按相同的计划运行自己的函数，而不用另外付费。 
+Azure Functions 有两种定价计划。 请选择最适合自己的那种： 
+
+* **使用计划** - 用户的函数运行时，Azure 提供所有所需的计算资源。 用户不必担心资源管理，只需为自己的代码运行的时间付费。 
+* **应用服务计划** - 将函数像 Web 应用一样运行。 如果已对其他应用程序使用应用服务，可以按相同的计划运行自己的函数，而不用另外付费。 
 
 有关托管计划的详细信息，请参阅 [Azure Functions 托管计划比较](functions-scale.md)。 完整的定价详细信息可在 [Functions 定价页](https://www.azure.cn/pricing/details/azure-functions/)中找到。
 

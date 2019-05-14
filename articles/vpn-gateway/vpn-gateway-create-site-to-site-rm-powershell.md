@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/14/2019
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 6ccaa710e7655d35ec2aaf749160d99407bfdfe6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c2f5c90e7f00f3d8ff2f5efde4c64d200b48d70d
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625548"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63850402"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>使用 PowerShell 创建具有站点到站点 VPN 连接的 VNet
 

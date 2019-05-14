@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/19/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 8c916a017dd211c475abaeaf1bfcb0c4a3746a34
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f190f376baad29be0008e6ce8127cb8dfc88fe43
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626462"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854964"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 
@@ -85,7 +85,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
    }
    ```
 
-3. 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的信息，请参阅[在 Azure Stack 中创建套餐的订阅](../azure-stack-subscribe-plan-provision-vm.md)。
+3. 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的信息，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
 4. 创建具有“订阅”范围和“所有者”角色的服务主体。 保存服务主体的 ID 和机密。 有关为 Azure Stack 创建服务主体的信息，请参阅[创建服务主体](azure-stack-create-service-principals.md)。 现已设置 Azure Stack 环境。
 
@@ -303,7 +303,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
 - [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
 <!-- Update_Description: wording update -->

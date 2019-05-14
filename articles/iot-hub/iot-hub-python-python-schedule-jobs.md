@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/16/2018
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: adaa36dc909749687af6f690d8c52966bf15cd52
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: df9d5e6662216675dfa3e741f6eb4f8ef5b4bc05
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674360"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854909"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -329,7 +329,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
 
-[教程：如何进行固件更新][lnk-fwupdate]
+[教程：固件更新方法][lnk-fwupdate]
 
 若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-iot-edge]。
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: c7216cd2ce9ae5ca8da787f81eac53d43dcde3a5
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: b2635caac641a8596f5e395395b44171dbea6b32
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686317"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586889"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -169,7 +169,7 @@ $actionWebhook = New-AzAlertRuleWebhook -ServiceUri https://example.com?token=my
 在经典虚拟机上创建关于 CPU %指标的警报规则
 
 ```powershell
-Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "East US" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
+Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "East US" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Action $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
 ```
 
 检索警报规则

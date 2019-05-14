@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/12/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0b1b5f657dacb7733ce24f96068abc5a9d58e481
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bfeddc0db549f760ed7ce33482bd7a124f2eedd7
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625725"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855457"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 
@@ -32,9 +32,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> 升级 AKS 群集时，不能跳过 Kubernetes 次要版本。 例如，允许从 *1.10.x* 升级到 *1.11.x*，或者从 *1.11.x* 升级到 *1.12.x*，但不允许从 *1.10.x* 升级到 *1.12.x*。
+> 升级 AKS 群集时，不能跳过 Kubernetes 次要版本。 例如，允许从 *1.10.x* ->  升级到 *1.11.x*，或者从 *1.11.x* ->  升级到 *1.12.x*，但不允许从 *1.10.x* ->  升级到 *1.12.x*。
 >
-> 若要从 *1.10.x* 升级到 *1.12.x*，请先从 *1.10.x* 升级到 *1.11.x*，然后从 *1.11.x* 升级到 *1.12.x*。
+> 若要从 *1.10.x* ->  升级到 *1.12.x*，请先从 *1.10.x* ->  升级到 *1.11.x*，然后从 *1.11.x* ->  升级到 *1.12.x*。
 
 以下示例输出表明，群集可以升级到版本 *1.11.5* 或 *1.11.6*：
 
@@ -65,7 +65,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  chinaeast      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.chinaeast.azmk8s.io
+myAKSCluster  chinaeast2      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.chinaeast2.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -81,6 +81,6 @@ myAKSCluster  chinaeast      myResourceGroup  1.11.6               Succeeded    
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-get-upgrades]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-upgrade
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
+[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show

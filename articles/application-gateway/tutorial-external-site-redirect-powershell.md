@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 01/24/2018
 ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: ee01e30a52d7a2f16c344077a63bbaab68b7f7c7
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: da448c4326103b0bd678d9d395ef438352dd3eac
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686468"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63849535"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持外部重定向的应用程序网关
 

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 07/24/2018
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: f6c831e2291a36cf61e75a450e09f48bdef3f25c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 35521693026a9046c2fb165ed0121ed31fa3d4c0
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625808"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63844462"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>配置与 Azure VPN 网关的主动-主动 S2S VPN 连接
 

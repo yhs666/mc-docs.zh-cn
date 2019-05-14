@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ef499f24961b579702007a63ea5c70915626d620
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 9345e43226773987ae2383fcacde8a2b527c1239
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349171"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858361"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 时序见解预览版用例
 
@@ -93,7 +93,9 @@ ms.locfileid: "58349171"
 ## <a name="next-steps"></a>后续步骤
 
 - 了解[时序见解预览版资源管理器](./time-series-insights-update-explorer.md)的详细信息。
+
 - 要规划环境，请阅读[时序见解预览版规划](./time-series-insights-update-plan.md)。
+
 - 阅读[时序见解客户端](https://github.com/Microsoft/tsiclient)文档。
 
 <!-- Images -->

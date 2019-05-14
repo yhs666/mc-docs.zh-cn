@@ -7,16 +7,16 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: overview
-ms.custom: mvc
+ms.custom: seodec18
 origin.date: 08/01/2018
-ms.date: 01/28/2019
+ms.date: 05/06/2019
 ms.author: v-biyu
-ms.openlocfilehash: 6af41219a75328c08aafb499bdbda9fdd66c415a
-ms.sourcegitcommit: ced39ce80d38d36bdead66fc978d99e93653cb5f
+ms.openlocfilehash: 1e3b0a81fba88e930ea31898e32dda4de01e402f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307627"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854685"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中心 — 大数据流式处理平台和事件引入服务
 Azure 事件中心是大数据流式处理平台和事件引入服务。 它可以每秒接收和处理数百万个事件。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到事件中心的数据。
@@ -75,17 +75,23 @@ Azure 事件中心还能与 [Azure Functions](/azure-functions/) 集成，以构
 
 ![事件中心](./media/event-hubs-about/event_hubs_architecture.png)
 
+
 ## <a name="next-steps"></a>后续步骤
 
-若要开始使用事件中心，请参阅以下文章：
+要开始使用事件中心，请参阅“发送和接收事件”教程： 
 
-1. **创建事件中心**：[Azure 门户](event-hubs-create.md)、[Azure CLI](event-hubs-quickstart-cli.md)、[Azure PowerShell](event-hubs-quickstart-powershell.md)、[Azure 资源管理器模板](event-hubs-resource-manager-namespace-event-hub.md)
-2. 将事件发送到事件中心：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-3. 从事件中心接收事件：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)   
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
 若要了解有关事件中心的详细信息，请参阅以下文章：
 
 - [事件中心功能概述](event-hubs-features.md)
 - [常见问题解答](event-hubs-faq.md)。
 
-<!-- Update_Description: wording update -->
+

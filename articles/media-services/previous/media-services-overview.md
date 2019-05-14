@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 04/19/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: b8889bc25fc2d9919c6c0ef287e034d3428418cc
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 93d8031018b90c44bc29a659c3af0e0d4e4b48db
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833294"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550013"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 
@@ -69,12 +69,6 @@ Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发�
 有关详细信息，请参阅 [AMS 功能和服务的跨数据中心方案和可用性](scenarios-and-availability.md)。
 
 ## <a name="service-level-agreement-sla"></a>服务级别协议 (SLA)
-
-* 对于媒体服务编码，我们保证 REST API 事务可实现 99.9% 的可用性。
-* 对于流式处理，如果用户购买了标准或高级流式处理终结点，则在其请求现有媒体内容时，我们会成功处理该请求，确保可用性达到 99.9%。
-* 对于实时通道，我们保证运行中的通道在至少 99.9% 的时间都能建立外部连接。
-* 对于内容保护，我们保证在至少 99.9% 的时间成功满足密钥请求。
-* 对于索引器，我们将使用编码预留单位在 99.9% 的时间成功处理索引器任务请求。
 
 有关详细信息，请参阅 [Azure SLA](https://www.azure.cn/support/legal/sla/)。
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1034f3ab8ffeb1215e8ce98cc0b666910769c512
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 8e7bd7511aee43c2c7a130882c62efde76bd0f47
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349189"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858748"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教程：设置 Azure 时序见解预览环境
 

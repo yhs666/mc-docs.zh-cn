@@ -10,16 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 09/28/2018
-ms.date: 11/12/2018
+ms.topic: conceptual
+origin.date: 01/14/2019
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.openlocfilehash: 53791e2ab475f1b3bafd071584f865ce6d714428
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 0b8df97a613954ce1026937278d241e3e68bbfca
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664123"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855091"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure Stack 存储简介
 
@@ -96,5 +97,4 @@ Blob 存储提供三种类型的 blob：
 
 - [与 Azure 一致的存储：差异和注意事项](azure-stack-acs-differences.md)
 
-- 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
-<!-- Update_Description: wording update -->
+- 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](/storage/common/storage-introduction)

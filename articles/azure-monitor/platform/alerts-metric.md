@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 651d9f50aa971b907b24e195743e391bfb5c43e2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ef898b7018d2924c3761c2a411524ba98d00ad44
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626531"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586906"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 
@@ -93,7 +93,7 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 3. 可以创建一个简单的指标警报规则来监视 VM 上的平均 CPU 百分比是否大于 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. 可以使用以下命令查看资源组中的所有指标警报

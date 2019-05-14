@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb1cd0858c159bec15c2b3b1d7fcc029f5ee63a5
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 097668832b15002f2eb35a3df7ac63257820a315
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349092"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63803001"
 ---
 # <a name="azure-time-series-insights-preview-overview"></a>Azure 时序见解预览版概述
 

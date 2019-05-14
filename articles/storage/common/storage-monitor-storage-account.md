@@ -6,26 +6,26 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 07/31/2018
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: acc8b0d51e5dc8c3ffc603a01039757a308c334d
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 699b149bb4256f1e2e2161d13a81a28bf7e1a1b4
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890192"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549996"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
-[Azure 存储分析](../storage-analytics.md)提供所有存储服务的指标，以及 Blob、队列和表的日志。 可以使用 [Azure 门户](https://portal.azure.cn)来配置要为帐户记录哪些指标和日志，并配置图表来提供指标数据的可视表示形式。
+[Azure 存储分析](storage-analytics.md)提供所有存储服务的指标，以及 Blob、队列和表的日志。 可以使用 [Azure 门户](https://portal.azure.cn)来配置要为帐户记录哪些指标和日志，并配置图表来提供指标数据的可视表示形式。
 
 > [!NOTE]
 > 在 Azure 门户中检查监视数据会产生相关的费用。 有关详细信息，请参阅[存储分析](storage-analytics.md)。
 >
 > Azure 文件目前支持存储分析指标，但尚不支持日志记录。
 >
-> 有关使用存储分析及其他工具来识别、诊断和排查 Azure 存储相关问题的深入指导，请参阅[监视、诊断和排查 Azure 存储问题](../storage-monitoring-diagnosing-troubleshooting.md)。
+> 有关使用存储分析及其他工具来识别、诊断和排查 Azure 存储相关问题的深入指导，请参阅[监视、诊断和排查 Azure 存储问题](storage-monitoring-diagnosing-troubleshooting.md)。
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>为存储帐户配置监视

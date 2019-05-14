@@ -4,17 +4,17 @@ description: 如何使用 PowerShell 对 Azure 队列存储执行操作
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 origin.date: 09/14/2017
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.subservice: queues
-ms.openlocfilehash: 5914c9ceb8a01ce934b4b234f0b5f2862f651594
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f32e1f317950aedd8b6d3449a65debaeafe27076
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665417"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549974"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -25,7 +25,7 @@ Azure 队列存储是一项可存储大量消息的服务，用户可以通过 H
 > * 检索队列
 > * 添加消息
 > * 读取消息
-> * 删除消息 
+> * 删除消息
 > * 删除队列
 
 本操作指南需要 Azure PowerShell 模块 Az 0.7 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。
@@ -47,7 +47,7 @@ Connect-AzAccount -EnvironmentName AzureChinaCloud
 如果你不知道要使用哪个位置，可以列出可用的位置。 显示列表后，找到要使用的位置。 本练习使用“中国东部”。 将此内容存储在变量 location 中，以供以后使用。
 
 ```powershell
-Get-AzLocation | select Location 
+Get-AzLocation | select Location
 $location = "China East"
 ```
 
@@ -109,21 +109,21 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
-$queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
+$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 1"
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 # Add two more messages to the queue 
-$queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
+$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
-$queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
+$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 3"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-如果使用 [Azure 存储资源管理器](http://storageexplorer.com)，可以连接到 Azure 帐户并查看存储帐户中的队列，然后在队列中向下钻取以查看队列中的消息。 
+如果使用 [Azure 存储资源管理器](https://storageexplorer.com)，可以连接到 Azure 帐户并查看存储帐户中的队列，然后在队列中向下钻取以查看队列中的消息。 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>从队列中读取一条消息，然后删除该消息
 

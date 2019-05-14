@@ -11,12 +11,12 @@ origin.date: 02/01/2019
 ms.date: 04/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 89f073a40fa4f24f75f7d3fd26b5a71714e53f58
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: fe24001e42cdc4476173a88b5424dbb46e8c2567
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004226"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63822647"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中自定义用户界面体验
 
@@ -166,5 +166,5 @@ ms.locfileid: "59004226"
 > * 测试自定义 UI
 
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C 中的语言自定义](active-directory-b2c-reference-language-customization.md)
+> [Azure Active Directory B2C 中的语言自定义 ](active-directory-b2c-reference-language-customization.md)
 

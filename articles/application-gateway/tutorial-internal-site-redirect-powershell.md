@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2018
 ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1daf2c0e6b955eb2ff87dde4e0b6e69f6dbff918
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: f16b7cfc9b965ebddfc8c5032b497a0e2da9ebb3
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686441"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63849554"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持内部重定向的应用程序网关
 

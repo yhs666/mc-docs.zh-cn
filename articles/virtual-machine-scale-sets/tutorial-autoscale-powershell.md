@@ -17,12 +17,12 @@ origin.date: 03/27/2018
 ms.date: 03/28/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0e658f1a45471f5b1d0c924c2ab816f991caf537
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3a4fd16a51d29f0e7436f4e14d6159a62b397dc3
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627280"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63845937"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 自动缩放虚拟机规模集
 
@@ -73,7 +73,7 @@ New-AzureRmVmss `
 
 此规则使用以下参数：
 
-| 参数               | 说明                                                                                                         | 值          |
+| 参数               | 说明                                                                                                         | Value          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | 监视和应用规模集操作的性能指标。                                                   | CPU 百分比 |
 | *-TimeGrain*            | 为进行而收集指标分析的频率。                                                                   | 1 分钟       |
@@ -198,7 +198,7 @@ mstsc /v 52.168.121.216:50001
 登录后，从任务栏打开 Internet Explorer。
 
 - 选择“确定”，接受“使用推荐的安全性、隐私和兼容性设置”这一提示。
-- 在地址栏中键入 *http://download.sysinternals.com/files/CPUSTRES.zip*。
+- 在地址栏中键入 *http://download.sysinternals.com/files/CPUSTRES.zip* 。
 - 由于 Internet Explorer 增强型安全配置已启用，因此请选择“添加”，以便将 *http://download.sysinternals.com* 域添加到受信任站点的列表。
 - 提示查找下载的文件时，请选择“打开”，然后选择“运行”，以便运行 *CPUSTRES.EXE* 工具。
 

@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 03/26/2019
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 914e5ae7136629214af5336934e26c2366457360
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 8ea6a88fccd59894e7ed1c7dfc6f3e596345b253
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906221"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586881"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -31,7 +31,6 @@ ms.locfileid: "54906221"
 
 这些日志也与来宾 OS 级诊断日志不同。 来宾 OS 级诊断日志是由在虚拟机内部或其他受支持的资源类型中运行的代理收集的日志。 资源级诊断日志不需要代理并从 Azure 平台本身捕获特定于资源的数据，而来宾 OS 级诊断日志从操作系统和在虚拟机上运行的应用程序捕获数据。
 
-并非所有服务都支持此处所述的诊断日志。 [本文包含一个列出哪些服务支持诊断日志的部分](./../../azure-monitor/platform/tutorial-dashboards.md)。
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>可以对诊断日志执行的操作
 可以对诊断日志执行的部分操作如下：
@@ -40,27 +39,25 @@ ms.locfileid: "54906221"
 
 * 将诊断日志保存到[**存储帐户**](../../azure-monitor/platform/archive-diagnostic-logs.md)进行审核或手动检查。 可以使用**资源诊断设置**指定保留时间（天）。
 * [将诊断日志流式传输到**事件中心**](diagnostic-logs-stream-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
+* 使用 [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md) 对其进行分析时，其中的数据将立即写入到 Azure Monitor，而无需先将数据写入到存储。  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
 
 > [!NOTE]
 >  当前无法将网络流日志存档到安全虚拟网络后的存储帐户。
 
-> [!WARNING]
-> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>诊断设置
 
 使用资源诊断设置配置资源诊断日志。 使用租户诊断设置配置租户诊断日志。 用于服务控制的**诊断设置**：
 
-* 将诊断日志和指标发送到的位置（存储帐户、事件中心和/或 Log Analytics）。
+* 将诊断日志和指标发送到的位置（存储帐户、事件中心和/或 Azure Monitor）。
 * 发送哪些日志类别，是否也会发送指标数据。
 * 应该将每个日志类别在存储帐户中保留多长时间
-    - 保留期为 0 天意味着永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
+    - 保留期为 0 天表示永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 365 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择了“事件中心”或“Log Analytics”选项），则保留策略无效。
-    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从 UTC 晚上 12 点开始，但请注意，可能需要最多 24 小时才能将日志从存储帐户中删除。
+    - 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。
 
 这些设置可以通过门户中的诊断设置、Azure PowerShell 和 CLI 命令或 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) 轻松进行配置。
 
@@ -71,7 +68,7 @@ ms.locfileid: "54906221"
 >
 >
 
-## <a name="how-to-enable-collection-of-diagnostic-logs"></a>如何启用诊断日志的收集
+## <a name="how-to-enable-collection-of-diagnostic-logs"></a>如何启用诊断日志收集
 
 可以[在资源管理器模板中创建资源的过程中](./../../azure-monitor/platform/diagnostic-logs-stream-template.md)或在创建资源后通过门户中该资源的页面启用诊断日志的收集。 也可使用 Azure PowerShell 或 CLI 命令（或者使用 Azure Monitor REST API）在任何时间点启用集合。
 
@@ -108,22 +105,24 @@ ms.locfileid: "54906221"
 
 ![AAD 诊断设置](./media/diagnostic-logs-overview/diagnostic-settings-aad.png)
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>通过 PowerShell 启用资源诊断日志的集合
+### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>通过 PowerShell 启用资源诊断日志收集
 
-若要通过 Azure PowerShell 启用资源诊断日志的集合，请使用以下命令：
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要通过 Azure PowerShell 启用资源诊断日志收集，请使用以下命令：
 
 若要允许在存储帐户中存储诊断日志，请使用以下命令：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
-存储帐户 ID 是需要向其发送日志的存储帐户的资源 ID。
+存储帐户 ID 是要将日志发送到的存储帐户的资源 ID。
 
-若要允许将诊断日志流式传输到事件中心，请使用以下命令：
+要允许将诊断日志流式传输到事件中心，请使用以下命令：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 服务总线规则 ID 是以下格式的字符串：`{Service Bus resource ID}/authorizationrules/{key name}`。
@@ -131,13 +130,13 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [y
 若要启用将诊断日志发送到 Log Analytics 工作区，请使用以下命令：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 可以使用以下命令获取 Log Analytics 工作区的资源 ID：
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 可以结合这些参数启用多个输出选项。
@@ -206,7 +205,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 目前无法使用 CLI 配置租户诊断设置。
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>通过 REST API 启用资源诊断日志的集合
+### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>通过 REST API 启用资源诊断日志收集
 
 若要使用 Azure Monitor REST API 更改诊断设置，请参阅[此文档](https://docs.microsoft.com/rest/api/monitor/)。
 
@@ -225,10 +224,6 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 ![门户中的“诊断日志”结果](./media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 
 添加诊断设置会打开“诊断设置”视图，可在其中启用、禁用或修改选定资源的诊断设置。
-
-## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>诊断日志支持的服务、类别和架构
-
-[参阅此文](../../azure-monitor/platform/tutorial-dashboards.md)获取受支持服务的完整列表，以及这些服务使用的日志类别和架构。
 
 ## <a name="next-steps"></a>后续步骤
 

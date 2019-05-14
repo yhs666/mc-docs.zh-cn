@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/18/2019
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 79cbe3cbbfbd9c070351039dd5bf47891553307a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e7fcc927b9ea5e43c95eba790490680a0993292a
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625807"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63857055"
 ---
 # <a name="input-metadata"></a>输入元数据 
 

@@ -15,12 +15,12 @@ origin.date: 06/12/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210eb13c7e990f0db9b4234d5fc1c9a370bba2b7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b50d6c2b550c63efdcefd33d2d44f9f93bba8bb2
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648907"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586858"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -53,7 +53,7 @@ ms.locfileid: "52648907"
 多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 若要禁用并发任务执行，请将 [CloudPool.MaxTasksPerComputeNode](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 属性设置为 1。
 
 > [!NOTE]
-> Batch [限制](batch-quota-limit.md#other-limits)已启用节点间通信的池的大小。
+> Batch [限制](batch-quota-limit.md#pool-size-limits)已启用节点间通信的池的大小。
 
 
 此代码片段演示如何使用 Batch.NET 库为多实例任务创建池。
@@ -285,7 +285,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 代码示例演示了如何通过
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. 将 Batch 和存储帐户凭据输入到 **Microsoft.Azure.Batch.Samples.Common** 项目中的 `AccountSettings.settings`。
 4. **生成并运行** MultiInstanceTasks 解决方案，在批处理池中的计算节点上执行 MPI 示例应用程序。
-5. 可选：通过 [Azure 门户][portal]或 [Batch Explorer][batch_labs] 检查示例池、作业和任务（“MultiInstanceSamplePool”、“MultiInstanceSampleJob”、“MultiInstanceSampleTask”），再删除这些资源。
+5. *可选*：在删除资源前，请先通过 [Azure 门户][portal]或 [Batch Explorer][batch_labs] 检查示例池、作业和任务（“MultiInstanceSamplePool”、“MultiInstanceSampleJob”、“MultiInstanceSampleTask”）。
 
 > [!TIP]
 > 如果没有 Visual Studio，可下载免费版 [Visual Studio Community][visual_studio]。

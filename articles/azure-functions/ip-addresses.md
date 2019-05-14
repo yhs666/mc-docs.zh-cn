@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 07/18/2018
-ms.date: 10/19/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6d879fa1587c4227163323d4247936165953fb74
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 7293e7aae80536b8ca2192617d06b5691f0d6a0e
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643556"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854618"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions 中的 IP 地址
 
@@ -47,6 +47,8 @@ IP 地址与函数应用而不是单个函数相关联。 传入的 HTTP 请求�
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+> [!NOTE]
+> 缩放按[消耗计划](functions-scale.md#consumption-plan)运行的函数应用时，可以分配新范围的出站 IP 地址。 按消耗计划运行时，可能需要将整个数据中心加入允许列表。
 
 ## <a name="data-center-outbound-ip-addresses"></a>数据中心出站 IP 地址
 
@@ -84,7 +86,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 - 删除资源组和区域组合中的最后一个函数应用，然后重新创建它。
 - 删除 SSL 绑定（例如，在[证书续订](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)期间）。
 
-如果未执行上面所列的操作，入站 IP 地址也可能会更改。
+在[消耗计划](functions-scale.md#consumption-plan)中运行函数应用时，如果未执行上面所列的操作，入站 IP 地址也可能会更改。
 
 ## <a name="outbound-ip-address-changes"></a>出站 IP 地址更改
 
@@ -93,7 +95,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 - 执行可能更改入站 IP 地址的任何操作。
 - 更改应用服务计划的定价层。 应用可在所有定价层中使用的所有可能出站 IP 地址列表在 `possibleOutboundIPAddresses` 属性中指定。 请参阅[查找出站 IP](#find-outbound-ip-addresses)。
 
-如果未执行上面所列的操作，入站 IP 地址也可能会更改。
+在[消耗计划](functions-scale.md#consumption-plan)中运行函数应用时，如果未执行上面所列的操作，出站 IP 地址也可能会更改。
 
 有意强制出站 IP 地址更改：
 

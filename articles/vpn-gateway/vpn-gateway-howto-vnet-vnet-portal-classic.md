@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 33934757839f643a6443968131785e9cecaf7bbf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 226ac35020cd87c45691173b1d159e0dceeff179
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625529"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63849408"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>配置 VNet 到 VNet 连接（经典）
 

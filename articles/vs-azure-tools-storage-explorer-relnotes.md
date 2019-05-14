@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 306045ce19c1b1fad480ebd5f9652333a8cbb1b6
-ms.sourcegitcommit: 780fa3d8b5538d324d3e13051abe6f5bd52208e2
+ms.openlocfilehash: 433a87186928f4ebc5f9c45f1d5734b2b6f90a54
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58812644"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63859585"
 ---
 # <a name="21vianet-azure-storage-explorer-release-notes"></a>世纪互联 Azure 存储资源管理器发行说明
 

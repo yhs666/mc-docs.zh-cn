@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 932ce882dfe2ed4e7cc7383140e673a2d8750270
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c7ee04ca934c61022e2770547c796b686d3ea18c
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627287"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586867"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自动化 runbook 收集 Log Analytics 中的数据
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 可以从各种源中收集 Log Analytics 中的大量数据，包括代理上的[数据源](../../azure-monitor/platform/agent-data-sources.md)以及[从 Azure 中收集的数据](../../azure-monitor/platform/collect-azure-metrics-logs.md)。 尽管某些情况下，需要收集无法通过这些标准源访问的数据。 这时，可以使用 [HTTP 数据收集器 API](../../azure-monitor/platform/data-collector-api.md) 将数据从任何 REST API 客户端写入到 Log Analytics。 一种执行此数据收集的常用方法是使用 Azure 自动化中的 runbook。
 
 本教程将逐步介绍在 Azure 自动化中创建和计划 runbook，将数据写入 Log Analytics 的过程。
@@ -64,7 +67,7 @@ ms.locfileid: "58627287"
 |:--|:--|:--|
 | Name | WorkspaceId | WorkspaceKey |
 | 类型 | String | String |
-| 值 | 粘贴在 Log Analytics 工作区的“工作区 ID”中。 | 粘贴在 Log Analytics 工作区的“主密钥”或“辅助密钥”中。 |
+| Value | 粘贴在 Log Analytics 工作区的“工作区 ID”中。 | 粘贴在 Log Analytics 工作区的“主密钥”或“辅助密钥”中。 |
 | 加密 | 否 | 是 |
 
 ## <a name="3-create-runbook"></a>3.创建 Runbook
@@ -92,7 +95,7 @@ Azure 自动化在门户中具有编辑器，可在其中编辑和测试 runbook
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount -Environment AzureChinaCloud `
+    Connect-AzAccount -Environment AzureChinaCloud `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Azure 自动化在门户中具有编辑器，可在其中编辑和测试 runbook
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -176,7 +179,7 @@ Azure 自动化包含用于[测试 runbook](../../automation/automation-testing-
 2. 单击“添加计划” > “将计划链接到 runbook” > “创建新计划”。
 5. 为计划键入下列值，然后单击“创建”。
 
-| 属性 | 值 |
+| 属性 | Value |
 |:--|:--|
 | Name | AutomationJobs-Hourly |
 | 启动 | 选择至少晚于当前时间 5 分钟的任何时间。 |

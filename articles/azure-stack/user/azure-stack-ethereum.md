@@ -6,19 +6,19 @@ keywords: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 02/04/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: digimobile
 ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: 55c932ac84ba44161ec5571f0782e99cda85e896
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 477f286269cf1b7922b71d7da70e6ef4f160563b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503668"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855372"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>在 Azure Stack 上部署 Ethereum 区块链网络
 
@@ -33,14 +33,14 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 
 ## <a name="prerequisites"></a>先决条件
 
-[从市场](../azure-stack-download-azure-marketplace-item.md)下载最新项目：
+[从市场](../operator/azure-stack-download-azure-marketplace-item.md)下载最新项目：
 
 - Ubuntu Server 16.04 LTS
 - Windows Server 2016
 - 适用于 Linux 的自定义脚本 2.0
 - 适用于 Windows 的自定义脚本扩展
 
-有关区块链方案的更多信息，请参阅 [Ethereum 权威证明联盟解决方案模板](https://docs.microsoft.com/zh-cn/azure/blockchain/templates/ethereum-deployment)。
+有关区块链方案的更多信息，请参阅 [Ethereum 权威证明联盟解决方案模板](https://docs.microsoft.com/zh-cn/azure/blockchain/templates/ethereum-poa-deployment)。
 
 ## <a name="deployment-architecture"></a>部署体系结构
 

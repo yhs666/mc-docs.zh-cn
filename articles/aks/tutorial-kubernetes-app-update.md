@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 522cfe052e2ee3f902e54ee26ad3834ebd942418
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6f05900272f446f546cf95d291e30084e6888959
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626620"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520679"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序。
 
@@ -66,7 +66,7 @@ docker-compose up --build -d
 
 ## <a name="test-the-application-locally"></a>在本地测试应用程序
 
-若要验证已更新的容器映像是否显示所做的更改，请打开一个本地 Web 浏览器并访问 http://localhost:8080。
+若要验证已更新的容器映像是否显示所做的更改，请打开一个本地 Web 浏览器并访问 `http://localhost:8080`。
 
 ![Azure 上的 Kubernetes 群集映像](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

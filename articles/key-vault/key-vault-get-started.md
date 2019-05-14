@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 05/10/2018
 ms.date: 12/10/2018
 ms.author: v-biyu
-ms.openlocfilehash: 6797813356f74443c23ab7f622519d304dd71d51
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6c869dc787e50aebe4f166b9bee5a0e6b0ee2dc1
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625249"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63851268"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 密钥保管库入门
 本文有助于使用 PowerShell 完成 Azure Key Vault 入门，并详细介绍如何完成以下活动：

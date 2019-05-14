@@ -2,19 +2,20 @@
 title: 本快速入门介绍如何通过 C 使用对称密钥将模拟设备预配到 Azure IoT 中心 | Microsoft 文档
 description: 在本快速入门中，你将使用 C 设备 SDK 创建一个将对称密钥和 Azure IoT 中心设备预配服务结合使用的模拟设备
 author: wesmc7777
-ms.author: wesmc
-ms.date: 08/29/2018
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9764702f7daaf7b8c5b2599f45b1ab1647a6d2fd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 37b199df54e104641465f7fb49c28ab99b59f359
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626215"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854735"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>快速入门：使用对称密钥预配模拟设备
 
@@ -46,21 +47,7 @@ ms.locfileid: "58626215"
 
 SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动顺序期间进行预配。
 
-1. 下载 [CMake 生成系统](https://cmake.org/download/)版本 3.11.4。 使用相应的加密哈希值验证下载的二进制文件。 以下示例使用了 Windows PowerShell 来验证 x64 MSI 分发版本 3.11.4 的加密哈希：
-
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
-    True
-    ```
-    
-    在编写本文时，CMake 站点上列出了版本 3.11.4 的以下哈希值：
-
-    ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
-    ```
+1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
     在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
@@ -69,7 +56,7 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    此存储库的大小目前大约为 220 MB。 应该预料到此操作需要几分钟才能完成。
+    应该预料到此操作需要几分钟才能完成。
 
 
 3. 在 git 存储库的根目录中创建 `cmake` 子目录，并导航到该文件夹。 

@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 02/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d3490cbdcf70145f5cdcba7df4dee5de8039ddf3
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: a41cf6880c5c226063086a73537e26e4d079aa5b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218224"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854596"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
@@ -93,7 +93,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 ## <a name="next-steps"></a>后续步骤
 
-* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+* [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
 * [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
 * [查看配置文件支持的资源提供程序 API 版本的详细信息](azure-stack-profiles-azure-resource-manager-versions.md)。
 

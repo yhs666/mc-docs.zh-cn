@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 5c8b04a84e89a4b34e0a12ce23e475b840b7c5da
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: c691f60defddebca77c8a497ec24b31b58382a93
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566364"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63853083"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>使用 PowerShell 备份 Azure VM
 

@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2019
-ms.date: 02/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6cac44da58e5b5fe7f7ae8eab1d23919b8d32104
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: eac7c8fcf38a994b561662008c06f4253844f049
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218276"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855155"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 的 API 版本配置文件
 
@@ -34,7 +34,7 @@ API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差�
 
 可通过 PowerShell 库获得的 **AzureRM.Bootstrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。 使用以下 cmdlet 安装 **AzureRM.Bootstrapper** 模块：
 
-```PowerShell
+```powershell
 Install-Module -Name AzureRm.BootStrapper
 ```
 
@@ -54,9 +54,9 @@ Install-Module -Name AzureRm.BootStrapper
 
 ## <a name="install-a-profile"></a>安装配置文件
 
-使用 **Install-AzureRmProfile** cmdlet 搭配 **2018-03-01-hybrid** API 版本配置文件，安装 Azure Stack 所需的 AzureRM 模块。 Azure Stack 操作员模块并不会随此 API 版本配置文件一起安装。 应该根据[安装适用于 Azure Stack 的 PowerShell](../azure-stack-powershell-install.md) 一文的“步骤 3”中所述，单独安装这些模块。
+使用 **Install-AzureRmProfile** cmdlet 搭配 **2018-03-01-hybrid** API 版本配置文件，安装 Azure Stack 所需的 AzureRM 模块。 Azure Stack 操作员模块并不会随此 API 版本配置文件一起安装。 应该根据[安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md) 一文的“步骤 3”中所述，单独安装这些模块。
 
-```PowerShell
+```powershell
 Install-AzureRMProfile -Profile 2018-03-01-hybrid
 ```
 
@@ -68,7 +68,7 @@ Install-AzureRMProfile -Profile 2018-03-01-hybrid
 2. 下载并安装这些模块（如果尚未安装）。
 3. 将模块导入到当前的 PowerShell 会话中。
 
-```PowerShell
+```powershell
 # Installs and imports the specified API version profile into the current PowerShell session.
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser
 
@@ -78,7 +78,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser -Force
 
 若要从某个 API 版本配置文件安装并导入选定的 AzureRM 模块，请搭配 **Module** 参数运行 **Use-AzureRMProfile** cmdlet：
 
-```PowerShell
+```powershell
 # Installs and imports the compute, storage and network modules from the specified API version profile into your current PowerShell session.
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
@@ -87,7 +87,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.S
 
 使用 **Get-AzureRmProfile** cmdlet 获取可用的 API 版本配置文件列表：
 
-```PowerShell
+```powershell
 # lists all API version profiles provided by the AzureRM.BootStrapper module.
 Get-AzureRmProfile -ListAvailable
 
@@ -103,13 +103,13 @@ Get-AzureRmProfile
 2. 提示安装这些模块（如果尚未安装）。  
 3. 将已更新的模块安装并导入到当前的 PowerShell 会话中。  
 
-```PowerShell
+```powershell
 Update-AzureRmProfile -Profile 2018-03-01-hybrid
 ```
 
 <!-- To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
 
-```PowerShell 
+```powershell 
 Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
 ``` -->
 
@@ -124,11 +124,11 @@ Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
 
 使用 **Uninstall-AzureRmProfile** cmdlet 卸载指定的 API 版本配置文件。
 
-```PowerShell
+```powershell
 Uninstall-AzureRmProfile -Profile  2018-03-01-hybrid
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+* [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
 * [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  

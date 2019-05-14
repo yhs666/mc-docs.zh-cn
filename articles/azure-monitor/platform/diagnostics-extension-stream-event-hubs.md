@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 324d97571363b6db367792e45bcc37d9b6e34964
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 981375bb1039ec37e2cb878f49a9c6ecaba6e89f
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363503"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586876"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中心流式处理热路径中的 Azure 诊断数据
 Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](https://www.azure.cn/services/event-hubs/)在数秒内传输热路径数据。
@@ -286,10 +286,10 @@ namespace EventHubListener
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint= <your connection string>”;
+            string eventHubConnectionString = "Endpoint= <your connection string>";
             string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
-            string storageAccountKey = "<Storage account key>”;
+            string storageAccountKey = "<Storage account key>";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
             string eventProcessorHostName = Guid.NewGuid().ToString();

@@ -9,12 +9,12 @@ origin.date: 12/13/2018
 ms.date: 01/14/2019
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 116c76e791087b2b9873dd4ffdd08da527cbbf3e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e00e631c83edb967c560b8d1f3388f95ae75c35f
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626426"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63852199"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 

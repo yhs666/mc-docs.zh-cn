@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 12/27/2018
-ms.date: 02/28/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 375cbe107b414a8755fd3276fdbc6bc52db8159d
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 076b4e1cc1963b89941c456f8422cdfa7dd8436a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218335"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855315"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
 
@@ -51,7 +51,7 @@ ms.locfileid: "56218335"
 ## <a name="prerequisites"></a>先决条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
+* [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。
 * [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-key-vault-secret"></a>创建 Key Vault 机密

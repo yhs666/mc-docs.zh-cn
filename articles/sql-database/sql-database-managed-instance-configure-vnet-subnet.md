@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: digimobile
 origin.date: 01/15/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 165ee190fb81c73a5bac6e35bd445b415c5723ff
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/29/2019
+ms.openlocfilehash: f1176bbe6f753e10b7cc49b622c0bb3c3710c8ae
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663638"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854713"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例配置现有虚拟网络
 
@@ -26,10 +26,9 @@ Azure SQL 数据库托管实例必须部署在专用于托管实例的 Azure [�
 
 如果存在以下情况，可以使用本文中所述的脚本来验证和修改网络：
 
-* 仍未配置某个新子网。
-* 不确定该子网是否符合[要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
-* 进行更改后想要检查子网是否仍符合[网络要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
-
+- 仍未配置某个新子网。
+- 不确定该子网是否符合[要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
+- 进行更改后想要检查子网是否仍符合[网络要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
 
 > [!Note]
 > 只能在通过 Azure 资源管理器部署模型创建的虚拟网络中创建托管实例。 不支持通过经典部署模型创建的 Azure 虚拟网络。 根据[确定托管实例的子网大小](sql-database-managed-instance-determine-size-vnet-subnet.md)一文中的指导计算子网大小。 在子网中部署资源后，无法调整子网大小。

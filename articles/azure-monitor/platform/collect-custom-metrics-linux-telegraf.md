@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: b1a4b53be8cfa29e62b43cf7caa19ab4f6064fdd
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 142a1512c70f9d76e3c3a72c9e52507c2d2822a1
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906212"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586877"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>使用 InfluxData Telegraf 代理收集 Linux VM 的自定义指标
 
@@ -106,7 +106,7 @@ sudo systemctl start telegraf
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>在 Azure 门户中绘制 Telegraf 指标 
 
-1. 打开 [Azure 门户](https://portal.azure.com)。 
+1. 打开 [Azure 门户](https://portal.azure.cn)。 
 
 1. 导航到新的“监视”选项卡。 ****  然后选择“指标”。 ****  
 

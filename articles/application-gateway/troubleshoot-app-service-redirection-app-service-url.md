@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/22/2019
 ms.date: 04/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6e222ae1db26547a386c85f9ea8a44674caa0c05
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 6d2c14c5799d0d37765975b196137e139d9f5828
+ms.sourcegitcommit: 731da97453f3bd6b333dc2ec1058b9b91031d240
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686320"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64871630"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service"></a>排查包含应用服务的应用程序网关的问题
 
@@ -87,7 +87,7 @@ X-Powered-By: ASP.NET
 
 - 将该域注册到应用服务的自定义域列表。 为此，必须在自定义域中创建一个指向应用服务 FQDN 的 CNAME。 有关详细信息，请参阅[将现有的自定义 DNS 名称映射到 Azure 应用服务](/app-service/app-service-web-tutorial-custom-domain)。
 
-![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+    ![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - 这样做后，应用服务已准备好接受主机名“www.contoso.com”。 现在，请更改 DNS 中的 CNAME 条目，使其重新指向应用程序网关的 FQDN。 例如“appgw.chinanorth.chinacloudapp.cn”。
 

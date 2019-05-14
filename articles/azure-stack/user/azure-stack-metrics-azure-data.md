@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 5e250976f335fab149b55a144f35faf30ddeaa25
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 354edba17c88c582f4a05a1920ef364949931307
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503573"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854689"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack 中的 Azure Monitor
 
@@ -124,7 +124,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 一般情况下，可以使用下述方法之一操作数据的跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。
 
- - [Azure Stack 门户](/azure-stack/user/azure-stack-use-portal)
+ - [Azure Stack 门户](azure-stack-use-portal.md)
  - [PowerShell](/monitoring-and-diagnostics/insights-powershell-samples)
  - [跨平台的命令行接口 (CLI)](/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)

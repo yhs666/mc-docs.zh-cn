@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 04/11/2017
-ms.date: 02/22/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8f438b1688855d6780b897c147af7e04db4b5a25
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 6192d7cfd855c797d50f76dea202ec188093be31
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665437"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854885"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 
@@ -36,7 +36,7 @@ Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如�
 
 ## <a name="service-plans"></a>服务计划
 
-应用服务计划为 Function App 提供访问应用服务所有工具的权限。 创建 Function App 后，必须选择服务计划，该选项当前无法更改。 有关详细信息，请参阅[选择 Azure Functions 托管计划](functions-scale.md)。
+Azure Functions 有两个不同的服务计划：消耗量计划和应用服务计划。 消耗量计划会在代码运行时自动分配计算能力，根据处理负载的需要扩大规模，在代码不运行时缩小规模。 应用服务计划为 Function App 提供访问应用服务所有工具的权限。 创建 Function App 后，必须选择服务计划，该选项当前无法更改。 有关详细信息，请参阅[选择 Azure Functions 托管计划](functions-scale.md)。
 
 如果计划在应用服务计划上运行 JavaScript 函数，则应选择具有较少核心的计划。 有关详细信息，请参阅[函数的 JavaScript 参考](functions-reference-node.md#choose-single-vcpu-app-service-plans)。
 

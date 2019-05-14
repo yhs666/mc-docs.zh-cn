@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 01/14/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e31d8f874f6535718d48881952fdc6cab149b85
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 63cb70b17c9e9356fc361dbe6782713ab4d3cb58
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503530"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855465"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
 
@@ -63,7 +63,6 @@ az vm create \
   --image "Win2016Datacenter" \
   --admin-username "Demouser" \
   --admin-password "Demouser@123" \
-  --use-unmanaged-disk \
   --location local
 ```
 

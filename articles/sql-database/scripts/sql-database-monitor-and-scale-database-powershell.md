@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 17059afa0a4fd415e358fe16b3c25d3e43756d5f
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: fce941e7af5d14f98eb0b5c7f4f94e8395bd1926
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318875"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854949"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>使用 PowerShell 监视和缩放单个 SQL 数据库
 
@@ -101,9 +101,14 @@ Add-AzMetricAlertRule -ResourceGroup $resourceGroupName `
     -Action $(New-AzAlertRuleEmail -SendToServiceOwner)
 ```
 
+> [!NOTE]
+> 有关指标的完整列表，请参阅[支持的指标](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases)。
+> [!TIP]
+> 使用 [Get-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseactivity) 获取数据库操作的状态，并使用 [Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqldatabaseactivity) 取消数据库更新操作。
+
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -128,4 +133,3 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-<!--Update_Description: update "Clean up deployment" script-->

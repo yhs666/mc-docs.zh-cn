@@ -9,15 +9,15 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 03/28/2018
-ms.date: 12/27/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c9410a1b93ff12de6ca94ef213df5163d5d28942
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 63977ce35653e18b4c305e99fc01c6fbb71c04ff
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806560"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854489"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 门户中管理 Function App 
 
@@ -51,7 +51,8 @@ ms.locfileid: "53806560"
 
 可在“设置”选项卡中更新 Function App 使用的 Functions 运行时版本。 也可在其中管理用于限制对 Function App 托管的所有函数的 HTTP 访问的主机密钥。
 
-有关详细信息，请参阅[为 Azure Functions 选择正确的服务计划](functions-scale.md)。 
+Functions 支持消耗托管计划和应用服务托管计划。 有关详细信息，请参阅[为 Azure Functions 选择正确的服务计划](functions-scale.md)。 为获得消耗计划更好的预测性，Functions 允许通过设置每日使用配额（以千兆字节/秒为单位），从而限制平台使用。 一旦达到每日使用配额，Function App 就会停止运行。 可在设置每日支出配额的同一上下文中重新启用因达到支出配额而停止的 Function App。 有关计费的详细信息，请参阅 [Azure Functions 定价页](https://www.azure.cn/pricing/details/azure-functions)。
+
 
 ## <a name="platform-features-tab"></a>平台功能选项卡
 

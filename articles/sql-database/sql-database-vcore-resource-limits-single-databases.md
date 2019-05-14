@@ -11,32 +11,32 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 03/19/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: fc697911dbee7cb4fb6bfbcc85e68fe4748f0846
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/17/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 1029b43746218752974d4b96b91166a2aff5571c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003526"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855026"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制
 
 本文提供针对使用基于 vCore 的购买模型的 Azure SQL 数据库的单一数据库的详细资源限制。
 
-有关 SQL 数据库服务器上单一数据库的 DTU 购买模型限制，请参阅 [SQL 数据库服务器上的资源限制概述](sql-database-resource-limits-database-server.md)。
+有关 SQL 数据库服务器上单一数据库基于 DTU 的购买模型限制，请参阅 [SQL 数据库服务器上的资源限制概述](sql-database-resource-limits-database-server.md)。
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
-可通过 [Azure 门户](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 为单一数据库设置服务层、计算大小和存储量。
+可通过 [Azure 门户](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 为单一数据库设置服务层级、计算大小和存储量。
 
 > [!IMPORTANT]
 > 有关缩放指南和注意事项，请参阅[缩放单一数据库](sql-database-single-database-scale.md)。
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>常规用途服务层：存储大小和计算大小
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>“常规用途”服务层级：存储大小和计算大小
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>常规用途服务层：第 4 代计算平台（第 1 部分）
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>“常规用途”服务层级：第 4 代计算平台（第 1 部分）
 
 |计算大小|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -59,7 +59,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>常规用途服务层：第 4 代计算平台（第 2 部分）
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>“常规用途”服务层级：第 4 代计算平台（第 2 部分）
 
 |计算大小|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -82,7 +82,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>常规用途服务层：第 5 代计算平台（第 1 部分）
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>“常规用途”服务层级：第 5 代计算平台（第 1 部分）
 
 |计算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -97,7 +97,7 @@ ms.locfileid: "59003526"
 |存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|
 |IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
 |目标 IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|日志速率限制 (MBps)|2.5|56|7.5|10 个|12.5|15|17.5|
+|日志速率限制 (MBps)|2.5|5.6|7.5|10 个|12.5|15|17.5|
 |最大并发工作线程数（请求数）|200|400|600|800|1000|1200|1400|
 |允许的最大会话数|30000|30000|30000|30000|30000|30000|30000|
 |副本数|1|1|1|1|1|1|1|
@@ -105,7 +105,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>常规用途服务层：第 5 代计算平台（第 2 部分）
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>“常规用途”服务层级：第 5 代计算平台（第 2 部分）
 
 |计算大小|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -128,9 +128,9 @@ ms.locfileid: "59003526"
 |读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>“业务关键”服务层：存储大小和计算大小
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>“业务关键”服务层级：存储大小和计算大小
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>“业务关键”服务层：第 4 代计算平台（第 1 部分）
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>“业务关键”服务层级：第 4 代计算平台（第 1 部分）
 
 |计算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -154,7 +154,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>“业务关键”服务层：第 4 代计算平台（第 2 部分）
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>“业务关键”服务层级：第 4 代计算平台（第 2 部分）
 
 |计算大小|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -178,7 +178,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>“业务关键”服务层：第 5 代计算平台（第 1 部分）
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>“业务关键”服务层级：第 5 代计算平台（第 1 部分）
 
 |计算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -202,7 +202,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|是|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>“业务关键”服务层：第 5 代计算平台（第 2 部分）
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>“业务关键”服务层级：第 5 代计算平台（第 2 部分）
 
 |计算大小|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -226,7 +226,7 @@ ms.locfileid: "59003526"
 |读取横向扩展|是|是|是|是|是|是|是|
 |随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 
-## <a name="hyperscale-service-tier-preview"></a>“超大规模”服务层（预览版）
+## <a name="hyperscale-service-tier-preview"></a>“超大规模”服务层级（预览版）
 
 ### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>第 4 代计算平台：存储大小和计算大小
 
@@ -276,7 +276,7 @@ ms.locfileid: "59003526"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关单个数据库的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的单个数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 有关单一数据库的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的单一数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 有关弹性池的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的弹性池的资源限制](sql-database-vcore-resource-limits-elastic-pools.md)
 - 有关弹性池的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的弹性池的资源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 3e34ba3ed893b4cce585027d75615264a9d07fd7
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: ece8eb029d0340a4ea9438e96a29a69d42f15cf1
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566342"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555444"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
 本文说明如何使用 PowerShell 在 DPM 服务器上设置 Azure 备份，以及管理备份和恢复。
@@ -265,7 +265,7 @@ $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }
 
-PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
+Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
 视需要重复此步骤多次，直到已将选择的所有数据源添加到保护组。 你也可以只从一个数据源开始，完成创建保护组的工作流，然后将更多的数据源添加到保护组。

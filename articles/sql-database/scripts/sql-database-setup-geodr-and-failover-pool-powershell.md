@@ -1,6 +1,6 @@
 ---
 title: PowerShell 示例 - 活动异地复制 - 共用 Azure SQL 数据库 | Microsoft Docs
-description: 为 Azure SQL 数据库中的入池数据库设置活动异地复制并进行故障转移的 Azure PowerShell 示例脚本。
+description: 为 Azure SQL 数据库中的共用数据库设置活动异地复制并进行故障转移的 Azure PowerShell 示例脚本。
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 7ed35f6296d3321894769e777f8370d3445c2f7f
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 09d78051442264e11684651d36eee6d38bf60e0d
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318966"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855469"
 ---
-# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>使用 PowerShell 为 Azure SQL 数据库中的入池数据库配置活动异地复制
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>使用 PowerShell 为 Azure SQL 数据库中的共用数据库配置活动异地复制
 
-此 PowerShell 脚本示例为 Azure SQL 数据库中的入池数据库配置活动异地复制，并将其故障转移到数据库的辅助副本。
+此 PowerShell 脚本示例为 Azure SQL 数据库中的共用数据库配置活动异地复制，并将其故障转移到数据库的辅助副本。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -130,7 +130,7 @@ $database | Get-AzSqlDatabaseReplicationLink -PartnerResourceGroupName $primaryR
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname
@@ -146,7 +146,7 @@ Remove-AzResourceGroup -ResourceGroupName $secondaryresourcegroupname
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
 | [New-AzSqlElasticPool](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlelasticpool) | 创建弹性池。 |
-| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 创建单一数据库或入池数据库。 |
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 创建单一数据库或共用数据库。 |
 | [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary)| 为现有数据库创建辅助数据库，并开始数据复制。 |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)| 获取一个或多个数据库。 |

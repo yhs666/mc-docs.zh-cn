@@ -2,20 +2,21 @@
 title: 本快速入门展示了如何使用 Node.js 将 X.509 设备注册到 Azure 设备预配服务 | Microsoft Docs
 description: 本快速入门使用组注册。 在本快速入门中，将使用 Node.js 服务 SDK 将 X.509 设备注册到 Azure IoT 中心设备预配服务
 author: wesmc7777
-ms.author: wesmc
-ms.date: 12/21/2017
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 20c8a41ac98404802bc5c214bb58f1cfed0c7ef8
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 877cf5b8c1cf3c39123649fd9dbd0a4e1b3fbf52
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988607"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854879"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>快速入门：使用 Node.js 将 X.509 设备注册到设备预配服务
 
@@ -50,7 +51,7 @@ ms.locfileid: "57988607"
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   此存储库的大小目前大约为 220 MB。 应该预料到此操作需要几分钟才能完成。
+   应该预料到此操作需要几分钟才能完成。
 
    测试工具位于你克隆的存储库的 *azure-iot-sdk-c/tools/CACertificates* 中。    
 

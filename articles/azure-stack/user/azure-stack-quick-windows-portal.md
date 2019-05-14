@@ -6,17 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: quickstart
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 01/14/2019
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 705065841bdf88ccf2a7da4b66e4c3a16a61b79d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: e1ecbec0f780f63f57b86ca23deb980a53eb1a85
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52664504"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855496"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Windows Server 虚拟机
 
@@ -37,7 +38,7 @@ ms.locfileid: "52664504"
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-1. 单击“+ 创建资源” > “计算” > “Windows Server 2016 Datacenter - 即用即付” > “创建”。 如果未看到“Windows Server 2016 Datacenter - 即用即付”项，请联系 Azure Stack 运营商。 根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../azure-stack-add-default-image.md)一文中所述，请求运营商将此映像添加到市场。
+1. 单击“+ 创建资源” > “计算” > “Windows Server 2016 Datacenter - 即用即付” > “创建”。 如果未看到“Windows Server 2016 Datacenter - 即用即付”项，请联系 Azure Stack 运营商。 根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../operator/azure-stack-create-and-publish-marketplace-item.md)一文中所述，请求运营商将此映像添加到市场。
 
     ![在门户中创建 Windows 虚拟机的步骤](media/azure-stack-quick-windows-portal/image01.png)
 2. 在“基本信息”下，键入**名称**、**用户名**和**密码**。 选择“订阅”。 创建一个**资源组**或选择现有资源组，选择一个**位置**，然后单击“确定”。

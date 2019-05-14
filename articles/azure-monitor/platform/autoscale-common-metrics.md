@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 167ec52ac6211cc5b1f6850107bfd44fc4f5eaf1
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: b79bf0c0f7682aff62b232b4d3f1d40073b5cb38
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141737"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586863"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 监视器自动缩放常用指标
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 利用 Azure 监视器自动缩放，可以根据遥测数据（指标）增加或减少正在运行的实例数。 本文档介绍了你可能想要使用的常用指标。 在 Azure 门户中，可以选择要作为缩放依据的资源指标。 不过，也可以选择其他资源的任何指标来作为缩放依据。
 
 Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[云服务](https://azure.microsoft.com/services/cloud-services/)、[应用服务 - Web 应用](https://azure.microsoft.com/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。 其他 Azure 服务使用不同的缩放方法。
@@ -43,7 +46,7 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 可以在 PowerShell 中使用以下命令生成指标列表。
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 可以针对下列指标创建警报：
@@ -84,7 +87,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 可以在 PowerShell 中使用以下命令生成指标列表。
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  可以针对下列指标创建警报：
@@ -137,7 +140,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 可以在 PowerShell 中使用以下命令生成 Web 应用指标列表。
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 可以针对这些指标发出警报或以其为缩放依据。

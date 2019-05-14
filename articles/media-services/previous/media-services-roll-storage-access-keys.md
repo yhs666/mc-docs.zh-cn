@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 74377477e9f6ce02524895a3f516cf61b1a9c3c9
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 63405e97b17cf3fa659f6838fafbdf3f3d46ef4d
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833296"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549948"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>更改存储访问密钥后更新媒体服务 
 
 创建新的 Azure 媒体服务 (AMS) 帐户时，系统还会要求选择用于存储媒体内容的 Azure 存储帐户。 可将多个存储帐户添加到媒体服务帐户。 本文介绍如何轮换存储密钥。 此外，介绍如何将存储帐户添加到媒体帐户。 
 
-若要执行本文所述的操作，应使用 [Azure 资源管理器 API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](https://docs.microsoft.com/powershell/module/az.media)。  有关详细信息，请参阅[如何使用 PowerShell 和 Resource Manager 管理 Azure 资源](../../azure-resource-manager/powershell-azure-resource-manager.md)。
+若要执行本文所述的操作，应使用 [Azure 资源管理器 API](/rest/api/media/operations/azure-media-services-rest-api-reference) 和 [Powershell](https://docs.microsoft.com/powershell/module/az.media)。  有关详细信息，请参阅[如何使用 PowerShell 和 Resource Manager 管理 Azure 资源](../../azure-resource-manager/manage-resource-groups-powershell.md)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -3,8 +3,8 @@ title: Azure 事件中心 API 概述 | Azure
 description: 可用 Azure 事件中心 API 的概述
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
 ms.service: event-hubs
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/02/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: fb3031b94a8113fa67c43cbfa89fc9349880250b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/06/2019
+ms.author: v-biyu
+ms.openlocfilehash: 081768b0178453de030aa677ae85c12f177a4806
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653043"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855152"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中心 API
 
@@ -37,14 +37,14 @@ ms.locfileid: "52653043"
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | 不适用 |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
-| 节点 | [NPM](https://www.npmjs.com/package/azure-event-hubs) | 不适用 | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
+| 节点 | [NPM](https://www.npmjs.com/package/azure-event-hubs) | 不适用 | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | 不适用 | 不适用 | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
-### <a name="additional-information"></a> 其他信息
+### <a name="additional-information"></a>其他信息
 
 #### <a name="net"></a>.NET
 
-.NET 生态系统具有多个运行时，因此事件中心有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 版本的详细信息，请参阅 [framework 版本](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)。
+.NET 生态系统具有多个运行时，因此事件中心有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 版本的详细信息，请参阅 [framework 版本](https://docs.microsoft.com/dotnet/articles/standard/frameworks)。
 
 #### <a name="node"></a>节点
 
@@ -55,7 +55,7 @@ ms.locfileid: "52653043"
 下表列出了所有当前可用的特定于管理的库。 这些库不包含运行时操作，管理事件中心实体是其唯一的用途。
 
 | 语言/平台 | 管理包 | 存储库 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>后续步骤
@@ -64,5 +64,3 @@ ms.locfileid: "52653043"
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
 * [事件中心常见问题解答](event-hubs-faq.md)
-
-<!--Update_Description: update meta properties, wording update-->

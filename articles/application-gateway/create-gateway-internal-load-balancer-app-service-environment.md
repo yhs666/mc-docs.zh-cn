@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 11/06/2018
 ms.date: 02/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: dbd6b9d12bcde778a91f2bb40633d32105339311
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: bf539acb704a8322cd6ea3ba3c2f62d0d3b01310
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836887"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63828972"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>未使用内部负载均衡器和应用服务环境将应用程序网关的后端服务器证书加入允许列表。
 

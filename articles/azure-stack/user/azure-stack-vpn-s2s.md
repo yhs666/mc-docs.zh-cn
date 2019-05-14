@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/19/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 45ecd062849c8424d4f2141593aec320963262b1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f8ea91306a4ab9b11876fdaee04ca695cf8fd74c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626781"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855479"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -69,17 +69,16 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 下表列出了支持的加密算法和密钥强度，Azure Stack 客户可对其进行配置：
 
-
-|   IPsec/IKEv2    |                                                                                                         选项                                                                                                         |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| IKEv2 加密 |                                                                                            AES256、AES192、AES128、DES3、DES                                                                                            |
-| IKEv2 完整性  |                                                                                                SHA384、SHA256、SHA1、MD5                                                                                                |
-|     DH 组     |                                                                            ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、无                                                                             |
-| IPsec 加密 |                                                                        GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无                                                                         |
-| IPsec 完整性  |                                                                                   GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                                                                                    |
-|    PFS 组     |                                                                                    PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无                                                                                     |
-|  QM SA 生存期  | （可选：如果未指定，则使用默认值）<br />                         秒（整数；至少为 300 秒/默认为 27000 秒）<br />                         KB（整数；至少为 1024 KB/默认为 102400000 KB） |
-| 流量选择器 |                                                                            Azure Stack 不支持基于策略的流量选择器。                                                                             |
+| IPsec/IKEv2                                          | 选项                                                                  |
+|------------------------------------------------------|--------------------------------------------------------------------------|
+| IKEv2 加密                                     | AES256、AES192、AES128、DES3、DES                                        |
+| IKEv2 完整性                                      | SHA384、SHA256、SHA1、MD5                                                |
+| DH 组                                             | ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、无         |
+| IPsec 加密                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无 |
+| IPsec 完整性                                      | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                       |
+| PFS 组                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无                         |
+| QM SA 生存期                                       | （可选：如果未指定，则使用默认值）<br />                         秒（整数；至少为 300 秒/默认为 27000 秒）<br />                         KB（整数；至少为 1024 KB/默认为 102400000 KB） |
+| 流量选择器                                     | Azure Stack 不支持基于策略的流量选择器。         |
 
 - 本地 VPN 设备配置必须匹配，或者必须包含可在 Azure IPsec/IKE 策略中指定的以下算法和参数：
 
@@ -121,7 +120,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 ![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.png)
 
-有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 VPN 连接](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)。
+有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 VPN 连接](/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)。
 
 ### <a name="prerequisites"></a>先决条件
 
@@ -129,7 +128,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 - Azure 订阅。 如果还没有 Azure 订阅，可以注册一个 [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[安装适用于 Azure Stack 的 PowerShell](../azure-stack-powershell-install.md)。
+- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。 
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>步骤 1 - 创建虚拟网络、VPN 网关和本地网关
 
@@ -138,7 +137,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 对于本练习，请先声明以下变量。 针对生产环境进行配置时，请务必将占位符替换为自己的值：
 
 ```powershell
-$Sub1 = "\<YourSubscriptionName\>"
+$Sub1 = "<YourSubscriptionName>"
 $RG1 = "TestPolicyRG1"
 $Location1 = "China East"
 $VNetName1 = "TestVNet1"
@@ -188,18 +187,18 @@ $gw1pip1 = New-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 
 
 $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
 
-$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
 -VirtualNetwork $vnet1
 
-$gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1
+$gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 `
 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
--Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 
-New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
--Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix
+New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
+-Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix `
 $LNGPrefix61,$LNGPrefix62
 ```
 
@@ -250,8 +249,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 ```powershell
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
@@ -277,8 +275,7 @@ PfsGroup : None
 ```powershell
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
 $newpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
@@ -290,8 +287,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 可再次获取连接，以检查策略是否已更新：
 
 ```powershell
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
@@ -315,10 +311,9 @@ PfsGroup : None
 ```powershell
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.SharedKey = “AzS123”
-$currentpolicy = $connection6.IpsecPolicies\[0\]
+$currentpolicy = $connection6.IpsecPolicies[0]
 $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6

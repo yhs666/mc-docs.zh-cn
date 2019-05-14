@@ -1,26 +1,21 @@
 ---
-title: 使用 .NET 的 Azure 存储示例 | Azure
+title: 使用 .NET 的 Azure 存储示例 | Microsoft Docs
 description: 查看、下载和运行 Azure 存储的示例代码和应用程序。 使用 .NET 存储客户端库发现 blob、队列、表和文件的入门示例。
 services: storage
-documentationcenter: na
-author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 origin.date: 01/12/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: b2ba67e88add639c558f74a8cb0c70b0d0a30e50
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 05/20/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: db0a1d225185d9733e11cdf3af7ea84be907add4
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626073"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549970"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
@@ -88,10 +83,12 @@ ms.locfileid: "58626073"
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
-</tr><br/><tr> 
+</tr>   
+<tr> 
 <td>服务属性</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
-</tr><br/><tr> 
+</tr>           
+<tr> 
 <td>快照 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">使用增量快照备份 Azure 虚拟机磁盘</a></td>
 </tr> 
@@ -219,4 +216,3 @@ ms.locfileid: "58626073"
 
 * Java:[使用 Java 的 Azure 存储示例](storage-samples-java.md)
 * 所有其他语言：[Azure 存储示例](../storage-samples.md)
-<!--Update_Description: update link-->

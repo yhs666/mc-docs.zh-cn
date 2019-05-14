@@ -11,16 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 12/03/2018
-ms.date: 12/31/2018
+origin.date: 03/11/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 64bc9edd8b002bff9a597b288beb9c2c5568c917
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 53585f82dd35a386360c0abec713dedb6adbce0b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814622"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854829"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器虚拟机
 
@@ -36,13 +37,13 @@ ms.locfileid: "53814622"
 
 * **Azure Stack 市场中的 Linux 映像**
 
-   默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+   默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
-* Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](azure-stack-powershell-install.md) PowerShell 的步骤。
+* Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
 
 * 设置 Azure Stack PowerShell 后，将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
-* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
+* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](/virtual-machines/linux/ssh-from-windows)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -78,11 +79,6 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
-$containerName = 'osdisks'
-$container = New-AzureStorageContainer `
-  -Name $containerName `
-  -Permission Blob
 ```
 
 ## <a name="create-networking-resources"></a>创建网络资源
@@ -184,19 +180,14 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "16.04-LTS" `
   -Version "latest"
 
-$osDiskName = "OsDisk"
-$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
-  $StorageAccount.PrimaryEndpoints.Blob.ToString(),`
-  $vmName.ToLower(), `
-  $osDiskName
-
 # Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
-  -Name $osDiskName `
-  -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
+  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  -StorageAccountName $StorageAccountName -Enable |`
   Add-AzureRmVMNetworkInterface -Id $nic.Id
+
 
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
@@ -384,13 +375,13 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-部署虚拟机后，为虚拟机配置一个 SSH 连接。 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 命令返回虚拟机的公共 IP 地址。
+部署虚拟机后，为虚拟机配置一个 SSH 连接。 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 命令返回虚拟机的公共 IP 地址。
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-从安装有 SSH 的客户端系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](http://www.putty.org/) 创建连接。
+从安装有 SSH 的客户端系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](https://www.putty.org/) 创建连接。
 
 ```
 ssh <Public IP Address>
@@ -420,7 +411,7 @@ apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>清理资源
 
-清理不再需要的资源。 可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 命令删除这些资源。 若要删除资源组及其所有资源，请运行以下命令：
+清理不再需要的资源。 可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令删除这些资源。 若要删除资源组及其所有资源，请运行以下命令：
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

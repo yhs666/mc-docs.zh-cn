@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 9aeda84507e2a1c0bc9f6d326ea906fea9f342cf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3b7ef959a0c1b26d20bf2a4666f124b9eef94654
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625361"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555466"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>有助于保护使用 Azure 备份的混合备份的安全功能
 对安全问题（例如恶意软件、勒索软件、入侵）的关注在逐渐上升。 这些安全问题可能会代价高昂（就金钱和数据来说）。 为了防止此类攻击，Azure 备份现提供可保护混合备份的安全功能。 本文介绍如何通过 Azure 恢复服务代理和 Azure 备份服务器来启用和使用这些功能。 这些功能包括：
@@ -51,7 +51,7 @@ ms.locfileid: "58625361"
     ![恢复服务保管库属性的屏幕截图](./media/backup-azure-security-feature/security-settings-update.png)
 
     更新链接会打开“安全设置”边栏选项卡，其中提供功能摘要，并允许启用它们。
-5. 从下拉列表“是否已配置 Azure 多重身份验证?”中选择一个值，确认是否已启用 [Azure 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)。 如果已启用，则在登录到 Azure 门户时，系统会要求从另一设备（例如移动电话）进行身份验证。
+5. 从下拉列表“是否已配置 Azure 多重身份验证?”中选择一个值，确认是否已启用 [Azure 多重身份验证](../active-directory/authentication/multi-factor-authentication.md)。 如果已启用，则在登录到 Azure 门户时，系统会要求从另一设备（例如移动电话）进行身份验证。
 
    在备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure 多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
 6. 要保存安全设置，请选择“启用”，并单击“保存”。 只有从上一步的“是否已配置 Azure 多重身份验证?”列表中选择值后，才可选择“启用”。
@@ -63,7 +63,7 @@ ms.locfileid: "58625361"
 
 对于 **Azure 恢复服务代理**用户：
 
-1. 如果发生备份的计算机仍可用，请在 Azure 恢复服务中使用[将数据恢复到同一计算机](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine)功能，从所有旧的恢复点恢复。
+1. 如果发生备份的计算机仍可用，则重新保护已删除的数据源，并在 Azure 恢复服务中使用[将数据恢复到同一计算机](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine)功能，从所有旧的恢复点恢复。
 2. 如果该计算机不可用，则使用[恢复到备用计算机](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)功能，使用另一台 Azure 恢复服务计算机获取此数据。
 
 对于 **Azure 备份服务器**用户：

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 69ad6cf0717e3d858255675ad8a7d459a6422982
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d78b42a6118dbb73e8d09d2b34aca55ece8d4cb3
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650364"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555443"
 ---
 # <a name="back-up-sql-server-on-stack"></a>在 Stack 上备份 SQL Server
 使用本文配置 Azure 备份服务器 (MABS) 以在 Azure Stack 上保护 SQL Server 数据库。
@@ -69,7 +69,7 @@ ms.locfileid: "52650364"
 
     ![初始复制方法](./media/backup-azure-backup-sql/pg-manual.png)
 
-    初始备份复制要求将整个数据源（SQL Server 数据库）从生产服务器（SQL Server 计算机）传输到 Azure 备份服务器。 此类数据可能会非常大，通过网络传输此类数据可能会超过带宽限制。 出于这个原因，可以选择通过以下方式传输初始备份：“**手动**”（使用可移动媒体），以免网络出现带宽拥塞现象；或“**自动通过网络**”（于指定时间）。
+    初始备份复制要求将整个数据源（SQL Server 数据库）从生产服务器（SQL Server 计算机）传输到 Azure 备份服务器。 此类数据可能会非常大，通过网络传输此类数据可能会超过带宽限制。 因此，可以选择通过以下方式传输初始备份：“手动”（使用可移动媒体），以免网络出现带宽拥塞现象；或“自动通过网络”（于指定时间）。
 
     初始备份完成后，其余的备份都是初始备份副本的增量备份。 增量备份往往比较小，能轻松地通过网络传输。
 
@@ -102,10 +102,10 @@ ms.locfileid: "52650364"
 
     在本示例中：
 
-    - 备份会在一天的中午 12:00 和晚上 8:00 各进行一次（参见屏幕底部），并且会保留 180 天。
-    - 在星期六中午 12:00 进行的备份 会保留 104 周
-    - 在最后一个星期六中午 12:00 进行的备份 会保留 60 个月
-    - 在 3 月的最后一个星期六中午 12:00 进行的备份 会保留 10 年
+    * 备份会在一天的中午 12:00 和晚上 8:00 各进行一次（参见屏幕底部），并且会保留 180 天。
+    * 在星期六中午 12:00 进行的备份 会保留 104 周
+    * 在最后一个星期六中午 12:00 进行的备份 会保留 60 个月
+    * 在 3 月的最后一个星期六中午 12:00 进行的备份 会保留 10 年
 13. 单击“下一步”，选择相应的选项将初始备份副本传输到 Azure。 可以选择“自动通过网络”
 
 14. 在“摘要”屏幕中复查策略详细信息后，单击“创建组”以完成工作流。 可以单击“关闭”，然后在“监视”工作区中监视作业进度。

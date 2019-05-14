@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: bce4ea265ec2365a9739d85b1235f03a9003c498
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f418447fc3158b95489497986e3397b8298c05b6
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906102"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586847"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -146,13 +146,13 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
                     "currentHealthStatus": "Unavailable",
                     "previousHealthStatus": "Available",
                     "type": "Downtime",
-                    "cause": "PlatformInitiated",
+                    "cause": "PlatformInitiated"
                 },
                 "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }

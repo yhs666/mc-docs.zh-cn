@@ -9,12 +9,12 @@ origin.date: 12/13/2018
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: a3b3493f787fee8aeb8b32a95127fd8698dbce49
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: a8f7c812b74f44c159ab3157cc738ebf6ae1dd34
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253903"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63821558"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：

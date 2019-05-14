@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 10/19/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: ce10954ee1d0e35ae7a9b1498f660dd82c7c360e
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: acf73b01acc4c73da5ab0c0102df34038e31bb92
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408279"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855428"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -112,7 +112,7 @@ ms.locfileid: "58408279"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。
+指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值取决于运行时版本。
 
 ```json
 {
@@ -138,7 +138,7 @@ ms.locfileid: "58408279"
 
 |属性  |默认 | 说明 |
 |---------|---------|---------| 
-|Enabled|是|指定是否已启用该功能。 | 
+|enabled|是|指定是否已启用该功能。 | 
 |healthCheckInterval|10 秒|定期后台运行状况检查之间的时间间隔。 | 
 |healthCheckWindow|2 分钟|与 `healthCheckThreshold` 设置结合使用的滑动时间窗口。| 
 |healthCheckThreshold|6|在启动主机回收之前，运行状况检查可以失败的最大次数。| 
@@ -193,7 +193,21 @@ ms.locfileid: "58408279"
 
 [服务总线触发器和绑定](functions-bindings-service-bus.md)的配置设置。
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|消息泵应该对回调发起的最大并发调用数。 默认情况下，Functions 运行时同时处理多条消息。 若要指示运行时一次只处理单个队列或主题消息，请将 `maxConcurrentCalls` 设置为 1。 | 
+|prefetchCount|不适用|基础 MessageReceiver 将要使用的默认 PrefetchCount。| 
+|autoRenewTimeout|00:05:00|自动续订消息锁的最长持续时间。| 
 
 ## <a name="singleton"></a>singleton
 

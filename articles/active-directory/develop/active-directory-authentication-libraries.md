@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/01/2018
-ms.date: 12/29/2018
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 654876b0ae1cacd53be8e2e1a7765066d6139557
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5d25759e86e3ac4e1e26bc52ec936ab9452f576a
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996219"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517494"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 
@@ -32,6 +33,11 @@ ms.locfileid: "53996219"
 - 存储访问令牌和刷新令牌的可配置令牌缓存
 - 当访问令牌过期且刷新令牌可用时，自动刷新令牌
 - 支持异步方法调用
+
+> [!NOTE]
+> 在找 Azure AD v2.0 库 (MSAL) 吗？ 请参阅 [MSAL 库指南](/active-directory/develop/active-directory-v2-libraries)。
+>
+>
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft 支持的客户端库
 
@@ -50,7 +56,7 @@ ms.locfileid: "53996219"
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |MVC 应用 | |
+| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC 应用](/active-directory/develop/quickstart-v1-aspnet-webapp) | |
 | .NET |OWIN for OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Web 应用](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
 | .NET |用于 WS 联合身份验证的 OWIN |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.WsFederation) |[MVC Web 应用](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |适用于 .NET 4.5 的标识协议扩展 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
@@ -83,4 +89,4 @@ ms.locfileid: "53996219"
 - [Azure Active directory 的身份验证方案](authentication-scenarios.md)
 - [Azure Active Directory 代码示例](sample-v1-code.md)
 
-<!--Update_Description: link update -->
+<!--Update_Description: wording update -->

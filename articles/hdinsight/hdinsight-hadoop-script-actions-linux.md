@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/15/2019
-ms.date: 04/15/2019
+ms.date: 05/20/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7fe56eaa96f3365eb80f98d3d1017f0baa8146ca
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 77e55134f8f17dc1a59561cc0261a0aff729a42f
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003955"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520809"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -333,9 +333,7 @@ fi
 Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅以下链接，了解更多示例脚本操作。
 
 * [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)
-* [在 HDInsight 群集上安装并使用 Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 * [在 HDInsight 群集上安装并使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [在 HDInsight 群集上安装或升级 Mono](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>故障排除
 

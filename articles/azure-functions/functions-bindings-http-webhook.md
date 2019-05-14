@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 02/21/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: b6742ab435bbb75e95b216fe6778b92f02b6026e
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 325b57b19a899c091805a9671a8ca2fd5c83da15
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665474"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855488"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 触发器和绑定
 
@@ -782,7 +782,7 @@ Webhook 授权由属于 HTTP 触发器的 webhook 接收器组件处理，其机
 
 HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限制为 4 KB（4,096 字节）。 这些限制由运行时的 [Web.config 文件](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素指定。
 
-如果使用 HTTP 触发器的函数未在大约 2.5 分钟内完成，网关将超时并返回 HTTP 502 错误。 该函数将继续运行，但将无法返回 HTTP 响应。 对于长时间运行的函数，我们建议你遵循异步模式，并返回可以 ping 通请求状态的位置。
+如果使用 HTTP 触发器的函数未在大约 2.5 分钟内完成，网关将超时并返回 HTTP 502 错误。 该函数将继续运行，但将无法返回 HTTP 响应。 对于长时间运行的函数，我们建议你遵循异步模式，并返回可以 ping 通请求状态的位置。 有关函数可以运行多长时间的信息，请参阅[缩放和托管 - 消耗计划](functions-scale.md#consumption-plan)。
 
 ## <a name="trigger---hostjson-properties"></a>触发器 - host.json 属性
 
@@ -800,8 +800,8 @@ HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限
 
 |属性  |说明  |
 |---------|---------|
-| type |必须设置为 `http`。 |
-| direction | 必须设置为 `out`。 |
+| **type** |必须设置为 `http`。 |
+| **direction** | 必须设置为 `out`。 |
 |name | 在响应的函数代码中使用的变量名称，或者 `$return` 以使用返回值。 |
 
 ## <a name="output---usage"></a>输出 - 用法

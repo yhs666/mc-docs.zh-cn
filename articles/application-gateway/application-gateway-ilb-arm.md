@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/23/2018
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 45720c9e8a422ff8205a622fed68e430722bbde2
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 657d448bea34c7d9bb20d237c852d7d709e9a00f
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788731"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63824993"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>创建具有内部负载均衡器 (ILB) 的应用程序网关
 

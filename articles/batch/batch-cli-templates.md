@@ -12,12 +12,12 @@ ms.workload: big-compute
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: a8167a1dd9c1305a51dfedc1c3b69c13b30eeee3
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6b9fc6c476017f8a8fa8992be580dca42e72f536
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656082"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63859178"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 模板和文件传输
 

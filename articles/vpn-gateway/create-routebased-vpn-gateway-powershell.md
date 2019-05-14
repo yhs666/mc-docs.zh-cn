@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/18/2018
 ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: d2127a897476182e4cb7c332179bfc69288a33b7
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 2f7ccc62012161b4a64af03c045a842e6ce3d941
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348038"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63845126"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>使用 PowerShell 创建基于路由的 VPN 网关
 

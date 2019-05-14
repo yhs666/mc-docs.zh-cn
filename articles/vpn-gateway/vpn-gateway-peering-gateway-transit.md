@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/25/2018
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.openlocfilehash: 0ab106b54d69dac69eb432d127983534868eb4f8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5d70aacbed1f4aa88818247ed2c6b48f11bf6567
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625186"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855021"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>针对虚拟网络对等互连配置 VPN 网关传输
 
@@ -37,9 +37,6 @@ ms.locfileid: "58625186"
 
 1. 两种虚拟网络都使用资源管理器部署模型
 2. 辐射虚拟网络为经典部署模型，带网关的中心虚拟网络为资源管理器部署模型
-
-> [!IMPORTANT]  
-> 预览版全局虚拟网络对等互连当前支持网关传输。 不需要加入允许列表。 可以通过 CLI、PowerShell、模板或 API 在预览版中进行测试。 预览版不支持门户。 
 
 ## <a name="requirements"></a>要求
 

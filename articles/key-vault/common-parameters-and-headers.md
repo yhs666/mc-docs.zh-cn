@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 05/09/2018
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 8c9195a5778e0c2475e5953509846511c1172299
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 0f19c31ddb0232c5ffe35c95c15bc3c1cf92ac27
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903067"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63861107"
 ---
 # <a name="common-parameters-and-headers"></a>常见参数和标头
 

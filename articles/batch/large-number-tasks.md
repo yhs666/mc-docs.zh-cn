@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 445534a4f19f1e1e883ef3c90eb030b7c271ee20
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b4b19ab1916908062cfaf8bea84e38818a3a403f
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625351"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555446"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>将大量的任务提交到 Batch 作业
 
@@ -163,7 +163,7 @@ except Exception as e:
     raise e
 ```
 
-Batch Python SDK 扩展还支持使用任务工厂的 JSON 规范将任务参数添加到作业。 例如，为前面 [Batch CLI 模板](#example-batch-cli-template)示例中所示的参数扫描配置作业参数：
+Batch Python SDK 扩展还支持使用任务工厂的 JSON 规范将任务参数添加到作业。 例如，为前面 Batch CLI 模板示例中所示的参数扫描配置作业参数：
 
 ```python
 parameter_sweep = {

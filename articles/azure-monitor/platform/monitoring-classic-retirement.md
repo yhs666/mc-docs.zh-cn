@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 2/7/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 18f3293e13c942cb3d622ae2dbe83798d330a275
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: d087ba959ca9384500e1f7ba019d00d95486e312
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906063"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586755"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure Monitor 中的统一警报和监视替换经典警报和监视
 
@@ -24,6 +24,9 @@ Azure Monitor 现已成为统一的完整堆栈监视服务，它现在支持跨
  ![Azure 门户中的经典警报](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 我们鼓励你开始在新平台中重新创建警报。 对于有大量警报的客户，我们努力提供自动化方式，将现有经典警报移到新的警报系统，而无需中断或增加成本。
+
+> [!IMPORTANT]
+> 基于活动日志创建的经典警报规则不会被弃用或迁移。 可以从新的 Azure Monitor -“警报”按现样访问和使用基于活动日志创建的所有经典警报规则。 有关详细信息，请参阅[使用 Azure Monitor 创建、查看和管理活动日志警报](../../azure-monitor/platform/alerts-activity-log.md)。 类似地，可以从新的“服务运行状况”部分按现样访问和使用基于服务运行状况的警报。 有关详细信息，请参阅[基于服务运行状况通知的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Application Insights 中的统一指标和警报
 

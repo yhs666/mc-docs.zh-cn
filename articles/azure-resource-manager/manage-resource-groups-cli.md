@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 02/11/2019
 ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 70b4627e645580c347b74c916d521c5bcf42971c
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 70e61814425b5a0ffb29f17d628ce70dea66265a
+ms.sourcegitcommit: d9b907342ceea2e30f411e74164d6d386b6a7099
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529476"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211912"
 ---
 <!--Verfiy successfully-->
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源管理器资源组
@@ -35,7 +35,7 @@ ms.locfileid: "59529476"
 
 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
-” 资源组存储与资源有关的元数据。 指定资源组的位置时，也会指定元数据的存储位置。
+<!--MOONCAKE: DUPLICATE ON The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored.-->
 
 ## <a name="create-resource-groups"></a>创建资源组
 

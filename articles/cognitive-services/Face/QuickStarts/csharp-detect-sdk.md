@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 02/06/2019
-ms.date: 03/27/2019
+origin.date: 03/27/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5664d54b07771b3b8d7ce4347ea836aa50b9869e
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 83893ac70fd071d57d97a2c8e6023425d2d97537
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505501"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854872"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入门：使用人脸 .NET SDK 检测图像中的人脸
 
 在本快速入门中，请使用人脸服务 SDK 和 C# 检测图像中的人脸。 如需本快速入门中代码的工作示例，请查看 GitHub 上的[认知服务视觉 csharp 快速入门](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)存储库中的人脸项目。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,9 +35,7 @@ ms.locfileid: "58505501"
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
 1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”。 单击“浏览”选项卡，选择“包括预发行版”，然后找到并安装以下包：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-    - Microsoft.Rest.ClientRuntime
-    - Microsoft.Rest.ClientRuntime.Azure
-    - Newtonsoft.Json
+1. 确保已为项目安装所有 NuGet 包的最新版本。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”。 单击“更新”选项卡，安装显示的任何包的最新版本。
 
 ## <a name="add-face-detection-code"></a>添加人脸检测代码
 
@@ -58,24 +56,29 @@ using System.Threading.Tasks;
 ```
 ### <a name="add-essential-fields"></a>添加必要的字段
 
-将以下字段添加到 **Program** 类。 该数据指定如何连接到人脸服务，以及在何处获取输入数据。 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `faceEndpoint` 字符串，使之包含正确的区域标识符。 还需将 `localImagePath` 和/或 `remoteImageUrl` 的值设置为路径，使之指向实际的图像文件。
+为 **Program** 类添加以下字段。 该数据指定如何连接到人脸服务，以及在何处获取输入数据。 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `faceEndpoint` 字符串，使之包含正确的区域标识符。 还需将 `localImagePath` 和/或 `remoteImageUrl` 的值设置为路径，使之指向实际的图像文件。
 
 `faceAttributes` 字段只是一个数组，包含特定类型的属性。 它将指定要检索的有关已检测人脸的信息。
 
 ```csharp
-// subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-private const string subscriptionKey = "<SubscriptionKey>";
+namespace DetectFace
+{
+    class Program
+    {
+        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+        private const string subscriptionKey = "<SubscriptionKey>";
 
-private const string faceEndpoint = "https://api.cognitive.azure.cn";
+        private const string faceEndpoint = "https://api.cognitive.azure.cn";
 
-// localImagePath = @"C:\Documents\LocalImage.jpg"
-private const string localImagePath = @"<LocalImage>";
+        // localImagePath = @"C:\Documents\LocalImage.jpg"
+        private const string localImagePath = @"<LocalImage>";
 
-private const string remoteImageUrl =
-    "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+        private const string remoteImageUrl =
+            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
 
-private static readonly FaceAttributeType[] faceAttributes =
-    { FaceAttributeType.Age, FaceAttributeType.Gender };
+        private static readonly FaceAttributeType[] faceAttributes =
+            { FaceAttributeType.Age, FaceAttributeType.Gender };
+
 ```
 
 ### <a name="create-and-use-the-face-client"></a>创建并使用人脸客户端
@@ -83,21 +86,25 @@ private static readonly FaceAttributeType[] faceAttributes =
 接下来，请将以下代码添加到 **Program** 类的 **Main** 方法。 这样会设置人脸 API 客户端。
 
 ```csharp
-FaceClient faceClient = new FaceClient(
-    new ApiKeyServiceClientCredentials(subscriptionKey),
-    new System.Net.Http.DelegatingHandler[] { });
-faceClient.Endpoint = faceEndpoint;
+static void Main(string[] args)
+{
+    FaceClient faceClient = new FaceClient(
+        new ApiKeyServiceClientCredentials(subscriptionKey),
+        new System.Net.Http.DelegatingHandler[] { });
+    faceClient.Endpoint = faceEndpoint;
+
 ```
 另请在 **Main** 方法中添加以下代码，以便使用新创建的人脸客户端来检测远程图像和本地图像中的人脸。 检测方法将随后定义。 
 
 ```csharp
-Console.WriteLine("Faces being detected ...");
-var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-var t2 = DetectLocalAsync(faceClient, localImagePath);
+    Console.WriteLine("Faces being detected ...");
+    var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
+    var t2 = DetectLocalAsync(faceClient, localImagePath);
 
-Task.WhenAll(t1, t2).Wait(5000);
-Console.WriteLine("Press any key to exit");
-Console.ReadLine();
+    Task.WhenAll(t1, t2).Wait(5000);
+    Console.WriteLine("Press any key to exit");
+    Console.ReadLine();
+}
 ```
 ### <a name="detect-faces"></a>检测人脸
 
@@ -178,7 +185,7 @@ private static string GetFaceAttributes(
     return attributes;
 }
 ```
-最后，定义 **DisplayAttributes** 方法，以便将人脸属性数据写入到控制台输出。
+最后，定义 **DisplayAttributes** 方法，以便将人脸属性数据写入到控制台输出。 然后即可关闭类和命名空间。
 
 ```csharp
 // Display the face attributes
@@ -188,6 +195,7 @@ private static void DisplayAttributes(string attributes, string imageUri)
     Console.WriteLine(attributes + "\n");
 }
 ```
+
 ## <a name="run-the-app"></a>运行应用程序
 
 成功的响应会显示图像中每张人脸的性别和年龄。 例如：

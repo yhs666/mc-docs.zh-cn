@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 01/14/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9abad39499a2d7485fac2525941b341a4568f077
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 7f7889cc32852a79067cac7023d4a83d24a96ff7
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905332"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854692"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
@@ -49,14 +49,14 @@ ms.locfileid: "56905332"
 
 ### <a name="prerequisites"></a>先决条件
 
-* 在本地计算机上安装[与 Azure Stack 兼容的 Azure PowerShell](azure-stack-powershell-install.md)。  
-* 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。 
+* 在本地计算机上安装[与 Azure Stack 兼容的 Azure PowerShell](../operator/azure-stack-powershell-install.md)。  
+* 下载[使用 Azure Stack 所需的工具](../operator/azure-stack-powershell-download.md)。 
 
 ### <a name="configure-vpn-connectivity"></a>配置 VPN 连接
 
 若要与开发工具包建立 VPN 连接，请在基于 Windows 的本地计算机上打开权限提升的 PowerShell 会话并运行以下脚本（请务必更新环境的 IP 地址和密码值）：
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -93,9 +93,9 @@ Add-AzsVpnConnection `
 
 使用以下两种方法之一连接到 Azure Stack 实例：  
 
-* 使用 `Connect-AzsVpn ` 命令： 
+* 使用 `Connect-AzsVpn` 命令： 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

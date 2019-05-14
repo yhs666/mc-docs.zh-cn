@@ -17,12 +17,12 @@ origin.date: 09/07/2017
 ms.date: 11/02/2017
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 65fd458d80bf93177ffd668ca55075bb2e8a8ccc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: eeed5cd2934fe9bfe96d8ecbfc98ba4c89184bff
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655521"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63853082"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>使用 PowerShell 备份已加密 Azure 虚拟机
 

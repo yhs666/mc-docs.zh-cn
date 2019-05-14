@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: ''
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: dc37bb876a34f91dc91c3604a3c6a3c7554ab46e
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 278cfbea2962e60f0edb13847982e045888abd69
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905432"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854593"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -70,7 +70,7 @@ ms.locfileid: "56905432"
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>从用户映像创建虚拟机
 
-[从自定义用户映像创建虚拟机](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image)。 此模板还会部署虚拟网络（使用 DNS）、公共 IP 地址和网络接口。
+[从自定义用户映像创建虚拟机](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-create-from-customimage)。 此模板还会部署虚拟网络（使用 DNS）、公共 IP 地址和网络接口。
 
 ## <a name="basic-virtual-machine"></a>基本虚拟机
 
@@ -83,4 +83,4 @@ ms.locfileid: "56905432"
 ## <a name="next-steps"></a>后续步骤
 
 * [通过门户部署模板](azure-stack-deploy-template-portal.md)
-* [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 概述](/azure-resource-manager/resource-group-overview)

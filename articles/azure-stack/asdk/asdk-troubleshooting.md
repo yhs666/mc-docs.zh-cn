@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 36f02af3288bd3f8248c39c6f47c79374052f7f4
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 047233549267ebaf1246a8393da3f141584b0d3b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905299"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854720"
 ---
 # <a name="azure-stack-development-kit-asdk-troubleshooting"></a>Azure Stack 开发工具包 (ASDK) 故障排除
 本文提供 ASDK 的常见故障排除信息。 如果本文未阐述你所遇到的问题，请务必查看 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以获取更多帮助和信息。  
@@ -66,7 +66,7 @@ ms.locfileid: "56905299"
 
 如果看到“孤立的”VHD，必须知道它们是否包含在已删除的存储帐户的文件夹中。 如果未删除存储帐户，则正常情况下，这些 VHD 仍在存储帐户中。
 
-可以在[管理存储帐户](../azure-stack-manage-storage-accounts.md)中详细了解如何配置保留阈值和按需回收。
+可以在[管理存储帐户](../operator/azure-stack-manage-storage-accounts.md)中详细了解如何配置保留阈值和按需回收。
 
 ## <a name="storage"></a>存储
 ### <a name="storage-reclamation"></a>存储回收
@@ -74,6 +74,3 @@ ms.locfileid: "56905299"
 
 ## <a name="next-steps"></a>后续步骤
 [访问 Azure Stack 支持论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-
-
-<!-- Update_Description: wording update -->

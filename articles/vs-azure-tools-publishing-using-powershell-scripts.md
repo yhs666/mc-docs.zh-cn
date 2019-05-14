@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 11/11/2016
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 96146e2aae1d6dd019d3a3d2213aedbaf329ccf8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3a9bd6d5336ba3fece14eba74a57cffa2879779b
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627231"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63847949"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 

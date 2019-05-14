@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 03/26/2019
+origin.date: 03/25/2019
+ms.date: 04/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: f9902028c31c1c3985df57c69f8a70350e18a440
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 8cb590d562a4a78f0a77240f5031457438614cc8
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505491"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855122"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安装和运行文本分析容器
 
 文本分析容器提供对原始文本的高级自然语言处理，并且包含三项主要功能：情绪分析、关键短语提取和语言检测。 容器当前不支持实体链接。 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,7 +41,7 @@ ms.locfileid: "58505491"
 
 ### <a name="the-host-computer"></a>主计算机
 
-[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>容器要求和建议
 
@@ -111,7 +111,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令运行三个容器中的任意一个。 该命令使用以下参数：
 
-| 占位符 | 值 |
+| 占位符 | Value |
 |-------------|-------|
 |{BILLING_KEY} | 此密钥用来启动容器，可以从 Azure 门户中的“文本分析密钥”页面上获得。  |
 |{BILLING_ENDPOINT_URI} | 可以从 Azure 门户中的“文本分析概述”页面上获得计费终结点 URI 值。|
@@ -146,6 +146,10 @@ ApiKey={BILLING_KEY}
 
 使用主机 `https://localhost:5000`，以获得容器 API。
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>停止容器
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
@@ -153,10 +157,6 @@ ApiKey={BILLING_KEY}
 ## <a name="troubleshooting"></a>故障排除
 
 如果运行启用了输出[装入点](../text-analytics-resource-container-config.md#mount-settings)和日志记录的容器，该容器会生成有助于排查启动或运行容器时发生的问题的日志文件。 
-
-## <a name="containers-api-documentation"></a>容器的 API 文档
-
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>计费
 

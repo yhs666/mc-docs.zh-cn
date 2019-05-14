@@ -2,19 +2,20 @@
 title: 使用 C 将模拟的 TPM 设备预配到 Azure IoT 中心 | Microsoft Docs
 description: 本快速入门使用单独注册。 在本快速入门中，请使用适用于 Azure IoT 中心设备预配服务的 C 设备 SDK 创建和预配模拟的 TPM 设备。
 author: wesmc7777
-ms.author: wesmc
-ms.date: 07/13/2018
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 652d58bb8774acc2ee564d7e224998f38b21717f
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: e7778720f00bb7efee1d01303d9c6b8629fb345f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988648"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855046"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入门：使用 Azure IoT C SDK 预配模拟的 TPM 设备
 
@@ -44,21 +45,7 @@ Azure IoT 设备预配服务支持两类注册：
 
 在本部分，我们将准备一个用于生成 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 和 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 设备模拟器示例的开发环境。
 
-1. 下载 [CMake 生成系统](https://cmake.org/download/)版本 3.11.4。 使用相应的加密哈希值验证下载的二进制文件。 以下示例使用了 Windows PowerShell 来验证 x64 MSI 分发版本 3.11.4 的加密哈希：
-
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
-    True
-    ```
-    
-    在编写本文时，CMake 站点上列出了版本 3.11.4 的以下哈希值：
-
-    ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
-    ```
+1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
     在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
@@ -67,7 +54,7 @@ Azure IoT 设备预配服务支持两类注册：
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    此存储库的大小目前大约为 220 MB。 应该预料到此操作需要几分钟才能完成。
+    应该预料到此操作需要几分钟才能完成。
 
 
 3. 在 git 存储库的根目录中创建 `cmake` 子目录，并导航到该文件夹。 
@@ -129,7 +116,7 @@ Azure IoT 设备预配服务支持两类注册：
 
 3. 在 Visual Studio 的“解决方案资源管理器”窗口中，导航到 **Provision\_Tools** 文件夹。 右键单击“tpm_device_provision”项目，然后选择“设为启动项目”。 
 
-4. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。 应用将读取并显示**_注册 ID_** 和**_认可密钥_**。 复制这些值。 在下一部分，这些值将用于设备注册。 
+4. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。 应用将读取并显示 **_注册 ID_** 和 **_认可密钥_** 。 复制这些值。 在下一部分，这些值将用于设备注册。 
 
 
 <a id="portalenrollment"></a>

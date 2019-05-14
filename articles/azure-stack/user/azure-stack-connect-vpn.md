@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/21/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 1067ad2f3c274e64641614a1d0c289ea8067b028
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 769b067791d448801e6c6b5166746f4921182341
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503576"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855120"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 
@@ -148,7 +148,7 @@ ms.locfileid: "58503576"
 
 ### <a name="sign-in-as-a-user"></a>以用户身份登录
 
-服务管理员可以用户身份登录，以便对其用户可能使用的计划、套餐和订阅进行测试。 请在登录之前[创建用户帐户](../azure-stack-add-new-user-aad.md)（如何尚未这样做）。
+服务管理员可以用户身份登录，以便对其用户可能使用的计划、套餐和订阅进行测试。 请在登录之前[创建用户帐户](../operator/azure-stack-add-new-user-aad.md)（如何尚未这样做）。
 
 ### <a name="create-the-virtual-network-and-a-vm-subnet"></a>创建虚拟网络和 VM 子网
 

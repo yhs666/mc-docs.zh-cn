@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a384a20ff3361876c5793c55e892ede828fbe256
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2aa3bcaad25513750011077b0400ae4aba91b2e3
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626786"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855030"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中升级 Kubernetes
 
@@ -84,10 +84,10 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
   ],
   "dnsPrefix": "myAKSClust-myResourceGroup-19da35",
   "enableRbac": false,
-  "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.chinaeast.azmk8s.io",
+  "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.chinaeast2.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "kubernetesVersion": "1.10.9",
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
 }
@@ -106,7 +106,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  chinaeast      myResourceGroup  1.10.9               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.chinaeast.azmk8s.io
+myAKSCluster  chinaeast2      myResourceGroup  1.10.9               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.chinaeast2.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>删除群集
@@ -140,9 +140,9 @@ az group delete --name myResourceGroup --yes --no-wait
 <!-- LINKS - internal -->
 [aks-intro]: ./intro-kubernetes.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az aks show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az aks get-upgrades]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az aks upgrade]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-upgrade
+[az aks show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az aks get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
+[az aks upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

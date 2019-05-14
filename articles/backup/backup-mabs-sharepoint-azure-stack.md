@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0a31f0dc1861d1f2d0c8fd3158c50d95e5c136e4
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 9eab697d0679b2673299193d51fcd470379a3cf2
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566368"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555440"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>在 Azure Stack 上备份 SharePoint 场
 在 Azure Stack 上使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
@@ -165,8 +165,8 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
    >
 8. 选择要使用的“恢复过程”。
 
-   - 如果 SharePoint 场未更改，并且与正在还原的恢复点相同，请选择“不使用恢复场进行恢复”  。
-   - 如果 SharePoint 场自创建恢复点后已更改，请选择“使用恢复场进行恢复”  。
+   * 如果 SharePoint 场未更改，并且与正在还原的恢复点相同，请选择“不使用恢复场进行恢复”  。
+   * 如果 SharePoint 场自创建恢复点后已更改，请选择“使用恢复场进行恢复”  。
 
      ![恢复过程](./media/backup-azure-backup-sharepoint/recovery-process.png)
 9. 提供暂时恢复数据库的暂存 SQL Server 实例位置，并在要恢复该项的 MABS 和运行 SharePoint 的服务器上提供暂存文件共享。

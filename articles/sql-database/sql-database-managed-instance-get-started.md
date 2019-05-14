@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: Carlrab
 manager: digimobile
-origin.date: 02/18/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 807c39059a0748586465ae70cd1054523a4e2a0b
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/10/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 2157cb485e3b39d501212b5303539d2c363f4430
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003503"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855436"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
@@ -42,15 +42,17 @@ ms.locfileid: "59003503"
 
 4. 根据下表中的信息，在“SQL 托管实例”窗体中填充要求的信息：
 
-   | 设置| 建议的值 | 说明 |
+   | 设置| 建议的值 | Description |
    | ------ | --------------- | ----------- |
-   | **订阅** | 你的订阅 | 你有权在其中创建新资源的订阅 |
+   | **订阅** | 订阅 | 你有权在其中创建新资源的订阅 |
    |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解有效名称。|
    |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解有效名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
    |**密码**|任何有效的密码|密码必须至少 16 个字符，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
-   |**Collation**|要为托管实例使用的排序规则|如果从 SQL Server 迁移数据库，请使用 `SELECT SERVERPROPERTY(N'Collation')` 检查源排序规则并使用该值。 有关排序规则的信息，请参阅[服务器级别排序规则](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
-   |**位置**|你要在其中创建托管实例的位置|中国东部、中国东部 2、中国北部、中国北部 2|
+   |**时区**|托管实例要观察的时区|有关详细信息，请参阅[时区](sql-database-managed-instance-timezone.md)|
+   |**排序规则**|要为托管实例使用的排序规则|如果从 SQL Server 迁移数据库，请使用 `SELECT SERVERPROPERTY(N'Collation')` 检查源排序规则并使用该值。 有关排序规则的信息，请参阅[服务器级别排序规则](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
+   |**位置**|要在其中创建托管实例的位置|中国东部、中国东部 2、中国北部、中国北部 2|
    |**虚拟网络**|选择“创建新的虚拟网络”或有效的虚拟网络和子网。| 如果网络/子网不可用，则必须先[对其进行修改以满足网络要求](sql-database-managed-instance-configure-vnet-subnet.md)，然后再选择它作为新托管实例的目标。 若要了解为托管实例配置网络环境的要求，请参阅[为托管实例配置 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
+   |**连接类型**|在“代理”和“重定向”连接类型之间进行选择|有关连接类型的详细信息，请参阅 [Azure SQL 连接策略](sql-database-connectivity-architecture.md#connection-policy)。|
    |**资源组**|新的或现有的资源组|如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。|
 
    ![托管实例名称窗体](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
@@ -109,4 +111,3 @@ ms.locfileid: "59003503"
   - 有关应用程序的连接选项概述，请参阅[将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md)。
   - 有关介绍如何从 Azure 虚拟机连接到托管实例的快速入门，请参阅[配置 Azure 虚拟机连接](sql-database-managed-instance-configure-vm.md)。
   - 有关介绍如何使用点到站点连接从本地客户端计算机连接到托管实例的快速入门，请参阅[配置点到站点连接](sql-database-managed-instance-configure-p2s.md)。
-- 若要将现有 SQL Server 数据库从本地还原到托管实例，可以使用 [T-SQL RESTORE 命令](sql-database-managed-instance-get-started-restore.md)从数据库备份文件还原。

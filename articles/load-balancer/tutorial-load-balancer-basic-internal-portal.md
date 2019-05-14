@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2019
-ms.date: 03/25/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 5e18516989b1aea134ecefa1154a03eccef59dd1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1132760cb19decd987e51a373b31c8166cb189c5
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626431"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829693"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>教程：在 Azure 门户中通过基本负载均衡器对内部流量负载进行均衡
 
@@ -62,7 +62,7 @@ ms.locfileid: "58626431"
      1. 在下拉列表中选择“可用性集”。 
      2. 选择“新建”，键入 *MyAvailabilitySet*，然后选择“确定”。
    
-1. 选择“网络”选项卡，或选择“下一步: 磁盘”，然后选择“下一步:网络”**。 
+1. 选择“网络”选项卡，或选择“下一步: **磁盘”，然后选择“下一步:网络”**。 
    
    确保选中以下项：
    - **虚拟网络**：**MyVNet**
@@ -90,17 +90,16 @@ ms.locfileid: "58626431"
    
 2. 在“创建负载均衡器”页的“基本”选项卡中输入或选择以下信息，接受其余的默认设置，然后选择“查看 + 创建”：
 
-    | 设置                 | 值                                              |
+    | 设置                 | Value                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中键入 MyResourceGroupLB。|
     | Name                   | *myLoadBalancer*                                   |
     | 区域         | 选择“中国东部 2”。                                        |
-    | 类型          | 选择“公共”。                                        |
+    | 类型          | 选择“内部”。                                        |
     | SKU           | 选择“基本”。                          |
     | 虚拟网络           | 选择“MyVNet”。                          |    
-| 公共 IP 地址 | 选择“新建”。 |
-    | 公共 IP 地址分配              | 选择“静态”。   |
+    | IP 地址分配              | 选择“静态”。   |
     | 专用 IP 地址|键入一个位于虚拟网络和子网地址空间中的地址，例如 *10.3.0.7*。  |
 
 3. 在“查看 + 创建”选项卡中，单击“创建”。 

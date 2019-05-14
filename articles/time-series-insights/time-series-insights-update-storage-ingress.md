@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18140a3a21df87b5c04317181c396997911b5d8d
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: b63dec4ead0034e76a96de7d8f782fcecf95578e
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349073"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858351"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 时序见解预览版中的数据存储和入口
 

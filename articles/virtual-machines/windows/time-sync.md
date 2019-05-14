@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/17/2018
 ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab8c5d5376576c4bd84d27e76239f0ac1acd2fd4
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: c11f3cc32d8a03de90a237973a5fc52723836711
+ms.sourcegitcommit: 3fa6f4e8948d83d1133517a42a0a7eae58e43f63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004035"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066156"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure 中 Windows VM 的时间同步
 
@@ -29,10 +29,10 @@ ms.locfileid: "59004035"
 Azure 现在受运行 Windows Server 2016 的基础设施的支持。 Windows Server 2016 已改进用于纠正时间和条件的算法，方便本地时钟与 UTC 同步。  Windows Server 2016 还改进了 VMICTimeSync 服务，该服务用于控制 VM 与主机的同步方式，以确保时间准确。 改进包括增强 VM 启动或 VM 还原的初始时间的准确性，以及纠正提供给 Windows 时间 (W32time) 服务的示例的中断延迟。 
 
 >[!NOTE]
->有关 Windows 时间服务的快速概述，请观看此[简要概述视频](https://aka.ms/WS2016TimeVideo)。
 >
 > 有关详细信息，请参阅 [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
 
+<!--Not Avaialble on [high-level overview video](https://aka.ms/WS2016TimeVideo)-->
 ## <a name="overview"></a>概述
 
 计算机时钟的准确性根据计算机时钟与协调世界时 (UTC) 时间标准的接近程度来测量。 UTC 通过精确原子钟的跨国样本来定义，此类原子钟 300 年的偏差只有 1 秒。 但是，直接读取 UTC 需要专用硬件。 而时间服务器与 UTC 同步，可以从其他计算机访问，因此具备可伸缩性和可靠性。 每个计算机都有时间同步服务运行，该服务知道使用什么时间服务器，并定期检查计算机时钟是否需纠正，然后根据需要调整时间。 
@@ -48,7 +48,7 @@ VMICTimeSync 服务以采样或同步模式运行，只会影响时钟前进。 
 如果不进行时间同步，VM 上的时钟会累积错误。 只有一个 VM 时，效果可能不明显，除非工作负荷要求极为准确的计时。 但在大多数情况下，我们有多个互连的 VM，这些 VM 使用时间来跟踪事务，因此需确保整个部署的时间一致。 当 VM 之间的时间不同时，可能会造成以下影响：
 
 - 身份验证会失败。 安全协议（如 Kerberos）或依赖于证书的技术要求跨系统确保时间一致性。 
-- 在一个系统中，如果日志（或其他数据）的时间不一致，则很难厘清所发生的情况。 同一事件看起来就像是在不同的时间发生，难以进行关联。
+- 如果日志（或其他数据）在时间上不一致，则很难弄清楚系统中发生了什么。 同一事件看起来就像是在不同的时间发生，难以进行关联。
 - 如果时钟存在偏差，则可能造成计费不正确。
 
 可以将 Windows Server 2016 用作来宾操作系统，这样可确保使用时间同步方面的最新改进，获得 Windows 部署的最佳结果。
@@ -175,8 +175,8 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 下面是有关时间同步的更多详细信息的链接：
 
 - [Windows 时间服务工具和设置](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Windows Server 2016 改进](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Windows Server 2016 Improvements](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)（Windows Server 2016 改进）
 - [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [为高准确性环境配置 Windows 时间服务所需的支持边界](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)（为高准确性环境配置 Windows 时间服务所需的支持边界）
 
 <!-- Update_Description: wording update-->

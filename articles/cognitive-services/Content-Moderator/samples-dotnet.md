@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 origin.date: 01/10/2019
-ms.date: 02/20/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2a407b20e9f22a25b6d9626c4a8faee12f41b159
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 97e82ea3b9091d3693ad553b399e4b4dc63e2737
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582761"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855265"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>内容审查器 .NET SDK 示例
 
@@ -32,7 +32,7 @@ ms.locfileid: "56582761"
 > 最多只能使用 5 个图像列表，每个列表中的图像数不得超过 10,000 张。
 >
 
-- **文本审查**：[筛查文本中是否有猥亵内容和个人身份信息 (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 请参阅[快速入门](text-moderation-quickstart-dotnet.md)。
+- **文本审查**：[筛查文本中是否有猥亵内容和个人数据](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 请参阅[快速入门](text-moderation-quickstart-dotnet.md)。
 - **自定义术语**：[使用自定义术语列表进行审查](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs)。 请参阅[快速入门](term-lists-quickstart-dotnet.md)。
 
 > [!NOTE]

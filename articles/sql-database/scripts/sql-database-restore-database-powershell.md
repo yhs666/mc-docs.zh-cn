@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/27/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: d907875527acb69726403989cbb69e92eb7237f9
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 04/29/2019
+ms.openlocfilehash: 72abfe7538d6524ba78336f33ae480a484b6127c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529403"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855127"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>使用 PowerShell 将 Azure SQL 单一数据库还原到更早的时间点
 
@@ -91,7 +91,7 @@ Restore-AzSqlDatabase `
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -103,13 +103,13 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 | 
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
-| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 在 SQL 数据库服务器中创建数据库作为独立数据库或入池数据库。 |
-| [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) | 获取独立数据库或入池数据库的异地冗余备份。 |
-| [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) | 还原 SQL 独立数据库或入池数据库。 |
-| [Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase) | 删除 Azure SQL 独立数据库或入池数据库。 |
-| [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 获取可以还原的已删除的独立数据库或入池数据库。 |
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 在 SQL 数据库服务器中创建数据库作为独立数据库或共用数据库。 |
+| [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) | 获取独立数据库或共用数据库的异地冗余备份。 |
+| [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) | 还原 SQL 独立数据库或共用数据库。 |
+| [Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase) | 删除 Azure SQL 独立数据库或共用数据库。 |
+| [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 获取可以还原的已删除的独立数据库或共用数据库。 |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
@@ -117,4 +117,3 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-<!--Update_Description: update "Clean up deployment" script-->

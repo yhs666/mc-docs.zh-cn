@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 7b6e32f03a4df8087cb434320022c02e8b613227
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 88f08eaf0b12aedcc31196fed72ffc11dc46ffb0
+ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653848"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597982"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>通过 PowerShell 使用 Azure 网络观察程序排查连接问题
 
@@ -30,6 +30,9 @@ ms.locfileid: "52653848"
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用排查连接问题来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -50,15 +53,15 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 $destVMName = "Database0"
 
-$RG = Get-AzureRMResourceGroup -Name $rgName
+$RG = Get-AzResourceGroup -Name $rgName
 
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
-$VM2 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
+$VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+$VM2 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
+Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
 
 ### <a name="response"></a>响应
@@ -144,13 +147,13 @@ Hops             : [
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
-$RG = Get-AzureRMResourceGroup -Name $rgName
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+$RG = Get-AzResourceGroup -Name $rgName
+$VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
+Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
 
 ### <a name="response"></a>响应
@@ -208,13 +211,14 @@ Hops             : [
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
-$RG = Get-AzureRMResourceGroup -Name $rgName
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+$RG = Get-AzResourceGroup -Name $rgName
+$VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
+
+Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://bing.com/
 ```
 
 ### <a name="response"></a>响应
@@ -260,14 +264,14 @@ Hops             : [
 $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
-$RG = Get-AzureRMResourceGroup -Name $rgName
+$RG = Get-AzResourceGroup -Name $rgName
 
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+$VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.chinacloudapi.cn/ 
+Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.chinacloudapi.cn/ 
 ```
 
 ### <a name="response"></a>响应
@@ -305,7 +309,7 @@ Hops             : [
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，确定是否允许某些流量传入和传出 VM。
+访问[查看“IP 流验证”](diagnose-vm-network-traffic-filtering-problem.md)，确定是否允许某些流量传入和传出 VM。
 
 如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)，查找已定义的网络安全组和安全规则。
 <!-- Update_Description: update link, wording update  -->

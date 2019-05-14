@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/30/2018
 ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 8df36c6272e52e853d67909a590e84e5e2eace63
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: d4ee84239e2315f286c651efd5697421e0a25fbb
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348170"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63850299"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备
 

@@ -15,12 +15,12 @@ ms.custom: mvc
 origin.date: 05/10/2018
 ms.date: 03/11/2018
 ms.author: v-biyu
-ms.openlocfilehash: 2ed0e2b28a46ac1a66fa01d77cb4b9507714f388
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 57f068e2c6eeea81a001ddcb8abf52eef937af63
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627202"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63854396"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>快速入门：使用 PowerShell 在 Azure Key Vault 中设置和检索机密
 

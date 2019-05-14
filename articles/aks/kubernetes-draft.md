@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 08/15/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 492c3baae6114261e6ab3133591f1eb3c4f9b6ff
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5137cbfb413b5f7fd4e67e452236ec2cc003cbb1
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626154"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520706"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>结合使用 Draft 与 Azure Kubernetes 服务 (AKS)
 

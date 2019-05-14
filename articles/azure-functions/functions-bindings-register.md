@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 02/18/2019
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4b730c47534eba65333ff63b47a69a2460af2cb0
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: e834065650b3167f3eba0d3130d39358292d7d7f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254075"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855596"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>注册 Azure Functions 绑定扩展
 
@@ -38,7 +38,7 @@ Azure Functions 支持 HTTP 和现成的计时器。 若要使用其他服务，
 
 ## <a name="azure-portal-development"></a>使用 Azure 门户进行开发
 
-创建函数或添加绑定时，如果触发器或绑定的扩展需要注册，则系统会显示提示。 单击“安装”注册扩展，以响应提示。 
+创建函数或添加绑定时，如果触发器或绑定的扩展需要注册，则系统会显示提示。 单击“安装”注册扩展，以响应提示。 在消耗计划中，安装最多需要 10 分钟。 
 
 对于给定的函数应用，只需安装每个扩展一次。 对于门户中不可用的受支持绑定或要更新已安装的扩展，还可以[从门户手动安装或更新 Azure Functions 绑定扩展](install-update-binding-extensions-manual.md)。  
 

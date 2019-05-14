@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 07/03/2013
-ms.date: 10/18/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f75170b5889393621adbbf672f209895bdfadd11
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c734c49b603e3ed2375d437f386caf123858672c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657055"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855040"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>将自定义 SSL 证书绑定到 Function App
 
@@ -27,6 +27,8 @@ ms.locfileid: "52657055"
 - 对域注册机构的 DNS 配置页的访问权限。
 - 需要上传和绑定的 SSL 证书的有效 .PFX 文件及其密码。
 - 已在自定义域中配置了一个指向 Web 应用的默认域名的 A 记录。 有关详细信息，请参阅[适用于 Azure 应用服务的映射自定义域说明](https://aka.ms/appservicecustomdns)。
+
+若要绑定 SSL 证书，必须在应用服务计划（而不是消耗计划）中创建 Function App。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 

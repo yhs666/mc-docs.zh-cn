@@ -15,12 +15,12 @@ origin.date: 01/29/2018
 ms.date: 04/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 75816575bc80a6ad7c5f508c1edc9a446fd9b3b9
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 8cd2bae5ce9ef2b17633ae32fa102888d14f4d7e
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686313"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63849543"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>使用 Azure PowerShell 限制 Web 流量
 

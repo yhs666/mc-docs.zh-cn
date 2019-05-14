@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 10/12/2017
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: dffbd6117eee898b68546567d5954fe32ff3daca
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 8480dc5c5e878e43780a66b348f9dc345af87e74
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254031"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854883"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 开发人员指南
 在 Azure Functions 中，特定函数共享一些核心技术概念和组件，不受所用语言或绑定限制。 跳转学习某个特定语言或绑定的详细信息之前，请务必通读此通用概述。
@@ -74,7 +74,7 @@ Function.json 文件定义函数触发器、绑定和其他配置设置。 每�
 通过 Azure 门户中内置的函数编辑器可直接内联更新代码和 function.json 文件。 建议仅用于小的更改或概念证明 - 最佳做法是使用 VS Code 等本地开发工具。
 
 ## <a name="parallel-execution"></a>并行执行
-多个触发事件发生的速度超过了单线程函数运行的处理速度时，运行时可并行多次调用函数。  无论应用是在消耗量托管计划还是常规[应用服务托管计划](../app-service/overview-hosting-plans.md)上运行，每个 Function App 实例都可能使用多个线程并行处理并发函数调用。  每个 Function App 实例中并发函数的最大调用数根据所用触发器类型以及 Function App 中其他函数所用资源而有所不同。
+多个触发事件发生的速度超过了单线程函数运行的处理速度时，运行时可并行多次调用函数。  如果 Function App 正在使用[消耗量托管计划](functions-scale.md#how-the-consumption-plans-work)，则 Function App 可自动扩大。  无论应用是在消耗量托管计划还是常规[应用服务托管计划](../app-service/overview-hosting-plans.md)上运行，每个 Function App 实例都可能使用多个线程并行处理并发函数调用。  每个 Function App 实例中并发函数的最大调用数根据所用触发器类型以及 Function App 中其他函数所用资源而有所不同。
 
 ## <a name="functions-runtime-versioning"></a>Functions 运行时版本控制
 

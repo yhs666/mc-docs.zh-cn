@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/10/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0de0579f4bcf5e605fbf82199831477e17629f0b
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: f6264407a25b48c92af647c505eb13ed381611cd
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56902952"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855277"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>在 Azure Kubernetes 服务 (AKS) 群集中缩放节点数
 
@@ -71,7 +71,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
   ],
   "dnsPrefix": "myAKSClust-myResourceGroup-19da35",
   "enableRbac": true,
-  "fqdn": "myaksclust-myresourcegroup-19da35-0d60b16a.hcp.chinaeast.azmk8s.io",
+  "fqdn": "myaksclust-myresourcegroup-19da35-0d60b16a.hcp.chinaeast2.azmk8s.io",
   "id": "/subscriptions/<guid>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "kubernetesVersion": "1.9.11",
   "linuxProfile": {
@@ -84,7 +84,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
       ]
     }
   },
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "name": "myAKSCluster",
   "networkProfile": {
     "dnsServiceIp": "10.0.0.10",
@@ -94,7 +94,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
     "podCidr": "10.244.0.0/16",
     "serviceCidr": "10.0.0.0/16"
   },
-  "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_chinaeast",
+  "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_chinaeast2",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
   "servicePrincipalProfile": {
@@ -118,4 +118,4 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show

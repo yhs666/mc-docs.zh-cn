@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 origin.date: 02/07/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 175cbdfdfd831ae11f5ec96556cd704c2d484ccf
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 20dc3acb0e0dcd3912afee34ca27d4716b6e9c4a
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833183"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63851568"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>使用 PowerShell 删除虚拟网络网关
 > [!div class="op_single_selector"]

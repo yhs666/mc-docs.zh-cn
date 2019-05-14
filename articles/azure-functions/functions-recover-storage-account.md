@@ -6,19 +6,19 @@ documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
 editor: ''
-ms.service: functions
+ms.service: azure-functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 03/20/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2b9ca3ba6823f66de1f429d0a63d78baf164f700
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 0206edcdca84e3b572d42363c2984a60d6b1225a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855172"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何排查“Azure Functions 运行时无法访问”的问题
 
@@ -56,8 +56,11 @@ ms.locfileid: "58256372"
 
 ### <a name="required-application-settings"></a>必需的应用程序设置
 
-- 必须
-    - [`AzureWebJobsStorage`](/azure-functions/functions-app-settings#azurewebjobsstorage)
+* 必须
+    * [`AzureWebJobsStorage`](/azure-functions/functions-app-settings#azurewebjobsstorage)
+* 消耗计划函数需要
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTSHARE`](/azure-functions/functions-app-settings)
 
 [在此处阅读有关这些应用程序设置的信息](/azure-functions/functions-app-settings)
 
@@ -75,7 +78,6 @@ ms.locfileid: "58256372"
 
 Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐户的常见问题是：
 
-* Function App 在部署到应用服务环境时，没有正确的网络规则来允许在存储帐户中传入和传出流量
 * 存储帐户防火墙已启用，但未配置为允许在 Functions 中传入和传出流量。 [在此处阅读有关存储帐户防火墙配置的详细信息](/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 ## <a name="daily-execution-quota-full"></a>每日执行配额已满
@@ -97,8 +99,8 @@ Function App 必须能够访问存储帐户。 阻止 Functions 访问存储帐�
 * [测试 Azure Functions](functions-test-a-function.md)  
   介绍可用于测试函数的各种工具和技巧。
 * [如何缩放 Azure Functions](functions-scale.md)  
-  讨论在 Azure Functions 中可用的服务计划以及如何选择适当的计划。 
+  讨论 Azure Functions 提供的服务计划（包括使用托管计划）以及如何选择合适的计划。 
 * [详细了解 Azure 应用服务](../app-service/app-service-web-overview.md)  
   Azure Functions 利用 Azure 应用服务执行核心功能，例如部署、环境变量和诊断。 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

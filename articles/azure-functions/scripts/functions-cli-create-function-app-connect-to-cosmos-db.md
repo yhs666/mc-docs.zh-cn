@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 07/03/2018
-ms.date: 10/18/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: db348cb0aaf9811765d9523e2aa32a5bd0114acc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d259b723af24dd5c4bfbecfdc2dbe2102ee48882
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648072"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855129"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>创建用于连接到 Azure Cosmos DB 的 Azure Function
 
@@ -87,7 +87,7 @@ az functionapp config appsettings set `
 |---|---|
 | [az group create](/cli/group#az-group-create) | 使用相关位置创建资源组 |
 | [az storage accounts create](/cli/storage/account#az-storage-account-create) | 创建存储帐户 |
-| [az functionapp create](/cli/functionapp#az-functionapp-create) |   |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../functions-scale.md#consumption-plan)中创建函数应用。 |
 | [az cosmosdb create](/cli/cosmosdb#az-cosmosdb-create) | 创建 Azure Cosmos DB 数据库。 |
 
 ## <a name="next-steps"></a>后续步骤

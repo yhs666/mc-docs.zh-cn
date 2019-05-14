@@ -1,16 +1,10 @@
 ---
-author: WenJason
-ms.author: v-jay
-ms.service: cognitive-services
-ms.topic: include
-origin.date: 01/02/2019
-ms.date: 01/28/2019
-ms.openlocfilehash: 732c06db8119eb46fb7d5d6f839ab0263a8feb1b
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: bbea7c6de5ff5f4a6e5bf99a2db85f623be52c70
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858059"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855633"
 ---
 `Eula` 设置表示已接受容器的许可条款。 必须为此配置设置指定值，并且该值必须设置为 `accept`。
 

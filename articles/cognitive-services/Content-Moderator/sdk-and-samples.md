@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 获取内容审查器 SDK 和示例
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: sample
 origin.date: 02/27/2018
-ms.date: 01/22/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 08c9ca75970a2cfe40502e0db977d9ca7958b3cf
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: f1810c77ee81cff93cd7c639c7482ff183eea874
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858103"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854578"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>内容审查器 SDK 和示例
 
@@ -41,7 +41,7 @@ ms.locfileid: "54858103"
 > 最多只能使用 5 个图像列表，每个列表中的图像数不得超过 10,000 张。
 >
 
-- **文本审查**：[筛查文本中是否有猥亵内容和个人身份信息 (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 请参阅[快速入门](text-moderation-quickstart-dotnet.md)。
+- **文本审查**：[筛查文本中是否有猥亵内容和个人数据](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 请参阅[快速入门](text-moderation-quickstart-dotnet.md)。
 - **自定义术语**：[使用自定义术语列表进行审查](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs)。 请参阅[快速入门](term-lists-quickstart-dotnet.md)。
 
 > [!NOTE]
@@ -67,3 +67,4 @@ ms.locfileid: "54858103"
 ## <a name="on-demand-webinars"></a>点播网络研讨会
 - [使用内容审查器进行大规模计算机辅助内容审查](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html)
 
+<!-- Update_Description: wording update -->

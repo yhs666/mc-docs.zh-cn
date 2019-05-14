@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: e4fc89c488a9efe25e227d8101b14a0f6f29d67b
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 8683ba5bcb4e1a97d260f563de1e0e4401e77aec
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903066"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63827154"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>筛选入站和出站 VM 网络流量
 

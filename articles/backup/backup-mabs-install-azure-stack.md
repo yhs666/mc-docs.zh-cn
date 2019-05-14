@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 6/5/2018
 ms.date: 01/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0d286b0ccf738b00e060238fc4abffc8a08f26a7
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 945d9a6d8b38cb013b8e6c7599f1714342ebf2f2
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544790"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555441"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 
@@ -335,7 +335,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
-- \*.WindowsAzure.com
+- \*.WindowsAzure.cn
 - \*.partner.microsoftonline.cn
 - \*.chinacloudapi.cn
 

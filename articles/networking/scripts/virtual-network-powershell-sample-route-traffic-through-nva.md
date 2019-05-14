@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 33432e8b3dcaa39f0f95253603b1bbb75209c787
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 00bc7b23c5ec834620cec61ba453216e59c1a273
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625578"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63827162"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>通过网络虚拟设备路由流量
 

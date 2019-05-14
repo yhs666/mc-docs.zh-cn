@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 12/10/2018
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: a9f08624e8e4aaee9db8cb7af4088da46734eabf
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: a52f0f860ee23e1825bf469733f585af4786d4ae
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503665"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855001"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
@@ -42,7 +42,7 @@ Azure Stack 基础结构服务的恢复计划**不**包括恢复用户 VM、存�
 * 使关键 VM（例如数据库服务器）保持运行
 * 使应用程序可以持续为用户请求提供服务
 
-Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](/azure-stack/azure-stack-backup-recover-data)一文。
+Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](../operator/azure-stack-backup-recover-data.md)一文。
 
 ## <a name="considerations-for-iaas-vms"></a>有关 IaaS VM 的注意事项
 安装在 IaaS VM 中的操作系统会进行限制，确保只有特定的产品可以用来保护其所包含的数据。 对于基于 Windows 的 IaaS VMs，可以使用 Azure 和合作伙伴产品来保护数据。 对于基于 Linux 的 IaaS VM，唯一的选择是使用合作伙伴产品。 请参阅[此数据表，了解其产品适用于 Azure Stack 的所有 BC/DR 合作伙伴](https://aka.ms/azurestackbcdrpartners)。

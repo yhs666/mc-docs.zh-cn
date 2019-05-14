@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: efa33341072f6e4ba084539c39fea827dfc8c91f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3d48d01bd6634d96fad1fcd1c4bc2a4ea82bd9a9
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627710"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63802975"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>计划 Azure 时序见解预览版环境
 

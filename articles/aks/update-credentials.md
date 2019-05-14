@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 01/30/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 836de15ea9f06d68dfbc17bbd8fb268da722eaf5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 533b3e9506a7463219111e76f484e07b253e8334
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627408"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854784"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的服务主体更新或轮换凭据
 
@@ -99,8 +99,8 @@ az aks update-credentials \
 
 <!-- LINKS - internal -->
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-aks-update-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-update-credentials
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
 [az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 17f5d63dcd6fac25334dac57e204b80b0f65dccd
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 03/12/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 03bf1cdafca420639cd1fb760af69f865319624b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318942"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854716"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>使用 PowerShell 为 Azure SQL 数据库中的单一数据库配置活动异地复制
 
@@ -104,7 +104,7 @@ $secondaryLink | Remove-AzSqlDatabaseSecondary
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname

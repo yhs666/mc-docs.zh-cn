@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4939b8ce83963956be1a3c073e70632bff1ebcb2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 19e5d31e3cac3795aa8e5e1f1f5cca366819667a
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626865"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520682"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的群集安全性和升级的最佳做法
 
@@ -225,13 +225,13 @@ Weaveworks 的 [kured（KUbernetes 重启守护程序）][kured]开源项目可�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-get-upgrades]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
+[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources

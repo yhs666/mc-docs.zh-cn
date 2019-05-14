@@ -10,21 +10,21 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/01/2018
-ms.date: 02/22/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 6d897a57afbbdae40241f18db01144f08f90d283
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f59e5898c6b2732335ee3aeb394b272edd495930
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665585"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854991"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>创建由 Azure Blob 存储触发的函数
 
 了解如何创建在文件上传到 Azure Blob 存储或在 Azure Blob 存储中更新时触发的函数。
 
-![在日志中查看消息。](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
+![查看日志中的消息。](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -103,7 +103,11 @@ ms.locfileid: "56665585"
 
 1. 返回到函数日志并验证是否已读取 blob。
 
-   ![在日志中查看消息。](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
+    ![查看日志中的消息。](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
+
+    >[!NOTE]
+    > 当 Function App 在默认消耗计划中运行时，添加或更新 blob 与触发函数之间可能会有多达几分钟的延迟。 如果需要在 blob 触发的函数中降低延迟，请考虑在应用服务计划中运行 Function App。
+
 
 ## <a name="clean-up-resources"></a>清理资源
 

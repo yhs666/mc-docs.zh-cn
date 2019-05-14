@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 01/11/2019
 ms.author: v-yiso
-ms.date: 02/25/2019
-ms.openlocfilehash: 4a2c286abfe4ecfcee7ae6fafd1a933a40cbd38b
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 05/06/2019
+ms.openlocfilehash: 67f2f360fe7a9ad4feb907e873f9985b1e18fded
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348553"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854930"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -90,10 +90,10 @@ ms.locfileid: "58348553"
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
 * [AFRINIC](https://www.afrinic.net/)
-* [LACNIC](http://www.lacnic.net/)
+* [LACNIC](https://www.lacnic.net/)
 * [RIPENCC](https://www.ripe.net/)
-* [RADB](http://www.radb.net/)
-* [ALTDB](http://altdb.net/)
+* [RADB](https://www.radb.net/)
+* [ALTDB](https://altdb.net/)
 
 如果没有在前述注册表中为你分配前缀和 AS 编号，需开立一个支持案例，以便手动验证前缀和 ASN。 支持需要文档，例如证明你有权使用相关资源的授权书。
 

@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 8aeffb669e97aa426a8230a6b5a46f2a724b6f5b
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: dce7ac0ce211474198725b0170886988b905d8f0
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348950"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63849472"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教程：创建 Azure 时序见解环境
 

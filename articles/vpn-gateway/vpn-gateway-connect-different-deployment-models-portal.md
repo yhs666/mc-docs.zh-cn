@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 origin.date: 10/17/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: f8537ac47bbbd2831bc06694e702bfbfd45c522f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ba11dbe0e999d75322cdeb82c35875861084bb70
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625385"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63850558"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 

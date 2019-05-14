@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 44ca587720fefe3bcca1a0b36e4b7870b6eeb317
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: c50d8e758b0ab38afb88c899e98c1eddcd8d2df0
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624194"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550016"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析 
 
@@ -41,8 +41,6 @@ ms.locfileid: "58624194"
 
 ### <a name="indexer"></a>索引器
 借助 Azure Media Indexer 可使内容可搜索并生成隐藏式字幕跟踪。 
-### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse 结合了视频稳定化和慢镜头功能，可从长格式内容创建快速可用的视频。 除了创建慢镜头视频，还可以使用 Hyperlapse 将通过手机和摄影机拍摄的不稳定视频创建稳定的视频。 有关详细信息和示例，请参阅[使用 Azure Media Hyperlapse 创建 Hyperlapse 媒体文件](media-services-hyperlapse-content.md)。
 ### <a name="motion-detector"></a>动作检测器
 可以使用移动探测器来检测背景平稳的视频中的动作。 这样，便可以检查监控摄像机所检测到的动作事件是否存在误报。 有关详细信息和示例，请参阅 [Azure 媒体分析的动作检测](media-services-motion-detection.md)。
 ### <a name="face-detector"></a>面部检测器

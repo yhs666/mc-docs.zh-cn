@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, srbozovi, bonova
+ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: digimobile
 origin.date: 02/18/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: e2fe00040a5964b8c07de72e0ba021d98361b626
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/29/2019
+ms.openlocfilehash: ed5b9df04f15f691f6fcacb0701461fd6a59294d
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318860"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855058"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入门：配置 Azure VM，以便连接到 Azure SQL 数据库托管实例
 
-本快速入门演示如何配置 Azure 虚拟机，以便使用 SQL Server Management Studio (SSMS) 连接到 Azure SQL 数据库托管实例。 如需介绍如何使用点到站点连接从本地客户端计算机进行连接的快速入门，请参阅[配置点到站点连接](sql-database-managed-instance-configure-p2s.md) 
+本快速入门演示如何配置 Azure 虚拟机，以便使用 SQL Server Management Studio (SSMS) 连接到 Azure SQL 数据库托管实例。 如需介绍如何使用点到站点连接从本地客户端计算机进行连接的快速入门，请参阅[配置点到站点连接](sql-database-managed-instance-configure-p2s.md)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -34,7 +34,7 @@ ms.locfileid: "58318860"
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>在托管实例 VNet 中创建新的子网
 
-以下步骤在托管实例 VNet 中创建新的子网，以便 Azure 虚拟机能够连接到托管实例。 托管实例子网专用于托管实例。 不能在该子网中创建任何其他的资源（例如 Azure 虚拟机）。 
+以下步骤在托管实例 VNet 中创建新的子网，以便 Azure 虚拟机能够连接到托管实例。 托管实例子网专用于托管实例。 不能在该子网中创建任何其他的资源（例如 Azure 虚拟机）。
 
 1. 打开在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中创建的托管实例的资源组。 为托管实例选择虚拟网络。
 
@@ -47,21 +47,21 @@ ms.locfileid: "58318860"
 3. 根据此表中的信息填充窗体：
 
    | 设置| 建议的值 | 说明 |
-   | ---------------- | ----------------- | ----------- | 
+   | ---------------- | ----------------- | ----------- |
    | **名称** | 任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
    | **地址范围(CIDR 块)** | 有效的范围 | 默认值适用于本快速入门。|
    | **网络安全组** | 无 | 默认值适用于本快速入门。|
    | **路由表** | 无 | 默认值适用于本快速入门。|
    | **服务终结点** | 已选择 0 | 默认值适用于本快速入门。|
    | **子网委派** | 无 | 默认值适用于本快速入门。|
- 
+
    ![为客户端 VM 新建托管实例子网](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
 4. 选择“确定”，在托管实例 VNet 中创建这个额外的子网。
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>在 VNet 的新子网中创建虚拟机
 
-以下步骤说明如何在新的子网中创建虚拟机，以便连接到托管实例。 
+以下步骤说明如何在新的子网中创建虚拟机，以便连接到托管实例。
 
 ## <a name="prepare-the-azure-virtual-machine"></a>准备 Azure 虚拟机
 
@@ -79,9 +79,9 @@ ms.locfileid: "58318860"
    | ---------------- | ----------------- | ----------- |
    | **订阅** | 有效的订阅 | 必须是有权在其中创建新资源的订阅。 |
    | **资源组** |在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中指定的资源组。|此资源组必须是 VNet 所在的资源组。|
-   | **位置** | 资源组的位置 | 此值基于所选资源组进行填充。 | 
+   | **位置** | 资源组的位置 | 此值基于所选资源组进行填充。 |
    | **虚拟机名称**  | 任何有效的名称 | 请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
-   |**管理员用户名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。<br>在[连接到 VM](#connect-to-virtual-machine) 时使用此用户名。| 
+   |**管理员用户名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。<br>在[连接到 VM](#connect-to-virtual-machine) 时使用此用户名。|
    |**密码**|任何有效的密码|密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。<br>在[连接到 VM](#connect-to-virtual-machine) 时使用此密码。|
    | **虚拟机大小** | 任何有效的大小 | 此模板中的默认值 **Standard_B2s** 足以满足本快速入门的要求。 |
    | **位置**|[resourceGroup().location]。| 请勿更改此值。 |
@@ -109,31 +109,31 @@ ms.locfileid: "58318860"
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. 选择“连接” 。 
-   
-   此时会显示远程桌面协议文件（.rdp 文件）窗体，其中包含虚拟机的公共 IP 地址和端口号。 
+2. 选择“连接” 。
+
+   此时会显示远程桌面协议文件（.rdp 文件）窗体，其中包含虚拟机的公共 IP 地址和端口号。
 
    ![RDP 窗体](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
 3. 选择“下载 RDP 文件”。
- 
+
    > [!NOTE]
    > 也可使用 SSH 连接到 VM。
 
 4. 关闭“连接到虚拟机”窗体。
-5. 若要连接到 VM，请打开下载的 RDP 文件。 
+5. 若要连接到 VM，请打开下载的 RDP 文件。
 6. 出现提示时，选择“连接”。 在 Mac 上，需要一个 RDP 客户端，例如 Mac 应用商店提供的这个[远程桌面客户端](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)。
 
-6. 输入在创建虚拟机时指定的用户名和密码，然后选择“确定”。
+7. 输入在创建虚拟机时指定的用户名和密码，然后选择“确定”。
 
-7. 你可能会在登录过程中收到证书警告。 选择“是”或“继续”以继续连接。
+8. 你可能会在登录过程中收到证书警告。 选择“是”或“继续”以继续连接。
 
 已连接到“服务器管理器”仪表板中的虚拟机。
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>使用 SSMS 连接到托管实例
 
 1. 在虚拟机中，打开 SQL Server Management Studio (SSMS)。
- 
+
    需要一些时间才能打开，因为这是第一次启动 SSMS，因此需要完成其配置。
 2. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的完全限定**主机名**。 选择“SQL Server 身份验证”，提供用户名和密码，然后选择“连接”。
 

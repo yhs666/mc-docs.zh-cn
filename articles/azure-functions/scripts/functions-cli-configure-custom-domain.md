@@ -10,19 +10,19 @@ ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 07/04/2018
-ms.date: 10/18/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d00de1d02953e4e90a94674549de9c1c2e00bddf
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 89872aa2c2f9221c17948387a801184cde538076
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647762"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855391"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>将自定义域映射到 Function App
 
-此示例脚本在应用服务计划中创建函数应用，然后将其映射到你提供的自定义域。 当函数应用承载在[应用服务计划](../functions-scale.md#app-service-plan)中时，可以使用 CNAME 或 A 记录来映射自定义域。 此示例创建一个应用服务计划，并需要一个 A 记录来映射域。 
+此示例脚本在应用服务计划中创建函数应用，然后将其映射到你提供的自定义域。 当函数应用承载在[应用服务计划](../functions-scale.md#app-service-plan)中时，可以使用 CNAME 或 A 记录来映射自定义域。 对于[消耗计划](../functions-scale.md#consumption-plan)中的函数应用，仅支持 CNAME 选项。 此示例创建一个应用服务计划，并需要一个 A 记录来映射域。 
 
 若要运行此示例脚本，必须已在自定义域中配置了一个指向 Web 应用的默认域名的 A 记录。 有关详细信息，请参阅[适用于 Azure 应用服务的映射自定义域说明](/app-service/app-service-web-tutorial-custom-domain#step-2-create-the-dns-records)。 
 

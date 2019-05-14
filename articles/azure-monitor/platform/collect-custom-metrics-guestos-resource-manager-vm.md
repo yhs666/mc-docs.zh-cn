@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 74f1910856b0f6ccb322e8f4c78c45d3e3500148
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: f99186e186989d2b69ad5290df2d2f5ec77613dd
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906224"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586871"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>使用 Windows 虚拟机的资源管理器模板将来宾 OS 指标发送到 Azure Monitor 指标存储
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 使用 Azure Monitor [诊断扩展](diagnostics-extension-overview.md)，可以从作为虚拟机、云服务或 Service Fabric 群集的一部分运行的来宾操作系统（来宾 OS）中收集指标和日志。 该扩展可将遥测数据发送到[许多不同的位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
 
@@ -237,17 +239,17 @@ Azure 诊断扩展使用名为“数据接收器”的功能将指标和日志�
 我们将利用 Azure PowerShell 部署资源管理器模板。
 
 1. 启动 PowerShell。
-1. 使用 `Login-AzureRmAccount -Environment AzureChinaCloud` 登录到 Azure 门户。
-1. 使用 `Get-AzureRmSubscription` 获取订阅列表。
+1. 使用 `Login-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。
+1. 使用 `Get-AzSubscription` 获取订阅列表。
 1. 设置要在其中创建/更新虚拟机的订阅：
 
-   ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   ```powershell
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. 若要为部署的 VM 创建新资源组，请运行以下命令：
 
-   ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+   ```powershell
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > 请记住[使用为自定义指标启用的 Azure 区域](metrics-custom-overview.md)。
@@ -256,8 +258,8 @@ Azure 诊断扩展使用名为“数据接收器”的功能将指标和日志�
    > [!NOTE]
    > 如果要更新现有 VM，只需将“-Mode Incremental”添加到以下命令的末尾。
 
-   ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   ```powershell
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. 部署成功后，VM 应会显示在 Azure 门户中，并向 Azure Monitor 发出指标。

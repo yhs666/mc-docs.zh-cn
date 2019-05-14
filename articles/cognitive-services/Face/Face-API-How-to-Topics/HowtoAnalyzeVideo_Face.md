@@ -11,12 +11,12 @@ ms.topic: sample
 origin.date: 03/01/2018
 ms.date: 01/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 10f4cdcee3f173da56b062968069b0d09d849d2d
-ms.sourcegitcommit: a09ee94bc8a6b4270f655a1d80cdb65eca320559
+ms.openlocfilehash: 505f87838d7edcb9e14f2a3b0d01e45e01941cda
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396451"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63852156"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>示例：如何实时分析视频
 
@@ -70,7 +70,7 @@ while (true)
 }
 ```
 
-此代码将在单独的任务中启动每个分析，当我们继续捕捉新帧时，这些任务可以在后台运行。 使用此方法时，我们可以避免在等待 API 调用返回时阻塞主线程，但是失去了简单版本提供的一些保证。 多个 API 调用可能并行执行，但结果可能以错误的顺序返回。 这还可能导致多个线程同时进入 ConsumeResult() 函数，如果该函数不是线程安全的，则可能会造成危险。 最后，此简单代码不会跟踪所创建的任务，异常会以无提示方式消失。 因此，最终步骤是添加“使用者”线程，它将跟踪分析任务，引发异常，终止长时间运行的任务，并确保以正确的顺序使用结果。
+此代码将在单独的任务中启动每个分析，当我们继续捕捉新帧时，这些任务可以在后台运行。 使用此方法时，我们可以避免在等待 API 调用返回时阻塞主线程，但是失去了简单版本提供的一些保证。 多个 API 调用可能并行执行，但结果可能以错误的顺序返回。 这也可能导致多个线程同时进入 ConsumeResult() 函数，如果该函数非线程安全，这可能会很危险。 最后，此简单代码不会跟踪所创建的任务，异常会以无提示方式消失。 因此，最终步骤是添加“使用者”线程，它将跟踪分析任务，引发异常，终止长时间运行的任务，并确保以正确的顺序使用结果。
 
 ### <a name="a-producer-consumer-design"></a>生成者-使用者设计
 

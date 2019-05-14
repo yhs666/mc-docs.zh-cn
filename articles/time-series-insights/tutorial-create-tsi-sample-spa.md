@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 32b50dd75be2e0e1c24d42c5c5d9782cac68ff84
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 59e512af88ed5a05352e682329b518d3a19805dd
+ms.sourcegitcommit: 2f31ac5e07e682a9ed03eb0b80c36962529b4139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627054"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "64339738"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教程：创建 Azure 时序见解单页 Web 应用
 

@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 9d05ec89f71ab0af7f3b50aecac99bbf93f47008
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 9b02e8210d0a512be62c38d69766f3a3672097d4
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440726"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65583878"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 本文介绍如何在 Azure Monitor 中使用 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)配置[较新的指标警报](../../azure-monitor/platform/alerts-metric-near-real-time.md)。 使用资源管理器模板可以通过编程方式在多个环境中设置一致且可重现的警报。 较新的指标警报当前适用于[这套资源类型](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)。
 
@@ -1004,52 +1006,14 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
+
                 "chinanorth",
-                "WestUS",
-                "WestUS2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "WestEurope",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
+
                 "ChinaEast",
                 "ChinaSoutheast",
                 "ChinaCentral",
                 "ChinaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "JapanEast",
-                "JapanWest",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
+
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
@@ -1223,11 +1187,11 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-static.json -TemplateParameterFile all-vms-in-resource-group-static.parameters.json
 ```
 
@@ -1299,52 +1263,11 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
                 "chinanorth",
-                "WestUS",
-                "WestUS2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "WestEurope",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
                 "ChinaEast",
                 "ChinaSoutheast",
                 "ChinaCentral",
                 "ChinaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "JapanEast",
-                "JapanWest",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
@@ -1545,11 +1468,11 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-dynamic.json -TemplateParameterFile all-vms-in-resource-group-dynamic.parameters.json
 ```
 
@@ -1621,52 +1544,11 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
                 "chinanorth",
-                "WestUS",
-                "WestUS2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "WestEurope",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
                 "ChinaEast",
                 "ChinaSoutheast",
                 "ChinaCentral",
                 "ChinaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "JapanEast",
-                "JapanWest",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
@@ -1837,11 +1719,11 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-static.json -TemplateParameterFile all-vms-in-subscription-static.parameters.json
 ```
 
@@ -1913,52 +1795,12 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
+
                 "chinanorth",
-                "WestUS",
-                "WestUS2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "WestEurope",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
                 "ChinaEast",
                 "ChinaSoutheast",
                 "ChinaCentral",
                 "ChinaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "JapanEast",
-                "JapanWest",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
@@ -2156,11 +1998,11 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-dynamic.json -TemplateParameterFile all-vms-in-subscription-dynamic.parameters.json
 ```
 
@@ -2232,52 +2074,11 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
                 "chinanorth",
-                "WestUS",
-                "WestUS2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "WestEurope",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
                 "ChinaEast",
                 "ChinaSoutheast",
                 "ChinaCentral",
                 "ChinaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "JapanEast",
-                "JapanWest",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
@@ -2451,11 +2252,11 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-static.json -TemplateParameterFile list-of-vms-static.parameters.json
 ```
 
@@ -2527,52 +2328,11 @@ az group deployment create \
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "EastUS",
-                "EastUS2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
                 "chinanorth",
-                "WestUS",
-                "WestUS2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "WestEurope",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
                 "ChinaEast",
                 "ChinaSoutheast",
                 "ChinaCentral",
                 "ChinaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "JapanEast",
-                "JapanWest",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
@@ -2773,11 +2533,11 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-dynamic.json -TemplateParameterFile list-of-vms-dynamic.parameters.json
 ```
 

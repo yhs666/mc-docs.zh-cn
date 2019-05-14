@@ -1,18 +1,12 @@
 ---
-author: WenJason
-ms.author: v-jay
-ms.service: cognitive-services
-ms.topic: include
-origin.date: 01/02/2019
-ms.date: 01/28/2019
-ms.openlocfilehash: 0e4b1728641e028a8f3f729671fe516982debc43
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: 4abd87247d06dad6157f5938b7200d67e171287a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858077"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855632"
 ---
-Fluentd 是一个用于统一日志记录的开放源代码数据收集器。 `Fluentd` 设置管理容器到 [Fluentd](https://www.fluentd.org) 服务器的连接。 容器包含一个 Fluentd 日志记录提供程序，让容器向 Fluentd 服务器写入日志和（可选）指标数据。
+Fluentd 是一个用于统一日志记录的开放源代码数据收集器。 `Fluentd` 设置管理容器到 [Fluentd](https://www.fluentd.org) 服务器的连接。 容器包含一个 Fluentd 日志记录提供程序，使容器可以向 Fluentd 服务器写入日志和（可选）指标数据。
 
 下表描述了 `Fluentd` 节支持的配置设置。
 

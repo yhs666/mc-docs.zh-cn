@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 31873092187eb970f9e58b85f5150ed8297a55db
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 04/29/2019
+ms.openlocfilehash: 3233b7549a7ea9af2ce6bd1e91289f9980c3d0ac
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529133"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854723"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>将 PowerShell 与 Azure 资源管理器模板配合使用，以在 Azure SQL 数据库中创建托管实例
 
@@ -43,7 +43,7 @@ Azure PowerShell 命令可以使用预定义的 Azure 资源管理器模板启�
 
 此示例假定已为托管实例[创建了有效的网络环境](../sql-database-managed-instance-create-vnet-subnet.md)或[修改了现有的 VNet](../sql-database-managed-instance-configure-vnet-subnet.md)。 此示例使用 cmdlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 和 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)，因此请确保已安装以下 PowerShell 模块：
 
-```
+```powershell
 Install-Module Az.Network
 Install-Module Az.Resources
 ```
@@ -52,7 +52,7 @@ Install-Module Az.Resources
 
 应当在表示模板的文件中放置将用来创建实例的以下内容：
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",

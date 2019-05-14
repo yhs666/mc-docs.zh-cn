@@ -6,18 +6,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/07/2018
-ms.date: 01/28/2019
+ms.date: 05/06/2019
 ms.author: xshi
-ms.openlocfilehash: 1474db998b229ca0b6359b9fe3940aa2f063aac6
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 5702b3c2fdd0c27d692a000cb5aaeae07e811bdc
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396885"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855024"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用适用于 Visual Studio 的 Cloud Explorer 在设备与 IoT 中心之间发送和接收消息
 
-![端到端关系图](media/iot-hub-get-started-e2e-diagram/2.png)
+![端到端关系图](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) 是一种有用的 Visual Studio 扩展，可用于在 Visual Studio 中查看 Azure 资源，检查这些资源的属性，以及执行重要的开发人员操作。 本文将重点介绍如何使用 Cloud Explorer 在设备与 IoT 中心之间发送和接收消息。
 

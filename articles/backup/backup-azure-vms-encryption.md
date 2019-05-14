@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7948016fbd569e983b181a71d9fe5bba17d24572
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: fef51443f1592d8d7360cb3ec3f784583c1cdb75
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566361"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555410"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>备份和还原已加密的 Azure VM
 
@@ -85,7 +85,6 @@ Azure 备份可以在使用或者不使用 Azure AD 应用的情况下，通过 
 
 6. 如果不想要使用默认策略，请选择“新建”，然后[创建自定义策略](backup-azure-arm-vms-prepare.md#create-a-custom-policy)。
 
-    将会列出默认策略的详细信息。 如果要创建策略，请从下拉列表中选择“新建”。 选择“确定”后，备份策略将与保管库相关联。
 
 7. 选择要使用所选策略备份的已加密 VM，然后选择“确定”。
 

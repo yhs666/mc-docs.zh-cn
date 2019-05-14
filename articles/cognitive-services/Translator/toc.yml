@@ -1,170 +1,167 @@
-items:
 - name: 文本翻译文档
   href: index.yml
 - name: 文本翻译 API
   items:
-  - name: 概述
-    items:
-    - name: 什么是文本翻译 API？
-      href: translator-info-overview.md
-  - name: 快速入门
-    items:
-    - name: 翻译文本
+    - name: 概述
       items:
-      - name: C#、REST
-        href: quickstart-csharp-translate.md
-      - name: Go、REST
-        href: quickstart-go-translate.md
-      - name: Java、REST
-        href: quickstart-java-translate.md
-      - name: Node.js、REST
-        href: quickstart-nodejs-translate.md
-      - name: PHP、REST
-        href: quickstart-php-translate.md
-      - name: Python、REST
-        href: quickstart-python-translate.md
-      - name: Ruby、REST
-        href: quickstart-ruby-translate.md
-    - name: 直译文本
+        - name: 什么是文本翻译 API？
+          href: translator-info-overview.md
+    - name: 快速入门
       items:
-      - name: C#、REST
-        href: quickstart-csharp-transliterate.md
-      - name: Go、REST
-        href: quickstart-go-transliterate.md
-      - name: Java、REST
-        href: quickstart-java-transliterate.md
-      - name: Node.js、REST
-        href: quickstart-nodejs-transliterate.md
-      - name: PHP、REST
-        href: quickstart-php-transliterate.md
-      - name: Python、REST
-        href: quickstart-python-transliterate.md
-      - name: Ruby、REST
-        href: quickstart-ruby-transliterate.md
-    - name: 确定语言
+        - name: 翻译文本
+          items:
+            - name: 'C#、REST'
+              href: quickstart-csharp-translate.md
+            - name: Go、REST
+              href: quickstart-go-translate.md
+            - name: Java、REST
+              href: quickstart-java-translate.md
+            - name: Node.js、REST
+              href: quickstart-nodejs-translate.md
+            - name: PHP、REST
+              href: quickstart-php-translate.md
+            - name: Python、REST
+              href: quickstart-python-translate.md
+            - name: Ruby、REST
+              href: quickstart-ruby-translate.md
+        - name: 直译文本
+          items:
+            - name: 'C#、REST'
+              href: quickstart-csharp-transliterate.md
+            - name: Go、REST
+              href: quickstart-go-transliterate.md
+            - name: Java、REST
+              href: quickstart-java-transliterate.md
+            - name: Node.js、REST
+              href: quickstart-nodejs-transliterate.md
+            - name: PHP、REST
+              href: quickstart-php-transliterate.md
+            - name: Python、REST
+              href: quickstart-python-transliterate.md
+            - name: Ruby、REST
+              href: quickstart-ruby-transliterate.md
+        - name: 确定语言
+          items:
+            - name: 'C#、REST'
+              href: quickstart-csharp-detect.md
+            - name: Go、REST
+              href: quickstart-go-detect.md
+            - name: Java、REST
+              href: quickstart-java-detect.md
+            - name: Node.js、REST
+              href: quickstart-nodejs-detect.md
+            - name: PHP、REST
+              href: quickstart-php-detect.md
+            - name: Python、REST
+              href: quickstart-python-detect.md
+            - name: Ruby、REST
+              href: quickstart-ruby-detect.md
+        - name: 查找字词翻译
+          items:
+            - name: 'C#、REST'
+              href: quickstart-csharp-dictionary.md
+            - name: Go、REST
+              href: quickstart-go-dictionary.md
+            - name: Java、REST
+              href: quickstart-java-dictionary.md
+            - name: Node.js、REST
+              href: quickstart-nodejs-dictionary.md
+            - name: PHP、REST
+              href: quickstart-php-dictionary.md
+            - name: Python、REST
+              href: quickstart-python-dictionary.md
+            - name: Ruby、REST
+              href: quickstart-ruby-dictionary.md
+        - name: 获取支持的语言
+          items:
+            - name: 'C#、REST'
+              href: quickstart-csharp-languages.md
+            - name: Go、REST
+              href: quickstart-go-languages.md
+            - name: Java、REST
+              href: quickstart-java-languages.md
+            - name: Node.js、REST
+              href: quickstart-nodejs-languages.md
+            - name: PHP、REST
+              href: quickstart-php-languages.md
+            - name: Python、REST
+              href: quickstart-python-languages.md
+            - name: Ruby、REST
+              href: quickstart-ruby-languages.md
+        - name: 确定句子长度
+          items:
+            - name: 'C#、REST'
+              href: quickstart-csharp-sentences.md
+            - name: Go、REST
+              href: quickstart-go-sentences.md
+            - name: Java、REST
+              href: quickstart-java-sentences.md
+            - name: Node.js、REST
+              href: quickstart-nodejs-sentences.md
+            - name: PHP、REST
+              href: quickstart-php-sentences.md
+            - name: Python、REST
+              href: quickstart-python-sentences.md
+            - name: Ruby、REST
+              href: quickstart-ruby-sentences.md
+    - name: 教程
       items:
-      - name: C#、REST
-        href: quickstart-csharp-detect.md
-      - name: Go、REST
-        href: quickstart-go-detect.md
-      - name: Java、REST
-        href: quickstart-java-detect.md
-      - name: Node.js、REST
-        href: quickstart-nodejs-detect.md
-      - name: PHP、REST
-        href: quickstart-php-detect.md
-      - name: Python、REST
-        href: quickstart-python-detect.md
-      - name: Ruby、REST
-        href: quickstart-ruby-detect.md
-    - name: 查找字词翻译
+        - name: 创建 Flask 翻译应用
+          href: tutorial-build-flask-app-translation-synthesis.md
+    - name: 概念
       items:
-      - name: C#、REST
-        href: quickstart-csharp-dictionary.md
-      - name: Go、REST
-        href: quickstart-go-dictionary.md
-      - name: Java、REST
-        href: quickstart-java-dictionary.md
-      - name: Node.js、REST
-        href: quickstart-nodejs-dictionary.md
-      - name: PHP、REST
-        href: quickstart-php-dictionary.md
-      - name: Python、REST
-        href: quickstart-python-dictionary.md
-      - name: Ruby、REST
-        href: quickstart-ruby-dictionary.md
-    - name: 获取支持的语言
+        - name: API 如何对字符计数
+          href: character-counts.md
+    - name: 操作指南
       items:
-      - name: C#、REST
-        href: quickstart-csharp-languages.md
-      - name: Go、REST
-        href: quickstart-go-languages.md
-      - name: Java、REST
-        href: quickstart-java-languages.md
-      - name: Node.js、REST
-        href: quickstart-nodejs-languages.md
-      - name: PHP、REST
-        href: quickstart-php-languages.md
-      - name: Python、REST
-        href: quickstart-python-languages.md
-      - name: Ruby、REST
-        href: quickstart-ruby-languages.md
-    - name: 确定句子长度
+        - name: 注册文本翻译 API
+          href: translator-text-how-to-signup.md
+        - name: 添加不雅内容筛选
+          href: profanity-filtering.md
+        - name: 接收字对齐信息
+          href: word-alignment.md
+        - name: 阻止翻译内容
+          href: prevent-translation.md
+        - name: 使用动态字典功能
+          href: dynamic-dictionary.md
+        - name: 在防火墙后面翻译
+          href: firewalls.md
+    - name: 参考
       items:
-      - name: C#、REST
-        href: quickstart-csharp-sentences.md
-      - name: Go、REST
-        href: quickstart-go-sentences.md
-      - name: Java、REST
-        href: quickstart-java-sentences.md
-      - name: Node.js、REST
-        href: quickstart-nodejs-sentences.md
-      - name: PHP、REST
-        href: quickstart-php-sentences.md
-      - name: Python、REST
-        href: quickstart-python-sentences.md
-      - name: Ruby、REST
-        href: quickstart-ruby-sentences.md
-  - name: 概念
-    items:
-    - name: API 如何对字符计数
-      href: character-counts.md
-  - name: 操作指南
-    items:
-    - name: 注册文本翻译 API
-      href: translator-text-how-to-signup.md
-    - name: 添加不雅内容筛选
-      href: profanity-filtering.md
-    - name: 接收字对齐信息
-      href: word-alignment.md
-    - name: 阻止翻译内容
-      href: prevent-translation.md
-    - name: 使用动态字典功能
-      href: dynamic-dictionary.md
-    - name: 在防火墙后面翻译
-      href: firewalls.md
-  - name: 参考
-    items:
-    - name: v3 文本翻译 API 参考
-      href: reference/v3-0-reference.md
+        - name: v3 文本翻译 API 参考
+          href: reference/v3-0-reference.md
+          items:
+            - name: 语言
+              href: reference/v3-0-languages.md
+            - name: Translate
+              href: reference/v3-0-translate.md
+            - name: Transliterate
+              href: reference/v3-0-transliterate.md
+            - name: Detect
+              href: reference/v3-0-detect.md
+            - name: BreakSentence
+              href: reference/v3-0-break-sentence.md
+            - name: 字典查找
+              href: reference/v3-0-dictionary-lookup.md
+            - name: 字典示例
+              href: reference/v3-0-dictionary-examples.md
+    - name: 资源
       items:
-      - name: 语言
-        href: reference/v3-0-languages.md
-      - name: Translate
-        href: reference/v3-0-translate.md
-      - name: Transliterate
-        href: reference/v3-0-transliterate.md
-      - name: Detect
-        href: reference/v3-0-detect.md
-      - name: BreakSentence
-        href: reference/v3-0-break-sentence.md
-      - name: 字典查找
-        href: reference/v3-0-dictionary-lookup.md
-      - name: 字典示例
-        href: reference/v3-0-dictionary-examples.md
-  - name: 资源
-    items:
-    - name: GitHub 上的代码示例
-      href: https://aka.ms/TranslatorGitHub
-    - name: 常见问题
-      href: https://www.microsoft.com/translator/faq.aspx
-    - name: 知识库
-      href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
-    - name: 语言和区域支持
-      href: language-support.md
-    - name: 定价
-      href: https://www.azure.cn/pricing/details/cognitive-services/
-    - name: 区域可用性
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    - name: 请求限制
-      href: request-limits.md
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: UserVoice
-      href: https://cognitive.uservoice.com/forums/558796-translator
-ms.openlocfilehash: dad621077142c640a6800cbf6a4f814f065fdd28
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964442"
+        - name: GitHub 上的代码示例
+          href: 'https://aka.ms/TranslatorGitHub'
+        - name: 常见问题
+          href: 'https://www.microsoft.com/translator/faq.aspx'
+        - name: 知识库
+          href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+        - name: 语言和区域支持
+          href: language-support.md
+        - name: 定价
+          href: 'https://www.azure.cn/pricing/details/cognitive-services/'
+        - name: 区域可用性
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: 请求限制
+          href: request-limits.md
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+        - name: UserVoice
+          href: 'https://cognitive.uservoice.com/forums/558796-translator'

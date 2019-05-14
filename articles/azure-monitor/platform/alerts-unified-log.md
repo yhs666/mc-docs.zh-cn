@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 26f3c6599013410c20e14d3a3afd9d1721ca06a2
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 639e021795466b83211d62e2f288121f430d66c8
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686307"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586855"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor 中的日志警报
 本文提供日志警报的详细信息，该警报是 [Azure 警报](../platform/alerts-overview.md)中支持的警报类型之一，允许用户使用 Azure 分析平台作为警报的基础。
@@ -120,7 +120,8 @@ ms.locfileid: "59686307"
 
 ![示例查询结果](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-在此示例中，我们看到的是三台计算机中的每台计算机在 5 分钟的时间范围内计算出来的平均处理器利用率。 srv01 只有一次（在 1:25 处）超出了阈值 90。 如果进行比较，则会发现 srv02 在 1:10、1:15 和 1:25 处超出了阈值 90，而 srv03 则在 1:10、1:15、1:20 和 1:30 处超出了阈值 90。 由于已将警报配置为超出阈值两次以上才触发，因此我们看到只有 srv02 和 srv03 符合此标准。 因此，会为 srv02 和 srv03 创建单独的警报，因为它们在多个时间段内超出了 90% 这个阈值两次。如果为“连续超出阈值”选项配置了“触发警报的标准:”参数，，则只会为 srv03 触发警报，因为在从 1:10 到 1:20 这个时间范围内，只有它连续三个时间段超出阈值。 不会为 srv02 触发警报，因为它只在从 1:10 到 1:15 这个时间范围内连续两个时间段超出阈值。
+在此示例中，我们看到的是三台计算机中的每台计算机在 5 分钟的时间范围内计算出来的平均处理器利用率。 srv01 只有一次（在 1:25 处）超出了阈值 90。 如果进行比较，则会发现 srv02 在 1:10、1:15 和 1:25 处超出了阈值 90，而 srv03 则在 1:10、1:15、1:20 和 1:30 处超出了阈值 90。
+由于已将警报配置为超出阈值两次以上才触发，因此我们看到只有 srv02 和 srv03 符合此标准。 因此，会为 srv02 和 srv03 创建单独的警报，因为它们在多个时间段内超出了 90% 这个阈值两次。如果为“连续超出阈值”选项配置了“触发警报的标准:”参数，，则只会为 srv03 触发警报，因为在从 1:10 到 1:20 这个时间范围内，只有它连续三个时间段超出阈值。 不会为 srv02 触发警报，因为它只在从 1:10 到 1:15 这个时间范围内连续两个时间段超出阈值。
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>日志搜索警报规则 - 触发和状态
 
@@ -143,8 +144,13 @@ ms.locfileid: "59686307"
 - 如果是使用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 创建的，则 Log Analytics 上的日志警报显示确切的警报名称以及资源组和警报属性 
 - 如果是通过[旧式 Log Analytics API](api-alerts.md) 创建的，或者是使用 Azure 门户在**没有**自愿切换到新 API 的情况下创建的，则 Log Analytics 上的日志警报显示 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` 形式的警报名称以及资源组和警报属性
 
-    > [!NOTE]
-    > 如果存在 `<, >, %, &, \, ?, /` 等无效字符，则在帐单中会将这些字符替换为 `_`。 若要删除使用[旧式 Log Analytics API](api-alerts.md) 为警报规则的计费创建的 scheduleQueryRules 资源，用户需要使用[旧式 Log Analytics API](api-alerts.md) 删除原始计划和警报操作
+> [!NOTE]
+> 如果存在无效字符（例如 `<, >, %, &, \, ?, /`），则它们在隐藏的伪警报规则名称以及 Azure 帐单中会被替换为 `_`。
+
+若要删除使用[旧 Log Analytics API](api-alerts.md) 为警报规则的计费创建的隐藏 scheduleQueryRules 资源，用户可以执行以下任一操作：
+
+- 用户可以[在 Log Analytics 工作区上切换警报规则的 API 首选项](../../azure-monitor/platform/alerts-log-api-switch.md)，并且可以切换到 Azure 资源管理器兼容的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 而不丢失其警报规则或监视功能。 因此，这不需要创建用于计费的隐藏伪警报规则。
+- 或者，如果用户不希望切换 API 首选项，则用户将需要使用[旧 Log Analytics API](api-alerts.md) **删除**原始计划和警报操作，或者[在 Azure 门户中删除原始日志警报规则](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何[在 Azure 中创建日志警报](../platform/alerts-log.md)。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/15/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 8a0bcdf415a3bef3608c606d84f5ceeb7151f183
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 797ed09c38394389bea4dc2f40d70da962be6894
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625763"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63844669"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 

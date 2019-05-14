@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/11/2018
 ms.date: 11/06/18
-ms.openlocfilehash: 878b139cf7878cef0b82f555bc0ef39bb2b932de
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: fc64c5a1aa94327ad74d02e67041439b50462263
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544741"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63848614"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure 流分析输出的故障排除
 

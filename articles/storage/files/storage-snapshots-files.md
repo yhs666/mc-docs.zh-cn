@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/17/2018
-ms.date: 09/24/2018
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: 95e20c7b0a1ec5ba5a3606f994b26dee4d9199a2
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.subservice: files
+ms.openlocfilehash: 6b9456dae0d38cbbfb3254e5f7217d58ebc28cce
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219533"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549972"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 文件的共享快照概述 
 Azure 文件提供了获取文件共享的共享快照的功能。 共享快照可以捕获在某个时间点的共享状态。 本文介绍共享快照提供的功能，以及如何在自定义用例中加以利用。
@@ -41,7 +41,7 @@ Azure 文件提供了获取文件共享的共享快照的功能。 共享快照�
 
 文件共享的共享快照与其基本文件共享相同。 唯一的差别在于，共享 URI 的后面追加了一个 **DateTime** 值，用于指示共享快照的创建时间。 例如，如果文件共享 URI 为 http://storagesample.core.file.chinacloudapi.cn/myshare，则共享快照 URI 将类似于：
 ```
-http://storagesample.core.file.chinacloudapi.cn/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.chinacloudapi.cn/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 除非显式删除，否则共享快照会一直保留。 共享快照的生存期不能长于其基本文件共享。 可以枚举与基本文件共享相关联的快照，以跟踪当前快照。 
@@ -89,4 +89,4 @@ Azure 文件目前允许的共享快照的上限是 200 个。 在 200 个共享
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-- [共享快照常见问题解答](storage-files-faq.md#share-snapshots)
+    - [共享快照常见问题解答](storage-files-faq.md#share-snapshots)

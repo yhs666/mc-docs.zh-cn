@@ -10,12 +10,12 @@ origin.date: 07/19/18
 ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6fa5309845f34306396a14e9a1c6892a002e1feb
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 625e7b512ec8a5c457a5c7bb5406fb17137fa562
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625500"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855478"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Azure Kubernetes 服务 (AKS) 中的群集自动缩放程序 - 预览版
 
@@ -118,7 +118,7 @@ $ kubectl get nodes --show-labels
 
 ```console
 NAME                       STATUS    ROLES     AGE       VERSION   LABELS
-aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=chinaeast,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
+aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=chinaeast2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
  ```
 
 然后，提取标签 **agentpool** 的值。 群集节点池的默认名称是“nodepool1”。

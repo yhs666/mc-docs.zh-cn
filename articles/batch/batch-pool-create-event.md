@@ -13,12 +13,12 @@ ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a31c121675ed183ea2e4856f090bca1dbc76d12c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e3815e00ddff361a025481be4817d325f1d75186
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625178"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586905"
 ---
 # <a name="pool-create-event"></a>池创建事件
 

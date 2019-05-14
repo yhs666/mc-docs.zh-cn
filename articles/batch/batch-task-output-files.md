@@ -10,15 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 11/14/2018
-ms.date: 11/26/2018
+ms.date: 03/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6df5b0f47976466f5c6920b0394945b388678a0f
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 005c2552fe67ccccc19a89fda222bb789931f7e6
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987032"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586752"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -160,7 +159,7 @@ Message: One of the specified Azure container(s) was not found while attempting 
 
 ## <a name="diagnose-file-upload-performance"></a>诊断文件上传性能
 
-`fileuploadout.txt` 文件记录上传进度。 可以通过检查此文件来详细了解文件上传花费的时间。 请记住，有许多因素会影响上传性能，其中包括：节点大小、上传时节点上的其他活动、目标容器与 Batch 池是否位于同一区域、同时有多少节点在向存储帐户上传数据，等等。
+`fileuploadout.txt` 文件记录了上传进度。 可以通过检查此文件来详细了解文件上传花费的时间。 请记住，有许多因素会影响上传性能，其中包括：节点大小、上传时节点上的其他活动、目标容器与 Batch 池是否位于同一区域、同时有多少节点在向存储帐户上传数据，等等。
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>将 Batch 服务 API 与 Batch 文件约定标准配合使用
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 8f010bbe5de0d5ca8c06ffa9eb769d38d47f3bf7
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: c5142402caa43121c0d3762d570f287cc51f9810
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544814"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63824391"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>流分析的常见问题以及故障排除的步骤
 
@@ -26,7 +26,7 @@ ms.locfileid: "58544814"
 
 ![Azure 流分析仪表板上的“输入”磁贴](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-若要查看详细信息，请启用诊断日志来查看警告详细信息。 对于格式不正确的输入事件，执行日志包含具有如下所示消息的条目：“消息：无法将资源 <blob URI> 的输入事件反序列化为 json”。 
+若要查看详细信息，请启用诊断日志来查看警告详细信息。 对于格式不正确的输入事件，执行日志包含一条类似于以下内容的消息：“消息：无法将资源 <blob URI> 的输入事件反序列化为 json”。 
 
 ### <a name="troubleshooting-steps"></a>疑难解答步骤
 

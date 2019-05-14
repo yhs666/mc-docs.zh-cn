@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 02/18/2019
-ms.openlocfilehash: 1367f7fac3278a866a557ba99df6a062357b6ce2
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 04/29/2019
+ms.openlocfilehash: eee7e77efcd1079867162d69312e9d44d0db2c13
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855445"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 定价层
 
@@ -51,7 +51,7 @@ ms.locfileid: "56303022"
 
 ## <a name="storage"></a>存储
 
-预配的存储是指可供 Azure Database for PostgreSQL 服务器使用的存储容量。 此存储可用于数据库文件、临时文件、事务日志和 PostgreSQL 服务器日志。 预配的总存储量也定义了可供服务器使用的 I/O 容量。
+预配的存储是指可供 Azure Database for PostgreSQL 服务器使用的存储容量。 此存储用于数据库文件、临时文件、事务日志和 PostgreSQL 服务器日志。 预配的总存储量也定义了可供服务器使用的 I/O 容量。
 
 |    | **基本** | **常规用途** | **内存优化** |
 |:---|:----------|:--------------------|:---------------------|
@@ -71,6 +71,8 @@ ms.locfileid: "56303022"
 服务器设置为只读时，所有现有会话都将断开连接，且未提交的事务会回退。 任何后续写入操作和事务提交均会失败。 所有后续读取查询将不间断工作。  
 
 可增加服务器预配存储量，也可在读写模式下启动新会话并删除数据以回收空闲存储。 运行 `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` 将当前会话设置为读写模式。 为避免数据损坏，请勿在服务器仍处于只读状态时执行任何写入操作。
+
+我们建议你设置警报，以便在服务器存储接近阈值时通知你，从而可以避免进入只读状态。 有关详细信息，请参阅有关[如何设置警报](howto-alert-on-metric.md)的文档。
 
 ## <a name="backup"></a>Backup
 

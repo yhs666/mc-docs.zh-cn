@@ -10,18 +10,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 01/18/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 997c05e5c78d38ff01bae5c4710b16861d12f11d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4fddaa414a38024a6e6f6e68e2b794d7387b304e
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627783"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855142"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中创建虚拟机磁盘存储
 
@@ -33,7 +33,7 @@ ms.locfileid: "58627783"
 
 从版本 1808 开始，Azure Stack 支持在虚拟机上使用托管磁盘和非托管磁盘，作为操作系统 (OS) 磁盘和数据磁盘。 在版本 1808 之前，仅支持非托管磁盘。 
 
-**[托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)** 通过管理与 VM 磁盘关联的存储帐户简化了 Azure IaaS VM 的磁盘管理。 只需指定所需的磁盘大小，Azure Stack 即可为你创建和管理磁盘。
+**[托管磁盘](/virtual-machines/windows/managed-disks-overview)** 通过管理与 VM 磁盘关联的存储帐户简化了 Azure IaaS VM 的磁盘管理。 只需指定所需的磁盘大小，Azure Stack 即可为你创建和管理磁盘。
 
 非托管磁盘要求创建存储帐户用于存储磁盘。 你创建的磁盘称为 VM 磁盘并且存储在存储帐户中的容器中。
 
@@ -311,6 +311,6 @@ Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Stack 虚拟机的详细信息，请参阅 [Azure Stack 中虚拟机的注意事项](/azure-stack/user/azure-stack-vm-considerations)。
+有关 Azure Stack 虚拟机的详细信息，请参阅 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
 
 <!-- Update_Description: wording update -->

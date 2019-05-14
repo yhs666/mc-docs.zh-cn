@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 02/21/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 650f818c34a94a54a62690a9e87efffc76f26cad
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: a5913761383d2055dbb53f7e36e7702f4f299106
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665520"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855134"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions 中处理外部事件 (Azure Functions)
 
@@ -157,6 +157,9 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 无限期地等待一些输入。  在等待时，可以安全地卸载函数应用。 对于此业务流程实例，如果某个事件到达，则会自动唤醒并立即处理该事件。
+
+> [!NOTE]
+> 如果函数应用使用消耗计划，当业务流程协调程序函数等待来自 `WaitForExternalEvent` (.NET) 或 `waitForExternalEvent` (JavaScript) 的任务时，无论它等待多久，都不会产生账单费用。
 
 在 .NET 中，如果事件负载无法转换为预期类型 `T`，将会引发异常。
 

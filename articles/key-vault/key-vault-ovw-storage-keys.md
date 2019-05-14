@@ -10,12 +10,12 @@ ms.author: v-biyu
 manager: mbaldwin
 origin.date: 10/12/2017
 ms.date: 01/14/2019
-ms.openlocfilehash: 6d575e8ef2cab1e2dfab59055b89862a06c843b4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e940f88b0457fcd4508979cf5f6d8f8fa622a528
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627240"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63844711"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 托管存储帐户 - CLI
 

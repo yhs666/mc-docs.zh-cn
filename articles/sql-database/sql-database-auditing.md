@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
-origin.date: 04/08/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 295304dde3dae65d6847be9f4bd88da4c22b6fbb
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+origin.date: 04/16/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 6724cc86dd7c72e7cbcbf250dbcdf4f34d12a663
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529367"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855102"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 
@@ -44,7 +44,7 @@ ms.locfileid: "59529367"
 - **分析** 报告。 可以查找可疑事件、异常活动和趋势。
 
 > [!IMPORTANT]
-> 审核日志会写入 Azure 订阅的 Azure Blob 存储中的**追加 Blob**。
+> 审核日志会写入到 Azure 订阅的 Azure Blob 存储中的**追加 Blob**。
 >
 > - 支持所有存储类型（v1、v2、blob）。
 > - 支持所有存储复制配置。
@@ -178,7 +178,7 @@ ms.locfileid: "59529367"
     > [!IMPORTANT]
     > Azure SQL 数据库审核在审核记录中存储字符字段的 4000 个字符的数据。 当可审核操作返回的**语句**或 **data_sensitivity_information** 值包含超过 4000 个的字符时，超出前 4000 个字符的任何数据将**被截去不进行审核**。
 
-- 审核日志会写入 Azure 订阅的 Azure Blob 存储中的追加 Blob。
+- 审核日志会写入到 Azure 订阅的 Azure Blob 存储中的追加 Blob。
   - 追加 Blob 目前不支持高级存储。
   - 目前不支持 VNet 中的存储。
 

@@ -4,16 +4,15 @@ description: 使用 Azure Batch 和其他 Azure 服务以迸发到云的方式�
 services: batch
 author: davefellows
 manager: jeconnoc
-ms.author: v-junlch
-origin.date: 08/13/2018
-ms.date: 09/07/2018
+ms.author: v-lingwu
+ms.date: 02/07/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0d9bc7d4e1bc8281729adf4ce84257660741b2d8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0d3d7acb715d3812dfb475e3c05cb327974bf067
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625350"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586642"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 渲染的参考体系结构
 
@@ -23,23 +22,23 @@ ms.locfileid: "58625350"
 
 下图显示了一个混合场景，其中包括以下 Azure 服务：
 
-- **计算** - Azure Batch 池或虚拟机规模集。
+* **计算** - Azure Batch 池或虚拟机规模集。
 
-- **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
+* **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-- **存储** - 输入和输出文件：使用 Azure VM 的 NFS 或 CFS，通过 Azure 文件同步或 RSync 与本地存储同步。
+* **存储** - 输入和输出文件：使用 Azure VM 的 NFS 或 CFS，通过 Azure 文件同步或 RSync 与本地存储同步。 也可使用以下命令：使用 NFS 从本地 NAS 设备输入或输出文件的 Avere vFXT。
 
-  ![云迸发 - 与 NFS 或 CFS 的混合](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![云迸发 - 与 NFS 或 CFS 的混合](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>与 Blobfuse 的混合
 
 下图显示了一个混合场景，其中包括以下 Azure 服务：
 
-- **计算** - Azure Batch 池或虚拟机规模集。
+* **计算** - Azure Batch 池或虚拟机规模集。
 
-- **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
+* **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-- **存储** - 输入和输出文件：Blob 存储，通过 Azure Blobfuse 装载到计算资源。
+* **存储** - 输入和输出文件：Blob 存储，通过 Azure Blobfuse 装载到计算资源。
 
   ![云迸发 - 与 Blobfuse 的混合](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -47,13 +46,13 @@ ms.locfileid: "58625350"
 
 下图显示了一个完全连接的针对计算和存储的混合场景，其中包括以下 Azure 服务：
 
-- **计算** - Azure Batch 池或虚拟机规模集。
+* **计算** - Azure Batch 池或虚拟机规模集。
 
-- **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
+* **网络** - 本地：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-- **存储** - 跨界：Avere vFXT。 通过 Azure Data Box 以可选方式将本地文件存档到 Blob 存储，或通过本地 Avere vFXT 加速 NAS。
+* **存储** - 跨界：Avere vFXT。 通过 Azure Data Box 以可选方式将本地文件存档到 Blob 存储，或通过本地 Avere vFXT 加速 NAS。
 
-  ![云迸发 - 混合计算和存储](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![云迸发 - 混合计算和存储](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>后续步骤

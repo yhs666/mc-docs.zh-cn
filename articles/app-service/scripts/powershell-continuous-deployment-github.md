@@ -16,12 +16,12 @@ origin.date: 03/20/2017
 ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 1391feb04b83d073ece7632b1a02ce16f31a41c3
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 10360dcd362154c7a2c0078d97015ddab8735523
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347219"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63857036"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>从 GitHub 使用连续部署创建 Web 应用
 

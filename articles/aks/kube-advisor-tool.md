@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: troubleshooting
 origin.date: 11/05/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 04f60b4f9751ac0b025a2bde413aecc6412d650e
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: bf035920374fa7f8104428c56cd52137bc044ea6
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56902965"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520705"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>检查 Kubernetes 群集中的最佳做法
 
@@ -28,7 +28,7 @@ ms.locfileid: "56902965"
 
 ## <a name="running-kube-advisor"></a>运行 kube-advisor
 
-若要在针对[基于角色的访问控制 (RBAC)](aad-integration.md) 配置的群集上运行此工具，请使用以下命令。 第一个命令可创建 Kubernetes 服务帐户。 第二个命令使用该服务帐户在 pod 中运行该工具，并配置 pod 以在退出后删除。 
+若要在针对[基于角色的访问控制 (RBAC)](azure-ad-integration.md) 配置的群集上运行此工具，请使用以下命令。 第一个命令可创建 Kubernetes 服务帐户。 第二个命令使用该服务帐户在 pod 中运行该工具，并配置 pod 以在退出后删除。 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

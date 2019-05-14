@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 01/25/2018
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: e46160c70116b2c798792aa07dec7476bacae7b2
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 5edd682a619da3155479c2b2b6e048e9e1de54b1
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788736"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63829977"
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>使用 Azure PowerShell 创建应用程序网关
 

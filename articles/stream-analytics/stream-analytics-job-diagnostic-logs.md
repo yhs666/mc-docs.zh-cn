@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: v-lingwu
-ms.openlocfilehash: 7d35ead912383e69e3b787e5126be27c14d27557
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: acb975d0b9b84405a9a226b41c54b39d9b8ae054
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544761"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63849864"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用诊断日志对 Azure 流分析进行故障排除
 
@@ -34,7 +34,7 @@ ms.locfileid: "58544761"
 
 ## <a name="debugging-using-activity-logs"></a>使用活动日志调试
 
-活动日志默认打开，提供对流分析作业执行的操作的深入见解。 活动日志中存在的信息可帮助找到影响作业的问题的根本原因。 执行以下步骤，在流分析中使用活动日志：
+活动日志在默认情况下处于启用状态，提供对流分析作业执行的操作的深入见解。 活动日志中存在的信息可帮助找到影响作业的问题的根本原因。 执行以下步骤，在流分析中使用活动日志：
 
 1. 登录 Azure 门户并选择“概述”下的“活动日志”。
 
@@ -117,8 +117,8 @@ properties | 日志项目的具体详细信息；序列化为 JSON 字符串。 
 
 Name | 说明
 ------- | -------
-源 | 发生错误的作业输入或输出的名称。
-消息 | 与错误关联的消息。
+Source | 发生错误的作业输入或输出的名称。
+Message | 与错误关联的消息。
 类型 | 错误类型。 例如，DataConversionError、CsvParserError 和 ServiceBusPropertyColumnMissingError 。
 数据 | 包含用于准确找到错误起源的数据。 会根据数据大小截断数据。
 
@@ -135,7 +135,7 @@ Name | 说明
 Name | 说明
 -------- | --------
 错误 | （可选）错误信息。 通常情况下，这是异常信息（如果存在）。
-消息| 日志消息。
+Message| 日志消息。
 类型 | 消息类型。 映射到错误的内部分类。 例如，JobValidationError 或 BlobOutputAdapterInitializationFailure。
 相关性 ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) 。 从作业开始到作业停止期间所有的执行日志条目具有相同的“相关 ID”值。
 

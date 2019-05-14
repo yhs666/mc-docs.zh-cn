@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 02/21/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 7761d031c03351bd79abc80b0b9c240fa337006d
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 28d4d0167355253f1e5db214ac80f38627311e18
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905247"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855230"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
 
 本教程介绍如何创建包含套餐的订阅，然后对其进行测试。 测试时，需要以云管理员身份登录到 Azure Stack 用户门户，订阅套餐，然后创建虚拟机。
 
 > [!TIP]
-> 若要获得更高级的评估体验，可[为特定用户创建订阅](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)，然后在用户门户中以该用户的身份登录。
+> 若要获得更高级的评估体验，可[为特定用户创建订阅](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)，然后在用户门户中以该用户的身份登录。
 
 本教程介绍如何订阅 Azure Stack 套餐。
 

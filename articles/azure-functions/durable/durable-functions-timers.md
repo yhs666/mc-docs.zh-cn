@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/08/2018
-ms.date: 02/21/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: d66b6f75f78758553d2b86f98cc15886e17d84d5
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: e436ae709ef0cb01ae5739d51c95b4dc9a7f5733
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665710"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854802"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions 中的计时器 (Azure Functions)
 
@@ -26,7 +26,7 @@ ms.locfileid: "56665710"
 
 ## <a name="timer-limitations"></a>计时器限制
 
-创建在下午 4:30 过期的计时器时，基础 Durable Task Framework 会将一条仅在下午 4:30 才变得可见的消息排入队列。 
+创建在下午 4:30 过期的计时器时，基础 Durable Task Framework 会将一条仅在下午 4:30 才变得可见的消息排入队列。 当在 Azure Functions 消耗计划中运行时，新近可见的计时器消息将确保在合适的 VM 上激活函数应用。
 
 > [!NOTE]
 > * 由于 Azure 存储中的限制，持久计时器的持续时间不能超过 7 天。 我们正在致力于解决[将计时器扩展到 7 天以上的功能请求](https://github.com/Azure/azure-functions-durable-extension/issues/14)。
@@ -135,7 +135,7 @@ module.exports = df.orchestrator(function*(context) {
 > [!WARNING]
 > 使用 `CancellationTokenSource` 取消持久计时器 (C#) 或对返回的 `TimerTask` (JavaScript) 调用 `cancel()`（如果你的代码不会等待它完成）。 在所有未完成任务都完成或取消之前，Durable Task Framework 不会将业务流程的状态更改为“已完成”。
 
-此机制实际上不会终止正在进行的活动函数执行。 它只是允许业务流程协调程序函数忽略结果并继续运行。  [函数超时是可配置的](../functions-host-json.md#functiontimeout)。
+此机制实际上不会终止正在进行的活动函数执行。 它只是允许业务流程协调程序函数忽略结果并继续运行。 如果函数应用使用了消耗计划，则还需要为已放弃的活动函数消耗的任何时间和内存付费。 默认情况下，在消耗计划中运行的函数有五分钟的超时。 如果超出了此限制，则会回收 Azure Functions 主机以停止所有执行并防止出现费用失控的情况。 [函数超时是可配置的](../functions-host-json.md#functiontimeout)。
 
 ## <a name="next-steps"></a>后续步骤
 

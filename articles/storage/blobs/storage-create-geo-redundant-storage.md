@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 01/03/2019
-ms.date: 03/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: ca52451aac756cfa93676cb3c8f88af223b57300
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 8b23acf859b5645db046a9a29ce9eb0e877f4634
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253917"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549978"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教程：使用 Blob 存储构建高度可用的应用程序
 
@@ -50,14 +50,15 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 * [安装 Python](https://www.python.org/downloads/)
 * 下载并安装[用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-python)
 
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+
+* 从命令行安装和配置要使用的 [Maven](https://maven.apache.org/download.cgi)
+* 安装并配置 [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 * 从命令行安装和配置要使用的 [Maven](http://maven.apache.org/download.cgi)
 * 安装并配置 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-* 安装 [Node.js](https://nodejs.org)。
 
 ---
 
@@ -76,16 +77,16 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 3. 在“特色”下选择“存储帐户 - Blob、文件、表、队列”。
 4. 使用以下信息填充存储帐户窗体（如下图所示），然后选择“创建”：
 
-   | 设置       | 建议的值 | Description |
+   | 设置       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **订阅** | 你的订阅 |有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
-   | **资源组** | MyResourceGroup |有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
-   | **存储帐户名称** | mystorageaccount | 存储帐户的唯一值 |
-   |**位置** | 中国东部 | 选择一个位置。 |
-   | **性能** | 标准 | 对于示例方案，“标准”已足够。 |
+   | **名称** | mystorageaccount | 存储帐户的唯一值 |
+   | 部署模型 | Resource Manager  | 资源管理器包含最新功能。|
    | 帐户类型 | StorageV2 | 有关帐户类型的详细信息，请参阅[存储帐户的类型](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **性能** | 标准 | 对于示例方案，“标准”已足够。 |
    | **复制**| 读取访问异地冗余存储 (RA-GRS) | 这是运行示例所必需的。 |
-   | **访问层** | 热 | 对于示例方案，“热”已足够。 |
+   |**订阅** | 你的订阅 |有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
+   |**ResourceGroup** | MyResourceGroup |如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+   |**位置** | 中国东部 | 选择一个位置。 |
 
 ![创建存储帐户](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -96,7 +97,7 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 [下载示例项目](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)并解压缩 storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 文件。 也可使用 [git](https://git-scm.com/) 将应用程序的副本下载到开发环境。 示例项目包含一个控制台应用程序。
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
@@ -107,6 +108,14 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+
+[下载示例项目](https://github.com/Azure-Samples/storage-java-ha-ra-grs)并解压缩 storage-java-ragrs.zip 文件。 也可使用 [git](https://git-scm.com/) 将应用程序的副本下载到开发环境。 示例项目包含一个基本的 Java 应用程序。
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
+
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [下载示例项目](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs)并解压缩 storage-java-ragrs.zip 文件。 也可使用 [git](https://git-scm.com/) 将应用程序的副本下载到开发环境。 示例项目包含一个基本的 Java 应用程序。
@@ -115,57 +124,65 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-[下载示例项目](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs)并解压缩文件。 也可使用 [git](https://git-scm.com/) 将应用程序的副本下载到开发环境。 示例项目包含一个基本的 Node.js 应用程序。
-
-```bash
-git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
-```
-
 ---
-
-## <a name="configure-the-sample"></a>配置示例
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-在应用程序中，必须为存储帐户提供连接字符串。 可以将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
+在应用程序中，必须为存储帐户提供连接字符串。 建议将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 复制主密钥或辅助密钥中的**连接字符串**。 根据操作系统运行以下命令之一，将 \<yourconnectionstring\> 替换为实际的连接字符串。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 复制主密钥或辅助密钥中的**连接字符串**。 将 \<yourconnectionstring\> 替换为实际的连接字符串，只需根据操作系统运行以下命令之一即可。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。 替换以下示例中的 **\<storageConnectionString\>**：
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=<yourconnectionstring>
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### <a name="windows"></a>Windows
 
 ```PowerShell
-setx storageconnectionstring "<yourconnectionstring>"
+setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-在应用程序中，必须提供存储帐户凭据。 可以将此信息存储在运行应用程序的本地计算机的环境变量中。 根据操作系统，按照下面的某个示例创建环境变量。
+在应用程序中，必须为存储帐户提供连接字符串。 建议将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 将“存储帐户名称”和“密钥”值粘贴到以下命令中，替换 \<youraccountname\> 和 \<youraccountkey\> 占位符。 此命令将环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 复制主密钥或辅助密钥中的**连接字符串**。 将 \<yourconnectionstring\> 替换为实际的连接字符串，只需根据操作系统运行以下命令之一即可。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。 替换以下示例中的 **\<storageConnectionString\>**：
 
 ### <a name="linux"></a>Linux
 
 ```
-export accountname=<youraccountname>
-export accountkey=<youraccountkey>
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### <a name="windows"></a>Windows
 
 ```PowerShell
-setx accountname "<youraccountname>"
-setx accountkey "<youraccountkey>"
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+
+在应用程序中，必须为存储帐户提供连接字符串。 建议将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
+
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 复制主密钥或辅助密钥中的**连接字符串**。 将 \<yourconnectionstring\> 替换为实际的连接字符串，只需根据操作系统运行以下命令之一即可。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。 替换以下示例中的 **\<storageConnectionString\>**：
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\>
+```
+
+### <a name="windows"></a>Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-此示例要求安全地存储存储帐户的名称和密钥。 请将其存储在将要运行示例的计算机的本地环境变量中。 根据操作系统使用 Linux 或 Windows 示例创建环境变量。 
+此示例要求安全地存储存储帐户的名称和密钥。 请将其存储在将要运行示例的计算机的本地环境变量中。 根据操作系统使用 Linux 或 Windows 示例创建环境变量。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
 
 ### <a name="linux-example"></a>Linux 示例
 
@@ -180,21 +197,6 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
-
-导航到存储帐户并在“设置”部分选择“访问密钥”，即可找到 Azure 门户中的此信息。 
-
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-若要运行此示例，必须将存储帐户凭据添加到 `.env.example` 文件，然后将其重命名为 `.env`。
-
-```
-AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
-AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
-```
-
-导航到存储帐户并在“设置”部分选择“访问密钥”，即可找到 Azure 门户中的此信息。 
-
-还必须安装所需的依赖项。 为此，请打开命令提示符，导航到示例文件夹，然后输入 `npm install`。
 
 ---
 
@@ -216,17 +218,23 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 ![正在运行的控制台应用](media/storage-create-geo-redundant-storage/figure3.png)
 
-在示例代码中，使用了 `circuitbreaker.py` 文件中的 `run_circuit_breaker` 方法通过 [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) 方法来下载存储帐户中的映像。 
+在示例代码中，使用了 `circuitbreaker.py` 文件中的 `run_circuit_breaker` 方法通过 [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) 方法来下载存储帐户中的映像。
 
 存储对象重试函数设置为线性重试策略。 重试函数决定了是否重试某个请求，并指定了在重试该请求之前需要等待的秒数。 如果应该在针对主终结点的初始请求失败以后重试针对次要终结点的请求，请将 **retry\_to\_secondary** 值设置为 true。 在示例应用程序的存储对象的 `retry_callback` 函数中，定义了自定义重试策略。
 
-在下载之前，定义了服务对象的 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函数。 这些函数定义了在下载成功完成或下载失败并重试时触发的事件处理程序。  
+在下载之前，定义了服务对象的 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函数。 这些函数定义了在下载成功完成或下载失败并重试时触发的事件处理程序。
+
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+
+若要运行应用程序，可以打开一个终端或命令提示符，其作用域为下载的应用程序所在的文件夹。 在该处输入 `mvn compile exec:java` 即可运行应用程序。 然后，应用程序会将 **HelloWorld.png** 映像从该目录上传到存储帐户并进行检查，确保映像已复制到辅助 RA-GRS 终结点。 检查完成以后，应用程序就会开始重复下载该映像，同时会将从其下载映像的终结点报告回来。
+
+存储对象重试函数设置为使用线性重试策略。 重试函数决定了是否重试某个请求，并指定了在每次重试之前需要等待的秒数。 **BlobRequestOptions** 的 **LocationMode** 属性设置为 **PRIMARY\_THEN\_SECONDARY**。 这样，如果应用程序在尝试下载 **HelloWorld.png** 时无法访问主位置，则会自动将其切换到辅助位置。
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 若要运行示例，请在命令行使用 Maven。
 
-1. 打开 shell 并浏览到已克隆目录中的 **storage-blobs-java-v10-tutorial-master**。
+1. 打开 shell 并浏览到已克隆目录中的 **storage-blobs-java-v10-quickstart**。
 2. 输入 `mvn compile exec:java`。
 
 此示例在默认目录中为 Windows 用户创建一个测试文件，该目录为 **AppData\Local\Temp**。然后，示例会提供下述可以输入的命令选项：
@@ -266,33 +274,6 @@ Cleaning up the sample and exiting!
 
 你可以控制此示例，因此请输入命令，让其运行代码。 输入区分大小写。
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-若要运行示例，请打开命令提示符，导航到示例文件夹，然后输入 `node index.js`。
-
-此示例在 Blob 存储帐户中创建一个容器，将 **HelloWorld.png** 上传到容器中，然后反复检查容器和图像是否已复制到次要区域。 复制完以后，会提示你输入 **D** 或 **Q**（然后按 ENTER），以便下载相关内容或退出。 输出应类似于以下示例：
-
-```
-Created container successfully: newcontainer1550799840726
-Uploaded blob: HelloWorld.png
-Checking to see if container and blob have replicated to secondary region.
-[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
-[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
-...
-[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
-[32] Container found, but blob has not replicated to secondary region yet.
-...
-[67] Container found, but blob has not replicated to secondary region yet.
-[68] Blob has replicated to secondary region.
-Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
-> D
-Attempting to download blob...
-Blob downloaded from primary endpoint.
-> Q
-Exiting...
-Deleted container newcontainer1550799840726
-```
-
 ---
 
 ## <a name="understand-the-sample-code"></a>了解示例代码
@@ -302,7 +283,7 @@ Deleted container newcontainer1550799840726
 ### <a name="retry-event-handler"></a>Retry 事件处理程序
 
 当映像下载失败并设置为重试时，将调用 `OperationContextRetrying` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 会变为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
- 
+
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -336,7 +317,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {
-        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times, 
+        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
         //    then switch back to the primary and see if it's available now.
         secondaryReadCount++;
         if (secondaryReadCount >= secondaryThreshold)
@@ -348,11 +329,11 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python) 
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Retry 事件处理程序
 
-当映像下载失败并设置为重试时，将调用 `retry_callback` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) 会变为 `SECONDARY`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。  
+当映像下载失败并设置为重试时，将调用 `retry_callback` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) 会变为 `SECONDARY`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
 
 ```python
 def retry_callback(retry_context):
@@ -390,9 +371,22 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+
+使用 Java 时，如果 **BlobRequestOptions** 的 **LocationMode** 属性设置为 **PRIMARY\_THEN\_SECONDARY**，则不需定义回调处理程序。 这样，如果应用程序在尝试下载 **HelloWorld.png** 时无法访问主位置，则会自动将其切换到辅助位置。
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
+
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-使用 Java V10 SDK 时，不需定义回调处理程序，此 SDK 现在有一些不同于 V7 SDK 的基本区别。 我们使用辅助**管道**，而不使用 LocationMode。 可以通过 **RequestRetryOptions** 定义一个辅助管道。该管道定义好以后，应用程序就可以在无法通过主管道访问数据的情况下自动切换到辅助管道。
+使用 Java V10 SDK 时，仍然不需定义回调处理程序，此 SDK 现在有一些不同于 V7 SDK 的基本区别。 我们使用辅助**管道**，而不使用 LocationMode。 可以通过 **RequestRetryOptions** 定义一个辅助管道。该管道定义好以后，应用程序就可以在无法通过主管道访问数据的情况下自动切换到辅助管道。
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -400,29 +394,6 @@ PipelineOptions myOptions = new PipelineOptions();
 myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.chinacloudapi.cn"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.chinacloudapi.cn"), StorageURL.createPipeline(creds, myOptions));
-```
-
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-使用 Node.js V10 SDK 时，不需回调处理程序。 示例会创建一个配置了重试选项和辅助终结点的管道。 这样，如果应用程序无法通过主管道访问数据，则会自动切换到辅助管道。 
-
-```javascript
-const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
-const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
-
-const primaryAccountURL = `https://${accountName}.blob.core.chinacloudapi.cn`;
-const secondaryAccountURL = `https://${accountName}-secondary.blob.core.chinacloudapi.cn`;
-
-const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
-  retryOptions: {
-    maxTries: 3, 
-    tryTimeoutInMs: 10000,
-    retryDelayInMs: 500, 
-    maxRetryDelayInMs: 1000,
-    secondaryHost: secondaryAccountURL
-  }
-});
 ```
 
 ---

@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2019
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 399add5982449dbf1657d95d1b5a961352208dfe
-ms.sourcegitcommit: dd55b3de7e1af671d2631b146d96b478d11db554
+ms.openlocfilehash: 72fa1c2885beafbdb3d5fa40ae9a4ed80a08f916
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58899624"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855600"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Azure 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 需要注册才能测试重要的 Azure Stack 功能，如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
@@ -33,7 +33,7 @@ ms.locfileid: "58899624"
 
 此外，在用于向 Azure 注册 ASDK 的计算机上，PowerShell 语言模式必须设置为 **FullLanguageMode**。 若要验证当前的语言模式是否设置为 Full，请打开权限提升的 PowerShell 窗口，并运行以下 PowerShell 命令：
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -51,7 +51,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 需要同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果还没有 Azure 计费订阅 ID，可[在此处创建一个试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
 
-    ```PowerShell  
+    ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment name is AzureChinaCloud depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "AzureChinaCloud"
@@ -90,7 +90,7 @@ $ExecutionContext.SessionState.LanguageMode
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌
 在 ASDK 主机上，以管理员身份启动 PowerShell，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后使用 **Get-AzsRegistrationToken** cmdlet 获取注册令牌：  
 
-   ```PowerShell  
+   ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
@@ -111,7 +111,7 @@ $ExecutionContext.SessionState.LanguageMode
 ### <a name="connect-to-azure-and-register"></a>连接到 Azure 并注册
 在已连接到 Internet 的计算机上，使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后通过 **Register-AzsEnvironment** cmdlet 并使用刚才创建的注册令牌和唯一的注册名称来注册到 Azure：  
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names is AzureChinaCloud depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "AzureChinaCloud"
@@ -135,7 +135,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 或者，可以使用 **Get-Content** cmdlet 指向包含注册令牌的文件：
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names is AzureChinaCloud depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "AzureChinaCloud"
@@ -215,7 +215,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 2. 在“仪表板”中，选择“区域管理”。
 
-    [![R“区域管理”磁贴](media/asdk-register/admin1sm.png "“区域管理”磁贴")](media/asdk-register/admin1.png#lightbox)
+    [![“区域管理”磁贴](media/asdk-register/admin1sm.png "“区域管理”磁贴")](media/asdk-register/admin1.png#lightbox)
 
 3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
@@ -225,5 +225,4 @@ $ExecutionContext.SessionState.LanguageMode
 
 ## <a name="next-steps"></a>后续步骤
 
-- [添加 Azure Stack 市场项](../azure-stack-marketplace.md)
-<!-- Update_Description: wording update -->
+- [添加 Azure Stack 市场项](../operator/azure-stack-marketplace.md)

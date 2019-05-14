@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 03/11/2019
+ms.date: 05/06/2019
 ms.author: v-biyu
-ms.openlocfilehash: f2c0e2d6c7da55510c4ca29c4e943925470440f2
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 709e0dbae3323066897a9cf5867a28214cac904b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903100"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855199"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -181,10 +181,17 @@ az group deployment create --name <Specify a name for the deployment> --resource
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，我们已创建事件中心命名空间，并使用示例应用程序从事件中心发送和接收事件。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程： 
+在本文中，我们已创建事件中心命名空间，并使用示例应用程序从事件中心发送和接收事件。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅**发送和接收事件**教程： 
 
-- **将事件发送到事件中心**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- **从事件中心接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
+
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

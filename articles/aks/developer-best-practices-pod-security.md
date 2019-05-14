@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: ddca67f2510b582cbc51f2b5799464e02b0c69d8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6269c4143e282789215a6fa8dd082e05e0d10e7f
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626086"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520731"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>保护 Azure Kubernetes 服务 (AKS) 中的 Pod 的最佳做法
 
@@ -117,3 +117,5 @@ Azure 资源的托管标识允许 Pod 针对支持的 Azure 服务（如存储�
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [aks-pod-identities]: operator-best-practices-identity.md#use-pod-identities
 [apparmor-seccomp]: operator-best-practices-cluster-security.md#secure-container-access-to-resources
+
+<!-- Update_Description: wording update, update link -->

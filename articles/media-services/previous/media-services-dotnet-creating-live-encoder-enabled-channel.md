@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: fd750f12cc723351ca2f2186feeecf9f2df75a89
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 2052dfa9324e2c83f627fbc50d726884dffe12cc
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624148"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549934"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]
@@ -211,7 +211,7 @@ namespace EncodeLiveStreamWithAmsClear
             IOperation channelCreateOperation = _context.Channels.SendCreateOperation(options);
             string channelId = TrackOperation(channelCreateOperation, "Channel create");
 
-            IChannel channel = _context.Channels.Where(c => c.Id == channelId).FirstOrDefault();
+            IChannel channel = _context.Channels.FirstOrDefault(c => c.Id == channelId);
 
             Log("Starting channel");
             var channelStartOperation = channel.SendStartOperation();
@@ -400,8 +400,7 @@ namespace EncodeLiveStreamWithAmsClear
             {
                 foreach (var program in channel.Programs)
                 {
-                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                                .FirstOrDefault();
+                    asset = _context.Assets.FirstOrDefault(se => se.Id == program.AssetId);
 
                     Log("Stopping program");
                     var programStopOperation = program.SendStopOperation();

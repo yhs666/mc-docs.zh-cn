@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/31/2017
 ms.date: 03/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 846037be4aaa2f33acb1552f345803442734061e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8f4e3267d9396cc6aa2618a9c0d2ad848a8ef754
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627740"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63830008"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 

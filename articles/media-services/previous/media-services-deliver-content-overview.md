@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/10/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 4968422787b22274c420ca450016055ec04eda02
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a01257efdbc0c30e76cc278070ce997d1e023334
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625636"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549986"
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
 向客户传送流或视频点播内容时，目标在于向处于不同网络条件下的各种设备传送优质视频。
@@ -158,7 +158,17 @@ https://test001.blob.core.chinacloudapi.cn/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>更改为平滑流式处理清单版本
 在 2016 年 7 月的服务版本之前，使用 Media Encoder Standard 或早期的 Azure 媒体编码器生成的资产通过动态打包功能进行流式处理，此时返回的平滑流式处理清单会符合 2.0 版的要求。 在 2.0 版本中，片段持续时间不使用所谓的重复 ('r') 标记。 例如：
 
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000"> <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000"> <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" /> <c t="0" d="2000" n="0" /> <c d="2000" /> <c d="2000" /> <c d="2000" /> </StreamIndex> </SmoothStreamingMedia>
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+        <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+            <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+            <c t="0" d="2000" n="0" />
+            <c d="2000" />
+            <c d="2000" />
+            <c d="2000" />
+        </StreamIndex>
+    </SmoothStreamingMedia>
 
 在 2016 年 7 月的服务版本中，生成的平滑流式处理清单遵从 2.2 版的要求，其片段持续时间使用重复标记。 例如：
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 05/09/2018
 ms.date: 04/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1357f6ba39efea8203e59a04d924282be825502c
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 463df85709a302371e25d897b9121862ef9a29f4
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566239"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63859039"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。

@@ -12,17 +12,17 @@ manager: digimobile
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 02/08/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 368f5dc4e3c65779bbc55fcfc8e7488400d348ba
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 04/29/2019
+ms.openlocfilehash: 312c2e6f312348de0600435703b80f72224691b9
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318947"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854662"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
-此 Azure CLI 脚本示例创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
+此 Azure CLI 脚本示例创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -74,7 +74,7 @@ az sql db create \
 ```
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
 az group delete --name myResourceGroup

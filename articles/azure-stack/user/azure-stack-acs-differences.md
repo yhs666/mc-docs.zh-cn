@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: v-jay
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 125c4a99a5c32f451509862a75c87909e52530f7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: c4ff084fe6b16305128f9a76d575afa45988518f
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988002"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858158"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 

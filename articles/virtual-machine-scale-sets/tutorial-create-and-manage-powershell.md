@@ -17,12 +17,12 @@ origin.date: 05/18/2018
 ms.date: 03/28/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0a956baca6f68e19e9b94dc6a3f6c02e3c1dfabc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2711f367bdda256b2d795a54d74cbaa937131295
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626873"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63852267"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理虚拟机规模集
 

@@ -10,19 +10,19 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/10/2018
-ms.date: 03/20/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 60af53523d4fe73921f0d2131ee1d5ed2f74f672
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 1c5be7284a4c27d2ba848690b87892a12a5fa46a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256356"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855467"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 创建你的第一个函数
 
-本文将指导你使用 Maven 命令行工具生成 Java 函数并将该函数发布到 Azure Functions。 
+本文将指导你使用 Maven 命令行工具生成 Java 函数并将该函数发布到 Azure Functions。 完成后，你的函数代码将在 Azure 中的[使用计划](functions-scale.md#consumption-plan)上运行，并可使用 HTTP 请求触发。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -49,6 +49,9 @@ mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
+
+> [!NOTE]
+> 如果在运行命令时遇到问题，请看看使用了什么 `maven-archetype-plugin` 版本。 由于你是在空的没有 `.pom` 文件的目录中运行该命令，因此它会尝试使用 `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` 中的旧版插件（如果你从旧版升级了 Maven）。 如果是这样，请尝试删除 `maven-archetype-plugin` 目录并重新运行命令。
 
 ### <a name="windows"></a>Windows
 

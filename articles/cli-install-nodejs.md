@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 75bfb981ef6c29be4b8cd01f2b3103bfae4f2f98
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 8275e2cb2ef095c5a8c36b7385b08efd81ee7f6a
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652829"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63860319"
 ---
 # <a name="install-the-azure-cli-10"></a>安装 Azure CLI 1.0
 > [!div class="op_single_selector"]

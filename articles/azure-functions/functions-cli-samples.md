@@ -9,15 +9,15 @@ ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.service: azure-functions
 ms.topic: sample
 origin.date: 01/09/2018
-ms.date: 10/18/2018
+ms.date: 04/26/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d02eb8c9ad30e20b1312cedd15a7f28346570450
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ef3aa744f517fcfef52a17eebeacd11ae09237c5
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655453"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854808"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 示例
 
@@ -26,6 +26,7 @@ ms.locfileid: "52655453"
 | | |
 |-|-|
 |<a name="create"></a>**创建应用**||
+| [创建可无服务器执行的 Function App](scripts/functions-cli-create-serverless.md) | 在消耗计划中创建 Function App。  |
 | [在应用服务计划中创建 Function App](scripts/functions-cli-create-app-service-plan.md) | 在专用应用服务计划中创建 Function App。 |
 | | |
 |**集成**||

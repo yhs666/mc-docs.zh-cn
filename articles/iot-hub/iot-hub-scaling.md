@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/02/2018
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: 4e90c69bc1f5d486173c7f7f8e6f77a8d7ff2d58
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 05/06/2019
+ms.openlocfilehash: 3c7d59d90fa25b40f63624d1d54905edda792c66
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348651"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854731"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -42,6 +42,7 @@ IoT 中心的标准层启用了所有功能，是任何需要使用双向通信�
 | [每设备标识](iot-hub-devguide-identity-registry.md) | 是 | 是 |
 | [消息路由](iot-hub-devguide-messages-read-custom.md) | 是 | 是 |
 | [HTTP、AMQP 和 MQTT 协议](iot-hub-devguide-protocols.md) | 是 | 是 |
+| [设备预配服务](../iot-dps/about-iot-dps.md) | 是 | 是 |
 | [监视和诊断](iot-hub-monitor-resource-health.md) | 是 | 是 |
 | [云到设备的消息传递](iot-hub-devguide-c2d-guidance.md) |   | 是 |
 | [设备孪生](iot-hub-devguide-device-twins.md)、[模块孪生](iot-hub-devguide-module-twins.md)和[设备管理](iot-hub-device-management-overview.md) |   | 是 |
@@ -85,6 +86,7 @@ IoT 中心基本层和标准层所支持的功能存在差异，也就是说，�
 | [发送设备事件](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 是 | 是 |
 | 发送模块事件 | 是 | 是 |
 | [更新文件上传状态](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 是 | 是 |
+| [批量设备操作](https://docs.microsoft.com/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | 是的，IoT Edge 功能除外 | 是 | 
 | [清除命令队列](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 是 |
 | [获取设备孪生](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | 是 |
 | 获取模块孪生 |   | 是 |

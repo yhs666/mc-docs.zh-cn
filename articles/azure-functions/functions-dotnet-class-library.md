@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 09/12/2018
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7c27dce437f94dd928f1c4be40d773858f393b9b
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 157e3c0c6b7761d7119aed570eb6c6bf6a69f722
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408288"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854587"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -132,7 +132,7 @@ public static class BindingExpressionsExample
 
 生成过程会在生成文件中的一个函数文件夹中创建一个 *function.json* 文件。 如前所述，此文件不应直接编辑。 无法通过编辑此文件来更改绑定配置或禁用函数。 
 
-此文件的用途是向缩放控制器提供用于做出缩放决策的信息。 因此，此文件仅包含触发器信息，不包含输入或输出绑定。
+此文件的用途是向缩放控制器提供用于[对消耗计划做出缩放决策](functions-scale.md#how-the-consumption-plans-work)的信息。 因此，此文件仅包含触发器信息，不包含输入或输出绑定。
 
 生成的 *function.json* 文件包括一个 `configurationSource` 属性，该属性告诉运行时使用 .NET 属性进行绑定，而不是使用 *function.json* 配置。 下面是一个示例：
 
@@ -234,7 +234,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>日志记录
 
-若要使用 C# 将输出记录到流式处理日志中，请包括 ILogger 类型的参数。 建议将其命名为 `log`，如下例所示：  
+若要使用 C# 将输出记录到流式传输日志中，请包括 ILogger 类型的参数。 建议将其命名为 `log`，如下例所示：  
 
 ```csharp
 public static class SimpleExample

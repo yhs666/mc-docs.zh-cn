@@ -5,18 +5,18 @@ services: azure-stack
 author: WenJason
 manager: digimobile
 ms.service: azure-stack
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 01/05/2019
-ms.date: 02/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 2d0cda0482d8d7bd8d7fdfa2cfea3f06e4ac1eeb
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: b8cc423afaaa2ebe1ab94028bc06915a922f8b22
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218272"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855253"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
@@ -96,7 +96,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 下表中的资源由 VM 使用，在创建 VM 时必须存在或已创建：
 
-|资源|必须|说明|
+|Resource|必须|说明|
 |---------|---------|---------|
 |资源组|是|VM 必须包含在资源组中。|
 |存储帐户|否|如果使用托管磁盘，则 VM 不需要存储帐户来存储其虚拟硬盘。 <br>如果使用非托管磁盘，则 VM 确实需要存储帐户来存储其虚拟硬盘。|
@@ -132,8 +132,8 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 |方法|说明|
 |---------|---------|
 |Azure Stack 门户|在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
-|Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[使用 Azure PowerShell 模块创建和管理 Windows VM](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|
-|客户端 SDK|在 Azure 和 Azure Stack 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅以下 Azure 主题：<br>[在 Azure 中使用 C# 创建和管理 Windows VM](../../virtual-machines/windows/csharp.md)|
+|Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[使用 Azure PowerShell 模块创建和管理 Windows VM](/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|客户端 SDK|在 Azure 和 Azure Stack 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅以下 Azure 主题：<br>[在 Azure 中使用 C# 创建和管理 Windows VM](/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-your-vm"></a>连接到 VM
 

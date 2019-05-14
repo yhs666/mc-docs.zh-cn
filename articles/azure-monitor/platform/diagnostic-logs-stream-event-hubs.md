@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: ae1485e022774ddef871c7e95d3f42a01c796ba9
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: ad553e6cf7557876b724404f797793d4e01ecfb3
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906147"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586883"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](diagnostic-logs-overview.md)** 以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>可以对诊断日志和事件中心执行的操作
-可以通过下述几种方式将流式传输功能用于诊断日志：
+可以通过下述几种方式将流式处理功能用于诊断日志：
 
 * **将日志流式传输到第三方日志记录和遥测系统** - 可以将所有诊断日志流式传输到单个事件中心，以便将日志数据通过管道传送到第三方 SIEM 或日志分析工具。
 * **通过将“热路径”数据流式传输到 Power BI 查看服务运行状况** – 可以通过事件中心、流分析和 Power BI 在 Azure 服务中轻松将诊断数据转化成准实时分析结果。 下面是有关如何设置诊断日志的一些提示：
 
-  * 在门户中选中相关选项或通过 PowerShell 启用相关选项以后，即可自动创建针对某类诊断日志的事件中心，因此需在命名空间中选择名称以 **insights-** 开头的事件中心。
+  * 在门户中选中相关选项或通过 PowerShell 启用相关选项以后，即可自动创建用于某类诊断日志的事件中心，因此需在命名空间中选择名称以 **insights-** 开头的事件中心。
   * 以下 SQL 代码是一个流分析查询示例，可用于将所有日志数据解析成 Power BI 表：
 
     ```sql
@@ -39,12 +39,12 @@ ms.locfileid: "54906147"
 
 * **生成自定义遥测和日志记录平台** – 如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入诊断日志。 [请参阅此处提供的 Dan Rosanova 的指南，了解如何在全局规模的遥测平台中使用事件中心。](https://www.azure.cn/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
-## <a name="enable-streaming-of-diagnostic-logs"></a>启用诊断日志的流式传输
+## <a name="enable-streaming-of-diagnostic-logs"></a>启用诊断日志的流式处理
 
-可以通过门户或使用 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 以编程方式启用诊断日志的流式传输。 无论采用哪种方式，都可以创建一个诊断设置并在其中指定事件中心命名空间，以及要发送到该命名空间的日志类别和指标。 在该命名空间中针对每个启用的日志类别创建一个事件中心。 诊断**日志类别**是一类可供资源收集的日志。
+可以通过门户或使用 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 以编程方式启用诊断日志的流式处理。 无论采用哪种方式，都可以创建一个诊断设置并在其中指定事件中心命名空间，以及要发送到该命名空间的日志类别和指标。 在该命名空间中针对每个启用的日志类别创建一个事件中心。 诊断**日志类别**是一类可供资源收集的日志。
 
 > [!WARNING]
-> 从计算资源（例如，VM 或 Service Fabric）启用诊断日志并对其进行流式传输[需要另一组步骤](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)。
+> 从计算资源（例如，VM 或 Service Fabric）启用诊断日志并对其进行流式处理[需要另一组步骤](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)。
 
 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限并且这两个订阅都是属于同一个 AAD 租户，事件中心命名空间就不必与资源发出日志位于同一订阅中。
 
@@ -83,10 +83,12 @@ ms.locfileid: "54906147"
 
 ### <a name="via-powershell-cmdlets"></a>通过 PowerShell Cmdlet
 
-若要通过 [Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 启用流式传输，可以使用 `Set-AzureRmDiagnosticSetting` cmdlet 并设置以下参数：
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要通过 [Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 启用流式传输，可以使用 `Set-AzDiagnosticSetting` cmdlet 并设置以下参数：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 事件中心授权规则 ID 是以下格式的字符串：`{Event Hub namespace resource ID}/authorizationrules/{key name}`，例如 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`。 目前无法使用 PowerShell 选择特定事件中心名称。

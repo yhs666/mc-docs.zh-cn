@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8a3f1e9639891892472224f3d1890210030618dd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c19f2108409858ef6593ad261eea59c226877edf
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626858"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520741"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的访问和标识选项
 
@@ -93,12 +93,14 @@ ClusterRoleBinding 的工作原理与向用户绑定角色相同，但前者可�
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
+
+<!-- Update_Description: wording update, update link -->

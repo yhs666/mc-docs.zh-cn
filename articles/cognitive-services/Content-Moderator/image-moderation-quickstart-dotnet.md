@@ -1,28 +1,28 @@
 ---
-title: 快速入门：使用 C# 分析令人反感的材料的图像内容
+title: 快速入门：使用 C# 分析图像中是否存在令人反感的内容 - 内容审查器
 titlesuffix: Azure Cognitive Services
 description: 如何使用适用于 .NET 的内容审查器 SDK 分析图像内容中是否存在各种令人反感的材料
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-origin.date: 10/26/2018
-ms.date: 01/22/2019
+origin.date: 03/20/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 861c1b1b46d13c6f2ee83581f1b1a94c45d2c4d8
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: e66742d1fb5bb109100ba0acd2feadaf1b97c681
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854760"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>快速入门：使用 C# 分析令人反感的材料的图像内容
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>快速入门：使用 C# 分析图像中是否存在令人反感的内容
 
 本文中的信息和代码示例有助于你完成[适用于 .NET 的内容审查器 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的使用入门。 本文将介绍如何通过扫描方式查找成人或不雅内容、可提取的文本以及人脸，以便审查是否存在可能会令人反感的材料。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -398,3 +398,4 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 > [!div class="nextstepaction"]
 > [图像审查指南](image-moderation-api.md)
 
+<!-- Update_Description: wording update -->

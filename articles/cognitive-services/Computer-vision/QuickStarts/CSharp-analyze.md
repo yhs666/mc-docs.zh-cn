@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 02/11/2019
-ms.date: 03/26/2019
+origin.date: 03/27/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 66602d2958995d12b99c514bcf2b5b6a6e00dc17
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 2c3ad14076ebd2a328e3b825efd46f48b7b19fd6
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505551"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854657"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 C# 分析本地图像
 
@@ -34,7 +34,7 @@ ms.locfileid: "58505551"
 
 要在 Visual Studio 中创建示例，请执行以下步骤：
 
-1. 使用 Visual C# 控制台应用模板在 Visual Studio 中创建新的 Visual Studio 解决方案。
+1. 使用 Visual C# 控制台应用 (.NET Framework) 模板在 Visual Studio 中创建新的 Visual Studio 解决方案。
 1. 安装 Newtonsoft.Json NuGet 包。
     1. 在菜单上，单击“工具”，然后依次选择“NuGet 包管理器”、“管理解决方案的 NuGet 包”。
     1. 单击“浏览”选项卡，在“搜索”框中键入“Newtonsoft.Json”。
@@ -251,3 +251,4 @@ namespace CSHttpClientSample
 > [!div class="nextstepaction"]
 > [计算机视觉 API C# 教程](../Tutorials/CSharpTutorial.md)
 
+<!-- Update_Description: wording update -->

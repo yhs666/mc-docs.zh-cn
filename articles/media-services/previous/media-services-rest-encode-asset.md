@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: b485ed7ddcd2cd19a3681008dcfe9182b02900c8
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 5bb1da1a87a8a7c7ae98d10333ddfece734221cf
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624198"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549952"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用 Media Encoder Standard 对资产进行编码
 > [!div class="op_single_selector"]
@@ -95,14 +95,14 @@ ms.locfileid: "58624198"
 
 ## <a name="considerations"></a>注意事项
 * TaskBody 属性必须使用文本 XML 来定义任务使用的输入资产或输出资产的数量。 任务文章包含 XML 的 XML 架构定义。
-* 在 TaskBody 定义中，必须将 <inputAsset> 和 <outputAsset> 的每个内部值设置为 JobInputAsset(value) 或 JobOutputAsset(value)。
+* 在 TaskBody 定义中，必须将 `<inputAsset>` 和 `<outputAsset>` 的每个内部值设置为 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 一个任务可以有多个输出资产。 一个 JobOutputAsset(x) 只能一次用作作业中任务的输出。
 * 可以将 JobInputAsset 或 JobOutputAsset 指定为任务的输入资产。
 * 任务不得构成循环。
 * 传递给 JobInputAsset 或 JobOutputAsset 的 value 参数代表资产的索引值。 在作业实体定义的 InputMediaAssets 和 OutputMediaAssets 导航属性中定义实际资产。
 * 由于媒体服务基于 OData v3，因此 InputMediaAssets 和 OutputMediaAssets 导航属性集合中的单个资产将通过“__metadata : uri”名称/值对进行引用。
 * InputMediaAssets 映射到已在媒体服务中创建的一个或多个资产。 OutputMediaAssets 由系统创建。 它们不引用现有资产。
-* 可使用 assetName 属性来命名 OutputMediaAssets。 如果该属性不存在，则 OutputMediaAsset 的名称为 <outputAsset> 元素的任意内部文本值，并以作业名称值或作业 ID 值（在没有定义名称属性的情况下）为后缀。 例如，如果将 assetName 的值设置为“Sample”，则会将 OutputMediaAsset 名称属性设置为“Sample”。 但是，如果未设置 assetName 的值，但已将作业名称设置为“NewJob”，则 OutputMediaAsset 名称为“JobOutputAsset(value)_NewJob”。
+* 可使用 assetName 属性来命名 OutputMediaAssets。 如果该属性不存在，则 OutputMediaAsset 的名称为 `<outputAsset>` 元素的任意内部文本值，并以作业名称值或作业 ID 值（在没有定义名称属性的情况下）为后缀。 例如，如果将 assetName 的值设置为“Sample”，则会将 OutputMediaAsset 名称属性设置为“Sample”。 但是，如果未设置 assetName 的值，但已将作业名称设置为“NewJob”，则 OutputMediaAsset 名称为“JobOutputAsset(value)_NewJob”。
 
 ## <a name="create-a-job-with-chained-tasks"></a>创建包含连锁任务的作业
 在许多应用程序方案中，开发人员希望创建一系列处理任务。 在媒体服务中，可以创建一系列连锁任务。 每个任务执行不同的处理步骤，并且可以使用不同的媒体处理器。 连锁任务可以将资产从一个任务转给另一个任务，从而对资产执行线性序列的任务。 但是，在作业中执行的任务不需要处于序列中。 创建连锁任务时，连锁 ITask 对象在单个 IJob 对象中创建。

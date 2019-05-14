@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.openlocfilehash: 050976ec7403e72cd0bce93ce502b942bf2e19c4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1409085da37c11c33fd6fca2cf534d1d3332e6c4
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626270"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854554"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>为本机 Azure 证书身份验证 P2S 配置创建并安装 VPN 客户端配置文件
 
@@ -81,8 +81,7 @@ VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本�
 
 使用以下步骤在 Mac 中配置用于证书身份验证的本机 VPN 客户端。 必须在将连接到 Azure 的每个 Mac 上完成以下步骤：
 
-1. 将 **VpnServerRoot** 根证书导入 Mac。 为此，可将该文件复制到 Mac，并双击它。  
-   单击“添加”进行导入。
+1. 将 **VpnServerRoot** 根证书导入 Mac。 为此，可将该文件复制到 Mac，并双击它。 单击“添加”进行导入。
 
    ![添加证书](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
   
@@ -175,7 +174,7 @@ VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本�
 2. 解压缩该文件。
 3. 从 **Generic** 文件夹中，将 VpnServerRoot.cer 复制或移动到 /etc/ipsec.d/cacerts。
 4. 将 cp client.p12 复制或移动到 /etc/ipsec.d/private/。 此文件是 Azure VPN 网关的客户端证书。
-5. 打开 VpnSettings.xml 文件并复制 <VpnServer> 值。 在下一步骤中你将使用此值。
+5. 打开 VpnSettings.xml 文件并复制 `<VpnServer>` 值。 在下一步骤中你将使用此值。
 6. 调整以下示例中的值，然后将该示例添加到 /etc/ipsec.conf 配置。
   
    ```

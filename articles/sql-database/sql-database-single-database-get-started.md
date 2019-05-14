@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 02/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: d1e12ea6a63006e9e0ebf596289c15be4078e46a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 04/11/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: ea55afad3b8f86071e57746e56c888774f558994
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625781"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854944"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据库中创建单一数据库
 
@@ -35,49 +35,56 @@ ms.locfileid: "58625781"
 若要创建包含 Adventure Works LT 示例数据的单一数据库，请执行以下操作：
 
 1. 在 Azure 门户的左上角选择“创建资源”。
-2. 选择“数据库”，然后选择“SQL 数据库”。
-3. 在“创建 SQL 数据库”窗体中，键入或选择以下值：
+1. 选择“数据库”，然后选择“SQL 数据库”打开“创建 SQL 数据库”页。 
 
-   - **数据库名称**：输入 *mySampleDatabase*。
-   - **订阅**：下拉列表并选择正确的订阅（如果它没有出现）。
-   - **资源组**：选择“新建”，键入 myResourceGroup，然后选择“确定”。
-   - **选择源**：下拉列表并选择“示例(AdventureWorksLT)”。
-
-     > [!IMPORTANT]
-     > 确保选择“示例(AdventureWorksLT)”数据，这样就可以轻松地按照本指南以及使用此数据的其他 Azure SQL 数据库快速入门进行操作。
-  
    ![创建单一数据库](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. 在“服务器”下，选择“新建”。
-5. 在“新建服务器”窗体中，键入或选择以下值：
+1. 在“项目详细信息”部分的“基本信息”选项卡上，键入或选择以下值：
 
-   - **服务器名称**：输入 *mysqlserver*。
-   - **服务器管理员登录名**：键入“azureuser”。
-   - **密码**：输入 *Azure1234567*。
-   - **确认密码**：重新键入密码。
-   - **位置**：下拉列表并选择任何有效位置。  
+   - **订阅**：下拉列表并选择正确的订阅（如果它没有出现）。
+   - **资源组**：选择“新建”，键入 `myResourceGroup`，然后选择“确定”。
+
+   ![“新建 SQL 数据库 - 基本信息”选项卡](media/sql-database-get-started-portal/new-sql-database-basics.png)
+
+
+1. 在“数据库详细信息”部分，键入或选择以下值： 
+
+   - **数据库名称**：输入 `mySampleDatabase`。
+   - **服务器**：选择“新建”并输入以下值，然后选择“创建”。 
+       - **服务器名称**：键入 `mysqlserver` 和一些数字，使名称唯一。 
+       - **服务器管理员登录名**：键入 `azureuser`。
+       - **密码**：键入符合密码要求的复杂密码。 
+       - **位置**：从下拉列表中选择一个位置，例如 `China East 2`。 
+
+       ![新建服务器](media/sql-database-get-started-portal/new-server.png)
+
+        > [!IMPORTANT]
+        > 请记得记录服务器管理员登录名和密码，这样就可以登录服务器和数据库以获取此快速入门和其他快速入门。 如果忘记了登录名或密码，可在“SQL 服务器”页上获取登录名或重置密码。 若要打开“SQL 服务器”页，请在创建数据库后在数据库“概述”页上选择服务器名称。
+
+      ![SQL 数据库详细信息](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
+   - **想要使用 SQL 弹性池**：选择“否”选项。 
+   - **计算 + 存储**：选择“配置数据库”，对于本快速入门，请选择“标准”服务层级，然后使用滑块选择“10 DTU (S0)”和 **1** GB 存储。 选择“应用”。 
+
+    ![配置层级](media/sql-database-get-started-portal/create-database-s1.png) 
+
+
+      > [!NOTE]
+      > 本快速入门使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)也可用。
+
+1. 选择“其他设置”选项卡。 
+1. 在“数据源”部分的“使用现有数据”下，选择 `Sample`。 
+
+   ![其他 SQL 数据库设置](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
-   > 请记得记录服务器管理员登录名和密码，这样就可以登录服务器和数据库以获取此快速入门和其他快速入门。 如果忘记了登录名或密码，可在“SQL 服务器”页上获取登录名或重置密码。 若要打开“SQL 服务器”页，请在创建数据库后在数据库“概述”页上选择服务器名称。
+   > 确保选择“示例(AdventureWorksLT)”数据，这样就可以轻松地按照本指南以及使用此数据的其他 Azure SQL 数据库快速入门进行操作。
 
-    ![创建服务器](./media/sql-database-get-started-portal/create-database-server.png)
+1. 将剩余字段保留默认值，然后选择窗体底部的“查看 + 创建”。 
+1. 检查最终的设置，然后选择“创建”。 
 
-6. 选择“选择”。
-7. 在“SQL 数据库”窗体中，选择“定价层”。 浏览每个服务层可用的 DTU 数和存储量。
+1. 在“SQL 数据库”窗体中，选择“创建”来部署和预配资源组、服务器和数据库。
 
-   > [!NOTE]
-   > 本快速入门使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)也可用。
-
-8. 对于本快速入门，请选择“标准”服务层，然后使用滑块选择“10 DTU (S0)”和 1 GB 存储。
-9. 选择“应用”。  
-
-   ![选择定价](./media/sql-database-get-started-portal/create-database-s1.png)
-
-10. 在“SQL 数据库”窗体中，选择“创建”来部署和预配资源组、服务器和数据库。
-
-    部署需要几分钟时间。 可在工具栏上选择“通知”，以监视部署过程。
-
-    ![通知](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>查询数据库
 

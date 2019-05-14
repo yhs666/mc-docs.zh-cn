@@ -13,12 +13,12 @@ origin.date: 07/09/2018
 ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 64df3d2ce5463406780d9046b3bbb8b54bc316b8
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: c344492141bb380581811b1106edcfadc33c9341
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347023"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63845282"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 

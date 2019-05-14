@@ -3,8 +3,8 @@ title: 用于连接到 Azure VPN 网关的合作伙伴 VPN 设备配置 | Micros
 description: 本文提供用于连接到 Azure VPN 网关的合作伙伴 VPN 设备配置的概述。
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
-manager: digimobile
+author: yushwang
+manager: rossort
 editor: ''
 tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/20/2017
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.openlocfilehash: 9e000f00449f4a2f4b6fec4e2e40436c7b28307d
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.date: 06/20/2017
+ms.author: yushwang
+ms.openlocfilehash: 2303721ead80fb96765bdbd8ade7a069fcd30f24
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833180"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63844448"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>合作伙伴 VPN 设备配置概述
 本文提供有关配置用于连接到 Azure VPN 网关的本地 VPN 设备的概述。 示例 Azure 虚拟网络和 VPN 网关设置用于演示如何使用相同参数连接到不同的本地 VPN 设备配置。
@@ -62,7 +61,7 @@ Azure VPN 网关使用标准 IPsec/IKE 协议套件建立站点到站点 (S2S) V
 
 $Sub1          = "Replace_With_Your_Subscription_Name"
 $RG1           = "TestRG1"
-$Location1     = "China North"
+$Location1     = "East US 2"
 $VNetName1     = "TestVNet1"
 $FESubName1    = "FrontEnd"
 $BESubName1    = "Backend"
@@ -88,7 +87,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 
@@ -160,5 +159,3 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG
 ## <a name="next-steps"></a>后续步骤
 有关设置主动 - 主动 VPN 网关的分布说明，请参阅[为跨界连接和 VNet 到 VNet 连接配置主动 - 主动 VPN 网关](vpn-gateway-activeactive-rm-powershell.md)。
 
-
-<!-- Update_Description: wording update -->

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3046ee8bbace7b3d82484cd24f0a67ca2004c38f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 836d3dce1962bb9adc86cc95568f07ee0b5ef230
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625880"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63858441"
 ---
 # <a name="diagnose-and-troubleshoot"></a>诊断和故障排除
 

@@ -12,12 +12,12 @@ ms.workload: big-compute
 origin.date: 05/22/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0cfdd168b5d0e89cf518eaefd451440a3fcba30c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1b1e4d4084c060f39ba2525b6460b5c1be7532bf
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660060"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586859"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 
@@ -68,7 +68,7 @@ node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其
 
 ### <a name="step-2-create-an-azure-batch-account"></a>步骤 2：创建 Azure Batch 帐户
 
-可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli)) 创建该帐户。
+可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](https://docs.microsoft.com/zh-cn/cli/azure/?view=azure-cli-latest)) 创建该帐户。
 
 下面是通过 Azure CLI 创建该帐户的命令。
 
@@ -318,8 +318,8 @@ var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prer
 
 如果我们查看 [Python 脚本](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py)，可以看到它接受两个参数：
 
-- container name：要从其中下载文件的存储容器
-- pattern：文件名称模式的可选参数
+- 容器名称：要从其中下载文件的存储容器
+- 模式：文件名称模式的可选参数
 
 假设我们有四个容器，分别为“con1”、“con2”、“con3”、“con4”。以下代码显示了如何将任务提交到我们此前创建的 Azure Batch 作业“process csv”。
 

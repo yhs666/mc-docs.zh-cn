@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7dba185a5235e0dca018307692a7953013f7ddb9
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: ba8a671aa6a1d918a9bbe275bb88549bf5d3991f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905457"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854539"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -169,7 +169,7 @@ API 配置文件使用三个命名约定：
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-使用 Azure 资源管理器可以部署和管理 Azure 解决方案的基础结构。 可在资源组中组织相关的资源，并使用 JSON 模板部署资源。 有关使用资源管理器部署和管理资源的简介，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。
+使用 Azure 资源管理器可以部署和管理 Azure 解决方案的基础结构。 可在资源组中组织相关的资源，并使用 JSON 模板部署资源。 有关使用资源管理器部署和管理资源的简介，请参阅 [Azure 资源管理器概述](/azure-resource-manager/resource-group-overview)。
 
 | 资源类型 | API 版本 |
 |-----------------------------------------|-------------------|
@@ -309,7 +309,7 @@ API 配置文件使用三个命名约定：
 
 ## <a name="next-steps"></a>后续步骤
 
-* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+* [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
 * [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
 <!-- Update_Description: wording update -->
