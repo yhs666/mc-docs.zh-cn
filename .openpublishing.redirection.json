@@ -13983,6 +13983,7 @@
       "redirect_document_id": false
     },
     {
+
       "source_path": "articles/aks/create-cluster.md",
       "redirect_url": "https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create",
       "redirect_document_id": false
@@ -15081,6 +15082,11 @@
       "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
       "redirect_url": "/storage/common/storage-metrics-in-azure-monitor",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/stream-analytics/stream-analytics-out-of-order-and-late-events.md",
+      "redirect_url": "/stream-analytics/stream-analytics-time-handling",
+      "redirect_document_id": false
     }
 
 
