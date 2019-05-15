@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1b92ea633aa6866eded0f59508a2f21a8bb57208
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: c62825ffd085113432e0b1cfc20d5fe3b296d193
+ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520681"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65552106"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中运行应用程序
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 08/14/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4318bc8e624ebad7fe084952d448a87c3413cfaf
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 729a09cd497abaf3554b32b02764ba930c42701e
+ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854420"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65552108"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>结合使用虚拟 Kubelet 和 Azure Kubernetes 服务 (AKS)
 
@@ -141,7 +141,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: dockerhub.azk8s.cn/microsoft/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:
@@ -191,7 +191,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: microsoft/iis:nanoserver
+        image: dockerhub.azk8s.cn/microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
