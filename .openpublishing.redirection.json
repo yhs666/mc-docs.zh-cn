@@ -15087,7 +15087,13 @@
       "source_path": "articles/stream-analytics/stream-analytics-out-of-order-and-late-events.md",
       "redirect_url": "/stream-analytics/stream-analytics-time-handling",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-security-index.yml",
+      "redirect_url": "/sql-database/sql-database-security-overview",
+      "redirect_document_id": false
     }
+
 
 
 
