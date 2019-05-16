@@ -7,28 +7,27 @@ author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: ''
-ms.service: log-analytics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 04/26/2019
+ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 8f03acac9f5fce622e4193efc170a731e6b3a864
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 8c5fe4e17dc4323494f280a8e7d1c9c8b8adb949
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686473"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586850"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>管理 Azure Monitor 中的 Log Analytics 的使用情况和成本
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>通过 Azure Monitor 日志管理使用情况和成本
 
 > [!NOTE]
-> 本文介绍如何通过设置数据保留期来控制 Log Analytics 中的成本。  相关信息请参阅以下文章。
-> - [在 Log Analytics 中分析数据使用情况](manage-cost-storage.md)介绍了如何根据数据使用情况进行分析和警告。
+> 本文介绍了如何通过为你的 Log Analytics 工作区设置数据保留期来在 Azure Monitor 中控制成本。  请参阅以下文章来了解相关信息。
 > - [监视使用情况及预估成本](usage-estimated-costs.md)介绍了如何针对不同的定价模型查看多个 Azure 监视功能的使用情况及预估成本。 它还介绍了如何更改定价模型。
 
-Azure Monitor 中的 Log Analytics 用于调整和支持来自任何源的巨量数据的每日收集、索引和存储，这些源部署在企业或 Azure 中。  尽管这可能是组织的主要驱动力，但成本效益最终是基本驱动力。 为此，必须了解 Log Analytics 工作区的成本不仅仅是基于收集的数据量，而且也取决于所选的计划，以及连接源生成的数据的存储时间长短。  
+Azure Monitor 日志用于调整和支持来自任何源的巨量数据的每日收集、索引和存储，这些源部署在企业或 Azure 中。  尽管这可能是组织的主要驱动力，但成本效益最终是基本驱动力。 为此，必须了解 Log Analytics 工作区的成本不仅仅是基于收集的数据量，而且也取决于所选的计划，以及连接源生成的数据的存储时间长短。  
 
 本文介绍如何主动监视数据量和存储增长，以及定义限制来控制这些关联的成本。 
 
@@ -41,7 +40,8 @@ Azure Monitor 中的 Log Analytics 用于调整和支持来自任何源的巨量
 - 决定保留数据的时长 
 
 ## <a name="understand-your-workspaces-usage-and-estimated-cost"></a>了解工作区的使用情况和估计成本
-使用 Log Analytics 可以轻松了解基于最近使用模式的可能成本。  若要执行此操作，请使用“Log Analytics 使用情况和预估成本”查看和分析数据使用情况。 显示每个解决方案收集的数据量、保留的数据量，并根据引入的数据量和已包含量之外的其他保留量来估算成本。
+
+使用 Azure Monitor 日志可以轻松了解基于最近使用模式的可能成本。 若要执行此操作，请使用“Log Analytics 使用情况和预估成本”查看和分析数据使用情况。 显示每个解决方案收集的数据量、保留的数据量，并根据引入的数据量和已包含量之外的其他保留量来估算成本。
 
 ![使用情况和预估成本](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
@@ -54,36 +54,41 @@ Azure Monitor 中的 Log Analytics 用于调整和支持来自任何源的巨量
 Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计费”部分或在 [Azure 计费门户](https://account.windowsazure.com/Subscriptions)中查看 Azure 账单详细信息。  
 
 ## <a name="daily-cap"></a>每日上限
-可以配置工作区的每日上限并限制每日引入量，但请谨慎设置，因为目标是避免达到每日限制。  否则，会丢失该天剩余时间的数据，这可能会影响其功能依赖于工作区中提供的最新数据的其他 Azure 服务和解决方案。  因此，需要具有在支持 IT 服务的资源的运行状况受到影响时监视和接收警报的能力。  每日上限旨在用作一种调控受管理资源数据量意外增长并使其保留在限制范围内，或者只是限制工作区产生计划外费用的方式。  
+
+可以配置工作区的每日上限并限制每日引入量，但请谨慎设置，因为目标是避免达到每日限制。  否则，会丢失该天剩余时间的数据，这可能会影响其功能依赖于工作区中提供的最新数据的其他 Azure 服务和解决方案。  因此，需要具有在支持 IT 服务的资源的运行状况受到影响时监视和接收警报的能力。  每日上限旨在用作一种调控受管理资源数据量意外增长并使其保留在限制范围内，或者限制工作区产生计划外费用的方式。  
 
 达到每日限制后，在当天的剩余时间，应计费数据类型的收集将会停止。 选定 Log Analytics 工作区的页面顶部会显示警告横幅，同时会将一个操作事件发送到“LogManagement”类别下的“操作”表。 在“每日限制设置时间”定义的重置时间过后，数据收集将会恢复。 我们建议基于此操作事件定义一个警报规则，并将其配置为在达到每日数据限制时发出通知。 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>确定要定义的每日数据限制 
 查看 [Log Analytics 使用情况和预估成本](usage-estimated-costs.md)，了解数据引入趋势，以及要定义的每日数据量上限。 应该慎重考虑上限，因为在达到限制后，将无法监视资源。 
 
-### <a name="manage-the-maximum-daily-data-volume"></a>管理每日最大数据量 
-以下步骤说明如何配置一个限制来管理 Log Analytics 每日引入的数据量。  
+### <a name="manage-the-maximum-daily-data-volume"></a>管理每日最大数据量
+
+以下步骤说明如何配置一个限制来管理 Log Analytics 工作区每日引入的数据量。  
 
 1. 在工作区的左窗格中，选择“使用情况和预估成本”。
 2. 在所选工作区的“使用情况和预估成本”页面顶部，单击“数据量管理”。 
-3. 每日上限默认为“关闭”– 单击“打开”将其启用，然后设置数据量限制（以 GB/天为单位）。<br><br> ![Log Analytics 配置数据限制](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. 每日上限默认为“关闭”– 单击“打开”将其启用，然后设置数据量限制（以 GB/天为单位）。
+
+    ![Log Analytics 配置数据限制](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>达到每日上限时发出警报
-尽管在达到数据限制阈值时，Azure 门户中会显示视觉提示，但此行为不一定符合需要立即关注的操作问题的处理方式。  若要接收警报通知，可以在 Azure Monitor 中创建一个新的警报规则。  有关详细信息，请参阅[如何创建、查看和管理警报](alerts-metric.md)。      
+
+尽管在达到数据限制阈值时，Azure 门户中会显示视觉提示，但此行为不一定符合需要立即关注的操作问题的处理方式。  若要接收警报通知，可以在 Azure Monitor 中创建一个新的警报规则。  有关详细信息，请参阅[如何创建、查看和管理警报](alerts-metric.md)。
 
 若要开始操作，请参考下面提供的建议警报设置：
 
-* 目标：选择 Log Analytics 资源
-* 条件： 
-   * 信号名称：自定义日志搜索
-   * 搜索查询：Operation | where Detail has 'OverQuota'
-   * 依据：结果数
-   * 条件：大于
-   * 阈值：0
-   * 时间段：5（分钟）
-   * 频率：5（分钟）
-* 警报规则名称：达到每日数据限制
-* 严重性：警告（严重性 1）
+- 目标：选择 Log Analytics 资源
+- 条件： 
+   - 信号名称：自定义日志搜索
+   - 搜索查询：Operation | where Detail has 'OverQuota'
+   - 依据：结果数
+   - 条件：大于
+   - 阈值：0
+   - 时间段：5（分钟）
+   - 频率：5（分钟）
+- 警报规则名称：达到每日数据限制
+- 严重性：警告（严重性 1）
 
 定义警报并达到限制后，警报将会触发，并执行操作组中定义的响应。 该警报可通过电子邮件和短信通知团队，或者使用 Webhook、自动化 Runbook 或[与外部 ITSM 解决方案的集成](itsmc-overview.md#create-itsm-work-items-from-azure-alerts)来自动执行操作。 
 
@@ -92,11 +97,13 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
  
 1. 在工作区的左窗格中，选择“使用情况和预估成本”。
 2. 在“使用情况和预估成本”页面顶部，单击“数据量管理”。
-5. 在窗格中，移动滑块以增加或减少天数，然后单击“确定”。  如果位于“免费”层，则不能修改数据保留期，需要升级到付费层才能控制这一项设置。<br><br> ![更改工作区数据保留设置](media/manage-cost-storage/manage-cost-change-retention-01.png)
+3. 在窗格中，移动滑块以增加或减少天数，然后单击“确定”。  如果位于“免费”层，则不能修改数据保留期，需要升级到付费层才能控制这一项设置。
+
+    ![更改工作区数据保留设置](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="legacy-pricing-tiers"></a>旧版定价层
 
-2018 年 7 月 1 日以前签订企业协议的客户或者已在订阅中创建 Log Analytics 工作区的客户，仍可以访问免费计划。 如果订阅未绑定到现有的 EA 注册，那么，2018 年 4 月 2 日后，在新订阅中创建工作区时免费层不再可用。  免费层数据最多保留 7 天。  对于旧版“独立”或“每个节点”层，以及当前的 2018 单一定价层，收集的数据在过去 31 天内可用。 “免费”层的每日引入限制为 500 MB。如果发现一直超出允许的量，可将工作区更改为另一计划，从而收集超出该限制的数据。 
+2018 年 7 月 1 日以前签订企业协议的客户或者已在订阅中创建 Log Analytics 工作区的客户，仍可以访问免费计划。 如果订阅未绑定到现有的 EA 注册，那么，2018 年 4 月 2 日后，在新订阅中创建工作区时免费层不再可用。  “免费”层数据最多保留七天。  对于旧版“独立”或“每个节点”层，以及当前的 2018 单一定价层，可以为过去 31 天收集数据。 “免费”层的每日引入限制为 500 MB。如果发现一直超出允许的量，可将工作区更改为另一计划，从而收集超出该限制的数据。 
 
 > [!NOTE]
 > 若要使用通过购买用于 System Center 的 OMS E1 套件、OMS E2 套件或 OMS 附加产品所获得的权利，请选择 Log Analytics 的“按节点”定价层。
@@ -112,11 +119,10 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 3. 在“定价层”下选择一个定价层，并单击“选择”。  
     ![选择定价计划](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-如果要将工作区移到当前定价层，则需要[在 Azure Monitor 中更改订阅的监视定价模型](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)，这将更改该订阅中所有工作区的定价层。
-
+如果要将工作区移到当前定价层，则需要[在 Azure Monitor 中更改订阅的监视定价模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)，这将更改该订阅中所有工作区的定价层。
 
 > [!NOTE]
-> 可以详细了解（如何通过 ARM 设置定价层）[<https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace>]以及如何确保 ARM 部署无论在订阅处于旧定价模型还是新定价模型的情况下都会成功。 
+> 在[使用 Azure 资源管理器模板](template-workspace-configuration.md#create-a-log-analytics-workspace)创建工作区时，你可以详细了解如何设置定价层，并确保无论订阅采用旧的还是新的定价模型，你的 Azure 资源管理器模板部署都会成功。 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>排查 Log Analytics 不再收集数据的原因
@@ -124,7 +130,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 `Operation | where OperationCategory == 'Data Collection Status' `
 
-当数据收集停止时，OperationStatus 为 Warning。 当数据收集启动时，OperationStatus 为 Succeeded。 下表描述了数据收集停止的原因以及用于恢复数据收集的建议操作：  
+当数据收集停止时，OperationStatus 为 **Warning**。 当数据收集启动时，OperationStatus 为 **Succeeded**。 下表描述了数据收集停止的原因以及用于恢复数据收集的建议操作：  
 
 |停止收集的原因| 解决方案| 
 |-----------------------|---------|
@@ -132,14 +138,12 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 |达到了工作区的每日上限|等到收集自动重启，或者根据“管理每日最大数据量”中所述提高每日数据量限制。 每日上限重置时间显示在“数据量管理”页面上。 |
 |Azure 订阅由于以下原因处于挂起状态：<br> 免费试用已结束<br> Azure 许可已过期<br> 已达到每月支出限制（例如，在 MSDN 或 Visual Studio 订阅上）|转换为付费订阅<br> 删除限制，或者等到限制重置|
 
-若要在数据收集停止时收到通知，请执行“创建每日数据上限”中所述的步骤，在数据收集停止时接收警报通知；遵循“将操作添加到警报规则”中所述的步骤，为警报规则配置电子邮件、Webhook 或 Runbook 操作。 
+若想在数据收集停止时收到通知，请使用*创建每日数据上限*警报中所述的步骤，以便在数据收集停止时收到通知。 使用[创建操作组](action-groups.md)中介绍的步骤，为警报规则配置电子邮件、Webhook 或 Runbook 操作。 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>排查使用量超出预期的原因
 使用量较高是由下面的一个或两个原因引起的：
-- 将数据发送到 Log Analytics 的节点数超出预期
-- 发送到 Log Analytics 的数据量超出预期
-
-后续部分介绍
+- 将数据发送到 Log Analytics 工作区的节点数超出预期
+- 发送到 Log Analytics 工作区的数据量超出预期
 
 ## <a name="understanding-nodes-sending-data"></a>了解发送数据的节点
 
@@ -149,7 +153,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-若要获取发送**计费数据类型**的计算机列表（某些数据类型是免费的），请使用 [_IsBillable](log-standard-properties.md#_isbillable) 属性：
+若要获取发送**计费数据类型**的计算机列表（某些数据类型是免费的），请使用 `_IsBillable` 属性：
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -186,28 +190,32 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 若要查看每台计算机引入的可计费事件的**大小**，请使用 `_BilledSize` 属性 ([log-standard-properties#_billedsize.md](learn more))（以字节为单位提供大小）：
 
-```
+```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
 ```
 
-`_IsBillable` 属性指定引入的数据是否会收费（[log-standard-properties.md#_isbillable](Learn more)。）
+`_IsBillable` 属性指定引入的数据是否会收费。
 
 若要查看每台计算机引入的事件数，请使用：
 
-`union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last`
+```kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
 
 若要查看每台计算机引入的计费事件数，请使用： 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last`
+| summarize count() by Computer  | sort by count_ nulls last
+```
 
 若要查看向特定计算机发送数据的计费数据类型计数，请使用：
 
-```
+```kusto
 union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
@@ -216,9 +224,9 @@ union withsource = tt *
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>按 Azure 资源、资源组或订阅计算的数据量
 
-对于托管在 Azure 中的节点中的数据，可以__按计算机__获取引入的可计费事件的**大小**，以及使用 `_ResourceId` 属性，该属性提供资源的完整路径 ([log-standard-properties.md#_resourceid](learn more))：
+对于托管在 Azure 中的节点的数据，可以__按计算机__获取引入的可计费事件的**大小**，并使用 _ResourceId 属性，该属性提供资源的完整路径：
 
-```
+```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
@@ -226,7 +234,7 @@ union withsource = tt *
 
 对于托管在 Azure 中的节点中的数据，可以__按 Azure 订阅__获取引入的可计费事件的**大小**，并可将 `_ResourceId` 属性解析为：
 
-```
+```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
@@ -266,12 +274,11 @@ union withsource = tt *
 
 | 高数据量来源 | 如何减少数据量 |
 | -------------------------- | ------------------------- |
-| 安全性事件            | 选择[通用或最低安全性事件](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> 更改安全审核策略，只收集所需事件。 具体而言，请查看是否需要收集以下对象的事件： <br> - [审核筛选平台](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [审核注册表](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [审核文件系统](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [审核内核对象](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [审核句柄操作](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 审核可移动存储 |
-| 性能计数器       | 更改[性能计数器配置](data-sources-performance-counters.md)如下： <br> - 降低收集频率 <br> - 减少性能计数器数 |
+| 安全性事件            | 选择[通用或最低安全性事件](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> 更改安全审核策略，只收集所需事件。 具体而言，请查看是否需要收集以下对象的事件： <br> - [审核筛选平台](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [审核注册表](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [审核文件系统](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [审核内核对象](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [审核句柄操作](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 审核可移动存储 |
+| 性能计数器       | 更改性能计数器配置如下： <br> - 降低收集频率 <br> - 减少性能计数器数 |
 | 事件日志                 | 更改[事件日志配置](data-sources-windows-events.md)如下： <br> - 减少收集的事件日志数 <br> - 仅收集必需的事件级别。 例如，不收集“信息”级别事件 |
 | Syslog                     | 更改 [syslog 配置](data-sources-syslog.md)如下： <br> - 减少收集的设施数 <br> - 仅收集必需的事件级别。 例如，不收集“信息”和“调试”级别事件 |
 | AzureDiagnostics           | 更改资源日志集合，以便： <br> - 减少向 Log Analytics 发送日志的资源数目 <br> - 仅收集必需的日志 |
-| 不需解决方案的计算机中的解决方案数据 | 使用[解决方案目标](../insights/solution-targeting.md)，只从必需的计算机组收集数据。 |
 
 ### <a name="getting-security-and-automation-node-counts"></a>获取安全性和自动化节点计数 
 
@@ -279,7 +286,8 @@ union withsource = tt *
 
 若要查看不同安全节点的数目，可以使用以下查询：
 
-`union
+```kusto
+union
 (
     Heartbeat
     | where (Solutions has 'security' or Solutions has 'antimalware' or Solutions has 'securitycenter')
@@ -299,11 +307,12 @@ union withsource = tt *
 | distinct Computer
 | project lowComputer = tolower(Computer)
 | distinct lowComputer
-| count`
+| count
+```
 
 若要查看不同自动化节点的数目，请使用以下查询：
 
-```
+```kusto
  ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
@@ -315,7 +324,8 @@ union withsource = tt *
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
 ```
 
-## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>当数据收集量高于预期时创建警报
+## <a name="create-an-alert-when-data-collection-is-high"></a>当数据收集量过高时创建警报
+
 本部分介绍如何在以下情况下创建警报：
 - 数据量超过指定的量。
 - 预测数据量会超过指定的量。
@@ -324,11 +334,22 @@ Azure 警报支持使用搜索查询的[日志警报](alerts-unified-log.md)。
 
 如果在过去 24 小时内收集的数据超过 100 GB，则以下查询就会有结果：
 
-`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+```kusto
+union withsource = $table Usage 
+| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| where DataGB > 100
+```
 
 以下查询使用简单的公式来预测在一天中发送的数据何时会超过 100 GB： 
 
-`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+```kusto
+union withsource = $table Usage 
+| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
+| extend Type = $table 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| where EstimatedGB > 100
+```
 
 若要针对其他数据量发出警报，请在查询中将 100 更改为要发出警报的 GB 数。
 
