@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 7d3a40ab221adc5c26308891124f1af45dff6f57
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: a78f67e671156c13345a46fbbf53a4b2ca7bb583
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906044"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586756"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 使用 Azure Monitor [诊断扩展](diagnostics-extension-overview.md)，可以从作为虚拟机、云服务或 Service Fabric 群集的一部分运行的来宾操作系统（来宾 OS）中收集指标和日志。 该扩展可将遥测数据发送到[许多不同的位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
 
@@ -27,9 +29,11 @@ ms.locfileid: "54906044"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)。 
+- 你必须是 Azure 订阅的[服务管理员或共同管理员](https://docs.azure.cn/zh-cn/billing/billing-add-change-azure-subscription-administrator)。 
 
-- 需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
+- 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)。 
+
+- 你需要具备任一个 [Azure PowerShell](/powershell/azure)。
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>预配云服务和存储帐户 
 
@@ -139,7 +143,7 @@ ms.locfileid: "54906044"
 启动 PowerShell 并登录到 Azure。 
 
 ```PowerShell
-Login-AzureRmAccount -Environment AzureChinaCloud 
+Login-AzAccount -Environment AzureChinaCloud 
 ```
 
 使用以下命令存储前面创建的存储帐户的详细信息。 

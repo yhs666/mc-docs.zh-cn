@@ -8,15 +8,17 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: a9da74a92f2462ef82b1597e04a53cdca19b1afc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d2bb5da2c41f54db73a7d7e882b8829c4b3ab250
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625219"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586872"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
-本文说明如何执行身份验证，使代码能够遵循[世纪互联 Azure Monitor REST API 参考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+本文说明如何执行身份验证，使代码能够遵循[世纪互联 Azure Monitor REST API 参考](https://docs.microsoft.com/rest/api/monitor/)。
 
 使用 Azure Monitor API 能够以编程方式检索可用的默认指标定义、粒度和指标值。 可将数据保存在独立的数据存储（例如 Azure SQL 数据库、Azure Cosmos DB 或 Azure Data Lake）中。 然后，可以根据需要从该处执行其他分析。
 
@@ -32,42 +34,42 @@ $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
 # Authenticate to a specific Azure subscription.
-Connect-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $subscriptionId
+Connect-AzAccount -Environment AzureChinaCloud -SubscriptionId $subscriptionId
 
 # Password for the service principal
 $pwd = "{service-principal-password}"
 $secureStringPassword = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 
 # Create a new Azure AD application
-$azureAdApplication = New-AzureRmADApplication `
+$azureAdApplication = New-AzADApplication `
                         -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $secureStringPassword
 
 # Create a new service principal associated with the designated application
-New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
 # Assign Reader role to the newly created service principal
-New-AzureRmRoleAssignment -RoleDefinitionName Reader `
+New-AzRoleAssignment -RoleDefinitionName Reader `
                           -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 ```
 
 若要查询 Azure 监视器 API，客户端应用程序应使用事先创建的服务主体进行身份验证。 以下示例 PowerShell 脚本演示了一种使用 [Active Directory 身份验证库](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) 来获取 JWT 身份验证令牌的方法。 JWT 令牌作为请求中 HTTP 授权参数的一部分传递给 Azure Monitor REST API。
 
 ```PowerShell
-$azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
+$azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
-$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
+$subscription = Get-AzSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
 $authUrl = "https://login.partner.microsoftonline.cn/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $secureStringPassword)
+$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)
 
-$result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
+$result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
 
 # Build an array of HTTP header values
 $authHeader = @{
@@ -81,6 +83,11 @@ $authHeader = @{
 
 1. 列出资源的指标定义
 2. 检索指标值
+
+> [!NOTE]
+> 有关使用 Azure REST API 进行身份验证的其他信息，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)。
+>
+>
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>检索指标定义（多维 API）
 
@@ -606,7 +613,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 也可以使用 Azure PowerShell cmdlet 检索资源 ID。 例如，若要获取某个 Azure 逻辑应用的资源 ID，请执行 Get-AzureLogicApp cmdlet，如以下示例中所示：
 
 ```PowerShell
-Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
 结果应类似于以下示例：
@@ -630,7 +637,8 @@ Version        : 08586982649483762729
 
 
 ### <a name="azure-cli"></a>Azure CLI
-若要使用 Azure CLI 检索某个 Azure 存储帐户的资源 ID，请执行“az storage account show”命令，如以下示例中所示：
+
+若要使用 Azure CLI 检索某个 Azure 存储帐户的资源 ID，请执行 `az storage account show` 命令，如以下示例中所示：
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

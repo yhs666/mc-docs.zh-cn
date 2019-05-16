@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: bb85375cb08e7534713082da0169a2e37011b762
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: a137efe4ac3564f7160c4c27bb083e48392150fa
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440361"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586891"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor 中的 Windows 事件日志数据源
 由于许多应用程序都会写入 Windows 事件日志，因此 Windows 事件日志是使用 Windows 代理收集数据的最常见[数据源](agent-data-sources.md)之一。  除了指定由需要监视的应用程序创建的任何自定义日志，还可以从标准日志（如系统和应用程序）中收集事件。
@@ -54,9 +54,9 @@ Windows 事件记录都有一个**事件**类型，并且具有下表中的属�
 | EventLevelName |以文本形式指示的事件严重性。 |
 | EventLog |从中收集事件的事件日志名称。 |
 | ParameterXml |XML 格式的事件参数值。 |
-| ManagementGroupName |System Center Operations Manager 代理的管理组名称。  对于其他代理，该值为 AOI-<workspace ID> |
+| ManagementGroupName |System Center Operations Manager 代理的管理组名称。  对于其他代理，该值为 `AOI-<workspace ID>` |
 | RenderedDescription |具有参数值的事件描述 |
-| 源 |事件源。 |
+| Source |事件源。 |
 | SourceSystem |从中收集事件的代理类型。 <br> OpsManager – Windows 代理，直接连接或 Operations Manager 管理 <br> Linux - 所有 Linux 代理  <br> AzureStorage – Azure 诊断 |
 | TimeGenerated |在 Windows 中创建事件的日期和时间。 |
 | Username |记录事件的帐户的用户名。 |

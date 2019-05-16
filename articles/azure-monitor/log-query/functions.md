@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 985c34764a29e5615ce41f8e8ba84b2449f13822
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 8e730dcd220373eccd564512b3daf5ba570f5939
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440616"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586838"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用函数
 
@@ -32,14 +32,14 @@ ms.locfileid: "56440616"
 
 ## <a name="create-a-function"></a>创建函数
 
-在 Azure 门户中的 Log Analytics 中，单击“保存”然后提供下表中的信息来创建一个函数。
+在 Azure 门户中单击“保存”，然后提供下表中的信息，使用 Log Analytics 创建函数。
 
 | 设置 | 说明 |
 |:---|:---|
 | Name           | 查询资源管理器中查询的显示名称。 |
 | 另存为        | 函数 |
 | 函数别名 | 在其他查询中使用该函数的短名称。 不可包含空格，必须唯一。 |
-| 类别       | 用于在查询资源管理器中整理已保存的查询和函数的类别。 |
+| Category       | 用于在查询资源管理器中整理已保存的查询和函数的类别。 |
 
 > [!NOTE]
 > Azure Monitor 中的函数不能包含其他函数。

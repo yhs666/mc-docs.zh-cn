@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 04/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 56fda478a3a97e596bfc6ce72248aadee3241644
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: d994f2337645be9ef117775c19d829fd58a3224c
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440583"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586851"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>将 Windows 计算机连接到 Azure 中的 Log Analytics 服务
+# <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 
-若要使用 Log Analytics 在本地数据中心或其他云环境中监视和管理虚拟机或物理计算机，需部署 Log Analytics 代理（也称为 Azure Monitoring Agent (MMA)），并将其配置为向一个或多个 Log Analytics 工作区报告。 该代理还支持用于 Azure 自动化的混合 Runbook 辅助角色。  
+要使用 Azure Monitor 在本地数据中心或其他云环境中监视和管理虚拟机或物理计算机，需部署 Log Analytics 代理（也称为 Microsoft Monitoring Agent (MMA)），并将其配置为向一个或多个 Log Analytics 工作区报告。 该代理还支持用于 Azure 自动化的混合 Runbook 辅助角色。  
 
-在受监视的 Windows 计算机上，该代理被列为 Azure Monitoring Agent 服务。 Azure Monitoring Agent 服务从日志文件和 Windows 事件日志、性能数据及其他遥测数据中收集事件。 即使代理无法与 Log Analytics 服务（其报告对象）保持通信，也会持续在受监视计算机的磁盘上运行收集的数据，并对这些数据进行排队。 还原连接后，Azure Monitoring Agent 服务会向该服务发送所收集的数据。
+在受到监视的 Windows 计算机上，该代理被列为 Microsoft Monitoring Agent 服务。 Microsoft Monitoring Agent 服务从日志文件和 Windows 事件日志、性能数据及其他遥测数据中收集事件。 即使代理无法与 Azure Monitor（其报告对象）保持通信，也会持续在受监视计算机的磁盘上运行收集的数据，并对这些数据进行排队。 还原连接后，Microsoft Monitoring Agent 服务会向该服务发送所收集的数据。
 
 可使用以下方法之一安装代理。 大多数安装采用这些方法的组合，根据实际情况安装不同的计算机组。  有关使用每种方法的详细信息在本文中后面提供。
 
@@ -36,7 +36,7 @@ ms.locfileid: "56440583"
 若要了解支持的配置，请查看[支持的 Windows 操作系统](log-analytics-agent.md#supported-windows-operating-systems)和[网络防火墙配置](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>获取工作区 ID 和密钥
-在安装适用于 Windows 的 Log Analytics 代理前，需要先获得 Log Analytics 工作区的工作区 ID 和秘钥。  安装期间每种安装方法需要此信息才能正确配置代理，并确保它能在 Azure 商业版和美国政府云中与 Log Analytics 成功通信。  
+在安装适用于 Windows 的 Log Analytics 代理前，需要先获得 Log Analytics 工作区的工作区 ID 和秘钥。  安装期间每种安装方法需要此信息才能正确配置代理，并确保它能在 Azure 商业版和美国政府云中与 Azure Monitor 成功通信。 
 
 1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”。
 2. 在 Log Analytics 工作区列表中，选择要将代理配置为向其报告的工作区。
@@ -55,7 +55,7 @@ ms.locfileid: "56440583"
     * **Enabled** [值 = 1]
     * **DisabledByDefault** [值 = 0]  
 
-将 .NET Framework 4.6 或更高版本配置为安全加密，因为默认情况下禁用此功能。 [强加密](https://docs.microsoft.com/dotnet/framework/network-programming/tls?view=azure-dotnet#schusestrongcrypto)使用更安全的网络协议（例如 TLS 1.2）并且会阻止不安全的协议。 
+将 .NET Framework 4.6 或更高版本配置为安全加密，因为默认情况下禁用此功能。 [强加密](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto)使用更安全的网络协议（例如 TLS 1.2）并且会阻止不安全的协议。 
 
 1. 找到以下注册表子项：**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**。  
 2. 在此子项下创建值为 **1**的 DWORD 值 **SchUseStrongCrypto**。  
@@ -178,17 +178,16 @@ ms.locfileid: "56440583"
 
 代理安装完毕后，可通过两种方式来验证是否成功连接和完成报告。  
 
-在计算机的“控制面板”中，找到“Microsoft Monitoring Agent”项。  选择该项，在“Azure Log Analytics”选项卡上，代理应显示一条消息：“Azure Monitoring Agent 已成功连接到 Azure Operations Management Suite 服务”。<br><br> ![MMA 与 Log Analytics 的连接状态](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+在计算机的“控制面板”中，找到“Microsoft Monitoring Agent”项。  选择该项，在“Azure Log Analytics”选项卡上，代理应显示一条消息：“Microsoft Monitoring Agent 已成功连接到Microsoft Operations Management Suite 服务”。<br><br> ![MMA 与 Log Analytics 的连接状态](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-还可在 Azure 门户中执行简单的日志搜索。  
+还可在 Azure 门户中执行简单的日志查询。  
 
-1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”。  
-2. 在 Log Analytics 工作区页面中，选择一个目标工作区，然后选择“日志搜索”磁贴。 
-2. 在“日志搜索”窗格的查询字段中键入：  
+1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“Azure Monitor”。 开始键入时，会根据输入筛选该列表。 选择“Azure Monitor”。  
+2. 在菜单中选择“日志”。 
+2. 在“日志”窗格的查询字段中键入：  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

@@ -16,12 +16,12 @@ ms.workload: big-compute
 origin.date: 04/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 6c6370f2ea22d67c851dca5833b57b07f9b34a3e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2d37b809729cda3c87a02e615ca988ddbb38e80a
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627220"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555420"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -69,7 +69,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 注册应用程序时，需要向 Azure AD 提供关于应用程序的信息。 然后，Azure AD 将提供一个应用程序 ID（也称为“客户端 ID”），在运行时，可以使用该 ID 将应用程序与 Azure AD 相关联。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。
 
-要注册批处理应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)部分中的步骤。 如果将应用程序注册为本机应用程序，可以为重定向 URI 指定任何有效 URI。 它不需要是实际的终结点。
+要注册 Batch 应用程序，请遵循“将应用程序与 Azure Active Directory 集成”的“添加应用程序”部分中的步骤。 如果将应用程序注册为本机应用程序，可以为重定向 URI 指定任何有效 URI。 它不需要是实际的终结点。
 
 注册应用程序后，会看到应用程序 ID：
 
@@ -91,7 +91,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 若要使用集成身份验证进行验证，需要授予应用程序连接到 Batch 服务 API 的权限。 此步骤使应用程序可使用 Azure AD 对 Batch 服务 API 的调用进行验证。
 
-[注册应用程序](#register-your-application-with-an-azure-ad-tenant)后，请按照 Azure 门户中的下列步骤授予它对 Batch 服务的访问权限：
+注册了应用程序后，请按照 Azure 门户中的以下步骤来向其授予对 Batch 服务的访问权限：
 
 1. 在 Azure 门户的左侧导航窗格中，选择“所有服务”。 单击“应用注册”。
 2. 在应用注册列表中搜索应用程序名称：
@@ -383,7 +383,6 @@ credentials = ServicePrincipalCredentials(
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/develop/authentication-scenarios.md
-[aad_integrate]: ../active-directory/develop/quickstart-v1-add-azure-ad-app.md
 [azure_portal]: http://portal.azure.cn
 
 <!-- Update_Description: link update -->

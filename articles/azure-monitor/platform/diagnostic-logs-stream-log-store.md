@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: f9ea1463b4edc8e75d149e1c87f228aba16b3c60
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 2328de6e5195eba598c59e805b18c51254980aae
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686471"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586887"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>将 Azure 诊断日志流式传输到 Azure Monitor 中的 Log Analytics 工作区
 
@@ -107,7 +107,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
  
 则包含示例数据的 AzureDiagnostics 表的外观如下所示：  
  
-| ResourceProvider | 类别 | A | B | C | D | E | F | G | H | I |
+| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
 | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
@@ -124,7 +124,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 - *针对管道中的任一活动定义的用户参数*：将会针对任一活动，为每个唯一命名的用户参数创建一个新列。 
 - *活动输入和输出*：这些活动各不相同且非常详细，因此会生成大量的列。 
  
-结合下面所述的概括性解决方法建议，我们建议将 ADF 日志隔离到其自身的工作区，以尽量减少这些日志影响工作区中收集的其他日志类型的可能性。 我们预期在 2019 年 4 月中旬重新编排 Azure 数据工厂的日志。
+结合下面所述的概括性解决方法建议，我们建议将 ADF 日志隔离到其自身的工作区，以尽量减少这些日志影响工作区中收集的其他日志类型的可能性。 我们预期 Azure Data Factory 的管理日志不久就可以使用。
  
 #### <a name="workarounds"></a>解决方法
 从短期来看，在重新定义 500 个列的限制之前，我们建议将详细数据类型隔离到独立的工作区，以减少达到该限制的可能性。

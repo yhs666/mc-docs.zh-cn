@@ -1,20 +1,18 @@
 ---
 title: Azure 诊断扩展概述
 description: 使用 Azure 诊断在云服务、虚拟机和 Service Fabric 中进行调试、性能度量、监视和流量分析
-services: azure-monitor
-author: rboucher
+author: lingliw
 ms.service: azure-monitor
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.author: robb
+ms.date: 02/13/2019
+ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 91aec4beeb2ebb790c763c6157eeac60bb203e33
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 20e3f2265715f358d345e95e183ed2f6b015271e
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141776"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586882"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](../../azure-monitor/overview.md)。
@@ -27,30 +25,33 @@ Azure 诊断扩展可收集以下类型的数据：
 
 | 数据源 | 说明 |
 | --- | --- |
-| 性能计数器 |操作系统和自定义性能计数器 |
+| 性能计数器指标 |操作系统和自定义性能计数器 |
 | 应用程序日志 |应用程序写入的跟踪消息 |
 | Windows 事件日志 |发送到 Windows 事件日志记录系统的信息 |
 | .NET 事件源 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 类的代码编写事件  |
-| IIS Logs |有关 IIS 网站的信息 |
+| IIS 日志 |有关 IIS 网站的信息 |
 | 基于清单的 ETW |由任何进程生成的 Windows 事件的事件跟踪。(1) |
 | 故障转储 |有关应用程序崩溃时进程状态的信息 |
 | 自定义错误日志 |应用程序或服务创建的日志 |
-| Azure Diagnostics基础结构日志 |有关诊断自身的信息 |
+| Azure 诊断基础结构日志 |有关诊断自身的信息 |
 
 (1) 要获取 ETW 提供程序列表，在要收集信息的计算机的控制台窗口中运行 `c:\Windows\System32\logman.exe query providers`。
 
 ## <a name="data-storage"></a>数据存储
 该扩展将其数据存储在你指定的 [Azure 存储帐户](diagnostics-extension-to-storage.md)中。
 
-也可将其发送到 [Application Insights](../../azure-monitor/app/cloudservices.md)。 还可将其流式传输到[事件中心](../../event-hubs/event-hubs-about.md)，然后就可将其发送到非 Azure 监控服务。
+还可将其流式传输到[事件中心](../../event-hubs/event-hubs-about.md)，然后就可将其发送到非 Azure 监控服务。
 
 ### <a name="azure-monitor"></a>Azure Monitor
-你还可以将数据发送到 Azure Monitor。 此时，该接收器仅适用于性能计数器。 由此，可将在 VM、VMSS 或云服务上收集的性能计数器作为自定义指标发送到 Azure Monitor。 Azure Monitor 接收器支持：
+还可以选择将数据发送到 Azure Monitor 指标时序数据库。 此时，该接收器仅适用于性能计数器。 它使你能够以自定义指标的形式发送性能计数器。 此功能以预览版提供。 Azure Monitor 接收器支持：
 * 通过 [Azure Monitor 指标 API](https://docs.microsoft.com/rest/api/monitor/) 检索发送到 Azure Monitor 的所有性能计数器。
-* 通过 Azure Monitor 中新的[统一警报体验](../../azure-monitor/platform/alerts-overview.md)根据发送到 Azure Monitor 的所有性能计数器发出警报
-* 将性能计数器中的通配符运算符视为指标上的“实例”维度。  例如，如果你收集了“LogicalDisk(\*)/DiskWrites/sec”计数器，则可以根据“实例”维度进行筛选和拆分，以基于 VM 上的每个逻辑磁盘（C:、D:等）的磁盘写入次数/秒进行绘图或发出警报
+* 通过 Azure Monitor 中的[指标警报](../../azure-monitor/platform/alerts-overview.md)针对发送到 Azure Monitor 的所有性能计数器发出警报
+* 将性能计数器中的通配符运算符视为指标上的“实例”维度。  例如，如果你收集了“LogicalDisk(\*)/DiskWrites/sec”计数器，则可以根据“实例”维度进行筛选和拆分，以基于 VM 上的每个逻辑磁盘（例如，C:）的磁盘写入次数/秒进行绘图或发出警报
 
-若要了解有关如何配置此接收器的详细信息，请参阅 [Azure 诊断架构文档](diagnostics-extension-schema-1dot3.md)。
+若要详细了解如何配置此接收器，请参阅 [Azure 诊断架构文档](diagnostics-extension-schema-1dot3.md)。
+
+## <a name="costs"></a>成本
+上述每个选项都可能产生费用。 一定要研究它们，以避免意外的账单。  Application Insights、事件中心和 Azure 存储具有与引入和存储时间相关联的单独成本。 特别是，Azure 存储将永久保存任何数据，因此你可能希望在一段时间后清除旧数据以降低成本。    
 
 ## <a name="versioning-and-configuration-schema"></a>版本控制和配置架构
 请参阅 [Azure 诊断版本历史记录和架构](diagnostics-extension-schema.md)。
@@ -66,7 +67,6 @@ Azure 诊断扩展可收集以下类型的数据：
 
 有关更高级的主题，请参阅
 
-* [将 Azure 诊断与适用于云服务的 Application Insights 配合使用](../../azure-monitor/app/cloudservices.md)
 * [使用 Azure 诊断跟踪云服务应用程序的流](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [使用 PowerShell 在云服务上设置诊断](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

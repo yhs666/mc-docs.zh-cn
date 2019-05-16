@@ -11,17 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 02/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 24b8f8729edd4d4eeeebacfcd7f740e25c59f60f
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 453122d41aaa65e114d80573fa8c89a164e64ad9
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440633"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586870"
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Log Analytics
-可以使用 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)创建和配置 Log Analytics 工作区。 可使用模板执行的任务示例包括：
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Log Analytics 工作区
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+可以使用 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)在 Azure Monitor 中创建和配置 Log Analytics 工作区。 可使用模板执行的任务示例包括：
 
 * 创建工作区，包括设置定价层 
 * 添加解决方案
@@ -32,17 +35,17 @@ ms.locfileid: "56440633"
 * 从 Linux 计算机的 syslog 中收集事件 
 * 从 Windows 事件日志中收集事件
 * 将日志分析代理添加到 Azure 虚拟机
-* 将日志分析配置为索引使用 Azure 诊断收集的数据
+* 配置 Log Analytics 以便为使用 Azure 诊断收集的数据编制索引
 
 本文将提供模板示例，用于演示一些可以通过模板执行的配置。
 
 ## <a name="api-versions"></a>API 版本
 下表列出了此示例中使用的资源的 API 版本。
 
-| 资源 | 资源类型 | API 版本 |
-|:---|:---|:---|:---|
+| Resource | 资源类型 | API 版本 |
+|:---|:---|:---|
 | 工作区   | workspaces    | 2017-03-15-preview |
-| 搜索      | savedSearches | 2017-03-15-preview |
+| 搜索      | savedSearches | 2015-03-20 |
 | 数据源 | datasources   | 2015-11-01-preview |
 | 解决方案    | solutions     | 2015-11-01-preview |
 
@@ -101,7 +104,7 @@ ms.locfileid: "56440633"
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -122,7 +125,7 @@ ms.locfileid: "56440633"
    * 对于 PowerShell，请在包含模板的文件夹中使用以下命令：
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * 对于命令行，请在包含模板的文件夹中使用以下命令：
@@ -218,7 +221,7 @@ ms.locfileid: "56440633"
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -230,7 +233,7 @@ ms.locfileid: "56440633"
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -379,7 +382,7 @@ ms.locfileid: "56440633"
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -500,7 +503,7 @@ ms.locfileid: "56440633"
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>命令行

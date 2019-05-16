@@ -9,20 +9,19 @@ ms.date: 04/12/19
 ms.author: v-lingwu
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 29dae92701dee46df69cf93e0ea90c9ceb21f6d1
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: eb6b004a18239e8b8194ce5f0c330e16ff4aeb0a
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686301"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586865"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure Monitor 中监视使用情况和预估成本
 
 > [!NOTE]
 > 本文介绍如何针对不同的定价模型查看多个 Azure 监视功能的使用情况和估算成本。  相关信息请参阅以下文章。
 > - [通过在 Log Analytics 中控制数据量和保留期管理成本](manage-cost-storage.md)介绍如何通过更改数据保留期来控制成本。
-> - [在 Log Analytics 中分析数据使用情况](../../azure-monitor/platform/data-usage.md)介绍了如何根据数据使用情况进行分析和警告。
-> - [在 Application Insights 中管理定价和数据量](../../azure-monitor/app/pricing.md)介绍如何在 Application Insights 中分析数据使用情况。
+> - “在 Log Analytics 中分析数据使用情况”介绍了如何根据数据使用情况进行分析和警告。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -102,155 +101,14 @@ ms.locfileid: "59686301"
 
 ## <a name="moving-to-the-new-pricing-model"></a>转移到新定价模型
 
-如果决定对某个订阅采用新定价模型，请选择“使用情况和预估成本”页顶部的“定价模型选择”选项：
+如果已决定对给定订阅采用新定价模型，请转到每个 Application Insights 资源，打开“使用情况和估算成本”并确保其位于“基本”定价层中，然后转到每个 Log Analytics 工作区，打开其“定价层”页并更改为“每 GB (2018)”定价层。 
 
-![在新定价模型中监视“使用情况和预估成本”的屏幕截图](./media/usage-estimated-costs/006.png)
-
-此时会打开“定价模型选择”页。 该页显示一个列表，其中包含在上一页查看的每个订阅。
-
-![“定价模型选择”屏幕截图](./media/usage-estimated-costs/007.png)
-
-若要将订阅移到新定价模型，只需选中相应的复选框，然后选择“保存”即可。 可以相同的方式移回到旧定价模型。 请记住，更改定价模型需要订阅所有者或参与者权限。
+> [!NOTE]
+> 对给定订阅中的所有 Application Insights 资源和 Log Analytics 工作区采用最新定价模型的要求现已取消，从而可实现更大的灵活性和更轻松的配置。 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>自动转移到新定价模型
 
-下面的脚本需要使用 Azure PowerShell 模块。 若要检查是否拥有最新版本，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+如上所述，不再要求同时将订阅中的所有监视资源移至新定价模型，因此 ``migratetonewpricingmodel`` 操作将不再具有任何效果。 现在可以将 Application Insights 资源和 Log Analytics 工作区分别移动到最新的定价层。  
 
-在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Connect-AzAccount -Environment AzureChinaCloud``。
+根据文档记录，Application Insights 通过将 [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) 与 ``-PricingPlan "Basic"`` 配合使用自动执行此更改，Log Analytics 通过将 [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) 与 ``-sku "PerGB2018"`` 配合使用自动执行此更改。 
 
-``` PowerShell
-# To check if your subscription is eligible to adjust pricing models.
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-如果 isGrandFatherableSubscription 下的结果为 True，则表示此订阅的定价模型可以在两种定价模型之间切换。 如果 optedInDate 下没有值，则意味着此订阅当前设置为使用旧的定价模型。
-
-```
-isGrandFatherableSubscription optedInDate
------------------------------ -----------
-                         True            
-```
-
-若要将此订阅迁移到新的定价模型，请运行以下命令：
-
-```PowerShell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-```
-
-若要确认更改是否成功，请重新运行以下命令：
-
-```PowerShell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-如果迁移成功，则结果现在应如下所示：
-
-```
-isGrandFatherableSubscription optedInDate                      
------------------------------ -----------                      
-                         True 2018-05-31T13:52:43.3592081+00:00
-```
-
-optInDate 现在包含此订阅加入到新定价模型时的时间戳。
-
-如果需要恢复到旧定价模型，可以运行以下命令：
-
-```PowerShell
- $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action rollbacktolegacypricingmodel `
- -Force
-```
-
-如果之后重新运行包含 ``-Action listmigrationdate`` 的上一脚本，则应当会看到空的 optedInDate 值，表示你的订阅已恢复到旧定价模型。
-
-如果你希望迁移位于同一租户下的多个订阅，则可以使用以下脚本的片段创建你自己的脚本变体：
-
-```PowerShell
-#Query tenant and create an array comprised of all of your tenants subscription ids
-$TenantId = <Your-tenant-id>
-$Tenant =Get-AzSubscription -TenantId $TenantId
-$Subscriptions = $Tenant.Id
-```
-
-若要检查是否租户中的所有订阅都有资格使用新定价模型，可以运行以下命令：
-
-```PowerShell
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-}
-```
-
-可以通过创建生成三个数组的脚本进一步对脚本进行优化。 一个数组将包含 ```isGrandFatherableSubscription``` 设置为 True 且 optedInDate 当前没有值的所有订阅 ID。 第二个数组包含当前采用新定价模型的任何订阅。 第三个数组仅填充有租户中没有资格使用新定价模型的订阅 ID：
-
-```PowerShell
-[System.Collections.ArrayList]$Eligible= @{}
-[System.Collections.ArrayList]$NewPricingEnabled = @{}
-[System.Collections.ArrayList]$NotEligible = @{}
-
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-
-     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
-     {
-     $Eligible.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
-     {
-     $NewPricingEnabled.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $False)
-     {
-     $NotEligible.add($id)
-     }
-}
-```
-
-> [!NOTE]
-> 运行以上脚本可能要花费一些时间，具体取决于订阅数。 由于使用了 .add() 方法，PowerShell 窗口将在向每个数组添加项时回显递增的值。
-
-现在，你已将订阅拆分到三个数组中，你应当仔细检查结果。 你可能还希望创建数组内容的备份副本，以便在将来需要时轻松还原更改。 如果已决定要将当前采用旧定价模型的所有符合条件的订阅转移到新定价模型，则现在可以通过以下脚本完成此任务：
-
-```PowerShell
-Foreach ($id in $Eligible)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-}
-
-```

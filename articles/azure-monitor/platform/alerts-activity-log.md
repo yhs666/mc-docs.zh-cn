@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 858154652c2af6a38571f4c63cb6c5cb2452c73e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6de8b50bac4210e3f767a4c5a93f21e6d294bb4c
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627250"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586849"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -102,7 +102,7 @@ ms.locfileid: "58627250"
  ![ 从活动日志添加警报](media/alerts-activity-log/add-activity-log.png)
     
 
-### <a name="view-and-manage-in-azure-portal"></a>在 Azure 门户中查看和管理
+### 在 Azure 门户中查看和管理 <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>
 
 1. 在 Azure 门户中，单击“监视” > “警报”，然后单击窗口左上角的“管理规则”。
 
@@ -127,7 +127,7 @@ ms.locfileid: "58627250"
 4. 可以禁用、启用或删除规则。 根据步骤 2 中的详述选择规则后，在窗口顶部选择相应的选项。
 
 
-## <a name="azure-resource-template"></a>Azure 资源模板
+## Azure 资源模板 <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>
 若要使用资源管理器模板创建活动日志警报，需要创建 `microsoft.insights/activityLogAlerts` 类型的资源。 然后，填充所有相关属性。 下面是用于创建活动日志警报的模板。
 
 ```json
@@ -204,20 +204,41 @@ ms.locfileid: "58627250"
 [Azure Monitor - 活动日志警报 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) 是一个 REST API 并且与 Azure 资源管理器 REST API 完全兼容。 因此，可以使用资源管理器 cmdlet 和 Azure CLI 通过 Powershell 使用它。
 
 ## <a name="powershell"></a>PowerShell
-下面展示了之前在[资源模板部分](#manage-alert-rules-for-activity-log-using-azure-resource-template)中显示的示例资源模板 (sampleActivityLogAlert.json) 通过 Azure 资源管理器 PowerShell cmdlet 进行使用的情况：
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>使用 PowerShell 部署资源管理器模板
+若要使用 PowerShell 部署前面的[资源模板部分](#resource-manager-template 中显示的示例资源模板，请使用以下命令：
+
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
+
 其中，sampleActivityLogAlert.parameters.json 包含为创建警报规则时所需的参数提供的值。
 
+### <a name="use-activity-log-powershell-cmdlets"></a>使用活动日志 PowerShell cmdlet
+
+活动日志警报具有专用的 PowerShell cmdlet 可用：
+
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0)：新建或更新现有活动日志警报。
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0)：获取一个或多个活动日志警报资源。
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0)：启用现有活动日志警报并设置其标记。
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0)：禁用现有活动日志警报并设置其标记。
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)：删除活动日志警报。
+
 ## <a name="cli"></a>CLI
-下面展示了之前在[资源模板部分](#manage-alert-rules-for-activity-log-using-azure-resource-template)中显示的示例资源模板 (sampleActivityLogAlert.json) 通过 Azure CLI 中的 Azure 资源管理器命令进行使用的情况：
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-*sampleActivityLogAlert.parameters.json* 文件包含为创建警报规则时所需的参数提供的值。
+set [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) 下的专用 Azure CLI 命令可用于管理活动日志警报规则。
 
+若要创建新的活动日志警报规则，请使用以下顺序：
+
+1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create)：创建新的活动日志警报规则资源
+1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope)：为已创建的活动日志警报规则添加作用域
+1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group)：向活动日志警报规则中添加操作组
+
+若要检索一个活动日志警报规则资源，可以使用 Azure CLI 命令 [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)。 若要查看某个资源组中的所有活动日志警报规则资源，请使用 [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)。
+可以使用 Azure CLI 命令 [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) 删除活动日志警报规则资源。
 
 ## <a name="next-steps"></a>后续步骤
 

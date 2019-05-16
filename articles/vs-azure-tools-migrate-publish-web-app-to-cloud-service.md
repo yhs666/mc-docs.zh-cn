@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 11/10/2017
 ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 56f00d865d25ecf411aee97193a0f3191d672cbe
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bcb0a9d7bfa1cacb19ae8e0a2e5a2e2dcee14726
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649596"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555470"
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 
@@ -34,13 +34,13 @@ ms.locfileid: "52649596"
 1. 对于 MVC 2、MVC 3、MVC 4 和 Silverlight 业务应用程序需要的任何程序集，Visual Studio 还将“复制本地”属性设置为 true。 此属性将这些程序集添加到用于部署的服务包。
 
    > [!Important]
-   > 如果有此 Web 应用程序所需的其他程序集或文件，必须手动设置这些文件的属性。 有关如何设置这些属性的信息，请参阅[在服务包中包含文件](#include-files-in-the-service-package)。
+   > 如果有此 Web 应用程序所需的其他程序集或文件，必须手动设置这些文件的属性。
 
 ### <a name="errors-and-warnings"></a>错误和警告
 
 发生的任何警告或错误都会指示在部署到 Azure 之前要解决的问题，例如缺少程序集。
 
-如果构建应用程序，请使用计算模拟器在本地运行它，或将其发布到 Azure，你可能会看到错误：“指定的路径、文件名太长，或两者都太长。” 此错误表示完全限定的 Azure 项目名称的长度超过了 146 个字符。 要解决该问题，请将你的解决方案移到路径较短的其他文件夹中。
+如果构建应用程序，请使用计算模拟器在本地运行它，或将其发布到 Azure，你可能会看到错误：“指定的路径和/或文件名太长”。 此错误表示完全限定的 Azure 项目名称的长度超过了 146 个字符。 要解决该问题，请将你的解决方案移到路径较短的其他文件夹中。
 
 有关如何将任何警告视为错误的详细信息，请参阅 [使用 Visual Studio 配置 Azure 云服务项目](vs-azure-tools-configuring-an-azure-project.md)。
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 72a18a81a72eeef0b615c0ca9122f16bcaf472c7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f91befc56a0fc6cdb79b29ab72ad77143ecbe22f
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627023"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586886"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>将 ITSM 产品/服务与 IT 服务管理连接器相连接
 本文介绍如何配置 ITSM 产品/服务与 Log Analytics 中的 IT 服务管理连接器 (ITSMC) 之间的连接，以便集中管理工作项。 有关 ITSMC 的详细信息，请参阅[概述](../../azure-monitor/platform/itsmc-overview.md)。
@@ -185,7 +185,7 @@ ms.locfileid: "58627023"
 ### <a name="prerequisites"></a>先决条件
 请确保满足以下先决条件：
 - 已安装 ITSMC。 详细信息：[添加 IT 服务管理连接器解决方案](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)。
-- ServiceNow 支持的版本：Kingston、Jakarta、Istanbul、Helsinki、Geneva。
+- ServiceNow 支持的版本：中国。
 
 **ServiceNow 管理员必须在其 ServiceNow 实例中执行以下操作**：
 - 生成 ServiceNow 产品的客户端 ID 和客户端密码。 有关如何生成客户端 ID 和机密的信息，请根据需要参阅以下信息：

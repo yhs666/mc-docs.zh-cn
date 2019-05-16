@@ -1,5 +1,5 @@
 ---
-title: Azure Batch 渲染概述
+title: 渲染概述 - Azure Batch
 description: 介绍如何使用 Azure 进行渲染，并提供 Azure Batch 渲染功能的概述
 services: batch
 author: mscurrell
@@ -7,12 +7,12 @@ origin.date: 08/02/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: conceptual
-ms.openlocfilehash: a58217d5314451ea17613dbc5b1944921415e19f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a8d3dd73f3dbca040539bd34b69590ad54074222
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625442"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586860"
 ---
 # <a name="rendering-using-azure"></a>使用 Azure 进行渲染
 

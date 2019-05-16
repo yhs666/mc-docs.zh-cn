@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - RES
 description: 本文介绍如何使用 PowerShell 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 08/13/2018
-ms.author: v-yeche
-ms.openlocfilehash: e1235f6e98de386aa86c05beb0562f604aeea772
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.openlocfilehash: 03a8abec61786c000e5f97c1320bbdfae7119fed
+ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987009"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597978"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 
@@ -30,6 +29,9 @@ ms.locfileid: "56987009"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 REST API 检索应用于虚拟机的有效安全规则
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -43,15 +45,16 @@ ms.locfileid: "56987009"
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
-```PowerShell
-armclient login "MOONCAKE"
+```powershell
+$env:ARMCLIENT_ENV="MOONCAKE"
+ armclient login
 ```
 
 ## <a name="retrieve-a-virtual-machine"></a>检索虚拟机
 
 运行以下脚本返回虚拟机。以下代码需要变量：
 
-- **subscriptionId** - 还可以使用 **Get-AzureRMSubscription** cmdlet 检索订阅 id。
+- **subscriptionId** - 还可以使用 **Get-AzSubscription** cmdlet 检索订阅 ID。
 - **resourceGroupName** - 包含虚拟机的资源组的名称。
 
 ```powershell
@@ -107,9 +110,8 @@ $requestBody = @"
 
 }
 "@
-armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${networkWatcherGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
+armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
 ```
-<!-- Notice: Add networkWatcherGroupName parameters-->
 
 ## <a name="view-the-response"></a>查看响应
 

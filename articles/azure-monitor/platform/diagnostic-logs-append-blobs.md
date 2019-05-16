@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 66fd7463fdd71479feb7494ece236b114429deab
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: dbd4c5b1c47d972246918c3f5a11e47de09bc9c6
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906175"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586880"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>为存档到存储帐户的 Azure Monitor 诊断日志的格式更改做准备
 
@@ -24,14 +24,14 @@ ms.locfileid: "54906175"
 
 ## <a name="what-is-changing"></a>有什么变化
 
-Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送到 Azure 存储帐户、事件中心命名空间或 Log Analytics。 为解决系统性能问题，发送到 blob 存储的日志数据格式将于 2018 年 11 月 1 日凌晨 12 点 (UTC) 发生更改。 如果工具从 blob 存储中读取数据，则需要更新工具以了解新的数据格式。
+Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送到 Azure 存储帐户、事件中心命名空间或 Azure Monitor 中的 Log Analytics 工作区。 为解决系统性能问题，发送到 blob 存储的日志数据格式将于 2018 年 11 月 1 日凌晨 12 点 (UTC) 发生更改。 如果工具从 blob 存储中读取数据，则需要更新工具以了解新的数据格式。
 
 * Blob 格式将于 2018 年 11 月 1 日星期四凌晨 12 点 (UTC) 更改为 [JSON Lines](http://jsonlines.org/)。 这意味着每个记录将由换行符分隔，JSON 记录之间没有外部记录数组和逗号。
 * 将同时更改所有订阅中所有诊断设置的 blob 格式。 11 月 1 日发出的第一个 PT1H.json 文件将使用此新格式。 Blob 和容器名称保持不变。
 * 从现在到 11 月 1 日之间设置诊断设置将继续以当前格式发出数据，直到 11 月 1 日为止。
 * 此更改将同时在所有公有云区域中发生。 Azure 中国、Azure 德国或 Azure 中国云中还不会进行此更改。
 * 此更改会影响以下数据类型：
-  * [Azure 资源诊断日志](./../../azure-monitor/platform/archive-diagnostic-logs.md)（[请参阅此处的资源列表](./../../azure-monitor/platform/tutorial-dashboards.md)）
+  * [Azure 资源诊断日志](./../../azure-monitor/platform/archive-diagnostic-logs.md) 
   * [由诊断设置导出的 Azure 资源指标](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
   * [由日志配置文件导出的 Azure 活动日志数据](./../../azure-monitor/platform/archive-activity-log.md)
 * 此更改不会影响：
@@ -129,7 +129,7 @@ Azure blob 存储中 PT1H.json 文件的当前格式使用 JSON 数组记录。 
 
 ## <a name="how-to-update"></a>更新方法
 
-如果具有引入这些日志文件以进行进一步处理的自定义工具，则只需进行更新即可。 如果正在使用外部 Log Analytics 或 SIEM 工具，则建议[改为使用事件中心来引入此数据](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)。 在处理许多服务中的日志以及为特定日志中的位置添加书签方面，事件中心集成更加容易。
+如果具有引入这些日志文件以进行进一步处理的自定义工具，则只需进行更新即可。 如果正在使用外部日志分析或 SIEM 工具，则建议[改为使用事件中心来引入此数据](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)。 在处理许多服务中的日志以及为特定日志中的位置添加书签方面，事件中心集成更加容易。
 
 应更新自定义工具以处理当前格式和上述 JSON Lines 格式。 这将确保当数据开始以新格式显示时，工具不会中断。
 

@@ -2,25 +2,18 @@
 title: 存储资源管理器入门 | Azure
 description: 利用存储资源管理器来管理 Azure 存储资源
 services: storage
-documentationcenter: na
-author: lingliw
-manager: digimobile
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
+author: cawaMS
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 07/17/2017
-ms.date: 11/26/2018
+ms.date: 04/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4c82b555fa41eb2dd5b9c4fe43952829b9c43314
-ms.sourcegitcommit: 780fa3d8b5538d324d3e13051abe6f5bd52208e2
+ms.openlocfilehash: 2cd73d1699d2852f9bd0a21836e66e6b091e7992
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58812642"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586895"
 ---
 # <a name="get-started-with-storage-explorer"></a>存储资源管理器入门
 
@@ -116,7 +109,7 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 使用存储资源管理器，可以通过模拟器使用本地存储。 使用此方法可以模拟 Azure 存储的使用，而无需在 Azure 上部署存储帐户。
 
-从 1.1.0 版开始，所有平台都支持本地存储模拟器。 存储资源管理器可以连接到侦听其默认本地存储终结点的任何模拟服务。
+从版本 1.1.0 开始，存储资源管理器支持在所有平台上使用本地存储模拟器。 存储资源管理器可以连接到侦听其默认本地存储终结点的任何模拟服务。
 
 > [!NOTE]
 > 对存储服务和功能的支持可能因你选择的模拟器而有很大不同。 请确保模拟器支持你打算使用的服务和功能。
@@ -205,7 +198,7 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 2. 在确认消息中，选择“是”确认从外部存储帐户中分离。
 
-## <a name="attach-a-storage-account-by-using-a-shared-access-signature-sas"></a>使用共享访问签名 (SAS) 附加存储帐户
+## 使用共享访问签名 (SAS) 附加存储帐户 <a name="attach-storage-account-using-sas"></a>
 
 Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md)) 授予存储帐户的临时访问权限，不需提供 Azure 订阅凭据。
 
@@ -217,7 +210,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 3. UserB 通过存储资源管理器使用所提供的 SAS 附加到属于 UserA 的帐户。
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>为要共享的帐户生成 SAS 连接字符串
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>为要共享的帐户生成 SAS 查询字符串
 
 1. 在存储资源管理器中，右键单击要共享的存储帐户，并选择“获取共享访问签名...”。
 
@@ -227,7 +220,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
     ![“获取 SAS”对话框][15]
 
-3. 选择“连接字符串”文本框旁边的“复制”，将其复制到剪贴板，然后单击“关闭”。
+3. 选择“查询字符串”文本框旁边的“复制”，将其复制到剪贴板，然后单击“关闭”。
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>使用 SAS 连接字符串附加到存储帐户
 
@@ -251,7 +244,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
     ![使用 SAS 附加到帐户的结果][18]
 
-## <a name="attach-a-service-by-using-a-shared-access-signature-sas"></a>使用共享访问签名 (SAS) 附加服务
+## 使用共享访问签名 (SAS) 附加服务 <a name="attach-service-using-sas"></a>
 
 “使用 SAS 附加存储帐户”部分介绍了 Azure 订阅管理员如何为存储帐户生成和共享 SAS，从而授予用户对存储帐户的临时访问权限。 同样可以在存储帐户中为特定服务（Blob 容器、队列、表或文件共享）生成 SAS。
 

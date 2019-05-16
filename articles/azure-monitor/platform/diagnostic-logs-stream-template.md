@@ -1,6 +1,6 @@
 ---
 title: 使用资源管理器模板自动启用诊断设置
-description: 了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。
+description: 了解如何使用资源管理器模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 4c8329bab4397e42d1f7f87d22a6382824b6ca7d
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f05f5b16a161f58c038e2a6f3e449152b3e76b2b
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363467"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586879"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
-本文介绍如何使用 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
+本文介绍如何使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md) 在创建资源时配置资源的诊断设置。 这样可以让你在创建资源时自动开始将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics 工作区。
 
 > [!WARNING]
 > 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
-通过 Resource Manager 模板启用诊断日志时，所用方法取决于资源类型。
+通过资源管理器模板启用诊断日志时，所用方法取决于资源类型。
 
 * **非计算**资源（例如，网络安全组、逻辑应用、自动化）使用[此文中描述的诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。
 * **计算**（基于 WAD/LAD）资源使用[此文中描述的 WAD/LAD 配置文件](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
@@ -40,7 +40,7 @@ ms.locfileid: "54363467"
 ## <a name="non-compute-resource-template"></a>非计算资源模板
 对于非计算资源，需要做两件事：
 
-1. 根据存储帐户名称、事件中心授权规则 ID 和/或 Log Analytics 工作区 ID 向参数 blob 添加参数（允许在存储帐户中存档诊断日志、将日志流式传输到事件中心和/或将日志发送到 Log Analytics）。
+1. 根据存储帐户名称、事件中心授权规则 ID 和/或 Log Analytics 工作区 ID 向参数 blob 添加参数（允许在存储帐户中存档诊断日志、将日志流式传输到事件中心和/或将日志发送到 Azure Monitor）。
    
     ```json
     "settingName": {
@@ -74,7 +74,7 @@ ms.locfileid: "54363467"
       }
     }
     ```
-2. 在资源数组（包含需启用诊断日志的资源）中，添加类型为 `[resource namespace]/providers/diagnosticSettings`的资源。
+2. 在资源数组（包含需启用诊断日志的资源）中，添加类型为 `[resource namespace]/providers/diagnosticSettings` 的资源。
    
     ```json
     "resources": [
@@ -263,7 +263,7 @@ ms.locfileid: "54363467"
 > 
 > 
 
-整个过程（包括示例）详见 [此文档](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+整个过程（包括示例）详见 [此文档](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
 * [详细了解 Azure 诊断日志](../../azure-monitor/platform/diagnostic-logs-overview.md)

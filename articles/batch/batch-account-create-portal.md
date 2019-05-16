@@ -11,17 +11,16 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 06/18/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+ms.topic: conceptual
+ms.date: 02/26/2019
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1aa3625399e875bd14fa5c891a5634af4977d098
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: ded2078b996260861be8b92dbb3edc7abf712c78
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987045"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586848"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -43,39 +42,38 @@ ms.locfileid: "56987045"
 
     ![创建批处理帐户][account_portal]
 
-    a. **帐户名称**：所选名称必须在创建帐户的 Azure 区域中唯一（参见下面的“位置”）。 帐户名只能包含小写字符或数字，且长度必须为 3-24 个字符。
+    a. **订阅**：要在其中创建 Batch 帐户的订阅。 如果只有一个订阅，则默认选择此项。
 
-    b. **订阅**：要在其中创建 Batch 帐户的订阅。 如果只有一个订阅，则默认选择此项。
+    b. **资源组**：为新 Batch 帐户选择现有的资源组，或选择创建一个新组。
 
-    c. **资源组**：为新 Batch 帐户选择现有的资源组，或选择创建一个新组。
+    c. **帐户名称**：所选名称必须在创建帐户的 Azure 区域中唯一（参见下面的“位置”）。 帐户名只能包含小写字符或数字，且长度必须为 3-24 个字符。
 
     d. **位置**：要在其中创建 Batch 帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
 
-    e. **存储帐户**（可选）：与 Batch 帐户关联的 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 有关 Batch 中的存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。 在门户中，选择一个现有存储帐户，或者选择创建一个新帐户。
+    e. **存储帐户**：与 Batch 帐户关联的可选 Azure 存储帐户。 为获得最佳性能，建议使用常规用途 v2 存储帐户。 有关 Batch 中的所有存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。 在门户中选择现有存储帐户，或者创建一个新帐户。
 
       ![创建存储帐户][storage_account]
 
-    f. **池分配模式**：对于大多数情况，请接受默认值“Batch 服务”。
+    f. **池分配模式**：在“高级”设置选项卡中，可将池分配模式指定为“Batch 服务”或“用户订阅”。 对于大多数情况，请接受默认值“Batch 服务”。
+
+      ![Batch 池分配模式][pool_allocation]
 
 1. 选择“创建”可创建帐户。
-
-
 
 ## <a name="view-batch-account-properties"></a>查看 Batch 帐户属性
 创建帐户后，选择该帐户即可访问其设置和属性。 可以使用左侧菜单访问所有帐户设置和属性。
 
 ![Azure 门户中的 Batch 帐户页][account_blade]
 
-- **Batch 帐户名、URL 和密钥**：通过 [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development) 开发应用程序时，需要帐户 URL 和密钥才能访问 Batch 资源。 （Batch 还支持 Azure Active Directory 身份验证。）
+* **Batch 帐户名、URL 和密钥**：通过 [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development) 开发应用程序时，需要帐户 URL 和密钥才能访问 Batch 资源。 （Batch 还支持 Azure Active Directory 身份验证。）
 
     若要查看 Batch 帐户访问信息，请选择“密钥”。
 
     ![Azure 门户中的 Batch 帐户密钥][account_keys]
 
-- 若要查看与 Batch 帐户关联的存储帐户的名称和密钥，请选择“存储帐户”。
+* 若要查看与 Batch 帐户关联的存储帐户的名称和密钥，请选择“存储帐户”。
 
-- 若要查看适用于 Batch 帐户的资源配额，请选择“配额”。 有关详细信息，请参阅 [Batch 服务配额和限制](batch-quota-limit.md)。
-
+* 若要查看适用于 Batch 帐户的资源配额，请选择“配额”。 有关详细信息，请参阅 [Batch 服务配额和限制](batch-quota-limit.md)。
 
 ## <a name="additional-configuration-for-user-subscription-mode"></a>用户订阅模式的其他配置
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7271ca84d9d3a1f84e16e02f3160d2ac2db42143
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: fa67cddbaae127cad09830a1d19724d4704fd713
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686469"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586873"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>收集和分析 Azure Monitor 的 Log Analytics 工作区中的 Azure 活动日志
 
 ![“Azure 活动日志”符号](./media/collect-activity-logs/activity-log-analytics.png)
 
-Activity Log Analytics 解决方案有助于分析和搜索所有 Azure 订阅的 [Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)。 Azure 活动日志是一种日志，可使用户了解对订阅中的资源执行的操作。 “活动日志”此前称为“审核日志”或“操作日志”，因为它报告订阅的各种事件。
+Activity Log Analytics 解决方案有助于分析和搜索所有 Azure 订阅的 [Azure 活动日志](activity-logs-overview.md)。 Azure 活动日志是一种日志，可使用户了解对订阅中的资源执行的操作。 “活动日志”此前称为“审核日志”或“操作日志”，因为它报告订阅的各种事件。
 
 通过活动日志，可确定对订阅中的资源进行的任何写入操作（PUT、POST、DELETE）的*内容*、*执行者*和*时间*。 还可以了解操作和其他相关属性的状态。 活动日志不包括读取 (GET) 操作或针对使用经典部署模型的资源的操作。
 
@@ -52,28 +52,36 @@ Log Analytics 工作区免费收集活动日志，并将日志免费存储 90 �
 
 | 连接的源 | 支持 | 说明 |
 | --- | --- | --- |
-| [Windows 代理](../../azure-monitor/platform/agent-windows.md) | 否 | 解决方案不会从 Windows 代理收集信息。 |
-| [Linux 代理](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解决方案不会从 Linux 代理收集信息。 |
-| [SCOM 管理组](../../azure-monitor/platform/om-agents.md) | 否 | 解决方案不会从连接的 SCOM 管理组中的代理收集信息。 |
+| [Windows 代理](agent-windows.md) | 否 | 解决方案不会从 Windows 代理收集信息。 |
+| [Linux 代理](../learn/quick-collect-linux-computer.md) | 否 | 解决方案不会从 Linux 代理收集信息。 |
+| [System Center Operations Manager 管理组](om-agents.md) | 否 | 解决方案不会从向 Operations Manager 管理组报告的代理收集信息。 |
 | [Azure 存储帐户](collect-azure-metrics-logs.md) | 否 | 解决方案不会从 Azure 存储收集信息。 |
 
 ## <a name="prerequisites"></a>先决条件
 
-- 若要访问 Azure 活动日志信息，必须拥有 Azure 订阅。
+若要访问 Azure 活动日志信息，必须拥有 Azure 订阅。
+
+解决方案还需要在你的订阅中注册以下两个资源提供程序：
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+若要了解如何注册或验证它们是否已注册，请参阅 [Azure 资源提供程序和类型](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>配置
 
 执行以下步骤，为工作区配置 Activity Log Analytics 解决方案。
 
-1. 从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)或者使用[从解决方案库中添加 Log Analytics 解决方案](../../azure-monitor/insights/solutions.md)中所述的过程，启用 Activity Log Analytics 解决方案。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
+
+2. 从 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)或者使用[从解决方案库中添加 Log Analytics 解决方案](../insights/solutions.md)中所述的过程，启用 Activity Log Analytics 解决方案。
+
 2. 配置活动日志，以转到 Log Analytics 工作区。
     1. 在 Azure 门户中，选择工作区，并单击“Azure 活动日志”。
     2. 对于每个订阅，单击订阅名称。  
         ![添加订阅](./media/collect-activity-logs/add-subscription.png)
     3. 在“SubscriptionName”边栏选项卡中，单击“连接”。  
         ![连接订阅](./media/collect-activity-logs/subscription-connect.png)
-
-登录 Azure 门户，将 Azure 订阅连接到工作区。  
 
 ## <a name="using-the-solution"></a>使用解决方案
 

@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序管理数据包捕获 - REST API | Azure
 description: 此页说明如何使用 Azure REST API 管理网络观察程序的数据包捕获功能
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 08/13/2018
-ms.author: v-yeche
-ms.openlocfilehash: 575ec75e6c5bc94d8b711c32a29c50dbaa881c0b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.openlocfilehash: 04a7a3b622e22ad872380f222ee7a1198e9a6eef
+ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649505"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597994"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序管理数据包捕获
 
@@ -41,6 +40,9 @@ ms.locfileid: "52649505"
 - [**停止数据包捕获**](#stop-packet-capture)
 - [**删除数据包捕获**](#delete-packet-capture)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>准备阶段
 
 本方案通过调用网络观察程序 Rest API 来运行“IP 流验证”。 通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
@@ -51,8 +53,9 @@ ms.locfileid: "52649505"
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
-```PowerShell
-armclient login "MOONCAKE"
+```powershell
+$env:ARMCLIENT_ENV="MOONCAKE"
+ armclient login
 ```
 
 ## <a name="retrieve-a-virtual-machine"></a>检索虚拟机
@@ -61,7 +64,7 @@ armclient login "MOONCAKE"
 
 以下代码需要以下变量：
 
-- **subscriptionId** - 还可以使用 **Get-AzureRMSubscription** cmdlet 检索订阅 ID。
+- **subscriptionId** - 还可以使用 **Get-AzSubscription** cmdlet 检索订阅 ID。
 - **resourceGroupName** - 包含虚拟机的资源组的名称。
 
 ```powershell

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0a4fb2f031a80fb5039b30f53b918a5cb6edf072
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 07639d77ac4f95c1d74ab598903a593e272fd745
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625998"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586835"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT 服务管理连接器将 Azure 连接到 ITSM 工具
 
@@ -190,9 +190,9 @@ ServiceDeskWorkItemType_s="Incident"
 - 创建者
 - 解决者
 - 关闭者
-- 源
+- Source
 - 分配给
-- 类别
+- Category
 - 标题
 - 说明
 - 创建日期
@@ -211,11 +211,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 服务台 ID
 - 创建者
 - 关闭者
-- 源
+- Source
 - 分配给
 - 标题
 - 类型
-- 类别
+- Category
 - 状态
 - 升级
 - 冲突状态
@@ -249,7 +249,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | 关闭者 |
 | Source_s| 联系类型 |
 | AssignedTo_s | 已分配到  |
-| Category_s | 类别 |
+| Category_s | Category |
 | Title_s|  简短说明 |
 | Description_s|  注释 |
 | CreatedDate_t|  已打开 |
@@ -267,7 +267,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | 已分配到  |
 | Title_s|  简短说明 |
 | Type_s|  类型 |
-| Category_s|  类别 |
+| Category_s|  Category |
 | CRState_s|  状态|
 | Urgency_s|  紧急性 |
 | Priority_s| Priority|

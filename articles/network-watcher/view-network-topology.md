@@ -15,18 +15,20 @@ ms.workload: infrastructure-services
 origin.date: 05/09/2018
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: c5a8c5d46a37810d025e3cf463dbd61c1c5bdc3d
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 5ce90a540b87c78f2b3518bdc16ecc6101b37d84
+ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890184"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597990"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>查看 Azure 虚拟网络的拓扑
 
 本文介绍如何查看 Azure 虚拟网络中的资源及其相互关系。 例如，虚拟网络包含子网。 子网包含资源，例如 Azure 虚拟机 (VM)。 VM 有一个或多个网络接口。 每个子网可以有一个网络安全组，以及一个与之关联的路由表。 可以通过 Azure 网络观察程序的拓扑功能查看虚拟网络中的所有资源、与虚拟网络中的资源相关联的资源，以及这些资源的相互关系。
 
 可以使用 [Azure 门户](#azure-portal)、[Azure CLI](#azure-cli) 或 [PowerShell](#powershell) 查看拓扑。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name = "azure-portal"></a>查看拓扑 - Azure 门户
 
@@ -43,7 +45,7 @@ ms.locfileid: "58890184"
     - 与 *myVnet* 虚拟网络位于同一资源组和区域内。 例如，不会显示 *MyResourceGroup* 之外的资源组中存在的网络安全组，即使该网络安全组与 *MyVnet* 虚拟网络中的子网相关联。
     - 位于 *myVnet* 虚拟网络中，或与其中的资源相关联。 例如，不会显示与 *myVnet* 虚拟网络中的子网或网络接口不相关联的网络安全组，即使该网络安全组位于 *MyResourceGroup* 资源组中。
 
-   图中显示的拓扑对应的虚拟网络是在部署 **“通过网络虚拟设备路由流量”脚本示例**后创建的，该示例可以通过 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json) 部署。
+   图中显示的拓扑对应的虚拟网络是在部署 **“通过网络虚拟设备路由流量”脚本示例**后创建的，该示例可以通过 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 部署。
 
 6. 选择“下载拓扑”，以 svg 格式将映像下载为可编辑文件。
 
@@ -80,7 +82,7 @@ ms.locfileid: "58890184"
 
     仅为与 *MyResourceGroup* 资源组具有相同的资源组且与网络观察程序具有相同的区域的资源返回拓扑信息。 例如，不会显示 *MyResourceGroup* 之外的资源组中存在的网络安全组，即使该网络安全组与 *MyVnet* 虚拟网络中的子网相关联。
 
-   详细了解返回的输出中的关系和[属性](#properties)。 如果没有现有的可以查看其拓扑的虚拟网络，则可使用[通过网络虚拟设备路由流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fnetwork-watcher%2ftoc.json)脚本示例创建一个。 若要查看拓扑图并以可编辑文件的形式来下载它，请使用[门户](#azure-portal)。
+   详细了解返回的输出中的关系和[属性](#properties)。 如果没有现有的可以查看其拓扑的虚拟网络，则可使用[通过网络虚拟设备路由流量](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)脚本示例创建一个。 若要查看拓扑图并以可编辑文件的形式来下载它，请使用[门户](#azure-portal)。
 
 ## <a name = "powershell"></a>查看拓扑 - PowerShell
 
@@ -93,31 +95,31 @@ ms.locfileid: "58890184"
 1. 如果你已在要为其创建拓扑的虚拟网络所在的区域中有一个网络观察程序，请跳至步骤 3。 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) 创建一个包含网络观察程序的资源组。 以下示例在“chinaeast”区域中创建资源组：
 
     ```powershell
-    New-AzureRmResourceGroup -Name NetworkWatcherRG -Location ChinaEast
+    New-AzResourceGroup -Name NetworkWatcherRG -Location ChinaEast
     ```
 
-2. 使用 [New-AzureRmNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkwatcher) 创建网络观察程序。 以下示例在“chinaeast”区域中创建网络观察程序：
+2. 使用 [New-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkwatcher) 创建网络观察程序。 以下示例在“chinaeast”区域中创建网络观察程序：
 
     ```powershell
-    New-AzureRmNetworkWatcher `
+    New-AzNetworkWatcher `
       -Name NetworkWatcher_chinaeast `
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. 使用 [Get-AzureRmNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 检索网络观察程序实例。 以下示例在“中国东部”区域中检索网络观察程序：
+3. 使用 [Get-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 检索网络观察程序实例。 以下示例在“中国东部”区域中检索网络观察程序：
 
     ```powershell
-    $nw = Get-AzurermResource `
+    $nw = Get-AzResource `
       | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "ChinaEast" }
-    $networkWatcher = Get-AzureRmNetworkWatcher `
+    $networkWatcher = Get-AzNetworkWatcher `
       -Name $nw.Name `
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. 使用 [Get-AzureRmNetworkWatcherTopology](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatchertopology) 检索拓扑。 以下示例在名为 *MyResourceGroup* 的资源组中检索虚拟网络的拓扑：
+4. 使用 [Get-AzNetworkWatcherTopology](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatchertopology) 检索拓扑。 以下示例在名为 *MyResourceGroup* 的资源组中检索虚拟网络的拓扑：
 
     ```powershell
-    Get-AzureRmNetworkWatcherTopology `
+    Get-AzNetworkWatcherTopology `
       -NetworkWatcher $networkWatcher `
       -TargetResourceGroupName MyResourceGroup
     ```

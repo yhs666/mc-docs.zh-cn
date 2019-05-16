@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 4ffeb1bc466f84edbffc58352de617c8dfa6468d
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: de952718058c909101659cef40a5e0d4e2040a50
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363430"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586875"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](diagnostics-extension-overview.md)。
@@ -26,11 +26,11 @@ ms.locfileid: "54363430"
 
 **监视代理（MonAgent\*.exe 进程）**：监视、收集和传输诊断数据。  
 
-## <a name="logartifact-paths"></a>日志/项目路径
+## 日志/项目路径 <a name="log-artifacts-path"></a>
 以下是一些重要日志和项目的路径。 文档剩余部分将始终引用此信息。
 
 ### <a name="azure-cloud-services"></a>Azure 云服务
-| 项目 | 路径 |
+| 项目 | `Path` |
 | --- | --- |
 | **Azure 诊断配置文件** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **日志文件** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -41,7 +41,7 @@ ms.locfileid: "54363430"
 | **MonAgentHost 日志文件** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>虚拟机
-| 项目 | 路径 |
+| 项目 | `Path` |
 | --- | --- |
 | **Azure 诊断配置文件** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **日志文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -49,7 +49,7 @@ ms.locfileid: "54363430"
 | **监视代理配置文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **状态文件** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure 诊断扩展包** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **日志收集实用工具路径** | C:\WindowsAzure\Packages |
+| **日志收集实用工具路径** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost 日志文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>指标数据不显示在 Azure 门户中
@@ -82,10 +82,10 @@ Azure 诊断提供可在 Azure 门户中显示的指标数据。 如果无法查
 如果配置设置正确，但仍看不到指标数据，请按照以下指南进行故障排除。
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics 不启动
+## Azure 诊断不启动 <a name="azure-diagnostics-is-not-starting"></a>
 有关为和 Azure 诊断无法启动的信息，请参阅之前提供的日志文件位置中的 DiagnosticsPluginLauncher.log 和 DiagnosticsPlugin.log 文件。
 
-如果这些日志指示 `Monitoring Agent not reporting success after launch`，则表示启动 MonAgentHost.exe 失败。 在之前部分中指示 `MonAgentHost log file` 的位置查看其日志。
+如果这些日志指示 `Monitoring Agent not reporting success after launch`，则表示启动 MonAgentHost.exe 失败。 在之前部分中指示 `MonAgentHost log file` 的位置查看日志。
 
 日志文件的最后一行包含退出代码。  
 
@@ -105,9 +105,16 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 解决方案：更正诊断配置，然后重新安装诊断。
 
-如果存储帐户配置正确，远程访问计算机，验证 DiagnosticsPlugin.exe 和 MonAgentCore.exe 是否正在运行。 如果未运行，请按照 [Azure 诊断不启动](#azure-diagnostics-is-not-starting)中的步骤进行操作。
+如果存储帐户配置正确，请远程访问计算机，验证 DiagnosticsPlugin.exe 和 MonAgentCore.exe 是否正在运行。 如果未运行，请按照 [Azure 诊断不启动](#azure-diagnostics-is-not-starting)中的步骤进行操作。
 
 如果进程正在运行，请转到[数据是否是本地捕获的？](#is-data-getting-captured-locally)并按此处的介绍进行操作。
+
+如果这样做无法解决问题，请尝试以下操作：
+
+1. 卸载代理
+2. 删除目录 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. 重新安装代理
+
 
 ### <a name="part-of-the-data-is-missing"></a>部分数据丢失
 如果获得了部分数据，则表示数据收集/传输管道设置正确。 请按照此处的子节说明，缩小问题范围。
@@ -119,7 +126,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - **性能计数器**：打开 perfmon 并检查计数器。
 
 - **跟踪日志**：远程访问 VM 并向应用的配置文件添加 TextWriterTraceListener。  请参阅 https://msdn.microsoft.com/library/sk36c28t.aspx 设置文本侦听器。  确保 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
-如果没有看到生成跟踪日志，请查看[关于跟踪日志丢失的更多信息](#more-about-trace-logs-missing)。
+如果没有看到生成跟踪日志，请查看“关于跟踪日志丢失的更多信息”。
 
 - **ETW 跟踪**：远程访问 VM 并安装 PerfView。  在 PerfView 中运行“文件” > “用户命令” > “侦听 etwprovder1” > “etwprovider2”等。 侦听命令区分大小写，ETW 提供程序的逗号分隔列表之间不能有空格。 如果命令未能运行，可选择 Perfview 工具右下角的“日志”按钮，查看尝试运行的内容以及结果。  假设输入正确，则会弹出一个新窗口。 几秒钟后，即可看到 ETW 跟踪信息。
 
@@ -127,13 +134,13 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 #### <a name="is-data-getting-captured-locally"></a>数据是否是本地捕获的？
 接下来，请确保本地捕获到了数据。
-数据本地存储在[诊断数据本地存储](#log-artifacts-path)中的 `*.tsf` 文件中。 不同类型的日志被收集在不同的 `.tsf` 文件中。 文件名称与 Azure 存储中的表名相似。
+数据本地存储在诊断数据本地存储中的 `*.tsf` 文件中。 不同类型的日志被收集在不同的 `.tsf` 文件中。 文件名称与 Azure 存储中的表名相似。
 
 例如，`Performance Counters` 收集在 `PerformanceCountersTable.tsf` 中。 事件日志收集在 `WindowsEventLogsTable.tsf` 中。 使用[本地日志提取](#local-log-extraction)部分中的说明打开本地收集文件，验证它们是否是在磁盘上收集的。
 
-如果没有看到本地收集的日志，并且已验证主机正在生成数据，则可能是有配置问题。 仔细查看配置。
+如果没有看到在本地收集日志，并且已确认主机正在生成数据，则可能是有配置问题。 仔细查看配置。
 
-还要查看为 MonitoringAgent [ MaConfig.xml](#log-artifacts-path) 生成的配置。 验证是否存在描述相关日志源的部分。 然后验证该部分是否在诊断配置和监视代理配置间的转换中丢失。
+还要查看为 MonitoringAgent MaConfig.xml 生成的配置。 验证是否存在描述相关日志源的部分。 然后验证该部分是否在诊断配置和监视代理配置间的转换中丢失。
 
 #### <a name="is-data-getting-transferred"></a>是否传输了数据？
 如果已验证数据是本地捕获的，但仍未在存储帐户中看到它，请按以下步骤操作：
@@ -142,10 +149,10 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 - 验证提供的存储帐户是否正确。 确保未受到一些禁止组件访问公共存储终结点的网络限制。 执行此操作的一种方法是远程访问计算机，自行尝试向相同的存储帐户写入一些内容。
 
-- 最后，可并查看监视代理报告的故障。 监视代理将其日志写入位于[诊断数据本地存储](#log-artifacts-path)中的 `maeventtable.tsf`。 按照[本地日志提取](#local-log-extraction)部分中的说明打开此文件。 然后尝试确定是否有 `errors` 指示读取本地文件或写入存储失败。
+- 最后，可并查看监视代理报告的故障。 监视代理将其日志写入位于诊断数据本地存储中的 `maeventtable.tsf`。 按照[本地日志提取](#local-log-extraction)部分中的说明打开此文件。 然后尝试确定是否有 `errors` 指示读取本地文件或写入存储失败。
 
 ### <a name="capturing-and-archiving-logs"></a>捕获并存档日志
-若打算联系支持人员，他们可能会要求你做的第一件事是从计算机收集日志。 可以通过自行收集节省时间。 在[日志收集实用程序路径](#log-artifacts-path)上运行 `CollectGuestLogs.exe` 实用程序。 它会在同一文件夹中生成一个 .zip 文件，其中包含所有相关 Azure 日志。
+若打算联系支持人员，他们可能会要求你做的第一件事是从计算机收集日志。 可以通过自行收集节省时间。 在日志收集实用程序路径上运行 `CollectGuestLogs.exe` 实用程序。 它会在同一文件夹中生成一个 .zip 文件，其中包含所有相关 Azure 日志。
 
 ## <a name="diagnostics-data-tables-not-found"></a>找不到诊断数据表
 Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
@@ -213,7 +220,7 @@ Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>如何检查诊断扩展配置
 检查扩展配置的最简方法是转到 [Azure 资源浏览器](http://resources.azure.com)、再转到 Azure 诊断扩展 (IaaSDiagnostics/PaaDiagnostics) 所在的虚拟机或云服务。
 
-或者，通过远程桌面连接到计算机并查看[日志项目路径部分](#log-artifacts-path)中所述的 Azure 诊断配置文件。
+或者，通过远程桌面连接到计算机并查看“日志项目路径部分”中所述的 Azure 诊断配置文件。
 
 在任何一种情况下，都请先搜索“Microsoft.Azure.Diagnostics”，再搜索“xmlCfg”或“WadCfg”字段。
 
@@ -257,7 +264,7 @@ Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
 >[!NOTE]
 > 只需对主 tsf 文件（例如 PerformanceCountersTable.tsf）运行此实用工具。 将自动处理随附的文件（例如 PerformanceCountersTables_\*\*001.tsf、PerformanceCountersTables_\*\*002.tsf 等）。
 
-### <a name="more-about-missing-trace-logs"></a>关于跟踪日志丢失的更多信息
+### 关于跟踪日志丢失的更多信息 <a name="more-about-trace-logs-missing"></a>
 
 >[!NOTE]
 > 以下信息主要适用于 Azure 云服务，除非已在于 IaaS VM 上运行的应用程序上配置了 DiagnosticsMonitorTraceListener。

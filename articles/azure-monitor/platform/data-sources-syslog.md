@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 03/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3b2468895e5c54796b5355eb60a407199e1d6392
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 8ab4a747b455af4588f086c47d75947a00aba8d2
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440502"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586884"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor 中的 Syslog 数据源
 Syslog 是普遍适用于 Linux 的事件日志记录协议。  应用程序将发送可能存储在本地计算机或传递到 Syslog 收集器的消息。  安装适用于 Linux 的 Log Analytics 代理后，它将配置本地 Syslog 后台程序，以将消息转发到此代理。  然后，此代理将消息发送到 Azure Monitor，将在后者中创建相应的记录。  
@@ -30,6 +30,24 @@ Syslog 是普遍适用于 Linux 的事件日志记录协议。  应用程序将�
 
 ![Syslog 收集](media/data-sources-syslog/overview.png)
 
+Syslog 收集器支持以下功能：
+
+* kern
+* user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0-local7
+
+对于任何其他功能，请在 Azure Monitor 中[配置自定义日志数据源](data-sources-custom-logs.md)。
+ 
 ## <a name="configuring-syslog"></a>配置 Syslog
 针对 Linux 的 Log Analytics 代理将仅收集在其配置中指定设施和严重级别的事件。  通过 Azure 门户或通过管理 Linux 代理的配置文件来配置 Syslog。
 

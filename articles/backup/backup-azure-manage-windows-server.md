@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/21/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: c5a3ce184972fff07e52ddb3daf143dc62d5d0fc
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 93197a97cfe674ed64b5f0572160fa06a90d0d3a
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675493"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555467"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 
@@ -68,7 +68,7 @@ ms.locfileid: "52675493"
 
 ![根据严重警报筛选的“备份警报”菜单](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-上图中的“备份警报”菜单已根据以下条件进行筛选：“状态”为“活动”、“严重性”为“严重”、时间为过去 24 小时。
+上图中的“备份警报”菜单按以下条件筛选：“状态”为“活动”，“严重性”为“严重”，时间为前 24 小时。
 
 ## <a name="manage-backup-alerts"></a>管理备份警报
 
@@ -263,17 +263,14 @@ ms.locfileid: "52675493"
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
-**问 1.多长时间后，门户中会反映 Azure 备份代理作业状态？**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>多长时间后，门户中会反映 Azure 备份代理作业状态？
+最长可能需要 15 分钟，Azure 门户才会反映 Azure 备份代理作业状态。
 
-答 1. 最长可能需要 15 分钟，Azure 门户才会反映 Azure 备份代理作业状态。
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>备份作业失败后，需要多长时间才会引发警报？
+Azure 备份失败后，会在 20 分钟内引发警报。
 
-**问 2.备份作业失败后，需要多长时间才会引发警报？**
-
-答 2. Azure 备份失败后，会在 20 分钟内引发警报。
-
-**问 3.是否存在配置了通知却不发送电子邮件的情况？**
-
-答 3. 是的。 在以下情况下，不会发送通知：
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>是否存在配置了通知却不发送电子邮件的情况？
+是的。 在以下情况下，不会发送通知：
 
 * 已将通知配置为每小时发送，并且在一小时内引发并解决了警报
 * 取消了作业
@@ -287,11 +284,11 @@ ms.locfileid: "52675493"
 
 1. 若要验证此进程是否未运行，请打开“任务管理器”并检查 ```OBRecoveryServicesManagementAgent``` 是否正在运行。
 
-2. 如果此进程未运行，请打开“控制面板”，并浏览服务列表。 启动或重启“Azure 恢复服务管理代理”。
+2. 如果此进程未运行，请打开“控制面板”，并浏览服务列表。 启动或重启 **Microsoft Azure 恢复服务管理代理**。
 
-    有关详细信息，请浏览以下位置中的日志：<br/>
-   `<AzureBackup_agent_install_folder>\Azure Recovery Services Agent\Temp\GatewayProvider*` 例如：<br/>
-   `C:\Program Files\Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
+    有关详细信息，请浏览位于以下位置的日志：<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` 例如：<br/>
+   `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>后续步骤
 * [从 Azure 还原 Windows Server 或 Windows 客户端](backup-azure-restore-windows-server.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: a899b27e7db6bab6fa7b3b7ba2374116898f8d71
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 0668585a4979e3e1781d71cb569e5473443eda8c
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440572"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586836"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 日志查询入门
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** 保留结果集中的所有原始列，并定义其他列。 以下查询使用 **extend** 添加 *localtime* 列，该列包含本地化的 TimeGenerated 值。
+**extend** 保留结果集中的所有原始列，并定义其他列。 以下查询使用 **extend** 添加 *EventCode* 列。 请注意，此列可能不会显示在表结果的末尾，在这种情况下，你需要展开记录的详细信息才能查看此列。
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize：聚合行组
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>按时间列汇总
 此外，分组结果可以基于时间列或其他连续值。 不过，只是汇总 `by TimeGenerated` 会针对时间范围内的每一毫秒创建组，因为这些值是唯一的。 
 
-若要创建基于连续值的组，最好是使用 **bin** 将范围划分为可管理的单位。 以下查询分析 *Perf* 记录，这些记录度量特定计算机上的可用内存 (*Available MBytes*)。 它计算过去 7 天内每个 1 小时时段的平均值：
+若要创建基于连续值的组，最好是使用 **bin** 将范围划分为可管理的单位。 以下查询分析 *Perf* 记录，这些记录度量特定计算机上的可用内存 (*Available MBytes*)。 它计算过去 7 天内每 1 小时时段的平均值：
 
 ```Kusto
 Perf 

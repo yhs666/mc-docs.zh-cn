@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 02/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: adeee83ec72469af6c32fba776e02bb74af6a405
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 2071d7e7ed8a39b81437e2a33a267fb13b2c38ff
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441025"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586757"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Azure Monitor 日志查询中的计算机组
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的计算机组
 使用 Azure Monitor 中的计算机组可为一组特定的计算机设定[日志查询](../log-query/log-query-overview.md)的范围。  每个组使用定义的查询或通过从不同源导入组填充计算机。  当日志查询中包括组时，结果仅限于与组中的计算机匹配的记录。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "56441025"
 |:---|:---|
 | Name   | 要在门户中显示的查询名称。 |
 | 函数别名 | 查询中用于标识计算机组的唯一别名。 |
-| 类别       | 用于在门户中对查询进行组织的类别。 |
+| Category       | 用于在门户中对查询进行组织的类别。 |
 
 
 ### <a name="active-directory"></a>Active Directory
@@ -127,15 +127,15 @@ ms.locfileid: "56441025"
 
 | 属性 | 说明 |
 |:--- |:--- |
-| 类型 |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |成员计算机的名称。 |
-| 组 |组名称。 |
-| GroupFullName |包括源和源名称的组的完整路径。 |
-| GroupSource |从中收集组的源。 <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |从中收集组的源名称。  对于 Active Directory，这是域名。 |
-| ManagementGroupName |SCOM 代理的管理组名称。  对于其他代理，这是 AOI-\<工作区 ID\> |
-| TimeGenerated |创建或更新计算机组的日期和时间。 |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |成员计算机的名称。 |
+| `Group` |组名称。 |
+| `GroupFullName` |包括源和源名称的组的完整路径。 |
+| `GroupSource` |从中收集组的源。 <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |从中收集组的源名称。  对于 Active Directory，这是域名。 |
+| `ManagementGroupName` |SCOM 代理的管理组名称。  对于其他代理，这是 AOI-\<工作区 ID\> |
+| `TimeGenerated` |创建或更新计算机组的日期和时间。 |
 
 ## <a name="next-steps"></a>后续步骤
 * 了解[日志查询](../log-query/log-query-overview.md)以便分析从数据源和解决方案中收集的数据。  

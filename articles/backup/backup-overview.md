@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: b73bc8a27bb74852d2043e9db7179686db361cb3
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 2f53edf242d49ebb70d6af3c688acd96d232f752
+ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686319"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555445"
 ---
 # <a name="what-is-azure-backup"></a>什么是 Azure 备份？
 
@@ -31,11 +31,7 @@ Azure 备份具有以下主要优势：
 - **无限数据传输**：Azure 备份不会限制传输的入站或出站数据量，不会对传输的数据收费。
     - 出站数据是指还原操作期间从恢复服务保管库传输的数据。
     - 如果使用 Azure 导入/导出服务执行脱机初始备份以导入大量数据，则入站数据将产生相关费用。  [了解详细信息](backup-azure-backup-import-export.md)。
-- **保护数据安全**：
-    - 使用 AES256 在本地计算机上对本地传输数据进行加密。 传输的数据受存储和备份之间的 HTTPS 保护。 iSCSI 协议可保护在备份和用户计算机之间传输的数据。 安全隧道用于保护 iSCSI 通道。
-    - 进行从本地到 Azure 的备份时，使用你在设置备份时提供的通行短语对 Azure 中的数据进行静态加密。 通行短语或密钥绝不会传输或存储到 Azure 中。 如有必要还原任何数据，只需具有加密通行短语或密码即可。
-    - 对于 Azure VM，使用存储服务加密 (SSE) 对数据进行静态加密。 备份会在存储数据之前自动加密数据。 Azure 存储会在检索数据之前解密数据。
-    - 备份也支持使用 Azure 磁盘加密 (ADE) 进行加密的 Azure VM。 [了解详细信息](backup-azure-vms-introduction.md)。
+- **保护数据安全**：Azure 备份为保护传输中数据和静态数据提供解决方案。
 - **获取应用一致性备份**：应用程序一致性备份意味着恢复点包含还原备份副本所需的所有数据。 Azure 备份提供了应用程序一致性备份，确保了还原数据时无需额外的修补程序。 还原应用程序一致型数据可减少还原时间，因此可快速恢复到运行状态。
 - **保留短期和长期数据**：可将恢复服务保管库用于短期和长期数据保留。 Azure 不会限制恢复服务保管库中数据的保留时间长度。 可将数据保留任意时间。 Azure 备份的限制为每个受保护实例仅限 9999 个恢复点。 [详细了解](backup-introduction-to-azure-backup.md#backup-and-retention)此限制对备份需求的影响。
 - **自动存储管理** - 混合环境常常需要异类存储（部分在本地，部分在云）。 通过 Azure 备份，使用本地存储设备时无需付费。 Azure 备份会自动分配和管理备份存储，且采用即用即付模型，因此，你只需为消耗的存储付费。 [详细了解](https://www.azure.cn/pricing/details/backup)定价情况。
@@ -75,10 +71,6 @@ Azure 备份可以备份本地计算机和 Azure VM。
 
 
 ## <a name="why-use-a-backup-server"></a>为何要使用备份服务器？
-
-
-
-
 将计算机和应用备份到 MABS/DPM 存储，然后将 DPM/MABS 存储备份到保管库的优点如下所述：
 
 - 备份到 MABS/DPM 可以在文件/文件夹/卷备份以及计算机状态备份（裸机、系统状态）的基础上提供应用感知型备份，后者已针对常用应用（例如 SQL Server、Exchange 和 SharePoint）进行优化。

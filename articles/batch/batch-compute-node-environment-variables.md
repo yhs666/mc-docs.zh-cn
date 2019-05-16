@@ -1,6 +1,6 @@
 ---
-title: 计算节点环境变量 - Azure Batch | Azure Docs
-description: Azure Batch 分析的计算节点环境变量参考。
+title: 任务运行时环境变量 - Azure Batch | Azure Docs
+description: Azure Batch 分析的任务运行时环境变量指导和参考。
 services: batch
 author: lingliw
 manager: digimobile
@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f1fb5f9e6de8cf393870497dad92cef0c00e41ff
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: a5c5758ce6fa6df2b99305a42938d3e30d9d648e
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987041"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586841"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
 
@@ -28,6 +28,11 @@ ms.locfileid: "56987041"
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
 这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](batch-api-basics.md#connecting-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
+若要获取环境变量的当前值，请在 Windows 计算节点上启动 `cmd.exe`，或在 Linux 节点上启动 `/bin/sh`：
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>环境变量的命令行扩展
 
@@ -42,7 +47,9 @@ ms.locfileid: "56987041"
 | 变量名称                     | 说明                                                              | 可用性 | 示例 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 任务所属的 Batch 帐户名。                  | 所有任务。   | mybatchaccount |
-| AZ_BATCH_AUTHENTICATION_TOKEN   | 一种身份验证令牌，用于授予对一组有限的 Batch 服务操作的访问权限。 仅当[添加任务](https://docs.microsoft.com/rest/api/batchservice/task/add#request-body)时设置 [authenticationTokenSettings](https://docs.microsoft.com/rest/api/batchservice/task/add#authenticationtokensettings) 时，才会显示此环境变量。 令牌值在 Batch API 中用作凭据以创建 Batch 客户端，例如在 [BatchClient.Open() .NET API](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.batchclient.open?view=azure-dotnet#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_) 中。 | 所有任务。 | OAuth2 访问令牌 |
+| AZ_BATCH_ACCOUNT_URL            | Batch 帐户的 URL。 | 所有任务。 | `https://myaccount.chinanorth.batch.chinacloudapi.cn` |
+| AZ_BATCH_APP_PACKAGE            | 所有应用包环境变量的前缀。 例如，如果应用程序“Foo”版本“1”已安装到池，则环境变量为 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向包下载到的位置（文件夹）。 | 包含关联应用包的任何任务。 如果节点本身拥有应用程序包，则还可用于所有任务。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | 一种身份验证令牌，用于授予对一组有限的 Batch 服务操作的访问权限。 仅当[添加任务](/rest/api/batchservice/task/add#request-body)时设置 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) 时，才会显示此环境变量。 令牌值在 Batch API 中用作凭据以创建 Batch 客户端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_) 中。 | 所有任务。 | OAuth2 访问令牌 |
 | AZ_BATCH_CERTIFICATES_DIR       | [任务工作目录][files_dirs]内的目录，会在其中为 Linux 计算节点存储证书。 请注意，此环境变量不适用于 Windows 计算节点。                                                  | 所有任务。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 使用 `nodeIP,nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值为 `true` 和 `false`。| 多实例主要和子任务。 | `true` |
@@ -60,7 +67,6 @@ ms.locfileid: "56987041"
 | AZ_BATCH_TASK_DIR               | 节点上的[任务目录][files_dirs]的完整路径。 此目录包含任务的 `stdout.txt` 和 `stderr.txt`，以及 AZ_BATCH_TASK_WORKING_DIR。 | 所有任务。 | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | 当前任务的 ID。 | 除启动任务以外的所有任务。 | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | [多实例任务][multi_instance]的主要任务和每个子任务的目录路径相同。 路径存在于运行多实例任务的每个节点上，并且在该节点上运行的任务命令（[协调命令][coord_cmd]和[应用程序命令][app_cmd]）对其具有读取/写入权限。 在其他节点上执行的子任务或主要任务不具有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 多实例主要和子任务。 | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | 公共目录，用于存储要在节点上的任务之间共享的数据。 | 所有任务。 | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | 节点上的[任务工作目录][files_dirs]的完整路径。 当前正在运行的任务具有对此目录的读取/写入权限。 | 所有任务。 | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | 分配给[多实例任务][multi_instance]的节点和每个节点的内核数的列表。 使用 `numNodes<space>node1IP<space>node1Cores<space>` 格式列出了节点和内核<br/>`node2IP<space>node2Cores<space> ...`，其中节点数后跟一个或多个节点 IP 地址和每个节点的内核数。 |  多实例主要和子任务。 |`2 10.0.0.4 1 10.0.0.5 1` |
 

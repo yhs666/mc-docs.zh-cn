@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 030e238c6974c4fbff68a901f5bf9c1633b94cf6
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 7cad81f5095884fc0594990b34f54ac1ef231722
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686398"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586864"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理经典指标警报
 
@@ -35,7 +35,7 @@ Azure Monitor 中的经典指标警报提供了一种在指标超出阈值时获
 
 6. 如果希望在触发警报时管理员和共同管理员收到电子邮件通知，则选择“向所有者发送电子邮件...”。
 
-7. 如果希望在触发警报时向其他电子邮件发送通知，请将其添加到“其他管理员电子邮件”字段。 使用分号分隔多个电子邮件，格式如下： https://www.azure.cn/zh-cn/support/contact/
+7. 如果有任何问题，请联系[支持团队](https://www.azure.cn/zh-cn/support/contact/)
 
 8. 如果希望在触发警报时调用有效的 URI，请将其放入“Webhook”字段中。
 

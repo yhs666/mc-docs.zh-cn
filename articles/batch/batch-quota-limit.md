@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 1/3/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: d7c3c86d72282a868685eac29c25d6124569feb2
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: c6433ac54c2ecb51d460b65a61c60a02ef39ffe8
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996526"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586842"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -64,6 +64,7 @@ ms.locfileid: "53996526"
 | 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 | 4 x 节点核心数 |
 | 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 | 20 个 |
 | 每个应用程序的应用程序包数 | 40 |
+| 每个池的应用程序包数 | 10 个 |
 | 最长任务生存期 | 180 天<sup>1</sup> |
 
 <sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 180 天。 已完成的任务会保存 7 天；最长生存期内未完成的任务的数据不可访问。

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0473128c4ea5807cf6cb925972c8d79382421d28
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 73a61b6544bf7667b93c122f74c371507fcefeea
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686719"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586892"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor 中的指标
 
@@ -35,7 +35,7 @@ Azure Monitor 中的指标是能够为近实时方案提供支持的轻型数据
 |  |  |
 |:---|:---|
 | 分析 | 使用[指标资源管理器](metrics-charts.md)可以在图表中分析收集的指标，并比较来自不同资源的指标。 |
-| 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)用于在交互式报表中合并多个数据集。将查询结果导出到 [Grafana](grafana-plugin.md)，以利用其仪表板功能以及合并其他数据源。 |
+| 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个工作簿用于在交互式报表中合并多个数据集。将查询结果导出到 [Grafana](grafana-plugin.md)，以利用其仪表板功能以及合并其他数据源。 |
 | 警报 | 配置指标[警报规则](alerts-metric.md)，以便在指标值超过阈值时发送通知或执行[自动化操作](action-groups.md)。 |
 | 自动化 |  根据超过阈值的指标值，使用[自动缩放](autoscale-overview.md)来增加或减少资源。 |
 | 导出 | [将指标路由到日志](diagnostic-logs-stream-log-store.md)，以连同 Azure Monitor 日志中的数据一起分析 Azure Monitor 指标中的数据，并将指标值存储 93 天以上。<br>将指标流式传输到[事件中心](stream-monitoring-data-event-hubs.md)，以将其路由到外部系统。 |
@@ -52,8 +52,6 @@ Azure Monitor 指标收集的数据存储在时序数据库中，该数据库经
 * 指标名称
 * 值本身
 * 如[多维指标](#multi-dimensional-metrics)中所述，某指标可能包含多个维度。 自定义指标最多可以包含 10 个维度。
-
-Azure 中的指标将存储 93 天。 可[将 Azure Monitor 资源的平台指标发送到 Log Analytics 工作区](diagnostic-logs-stream-log-store.md)以分析长期趋势。
 
 ## <a name="multi-dimensional-metrics"></a>多维指标
 指标数据的一大难题在于，它通常包含有限的信息，以致无法提供所收集值的上下文。 Azure Monitor 通过多维指标解决了这一难题。 指标维度是携带附加数据来描述指标值的名称/值对。 例如，指标“可用磁盘空间”可能包含名为“驱动器”并具有值“C:”和“D:”的维度，通过此维度可以查看所有驱动器的可用磁盘空间，或者可以分别查看每个驱动器的可用磁盘空间。
@@ -99,7 +97,7 @@ Azure Monitor 从三个基本源收集指标。 在 Azure Monitor 指标数据�
 
 **应用程序指标**由 Application Insights 为受监视的应用程序创建，可帮助检测性能问题，以及跟踪应用程序的用法趋势。 此类指标包括“服务器响应时间”和“浏览器异常”等值。
 
-**自定义指标**是在自动提供的标准指标之外定义的指标。 可以在受 Application Insights 监视的[应用程序中定义自定义指标](../app/api-custom-events-metrics.md)，或者使用[自定义指标 API](metrics-store-custom-rest-api.md) 为 Azure 服务创建自定义指标。
+**自定义指标**是在自动提供的标准指标之外定义的指标。 可以在受 Application Insights 监视的应用程序中定义自定义指标，或者使用[自定义指标 API](metrics-store-custom-rest-api.md) 为 Azure 服务创建自定义指标。
 
 
 ## <a name="next-steps"></a>后续步骤

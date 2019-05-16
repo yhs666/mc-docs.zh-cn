@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: c2552021ee811113b76edb2fa9070fb02518c176
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 206ae24db75689d6b14627fdc43f322dae1fe97d
+ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440744"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65586856"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 此 Azure 常见问题解答是有关世纪互联 Azure 中 Log Analytics 的常见问题列表。 如果有与 Log Analytics 有关的任何其他问题，请转到[论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
 
 
@@ -45,7 +46,7 @@ Azure 门户中的新的日志体验基于高级分析门户，但是仍然可�
 
 答：经典日志体验目前支持自定义字段提取。 
 
-### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>问： 在新日志中，何处可以找到“列表”视图？ 
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>问： 在新日志中的何处可以找到“列表”视图？ 
 
 答：新日志中没有“列表”视图可用。 在结果表中，每条记录的左侧有一个箭头。 单击此箭头可以打开特定记录的详细信息。 
 
@@ -69,7 +70,7 @@ Azure 门户中的新的日志体验基于高级分析门户，但是仍然可�
 答：视图设计器在日志中仅供分配了“参与者”权限或更高权限的用户使用。
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>问： 我仍可以在 Azure 之外使用分析门户吗？
-A. 可以，Azure 中的“日志”页和高级分析门户基于相同的代码。 Log Analytics 作为一项功能集成到 Azure Monitor 中，目的是提供更统一的监视体验。 仍可以使用以下 URL 访问分析门户： https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
+A. 可以，Azure 中的“日志”页和高级分析门户基于相同的代码。 Log Analytics 作为一项功能集成到 Azure Monitor 中，目的是提供更统一的监视体验。 你仍然可以使用以下 URL 访问 Analytics 门户：https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
 
 
 
@@ -230,7 +231,7 @@ A. 带宽是已发送数据量的一个函数。 数据通过网络发送时会�
 A. 每个代理发送的数据量取决于：
 
 * 已启用的解决方案
-* 所收集的日志和性能计数器的数量
+* 正在收集的日志和性能计数器的数量
 * 日志中的数据量
 
 一个好的方法就是利用免费定价层来搭载数台服务器并测量典型数据量。 总体使用情况显示在“使用情况”页。
