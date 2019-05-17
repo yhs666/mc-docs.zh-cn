@@ -8,12 +8,12 @@ ms.author: v-yeche
 ms.topic: article
 origin.date: 01/09/2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 773ab48c8c704a410f16a696dcc6de03c85a581c
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: c91e558349db65b73e31194e9ade1212d517d52e
+ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520709"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65552109"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>教程：使用 Jenkins 持续集成和部署从 GitHub 部署到 Azure Kubernetes 服务 (AKS)
 

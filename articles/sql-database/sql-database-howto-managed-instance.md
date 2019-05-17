@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: c8a9debcd80d9350273b56d87ebb52e50a084bab
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 04/16/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 3d8440ff8b4baaa55b7684b63ab59845df19511f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625643"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854973"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>如何在 Azure SQL 数据库中使用托管实例
 
@@ -37,7 +37,7 @@ ms.locfileid: "58625643"
 - [为托管实例配置现有的 VNet 和子网](sql-database-managed-instance-configure-vnet-subnet.md) - 如果想要配置现有的 VNet 和子网，以便在其中部署托管实例，可以在此处找到脚本，以便检查[网络要求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)并根据要求进行子网配置。
 - [配置自定义 DNS](sql-database-managed-instance-custom-dns.md) - 如果需要通过 DB 邮件配置文件的链接服务器从托管实例访问自定义域上的外部资源，则需配置自定义 DNS。
 - [同步网络配置](sql-database-managed-instance-sync-network-configuration.md) - 虽然[已将应用与 Azure 虚拟网络集成](../app-service/web-sites-integrate-with-vnet.md)，仍可能出现无法建立与托管实例的连接的情况。 可尝试刷新服务计划的网络配置。
-- [查找管理终结点 IP 地址](sql-database-managed-instance-find-management-endpoint-ip-address.md) - 托管实例仅将公共终结点用于管理目的。 可以使用此处所述的脚本确定管理终结点的 IP 地址。
+- [查找管理终结点 IP 地址](sql-database-managed-instance-find-management-endpoint-ip-address.md) - 托管实例将公共终结点用于管理目的。 可以使用此处所述的脚本确定管理终结点的 IP 地址。
 - [验证内置防火墙保护](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) - 托管实例受内置防火墙的保护，该防火墙仅在必需端口上允许流量。 可以使用本指南中介绍的脚本来检查并验证内置防火墙规则。
 - [连接应用程序](sql-database-managed-instance-connect-app.md) - 托管实例置于你自己的专用 Azure VNet 中，使用的 IP 地址是专用的。 了解如何通过不同的模式将应用程序连接到托管实例。
 

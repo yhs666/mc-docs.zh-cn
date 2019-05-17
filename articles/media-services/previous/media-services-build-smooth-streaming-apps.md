@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: d9df7ec2b591dc287edff9e5fd4334e189df6cca
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a4e979aac147336c473593de664e01be5a5f20f5
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626060"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550019"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序  
 
@@ -61,32 +61,32 @@ ms.locfileid: "58626060"
 3. 修改代码隐藏文件
 4. 编译和测试应用程序
 
-**创建 Windows 应用商店项目**
+### <a name="to-create-a-windows-store-project"></a>创建 Windows Store 项目
 
 1. 运行 Visual Studio；支持版本 2012 到 2015。
 2. 在“文件”菜单中，单击“新建”，并单击“项目”。
 3. 在“新建项目”对话框中，键入或选择以下值：
 
-| Name | 值 |
-| --- | --- |
-| 模板组 |已安装/模板/Visual C#/Windows 应用商店 |
-| 模板 |空白应用 (XAML) |
-| Name |SSPlayer |
-| 位置 |C:\SSTutorials |
-| 解决方案名称 |SSPlayer |
-| 创建解决方案的目录 |（选定） |
+    | Name | Value |
+    | --- | --- |
+    | 模板组 |已安装/模板/Visual C#/Windows 应用商店 |
+    | 模板 |空白应用 (XAML) |
+    | Name |SSPlayer |
+    | 位置 |C:\SSTutorials |
+    | 解决方案名称 |SSPlayer |
+    | 创建解决方案的目录 |（选定） |
 
 1. 单击 **“确定”**。
 
-**添加对平滑流式处理客户端 SDK 的引用**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>添加对平滑流式处理客户端 SDK 的引用
 
 1. 在解决方案资源管理器中，右键单击“SSPlayer”，并单击“添加引用”。
 2. 键入或选择以下值：
 
-| Name | 值 |
-| --- | --- |
-| 引用组 |Windows/扩展 |
-| 参考 |选择适用于 Windows 8 和 Microsoft Visual C++ 运行时程序包的 Microsoft 平滑流式处理客户端 SDK |
+    | Name | Value |
+    | --- | --- |
+    | 引用组 |Windows/扩展 |
+    | 参考 |选择适用于 Windows 8 和 Microsoft Visual C++ 运行时程序包的 Microsoft 平滑流式处理客户端 SDK |
 
 1. 单击 **“确定”**。 
 
@@ -96,6 +96,7 @@ ms.locfileid: "58626060"
 
 1. 在解决方案资源管理器中，双击“MainPage.xaml”以在设计视图中将它打开。
 2. 在该 XAML 文件中找到 &lt;Grid&gt; 和 &lt;/Grid&gt; 标记，并在这两个标记之间粘贴以下代码：
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -147,7 +148,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 
 在此 XAML 文件中，某些事件处理程序与控件关联。  必须定义这些事件处理程序。
 
-**修改代码隐藏文件**
+### <a name="to-modify-the-code-behind-file"></a>修改代码隐藏文件
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在该文件的顶部，添加以下 using 语句：
@@ -211,7 +212,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 
 ![创建平滑流式处理 Windows 应用商店应用程序时 Visual Studio 中的代码视图][CodeViewPic]
 
-**编译和测试应用程序**
+### <a name="to-compile-and-test-the-application"></a>编译和测试应用程序
 
 1. 在“生成”菜单中，单击“配置管理器”。
 2. 更改“活动解决方案平台”  以匹配开发平台。
@@ -239,7 +240,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 5. 添加滚动条相关的代码
 6. 编译和测试应用程序
 
-**注册平滑流式处理字节流处理程序并传递属性集**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>注册平滑流式处理字节流处理程序并传递属性集
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在该文件的开头，添加以下 using 语句：
@@ -284,7 +285,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 6. 按 **CTRL+S** 保存文件。
 
-**添加自适应源管理器级别事件处理程序**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>添加自适应源管理器级别事件处理程序
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在 **MainPage** 类中，添加以下数据成员：
@@ -312,7 +313,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 5. 按 **CTRL+S** 保存文件。
 
-**添加自适应源级别事件处理程序**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>添加自适应源级别事件处理程序
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在 **MainPage** 类中，添加以下数据成员：
@@ -363,7 +364,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 
 相同的事件也可以在自适应源管理器级别使用，因此可用于处理应用中所有媒体元素通用的功能。 每个 AdaptiveSource 包含其自身的事件，所有的 AdaptiveSource 事件将级联在 AdaptiveSourceManager 之下。
 
-**添加媒体元素事件处理程序**
+### <a name="to-add-media-element-event-handlers"></a>添加媒体元素事件处理程序
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在 **MainPage** 类的末尾，添加以下事件处理程序：
@@ -399,7 +400,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 4. 按 **CTRL+S** 保存文件。
 
-**添加滚动条相关的代码**
+### <a name="to-add-slider-bar-related-code"></a>添加与滚动条相关的代码
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在该文件的开头，添加以下 using 语句：
@@ -532,7 +533,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 8. 按 **CTRL+S** 保存文件。
 
-**编译和测试应用程序**
+### <a name="to-compile-and-test-the-application"></a>编译和测试应用程序
 
 1. 按 **F6** 编译项目。 
 2. 按 **F5** 运行应用程序。
@@ -549,7 +550,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 2. 修改代码隐藏文件
 3. 编译和测试应用程序
 
-**修改 XAML 文件**
+### <a name="to-modify-the-xaml-file"></a>修改 XAML 文件
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看设计器”。
 2. 找到 &lt;Grid.RowDefinitions&gt;，并按如下所示修改 RowDefinitions：
@@ -592,7 +593,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 4. 按 **CTRL+S** 保存更改。
 
-**修改代码隐藏文件**
+### <a name="to-modify-the-code-behind-file"></a>修改代码隐藏文件
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在 SSPlayer 命名空间中添加一个新类：
@@ -808,24 +809,26 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
             changeStreams(selectedStreams);
         }
    ```
-   **编译和测试应用程序**
 
-7. 按 **F6** 编译项目。 
-8. 按 **F5** 运行应用程序。
-9. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
-10. 单击“设置源” 。 
-11. 默认语言为 audio_eng。 尝试在 audio_eng 和 audio_es 之间切换。 每次选择一个新流时，都必须单击“提交”按钮。
+### <a name="to-compile-and-test-the-application"></a>编译和测试应用程序
+
+1. 按 **F6** 编译项目。 
+2. 按 **F5** 运行应用程序。
+3. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
+4. 单击“设置源” 。 
+5. 默认语言为 audio_eng。 尝试在 audio_eng 和 audio_es 之间切换。 每次选择一个新流时，都必须单击“提交”按钮。
 
 已完成第 3 课。  本课中添加了用于选择流的功能。
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>第 4 课：选择平滑流式处理曲目
+
 平滑流式处理演播内容可能包含以不同质量级别（比特率）和分辨率编码的多个视频文件。 在本课中，你将要学习如何使用户能够选择曲目。 本课包含以下过程：
 
 1. 修改 XAML 文件
 2. 修改代码隐藏文件
 3. 编译和测试应用程序
 
-**修改 XAML 文件**
+### <a name="to-modify-the-xaml-file"></a>修改 XAML 文件
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看设计器”。
 2. 找到名为 gridStreamAndBitrateSelection 的 &lt;Grid&gt; 标记，并在该标记的末尾追加以下代码：
@@ -847,7 +850,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 3. 按 **CTRL+S** 保存更改
 
-**修改代码隐藏文件**
+### <a name="to-modify-the-code-behind-file"></a>修改代码隐藏文件
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，并单击“查看代码”。
 2. 在 SSPlayer 命名空间中添加一个新类：
@@ -1010,13 +1013,14 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
             changeStreams(selectedStreams);
          }
    ```
-   **编译和测试应用程序**
+   
+### <a name="to-compile-and-test-the-application"></a>编译和测试应用程序
 
-7. 按 **F6** 编译项目。 
-8. 按 **F5** 运行应用程序。
-9. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
-10. 单击“设置源” 。 
-11. 默认情况下，已选中视频流的所有曲目。 如果要体验比特率的变化，可以先选择最低的可用比特率，再选择最高的可用比特率。 每次更改后都必须单击“提交”。  可以看到视频质量的变化。
+1. 按 **F6** 编译项目。 
+2. 按 **F5** 运行应用程序。
+3. 在应用程序的顶部，可以使用默认的平滑流式处理 URL，或输入一个不同的 URL。 
+4. 单击“设置源” 。 
+5. 默认情况下，已选中视频流的所有曲目。 如果要体验比特率的变化，可以先选择最低的可用比特率，再选择最高的可用比特率。 每次更改后都必须单击“提交”。  可以看到视频质量的变化。
 
 已完成第 4 课。  在本课中，已添加了用于选择曲目的功能。
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/18/2019
-ms.date: 02/26/2019
+origin.date: 03/24/2019
+ms.date: 04/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d73fdb8dd55f5f90c03d5a1cf79a69a1b0dd7084
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 25ae0b652cf9d69acbb386264d7b24503ef880d4
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836990"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854470"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>对 Azure 资源的 RBAC 问题进行故障排除
 
@@ -29,23 +29,31 @@ ms.locfileid: "56836990"
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 角色分配出现问题
 
-- 如果因为**添加角色分配**选项被禁用或者因为收到权限错误而无法添加角色分配，请检查你使用的角色在你尝试分配角色的作用域内是否具有 `Microsoft.Authorization/roleAssignments/*` 权限。 如果不具有此权限，请联系你的订阅管理员。
-- 如果尝试创建资源时遇到权限错误，请检查使用的角色在所选范围内是否有权创建资源。 例如，你可能需要拥有“参与者”权限。 如果没有此权限，请联系订阅管理员。
-- 如果尝试创建或更新支持票证时收到权限错误，请检查你使用的角色是否具有 `Microsoft.Support/*` 权限，例如[支持请求参与者](built-in-roles.md#support-request-contributor)。
-- 如果尝试分配角色时收到“超出了角色分配数”错误，请尝试通过改为将角色分配给组来减少角色分配数。 Azure 对于每个订阅最多支持 **2000** 个角色分配。
+- 如果你因为“添加” > “添加角色分配”选项被禁用或者因为收到权限错误“具有此对象 id 的客户端无权执行操作”而无法在 Azure 门户中的“访问控制(IAM)”上添加角色分配，请检查你当前登录时使用的用户是否为在你尝试分配角色的范围中具有 `Microsoft.Authorization/roleAssignments/write` 权限的角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
+- 如果尝试分配角色时收到错误消息“无法创建更多的角色分配(代码:RoleAssignmentLimitExceeded)”，请尝试通过改为将角色分配给组来减少角色分配数。 Azure 对于每个订阅最多支持 **2000** 个角色分配。
 
 ## <a name="problems-with-custom-roles"></a>自定义角色出现问题
 
-- 如果无法更新现有的自定义角色，请检查你是否拥有 `Microsoft.Authorization/roleDefinition/write` 权限。
-- 如果无法更新现有的自定义角色，请检查租户中是否删除了一个或多个可分配范围。 自定义角色的 `AssignableScopes` 属性控制[谁可以创建、删除、更新或查看自定义角色](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role)。
-- 如果尝试创建新角色时遇到“超出了角色定义限制”错误，请删除任何未使用的自定义角色。 还可以尝试合并或重复使用任何现有的自定义角色。 Azure 在一个租户中最多支持 **2000** 个自定义角色。
-- 如果无法删除某个自定义角色，请检查是否有一个或多个角色分配仍在使用自定义角色。
+- 如果需要了解有关如何创建自定义角色的步骤，请参阅使用 [Azure PowerShell](tutorial-custom-role-powershell.md) 或 [Azure CLI](tutorial-custom-role-cli.md) 自定义角色的教程。
+- 如果你无法更新现有的自定义角色，请检查你当前登录时使用的用户是否分配有具有 `Microsoft.Authorization/roleDefinition/write` 权限的角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
+- 如果你无法删除自定义角色并且收到错误消息“已存在引用此角色的角色分配(代码:RoleDefinitionHasAssignments)”，则表明存在仍然使用此自定义角色的角色分配。 请删除这些角色分配，然后再次尝试删除自定义角色。
+- 如果尝试创建新的自定义角色时收到错误消息“角色定义超限。 无法创建更多的角色定义(代码:RoleDefinitionLimitExceeded)”，请删除未在使用的任何自定义角色。 Azure 在一个租户中最多支持 **2000** 个自定义角色。
+- 如果尝试更新自定义角色时收到类似于“客户端具有在范围 '/subscriptions/{subscriptionid}' 上执行操作 'Microsoft.Authorization/roleDefinitions/write' 的权限，但是未找到链接的订阅”的错误，请检查是否已在租户中删除了一个或多个[可分配的范围](role-definitions.md#assignablescopes)。 如果删除了作用域，请创建一个支持票证，因为目前没有自助服务解决方案可用。
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>在租户之间移动订阅时恢复 RBAC
 
-- 如果你需要了解将订阅转让给其他帐户的步骤，请参阅[将 Azure 订阅所有权转让给其他帐户](/billing/billing-subscription-transfer)。
-- 如果将订阅转移到不同的租户，所有角色分配将从源租户中永久删除，而不会迁移到目标租户。 必须在目标租户中重新创建角色分配。
-- 如果你是全局管理员并且失去了对某个订阅的访问权限，请使用“Azure 资源的访问权限管理”开关暂时[提升访问权限](elevate-access-global-admin.md)，以重新获取对该订阅的访问权限。
+- 如果你需要了解将订阅转让给其他 Azure AD 租户的步骤，请参阅[将 Azure 订阅所有权转让给其他帐户](../billing/billing-subscription-transfer.md)。
+- 如果将订阅转让给其他 Azure AD 租户，所有角色分配都将从源 Azure AD 租户中永久删除，而不会迁移到目标 Azure AD 租户。 必须在目标租户中重新创建角色分配。
+- 如果你是 Azure AD 全局管理员并且在租户之间移动某个订阅后对其没有访问权限，请使用“Azure 资源的访问权限管理”开关暂时[提升你的访问权限](elevate-access-global-admin.md)来获取对订阅的访问权限。
+
+## <a name="issues-with-service-admins-or-co-admins"></a>服务管理员或共同管理员出现问题
+
+- 如果遇到服务管理员或协同管理员方面的问题，请参阅[添加或更改 Azure 订阅管理员](/billing/billing-add-change-azure-subscription-administrator)以及[经典订阅管理员角色、Azure RBAC 角色和 Azure AD管理员角色](rbac-and-directory-admin-roles.md)。
+
+## <a name="access-denied-or-permission-errors"></a>访问被拒绝或权限错误
+
+- 如果尝试创建资源时收到权限错误“具有此对象 id 的客户端无权在此作用域内执行操作(代码:AuthorizationFailed)”，请检查你当前登录时使用的用户是否分配有在所选作用域内对资源具有写入权限的角色。 例如，若要管理某个资源组中的虚拟机，则你应当在该资源组（或父作用域）中具有[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色。 有关每个内置角色的权限列表，请参阅 [Azure 资源的内置角色](built-in-roles.md)。
+- 如果尝试创建或更新支持票证时收到权限错误“无权创建支持票证”，请检查你当前登录时使用的用户是否分配有具有 `Microsoft.Support/supportTickets/write` 权限的角色，例如[支持请求参与者](built-in-roles.md#support-request-contributor)。
 
 ## <a name="rbac-changes-are-not-being-detected"></a>未检测到 RBAC 更改
 
@@ -55,16 +63,16 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 
 如果为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有**写**访问权限（参与者或所有者），并且在任何只读方案中不可用。
 
-- 命令（例如启动、停止等。）
-- 更改设置（如常规配置、缩放设置、备份设置和监视设置）
-- 访问发布凭据和其他机密（如应用设置和连接字符串）
-- 流式传输日志
-- 诊断日志配置
-- 控制台（命令提示符）
-- 活动和最新部署（适用于本地 Git 持续部署）
-- 估计费用
-- Web 测试
-- 虚拟网络（只在虚拟网络是由具有写入权限的用户在以前配置时，才对读者可见）。
+* 命令（例如启动、停止等。）
+* 更改设置（如常规配置、缩放设置、备份设置和监视设置）
+* 访问发布凭据和其他机密（如应用设置和连接字符串）
+* 流式处理日志
+* 诊断日志配置
+* 控制台（命令提示符）
+* 活动和最新部署（适用于本地 Git 持续部署）
+* 估计费用
+* Web 测试
+* 虚拟网络（只在虚拟网络是由具有写入权限的用户在以前配置时，才对读者可见）。
 
 如果无法访问以上任何磁贴，则需要让管理员提供对 Web 应用的“参与者”访问权限。
 
@@ -78,16 +86,16 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 
 这些项需要对与网站对应的应用服务计划具有写入权限：  
 
-- 查看 Web 应用的定价层（“免费”或“标准”）  
-- 规模配置（实例数、虚拟机大小、自动缩放设置）  
-- 配额（存储空间、带宽、CPU）  
+* 查看 Web 应用的定价层（“免费”或“标准”）  
+* 规模配置（实例数、虚拟机大小、自动缩放设置）  
+* 配额（存储空间、带宽、CPU）  
 
 这些项需要对包含网站的整个**资源组**具有**写**访问权限：  
 
-- SSL 证书和绑定（SSL 证书可以在同一资源组和地理位置中的站点之间共享）  
-- 警报规则  
-- 自动缩放设置  
-- Web 测试  
+* SSL 证书和绑定（SSL 证书可以在同一资源组和地理位置中的站点之间共享）  
+* 警报规则  
+* 自动缩放设置  
+* Web 测试  
 
 ## <a name="virtual-machine-features-that-require-write-access"></a>需要写访问权限的虚拟机功能
 
@@ -97,16 +105,16 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 
 这些项需要对虚拟机具有写入权限：
 
-- 终结点  
-- IP 地址  
-- 磁盘  
-- 扩展  
+* 终结点  
+* IP 地址  
+* 磁盘  
+* 扩展  
 
 这些项需要对虚拟机和其所在的资源组（以及域名）具有写入权限：  
 
-- 可用性集  
-- 负载均衡集  
-- 警报规则  
+* 可用性集  
+* 负载均衡集  
+* 警报规则  
 
 如果无法访问以上任何磁贴，则需要让管理员提供对资源组的“参与者”访问权限。
 
@@ -119,8 +127,8 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 读者可单击“平台功能”选项卡，然后单击“所有设置”查看与函数应用（类似于 Web 应用）相关的一些设置，但无法修改任何这些设置。
 
 ## <a name="next-steps"></a>后续步骤
-- [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)
-- [查看 Azure 资源的 RBAC 更改的活动日志](change-history-report.md)
+* [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)
+* [查看 Azure 资源的 RBAC 更改的活动日志](change-history-report.md)
 
 
 <!-- Update_Description: wording update -->

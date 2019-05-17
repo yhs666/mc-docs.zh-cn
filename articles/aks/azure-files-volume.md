@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3fa288d7d0379615e997dda2f92fbc343e62c9c0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4831142b870649eae9ef9bcc41c94167692c4278
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626561"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520737"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 文件共享手动创建并使用卷
 
@@ -23,9 +23,11 @@ ms.locfileid: "58626561"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+<!--Not Avaiable on [using the Azure portal][aks-quickstart-portal]-->
+
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
 
@@ -35,7 +37,7 @@ ms.locfileid: "58626561"
 # Change these four parameters as needed for your own environment
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 AKS_PERS_RESOURCE_GROUP=myAKSShare
-AKS_PERS_LOCATION=chinaeast
+AKS_PERS_LOCATION=chinaeast2
 AKS_PERS_SHARE_NAME=aksshare
 
 # Create a resource group
@@ -48,7 +50,7 @@ az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURC
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
 # Create the file share
-az storage share create -n $AKS_PERS_SHARE_NAME
+az storage share create -n $AKS_PERS_SHARE_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING
 
 # Get storage account key
 STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
@@ -113,7 +115,7 @@ kubectl apply -f azure-files-pod.yaml
 Containers:
   mypod:
     Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    image:          dockerhub.azk8s.cn/nginx:1.15.5
+    Image:          dockerhub.azk8s.cn/nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
       Started:      Sat, 02 Mar 2019 00:05:47 +0000
@@ -191,7 +193,7 @@ spec:
 [az-storage-key-list]: https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list
 [az-storage-share-create]: https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[operator-best-practices-storage]: operator-best-practices-storage.md
-[concepts-storage]: concepts-storage.md
+<!--Not Avaiable on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest [operator-best-practices-storage]: operator-best-practices-storage.md [concepts-storage]: concepts-storage.md
+
+<!-- Update_Description: wording update, update link -->

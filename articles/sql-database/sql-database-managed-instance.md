@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 数据库高级数据安全性概述 | Microsoft Docs
-description: 本主题介绍 Azure SQL 数据库高级数据安全性，解释其工作原理，并说明它与 Azure SQL 数据库中的单一或入池数据库的差别。
+description: 本主题介绍 Azure SQL 数据库高级数据安全性，解释其工作原理，并说明它与 Azure SQL 数据库中的单一数据库或共用数据库的差别。
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, vanto
 manager: digimobile
-origin.date: 04/08/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 4b024df93202271e3fd3024d4fc3ab461961c393
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+origin.date: 04/16/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 92168f75f065b36ac8e636ee18b9f6ce5774c2a3
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529199"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854575"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用具有虚拟网络和近 100% 兼容性的 SQL 数据库高级数据安全性
 
@@ -35,14 +35,14 @@ ms.locfileid: "59529199"
 
 托管实例部署选项旨在通过分阶段的发布计划，实现外围应用与最新本地 SQL Server 版本的近乎 100% 的兼容性。
 
-若要在 Azure SQL 数据库部署选项：单一数据库、入池数据库、拖管实例和虚拟机中托管的 SQL Server 之间作出抉择，请参阅[如何在 Azure 中选择适当版本的 SQL Server](sql-database-paas-vs-sql-server-iaas.md)。
+若要在 Azure SQL 数据库部署选项：单一数据库、共用数据库、托管实例和虚拟机中托管的 SQL Server 之间做出抉择，请参阅[如何在 Azure 中选择适当版本的 SQL Server](sql-database-paas-vs-sql-server-iaas.md)。
 
 ## <a name="key-features-and-capabilities"></a>主要特性和功能
 
 托管实例结合了 Azure SQL 数据库和 SQL Server 数据库引擎提供的最佳功能。
 
 > [!IMPORTANT]
-> 托管实例使用最新版 SQL Server 的所有功能（包括联机操作、自动计划更正和其他企业性能增强功能）运行。 [功能比较：Azure SQL 数据库与 SQL Server](sql-database-features.md)Azure SQL 数据库与 SQL Server](sql-database-features.md)。
+> 托管实例使用最新版 SQL Server 的所有功能（包括联机操作、自动计划更正和其他企业性能增强功能）运行。 [功能比较：Azure SQL 数据库与 SQL ServerAzure SQL 数据库与 SQL Server](sql-database-features.md)。
 
 | **PaaS 优势** | **业务连续性** |
 | --- | --- |
@@ -82,18 +82,18 @@ ms.locfileid: "59529199"
 
 若要详细了解两代硬件之间的区别，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)。
 
-## <a name="managed-instance-service-tiers"></a>托管实例服务层
+## <a name="managed-instance-service-tiers"></a>“托管实例”服务层级
 
-托管实例可在两个服务层中提供：
+托管实例可在两个服务层级中提供：
 
 - **常规用途**：适用于具有典型性能和 IO 延迟要求的应用程序。
 - **业务关键**：适用于具有低 IO 延迟要求，对工作负荷中基础维护操作影响最低的应用程序。
 
-这两个服务层保证 99.99% 的可用性，可让你独立选择存储大小和计算容量。 有关 Azure SQL 数据库高可用性体系结构的详细信息，请参阅[高可用性和 Azure SQL 数据库](sql-database-high-availability.md)。
+这两个服务层级保证 99.99% 的可用性，可让你独立选择存储大小和计算容量。 有关 Azure SQL 数据库高可用性体系结构的详细信息，请参阅[高可用性和 Azure SQL 数据库](sql-database-high-availability.md)。
 
-### <a name="general-purpose-service-tier"></a>常规用途服务层
+### <a name="general-purpose-service-tier"></a>“常规用途”服务层级
 
-以下列表描述了常规用途服务层的主要特征：
+以下列表描述了“常规用途”服务层级的主要特征：
 
 - 适用于具有典型性能要求的大多数业务应用程序
 - 高性能 Azure Blob 存储 (8 TB)
@@ -101,13 +101,13 @@ ms.locfileid: "59529199"
 
 有关详细信息，请参阅[常规用途层中的存储层](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c)和[托管实例（常规用途）的存储性能最佳做法和注意事项](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)。
 
-若要详细了解两种服务层之间的区别，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
+若要详细了解两种服务层级之间的区别，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
 
-### <a name="business-critical-service-tier"></a>“业务关键”服务层
+### <a name="business-critical-service-tier"></a>“业务关键”服务层级
 
-业务关键服务层适用于具有高 IO 要求的应用程序。 它使用多个独立副本，提供最高级别的故障恢复能力。
+“业务关键”服务层级适用于具有高 IO 要求的应用程序。 它使用多个独立副本，提供最高级别的故障恢复能力。
 
-以下列表概述了业务关键服务层的主要特征：
+以下列表概述了“业务关键”服务层级的主要特征：
 
 - 为具有最严苛性能和 HA 要求的商业应用程序设计
 - 附带超高速本地 SSD 存储（第 4 代最多 1 TB，第 5 代最多 4 TB）
@@ -115,7 +115,7 @@ ms.locfileid: "59529199"
 - 内置的附加[只读数据库副本](sql-database-read-scale-out.md)，可用于报表和其他只读工作负荷
 - [内存中 OLTP](sql-database-in-memory.md)，可用于具有高性能要求的工作负荷  
 
-若要详细了解两种服务层之间的区别，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
+若要详细了解两种服务层级之间的区别，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
 
 ## <a name="advanced-security-and-compliance"></a>高级安全性和符合性
 
@@ -126,7 +126,7 @@ ms.locfileid: "59529199"
 使用托管实例可以进一步实现与 Azure 云中其他租户的安全隔离。 安全隔离包括：
 
 - 使用 Azure Express Route 或 VPN 网关[实现本机虚拟网络](sql-database-managed-instance-connectivity-architecture.md)并连接到本地环境。
-- 仅通过专用 IP 地址公开 SQL 终结点，以便从专用 Azure 或混合网络建立安全连接。
+- 在默认部署中，仅通过专用 IP 地址公开 SQL 终结点，以便从专用 Azure 或混合网络建立安全连接。
 - 具有专用底层基础结构（计算、存储）的单一租户。
 
 下图概述了应用程序的各种连接选项：
@@ -190,7 +190,7 @@ Azure SQL 数据库提供一组可用于保护数据的高级安全功能。
 
 ### <a name="data-migration-service"></a>数据迁移服务
 
-Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多个数据库源到 Azure 数据平台的无缝迁移，并且最小化停机时间。 此服务简化了将现有的第三方数据库和 SQL Server 数据库移动到 Azure SQL 数据库（单一数据库、弹性池中的入池数据库和托管实例中的实例数据库）以及移到 Azure VM 中的 SQL Server 时需要执行的任务。
+Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多个数据库源到 Azure 数据平台的无缝迁移，并且最小化停机时间。 此服务简化了将现有的第三方数据库和 SQL Server 数据库移动到 Azure SQL 数据库（单一数据库、弹性池中的共用数据库和托管实例中的实例数据库）以及移到 Azure VM 中的 SQL Server 时需要执行的任务。
 
 ## <a name="sql-features-supported"></a>支持的 SQL 功能
 
@@ -223,7 +223,7 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 
 下表显示了可通过 Transact SQL 访问的几个属性。使用这些属性可以检测应用程序是否正在使用托管实例和检索重要属性。
 
-|属性|值|注释|
+|属性|Value|注释|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值与 SQL 数据库中的值相同。|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|此值与 SQL 数据库中的值相同。|

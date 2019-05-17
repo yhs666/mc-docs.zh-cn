@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 Azure CLI 创建事件中心 | Azure
+title: 使用 Azure CLI 创建事件中心 - Azure 事件中心 | Azure Docs
 description: 本快速入门介绍如何使用 Azure CLI 创建事件中心，然后使用 Java 发送和接收事件。
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,16 +7,16 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: seodec18
 origin.date: 08/16/2018
-ms.date: 12/10/2018
+ms.date: 05/06/2019
 ms.author: v-biyu
-ms.openlocfilehash: d6dcd85ca8a234644843a708cb09f4c12f476419
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: 34a3c70aeac3c2d732e5fb7ba2cb38d2369d25c1
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676896"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855022"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>快速入门：使用 Azure CLI 创建事件中心
 
@@ -75,15 +75,18 @@ az eventhubs eventhub create --name <event hub name> --resource-group <resource 
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅以下教程：  
+在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅“发送和接收事件”教程： 
 
-- 将事件发送到事件中心：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- 从事件中心接收事件：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
 [创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [Install Azure CLI 2.0]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-
-<!-- Update_Description: update meta properties, wording update -->
-

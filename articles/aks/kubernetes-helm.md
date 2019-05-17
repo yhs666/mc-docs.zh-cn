@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/06/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: db71f857119cf43050930628edd252c25c451f14
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e7d34078e9750455611ca2b2f6ddb36170c025b9
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625802"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520704"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用 Helm 安装应用程序
 
@@ -70,8 +70,10 @@ Helm 客户端和 Tiller 服务使用 TLS/SSL 进行身份验证和相互通信�
 
 若要将基本 Tiller 部署到 AKS 群集，请使用 [helm init][helm-init] 命令。 如果群集未启用 RBAC，请删除 `--service-account` 参数和值。 如果已为 Tiller 和 Helm 配置了 TLS/SSL，请跳过此基本初始化步骤，而是提供所需的 `--tiller-tls-`，如下一个示例所示。
 
+<!--MOONCAKE: helm init with tiller-images-->
+
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0 --stable-repo-url https://mirror.azure.cn/kubernetes/charts/
 ```
 
 如果已在 Helm 和 Tiller 之间配置了 TLS/SSL，则提供 `--tiller-tls-*` 参数和自己证书的名称，如以下示例所示：
@@ -83,8 +85,12 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0 、
+    --stable-repo-url https://mirror.azure.cn/kubernetes/charts/
 ```
+
+<!--MOONCAKE: helm init with tiller-images-->
 
 ## <a name="find-helm-charts"></a>查找 Helm 图表
 
@@ -134,7 +140,7 @@ stable/datadog                 0.18.0           6.3.0        DataDog Agent
 ```console
 $ helm repo update
 
-Hang tight while we grab the latest from your chart repositories...
+Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
@@ -238,5 +244,5 @@ release "wishful-mastiff" deleted
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+<!--Not Avaialble on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

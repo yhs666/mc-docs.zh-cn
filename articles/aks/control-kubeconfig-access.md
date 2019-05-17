@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 01/03/2019
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: b924f781c5d46afcb4b2e65c452a9e736860ac94
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1df925293a33ddd449cae1b6ba216a6c8314afa9
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626941"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520732"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>使用 Azure 基于角色的访问控制定义对 Azure Kubernetes 服务 (AKS) 中的 Kubernetes 配置文件的访问
 
@@ -23,9 +23,11 @@ ms.locfileid: "58626941"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
 
-本文还要求运行 Azure CLI 2.0.53 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+<!--Pending on [using the Azure portal][aks-quickstart-portal]-->
+
+本文还要求运行 Azure CLI 2.0.53 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][azure-cli-install]。
 
 ## <a name="available-cluster-roles-permissions"></a>可用的群集角色权限
 
@@ -36,10 +38,10 @@ ms.locfileid: "58626941"
 有两个内置角色：
 
 * **Azure Kubernetes 服务群集管理员角色**  
-    * 允许访问 *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API 调用。 此 API 调用[列出群集管理员凭据][api-cluster-admin]。
+    * 允许访问 *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API 调用。 此 API 调用 [列出群集管理员凭据][api-cluster-admin]。
     * 下载 *clusterAdmin* 角色的 *kubeconfig*。
 * **Azure Kubernetes 服务群集用户角色**
-    * 允许访问 *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 调用。 此 API 调用[列出群集用户凭据][api-cluster-user]。
+    * 允许访问 *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 调用。 此 API 调用 [列出群集用户凭据][api-cluster-user]。
     * 下载 *clusterUser* 角色的 *kubeconfig*。
 
 ## <a name="assign-role-permissions-to-a-user"></a>将角色权限分配给用户
@@ -101,7 +103,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: DATA+OMITTED
-    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.chinaeast.azmk8s.io:443
+    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.chinaeast2.cx.prod.service.azk8s.cn:443
   name: myAKSCluster
 contexts:
 - context:
@@ -129,7 +131,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>后续步骤
 
-若要增强在访问 AKS 群集时的安全性，请[集成 Azure Active Directory 身份验证][aad-integration]。
+若要增强在访问 AKS 群集时的安全性，请 [集成 Azure Active Directory 身份验证][aad-integration]。
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config
@@ -137,15 +139,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
-[azure-rbac]: ../role-based-access-control/overview.md
-[api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials
-[api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show
-[az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-role-assignment-delete]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-delete
-[aad-integration]: aad-integration.md
+<!--Not Available on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials [azure-rbac]: ../role-based-access-control/overview.md [api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials [api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show [az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show [az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show [az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create [az-role-assignment-delete]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-delete [aad-integration]: azure-ad-integration.md
+
+<!-- Update_Description: wording update, update link -->

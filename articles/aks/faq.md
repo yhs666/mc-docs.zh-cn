@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-service
 ms.topic: article
-origin.date: 08/17/2018
-ms.date: 03/04/2019
+origin.date: 04/25/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08dbef03c88baf6ad4ee1013c2c887fbbc50d7e2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 48fec8fa971c94b28cdab52849d8d2f781a007df
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625635"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520740"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -26,7 +26,9 @@ ms.locfileid: "58625635"
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS 是否支持节点自动缩放？
 
-支持，从 Kubernetes 1.10 开始，可以通过 [Kubernetes autoscaler][auto-scaler] 进行自动缩放。 要详细了解如何配置和使用群集自动缩放程序，请参阅 [AKS 上的群集自动缩放][aks-cluster-autoscale]。
+<!--MOONCAKE: Not support the PREVIEW feature-->
+
+目前在 Azure 中国环境中不受支持。
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS 是否支持 Kubernetes 基于角色的访问控制 (RBAC)？
 
@@ -54,12 +56,36 @@ ms.locfileid: "58625635"
 
 每个 AKS 部署都跨越两个资源组：
 
-- 第一个资源组由你创建，仅包含 Kubernetes 服务资源。 AKS 资源提供程序在部署期间自动创建第二个资源组，例如 MC_myResourceGroup_myAKSCluster_chinaeast。
-- 这个第二个资源组（例如 MC_myResourceGroup_myAKSCluster_chinaeast）包含与该群集关联的所有基础结构资源。 这些资源包括 Kubernetes 节点 VM、虚拟网络和存储。 创建这个单独资源组的目的是简化资源清理。
+- 第一个资源组由你创建，仅包含 Kubernetes 服务资源。 AKS 资源提供程序在部署期间自动创建第二个资源组，例如 *MC_myResourceGroup_myAKSCluster_chinaeast2*。 有关如何指定这第二个资源组的名称，请参阅下一部分。
+- 这个第二个资源组（例如 *MC_myResourceGroup_myAKSCluster_chinaeast2*）包含与该群集关联的所有基础结构资源。 这些资源包括 Kubernetes 节点 VM、虚拟网络和存储。 创建这个单独资源组的目的是简化资源清理。
 
 如果创建用于 AKS 群集的资源（例如存储帐户或保留的公用 IP 地址），请将它们放在自动生成的资源组中。
 
-<a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group"><a/>
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>我是否可为 AKS 基础结构资源组提供自己的名称？
+
+是的。 默认情况下，AKS 资源提供程序在部署期间自动创建辅助资源组，例如 *MC_myResourceGroup_myAKSCluster_chinaeast2*。 为了符合企业策略，你可以为此托管群集 (*MC_*) 资源组提供自己的名称。
+
+若要指定资源组名称，请安装 [aks-preview][aks-preview-cli] Azure CLI 扩展版本 *0.3.2* 或更高版本。 使用 [az aks create][az-aks-create] 命令创建 AKS 群集时，请使用 *--node-resource-group* 参数并指定资源组的名称。 如果[使用 Azure 资源管理器模板][aks-rm-template]部署 AKS 群集，则可以使用 *nodeResourceGroup* 属性定义资源组名称。
+
+* Azure 资源提供程序会在你自己的订阅中自动创建此资源组。
+* 只能在创建群集时指定自定义的资源组名称。
+
+不支持以下方案：
+
+* 无法为 *MC_* 组指定现有的资源组。
+* 无法为 *MC_* 资源组指定不同的订阅。
+* 创建群集后无法更改 *MC_* 资源组名称。
+* 无法为 *MC_* 资源组中的托管资源指定名称。
+* 无法修改或删除 *MC_* 资源组中托管资源的标记（请参阅下一部分的附加信息）。
+
+<!--MOONCAKE: Customization-->
+
+> [!NOTE]
+> 如果在 Azure 中国云中使用所有者资源组名称创建 AKS 群集失败，可以检查以下项：
+> - CLI cmdlet 是否包含 **--enable-addons monitoring** 参数？
+>    如果是，请将其删除，然后再次运行“az aks create”。 成功创建 AKS 群集后，可以在 [Azure 门户](https://portal.azure.cn)中启用**监视**。
+>   
+
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>我可以修改 MC_* 资源组中 AKS 资源的标记和其他属性吗？
 
 修改和删除 MC_* 资源组中 Azure 创建的标记以及资源的其他属性可能会导致意外结果，例如扩大和升级错误。 支持创建和修改其他自定义标记，例如分配业务单位或成本中心。 修改 AKS 群集中 MC_* 下的资源会中断服务级别目标 (SLO)。 有关详细信息，请参阅 [AKS 是否提供服务级别协议？](#does-aks-offer-a-service-level-agreement)
@@ -95,13 +121,19 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./aad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+
+<!--MOONCAKE: CORRECT FOR URL OF aks-preview-cli-->
+
+[aks-preview-cli]: https://docs.microsoft.com/en-us/cli/azure/ext/aks-preview/aks?view=azure-cli-latest#ext-aks-preview-az-aks-create
+[az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[aks-rm-template]: https://docs.microsoft.com/rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 

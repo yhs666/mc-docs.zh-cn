@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 03/18/2019
-ms.date: 04/01/2019
+origin.date: 04/12/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: f950dd00a8e856db1b2b9755c6911eaf838be501
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fb392f9331e96ac9d9c42cb939d8381f25e619f6
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626911"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854722"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
 本文介绍如何使用动态管理视图 (DMV) 监视工作负荷。 这包括调查 Azure SQL 数据仓库中的查询执行情况。
@@ -171,33 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查询正在主动等待另一个查询中的资源，则状态将为 **AcquireResources**。  如果查询具有全部所需资源，则状态将为 **Granted**。
 
 ## <a name="monitor-tempdb"></a>监视 tempdb
-较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 以下信息说明如何确定每个节点上每个查询的 tempdb 使用情况。 
+tempdb 用于在查询执行期间保存临时结果。 重度使用 tempdb 数据库可能会导致查询性能变慢。 Azure SQL 数据仓库中的每个节点大约会占用 1 TB 的原始 tempdb 空间。 下面是有关监视 tempdb 用量以及在查询中减少 tempdb 用量的提示。 
 
-创建以下视图，为 sys.dm_pdw_sql_requests 关联相应的节点 ID。 有了节点 ID 后，即可使用其他直通 DMV 将这些表与 sys.dm_pdw_sql_requests 联接。
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-若要监视 tempdb，请运行以下查询：
+### <a name="monitoring-tempdb-with-views"></a>使用视图监视 tempdb
+若要监视 tempdb 用量，请先从[适用于 SQL 数据仓库的 Microsoft 工具包](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)安装 [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 视图。 然后可执行以下查询，以查看在每个节点中执行的所有查询所消耗的 tempdb 用量：
 
 ```sql
 -- Monitor tempdb
@@ -222,12 +199,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+如果某个查询消耗了大量内存或收到了与 tempdb 分配相关的错误消息，原因往往是运行的极大规模 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 或 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 语句在最终的数据移动操作期间失败。 在分布式查询计划中，紧靠在最后一条 INSERT SELECT 前面的语句会将此操作识别为 ShuffleMove 操作。
+
+最常见的缓解措施是将 CTAS 或 INSERT SELECT 语句分解为多个加载语句，使数据量不会超过每个节点不超过 1 TB tempdb 空间的限制。 也可以将群集扩展到更大的大小，以便将 tempdb 大小分散到更多的节点，从而减少每个节点的 tempdb 空间量。 
+
 ## <a name="monitor-memory"></a>监视内存
 
 内存可能是性能缓慢和内存不足问题的根本原因。 如果发现 SQL Server 内存用量在执行查询的过程中达到其限制，请考虑扩展数据仓库。

@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: f8e47c47b564aac927e21b2cea6c8cc0789bd186
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 3d8fc2a1110fa099c576062cd7b8436cc6d7c617
+ms.sourcegitcommit: d9b907342ceea2e30f411e74164d6d386b6a7099
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529353"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211907"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教程：在资源管理器模板部署中集成 Azure Key Vault
@@ -116,8 +116,7 @@ ms.locfileid: "59529353"
     * “部署解决方案模板”部分。
         |名称|值| | **订阅**| 选择一个 Azure 订阅。| | **资源组**| 分配一个唯一名称。 记下此名称，因为在下一个会话中将使用同一资源组来部署虚拟机。 将密钥保管库和虚拟机放在同一资源组中可以在本教程结束时更轻松地清理资源。| | **资源组位置**| 选择一个位置。  默认位置为“中国北部”。|
     * 在“参数”部分选择“编辑参数”。
-        |名称|值| |**密钥保管库名称**：分配一个唯一名称。 
-        |**租户 Id**| 模板函数会自动检索租户 ID。不要更改默认值。| |**AD 用户 ID**| 输入你在上一过程中检索到的 Azure AD 用户对象 ID。| |**机密名称**| 默认名称为 **vmAdminPassword**。 如果你在此处更改机密名称，则在部署虚拟机时需要更新机密名称。| |**机密值**| 输入你的机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。|
+        |名称|值| |**Key Vault 名称**|分配唯一名称。| |**租户 ID**| 模板函数会自动检索租户 ID。不要更改默认值。| |**AD 用户 ID**| 输入你在上一过程中检索到的 Azure AD 用户对象 ID。| |**机密名称**| 默认名称为 **vmAdminPassword**。 如果你在此处更改机密名称，则在部署虚拟机时需要更新机密名称。| |**机密值**| 输入你的机密。  机密是用于登录虚拟机的密码。 建议使用在上一过程中创建的生成密码。|
     
 3. 选择左窗格中的“编辑模板”以查看模板。
 

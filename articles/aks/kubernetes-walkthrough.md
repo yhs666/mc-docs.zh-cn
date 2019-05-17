@@ -9,12 +9,12 @@ origin.date: 12/18/2018
 ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: eb7ee0daa80bfb0e7e7cc251457e960faed00082
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: d4826c0c8da9d3aaeaa22681512c69b839702898
+ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520685"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65552111"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
 

@@ -11,14 +11,14 @@ ms.author: v-jay
 ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 03/13/2019
-ms.date: 04/15/2019
+ms.date: 04/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a2a367b7dbe55e9e7697945ff881eaff72d5b753
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 954c24a7c6a064b090a0011e04ce2cc0539978da
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529445"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855544"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异
 
@@ -217,8 +217,8 @@ WITH PRIVATE KEY (<private_key_options>)
 ### <a name="database-options"></a>数据库选项
 
 - 不支持多个日志文件。
-- 常规用途服务层不支持内存中对象。  
-- 每个常规用途实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 常规用途层级中的数据文件和日志文件都会计入此限制。 
+- “常规用途”服务层级不支持内存中对象。  
+- 每个常规用途实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 常规用途层级中的数据文件和日志文件都会计入此限制。 [业务关键层级支持每个数据库 32,767 个文件](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 - 数据库中不能有包含文件流数据的文件组。  如果 .bak 包含 `FILESTREAM` 数据，则还原将会失败。  
 - 每个文件都被放置在 Azure Blob 存储中。 每个文件的 IO 和吞吐量取决于每个单独文件的大小。  
 
@@ -410,7 +410,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - 不支持的语法
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- 源  
+- Source  
   - `FROM URL`（Azure Blob 存储）是唯一受支持的选项。
   - 不支持 `FROM DISK`/`TAPE`/备份设备。
   - 不支持备份集。
@@ -468,7 +468,6 @@ WITH PRIVATE KEY (<private_key_options>)
 - `@@SERVICENAME` 返回 NULL，因为 SQL Server 存在的服务概念并不适用于托管实例。 请参阅 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。
 - 支持 `SUSER_ID`。 如果 Azure AD 登录名不在 sys.syslogins 中，则返回 NULL。 请参阅 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。  
 - 不支持 `SUSER_SID`。 返回错误数据（暂时性的已知问题）。 请参阅 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。
-- `GETDATE()` 和其他内置日期/时间函数始终返回采用 UTC 时区的时间。 请参阅 [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql)。
 
 ## <a name="Issues"></a>已知问题和限制
 
@@ -482,7 +481,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型数据库文件超出存储空间
 
-`CREATE DATABASE `、`ALTER DATABASE ADD FILE` 和 `RESTORE DATABASE` 语句可能会失败，因为实例可能会达到 Azure 存储限制。
+`CREATE DATABASE`、`ALTER DATABASE ADD FILE` 和 `RESTORE DATABASE` 语句可能会失败，因为实例可能会达到 Azure 存储限制。
 
 每个常规用途托管实例都为 Azure 高级磁盘空间保留了最高 35 TB 存储空间，并且每个数据库文件都放置在单独的物理磁盘上。 磁盘大小可以为 128 GB、256 GB、512 GB、1 TB 或 4 TB。 磁盘上未使用的空间不收费，但 Azure 高级磁盘大小总计不能超过 35 TB。 在某些情况下，由于内部碎片，总共不需要 8 TB 的托管实例可能会超过 35 TB 的 Azure 存储大小限制。
 
@@ -495,7 +494,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 在此示例中，只要未添加新文件，现有数据库就会继续工作并且可以毫无问题地增长。 但是，由于没有足够的空间用于新磁盘驱动器，因此无法创建或还原新数据库，即使所有数据库的总大小未达到实例大小限制也是如此。 这种情况下返回的错误并不明确。
 
-可以使用系统视图[识别剩余文件的数目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)。 如果即将达到此限制，请尝试[使用 DBCC SHRINKFILE 语句清空并删除一些小型文件](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或者切换到[不实施此限制的业务关键层级](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+可以使用系统视图[识别剩余文件的数目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)。 如果即将达到此限制，请尝试[使用 DBCC SHRINKFILE 语句清空并删除一些小型文件](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或者切换到[没有此限制的业务关键层级](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>在还原数据库期间不正确地配置了 SAS 密钥
 
@@ -568,11 +567,11 @@ using (var scope = new TransactionScope())
 
 **解决方法**：如果可能，请在 CLR 模块中使用上下文连接。
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE 加密数据库不支持用户启动的备份
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>采用服务托管密钥的 TDE 加密数据库不支持用户启动的备份
 
-不能在使用透明数据加密 (TDE) 加密的数据库上执行 `BACKUP DATABASE ... WITH COPY_ONLY`。 TDE 强制使用内部 TDE 密钥对备份进行加密，并且该密钥无法导出，因此将无法还原备份。
+不能在使用服务托管透明数据加密 (TDE) 加密的数据库上执行 `BACKUP DATABASE ... WITH COPY_ONLY`。 服务托管 TDE 强制使用内部 TDE 密钥对备份进行加密，并且该密钥无法导出，因此将无法还原备份。
 
-**解决方法**：使用自动备份和时点还原，或在数据库上禁用加密。
+**解决方法**：使用自动备份和时间点还原，或者改用[客户托管 (BYOK) TDE](/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)，或者在数据库上禁用加密。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 10/11/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: a5cd06476e40d777f6e400b8b7c9eada8c1491bd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8359716a73ff08affbfeddceaa254666fb616a69
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627298"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520744"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中配置 Azure CNI 网络
 
@@ -29,8 +29,8 @@ ms.locfileid: "58627298"
 * 不要在同一子网中创建多个 AKS 群集。
 * AKS 群集可能不会使用 Kubernetes 服务地址范围的 `169.254.0.0/16`、`172.30.0.0/16` 或 `172.31.0.0/16`。
 * AKS 群集使用的服务主体在虚拟网络中的子网上必须至少具有[网络参与者](../role-based-access-control/built-in-roles.md#network-contributor)权限。 如果希望定义[自定义角色](../role-based-access-control/custom-roles.md)而不是使用内置的网络参与者角色，则需要以下权限：
-  * `Microsoft.Network/virtualNetworks/subnets/join/action`
-  * `Microsoft.Network/virtualNetworks/subnets/read`
+    * `Microsoft.Network/virtualNetworks/subnets/join/action`
+    * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>规划群集的 IP 地址
 
@@ -63,17 +63,20 @@ AKS 群集中每个节点的最大 Pod 数为 110。 每个节点的默认最大
 
 | 部署方法 | Kubenet 默认值 | Azure CNI 默认值 | 可在部署时配置 |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | 是（最大 110） |
-| Resource Manager 模板 | 110 | 30 | 是（最大 110） |
-| 门户 | 110 | 30 | 否 |
+| Azure CLI | 110 | 30 | 是（最大 250） |
+| Resource Manager 模板 | 110 | 30 | 是（最大 250） |
+
+<!--Pending on | Portal | 110 | 30 | No |-->
 
 ### <a name="configure-maximum---new-clusters"></a>配置最大值 - 新群集
 
-只能在群集部署时配置每个节点的最大 Pod 数。 如果使用 Azure CLI 或资源管理器模板进行部署，则可以将每个节点的最大 Pod 数设置为 110。
+只能在群集部署时配置每个节点的最大 Pod 数。 如果使用 Azure CLI 或资源管理器模板进行部署，则可以设置每个节点的最大 Pod 数，最高可以设置为 250。
 
-* **Azure CLI**：使用 [az aks create][az-aks-create] 命令部署群集时，指定 `--max-pods` 参数。 最大值为 110。
-* **资源管理器模板**：使用资源管理器模板部署群集时，在 [ManagedClusterAgentPoolProfile] 对象中指定 `maxPods` 属性。 最大值为 110。
+* **Azure CLI**：使用 [az aks create][az-aks-create] 命令部署群集时，指定 `--max-pods` 参数。 最大值为 250。
+* **资源管理器模板**：使用资源管理器模板部署群集时，在 ManagedClusterAgentPoolProfile 对象中指定 `maxPods` 属性。 最大值为 250。
+    <!--Not Available on [ManagedClusterAgentPoolProfile]-->
 * **Azure 门户**：使用 Azure 门户部署群集时，不能更改每个节点的最大 Pod 数。 使用 Azure 门户部署时，Azure CNI 网络群集中每个节点的 Pod 数限制为 30 个。
+<!--Pending on * **Azure portal**-->
 
 ### <a name="configure-maximum---existing-clusters"></a>配置最大值 - 现有群集
 
@@ -142,9 +145,7 @@ az aks create \
 
   否。 不支持在 Kubernetes 群集使用的子网中部署 VM。 可将 VM 部署在同一虚拟网络中，但必须部署在不同的子网中。
 
-* *是否可以配置基于 Pod 的网络策略？*
-
-  Kubernetes 网络策略目前在 AKS 中作为预览功能提供。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
+<!--Not Available on * *Can I configure per-pod network policies?*-->
 
 * 可部署到节点的 Pod 数上限是否可配置？
 
@@ -169,8 +170,7 @@ az aks create \
 - [将静态 IP 地址用于 Azure Kubernetes 服务 (AKS) 负载均衡器](static-ip.md)
 - [使用包含 Azure 容器服务 (AKS) 的内部负载均衡器](internal-lb.md)
 
-- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
-- [启用 HTTP 应用程序路由附加产品][aks-http-app-routing]
+- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]   <!--Not Available on- [Enable the HTTP application routing add-on][aks-http-app-routing]-->
 - [创建使用内部、专用网络和 IP 地址的入口控制器][aks-ingress-internal]
 - [使用动态公共 IP 创建入口控制器并配置 Let 's Encrypt 以自动生成 TLS 证书][aks-ingress-tls]
 - [使用静态公共 IP 创建入口控制器并配置 Let 's Encrypt 以自动生成 TLS 证书][aks-ingress-static-tls]
@@ -193,13 +193,17 @@ az aks create \
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[az-aks-create]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-create
+<!-- Not Available on cli/aks -->
+
+[az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: ssh.md
-[ManagedClusterAgentPoolProfile]: /templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
-[aks-network-concepts]: concepts-network.md
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
+<!--Not Available on [ManagedClusterAgentPoolProfile]: /templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object-->
+[aks-network-concepts]: concepts-network.md [aks-ingress-basic]: ingress-basic.md [aks-ingress-tls]: ingress-tls.md [aks-ingress-static-tls]: ingress-static-ip.md
+
+<!--Not Available on [aks-http-app-routing]: http-application-routing.md-->
+
 [aks-ingress-internal]: ingress-internal-ip.md
-[network-policy]: use-network-policies.md
+
+<!--Not Available on [network-policy]: use-network-policies.md-->
+
+<!-- Update_Description: wording update, update link -->

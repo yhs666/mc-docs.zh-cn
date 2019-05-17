@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 09/26/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4f3d28842b18eb0684db70f1f5207bc10d1efe82
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 33b08df63d55d13fccb502f6c9fb2598449d15ef
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627379"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854999"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的出口流量使用公用静态 IP 地址
 
@@ -23,9 +23,11 @@ ms.locfileid: "58627379"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
 
-还需安装并配置 Azure CLI 2.0.46 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+<!--Not Available on  [using the Azure portal][aks-quickstart-portal]-->
+
+还需安装并配置 Azure CLI 2.0.46 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="egress-traffic-overview"></a>出口流量概述
 
@@ -40,14 +42,14 @@ AKS 群集的出口流量遵循 [Azure 负载均衡器约定][outbound-connectio
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
-MC_myResourceGroup_myAKSCluster_chinaeast
+MC_myResourceGroup_myAKSCluster_chinaeast2
 ```
 
 现在，使用 [az network public ip create][az-network-public-ip-create] 命令创建静态公用 IP 地址。 指定上一命令中获取的节点资源组名称，然后指定 IP 地址资源的名称，如 myAKSPublicIP：
 
 ```azurecli
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
+    --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 \
     --name myAKSPublicIP \
     --allocation-method static
 ```
@@ -59,7 +61,7 @@ az network public-ip create \
   "publicIp": {
     "dnsSettings": null,
     "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_chinaeast/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
+    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_chinaeast2/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
     [..]
@@ -69,7 +71,7 @@ az network public-ip create \
 稍后可以使用 [az network public-ip list][az-network-public-ip-list] 命令获取公用 IP 地址。 指定节点资源组的名称，然后查询 ipAddress，如以下示例中所示：
 
 ```azurecli
-$ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast --query [0].ipAddress --output tsv
+$ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 --query [0].ipAddress --output tsv
 
 40.121.183.52
 ```
@@ -129,11 +131,11 @@ $ curl -s checkip.dyndns.org
 <!-- LINKS - internal -->
 [az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [az-network-public-ip-list]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
 [public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+<!--Not Available on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
