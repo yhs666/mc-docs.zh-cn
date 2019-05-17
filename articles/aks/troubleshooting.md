@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: troubleshooting
 origin.date: 08/13/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 80366da299970a1cffa7b09c27945b4ccab16518
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 910f5c13df70dcf921b71a43666c01c0a3a64bd4
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626337"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520693"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -91,3 +91,18 @@ ms.locfileid: "58626337"
 
 * 如果群集正在升级，请等到该操作终止。 如果升级成功，请重试先前失败的操作。
 * 如果群集升级失败，请遵循上面所述的步骤
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>是否可以将我的群集移动到其他订阅，或者说，是否可以将包含我的群集的订阅移动到新租户？
+
+如果你已将 AKS 群集移动到其他订阅，或者将拥有订阅的群集移动到新租户，则群集将会由于失去角色分配和服务主体权限而丢失功能。 由于此约束，**AKS 不支持在订阅或租户之间移动群集**。
+
+<!--Not Available on ## I'm receiving errors trying to use features that require virtual machine scale sets-->
+
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>针对 AKS 资源和参数强制实施了什么命名限制？
+
+*此故障排除帮助来自 aka.ms/aks-naming-rules*
+
+Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违反了这些限制之一，则会返回一个错误，要求你提供不同的输入。 将应用以下通用的命名准则：
+
+* AKS *MC_* 资源组名称组合了资源组名称和资源名称。 自动生成的语法 `MC_resourceGroupName_resourceName_AzureRegion` 不能超过 80 个字符。 如果需要，请缩短你的资源组名称或 AKS 群集名称的长度。
+* *dnsPrefix* 的开头和结尾必须是字母数字值。 有效字符包括字母数字值和连字符 (-)。 *dnsPrefix* 不能包含特殊字符，例如句点 (.)。

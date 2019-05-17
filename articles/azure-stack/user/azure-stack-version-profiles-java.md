@@ -12,41 +12,40 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/28/2018
-ms.date: 04/01/2019
+origin.date: 04/02/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: adebe108723c33f3c90cbfba9153f2b5b087940f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ff3ea51e3c95764bd14bf2e02f746a80193b1f93
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627530"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854530"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Java 配合使用
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-用于 Azure Stack 资源管理器的 Java SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了计算、网络、存储、应用服务和 [KeyVault](../../key-vault/key-vault-whatis.md)。 Java SDK 纳入了 API 配置文件，其方法是：将依赖项包括在 Pom.xml 文件中，由后者加载 .java 文件中的正确模块。 不过，可以添加多个作为依赖项的配置文件，例如，添加 **2018-03-01-hybrid** 或 **latest** 作为 Azure 配置文件。 使用这些依赖项来加载正确的模块，这样在创建资源类型时，就可以从那些要使用的配置文件中选择具体的 API 版本。 这样就可以使用 Azure 中的最新版本，同时使用 Azure Stack 的最新 API 版本进行开发。 使用 Java SDK 可以获得真正的混合云开发人员体验。 Java SDK 中的 API 配置文件可以用来在公有云 Azure 资源和 Azure Stack 中的资源之间进行切换，实现混合云开发。
+用于 Azure Stack 资源管理器的 Java SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了计算、网络、存储、应用服务和 [KeyVault](/key-vault/key-vault-whatis)。 Java SDK 纳入了 API 配置文件，其方法是：将依赖项包括在 Pom.xml 文件中，由后者加载 .java 文件中的正确模块。 不过，可以添加多个作为依赖项的配置文件，例如，添加 **2018-03-01-hybrid** 或 **latest** 作为 Azure 配置文件。 使用这些依赖项来加载正确的模块，这样在创建资源类型时，就可以从那些要使用的配置文件中选择具体的 API 版本。 这样就可以使用 Azure 中的最新版本，同时使用 Azure Stack 的最新 API 版本进行开发。 使用 Java SDK 可以获得真正的混合云开发人员体验。 Java SDK 中的 API 配置文件可以用来在公有云 Azure 资源和 Azure Stack 中的资源之间进行切换，实现混合云开发。
 
 ## <a name="java-and-api-version-profiles"></a>Java 与 API 版本配置文件
 
 API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API 配置文件获取资源提供程序包中每个资源类型的最新且最稳定的版本。
 
 - 若要使用所有服务的最新版本，请使用 **latest** 配置文件作为依赖项。
-    
-   - 若使用 latest 配置文件，则依赖项为 **com.microsoft.azure**。
 
-   - 若要使用与 Azure Stack 兼容的服务，请使用 **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** 配置文件。
-    
-      - 请在 Pom.xml 文件中将其指定为依赖项，如果从下拉列表中选择了正确的类，则会自动加载模块，就像使用 .NET 一样。
-        
-      - 每个模块的顶部如下所示：         
-           `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
-             
+  - 若使用 latest 配置文件，则依赖项为 **com.microsoft.azure**。
+
+  - 若要使用与 Azure Stack 兼容的服务，请使用 **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** 配置文件。
+
+    - 请在 Pom.xml 文件中将其指定为依赖项，如果从下拉列表中选择了正确的类，则会自动加载模块，就像使用 .NET 一样。
+
+    - 每个模块的顶部都如下所示：      `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - 依赖项如下所示：
+
      ```xml
      <dependency>
      <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
@@ -55,7 +54,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
      </dependency>
      ```
 
-  - 若要使用特定资源提供程序中某个资源类型的特定 API-version，请使用通过 Intellisense 定义的特定 API 版本。
+  - 若要使用特定资源提供程序中某个资源类型的特定 API 版本，请使用通过 Intellisense 定义的特定 API 版本。
 
 请注意，可以在同一应用程序中组合所有选项。
 
@@ -65,9 +64,9 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 1. 按照正式说明安装 Git。 有关说明，请参阅[入门 - 安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
-2. 按照正式说明安装 [Java SDK](http://zulu.org/download/) 和 [Maven](https://maven.apache.org/)。 正确的版本是 Java 开发人员工具包的版本 8。 正确的 Apache Maven 是 3.0 或更高版本。 JAVA_HOME 环境变量必须设置为 Java 开发人员工具包的安装位置，以完成本快速入门。 有关详细信息，请参阅[使用 Java 和 Maven 创建第一个函数](../../azure-functions/functions-create-first-java-maven.md)。
+2. 按照说明安装 [Java SDK](https://zulu.org/download/) 和 [Maven](https://maven.apache.org/)。 正确的版本是 Java 开发人员工具包的版本 8。 正确的 Apache Maven 是 3.0 或更高版本。 JAVA_HOME 环境变量必须设置为 Java 开发人员工具包的安装位置，以完成本快速入门。 有关详细信息，请参阅[使用 Java 和 Maven 创建第一个函数](/azure-functions/functions-create-first-java-maven)。
 
-3. 若要安装正确的依赖项包，请在 Java 应用程序中打开 Pom.xml 文件。 按以下代码所示添加依赖项：
+3. 若要安装正确的依赖项包，请在 Java 应用程序中打开 Pom.xml 文件。 添加一个依赖项，如以下代码中所示：
 
    ```xml  
    <dependency>
@@ -77,32 +76,32 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
    </dependency>
    ```
 
-4. 需安装的包取决于要使用的配置文件版本。 配置文件版本的包名如下：
-    
+4. 需要安装的包取决于你要使用的配置文件版本。 配置文件版本的包名如下：
+
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **latest**
 
-5. 如果不可用，请创建一个订阅，并保存订阅 ID 供以后使用。 有关如何创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../azure-stack-subscribe-plan-provision-vm.md)。
+5. 如果不可用，请创建一个订阅，并保存订阅 ID 供以后使用。 有关如何创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
-6. 创建服务主体并保存客户端 ID 和客户端机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../azure-stack-create-service-principals.md)。 请注意，创建服务主体时的客户端 ID 也称为应用程序 ID。
+6. 创建服务主体并保存客户端 ID 和客户端机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。 请注意，创建服务主体时的客户端 ID 也称为应用程序 ID。
 
-7. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配到服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../azure-stack-create-service-principals.md)。
+7. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配到服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要将 Azure Java SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量，请参阅表后针对操作系统的说明。
 
-| 值                     | 环境变量 | 说明                                                                                                                                                                                                          |
+| Value                     | 环境变量 | 说明                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 租户 ID                 | AZURE_TENANT_ID            | Azure Stack [<span class="underline"></span>租户 ID](../azure-stack-identity-overview.md) 的值。                                                          |
-| 客户端 ID                 | AZURE_CLIENT_ID             | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。                                                                                              |
-| 订阅 ID           | AZURE_SUBSCRIPTION_ID      | [<span class="underline"></span>订阅 ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。                |
+| 租户 ID                 | AZURE_TENANT_ID            | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。                                                          |
+| 客户端 ID                 | AZURE_CLIENT_ID             | 在上一部分中创建服务主体时保存的服务主体应用程序 ID。                                                                                              |
+| 订阅 ID           | AZURE_SUBSCRIPTION_ID      | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。                |
 | 客户端机密             | AZURE_CLIENT_SECRET        | 创建服务主体时保存的服务主体应用程序机密。                                                                                                                                   |
-| 资源管理器终结点 | ARM_ENDPOINT              | 请参阅 [<span class="underline">Azure Stack 资源管理器终结点</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
-| 位置                  | RESOURCE_LOCATION    | Azure Stack 本地                                                                                                                                                                                                |
+| 资源管理器终结点 | ARM_ENDPOINT              | 请参阅 [Azure Stack 资源管理器终结点](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
+| 位置                  | RESOURCE_LOCATION    | 对于 Azure Stack 来说为 **Local**。                                                                                                                                                                                                |
 
-若要查找 Azure Stack 的租户 ID，请按[此处](../azure-stack-csp-ref-operations.md)提供的说明操作。 若要设置环境变量，请执行以下操作：
+若要查找你的 Azure Stack 的租户 ID，请参阅[此处](../operator/azure-stack-csp-ref-operations.md)的说明。 若要设置环境变量，请执行以下操作：
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
@@ -114,7 +113,7 @@ Set AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="macos-linux-and-unix-based-systems"></a>基于 MacOS、Linux 和 Unix 的系统
 
-在基于 Unix 的系统中，可以使用以下命令：
+在基于 Unix 的系统中，使用以下命令：
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
@@ -122,19 +121,19 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
 
-如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
+如果使用的是 ASDK，则必须信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
 
 #### <a name="windows"></a>Windows
 
-1. 将 Azure Stack 自签名证书导出到桌面
+1. 将 Azure Stack 自签名证书导出到桌面。
 
-1. 在 cmd shell 中，将目录更改为 %JAVA_HOME%\bin
+1. 在命令提示符中，将目录更改为 %JAVA_HOME%\bin。
 
-1. 运行此命令：
+1. 运行以下命令：
 
-```shell
-      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
-```
+   ```shell
+   .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+   ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack 资源管理器终结点
 
@@ -144,20 +143,20 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 请注意以下事项：
 
-- Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为： https://management.local.azurestack.external/
+- Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为： https://management.local.azurestack.external/。
 
-- 集成系统中的 **ResourceManagerUrl** 为：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+- 集成系统中的 **ResourceManagerUrl** 为：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`。
 
 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`。
 
 示例 JSON 文件：
 
 ```json
-{ 
+{
    "galleryEndpoint": "https://portal.local.azurestack.external:30015/",
    "graphEndpoint": "https://graph.chinacloudapi.cn/",
    "portal Endpoint": "https://portal.local.azurestack.external/",
-   "authentication": 
+   "authentication":
       {
       "loginEndpoint": "https://login.chinacloudapi.cn/",
       "audiences": ["https://management.<yourtenant>.partner.onmschina.cn/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
@@ -167,15 +166,15 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 ## <a name="existing-api-profiles"></a>现有 API 配置文件
 
-1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：为 Azure Stack 生成的最新配置文件。 请将此配置文件用于与 Azure Stack 最兼容的服务，前提是使用 1808 或更高的戳记。
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：为 Azure Stack 生成的最新配置文件。 请将此配置文件用于与 Azure Stack 最兼容的服务，前提是使用 1808 或更高的戳记。
 
-2.  **com.microsoft.azure**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。
+- **com.microsoft.azure**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。
 
 有关 Azure Stack 和 API 配置文件的详细信息，请参阅 [API 配置文件的摘要](../user/azure-stack-version-profiles.md#summary-of-api-profiles)。
 
 ## <a name="azure-java-sdk-api-profile-usage"></a>Azure Java SDK API 配置文件的使用
 
-以下代码用于在 Azure Stack 上对服务主体进行身份验证。 它根据租户 ID 和特定于 Azure Stack 的身份验证基准创建令牌：
+以下代码用于在 Azure Stack 上对服务主体进行身份验证。 它使用租户 ID 和特定于 Azure Stack 的身份验证基准创建令牌：
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
@@ -235,31 +234,31 @@ HttpResponse response = httpClient.execute(getRequest);
 
 若要使用 .NET 和 Azure Stack API 配置文件来创建解决方案，可以将以下 GitHub 示例用作参考：
 
-  - [管理资源组](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
+- [管理资源组](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [管理存储帐户](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
+- [管理存储帐户](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [管理虚拟机](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [管理虚拟机](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
-### <a name="sample-unit-test-project"></a>示例单元测试项目 
+### <a name="sample-unit-test-project"></a>示例单元测试项目
 
 1. 使用以下命令克隆存储库：
-    
+
    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2. 创建 Azure 服务主体并分配用于访问订阅的角色。 有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../azure-stack-create-service-principals.md)。
+2. 创建 Azure 服务主体并分配用于访问订阅的角色。 有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../operator/azure-stack-create-service-principals.md)。
 
 3. 检索以下必需的环境变量值：
-    
-   -  AZURE_TENANT_ID
-   -  AZURE_CLIENT_ID
-   -  AZURE_CLIENT_SECRET
-   -  AZURE_SUBSCRIPTION_ID
-   -  ARM_ENDPOINT
-   -  RESOURCE_LOCATION
+
+   - AZURE_TENANT_ID
+   - AZURE_CLIENT_ID
+   - AZURE_CLIENT_SECRET
+   - AZURE_SUBSCRIPTION_ID
+   - ARM_ENDPOINT
+   - RESOURCE_LOCATION
 
 4. 使用命令提示符，根据从已创建的服务主体检索的信息设置以下环境变量：
-    
+
    - export AZURE_TENANT_ID={你的租户 ID}
    - export AZURE_CLIENT_ID={你的客户端 ID}
    - export AZURE_CLIENT_SECRET={你的客户端机密}
@@ -291,18 +290,18 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6. 在 pom.xml 文件中添加以下依赖项，以便使用 Azure Stack 的 2018-03-01-hybrid 配置文件。 此依赖项将为计算、网络、存储、KeyVault 和应用服务资源提供程序安装与此配置文件相关联的模块。
-      
+6. 在 Pom.xml 文件中，添加以下依赖项，以便使用 Azure Stack 的 **2018-03-01-hybrid** 配置文件。 此依赖项将为计算、网络、存储、KeyVault 和应用服务资源提供程序安装与此配置文件相关联的模块：
+
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <vers1s.0.0-beta</version>
    </dependency>
    ```
 
-7. 在打开的用于设置环境变量的命令提示符中，输入以下行：
-    
+7. 在打开的用于设置环境变量的命令提示符中，输入以下命令：
+
    ```shell
    mvn clean compile exec:java
    ```
@@ -311,5 +310,5 @@ HttpResponse response = httpClient.execute(getRequest);
 
 有关 API 配置文件的详细信息，请参阅：
 
-- [在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)
+- [Azure Stack 中的版本配置文件](azure-stack-version-profiles.md)
 - [配置文件支持的资源提供程序 API 版本](azure-stack-profiles-azure-resource-manager-versions.md)

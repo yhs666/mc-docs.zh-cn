@@ -1,5 +1,5 @@
 ---
-title: 迁移后管理单一和共用数据库 - Azure SQL 数据库 | Microsoft Docs
+title: 迁移后管理单一数据库和共用数据库 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何在迁移到 Azure SQL 数据库后管理数据库。
 services: sql-database
 ms.service: sql-database
@@ -12,23 +12,23 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/13/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: b57c3a680bd301b17b697d0298b4631a0755ab9e
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 04/29/2019
+ms.openlocfilehash: 64532148c31354f0a632255fc39de916718b9418
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347230"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854892"
 ---
 # <a name="new-dba-in-the-cloud---managing-your-single-and-pooled-databases-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中单一和共用数据库
 
-从传统的自我管理、自我控制环境过渡到 PaaS 环境后，一开始我们可能有点不适应。 应用开发人员或 DBA（数据库管理员）希望了解该平台中可让应用程序始终保持可用性、高效性、安全性和弹性的核心功能。 本文正好介绍了这些内容。 本文简要地整理了一下资源，并指导如何充分利用单一和共用 SQL 数据库的主要功能在云中管理应用程序，使应用程序保持高效运行并获得最佳效果。 本文主要面向：
+从传统的自我管理、自我控制环境过渡到 PaaS 环境后，一开始我们可能有点不适应。 应用开发人员或 DBA（数据库管理员）希望了解该平台中可让应用程序始终保持可用性、高效性、安全性和弹性的核心功能。 本文正好介绍了这些内容。 本文简要地整理了一下资源，并指导如何充分利用单一数据库和共用 SQL 数据库的主要功能在云中管理应用程序，使应用程序保持高效运行并获得最佳效果。 本文主要面向：
 
 - 正在评估向 Azure SQL 数据库迁移应用程序（使应用程序现代化）的人员。
 - 正在迁移应用程序 - 现行迁移方案。
 - 最近已完成到 Azure SQL 数据库的迁移 - 云中的新 DBA。
 
-本文讨论 Azure SQL 数据库的一些核心特性，作为在弹性池中使用单一数据库和共用数据库时可以轻松利用的平台。 这些特征包括：
+本文讨论 Azure SQL 数据库的一些核心特性。作为一个平台，Azure SQL 数据库非常便于你在使用单一数据库和弹性池中的共用数据库时加以利用。 这些特征包括：
 
 - 业务连续性和灾难恢复 (BCDR)
 - 安全性与符合性
@@ -41,7 +41,7 @@ ms.locfileid: "57347230"
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>如何在 SQL 数据库中创建和管理备份
 
-不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 在称为“保留期”的某段时间内，这些备份均可用，可用情况因所选服务层而有所不同。 在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
+不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 在称为“保留期”的某段时间内，这些备份均可用，可用情况因所选服务层级而有所不同。 在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
 
 |服务层|保留期（天）|
 |---|:---:|
@@ -201,7 +201,7 @@ Always Encrypted 中还有[两个密钥层次结构](https://docs.microsoft.com/
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL 数据库是否符合任何规章要求，这对我组织的合规性有什么帮助
 
-SQL 数据库符合一系列合规要求。 若要查看符合的最新一组合规要求，请访问 [Azure 信任中心](https://www.trustcenter.cn)，并向下钻取对你的组织而言至关重要的合规性，以了解 SQL 数据库是否包含在合规的 Azure 服务中。 需要注意的是，尽管 SQL 数据库可能被认证为合规服务，它有助于确保组织服务的符合性，但不会自动保证这一点。
+SQL 数据库符合一系列合规要求。 若要查看 SQL 数据库符合的最新一组合规要求，请访问 [Azure 信任中心](https://www.trustcenter.cn)，并向下钻取对你的组织而言至关重要的合规性，以了解 SQL 数据库是否包含在合规的 Azure 服务中。 需要注意的是，尽管 SQL 数据库可能被认证为合规服务，它有助于确保组织服务的符合性，但不会自动保证这一点。
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>迁移后的智能数据库监视和维护
 
@@ -257,19 +257,19 @@ Azure 门户通过选择数据库并单击“概述”窗格中的图表来显�
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我注意到了性能问题：我的 SQL 数据库故障排除方法与 SQL Server 有何不同
 
-诊断查询和数据库性能问题时所用的大多数故障排除方法是相同的。 毕竟云由同一个 SQL Server 引擎驱动。 但是，Azure SQL DB 平台具有内置的“智能”。 它可以帮助你更轻松地排查和诊断性能问题。 此外，它还可以替你执行一些纠正措施；在某些情况下，会自动地主动修复问题。 
+诊断查询和数据库性能问题时所用的大多数故障排除方法是相同的。 毕竟云由同一个 SQL Server 引擎驱动。 但是，Azure SQL DB 平台具有内置的“智能”。 它可以帮助你更轻松地排查和诊断性能问题。 此外，它还可以替你执行一些纠正措施；在某些情况下，会自动地主动修复问题。
 
 结合使用 [Query Performance Insight (QPI)](sql-database-query-performance.md) 和[数据库顾问](sql-database-advisor.md)等智能功能对排查性能问题很有用，因此，故障排除方法的差别也体现在这方面 - 不再需要手动找出可能有助于排除手头问题的重要细节。 平台能够自动解决棘手的工作。 一个例子就是 QPI。 使用 QPI 可以一路深化到查询级别，查看历史趋势并判断查询回归的确切时间。 数据库顾问可针对缺少索引、删除索引、参数化查询等方面提供建议，帮助提高总体性能。
 
 进行性能故障排除时，请务必确定是应用程序，还是支持它的数据库影响了应用程序的性能。 通常，性能问题出现在应用程序层。 问题原因可能在于体系结构或数据访问模式。 例如，假设某个频繁通信的应用程序对网络延迟很敏感。 在这种情况下，由于有许多简短请求在应用程序与服务器之间来回传送（“琐碎 I/O”），因此应用程序的性能会受到影响；在拥塞的网络上，往返次数会快速增加。 若要在此情况下提高性能，可以使用[批处理查询](sql-database-performance-guidance.md#batch-queries)。 使用批处理可以带来很大的帮助，因为现在请求会在批中处理；因此，可帮助减少往返延迟并提高应用程序的性能。
 
-此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 你可能会需要根据工作负荷需求的增加和减少来更改计算大小和/或服务层。
+此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 你可能会需要根据工作负荷需求的增加和减少来更改计算大小和/或服务层级。
 
 有关优化性能问题的全套建议，请参阅：[优化数据库](sql-database-performance-guidance.md#tune-your-database)。
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何确保我使用的是适当的服务层和计算大小
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何确保我使用的是适当的服务层级和计算大小
 
-SQL 数据库提供了各种服务层：基本、标准和高级。 在每个服务层，将获得与该服务层对应的有保障且可预测的性能。 根据工作负荷情况，活动可能会激增，资源利用率可能会达到当前所处计算大小的上限。 对于这种情况，最好是先评估任何优化措施（例如，添加或更改索引等）是否有所帮助。 如果仍然存在限制问题，请考虑转移到更高的服务层或计算大小。
+SQL 数据库提供了各种服务层级：“基本”、“标准”和“高级”。 在每个服务层级，将获得与该服务层级对应的有保障且可预测的性能。 根据工作负荷情况，活动可能会激增，资源利用率可能会达到当前所处计算大小的上限。 对于这种情况，最好是先评估任何优化措施（例如，添加或更改索引等）是否有所帮助。 如果仍然存在限制问题，请考虑转移到更高的服务层级或计算大小。
 
 |**服务层**|**常见用例方案**|
 |---|---|

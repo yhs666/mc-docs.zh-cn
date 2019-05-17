@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/21/2019
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2a04b442abbf054fadd9a5580e8b6aedef94b31a
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 07cb2c0fc3af08de64580de2e427c02034ccface
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560464"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854788"
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -149,8 +149,8 @@ ms.locfileid: "57560464"
     ```
    
     在查询位于 **Redmond43** 的所有设备的查询结果中，应该会看到一个设备，而在将结果限制为使用蜂窝网络的设备的查询结果中没有任何设备。
-   
-    ![第一个查询][1]
+
+    ![第一个显示 Redmond 中所有设备的查询](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
 
 在下一部分中，创建的设备应用会报告连接信息，并更改上一部分中查询的结果。
 
@@ -246,25 +246,25 @@ ms.locfileid: "57560464"
         iothub_client_sample_run()
     ```
 
-1. 运行设备应用
-   
+7. 运行设备应用：
+
     ```cmd/sh
     python ReportConnectivity.py
     ```
    
     应当会看到关于设备孪生已更新的确认。
 
-    ![更新孪生][2]
+    ![更新孪生](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
 
 6. 现在设备报告了其连接信息，应出现在两个查询中。 回过头来再次运行查询：
    
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
-   
-    这一次，两个查询结果中应当都会显示你的 **{Device Id}**。
-   
-    ![第二个查询][3]
+
+    这一次，两个查询结果中应当都会显示你的 **{Device ID}**。
+
+    ![第二个查询](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
 ## <a name="next-steps"></a>后续步骤
 本教程中，在 Azure 门户中配置了新的 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 已从后端应用以标记形式添加了设备元数据，并编写了模拟的设备应用，用于报告设备孪生中的设备连接信息。 你还学习了如何使用注册表查询此信息。
@@ -274,11 +274,8 @@ ms.locfileid: "57560464"
 * 通过 [IoT 中心入门][lnk-iothub-getstarted]教程学习如何从设备发送遥测数据，
 * 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备，
 * 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
-
 <!-- images -->
-[1]: media/iot-hub-python-twin-getstarted/1.png
-[2]: media/iot-hub-python-twin-getstarted/2.png
-[3]: media/iot-hub-python-twin-getstarted/3.png
+[1]: media/iot-hub-python-twin-getstarted/1.png [2]: media/iot-hub-python-twin-getstarted/2.png [3]: media/iot-hub-python-twin-getstarted/3.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

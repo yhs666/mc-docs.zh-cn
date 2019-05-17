@@ -1,51 +1,60 @@
 ---
-title: Azure 门户快捷键 | Microsoft Docs
+title: Azure 门户键盘快捷方式 | Azure Docs
 description: 了解 Azure 门户中使用的键盘快捷方式。
 services: azure-portal
 documentationcenter: ''
-author: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 08/24/2017
-ms.author: micflan
+ms.author: kfollis
 ms.custom: accessibility
-ms.date: 08/13/2018
-ms.openlocfilehash: fda6c45ccbff8a15262723b9ff1eb37b82f5f879
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/06/2019
+ms.openlocfilehash: f94a56d8d6a172598a884c9692fd48847a9e6bfd
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658173"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855174"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
-本文介绍了 Azure 门户中使用的键盘快捷方式。 各个服务可能有其自己的键盘快捷方式。
+
+本文列出了 Azure 门户中使用的键盘快捷方式。 各个服务可能有其自己的键盘快捷方式。
 
 ## <a name="actions"></a>操作
-|要执行此操作 |按 |
+
+|为了执行此操作 |按 |
 | --- | --- |
-|创建新资源|G+N|
-|打开“所有服务”窗格|G+B|
-|搜索资源|G+/| 
+|创建资源|G+N|
+|打开“所有服务”|G+B|
+|搜索资源、服务和文档|G+/|
 |搜索资源菜单项|CTRL+/ |
-|上移所选的左窗格项 |ALT+Shift+向上键|
-|下移所选的左窗格项 |ALT+Shift+向下键|
+|上移所选的左边栏项 |ALT+Shift+向上键|
+|下移所选的左边栏项 |ALT+Shift+向下键|
 
 ## <a name="navigation"></a>导航
-|要执行此操作 |按 |
+
+|为了执行此导航 |按 |
 | --- | --- |
 |将焦点移到命令栏 |G+, |
-|在上栏和侧边栏之间切换焦点 | G+. |
+|在标头和左边栏之间切换焦点 | G+. |
 
 ## <a name="go-to"></a>转到
-|要执行此操作 |按 |
+
+|转到此位置 |按 |
 | --- | --- |
-|转到仪表板 |G+D |
-|转到所有资源|G+A |
-|转到资源组|G+R |
-|打开此位置的左窗格项 |G+数字|
+|转到“仪表板” |G+D |
+|转到“所有资源”|G+A |
+|转到“资源组”|G+R |
+|打开此位置的左边栏项 |G+数字|
+
+## <a name="next-steps"></a>后续步骤
+
+- [启用高对比度或更改主题](azure-portal-change-theme-high-contrast.md)
+- [支持的浏览器和设备](../azure-preview-portal-supported-browsers-devices.md)

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/05/2019
 ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 170f5364ccc639b3fe1a2d5d5151c70bea023697
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4f556539ff946d7e80680b91f87e7efe6f8f0a15
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625787"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854931"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 连接到 Azure Kubernetes 服务 (AKS) 群集节点以进行维护或故障排除
 
@@ -23,7 +23,9 @@ ms.locfileid: "58625787"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!--Not Available on [using the Azure portal][aks-quickstart-portal]-->
 
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -42,7 +44,7 @@ ms.locfileid: "58625787"
 1. 使用 [az vm list][az-vm-list] 命令列出 AKS 群集资源组中的 VM。 这些 VM 是 AKS 节点：
 
     ```azurecli
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast -o table
+    az vm list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 -o table
     ```
 
     以下示例输出显示 AKS 节点：
@@ -50,14 +52,14 @@ ms.locfileid: "58625787"
     ```
     Name                      ResourceGroup                                  Location
     ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast  chinaeast
+    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast2  chinaeast2
     ```
 
 1. 若要将 SSH 密钥添加到节点，请使用 [az vm user update][az-vm-user-update] 命令。 提供资源组名称，然后提供在上一步骤中获取的 AKS 节点之一。 默认情况下，AKS 节点的用户名为 *azureuser*。 提供自己的 SSH 公钥位置（例如 *~/.ssh/id_rsa.pub*），或粘贴 SSH 公钥的内容：
 
     ```azurecli
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
+      --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
@@ -70,7 +72,7 @@ AKS 节点不会在 Internet 中公开。 若要通过 SSH 连接到 AKS 节点�
 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令查看 AKS 群集节点的专用 IP 地址。 提供在前面 [az-aks-show][az-aks-show] 步骤中获取的自己的 AKS 群集资源组名称：
 
 ```azurecli
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_chinaeast -o table
+az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_chinaeast2 -o table
 ```
 
 以下示例输出显示 AKS 节点的专用 IP 地址：
@@ -149,18 +151,24 @@ aks-nodepool1-79590246-0  10.240.0.4
 
 ## <a name="next-steps"></a>后续步骤
 
-如需其他故障排除数据，可以[查看 kubelet 日志][view-kubelet-logs]或[查看 Kubernetes 主节点日志][view-master-logs]。
+如需其他故障排除数据，可以[查看 kubelet 日志][view-kubelet-logs]。
+
+<!--Not Avaialble on [view the Kubernetes master node logs][view-master-logs]-->
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [az-vm-list]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list
 [az-vm-user-update]: https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
 [az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: view-master-logs.md
+
+<!--Not Avaialble on [view-master-logs]: view-master-logs.md-->
+
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+
+<!--Not Avaialble on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

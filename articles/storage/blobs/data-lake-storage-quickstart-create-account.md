@@ -7,18 +7,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 origin.date: 12/06/2018
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: c9222c4dc12f625071f5c3bc4278a3204110273b
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 065cdcebebc5f306342a5baac8f53ababef952a5
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665600"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549918"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 存储帐户
 
-Azure Data Lake Storage Gen2 [支持分层命名空间服务](data-lake-storage-introduction.md)，该服务提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于原生目录的文件系统。 可以通过 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
+Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introduction.md)，该命名空间提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于本机目录的文件系统。 可以通过 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
 
 本快速入门展示了如何使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或通过 [Azure CLI](/cli/?view=azure-cli-latest) 创建帐户。
 
@@ -101,7 +101,7 @@ Azure Data Lake Storage Gen2 [支持分层命名空间服务](data-lake-storage-
 
 首先，安装最新版本的 [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) 模块。
 
-然后，升级 powershell 模块，登录 Azure 订阅，创建资源组，然后创建存储帐户。
+然后，升级 powershell 模块，登录到 Azure 订阅，创建资源组，然后创建存储帐户。
 
 ### <a name="upgrade-your-powershell-module"></a>升级 powershell 模块
 
@@ -117,7 +117,7 @@ Azure Data Lake Storage Gen2 [支持分层命名空间服务](data-lake-storage-
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>登录 Azure 订阅
+### <a name="sign-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
 使用 `Login-AzAccount` 命令并按照屏幕上的说明进行身份验证。
 
@@ -165,7 +165,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>使用 Azure CLI 创建帐户
 
-若要登录到本地安装的 CLI，可运行登录命令：
+若要登录到本地安装的 CLI，请运行登录命令：
 
 ```cli
 az login

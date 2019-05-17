@@ -12,13 +12,13 @@ author: WenJason
 ms.reviewer: sstein
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 9574a63d7587140a7468ea79e670477bb7d1b8c6
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 04/29/2019
+ms.openlocfilehash: 9d39d2581530e78ebf8218808871147dada1411b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003527"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854922"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业
 
@@ -194,7 +194,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 默认情况下，作业代理将查找创建表以存储返回的结果。 因此，与用于输出凭据的凭据相关联的登录将需要具有足够的权限来执行此操作。 如果要提前手动创建表，则需要具有以下属性：
 1. 具有结果集的正确名称和数据类型的列。
 2. 数据类型为 uniqueidentifier 的 internal_execution_id 的其他列。
-3. internal_execution_id 列上名为“IX_<TableName>_Internal_Execution_ID”的非聚集索引。
+3. internal_execution_id 列上名为 `IX_<TableName>_Internal_Execution_ID` 的非聚集索引。
 
 连接到[作业数据库](sql-database-job-automation-overview.md#job-database)，然后运行以下命令：
 
@@ -1245,7 +1245,7 @@ GO
 |**job_name**|  nvarchar(128)   |作业的名称。|
 |**job_id**|    uniqueidentifier    |作业的唯一 ID。|
 |**job_version**    |int    |作业的版本（每次修改作业时自动更新）。|
-|**说明**    |nvarchar(512)| 作业的说明。 enabled 为 bit    指示作业是已启用还是已禁用。 1 指示作业已启用，0 指示作业已禁用。|
+|description    |nvarchar(512)| 作业的说明。 enabled 为 bit    指示作业是已启用还是已禁用。 1 指示作业已启用，0 指示作业已禁用。|
 |**schedule_interval_type** |nvarchar(50)   |指示何时执行作业的值：'Once'、'Minutes'、'Hours'、'Days'、'Weeks'、'Months'
 |**schedule_interval_count**|   int|    每次执行作业时，其间会出现的 schedule_interval_type 期间数。|
 |**schedule_start_time**    |datetime2(7)|  作业上次开始执行的日期和时间。|
@@ -1331,7 +1331,7 @@ GO
 |**target_type**    |nvarchar(128)| 目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库，或者单个数据库。 target_type 的有效值为 'SqlServer'、'SqlElasticPool'、'SqlDatabase' 或 'SqlShardMap'。|
 |**target_id**  |uniqueidentifier|  目标组成员的唯一 ID。|
 |**refresh_credential_name**    |nvarchar(128)  |用于连接到目标组成员的数据库范围的凭据的名称。|
-|**subscription_id**    |uniqueidentifier|  订阅的唯一 ID。|
+|subscription_id    |uniqueidentifier|  订阅的唯一 ID。|
 |**resource_group_name**    |nvarchar(128)| 目标组成员所在资源组的名称。|
 |**server_name**    |nvarchar(128)  |包含在目标组中的 SQL 数据库服务器的名称。 仅当 target_type 为 'SqlServer' 时指定。 |
 |**database_name**  |nvarchar(128)  |包含在目标组中的数据库的名称。 仅当 target_type 为 'SqlDatabase' 时指定。|

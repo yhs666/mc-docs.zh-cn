@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik
 manager: digimobile
 origin.date: 12/19/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 386bae83d6e9955116cefac8f6eefcf80796c9f9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 04/29/2019
+ms.openlocfilehash: bab79004b2df4a1978a95e6bd38efddd07b1168a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626015"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854757"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 
@@ -224,7 +224,7 @@ GO
 
 然后，在结果窗格中，我们单击了 **target_data_XML** 列标题下的单元格。 这个单击动作在 ssms.exe 中按结果单元格内容显示的顺序，以 XML 格式创建了另一个文件选项卡。
 
-输出显示在以下块中。 结果看起来很长，但其实只是两个 **<event>** 元素。
+输出显示在以下块中。 结果看起来很长，但其实只是两个 **\<event>** 元素。
 
 &nbsp;
 

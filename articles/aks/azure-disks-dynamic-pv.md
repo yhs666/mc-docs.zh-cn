@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/01/2019
 ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 34c9aa750e72c5352a9069c6617309908c815253
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fbe437ecacc599e20ddfd3254deaa5c7b87269a6
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626632"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855605"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
@@ -26,7 +26,9 @@ ms.locfileid: "58626632"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!-- Not Available [using the Azure portal][aks-quickstart-portal]-->
 
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -54,7 +56,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 > [!NOTE]
 > 永久卷声明在 GiB 中指定，但 Azure 托管磁盘由 SKU 针对特定大小计费。 高级托管磁盘的吞吐量和 IOPS 性能取决于 SKU 和 AKS 群集中节点的实例大小。 有关详细信息，请参阅[托管磁盘的定价和性能][managed-disk-pricing-performance]。
 
-<!--Pending on These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks.-->
+<!--NOt Available on These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in PREVIEW).-->
 
 ## <a name="create-a-persistent-volume-claim"></a>创建永久性卷声明
 
@@ -172,13 +174,13 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-运行 [az snapshot create][az-snapshot-create]，使用磁盘 ID 创建快照磁盘。 以下示例在 AKS 群集所在的同一资源组 (*MC_myResourceGroup_myAKSCluster_chinaeast*) 中创建名为 *pvcSnapshot* 的快照。 如果在 AKS 群集无权访问的资源组中创建快照和还原磁盘，可能会遇到权限问题。
+运行 [az snapshot create][az-snapshot-create]，使用磁盘 ID 创建快照磁盘。 以下示例在 AKS 群集所在的同一资源组 (*MC_myResourceGroup_myAKSCluster_chinaeast2*) 中创建名为 *pvcSnapshot* 的快照。 如果在 AKS 群集无权访问的资源组中创建快照和还原磁盘，可能会遇到权限问题。
 
 ```azurecli
 $ az snapshot create \
-    --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
+    --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 \
     --name pvcSnapshot \
-    --source /subscriptions/<guid>/resourceGroups/MC_myResourceGroup_myAKSCluster_chinaeast/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
+    --source /subscriptions/<guid>/resourceGroups/MC_myResourceGroup_myAKSCluster_chinaeast2/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
 根据磁盘上的数据量，可能需要花费几分钟时间来创建快照。
@@ -188,13 +190,13 @@ $ az snapshot create \
 若要还原磁盘并将其用于 Kubernetes Pod，请在使用 [az disk create][az-disk-create] 创建磁盘时，将快照用作源。 如果以后需要访问原始数据快照，此操作可保留原始资源。 以下示例基于名为 *pvcSnapshot* 的快照创建名为 *pvcRestored* 的磁盘：
 
 ```azurecli
-az disk create --resource-group MC_myResourceGroup_myAKSCluster_chinaeast --name pvcRestored --source pvcSnapshot
+az disk create --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 --name pvcRestored --source pvcSnapshot
 ```
 
 若要使用包含 Pod 的已还原磁盘，请指定清单中磁盘的 ID。 使用 [az disk show][az-disk-show] 命令获取磁盘 ID。 以下示例获取上一步骤中创建的 *pvcRestored* 的磁盘 ID：
 
 ```azurecli
-az disk show --resource-group MC_myResourceGroup_myAKSCluster_chinaeast --name pvcRestored --query id -o tsv
+az disk show --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 --name pvcRestored --query id -o tsv
 ```
 
 创建名为 `azure-restored.yaml` 的 Pod 清单，并指定上一步骤中获取的磁盘 URI。 以下示例创建一个基本的 NGINX Web 服务器，其中的 *mnt/azure* 处已将还原的磁盘装载为卷：
@@ -223,7 +225,7 @@ spec:
       azureDisk:
         kind: Managed
         diskName: pvcRestored
-        diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_chinaeast/providers/Microsoft.Compute/disks/pvcRestored
+        diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_chinaeast2/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令创建 Pod，如以下示例所示：
@@ -244,7 +246,7 @@ Volumes:
   volume:
     Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
     DiskName:     pvcRestored
-    DiskURI:      /subscriptions/19da35d3-9a1a-4f3b-9b9c-3c56ef409565/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_chinaeast/providers/Microsoft.Compute/disks/pvcRestored
+    DiskURI:      /subscriptions/19da35d3-9a1a-4f3b-9b9c-3c56ef409565/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_chinaeast2/providers/Microsoft.Compute/disks/pvcRestored
     Kind:         Managed
     FSType:       ext4
     CachingMode:  ReadWrite
@@ -278,7 +280,9 @@ Volumes:
 [az-disk-create]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create
 [az-disk-show]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+
+<!-- Not Available[aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md

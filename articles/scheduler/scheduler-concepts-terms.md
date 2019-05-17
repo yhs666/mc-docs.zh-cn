@@ -10,13 +10,13 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 origin.date: 08/18/2016
-ms.date: 04/15/2019
-ms.openlocfilehash: 696798548797e8db1d4c2ff961d86110856b0a60
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 04/29/2019
+ms.openlocfilehash: 728ca8821e46e3712c0a56623f0453781322d272
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529223"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854906"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 计划程序的概念、术语和实体
 
@@ -42,19 +42,25 @@ Azure 计划程序 REST API 公开并使用以下主要实体或资源：
 
 支持创建和编辑作业的操作。 所有作业都必须属于某一现有作业集合，因此没有显式创建。 有关详细信息，请参阅[计划程序 REST API - 作业](https://docs.microsoft.com/rest/api/scheduler/jobs)。 下面是这些操作的 URI 地址：
 
-`https://management.chinacloudapi.cn/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.chinacloudapi.cn/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### <a name="job-collection-management"></a>作业集合管理
 
 支持创建和编辑作业和作业集合（映射到配额和共享设置）的操作。 例如，配额指定最大作业数量和最小重复周期间隔。 有关详细信息，请参阅[计划程序 REST API - 作业集合](https://docs.microsoft.com/rest/api/scheduler/jobcollections)。 下面是这些操作的 URI 地址：
 
-`https://management.chinacloudapi.cn/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.chinacloudapi.cn/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### <a name="job-history-management"></a>作业历史记录管理
 
-支持用于获取 60 天的作业执行历史记录（例如，作业已用时间和作业执行结果）的 GET 操作。 包含基于状态进行筛选的查询字符串参数支持。 有关详细信息，请参阅[计划程序 REST API - 作业 - 列出作业历史记录](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)。 下面是此操作的 URI 地址：
+支持用于获取 60 天的作业执行历史记录（例如，作业已用时间和作业执行结果）的 GET 操作。 包含基于状态进行筛选的查询字符串参数支持。 有关详细信息，请参阅[计划程序 REST API - 作业 - 列出作业历史记录](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)。 下面是该操作的 URI 地址：
 
-`https://management.chinacloudapi.cn/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.chinacloudapi.cn/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## <a name="job-types"></a>作业类型
 
@@ -246,7 +252,7 @@ Azure 计划程序支持多个作业类型：
 | **interval** | 否 | 1 - 1000（包含） | 一个正整数，根据频率确定两次作业之间的时间单位数 | 
 | **schedule** | 否 | 多种多样 | 更复杂和更高级计划的详细信息。 请参阅 hours、minutes、weekDays、months 和 monthDays | 
 | **小时数** | 否 | 1 - 24 | 一个带有小时标记的数组，用于指示何时运行作业 | 
-| **minutes** | 否 | 1 - 24 | 一个带有分钟标记的数组，用于指示何时运行作业 | 
+| **minutes** | 否 | 0 到 59 | 一个带有分钟标记的数组，用于指示何时运行作业 | 
 | **months** | 否 | 1 - 12 | 一个带有月份标记的数组，用于指示何时运行作业 | 
 | **monthDays** | 否 | 多种多样 | 一个带有月份天数标记的数组，用于指示何时运行作业 | 
 | **工作日** | 否 | Monday、Tuesday、Wednesday、Thursday、Friday、Saturday、Sunday | 一个带有星期的天数标记的数组，用于指示何时运行作业 | 

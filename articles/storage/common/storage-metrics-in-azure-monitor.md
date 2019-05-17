@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/05/2017
-ms.date: 02/25/2019
+ms.date: 04/22/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: aa8931845565a7f8bf421e5b14f2e94e3205065d
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: cf255df41bc53f6933c404dd825587d88b63046a
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665416"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63853212"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 存储指标
 
@@ -135,13 +135,13 @@ Azure Monitor 提供 [REST API](https://docs.microsoft.com/rest/api/monitor/) �
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>使用 .Net SDK 访问指标
+### <a name="access-metrics-with-the-net-sdk"></a>使用 .NET SDK 访问指标
 
-Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)，用于读取指标定义和值。 [示例代码](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)演示如何通过不同的参数来使用 SDK。 对于存储指标，需使用 `0.18.0-preview` 或更高版本。 资源 ID 用在 .Net SDK 中。 有关详细信息，请阅读“了解存储中服务的资源 ID”。
+Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)，用于读取指标定义和值。 [示例代码](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)演示如何通过不同的参数来使用 SDK。 对于存储指标，需使用 `0.18.0-preview` 或更高版本。 资源 ID 用在 .NET SDK 中。 有关详细信息，请阅读“了解存储中服务的资源 ID”。
 
-以下示例说明了如何使用 Azure Monitor .Net SDK 来读取存储指标。
+以下示例说明了如何使用 Azure Monitor .NET SDK 来读取存储指标。
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>使用 .Net SDK 列出帐户级指标定义
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>使用 .NET SDK 列出帐户级指标定义
 
 以下示例演示如何列出帐户级别的指标定义：
 
@@ -178,7 +178,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 如果想要列出 Blob、表、文件或队列的指标定义，必须使用 API 指定每个服务的不同资源 ID。
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>使用 .Net SDK 读取指标值
+#### <a name="read-metric-values-with-the-net-sdk"></a>使用 .NET SDK 读取指标值
 
 以下示例演示如何读取帐户级别的 `UsedCapacity` 数据：
 
@@ -228,7 +228,7 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 在上述示例中，如果想要读取 Blob、表、文件或队列的指标值，必须使用 API 指定每个服务的不同资源 ID。
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>使用 .Net SDK 读取多维指标值
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>使用 .NET SDK 读取多维指标值
 
 对于多维指标，如果需要读取基于特定维度值的指标数据，则需定义元数据筛选器。
 
@@ -285,9 +285,9 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 资源 ID 是资源在 Azure 中的唯一标识符。 使用 Azure Monitor REST API 读取指标定义或值时，必须使用要对其执行操作的资源的资源 ID。 资源 ID 模板遵循以下格式：
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 存储通过 Azure Monitor 提供存储帐户级别和服务级别的指标。 例如，可以仅检索 Blob 存储的指标。 每个级别有其自身的资源 ID，用于仅检索该级别的指标。
 
@@ -295,34 +295,38 @@ Azure Monitor 提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 下面显示了指定存储帐户的资源 ID 时所用的格式。
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>存储服务的资源 ID
 
 下面显示了指定每个存储服务的资源 ID 时所用的格式。
 
-* Blob 服务资源 ID `
+* Blob 服务资源 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* 表服务资源 ID `
+```
+* 表服务资源 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* 队列服务资源 ID `
+```
+* 队列服务资源 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* 文件服务资源 ID `
+```
+* 文件服务资源 ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure Monitor REST API 中的资源 ID
 
 下面显示了调用 Azure Monitor REST API 时所用的模式。
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>容量度量值
 容量指标每隔一小时发送到 Azure Monitor。 值每日刷新。 时间粒度定义呈现指标值的时间间隔。 所有容量指标的受支持时间粒度为一小时 (PT1H)。

@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 12/27/2018
-ms.date: 02/18/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: c3483f94eeeddfca8f065a400935ffc69af05655
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: b708b85f6c30c2e93c44ceb325fadaf2e65aab71
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218352"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854976"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 
@@ -39,7 +39,7 @@ VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置�
 
 创建虚拟网络网关时，必须确保用于配置的网关类型正确。 VPN 网关需要 `-GatewayType Vpn` 标志，例如：
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'China East' -IpConfigurations $gwipconfig -GatewayType Vpn
 -VpnType RouteBased
@@ -73,7 +73,7 @@ Azure Stack 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
 以下 PowerShell 示例将 **-GatewaySku** 指定为 `VpnGw1`：
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'China East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
 -GatewayType Vpn -VpnType RouteBased
@@ -87,7 +87,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
    以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
 
-   ```PowerShell
+   ```powershell
    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
    -Location 'China East' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
    -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -111,7 +111,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 以下 PowerShell 示例将 **-VpnType** 指定为 **RouteBased**。 创建网关时，必须确保用于配置的 **-VpnType** 正确。
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'China East' -IpConfigurations $gwipconfig
 -GatewayType Vpn -VpnType RouteBased
@@ -141,12 +141,12 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 以下资源管理器 PowerShell 示例显示名为 **GatewaySubnet** 的网关子网。 可以看到，CIDR 表示法指定了 /27，这可提供足够的 IP 地址供大多数现有配置使用。
 
-```PowerShell
+```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
-> 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关停止按预期方式工作。 有关网络安全组的详细信息，请参阅[什么是网络安全组？](../../virtual-network/virtual-networks-nsg.md)
+> 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关停止按预期方式工作。 有关网络安全组的详细信息，请参阅[什么是网络安全组？](/virtual-network/virtual-networks-nsg)
 
 ### <a name="local-network-gateways"></a>本地网关
 
@@ -156,22 +156,22 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 以下 PowerShell 示例创建新的本地网络网关：
 
-```PowerShell
+```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'China East' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-有时，我们需要修改本地网络网关设置；例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。 请参阅[使用 PowerShell 修改本地网络网关设置](../../vpn-gateway/vpn-gateway-modify-local-network-gateway.md)。
+有时，我们需要修改本地网络网关设置；例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。 请参阅[使用 PowerShell 修改本地网络网关设置](/vpn-gateway/vpn-gateway-modify-local-network-gateway)。
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 参数
 
 在 Azure Stack 中设置 VPN 连接时，必须在两端配置连接。 若要配置 Azure Stack 与硬件设备（例如用作 VPN 网关的交换机或路由器）之间的 VPN 连接，可能需要在该设备上进行其他设置。
 
-Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将多个产品/服务用作发起程序和响应程序。
+Azure Stack 默认情况下仅支持一个套餐，这与 Azure 不同，后者支持将多个套餐用作发起程序和响应程序。  如需使用适合 VPN 设备的不同 IPSec/IKE 设置，则可通过其他设置来手动配置连接。  有关更多详细信息，请参阅[配置站点到站点 VPN 连接的 IPsec/IKE 策略](azure-stack-vpn-s2s.md)。
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数
 
-| 属性              | 值|
+| 属性              | Value|
 |-|-|
 | SDK 版本           | IKEv2 |
 |Diffie-Hellman 组   | 组 2（1024 位） |
@@ -181,7 +181,7 @@ Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 阶段 2（快速模式）参数
 
-| 属性| 值|
+| 属性| Value|
 |-|-|
 |SDK 版本 |IKEv2 |
 |加密和哈希算法（加密）     | GCMAES256|
@@ -195,4 +195,4 @@ Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 ExpressRoute 进行连接](../azure-stack-connect-expressroute.md)
+* [使用 ExpressRoute 进行连接](../operator/azure-stack-connect-expressroute.md)

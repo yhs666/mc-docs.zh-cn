@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/12/2018
-ms.date: 03/04/2019
+origin.date: 04/15/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 004dff4f6a95c0048fe808373f3d6b9b8b7d272a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7a9e1b4519a7c586fce61946a2a72e3aa5271ff5
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625375"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854857"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -58,15 +58,17 @@ ms.locfileid: "58625375"
 如果你的 Azure Stack 使用 Azure AD 作为标识存储，则可以通过 Azure 门户使用与 Azure 中相同的步骤来创建服务主体。
 
 > [!NOTE]
-> 在开始创建服务主体之前，请检查你是否具有[所需的 Azure AD 权限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+> 在开始创建服务主体之前，请检查你是否具有[所需的 Azure AD 权限](/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
 ### <a name="create-service-principal"></a>创建服务主体
 
 若要为应用程序创建服务主体，请执行以下操作：
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
-2. 选择“Azure Active Directory” > “应用注册” > “添加”。
-3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 设置这些值后，选择“创建”。
+2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。
+3. 提供一个名称。
+4. 选择“支持的帐户类型”。
+5.  添加应用程序的 URI。 选择“Web”作为要创建的应用程序的类型。 设置这些值后，选择“注册”。
 
 ### <a name="get-credentials"></a>获取凭据
 
@@ -77,12 +79,13 @@ ms.locfileid: "58625375"
 2. 复制“应用程序 ID”并将其存储在应用程序代码中。 在引用“应用程序 ID”时，示例应用程序中的应用程序使用“客户端 ID”。
 
      ![应用程序的应用程序 ID](./media/azure-stack-create-service-principals/image12.png)
-3. 若要生成身份验证密钥，请选择“密钥” 。
+3. 若要生成身份验证密钥，请选择“证书和机密”。
 
-4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
+4. 选择“新建客户端机密”。
 
-> [!IMPORTANT]
-> 保存密钥后，将显示密钥**值**。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
+5. 提供密钥说明，选择密钥持续时间，然后选择“添加”。 
+
+6. 完成后就会显示机密的值。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
 
 ![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principals/image15.png)
 
@@ -96,11 +99,11 @@ ms.locfileid: "58625375"
 * 将服务主体分配到某个角色。
 * 使用服务主体的标识进行登录。
 
-有关如何创建服务主体的详细信息，请参阅[为 AD FS 创建服务主体](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)。
+有关如何创建服务主体的详细信息，请参阅[为 AD FS 创建服务主体](../operator/azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)。
 
 ## <a name="assign-the-service-principal-to-a-role"></a>将服务主体分配到某个角色
 
-要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
+要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](/role-based-access-control/built-in-roles)。
 
 > [!NOTE]
 > 可以在订阅、资源组或资源级别设置角色的作用域。 较低级别的作用域会继承权限。 例如，如果应用具有某个资源组的“读者”角色，则意味着该应用可以读取该资源组中的任何资源。

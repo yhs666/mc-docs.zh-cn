@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 27d336a524f507739d242964e97bf1ea4a259ede
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 04/11/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: d8015b103b4f3dd963cc55d4124f96f1f4f94a2d
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318912"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854476"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>复制 Azure SQL 数据库的事务一致性副本
 
@@ -26,7 +26,7 @@ ms.locfileid: "58318912"
 
 ## <a name="overview"></a>概述
 
-数据库副本是源数据库截至复制请求发出时的快照。 可以选择相同或不同的服务器、其服务层和计算大小，或相同服务层中的不同计算大小（版本）。 在完成该复制后，副本将成为能够完全行使功能的独立数据库。 此时，可以将其升级或降级为任何版本。 登录名、用户和权限可单独进行管理。  
+数据库副本是源数据库截至复制请求发出时的快照。 你可以选择同一服务器或不同的服务器。 另外，你还可以选择保留其服务层级和计算大小，或在同一服务层级中使用不同的计算大小（版本）。 在完成该复制后，副本将成为能够完全行使功能的独立数据库。 此时，可以将其升级或降级为任何版本。 登录名、用户和权限可单独进行管理。  
 
 > [!NOTE]
 > 在创建数据库副本时，将用到[自动数据库备份](sql-database-automated-backups.md)。
@@ -50,10 +50,12 @@ ms.locfileid: "58318912"
 ## <a name="copy-a-database-by-using-powershell"></a>使用 PowerShell 复制数据库
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要使用 PowerShell 复制数据库，请使用 [New-AzSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet。 
 
-```PowerShell
+```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -ServerName $sourceserver `
     -DatabaseName "MySampleDatabase" `
@@ -89,10 +91,16 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> 必须将两台服务器的防火墙都配置为允许来自发出 T-SQL COPY 命令的客户端 IP 的入站连接。
 
-## <a name="to-move-a-database-between-subscriptions"></a>在订阅之间移动数据库
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>将 SQL 数据库复制到不同的订阅
 
-在 [Azure 门户](https://portal.azure.cn)中，单击“SQL Server”，并从列表中选择托管数据库的服务器。 单击“**移动**”，并选择要移动的资源以及要移动到其中的订阅。
+可以使用上一部分中描述的步骤将数据库复制到不同订阅中的 SQL 数据库服务器。 请确保你使用的登录名具有与源数据库的数据库所有者相同的名称和密码，并且它是 dbmanager 角色的成员或者是服务器级主体登录名。 
+
+> [!NOTE]
+> [Azure 门户](https://portal.azure.cn)不支持复制到其他订阅，因为门户调用 ARM API，并且它使用订阅证书来访问异地复制中涉及的两台服务器。  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>监视复制操作的进度
 

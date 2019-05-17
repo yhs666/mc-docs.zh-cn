@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/04/2019
 ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3d718800ef32829ca71b6ebe8d2b8dce0c4cb34a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0fc2203775ff665e44fb99c5a8a1c7236d2af79a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626944"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855466"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>使用包含 Azure Kubernetes 服务 (AKS) 的内部负载均衡器
 
@@ -24,7 +24,9 @@ ms.locfileid: "58626944"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!--Not Available on [using the Azure portal][aks-quickstart-portal]-->
 
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -145,10 +147,12 @@ spec:
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+
+<!--Not Availableon [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

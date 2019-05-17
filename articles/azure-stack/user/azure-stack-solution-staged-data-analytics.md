@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 03/04/2018
-ms.date: 04/01/2019
+origin.date: 04/15/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 6b2b819ab035c13d5461822d38b9c30792450ded
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 573af52ef401325f02f9502dd242fac4c785f716
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625536"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854540"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 创建临时数据分析解决方案 
 
@@ -45,13 +45,13 @@ ms.locfileid: "58625536"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，让你在任何地方都能构建和部署混合应用。  
 > 
-> 白皮书 [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)（混合应用程序的设计注意事项）回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> 白皮书 [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)（混合应用程序的设计注意事项）回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，最大限度地减少生产环境中的难题。
 
 ## <a name="prerequisites"></a>先决条件
 
 构建此解决方案需要做一些准备：
 
--   安装好的能够正常运行的 Azure Stack（详见 [Azure Stack 概述](/azure-stack/user/azure-stack-storage-overview)）
+-   安装好的能够正常运行的 Azure Stack[Azure Stack 概述](azure-stack-storage-overview.md)
 
 -   Azure 订阅。 （创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)）
 
@@ -77,49 +77,49 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
 存储帐户和 Blob 容器将存储本地活动生成的所有原始数据，包括计算机活动和员工活动、设施数据、生产指标以及其他报告内容。
 
-1. 登录到 [Azure Stack 门户](https://portal.local.azurestack.external/)。
+1.  登录到 [Azure Stack 门户](https://portal.local.azurestack.external/)。
 
-2. 在 Azure Stack 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 向下滚动到“存储”，选择“存储帐户”。 在“存储帐户”窗口中，选择“添加”。
+2.  在 Azure Stack 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 向下滚动到“存储”，选择“存储帐户”。 在“存储帐户”窗口中，选择“添加”。
 
-3. 使用下述适用于帐户的信息：
+3.  使用下述适用于帐户的信息：
 
-   a.  姓名：**由用户决定**
+    a.  姓名：**由用户决定**
 
-   b.  部署模型：**Resource Manager**
+    b.  部署模型：**Resource Manager**
 
-   c.  帐户类型：**存储(常规用途 V1)**
+    c.  帐户类型：**存储(常规用途 V1)**
 
-   d.  位置：**中国东部**
+    d.  位置：**中国东部**
 
-   e.  复制：**本地冗余存储 (LRS)**
+    e.  复制：**本地冗余存储 (LRS)**
 
-   f.  性能：**标准**
+    f.  性能：**标准**
 
-   g.  需要安全传输：**已禁用**
+    g.  需要安全传输：**已禁用**
 
-   h.如果该值不存在，请单击“添加行”。  订阅：选择一个
+    h.如果该值不存在，请单击“添加行”。  订阅：选择一个
 
-   i.  资源组：指定新资源组或选择现有资源组
+    i.  资源组：指定新资源组或选择现有资源组
 
-   j.  配置虚拟网络：**已禁用**
+    j.  配置虚拟网络：**已禁用**
 
-4. 选择“创建”以创建存储帐户。
+4.  选择“创建”以创建存储帐户。
 
-   ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
 
-5. 创建后，选择存储帐户的名称。
+5.  创建后，选择存储帐户的名称。
 
-6. 在帐户边栏选项卡的“Blob 服务”标题下，选择“容器”。
+6.  在帐户边栏选项卡的“Blob 服务”标题下，选择“容器”。
 
-7. 在边栏选项卡顶部选择“+ 容器”，然后选择“容器”。
+7.  在边栏选项卡顶部，选择“+ 容器”。 然后选择“容器”。
 
-   ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8. 姓名：**由你选择**
+8.  姓名：**由你选择**
 
-9. 公共访问级别：**容器**(对容器和 Blob 进行匿名读取访问)
+9.  公共访问级别：**容器**(对容器和 Blob 进行匿名读取访问)
 
-10. 选择“确定” 。
+10.  选择“确定” 。
 
 ## <a name="create-an-azure-stack-function"></a>创建 Azure Stack 函数
 
@@ -187,7 +187,7 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
    | 设置 | 建议的值 | 说明 |
    | ------- | ------- | ------- |
    | Name | 在 Function App 中唯一 | 此 Blob 触发函数的名称。 |
-   | 路径 | \<上述存储位置的路径> | 所监视的 Blob 存储中的位置。 Blob 的文件名作为 name 参数在绑定中传入。 |
+   | `Path` | \<上述存储位置的路径> | 所监视的 Blob 存储中的位置。 Blob 的文件名作为 name 参数在绑定中传入。 |
    | 存储帐户连接 | 函数应用连接 | 可以使用函数应用已在使用的存储帐户连接，也可以创建一个新的存储帐户连接。 |
 
    **示例：**
@@ -212,7 +212,7 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
     **示例：**
 
-    ![在日志中查看消息。](media/azure-stack-solution-staged-data-analytics/image13.png)
+    ![查看日志中的消息。](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>创建 Azure Stack 存储帐户
 
@@ -247,7 +247,7 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
     | 设置 | 建议的值 | 说明 |
     | ------- | ------- | ------- |
     | Name | 在 Function App 中唯一 | 此队列触发函数的名称。 |
-    | 路径 | \<上述存储位置的路径> | 所监视的存储中的位置。 队列的文件名作为 name 参数在绑定中传入。 |
+    | `Path` | \<上述存储位置的路径> | 所监视的存储中的位置。 队列的文件名作为 name 参数在绑定中传入。 |
     | 存储帐户连接 | 函数应用连接 | 可以使用函数应用已在使用的存储帐户连接，也可以创建一个新的存储帐户连接。 |
 
 3.  选择“创建”创建该函数。
@@ -268,7 +268,7 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
    **示例：**
 
-   ![在日志中查看消息。](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![查看日志中的消息。](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>安全地存储和访问合规数据
 

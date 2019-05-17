@@ -4,26 +4,27 @@ description: 本主题介绍当存在现有的 Azure AD 租户时如何使用 Co
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/13/2017
-ms.date: 11/09/2018
-ms.component: hybrid
+ms.topic: conceptual
+origin.date: 04/25/2019
+ms.date: 05/10/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 247dc289b51352c057eb8452126db7680cd402bc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cd538e99e4a377ffecfbc73475f9043fb9d842b2
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666758"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520759"
 ---
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>存在现有的租户时如何使用 Azure AD Connect
+# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect：已有租户时
 有关如何使用 Azure AD Connect 的大多数主题假设一开始使用的是新 Azure AD 租户，其中不包含任何用户或其他对象。 但是，如果一开始使用的 Azure AD 租户中填充了用户和其他对象，现在想要使用 Connect，那么，本主题适合你阅读。
 
 ## <a name="the-basics"></a>基础知识
@@ -59,6 +60,15 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 ### <a name="other-objects-than-users"></a>除用户以外的其他对象
 对于启用了邮件的组和联系人，可以根据 proxyAddresses 进行软匹配。 硬匹配不适用，因为只能对用户更新 sourceAnchor/immutableID（使用 PowerShell）。 对于未启用邮件的组，目前不支持软匹配和硬匹配。
 
+### <a name="admin-role-considerations"></a>管理员角色注意事项
+为了防止不受信任的本地用户与担任管理员角色的云用户进行匹配，Azure AD Connect 不会将本地用户对象与担任管理员角色的对象进行匹配。 这是默认设置。 若要解决此行为，可以执行以下操作：
+
+1.  从仅限云的用户对象中删除目录角色
+2.  触发同步
+3.  可以在进行匹配以后将目录角色添加回云中的用户对象。
+
+
+
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>基于 Azure AD 中的数据创建新的本地 Active Directory
 某些客户最初在 Azure AD 中使用仅限云的解决方案，而没有构建本地 AD。 后来，他们想要使用本地资源，并希望基于 Azure AD 数据构建本地 AD。 对于这种情况，Azure AD Connect 无法起到作用。 它不会创建本地用户，并且没有能力将本地密码设置为与 Azure AD 中的密码相同。
 
@@ -66,3 +76,4 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

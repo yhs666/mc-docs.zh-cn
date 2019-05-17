@@ -1,5 +1,5 @@
 ---
-title: 导出或删除数据 - 内容审查器
+title: 导出或删除用数据 - 内容审查器
 titlesuffix: Azure Cognitive Services
 description: 了解如何在内容审查器中导出或删除数据。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 03/01/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: e57b6a0378e00e2f047a28d3f77b8cffebfa53ea
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 4298dbd022afc2bb6b586a2e814bae9992a15d9f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203983"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855405"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>在内容审查器中导出或删除用数据
 
@@ -35,4 +35,4 @@ ms.locfileid: "57203983"
 
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

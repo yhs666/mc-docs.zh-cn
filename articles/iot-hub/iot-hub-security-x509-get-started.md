@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 10/10/2017
 ms.date: 03/04/2019
 ms.author: yiso
-ms.openlocfilehash: 35f84769b24d926d43991c70f36540f4090e2e7b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b9f166d05b5424c354764236024b077d2ca2e174
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626220"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855173"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
@@ -26,20 +26,16 @@ ms.locfileid: "58626220"
 本教程要求准备好以下资源：
 
 - 已使用 Azure 订阅创建一个 IoT 中心。 有关详细步骤，请参阅[通过门户创建 IoT 中心](iot-hub-create-through-portal.md)。 
-- 已在计算机上安装 [Visual Studio 2015 或 Visual Studio 2017](https://www.visualstudio.com/vs/)。 
-
-<a id="getcerts"></a>
+- 已在计算机上安装 [Visual Studio 2017 或 Visual Studio 2019](https://www.visualstudio.com/vs/)。
 
 ## <a name="get-x509-ca-certificates"></a>获取 X.509 CA 证书
 IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification)开始，其中包括根证书、任何中间证书，及至叶证书。 
 
 可以选择以下方法之一获取证书：
-- 从*根证书颁发机构 (CA)* 购买 X.509 证书。 建议在生产环境中使用此方法。
-或者，
-- 使用 [OpenSSL](https://www.openssl.org/) 等第三方工具创建自己的 X.509 证书。 此方法适用于测试和开发目的。 有关使用 PowerShell 或 Bash 生成测试 CA 证书的信息，请参阅[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)。 本教程的其余部分使用按照[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的说明生成的测试 CA 证书。
 
+* 从*根证书颁发机构 (CA)* 购买 X.509 证书。 建议在生产环境中使用此方法。
 
-<a id="registercerts"></a>
+* 使用 [OpenSSL](https://www.openssl.org/) 等第三方工具创建自己的 X.509 证书。 此方法适用于测试和开发目的。 有关使用 PowerShell 或 Bash 生成测试 CA 证书的信息，请参阅[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)。 本教程的其余部分使用按照[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的说明生成的测试 CA 证书。
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>将 X.509 CA 证书注册到 IoT 中心
 

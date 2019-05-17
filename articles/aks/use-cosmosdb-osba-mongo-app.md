@@ -11,12 +11,12 @@ ms.date: 04/08/2019
 ms.author: v-yeche
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, 用于 Azure 的 Open Service Broker
-ms.openlocfilehash: 247a472a368252c186ff43e239fcee1d53eced73
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2e311979e129e8d450bd58102d0fb321f17b2d03
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627777"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854559"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>将现有的 MongoDB 应用程序与用于 MongoDB 的 Azure Cosmos DB API 和用于 Azure 的 Open Service Broker (OSBA) 集成
 
@@ -107,7 +107,7 @@ db.album.find()
 
 ```cmd
 svcat provision musicdb --class azure-cosmosdb-mongo-account --plan account  --params-json '{
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "resourceGroup": "MyResourceGroup",
   "ipFilters" : {
     "allowedIPRanges" : ["0.0.0.0/0"]
@@ -115,7 +115,7 @@ svcat provision musicdb --class azure-cosmosdb-mongo-account --plan account  --p
 }'
 ```
 
-上一命令在 Azure 中预配 Cosmos DB 数据库，所在的资源组为 MyResourceGroup，所在区域为 chinaeast 。 有关 *resourceGroup*、*location* 以及其他特定于 Azure 的 JSON 参数的详细信息，请参阅 [Cosmos DB 模块参考文档](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/cosmosdb.md#provision-3)。
+上一命令在 Azure 中预配 Cosmos DB 数据库，所在的资源组为 MyResourceGroup，所在区域为 chinaeast2。 有关 *resourceGroup*、*location* 以及其他特定于 Azure 的 JSON 参数的详细信息，请参阅 [Cosmos DB 模块参考文档](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/cosmosdb.md#provision-3)。
 
 若要验证数据库是否已完成预配，请使用 `svcat get instance` 命令：
 
@@ -259,13 +259,13 @@ Step 4/5 : COPY build/libs/spring-music-1.0.jar .
 Step 5/5 : ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=mongodb","-jar","/app/spring-music-1.0.jar"]
 Built container image in 21s
 Waiting for container...8s
-Service 'spring-music' port 'http' is available at http://spring-music.1234567890abcdef1234.chinaeast.aksapp.io/
+Service 'spring-music' port 'http' is available at http://spring-music.1234567890abcdef1234.chinaeast2.aksapp.io/
 Service 'spring-music' port 8080 (TCP) is available at http://localhost:57892
 press Ctrl+C to detach
 ...
 ```
 
-导航到日志中显示的 URL。 在上一示例中，应使用 *http://spring-music.1234567890abcdef1234.chinaeast.aksapp.io/*。 
+导航到日志中显示的 URL。 在上一示例中，应使用 *http://spring-music.1234567890abcdef1234.chinaeast2.aksapp.io/*。 
 
 验证是否可以看到应用程序以及你所做的更改。
 

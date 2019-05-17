@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 01/10/2019
-ms.date: 02/20/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: c2462b7d5c2947edc7cf82c3278d36db61525a25
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: fde6e5c752d467e6d13f87cd4921eac22c096116
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582764"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854824"
 ---
 # <a name="learn-text-moderation-concepts"></a>了解文本审查概念
 
@@ -27,14 +27,14 @@ ms.locfileid: "56582764"
 
 - 不敬词：根据多种语言的内置不敬字词列表执行基于字词的匹配
 - 分类：在机器的辅助下分类成三个类别
-- 个人身份信息 (PII)
+- 个人数据
 - 自动更正的文本
 - 原始文本
 - 语言
 
 ## <a name="profanity"></a>亵渎内容
 
-如果 API 在任何受支持语言中检测到任何亵渎字词，这些字词会包含在响应中。 响应还会包含这些字词在原始文本中的位置 (`Index`)。 以下示例 JSON 中的 `ListId` 引用[自定义字词列表](try-terms-list-api.md)（如果有）中找到的字词。
+如果 API 在任何[受支持语言](language-support.md)中检测到任何亵渎字词，这些字词会包含在响应中。 响应还会包含这些字词在原始文本中的位置 (`Index`)。 以下示例 JSON 中的 `ListId` 引用[自定义字词列表](try-terms-list-api.md)（如果有）中找到的字词。
 
     "Terms": [
     {
@@ -76,15 +76,12 @@ ms.locfileid: "56582764"
 - `Score` 介于 0 和 1 之间。 评分越高，模型预测类别可能适用的可能性越高。 此功能依赖于统计模型，而不是人工编码结果。 我们建议你对自己的内容进行测试，以确定每个类别是否符合要求。
 - `ReviewRecommended` 为 true 或 false，具体情况取决于内部评分阈值。 客户应评估是使用该值，还是根据他们的内容策略确定自定义阈值。
 
-## <a name="personally-identifiable-information-pii"></a>个人身份信息 (PII)
+## <a name="personal-data"></a>个人数据
 
 PII 功能检测可能存在以下信息：
 
 - 电子邮件地址
-- 美国邮寄地址
 - IP 地址
-- 美国电话号码
-- 英国电话号码
 - 社会安全号码 (SSN)
 
 以下示例显示了示例响应：

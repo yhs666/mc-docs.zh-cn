@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中心示例 | Azure
-description: Azure 事件中心示例
+title: 示例 - Azure 事件中心 | Azure Docs
+description: 本文提供了 GitHub 上 Azure 事件中心的示例列表。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,21 +8,22 @@ manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/17/2018
-ms.date: 12/10/2018
+ms.date: 05/06/2019
 ms.author: v-biyu
-ms.openlocfilehash: a411dbb8101cb576c8bd7ad40b616e2ba1ce1558
-ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.openlocfilehash: e16ed82ed4301be3a83ffb533b9003005d2de9dc
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676899"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854750"
 ---
-# <a name="event-hubs-samples"></a>事件中心示例 
+# <a name="git-repositories-with-samples-for-azure-event-hubs"></a>带有 Azure 事件中心示例的 Git 存储库 
 可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上找到事件中心示例。 这些示例演示了 [Azure 事件中心](/event-hubs/)的主要功能。 本文对可用示例进行了分类和介绍，每个示例均具有链接。
 
 ## <a name="net-samples"></a>.NET 示例
@@ -50,7 +51,7 @@ ms.locfileid: "52676899"
 可在 [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub 存储库中找到 Azure 事件中心的 Python 示例。
 
 ## <a name="nodejs-samples"></a>Node.js 示例
-可在 [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub 存储库中找到 Azure 事件中心的 Node.js 示例。
+可在 [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub 存储库中找到 Azure 事件中心的 Node.js 示例。
 
 ## <a name="go-samples"></a>Go 示例
 可在 [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub 存储库中找到 Azure 事件中心的 Go 示例。
@@ -66,5 +67,3 @@ ms.locfileid: "52676899"
 - [事件中心概述](event-hubs-what-is-event-hubs.md)
 - [事件中心功能](event-hubs-features.md)
 - [事件中心常见问题](event-hubs-faq.md)
-
-<!--Update_Description: update meta properties, wording update, update reference link-->

@@ -2,18 +2,19 @@
 title: 如何在 Azure IoT 中心设备预配服务中重新预配设备 | Microsoft Docs
 description: 如何使用设备预配服务实例重新预配设备
 author: wesmc7777
-ms.author: wesmc
-ms.date: 08/15/2018
+ms.author: v-yiso
+origin.date: 04/04/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8d106b4cfc65cf213d6578d25827fe3fbd50716d
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 35b9ef43e795157c0d64ab7cb727dd7b5b37b79f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988569"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855222"
 ---
 # <a name="how-to-reprovision-devices"></a>如何重新预配设备
 
@@ -93,7 +94,7 @@ ms.locfileid: "57988569"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关重新设置的详细信息，请参阅 [IoT 中心设备重新设置概念](concepts-device-reprovision.md) 
+- 若要了解有关重新预配的详细信息，请参阅 [IoT 中心设备重新预配概念](concepts-device-reprovision.md) 
 - 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
 
 

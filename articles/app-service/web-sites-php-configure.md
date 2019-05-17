@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 2cab6ca5313fbf088d7a0370af743e6de267b136
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 8dfe304fad894aeeba05b0db3b9af62f1468c33d
+ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347115"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412478"
 ---
 # <a name="configure-php-in-azure-app-service"></a>在 Azure 应用服务中配置 PHP
 
@@ -36,15 +36,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 在 [Azure 门户](https://portal.azure.cn)中浏览到 Web 应用，然后单击“设置”按钮。
+1. 在 [Azure 门户](https://portal.azure.cn)中浏览到你的应用，并滚动到“配置”页面。
 
-    ![应用设置][settings-button]
-2. 在“设置”边栏选项卡中选择“应用程序设置”，并选择新的 PHP 版本。
+2. 从“配置”中，选择“常规设置”并选择新的 PHP 版本。
 
-    ![应用程序设置][application-settings]
-3. 单击“应用程序设置”边栏选项卡顶部的“保存”按钮。
-
-    ![保存配置设置][save-button]
+3. 单击“常规设置”边栏选项卡顶部的“保存”按钮。
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -131,18 +127,12 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 ### <a name="configure-via-app-setting"></a>通过应用设置进行配置
 
 1. 将 `bin` 目录添加到根目录。
-1. 将 `.dll` 扩展文件置于 `bin` 目录中（例如 `php_xdebug.dll`）。 确保扩展与默认版本的 PHP兼容，并且是 VC9 版本且与非线程安全 (nts) 兼容。
-2. 部署应用。
-3. 在 Azure 门户中浏览到相应的应用，并单击“设置”按钮。
-
-    ![应用设置][settings-button]
-4. 在“设置”边栏选项卡中选择“应用程序设置”，并滚动到“应用设置”部分。
-5. 在“应用设置”部分中，创建 **PHP_EXTENSIONS** 键。 此键的值会是相对于网站根目录的一个路径：**bin\your-ext-file**。
-
-    ![启用应用程序设置中的扩展][php-extensions]
-6. 单击“应用程序设置”边栏选项卡顶部的“保存”按钮。
-
-    ![保存配置设置][save-button]
+2. 将 `.dll` 扩展文件置于 `bin` 目录中（例如 `php_xdebug.dll`）。 确保扩展与默认版本的 PHP兼容，并且是 VC9 版本且与非线程安全 (nts) 兼容。
+3. 部署应用。
+4. 在 Azure 门户中浏览到你的应用，并单击位于“设置”部分下方的“配置”。
+5. 从“配置”边栏选项卡上，选择“应用程序设置”。
+6. 在“应用程序设置”部分中，单击“+ 新建应用程序设置”并创建一个 **PHP_EXTENSIONS** 密钥。 此键的值会是相对于网站根目录的一个路径：**bin\your-ext-file**。
+7. 单击底部的“更新”按钮，然后单击“应用程序设置”选项卡上方的“保存”。
 
 通过使用 **PHP_ZENDEXTENSIONS** 键，还可以支持 Zend 扩展。 若要启用多个扩展，请包括应用设置值的 `.dll` 文件的逗号分隔列表。
 
@@ -155,15 +145,11 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 3. （可选）将扩展添加到 PHP 运行时并在 `php.ini` 文件中启用这些扩展。
 4. 将 `bin` 目录添加到根目录，并将包含 PHP 运行时的目录置于该目录中（例如 `bin\php`）。
 5. 部署应用。
-6. 在 Azure 门户中浏览到相应的应用，并单击“设置”按钮。
-
-    ![应用设置][settings-button]
-7. 从“设置”边栏选项卡选择“应用程序设置”并滚动到“处理程序映射”部分。 将 `*.php` 添加到扩展字段，并将路径添加到 `php-cgi.exe` 可执行文件。 如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
-
-    ![指定处理程序映射中的处理程序][handler-mappings]
-8. 单击“应用程序设置”边栏选项卡顶部的“保存”按钮。
-
-    ![保存配置设置][save-button]
+6. 在 Azure 门户中浏览到你的应用，并单击“配置”边栏选项卡。
+8. 从“配置”边栏选项卡上，选择“路径映射”。 
+9. 单击“+ 新建处理程序”，将 `*.php` 添加到“扩展”字段，并在“脚本处理器”中添加 `php-cgi.exe` 可执行文件的路径。 如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
+10. 在底部，单击“更新”以完成添加处理程序映射。
+11. 单击“保存”以保存更改。
 
 <a name="composer" />
 

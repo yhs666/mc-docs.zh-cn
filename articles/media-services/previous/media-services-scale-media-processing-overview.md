@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
+origin.date: 03/20/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: a06aef745c88d6ed8bf3ce64e38234b293eb6b4c
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: ff457be1388e75688a096bdb6f5d33bc7c9d29df
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833350"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549950"
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述 
 此页概述了如何以及为何调整媒体处理的规模。 
@@ -49,7 +49,7 @@ ms.locfileid: "56833350"
 
 ## <a name="billing"></a>计费
 
-将根据媒体预留单位的实际使用分钟数对你进行收费。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
+根据在帐户中预配的媒体保留单位的分钟数计费。 这与帐户中是否有作业运行无关。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
 
 ## <a name="quotas-and-limitations"></a>配额和限制
 有关配额和限制以及如何开具支持票证的信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。

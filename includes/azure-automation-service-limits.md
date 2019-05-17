@@ -6,23 +6,24 @@ author: WenJason
 ms.service: automation
 ms.topic: include
 origin.date: 12/13/2018
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 88b31f36566164385eb200e52148c4bdbff7438b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e5a1ed2f65d8b72dd5651bdd05dee30b8c9d2087
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632786"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64860129"
 ---
 #### <a name="process-automation"></a>流程自动化
 
-| 资源 | 最大限制 |注释|
+| Resource | 最大限制 |注释|
 | --- | --- |---|
 | 每个 Azure 自动化帐户每 30 秒可以提交的新作业的最大数量（非计划的作业） |100 |达到此限制时，后续作业创建请求会失败。 客户端会收到错误响应。|
 | 每个自动化帐户相同时间实例并发运行的作业的最大数量（非计划的作业） |200 |达到此限制时，后续作业创建请求会失败。 客户端会收到错误响应。|
 | 30 天滚动期内作业元数据的最大存储大小 | 10 GB（约 400 万个作业）|达到此限制时，后续作业创建请求会失败。 |
+| 最大作业流限制|1MB|单个流不能大于 1 MB。|
 | 每个自动化帐户每 30 秒可以导入的模块的最大数量 |5 ||
 | 模块的最大大小 |100 MB ||
 | 作业运行时间，免费层 |每个订阅每个日历月 500 分钟 ||

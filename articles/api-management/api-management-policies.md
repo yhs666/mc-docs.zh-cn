@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 08eed577220cac9f67ac874f957b2e466efe1c09
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 05/06/2018
+ms.openlocfilehash: b73ec4c9b999cb3762d8d50b2bed84c4ff473956
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675045"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854444"
 ---
 # <a name="api-management-policies"></a>API 管理策略
 本部分提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
@@ -77,7 +77,8 @@ ms.locfileid: "52675045"
     -   [使用基本方法进行身份验证](./api-management-authentication-policies.md#Basic) - 使用基本身份验证方法对后端服务进行身份验证。  
   
     -   [使用客户端证书进行身份验证](./api-management-authentication-policies.md#ClientCertificate) - 使用客户端证书向后端服务进行身份验证。  
-  
+    
+    -   [使用托管标识进行身份验证](api-management-authentication-policies.md#ManagedIdentity) - 使用托管标识向后端服务进行身份验证。  
 -   [缓存策略](./api-management-caching-policies.md#CachingPolicies)  
   
     -   [从缓存中获取](./api-management-caching-policies.md#GetFromCache) - 执行缓存查找，并返回有效的缓存响应（如果有）。  

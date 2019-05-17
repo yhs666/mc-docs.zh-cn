@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/16/2018
-ms.date: 10/29/2018
+ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: f0998ac803f3982fb9ef11106633d1b505dab660
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fc1a0a1813188de82959087cedc71b5e9f3bbcf7
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626216"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855520"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>针对 Azure IoT 中心设备管理，使用适用于 Azure CLI 的 IoT 扩展
 
@@ -52,7 +52,7 @@ ms.locfileid: "58626216"
 
 ## <a name="what-you-need"></a>需要什么
 
-* 完成教程[设置设备](iot-hub-raspberry-pi-kit-node-get-started.md)，其中涵盖以下要求：
+* 完成 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)教程或其中一个设备教程；例如[将 Raspberry Pi 与 Node.js 配合使用](iot-hub-raspberry-pi-kit-node-get-started.md)。 这包括以下要求：
 
   - 一个有效的 Azure 订阅。
   - 已在订阅中创建一个 Azure IoT 中心。

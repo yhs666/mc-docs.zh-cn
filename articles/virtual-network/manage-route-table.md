@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 02/09/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: a7697721794f38b5062c7c9d72b396862f834674
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 1d6e4f0ba93de05d38b8f0c32da99342e9d27058
+ms.sourcegitcommit: 3fa6f4e8948d83d1133517a42a0a7eae58e43f63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306147"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066153"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>创建、更改或删除路由表
 
@@ -30,7 +30,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable -Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/-az/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
     
     <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
     
@@ -53,7 +53,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-create)
-- PowerShell：[New-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell：[New-AzRouteTable](https://docs.microsoft.com/powershell/module/az.network/new-azroutetable)
 
 ## <a name="view-route-tables"></a>查看路由表
 
@@ -62,7 +62,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-list)
-- PowerShell：[Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell：[Get-AzRouteTable](https://docs.microsoft.com/powershell/module/az.network/get-azroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>查看路由表详细信息
 
@@ -75,12 +75,12 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
     *   [访问控制 (IAM)](../role-based-access-control/overview.md)
     *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
-    *   [自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [自动化脚本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 命令
 
 - Azure CLI：[az network route-table show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-show)
-- PowerShell：[Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell：[Get-AzRouteTable](https://docs.microsoft.com/powershell/module/az.network/get-azroutetable)
 
 ## <a name="change-a-route-table"></a>更改路由表
 
@@ -90,7 +90,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-update)
-- PowerShell：[Set-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell：[Set-AzRouteTable](https://docs.microsoft.com/powershell/module/az.network/set-azroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>将路由表关联到子网
 
@@ -107,7 +107,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
-- PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell：[Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>从子网取消关联路由表
 
@@ -122,7 +122,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
-- PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
+- PowerShell：[Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 
 
 ## <a name="delete-a-route-table"></a>删除路由表
 
@@ -135,7 +135,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-delete)
-- PowerShell：[Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
+- PowerShell：[Remove-AzRouteTable](https://docs.microsoft.com/powershell/module/az.network/remove-azroutetable?view=-azps-6.8.1) 
 
 ## <a name="create-a-route"></a>创建路由
 
@@ -154,7 +154,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-create)
-- PowerShell：[New-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell：[New-AzRouteConfig](https://docs.microsoft.com/powershell/module/az.network/new-azrouteconfig)
 
 ## <a name="view-routes"></a>查看路由
 
@@ -167,7 +167,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table route list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-list)
-- PowerShell：[Get-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell：[Get-AzRouteConfig](https://docs.microsoft.com/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>查看路由详细信息
 
@@ -179,7 +179,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table route show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-show)
-- PowerShell：[Get-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell：[Get-AzRouteConfig](https://docs.microsoft.com/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="change-a-route"></a>更改路由
 
@@ -192,7 +192,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table route update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-update)
-- PowerShell：[Set-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermrouteconfig)
+- PowerShell：[Set-AzRouteConfig](https://docs.microsoft.com/powershell/module/az.network/set-azrouteconfig)
 
 ## <a name="delete-a-route"></a>删除路由
 
@@ -205,7 +205,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network route-table route delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-delete)
-- PowerShell：[-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell：[Remove-AzRouteConfig](https://docs.microsoft.com/powershell/module/az.network/remove-azrouteconfig)
 
 ## <a name="view-effective-routes"></a>查看有效路由
 
@@ -220,7 +220,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table)
-- PowerShell：[Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
+- PowerShell：[Get-AzEffectiveRouteTable](https://docs.microsoft.com/powershell/module/az.network/get-azeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>验证两个终结点之间的路由
 
@@ -237,7 +237,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 命令
 
 - Azure CLI：[az network watcher show-next-hop](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop)
-- PowerShell：[Get-AzureRmNetworkWatcherNextHop](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
+- PowerShell：[Get-AzNetworkWatcherNextHop](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatchernexthop) 
 
 ## <a name="permissions"></a>权限
 

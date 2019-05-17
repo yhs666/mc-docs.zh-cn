@@ -9,18 +9,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/06/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+origin.date: 03/14/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5c26f81ca3f3f5661d44e567e246f5607891290b
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 7eca7d542cb21b3a489d4a193f68fee0354d17db
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905349"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855592"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -31,13 +31,13 @@ ms.locfileid: "56905349"
 > [!NOTE]  
 > 有几个工具可用于将数据移进/移出 Azure Stack 存储。 有关详细信息，请参阅[适用于 Azure Stack 存储的数据传输工具](azure-stack-storage-transfer.md)。
 
-如果尚未安装存储资源管理器，请[下载存储资源管理器](http://www.storageexplorer.com/)并安装它。
+如果尚未安装存储资源管理器，请[下载存储资源管理器](https://www.storageexplorer.com/)并安装它。
 
-连接到 Azure Stack 订阅或存储帐户后，可以使用 [Azure 存储资源管理器文章](../../vs-azure-tools-storage-manage-with-storage-explorer.md)处理 Azure Stack 数据。 
+连接到 Azure Stack 订阅或存储帐户后，可以使用 [Azure 存储资源管理器文章](/vs-azure-tools-storage-manage-with-storage-explorer)处理 Azure Stack 数据。 
 
 ## <a name="prepare-for-connecting-to-azure-stack"></a>为连接到 Azure Stack 做准备
 
-需要可以直接访问 Azure Stack 或 VPN 连接，存储资源管理器才能访问 Azure Stack 订阅。 若要了解如何设置到 Azure Stack 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
+需要可以直接访问 Azure Stack 或 VPN 连接，存储资源管理器才能访问 Azure Stack 订阅。 若要了解如何设置到 Azure Stack 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)。
 
 对于 Azure Stack 开发工具包 (ASDK)，需要导出 Azure Stack 颁发机构根证书。
 
@@ -50,9 +50,11 @@ ms.locfileid: "56905349"
 
 1. 在 Azure Stack 主机或已与 Azure Stack 建立 VPN 连接的本地计算机上打开 `mmc.exe`。 
 
-2. 在“文件”中选择“添加/删除管理单元”，并添加“证书”以管理“我的用户帐户”。
+2. 在“文件”中，选择“添加/删除管理单元”。 在“可用的管理单元”中，选择“证书”。 
 
-3.  在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下。 找到 **AzureStackSelfSignedRootCert**。
+3. 选择“计算机帐户”，然后选择“下一步”。 选择“本地计算机”，然后选择“完成”。
+
+3. 在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下。 找到 **AzureStackSelfSignedRootCert**。
 
     ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
@@ -68,7 +70,7 @@ ms.locfileid: "56905349"
 
     ![将证书导入到存储资源管理器](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. 在存储资源管理器重新启动后，选择“编辑”菜单，并检查是否选择了“目标 Azure Stack”。 如果没有，请选择“目标 Azure Stack”，然后重启存储资源管理器，使更改生效。 此配置是必需的，否则无法与 Azure Stack 环境兼容。
+7. 在存储资源管理器重新启动后，选择“编辑”菜单，并检查是否选择了“目标 Azure Stack API”。 如果没有，请选择“目标 Azure Stack”，然后重启存储资源管理器，使更改生效。 此配置是必需的，否则无法与 Azure Stack 环境兼容。
 
     ![确保选中“目标 Azure Stack”](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -83,7 +85,7 @@ ms.locfileid: "56905349"
 
     ![添加 Azure Stack 帐户](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“Azure”或“Azure 中国”（取决于所用的 Azure Stack 帐户），然后选择“登录”，以登录到至少与一个活动 Azure Stack 订阅关联的 Azure Stack 帐户。
+3. 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“Azure 中国区”。 选择“登录”，以便使用与至少一个活动 Azure Stack 订阅关联的 Azure Stack 帐户进行登录。
 
     ![连接到 Azure 存储](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -160,8 +162,6 @@ ms.locfileid: "56905349"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [存储资源管理器入门](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)
-* 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
-
-<!-- Update_Description: wording update -->
+* 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](/storage/common/storage-introduction)

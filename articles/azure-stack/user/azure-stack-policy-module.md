@@ -12,54 +12,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2018
-ms.date: 12/31/2018
+origin.date: 03/26/2019
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.openlocfilehash: 88c2ea826427d1f50fa56992dd70691ef3d5986e
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 03/26/2019
+ms.openlocfilehash: 766804be4a57c8e1ad05c21a857ec17f452b5897
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814573"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855281"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 策略模块管理 Azure Policy
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用 Azure Stack 策略模块，可为 Azure 订阅配置与 Azure Stack 相同的版本控制和服务可用性。 该模块使用 [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet 创建一个 Azure 策略，用以限制订阅中可用的资源类型和服务。 然后使用 [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet 在合适的作用域内创建一个策略分配。 配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack 的应用。
+使用 Azure Stack 策略模块，可为 Azure 订阅配置与 Azure Stack 相同的版本控制和服务可用性。 该模块使用 [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell cmdlet 创建一项 Azure 策略，用于限制订阅中提供的资源类型和服务。 然后使用 [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet 在合适的作用域内创建一个策略分配。 配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack 的应用。
 
 ## <a name="install-the-module"></a>安装模块
 
-1. 按照[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md) 步骤 1 中的说明，安装所需的 AzureRM PowerShell 模块版本。
-2. [从 GitHub 下载 Azure Stack 工具](azure-stack-powershell-download.md)。
+1. 按照[安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md) 步骤 1 中的说明，安装所需的 AzureRM PowerShell 模块版本。
+2. [从 GitHub 下载 Azure Stack 工具](../operator/azure-stack-powershell-download.md)。
 3. [配置适用于 Azure Stack 的 PowerShell](azure-stack-powershell-configure-user.md)。
 4. 导入 AzureStack.Policy.psm1 模块：
 
-    ```PowerShell
-    Import-Module .\Policy\AzureStack.Policy.psm1
-    ```
+
+   ```powershell
+   Import-Module .\Policy\AzureStack.Policy.psm1
+   ```
 
 ## <a name="apply-policy-to-azure-subscription"></a>将策略应用于 Azure 订阅
 
-可以使用以下命令针对 Azure 订阅应用默认 Azure Stack 策略。 在运行此命令之前，请将 `Azure Subscription Name` 替换为你的 Azure 订阅的名称。
+可以使用以下命令针对 Azure 订阅应用默认 Azure Stack 策略。 在运行此命令之前，请将 `Azure subscription name` 替换为你的 Azure 订阅的名称：
 
-```PowerShell
+```powershell
 Add-AzureRmAccount
-$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
-
 ```
 
 ## <a name="apply-policy-to-a-resource-group"></a>将策略应用于资源组
 
-你可能想要应用更细化的策略。 例如，你在相同的订阅中可能有其他正在运行的资源。 可以将策略应用范围限定为特定资源组，这样就可以使用 Azure 资源测试 Azure Stack 的应用。 在运行以下命令之前，请将 `Azure Subscription Name` 替换为你的 Azure 订阅的名称。
+你可能想要应用更细化的策略。 例如，你在相同的订阅中可能有其他正在运行的资源。 可以将策略应用范围限定为特定资源组，这样就可以使用 Azure 资源测试 Azure Stack 的应用。 在运行以下命令之前，请将 `Azure subscription name` 替换为你的 Azure 订阅的名称：
 
-```PowerShell
+```powershell
 Add-AzureRmAccount
 $rgName = 'myRG01'
-$s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
+$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
@@ -67,7 +68,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="policy-in-action"></a>执行中的策略
 
-部署 Azure 策略后，当尝试部署被策略禁止的资源时会收到错误。
+部署 Azure 策略后，当尝试部署被策略禁止的资源时会收到错误：
 
 ![由于策略约束而资源部署失败的结果](./media/azure-stack-policy-module/image1.png)
 

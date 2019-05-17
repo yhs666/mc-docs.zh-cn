@@ -8,22 +8,26 @@ ms.topic: article
 origin.date: 03/05/2019
 ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f8a11dcf32c018fc55d43c6f993cdbaa86efb02
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bab9c31f6adbe18d95e0d73093b3c1df726c9816
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626150"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855383"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>从 Azure Kubernetes 服务 (AKS) 群集节点获取 kubelet 日志
 
-在操作 AKS 群集的过程中，可能需要查看日志来排查问题。 Azure 门户内置了查看 [AKS 主组件][aks-master-logs]或 [AKS 群集中容器][azure-container-logs]的日志的功能。 有时，可能需要从 AKS 节点获取 *kubelet* 日志以进行故障排除。
+在操作 AKS 群集的过程中，可能需要查看日志来排查问题。 Azure 门户内置了查看 [AKS 群集中容器][azure-container-logs]的日志的功能。 有时，可能需要从 AKS 节点获取 *kubelet* 日志以进行故障排除。
+
+<!--Not Available on the [AKS master components][aks-master-logs]-->
 
 本文介绍如何在 AJS 节点上使用 `journalctl` 查看 *kubelet* 日志。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!--Not Available on  or [using the Azure portal][aks-quickstart-portal]-->
 
 ## <a name="create-an-ssh-connection"></a>创建 SSH 连接
 
@@ -63,14 +67,18 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
-## <a name="next-steps"></a>后续步骤
+<!--Not Available on ## Next steps-->
 
-如需从 Kubernetes 主节点获取其他故障排除信息，请参阅[在 AKS 中查看 Kubernetes 主节点日志][aks-master-logs]。
+<!--Not Available on [view Kubernetes master node logs in AKS][aks-master-logs]-->
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: view-master-logs.md
+
+<!--Not Available on [aks-master-logs]: view-master-logs.md-->
+
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-master-logs]: view-master-logs.md
+
+<!--Not Available on[aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+<!--Not Available on[aks-master-logs]: view-master-logs.md-->
+
 [azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

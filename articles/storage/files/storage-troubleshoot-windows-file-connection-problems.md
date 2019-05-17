@@ -7,21 +7,24 @@ tags: storage
 ms.service: storage
 ms.topic: article
 origin.date: 01/02/2019
-ms.date: 03/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 3130ed673ee2a1fba9bf57ca39c2e5f544fd02eb
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 5d4a91b1fdeac6bf73baf54448f61b96bfd00fb0
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253908"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549930"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
 本文列出了从 Windows 客户端连接时与 Azure 文件相关的常见问题， 并提供了这些问题的可能原因和解决方法。 除本文中的疑难解答步骤之外，还可使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ，以确保 Windows 客户端环境满足正确的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境以获得最佳性能。 还可在 [Azure 文件共享疑难解答](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到这些信息，该疑难解答提供相关步骤来帮助解决连接/映射/装载 Azure 文件共享时遇到的问题。
 
 <a id="error5"></a>
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>装载 Azure 文件共享时出现错误 5
 
 尝试装载文件共享时，可能会收到以下错误：
@@ -62,13 +65,13 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 若要检查防火墙或 ISP 是否阻止端口 445，请使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` cmdlet。 
 
-若要使用 `Test-NetConnection` cmdlet，则必须安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resource-group-name>` 替换为存储帐户的相关名称。
+若要使用 `Test-NetConnection` cmdlet，则必须安装 Azure PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resource-group-name>` 替换为存储帐户的相关名称。
 
    
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount -EnvironmentName AzureChinaCloud if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount -Environment AzureChinaCloud if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -197,7 +200,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 
 - 运行以下 PowerShell 命令：
 
-  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
+  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
   可以在批处理文件中通过以下方式运行该命令：
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 1c9de11acb4b7764cff4093803c18d08b074fae5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 473a75a6e93bdfbea06caa3f212ffe34f8f41779
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626029"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549953"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -40,13 +40,12 @@ ms.locfileid: "58626029"
 | 某些客户端可能会在平滑流式处理清单中碰到重复标记问题。 |有关详细信息，请参阅[此部分](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒体服务 .NET SDK 对象无法序列化，因此无法与 Azure Redis 缓存配合使用。 |如果尝试对 SDK AssetCollection 对象进行序列化以将其添加到 Azure Redis 缓存，则会引发异常。 |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
 
 ## <a name="december-2018"></a>2018 年 12 月
 
-Azure 媒体服务的 [Media Hyperlapse 预览](media-services-hyperlapse-content.md)功能即将停用。 从 2018 年 12 月 19 日起，媒体服务不再对 Media Hyperlapse 进行更改或改进。 在 2019 年 3 月 29 日，它将停用并不再可用。
+Azure 媒体服务的 Media Hyperlapse 预览功能即将停用。 从 2018 年 12 月 19 日起，媒体服务不再对 Media Hyperlapse 进行更改或改进。 在 2019 年 3 月 29 日，它将停用并不再可用。
 
 ## <a name="october-2018"></a>2018 年 10 月
 
@@ -241,7 +240,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 
 * [使用媒体服务进行实时编码的预览](media-services-manage-live-encoder-enabled-channels.md)
 * [动态清单](media-services-dynamic-manifest-overview.md)
-* [Azure Media Hyperlapse 媒体处理器预览](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>2015 年 4 月版本
 ### <a name="general-media-services-updates"></a>媒体服务一般更新
@@ -456,10 +454,10 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 
 * 自 2.3.0.0 版起，媒体服务 SDK 支持将多个存储帐户链接到一个媒体服务帐户。 以下 API 支持此功能：
   
-  * IStorageAccount 类型
-  * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts 属性
-  * StorageAccount 属性
-  * StorageAccountName 属性
+    * IStorageAccount 类型
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts 属性
+    * StorageAccount 属性
+    * StorageAccountName 属性
   
     有关详细信息，请参阅[跨多个存储帐户管理媒体服务资产](meda-services-managing-multiple-storage-accounts.md)。
 * 与通知相关的 API。 自 2.2.0.0 版起，可侦听 Azure 队列存储通知。 有关详细信息，请参阅[处理媒体服务作业通知](media-services-check-job-progress.md)。
@@ -533,28 +531,28 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure 媒体服务 MSDN 论坛]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Azure 媒体服务 MSDN 论坛]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure 媒体服务 REST API 参考]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [媒体服务定价详细信息]: https://www.azure.cn/pricing/details/media-services/
-[输入元数据]: http://msdn.microsoft.com/zh-cn/library/azure/dn783120.aspx
-[输出元数据]: http://msdn.microsoft.com/zh-cn/library/azure/dn783217.aspx
-[Deliver content]: http://msdn.microsoft.com/zh-cn/library/azure/hh973618.aspx
+[输入元数据]: https://msdn.microsoft.com/library/azure/dn783120.aspx
+[输出元数据]: https://msdn.microsoft.com/library/azure/dn783217.aspx
+[Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
 [Index media files with the Azure Media Indexer]: ./media-services-index-content.md
-[StreamingEndpoint]: http://msdn.microsoft.com/zh-cn/library/azure/dn783468.aspx
+[StreamingEndpoint]: https://msdn.microsoft.com/library/azure/dn783468.aspx
 [Work with Media Services live streaming]: ./media-services-manage-channels-overview.md
 [Use AES-128 dynamic encryption and key delivery service]: ./media-services-protect-with-aes128.md
-[媒体服务 PlayReady 许可证模板概述]: http://msdn.microsoft.com/zh-cn/library/azure/dn783459.aspx
+[媒体服务 PlayReady 许可证模板概述]: https://msdn.microsoft.com/library/azure/dn783459.aspx
 [Stream storage-encrypted content]: ./media-services-dotnet-configure-asset-delivery-policy.md
 [Azure portal]: https://portal.azure.cn
 [动态打包]: ./media-services-dynamic-packaging-overview.md
 [Nick Drouin's blog]: http://blog-ndrouin.chinacloudsites.cn/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: ./media-services-static-packaging.md
-[适用于 .NET 的媒体服务 SDK 中的重试逻辑]: http://msdn.microsoft.com/zh-cn/library/azure/dn745650.aspx
-[Grass Valley 宣布通过云对 EDIUS 7 进行流式处理]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[适用于 .NET 的媒体服务 SDK 中的重试逻辑]: https://msdn.microsoft.com/library/azure/dn745650.aspx
+[Grass Valley 宣布通过云对 EDIUS 7 进行流式处理]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: media-services-advanced-encoding-with-mes.md
 [Create overlays]: media-services-advanced-encoding-with-mes.md
 [Stitch video segments]: media-services-advanced-encoding-with-mes.md
-[Azure AD Access Control Service]: http://msdn.microsoft.com/zh-cn/library/hh147631.aspx
+[Azure AD Access Control Service]: https://msdn.microsoft.com/library/hh147631.aspx
 [Connect to Media Services with the Media Services SDK for .NET]: media-services-use-aad-auth-to-access-ams-api.md
 [Media Services .NET SDK extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

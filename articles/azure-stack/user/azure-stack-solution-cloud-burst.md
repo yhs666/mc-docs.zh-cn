@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/24/2018
-ms.date: 12/31/2018
+origin.date: 01/14/2019
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a8ee4c19c417e60650046bb368480813c3a197c4
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 95b34b1ed9b6a9b8a8a4c42e80e30d89bb458133
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814663"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855501"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>教程：在 Azure 中创建跨云缩放解决方案
 
@@ -43,7 +44,7 @@ ms.locfileid: "53814663"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，让你在任何地方都能构建和部署混合应用。  
 > 
-> 白皮书 [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)（混合应用程序的设计注意事项）回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> 白皮书 [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)（混合应用程序的设计注意事项）回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，最大限度地减少生产环境中的难题。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,11 +54,11 @@ ms.locfileid: "53814663"
     - 可以在[安装 Azure Stack 开发工具包](../asdk/asdk-install.md)中找到有关安装 Azure Stack 的说明。
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)此项安装可能需要几个小时才能完成。
 
--   将[应用服务](/azure-stack/azure-stack-app-service-deploy) PaaS 服务部署到 Azure Stack。
+-   将[应用服务](../operator/azure-stack-app-service-deploy.md) PaaS 服务部署到 Azure Stack。
 
--   在 Azure Stack 环境中[创建计划/产品/服务](/azure-stack/azure-stack-plan-offer-quota-overview)。
+-   在 Azure Stack 环境中[创建计划/产品/服务](../operator/azure-stack-plan-offer-quota-overview.md)。
 
--   在 Azure Stack 环境中[创建租户订阅](/azure-stack/azure-stack-subscribe-plan-provision-vm)。
+-   在 Azure Stack 环境中[创建租户订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
 -   在租户订阅中创建 Web 应用。 记下新 Web 应用的 URL，供稍后使用。
 
@@ -65,7 +66,7 @@ ms.locfileid: "53814663"
 
 -   需要装有 .NET 3.5 的 Windows Server 2016 VM。 将在 Azure Stack 上的租户订阅中构建此 VM 作为专用生成代理。
 
--   Azure Stack 市场中提供了[包含 SQL 2017 VM 映像的 Windows Server 2016](/azure-stack/azure-stack-add-vm-image#add-a-vm-image-through-the-portal)。 如果此映像不可用，请与 Azure Stack 操作员协作，以确保将此映像添加到环境中。
+-   Azure Stack 市场中提供了[包含 SQL 2017 VM 映像的 Windows Server 2016](../operator/azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal)。 如果此映像不可用，请与 Azure Stack 操作员协作，以确保将此映像添加到环境中。
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
@@ -98,7 +99,7 @@ ms.locfileid: "53814663"
 设置混合持续集成和持续部署 (CI/CD)，以将 Web 应用部署到 Azure 和 Azure Stack，并自动将更改推送到这两个云中。
 
 > [!Note]  
-> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 查看应用服务文档中面向 Azure Stack 操作员的[开始使用 Azure Stack 上的应用服务之前](../azure-stack-app-service-before-you-get-started.md)部分。
+> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 查看应用服务文档中面向 Azure Stack 操作员的[开始使用 Azure Stack 上的应用服务之前](../operator/azure-stack-app-service-before-you-get-started.md)部分。
 
 ### <a name="add-code-to-azure-repos"></a>向 Azure Repos 添加代码
 
@@ -128,7 +129,7 @@ Azure Repos
 
 1. 登录到 Azure Pipelines 以确认能够创建生成定义。
 
-2. 添加 **-r win10-x64** 代码。 在 .Net Core 中触发独立部署时需要此代码。
+2. 添加 **-r win10-x64** 代码。 使用 .NET Core 触发独立部署时需要此代码。
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -262,7 +263,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 ## <a name="develop-the-application-build"></a>开发应用程序生成
 
 > [!Note]  
-> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 查看应用服务文档中面向 Azure Stack 操作员的[开始使用 Azure Stack 上的应用服务之前](../azure-stack-app-service-before-you-get-started.md)部分。
+> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 查看应用服务文档中面向 Azure Stack 操作员的[开始使用 Azure Stack 上的应用服务之前](../operator/azure-stack-app-service-before-you-get-started.md)部分。
 
 使用 [Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/)（例如 Azure Repos 中的 Web 应用代码）将内容部署到这两个云。
 
@@ -286,7 +287,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 2.  导航到项目的“生成 Web 应用程序”页。
 
-3.  在“参数”中，添加 **-r win10-x64** 代码。 在 .Net Core 中触发独立部署时需要此代码。
+3.  在“参数”中，添加 **-r win10-x64** 代码。 在 .NET Core 中触发独立部署时需要此代码。
 
 4.  运行生成。 [独立部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 上运行的项目。
 
@@ -373,7 +374,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 5.  选择环境链接（**Azure** 或 **Azure Stack**），查看部署到特定环境的现有部署和待定部署的相关信息。 使用这些视图快速验证同一个生成是否已部署到这两个环境。
 
-6.  在浏览器中打开**已部署的生产应用**。 例如，对于 Azure 应用服务网站，请打开 URL [http://[your-app-name\].chinacloudsites.cn](http:// [your-app-name].chinacloudsites.cn)。
+6.  在浏览器中打开**已部署的生产应用**。 例如，对于 Azure 应用服务网站，请打开 URL [https://[your-app-name\].chinacloudsites.cn](https:// [your-app-name].chinacloudsites.cn)。
 
 **Azure 与 Azure Stack 的集成提供可缩放的跨云解决方案**
 

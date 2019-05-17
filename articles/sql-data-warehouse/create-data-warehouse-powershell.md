@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-origin.date: 11/16/2018
-ms.date: 04/01/2019
+origin.date: 04/11/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c12128b3de9e77333ba858b8d6fd0ef02797fa7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 252272c3938127bfac1b267f4fa642510709314c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627636"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854493"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和查询 Azure SQL 数据仓库
 
@@ -104,8 +104,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>使用示例数据创建数据仓库
-此示例使用以前定义的变量创建数据仓库。  它将服务目标指定为 DW400，这是针对数据仓库的低成本起点。 
+## <a name="create-a-data-warehouse"></a>创建数据仓库
+此示例使用以前定义的变量创建数据仓库。  它将服务目标指定为 DW100，这是针对数据仓库的低成本起点。 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -113,7 +113,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -129,7 +129,7 @@ New-AzSqlDatabase `
 可选参数有：
 
 - **CollationName**：在不指定的情况下，默认排序规则是 SQL_Latin1_General_CP1_CI_AS。 在数据库上不能更改排序规则。
-- **MaxSizeBytes**：数据库的默认最大大小为 10 GB。
+- **MaxSizeBytes**：数据库的默认最大大小为 240TB。 最大大小限制行存储数据。 列数据的存储不受限制。
 
 有关参数选项的详细信息，请参阅 [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)。
 

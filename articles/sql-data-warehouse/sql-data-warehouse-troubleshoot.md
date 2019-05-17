@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 12/04/2018
-ms.date: 03/25/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: dc27cde80f989d043ff8a71f6738fd2fc760fa96
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 2434f033865b65fae2c064146c49684f6ab07f9b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348145"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855608"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -34,7 +34,7 @@ ms.locfileid: "58348145"
 | 问题                                                        | 解决方法                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio 对象资源管理器缺少 AAD 用户           | 这是已知问题。  解决方法是在 [sys.database_principals][sys.database_principals] 中查看这些用户。  要了解有关将 Azure Active Directory 用于 SQL 数据仓库的详细信息，请参阅[向 Azure SQL 数据仓库进行身份验证][Authentication to Azure SQL Data Warehouse]。 |
-| 使用脚本向导进行手动脚本编写或通过 SSMS 进行连接时出现缓慢、挂起或产生错误的情况 | 请确保已在 master 数据库中创建用户。 在脚本选项中，同时需确保引擎版本设置为“Microsoft Azure SQL 数据仓库版本”，且引擎类型为“Microsoft Azure SQL 数据库”。 |
+| 使用脚本向导进行手动脚本编写或通过 SSMS 进行连接时出现缓慢、不响应或产生错误的情况 | 请确保已在 master 数据库中创建用户。 在脚本选项中，同时需确保引擎版本设置为“Microsoft Azure SQL 数据仓库版本”，且引擎类型为“Microsoft Azure SQL 数据库”。 |
 | 在 SSMS 中生成脚本失败                             | 如果将“为从属对象生成脚本”选项设置为“True”，则为 SQL 数据仓库生成脚本失败。 解决方法是，用户必须手动转到“工具”->“选项”->“SQL Server 对象资源管理器”->“为从属选项生成脚本”并设置为 false |
 
 ## <a name="performance"></a>性能
@@ -107,7 +107,7 @@ ms.locfileid: "58348145"
 [Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Workload management]: resource-classes-for-workload-management.md
-[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md
 [UPDATE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements

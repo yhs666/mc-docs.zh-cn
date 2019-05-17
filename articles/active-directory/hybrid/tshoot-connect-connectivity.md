@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：排查连接问题 | Microsoft 文档
+title: Azure AD Connect：排查 Azure AD 连接问题 | Microsoft Docs
 description: 介绍如何使用 Azure AD Connect 排查连接问题。
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 03/15/2019
+origin.date: 04/25/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a30e1a0a29dc8ca00674675e0ebb5d18719224
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 6ca0e7e91b07672991c23329d810b124c5b63113
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186661"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520755"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>使用 Azure AD Connect 排查连接问题
+# <a name="troubleshoot-azure-ad-connectivity"></a>排查 Azure AD 连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>在安装向导中排查连接问题
@@ -103,14 +103,14 @@ PowerShell 使用 machine.config 中的配置来联系代理。 winhttp/netsh �
 Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Azure AD 最多可用 5 分钟的时间来处理该请求。 如果同一导出请求中包含大量具有大型组成员身份的组对象，则会出现这种情况。 确保将代理空闲超时配置为大于 5 分钟。 否则，Azure AD Connect 服务器上可能会出现 Azure AD 的间歇性连接问题。
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 与 Azure AD 之间的通信模式
-如果已按上述步骤操作但仍无法连接，现在可以开始查看网络日志。 本部分说明正常且成功的连接模式。 此外，还会列出用户在阅读网络日志时可能会忽略的常见辅助信息。
+如果已遵循上述步骤但仍无法连接，现在可以开始查看网络日志。 本部分说明正常且成功的连接模式。 此外，还将列出你在阅读网络日志时可能会忽略的常见辅助信息。
 
 * 有向 https://dc.services.visualstudio.com 发出的调用。 不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
 * 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 partner.microsoftonline.cn 下的其他命名空间。 但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
 * 终结点 adminwebservice 和 provisioningapi 是发现终结点，用于找出要使用的实际终结点。 这些终结点根据区域而有所不同。
 
 ### <a name="reference-proxy-logs"></a>引用代理日志
-下面是实际代理日志中的转储以及获取此转储的安装向导页（已删除同一终结点的重复条目）。 可以使用此部分作为自己的代理和网络日志的参考。 环境中的实际终结点可能有所不同（尤其是以斜体显示的 URL）。
+下面是实际代理日志中的转储以及获取此转储的安装向导页（已删除同一终结点的重复条目）。 本部分可用作自己的代理和网络日志的参考。 环境中的实际终结点可能有所不同（尤其是以斜体显示的 URL）。
 
 **连接到 Azure AD**
 

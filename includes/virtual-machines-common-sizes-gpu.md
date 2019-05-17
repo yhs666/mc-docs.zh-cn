@@ -9,16 +9,16 @@ origin.date: 11/14/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a668ab2c470cff7d1e0587b388c664477bbad31c
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: a203b9f4f8f3430717e1e588ee0bb453a5aeb78e
+ms.sourcegitcommit: 3fa6f4e8948d83d1133517a42a0a7eae58e43f63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666482"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198815"
 ---
 GPU 优化 VM 大小是具有单个或多个 NVIDIA GPU 的专用虚拟机。 这些大小是针对计算密集型、图形密集型和可视化工作负荷设计的。 本文介绍有关 GPU、vCPU、数据磁盘和 NIC 的数量和类型的信息。 此分组中的每个大小还包括存储吞吐量及网络带宽。 
 
-* ** NCv3** 大小针对计算密集型和网络密集型应用程序和算法进行了优化。 一些示例包括基于 CUDA 和 OpenCL 的应用程序和模拟、AI 和深度学习。 NCv3 系列专用于采用 NVIDIA Tesla V100 GPU 的高性能计算工作负载。
+* **NCv3** 大小针对计算密集型和网络密集型应用程序和算法进行了优化。 一些示例包括基于 CUDA 和 OpenCL 的应用程序和模拟、AI 和深度学习。 NCv3 系列专用于采用 NVIDIA Tesla V100 GPU 的高性能计算工作负载。
 
 <!-- Not Available on NC, NCv2 and ND   -->
 <!-- Not Available on NV and NVv2   -->

@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 04/01/2018
+ms.date: 04/29/2018
 ms.author: v-jay
-ms.openlocfilehash: 35680493afeac44f26501c03f8a391adf4657a47
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 82a761de2d18352d9d48d28cebe157b711af0c83
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625981"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854656"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 配置 VNet 到 VNet 的 VPN 网关连接
 
@@ -300,7 +300,7 @@ ms.locfileid: "58625981"
 
 ### <a name="TestVNet5"></a>步骤 7 - 创建并配置 TestVNet5
 
-必须在新订阅（订阅 5）环境中完成此步骤。 此部分可由不同的组织中拥有订阅的管理员执行。 若要在订阅之间进行切换，请使用“az account list --all”列出可供帐户使用的订阅，然后使用“az account set --subscription <subscriptionID>”切换到要使用的订阅。
+必须在新订阅（订阅 5）环境中完成此步骤。 此部分可由不同的组织中拥有订阅的管理员执行。 若要在订阅之间进行切换，请使用 `az account list --all` 列出可供帐户使用的订阅，然后使用 `az account set --subscription <subscriptionID>` 切换到要使用的订阅。
 
 1. 请确保连接到订阅 5，然后创建资源组。
 
@@ -339,7 +339,7 @@ ms.locfileid: "58625981"
 
 ### <a name="connections5"></a>步骤 8 - 创建连接
 
-由于网关位于不同订阅中，因此将此步骤拆分成两个 CLI 会话，分别标记为“[订阅 1]”和“[订阅 5]”。 若要在订阅之间进行切换，请使用“az account list --all”列出可供帐户使用的订阅，然后使用“az account set --subscription <subscriptionID>”切换到要使用的订阅。
+由于网关位于不同订阅中，因此将此步骤拆分成两个 CLI 会话，分别标记为“[订阅 1]”和“[订阅 5]”。 若要在订阅之间进行切换，请使用 `az account list --all` 列出可供帐户使用的订阅，然后使用 `az account set --subscription <subscriptionID>` 切换到要使用的订阅。
 
 1. “[订阅 1]”登录并连接到订阅 1。 运行以下命令，从输出中获取网关的名称和 ID：
 
@@ -372,7 +372,7 @@ ms.locfileid: "58625981"
 4. **[订阅 5]** 此步骤类似上面的步骤，只不过是创建 TestVNet5 到 TestVNet1 的连接。 请确保共享密钥匹配，并且连接到订阅 5。
 
    ```azurecli
-    az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l chinanorth --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+   az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l chinanorth --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
 
 ## <a name="verify"></a>验证连接

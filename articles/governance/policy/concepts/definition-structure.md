@@ -1,21 +1,20 @@
 ---
 title: 策略定义结构的详细信息
 description: 介绍 Azure Policy 如何使用资源策略定义，通过描述何时强制实施策略和要实现的效果为组织中的资源建立约定。
-services: azure-policy
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/16/2018
-ms.date: 04/15/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f607dd8117c62fa5aa5e0046a382ff02f4dce015
-ms.sourcegitcommit: dbabe5365653ce222005b2b666dddbfed2270063
+ms.openlocfilehash: a35018d18ff5e864f26275495ca86458c4c1e003
+ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58760023"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412499"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -47,7 +46,8 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "chinanorth"
             }
         },
         "displayName": "Allowed locations",
@@ -100,8 +100,9 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
   - `description`：说明参数的用途。 可以用来提供可接受值的示例。
   - `displayName`：在门户中显示的用于参数的友好名称。
   - `strongType`：（可选）通过门户分配策略定义时使用。 提供上下文感知列表。 有关详细信息，请参阅 [strongType](#strongtype)。
+  - `assignPermissions`：（可选）设置为 _true_ 将让 Azure 门户在分配策略期间创建角色分配。 如果希望分配处于分配作用域之外的权限，则此属性非常有用。 策略中的每个角色定义（或计划中所有策略中的每个角色定义）有一个角色分配。 参数值必须是有效的资源或作用域。
 - `defaultValue`：（可选）设置分配的参数的值（如果值未给定）。 在更新已分配的现有策略定义时必须使用此项。
-- `allowedValues`：（可选）提供参数在分配过程中接受的值的列表。
+- `allowedValues`：（可选）提供参数在分配过程中接受的值的数组。
 
 例如，可以定义策略定义来限制资源的部署位置。 **allowedLocations** 可以是该策略定义的一个参数。 每次分配策略定义来限制接受的值时，会使用此参数。 使用 **strongType** 可以在通过门户完成分配时提供增强的体验：
 
@@ -283,7 +284,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 }
 ```
 
-### <a name="value"></a>值
+### <a name="value"></a>Value
 
 也可使用 **value** 来形成条件。 **value** 会针对[参数](#parameters)、[支持的模板函数](#policy-functions)或文本来检查条件。
 **value** 可与任何支持的[条件](#conditions)配对。
@@ -371,7 +372,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 ### <a name="effect"></a>效果
 
-策略支持以下类型的效果：
+Azure Policy 支持以下类型的效果：
 
 - **Deny**：会在活动日志中生成一个事件，并使请求失败
 - **Audit**：会在活动日志中生成一个警告事件，但不会使请求失败
@@ -395,7 +396,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并应用规则。 如果资源与规则不匹配，则会实现效果。 例如，可以要求为所有虚拟网络部署网络观察程序。 有关更多信息，请参阅[在扩展不存在的情况下审核](../samples/audit-ext-not-exist.md)示例。
 
 
-有关每种效果、评估顺序、属性和示例的完整详细信息，请参阅[了解策略效果](effects.md)。
+有关每种效果、评估顺序、属性和示例的完整详细信息，请参阅[了解 Azure Policy 效果](effects.md)。
 
 ### <a name="policy-functions"></a>策略函数
 
@@ -472,36 +473,7 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-“normal”别名表示单一值字段。 如果整个值集必须确切定义（不能多定义，也不能少定义），则此字段将用于完全匹配比较方案。 使用 **ipRules** 时，某个示例将会验证是否存在确切的规则集，包括规则数目和每个规则的构成。 此示例规则检查 **ipRules** 中 _action_ 为 **Allow** 的 **192.168.1.1** 和 **10.0.4.1** 是否应用 **effectType**：
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+“normal”别名表示单一值字段。 如果整个值集必须确切定义（不能多定义，也不能少定义），则此字段将用于完全匹配比较方案。
 
 使用 **[\*]** 别名可以比较数组中的每个元素值以及每个元素的特定属性。 使用这种方法可以比较“if none of”、“if any of”或“if all of”方案的元素属性。 使用 **ipRules [\*]** 时，某个示例将会验证每个 _action_ 是否为 _Deny_，但不考虑存在多少个规则，或 IP 的 _value_ 是什么。 此示例规则检查 **10.0.4.1** 的所有 **ipRules [\*].value** 匹配项，仅当至少未找到一个匹配项时，才应用 **effectType**：
 

@@ -8,22 +8,22 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
 origin.date: 03/13/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4e2da7f1d351471b872fc66713041044914f1f40
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 999c16b6211d01a9f705e8c63197361e538292f9
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628633"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854462"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL 数据仓库工作负荷分类（预览）
 
 本文介绍用于向传入请求分配资源类和重要性的 SQL 数据仓库工作负荷分类过程。
 
 > [!Note]
-> 在第 2 代 SQL 数据仓库中可以使用工作负荷分类。
+> SQL 数据仓库第 2 代已提供工作负载分类预览。 工作负载管理分类和重要性预览适用于发布日期为 2019 年 4 月 9 日或之后的版本。  用户应避免使用早于此日期的版本来进行工作负载管理测试。  要确定你的版本是否支持工作负载管理，请在连接到 SQL 数据仓库实例时运行select @@version。
 
 ## <a name="classification"></a>分类
 
@@ -32,6 +32,8 @@ ms.locfileid: "58628633"
 可通过多种方法来分类数据仓库工作负荷，而最简单且最常用的分类方法是加载和查询。 可以使用 insert、update 和 delete 语句加载数据。  可以使用 select 查询数据。 数据仓库解决方案通常对加载活动使用工作负荷策略，例如，分配具有更多资源的更高资源类。 可对查询应用不同的工作负荷策略，例如，分配比加载活动更低的重要性。
 
 还可以将加载和查询工作负荷进一步分类。 进一步分类能够更好地控制工作负荷。 例如，查询工作负荷可能包括多维数据集刷新、仪表板查询或即席查询。 可以使用不同的资源类或重要性设置将其中的每个查询工作负荷分类。 加载活动也可以受益于进一步分类。 可将大型转换分配到较大的资源类。 可以使用较高的重要性来确保先加载重要销售数据，再加载天气数据或社交数据馈送。
+
+不会对所有语句分类，因为它们不需要会影响执行的资源或重要因素。  DBCC 命令、BEGIN、COMMIT 和 ROLLBACK TRANSACTION 语句不会进行分类。
 
 ## <a name="classification-process"></a>分类过程
 

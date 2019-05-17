@@ -11,22 +11,22 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan,moslake,josack
 manager: digimobile
-origin.date: 03/01/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 0ba6a4f09082d199e4553c518dd5c2be2c851d8d
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/18/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 37f263ae3634c7daa51cee4042e29b18b8043277
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003478"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855619"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL 数据库服务器的 SQL 数据库资源限制
 
-本文概述了管理单一数据库和弹性池的 SQL 数据库服务器的 SQL 数据库服务器资源限制。 它还提供了有关在达到或超过这些资源限制时会发生什么情况的信息。
+本文概述了管理单一数据库和弹性池的 SQL 数据库服务器的 SQL 数据库资源限制。 它还提供了有关在达到或超过这些资源限制时会发生什么情况的信息。
 
 ## <a name="maximum-resource-limits"></a>最大资源限制
 
-| 资源 | 限制 |
+| Resource | 限制 |
 | :--- | :--- |
 | 每个服务器的数据库数 | 5000 |
 | 任意区域中每个订阅的服务器默认数量 | 20 个 |
@@ -65,15 +65,15 @@ ms.locfileid: "59003478"
 
 ### <a name="sessions-and-workers-requests"></a>会话和辅助角色（请求）
 
-会话和辅助角色的数目上限由服务层和计算大小（DTU 和 eDTU）决定。 当到达会话或辅助角色上限时，新的请求将被拒绝，客户端将收到错误消息。 虽然应用程序可以轻松地控制可用的连接数，但并行辅助角色数通常更难以估计和控制。 在负荷高峰期，当数据库资源达到上限，辅助角色由于较长时间运行查询而堆积时，这种情况尤其突出。
+会话和辅助角色的数目上限由服务层级和计算大小（DTU 和 eDTU）决定。 当到达会话或辅助角色上限时，新的请求将被拒绝，客户端将收到错误消息。 虽然应用程序可以轻松地控制可用的连接数，但并行辅助角色数通常更难以估计和控制。 在负荷高峰期，当数据库资源达到上限，辅助角色由于较长时间运行查询而堆积时，这种情况尤其突出。
 
 会话或辅助角色使用率变高时，风险缓解选项包括：
 
-- 提高数据库或弹性池的服务层或计算大小。 请参阅[缩放单一数据库资源](sql-database-single-database-scale.md)和[缩放弹性池资源](sql-database-elastic-pool-scale.md)。
+- 提高数据库或弹性池的服务层级或计算大小。 请参阅[缩放单一数据库资源](sql-database-single-database-scale.md)和[缩放弹性池资源](sql-database-elastic-pool-scale.md)。
 - 如果争用计算资源造成了辅助角色使用率上升，请优化查询，以降低每项查询的资源使用率。 有关详细信息，请参阅[查询优化/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
 ## <a name="transaction-log-rate-governance"></a>事务日志速率调控 
-事务日志速率调控是 Azure SQL 数据库中的一个进程，用于限制批量插入、SELECT INTO 和索引生成等工作负荷的高引入速率。 无论针对数据文件发出多少 IO，系统都会对日志记录生成速率跟踪并实施这些限制，使其保持在亚秒级以下，并限制吞吐量。  目前，事务日志生成速率会线性提高到与硬件相关的临界点，在 vCore 购买模型中，允许的最大日志速率为 48 MB/秒。 
+事务日志速率调控是 Azure SQL 数据库中的一个进程，用于限制批量插入、SELECT INTO 和索引生成等工作负荷的高引入速率。 无论针对数据文件发出多少 IO，系统都会对日志记录生成速率跟踪并实施这些限制，使其保持在亚秒级以下，并限制吞吐量。  目前，事务日志生成速率会线性提高到与硬件相关的临界点，在 vCore 购买模型中，允许的最大日志速率为 96 MB/秒。 
 
 > [!NOTE]
 > 向事务日志文件发出的实际物理 IO 不会受到调控或限制。 
@@ -96,7 +96,7 @@ ms.locfileid: "59003478"
 |||
 
 当日志速率限制阻碍实现所需的可伸缩性时，请考虑以下选项：
-- 纵向扩展到更高的层，以获得 48 MB/秒的最大日志速率。 
+- 纵向扩展到更高的层，以获得 96 MB/秒的最大日志速率。 
 - 如果加载的数据是暂时性的（即 ETL 过程中的暂存数据），可将其载入 tempdb（记录最少量的数据）。 
 - 对于分析方案，可将数据载入聚集列存储涵盖的表中。 这样，可以通过压缩来降低所需的日志速率。 此方法确实会增大 CPU 利用率，并且仅适用于可从聚集列存储索引受益的数据集。 
 

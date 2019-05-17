@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/04/2019
-ms.date: 04/08/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771d94ac6939edfed5f39c3b51cd95039efe192a
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 207cb045edc6da3329d64eb51033902b40c2b8aa
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243661"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517476"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 来授权访问 Web 应用程序
 
@@ -48,12 +48,12 @@ OpenID Connect 描述了元数据文档，该文档包含了应用执行登录�
 ```
 https://login.partner.microsoftonline.cn/{tenant}/.well-known/openid-configuration
 ```
-元数据是简单的 JavaScript 对象表示法 (JSON) 文档。 有关示例，请参阅下面的代码段。 [OpenID Connect 规范](https://openid.net)中完整介绍了该代码片段的内容。 请注意，提供租户而不是用 `common` 代替上面的 {tenant} 将导致在 JSON 对象中返回特定于租户的 URI。
+元数据是简单的 JavaScript 对象表示法 (JSON) 文档。 有关示例，请参阅下面的代码段。 [OpenID Connect 规范](https://openid.net)中完整介绍了该代码片段的内容。 请注意，提供租户 ID 而不是用 `common` 代替上面的 {tenant} 将导致在 JSON 对象中返回特定于租户的 URI。
 
 ```
 {
-    "authorization_endpoint": "https://login.partner.microsoftonline.cn/common/oauth2/authorize",
-    "token_endpoint": "https://login.partner.microsoftonline.cn/common/oauth2/token",
+    "authorization_endpoint": "https://login.partner.microsoftonline.cn/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.partner.microsoftonline.cn/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -92,7 +92,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 |  | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。 允许值为租户标识符，例如独立于租户令牌的 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`、`contoso.partner.onmschina.cn` 或 `common` |
-| client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可在 Azure 门户中找到该值。 依次单击“Azure Active Directory”和“应用注册”，选择应用程序并在应用程序页上找到应用程序 ID。 |
+| client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可以在 Azure 门户中找到该值。 依次单击“Azure Active Directory”和“应用注册”，选择应用程序并在应用程序页上找到应用程序 ID。 |
 | response_type |必填 |必须包含 OpenID Connect 登录的 `id_token` 。 还可以包含其他 response_type，例如 `code` 或 `token`。 |
 | scope | 建议 | OpenID Connect 规范要求范围 `openid`，该范围在许可 UI 中会转换为“将你登录”权限。 在 v1.0 终结点上，此范围和其他 OIDC 范围会被忽略，但对符合标准的客户端而言仍是最佳做法。 |
 | nonce |必填 |由应用生成且包含在请求中的值，以声明方式包含在生成的 `id_token` 中。 应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机的唯一字符串或 GUID，可用以识别请求的来源。 |
@@ -180,7 +180,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | 参数 |  | 说明 |
 | --- | --- | --- |
-| post_logout_redirect_uri |建议 |用户在成功注销后应重定向到的 URL。 如果未包含此参数，系统会向用户显示一条常规消息。 |
+| post_logout_redirect_uri |建议 |用户在成功注销后应重定向到的 URL。如果未包含此参数，系统会向用户显示一条常规消息。 |
 
 ## <a name="single-sign-out"></a>单一登录
 
@@ -201,7 +201,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 // Line breaks for legibility only
 
 GET https://login.partner.microsoftonline.cn/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'

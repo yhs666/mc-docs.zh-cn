@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 03/11/2019
-ms.date: 03/27/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 436f93cb4890b819364a115c857353aee8133de0
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 8642204dd853360333f2fe04929c3b23fbe895b0
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505502"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855375"
 ---
 # <a name="object-detection"></a>对象检测
 
@@ -97,7 +97,7 @@ ms.locfileid: "58505502"
 
 ## <a name="use-the-api"></a>使用 API
 
-对象检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 获取完整 JSON 响应时，请分析 `"objects"` 部分内容的字符串。
+对象检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Objects` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"objects"` 部分内容的字符串。
 
 * [快速入门：分析图像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)

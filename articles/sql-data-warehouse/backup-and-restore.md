@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 09/06/2018
-ms.date: 03/25/2019
+origin.date: 03/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: dbae2655d45020101b8a15fe2347e295fda6213f
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 41dfdd3194013fe8472d0a053f3d1a9177b20f1d
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348032"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854869"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 
@@ -26,7 +26,7 @@ ms.locfileid: "58348032"
 
 数据仓库快照会创建一个还原点，利用该还原点可将数据仓库恢复或复制到以前的状态。  由于 SQL 数据仓库属于分布式系统，因此数据仓库快照包含许多位于 Azure 存储中的文件。 快照捕获数据仓库中存储的数据的增量更改。
 
-数据仓库还原是基于现有数据仓库或已删除数据仓库的还原点创建的新数据仓库。 还原数据仓库是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库还原可以在意外损坏或删除数据后重新创建数据。 此外，数据仓库是出于测试或开发目的创建数据仓库副本的强大机制。  SQL 数据仓库使用同一区域中的快速还原机制，根据测量，任何大小的数据的还原时间不超过 20 分钟。
+数据仓库还原是基于现有数据仓库或已删除数据仓库的还原点创建的新数据仓库。 还原数据仓库是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库还原可以在意外损坏或删除数据后重新创建数据。 此外，数据仓库是出于测试或开发目的创建数据仓库副本的强大机制。  SQL 数据仓库还原速度因数据库大小以及源和目标数据仓库的位置而异。 就同一区域的平均还原速度来说，通常需要大约 20 分钟才能完成还原。 
 
 ## <a name="automatic-restore-points"></a>自动还原点
 
@@ -45,7 +45,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>用户定义的还原点
 
-使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 用户定义的还原点可以使用七天，然后系统会替你将它自动删除。 无法更改用户定义的还原点的保留期。 无论在任何时间点，均会保证 **42 个用户定义的还原点**，因此，它们必须在创建另一个还原点之前[删除](https://go.microsoft.com/fwlink/?linkid=875299)。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) 或 Azure 门户触发快照来创建用户定义的还原点。
+使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 用户定义的还原点可以使用七天，然后系统会替你将它自动删除。 无法更改用户定义的还原点的保留期。 无论在任何时间点，均会保证 **42 个用户定义的还原点**，因此，它们必须在创建另一个还原点之前[删除](https://go.microsoft.com/fwlink/?linkid=875299)。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) 或 Azure 门户触发快照来创建用户定义的还原点。
 
 ### <a name="restore-point-retention"></a>还原点保留期
 

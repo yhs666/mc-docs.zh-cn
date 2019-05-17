@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
 origin.date: 12/18/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a066d1d25c752c2eb4613a284f74227ffafadc46
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: eb7ee0daa80bfb0e7e7cc251457e960faed00082
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625334"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520685"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -34,10 +34,10 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑组。 创建资源组时，系统会要求你指定一个位置， 此位置是资源组元数据的存储位置，如果你在创建资源期间未指定另一个区域，则它还是你的资源在 Azure 中的运行位置。 使用 [az group create][az-group-create] 命令创建资源组。
 
-以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name myResourceGroup --location chinaeast2
 ```
 
 以下示例输出显示已成功创建资源组：
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location chinaeast
 ```json
 {
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -121,6 +121,8 @@ spec:
       labels:
         app: azure-vote-back
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
         image: redis
@@ -159,9 +161,11 @@ spec:
       labels:
         app: azure-vote-front
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: dockerhub.azk8s.cn/microsoft/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -287,10 +291,10 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: https://aka.ms/coingfonboarding
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-browse
-[az-aks-create]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-browse
+[az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

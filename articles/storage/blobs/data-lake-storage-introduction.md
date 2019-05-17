@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 03/04/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 96c0da1cbc3012b2ab4bc3a144a1373505c676ff
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: 54a648e48e262430a8584a67e727575c86000cee
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196552"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549919"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 简介
 
@@ -44,7 +44,7 @@ Data Lake Storage Gen2 的一个基本部分是向 Blob 存储添加[分层命�
 
 -   经济高效：Data Lake Storage Gen2 提供了低成本的存储容量和事务。
 
--   **优化的驱动程序**：ABFS 驱动程序专门针对大数据分析进行了[优化](data-lake-storage-abfs-driver.md)。 相应的 REST API 通过 dfs 终结点 dfs.core.chinacloudapi.cn 进行显示。
+-   **优化的驱动程序**：ABFS 驱动程序已针对大数据分析进行[专门优化](data-lake-storage-abfs-driver.md)。 相应的 REST API 通过终结点 `dfs.core.chinacloudapi.cn` 进行显示。
 
 ### <a name="scalability"></a>可伸缩性
 
@@ -65,7 +65,7 @@ Data Lake Storage Gen2 是用于大数据分析的附加功能，基于 Azure Bl
 | 概念                                | 顶级组织 | 较低级别的组织                                            | 数据容器 |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blob - 常规用途对象存储 | 容器              | 虚拟目录（仅限 SDK - 不提供原子操作） | Blob           |
-| ADLS Gen2 - 分析存储          | 文件系统             | Directory                                                           | 文件           |
+| ADLS Gen2 - 分析存储          | 文件系统              | Directory                                                           | 文件           |
 
 ## <a name="supported-open-source-platforms"></a>支持的开源平台
 

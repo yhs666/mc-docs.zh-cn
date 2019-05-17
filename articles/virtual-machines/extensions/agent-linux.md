@@ -17,12 +17,12 @@ origin.date: 10/17/2016
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30cafe30cb036c5c7b52524941cc42ead54bd470
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 18d43818591195a6724d7a8476fc351f146c0f34
+ms.sourcegitcommit: 5bfa8ecc8a61eaf814437c78ea0d12214cabcb8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626468"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929324"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 
@@ -35,34 +35,34 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 
 * **映像设置**
 
-  * 创建用户帐户
-  * 配置 SSH 身份验证类型
-  * 部署 SSH 公钥和密钥对
-  * 设置主机名
-  * 将主机名发布到平台 DNS
-  * 将 SSH 主机密钥指纹报告给平台
-  * 资源磁盘管理
-  * 格式化并安装资源磁盘
-  * 配置交换空间
+    * 创建用户帐户
+    * 配置 SSH 身份验证类型
+    * 部署 SSH 公钥和密钥对
+    * 设置主机名
+    * 将主机名发布到平台 DNS
+    * 将 SSH 主机密钥指纹报告给平台
+    * 资源磁盘管理
+    * 格式化并安装资源磁盘
+    * 配置交换空间
 * **网络**
 
-  * 管理路由以提高与平台 DHCP 服务器的兼容性
-  * 确保网络接口名称的稳定性
+    * 管理路由以提高与平台 DHCP 服务器的兼容性
+    * 确保网络接口名称的稳定性
 * **内核**
 
-  * 配置虚拟 NUMA（对版本低于 <`2.6.37` 的内核禁用）
-  * 将 Hyper-V 熵用于 /dev/random
-  * 为根设备配置 SCSI 超时（可能通过远程方式）
+    * 配置虚拟 NUMA（对版本低于 <`2.6.37` 的内核禁用）
+    * 将 Hyper-V 熵用于 /dev/random
+    * 为根设备配置 SCSI 超时（可能通过远程方式）
 * **诊断**
 
-  * 控制台重定向到串行端口
+    * 控制台重定向到串行端口
 * **SCVMM 部署**
 
-  * 当用于 Linux 的 VMM 代理在 System Center Virtual Machine Manager 2012 R2 环境中运行时对其进行检测并启动
+    * 当用于 Linux 的 VMM 代理在 System Center Virtual Machine Manager 2012 R2 环境中运行时对其进行检测并启动
 * **VM 扩展**
 
-  * 将 Azure 和合作伙伴授权的组件注入 Linux VM (IaaS)，以便实现软件和配置的自动化
-  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions) 上的 VM 扩展参考实现
+    * 将 Azure 和合作伙伴授权的组件注入 Linux VM (IaaS)，以便实现软件和配置的自动化
+    * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions) 上的 VM 扩展参考实现
 
 ## <a name="communication"></a>通信
 从平台到代理的信息流通过两个通道进行：
@@ -117,11 +117,11 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * help：列出支持的命令和标志。
 * deprovision：尝试清理系统并使其适用于重新预配。 后续操作删除以下各项：
 
-  * 所有 SSH 主机密钥（如果在配置文件中 Provisioning.RegenerateSshHostKeyPair 为“y”）
-  * /etc/resolv.conf 中的 Nameserver 配置
-  * /etc/shadow 中的根密码（如果在配置文件中 Provisioning.DeleteRootPassword 为“y”）
-  * 缓存的 DHCP 客户端租赁
-  * 将主机名重置为 localhost.localdomain
+    * 所有 SSH 主机密钥（如果在配置文件中 Provisioning.RegenerateSshHostKeyPair 为“y”）
+    * /etc/resolv.conf 中的 Nameserver 配置
+    * /etc/shadow 中的根密码（如果在配置文件中 Provisioning.DeleteRootPassword 为“y”）
+    * 缓存的 DHCP 客户端租赁
+    * 将主机名重置为 localhost.localdomain
 
 > [!WARNING]
 > 取消预配无法保证清除映像中的所有敏感信息且适用于分发版。
@@ -129,39 +129,38 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 > 
 
 * deprovision+user：执行 -deprovision（上述）中的所有操作，同时删除最后预配的用户帐户（从 /var/lib/waagent 中获得）和关联数据。 此参数是取消对以前在 Azure 中设置的映像的设置以便捕获并重新使用该映像时的参数。
-* version：显示 waagent 的版本
-* serialconsole：配置 GRUB 以将 ttyS0（第一个串行端口）标记为启动控制台。 这可确保将内核启动日志发送到串行端口并可用于调试。
+* version：显示 waagent 的版本   <!--Not Available on * serialconsole:-->
 * daemon：将 waagent 作为 daemon 运行以管理与平台的交互。 在 waagent init 脚本中为 waagent 指定此参数。
 * start：将 waagent 作为后台进程运行
 
 ## <a name="configuration"></a>配置
 配置文件 (/etc/waagent.conf) 可控制 waagent 的操作。 下面显示了示例配置文件：
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 下面描述了各种配置选项。 配置选项分为三种类型：布尔值、字符串或整数。 布尔值配置选项可指定为“y”或“n”。 特殊关键字“无”可用于某些字符串类型配置条目，详细信息如下所示：
 

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 12/07/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 37ffc974d6f886e468e0ef0780f7eeb6b6992c4d
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: ab750778d5b17cd2753d5df4151513ba49274299
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855408"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>群集操作员和开发人员的最佳做法，用于在 Azure Kubernetes 服务 (AKS) 中生成并管理应用程序
 
@@ -79,4 +79,6 @@ ms.locfileid: "56903273"
 
 ## <a name="next-steps"></a>后续步骤
 
-如果需要完成 AKS 入门，请按某个快速入门的说明操作，通过 [Azure CLI](kubernetes-walkthrough.md) 或 [Azure 门户](kubernetes-walkthrough-portal.md)来部署 Azure Kubernetes 服务 (AKS) 群集。
+如果需要完成 AKS 入门，请按某个快速入门的说明操作，通过 [Azure CLI](kubernetes-walkthrough.md) 来部署 Azure Kubernetes 服务 (AKS) 群集。
+
+<!--Not Available on [Azure portal](kubernetes-walkthrough-portal.md)-->

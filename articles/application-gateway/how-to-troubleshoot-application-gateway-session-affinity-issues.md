@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/22/2019
 ms.date: 04/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 620c5d037587b4f102ad0291f8db124177f3d7e6
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: bee10e56aa7ee95f0802899ea4381df0e273bc64
+ms.sourcegitcommit: 731da97453f3bd6b333dc2ec1058b9b91031d240
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686432"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64871468"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>排查 Azure 应用程序网关会话相关性问题
 
@@ -87,7 +87,7 @@ ms.locfileid: "59686432"
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 应用程序会持续尝试针对每个请求设置 Cookie，直到收到回复。
 
@@ -168,42 +168,42 @@ Fiddler 之类的 Web 调试工具可以捕获 Internet 与测试计算机之间
 
 2. 右键单击安装程序可执行文件，并以管理员的身份安装该程序。
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. 打开 Fiddler 时，它应会自动开始捕获流量（注意左下角的“正在捕获”）。 按 F12 键可以启动或停止流量捕获。
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. 你很有可能对已解密的 HTTPS 流量感兴趣；选择“工具” > “Fiddler 选项”，然后选中“解密HTTPS 流量”框，即可启用 HTTPS 解密。
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. 在再现问题之前，可以通过单击“X”（图标）>“全部删除”来删除以前的不相关会话，如以下屏幕截图所示： 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. 再现问题后，选择“文件” > “保存” > “所有会话...”以保存该文件供复查。 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. 检查并分析会话日志以确定问题所在。
 
     例如：
 
-- **示例 A：** 在会话日志中，你发现请求是从客户端发出的，该请求发送到了应用程序网关的公共 IP 地址。于是你单击此日志以查看详细信息。  右侧下框中的数据是应用程序网关返回给客户端的数据。 选择“RAW”选项卡，并确定客户端是否正在接收“**Set-Cookie:ARRAffinity=** *ARRAffinityValue*”。 如果未看到任何 Cookie，则表示未设置会话相关性，或者应用程序网关未将 Cookie 应用回到客户端。
-
-   > [!NOTE]
-   > 此 ARRAffinity 值是应用程序网关为客户端设置的 Cookie ID，它将发送到特定的后端服务器。
-
-    ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
-
-- **示例 B：** 前一条会话日志后面的会话日志是客户端返回给应用程序网关的响应，其中设置了 ARRAAFFINITY。 如果 ARRAffinity Cookie ID 匹配，则数据包应会发送到前面使用的同一个后端服务器。 检查 http 通信的后面几行，以查看客户端的 ARRAffinity Cookie 是否在发生变化。
-
-    ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
-
-> [!NOTE]
-> 对于同一个通信会话，Cookie 不应该变化。 检查右侧的上框，选择“Cookie”选项卡以查看客户端是否正在使用 Cookie 并将其发回到应用程序网关。 如果不是，则表示客户端浏览器未保留 Cookie 并将其用于对话。 有时，客户端可能提供不实的数据。
-
+    - **示例 A：** 在会话日志中，你发现请求是从客户端发出的，该请求发送到了应用程序网关的公共 IP 地址。于是你单击此日志以查看详细信息。  右侧下框中的数据是应用程序网关返回给客户端的数据。 选择“RAW”选项卡，并确定客户端是否正在接收“**Set-Cookie:ARRAffinity=** *ARRAffinityValue*”。 如果未看到任何 Cookie，则表示未设置会话相关性，或者应用程序网关未将 Cookie 应用回到客户端。
+    
+       > [!NOTE]
+       > 此 ARRAffinity 值是应用程序网关为客户端设置的 Cookie ID，它将发送到特定的后端服务器。
+    
+       ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+    
+    - **示例 B：** 前一条会话日志后面的会话日志是客户端返回给应用程序网关的响应，其中设置了 ARRAAFFINITY。 如果 ARRAffinity Cookie ID 匹配，则数据包应会发送到前面使用的同一个后端服务器。 检查 http 通信的后面几行，以查看客户端的 ARRAffinity Cookie 是否在发生变化。
+    
+       ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+    
+    > [!NOTE]
+    > 对于同一个通信会话，Cookie 不应该变化。 检查右侧的上框，选择“Cookie”选项卡以查看客户端是否正在使用 Cookie 并将其发回到应用程序网关。 如果不是，则表示客户端浏览器未保留 Cookie 并将其用于对话。 有时，客户端可能提供不实的数据。
+    
  
 
 ## <a name="next-steps"></a>后续步骤

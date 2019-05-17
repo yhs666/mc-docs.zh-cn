@@ -1,26 +1,27 @@
 ---
-title: Azure AD Connect：排查对象同步错误 | Microsoft Docs
+title: Azure AD Connect：排查对象同步问题 | Microsoft Docs
 description: 本主题按步骤介绍了如何使用故障排除任务来排查对象同步问题。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/15/2018
-ms.date: 11/12/2018
-ms.component: hybrid
+origin.date: 04/29/2019
+ms.date: 05/10/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 5d758ea6fc0c75e6ded5d911890cf4841aa46fc1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 95129ebba5684eff80a36b20b47f65eedd9dfd0e
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651684"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520760"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步排查对象同步问题
 本文按步骤介绍了如何使用故障排除任务来排查对象同步问题。 
@@ -38,13 +39,15 @@ ms.locfileid: "52651684"
 5. 在“故障排除”页上，单击“启动”以在 PowerShell 中启动故障排除菜单。
 6. 在主菜单中，选择“排查对象同步问题”。
 
-    ![](./media\tshoot-connect-objectsync\objsynch11.png)
+    ![排查对象同步问题](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>排查输入参数问题
 以下输入参数是故障排除任务所需的：
 1. **对象可分辨名称** – 这是需要进行故障排除的对象的可分辨名称
 2. **AD 连接器名称** – 这是上述对象所驻留的 AD 林的名称。
-3. Azure AD 租户全局管理员凭据 ![](./media\tshoot-connect-objectsync\objsynch1.png)
+3. Azure AD 租户全局管理员凭据
+    
+    ![全局管理员凭据](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解故障排除任务的结果
 此故障排除任务执行以下检查：
@@ -61,27 +64,27 @@ ms.locfileid: "52651684"
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>使用 Azure AD 租户时，不验证 UPN 后缀
 如果没有通过 Azure AD 租户对 UserPrincipalName (UPN)/备用登录 ID 后缀进行验证，Azure Active Directory 会将 UPN 后缀替换为默认的域名“partner.onmschina.cn”。
 
-![](./media\tshoot-connect-objectsync\objsynch2.png)
+![Azure AD 替换 UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>将 UPN 后缀从一个联合域更改到另一个联合域
 Azure Active Directory 不允许将 UserPrincipalName (UPN)/备用登录 ID 后缀的更改从一个联合域同步到另一个联合域。 这适用于通过 Azure AD 租户进行验证且“身份验证类型”为“联合身份验证”的域。
 
-![](./media\tshoot-connect-objectsync\objsynch3.png) 
+![没有从一个联合域到另一个联合域的 UPN 同步](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD 租户 DirSync 功能“SynchronizeUpnForManagedUsers”已禁用
 对于使用托管身份验证的许可用户帐户，禁用 Azure AD 租户 DirSync 功能“SynchronizeUpnForManagedUsers”后，Azure Active Directory 不允许将更新同步到 UserPrincipalName/备用登录 ID。
 
-![](./media\tshoot-connect-objectsync\objsynch4.png)
+![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
 
 ## <a name="object-is-filtered-due-to-domain-filtering"></a>对象已因域筛选而被筛选出来
 ### <a name="domain-is-not-configured-to-sync"></a>未将域配置为同步
 由于未配置域，对象未在范围内。 在下面的示例中，对象不在范围内，因为其所属的域已从同步中筛选出来。
 
-![](./media\tshoot-connect-objectsync\objsynch5.png)
+![未将域配置为同步](media/tshoot-connect-objectsync/objsynch5.png)
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>域已配置为同步，但缺少运行配置文件/运行步骤
 对象不在范围内，因为域缺少运行配置文件/运行步骤。 在下面的示例中，对象不在范围内，因为其所属的域缺少“完全导入”运行配置文件的运行步骤。
-![](./media\tshoot-connect-objectsync\objsynch6.png)
+![缺少运行配置文件](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>对象已因 OU 筛选而被筛选出来
 对象因 OU 筛选配置而不在同步范围内。 在下面的示例中，对象属于 OU=NoSync,DC=bvtadwbackdc,DC=com。  此 OU 不包括在同步范围内。</br>
@@ -100,8 +103,9 @@ Azure Active Directory 不允许将 UserPrincipalName (UPN)/备用登录 ID 后�
 ## <a name="html-report"></a>HTML 报表
 除了分析对象，故障排除任务还会生成 HTML 报表，其中包含有关该对象的一切已知内容。 此 HTML 报表可以与支持团队共享，以便根据需要进行进一步的故障排除。
 
-![](./media\tshoot-connect-objectsync\objsynch8.png)
+![HTML 报表](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

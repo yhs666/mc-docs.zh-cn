@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 740c374b5739259a874b5ced2945d2c797dd22cd
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 473d2523707ce61539d9e75eacc4d718678951df
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903227"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520752"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>从 Azure 容器服务 (ACS) 迁移到 Azure Kubernetes 服务 (AKS)
 
@@ -29,8 +29,7 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
     * 非托管磁盘需在转换之后才可附加到 AKS 节点
     * Azure 磁盘的自定义 `StorageClass` 对象需从 `unmanaged` 更改为 `managed`
     * 任何 `PersistentVolumes` 都需要使用 `kind: Managed`
-* AKS 目前仅支持一个代理池
-* 基于 Windows Server 的节点目前以[个人预览版](https://azure.microsoft.com/blog/kubernetes-on-azure/)提供。
+* AKS 目前仅支持一个代理池   <!--Not Available on * Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/blog/kubernetes-on-azure/)-->
 * 查看 AKS [支持的区域](/aks/container-service-quotas)列表
 * AKS 是带有托管 Kubernetes 控制平面的托管服务。 如果以前修改了 ACS 主节点的配置，则现在可能需要修改应用程序
 
@@ -79,6 +78,7 @@ ACS 与 AKS 之间存在一些会影响迁移的重要差异。 在执行任何�
 3. 故障转移，使次要副本成为主要副本
 4. 将流量指向 AKS 群集
 
+<a name="Migrating-Persistent-Volumes"></a>
 #### <a name="migrating-persistent-volumes"></a>迁移永久性卷
 
 将现有的永久性卷迁移到 AKS 时，需要考虑多种因素。 一般而言，涉及的步骤包括：
@@ -137,6 +137,8 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 可以参考文档通过 Azure 门户、Azure CLI 或资源管理器模板[创建 AKS 群集](/aks/create-cluster)。
 
+<!-- Available on  Azure portal-->
+
 > 在 GitHub 上的 [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) 存储库中，可以找到 AKS 的示例 Azure 资源管理器模板
 
 ### <a name="2-modify-applications"></a>2.修改应用程序
@@ -145,7 +147,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ### <a name="3-optional-migrate-volumes"></a>3.（可选）迁移卷
 
-将卷从 ACS 群集迁移到 AKS 群集。 在[迁移永久性卷](#Migrating-Persistent-Volumes)部分可以找到更多详细信息。
+将卷从 ACS 群集迁移到 AKS 群集。 在[迁移永久性卷](#migrating-persistent-volumes)部分可以找到更多详细信息。
 
 ### <a name="4-deploy-applications"></a>4.部署应用程序
 
@@ -162,3 +164,5 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 ### <a name="7-post-migration-tasks"></a>7.迁移后的任务
 
 如果迁移了卷但未暂停写入，则需要将这些数据复制到新群集。
+
+<!--Update_Description: wording update-->

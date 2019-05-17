@@ -6,19 +6,19 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 01/11/2018
-ms.date: 03/25/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 1d51dc98e6f48eb2f129cec24adb617a1db25123
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 991bc11b0ef16e2cbc8ad6eaa42bdd3526dbad6e
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64860121"
 ---
-下表介绍 Azure 存储的默认限制。 “传入”限制是指请求中发送到存储帐户的所有数据。 “传出”限制是指响应中从存储帐户接收的所有数据。
+下表介绍 Azure 常规用途 v1、v2 和 Blob 存储帐户的默认限制。 “传入”限制是指请求中发送到存储帐户的所有数据。 “传出”限制是指响应中从存储帐户接收的所有数据。
 
-| 资源 | 默认限制 |
+| Resource | 默认限制 |
 | --- | --- |
 | 每个订阅每个区域的存储帐户数，包括标准帐户和高级帐户 | 250 |
 | 最大存储帐户容量 |  500 TB |

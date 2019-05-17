@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/18/2019
-ms.date: 03/04/2019
+origin.date: 04/09/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 86445e9ede6c922323776e9a34a622337ee994bf
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: a9150c43fbda2d7d0b0e803b383f22c40fdfbb1b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905456"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854952"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -34,11 +34,11 @@ Azure Stack 虚拟机提供可按需缩放的计算资源。 在部署虚拟机 
 | 功能 | Azure（中国） | Azure Stack |
 | --- | --- | --- |
 | 虚拟机映像 | Azure 市场包含可用于创建虚拟机的映像。 若要查看 Azure 市场中的可用映像列表，请参阅 [Azure 市场](https://market.azure.cn/zh-cn)页。 | Azure Stack 市场中默认不会提供任何映像。 Azure Stack 云管理员应该先将映像发布或下载到 Azure Stack 市场，然后用户才能使用这些映像。 |
-| 虚拟机大小 | Azure 支持各种不同的虚拟机大小。 若要了解可用的大小和选项，请参阅 [Windows 虚拟机大小](../../virtual-machines/virtual-machines-windows-sizes.md)和 [Linux 虚拟机大小](../../virtual-machines/linux/sizes.md)主题。 | Azure Stack 支持一部分可在 Azure 中使用的虚拟机大小。 若要查看支持的大小列表，请参阅本文的[虚拟机大小](#virtual-machine-sizes)部分。 |
-| 虚拟机配额 | [配额限制](../../azure-subscription-service-limits.md#service-specific-limits)由 Microsoft 设置 | Azure Stack 云管理员在将虚拟机提供给用户之前，必须先配置配额。 |
-| 虚拟机扩展 |Azure 支持各种不同的虚拟机扩展。 若要了解可用的扩展，请参阅[虚拟机扩展和功能](../../virtual-machines/windows/extensions-features.md)一文。| Azure Stack 支持一部分可在 Azure 中使用的扩展，每个扩展有特定的版本。 Azure Stack 云管理员可以选择要将哪些扩展提供给其用户使用。 若要查看支持的扩展列表，请参阅本文的[虚拟机扩展](#virtual-machine-extensions)部分。 |
-| 虚拟机网络 | 分配给租户虚拟机的公共 IP 地址可通过 Internet 访问。<br><br><br>Azure 虚拟机有固定的 DNS 名称 | 只能在 Azure Stack 开发工具包环境中访问分配给租户虚拟机的公共 IP 地址。 用户必须能够通过 [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 或 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 访问 Azure Stack 开发工具包，才能连接到在 Azure Stack 中创建的虚拟机。<br><br>在特定 Azure Stack 实例中创建的虚拟机的 DNS 名称基于云管理员配置的值。 |
-| 虚拟机存储 | 支持[托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)。 | 版本为 1808 及更高版本的 Azure Stack 支持托管磁盘。 |
+| 虚拟机大小 | Azure 支持各种不同的虚拟机大小。 若要了解可用的大小和选项，请参阅 [Windows 虚拟机大小](/virtual-machines/virtual-machines-windows-sizes)和 [Linux 虚拟机大小](/virtual-machines/linux/sizes)主题。 | Azure Stack 支持一部分可在 Azure 中使用的虚拟机大小。 若要查看支持的大小列表，请参阅本文的[虚拟机大小](#virtual-machine-sizes)部分。 |
+| 虚拟机配额 | [配额限制](/azure-subscription-service-limits#service-specific-limits)由 Microsoft 设置 | Azure Stack 云管理员在将虚拟机提供给用户之前，必须先配置配额。 |
+| 虚拟机扩展 |Azure 支持各种不同的虚拟机扩展。 若要了解可用的扩展，请参阅[虚拟机扩展和功能](/virtual-machines/windows/extensions-features)一文。| Azure Stack 支持一部分可在 Azure 中使用的扩展，每个扩展有特定的版本。 Azure Stack 云管理员可以选择要将哪些扩展提供给其用户使用。 若要查看支持的扩展列表，请参阅本文的[虚拟机扩展](#virtual-machine-extensions)部分。 |
+| 虚拟机网络 | 分配给租户虚拟机的公共 IP 地址可通过 Internet 访问。<br><br><br>Azure 虚拟机有固定的 DNS 名称 | 只能在 Azure Stack 开发工具包环境中访问分配给租户虚拟机的公共 IP 地址。 用户必须能够通过 [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) 或 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 访问 Azure Stack 开发工具包，才能连接到在 Azure Stack 中创建的虚拟机。<br><br>在特定 Azure Stack 实例中创建的虚拟机的 DNS 名称基于云管理员配置的值。 |
+| 虚拟机存储 | 支持[托管磁盘](/virtual-machines/windows/managed-disks-overview)。 | 版本为 1808 及更高版本的 Azure Stack 支持托管磁盘。 |
 | 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于磁盘所附加到的 VM 的 VM 大小，请参阅 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 始终提供所有虚拟机功能的最新 API 版本。 | Azure Stack 支持特定的 Azure 服务以及这些服务的特定 API 版本。 若要查看支持的 API 版本列表，请参阅本文的 [API 版本](#api-versions)部分。 |
 | Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和配置虚拟机的正在运行的虚拟机实例的信息。  | Azure Stack 不支持实例元数据服务。 |
@@ -52,7 +52,7 @@ Azure Stack 施加了一些资源限制，以避免资源（服务器本地和�
 
 - VM 的网络出口有带宽上限。 Azure Stack 中的上限与 Azure 中的上限相同。
 - 对于存储资源，Azure Stack 实施存储 IOPS 限制，以避免租户为了访问存储而造成资源过度消耗。
-- 对于附加了多个数据磁盘的 VM，每个数据磁盘的最大吞吐量为 500 IOPS（适用于 HDD）和 2300 IOPS（适用于 SSD）。
+- 对于 VM 磁盘，Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与虚拟机 (VM) 大小相关的函数，与磁盘类型无关。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。
 
 下表列出了 Azure Stack 支持的 VM 及其配置：
 

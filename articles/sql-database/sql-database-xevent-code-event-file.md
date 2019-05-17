@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik
 manager: digimobile
 origin.date: 03/12/2018
-ms.date: 04/08/2019
-ms.openlocfilehash: 105ea3f25b859d89962e704deb379991febb5b11
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 04/29/2019
+ms.openlocfilehash: 1413507bd936c7a7cba4f2e7fee3ae5d51ce0362
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003452"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855076"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的事件文件目标代码
 
@@ -464,9 +464,9 @@ GO
 
 ## <a name="output"></a>输出
 
-完成 Transact-SQL 脚本后，请单击 **event_data_XML** 列标题下的单元格。 此时将显示一个 **<event>** 元素，其中显示了一个 UPDATE 语句。
+完成 Transact-SQL 脚本后，请单击 **event_data_XML** 列标题下的单元格。 此时将显示一个 **\<event>** 元素，其中显示了一个 UPDATE 语句。
 
-下面是测试期间生成的一个 **<event>** 元素：
+下面是测试期间生成的一个 **\<event>** 元素：
 
 
 ```xml
@@ -533,7 +533,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 有关 Azure 存储服务中帐户和容器的详细信息，请参阅：
 
 * [如何通过 .NET 使用 Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [命名和引用容器、Blob 和元数据](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [命名和引用容器、Blob 与元数据](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [使用根容器](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [第 1 课：在 Azure 容器上创建存储访问策略和共享访问签名](https://msdn.microsoft.com/library/dn466430.aspx)
   * [第 2 课：使用共享访问签名创建 SQL Server 凭据](https://msdn.microsoft.com/library/dn466435.aspx)
@@ -544,4 +544,4 @@ Image references.
 -->
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
-<!--Update_Description: update PowerShell code-->
+

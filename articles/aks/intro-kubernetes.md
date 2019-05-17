@@ -6,21 +6,24 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: overview
 origin.date: 03/05/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d604416347c0df3cc8183e5661097e7a65653d37
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6c4cdcfe983b89bf11fdc560b5644e8bfc7b70ce
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625592"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520712"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS)
 
 可以使用 Azure Kubernetes 服务 (AKS) 在 Azure 中轻松地部署托管的 Kubernetes 群集。 AKS 通过将大量管理工作量卸载到 Azure，来降低管理 Kubernetes 所产生的复杂性和操作开销。 作为一个托管 Kubernetes 服务，Azure 可以自动处理运行状况监视和维护等关键任务。 Kubernetes 主节点由 Azure 管理。 你只管理和维护代理节点。 作为托管型 Kubernetes 服务，AKS 是免费的 - 你只需支付群集中的代理节点费，不需支付主节点的费用。
 
-可以在 Azure 门户中使用 Azure CLI 或模板驱动型部署选项（例如资源管理器模板和 Terraform）来创建 AKS 群集。 当你部署 AKS 群集时，系统会为你部署和配置 Kubernetes 主节点和所有节点。 另外，也可在部署过程中配置其他功能，例如高级网络、Azure Active Directory 集成、监视。
+可以使用 Azure CLI 或模板驱动型部署选项（例如资源管理器模板）来创建 AKS 群集。 当你部署 AKS 群集时，系统会为你部署和配置 Kubernetes 主节点和所有节点。 另外，也可在部署过程中配置其他功能，例如高级网络、Azure Active Directory 集成、监视。
+
+<!--Not Available on in the Azure portal-->
+<!--Not Available on and Terraform-->
 
 有关 Kubernetes 基础知识的详细信息，请参阅 [AKS 的 Kubernetes 核心概念][concepts-clusters-workloads]。
 
@@ -92,11 +95,10 @@ AKS 群集可以部署到现有的虚拟网络中。 在此配置中，群集中
 
 Kubernetes 有丰富的生态系统，其中包含各种开发和管理工具，例如 Helm、Draft 以及适用于 Visual Studio Code 的 Kubernetes 扩展。 这些工具可以与 AKS 无缝地配合使用。
 
-另外，Azure Dev Spaces 为团队提供快速、迭代的 Kubernetes 开发体验。 只需最少的配置，即可直接在 AKS 中运行和调试容器。 
-
+<!--Not Available on Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces]-->
 <!--Not Available on To get started, see [Azure Dev Spaces][azure-dev-spaces]-->
 
-Azure DevOps 项目允许通过简单的解决方案将现有的代码和 Git 存储库带到 Azure 中。 DevOps 项目自动创建 Azure 资源（例如 AKS，Azure DevOps Services 中的一种发布管道，其中包括用于 CI 的生成管道），为 CD 设置发布管道，然后创建适用于监视的 Azure Application Insights 资源。
+<!--Not Available on The Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then creates an Azure Application Insights resource for monitoring.-->
 
 <!--Not Available on For more information, see [Azure DevOps project][azure-devops]-->
 
@@ -128,12 +130,16 @@ Azure Kubernetes 服务 (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 规范。
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
-[aks-aad]: ./aad-integration.md
+[aks-aad]: ./azure-ad-integration.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
-[aks-http-routing]: ./http-application-routing.md
+
+<!--Not Available on [aks-http-routing]: ./http-application-routing.md-->
+
 [aks-networking]: ./concepts-network.md
-[aks-portal]: ./kubernetes-walkthrough-portal.md
+
+<!--Not Available on [aks-portal]: ./kubernetes-walkthrough-portal.md-->
+
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 
@@ -146,7 +152,8 @@ Azure Kubernetes 服务 (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 规范。
 [container-health]: ../azure-monitor/insights/container-insights-overview.md
 <!--URL monitoring-container-health.md direct to azure-monitor/insights/container-insights-overview.md-->
 
-[aks-master-logs]: view-master-logs.md
+<!--Not Available on [aks-master-logs]: view-master-logs.md-->
+
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac

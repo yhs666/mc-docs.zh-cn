@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机 | Microsoft Docs
-description: 在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机。
+title: 在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机 | Microsoft Docs
+description: 在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,35 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+origin.date: 04/09/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: c39b1d577cd6c9df5c05551cb4f8483949eda45c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.reviewer: kivenkat
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 3ae4213204ec5365ecce36c1faef802ae53b57c9
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627695"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854606"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用 Azure Stack PowerShell 创建 Windows Server 2016 虚拟机。 请按照本文中的步骤创建和使用虚拟机。 本文还提供了执行以下操作的步骤：
+可以使用 Azure Stack PowerShell 创建 Windows Server 2016 虚拟机 (VM)。 请按照本文中的步骤创建和使用 VM。 本文还提供了执行以下操作的步骤：
 
-* 通过远程客户端连接到虚拟机。
+* 通过远程客户端连接到 VM。
 * 安装 IIS Web 服务器并查看默认主页。
 * 清理资源。
 
 > [!NOTE]
 >  可以通过 Azure Stack 开发工具包或基于 Windows 的外部客户端（如果已通过 VPN 建立连接）运行本文中所述的步骤。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites-for-windows-server-vm"></a>Windows Server VM 的先决条件
 
 * 确保 Azure Stack 操作员已将“Windows Server 2016”映像添加到 Azure Stack 市场。
 
-* Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](azure-stack-powershell-install.md) PowerShell 的步骤。
+* Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
 
 * 设置 Azure Stack PowerShell 后，将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
@@ -77,11 +79,6 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
-$containerName = 'osdisks'
-$container = New-AzureStorageContainer `
-  -Name $containerName `
-  -Permission Blob
 ```
 
 ## <a name="create-networking-resources"></a>创建网络资源
@@ -193,19 +190,14 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-$osDiskName = "OsDisk"
-$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
-  $StorageAccount.PrimaryEndpoints.Blob.ToString(),`
-  $vmName.ToLower(), `
-  $osDiskName
-
 # Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
-  -Name $osDiskName `
-  -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
+  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  -StorageAccountName $StorageAccountName -Enable |`
   Add-AzureRmVMNetworkInterface -Id $nic.Id
+
 
 # Create the virtual machine.
 New-AzureRmVM `

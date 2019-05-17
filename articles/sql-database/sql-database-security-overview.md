@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab, emlisa
 manager: digimobile
-origin.date: 02/04/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: ab930913cb937c7c3e04a22e9422fdb1a1319896
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+origin.date: 04/11/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 6c94fee662c7cadf39124eedc332ea13a43084f0
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529278"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854728"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 
@@ -83,9 +83,9 @@ SQL 数据库通过提供审核和威胁检测功能来保护客户数据。
 
 SQL 数据库审核可跟踪数据库活动，通过将数据库事件记录到客户所有的 Azure 存储帐户中的审核日志，帮助用户保持符合安全标准。 用户可以通过审核监视正在进行的数据库活动，以及分析和调查历史活动，以标识潜在威胁或可疑的滥用行为和安全违规。 有关详细信息，请参阅 [SQL 数据库审核入门](sql-database-auditing.md)。  
 
-### <a name="threat-detection"></a>威胁检测
+### <a name="advanced-threat-protection"></a>高级威胁防护
 
-通过分析有关异常行为和潜在恶意访问或利用数据库的审核日志，威胁检测可强化审核。 警报是针对可疑活动或异常访问模式（如 SQL 注入攻击、潜在数据渗透和暴力破解密码攻击）创建的。 可从 Azure 安全中心查看威胁检测警报，其中提供了可疑活动的详细信息，并给出了进一步调查建议以及缓解威胁的措施。 有关详细信息，请参阅 [SQL 数据库威胁检测入门](sql-database-threat-detection.md)。
+高级威胁防护通过对你的 SQL Server 日志进行分析来检测异常行为和对数据库的潜在恶意访问或利用。 针对可疑活动（例如 SQL注入、潜在的数据渗透和暴力攻击）或访问模式中的异常情况创建警报，以捕获特权提升和违规的凭据使用。 可以从 Azure 安全中心查看警报，其中提供了可疑活动的详细信息，并给出了进一步调查建议以及缓解威胁的措施。 可以为每台服务器启用高级威胁防护，但需要额外付费。 有关详细信息，请参阅 [SQL 数据库高级威胁防护入门](sql-database-threat-detection.md)。
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

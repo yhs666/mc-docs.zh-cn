@@ -13,21 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/07/2018
-ms.date: 12/31/2018
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: d20a498cc70326208caefdcc3d45f8294d37e114
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: c588fe30326d51861987ace52b7ece1bcc74e92a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814661"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855480"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-用于 Azure Stack 资源管理器的 .NET SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了计算、网络、存储、应用服务和 [KeyVault](../../key-vault/key-vault-whatis.md)。 .NET SDK 包括 14 NuGet 包。 这些内含配置文件信息的包每次都必须下载到项目解决方案。 不过，可以专门下载用于 2018-03-01-hybrid 或 2017-03-09-profile 的资源提供程序，以便优化应用程序的内存。 每个包都包含资源提供程序、相应的 API 版本以及所属 API 配置文件。 .NET SDK 中的 API 配置文件可以用来在公有云 Azure 资源和 Azure Stack 上的资源之间进行切换，实现混合云开发。
+用于 Azure Stack 资源管理器的 .NET SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了计算、网络、存储、应用服务和 [KeyVault](/key-vault/key-vault-whatis)。 .NET SDK 包括 14 NuGet 包。 这些内含配置文件信息的包每次都必须下载到项目解决方案。 不过，可以专门下载用于 2018-03-01-hybrid 或 2017-03-09-profile 的资源提供程序，以便优化应用程序的内存。 每个包都包含资源提供程序、相应的 API 版本以及所属 API 配置文件。 .NET SDK 中的 API 配置文件可以用来在公有云 Azure 资源和 Azure Stack 上的资源之间进行切换，实现混合云开发。
 
 ## <a name="net-and-api-version-profiles"></a>.NET 与 API 版本配置文件
 
@@ -71,7 +72,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 若要将 .NET Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量，请参阅表后针对操作系统的说明。
 
-| 值                     | 环境变量   | 说明                                                                                                             |
+| Value                     | 环境变量   | 说明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | 租户 ID                 | AZURE_TENANT_ID       | Azure Stack [租户 ID][] 的值。                                                                          |
 | 客户端 ID                 | AZURE_CLIENT_ID       | 在本文上一部分创建服务主体时保存的服务主体应用程序 ID。 |
@@ -80,7 +81,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | 资源管理器终结点 | ARM_ENDPOINT           | 请参阅 [*Azure Stack 资源管理器终结点*][]。                                                                    |
 | 位置                  | RESOURCE_LOCATION     | Azure Stack 的位置。
 
-若要查找 Azure Stack 的租户 ID，请按[此处](../azure-stack-csp-ref-operations.md)提供的说明操作。 若要设置环境变量，请执行以下步骤：
+若要查找 Azure Stack 的租户 ID，请按[此处](../operator/azure-stack-csp-ref-operations.md)提供的说明操作。 若要设置环境变量，请执行以下步骤：
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
@@ -205,12 +206,12 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
   [入门 - 安装 Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
   [查找和安装包]: https://docs.microsoft.com/nuget/tools/package-manager-ui
   [NuGet 包管理器说明]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
-  [在 Azure Stack 中创建套餐的订阅]: ../azure-stack-subscribe-plan-provision-vm.md
-  [提供对 Azure Stack 的应用程序访问权限]: ../azure-stack-create-service-principals.md
-  [**租户 ID]: ../azure-stack-identity-overview.md
-  [**订阅 ID]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
-  [**Azure Stack 资源管理器终结点]: azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
-  [API 配置文件的摘要]: /azure-stack-version-profiles.md#summary-of-api-profiles
+  [在 Azure Stack 中创建套餐的订阅]: ../operator/azure-stack-subscribe-plan-provision-vm.md
+  [提供对 Azure Stack 的应用程序访问权限]: ../operator/azure-stack-create-service-principals.md
+  [**租户 ID]: ../operator/azure-stack-identity-overview.md
+  [**订阅 ID]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
+  [Azure Stack 资源管理器终结点**]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [API 配置文件的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
-  [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
+  [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md
   [Run unit tests with Test Explorer.]: https://docs.microsoft.com/visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

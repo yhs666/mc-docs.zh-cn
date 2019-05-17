@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 数据库的事务复制 | Microsoft Docs
-description: 了解如何对 Azure SQL 数据库中的单一、池化和实例数据库使用 SQL Server 事务复制。
+description: 了解如何对 Azure SQL 数据库中的单一数据库、共用数据库和实例数据库使用 SQL Server 事务复制。
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,14 +13,14 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/08/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 8e66cf180dcc893fee80b9e3a83c0f260585cc6b
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: d3a86af465a7baa6931496c4666935d9799f20fe
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003467"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63821376"
 ---
-# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>对 Azure SQL 数据库中的单一、入池和实例数据库进行事务复制
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>对 Azure SQL 数据库中的单一数据库、共用数据库和实例数据库进行事务复制
 
 事务复制是 Azure SQL 数据库和 SQL Server 的一项功能，用于将 Azure SQL 数据库或 SQL Server 中表的数据复制到远程数据库中的表。 使用此功能可以同步不同数据库中的多个表。
 
@@ -49,22 +49,22 @@ ms.locfileid: "59003467"
 
 **分发服务器**是从发布服务器收集项目中的更改，并将其分发到订阅服务器的实例或服务器。 分发服务器可以是 Azure SQL 数据库托管实例或 SQL Server（可以采用等于或高于发布服务器版本的任何版本）。 
 
-**订阅服务器**是接收发布服务器上发生的更改的实例或服务器。 订阅服务器可以是 Azure SQL 数据库或 SQL Server 数据库中的单一、入池和实例数据库。 单一或入池数据库上的订阅服务器必须配置为推送订阅服务器。 
+**订阅服务器**是接收发布服务器上发生的更改的实例或服务器。 订阅服务器可以是 Azure SQL 数据库或 SQL Server 数据库中的单一数据库、共用数据库和实例数据库。 单一数据库或共用数据库上的订阅服务器必须配置为推送订阅服务器。 
 
-| 角色 | 单一数据库和入池数据库 | 实例数据库 |
+| 角色 | 单一数据库和共用数据库 | 实例数据库 |
 | :----| :------------- | :--------------- |
 | **发布者** | 否 | 是 | 
 | **分发服务器** | 否 | 是|
-| **拉取订阅服务器** | 否 | 是|
+| **提取订阅服务器** | 否 | 是|
 | **推送订阅服务器**| 是 | 是|
 | &nbsp; | &nbsp; | &nbsp; |
 
 有不同的[复制类型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)：
 
 
-| 复制 | 单一数据库和入池数据库 | 实例数据库|
+| 复制 | 单一数据库和共用数据库 | 实例数据库|
 | :----| :------------- | :--------------- |
-| [**事务性**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是（仅用作订阅服务器） | 是 | 
+| [**事务**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是（仅用作订阅服务器） | 是 | 
 | [**快照**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是（仅用作订阅服务器） | 是|
 | [**合并复制**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 否 | 否|
 | [**对等**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 否 | 否|
@@ -80,7 +80,7 @@ ms.locfileid: "59003467"
   ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>实例数据库和本地系统的可支持性矩阵
   实例数据库的复制可支持性矩阵与本地 SQL Server 的相同。 
   
-  | **发布者**   | **分发服务器** | **订阅者** |
+  | **发布者**   | **分发服务器** | **订阅服务器** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
 | SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
@@ -104,7 +104,7 @@ ms.locfileid: "59003467"
 | | 数据同步 | 事务复制 |
 |---|---|---|
 | 优点 | - 主动-主动支持<br/>- 在本地和 Azure SQL 数据库之间双向同步 | - 更低的延迟<br/>- 事务一致性<br/>- 迁移后重用现有拓扑 |
-| 缺点 | - 5 分钟或更长的延迟<br/>- 无事务一致性<br/>- 更高的性能影响 | - 无法从 Azure SQL 数据库单一数据库或入池数据库发布<br/>- 维护成本高 |
+| 缺点 | - 5 分钟或更长的延迟<br/>- 无事务一致性<br/>- 更高的性能影响 | - 无法从 Azure SQL 数据库单一数据库或共用数据库发布<br/>- 维护成本高 |
 | | | |
 
 ## <a name="common-configurations"></a>常用配置
@@ -115,11 +115,11 @@ ms.locfileid: "59003467"
 
 ![用作发布服务器和分发服务器的单个实例](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-发布服务器和分发服务器在单个托管实例中配置，并将更改分发到本地的其他托管实例、单一数据库、入池数据库或 SQL Server。 在此配置中，不能使用[异地复制和自动故障转移组](sql-database-auto-failover-group.md)来配置发布服务器/分发服务器托管实例。
+发布服务器和分发服务器在单个托管实例中配置，并将更改分发到本地的其他托管实例、单一数据库、共用数据库或 SQL Server。 在此配置中，不能使用[异地复制和自动故障转移组](sql-database-auto-failover-group.md)来配置发布服务器/分发服务器托管实例。
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>带远程分发服务器的发布服务器位于托管实例上
 
-在此配置中，由一个托管实例将更改发布到能够为许多源托管实例提供服务的另一个托管实例上的分发服务器，并将更改分发到托管实例、单一数据库、入池数据库或 SQL Server 上的一个或多个目标。
+在此配置中，由一个托管实例将更改发布到能够为许多源托管实例提供服务的另一个托管实例上的分发服务器，并将更改分发到托管实例、单一数据库、共用数据库或 SQL Server 上的一个或多个目标。
 
 ![发布服务器和分发服务器的独立实例](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
@@ -129,11 +129,11 @@ ms.locfileid: "59003467"
 - 两个托管实例位于同一位置。
 - 不能[使用自动故障转移组异地复制](sql-database-auto-failover-group.md)正在托管发布和分发服务器数据库的托管实例。
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>发布服务器和分发服务器位于本地，订阅服务器位于单一、入池和实例数据库上 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>发布服务器和分发服务器位于本地，订阅服务器位于单一数据库、共用数据库和实例数据库上 
 
 ![Azure SQL DB 用作订阅服务器](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-在此配置中，Azure SQL 数据库（单一、入池和实例数据库）是订阅服务器。 此配置支持从本地迁移到 Azure。 如果订阅服务器位于单一或入池数据库上，则它必须处于推送模式。  
+在此配置中，Azure SQL 数据库（单一数据库、共用数据库和实例数据库）是订阅服务器。 此配置支持从本地迁移到 Azure。 如果订阅服务器位于单一数据库或共用数据库上，则它必须处于推送模式。  
 
 ## <a name="next-steps"></a>后续步骤
 

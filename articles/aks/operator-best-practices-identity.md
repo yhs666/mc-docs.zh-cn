@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
+origin.date: 04/24/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: f0ef502b40f171d5bd986e417a1b4519a37a109d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c887e563e4f21e59ce67f16d4c81dea72797fc25
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626006"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520687"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的身份验证和授权的最佳做法
 
@@ -65,7 +65,7 @@ rules:
   verbs: ["*"]
 ```
 
-然后创建一个角色绑定，用于将 Azure AD 用户 <em>developer1@contoso.com</em> 绑定到该角色绑定，如以下 YAML 清单中所示：
+然后创建 RoleBinding，用于将 Azure AD 用户 *developer1\@contoso.com* 绑定到该 RoleBinding，如以下 YAML 清单所示：
 
 ```yaml
 kind: RoleBinding
@@ -83,7 +83,9 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-<em>developer1@contoso.com</em> 对 AKS 群集进行身份验证后，便对 *finance-app* 命名空间中的资源拥有了完全权限。 这样，即可以逻辑方式隔离和控制对资源的访问权限。 应根据上一部分中所述，将 Kubernetes RBAC 与 Azure AD 集成结合使用。
+*developer1\@contoso.com* 通过 AKS 群集进行身份验证后，便对 *finance-app* 命名空间中的资源拥有了完全权限。 这样，即可以逻辑方式隔离和控制对资源的访问权限。 应根据上一部分中所述，将 Kubernetes RBAC 与 Azure AD 集成结合使用。
+
+若要了解如何使用 Azure AD 组通过 RBAC 来控制对 Kubernetes 资源的访问，请参阅[在 AKS 中使用基于角色的访问控制和 Azure Active Directory 标识来控制对群集资源的访问][azure-ad-rbac]。
 
 ## <a name="use-pod-identities"></a>使用 pod 标识
 
@@ -107,7 +109,8 @@ roleRef:
 1. 开发人员使用托管标识部署一个 pod，该 pod 可通过 NMI 服务器请求访问令牌。
 1. 该令牌将返回给 pod，并用于访问 Azure SQL Server 实例。
 
-托管 Pod 标识是 AKS 开源项目，Azure 技术支持部门不为其提供支持。 提供它是为了从我们的社区收集反馈和 Bug。 建议不要将此项目用于生产。
+> [!NOTE]
+> 托管 Pod 标识是开源项目，Azure 技术支持部门不为其提供支持。
 
 若要使用 pod 标识，请参阅 [Kubernetes 应用程序的 Azure Active Directory 标识][aad-pod-identity]。
 
@@ -129,8 +132,9 @@ roleRef:
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[azure-ad-rbac]: azure-ad-rbac.md

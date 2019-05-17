@@ -1,10 +1,10 @@
 ---
 title: Azure SQL 数据库指标和诊断日志记录 | Microsoft Docs
-description: 了解如何配置 Azure SQL 数据库以存储资源使用情况和查询执行统计信息。
+description: 了解如何在 Azure SQL 数据库中启用诊断以存储有关资源利用率和查询执行统计数据的信息。
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
@@ -12,17 +12,19 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: b9c783dc1904428a590fff9a14d4c7ead3ac0776
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 04/29/2019
+ms.openlocfilehash: 05150e626c19be7d3d7720403992fe9f3b460f87
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529248"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854535"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
-单一数据库和弹性池中的入池数据库可以流式传输指标和诊断日志，方便进行性能监视。 可以配置数据库，以将资源使用情况、辅助角色和会话以及连接性传输到以下 Azure 资源之一：
+在本主题中，你将了解如何通过 Azure 门户、PowerShell、Azure CLI、Azure Monitor REST API 和 Azure 资源管理器模板配置 Azure SQL 数据库的诊断遥测数据的日志记录。 这些诊断可以用于测量资源利用率和查询执行统计数据。 
+
+单一数据库和弹性池中的共用数据库可以流式传输指标和诊断日志，方便进行性能监视。 可以配置数据库，以将资源使用情况、辅助角色和会话以及连接性传输到以下 Azure 资源之一：
 
 - **Azure SQL Analytics**：使用报表、警报和缓解建议对 Azure SQL 数据库进行智能监视。
 - **Azure 事件中心**：将 SQL 数据库遥测与自定义监视解决方案或热管道相集成。
@@ -61,7 +63,7 @@ ms.locfileid: "59529248"
 
 可将 Azure SQL 数据库设置为收集以下诊断遥测数据：
 
-| 数据库的监视遥测 | 单一数据库和入池数据库支持 |
+| 数据库的监视遥测 | 单一数据库和共用数据库支持 |
 | :------------------- | ----- |
 | [所有指标](#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、物理数据读取百分比、日志写入百分比、成功/失败/防火墙阻止的连接数、会话百分比、辅助角色百分比、存储、存储百分比和 XTP 存储百分比。 | 是 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含有关查询运行时统计信息的信息，例如 CPU 使用率、查询持续时间统计信息。 | 是 |
@@ -75,10 +77,10 @@ ms.locfileid: "59529248"
 | [SQLInsights](#intelligent-insights-dataset)：包含针对数据库性能的智能见解。 有关详细信息，请参阅[智能见解](sql-database-intelligent-insights.md)。 | 是 |
 
 > [!IMPORTANT]
-> 弹性池将自己的诊断遥测数据与所包含的数据库隔开。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
+> 弹性池具有自己单独的诊断遥测数据，独立于它们包含的数据库。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
 
 > [!NOTE]
-> 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
+> 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志（虽然显示在屏幕上）。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
 
 ## <a name="azure-portal"></a>Azure 门户
 
@@ -88,7 +90,7 @@ ms.locfileid: "59529248"
 
    ![SQL 数据库图标](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-若要为单一数据库或入池数据库启用诊断遥测数据的流式传输，请执行以下步骤：
+若要为单一数据库或共用数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
 1. 转到 Azure **SQL 数据库**资源。
 1. 选择“诊断设置”。
@@ -96,7 +98,7 @@ ms.locfileid: "59529248"
    - 最多可以创建三个并行连接用于流式传输诊断遥测数据。
    - 选择“+添加诊断设置”，配置为将诊断数据并行流式传输到多个资源。
 
-   ![为单一数据库或入池数据库启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![为单一数据库或共用数据库启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 输入设置名称供自己参考。
 1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”或“发送到 Log Analytics”。
 1. 选中数据库诊断日志遥测对应的以下复选框：“SQLInsights”、“AutomaticTuning”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”、“Errors”、“DatabaseWaitStatistics”、“Timeouts”、“Blocks”和“Deadlocks”。
@@ -104,7 +106,7 @@ ms.locfileid: "59529248"
 1. 针对要监视的每个数据库重复上述步骤。
 
 > [!NOTE]
-> 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
+> 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志（虽然显示在屏幕上）。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
 > [!TIP]
 > 针对要监视的每个 Azure SQL 数据库重复上述步骤。
 
@@ -165,7 +167,7 @@ ms.locfileid: "59529248"
 
    存储帐户 ID 是目标存储帐户的资源 ID。
 
-- 若要启用将诊断日志流式传输到事件中心，请使用以下命令：
+- 要允许将诊断日志流式传输到事件中心，请使用以下命令：
 
    ```azurecli
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
@@ -199,7 +201,7 @@ Azure SQL Analytics 是一种云解决方案，可监视 Azure SQL 数据库的�
 
 ![Azure SQL Analytics 概述](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-在门户中使用“诊断设置”选项卡上的内置“发送到 Log Analytics”选项，可将 SQL 数据库指标和诊断日志流式处理到 Azure SQL Analytics。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
+在门户中使用“诊断设置”选项卡上的内置“发送到 Log Analytics”选项，可将 SQL 数据库指标和诊断日志流式传输到 Azure SQL Analytics。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
 
 ### <a name="installation-overview"></a>安装概述
 
@@ -256,7 +258,7 @@ Azure SQL Analytics 是一种云解决方案，可监视 Azure SQL 数据库的�
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>存储帐户中指标和诊断日志的架构
 
-设置指标和诊断日志集合后，当第一行数据可用时，将在你选择的存储帐户中创建一个存储容器。 这些 Blob 的结构为：
+设置指标和诊断日志收集后，当第一行数据可用时，将在你选择的存储帐户中创建一个存储容器。 这些 Blob 的结构为：
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
@@ -300,7 +302,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 
 ## <a name="all-logs"></a>所有日志
 
-适用于所有日志的遥测数据详见下面的表。 请参阅[支持的诊断日志记录](#supported-diagnostic-logging-for-azure-sql-databases)，了解特定的数据库类型（Azure SQL 单一数据库或共用数据库）支持哪些日志。
+下面的表中记录了适用于所有日志的遥测数据的详细信息。 请参阅[支持的诊断日志记录](#supported-diagnostic-logging-for-azure-sql-databases)，了解特定的数据库类型（Azure SQL 单一数据库或共用数据库）支持哪些日志。
 
 
 ### <a name="query-store-runtime-statistics"></a>查询数据存储运行时统计信息
@@ -312,9 +314,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：QueryStoreRuntimeStatistics |
+|Category|类别的名称。 始终为：QueryStoreRuntimeStatistics |
 |OperationName|操作的名称。 始终为：QueryStoreRuntimeStatisticsEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -363,9 +365,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：QueryStoreWaitStatistics |
+|Category|类别的名称。 始终为：QueryStoreWaitStatistics |
 |OperationName|操作的名称。 始终为：QueryStoreWaitStatisticsEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -401,9 +403,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQ |
-|类别|类别的名称。 始终为：错误 |
+|Category|类别的名称。 始终为：错误 |
 |OperationName|操作的名称。 始终为：ErrorEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -411,7 +413,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |ElasticPoolName_s|数据库的弹性池（如果有）名称 |
 |DatabaseName_s|数据库的名称 |
 |ResourceId|资源 URI |
-|消息|纯文本格式的错误消息 |
+|Message|纯文本格式的错误消息 |
 |user_defined_b|是否是用户定义位错误 |
 |error_number_d|错误代码 |
 |严重性|错误的严重性 |
@@ -430,9 +432,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：DatabaseWaitStatistics |
+|Category|类别的名称。 始终为：DatabaseWaitStatistics |
 |OperationName|操作的名称。 始终为：DatabaseWaitStatisticsEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -459,9 +461,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：超时 |
+|Category|类别的名称。 始终为：超时 |
 |OperationName|操作的名称。 始终为：TimeoutEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -482,9 +484,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：块 |
+|Category|类别的名称。 始终为：块 |
 |OperationName|操作的名称。 始终为：BlockEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -506,9 +508,9 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC] |记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：死锁数 |
+|Category|类别的名称。 始终为：死锁数 |
 |OperationName|操作的名称。 始终为：DeadlockEvent |
-|资源|资源名称 |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |
@@ -527,8 +529,8 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |TimeGenerated [UTC]|记录日志时的时间戳 |
 |类型|始终为：AzureDiagnostics |
 |ResourceProvider|资源提供程序的名称。 始终为：MICROSOFT.SQL |
-|类别|类别的名称。 始终为：AutomaticTuning |
-|资源|资源名称 |
+|Category|类别的名称。 始终为：AutomaticTuning |
+|Resource|资源名称 |
 |ResourceType|资源类型的名称。 始终为：SERVERS/DATABASES |
 |SubscriptionId|数据库的订阅 GUID |
 |resourceGroup|数据库的资源组名称 |

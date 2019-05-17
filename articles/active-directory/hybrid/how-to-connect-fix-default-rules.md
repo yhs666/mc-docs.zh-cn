@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 03/21/2019
-ms.date: 04/09/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0a6b99b03e67e72476abde3588cfae82ca7143
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: 130cd766496798e746a44f37fd674a50fe764800
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355935"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520756"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>在 Azure AD Connect 中修复已修改的默认规则
 
@@ -35,15 +35,15 @@ Azure AD Connect 随附了有关同步的默认规则。  遗憾的是，这些�
 ## <a name="how-to-identify-modified-default-rules"></a>如何识别已修改的默认规则？
 从 **Azure AD Connect** 版本 1.3.7.0 开始，可能很容易地识别已修改的默认规则。 可以转到桌面上的“应用”，并单击“同步规则编辑器”。
 
-![编辑器](./media/how-to-connect-fix-default-rules/default1.png)
+![编辑器](media/how-to-connect-fix-default-rules/default1.png)
 
 在编辑器中，任何已修改默认规则的名称前面会显示一个图标，如下所示：
 
-![icon](./media/how-to-connect-fix-default-rules/default2.png)
+![icon](media/how-to-connect-fix-default-rules/default2.png)
 
  此外，该规则的旁边会显示一个同名的已禁用规则，它是标准的默认规则：
 
-![默认规则](./media/how-to-connect-fix-default-rules/default2a.png)
+![默认规则](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## <a name="common-customizations"></a>常见自定义操作
 下面是对默认规则执行的常见自定义操作：
@@ -54,7 +54,7 @@ Azure AD Connect 随附了有关同步的默认规则。  遗憾的是，这些�
 
 ## <a name="before-changing-any-rules"></a>更改任何规则之前
 - 禁用同步计划程序。  默认情况下，计划程序每隔 30 分钟运行一次。 进行更改以及排查新规则错误时，需要确保其未启动。 要临时禁用计划程序，请启动 PowerShell，并运行 `Set-ADSyncScheduler -SyncCycleEnabled $false`。
- ![默认规则](./media/how-to-connect-fix-default-rules/default3.png)
+ ![默认规则](media/how-to-connect-fix-default-rules/default3.png)
 
 - 更改范围筛选器可能会导致删除目标目录中的对象。 在对对象范围进行任何更改之前请保持谨慎。 建议先对暂存服务器进行更改，然后再对活动服务器进行更改。
 - 添加任何新规则之后，请根据[验证同步规则](#validate-sync-rule)部分所述，对单个对象运行预览。
@@ -75,14 +75,14 @@ Azure AD Connect 随附了有关同步的默认规则。  遗憾的是，这些�
 #### <a name="add-an-inbound-sync-rule"></a>添加入站同步规则：
 在入站同步规则中，属性的源是连接器空间，目标是 Metaverse。 例如，若要将本地 Active Directory 中的某个新属性流送到 Azure Active Directory，请创建一个新的入站同步规则，方法是启动“同步规则编辑器”，选择“入站”作为方向，然后单击“添加新规则”。 
 
- ![默认规则](./media/how-to-connect-fix-default-rules/default3a.png)
+ ![默认规则](media/how-to-connect-fix-default-rules/default3a.png)
 
-根据自己的命名约定为规则命名，此处我们使用了 **Custom In from AD - User**，表示该规则是自定义规则，并且是从 AD 连接器空间到 Metaverse 的入站规则。 
+根据自己的命名约定为规则命名，此处我们使用了 **Custom In from AD - User**，表示该规则是自定义规则，并且是从 AD 连接器空间到 Metaverse 的入站规则。   
 
- ![默认规则](./media/how-to-connect-fix-default-rules/default3b.png)
+ ![默认规则](media/how-to-connect-fix-default-rules/default3b.png)
 
 为规则提供自己的说明，以方便将来对其进行维护，例如，说明此规则的目标，以及为何需要它。
-选择用作属性源的联网系统（林）。 然后选择联网系统对象类型和 Metaverse 对象类型。
+选择联网系统（林）- 属性源。 然后选择联网系统对象类型和 Metaverse 对象类型。
 
 指定 0-99 的优先顺序值（数字越小，优先顺序越高）。 将其他字段（例如“标记”、“启用密码同步”和“已禁用”）保留默认值。
 
@@ -95,11 +95,11 @@ Azure AD Connect 随附了有关同步的默认规则。  遗憾的是，这些�
 #### <a name="add-an-outbound-sync-rule"></a>添加出站同步规则：
 到目前为止，我们只是添加了一个入站同步规则，而没有将属性链接到目标目录，因此工作只完成了一半。 若要将属性链接到目标目录，需要创建一个出站规则，其中的源是 Metaverse，目标是联网系统。 若要创建出站规则，请启动“同步规则编辑器”，将“方向”更改为“出站”，然后单击“添加新规则”。 
 
-![默认规则](./media/how-to-connect-fix-default-rules/default3c.png)
+![默认规则](media/how-to-connect-fix-default-rules/default3c.png)
 
 与在入站规则中一样，可以使用自己的命名约定来为规则**命名**。 选择“Azure AD 租户”作为**联网系统**，并选择要设置其属性值的联网系统对象。 设置 0 - 99 的优先顺序。 
 
-![默认规则](./media/how-to-connect-fix-default-rules/default3d.png)
+![默认规则](media/how-to-connect-fix-default-rules/default3d.png)
 
 将“范围筛选器”保留为空，将“联接规则”保留为空，填写“常量”、“定向”或表达式作为转换。 
 
@@ -111,15 +111,15 @@ Azure AD Connect 随附了有关同步的默认规则。  遗憾的是，这些�
 ### <a name="dont-sync-existing-attribute"></a>不同步现有属性
 若要从同步中排除某个属性，可以使用 Azure AD Connect 中提供的属性筛选功能。 从桌面图标启动“Azure AD Connect”，然后选择“自定义同步选项”。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default4.png)
+![默认规则](media/how-to-connect-fix-default-rules/default4.png)
 
  确保“Azure AD 应用和属性筛选”已选中，然后单击“下一步”。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default5.png)
+![默认规则](media/how-to-connect-fix-default-rules/default5.png)
 
 取消选中要从同步中排除的属性。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default6a.png)
+![默认规则](media/how-to-connect-fix-default-rules/default6a.png)
 
 ## <a name="changing-scoping-filter"></a>更改范围筛选器
 Azure AD Sync 会处理大部分对象，你可以缩小对象的范围，并以支持的方式减少要导出的对象数目，而无需更改标准默认同步规则。 若要增大对象的范围，可以**编辑**现有规则，克隆它，然后禁用原始规则。 Microsoft 建议不要增大 Azure AD Connect 所配置的范围。 增大对象范围会使得支持团队难以了解自定义操作以及为产品提供支持。
@@ -137,18 +137,18 @@ Azure AD Sync 会处理大部分对象，你可以缩小对象的范围，并以
 
 我们已事先将源 (Active Directory) 中的部门名称转换为小写。 然后使用 Left 函数。我们只提取了前 3 个字符，并将其与 hrd 进行比较。 如果匹配，则将值设置为 True；否则设置为 NULL。 请注意，我们将设置 NULL 值，以便优先顺序更低（优先顺序数字值更大）的其他一些规则可以根据不同的条件写入该属性。 请针对一个对象运行预览，以根据[验证同步规则](#validate-sync-rule)部分所述验证同步规则。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default7a.png)
+![默认规则](media/how-to-connect-fix-default-rules/default7a.png)
 
 
 
 ### <a name="ou-filtering"></a>OU 筛选
 可以创建一个或多个 OU，并将你不想要同步的对象移到这些 OU。 然后在 Azure AD Connect 中配置 OU 筛选，方法是从桌面图标启动“Azure AD Connect”，并选择如下所示的选项。 也可以在安装 Azure AD Connect 时配置 OU 筛选。 
 
-![默认规则](./media/how-to-connect-fix-default-rules/default8.png)
+![默认规则](media/how-to-connect-fix-default-rules/default8.png)
 
 遵循向导操作，并取消选择不想要同步的 OU。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default9.png)
+![默认规则](media/how-to-connect-fix-default-rules/default9.png)
 
 ## <a name="changing-join-condition"></a>更改联接条件
 Microsoft 建议使用 Azure AD Connect 配置的默认联接条件。 更改默认联接条件会使得支持团队难以了解自定义操作以及为产品提供支持。
@@ -156,36 +156,36 @@ Microsoft 建议使用 Azure AD Connect 配置的默认联接条件。 更改默
 ## <a name="validate-sync-rule"></a>验证同步规则
 可以在不运行整个同步周期的情况下，使用预览功能来验证新添加的同步规则。 启动“同步服务”的 UI。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default10.png)
+![默认规则](media/how-to-connect-fix-default-rules/default10.png)
 
 单击“Metaverse 搜索”，选择“person”作为范围对象，**添加子句**并指定搜索条件。 单击“搜索”按钮并在“搜索结果”中双击该对象。请注意，在运行此步骤之前，应该先对林运行导入和同步，以确保 Azure AD Connect 中的数据对于该对象而言是最新的。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default11.png)
+![默认规则](media/how-to-connect-fix-default-rules/default11.png)
 
 
 
 选择“连接器”，在相应的连接器（林）中选择该对象，然后单击“属性...”。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default12.png)
+![默认规则](media/how-to-connect-fix-default-rules/default12.png)
 
 单击“预览...”
 
-![默认规则](./media/how-to-connect-fix-default-rules/default13a.png)
+![默认规则](media/how-to-connect-fix-default-rules/default13a.png)
 
 在左窗格中单击“生成预览”和“导入属性流”。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default14.png)
+![默认规则](media/how-to-connect-fix-default-rules/default14.png)
  
 在此处可以看到，新添加的规则已针对该对象运行，并且已将 cloudFiltered 属性设置为 True。
 
-![默认规则](./media/how-to-connect-fix-default-rules/default15a.png)
+![默认规则](media/how-to-connect-fix-default-rules/default15a.png)
  
 如何将已修改的规则与默认规则进行比较？
 可将这两种规则单独作为文本文件导出。 这些规则将作为 PowerShell 脚本文件导出。 可以使用任何文件比较工具对其进行比较，以查看做出了哪种类型的更改。 以下示例使用了 windiff 来比较两个文件。
  
 可以看到，在用户修改的规则中，msExchMailboxGuid 属性已更改为 **Expression** 类型而不是 **Direct**，并且使用了 **NULL** 值和 **ExecuteOnce** 选项。 可以忽略 Identified（已识别）和 Precedence（优先顺序）的差异。 
 
-![默认规则](./media/how-to-connect-fix-default-rules/default17.png)
+![默认规则](media/how-to-connect-fix-default-rules/default17.png)
  
 如何修复已修改的默认规则？
 若要将规则修复为默认设置，可按如下所示删除已修改的规则并启用默认规则，然后运行**完全同步**。 在这样做之前，请根据前面所述采取纠正措施，以免丢失你想要实现的自定义## 后续步骤
@@ -195,4 +195,4 @@ Microsoft 建议使用 Azure AD Connect 配置的默认联接条件。 更改默
 - [快速设置](how-to-connect-install-express.md)
 - [自定义设置](how-to-connect-install-custom.md)
 
-
+<!-- Update_Description: wording update -->

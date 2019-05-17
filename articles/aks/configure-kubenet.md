@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 01/31/2019
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 90a0978dc11c19e4ed9c48a81664d909b6a29bd4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6f37a187d1be8b749aee54aef5e5fd7a488b63a4
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627338"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520727"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中结合自己的 IP 地址范围使用 kubenet 网络
 
@@ -36,9 +36,13 @@ ms.locfileid: "58627338"
 
 ![使用 AKS 群集的 Kubenet 网络模型](media/use-kubenet/kubenet-overview.png)
 
-Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节点数不能超过 400 个。 *kubenet* 不支持[虚拟节点][virtual-nodes]或网络策略等 AKS 功能。
+Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节点数不能超过 400 个。
 
-使用 *Azure CNI* 时，每个 Pod 将接收 IP 子网中的 IP 地址，并且可以直接与其他 Pod 和服务通信。 群集的最大大小可为指定的 IP 地址范围上限。 但是，必须提前规划 IP 地址范围，AKS 节点根据它们支持的最大 Pod 数消耗所有 IP 地址。 *Azure CNI* 支持[虚拟节点][virtual-nodes]或网络策略等高级网络功能和方案。
+<!--Not Available on  AKS features such as [Virtual Nodes][virtual-nodes] or network policies aren't supported with *kubenet*.-->
+
+使用 *Azure CNI* 时，每个 Pod 将接收 IP 子网中的 IP 地址，并且可以直接与其他 Pod 和服务通信。 群集的最大大小可为指定的 IP 地址范围上限。 但是，必须提前规划 IP 地址范围，AKS 节点根据它们支持的最大 Pod 数消耗所有 IP 地址。
+
+<!--Not Available on  Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.-->
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP 地址可用性和耗尽
 
@@ -51,9 +55,9 @@ Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节
 以下基本计算方法对网络模型的差异做了比较：
 
 - **kubenet** -一个简单的 */24* IP 地址范围最多可以支持群集中的 *251* 个节点（每个 Azure 虚拟网络子网预留前三个 IP 地址用于管理操作）
-  - 此节点计数最多可以支持 *27,610* 个 Pod（使用 *kubenet* 的每个节点的最大 Pod 数默认为 110 个）
+    - 此节点计数最多可以支持 *27,610* 个 Pod（使用 *kubenet* 的每个节点的最大 Pod 数默认为 110 个）
 - **Azure CNI** - 相同的基本 */24* 子网范围最多只能支持群集中的 *8* 个节点
-  - 此节点计数最多只能支持 *240* 个 Pod（使用 *Azure CNI* 的每个节点的最大 Pod 数默认为 30 个）
+    - 此节点计数最多只能支持 *240* 个 Pod（使用 *Azure CNI* 的每个节点的最大 Pod 数默认为 30 个）
 
 > [!NOTE]
 > 这些最大值未考虑到帐户升级或扩展操作。 在实践中，不可能会运行子网 IP 地址范围支持的节点数上限。 必须留出一些 IP 地址，供扩展或升级操作期间使用。
@@ -79,12 +83,14 @@ Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节
 - 你不想要管理 UDR。
 - 需要虚拟节点或网络策略等高级功能。
 
+<!--Not Aavailable on enable network policy-->
+
 ## <a name="create-a-virtual-network-and-subnet"></a>创建虚拟网络和子网
 
-若要开始使用 *kubenet* 和自己的虚拟网络子网，请先使用 [az group create][az-group-create] 命令创建一个资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+若要开始使用 *kubenet* 和自己的虚拟网络子网，请先使用 [az group create][az-group-create] 命令创建一个资源组。 以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name myResourceGroup --location chinaeast2
 ```
 
 如果没有可用的现有虚拟网络和子网，请使用 [az network vnet create][az-network-vnet-create] 命令创建这些网络资源。 在以下示例中，虚拟网络名为 *myVnet*，其地址前缀为 *10.0.0.0/8*。 创建了名为 *myAKSSubnet*、地址前缀为 *10.240.0.0/16* 的子网。
@@ -163,33 +169,16 @@ az aks create \
     --client-secret <password>
 ```
 
-## <a name="associate-network-resources-with-the-node-subnet"></a>将网络资源与节点子网相关联
-
-创建 AKS 群集时，将创建网络安全组和路由表。 这些网络资源由 AKS 控制平面管理，在创建和公开服务时将会更新。 按如下所示将网络安全组和路由表与虚拟网络子网相关联：
-
-```azurecli
-# Get the MC_ resource group for the AKS cluster resources
-MC_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-
-# Get the route table for the cluster
-ROUTE_TABLE=$(az network route-table list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Get the network security group
-NODE_NSG=$(az network nsg list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Update the subnet to associate the route table and network security group
-az network vnet subnet update \
-    --route-table $ROUTE_TABLE \
-    --network-security-group $NODE_NSG \
-    --ids $SUBNET_ID
-```
+创建 AKS 群集时，将创建网络安全组和路由表。 这些网络资源可以通过 AKS 控制平面进行管理。 网络安全组自动与节点上的虚拟 NIC 相关联。 路由表自动与虚拟网络子网相关联。 在你创建和公开服务时，系统会自动更新网络安全组规则和路由表。
 
 ## <a name="next-steps"></a>后续步骤
 
-在现有虚拟网络子网中部署 AKS 群集后，现在可以像平时一样使用该群集。 开始[使用 Azure Dev Spaces 生成应用][dev-spaces]或[使用 Draft 生成应用][use-draft]，或者[使用 Helm 部署应用][use-helm]。
+在现有虚拟网络子网中部署 AKS 群集后，现在可以像平时一样使用该群集。 开始[使用 Draft][use-draft] 或[使用 Helm 部署应用][use-helm]。
 
+<!--Not Available on [building apps using Azure Dev Spaces][dev-spaces]-->
 <!-- LINKS - External -->
-[dev-spaces]: /dev-spaces/
+<!--Not Available on [dev-spaces]: /dev-spaces/-->
+
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
@@ -202,9 +191,16 @@ az network vnet subnet update \
 [az-network-vnet-show]: https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-show
 [az-network-vnet-subnet-show]: https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show
 [az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-aks-create]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-create
+
+<!-- Not Available on cli/aks -->
+
+[az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [use-helm]: kubernetes-helm.md
 [use-draft]: kubernetes-draft.md
-[virtual-nodes]: virtual-nodes-cli.md
+
+<!--Not Available on [virtual-nodes]: virtual-nodes-cli.md-->
+
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+
+<!-- Update_Description: wording update, update link -->

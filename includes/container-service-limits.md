@@ -6,24 +6,27 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: include
 origin.date: 10/11/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ec34d0c412545fface0fa03c8f4d6d6d0ccc980e
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 89b3478e242f7682af244f23f023f1cc399d1bfc
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903348"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520688"
 ---
-| 资源 | 默认限制 |
+| Resource | 默认限制 |
 | --- | :--- |
 | 每个订阅的最大群集数 | 100 |
 | 每个群集的最大节点数 | 100 |
 | 每个节点的最大 Pod 数：带 Kubenet 的[基本网络][basic-networking] | 110 |
-| 每个节点的最大 Pod 数：带 Azure CNI 的[高级网络][advanced-networking] | Azure CLI 部署：30<sup>1</sup><br />资源管理器模板：30<sup>1</sup><br />门户部署：30 |
+| 每个节点的最大 Pod 数：通过 Azure 容器联网界面进行[高级联网][advanced-networking] | Azure CLI 部署：30<sup>1</sup><br />Azure 资源管理器模板：30<sup>1</sup><br />门户部署：30 |
 
-<sup>1</sup> 使用 Azure CLI 或资源管理器模板部署 AKS 群集时，此值是可以配置的，最大可以配置为**每节点 110 个 Pod**。 在部署 AKS 群集以后，或者在使用 Azure 门户部署群集的情况下，不能配置每节点的最大 Pod 数。<br />
+<!--Pending verify-->
+<!--Not Available on Portal deployment: 30-->
+
+<sup>1</sup>使用 Azure CLI 或资源管理器模板部署 Azure Kubernetes 服务 (AKS) 群集时，此值是可以配置的，最大可以配置为每节点 250 个 Pod。 在部署 AKS 群集以后，或者在使用 Azure 门户部署群集的情况下，不能配置每节点的最大 Pod 数。<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

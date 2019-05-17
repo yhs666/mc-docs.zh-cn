@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 开发人员词汇表 | Microsoft Docs
-description: 常用的 Azure Active Directory 开发人员概念和功能术语列表。
+title: Microsoft 标识平台开发人员术语表 | Azure
+description: 常用的 Microsoft 标识平台开发人员概念和功能的术语列表。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -8,26 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/16/2017
-ms.date: 12/29/2018
+origin.date: 04/13/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: f038f19fc6f8e9d3c732fd4f4f6aee7ee3212395
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 07de29337c7bc63e864c866a39e0ce948fa13fb9
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996253"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517486"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
+# <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft 标识平台开发人员术语表
 
-本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。
+本文包含一些核心开发人员概念和术语的定义，帮助你了解如何使用 Microsoft 标识平台进行应用程序开发。
 
 ## <a name="access-token"></a>访问令牌
 
@@ -35,10 +36,10 @@ ms.locfileid: "53996253"
 
 根据提供的凭据，访问令牌有时称为“用户+应用”或“仅限应用”。 例如，如果客户端应用程序：
 
-- 使用[“授权代码”授权](#authorization-grant)，则最终用户先以资源所有者的身份进行身份验证，将授权委托给客户端来访问资源。 然后，客户端在获取访问令牌时进行身份验证。 令牌有时可以更具体地称为“用户+应用”令牌，因为它同时代表授权客户端应用程序的用户，以及应用程序。
-- 使用[“客户端凭据”授权](#authorization-grant)，则客户端提供唯一的身份验证，在没有资源所有者身份验证/授权的情况下运行，因此该令牌有时可以称为“仅限应用”令牌。
+* 使用[“授权代码”授权](#authorization-grant)，则最终用户先以资源所有者的身份进行身份验证，将授权委托给客户端来访问资源。 然后，客户端在获取访问令牌时进行身份验证。 令牌有时可以更具体地称为“用户+应用”令牌，因为它同时代表授权客户端应用程序的用户，以及应用程序。
+* 使用[“客户端凭据”授权](#authorization-grant)，则客户端提供唯一的身份验证，在没有资源所有者身份验证/授权的情况下运行，因此该令牌有时可以称为“仅限应用”令牌。
 
-有关详细信息，请参阅 [Azure AD Token Reference][AAD-Tokens-Claims] （Azure AD 令牌参考）。
+有关更多详细信息，请参阅 [Microsoft 标识平台令牌参考][AAD-Tokens-Claims]。
 
 ## <a name="application-id-client-id"></a>应用程序 ID（客户端 ID）
 
@@ -58,9 +59,9 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 要允许某个应用程序与标识和访问管理功能集成并将这些功能委托给 Azure AD，必须向 Azure AD [租户](#tenant)注册该应用程序。 向 Azure AD 注册应用程序时，必须提供应用程序的标识配置，以允许它与 Azure AD 集成并使用如下所述的功能：
 
-- 使用 Azure AD 标识管理和 [OpenID Connect][OpenIDConnect] 协议实现进行可靠的单一登录管理
-- 通过 Azure AD 的 OAuth 2.0 [授权服务器](#authorization-server)实现，由[客户端应用程序](#client-application)以中转方式访问[受保护资源](#resource-server)
-- [同意框架](#consent)用于根据资源所有者授权来管理客户端对受保护资源的访问。
+* 使用 Azure AD 标识管理和 [OpenID Connect][OpenIDConnect] 协议实现进行可靠的单一登录管理
+* 通过 OAuth 2.0 [授权服务器](#authorization-server)，由[客户端应用程序](#client-application)以中转方式访问[受保护资源](#resource-server)
+* [同意框架](#consent)用于根据资源所有者授权来管理客户端对受保护资源的访问。
 
 有关详细信息，请参阅 [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]（将应用程序与 Azure Active Directory 集成）。
 
@@ -72,8 +73,8 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 授权经过身份验证的安全主体执行某项操作的措施。 在 Azure AD 编程模型中有两个主要用例：
 
-- 在 [OAuth2 授权](#authorization-grant)流程中：[资源所有者](#resource-owner)向[客户端应用程序](#client-application)授权时，允许客户端访问资源所有者的资源。
-- 在客户端访问资源期间：与[资源服务器](#resource-server)实现的机制一样，使用[访问令牌](#access-token)中提供的[声明](#claim)值作为依据做出访问控制决策。
+* 在 [OAuth2 授权](#authorization-grant)流程中：[资源所有者](#resource-owner)向[客户端应用程序](#client-application)授权时，允许客户端访问资源所有者的资源。
+* 在客户端访问资源期间：与[资源服务器](#resource-server)实现的机制一样，使用[访问令牌](#access-token)中提供的[声明](#claim)值作为依据做出访问控制决策。
 
 ## <a name="authorization-code"></a>授权代码
 
@@ -93,13 +94,13 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是在成功验证[资源所有者](#resource-owner)并获取其授权之后，负责向[客户端](#client-application)颁发访问令牌的服务器。 [客户端应用程序](#client-application)在运行时根据 OAuth2 定义的[权限授予](#authorization-grant)，通过其[权限](#authorization-endpoint)和[令牌](#token-endpoint)终结点来与授权服务器交互。
 
-对于 Azure AD 应用程序集成，Azure AD 为 Azure AD 应用程序和 Microsoft 服务 API（例如 [Microsoft 图形 API][Microsoft-Graph]）实现授权服务器角色。
+对于 Microsoft 标识平台应用程序集成，Microsoft 标识平台将为 Azure AD 应用程序和 Microsoft 服务 API（例如 [Microsoft Graph API][Microsoft-Graph]）实现授权服务器角色。
 
 ## <a name="claim"></a>声明
 
 [安全令牌](#security-token)包含声明，声明将有关某个实体（例如[客户端应用程序](#client-application)或[资源所有者](#resource-owner)）的断言提供给另一个实体（例如[资源服务器](#resource-server)）。 声明是中继令牌主体（例如，由[授权服务器](#authorization-server)进行身份验证的安全主体）相关事实的名称/值对。 给定令牌中的声明依赖于几个变量，包括令牌类型、用于验证主体身份的凭据类型和应用程序配置等。
 
-有关详细信息，请参阅 [Azure AD token reference][AAD-Tokens-Claims] （Azure AD 令牌参考）。
+有关更多详细信息，请参阅 [Microsoft 标识平台令牌参考][AAD-Tokens-Claims]。
 
 ## <a name="client-application"></a>客户端应用程序
 
@@ -117,7 +118,11 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 [授权服务器](#authorization-server)的[授权终结点](#authorization-endpoint)提供的 [OpenID Connect][OpenIDConnect-ID-Token] [安全令牌](#security-token)，其中包含与最终用户[资源所有者](#resource-owner)的身份验证相关的[声明](#claim)。 与访问令牌一样，ID 令牌也以数字签名的 [JSON Web 令牌 (JWT)][JWT] 来表示。 不过，与访问令牌不同的是，ID 令牌的声明并不用于与资源访问相关的用途（具体地说，是访问控制）。
 
-有关详细信息，请参阅 [Azure AD token reference][AAD-Tokens-Claims] （Azure AD 令牌参考）。
+有关更多详细信息，请参阅 [Microsoft 标识平台令牌参考][AAD-Tokens-Claims]。
+
+## <a name="microsoft-identity-platform"></a>Microsoft 标识平台
+
+Microsoft 标识平台是 Azure Active Directory (Azure AD) 标识服务和开发人员平台的进化版。 开发人员可以通过它来生成应用程序，以便进行所有 Microsoft 标识的登录，以及获取令牌来调用 Microsoft Graph、其他 Microsoft API 或者开发人员生成的 API。 它是一种全功能的平台，包含身份验证服务、库、应用程序注册和配置、完整的开发人员文档、代码示例，以及其他开发人员内容。 Microsoft 标识平台支持行业标准协议，例如 OAuth 2.0 和 OpenID Connect。 有关更多详细信息，请参阅[关于 Microsoft 标识平台](about-microsoft-identity-platform.md)。
 
 ## <a name="multi-tenant-application"></a>多租户应用程序
 
@@ -133,8 +138,8 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 [客户端应用程序](#client-application)通过声明权限请求来获取[资源服务器](#resource-server)访问权限。 有两种权限类型：
 
-- “委托的”权限，可使用登录的[资源所有者](#resource-owner)的委托授权指定[基于范围](#scopes)的访问，在运行时提供给资源作为客户端[访问令牌](#access-token)中的[“scp”声明](#claim)。
-- “应用程序”权限，可使用客户端应用程序的凭据/标识指定[基于角色](#roles)的访问，在运行时提供给资源作为客户端访问令牌中的[“角色”声明](#claim)。
+* “委托的”权限，可使用登录的[资源所有者](#resource-owner)的委托授权指定[基于范围](#scopes)的访问，在运行时提供给资源作为客户端[访问令牌](#access-token)中的[“scp”声明](#claim)。
+* “应用程序”权限，可使用客户端应用程序的凭据/标识指定[基于角色](#roles)的访问，在运行时提供给资源作为客户端访问令牌中的[“角色”声明](#claim)。
 
 权限也会在[同意](#consent)过程中出现，让管理员或资源所有者有机会允许/拒绝客户端对其租户中的资源进行访问。
 
@@ -192,15 +197,15 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括：
 
-- 适用于集成应用程序的注册表服务
-- 对用户帐户和已注册应用程序进行身份验证
-- 为各种协议（包括 OAuth2 和 SAML）提供支持所需的 REST 终结点，包括[授权终结点](#authorization-endpoint)、[令牌终结点](#token-endpoint)以及[多租户应用程序](#multi-tenant-application)使用的“通用”终结点。
+* 适用于集成应用程序的注册表服务
+* 对用户帐户和已注册应用程序进行身份验证
+* 为各种协议（包括 OAuth2 和 SAML）提供支持所需的 REST 终结点，包括[授权终结点](#authorization-endpoint)、[令牌终结点](#token-endpoint)以及[多租户应用程序](#multi-tenant-application)使用的“通用”终结点。
 
 在注册期间创建 Azure AD 租户/将 Azure AD 租户与 Azure 和 Office 365 订阅相关联，以便为该订阅提供标识和访问管理功能。 Azure 订阅管理员还可通过 Azure 门户创建其他 Azure AD 租户。 有关访问租户的各种方式的详细信息，请参阅[如何获取 Azure Active Directory 租户][AAD-How-To-Tenant]。 
 
 ## <a name="token-endpoint"></a>令牌终结点
 
-[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#ID-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
+[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#id-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
 
 ## <a name="user-agent-based-client"></a>基于用户代理的客户端
 
@@ -216,14 +221,14 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]的基本知识。 另外，还可在 [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
+[Microsoft 标识平台开发人员指南][AAD-Dev-Guide]是用于所有 Microsoft 标识平台开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Microsoft 标识平台身份验证与支持的身份验证方案][AAD-Auth-Scenarios]基础知识。 另外，还可在 [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
 
 请使用以下评论部分提供反馈，帮助我们改进和编写此内容，包括有关新建定义或更新现有定义的请求！
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
@@ -251,4 +256,4 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 [OpenIDConnect-AuthZ-Endpoint]: https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

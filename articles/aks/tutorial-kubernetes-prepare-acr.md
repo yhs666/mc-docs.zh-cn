@@ -9,12 +9,12 @@ origin.date: 12/19/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1d27ea85a840e1183029b0873d40c4c86861ff86
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 90797e0a744725e8e04f13a064db8f9915842cdc
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627614"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855005"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>教程：部署并使用 Azure 容器注册表
 
@@ -38,10 +38,10 @@ Azure 容器注册表 (ACR) 是容器映像的专用注册表。 可以通过专
 
 若要创建 Azure 容器注册表，首先需要一个资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-使用 [az group create][az-group-create] 命令创建资源组。 以下示例在 *chinaeast* 区域中创建名为 *myResourceGroup* 的资源组：
+使用 [az group create][az-group-create] 命令创建资源组。 以下示例在 *chinaeast2* 区域中创建名为 *myResourceGroup* 的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name myResourceGroup --location chinaeast2
 ```
 
 使用 [az acr create][az-acr-create] 命令创建 Azure 容器注册表实例，并提供你自己的注册表名称。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 在本教程的剩余部分，请使用 `<acrName>` 作为容器注册表名称的占位符。 提供自己的唯一注册表名称。 “基本”SKU 是一个针对成本优化的入口点，适用于可以对存储和吞吐量进行均衡考虑的开发目的。

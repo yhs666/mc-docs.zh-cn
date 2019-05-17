@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 03/19/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: b78fbe4e0d2216fd08f38a40d611fac957ffb6a6
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: fd6513775459e2a455994def1da7d3e7a804e1d8
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256369"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854529"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Durable Functions 模式和技术概念 (Azure Functions)
 
@@ -388,6 +388,8 @@ module.exports = async function (context) {
 
 Durable Functions 以透明方式使用事件溯源。 在幕后，业务流程协调程序函数中的 `await` (C#) 或 `yield` (JavaScript) 运算符将对业务流程协调程序线程的控制权让回给 Durable Task Framework 调度程序。 然后，该调度程序向存储提交业务流程协调程序函数计划的任何新操作（如调用一个或多个子函数或计划持久计时器）。 透明的提交操作会追加到业务流程实例的执行历史记录中。 历史记录存储在存储表中。 然后，提交操作向队列添加消息，以计划实际工作。 此时，可从内存中卸载业务流程协调程序函数。 
 
+如果正在使用 Azure Functions 消耗计划，将停止对业务流程协调程序函数的计费。 如果需要完成其他工作，可重启该函数并重新构造其状态。
+
 如果业务流程函数需要执行其他工作（例如，收到响应消息或持久计时器过期），业务流程协调程序将唤醒并从头开始重新执行整个函数，以重新生成本地状态。 
 
 在重放期间，如果代码尝试调用某个函数（或执行任何其他异步工作），Durable Task Framework 会查询当前业务流程的执行历史记录。 如果该扩展发现[活动函数](durable-functions-types-features-overview.md#activity-functions)已执行并已生成某种结果，则会重放该函数的结果，并且业务流程协调程序代码会继续运行。 在函数代码完成或计划了新的异步工作之前，重放会一直继续。
@@ -400,7 +402,7 @@ Durable Functions 以透明方式使用事件溯源。 在幕后，业务流程�
 
 Durable Functions 扩展使用 Azure 存储中的队列、表和 Blob 来持久保存执行历史记录状态和触发函数执行。 可以使用函数应用的默认存储帐户，也可以配置单独的存储帐户。 由于存储吞吐量存在限制，你可能需要配置单独的帐户。 编写的业务流程协调程序代码不会与这些存储帐户中的实体进行交互。 Durable Task Framework 直接将实体作为实现详细信息进行管理。
 
-业务流程协调程序函数通过内部队列消息计划活动函数和接收这些函数的响应。 横向扩展到多个 VM 后，业务流程协调程序函数可在一个 VM 上运行，它调用的活动函数可在多个不同的 VM 上运行。 有关 Durable Functions 的缩放行为的详细信息，请参阅[性能和缩放](durable-functions-perf-and-scale.md)。
+业务流程协调程序函数通过内部队列消息计划活动函数和接收这些函数的响应。 如果在 Azure Functions 消耗计划中运行函数应用，则 [Azure Functions 缩放控制器](../functions-scale.md#how-the-consumption-plans-work)会监视这些队列。 将会根据需要添加新的计算实例。 横向扩展到多个 VM 后，业务流程协调程序函数可在一个 VM 上运行，它调用的活动函数可在多个不同的 VM 上运行。 有关 Durable Functions 的缩放行为的详细信息，请参阅[性能和缩放](durable-functions-perf-and-scale.md)。
 
 业务流程协调程序帐户的执行历史记录存储在表存储中。 每当某个实例在特定的 VM 上解冻时，业务流程协调程序会从表存储中获取该实例的执行历史记录，以便可以重新生成其本地状态。 在表存储中获取历史记录所带来的一项便利是，可以使用 [Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md)等工具查看业务流程的历史记录。
 

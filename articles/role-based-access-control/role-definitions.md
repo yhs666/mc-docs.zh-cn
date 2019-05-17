@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/09/2019
-ms.date: 02/26/2019
+ms.date: 04/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 67cd3c789633554b6b71519ad951d4095fc71fa3
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: cf3f9aa830e6d2a214ff95138312d30d339c706a
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836925"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855497"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解 Azure 资源的角色定义
 
@@ -98,11 +98,11 @@ AssignableScopes []
 - 在容器中写入存储 Blob
 - 删除队列中的消息
 
-下面是[存储 Blob 数据读取者（预览版）](built-in-roles.md#storage-blob-data-reader-preview)角色定义，其中包含 `Actions` 和 `DataActions` 属性中的操作。 使用此角色可以读取 Blob 容器以及基础 Blob 数据。
+下面是[存储 Blob 数据读取者](built-in-roles.md#storage-blob-data-reader)角色定义，其中包含 `Actions` 和 `DataActions` 属性中的操作。 使用此角色可以读取 Blob 容器以及基础 Blob 数据。
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -126,18 +126,18 @@ AssignableScopes []
 
 ### <a name="data-operations-example"></a>数据操作示例
 
-为了更好地了解管理和数据操作的工作原理，让我们考虑一个具体的示例。 在订阅范围为 Alice 分配了[所有者](built-in-roles.md#owner)角色。 在存储帐户范围为 Bob 分配了[存储 Blob 数据参与者（预览版）](built-in-roles.md#storage-blob-data-contributor-preview)角色。 下图演示了此示例。
+为了更好地了解管理和数据操作的工作原理，让我们考虑一个具体的示例。 在订阅范围为 Alice 分配了[所有者](built-in-roles.md#owner)角色。 在存储帐户范围为 Bob 分配了[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色。 下图演示了此示例。
 
 ![基于角色的访问控制已得到扩展，支持管理和数据操作](./media/role-definitions/rbac-management-data.png)
 
-Alice 的[所有者](built-in-roles.md#owner)角色和 Bob 的[存储 Blob 数据参与者（预览版）](built-in-roles.md#storage-blob-data-contributor-preview)角色具有以下操作：
+Alice 的[所有者](built-in-roles.md#owner)角色和 Bob 的[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色具有以下操作：
 
 所有者
 
 &nbsp;&nbsp;&nbsp;&nbsp;操作<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-存储 Blob 数据参与者（预览版）
+存储 Blob 数据参与者
 
 &nbsp;&nbsp;&nbsp;&nbsp;操作<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -150,7 +150,7 @@ Alice 的[所有者](built-in-roles.md#owner)角色和 Bob 的[存储 Blob 数�
 
 由于 Alice 具有订阅范围的通配符 (`*`) 操作，她的权限将向下继承，使她可以执行所有管理操作。 Alice 可以读取、写入和删除容器。 但是，Alice 在不采取其他步骤的情况下无法执行数据操作。 例如，默认情况下，Alice 无法读取容器内的 blob。 若要读取 blob，Alice 必须检索存储访问密钥并使用它们来访问 blob。
 
-Bob 的权限限制为[存储 Blob 数据参与者（预览版）](built-in-roles.md#storage-blob-data-contributor-preview)角色中指定的 `Actions` 和 `DataActions`。 Bob 可以基于角色执行管理和数据操作。 例如，Bob 可以读取、写入和删除指定存储帐户中的容器，并可以读取、写入和删除 Blob。
+Bob 的权限限制为[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色中指定的 `Actions` 和 `DataActions`。 Bob 可以基于角色执行管理和数据操作。 例如，Bob 可以读取、写入和删除指定存储帐户中的容器，并可以读取、写入和删除 Blob。
 
 有关存储的管理和数据平面安全性的详细信息，请参阅 [Azure 存储安全指南](../storage/common/storage-security-guide.md)。
 
@@ -232,8 +232,8 @@ Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 资源的内置角色](built-in-roles.md)
-- [Azure 资源的自定义角色](custom-roles.md)
-- [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
+* [Azure 资源的内置角色](built-in-roles.md)
+* [Azure 资源的自定义角色](custom-roles.md)
+* [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
 
 <!-- Update_Description: wording update -->

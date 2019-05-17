@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/08/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c678a5b4e0de39ec9692155960aa896f57b0ee4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 741901cf28ab51deaaef1239c4f62c2225af149d
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626444"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854721"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -23,7 +23,9 @@ ms.locfileid: "58626444"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!--Not Available on [using the Azure portal][aks-quickstart-portal]-->
 
 还需安装并配置 Azure CLI 2.0.46 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -149,7 +151,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: dockerhub.azk8s.cn/nginx:1.15.5
     resources:
       requests:
         cpu: 100m
@@ -178,7 +180,7 @@ kubectl apply -f azure-pvc-files.yaml
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx:1.15.5
+    Image:          dockerhub.azk8s.cn/nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Wed, 15 Aug 2018 22:22:27 +0000
@@ -273,14 +275,16 @@ spec:
 <!-- LINKS - internal -->
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [az-group-list]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-list
-[az-resource-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-resource-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [az-storage-account-create]: https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
 [az-storage-create]: https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create
 [az-storage-key-list]: https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list
 [az-storage-share-create]: https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+
+<!--Not Available on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [storage-skus]: ../storage/common/storage-redundancy.md

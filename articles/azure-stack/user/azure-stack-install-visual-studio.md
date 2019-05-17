@@ -12,23 +12,23 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2019
-ms.date: 02/18/2019
+origin.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cfe391badf67ca1f21cb47e21d71270b4b7992ac
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 784b35f06a57d9e2201a02d7b1de43a3d708cf78
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218294"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854912"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安装 Visual Studio 并连接到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用 Visual Studio 将 Azure 资源管理器[模板](azure-stack-arm-templates.md)写入和部署到 Azure Stack。 本文中的步骤将引导你在 [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 上或者在外部计算机上（如果你打算通过 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 来使用 Azure Stack）安装 Visual Studio。
+可以使用 Visual Studio 将 Azure 资源管理器[模板](azure-stack-arm-templates.md)写入和部署到 Azure Stack。 本文中的步骤介绍如何在 [Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) 上或者在外部计算机上（如果你打算通过 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 来使用 Azure Stack）安装 Visual Studio。
 
 ## <a name="install-visual-studio"></a>安装 Visual Studio
 
@@ -40,9 +40,9 @@ ms.locfileid: "56218294"
 
 4. 卸载作为 Azure SDK 的一部分安装的 **Azure PowerShell**。
 
-    ![WebPI 安装步骤的屏幕截图](./media/azure-stack-install-visual-studio/image1.png) 
+    ![WebPI 安装步骤的屏幕截图](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+5. [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
 
 6. 安装完成后，重启操作系统。
 
@@ -66,9 +66,7 @@ ms.locfileid: "56218294"
 
 3. 展开**导航窗格**中的“环境”，然后选择“帐户”。
 
-4. 选择“添加”，然后输入“用户 Azure 资源管理器终结点”。  
-  对于 Azure Stack 开发工具包，URL 为：`https://management.local.azurestack/external`。  
-  对于 Azure Stack 集成系统，URL 为：`https://management.[Region}.[External FQDN]`。
+4. 选择“添加”，然后输入“用户 Azure 资源管理器终结点”。 对于 Azure Stack 开发工具包，URL 为：`https://management.local.azurestack/external`。  对于 Azure Stack 集成系统，URL 为：`https://management.[Region}.[External FQDN]`。
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -92,7 +90,7 @@ ms.locfileid: "56218294"
 
 ## <a name="next-steps"></a>后续步骤
 
- - 详细了解如何[并行安装](https://msdn.microsoft.com/library/ms246609.aspx) Visual Studio 与其他 Visual Studio 版本。
- - [为 Azure Stack 开发模板](azure-stack-develop-templates.md)。
+- 详细了解如何[并行安装](https://docs.microsoft.com/visualstudio/install/install-visual-studio-versions-side-by-side) Visual Studio 与其他 Visual Studio 版本。
+- [为 Azure Stack 开发模板](azure-stack-develop-templates.md)。
  
 <!-- Update_Description: wording update -->

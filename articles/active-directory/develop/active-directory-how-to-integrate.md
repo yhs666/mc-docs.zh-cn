@@ -1,6 +1,6 @@
 ---
 title: 如何与 Azure Active Directory 集成 | Microsoft Docs
-description: 介绍与 Azure Active Directory 集成的好处与相关资源的指南。
+description: 了解将你的应用程序与 Azure Active Directory 进行集成的优势，并获取诸如简化登录、标识管理、多重身份验证和访问控制等功能的资源。
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/04/2019
-ms.date: 04/08/2019
+origin.date: 04/08/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviewer: bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ece1e170ed1914623861fff32cabc8a882909326
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 7afb40dda5bf669a2ba9b0973994b77bf9266cd1
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243682"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517496"
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) 为组织的云应用程序提供企业级标识管理。 Azure AD 集成可以简化用户登录体验，并帮助应用程序符合 IT 策略。
+在本文中，你将了解将你的应用程序与 Azure Active Directory (Azure AD) 进行集成的优势，并获取用于集成的资源。 Azure AD 为组织的云应用程序提供企业级标识管理。 Azure AD 集成可以简化用户登录体验，并帮助应用程序符合 IT 策略。
 
 ## <a name="how-to-integrate"></a>如何集成
 
@@ -38,15 +38,15 @@ Azure Active Directory (Azure AD) 为组织的云应用程序提供企业级标�
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>支持使用 Azure AD 作为登录应用程序的方式
 
-**减少了登录问题并降低了支持成本。** 如果使用 Azure AD 登录应用程序，用户不需要记住更多的名称和密码。 作为开发人员，可以减少要存储和保护的密码。 无需重置忘记的密码，单凭这一点就能节省不少的精力。 使用 Azure AD 可以登录世界上最热门的一些云应用程序，包括 Office 365 和 Azure。 Azure AD 包含了来自数百万家组织的几亿个用户，用户很可能已经登录到了 Azure AD。 深入了解如何[添加 Azure AD 登录支持](authentication-scenarios.md)。
+**减少登录问题并降低支持成本。** 如果使用 Azure AD 登录应用程序，用户不需要记住更多的名称和密码。 作为开发人员，可以减少要存储和保护的密码。 无需重置忘记的密码，单凭这一点就能节省不少的精力。 使用 Azure AD 可以登录世界上最热门的一些云应用程序，包括 Office 365 和 Azure。 Azure AD 包含了来自数百万家组织的几亿个用户，用户很可能已经登录到了 Azure AD。 深入了解如何[添加 Azure AD 登录支持](authentication-scenarios.md)。
 
-**简化了应用程序注册。**  在注册应用程序期间，Azure AD 可以发送有关用户的基本信息，以便可以预先填写注册表单，或者完全清除表单。 用户可以使用其 Azure AD 帐户，通过社交媒体和移动应用程序中常见的许可体验注册应用程序。 任何用户在不需要 IT 人员的情况下都可以注册和登录与 Azure AD 集成的应用程序。 深入了解如何[注册应用程序进行 Azure AD 帐户登录](../../app-service/configure-authentication-provider-aad.md)。
+**简化应用程序注册。**  在注册应用程序期间，Azure AD 可以发送有关用户的基本信息，以便可以预先填写注册表单，或者完全清除表单。 用户可以使用其 Azure AD 帐户，通过社交媒体和移动应用程序中常见的许可体验注册应用程序。 任何用户在不需要 IT 人员的情况下都可以注册和登录与 Azure AD 集成的应用程序。 深入了解如何[注册应用程序进行 Azure AD 帐户登录](../../app-service/configure-authentication-provider-aad.md)。
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>浏览用户，管理用户预配，以及控制对应用程序的访问
 
 **浏览目录中的用户。**  在邀请其他人或授予访问权限时，可以使用图形 API 来帮助用户搜索和浏览其组织中的其他人员，而无需键入电子邮件地址。 用户可以使用熟悉的通讯簿样式界面进行浏览，包括查看组织层次结构的详细信息。 深入了解[图形 API](active-directory-graph-api.md)。
 
-**重复使用客户已在管理的 Active Directory 组和通讯组列表。**  Azure AD 包含客户已用于电子邮件分发和管理访问权限的组。 使用图形 API 时，可以重复使用这些组，而无需要求客户在应用程序中创建并管理一系列不同的组。 还可以在登录令牌中向应用程序发送组信息。 深入了解[图形 API](active-directory-graph-api.md)。
+**重复使用客户正在管理的 Active Directory 组和通讯组列表。**  Azure AD 包含客户已用于电子邮件分发和管理访问权限的组。 使用图形 API 时，可以重复使用这些组，而无需要求客户在应用程序中创建并管理一系列不同的组。 还可以在登录令牌中向应用程序发送组信息。 了解有关 [图形 API](active-directory-graph-api.md)的详细信息。
 
 **使用 Azure AD 控制谁有权访问应用程序。**  Azure AD 中的管理员和应用程序所有者可以将应用程序访问权限分配给特定的用户和组。 使用图形 API，可以读取此列表并使用它来控制资源的设置和取消设置，以及应用程序中的访问权限。
 
@@ -58,7 +58,7 @@ Azure Active Directory (Azure AD) 为组织的云应用程序提供企业级标�
 
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>在 Azure 和 Office 365 市场中推广你的应用程序
 
-**向数百万个已在使用 Azure AD 的组织推广你的应用程序。**  搜索和浏览这些市场的用户已在使用一个或多个云服务，这让他们成为合格的云服务客户。 深入了解如何在 [Azure 市场](https://azure.microsoft.com/marketplace/partner-program/)中推广应用程序。
+**向数百万个已在使用 Azure AD 的组织推广应用程序。**  搜索和浏览这些市场的用户已在使用一个或多个云服务，这让他们成为合格的云服务客户。 深入了解如何在 [Azure 市场](https://azure.microsoft.com/marketplace/partner-program/)中推广应用程序。
 
 **用户注册应用程序后，该程序会在其 Azure AD 访问面板和 Office 365 应用启动器中显示。**  之后，用户能够快速轻松地返回应用程序，提高了用户参与度。  
 
@@ -82,9 +82,9 @@ Azure Active Directory (Azure AD) 为组织的云应用程序提供企业级标�
 
 ### <a name="easy-development"></a>易于开发
 
-**行业标准协议。**  Microsoft 承诺支持行业标准。 
+**行业标准协议。**  Microsoft 承诺支持行业标准。 Microsoft 标识平台支持行业标准协议 OAuth 2.0 和 OpenID Connect 1.0。 详细了解 [Microsoft 标识平台身份验证协议](active-directory-v2-protocols.md)。
 
-**开放源代码库。**  Microsoft 为主流语言和平台提供完全支持的开源代码库以加速开发。 这些源代码已获 Apache 2.0 的授权，可以在项目中任意衍生和改写。
+**开放源代码库。**  Microsoft 为主流语言和平台提供完全支持的开源代码库以加速开发。 这些源代码已获 Apache 2.0 的授权，可以在项目中任意衍生和改写。 详细了解 [Microsoft 身份验证库 (MSAL)](reference-v2-libraries.md)。
 
 ### <a name="worldwide-presence-and-high-availability"></a>全球存在和高可用性
 
@@ -92,8 +92,8 @@ Azure Active Directory (Azure AD) 为组织的云应用程序提供企业级标�
 
 ## <a name="next-steps"></a>后续步骤
 
-[开始编写代码](v1-overview.md#get-started)。
+[开始编写代码](v2-overview.md#getting-started)。
 
-[使用 Azure AD 让用户登录](authentication-scenarios.md)
+[使用 Microsoft 标识平台将用户登录](authentication-scenarios.md)
 
 <!-- Update_Description: wording update -->

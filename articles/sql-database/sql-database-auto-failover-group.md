@@ -11,21 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: aae118454e75e9bb265a53f3018ed577756dbe6f
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/19/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: 523553127c729a8de9ae8241b39fc9b828cc1e54
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003501"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854591"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
 自动故障转移组是一项 SQL 数据库功能，可用于管理 SQL 数据库服务器中的一组数据库到另一区域的复制和故障转移。 它使用的底层技术与相同[活动异地复制](sql-database-active-geo-replication.md)相同。 可以手动启动故障转移，也可以基于用户定义的策略委托 SQL 数据库服务进行故障转移。 使用后一种做法可在发生下述情况后自动恢复次要区域中的多个相关数据库：灾难性故障或其他导致主要区域中 SQL 数据库服务完全或部分丧失可用性的计划外事件。 此外，你还可以使用可读辅助数据库卸载只读查询工作负荷。 由于自动故障转移组涉及多个数据库，因此这些数据库必须在主服务器上进行配置。 故障转移组中数据库的主服务器和辅助服务器必须位于同一订阅中。 自动故障转移组支持将组中所有的数据库复制到另一个区域中唯一的辅助服务器。
 
 > [!NOTE]
-> 如果在 SQL 数据库服务器上使用单一数据库或入池数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。
+> 如果在 SQL 数据库服务器上使用单一数据库或共用数据库，并要在相同或不同的区域中使用多个辅助数据库，请使用[活动异地复制](sql-database-active-geo-replication.md)。
 
 将自动故障转移组与自动故障转移策略配合使用时，任何影响组中一个或多个数据库的服务中断都会导致自动故障转移。 此外，自动故障转移组提供在故障转移期间保持不变的读写和只读侦听器终结点。 无论使用手动故障转移激活还是自动故障转移激活，故障转移都会将组中所有的辅助数据库切换到主数据库。 数据库故障转移完成后，会自动更新 DNS 记录，以便将终结点重定向到新的区域。 有关具体的 RPO 和 RTO 数据，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "59003501"
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>自动故障转移组的术语和功能
 
-- **故障转移组**
+- **故障转移组 (FOG)**
 
   故障转移组是由单个 SQL 数据库服务器管理的一组数据库，当主要区域的服务中断导致所有或部分主要数据库不可用时，该组数据库可作为一个单元故障转移到另一区域。
 
@@ -49,11 +49,11 @@ ms.locfileid: "59003501"
 
      使用 SQL 数据库服务器，可以将一个 SQL 数据库服务器上的部分或所有用户数据库放入故障转移组。 此外，SQL 数据库服务器支持一个 SQL 数据库服务器上有多个故障转移组。
 
-- **主要**
+- **主要节点**
 
   托管着故障转移组中的主要数据库的 SQL 数据库服务器。
 
-- **次要**
+- **辅助节点**
 
   托管着故障转移组中的辅助数据库的 SQL 数据库服务器。 辅助节点不能与主要节点位于相同的区域。
 
@@ -71,7 +71,7 @@ ms.locfileid: "59003501"
 
   - **读写侦听器的 SQL 数据库服务器 DNS CNAME 记录**
 
-     在 SQL 数据库服务器上，指向当前主要数据库 URL 的故障转移组 DNS CNAME 记录格式为 `failover-group-name.database.chinasloudapi.cn`。
+     在 SQL 数据库服务器上，指向当前主要数据库 URL 的故障转移组 DNS CNAME 记录格式为 `<fog-name>.database.chinasloudapi.cn`。
 
 - **故障转移组只读侦听器**
 
@@ -79,7 +79,7 @@ ms.locfileid: "59003501"
 
   - **只读侦听器的 SQL 数据库服务器 DNS CNAME 记录**
 
-     在 SQL 数据库服务器上，指向辅助数据库 URL 的只读侦听器 DNS CNAME 记录格式为 `failover-group-name.secondary.database.chinasloudapi.cn`。
+     在 SQL 数据库服务器上，指向辅助数据库 URL 的只读侦听器 DNS CNAME 记录格式为 `'.secondary.database.chinasloudapi.cn`。
 
 - **自动故障转移策略**
 
@@ -97,7 +97,7 @@ ms.locfileid: "59003501"
   - 将数据库重新定位到不同的区域
   - 缓解服务中断（故障回复）后将数据库恢复到主要区域。
 
-- **计划外故障转移**
+- **未计划的故障转移**
 
    计划外故障转移或强制故障转移立即将辅助角色切换为主要角色，而不与主要节点进行任何同步。 此操作会导致数据丢失。 在服务中断期间当主要节点不可访问时，计划外故障转移将用作恢复方法。 原始主要节点重新联机后，将在不进行同步的情况下自动重新连接，并成为新的辅助节点。
 
@@ -134,15 +134,15 @@ ms.locfileid: "59003501"
 
 - **使用一个或多个故障转移组来管理多个数据库的故障转移**
 
-  可在不同区域的两个服务器（主服务器和辅助服务器）之间创建一个或多个故障转移组。 每组可包含一个或多个数据库，这些数据库是在所有或某些主数据库因主要区域中的服务中断而变得不可用时，作为单元恢复的。 故障转移组使用服务目标作为主数据库创建异地辅助数据库。 如果将现有的异地复制关系添加到故障转移组，请确保使用与主数据库相同的服务层和计算大小来配置异地辅助数据库。
+  可在不同区域的两个服务器（主服务器和辅助服务器）之间创建一个或多个故障转移组。 每组可包含一个或多个数据库，这些数据库是在所有或某些主数据库因主要区域中的服务中断而变得不可用时，作为单元恢复的。 故障转移组使用服务目标作为主数据库创建异地辅助数据库。 如果将现有的异地复制关系添加到故障转移组，请确保使用与主数据库相同的服务层级和计算大小来配置异地辅助数据库。
 
 - **使用读写侦听器处理 OLTP 工作负荷**
 
-  执行 OLTP 操作时，请使用 `failover-group-name.database.chinacloudapi.cn` 作为服务器 URL，连接将自动定向到主要节点。 此 URL 在故障转移后不会更改。 请注意，故障转移涉及更新 DNS 记录，以便仅在刷新客户端 DNS 缓存后，客户端连接才会重定向到新的主数据库。
+  执行 OLTP 操作时，请使用 `<fog-name>.database.chinacloudapi.cn` 作为服务器 URL，连接将自动定向到主要节点。 此 URL 在故障转移后不会更改。 请注意，故障转移涉及更新 DNS 记录，以便仅在刷新客户端 DNS 缓存后，客户端连接才会重定向到新的主数据库。
 
 - **使用只读侦听器处理只读工作负荷**
 
-  如果你有一个在逻辑上隔离的只读工作负荷，且它允许存在一些过时数据，则可在应用程序中使用辅助数据库。 对于只读的会话，请使用 `failover-group-name.secondary.database.chinacloudapi.cn` 作为服务器 URL，连接将自动定向到辅助节点。 此外，还建议使用 **ApplicationIntent=ReadOnly** 在连接字符串中指示读取意向。
+  如果你有一个在逻辑上隔离的只读工作负荷，且它允许存在一些过时数据，则可在应用程序中使用辅助数据库。 对于只读的会话，请使用 `<fog-name>.secondary.database.chinacloudapi.cn` 作为服务器 URL，连接将自动定向到辅助节点。 此外，还建议使用 **ApplicationIntent=ReadOnly** 在连接字符串中指示读取意向。
 
 - **可应对性能下降的问题**
 
@@ -194,7 +194,7 @@ ms.locfileid: "59003501"
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升级或降级主数据库
 
-无需断开连接任何辅助数据库，即可将主数据库升级或降级到不同的计算大小（在相同的服务层中，但不在“常规用途”与“业务关键”类型之间）。 升级时，建议先升级所有辅助数据库，再升级主数据库。 降级时，请反转顺序：先降级主数据库，再降级所有辅助数据库。 将数据库升级或降级到不同服务层时，将强制执行此建议操作。
+无需断开连接任何辅助数据库，即可将主数据库升级或降级到不同的计算大小（在相同的服务层级中，但不在“常规用途”与“业务关键”类型之间）。 升级时，建议先升级所有辅助数据库，再升级主数据库。 降级时，请反转顺序：先降级主数据库，再降级所有辅助数据库。 将数据库升级或降级到不同服务层级时，将强制执行此建议操作。
 
 具体而言，建议采用此顺序的目的是避免较低 SKU 上的辅助数据库在过载时出现问题，并且必须在升级或降级过程中重新设定种子。 此外，可以通过将主数据库设为只读来避免问题，代价是针对主数据库的所有读写工作负荷会受到影响。 
 
@@ -232,7 +232,7 @@ ms.locfileid: "59003501"
 > 有关示例脚本，请参阅[为单一数据库配置并故障转移一个故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 >
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用单个数据库和入池数据库管理 SQL 数据库故障转移组
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用单一数据库和共用数据库管理 SQL 数据库故障转移组
 
 | API | 说明 |
 | --- | --- |
@@ -247,9 +247,9 @@ ms.locfileid: "59003501"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关示例脚本，请参阅：
-  - [使用活动异地复制配置单一数据库并对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [配置入池数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+- 示例脚本请参阅：
+  - [配置单一数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [配置共用数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
   - [针对单个数据库配置并故障转移一个故障转移组](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
 - 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)。

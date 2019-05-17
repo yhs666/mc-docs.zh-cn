@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/05/2018
-ms.date: 12/24/2018
+origin.date: 04/11/2018
+ms.date: 04/29/2019
 ms.author: v-jay
-ms.openlocfilehash: f14824a2bfa12e00894f411574dee61db360203e
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.openlocfilehash: aa351f8cc23d3aa40442784e70033b3fe71b0c3e
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656558"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854667"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -58,6 +58,35 @@ ms.locfileid: "53656558"
 
 > [!NOTE]
 > 导入客户端证书时，请勿选择“启用强私钥保护”选项。
+
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>无法在计算机与 VPN 服务器之间建立网络连接，因为远程服务器不响应
+
+### <a name="symptom"></a>症状
+
+尝试在 Windows 上使用 IKEv2 连接到 Azure 虚拟网关时，出现以下错误消息：
+
+**无法在计算机与 VPN 服务器之间建立网络连接，因为远程服务器不响应**
+
+### <a name="cause"></a>原因
+ 
+ 如果 Windows 版本不支持 IKE 碎片，则会出现此问题
+ 
+### <a name="solution"></a>解决方案
+
+在 Windows 10 和 Server 2016 上支持 IKEv2。 但是，若要使用 IKEv2，必须在本地安装更新并设置注册表项值。 Windows 10 以前的 OS 版本不受支持，并且只能使用 SSTP。
+
+为运行 IKEv2 准备 Windows 10 或 Server 2016：
+
+1. 安装更新。
+
+   | OS 版本 | 日期 | 编号/链接 |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 版本 1709 | 2018 年 3 月 22 日 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. 设置注册表项值。 在注册表中创建“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload”REG_DWORD 键或将其设置为 1。
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 客户端错误：收到意外或格式不当的消息
 
@@ -218,7 +247,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 
 ### <a name="solution"></a>解决方案
 
-要解决此问题，请重新部署所有客户端上点到站点的包。
+若要解决此问题，请重新下载并重新部署所有客户端上点到站点的包。
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>一次性连接的 VPN 客户端过多
 

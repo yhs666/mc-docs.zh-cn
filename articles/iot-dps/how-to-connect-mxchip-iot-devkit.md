@@ -2,18 +2,19 @@
 title: 如何使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心 | Microsoft Docs
 description: 如何使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心。
 author: liydu
-ms.author: liydu
-ms.date: 12/18/2018
+ms.author: v-yiso
+origin.date: 12/18/2018
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 7a389da1907b26b12d35e26da6b208e71a87d2cf
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 85b85a8d5f96a867e2f002afb4150f3640a1a18b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988345"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855198"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心
 
@@ -30,7 +31,7 @@ ms.locfileid: "57988345"
 
 若要完成本教程中的步骤，请先执行以下任务：
 
-* 遵循[将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)中的步骤准备好 DevKit。
+* 按照[将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)中的步骤操作，配置 DevKit 的 Wi-Fi 并准备开发环境。
 * 参考[更新 DevKit 固件](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)教程升级到最新固件（1.3.0 或以上）。
 * 按照[使用 Azure 门户设置 IoT 中心设备预配服务](/azure/iot-dps/quick-setup-auto-provision)中的步骤，创建 IoT 中心并将其链接到设备预配服务实例。
 
@@ -38,7 +39,7 @@ ms.locfileid: "57988345"
 
 1. 确保 IoT DevKit **未连接**到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
-1. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:**打开示例...”** 。然后选择“IoT DevKit”作为开发板。
+1. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Open Examples...”。然后选择“IoT DevKit”作为开发板。
 
 1. 在 IoT Workbench“示例”页中，找到“使用 DPS 进行设备注册”，然后单击“打开示例”。 然后选择用于下载示例代码的默认路径。
     ![打开示例](media/how-to-connect-mxchip-iot-devkit/open-sample.png)

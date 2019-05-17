@@ -11,21 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/24/2018
-ms.date: 03/05/2019
+origin.date: 04/08/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviewer: tomfitz
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546552d2a4e9db0e9ca862888c44dc8195d09786
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 978ca6d35c90fdb2990947b6e19efb313957381b
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462367"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517482"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
-如果有需要访问或修改资源的代码，则可以为应用创建标识。 此标识称为服务主体。 可以将所需权限分配给服务主体。 本文介绍如何使用门户创建服务主体。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。
+本文介绍如何创建新的 Azure Active Directory (Azure AD) 应用程序和服务主体，后者可以与基于角色的访问控制配合使用。 如果有需要访问或修改资源的代码，则可以为应用创建标识。 此标识称为服务主体。 可以将所需权限分配给服务主体。 本文介绍如何使用门户创建服务主体。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。
 
 ## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 
@@ -157,8 +158,8 @@ ms.locfileid: "57462367"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](../../azure-resource-manager/resource-manager-api-authentication.md)。
-- 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)。  
-- 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。
+* 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](../../azure-resource-manager/resource-manager-api-authentication.md)。
+* 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)。  
+* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。
 
 <!-- Update_Description: wording update -->

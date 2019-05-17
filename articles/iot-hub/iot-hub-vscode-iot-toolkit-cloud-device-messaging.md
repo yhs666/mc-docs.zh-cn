@@ -7,24 +7,22 @@ services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 01/18/2019
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: 40434e5b0d914e7b9b9892622168dfd519351d46
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 468b9b7b54773a40455334ab08f1018ac3af6182
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560458"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854495"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用适用于 Visual Studio Code 的 Azure IoT 工具在设备和 IoT 中心之间发送和接收消息
 
-![端到端关系图](media/iot-hub-get-started-e2e-diagram/2.png)
+![端到端关系图](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)是一个有用的 Visual Studio Code 扩展，可以使 IoT 中心管理和 IoT 应用程序开发更加容易。 本文重点介绍了如何使用适用于 Visual Studio Code 的 Azure IoT 工具在设备和 IoT 中心之间发送和接收消息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-you-will-learn"></a>要学习的知识
 
@@ -40,7 +38,7 @@ ms.locfileid: "57560458"
 - 一个有效的 Azure 订阅。
 - 已在订阅中创建一个 Azure IoT 中心。
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [适用于 VS Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [适用于 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 或[在 Visual Studio Code 中打开此链接](vscode:extension/vsciot-vscode.azure-iot-tools)。
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>登录以访问 IoT 中心
 

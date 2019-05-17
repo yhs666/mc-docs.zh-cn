@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/03/2018
-ms.openlocfilehash: f0137ae6d4ec311514c14b77356c820582b599a0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 05/06/2019
+ms.openlocfilehash: 2204679a21e5343946b388c468ef733a6085e93c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625468"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855179"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 联机模拟器连接到 Azure IoT 中心 (Node.js)
 
@@ -31,12 +31,12 @@ ms.locfileid: "58625468"
 <p>
 <div id="diag" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
 </div>
 <p>
 <div id="button" style="width:100%; text-align:center">
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
+<img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
 </div>
 
 ## <a name="what-you-do"></a>准备工作
@@ -72,7 +72,7 @@ Web 模拟器中有三个区域。
 > [!NOTE]
 > Raspberry Pi Web 模拟器现于预览版中提供。 我们希望通过 [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator) 听到你的建议。 [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator) 上公开了源代码。
 
-![Pi 联机模拟器概述](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
+![Pi 联机模拟器概述](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -91,10 +91,15 @@ Web 模拟器中有三个区域。
 1. 在编码区中，请确保正在使用默认示例应用程序。 将 15 行中的占位符替换为 Azure IoT 中心设备的连接字符串。
    ![替换设备连接字符串](./media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
-2. 单击“运行”，或键入 `npm start`，即可运行应用程序。
+2. 选择“运行”，或键入 `npm start`，即可运行应用程序。
 
-应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](./media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>读取 IoT 中心收到的消息
+
+若要监视 IoT 中心从模拟设备收到的消息，一种方法是使用适用于 Visual Studio Code 的 Azure IoT Tools。 若要了解详细信息，请参阅[使用适用于 Visual Studio Code 的 Azure IoT Tools 在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
+
+若要了解如何通过更多方式来处理设备发送的数据，请转到下一部分。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 01/24/2019
-ms.date: 02/13/2019
+origin.date: 04/29/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: c7f1bd2aade6c5d3afa4c9863e8074ca27110299
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2196b26ff0dda537e07b455a11a5caefa8f969f2
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222701"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520767"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>用于 Azure AD Connect 的帐户
 
-![](./media/reference-connect-accounts-permissions/account5.png)
+![帐户概述](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect 使用 3 个帐户，将信息从本地或 Windows Server Active Directory 同步到 Azure Active Directory。  这些帐户是：
 
@@ -51,8 +52,8 @@ Azure AD Connect 使用 3 个帐户，将信息从本地或 Windows Server Activ
 ## <a name="installing-azure-ad-connect"></a>安装 Azure AD Connect
 Azure AD Connect 安装向导提供提供两种不同的路径：
 
-- 在“快速设置”中，此向导需要更多权限。  这样便可以轻松设置配置，而无需创建用户或配置权限。
-- 在“自定义设置”中，此向导可提供更多选择和选项。 但是，在某些情况下，需要确保自己具有相应的权限。
+* 在“快速设置”中，此向导需要更多权限。  这样便可以轻松设置配置，而无需创建用户或配置权限。
+* 在“自定义设置”中，此向导可提供更多选择和选项。 但是，在某些情况下，需要确保自己具有相应的权限。
 
 
 
@@ -80,7 +81,6 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 | 读取/写入所有 iNetOrgPerson 属性 |导入和执行 Exchange 混合部署 |
 | 读取/写入所有组属性 |导入和执行 Exchange 混合部署 |
 | 读取/写入所有联系人属性 |导入和执行 Exchange 混合部署 |
-| 重置密码 |准备启用密码写回 |
 
 ### <a name="express-installation-wizard-summary"></a>快速安装向导摘要
 
@@ -114,7 +114,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 | AD FS 服务器 |对于列表中的每个服务器，如果运行向导的用户的登录凭据权限不足，因而无法连接，则向导会收集凭据 |域管理员 |安装和配置 AD FS 服务器角色。 |
 | Web 应用程序代理服务器 |对于列表中的每个服务器，如果运行向导的用户的登录凭据权限不足，因而无法连接，则向导会收集凭据 |目标计算机上的本地管理员 |安装和配置 WAP 服务器角色。 |
 | 代理信任凭据 |联合身份验证服务信任凭据（代理用来注册 FS 信任证书的凭据） |作为 AD FS 服务器本地管理员的域帐户 |初始注册 FS-WAP 信任证书。 |
-| “AD FS 服务帐户”页上的“使用域用户帐户选项” |AD 用户帐户凭据 |域用户 |提供了其凭据的 AD 用户帐户用作 AD FS 服务的登录帐户。 |
+| “AD FS 服务帐户”页上的“使用域用户帐户选项” |AD 用户帐户凭据 |域用户 |提供了其凭据的 Azure AD 用户帐户用作 AD FS 服务的登录帐户。 |
 
 ### <a name="create-the-ad-ds-connector-account"></a>创建 AD DS 连接器帐户
 
@@ -237,6 +237,11 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 
 若要删除未使用的 Azure AD 服务帐户，请运行以下 Azure AD PowerShell cmdlet：`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
+>[!NOTE]
+>在使用上述 PowerShell 命令之前，你需要安装 `Azure Active Directory PowerShell for Graph module`，并使用 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) 连接到你的 Azure AD 实例。
+
+有关如何管理或重置 Azure AD Connect 帐户密码的更多信息，请参阅[管理 Azure AD Connect 帐户](how-to-connect-azureadaccount.md)
+
 ## <a name="related-documentation"></a>相关文档
 如果尚未阅读文档了解如何[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)，请查看下表获取相关主题的链接。
 
@@ -246,9 +251,9 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 |使用快速设置安装 | [Azure AD Connect 的快速安装](how-to-connect-install-express.md)|
 |使用自定义设置安装 | [Azure AD Connect 的自定义安装](./how-to-connect-install-custom.md)|
 |从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)|
-|安装后 | [验证安装并分配许可证 ](how-to-connect-post-installation.md)|
+|安装后 | [验证安装并分配许可证](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

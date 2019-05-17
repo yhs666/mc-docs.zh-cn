@@ -9,18 +9,33 @@ ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
 origin.date: 03/05/2019
-ms.date: 03/25/2019
+ms.date: 04/29/2019
 ms.author: carlrab
-ms.openlocfilehash: c3007e991e312178ebe6c987450dafd7af4f0b52
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 32a1ac6addacb5e149737f0cbc57e48bf6874565
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319039"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855455"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
 本文列出了 SQL 数据库服务和 SQL 数据库文档中的新功能和改进。
+
+## <a name="features-in-public-preview"></a>处于公共预览版的功能
+
+| 功能 | 详细信息 |
+| ---| --- |
+| 弹性数据库作业 | 有关信息，请参阅[创建、配置和管理弹性作业](elastic-jobs-overview.md) |
+| 弹性事务 | [跨云数据库的分布式事务](sql-database-elastic-transactions-overview.md) |
+| 弹性查询 | 有关信息，请参阅[弹性查询概述](sql-database-elastic-query-overview.md) |
+| 数据发现和分类  |有关信息，请参阅 [Azure SQL 数据库和 SQL 数据仓库数据发现和分类](sql-database-data-discovery-and-classification.md)|
+| 托管实例的透明数据加密 (TDE) 和自带密钥 (BYOK) |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)|
+| Azure 门户中的查询编辑器 |有关信息，请参阅[使用 Azure 门户的 SQL 查询编辑器进行连接并查询数据](sql-database-connect-query-portal.md)|
+| 估计非重复计数|有关信息，请参阅[估计非重复计数](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+| 行存储上的批处理模式（在兼容性级别 150 下）|有关信息，请参阅[行存储上的批处理模式](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+| 内存授予反馈（行模式）（在兼容性级别 150 下）|有关信息，请参阅[内存授予反馈（行模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+| 表变量延迟编译（在兼容性级别 150 下）|有关信息，请参阅[表变量延迟的编译](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -28,7 +43,7 @@ ms.locfileid: "58319039"
 
 | 服务改进 | 详细信息 |
 | --- | --- |
-| 即将支持 ||
+| 正式版：支持针对 Azure SQL 数据库的读取扩展 | 有关详细信息，请参阅[读取扩展](sql-database-read-scale-out.md)|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>文档改进

@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: f98d6e988733dcce1ab1f2271ff79e6df637cfbf
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/17/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: c36c43520403d4a03ab7081c0f0176df8f0711ad
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003493"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854801"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 
-在 Azure SQL 数据库中，可以使用[长期备份保留](sql-database-long-term-retention.md)策略 (LTR) 配置单一数据库或入池数据库，以自动将备份在 Azure Blob 存储中保留最多 10 年。 然后，可以通过 Azure 门户或 PowerShell 使用这些备份来恢复数据库。
+在 Azure SQL 数据库中，可以使用[长期备份保留](sql-database-long-term-retention.md)策略 (LTR) 配置单一数据库或共用数据库，以自动将备份在 Azure Blob 存储中保留最多 10 年。 然后，可以通过 Azure 门户或 PowerShell 使用这些备份来恢复数据库。
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 Azure 门户配置长期保留策略并还原备份
 
@@ -30,7 +30,7 @@ ms.locfileid: "59003493"
 
 ### <a name="configure-long-term-retention-policies"></a>配置长期保留策略
 
-可以对 SQL 数据库进行配置，使其[保留自动备份](sql-database-long-term-retention.md)的时间长于你的服务层的保留期。 
+可以对 SQL 数据库进行配置，使其[保留自动备份](sql-database-long-term-retention.md)的时间长于你的服务层级的保留期。 
 
 1. 在 Azure 门户中，选择你的 SQL Server，然后单击“管理备份”。 在“配置策略”选项卡上，选中要为其设置或修改长期备份保留策略的数据库所对应的复选框。 如果未选中数据库旁边的复选框，则策略的更改将不会应用于该数据库。  
 
@@ -41,6 +41,9 @@ ms.locfileid: "59003493"
    ![配置策略](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
 3. 完成后，单击“应用”。
+
+> [!IMPORTANT]
+> 启用长期备份保留策略时，最长可能需要 7 天以后才能查看和还原第一个备份。 有关 LTR 备份频率的详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>使用 Azure 门户查看备份并从备份进行还原
 

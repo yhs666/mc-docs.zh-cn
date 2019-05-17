@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 媒体服务实时传送视频流，通过 Azure 门户创建多比特率流 | Microsoft Docs
+title: 使用 Azure 媒体服务实时传送视频流，通过 Azure 门户创建多比特率流 | Microsoft Docs
 description: 本教程介绍了创建通道的步骤，该通道接收单比特率实时流并利用 Azure 门户将其编码为多比特率流。
 services: media-services
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/19/2019
-ms.date: 04/01/2019
+origin.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 872ac2fbbde97640ae8ba3115442a4ed56f81f2d
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 4b7006a5032004fcbece448ecc4289fdd9ea1e61
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624195"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550012"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用媒体服务执行实时传送视频流，以通过 Azure 门户创建多比特率流  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>使用媒体服务实时传送视频流，通过 Azure 门户创建多比特率流  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -32,10 +32,7 @@ ms.locfileid: "58624195"
 
 本教程介绍了创建**通道**的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
 
-> [!NOTE]
-> 有关为实时编码启用的通道的更多相关概念信息，请参阅[使用 Azure 媒体服务实时传送视频流以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
-> 
-> 
+有关为实时编码启用的通道的更多相关概念信息，请参阅[使用 Azure 媒体服务实时传送视频流以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
 
 ## <a name="common-live-streaming-scenario"></a>常见的实时流方案
 以下是创建常见的实时流应用程序时涉及的常规步骤。
@@ -60,17 +57,8 @@ ms.locfileid: "58624195"
 9. 要停止流式传输并存档事件时，停止事件。
 10. 删除事件（并选择性地删除资产）。   
 
-## <a name="in-this-tutorial"></a>本教程的内容
-本教程使用 Azure 门户完成以下任务： 
-
-1. 创建能够执行实时编码的通道。
-2. 获取引入 URL，以便将其提供给实时编码器。 实时编码器使用此 URL 将流引入通道。
-3. 创建事件/节目（和资产）。
-4. 发布资产并获取流式处理 URL。  
-5. 播放内容。
-6. 清理。
-
 ## <a name="prerequisites"></a>先决条件
+
 以下是完成本教程所需具备的条件。
 
 * 若要完成本教程，需要一个 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -78,6 +66,7 @@ ms.locfileid: "58624195"
 * 可以发送单比特率实时流的摄像头和编码器。
 
 ## <a name="create-a-channel"></a>创建通道
+
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“媒体服务”，并单击媒体服务帐户名。
 2. 选择“实时传送视频流” 。
 3. 选择“自定义创建” 。 此选项可创建启用了实时编码的通道。
@@ -120,9 +109,10 @@ ms.locfileid: "58624195"
 ## <a name="get-ingest-urls"></a>获取引入 URL
 创建通道后，可以获得要提供给实时编码器的引入 URL。 编码器使用这些 URL 来输入实时流。
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![引入 url](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>创建并管理事件
+
 ### <a name="overview"></a>概述
 通道与事件/节目相关联，使用事件/节目，可控制实时流中的段的发布和存储。 通道管理事件/节目。 通道和节目的关系非常类似于传统媒体，通道具有恒定的内容流，而节目的范围限定为该通道上的一些定时事件。
 
@@ -154,7 +144,7 @@ ms.locfileid: "58624195"
 
     指定：事件名称、资产名称、归档时段和加密选项。
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![创建程序](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     如果保留选中“立即发布此现场活动”  ，会创建事件 PUBLISHING URL。
 

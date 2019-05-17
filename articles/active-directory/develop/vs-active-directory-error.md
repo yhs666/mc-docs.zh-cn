@@ -10,21 +10,22 @@ ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 09/03/2018
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: ee2bb20f01b14372d3f8a43bfdb624af9ee9314e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9b663f2158b399d741869d20715fa57d26dd3ea
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653820"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517457"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 连接服务诊断错误
 
 检测以前的身份验证代码时，Azure Active Directory 连接服务器检测到不兼容的身份验证类型。
 
-若要正确检测某个项目中以前的身份验证代码，必须生成该项目。  如果遇到此错误，并且项目中不存在以前的身份验证代码，请重新生成项目并重试。
+若要正确检测某个项目中以前的身份验证代码，必须生成该项目。  如果看到此错误，并且项目中不存在以前的身份验证代码，请重新生成项目并重试。
 
 ## <a name="project-types"></a>项目类型
 
@@ -32,7 +33,7 @@ ms.locfileid: "52653820"
 
 ## <a name="compatible-authentication-code"></a>兼容的身份验证代码
 
-连接服务还会检查是否存在以前配置的身份验证设置或与该服务兼容的身份验证设置。 如果所有这些设置都存在，则将视为可重入情况，连接服务将打开并显示这些设置。  如果只存在某些设置，则视为错误情况。
+连接服务还会检查是否存在以前配置的身份验证设置或与该服务兼容的身份验证设置。 如果所有设置都存在，则会将其视为可重入情况，连接服务将打开并显示这些设置。  如果只存在某些设置，则会将其视为错误情况。
 
 在 MVC 项目中，连接服务会检查是否存在以下任何设置（这些设置是以前使用该服务生成的）：
 
@@ -41,7 +42,7 @@ ms.locfileid: "52653820"
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-此外，连接服务还会在 Web API 项目中检查是否存在以下任何设置（这些设置是以前使用该服务生成的）：
+此外，连接服务还会在 Web API 项目中检查是否存在以下任何设置（这些设置是以前使用该服务时生成的）：
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
@@ -51,16 +52,16 @@ ms.locfileid: "52653820"
 
 最后，连接服务会尝试检测使用以前版本的 Visual Studio 配置的身份验证代码版本。 如果已收到此错误，它表示项目包含不兼容的身份验证类型。 连接服务将通过以前版本的 Visual Studio 检测以下身份验证类型：
 
-- Windows 身份验证
-- 单个用户帐户
-- 组织帐户
+* Windows 身份验证
+* 单个用户帐户
+* 组织帐户
 
 为了检测 MVC 项目中的 Windows 身份验证，连接服务将在 `web.config` 文件中查找 `authentication` 元素。
 
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +71,7 @@ ms.locfileid: "52653820"
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +80,7 @@ ms.locfileid: "52653820"
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +89,7 @@ ms.locfileid: "52653820"
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```
@@ -97,4 +98,4 @@ ms.locfileid: "52653820"
 
 有关详细信息，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

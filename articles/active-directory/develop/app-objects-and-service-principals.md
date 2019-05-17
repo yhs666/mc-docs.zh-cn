@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/27/2019
-ms.date: 03/18/2019
+origin.date: 04/13/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b13054cef7907f9ea58c7cf7d678e34bd6b1ea2e
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 2c1155331838d200a179c329398383fff390f937
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186657"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517488"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的应用程序对象和服务主体对象
 
@@ -53,7 +53,7 @@ ms.locfileid: "58186657"
 
 ### <a name="application-object"></a>应用程序对象
 
-Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象位于应用程序注册到的 Azure AD 租户（称为应用程序的“宿主”租户）中。 Azure AD Graph [Application 实体][AAD-Graph-App-Entity]定义应用程序对象属性的架构。
+Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象位于应用程序注册到的 Azure AD 租户（称为应用程序的“宿主”租户）中。 Microsoft Graph [Application 实体][MS-Graph-App-Entity]定义应用程序对象属性的架构。
 
 ### <a name="service-principal-object"></a>服务主体对象
 
@@ -61,7 +61,7 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 
 安全主体定义 Azure AD 租户中用户/应用程序的访问策略和权限。 这样便可实现核心功能，如在登录时对用户/应用程序进行身份验证，在访问资源时进行授权。
 
-当应用程序被授予了对租户中资源的访问权限时（根据注册或[许可](developer-glossary.md#consent)），将创建一个服务主体对象。 Azure AD Graph [ServicePrincipal 实体][AAD-Graph-Sp-Entity]定义服务主体对象属性的架构。
+当应用程序被授予了对租户中资源的访问权限时（根据注册或[许可](developer-glossary.md#consent)），将创建一个服务主体对象。 Microsoft Graph [ServicePrincipal 实体][MS-Graph-Sp-Entity]定义服务主体对象属性的架构。
 
 ### <a name="application-and-service-principal-relationship"></a>应用程序和服务主体的关系
 
@@ -69,7 +69,7 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 
 应用程序对象用作模板，常见属性和默认属性从其中*派生*，以便在创建相应服务主体对象时使用。 因此，应用程序对象与软件应用程序存在 1 对 1 关系，而与其对应的服务主体对象存在 1 对多关系。
 
-必须在将使用应用程序的每个租户中创建服务主体，让它能够建立用于登录和/或访问受租户保护的资源的标识。 单租户应用程序只有一个服务主体（在其宿主租户中），在应用程序注册期间创建并被允许使用。 多租户 Web 应用程序/API 还会在租户中的某个用户已同意使用它的每个租户中创建服务主体。 
+必须在将使用应用程序的每个租户中创建服务主体，让它能够建立用于登录和/或访问受租户保护的资源的标识。 单租户应用程序只有一个服务主体（在其宿主租户中），在应用程序注册期间创建并被允许使用。 多租户 Web 应用程序/API 还会在租户中的某个用户已同意使用它的每个租户中创建服务主体。
 
 > [!NOTE]
 > 对应用程序对象所做的任何更改也只反映在该对象在应用程序宿主租户（其注册所在的租户）的服务主体对象中。 
@@ -84,7 +84,7 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 - **Contoso** - Contoso 组织使用的租户，即 **HR 应用**的使用者
 - **Fabrikam** - Fabrikam 组织使用的租户，它也使用 **HR 应用**
 
-![应用程序对象与服务主体对象之间的关系](./media/app-objects-and-service-principals/application-objects-relationship.png)
+![应用程序对象与服务主体对象之间的关系](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 在此示例方案中：
 
@@ -96,15 +96,15 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 可以使用 [Azure AD Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/) 查询应用程序和服务主体对象。
-- 可以使用 Azure AD Graph API、[Azure 门户的][AZURE-Portal]应用程序清单编辑器或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的应用程序对象（由其 OData [Application 实体][AAD-Graph-App-Entity]表示）。
-- 可以通过 Azure AD Graph API 或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的服务主体对象（由其 OData [ServicePrincipal 实体][AAD-Graph-Sp-Entity]表示）。
+- 可以使用 [Microsoft Graph 浏览器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)查询应用程序和服务主体对象。
+- 可以使用 Microsoft Graph API、[Azure 门户的][AZURE-Portal]应用程序清单编辑器或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的应用程序对象（由其 OData [Application 实体][MS-Graph-App-Entity]表示）。
+- 可以通过 Microsoft Graph API 或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的服务主体对象（由其 OData [ServicePrincipal 实体][MS-Graph-Sp-Entity]表示）。
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.cn
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -1,27 +1,27 @@
 ---
 title: 在 Azure Database for MySQL 中创建和管理 MySQL 防火墙规则
 description: 使用 Azure 门户创建和管理 Azure Database for MySQL 防火墙规则
-services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
-editor: jasonwhowell
+author: WenJason
+ms.author: v-jay
 ms.service: mysql
-ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 9c3145d49992ccccd62df5662ddff67b55e52c27
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.topic: conceptual
+origin.date: 04/09/2018
+ms.date: 04/29/2019
+ms.openlocfilehash: eb9942f375b6152b83cbdd9196f3b2d56c31308b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858188"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854553"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL 防火墙规则
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-使用服务器级防火墙规则，管理员可以从指定的 IP 地址或某个范围的 IP 地址访问 Azure Database for MySQL 服务器。 
+可以使用服务器级防火墙规则，管理从指定的 IP 地址或某个范围的 IP 地址对 Azure Database for MySQL 服务器的访问。 
+
+也可使用虚拟网络 (VNet) 规则来保护对服务器进行的访问。 详细了解如何[使用 Azure 门户创建和管理虚拟网络服务终结点和规则](howto-manage-vnet-using-portal.md)。
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
 
@@ -41,7 +41,7 @@ ms.locfileid: "54858188"
 
 4. 添加其他地址范围。 在 Azure Database for MySQL 防火墙规则中，可以指定单个 IP 地址，也可以指定某个范围的地址。 如果希望将规则限制为单个 IP 地址，请在“起始 IP”和“结束 IP”字段中输入相同的地址。 打开防火墙后，管理员、用户和应用程序可以访问 MySQL 服务器上他们拥有有效凭据的任何数据库。
 
-   ![Azure 门户 - 防火墙规则 ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure 门户 - 防火墙规则](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. 在工具栏上单击“保存”以保存此服务器级防火墙规则。 等待出现有关防火墙规则更新已成功的确认消息。
 
@@ -64,4 +64,5 @@ ms.locfileid: "54858188"
 
 ## <a name="next-steps"></a>后续步骤
 - 同样，可以编写脚本以[使用 Azure CLI 创建和管理 Azure Database for PostgreSQL 防火墙规则](howto-manage-firewall-using-cli.md)。
-- 有关连接到 Azure Database for MySQL 服务器的帮助，请参阅 [Azure Database for MySQL 的连接库](./concepts-connection-libraries.md)
+- 通过[使用 Azure 门户创建和管理虚拟网络服务终结点和规则](howto-manage-vnet-using-portal.md)，进一步保护对服务器的访问。
+- 若要了解如何连接到 Azure Database for MySQL 服务器，请参阅 [Azure Database for MySQL 的连接库](./concepts-connection-libraries.md)。

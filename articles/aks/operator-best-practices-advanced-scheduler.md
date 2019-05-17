@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: cff5dfe5623d560b482fd1b59e511b24575458a1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f71243573aa9e81c976c693e1d17876cf489a23f
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625675"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520686"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的高级计划程序功能的最佳做法
 
@@ -31,6 +31,8 @@ ms.locfileid: "58625675"
 **最佳做法指导** - 限制资源密集型应用程序（例如入口控制器）对特定节点的访问。 将节点资源保留给需要它们的工作负荷使用，但不允许在节点上计划其他工作负荷。
 
 创建 AKS 群集时，可以部署支持 GPU 的节点或具有大量强大 CPU 的节点。 这些节点通常用于大数据处理工作负荷，例如机器学习 (ML) 或人工智能 (AI)。 由于此类硬件通常是需要部署的昂贵节点资源，因此需要限制可在这些节点上计划的工作负荷。 你可能想要专门使用群集中的某些节点来运行入口服务，并阻止其他工作负荷。
+
+<!--Not Available on This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools. Support for multiple node pools in AKS is currently in preview.-->
 
 Kubernetes 计划程序能够使用排斥和容许来限制可在节点上运行的工作负荷。
 
@@ -54,13 +56,13 @@ spec:
   containers:
   - name: tf-mnist
     image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -73,6 +75,20 @@ spec:
 应用排斥时，请与应用程序开发人员和所有者协作，让他们在其部署中定义所需的容许。
 
 有关排斥和容许的详细信息，请参阅[应用排斥和容许][k8s-taints-tolerations]。
+
+<!--Not Available on For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools]-->
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>AKS 中的排斥和容许的行为
+
+升级 AKS 中的节点池时，排斥和容许在应用于新节点时遵循一个设定的模式：
+
+- **不支持虚拟机缩放的默认群集**
+  - 假设你的群集有两个节点 - *node1* 和 *node2*。 在升级时，将创建另一个节点 (*node3*)。
+  - *node1* 中的排斥将应用于 *node3*，然后 *node1* 将被删除。
+  - 将创建另一个新节点（名为 *node1*，因为以前的 *node1* 被删除），并且 *node2* 排斥将应用于新的 *node1*。 然后，将删除 *node2*。
+  - 实际上，*node1* 变成了 *node3*，*node2* 变成了 *node1*。
+
+<!--Not Available on - **Clusters that use virtual machine scale sets** (currently in preview in AKS)-->
+缩放 AKS 中的节点池时，排斥和容许不会转移，这是设计使然。
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>使用节点选择器和关联控制 pod 计划
 
@@ -179,3 +195,4 @@ Kubernetes 计划程序逻辑隔离工作负荷的最终方法之一是使用 po
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+<!--Not Available on [use-multiple-node-pools]: use-multiple-node-pools.md-->

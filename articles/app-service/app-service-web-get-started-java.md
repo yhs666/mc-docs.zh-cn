@@ -4,7 +4,7 @@ description: 了解如何通过部署基本的 Java 应用，从而在应用服�
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: mbaldwin
+manager: routlaw
 editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 03/26/2018
-ms.date: 01/21/2019
+ms.date: 05/20/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 20d49b5360ff52e720e266a33634454b513a414b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a0c15236b49527d6ad1037fcf0e674859c498f00
+ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626793"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412487"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中创建第一个 Java Web 应用
 
-[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。 本快速入门演示如何使用 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/) 将 Java Web 应用部署到应用服务。
+Azure 应用服务提供高度可缩放、自修补的 Web 托管服务。 本快速入门演示如何使用面向 Java EE 开发者的 Eclipse IDE 将 Java Web 应用部署到应用服务。
 
 > [!NOTE]
 >
@@ -55,7 +55,7 @@ ms.locfileid: "58626793"
 在 Eclipse 中，选择“文件” > “新建” > “动态 Web 项目”。
 
 在“新建动态 Web 项目”对话框中，将项目命名为 **MyFirstJavaOnAzureWebApp**，然后选择“完成”。
-
+   
 ![“新建动态 Web 项目”对话框](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
 ### <a name="add-a-jsp-page"></a>添加 JSP 页面
@@ -186,9 +186,9 @@ Azure 工具包创建 Web 应用，并显示进度对话框。
 
 “部署 Web 应用”对话框随即出现并显示之前创建的应用服务。 
 
-> [!NOTE]
-> 每次发布时选择“部署到根目录”。
->
+> [!NOTE] 
+> 每次发布时选择“部署到根目录”。 
+> 
 
 选择 Web 应用，然后选择“部署”，此操作将发布更改。
 

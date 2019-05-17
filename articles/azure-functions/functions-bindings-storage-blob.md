@@ -10,22 +10,22 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/15/2018
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: 53c135477fef8f5f0be67e217393722f87485f7c
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 17b176aee5e6b82259ec1a7f4986ecbe3d777889
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254064"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855539"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
 本文介绍如何在 Azure Functions 中使用 Azure Blob 存储绑定。 Azure Functions 支持 Blob 的触发器、输入和输出绑定。 本文各部分分别介绍每种绑定：
 
-- [blob 触发器](#trigger)
-- [blob 输入绑定](#input)
-- [blob 输出绑定](#output)
+* [blob 触发器](#trigger)
+* [blob 输入绑定](#input)
+* [blob 输出绑定](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -52,11 +52,11 @@ ms.locfileid: "57254064"
 
 参阅语言特定的示例：
 
-- [C#](#trigger---c-example)
-- [C# 脚本 (.csx)](#trigger---c-script-example)
-- [Java](#trigger---java-example)
-- [JavaScript](#trigger---javascript-example)
-- [Python](#trigger---python-example)
+* [C#](#trigger---c-example)
+* [C# 脚本 (.csx)](#trigger---c-script-example)
+* [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -257,11 +257,11 @@ public void run(
   {
       ....
   }
-  ```
+   ```
 
   有关完整示例，请参阅[触发器 - C# 示例](#trigger---c-example)。
 
-- [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   提供另一种方式来指定要使用的存储帐户。 构造函数采用包含存储连接字符串的应用设置的名称。 可以在参数、方法或类级别应用该特性。 以下示例演示类级别和方法级别：
 
@@ -279,11 +279,11 @@ public void run(
 
 要使用的存储帐户按以下顺序确定：
 
-- `BlobTrigger` 特性的 `Connection` 属性。
-- 作为 `BlobTrigger` 特性应用到同一参数的 `StorageAccount` 特性。
-- 应用到函数的 `StorageAccount` 特性。
-- 应用到类的 `StorageAccount` 特性。
-- 函数应用的默认存储帐户（“AzureWebJobsStorage”应用设置）。
+* `BlobTrigger` 特性的 `Connection` 属性。
+* 作为 `BlobTrigger` 特性应用到同一参数的 `StorageAccount` 特性。
+* 应用到函数的 `StorageAccount` 特性。
+* 应用到类的 `StorageAccount` 特性。
+* 函数应用的默认存储帐户（“AzureWebJobsStorage”应用设置）。
 
 ## <a name="trigger---configuration"></a>触发器 - 配置
 
@@ -292,9 +292,9 @@ public void run(
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
-|direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#trigger---usage)部分中已阐述异常。 |
-|**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 | 
-|**路径** | **BlobPath** |要监视的[容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)。  可以是某种 [Blob 名称模式](#trigger---blob-name-patterns)。 | 
+|**direction** | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#trigger---usage)部分中已阐述异常。 |
+|**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
+|**路径** | **BlobPath** |要监视的[容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)。  可以是某种 [Blob 名称模式](#trigger---blob-name-patterns)。 |
 |**连接** | **Connection** | 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -303,15 +303,15 @@ public void run(
 
 在 C# 和 C# 脚本中，可以为触发 blob 使用以下参数类型：
 
-- `Stream`
-- `TextReader`
-- `string`
-- `Byte[]`
-- 可序列化为 JSON 的 POCO
-- `ICloudBlob`<sup>1</sup>
-- `CloudBlockBlob`<sup>1</sup>
-- `CloudPageBlob`<sup>1</sup>
-- `CloudAppendBlob`<sup>1</sup>
+* `Stream`
+* `TextReader`
+* `string`
+* `Byte[]`
+* 可序列化为 JSON 的 POCO
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> function.json 中需有 "inout" 绑定 `direction` 或 C# 类库中需有 `FileAccess.ReadWrite`。
 
@@ -395,11 +395,11 @@ Azure Functions 运行时确保没有为相同的新 blob 或更新 blob 多次�
 
 Azure Functions 将 Blob 回执存储在函数应用的 Azure 存储帐户中名为 azure-webjobs-hosts 的容器中（由 `AzureWebJobsStorage` 应用设置定义）。 Blob 回执包含以下信息：
 
-- 触发的函数（"&lt;function app name>.Functions.&lt;function name>"，例如："MyFunctionApp.Functions.CopyBlob"）
-- 容器名称
-- Blob 类型（"BlockBlob" 或 "PageBlob"）
-- Blob 名称
-- ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
+* 触发的函数（"&lt;function app name>.Functions.&lt;function name>"，例如："MyFunctionApp.Functions.CopyBlob"）
+* 容器名称
+* Blob 类型（"BlockBlob" 或 "PageBlob"）
+* Blob 名称
+* ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
 
 若要强制重新处理某个 blob，可从 azure-webjobs-hosts 容器中手动删除该 blob 的 blob 回执。
 
@@ -409,23 +409,25 @@ Azure Functions 将 Blob 回执存储在函数应用的 Azure 存储帐户中名
 
 如果 5 次尝试全部失败，Azure Functions 会将消息添加到名为 webjobs-blobtrigger-poison 的存储队列。 有害 Blob 的队列消息是包含以下属性的 JSON 对象：
 
-- FunctionId（格式为 &lt;function app name>.Functions.&lt;function name>）
-- BlobType（"BlockBlob" 或 "PageBlob"）
-- ContainerName
-- BlobName
-- ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
+* FunctionId（格式为 &lt;function app name>.Functions.&lt;function name>）
+* BlobType（"BlockBlob" 或 "PageBlob"）
+* ContainerName
+* BlobName
+* ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
 
 ## <a name="trigger---concurrency-and-memory-usage"></a>触发器 - 并发和内存使用情况
 
 Blob 触发器可在内部使用队列，因此并发函数调用的最大数量受 [host.json 中的队列配置](functions-host-json.md#queues)控制。 默认设置会将并发限制到 24 个调用。 此限制分别应用于使用 blob 触发器的函数。
 
-内存由每个并发执行函数实例和函数运行时本身使用。 如果 blob 触发的函数将整个 blob 加载到内存中，该函数使用的仅用于 blob 的最大内存为 24 * 最大 blob 大小。 例如，包含 3 个由 blob 触发的函数的函数应用和默认设置，其每 VM 最大并发为 3*24 = 72 个函数调用。
+[消耗计划](functions-scale.md#how-the-consumption-plans-work)将虚拟机 (VM) 上的函数应用限制为 1.5 GB 内存。 内存由每个并发执行函数实例和函数运行时本身使用。 如果 blob 触发的函数将整个 blob 加载到内存中，该函数使用的仅用于 blob 的最大内存为 24 * 最大 blob 大小。 例如，包含 3 个由 blob 触发的函数的函数应用和默认设置，其每 VM 最大并发为 3*24 = 72 个函数调用。
 
 JavaScript 和 Java 函数会将整个 blob 加载到内存中，并且如果绑定到 `string`、`Byte[]` 或 POCO，则 C# 函数也会如此。
 
 ## <a name="trigger---polling"></a>触发器 - 轮询
 
-如果受监视的 blob 容器包含 10,000 多个 blob，则 Functions 运行时将扫描日志文件，监视新的或更改的 blob。 此过程可能会导致延迟。 创建 blob 之后数分钟或更长时间内可能仍不会触发函数。 此外，[将“尽力”创建存储日志](https://docs.microsoft.com/rest/api/storageservices/About-Storage-Analytics-Logging)。 不保证捕获所有事件。 在某些情况下可能会遗漏某些日志。 如果需要更快或更可靠的 blob 处理，在创建 blob 时，请考虑创建[队列消息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然后，使用[队列触发器](functions-bindings-storage-queue.md)而不是 Blob 触发器来处理 Blob。 
+如果受监视的 blob 容器包含 10,000 多个 blob（跨所有容器），则 Functions 运行时将扫描日志文件，监视新的或更改的 blob。 此过程可能会导致延迟。 创建 blob 之后数分钟或更长时间内可能仍不会触发函数。 此外，[将“尽力”创建存储日志](https://docs.microsoft.com/rest/api/storageservices/About-Storage-Analytics-Logging)。 不保证捕获所有事件。 在某些情况下可能会遗漏某些日志。
+
+如果需要更快或更可靠的 blob 处理，在创建 blob 时，请考虑创建[队列消息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然后，使用[队列触发器](functions-bindings-storage-queue.md)而不是 Blob 触发器来处理 Blob。 
 
 ## <a name="input"></a>输入
 
@@ -435,11 +437,11 @@ JavaScript 和 Java 函数会将整个 blob 加载到内存中，并且如果绑
 
 参阅语言特定的示例：
 
-- [C#](#input---c-example)
-- [C# 脚本 (.csx)](#input---c-script-example)
-- [Java](#input---java-examples)
-- [JavaScript](#input---javascript-example)
-- [Python](#input---python-example)
+* [C#](#input---c-example)
+* [C# 脚本 (.csx)](#input---c-script-example)
+* [Java](#input---java-examples)
+* [JavaScript](#input---javascript-example)
+* [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>输入 - C# 示例
 
@@ -454,7 +456,7 @@ public static void Run(
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-```        
+```
 
 ### <a name="input---c-script-example"></a>输入 - C# 脚本示例
 
@@ -609,8 +611,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 本部分包含以下示例：
 
-- [HTTP 触发器，使用查询字符串查找 blob 名称](#http-trigger-look-up-blob-name-from-query-string-java)
-- [队列触发器，接收来自队列消息的 blob 名称](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [HTTP 触发器，使用查询字符串查找 blob 名称](#http-trigger-look-up-blob-name-from-query-string-java)
+* [队列触发器，接收来自队列消息的 blob 名称](#queue-trigger-receive-blob-name-from-queue-message-java)
 
 #### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP 触发器，使用查询字符串查找 blob 名称 (Java)
 
@@ -701,7 +703,7 @@ public static void Run(
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `blob`。 |
-|direction | 不适用 | 必须设置为 `in`。 [用法](#input---usage)部分中已阐述异常。 |
+|**direction** | 不适用 | 必须设置为 `in`。 [用法](#input---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。|
 |**路径** |**BlobPath** | Blob 的路径。 |
 |**连接** |**Connection**| 包含要用于此绑定的[存储连接字符串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[仅限 Blob 的存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
@@ -713,16 +715,16 @@ public static void Run(
 
 在 C# 和 C# 脚本中，可以为 blob 输入绑定使用以下参数类型：
 
-- `Stream`
-- `TextReader`
-- `string`
-- `Byte[]`
-- `CloudBlobContainer`
-- `CloudBlobDirectory`
-- `ICloudBlob`<sup>1</sup>
-- `CloudBlockBlob`<sup>1</sup>
-- `CloudPageBlob`<sup>1</sup>
-- `CloudAppendBlob`<sup>1</sup>
+* `Stream`
+* `TextReader`
+* `string`
+* `Byte[]`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> function.json 中需有 "inout" 绑定 `direction` 或 C# 类库中需有 `FileAccess.ReadWrite`。
 
@@ -740,11 +742,11 @@ public static void Run(
 
 参阅语言特定的示例：
 
-- [C#](#output---c-example)
-- [C# 脚本 (.csx)](#output---c-script-example)
-- [Java](#output---java-examples)
-- [JavaScript](#output---javascript-example)
-- [Python](#output---python-example)
+* [C#](#output---c-example)
+* [C# 脚本 (.csx)](#output---c-script-example)
+* [Java](#output---java-examples)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -777,7 +779,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
     { ImageSize.Small,      (640, 400) },
     { ImageSize.Medium,     (800, 600) }
 };
-```        
+```
 
 ### <a name="output---c-script-example"></a>输出 - C# 脚本示例
 
@@ -933,8 +935,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
 本部分包含以下示例：
 
-- [HTTP 触发器，使用 OutputBinding](#http-trigger-using-outputbinding-java)
-- [队列触发器，使用函数返回值](#queue-trigger-using-function-return-value-java)
+* [HTTP 触发器，使用 OutputBinding](#http-trigger-using-outputbinding-java)
+* [队列触发器，使用函数返回值](#queue-trigger-using-function-return-value-java)
 
 #### <a name="http-trigger-using-outputbinding-java"></a>HTTP 触发器，使用 OutputBinding (Java)
 
@@ -1035,7 +1037,7 @@ public static void Run(
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `blob`。 |
-|direction | 不适用 | 对于输出绑定，必须设置为 `out`。 [用法](#output---usage)部分中已阐述异常。 |
+|**direction** | 不适用 | 对于输出绑定，必须设置为 `out`。 [用法](#output---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。  设置为 `$return` 可引用函数返回值。|
 |**路径** |**BlobPath** | Blob 的路径。 |
 |**连接** |**Connection**| 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[仅限 Blob 的存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
@@ -1047,17 +1049,17 @@ public static void Run(
 
 在 C# 和 C# 脚本中，可绑定到以下类型，以编写 blob：
 
-- `TextWriter`
-- `out string`
-- `out Byte[]`
-- `CloudBlobStream`
-- `Stream`
-- `CloudBlobContainer`<sup>1</sup>
-- `CloudBlobDirectory`
-- `ICloudBlob`<sup>2</sup>
-- `CloudBlockBlob`<sup>2</sup>
-- `CloudPageBlob`<sup>2</sup>
-- `CloudAppendBlob`<sup>2</sup>
+* `TextWriter`
+* `out string`
+* `out Byte[]`
+* `CloudBlobStream`
+* `Stream`
+* `CloudBlobContainer`<sup>1</sup>
+* `CloudBlobDirectory`
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
 <sup>1</sup> function.json 中需有 "in" 绑定 `direction` 或 C# 类库中需有 `FileAccess.Read`。 但是，可以使用运行时提供的容器对象来执行写入操作，例如将 Blob 上传到容器。
 
@@ -1082,11 +1084,11 @@ public static void Run(
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+* [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
 --->
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

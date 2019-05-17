@@ -8,22 +8,23 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 317257d6a9ef021d920638fda9d26500d6c26754
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3075642ed26d47fed8ea8d477e3ac225cbd0294f
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646245"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517497"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>快速入门：生成一个与 Azure AD 集成以进行身份验证和授权的 .NET Web API
 
@@ -33,8 +34,8 @@ ms.locfileid: "52646245"
 
 在 ASP.NET Web 应用中，可以使用 .NET Framework 4.5 中包含的社区驱动 OWIN 中间件的 Microsoft 实现来完成保护。 现在，我们将使用 OWIN 来生成“待办事项列表”Web API：
 
-- 指定要保护哪些 API。
-- 验证 Web API 调用是否包含有效的访问令牌。
+* 指定要保护哪些 API。
+* 验证 Web API 调用是否包含有效的访问令牌。
 
 在此快速入门中，你将生成待办事项列表 API 并了解如何：
 
@@ -46,22 +47,22 @@ ms.locfileid: "52646245"
 
 开始前，请完成这些先决条件：
 
-- [下载应用框架](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)。 每个下载项目都是 Visual Studio 2013 解决方案。
-- 拥有一个用于注册应用程序的 Azure AD 租户。 如果没有此租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
+* [下载应用框架](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)。 每个下载项目都是 Visual Studio 2013 解决方案。
+* 拥有一个用于注册应用程序的 Azure AD 租户。 如果没有此租户，请 [了解如何获取租户](quickstart-create-new-tenant.md)。
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>步骤 1：向 Azure AD 注册应用程序
+## <a name="step-1-register-an-application-with-azure-ad"></a>步骤 1：将应用程序注册到 Azure AD
 
 若要帮助保护应用程序，首先需要在租户中创建一个应用程序，并向 Azure AD 提供一些关键信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 通过以下方式选择 Azure AD 租户：在页面右上角选择你的帐户，选择“切换目录”导航，然后选择合适的租户。
-    - 如果你的帐户下只有一个 Azure AD 租户，或者已选择了合适的 Azure AD 租户，请跳过此步骤。
+    * 如果你的帐户下只有一个 Azure AD 租户，或者已选择了合适的 Azure AD 租户，请跳过此步骤。
 
 3. 在左侧导航窗格中，选择“Azure Active Directory”。
 4. 选择“应用注册”，并选择“添加”。
 5. 根据提示创建一个新的 **Web 应用程序和/或 Web API**。
-    - **名称**向用户描述应用程序。 输入**待办事项列表服务**。
-    - “重定向 URI”是 Azure AD 用来返回应用程序请求的任何令牌的方案与字符串组合。 为此值输入 `https://localhost:44321/` 。
+    * **名称**向用户描述应用程序。 输入**待办事项列表服务**。
+    * “重定向 URI”是 Azure AD 用来返回应用程序请求的任何令牌的方案与字符串组合。 为此值输入 `https://localhost:44321/` 。
 
 6. 在应用程序的“设置”>“属性”页中，更新应用 ID URI。 输入租户特定的标识符。 例如，输入 `https://contoso.partner.onmschina.cn/TodoListService`。
 7. 保存配置。 让门户保持打开状态，因为稍后你还需要注册客户端应用程序。
@@ -91,7 +92,11 @@ ms.locfileid: "52646245"
     }
     ```
 
-4. 打开文件 `App_Start\Startup.Auth.cs` 并实现 `ConfigureAuth(…)` 方法。 在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的参数充当应用与 Azure AD 通信时使用的坐标。
+4. 打开文件 `App_Start\Startup.Auth.cs` 并实现 `ConfigureAuth(…)` 方法。 在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的参数充当应用与 Azure AD 通信时使用的坐标。 若要使用它们，需使用 `System.IdentityModel.Tokens` 命名空间中的类。
+
+    ```csharp
+    using System.IdentityModel.Tokens;
+    ```
 
     ```csharp
     public void ConfigureAuth(IAppBuilder app)
@@ -99,8 +104,11 @@ ms.locfileid: "52646245"
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
             new WindowsAzureActiveDirectoryBearerAuthenticationOptions
             {
-                Audience = ConfigurationManager.AppSettings["ida:Audience"],
-                Tenant = ConfigurationManager.AppSettings["ida:Tenant"]
+                 Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
+                 TokenValidationParameters = new TokenValidationParameters
+                 {
+                    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
+                 }
             });
     }
     ```
@@ -133,8 +141,8 @@ ms.locfileid: "52646245"
     ```
 
 7. 打开位于 TodoListService 项目根目录中的 `web.config` 文件，并在 `<appSettings>` 节中输入你的配置值。
-    - `ida:Tenant` 是 Azure AD 租户的名称，例如，contoso.partner.onmschina.cn。
-    - `ida:Audience` 是在 Azure 门户中为应用程序输入的应用 ID URI。
+    * `ida:Tenant` 是 Azure AD 租户的名称，例如，contoso.partner.onmschina.cn。
+    * `ida:Audience` 是在 Azure 门户中为应用程序输入的应用 ID URI。
 
 ## <a name="step-3-configure-a-client-application-and-run-the-service"></a>步骤 3：配置客户端应用程序并运行服务
 
@@ -142,16 +150,16 @@ ms.locfileid: "52646245"
 
 1. 返回到 [Azure 门户](https://portal.azure.cn)。
 1. 在 Azure AD 租户中创建新的应用程序，并在最终提示中选择“本机客户端应用程序”  。
-    - **名称**向用户描述应用程序。
-    - 输入 `http://TodoListClient/` 作为“重定向 URI”值。
+    * **名称**向用户描述应用程序。
+    * 输入 `http://TodoListClient/` 作为“重定向 URI”值。
 
 1. 完成注册后，Azure AD 将向应用分配唯一应用程序 ID。 在后面的步骤中会用到此值，因此，请从应用程序页复制此值。
 1. 在“设置”页上，选择“所需权限”，并选择“添加”。 找到并选择待办事项列表服务，在“委派的权限”下添加“访问 TodoListService”权限，并选择“完成”。
 1. 在 Visual Studio 中，打开 TodoListClient 项目中的 `App.config`，然后在 `<appSettings>` 节中输入配置值。
 
-    - `ida:Tenant` 是 Azure AD 租户的名称，例如，contoso.partner.onmschina.cn。
-    - `ida:ClientId` 是从 Azure 门户复制的应用 ID。
-    - `todo:TodoListResourceId` 是在 Azure 门户中为待办事项列表服务应用程序输入的应用 ID URI。
+    * `ida:Tenant` 是 Azure AD 租户的名称，例如，contoso.partner.onmschina.cn。
+    * `ida:ClientId` 是从 Azure 门户复制的应用 ID。
+    * `todo:TodoListResourceId` 是在 Azure 门户中为待办事项列表服务应用程序输入的应用 ID URI。
 
 1. 清理、生成并运行每个项目。
 1. 可以使用 *.partner.onmschina.cn 域在租户中创建一个新用户（如果尚未这样做）。
@@ -159,6 +167,6 @@ ms.locfileid: "52646245"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关参考，请从 [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) 下载已完成的示例（无配置值）。 现在，可以转到其他标识方案。
+* 有关参考，请从 [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) 下载已完成的示例（无配置值）。 现在，可以转到其他标识方案。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

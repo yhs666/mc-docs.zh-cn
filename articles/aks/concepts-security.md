@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: ddb17bc253891943d05ec7f079c629aadf2e07f8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 74e6203b4034e20eaff01abcc80540a06f8405e6
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626297"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520730"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序和群集的安全性相关概念
 
@@ -29,7 +29,7 @@ ms.locfileid: "58626297"
 
 ## <a name="master-security"></a>主组件安全
 
-在 AKS 中，Kubernetes 主组件是 Microsoft 提供的托管服务的一部分。 每个 AKS 群集都有其自己的专用单租户 Kubernetes 主组件，用于提供 API 服务器、计划程序等。此主组件由 Azure 管理和维护
+在 AKS 中，Kubernetes 主组件是 Azure 提供的托管服务的一部分。 每个 AKS 群集都有其自己的专用单租户 Kubernetes 主组件，用于提供 API 服务器、计划程序等。此主组件由 Azure 管理和维护。
 
 <!--MOONCAKE: Update from Microsoft to Azure-->
 
@@ -97,7 +97,7 @@ Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
@@ -105,3 +105,5 @@ Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+
+<!-- Update_Description: wording update, update link -->

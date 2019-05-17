@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 7cc8941fef0319a888e94b1ac1f1c6c33ab92e28
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 1a331166026cf564f866a6fa65561c5e8fd370a8
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890211"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549936"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -93,19 +93,19 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 * [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)
 
   此文详细说明了 RBAC 中所有可用的内置角色。
-* [了解资源管理器部署和经典部署](../../azure-resource-manager/resource-manager-deployment-model.md)
+* [了解 Resource Manager 部署和经典部署](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   本文介绍了 Resource Manager 部署和经典部署模型，并阐释了使用 Resource Manager 和资源组的优点。 本文介绍了 Azure 计算、网络和存储提供程序在 Resource Manager 模式下的工作方式。
-* [Managing Role-Based Access Control with the REST API（使用 REST API 管理基于角色的访问控制）](../../role-based-access-control/role-assignments-rest.md)
+* [使用 REST API 管理基于角色的访问控制](../../role-based-access-control/role-assignments-rest.md)
 
   此文说明如何使用 REST API 来管理 RBAC。
 * [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   该 API 参考信息介绍了可用于按编程方式管理存储帐户的 API。
-* [使用 Resource Manager 身份验证 API 访问订阅](../../azure-resource-manager/resource-manager-api-authentication.md)
+* [使用资源管理器身份验证 API 访问订阅](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   此文说明如何使用 Resource Manager API 进行身份验证。
-* [Ignite 中提供的适用于 Azure 的基于角色的访问控制](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+* [Role-Based Access Control for Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)（Ignite 中提供的适用于 Azure 的基于角色的访问控制）
 
   这是第 9 频道中提供的 2015 MS Ignite 会议视频链接。 此次研讨会讨论了 Azure 中的访问管理和报告功能，并探索使用 Azure Active Directory 安全访问 Azure 订阅的最佳实践。
 
@@ -238,7 +238,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
     此文提供有关使用服务级别 SAS 配合 Blob、队列、表范围和文件的示例。
   * [构造服务 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [构造帐户 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* 这些是使用 .NET 客户端库来创建共享访问签名和存储访问策略的教程。
+* 这些教程介绍了如何使用 .NET 客户端库创建共享访问签名和存储访问策略。
 
   * [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
   * [共享访问签名，第 2 部分：创建 SAS 并将其用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
@@ -247,7 +247,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 
 * 身份验证
 
-  * [Azure 存储服务的身份验证](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+  * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)（Azure 存储服务的身份验证）
 * 共享访问签名入门教程
 
   * [SAS 入门教程](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
@@ -295,15 +295,15 @@ SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azur
 对于加密本身，可以生成和管理自己的加密密钥。 也可以使用 Azure 存储客户端库所生成的密钥，或者让 Azure 密钥保管库生成密钥。 可以将加密密钥存储在本地密钥存储中，或将它们存储在 Azure Key Vault 中。 Azure 密钥保管库允许使用 Azure Active Directory 为特定用户授予 Azure 密钥保管库中密码的访问权限。 这意味着，并非每个人都能读取 Azure Key Vault，以及检索用于进行客户端加密的密钥。
 
 #### <a name="resources"></a>资源
-* [在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [在 Azure 存储中使用 Azure 密钥保管库加密和解密 blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
   此文说明如何配合 Azure Key Vault 使用客户端加密，包括如何使用 PowerShell 来创建 KEK 并将它存储在保管库中。
-* [Azure 存储的客户端加密和 Azure Key Vault](storage-client-side-encryption.md)
+* [Azure 存储的客户端加密和 Azure 密钥保管库](storage-client-side-encryption.md)
 
   此文介绍客户端加密，并提供使用存储客户端库从四个存储服务加密和解密资源的示例。 此外介绍了 Azure 密钥保管库。
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>使用 Azure 磁盘加密来加密虚拟机所用的磁盘
-Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 对于 Linux，磁盘是使用 DM-Crypt 技术加密的。 它与 Azure 密钥保管库集成，可用于控制和管理磁盘加密密钥。
+Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 对于 Linux，磁盘是使用 DM-Crypt 技术加密的。 它与 Azure 密钥保管库集成，可用于控制和管理磁盘加密密钥。
 
 在 Azure 中启用了 IaaS VM 时，该解决方案支持以下 IaaS VM 方案：
 
@@ -373,9 +373,9 @@ SSE 由 Azure 存储管理。 SSE 不是针对传输中数据安全性提供的�
 ### <a name="using-storage-analytics-to-monitor-authorization-type"></a>使用存储分析来监视授权类型
 对于每个存储帐户，可以启用 Azure 存储分析来执行日志记录和存储指标数据。 若要检查存储帐户的性能指标，或者由于发生性能问题而需要排查存储帐户问题，这是一个绝佳工具。
 
-可以在存储分析记录中看到的另一部分数据是其他人访问存储时使用的身份验证方法。 例如，使用 Blob 存储，可以看到他们使用的是共享访问签名还是存储帐户密钥，或者访问的 Blob 是否为公共的。
+可以在存储分析日志中看到的另一部分数据是其他人访问存储时使用的身份验证方法。 例如，使用 Blob 存储，可以看到他们使用的是共享访问签名还是存储帐户密钥，或者访问的 Blob 是否为公共的。
 
-如果要严密监视存储的访问，这很有用。 例如，在 Blob 存储中，可以将所有容器设置为专用，并通过应用程序实现 SAS 服务的使用。 然后可以定期检查日志，以了解你的 Blob 是否是使用存储帐户密钥访问的（这可能表示出现安全违规），或者 Blob 是公共的但它们不应该是公共的。
+如果要严密监视存储的访问，这很有用。 例如，在 Blob 存储中，可以将所有容器设置为专用，并通过应用程序实现 SAS 服务的使用。 然后可以定期检查日志，以了解 Blob 是否是使用存储帐户密钥访问的（这可能表示出现安全违规），或者 Blob 是公共的但它们不应该是公共的。
 
 #### <a name="what-do-the-logs-look-like"></a>日志的外观
 通过 Azure 门户启用存储帐户指标和日志记录后，分析数据会开始快速累积。 每个服务的日志记录与指标是分开的；只有在该存储帐户中有活动时才将写入日志，而根据设置指标的方式，会每分钟、每小时或每天记录指标。
@@ -393,7 +393,7 @@ SSE 由 Azure 存储管理。 SSE 不是针对传输中数据安全性提供的�
 如你所见，可以使用日志来跟踪对存储帐户的各种调用。
 
 #### <a name="what-are-all-of-those-fields-for"></a>所有这些字段的用途是什么？
-在下面列出的资源中，有一篇文章提供了日志中许多字段的列表及其用途。 下面是依次列出的字段列表：
+在下面列出的资源中，有一篇文章提供了这些日志中许多字段的列表及其用途。 下面是依次列出的字段列表：
 
 ![日志文件中字段的快照](./media/storage-security-guide/image3.png)
 
@@ -420,16 +420,16 @@ SSE 由 Azure 存储管理。 SSE 不是针对传输中数据安全性提供的�
 * [存储分析](storage-analytics.md)
 
   此文概述存储分析及其启用方法。
-* [存储分析日志格式](https://msdn.microsoft.com/library/azure/hh343259.aspx)
+* [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)（存储分析日志格式）
 
   此文介绍存储分析日志格式，并详细说明其中的可用字段，包括身份验证类型（指示请求使用的身份验证类型）。
 * [在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)
 
   此文说明如何配置和监视存储帐户的指标与日志记录。
-* [使用 Azure 存储度量值和日志记录、AzCopy 和 Message Analyzer 进行端到端故障排除](storage-e2e-troubleshooting.md)
+* [使用 Azure 存储度量值和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除](storage-e2e-troubleshooting.md)
 
   此文介绍如何使用存储分析进行故障排除，并说明如何使用 Microsoft Message Analyzer。
-* [Microsoft Message Analyzer 操作指南](https://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx)（Microsoft Message Analyzer 操作指南）
 
   本文提供 Microsoft Message Analyzer 的参考信息，包括教程、快速入门和功能摘要的链接。
 
@@ -476,8 +476,8 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 
 * [Azure.com 上对 Azure 存储服务的跨域资源共享 (CORS) 支持](storage-cors-support.md)
 
-  此文概述 CORS，以及如何为不同的存储服务设置规则。
-* [MSDN 上对 Azure 存储服务的跨域资源共享 (CORS) 支持](https://msdn.microsoft.com/library/azure/dn535601.aspx)
+  此文概要讲述了 CORS，并介绍了如何为不同的存储服务设置规则。
+* [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)（MSDN 上对 Azure 存储服务的跨域资源共享 (CORS) 支持）
 
   这是有关对 Azure 存储服务的 CORS 支持的参考文档。 其中提供了适用于每个存储服务的文章链接，并提供示例演示，解释 CORS 文件中的每个元素。
 * [Azure 存储：CORS 简介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
@@ -492,7 +492,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
    如果可以使用提供传输级安全的 HTTPS，则使用 MD5 检查就很多余且不必要。
 
    有关详细信息，请查看 [Azure Blob MD5 Overview](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)（Azure Blob MD5 概述）。
-2. **美国政府实施的 FIPS 符合性要求是怎么样的？**
+2. **美国政府实施的 FIPS 合规性要求是怎样的？**
 
    美国联邦信息处理标准 (FIPS) 定义了美国联邦政府计算机系统批准使用的加密算法，以保护敏感数据。 如果在 Windows 服务器或桌面上启用 FIPS 模式，将告知 OS 仅应使用经 FIPS 验证的加密算法。 如果某个应用程序使用不合规的算法，即表示该应用程序违规。 使用 .NET Framework 4.5.2 或更高版本，应用程序可在计算机处于 FIPS 模式时自动切换加密算法来使用符合 FIPS 的算法。
 
@@ -502,7 +502,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 * [为何建议不再使用“FIPS 模式”](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   此博客文章提供了 FIPS 概述，并说明了他们为什么默认不启用 FIPS 模式。
-* [FIPS 140 验证](https://technet.microsoft.com/library/cc750357.aspx)
+* [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)（FIPS 140 验证）
 
   此文提供了有关 Microsoft 产品和加密模块如何遵守美国联邦政府 FIPS 标准的信息。
 * [“系统加密：使用 FIPS 兼容的算法来加密、哈希和签名”在 Windows XP 和更高版本的 Windows 中的安全设置影响](https://support.microsoft.com/kb/811833)

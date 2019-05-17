@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/15/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 561c981d5111cd05928531afa12f0e224667773c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f9878dbb714b630e1a53ef71c5c8c303501d80b1
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626544"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854491"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
@@ -43,20 +43,20 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
 > [!IMPORTANT]
-> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
+> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
 - Azure Stack 1901 或更高版本：
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 模块版本 1.7.0 是一项重大更改。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration170)。
+    > Azure Stack 模块版本 1.7.1 是一项中断性变更。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
 
   - Azure Stack 1811：
 
@@ -88,7 +88,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **未从 ASDK 主机建立 Internet 连接**。 在离线场景中，必须先使用以下 PowerShell 命令，将 PowerShell 模块下载到已建立 Internet 连接的计算机：
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -100,7 +100,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   接下来，将下载的包复制到 ASDK 计算机，将该位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -115,7 +115,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) 是托管 PowerShell 模块的 GitHub 存储库，可用于管理资源并将其部署到 Azure Stack。 若要获取这些工具，请克隆 GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 
@@ -171,7 +171,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ## <a name="enable-multi-tenancy"></a>启用多租户
 
-对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
+对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
 > [!NOTE]
 > 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 已注册到 fabrikam.partner.onmschina.cn 并且登录的用户帐户为 admin@contoso.com，则用于登录用户门户的 URL 将为： https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn。
@@ -179,4 +179,3 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 ## <a name="next-steps"></a>后续步骤
 
 [将 ASDK 注册到 Azure](asdk-register.md)
-<!-- Update_Description: link update -->

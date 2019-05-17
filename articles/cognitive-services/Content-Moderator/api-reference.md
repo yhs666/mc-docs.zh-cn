@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: reference
 origin.date: 06/25/2017
-ms.date: 02/20/2019
+ms.date: 04/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: a91ef344b11f00f94106f78a1f1cc1ca818ba3c7
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 1ad7432adbd4b5d81e8f1de28c529d58b943a22c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582760"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855243"
 ---
 # <a name="content-moderator-api-reference"></a>内容审查器 API 参考
 
@@ -29,7 +29,7 @@ ms.locfileid: "56582760"
 | 说明 | 参考 |
 | -------------------- |-------------|
 | **图像审查 API**<br /><br />通过使用标记、置信度分数和其他提取的信息扫描图像并检测潜在的成人和不雅内容。 <br /><br />使用此信息发布、拒绝或查看审查后工作流中的内容。 <br /><br />| [图像审查 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "图像审查 API 参考")   |
-| **文本审查 API**<br /><br />扫描文本内容。 返回不雅用语和个人身份信息 (PII)。 <br /><br />使用此信息发布、拒绝或查看审查后工作流中的内容。<br /><br /> | [文本审查 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "文本审查 API 参考")   |
+| **文本审查 API**<br /><br />扫描文本内容。 返回不雅用语和个人数据。 <br /><br />使用此信息发布、拒绝或查看审查后工作流中的内容。<br /><br /> | [文本审查 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "文本审查 API 参考")   |
 | **视频审查 API**<br /><br />扫描视频并检测潜在的成人和不雅内容。 <br /><br />使用此信息发布、拒绝或查看审查后工作流中的内容。<br /><br /> | [视频审查 API 概述](video-moderation-api.md "视频审查 API 概述")   |
 | **列表管理 API**<br /><br />创建并管理图像和文本的自定义排除或包含列表。 如果启用，则“图像 - 匹配”和“文本 - 屏幕”操作会将提交的内容与你的自定义列表进行模糊匹配。 <br /><br />为了提高效率，可以跳过基于机器学习的审查步骤。<br /><br /> | [列表管理 API 参考](https://dev.cognitive.azure.cn/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "列表管理 API 参考")   |
 
@@ -45,3 +45,4 @@ ms.locfileid: "56582760"
 
 
 
+<!-- Update_Description: wording update -->

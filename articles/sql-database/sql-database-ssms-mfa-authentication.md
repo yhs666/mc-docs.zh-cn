@@ -1,10 +1,10 @@
 ---
-title: 多重身份验证 - Azure SQL | Microsoft Docs
+title: 对 Azure SQL 数据库和 Azure SQL 数据仓库使用多重 AAD 身份验证 | Microsoft Docs
 description: Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
@@ -12,22 +12,39 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 10/08/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: b96184bf3e115e380fff619ff652c5e5622aea49
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 04/29/2019
+ms.openlocfilehash: f78a4c711aa4162f953b4b712d298e739ad1fc5f
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663670"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855447"
 ---
-# <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>使用 SQL 数据库和 SQL 数据仓库进行通用身份验证（MFA 的 SSMS 支持）
-Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。 
-**下载最新 SSMS** - 在客户端计算机上，从[下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新版本的 SSMS。 对于本文中的所有功能，请至少使用 2017 年 7 月的版本 17.2。  最新的连接对话框，如下所示：![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成“用户名”框。")  
+# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>对 Azure SQL 数据库和 Azure SQL 数据仓库使用多重 AAD 身份验证（SSMS 支持 MFA）
+Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。 本文讨论了各种身份验证选项之间的差异，以及与使用通用身份验证相关的限制。 
+
+**下载最新 SSMS** - 在客户端计算机上，从[下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新版本的 SSMS。 
+
+
+对于本文中讨论的所有功能，请至少使用 2017 年 7 月的版本 17.2。  最新的连接对话框应与下图类似：
+ 
+  ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成“用户名”框。")  
 
 ## <a name="the-five-authentication-options"></a>五个身份验证选项  
-- Active Directory 通用身份验证支持两种非交互式身份验证方法（`Active Directory - Password` 身份验证和 `Active Directory - Integrated` 身份验证）。 非交互式 `Active Directory - Password` 和 `Active Directory - Integrated` 身份验证方法可在许多不同的应用程序（ADO.NET、JDBC、ODBC 等）中使用。 这两种方法绝对不会产生弹出式对话框。
 
-- `Active Directory - Universal with MFA` 身份验证是同时支持 *Azure 多重身份验证* (MFA) 的交互式方法。 Azure MFA 可帮助保护对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它利用一系列简单的验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证，用户可以根据自己的偏好选择所用的方法。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
+Active Directory 通用身份验证支持两种非交互式身份验证方法：
+    - `Active Directory - Password` 身份验证
+    - `Active Directory - Integrated` 身份验证
+
+非交互式身份验证模型也有两种，它们可用于许多不同的应用程序（ADO.NET、JDCB、ODC 等）中。 这两种方法绝对不会产生弹出式对话框： 
+- `Active Directory - Password` 
+- `Active Directory - Integrated` 
+
+同时支持 Azure 多重身份验证 (MFA) 的交互式方法是： 
+- `Active Directory - Universal with MFA` 
+
+
+Azure MFA 可帮助保护对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它利用一系列简单的验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证，用户可以根据自己的偏好选择所用的方法。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
 
 有关多重身份验证的说明，请参阅[多重身份验证](../active-directory/authentication/multi-factor-authentication.md)。
 有关配置步骤，请参阅[配置 SQL Server Management Studio 的 Azure SQL 数据库多重身份验证](sql-database-ssms-mfa-authentication-configure.md)。
@@ -45,7 +62,7 @@ Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通�
 - SSMS 版本 17.2 为导出/提取/部署数据数据库提供 DacFx 向导支持。 在特定用户使用通用身份验证通过初始身份验证对话框进行了身份验证之后，DacFx 向导的工作方式与针对所有其他身份验证方法的方式相同。
 - SSMS 表设计器不支持通用身份验证。
 - 除了必须使用支持的 SSMS 版本，Active Directory 通用身份验证没有其他软件需求。  
-- 通用身份验证的 Active Directory 身份验证库 (ADAL) 版本已更新到最新的 ADAL.dll 3.13.9 可用发行版。 请参阅 [Active Directory 身份验证库 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)。  
+- 通用身份验证的 Active Directory 身份验证库 (ADAL) 版本已更新到最新的 ADAL.dll 3.13.9 可用发行版。 请参阅 [Active Directory 身份验证库 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)。  
 
 
 ## <a name="next-steps"></a>后续步骤

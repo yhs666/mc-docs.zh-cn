@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 01/14/2019
+origin.date: 04/15/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 7bef598a3f4b0e393c0e459e94edb3600477ec13
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.subservice: common
+ms.openlocfilehash: 6c7e09309548bdd4a5d22a4c65ac9aa20e1b655d
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63852140"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549990"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -75,7 +75,7 @@ Azure 导入/导出服务支持以下类型的存储帐户：
 
 |磁盘类型  |大小  |支持 |不支持  |
 |---------|---------|---------|---------|
-|SSD    |   2.5"      |         |         |
+|SSD    |   2.5"      |SATA III          |  USB       |
 |HDD     |  2.5"<br>3.5"       |SATA II、SATA III         |带有内置 USB 适配器的外部 HDD <br> 外部 HDD 外壳内的磁盘         |
 
 

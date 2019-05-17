@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 0aae6ae328b0f8ee1d6ff0cb5fdf2238442515bc
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/06/2019
+ms.openlocfilehash: 5247c108623770f2d7d0b3c8413a14d6a88c5c91
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855337"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -76,7 +76,8 @@ ms.locfileid: "59529273"
 
      ![选择 VPN][api-management-setup-vpn-select]
 
-5. 单击屏幕顶部的“保存”。
+5. 单击顶部导航栏中的“保存”。
+6. 单击顶部导航栏中的“应用网络配置”。
 
 > [!NOTE]
 > 每次启用或禁用 VNET 时，API 管理实例的 VIP 地址都会更改。  

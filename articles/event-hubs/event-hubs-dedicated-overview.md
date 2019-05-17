@@ -13,32 +13,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2018
-ms.date: 02/28/2019
+ms.date: 05/20/2019
 ms.author: v-biyu
-ms.openlocfilehash: e570f0986799e89363c36143c5e874d1249030e8
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: ce8bcbd3f3736c0630b6619d33c0ff533935c60b
+ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222595"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412484"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>专用事件中心概述
 
 *专用事件中心* 容量提供单租户部署。 完整规模的 Azure 事件中心可每秒传入超过两百万个事件或每秒高达 2 GB 的遥测，并具有完全持久的存储和次秒级的延迟。 通过在同一系统上实时进行批处理，它还可以实现集成的解决方案。 借助包含在产品中的[事件中心捕获](event-hubs-capture-overview.md)功能，单个流可以同时支持实时和基于批处理的管道，从而降低解决方案的复杂性。
 
-下表比较了事件中心的各个可用服务层。 不同于标准事件中心中大部分功能的使用定价，专用事件中心产品每月价格是固定的。 专用层提供标准计划的所有功能，但具有企业规模容量，以满足客户的工作负荷需求。 
+下表比较了事件中心的各可用服务层级。 不同于标准事件中心中大部分功能的使用定价，事件中心专用套餐每月的计费价格是固定的。 专用层提供标准计划的所有功能，但具有企业规模容量，以满足客户的工作负荷需求。 
 
 | 功能 | 标准 | 专用 |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | 入口事件 | 按每百万个事件支付 | 已含 |
 | 吞吐量单位（传入为 1 MB/秒，传出为 2 MB/秒） | 按每小时支付 | 附送 |
 | 消息大小 | 1 MB | 1 MB |
-| 发布者策略 | 是 | 是 |   
-| 使用者组 | 20 个 | 20 个 |
-| 消息重播 | 是 | 是 |
-| 最大吞吐量单位 | 20（可灵活调整至 100）   | 1 容量单位 (CU) ≈ 50 |
+| 分区 | 每个命名空间 40 | 每个 CU 2000 |
+| 使用者组 | 每个事件中心 20 | 每个事件中心 1000 |
+| 最大 带宽 | 20 TU（最多 40 TU）    | 20 CU |
 | 中转连接 | 包括 1,000 个 | 包括 100,000 个 |
-| 其他中转连接 | 是 | 是 |
 | 消息保留期 | 包括 1 天 | 包括最长 7 天 |
 | 捕获 | 按每小时支付 | 已含 |
 
@@ -75,5 +73,3 @@ ms.locfileid: "56222595"
 
 - [专用事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。 还可以与 Azure 销售代表或 Azure 支持部门联系，获取有关事件中心专用容量的其他详细信息。
 - [事件中心常见问题解答](event-hubs-faq.md)中包含了定价信息并解答了一些有关事件中心的常见问题。
-
-<!--Update_Description: update meta properties, wording update, update link -->

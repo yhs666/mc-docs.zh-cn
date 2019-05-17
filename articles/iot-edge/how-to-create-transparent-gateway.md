@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 11/29/2018
-ms.date: 03/25/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5abe9a368e9607426eba742feac9964f5a0ef0a4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 206ea741ff0e76aca79c2945a8a1487026d33461
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625400"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854724"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>将 IoT Edge 设备配置为充当透明网关
 
@@ -260,6 +260,18 @@ certificates:
    ```
 
 6. 在“审阅模板”页中选择“提交”。
+
+## <a name="open-ports-on-gateway-device"></a>在网关设备上打开端口
+
+标准 IoT Edge 设备不需要任何入站连接便可工作，因为与 IoT 中心之间的所有通信都是通过出站连接执行的。 但是，网关设备则不同，因为它们需要能够从其下游设备接收消息。
+
+要使网关方案能够正常工作，必须为来自下游设备的入站流量打开 IoT Edge 中心的至少一个受支持协议。 受支持的协议有 MQTT、AMQP 和 HTTPS。
+
+| 端口 | 协议 |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>路由来自下游设备的消息
 IoT Edge 运行时可以像模块发送的消息一样路由从下游设备发送的消息。 这允许将任何数据发送到云之前在网关上运行的模块中执行分析。 

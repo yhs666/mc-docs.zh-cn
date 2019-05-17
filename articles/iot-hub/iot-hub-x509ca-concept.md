@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/18/2017
-ms.date: 03/04/2019
+ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: aaa981b8b9275767cec6756d9ce4052d67df6455
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: b1e06009b3512f0ae2c580a3d7caad9c7e640a03
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665435"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854923"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>概念性理解 IoT 行业中的 X.509 CA 证书
 
@@ -61,7 +61,7 @@ X.509 CA 证书是一种数字证书，该证书的持有者可对其他证书�
 
 X 公司可通过公共根证书颁发机构购买 X.509 CA 证书，也可通过自签名流程创建一个证书。  这两个选项中会有一个优于另一个，具体取决于应用程序方案。  无论选择哪个选项，过程均包含 2 个基础步骤：生成公钥/私钥对、将公钥签名到证书。
 
-![img-csr-flow](./media/csr-flow.png)
+![生成 X509CA 证书的流程](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 不同服务提供商完成这些步骤的方式详情有所不同。
 
@@ -81,7 +81,7 @@ X 公司需要向 IoT 中心注册 X.509 CA，IoT 中心将在智能 X 小组件
 
 注册 X.509 CA 证书的过程包含 2 个步骤：证书上传、证书所有权证明。
 
-![img-pop-flow](./media/pop-flow.png)
+![注册 X509CA 证书](./media/iot-hub-x509ca-concept/pop-flow.png)
 
 ### <a name="x509-ca-certificate-upload"></a>X.509 CA 证书上传
 
@@ -105,7 +105,7 @@ IoT 要求每台设备均拥有唯一标识。  这些标识位于表单证书�
 
 X.509 CA 证书身份验证通过使用证书链为前面列出的问题提供了漂亮的解决方案。  证书链如此生成：一个 CA 对一个中间 CA 进行签名，这个中间 CA 转而对另一个中间 CA 进行签名，这样继续，直到最后一个中间 CA 对设备进行签名。  在本例中，X 公司对 Y 工厂进行签名，Y 工厂转而对 Z 技术人员进行签名，而 Z 技术人员最后要对智能 X 小组件进行签名。
 
-![img-cert-chain-hierarchy](./media/cert-chain-hierarchy.png)
+![证书链层次结构](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
 上述证书链中的证书传递体现了授权的逻辑转移。  许多供应链都遵循这种逻辑转移，每个中间 CA 在接收所有上游 CA 证书时被签名到链中，最后一个中间 CA 最后对每台设备进行签名并将链中的授权构证书引入设备。 这种做法常见于具有工厂层次结构的合同制造公司委托特定工厂进行生产的情况。  层次结构可能是多级深度（例如，地理/产品类型/生产线），只有最后的工厂才会与设备进行交互，但供应链是从层次结构顶部进行维护的。
 
@@ -113,7 +113,7 @@ X.509 CA 证书身份验证通过使用证书链为前面列出的问题提供�
 
 在本例中，Y 工厂和 Z 技术人员都会与智能 X 小组件进行交互。  虽然 X 公司拥有智能 X 小组件的所有权，但它实际上在整个供应链中并未与该产品进行物理交互。  因此，智能 X 小组的证书信任链包括：X 公司对 Y 工厂进行签名、Y 工厂转而对 Z 技术人员进行签名，然后 Z 技术人员最后对智能 X 小组件进行签名。 智能 X 小组件的制造和安装过程包括：Y 工厂和 Z 技术人员使用各自的中间 CA 证书对每个智能 X 小组件进行签名。 整个过程的最终结果是，具有唯一设备证书和证书信任链的智能 X 小组件被纳入 X 公司 CA 证书。
 
-![img-cert-mfr-chain](./media/cert-mfr-chain.png)
+![从一个公司的证书到另一个公司的证书的信任链](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 这一点很好地体现了 X.509 CA 方法的重要性。  X 公司只需对 Y 工厂签名一次，而无需为每个智能 X 小组件预先生成证书并移交到供应链中。  X 公司无需在整个设备生命周期中跟踪每台设备，他们现在可以通过供应链过程中自然生成的组来跟踪和管理设备，例如，某年七月后由 Z 技术人员安装的设备。
 
@@ -131,7 +131,7 @@ X.509 CA 证书身份验证通过使用证书链为前面列出的问题提供�
 
 在本示例中，每个智能 X 小组件都会将其设备唯一证书与 Y 工厂和 Z 技术人员的 X.509 CA 证书一并上传，然后响应 IoT 中心发出的所有权证明质疑。
 
-![img-device-pop-flow](./media/device-pop-flow.png)
+![从一个证书到中心的另一个弹出质询的流](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 请注意，信任的基础在于保护私钥（包括设备私钥）。  因此，我们一再强调使用硬件安全模块 (HSM) 形式的安全硅芯片保护设备私钥的重要性，也一再强调绝不共享任何私钥（如某工厂将其私钥委托给另一工厂）这一整体最佳做法。
 

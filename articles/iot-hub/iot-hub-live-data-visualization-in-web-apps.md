@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: 08cc4674033316c121c837adc89f7bbac2750cae
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 05/06/2019
+ms.openlocfilehash: c620eb8cdfb5b5c2cb5533ddf00669cfa67b66a0
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674264"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855068"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure 应用服务的 Web 应用功能可视化 Azure IoT 中心的实时传感器数据
 
@@ -36,7 +36,7 @@ ms.locfileid: "52674264"
 
 ## <a name="what-you-need"></a>需要什么
 
-* [设置设备](iot-hub-raspberry-pi-kit-node-get-started.md)，其中涵盖以下要求：
+* 完成 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)教程或其中一个设备教程；例如[将 Raspberry Pi 与 Node.js 配合使用](iot-hub-raspberry-pi-kit-node-get-started.md)。 这包括以下要求：
 
   * 一个有效的 Azure 订阅
   * 已在订阅中创建一个 IoT 中心
@@ -60,7 +60,7 @@ ms.locfileid: "52674264"
 1. 打开刚刚预配的 Web 应用。
 2. 单击“应用程序设置”，并在“应用设置”下面添加以下键/值对：
 
-   | 键                                   | 值                                                        |
+   | 键                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | 从 Azure CLI 获取                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | 添加到 IoT 中心的使用者组的名称  |

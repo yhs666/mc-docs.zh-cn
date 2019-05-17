@@ -3,8 +3,8 @@ title: Azure Active Directory 中的 Web 应用
 description: 介绍什么是 Web 应用，以及有关此应用类型的协议流、注册和令牌到期的基础知识。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec2735c3ec5a26fed65a99a697b9f5b20721610
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 1e9b442116fa4c0ecf195010bf5473db55898a62
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243666"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517455"
 ---
 # <a name="web-apps"></a>Web 应用
 
@@ -46,7 +45,7 @@ Web 应用是在 Web 浏览器到 Web 应用方案中对用户进行身份验证
 
 ## <a name="app-registration"></a>应用注册
 
-若要注册 Web 应用，请参阅[向 Azure AD v1.0 终结点注册应用](quickstart-v1-add-azure-ad-app.md)。
+若要注册 Web 应用，请参阅[注册应用](quickstart-register-app.md)。
 
 * 单租户 - 如果在构建仅供组织使用的应用程序，则必须使用 Azure 门户在公司的目录中注册该应用程序。
 * 多租户 - 如果在构建可以由组织外部用户使用的应用程序，则必须在公司的目录中注册该应用程序，并且还必须在将使用该应用程序的每个组织的目录中注册该应用程序。 要使应用程序在客户的目录中可用，可以提供一个供客户使用的注册流程，让客户许可应用程序的要求。 当他们针对用户的应用程序进行注册时，系统会向他们显示一个对话框，其中显示了应用程序要求的权限，然后是要许可的选项。 可能会要求其他组织中的管理员许可，具体取决于所需的权限。 当用户或管理员许可后，该应用程序在其目录中注册。
@@ -59,5 +58,3 @@ Web 应用是在 Web 浏览器到 Web 应用方案中对用户进行身份验证
 
 * 详细了解其他[应用程序类型和方案](app-types.md)
 * 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
-
-<!-- Update_Description: wording update -->

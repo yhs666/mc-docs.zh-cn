@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 03/19/2018
-ms.date: 04/09/2019
+origin.date: 04/29/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e245157d559f75e7774e74a4cdd4d7cbcac03cc
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: 221319bdcda5132a2a942bfd75b9060ee47d0438
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355858"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520758"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>将 Azure AD Connect 数据库从 SQL Server Express 移到 SQL Server 
 
@@ -26,7 +26,7 @@ ms.locfileid: "59355858"
 ## <a name="about-this-scenario"></a>关于此方案
 下面简单介绍此方案。  在此方案中，Azure AD Connect 版本 (1.1.819.0) 安装在单个 Windows Server 2016 域控制器上。  它使用内置的适用于其数据库的 SQL Server 2012 Express Edition。  此数据库将移到 SQL Server 2017 服务器。
 
-![](./media/how-to-connect-install-move-db/move1.png)
+![方案体系结构](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>移动 Azure AD Connect 数据库
 请执行以下步骤，将 Azure AD Connect 数据库移到远程 SQL Server。
@@ -38,7 +38,7 @@ ms.locfileid: "59355858"
 5. 在远程 SQL Server 上，打开 SQL Server Management Studio。
 6. 在“数据库”上右键单击，然后选择“附加”。
 7. 在“附加数据库”屏幕上单击“添加”，导航到 ADSync.mdf 文件。  单击 **“确定”**。
-   ![](./media/how-to-connect-install-move-db/move2.png)
+   ![附加数据库](media/how-to-connect-install-move-db/move2.png)
 
 8. 附加数据库以后，请返回到 Azure AD Connect 服务器并安装 Azure AD Connect。
 9. MSI 安装完成后，将启动 Azure AD Connect 向导，进入快速模式安装。 单击“退出”图标关闭屏幕。
@@ -54,7 +54,7 @@ ms.locfileid: "59355858"
     ![连接](./media/how-to-connect-install-move-db/db5.png)
  
 14. 在“连接目录”屏幕上，为目录同步配置的现有 AD 林旁边显示有红色十字图标。 若要同步本地 AD 林中的更改，需要 AD DS 帐户。 Azure AD Connect 向导无法检索存储在 ADSync 数据库中的 AD DS 帐户凭据，因为凭据已加密，只能由先前的 Azure AD Connect 服务器进行解密。 单击“更改凭据”为 AD 林指定 AD DS 帐户。
-    ![目录](./media/how-to-connect-install-move-db/db6.png)
+    ![Directories](./media/how-to-connect-install-move-db/db6.png)
  
  
 15. 在弹出对话框中，可以 (i) 提供企业管理员凭据，并让 Azure AD Connect 为你创建 AD DS 帐户，或 (ii) 自行创建 AD DS 帐户，并将其凭据提供给 Azure AD Connect。 选择一个选项并提供必要凭据后，单击“确定”关闭弹出对话框。

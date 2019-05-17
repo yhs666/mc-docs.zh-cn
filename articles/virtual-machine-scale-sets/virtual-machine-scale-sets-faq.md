@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/13/2019
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 9d8ed4638df2a6a89bde4047c83d2a873eb3b26d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0eea546b9fd391187fa445f6083726406b4c672c
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625331"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854714"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -238,7 +238,7 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>添加同一个密钥保管库中的多个证书后，运行 `Update-AzVmss` 时看到以下消息：
 
->Update-AzVmss：列表机密包含 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 的重复实例，这是不允许的。
+>Update-AzVmss：列表机密包含 /subscriptions/\<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 的重复实例，这是不允许的。
 
 如果尝试重新添加同一保管库，而不是使用现有源保管库的新保管库证书，可能会看到此消息。 如果要添加其他机密，`Add-AzVmssSecret` 命令将无法正常运行。
 
@@ -295,7 +295,7 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 
 扩大时不会遇到此问题，因为（单 Fabric 租户模型中的）Azure Service Fabric 中存在机密的缓存副本。
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosservice-fabricservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)中所示，为什么必须指定证书 URL 的准确位置 (https://<name of the vault>.vault.azure.cn:443/secrets/<exact location>)？
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosservice-fabricservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)中所述，为什么必须指定证书 URL (https:\/\/\<保管库的名称>.vault.azure.cn:443/secrets/\<具体位置>) 的具体位置？
 
 根据 Azure Key Vault 文档，在未指定版本的情况下，Get Secret REST API 应返回最新版本的机密。
 

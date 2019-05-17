@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-origin.date: 07/18/2018
-ms.date: 03/15/2019
+origin.date: 04/08/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 286a5d2f248e7ade4757c3328a932298b7450d02
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: be3b25093ed876ba18ae3749eae7eb11bf7693ed
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186668"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520749"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：从以前版本升级到最新版本
 本主题介绍可将 Azure Active Directory (Azure AD) Connect 安装升级到最新版本的不同方法。 建议使用最新版本的 Azure AD Connect。 进行重大配置更改时，也可以使用[交叉迁移](#swing-migration)部分所述的步骤。
+
+>[!NOTE]
+> 当前支持从任何版本的 Azure AD Connect 升级到当前版本。 不支持 DirSync 或 ADSync 的就地升级，必须进行交叉迁移。  如果要从 DirSync 升级，请参阅[从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)或[交叉迁移](#swing-migration)部分。  </br>实际上，极旧版本的客户可能会遇到不是与 Azure AD Connect 直接相关的问题。 已经投入生产多年的服务器通常都应用了几个修补程序，并非所有这些都能解释清楚。  通常情况下，在 12-18 个月内未升级过的客户应考虑交叉升级，因为这是最保守且风险最低的选项。
 
 如果要从 DirSync 升级，请参阅[从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)。
 
@@ -168,4 +171,4 @@ PowerShell cmdlet 将报告错误“找不到指定的 MA”。
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

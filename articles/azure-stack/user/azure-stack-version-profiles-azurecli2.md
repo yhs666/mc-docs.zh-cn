@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/07/2019
-ms.date: 04/01/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 167a84762782eaf1a3e369f7230957e3ba88f5fe
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bb83f5ad91fd4ca120bd7d6735354019a548c642
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625228"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854661"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 
@@ -63,7 +63,7 @@ ms.locfileid: "58625228"
 
     Write-Host "Converting certificate to PEM format"
     certutil -encode root.cer root.pem
-   ```
+    ```
 
 3. 将证书复制到本地计算机。
 
@@ -96,13 +96,13 @@ az --version
 
 2. 升级 PIP。 PIP 是适用于 Python 的包管理器。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. 安装 **certifi** 模块。 [Certifi](https://pypi.org/project/certifi/) 是根证书的集合模块，可以在验证 TLS 主机的身份时验证 SSL 证书的可信度。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -158,7 +158,7 @@ az --version
 
 1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -208,7 +208,7 @@ az --version
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
 
-    | 值 | 示例 | 说明 |
+    | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -235,7 +235,7 @@ az --version
     >[!NOTE]  
     >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
  
-4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](../../active-directory/develop/app-objects-and-service-principals.md)的形式登录到 Azure Stack 环境。 
+4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
    - 以用户身份登录： 
 
@@ -278,7 +278,7 @@ az group create -n MyResourceGroup -l local
 
 1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -328,7 +328,7 @@ az group create -n MyResourceGroup -l local
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
 
-    | 值 | 示例 | 说明 |
+    | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -355,28 +355,28 @@ az group create -n MyResourceGroup -l local
     >[!NOTE]  
     >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
 
-4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](../../active-directory/develop/app-objects-and-service-principals.md)的形式登录到 Azure Stack 环境。 
+4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
-   - 以用户身份登录： 
+   - 以用户身份登录：
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
      ```azurecli
      az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-     ``
+     ```
 
      > [!NOTE]
-     > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+     > 如果用户帐户已启用多重身份验证，则可以使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
-   - Sign in as a *service principal*: 
+   - 以服务主体身份登录： 
     
-     Prepare the .pem file to be used for service principal login.
+     准备要用于服务主体登录的 .pem 文件。
 
-     On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
+     在创建主体的客户端计算机上，使用私钥（位于 `cert:\CurrentUser\My` 证书名称与主体名称相同）将服务主体证书导出为 pfx。
 
-     Convert the pfx to pem (use the OpenSSL utility).
+     将 pfx 转换为 pem（使用 OpenSSL 实用工具）。
 
-     Sign in to the CLI:
+     登录到 CLI：
   
      ```azurecli  
      az login --service-principal \
@@ -444,7 +444,7 @@ az group create -n MyResourceGroup -l local
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
 
-    | 值 | 示例 | 说明 |
+    | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -471,7 +471,7 @@ az group create -n MyResourceGroup -l local
     >[!NOTE]  
     >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
 
-5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](../../active-directory/develop/app-objects-and-service-principals.md)的形式登录到 Azure Stack 环境。 
+5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
    * 以用户身份登录：
 
@@ -555,7 +555,7 @@ az group create -n MyResourceGroup -l local
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
 
-    | 值 | 示例 | 说明 |
+    | Value | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -582,18 +582,18 @@ az group create -n MyResourceGroup -l local
     >[!NOTE]  
     >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
 
-5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](../../active-directory/develop/app-objects-and-service-principals.md)的形式登录到 Azure Stack 环境。 
+5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
 6. 登录： 
 
-   * 将 Web 浏览器与设备代码配合使用，以**用户**的身份登录：  
+   *  将 Web 浏览器与设备代码配合使用，以**用户**的身份登录：  
 
-     ```azurecli  
-     az login --use-device-code
-     ```
+   ```azurecli  
+    az login --use-device-code
+   ```
 
-     > [!NOTE]  
-     >运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
+   > [!NOTE]  
+   >运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
    * 以服务主体的身份：
         
@@ -636,5 +636,5 @@ az group create -n MyResourceGroup -l local
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
-- [为 Azure Stack 用户启用 Azure CLI（操作员）](../azure-stack-cli-admin.md)
+- [为 Azure Stack 用户启用 Azure CLI（操作员）](../operator/azure-stack-cli-admin.md)
 - [管理用户权限](azure-stack-manage-permissions.md) 

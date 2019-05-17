@@ -7,23 +7,25 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 02/28/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f26f9323a1060d2c3d103260991d245745bdf43
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8cedb9fe24d49b49590e1743e7f62b7c6953035b
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626348"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520739"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
-图形处理单元 (GPU) 通常用于计算密集型工作负荷，例如图形和可视化工作负荷。 AKS 支持创建启用 GPU 的节点池，以在 Kubernetes 中运行这些计算密集型工作负荷。 有关可用的启用了 GPU 的 VM 的详细信息，请参阅 [Azure 中 GPU 优化 VM 的大小][gpu-skus]。 对于 AKS 节点，我们建议最小大小为“Standard_NC6”。
+图形处理单元 (GPU) 通常用于计算密集型工作负荷，例如图形和可视化工作负荷。 AKS 支持创建启用 GPU 的节点池，以在 Kubernetes 中运行这些计算密集型工作负荷。 有关可用的启用了 GPU 的 VM 的详细信息，请参阅 [Azure 中 GPU 优化 VM 的大小][gpu-skus]。 对于 AKS 节点，我们建议最小大小为“Standard_NC6s_v3”。
 
 > [!NOTE]
 > 启用 GPU 的 VM 包含专用硬件，这些硬件定价较高，其可用性受区域限制。 有关详细信息，请参阅[定价][azure-pricing]工具和[区域可用性] [azure-availability]。
 
+<!--DONT REMOVE IT-->
 <!--MOONCAKE Unique content on 03/28/2019-->
+
 <!--Sync with https://github.com/Azure/container-service-for-azure-china/blob/master/aks/gpu-support.md--> 
 
 “在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷”以详细步骤的形式介绍了如何在 AKS 群集上运行 GPU 工作负荷，但需在 Azure 中国区更改某些配置。 例如，以下 docker 中心映像应该进行更改，以便使用 `dockerhub.azk8s.cn`：
@@ -36,18 +38,21 @@ ms.locfileid: "58626348"
 下面以详细步骤的形式介绍了如何在 Azure 中国区 AKS 群集上运行 GPU 工作负荷：
 
 <!--MOONCAKE Unique content on 03/28/2019-->
+<!--DONT REMOVE IT-->
+
 ## <a name="before-you-begin"></a>准备阶段
 
 本文假定你拥有现有的 AKS 群集，其中包含支持 GPU 的节点。 AKS 群集须运行 Kubernetes 1.10 或更高版本。 如果需要满足这些要求的 AKS 群集，请参阅本文第一部分来[创建 AKS 群集](#create-an-aks-cluster)。
 
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
+<!--DONT REMOVE IT-->
 <!--MOONCAKE Unique content on 03/28/2019-->
 
 确保 Azure 订阅可以创建 NC 串行 VM（例如 Standard_NC6s_v3），否则，你可以提交一个支持票证，以便为 Azure 订阅启用该类型的 VM 大小。
 
 <!--MOONCAKE Unique content on 03/28/2019-->
-
+<!--DONT REMOVE IT-->
 ## <a name="create-an-aks-cluster"></a>创建 AKS 群集
 
 如果需要可满足最低要求（启用了 GPU 的节点和 Kubernetes 版本 1.10 或更高版本）的 AKS 群集，请完成以下步骤。 如果已拥有满足这些要求的 AKS 群集，请[跳至下一部分](#confirm-that-gpus-are-schedulable)。
@@ -57,29 +62,26 @@ ms.locfileid: "58626348"
 首先，使用 [az group create][az-group-create] 命令为群集创建资源组。 以下示例在 *chinaeast2* 区域创建名为 *myResourceGroup* 的资源组：
 
 ```azurecli
-RESOURCE_GROUP_NAME=myResourceGroup
-CLUSTER_NAME=myAKSCluster
-LOCATION=chinaeast2
-az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
+az group create --name myResourceGroup --location chinaeast2
 ```
 
-现在，使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例会创建具有一个节点（大小为 `Standard_NC6`）的群集，并运行 Kubernetes 版本 1.11.7：
+现在，使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例会创建具有一个节点（大小为 `Standard_NC6s_v3`）的群集，并运行 Kubernetes 版本 1.11.7：
 
 ```azurecli
 az aks create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --node-count 1 \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
     --node-vm-size Standard_NC6s_v3 \
+    --node-count 1 \
     --disable-rbac --generate-ssh-keys \
     --kubernetes-version 1.12.6 \
-    --location $LOCATION
+    --location chinaeast2
 ```
 
 使用 [az aks get-credentials][az-aks-get-credentials] 命令获取 AKS 群集的凭据：
 
 ```azurecli
-az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 <!--MOONCAKE Unique content on 03/28/2019-->
@@ -145,6 +147,7 @@ Non-terminated Pods:         (9 in total)
 [...]
 ```
 
+<!--DONT REMOVE IT-->
 <!--MOONCAKE Unique content on 03/28/2019-->
 
 ## <a name="install-gpu-plugin"></a>安装 GPU 插件
@@ -154,6 +157,7 @@ kubectl create -f https://raw.githubusercontent.com/andyzhangx/demo/master/linux
 ```
 
 <!--MOONCAKE Unique content on 03/28/2019-->
+<!--DONT REMOVE IT-->
 
 ## <a name="run-a-gpu-enabled-workload"></a>运行启用了 GPU 的工作负荷
 
@@ -196,6 +200,7 @@ spec:
 kubectl apply -f samples-tf-mnist-demo.yaml
 ```
 
+<!--DONT REMOVE IT-->
 <!--MOONCAKE Unique content on 03/28/2019-->
 
 ```
@@ -203,6 +208,7 @@ kubectl create -f https://raw.githubusercontent.com/andyzhangx/demo/master/linux
 ```
 
 <!--MOONCAKE Unique content on 03/28/2019-->
+<!--DONT REMOVE IT-->
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>查看启用了 GPU 的工作负荷的状态和输出
 
@@ -395,8 +401,10 @@ daemonset "nvidia-device-plugin" created
 
 <!-- LINKS - internal -->
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[az-aks-create]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/linux/sizes-gpu.md
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+<!-- Update_Description: wording update, update link -->

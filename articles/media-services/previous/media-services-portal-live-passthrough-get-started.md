@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/19/2019
-ms.date: 04/01/2019
+origin.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 55f54dcb1e5877c4abe4b7a27f7e4b7a8bcc451d
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 12f1c0c47deabc467e0d8aebb5e9ca83afb4e9c6
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624129"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550010"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>如何通过 Azure 门户使用本地编码器实时传送视频流
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>在 Azure 门户中使用本地编码器实时传送流
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -46,10 +46,11 @@ ms.locfileid: "58624129"
 * [使用可创建多比特率流的本地编码器实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>常见实时流式处理方案
+
 以下步骤说明了在创建常用的实时传送视频流应用程序时涉及的任务，这些应用程序使用的通道经配置后可以进行直通传递。 本教程说明了如何创建和管理直通通道和实时事件。
 
->[!NOTE]
->确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
+> [!NOTE]
+> 确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
     
 1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4 流的本地实时编码器接收实时输入流。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://go.microsoft.com/fwlink/?LinkId=532824)。
    

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中支持的虚拟机大小 | Microsoft Docs
-description: Azure Stack 中支持的 VM 大小参考。
+description: Azure Stack 中支持的虚拟机大小参考。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -10,34 +10,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/11/2019
-ms.date: 04/01/2019
+origin.date: 04/02/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 4d45fd993ff753cf16d9ac58f79a71976de63388
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: f317989e2b3117c7b4ae052be5a7176fcaa016bf
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503669"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854884"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本文列出了 Azure Stack 中可用的虚拟机 (VM) 大小。
+本文列出了 Azure Stack 中可用的虚拟机大小。
 
-Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与 VM 大小相关的函数，与磁盘类型无关。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一种上限（最大可能值），目的是防止邻域干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
+Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与虚拟机 (VM) 大小相关的函数，与磁盘类型无关。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一种上限（最大可能值），目的是防止邻域干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
 
-## <a name="general-purpose"></a>常规用途
+## <a name="virtual-machine-general-purpose"></a>虚拟机常规用途
 
 常规用途 VM 大小提供均衡的 CPU 与内存之比。 它们用于测试和开发小到中型数据库和低到中等流量 Web 服务器。 对于高级 VM 大小，每个数据磁盘是 2300 IOPS，基本 A 系列除外。 对于基本 A 系列，数据磁盘大小为 500 IOPS。
 
 ### <a name="basic-a"></a>基本 A
 
 > [!NOTE]
-> 通过门户[创建虚拟机规模集](../azure-stack-compute-add-scalesets.md) (VMSS) 时，不再使用“基本 A”虚拟机大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
+> 通过门户[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md) (VMSS) 时，不再使用“基本 A”虚拟机大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
 
 |大小 - 大小\名称 |vCPU     |内存 | 最大临时磁盘大小 | 最大 OS 磁盘吞吐量：(IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘吞吐量 (IOPS) | 最大 NIC 数 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|

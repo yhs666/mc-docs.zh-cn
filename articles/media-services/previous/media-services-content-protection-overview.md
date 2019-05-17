@@ -12,18 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/30/2018
-ms.date: 12/03/2018
+origin.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 0bc248b3fc7d4d8e58a4c2875487078fb97eacbd
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 2a3036a746136257b3f7375d3bbff1baad3454d5
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673078"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549985"
 ---
-# <a name="content-protection-overview"></a>内容保护概述
- 可以使用 Azure 媒体服务在媒体从计算机离开到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准 (AES-128) 或主要数字版权管理 (DRM) 系统（Microsoft PlayReady 和 Apple FairPlay）中任意一个动态加密的直播内容和点播内容。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 DRM（PlayReady、Widevine 和 FairPlay）许可证的服务。 
+# <a name="content-protection-overview"></a>内容保护概述 
+
+可以使用 Azure 媒体服务在媒体从计算机离开到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准 (AES-128) 或任意主要数字版权管理 (DRM) 系统（Microsoft PlayReady、Google Widevine 和 Apple FairPlay）中任意一个动态加密的实时和请求Microsoft PlayReady 和 Apple FairPlay。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 DRM（PlayReady、Widevine 和 FairPlay）许可证的服务。 
 
 下图阐释了媒体服务内容保护工作流： 
 
@@ -80,9 +81,9 @@ Playready 使用通用加密（AES CTR 模式）。 FairPlay 使用 AES CBC 模�
 * 如果仅向资产应用了一种加密，则无需在 URL 中指定加密类型。
 * 加密类型区分大小写。
 * 可以指定以下加密类型：
-  * **cenc**：适用于 PlayReady（通用加密）
-  * **cbcs-aapl**：适用于 FairPlay（AES CBC 加密）
-  * **cbc**：适用于 AES 信封加密
+  * **cenc**：对于 PlayReady（通用加密）
+  * **cbcs-aapl**：用于 FairPlay（AES CBC 加密）
+  * **cbc**：用于 AES 信封加密
 
 ## <a name="next-steps"></a>后续步骤
 下列文章介绍了可帮助你掌握内容保护入门知识的后续步骤：

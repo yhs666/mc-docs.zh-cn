@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/11/2018
-ms.date: 02/14/2019
+origin.date: 03/27/2019
+ms.date: 05/09/2019
 ms.author: v-junlch
-ms.reviewer: zawad
-ms.openlocfilehash: 4a962758f2337f393161b747cfa23ffab95d5798
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.reviewer: zachowd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c5f6909296c9f1220ba7beadd533f713d19c25e9
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262191"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517477"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 应用程序许可体验
 
@@ -85,6 +86,7 @@ ms.locfileid: "56262191"
 
 ## <a name="next-steps"></a>后续步骤
 - 获取有关 [Azure AD 同意框架如何实现同意](/active-directory/develop/active-directory-integrating-applications)的分步概述。
-- 如需更深入的了解，请参阅[多租户应用程序如何使用许可框架](/active-directory/develop/active-directory-devhowto-multi-tenant-overview)来实现“用户”许可和“管理员”许可，为更高级的多层应用程序模式提供支持。
+- 如需更深入的了解，请参阅[多租户应用程序如何使用许可框架](active-directory-devhowto-multi-tenant-overview.md)来实现“用户”许可和“管理员”许可，为更高级的多层应用程序模式提供支持。
+- 了解[如何配置应用的发布者域](howto-configure-publisher-domain.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

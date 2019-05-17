@@ -6,18 +6,22 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 08/09/2018
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: v-yeche
-ms.openlocfilehash: 63a0cb887f035f1ae1453f85cd04e4dbbcdbf2b2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d03e3aff7d76ddf233f7426a5da7dba40f005c2c
+ms.sourcegitcommit: 3fa6f4e8948d83d1133517a42a0a7eae58e43f63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625897"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066154"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>将 Azure Active Directory 与 Azure Kubernetes Service 集成
 
 可将 Azure Kubernetes Service (AKS) 配置为使用 Azure Active Directory (AD) 进行用户身份验证。 在此配置中，你可以使用自己的 Azure Active Directory 身份验证令牌登录到 AKS 群集。 此外，群集管理员可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (RBAC)。
+
+> [!NOTE]
+> AKS 的 AAD 集成支持要求 kubectl 版本 >= v1.14.0。请从[此处](https://mirror.azure.cn/kubernetes/kubectl/v1.14.0/bin/)下载 kubectl 二进制文件。
+>
 
 本文介绍如何部署 AKS 和 Azure AD 的先决条件、部署支持 Azure AD 的群集以及在 AKS 群集中创建简单的 RBAC 角色。
 
@@ -41,47 +45,47 @@ ms.locfileid: "58625897"
 
 1. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”。
 
-   为应用程序命名，选择“Web 应用/API”作为应用程序类型，然后为“登录 URL”输入采用 URI 格式的任何值。 完成后，选择“创建”。
+    为应用程序命名，选择“Web 应用/API”作为应用程序类型，然后为“登录 URL”输入采用 URI 格式的任何值。 完成后，选择“创建”。
 
-   ![创建 Azure AD 注册](media/aad-integration/app-registration.png)
+    ![创建 Azure AD 注册](media/aad-integration/app-registration.png)
 
 2. 选择“清单”，将 `groupMembershipClaims` 值编辑为 `"All"`。
 
-   完成后保存更新。
+    完成后保存更新。
 
-   ![将组成员身份更新为“所有”](media/aad-integration/edit-manifest.png)
+    ![将组成员身份更新为“所有”](media/aad-integration/edit-manifest.png)
 
 3. 返回 Azure AD 应用程序，选择“设置” > “密钥”。
 
-   添加密钥说明，选择过期截止时间，然后选择“保存”。 记下密钥值。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application secret`。
+    添加密钥说明，选择过期截止时间，然后选择“保存”。 记下密钥值。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application secret`。
 
-   ![获取应用程序私钥](media/aad-integration/application-key.png)
+    ![获取应用程序私钥](media/aad-integration/application-key.png)
 
 4. 返回 Azure AD 应用程序，选择“设置” > “所需的权限” > “添加” > “选择 API” > “Microsoft Graph” > “选择”。
 
-   ![选择图形 API](media/aad-integration/graph-api.png)
+    ![选择图形 API](media/aad-integration/graph-api.png)
 
 5. 在“应用程序权限”下，勾选“读取目录数据”。
 
-   ![设置应用程序 Graph 权限](media/aad-integration/read-directory.png)
+    ![设置应用程序 Graph 权限](media/aad-integration/read-directory.png)
 
 6. 在“委派权限”下，勾选“登录并读取用户个人资料”和“读取目录数据”。 完成后保存更新。
 
-   ![设置应用程序 Graph 权限](media/aad-integration/delegated-permissions.png)
+    ![设置应用程序 Graph 权限](media/aad-integration/delegated-permissions.png)
 
-   选择“完成” 。
+    选择“完成” 。
 
 7. 从 API 列表中选择“Microsoft Graph”，然后选择“授予权限”。 如果当前帐户不是租户管理员，此步骤将会失败。
 
-   ![设置应用程序 Graph 权限](media/aad-integration/grant-permissions.png)
+    ![设置应用程序 Graph 权限](media/aad-integration/grant-permissions.png)
 
-   成功授予权限后，门户中会显示以下通知：
+    成功授予权限后，门户中会显示以下通知：
 
-   ![权限授予成功的通知](media/aad-integration/permissions-granted.png)
+    ![权限授予成功的通知](media/aad-integration/permissions-granted.png)
 
 8. 返回应用程序并记下“应用程序 ID”。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application ID`。
 
-   ![获取应用程序 ID](media/aad-integration/application-id.png)
+    ![获取应用程序 ID](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>创建客户端应用程序
 
@@ -89,27 +93,27 @@ ms.locfileid: "58625897"
 
 1. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”。
 
-   为应用程序命名，选择“本机”作为应用程序类型，然后为“重定向 URI”输入采用 URI 格式的任何值。 完成后，选择“创建”。
+    为应用程序命名，选择“本机”作为应用程序类型，然后为“重定向 URI”输入采用 URI 格式的任何值。 完成后，选择“创建”。
 
-   ![创建 AAD 注册](media/aad-integration/app-registration-client.png)
+    ![创建 AAD 注册](media/aad-integration/app-registration-client.png)
 
 2. 在 Azure AD 应用程序中，选择“设置” > “所需的权限” > “添加” > “选择API”，并搜索本文档最后一个步骤中创建的服务器应用程序的名称。
 
-   ![配置应用程序权限](media/aad-integration/select-api.png)
+    ![配置应用程序权限](media/aad-integration/select-api.png)
 
 3. 勾选该应用程序，并单击“选择”。
 
-   ![选择 AKS AAD 服务器应用程序终结点](media/aad-integration/select-server-app.png)
+    ![选择 AKS AAD 服务器应用程序终结点](media/aad-integration/select-server-app.png)
 
-   选择“完成”
+    选择“完成”
 
 4. 从列表中选择服务器 API，然后选择“授予权限”：
 
-   ![授予权限](media/aad-integration/grant-permissions-client.png)
+    ![授予权限](media/aad-integration/grant-permissions-client.png)
 
 5. 返回 AD 应用程序并记下“应用程序 ID”。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Client application ID`。
 
-   ![获取应用程序 ID](media/aad-integration/application-id-client.png)
+    ![获取应用程序 ID](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>获取租户 ID
 
@@ -124,7 +128,7 @@ ms.locfileid: "58625897"
 使用 [az group create][az-group-create] 命令为 AKS 群集创建资源组。
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name myResourceGroup --location chinaeast2
 ```
 
 使用 [az aks create][az-aks-create] 命令部署群集。 请将以下示例命令中的值替换为创建 Azure AD 应用程序时收集的值。
@@ -150,7 +154,15 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-接下来，使用以下清单为 Azure AD 帐户创建 ClusterRoleBinding。 此示例向该帐户授予对群集所有命名空间的完全访问权限。 创建一个文件（例如 *rbac-aad-user.yaml*），然后粘贴以下内容。 将用户名更新为 Azure AD 租户中的某个用户名：
+接下来，使用以下清单为 Azure AD 帐户创建 ClusterRoleBinding。 此示例向该帐户授予对群集所有命名空间的完全访问权限。 
+
+使用 [az ad user show][az-ad-user-show] 命令获取所需用户帐户的 *objectId*。 提供所需帐户的用户主体名称 (UPN)：
+
+```azurecli
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+创建一个文件（例如 *rbac-aad-user.yaml*），然后粘贴以下内容。 使用 Azure AD 中在上一步获得的用户帐户的对象 ID 更新用户名：
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +176,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令应用绑定，如以下示例所示：
@@ -225,9 +237,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 1. 你在 Azure AD 实例中不是以来宾用户的身份登录的（在使用来自不同目录中的联合登录时，通常会出现此情况）。
 2. 用户不是 200 多个组的成员。
 
-```console
-error: You must be logged in to the server (Unauthorized)
-```
+    ```console
+    error: You must be logged in to the server (Unauthorized)
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -239,7 +251,9 @@ error: You must be logged in to the server (Unauthorized)
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
-[az-aks-create]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
+<!--MOONCAK: /cli/aks is valid on global-->
+
+[az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 12/28/2018
-ms.date: 04/09/2019
+ms.date: 05/10/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5e1cdf5a5851969712db119b498c820748a8124
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: e9acf4a276307a070735d938d84d3d83820b61fd
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355885"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520754"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -48,6 +48,7 @@ ms.locfileid: "59355885"
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 服务器
 * 不能在 Small Business Server 或 2019 版以前的 Windows Server Essentials（支持 Windows Server Essentials 2019）上安装 Azure AD Connect。 该服务器必须使用 Windows Server Standard 或更高版本。
+* 不建议在域控制器上安装 Azure AD Connect，因为安全措施和较严格的设置可能会阻碍正确安装 Azure AD Connect。
 * 必须在 Azure AD Connect 服务器上安装完整的 GUI。 **不支持** 在服务器核心上安装 GUI。
 * Azure AD Connect 必须安装在 Windows Server 2008 R2 或更高版本上。 此服务器必须加入域，并且可以是域控制器或成员服务器。
 * 如果在 Windows Server 2008 R2 上安装 Azure AD Connect，请确保从 Windows 更新应用最新的修补程序。 在未修补的服务器上无法启动安装。
@@ -59,6 +60,19 @@ ms.locfileid: "59355885"
 * 若要部署 Active Directory 联合身份验证服务，需要使用 [SSL 证书](#ssl-certificate-requirements)。
 * 若要部署 Active Directory 联合身份验证服务，需要配置 [名称解析](#name-resolution-for-federation-servers)。
 * 如果全局管理员已启用 MFA，URL **https://secure.aadcdn.parter.microsoftonline-p.cn** 必须在受信任的站点列表中。 在显示 MFA 质询提示之前，系统会先提示将此 URL 添加到受信任的站点列表中（如果尚未添加）。 可以使用 Internet Explorer 将它添加到受信任站点。
+* Microsoft 建议你加固 Azure AD Connect 服务器来减小 IT 环境中的此关键组件的安全攻击面。  遵循以下建议可降低你的组织的安全风险。
+
+* 将 Azure AD Connect 部署在已加入域的服务器上，并仅限域管理员或其他严格受控的安全组进行管理性访问。
+
+若要了解更多信息，请参阅以下文章： 
+
+* [保护管理员组](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [保护内置的管理员帐户](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [通过减小攻击面改进并维护安全性](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [减小 Active Directory 攻击面](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 所使用的 SQL Server
 * Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的目录对象，则需要将安装向导指向不同的 SQL Server 安装。

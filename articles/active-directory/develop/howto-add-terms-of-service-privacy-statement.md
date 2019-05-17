@@ -1,5 +1,5 @@
 ---
-title: Azure AD 应用的服务条款和隐私声明 | Microsoft Docs
+title: 应用的服务条款和隐私声明 | Azure
 description: 了解如何为注册为使用 Azure AD 的应用配置服务条款和隐私声明。
 services: active-directory
 documentationcenter: dev-center-name
@@ -7,24 +7,25 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 12/03/2018
+ms.date: 05/09/2019
 ms.author: v-junlch
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 258a60779dd5ebbe1a72392af9c6f58167cfb4c9
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e6de14b25ee0468137c4ae6f58a771169b575a5
+ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028409"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517485"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>已注册 Azure Active Directory 应用的服务条款和隐私声明
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>如何：配置应用的服务条款和隐私声明
 
 构建和管理与 Azure Active Directory (Azure AD) 和 Microsoft 帐户集成的应用的开发人员应随附指向应用的服务条款和隐私声明的链接。 服务条款和隐私声明通过用户同意体验展示给用户。 它们可以帮助用户认识到他们可以信任你的应用。 对于面向用户的多租户应用（由多个目录使用的应用或面向所有 Microsoft 帐户提供的应用）来说，服务条款和隐私声明至关重要。
 
@@ -47,7 +48,7 @@ ms.locfileid: "53028409"
 | 准则     | 说明                           |
 |---------------|---------------------------------------|
 | 格式        | 有效的 URL                             |
-| 有效的架构 | HTTP 和 HTTPS</br>建议使用 HTTPS |
+| 有效的架构 | HTTP 和 HTTPS<br/>建议使用 HTTPS |
 | 最大长度    | 2048 个字符                       |
 
 示例：`https://myapp.com/terms-of-service` 和 `https://myapp.com/privacy-statement`
@@ -55,17 +56,19 @@ ms.locfileid: "53028409"
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>添加指向服务条款和隐私声明的链接
 
 服务条款和隐私声明准备就绪后，可以在应用中使用这些方法之一添加指向这些文档的链接：
-- [通过 Azure 门户 添加](#registered-in-azure-portal)
-- [使用应用对象 JSON](#app-object-json)
+
+* [通过 Azure 门户 添加](#registered-in-azure-portal)
+* [使用应用对象 JSON](#app-object-json)
+* [使用 MSGraph beta REST API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>已在 Azure 门户中注册应用
 
 如果已在 Azure 门户中注册应用，请按照下列步骤操作。
 
-1. 登录  [Azure 门户](https://portal.azure.cn/)。
-2. 导航到 **“应用注册”** 部分并选择应用。
-3. 打开应用的 **“属性”** 部分。
-4. 填写 **“服务条款 URL”** 和 **“隐私声明 URL”** 字段。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+2. 导航到“应用注册”部分并选择应用。
+3. 打开应用的“属性”部分。
+4. 填写“服务条款 URL”和“隐私声明 URL”字段。
 5. 保存所做更改。
 
     ![含有服务条款和隐私声明 URL 的应用属性部分](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -79,4 +82,27 @@ ms.locfileid: "53028409"
         "privacy": "<your_privacy_statement_url>" 
     }
 ```
-<!-- Update_Description: code update -->
+
+### <a name="msgraph-beta-rest-api"></a>使用 MSGraph beta REST API
+
+若要以编程方式更新所有应用，可以使用 MSGraph beta REST API 更新所有应用，以包含指向服务条款和隐私声明文档的链接。
+
+```
+PATCH https://microsoftgraph.chinacloudapi.cn/beta/applications/{application id}
+{ 
+    "appId": "{your application id}", 
+    "info": { 
+        "termsOfServiceUrl": "<your_terms_of_service_url>", 
+        "supportUrl": null, 
+        "privacyStatementUrl": "<your_privacy_statement_url>", 
+        "marketingUrl": null, 
+        "logoUrl": null 
+    }
+}
+```
+
+> [!NOTE]
+> * 请注意不要覆盖已分配给以下任何字段的任何预先存在的值：`supportUrl``marketingUrl` 和 `logoUrl`
+> * 仅当使用 Azure AD 帐户登录时，MSGraph beta REST API 才会正常工作。 
+
+<!-- Update_Description: wording update -->

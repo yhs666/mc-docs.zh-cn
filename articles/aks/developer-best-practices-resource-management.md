@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: ffd2fa97b41983b0cf42b6054aa4cc0dca5db82a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bdc51c8d982d10af745c92f3d57e49dec24e5269
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626438"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520729"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>有关管理 Azure Kubernetes 服务 (AKS) 中的资源的应用程序开发人员最佳做法
 
@@ -23,8 +23,10 @@ ms.locfileid: "58626438"
 
 > [!div class="checklist"]
 > * pod 资源请求和限制是什么
-> * 使用 Dev Spaces 与 Visual Studio Code 开发和部署应用程序的方法
+> * 使用 Visual Studio Code 开发和部署应用程序的方法
 > * 如何使用 `kube-advisor` 工具检查部署问题
+
+<!--Not Available on Dev Spaces -->
 
 ## <a name="define-pod-resource-requests-and-limits"></a>定义 pod 资源请求和限制
 
@@ -65,15 +67,7 @@ spec:
 
 有关资源计量和分配的详细信息，请参阅[管理容器的计算资源][k8s-resource-limits]。
 
-## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>针对 AKS 群集开发和调试应用程序
-
-**最佳做法指导** - 开发团队应该使用 Dev Spaces 针对 AKS 群集进行部署和调试。 此开发模型可确保在将应用部署到生产环境之前，实现基于角色的访问控制、网络或存储需求。
-
-使用 Azure Dev Spaces 直接针对 AKS 群集开发、调试和测试应用程序。 在整个应用程序生命周期，团队中的开发人员共同协作进行生成和测试。 可以继续使用现有的工具，例如 Visual Studio 或 Visual Studio Code。 将为 Dev Spaces 安装一个扩展，以提供所需的选项用于在 AKS 群集中运行和调试应用程序：
-
-![使用 Dev Spaces 在 AKS 群集中调试应用程序](media/developer-best-practices-resource-management/dev-spaces-debug.png)
-
-这种使用 Dev Spaces 的集成式开发和测试过程减少了 [minikube][minikube] 等本地测试环境的需求。 可以针对 AKS 群集进行开发和测试。 可根据前面有关使用命名空间逻辑隔离群集的部分中所述保护和隔离此群集。 当准备好将应用部署到生产环境时，可以放心地进行部署，因为针对真正 AKS 群集的所有开发工作均已完成。
+<!--Not Available on ## Develop and debug applications against an AKS cluster-->
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>使用适用于 Kubernetes 的 Visual Studio Code 扩展
 
@@ -114,3 +108,5 @@ spec:
 
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+
+<!-- Update_Description: wording update, update link -->

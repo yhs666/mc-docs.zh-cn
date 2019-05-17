@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 18b8571e450b5861222f04d77b7b8773529e07f6
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 04/29/2019
+ms.openlocfilehash: 7ebe3ad213a4199cf0d5f008f4597f8e1e87d4cf
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529515"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854446"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 删除透明数据加密 (TDE) 保护器
 
@@ -41,6 +41,12 @@ ms.locfileid: "59529515"
 如果怀疑某个密钥已泄露，以致某个服务或用户在未经授权的情况下访问该密钥，则最好是删除该密钥。
 
 请记住，在 Key Vault 中删除 TDE 保护器后，**将会阻止到该服务器中的加密数据库的所有连接，这些数据库会在 24 小时内脱机并被删除**。 使用已泄露的密钥加密的旧备份将不再可访问。
+
+以下步骤概述了如何检查给定数据库的虚拟日志文件 (VLF) 仍在使用的 TDE 保护程序指纹。 可以通过运行以下命令来查找数据库的当前 TDE 保护程序的指纹：SELECT [database_id],        [encryption_state], [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ [encryptor_thumbprint], FROM [sys].[dm_database_encryption_keys] 
+ 
+下面的查询返回 VLF 和加密程序各自使用的指纹。 每个不同的指纹引用 Azure Key Vault (AKV) 中的不同密钥：SELECT * FROM sys.dm_db_log_info (database_id) 
+
+PowerShell 命令 Get-AzureRmSqlServerKeyVaultKey 提供查询中使用的 TDE 保护程序的指纹，因此你可以查看要在 AKV 中保留哪些密钥以及删除哪些密钥。 只能放心地从 Azure Key Vault 中删除数据库不再使用的密钥。
 
 本操作方法指南根据响应事件后的所需结果演练两种方法：
 

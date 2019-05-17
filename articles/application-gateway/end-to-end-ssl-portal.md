@@ -9,12 +9,12 @@ origin.date: 03/19/2019
 ms.date: 04/16/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 37f3510e065d91a8385638046ca100dbd12235eb
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: bd03e7465623b18a4d7c596de6c45bbda1e7eecb
+ms.sourcegitcommit: 731da97453f3bd6b333dc2ec1058b9b91031d240
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686359"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64871470"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>在门户中使用应用程序网关配置端到端 SSL
 
@@ -50,10 +50,12 @@ ms.locfileid: "59686359"
 
 6. 输入适当的**名称**。
 
-7. 使用“上传 CER 证书”框上传证书。![addcert](./media/end-to-end-ssl-portal/addcert.png)
+7. 使用“上传 CER 证书”框上传证书。
 
-   > [!NOTE]
-   > 此步骤中提供的证书应该是后端中存在的 .pfx 证书的公钥。 以索赔、证据和推理 (CER) 格式导出后端服务器上安装的证书（不是根证书），将其用在此步骤。 此步骤会将后端加入应用程序网关的允许列表。
+    ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+
+    > [!NOTE]
+    > 此步骤中提供的证书应该是后端中存在的 .pfx 证书的公钥。 以索赔、证据和推理 (CER) 格式导出后端服务器上安装的证书（不是根证书），将其用在此步骤。 此步骤会将后端加入应用程序网关的允许列表。
 
 8. 选择“其他安全性验证” 。
 
@@ -96,10 +98,12 @@ ms.locfileid: "59686359"
 
 6. 输入适当的**名称**。
 
-7. 使用“上传 CER 证书”框上传证书。![addcert](./media/end-to-end-ssl-portal/addcert.png)
+7. 使用“上传 CER 证书”框上传证书。
 
-   > [!NOTE]
-   > 此步骤中提供的证书应该是后端中存在的 .pfx 证书的公钥。 以索赔、证据和推理 (CER) 格式导出后端服务器上安装的证书（不是根证书），将其用在此步骤。 此步骤会将后端加入应用程序网关的允许列表。
+    ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+
+    > [!NOTE]
+    > 此步骤中提供的证书应该是后端中存在的 .pfx 证书的公钥。 以索赔、证据和推理 (CER) 格式导出后端服务器上安装的证书（不是根证书），将其用在此步骤。 此步骤会将后端加入应用程序网关的允许列表。
 
 8. 选择“其他安全性验证” 。
 

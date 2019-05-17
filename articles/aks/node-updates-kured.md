@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 11/06/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: c9acc86b2a04b13cbed528d1edc96a2b90d71cb4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6cbf79b71a2c5671a90be3f367e6cea8e3716b21
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627526"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855039"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>将安全更新和内核更新应用于 Azure Kubernetes 服务 (AKS) 中的节点
 
@@ -26,7 +26,9 @@ ms.locfileid: "58627526"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!--Not Available on [using the Azure portal][aks-quickstart-portal]-->
 
 还需安装并配置 Azure CLI 2.0.49 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -101,7 +103,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4   
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+
+<!--Not Available on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
+
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md

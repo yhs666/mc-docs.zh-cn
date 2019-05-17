@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 03/19/2019
+origin.date: 04/16/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 6bab423bbf2c95cde9c11569d0637111c581ee5b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 05/06/2019
+ms.openlocfilehash: c6c3f82e872478ce0fda30088b13c89fd49bba8b
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627701"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854533"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -132,7 +132,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>在相同市内是否可以有多条 ExpressRoute 线路？ 是否可以将这些线路链接到同一虚拟网络？
 
-是的。 可以具有多条包含相同或不同服务提供商的 ExpressRoute 线路。 如果城区内有多个 ExpressRoute 对等位置，并且线路创建在了不同的对等位置，则可以将这些线路链接到同一虚拟网络。 如果在相同对等位置创建线路，则不能将这些线路链接到同一虚拟网络。 Azure 门户或 PowerShell/CLI API 中的每个位置名称都代表一个对等互连位置。 
+是的。 可以具有多条包含相同或不同服务提供商的 ExpressRoute 线路。 如果城区内有多个 ExpressRoute 对等位置，并且线路创建在了不同的对等位置，则可以将这些线路链接到同一虚拟网络。 如果在相同对等位置创建线路，则仍可将这些线路链接到同一虚拟网络，但每个对等互连位置最多只能有 4 个 ExpressRoute 线路。 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>如何将我的虚拟网络连接到 ExpressRoute 线路
 
@@ -268,7 +268,7 @@ ExpressRoute 高级版是以下功能的集合：
 
 1. 请查看 [ExpressRoute 先决条件页](./expressroute-prerequisites.md)，以确保满足要求。
 2. 为确保满足连接需求，请查看 [ExpressRoute 合作伙伴和位置](expressroute-locations.md)一文中的服务提供商和位置列表。
-3. 请查看[针对 Office 365 的网络规划和性能优化](http://aka.ms/tune/)，以规划容量要求。
+3. 请查看[针对 Office 365 的网络规划和性能优化](https://aka.ms/tune/)，以规划容量要求。
 4. 遵循工作流中列出的步骤来设置连接：[ExpressRoute 线路预配工作流和线路状态](expressroute-workflows.md)。
 
 > [!IMPORTANT]

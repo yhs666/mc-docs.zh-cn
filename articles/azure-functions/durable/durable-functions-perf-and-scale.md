@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 03/25/2019
+ms.date: 04/26/2019
 ms.author: v-junlch
-ms.openlocfilehash: a3c2c3389257c06f6337023ceaa98c3ee02a3c58
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: c29a45799557c5c5c4a0df7445809631f98e05a3
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854785"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -55,6 +55,9 @@ Durable Functions 中的每个任务中心有多个控制队列。 与较为简�
 Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮询对存储事务成本造成的影响。 当找到消息时，运行时会立即检查另一条消息；如果未找到消息，它将等待一定的时间，然后重试。 如果后续尝试获取队列消息失败，则等待时间会继续增加，直到达到最长等待时间（默认为 30 秒）。
 
 可以通过 [host.json 文件](../functions-host-json.md#durabletask)中的 `maxQueuePollingInterval` 属性配置最大轮询延迟。 将此项设置为较高的值时，可能导致的消息处理延迟也越高。 只有在不活动的时间段过后，才会出现较高的延迟。 将此项设置为较低的值时，可能导致的存储成本会较高，因为存储事务数增高。
+
+> [!NOTE]
+> 在 Azure Functions 消耗计划中运行时，[Azure Functions 缩放控制器](../functions-scale.md#how-the-consumption-plans-work)每隔 10 秒就会轮询每个控件和工作项队列一次。 若要确定何时激活函数应用实例并进行缩放决策，这种额外的轮询是必需的。 在撰写本文时，这种 10 秒的时间间隔为常量，不能进行配置。
 
 ## <a name="storage-account-selection"></a>存储帐户的选择
 
@@ -124,6 +127,11 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 一般而言，业务流程协调程序函数是轻量型的，应该不需要大量的计算能力。 因此，无需创建大量的控制队列分区即可获得极佳的吞吐量。 大部分繁重工作应在可无限横向扩展的无状态活动函数中完成。
 
+## <a name="auto-scale"></a>自动缩放
+
+与消耗计划中运行的所有 Azure Functions 一样，Durable Functions 支持通过 [Azure Functions 缩放控制器](../functions-scale.md#runtime-scaling)自动缩放。 缩放控制器通过定期发出 _peek_ 命令来监视所有队列的延迟。 根据扫视消息的延迟，缩放控制器将决定是要添加还是删除 VM。
+
+如果缩放控制器确定控制队列消息延迟过高，则会添加 VM 实例，直到消息延迟下降到可接受的级别，或者达到控制队列分区计数。 同样，如果工作项队列延迟偏高，缩放控制器会不断地添加 VM 实例，而不管分区计数如何。
 
 ## <a name="thread-usage"></a>线程用量
 

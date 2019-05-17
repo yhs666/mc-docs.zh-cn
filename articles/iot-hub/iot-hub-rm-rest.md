@@ -15,20 +15,17 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: 8fc9ea513beb823ea4a49c8b61c2bc5ac115991c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 02e6ea7de8b213925e21fb979bd84d3f96a74fec
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627288"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855305"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-可以通过编程方式使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
-
-> [!NOTE]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
+可以通过编程方式使用 [IoT 中心资源提供程序 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

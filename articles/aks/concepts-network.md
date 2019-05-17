@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4221239a4f24fa3e69ab6c7d016a012adc9635ad
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b02b4bf29a51646bbe29dbb150433347daddb378
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627279"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520735"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序的网络概念
 
@@ -24,13 +24,16 @@ ms.locfileid: "58627279"
 - [服务](#services)
 - [Azure 虚拟网络](#azure-virtual-networks)
 - [入口控制器](#ingress-controllers)
-- [网络策略](#network-policies)
+
+<!--Not Available on - [Network policies](#network-policies)-->
 
 ## <a name="kubernetes-basics"></a>Kubernetes 基础知识
 
 为允许访问应用程序或让应用程序组件相互通信，Kubernetes 为虚拟网络提供了抽象层。 Kubernetes 节点连接到虚拟网络，可为 Pod 提供入站和出站连接。 kube-proxy 组件在每个节点上运行，以提供这些网络功能。
 
-在 Kubernetes 中，服务以逻辑方式对 Pod 进行分组，以允许通过 IP 地址或 DNS 名称以及特定端口进行直接访问。 此外，还可使用负载均衡器分发流量。 使用入口控制器也可实现更复杂的应用程序流量路由。 使用 Kubernetes 网络策略可提供安全性，还可筛选 Pod 网络流量（在 AKS 中，为预览版）。
+在 Kubernetes 中，服务以逻辑方式对 Pod 进行分组，以允许通过 IP 地址或 DNS 名称以及特定端口进行直接访问。 此外，还可使用负载均衡器分发流量。 使用入口控制器也可实现更复杂的应用程序流量路由。
+
+<!--Not Available on  Security and filtering of the network traffic for pods is possible with Kubernetes *network policies* (in preview in AKS).-->
 
 Azure 平台还有助于简化 AKS 群集的虚拟网络。 创建 Kubernetes 负载均衡器时，将创建和配置基础 Azure 负载均衡器资源。 打开 Pod 的网络端口时，会配置相应的 Azure 网络安全组规则。 对于 HTTP 应用程序路由，Azure 还可以在配置新的入口路由时配置外部 DNS。
 
@@ -107,13 +110,7 @@ Azure CNI 通过 kubenet 网络提供以下功能：
 
 网络安全组筛选 VM（例如 AKS 节点）的流量。 创建服务（如 LoadBalancer）时，Azure 平台会自动配置所需的任何网络安全组规则。 请勿手动配置网络安全组规则，以筛选 AKS 群集中 Pod 的流量。 定义任何所需端口并作为 Kubernetes 服务清单的一部分转发，让 Azure 平台创建或更新相应的规则。 还可以使用网络策略（如下一部分中所述）来自动向 Pod 应用流量筛选器规则。
 
-## <a name="network-policies"></a>网络策略
-
-默认情况下，AKS 群集中的所有 Pod 都可以无限制地发送和接收流量。 为了提高安全性，你可能想要定义用来控制流量流的规则。 后端应用程序通常只向所需的前端服务公开，或者数据库组件仅可由连接到它们的应用程序层访问。
-
-网络策略是一项 Kubernetes 功能，目前在 AKS 中为预览版，可用于控制 Pod 之间的流量。 可选择基于分配的标签、命名空间或流量端口等设置来允许或拒绝流量。 网络安全组更多是针对 AKS 节点，而不是针对 Pod。 使用网络策略是一种更合适的用来控制流量流的云本机方式。 因为 Pod 是在 AKS 群集中动态创建的，则可以动态应用所需的网络策略。
-
-有关详细信息，请参阅[在 Azure Kubernetes 服务 (AKS) 中使用网络策略保护 Pod 之间的流量][use-network-policies]。
+<!--Not Available on ## Network policies-->
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -141,7 +138,8 @@ Azure CNI 通过 kubenet 网络提供以下功能：
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[aks-http-routing]: http-application-routing.md
+<!--Not Available on [aks-http-routing]: http-application-routing.md-->
+
 [aks-ingress-tls]: ingress-tls.md
 
 <!--Mooncake : URL redirect to ingress-tls.md-->
@@ -153,5 +151,9 @@ Azure CNI 通过 kubenet 网络提供以下功能：
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
-[use-network-policies]: use-network-policies.md
+
+<!--Not Available on [use-network-policies]: use-network-policies.md-->
+
 [operator-best-practices-network]: operator-best-practices-network.md
+
+<!-- Update_Description: wording update, update link -->

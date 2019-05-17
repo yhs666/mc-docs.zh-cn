@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 02/15/2019
-ms.date: 04/08/2019
+origin.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 22aee327c73c83ff431fe0c3b3e532de18b69f95
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cd251b77f79491f61ec45b213360d2d1bfef10d3
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627482"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520683"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
@@ -30,16 +30,16 @@ AKS 支持以下四个 Kubernetes 次要版本：
 
 例如，如果 AKS 今天引入了 1.12.x，则还会为 1.11.a + 1.11.b、1.10.c + 1.10d、1.9.e + 1.9f（其中，带字母的修补程序版本是两个最新的稳定版本）提供支持。
 
-引入新的次要版本后，将停止对最早次要版本和修补程序版本的支持。 在发布新的次要版本和即将发生版本停用的 15 天前，会通过 [Azure 更新通道][azure-update-channel]发布公告。 在上例中，1.12.x 已发布，停用的版本是 1.8.g + 1.8.h。
+引入新的次要版本后，将停止对最早次要版本和修补程序版本的支持。 在发布新的次要版本和即将发生版本停用的 30 天前，会通过 [Azure 更新通道][azure-update-channel]发布公告。 在上例中，1.12.x 已发布，停用的版本是 1.8.g + 1.8.h。
 
 在门户中或使用 Azure CLI 部署 AKS 群集时，群集始终会设置为 n-1 次要版本和最新修补程序。 例如，如果 AKS 支持 1.12.x、1.11.a + 1.11.b、1.10.c + 1.10d、1.9.e + 1.9f，则新群集的默认版本是 1.11.b。
 
 ## <a name="list-currently-supported-versions"></a>列出当前支持的版本
 
-若要了解你的订阅和区域当前可用的版本，请使用 [az aks get-versions][az-aks-get-versions] 命令。 以下示例列出了 *ChinaEast* 区域可用的 Kubernetes 版本：
+若要了解你的订阅和区域当前可用的版本，请使用 [az aks get-versions][az-aks-get-versions] 命令。 以下示例列出了 *chinaEast2* 区域可用的 Kubernetes 版本：
 
 ```azurecli
-az aks get-versions --location chinaeast --output table
+az aks get-versions --location chinaeast2 --output table
 ```
 
 输出类似于以下示例，其中显示 Kubernetes 版本 1.12.5 是可用的最新版本：
@@ -90,4 +90,4 @@ KubernetesVersion    Upgrades
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
-[az-aks-get-versions]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-versions
+[az-aks-get-versions]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions

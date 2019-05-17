@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: ef4420fa5b0f06f9e195d5c798aa5c5a2f7226eb
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a9cfb67d734c33b0fe1e7b2c7f37180af304a351
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64855031"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
@@ -47,7 +47,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 3. **必须在 Azure Stack 市场中提供以下各项：**
     - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
-    - **客户脚本扩展** - Microsoft 提供的虚拟机扩展。  
+    - **自定义脚本扩展** - Microsoft 提供的虚拟机扩展。  
     - **PowerShell Desired Stage Configuration** - Microsoft 提供的虚拟机扩展。
 
 
@@ -62,7 +62,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 > [!TIP]  
 > 要成功运行该脚本，必须有某个公共产品/服务包含计算、网络、存储和 KeyVault 的服务。 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -120,7 +120,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
    ``` 
 
 
-有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack 上的 KeyVault](/azure-stack/user/azure-stack-key-vault-manage-powershell)。
+有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack 上的 KeyVault](azure-stack-key-vault-manage-powershell.md)。
 
 ## <a name="deploy-the-marketplace-item"></a>部署市场项
 
@@ -158,21 +158,21 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 
 ### <a name="use-service-fabric-explorer"></a>使用 Service Fabric Explorer
-1. 验证 Web 浏览器是否能够访问你的管理客户端证书，以及是否可在 Service Fabric 群集中进行身份验证。  
+1.  验证 Web 浏览器是否能够访问你的管理客户端证书，以及是否可在 Service Fabric 群集中进行身份验证。  
 
-   a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。
+    a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。
   
-   b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。 在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。
+    b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。 在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。
         
-      > [!NOTE]  
-      > 此证书不是先前已添加到 KeyVault 的群集证书。  
+       > [!NOTE]  
+       > 此证书不是先前已添加到 KeyVault 的群集证书。  
 
-   c. 确保在“文件资源管理器”窗口的扩展下拉列表中选择“个人信息交换”。  
+    c. 确保在“文件资源管理器”窗口的扩展下拉列表中选择“个人信息交换”。  
 
-      ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
+       ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-   d. 在“证书存储”页上选择“个人”，然后完成向导。  
-      ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
+    d. 在“证书存储”页上选择“个人”，然后完成向导。  
+       ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 2. 若要查找 Service Fabric 群集的 FQDN：  
 
     a. 转到与 Service Fabric 群集关联的资源组，并找到“公共 IP 地址”资源。 选择与“公共 IP 地址”关联的对象，打开“公共 IP 地址”边栏选项卡。  
@@ -185,7 +185,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 3. 若要查找 Service Fabric Explorer 的 URL 和客户端连接终结点，请查看模板部署的结果。
 
-4. 在浏览器中转到 https://<em>FQDN</em>:19080。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
+4. 在浏览器中转到 https://*FQDN*:19080。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
    如果使用了自签名的证书，屏幕上会显示一条警告，指出连接不安全。 若要继续访问网站，请依次选择“更多信息”、“继续访问网页”。 
 
 5. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。 
@@ -212,7 +212,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 3. 更改环境变量的顺序后，重启 PowerShell，然后运行以下 PowerShell 脚本获取 Service Fabric 群集的访问权限：
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/16/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: 4e23982e6a4dc41f6f7b53537786353e86140063
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: a653fc8b9efbd58eb32906d21ff35ff45f6294ee
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785225"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854457"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 将事件发送到 Azure 事件中心
 
@@ -34,31 +34,25 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 * C 语言开发环境。 本教程假定 gcc 堆栈在使用 Ubuntu 14.04 的 Azure Linux VM 上。
 * [Microsoft Visual Studio](https://www.visualstudio.com/)。
-
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
-第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。
-
-按照以下文章中的说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 可在本教程后面编写的代码中使用该访问密钥。 默认密钥名称为：RootManageSharedAccessKey。
-
-现在，继续本教程中的以下步骤。
+* **创建事件中心命名空间和事件中心**。 使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 按照以下文章中的说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 可在本教程后面编写的代码中使用该访问密钥。 默认密钥名称为：RootManageSharedAccessKey。
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>编写将消息发送到事件中心的代码
-本部分介绍如何编写用于将事件发送到事件中心的 C 应用。 此代码使用 [Apache Qpid 项目](http://qpid.apache.org/)中的 Proton AMQP 库。 这类似于通过 C 将服务总线队列和主题与 AMQP 配合使用，如[此示例](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示。 有关详细信息，请参阅 [Qpid Proton 文档](http://qpid.apache.org/proton/index.html)。
+本部分介绍如何编写用于将事件发送到事件中心的 C 应用。 此代码使用 [Apache Qpid 项目](https://qpid.apache.org/)中的 Proton AMQP 库。 这类似于通过 C 将服务总线队列和主题与 AMQP 配合使用，如[此示例](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示。 有关详细信息，请参阅 [Qpid Proton 文档](https://qpid.apache.org/proton/index.html)。
 
 1. 在 [Qpid AMQP Messenger 页](https://qpid.apache.org/proton/messenger.html)中，根据具体的环境，按照说明安装 Qpid Proton。
 2. 若要编译 Proton 库，请安装以下程序包：
-
+   
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. 下载 [Qpid Proton 库](http://qpid.apache.org/proton/index.html)并提取它，例如：
-
+3. 下载 [Qpid Proton 库](https://qpid.apache.org/proton/index.html)并提取它，例如：
+   
     ```shell
-    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. 创建生成目录、编译和安装：
-
+   
     ```shell
     cd qpid-proton-0.7
     mkdir build
@@ -66,12 +60,12 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. 在工作目录中，创建一个包含以下代码的名为 sender.c 的新文件。 请记得替换为你的 SAS 密钥/名称、事件中心名称和命名空间的值。 还必须用密钥的 URL 编码版本替换之前创建的 **SendRule**。 可以在 [此处](http://www.w3schools.com/tags/ref_urlencode.asp)对它进行 URL 编码。
-
+5. 在工作目录中，创建一个包含以下代码的名为 sender.c 的新文件。 请记得替换为你的 SAS 密钥/名称、事件中心名称和命名空间的值。 还必须用密钥的 URL 编码版本替换之前创建的 **SendRule**。 可以在 [此处](https://www.w3schools.com/tags/ref_urlencode.asp)对它进行 URL 编码。
+   
     ```c
     #include "proton/message.h"
     #include "proton/messenger.h"
-
+   
     #include <getopt.h>
     #include <proton/util.h>
     #include <sys/time.h>
@@ -80,7 +74,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
     #include <string.h>
     #include <unistd.h>
     #include <stdlib.h>
-
+   
     #define check(messenger)                                                     \
       {                                                                          \
         if(pn_messenger_errno(messenger))                                        \
@@ -161,11 +155,12 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 祝贺！ 现在已向事件中心发送消息。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解如何从事件中心接收事件，请单击目录中“从事件中心接收事件”节点下的相应接收语言。
+请阅读以下文章：
+
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Azure 事件中心的功能和术语](event-hubs-features.md)。
 
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
-
-<!--Update_Description: update meta properties, wording update -->

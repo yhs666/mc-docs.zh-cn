@@ -11,26 +11,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/03/2018
+origin.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: a1555f754a306135385601a0901226e4a4ad58cb
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a3f5d39286b68f85f449d288be942f113905a78c
+ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626904"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65549965"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API
- 
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API  
+
 Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的客户端 SDK 对媒体资源执行操作。 Azure 媒体服务提供了适用于 Microsoft.NET 的媒体服务客户端 SDK。 若要有权访问媒体服务资源和媒体服务 API，必须先进行身份验证。 
 
 媒体服务支持[基于 Azure Active Directory (Azure AD) 的身份验证](../../active-directory/fundamentals/active-directory-whatis.md)。 Azure 媒体 REST 服务要求，发出 REST API 请求的用户或应用程序必须具有**参与者**或**所有者**角色，才能访问资源。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../../role-based-access-control/overview.md)。  
 
-> [!IMPORTANT]
-> 目前，媒体服务支持 Azure 访问控制服务身份验证模型。 不过，访问控制授权将于 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。
-
 本文档概述了如何使用 REST 或 .NET API 访问媒体服务 API。
+
+> [!NOTE]
+> 访问控制授权已于 2018 年 6 月 1 日弃用。
 
 ## <a name="access-control"></a>访问控制
 
@@ -148,7 +148,6 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 下面的文章概述了 Azure AD 身份验证概念： 
 
 - [Azure AD 解决的身份验证方案](../../active-directory/develop/authentication-scenarios.md)
-- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [使用 PowerShell 配置和管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>后续步骤

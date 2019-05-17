@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 02/08/2019
-ms.date: 03/01/2019
+origin.date: 04/01/2019
+ms.date: 04/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 34b13e7a0866024f0bf955dece225aeb118c3662
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 7abd95e3caea0981a35adec4d8159e5a6c344780
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204078"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854671"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>配置文本分析 docker 容器
 
@@ -79,20 +79,16 @@ ms.locfileid: "57204078"
 |不允许| `Input` | String | 文本分析容器不使用此项。|
 |可选| `Output` | String | 输出装入点的目标。 默认值为 `/output`。 这是日志的位置。 这包括容器日志。 <br><br>示例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="hierarchical-settings"></a>分层设置
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## <a name="example-docker-run-commands"></a>Docker 运行命令示例 
 
 以下示例使用的配置设置说明如何编写和使用 `docker run` 命令。  运行后，容器将继续运行，直到[停止](how-tos/text-analytics-how-to-install-containers.md#stop-the-container)它。
 
-- **行继续符**：以下各节中的 docker 命令使用反斜杠 `\` 作为行继续符。 根据主机操作系统的要求替换或删除字符。 
-- **参数顺序**：除非非常熟悉 docker 容器，否则不要更改参数顺序。
+* **行继续符**：以下各节中的 docker 命令使用反斜杠 `\` 作为行继续符。 根据主机操作系统的要求替换或删除字符。 
+* **参数顺序**：除非非常熟悉 docker 容器，否则不要更改参数顺序。
 
 将 {_argument_name_} 替换为为你自己的值：
 
-| 占位符 | 值 | 格式或示例 |
+| 占位符 | Value | 格式或示例 |
 |-------------|-------|---|
 |{BILLING_KEY} | Azure 门户的“文本分析密钥”页面上可用的文本分析资源的终结点密钥。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Azure 门户的“文本分析概述”页面上提供了账单终结点值。|`https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0`|
@@ -111,17 +107,10 @@ ms.locfileid: "57204078"
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>使用命令行参数的日志记录示例
+### <a name="logging-example"></a>日志记录示例 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>带有环境变量的日志记录示例
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="language-detection-container-docker-examples"></a>语言检测容器 docker 示例
@@ -131,20 +120,13 @@ ms.locfileid: "57204078"
 ### <a name="basic-example"></a>基本示例
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>使用命令行参数的日志记录示例
+### <a name="logging-example"></a>日志记录示例
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>带有环境变量的日志记录示例
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
  
 ## <a name="sentiment-analysis-container-docker-examples"></a>情绪分析容器 docker 示例
@@ -154,24 +136,17 @@ ms.locfileid: "57204078"
 ### <a name="basic-example"></a>基本示例
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>使用命令行参数的日志记录示例
+### <a name="logging-example"></a>日志记录示例
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>带有环境变量的日志记录示例
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>后续步骤
 
 * 查看[如何安装和运行容器](how-tos/text-analytics-how-to-install-containers.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
