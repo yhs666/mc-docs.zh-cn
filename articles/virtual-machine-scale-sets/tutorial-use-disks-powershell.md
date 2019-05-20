@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 02/12/2019
+ms.date: 05/16/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 843891dd4b86473400fce89a023aa399a5213cf6
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 91be7454735f476514b8d587338b5267c0c14d69
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63860442"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65917453"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>教程：通过 Azure PowerShell 对虚拟机规模集创建和使用磁盘
 
@@ -37,7 +37,7 @@ ms.locfileid: "63860442"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
@@ -320,4 +320,4 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 > [!div class="nextstepaction"]
 > [对规模集 VM 实例使用自定义映像](tutorial-use-custom-image-powershell.md)
 
-<!-- Update_Description: code and link update -->
+<!-- Update_Description: link update -->

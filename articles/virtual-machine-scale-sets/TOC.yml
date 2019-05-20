@@ -114,8 +114,8 @@
         - name: 托管磁盘
           href: ../virtual-machines/windows/managed-disks-overview.md
           maintainContext: true
-        - name: 高级存储
-          href: ../virtual-machines/windows/premium-storage.md
+        - name: 选择磁盘类型
+          href: ../virtual-machines/windows/disks-types.md
           maintainContext: true
         - name: 高级存储性能
           href: ../virtual-machines/windows/premium-storage-performance.md
@@ -143,6 +143,8 @@
         - name: vCPU 配额
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: 规模集常见问题解答
+      href: virtual-machine-scale-sets-faq.md
 - name: 如何
   items:
     - name: 规划和设计
@@ -170,6 +172,9 @@
           items:
             - name: 使用 Azure 门户
               href: virtual-machine-scale-sets-autoscale-portal.md
+              maintainContext: true
+            - name: 自动缩放疑难解答
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: 规模集中的应用程序
           href: virtual-machine-scale-sets-deploy-app.md
         - name: 将数据磁盘与规模集配合使用
@@ -196,14 +201,6 @@
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: 计划内维护
           href: virtual-machine-scale-sets-maintenance-notifications.md
-    - name: 故障排除
-      items:
-        - name: 自动缩放
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: 常见问题
-      items:
-        - name: 规模集常见问题解答
-          href: virtual-machine-scale-sets-faq.md
 - name: 参考
   items:
     - name: Azure PowerShell

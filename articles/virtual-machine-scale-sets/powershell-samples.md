@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 02/12/2019
+ms.date: 05/16/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d8a56f90487153e6312bb8596bf08c093e156b4c
-ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.openlocfilehash: 12b12737a5c20ce33a29b9aaa14c1c001e5fbc49
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101570"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65917454"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虚拟机规模集的 Azure PowerShell 示例。
 
@@ -42,6 +42,6 @@ ms.locfileid: "56101570"
 | | |
 
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]    
 
 <!-- Update_Description: wording update -->

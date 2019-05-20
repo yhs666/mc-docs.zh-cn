@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 03/20/2019
+ms.date: 05/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: c407b50a1f0d9d17fcd6cf917389f8f18138981d
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: ba4bf8b4b51ae9218ded7e21aae24fb33a1d96ee
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256360"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65917443"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机规模集
 
@@ -29,7 +29,7 @@ ms.locfileid: "58256360"
 
 如果需要创建虚拟机规模集，可以[使用 Azure PowerShell 创建规模集](quick-create-powershell.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>查看有关规模集的信息
 若要查看有关规模集的全部信息，请使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)。 以下示例将获取有关 myResourceGroup 资源组中 myScaleSet 规模集的信息。 按如下所示输入自己的名称：
