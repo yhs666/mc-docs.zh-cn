@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 1235b37c378f87b26ea2e41230e5ac44668b7040
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 05/27/2019
+ms.openlocfilehash: b2b1810f085beba6c829d330574e5d47eb1fd839
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626385"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829193"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -504,7 +504,7 @@ OriginalUrl.
 > `User-Agent: value1`  
 > `User-Agent: value2`  
 > `User-Agent: value3`
-> ### <a name="elements"></a>元素  
+### <a name="elements"></a>元素
   
 |Name|说明|必须|  
 |----------|-----------------|--------------|  

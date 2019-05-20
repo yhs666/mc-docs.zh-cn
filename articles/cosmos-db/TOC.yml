@@ -74,6 +74,8 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Resource Manager
+      href: resource-manager-samples.md
 - name: 概念
   items:
     - name: 多区域分布
@@ -138,26 +140,11 @@
         - name: 索引
           items:
             - name: 概述
+              displayName: 'range, spatial'
               href: index-overview.md
             - name: 索引策略
               displayName: 'consistent, none'
               href: index-policy.md
-            - name: 索引类型
-              displayName: 'hash, range, spatial'
-              href: index-types.md
-            - name: 索引路径
-              href: index-paths.md
-        - name: 更改源
-          items:
-            - name: 概述
-              href: change-feed.md
-            - name: 读取更改源
-              href: read-change-feed.md
-            - name: 更改源处理器
-              href: change-feed-processor.md
-            - name: 触发 Azure Functions
-              displayName: change feed
-              href: change-feed-functions.md
         - name: 生存时间
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -165,6 +152,17 @@
           href: unique-keys.md
         - name: 事务和乐观并发控制
           href: database-transactions-optimistic-concurrency.md
+    - name: 更改源
+      items:
+        - name: 概述
+          href: change-feed.md
+        - name: 读取更改源
+          href: read-change-feed.md
+        - name: 更改源处理器
+          href: change-feed-processor.md
+        - name: 触发 Azure Functions
+          displayName: change feed
+          href: change-feed-functions.md
     - name: 服务器端编程
       items:
         - name: 存储过程、触发器和 UDF
@@ -205,6 +203,9 @@
           href: firewall-support.md
         - name: 从虚拟网络访问
           href: vnet-service-endpoint.md
+        - name: 基于角色的访问控制
+          displayName: rbac
+          href: role-based-access-control.md
     - name: 企业就绪情况
       items:
         - name: 联机备份和本地还原
@@ -214,7 +215,61 @@
 - name: Cassandra、MongoDB 和其他 API
   expanded: true
   items:
-    - name: Azure Cosmos DB 的用于 MongoDB 的 API
+    - name: Cassandra API
+      items:
+        - name: 简介
+          href: cassandra-introduction.md
+        - name: 线路协议支持
+          href: cassandra-support.md
+        - name: 快速入门
+          items:
+            - name: .NET
+              href: create-cassandra-dotnet.md
+            - name: Java
+              href: create-cassandra-java.md
+            - name: Node.js
+              href: create-cassandra-nodejs.md
+            - name: Python
+              href: create-cassandra-python.md
+        - name: 教程
+          items:
+            - name: 1 - 创建和管理数据
+              href: create-cassandra-api-account-java.md
+            - name: 2 - 加载数据
+              href: cassandra-api-load-data.md
+            - name: 3 - 查询数据
+              href: cassandra-api-query-data.md
+            - name: 4 - 迁移数据
+              displayName: import
+              href: cassandra-import-data.md
+        - name: 操作指南
+          items:
+            - name: 存储和管理 Spring Data
+              href: 'https://docs.azure.cn/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db'
+              maintainContext: true
+            - name: Cassandra 和 Spark
+              items:
+                - name: 简介
+                  href: cassandra-spark-generic.md
+                - name: 使用 HDInsight 进行连接
+                  href: cassandra-spark-hdinsight.md
+                - name: 创建密钥空间和表
+                  href: cassandra-spark-ddl-ops.md
+                - name: 插入数据
+                  href: cassandra-spark-create-ops.md
+                - name: 读取数据
+                  href: cassandra-spark-read-ops.md
+                - name: 更新插入数据
+                  href: cassandra-spark-upsert-ops.md
+                - name: 删除数据
+                  href: cassandra-spark-delete-ops.md
+                - name: 聚合操作
+                  href: cassandra-spark-aggregation-ops.md
+                - name: 复制表数据
+                  href: cassandra-spark-table-copy-ops.md
+            - name: 使用资源管理器模板进行管理
+              href: manage-cassandra-with-resource-manager.md
+    - name: MongoDB API
       items:
         - name: 简介
           href: mongodb-introduction.md
@@ -254,12 +309,9 @@
                       href: tutorial-develop-mongodb-nodejs-part5.md
                     - name: 第 6 部分 - 执行 CRUD 操作
                       href: tutorial-develop-mongodb-nodejs-part6.md
-            - name: 2 - 迁移数据
-              displayName: import
-              href: 'https://docs.azure.cn/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json'
-            - name: 3 - 查询数据
+            - name: 2 - 查询数据
               href: tutorial-query-mongodb.md
-            - name: 4 - 多区域分配数据
+            - name: 3 - 多区域分配数据
               href: tutorial-global-distribution-mongodb.md
         - name: 操作指南
           items:
@@ -284,6 +336,8 @@
             - name: MongoDB 扩展命令
               href: mongodb-custom-commands.md
               displayName: custom commands
+            - name: 使用资源管理器模板进行管理
+              href: manage-mongodb-with-resource-manager.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
@@ -320,58 +374,8 @@
             - name: 存储和管理 Spring Data
               href: 'https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db'
               maintainContext: true
-    - name: Cassandra API
-      items:
-        - name: 简介
-          href: cassandra-introduction.md
-        - name: 线路协议支持
-          href: cassandra-support.md
-        - name: 快速入门
-          items:
-            - name: .NET
-              href: create-cassandra-dotnet.md
-            - name: Java
-              href: create-cassandra-java.md
-            - name: Node.js
-              href: create-cassandra-nodejs.md
-            - name: Python
-              href: create-cassandra-python.md
-        - name: 教程
-          items:
-            - name: 1 - 创建和管理数据
-              href: create-cassandra-api-account-java.md
-            - name: 2 - 加载数据
-              href: cassandra-api-load-data.md
-            - name: 3 - 查询数据
-              href: cassandra-api-query-data.md
-            - name: 4 - 迁移数据
-              displayName: import
-              href: cassandra-import-data.md
-        - name: 操作指南
-          items:
-            - name: 存储和管理 Spring Data
-              href: 'https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db'
-              maintainContext: true
-            - name: Cassandra 和 Spark
-              items:
-                - name: 简介
-                  href: cassandra-spark-generic.md
-                - name: 使用 HDInsight 进行连接
-                  href: cassandra-spark-hdinsight.md
-                - name: 创建密钥空间和表
-                  href: cassandra-spark-ddl-ops.md
-                - name: 插入数据
-                  href: cassandra-spark-create-ops.md
-                - name: 读取数据
-                  href: cassandra-spark-read-ops.md
-                - name: 更新插入数据
-                  href: cassandra-spark-upsert-ops.md
-                - name: 删除数据
-                  href: cassandra-spark-delete-ops.md
-                - name: 聚合操作
-                  href: cassandra-spark-aggregation-ops.md
-                - name: 复制表数据
-                  href: cassandra-spark-table-copy-ops.md
+            - name: 使用资源管理器模板进行管理
+              href: manage-gremlin-with-resource-manager.md
     - name: 表 API
       items:
         - name: 简介
@@ -415,12 +419,15 @@
               href: table-storage-how-to-use-ruby.md
             - name: 'F#'
               href: 'https://docs.azure.cn/zh-cn/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              maintainContext: true
         - name: 操作指南
           items:
             - name: 使用表 API 构建应用
               href: table-support.md
             - name: 表存储设计指南
               href: table-storage-design-guide.md
+            - name: 使用资源管理器模板进行管理
+              href: manage-table-with-resource-manager.md
         - name: 参考
           items:
             - name: .NET
@@ -470,15 +477,24 @@
         - name: 数据建模和分区 - 实际示例
           displayName: 'model, partition, example'
           href: how-to-model-partition-example.md
+        - name: 迁移到分区的容器
+          href: migrate-containers-partitioned-to-nonpartitioned.md
         - name: 配置生存时间
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
         - name: 使用 Azure 存储资源管理器处理数据
           href: storage-explorer.md
-        - name: 索引
-          items:
-            - name: 管理索引
-              href: how-to-manage-indexing-policy.md
+        - name: 管理索引策略
+          href: how-to-manage-indexing-policy.md
+        - name: SQL 子查询示例
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
+    - name: 更改源
+      items:
+        - name: 多个 Azure Cosmos DB 触发器
+          href: how-to-create-multiple-cosmos-db-triggers.md
+        - name: 排查 Azure Cosmos DB 触发器问题
+          href: troubleshoot-changefeed-functions.md
     - name: 服务器端编程
       items:
         - name: 编写存储过程、触发器和 UDF
@@ -504,15 +520,18 @@
     - name: 管理 Azure Cosmos DB 资源
       items:
         - name: 使用 PowerShell 管理
-          href: manage-account-with-powershell.md
+          href: manage-with-powershell.md
         - name: 使用 Azure CLI 进行管理
           href: manage-with-cli.md
+        - name: 使用资源管理器模板进行管理
+          href: manage-sql-with-resource-manager.md
     - name: 日志记录
       items:
         - name: 诊断日志记录
           href: logging.md
         - name: 使用逻辑应用进行应用程序日志记录
           href: 'https://docs.azure.cn/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+          maintainContext: true
     - name: 监视
       items:
         - name: 使用指标进行监视
@@ -566,7 +585,8 @@
             - name: Azure Function 绑定
               href: 'https://docs.azure.cn/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
         - name: Azure 流分析
-          href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+          href: '/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
+          maintainContext: true
         - name: Azure 事件中心和 Azure 存储
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: 使用 Spring Boot Starter
@@ -576,6 +596,7 @@
           href: lambda-architecture.md
         - name: Spark 和 Kafka
           href: 'https://docs.azure.cn/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          maintainContext: true
         - name: ODBC 驱动程序
           href: odbc-driver.md
     - name: 批量执行程序库
@@ -617,7 +638,6 @@
     - name: REST 资源提供程序
       href: 'https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/'
     - name: Resource Manager 模板
-      href: /templates/microsoft.documentdb/databaseaccounts
 - name: 资源
   items:
     - name: 查询备忘单

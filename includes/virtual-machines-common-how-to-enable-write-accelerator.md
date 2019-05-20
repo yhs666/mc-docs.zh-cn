@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 02/22/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 960a1a69a495f93779f2d1d13f7a7ed9ff540cee
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 6ad28a644dd77f70400651415d0e90bf8b48de59
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004541"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835573"
 ---
 # <a name="enable-write-accelerator"></a>启用写入加速器
 
@@ -97,7 +97,7 @@ Azure PowerShell 模块 5.5.0 和更高版本对相关的 cmdlet 做了更改，
 
 示例命令如下所示：
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -115,7 +115,7 @@ Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 
 将 `myVM`、`myWAVMs`、`log001`、磁盘大小和磁盘的 LunID 替换为适用于特定部署的值。
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -138,7 +138,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 可以使用以下脚本在现有磁盘上启用写入加速器。 将 `myVM`、`myWAVMs` 和 `test-log001` 替换为适用于特定部署的值。 该脚本会将写入加速器添加到 **$newstatus** 值设置为“$true”的现有磁盘。 使用 $false 值会在给定的磁盘上禁用写入加速器。
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -168,11 +168,11 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 来启用写入加速器。
 
-若要在现有磁盘上启用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update)；若要将 diskName、VMName 和 ResourceGroup 替换为自己的值，可使用以下示例： `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+若要在现有磁盘上启用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update)；若要将 diskName、VMName 和 ResourceGroup 替换为自己的值，可使用以下示例：`az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-若要附加启用了写入加速器的磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach)；若要替换为自己的值，可使用以下示例： `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+若要附加启用了写入加速器的磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach)；若要替换为自己的值，可使用以下示例：`az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-若要禁用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update) 将属性设置为 false： `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+若要禁用写入加速器，请使用 [az vm update](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-update) 将属性设置为 false：`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>使用 Rest API 启用写入加速器
 
@@ -182,15 +182,15 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 若要运行 armclient，需要通过 Chocolatey 安装它。 可以通过 cmd.exe 或 PowerShell 来安装它。 使用提升的权限执行这些命令（“以管理员身份运行”）。
 
-使用 cmd.exe 运行以下命令： `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+使用 cmd.exe 运行以下命令：`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
-使用 Power Shell 运行以下命令： `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+使用 Power Shell 运行以下命令：`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-现在，可以在 cmd.exe 或 PowerShell 中使用以下命令来安装 armclient： `choco install armclient`
+现在，可以在 cmd.exe 或 PowerShell 中使用以下命令来安装 armclient：`choco install armclient`
 
 ### <a name="getting-your-current-vm-configuration"></a>获取当前的 VM 配置
 
-若要更改磁盘配置的属性，首先需要获取 JSON 文件中的当前配置。 可以执行以下命令来获取当前配置： `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
+若要更改磁盘配置的属性，首先需要获取 JSON 文件中的当前配置。 可以执行以下命令来获取当前配置：`armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 
 将“<<   >>”中的内容替换为自己的数据，包括 JSON 文件应使用的文件名。
 
@@ -293,7 +293,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
         }
 ```
 
-然后使用以下命令更新现有部署： `armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
+然后使用以下命令更新现有部署：`armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
 
 输出应如下所示。 可以看到，为一个磁盘启用了写入加速器。
 

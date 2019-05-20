@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 26ec1e633200dfd2976b0a1209e8acc0b7c60853
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 3ace48079b7e3d8f418c4e294b68d47f942aabd9
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503635"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668832"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
@@ -226,8 +226,4 @@ $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 下图显示了从 Windows PowerShell 发送的请求以及生成的响应。 作业 ID 是从响应中提取的，并转换为字符串。
 
 ![Webhook 按钮](media/automation-webhooks/webhook-request-response.png)
-
-## <a name="next-steps"></a>后续步骤
-
-* 若要了解如何使用 Azure 自动化对 Azure 警报执行操作，请参阅[使用警报触发 Azure 自动化 Runbook](automation-create-alert-triggered-runbook.md)。
 

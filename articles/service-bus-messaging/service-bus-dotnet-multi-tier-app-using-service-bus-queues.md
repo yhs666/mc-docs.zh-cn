@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2c272a12444d923fe4355540c44d4f85c4fde13e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3a19805588f5ed97f4e1868d3783211fe5239115
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626977"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609803"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 
@@ -198,9 +198,7 @@ ms.locfileid: "58626977"
 现在，将添加用于将项提交到队列的代码。 首先，将创建一个包含服务总线队列连接信息的类。 然后，用户将从 Global.aspx.cs 初始化用户的连接。 最后，将更新你之前在 HomeController.cs 中创建的提交代码以便实际将项提交到服务总线队列。
 
 1. 在“解决方案资源管理器”中，右键单击“FrontendWebRole”（右键单击项目而不是角色）。 单击“添加”，并单击“类”。
-
 2. 将类命名为 **QueueConnector.cs**。 单击“添加”以创建类。
-
 3. 现在，将添加可封装连接信息并初始化服务总线队列连接的代码。 将 QueueConnector.cs 的全部内容替换为下面的代码，并输入 `your Service Bus namespace`（命名空间名称）和 `yourKey`（之前从 Azure 门户中获取的**主要密钥**）的值。
 
    ```csharp
@@ -262,17 +260,13 @@ ms.locfileid: "58626977"
        }
    }
    ```
-
 4. 现在，请确保 **Initialize** 方法会被调用。 在“解决方案资源管理器”中，双击“Global.asax\Global.asax.cs”。
-
 5. 在 **Application_Start** 方法的末尾添加以下代码行。
 
    ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
-
 6. 最后，更新之前创建的 Web 代码以便将项提交到队列。 在“解决方案资源管理器”中，双击“Controllers\HomeController.cs”。
-
 7. 更新 `Submit()` 方法（不包含任何参数的重载），如下所示，获取队列的消息计数。
 
    ```csharp
@@ -289,7 +283,6 @@ ms.locfileid: "58626977"
        return View();
    }
    ```
-
 8. 更新 `Submit(OnlineOrder order)` 方法（包含一个参数的重载），如下所示，将订单信息提交到队列。
 
    ```csharp

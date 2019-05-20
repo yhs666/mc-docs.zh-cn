@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 08/15/2018
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5137cbfb413b5f7fd4e67e452236ec2cc003cbb1
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 39ef3519614572cffaaa4c3ce6a66b3a8c48dc12
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520706"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835713"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>结合使用 Draft 与 Azure Kubernetes 服务 (AKS)
 
@@ -160,9 +160,13 @@ Connect to java:4567 on localhost:49804
 
 首先，更新 *values.yaml* Draft 包，以指定应创建类型为 *LoadBalancer* 的服务：
 
+<!--MOONCAKE: CORRECT ON vi charts/example-java/values.yaml-->
+
 ```console
-vi charts/java/values.yaml
+vi charts/example-java/values.yaml
 ```
+
+<!--MOONCAKE: CORRECT ON vi charts/example-java/values.yaml-->
 
 找到 *service.type* 属性，并将值从 *ClusterIP* 更新为 *LoadBalancer*，如以下精简示例中所示：
 

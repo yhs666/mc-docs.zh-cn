@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 02/28/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8cedb9fe24d49b49590e1743e7f62b7c6953035b
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 9a739d8011b8f6453ca8adc72cb8caad2aed28b9
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520739"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835719"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -200,7 +200,11 @@ spec:
 kubectl apply -f samples-tf-mnist-demo.yaml
 ```
 
-<!--DONT REMOVE IT-->
+<!--MOONCAKE: Add OR-->
+
+OR
+
+<!--MOONCAKE: Add OR-->
 <!--MOONCAKE Unique content on 03/28/2019-->
 
 ```

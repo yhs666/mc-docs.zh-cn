@@ -6,18 +6,18 @@ author: WenJason
 ms.service: dns
 ms.topic: quickstart
 origin.date: 3/11/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 75f8309ed4407b12eca368d5a5ab5e07331f8b6d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e859e7c38566703bb4484b65d1f6baa92b333f4d
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627431"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731920"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure DNS 区域和记录
 
-可以将 Azure DNS 配置为在公共域中解析主机名称。 例如，如果从某个域名注册机构购买了 *contoso.com* 域名，则可配置 Azure DNS 来托管 *contoso.com* 域，并将 <em>www.contoso.com</em> 解析为 Web 服务器或 Web 应用的 IP 地址。
+可以将 Azure DNS 配置为在公共域中解析主机名称。 例如，如果从某个域名注册机构购买了 contoso.xyz 域名，则可配置 Azure DNS 来托管 contoso.xyz 域，并将 www.contoso.xyz 解析为 Web 服务器或 Web 应用的 IP 地址。
 
 在本快速入门中，你将创建一个测试域，然后创建一个地址记录来将 *www* 解析为 IP 地址 *10.10.10.10*。
 
@@ -77,7 +77,7 @@ DNS 区域包含域的 DNS 条目。 若要开始在 Azure DNS 中托管域，�
 
 **测试 DNS 名称解析：**
 
-1. 在 Azure 门户中，在“所有资源”下，打开 **dns-test** 资源组中的 **contoso.xyz** DNS 区域。 可以在“按名称筛选”框中输入 *contoso.xyz* 来更轻松地找到它。
+1. 在 Azure 门户中，在“所有资源”下，打开 MyResourceGroup 资源组中的 contoso.xyz DNS 区域。 可以在“按名称筛选”框中输入 *contoso.xyz* 来更轻松地找到它。
 
 1. 在“概述”页面上从名称服务器列表中复制其中一个名称服务器名称。 
 
@@ -99,7 +99,7 @@ DNS 区域包含域的 DNS 条目。 若要开始在 Azure DNS 中托管域，�
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-主机名 <strong>www.contoso.xyz</strong> 解析为 **10.10.10.10**，正如你配置的那样。 此结果表明名称解析正常工作。 
+主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样。 此结果表明名称解析正常工作。 
 
 ## <a name="clean-up-resources"></a>清理资源
 

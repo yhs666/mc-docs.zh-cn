@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 04/03/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: c898ed03a5823313cd0ae2fdc2b723b9eb6b8358
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/20/2019
+ms.openlocfilehash: ac8d5038d9bc68965a44054f6a44618133b71ff5
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529274"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629253"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 连接体系结构
 
@@ -64,9 +64,9 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 
 | 区域名称 | 主 IP 地址 | 次要 IP 地址 |
 | --- | --- |--- |
-| 中国东部 1 | 139.219.130.35 | |
+| 中国东部 | 139.219.130.35 | |
 | 中国东部 2 | 40.73.82.1 | |
-| 中国北部 1 | 139.219.15.17 | |
+| 中国北部 | 139.219.15.17 | |
 | 中国北部 2 | 40.73.50.0 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>更改 Azure SQL 数据库连接策略
@@ -127,4 +127,3 @@ az resource update --ids $id --set properties.connectionType=Proxy
 - 有关如何更改 Azure SQL 数据库服务器的 Azure SQL 数据库连接策略的信息，请参阅 [conn-policy](https://docs.azure.cn/cli/sql/server/conn-policy)。
 - 若要了解使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为，请参阅[用于 ADO.NET 4.5 的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 若要了解常规应用程序开发的概述信息，请参阅[SQL 数据库应用程序开发概述](sql-database-develop-overview.md)。
-<!--Update_Description: add "Script to change connection settings via Azure CLI 2.0 " section-->

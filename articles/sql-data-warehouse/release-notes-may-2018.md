@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 07/23/2018
-ms.date: 03/25/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: twounder
-ms.openlocfilehash: 772e5c08dd71aeaeb721b67c90504b21feaaa974
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: a2220030d3c4bb67c01b346019d1a64634abe2d2
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348103"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828828"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL 数据仓库中的新增功能 2018 年 5 月 
 Azure SQL 数据仓库持续得到改进。 本文介绍 2018 年 5 月发行的版本中所引入的新功能和所做的更改。 
@@ -45,7 +45,7 @@ ALTER DATABASE { database_name } SET { AUTO_CREATE_STATISTICS { OFF | ON } } [;]
 有关更多详细信息，请参阅 [ALTER DATABASE SET 选项](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)一文。
 
 ## <a name="rejected-row-support"></a>拒绝行支持
-由于数据加载的高性能和并行性，客户通常使用 [PolyBase（外部表）将数据载入](design-elt-data-loading.md) SQL 数据仓库。 通过 [Azure 数据工厂](http://azure.com/adf)加载数据时，PolyBase 也是默认的加载模型。 
+由于数据加载的高性能和并行性，客户通常使用 [PolyBase（外部表）将数据载入](design-elt-data-loading.md) SQL 数据仓库。
 
 SQL 数据仓库添加了在 [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) 语句中通过 `REJECTED_ROW_LOCATION` 参数定义拒绝行位置的功能。 从外部表执行 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 后，无法加载的所有行将存储在靠近源的某个文件中，供进一步调查。 
 
@@ -129,5 +129,8 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 ## <a name="set-parseonly-on-query-status-behavior-change"></a>SET PARSEONLY ON 查询状态（行为变更）
 用户可以使用 `SET PARSEONLY ON` 语法来让 SQL 数据仓库引擎检查每个 T-SQL 语句的语法并返回任何错误消息，而无需编译或执行该语句。 以前，在 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 系统视图中，这些语句的状态会始终为 `Running` 状态。 `sys.dm_pdw_exec_requests` 视图现在返回的状态将为 `Complete`。
 
-<!-- Update_Description: new articles SQL release notes may 2018 -->
-<!--ms.date: 06/25/2018-->
+## <a name="next-steps"></a>后续步骤
+对 SQL 数据仓库有了初步的认识后，请了解如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]。 如果不熟悉 Azure，在遇到新术语时，可以参考 [Azure 术语表][Azure glossary]。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
+
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

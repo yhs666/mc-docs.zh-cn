@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/18/2017
 ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: 26f11fc2adffacd6d40dbd60a04e5b9d27d76a32
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: c0f33e6f201ad4f28c8567672e04c7aa23a0aef6
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854772"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829356"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 证书进行设备身份验证
 
@@ -91,4 +91,4 @@ X.509 CA 证书的所有者能以加密方式为某个中间 CA 签名，而该 
 
 了解 IoT 中 [X.509 CA 身份验证的价值](iot-hub-x509ca-concept.md)。
 
-开始使用 IoT 中心[设备预配服务](https://docs.microsoft.com/en-us/azure/iot-dps/)。
+开始使用 IoT 中心[设备预配服务](/iot-dps/)。

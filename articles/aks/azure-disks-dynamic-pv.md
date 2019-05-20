@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/01/2019
 ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: fbe437ecacc599e20ddfd3254deaa5c7b87269a6
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 409e40ffd452e3721ae7bf3c4708a74f7a0c3a12
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855605"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835715"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
@@ -95,6 +95,8 @@ persistentvolumeclaim/azure-managed-disk created
 
 创建名为 `azure-pvc-disk.yaml` 的文件，并将其复制到以下清单中。
 
+<!--MOONCAKE: Correct on dockerhub.azk8s.cn/library/nginx:1.15.5-->
+
 ```yaml
 kind: Pod
 apiVersion: v1
@@ -103,7 +105,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: dockerhub.azk8s.cn/nginx:1.15.5
+    image: dockerhub.azk8s.cn/library/nginx:1.15.5
     resources:
       requests:
         cpu: 100m
@@ -119,6 +121,8 @@ spec:
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
+
+<!--MOONCAKE: Correct on dockerhub.azk8s.cn/library/nginx:1.15.5-->
 
 使用 [kubectl apply][kubectl-apply] 命令创建 Pod，如以下示例所示：
 
@@ -199,6 +203,8 @@ az disk create --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 --nam
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 --name pvcRestored --query id -o tsv
 ```
 
+<!--MOONCAKE: Correct on dockerhub.azk8s.cn/library/nginx:1.15.5-->
+
 创建名为 `azure-restored.yaml` 的 Pod 清单，并指定上一步骤中获取的磁盘 URI。 以下示例创建一个基本的 NGINX Web 服务器，其中的 *mnt/azure* 处已将还原的磁盘装载为卷：
 
 ```yaml
@@ -209,7 +215,7 @@ metadata:
 spec:
   containers:
   - name: mypodrestored
-    image: dockerhub.azk8s.cn/nginx:1.15.5
+    image: dockerhub.azk8s.cn/library/nginx:1.15.5
     resources:
       requests:
         cpu: 100m
@@ -227,6 +233,8 @@ spec:
         diskName: pvcRestored
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_chinaeast2/providers/Microsoft.Compute/disks/pvcRestored
 ```
+
+<!--MOONCAKE: Correct on dockerhub.azk8s.cn/library/nginx:1.15.5-->
 
 使用 [kubectl apply][kubectl-apply] 命令创建 Pod，如以下示例所示：
 

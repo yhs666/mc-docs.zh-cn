@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 6e0ea0b2dc940f2cafdc7f86907a7b53dc93a434
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/20/2019
+ms.openlocfilehash: e883f2c37dde811ee7f7399321bb9a46c40b3655
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529506"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629239"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：使用 Azure Key Vault 中由客户管理的密钥启用透明数据加密
 
@@ -34,9 +34,9 @@ ms.locfileid: "59529506"
 - 必须安装并运行 Azure PowerShell。 
 - 创建用于 TDE 的 Azure Key Vault 和密钥。
   - [Key Vault 的 PowerShell 说明](../key-vault/key-vault-overview.md)
-  - Key Vault 必须包含用于 TDE 的以下属性：
-   - [软删除](../key-vault/key-vault-ovw-soft-delete.md)
-   - [如何将 Key Vault 软删除与 PowerShell 配合使用](../key-vault/key-vault-soft-delete-powershell.md) 
+    - Key Vault 必须包含用于 TDE 的以下属性：
+  - [软删除](../key-vault/key-vault-ovw-soft-delete.md)
+  - [如何将 Key Vault 软删除与 PowerShell 配合使用](../key-vault/key-vault-soft-delete-powershell.md) 
 - 密钥必须包含用于 TDE 的以下特性：
    - 无过期日期
    - 未禁用
@@ -198,9 +198,9 @@ ms.locfileid: "59529506"
 - 命令行接口版本 2.0 或更高版本。 若要安装最新版本并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行接口 2.0](/cli/install-azure-cli)。 
 - 创建用于 TDE 的 Azure Key Vault 和密钥。
   - [使用 CLI 2.0 管理 Key Vault](../key-vault/key-vault-manage-with-cli2.md)
-  - Key Vault 必须包含用于 TDE 的以下属性：
-   - [软删除](../key-vault/key-vault-ovw-soft-delete.md)
-   - [如何将 Key Vault 软删除与 CLI 配合使用](../key-vault/key-vault-soft-delete-cli.md) 
+    - Key Vault 必须包含用于 TDE 的以下属性：
+  - [软删除](../key-vault/key-vault-ovw-soft-delete.md)
+  - [如何将 Key Vault 软删除与 CLI 配合使用](../key-vault/key-vault-soft-delete-cli.md) 
 - 密钥必须包含用于 TDE 的以下特性：
    - 无过期日期
    - 未禁用

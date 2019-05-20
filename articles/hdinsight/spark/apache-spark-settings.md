@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/06/2018
 ms.author: v-yiso
-ms.date: 01/14/2019
-ms.openlocfilehash: 1b11eca5378f2e36e40b4081b469a050ef998d01
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.date: 05/27/2019
+ms.openlocfilehash: dafa71f6ddd278113374ba2880d9e7564fa73a88
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806536"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829328"
 ---
 # <a name="configure-apache-spark-settings"></a>配置 Apache Spark 设置
 
@@ -129,7 +129,7 @@ YARN 控制每个 Spark 节点上的容器使用的最大内存量总计。 下�
 
 HDInsight 中的 Spark 群集默认包含许多组件。 其中每个组件包含可按需替代的默认配置值。
 
-* Spark Core - Spark Core、Spark SQL、Spark 流式处理 API、GraphX 和 MLlib
+* Spark Core - Spark Core、Spark SQL、Spark 流式处理 API、GraphX 和 Apache Spark MLlib。
 * Anaconda - python 包管理器
 * [Apache Livy](https://livy.incubator.apache.org/) - Apache Spark REST API，用于将远程作业提交到 HDInsight Spark 群集
 * [Jupyter](https://jupyter.org/) 和 [Apache Zeppelin](https://zeppelin.apache.org/) Notebook - 用来与 Spark 群集交互的基于浏览器的交互式 UI

@@ -7,14 +7,14 @@ ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6579db96497bbbc310421efc4441d598572d76ce
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: dc5259fb07bcfa43f765d4d252fd327492043fe5
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625948"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609870"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -149,14 +149,6 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 * 在单个步骤中使用超过 14 个聚合。
 * 用于输入/输出的 AVRO 格式。 目前仅支持 CSV 和 JSON。
 * 以下 SQL 运算符：
-    * 地理空间运算符：
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * 分区依据
     * GetMetadataPropertyValue
 

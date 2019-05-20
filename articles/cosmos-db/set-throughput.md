@@ -5,16 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/31/2019
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9d2ec9a97cdd20eca2bf42598c520ebc1ac2b333
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: efe07e0c6ea0214dd393ef3d8a2672741b9260e2
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615242"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668879"
 ---
-<!-- Notice: Meta Not Available on graphs, and tables -->
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和数据库上预配吞吐量
 
 Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不限架构的容器。 Azure Cosmos 容器是吞吐量和存储的缩放单元。 容器跨 Azure 区域中的一组计算机水平分区，并分布在与 Azure Cosmos 帐户关联的所有 Azure 中国区域中。
@@ -57,7 +56,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 * 对于多租户应用程序来说，在一组容器之间共享数据库的预配吞吐量非常有用。 每个用户可由不同的 Azure Cosmos 容器表示。
 
 * 将 VM 群集或本地物理服务器中托管的 NoSQL 数据库（例如 MongoDB 或 Cassandra）迁移到 Azure Cosmos DB 时，在一组容器之间共享数据库的预配吞吐量非常有利。 可将针对 Azure Cosmos 数据库配置的预配吞吐量视为在逻辑上等同于（但更具成本效益和弹性）MongoDB 或 Cassandra 群集的计算容量。  
-    <!-- Not Available on Cassandra-->
+
 必须使用[分区键](partition-data.md)创建在具有预配吞吐量的数据库内创建的所有容器。 在任意给定的时间点，分配给数据库中容器的吞吐量将分布在该容器的所有逻辑分区之间。 如果有容器共享在数据库上配置的预配吞吐量，则无法选择性地将吞吐量应用到特定的容器或逻辑分区。 
 
 如果逻辑分区上的工作负荷消耗的吞吐量超过了分配给特定逻辑分区的吞吐量，操作将受到速率限制。 出现速率限制时，可以增大整个数据库的吞吐量，或重试操作。 有关分区的详细信息，请参阅[逻辑分区](partition-data.md)。
@@ -90,7 +89,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 使用 .NET SDK 时，可以通过 [DocumentClient.ReadOfferAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 方法检索容器或数据库的最小吞吐量。 
 
-可以随时缩放容器或数据库的预配吞吐量。 可以在空闲 4 小时后运行纵向缩减操作。 根据定义，空闲期间是指在容器或数据库上没有套餐更换操作（包括纵向扩展和纵向缩减）的时间段。 
+可以随时缩放容器或数据库的预配吞吐量。 
 
 ## <a name="comparison-of-models"></a>模型比较
 

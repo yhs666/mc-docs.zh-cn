@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 origin.date: 11/06/2018
-ms.date: 04/15/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8440736c0fb3d05e9d6a856649ba44ca689216db
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 0e77f27646dace41cc6e0ffccb0552fcc6bffae6
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004148"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829217"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>快速入门：使用模板在 HDInsight 中创建 Apache Spark 群集
 
@@ -33,7 +33,7 @@ ms.locfileid: "59004148"
 
 1. 选择以下链接在新的浏览器选项卡中打开 Azure 门户中的模板：         
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank">“部署到 Azure”</a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank">部署到 Azure</a>
 
 2. 输入以下值：
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 03/27/2019
-ms.date: 04/22/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: e9bd3a79a8d17590e3a7232215486f4170250bb1
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 151d760a8dc4620116ced41b3d6924d84feefa6e
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854832"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668974"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
@@ -24,9 +24,10 @@ ms.locfileid: "64854832"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
 - 代码编辑器，例如 [Visual Studio Code](https://code.visualstudio.com/download)。
 - PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 包。
+- 支持 PHP 的 Web 浏览器。 如果尚未进行设置，可以在计算机上安装并设置 [XAMPP](https://www.apachefriends.org/)。
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 文件
 

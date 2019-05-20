@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 04/05/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: a8769ca048ef775492dab66ec2d440b8cff8b8ba
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.date: 05/13/2019
+ms.openlocfilehash: 4dae9b68fad7fe5117fd23cb81b38ffc0aa771cf
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615193"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668963"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>快速入门：在 Azure Cosmos DB 中生成一个使用 SQL API 帐户的 .NET Web 应用
 
@@ -55,13 +55,13 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 可以使用 Azure 门户中的数据资源管理器来创建数据库和集合。 
 
-1.  在 Azure Cosmos DB 帐户页上的左侧导航栏中选择“数据资源管理器”，然后选择“新建集合”。 
+1. 在 Azure Cosmos DB 帐户页上的左侧导航栏中选择“数据资源管理器”，然后选择“新建集合”。 
 
     可能需要向右滚动才能看到“添加集合”区域。
 
     ![Azure 门户“数据资源管理器”，“添加集合”窗格](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
 
-1.  在“添加集合”页上，输入新集合的设置。
+1. 在“添加集合”页上，输入新集合的设置。
 
     |设置|建议的值|说明
     |---|---|---|
@@ -72,7 +72,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
     对于本示例，请不要添加“唯一键”。 使用唯一键可将数据完整性层添加到数据库，因为它能确保每个分区键的一个或多个值的唯一性。 有关详细信息，请参阅 [Azure Cosmos DB 中的唯一键](unique-keys.md)。
 
-1.  选择“确定” 。 
+1. 选择“确定” 。 
     数据资源管理器将显示新的数据库和集合。
 
     ![显示新的数据库和集合的 Azure 门户数据资源管理器](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
@@ -196,28 +196,32 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 * 以下代码使用 `CreateDocumentCollectionAsync` 方法创建新的集合：
 
     ```csharp
-    private static async Task CreateCollectionIfNotExistsAsync()
+    private static async Task CreateCollectionIfNotExistsAsync(string partitionkey)
     {
-        try
-        {
-           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-        }
+       try
+       {       
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new RequestOptions { PartitionKey = new PartitionKey(partitionkey) });
+       }
         catch (DocumentClientException e)
         {
            if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-           {
-              await client.CreateDocumentCollectionAsync(
-              UriFactory.CreateDatabaseUri(DatabaseId),
-              new DocumentCollection
-              {
-                  Id = CollectionId
-              },
-              new RequestOptions { OfferThroughput = 400 });
-           }
-           else
-           {
-             throw;
-           }
+            {
+                await client.CreateDocumentCollectionAsync(
+                  UriFactory.CreateDatabaseUri(DatabaseId),
+                   new DocumentCollection
+                    {
+                      Id = CollectionId,
+                      PartitionKey = new PartitionKeyDefinition
+                       {
+                           Paths = new System.Collections.ObjectModel.Collection<string>(new List<string>() { partitionkey })
+                        }
+                    },
+                      new RequestOptions { OfferThroughput = 400 });
+            }
+            else
+            {
+                throw;
+            }
         }
     }
     ```

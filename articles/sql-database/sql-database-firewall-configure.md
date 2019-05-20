@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 数据库和数据仓库 IP 防火墙规则 | Microsoft Docs
-description: 了解如何为 SQL 数据库或 SQL 数据仓库防火墙配置可管理访问权限的服务器级别 IP 防火墙规则，以及如何为单一数据库或入池数据库配置数据库级别 IP 防火墙规则。
+description: 了解如何为 SQL 数据库或 SQL 数据仓库防火墙配置可管理访问权限的服务器级别 IP 防火墙规则，以及如何为单一数据库或共用数据库配置数据库级别 IP 防火墙规则。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 0978df7104e88222d72e480847a8aaa1d959f7c2
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 05/20/2019
+ms.openlocfilehash: 6dae00eef422892d5b853e30c99f95e24efdc373
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003510"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629155"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库 IP 防火墙规则
 
@@ -74,14 +74,14 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 ### <a name="connecting-from-azure"></a>从 Azure 连接
 
-若要允许来自 Azure 的应用程序连接到 Azure SQL Server，则必须启用 Azure 连接。 在应用程序尝试从 Azure 连接到你的数据库服务器时，防火墙将验证是否允许 Azure 连接。 如果防火墙设置的开始地址和结束地址都等于 0.0.0.0，表明允许 Azure 连接。 如果不允许该连接尝试，则该请求不会访问 Azure SQL 数据库服务器。
+若要允许来自 Azure 的应用程序连接到 Azure SQL Server，则必须启用 Azure 连接。 在应用程序尝试从 Azure 连接到你的数据库服务器时，防火墙将验证是否允许 Azure 连接。 如果防火墙设置的开始地址和结束地址都等于 0.0.0.0，表明允许 Azure 连接。 如果不允许该连接尝试，则该请求将不会访问 Azure SQL 数据库服务器。
 
 > [!IMPORTANT]
 > 该选项将防火墙配置为允许来自 Azure 的所有连接，包括来自其他客户的订阅的连接。 选择该选项时，请确保登录名和用户权限将访问权限限制为仅已授权用户使用。
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>创建和管理 IP 防火墙规则
 
-第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
+第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) 通过编程方式创建。 可以使用这些方法或通过 Transact-SQL 创建和管理后续的服务器级别 IP 防火墙规则。 
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级别 IP 防火墙规则。

@@ -4,14 +4,15 @@ ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/22/2019
-ms.date: 04/23/2019
-ms.openlocfilehash: 38aa2cd30e680d30e62e8252e1d57154b347f656
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.date: 05/16/2019
+ms.openlocfilehash: 72f733e8de7e9bf4d6f0f48d9f0408a2532288e3
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555437"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828519"
 ---
 主机是运行 docker 容器的基于 x64 的计算机。 它可以是本地计算机或 Azure 中的 docker 托管服务，包括：
 
-* [Azure Kubernetes 服务](../articles/aks/index.yml)
+* Azure Kubernetes 服务
+

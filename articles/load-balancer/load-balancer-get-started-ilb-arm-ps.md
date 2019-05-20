@@ -15,11 +15,11 @@ origin.date: 09/25/2017
 ms.date: 03/04/2019
 ms.author: v-jay
 ms.openlocfilehash: 8a8c308571bf985ab91aec4186e71ef5a2f0e233
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836982"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835792"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建内部负载均衡器
 
@@ -332,5 +332,5 @@ Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ## <a name="next-steps"></a>后续步骤
 
 * [配置负载均衡器分发模式](load-balancer-distribution-mode.md)
-* [为负载均衡器配置空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+* [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 <!-- Update_Description: update meta properties, wording update -->

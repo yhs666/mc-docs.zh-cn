@@ -9,16 +9,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 origin.date: 09/10/2018
-ms.date: 04/08/2019
+ms.date: 05/13/2019
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d74074a8be8daef7b802a8c07103f22d2929130
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: 4dccfaf8e69badf3428c2c41a4837b07beeff667
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355861"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598795"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中创建一个新租户
 可以使用 Azure Active Directory (Azure AD) 门户执行所有管理任务，包括为组织创建新的租户。 
@@ -30,7 +30,7 @@ ms.locfileid: "59355861"
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 使用全局管理员帐户登录到组织的 [Azure 门户](https://portal.azure.cn/)。
 
-![Azure 门户屏幕，包含 Azure AD 选项](./media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Azure 门户屏幕，包含 Azure AD 选项](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>为组织创建新的租户
 登录到 Azure 门户后，即可为组织创建新的租户。 新的租户代表你的组织，可帮助你管理面向内部和外部用户的特定 Azure 云服务实例。
@@ -40,7 +40,7 @@ ms.locfileid: "59355861"
 
     随即出现“创建目录”页面。
 
-    ![Azure Active Directory“创建”页面](./media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+    ![Azure Active Directory“创建”页面](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
 2.  在“创建目录”页面上，输入以下信息：
     
@@ -61,7 +61,7 @@ ms.locfileid: "59355861"
 
     这会删除此租户及其关联的信息。
 
-    ![创建目录页，包含示例信息](./media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![突出显示“删除目录”按钮的概述页](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>后续步骤
 - 更改或添加其他域名，请参阅[如何向 Azure Active Directory 添加自定义域名](add-custom-domain.md)

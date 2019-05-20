@@ -1,83 +1,80 @@
-items:
 - name: 用户管理文档
   href: index.yml
 - name: 快速入门
   items:
-  - name: 将用户添加到 Azure AD
-    href: /active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-- name: 概念
-  items:
-  - name: 比较默认用户权限
-    href: /active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: 比较 Azure 和 Azure AD 角色
-    href: /role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-  expanded: true
-- name: 操作指南
-  items:
-  - name: 管理用户
-    items:
-    - name: 将新用户添加到 Azure AD
+    - name: 将用户添加到 Azure AD
       href: /active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 管理用户个人资料
-      href: /active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 将用户分配到管理员角色
-      href: /active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: 管理目录
-    items:
-    - name: 管理目录
-      href: /active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 管理域名
-      href: domains-manage.md
-    - name: 删除目录
-      href: directory-delete-howto.md
-    - name: 自助服务注册
-      href: directory-self-service-signup.md
-    - name: 具有 Azure AD Connect
-      href: /active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: 管理组
-    items:
-    - name: 使用组管理访问权限
-      href: /active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 在 Azure 门户中管理组
-      href: /active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 管理组 - 用于 Graph 的 PowerShell (v2)
-      href: groups-settings-v2-cmdlets.md
-    - name: 管理组成员
-      href: /active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 管理组所有者
-      href: /active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 管理组中的组
-      href: /active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 还原已过期或已删除的组
-      href: groups-restore-deleted.md
-    - name: 管理组设置
-      href: /active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure AD 管理员角色
-    items:
-    - name: 角色和权限
-      href: directory-assign-admin-roles.md
-    - name: 查看和分配角色
-      href: directory-manage-roles-portal.md
-    - name: 委托应用管理角色
-      href: roles-delegate-app-roles.md
-    - name: 按任务分配的最低权限角色
-      href: roles-delegate-by-task.md
-    - name: Microsoft 365 角色
-      href: roles-m365-workload-docs.md
-  - name: 管理登录
-    items:
-    - name: 主领域发现
-      href: signin-realm-discovery.md
+- name: 概念
   expanded: true
+  items:
+    - name: 比较默认用户权限
+      href: /active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 比较 Azure 和 Azure AD 角色
+      href: /role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+- name: 操作指南
+  expanded: true
+  items:
+    - name: 管理用户
+      items:
+        - name: 将新用户添加到 Azure AD
+          href: /active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 管理用户个人资料
+          href: /active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 将用户分配到管理员角色
+          href: /active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 管理目录
+      items:
+        - name: 管理目录
+          href: /active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 管理域名
+          href: domains-manage.md
+        - name: 删除目录
+          href: directory-delete-howto.md
+        - name: 自助服务注册
+          href: directory-self-service-signup.md
+        - name: 具有 Azure AD Connect
+          href: /active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 管理组
+      items:
+        - name: 使用组管理访问权限
+          href: /active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 在 Azure 门户中管理组
+          href: /active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 管理组 - 用于 Graph 的 PowerShell (v2)
+          href: groups-settings-v2-cmdlets.md
+        - name: 管理组成员
+          href: /active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 管理组所有者
+          href: /active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 管理组中的组
+          href: /active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 还原已过期或已删除的组
+          href: groups-restore-deleted.md
+        - name: 管理组设置
+          href: /active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Azure AD 管理员角色
+      items:
+        - name: 角色和权限
+          href: directory-assign-admin-roles.md
+        - name: 查看和分配角色
+          href: directory-manage-roles-portal.md
+        - name: 使用 PowerShell 分配角色
+          href: roles-assign-powershell.md
+        - name: 委托应用管理角色
+          href: roles-delegate-app-roles.md
+        - name: 按任务分配的最低权限角色
+          href: roles-delegate-by-task.md
+        - name: Microsoft 365 角色
+          href: roles-m365-workload-docs.md
+    - name: 管理登录
+      items:
+        - name: 登录选项
+          href: signin-account-support.md
+        - name: 主领域发现
+          href: signin-realm-discovery.md
 - name: 参考
   items:
-  - name: Azure AD CLI
-    href: /cli/ad
-  - name: Azure AD 服务限制
-    href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 37c1e4110f88c09d6f2316008ca305023666e0c0
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502605"
+    - name: Azure AD CLI
+      href: /cli/ad
+    - name: Azure AD 服务限制
+      href: directory-service-limits-restrictions.md

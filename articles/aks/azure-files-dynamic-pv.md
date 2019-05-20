@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/08/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 741901cf28ab51deaaef1239c4f62c2225af149d
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: fe6c5468ffdd3ffb69cf5bf72d0523482f9198df
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854721"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835721"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -151,7 +151,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: dockerhub.azk8s.cn/nginx:1.15.5
+    image: dockerhub.azk8s.cn/library/nginx:1.15.5
     resources:
       requests:
         cpu: 100m
@@ -180,7 +180,7 @@ kubectl apply -f azure-pvc-files.yaml
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          dockerhub.azk8s.cn/nginx:1.15.5
+    Image:          dockerhub.azk8s.cn/library/nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Wed, 15 Aug 2018 22:22:27 +0000

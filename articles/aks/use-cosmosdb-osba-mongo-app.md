@@ -11,13 +11,15 @@ ms.date: 04/08/2019
 ms.author: v-yeche
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, 用于 Azure 的 Open Service Broker
-ms.openlocfilehash: 2e311979e129e8d450bd58102d0fb321f17b2d03
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ab037835a8b5c815fee3b0a1c47bbc8784f52f23
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854559"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835723"
 ---
+<!--IMPORTANT: http_application_routing NOT AVAILABLE ON MOONCAKE-->
+<!--NOT SUIT FOR MOONCAKE-->
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>将现有的 MongoDB 应用程序与用于 MongoDB 的 Azure Cosmos DB API 和用于 Azure 的 Open Service Broker (OSBA) 集成
 
 Azure Cosmos DB 是一种全球分布式多模型数据库服务。 它还提供网络协议兼容性，兼容多个 NoSQL API（包括用于 MongoDB 的 API）。 可以通过用于 MongoDB 的 Cosmos DB API 将 Cosmos DB 与现有的 MongoDB 应用程序配合使用，不需更改应用程序的数据库驱动程序或实现。 也可使用 Open Service Broker for Azure 来预配 Cosmos DB 服务。

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: e0a43b03775d1b3b8acaddfd81d55093cd009c89
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: b1141d722af74607f08892ae990c5b072a29de0b
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903082"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835743"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>对传入 VM 的流量进行负载均衡以实现高可用性
 

@@ -2,29 +2,26 @@
 title: 教程 - 如何将 Azure Key Vault 与 .NET Azure Web 应用配合使用 | Azure Docs
 description: 本教程介绍如何将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密。
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: identity
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 8f60e1afa358863781f55fd4a3eb97f249d25d0c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 81778c0ded243a3a190ddf63005e36b3382aa230
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625613"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628778"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教程：如何将 Azure Key Vault 与 .NET Azure Web 应用配合使用
 
 Azure Key Vault 可帮助你保护机密，例如 API 密钥和数据库连接字符串。 使用 Key Vault 可以访问应用程序、服务和 IT 资源。
 
-本教程介绍如何创建可从 Azure Key Vault 读取信息的 Azure Web 应用程序。 该过程使用 Azure 资源的托管标识。 有关 Azure Web 应用的详细信息，请参阅 [Azure Web 应用](../app-service/app-service-web-overview.md)。
+本教程介绍如何创建可从 Azure Key Vault 读取信息的 Azure Web 应用程序。 该过程使用 Azure 资源的托管标识。 有关 Azure Web 应用的详细信息，请参阅 [Azure 应用服务](../app-service/overview.md)。
 
 本教程介绍如何：
 
@@ -73,8 +70,9 @@ az login
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-1. 使用 [az group create](/cli/group#az_group_create) 命令创建资源组。
-1. 选择一个资源组名称，然后将其填充在占位符中。 以下示例在“中国北部”位置创建一个资源组：
+使用 [az group create](/cli/group#az-group-create) 命令创建资源组。
+
+接下来，选择一个资源组名称，然后将其填充在占位符中。 以下示例在“中国北部”位置创建一个资源组：
 
    ```azurecli
    # To list locations: az account list-locations --output table

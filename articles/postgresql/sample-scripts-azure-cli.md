@@ -1,24 +1,22 @@
 ---
-title: 用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例
-description: 本文列出了多个可用于与适用于 PostgreSQL 服务器的 Azure 数据库交互的 Azure CLI 代码示例。
-services: postgresql
+title: Azure Database for PostgreSQL - 单个服务器的 Azure CLI 示例
+description: 本文列出了用于与 Azure Database for PostgreSQL - 单个服务器交互的一系列 Azure CLI 代码示例。
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
-ms.date: 06/22/2018
-ms.openlocfilehash: 2397061f63b5e9b8159658b6034e57e10c01a679
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 8f364d5125fe7fbceef92f4932d88d4cc2299c5b
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660605"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731984"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例 
+# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单个服务器的 Azure CLI 示例
 下表包含指向示例 Azure CLI 脚本的链接，这些脚本针对用于 PostgreSQL 的 Azure 数据库。
 
 | |  |
@@ -32,6 +30,6 @@ ms.locfileid: "52660605"
 |**还原服务器**||
 | [还原服务器](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2ftoc.json) | Azure CLI 脚本，用于将适用于 PostgreSQL 服务器的 Azure 数据库还原到前一个时间点。 |
 |**下载服务器日志**||
-| [启用和下载服务器日志](./scripts/sample-server-logs.md?toc=%2fcli%2ftoc.json) | Azure CLI 脚本，用于启用和下载适用于 PostgreSQL 服务器的 Azure 数据库的服务器日志的。 |
+| [启用和下载服务器日志](./scripts/sample-server-logs.md?toc=%2fcli%2ftoc.json) | Azure CLI 脚本，用于启用和下载 Azure Database for PostgreSQL 服务器的服务器日志。 |
 |||
 

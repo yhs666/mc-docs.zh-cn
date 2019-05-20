@@ -6,11 +6,11 @@ origin.date: 11/09/2018
 ms.date: 12/31/2018
 ms.author: v-jay
 ms.openlocfilehash: af2de534f0692fd3ab094c38176f95d83c75ae37
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806730"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835772"
 ---
 ## <a name="configuration-scenario"></a>配置方案
 

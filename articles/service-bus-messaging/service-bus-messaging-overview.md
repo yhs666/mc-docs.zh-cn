@@ -8,16 +8,15 @@ manager: digimobile
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 04/12/19
 ms.custom: mvc
 ms.author: v-lingwu
-ms.openlocfilehash: 4770e441e7db274d886d3fcf4afd54410c262474
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 9c2de56fd12c3c4dd7676b139788b0b1402c8b25
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784610"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609838"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
@@ -40,7 +39,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ![队列](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-队列中的消息会排队，并在到达时加盖时间戳。 获得接受后，消息会安全地存储在冗余存储中。 消息以拉取模式传送，即按请求传送消息。 **
+队列中的消息会排队，并在到达时加盖时间戳。 获得接受后，消息会安全地存储在冗余存储中。 消息以拉取模式传送，即按请求传送消息。
 
 ## <a name="topics"></a>主题
 

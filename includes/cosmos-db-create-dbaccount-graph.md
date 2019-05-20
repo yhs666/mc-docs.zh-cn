@@ -10,11 +10,11 @@ ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 4231b55578d0e7a5f96ae9e3168fcb2578d15476
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988344"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65668823"
 ---
 <!--Verify sucessfully-->
 1. 在新浏览器窗口中，登录到 [Azure 门户](https://portal.azure.cn/)。

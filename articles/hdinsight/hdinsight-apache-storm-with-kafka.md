@@ -13,15 +13,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/21/2018
-ms.date: 01/21/2019
+origin.date: 12/06/2018
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: e74fafb09c0b996edb6336348ccd47aa8811dbca
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5089994ea519247bf2d03341ea72b69b4b8f6de6
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627417"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829276"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 配合使用
 
@@ -102,7 +102,7 @@ Apache Storm 提供了多个组件以便与 Apache Kafka 配合使用。 此教�
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -414,7 +414,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
    1. 使用以下信息填充“自定义模板”部分的条目：
 
-      | 设置 | 值 |
+      | 设置 | Value |
       | --- | --- |
       | 订阅 | Azure 订阅 |
       | 资源组 | 包含资源的资源组。 |

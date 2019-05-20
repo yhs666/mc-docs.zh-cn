@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 12/04/2018
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 0ff679f03d9c40c98737439a5bfda4ffd458e019
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f118e2e012ee47a39978b3bb0b80af27ce9034b8
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988027"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668800"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自动化中的 Runbook 输出和消息
 大多数 Azure 自动化 runbook 都有某种形式的输出。 此输出可能是发给用户的错误消息，也可能是你打算用于另一个 runbook 的复杂对象。 Windows PowerShell 提供 [多个流](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_redirection) ，以便从脚本或工作流发送输出。 Azure 自动化以不同方式处理每个流。 在创建 runbook 时，应遵循如何使用每种方法的最佳实践。
@@ -36,7 +36,7 @@ ms.locfileid: "57988027"
 
 可以使用 [Write-Output](https://technet.microsoft.com/library/hh849921.aspx)，或者在 Runbook 中将对象放置在其对应行中，向输出流写入数据。
 
-```PowerShell
+```powershell
 #The following lines both write an object to the output stream.
 Write-Output -InputObject $object
 $object
@@ -47,7 +47,7 @@ $object
 
 请考虑以下示例 Runbook：
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   Write-Verbose "Verbose outside of function" -Verbose
@@ -91,7 +91,7 @@ Verbose inside of function
 
 以下示例 Runbook 输出一个字符串对象，并包含其输出类型的声明。 如果 Runbook 输出了特定类型的数组，则你仍应该指定相对于该类型数组的类型。
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   [OutputType([string])]
@@ -127,7 +127,7 @@ Workflow Test-Runbook
 
 使用 [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 或 [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet 创建警告或错误消息。 活动可能也会向这些流写入数据。
 
-```PowerShell
+```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
@@ -142,7 +142,7 @@ Write-Error -Message "This is an error message that will stop the runbook becaus
 
 使用 [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet 创建详细消息。
 
-```PowerShell
+```powershell
 #The following line creates a verbose message.
 
 Write-Verbose -Message "This is a verbose message."
@@ -169,9 +169,9 @@ Windows PowerShell 使用 [Preference 变量](https://technet.microsoft.com/libr
 
 下表列出了在 Runbook 中有效的 preference 变量值的行为。
 
-| 值 | 行为 |
+| Value | 行为 |
 |:--- |:--- |
-| 继续 |继续记录消息并继续执行 Runbook。 |
+| 继续 |记录消息并继续执行 Runbook。 |
 | SilentlyContinue |继续执行 Runbook 但不记录消息。 该值会导致忽略消息。 |
 | 停止 |记录消息并挂起 Runbook。 |
 
@@ -184,7 +184,7 @@ Windows PowerShell 使用 [Preference 变量](https://technet.microsoft.com/libr
 
 以下示例将启动一个示例 Runbook，并等待该 Runbook 完成。 完成后，从作业收集该 Runbook 的输出流。
 
-```PowerShell
+```powershell
 $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook"
 
@@ -225,7 +225,6 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 自动化可以将 Runbook 作业状态和作业流发送到 Log Analytics 工作区。 可以使用 Azure Monitor 日志进行以下操作：
 
 * 获取有关自动化作业的见解 
-* 基于 Runbook 作业状态（例如失败或暂停）触发电子邮件或警报 
 * 针对所有作业流编写高级查询 
 * 跨自动化帐户关联作业 
 * 可视化不同时间段的作业历史记录    

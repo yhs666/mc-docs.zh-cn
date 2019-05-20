@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 origin.date: 03/21/2019
-ms.date: 03/27/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 0f0985fdc527bba0cd3a30c467e759543d1bd489
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: c90fed743217d9d9b92214c9dacbd29bef9be542
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505471"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598881"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何实时分析视频
 
@@ -195,7 +195,7 @@ namespace VideoFrameConsoleApplication
 
 在大多数模式下，左侧的实时视频与右侧的可视化分析之间存在明显的延迟。 这种延迟是发出 API 调用所花费的时间。 例外情况是“EmotionsWithClientFaceDetect”模式，它使用 OpenCV 在客户端计算机上本地执行人脸检测，然后将全部图像提交给认知服务。 通过执行此操作，我们可以立即将检测到的人脸可视化，然后在 API 调用返回后更新情感。 此示例演示了“混合”方法的可行性，其中的一些简单处理可在客户端上执行，然后，可以使用认知服务 API 并根据需要配合更高级的分析来增强这种处理。
 
-![LiveCameraSample 应用的屏幕截图，其中显示带有标签的图像](../../Video/Images/FramebyFrame.jpg)
+![LiveCameraSample 应用的屏幕截图，其中显示了带有标签的图像](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>集成到代码库中
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/12/2017
-ms.date: 11/26/2018
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: af372aa32662a0046a5b4e005efd19816da7a1f9
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 83753660f570e2e73d367c813ad91f4a1e5610e2
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675496"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835648"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>用于管理 Azure 资源的常用 Azure CLI 命令
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]

@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 3fdfd2014dd2ddf05081758ca4f704e4083662a3
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 05/20/2019
+ms.openlocfilehash: 215ea20d25aaa35c7e481a0f5e877d76e36166b5
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003518"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629232"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 配置和管理 Azure Active Directory 身份验证
 
@@ -144,7 +144,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 | --- | --- |
 |[az sql server ad-admin create](/cli/sql/server/ad-admin#az-sql-server-ad-admin-create) |为 Azure SQL Server 或 Azure SQL 数据仓库预配 Azure Active Directory 管理员。 （必须来自当前订阅。） |
 |[az sql server ad-admin delete](/cli//sql/server/ad-admin#az-sql-server-ad-admin-delete) |删除 Azure SQL Server 或 Azure SQL 数据仓库的 Azure Active Directory 管理员。 |
-|[az sql server ad-admin list](/cli/sql/server/ad-admin#az-sql-server-ad-admin-list) |返回有关当前为 Azure SQL Server 或 Azure SQL 数据仓库配置的 Azure Active Directory 管理员的信息。 |
+|[az sql server ad-admin list](/cli/sql/server/ad-admin#az-sql-server-ad-admin-list) |返回有关为 Azure SQL Server 或 Azure SQL 数据仓库配置的当前 Azure Active Directory 管理员的信息。 |
 |[az sql server ad-admin update](/cli/sql/server/ad-admin#az-sql-server-ad-admin-update) |为 Azure SQL Server 或 Azure SQL 数据仓库更新 Azure Active Directory 管理员。 |
 
 有关 CLI 命令的详细信息，请参阅 [SQL - az sql](https://docs.azure.cn/cli/sql/server)。  
@@ -302,7 +302,7 @@ conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-有关详细信息，请参阅 [SQL Server 安全性博客](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)。 有关添加证书的详细信息，请参阅 [Azure Active Directory 中基于证书的身份验证入门](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)。
+有关详细信息，请参阅 [SQL Server 安全性博客](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)。 有关添加证书的详细信息，请参阅 [Azure Active Directory 中基于证书的身份验证入门](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)。
 
 ### <a name="sqlcmd"></a>sqlcmd
 

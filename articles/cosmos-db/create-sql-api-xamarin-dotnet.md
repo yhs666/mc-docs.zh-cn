@@ -10,11 +10,11 @@ origin.date: 05/30/2018
 ms.date: 04/15/2019
 ms.author: v-yeche
 ms.openlocfilehash: e65e76fe4f55d1a0db2c56f7075bd674a78bff0b
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615212"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65668951"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户通过 Xamarin 构建待办事项应用
 

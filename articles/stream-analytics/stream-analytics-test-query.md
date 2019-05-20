@@ -1,7 +1,6 @@
 ---
 title: 使用样本数据测试 Azure 流分析作业
-description: 如何测试流分析作业中的查询。
-keywords: 本文介绍如何使用 Azure 门户测试 Azure 流分析作业、示例输入以及上传样本数据。
+description: 本文介绍如何使用 Azure 门户测试 Azure 流分析作业、示例输入以及上传样本数据。
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
@@ -11,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: 7b75a725bad5375ca86a832408483f744ae81cdd
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: bc035d0bdc3a14ab5476b4492e4aeb7e8b2474d8
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674394"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609827"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用样本数据测试流分析查询
 

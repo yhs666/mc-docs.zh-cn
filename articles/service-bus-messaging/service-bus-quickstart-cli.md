@@ -7,32 +7,29 @@ manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9ff61259006922feb4a1e0feebac9340b1fd9d49
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 45b2dcfe71db95a1b90a5f288bf9e937fd59d5a2
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544725"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609844"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>快速入门：使用 Azure CLI 创建服务总线队列
-
-21Vianet Azure 服务总线是一种提供安全消息传送和可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦（应用程序不需同时联机）、传输状态或数据更改，以及在应用程序之间发送消息。 
-
-例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息：
-
-![队列](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 本快速入门介绍了如何使用 Azure CLI 和服务总线 Java 库通过服务总线来发送和接收消息。 最后，如果对更多的技术细节感兴趣，可以[阅读说明](#understand-the-sample-code)，了解示例代码的重要元素。
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>先决条件
 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户][]。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
+如果使用“试用”按钮来启动 Cloud Shell，请使用凭据登录到 Azure。 
 
-单击 Azure 门户右上角菜单上的“Cloud Shell”按钮，然后从“选择环境”下拉列表中选择“Bash”。 
+如果在 Web 浏览器中启动 Cloud Shell，不管是直接这样做还是在 Azure 门户中这样做，则请在 Cloud Shell 左上角看到 **PowerShell** 时切换到 **Bash**。 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>使用 Azure CLI 创建资源
 
@@ -40,37 +37,28 @@ ms.locfileid: "58544725"
 
 ```azurecli
 # Create a resource group
-az group create --name myResourceGroup --location chinaeast
+resourceGroupName="myResourceGroup"
+
+az group create --name $resourceGroupName --location chinaeast
 
 # Create a Service Bus messaging namespace with a unique name
 namespaceName=myNameSpace$RANDOM
-az servicebus namespace create \
-   --resource-group myResourceGroup \
-   --name $namespaceName \
-   --location chinaeast
+az servicebus namespace create --resource-group $resourceGroupName --name $namespaceName --location eastus
 
 # Create a Service Bus queue
-az servicebus queue create --resource-group myResourceGroup \
-   --namespace-name $namespaceName \
-   --name myQueue
+az servicebus queue create --resource-group $resourceGroupName --namespace-name $namespaceName --name BasicQueue
 
 # Get the connection string for the namespace
-connectionString=$(az servicebus namespace authorization-rule keys list \
-   --resource-group myResourceGroup \
-   --namespace-name  $namespaceName \
-   --name RootManageSharedAccessKey \
-   --query primaryConnectionString --output tsv)
+connectionString=$(az servicebus namespace authorization-rule keys list --resource-group $resourceGroupName --namespace-name $namespaceName --name RootManageSharedAccessKey --query primaryConnectionString --output tsv)
 ```
 
 运行最后一个命令后，将所选的连接字符串和队列名称复制并粘贴到一个临时位置，例如记事本。 在下一步中将要使用它。
 
 ## <a name="send-and-receive-messages"></a>发送和接收消息
 
-创建命名空间和队列并且拥有所需的凭据后，便可以发送和接收消息。 可以在[此 GitHub 示例文件夹](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java)中检查代码。
+创建命名空间和队列并且拥有所需的凭据后，便可以发送和接收消息。 可以在[此 GitHub 示例文件夹](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)中检查代码。
 
-1. 请确保 Cloud Shell 已打开并显示了 Bash 提示符。
-
-2. 通过发出以下命令克隆[服务总线 GitHub 存储库](https://github.com/Azure/azure-service-bus/)：
+1. 通过发出以下命令，在计算机上克隆[服务总线 GitHub 存储库](https://github.com/Azure/azure-service-bus/)：
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
@@ -79,7 +67,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 2. 将当前目录更改为示例文件夹，使用正斜杠作为分隔符：
 
    ```bash
-   cd azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java 
+   cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
 3. 发出以下命令来生成应用程序：
@@ -208,9 +196,9 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="understand-the-sample-code"></a>了解示例代码
 
-此部分详述了示例代码的重要节。 可以浏览[此处](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java)的 GitHub 存储库提供的代码。
+此部分详述了示例代码的重要节。 可以浏览[此处](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)的 GitHub 存储库提供的代码。
 
-### <a name="get-connection-string-and-queue"></a>获取连接字符串和队列
+### <a name="get-connection-string"></a>获取连接字符串
 
 runApp 方法将连接字符串值从参数读取到程序。 
 
@@ -315,21 +303,22 @@ List<HashMap<String, String>> data =
                         "]",
                 new TypeToken<List<HashMap<String, String>>>() {}.getType());
 
-List<CompletableFuture> tasks = new ArrayList<>();
-for (int i = 0; i < data.size(); i++) {
-    final String messageId = Integer.toString(i);
-    Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
-    message.setContentType("application/json");
-    message.setLabel("Scientist");
-    message.setMessageId(messageId);
-    message.setTimeToLive(Duration.ofMinutes(2));
-    System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
-    tasks.add(
-            sendClient.sendAsync(message).thenRunAsync(() -> {
-                System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
-            }));
+    List<CompletableFuture> tasks = new ArrayList<>();
+    for (int i = 0; i < data.size(); i++) {
+        final String messageId = Integer.toString(i);
+        Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+        message.setContentType("application/json");
+        message.setLabel("Scientist");
+        message.setMessageId(messageId);
+        message.setTimeToLive(Duration.ofMinutes(2));
+        System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
+        tasks.add(
+                sendClient.sendAsync(message).thenRunAsync(() -> {
+                    System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
+                }));
+    }
+    return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
 }
-return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
 ```
 
 ### <a name="receive-messages"></a>接收消息
@@ -381,10 +370,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何创建一个服务总线命名空间并从队列发送和接收消息所需的其他资源。 若要详细了解如何编写收发消息的代码，请继续阅读下面的服务总线教程：
+本文介绍了如何创建一个服务总线命名空间并从队列发送和接收消息所需的其他资源。 若要详细了解如何编写收发消息的代码，请继续阅读教程的“发送和接收消息”部分。 
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 和 Java 更新清单](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [发送和接收消息](service-bus-dotnet-get-started-with-queues.md)
 
 [trial account]: https://www.azure.cn/pricing/1rmb-trial/
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

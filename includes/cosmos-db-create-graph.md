@@ -10,11 +10,11 @@ ms.date: 03/18/2019
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: d57048b6cac87de372a44e622f4bdfe1a282f5ab
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988419"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65668818"
 ---
 <!--Verify sucessfully-->
 现在可以在 Azure 门户中使用数据资源管理器工具来创建图形数据库。 

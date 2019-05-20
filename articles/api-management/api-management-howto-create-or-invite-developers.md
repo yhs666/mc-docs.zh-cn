@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 7b64931e5eda5a5fb6d691eb076e7483279801ca
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.date: 05/27/2019
+ms.openlocfilehash: 8b859e6acc2240af250a94e2cec0087447fb4d00
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736684"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829378"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理用户帐户
-在 API 管理中，开发人员是使用 API 管理公开的 API 的用户。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 有关以编程方式管理用户帐户的信息，请参阅 [API 管理 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx)参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity)文档。
+
+在 API 管理中，开发人员是使用 API 管理公开的 API 的用户。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 有关以编程方式管理用户帐户的信息，请参阅 [API 管理 REST](https://docs.microsoft.com/rest/api/apimanagement/)参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/user)文档。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -69,7 +70,7 @@ ms.locfileid: "53736684"
 
 ## <a name="reset-a-user-password"></a>重置用户密码
 
-若要以编程方式处理用户帐户，请参阅 [API 管理 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) 参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity)文档。 要将用户帐户密码重置为特定值，可使用[更新用户](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser)操作并指定所需密码。
+若要以编程方式处理用户帐户，请参阅 [API 管理 REST](https://docs.microsoft.com/rest/api/apimanagement/) 参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/user)文档。 要将用户帐户密码重置为特定值，可使用[更新用户](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser)操作并指定所需密码。
 
 ## <a name="next-steps"></a>后续步骤
 创建开发人员帐户后，可以将其与角色相关联，并为其订阅产品和 API。 有关详细信息，请参阅[如何创建和使用组][How to create and use groups]。

@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/15/2019
-ms.date: 04/15/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7f286a027e45adaf5db1e6ea9bc4441c987363a1
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a0ae6074428b7569866e62879c7e1c588dbd99cf
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003789"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829252"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -160,9 +160,9 @@ ms.locfileid: "59003789"
 
 3. “链接群集”窗口中提供的选项根据在“链接资源类型”下拉列表中选择的值而异。  请输入自己的值，然后选择“确定”。
 
-    * **HDInsight 群集**  
+    * **HDInsight 群集**。  
   
-        |属性 |值 |
+        |属性 |Value |
         |----|----|
         |链接资源类型|从下拉列表中选择“HDInsight 群集”。|
         |群集名称/URL| 输入群集名称。|
@@ -174,7 +174,7 @@ ms.locfileid: "59003789"
 
     * **Livy 服务**  
   
-        |属性 |值 |
+        |属性 |Value |
         |----|----|
         |链接资源类型|从下拉列表中选择“Livy 服务”。|
         |Livy 终结点| 输入 Livy 终结点|
@@ -205,7 +205,7 @@ ms.locfileid: "59003789"
 
 3. 在“编辑配置”窗口中提供以下值，然后选择“确定”：
 
-    |属性 |值 |
+    |属性 |Value |
     |----|----|
     |Spark 群集（仅限 Linux）|选择要在其上运行应用程序的 HDInsight Spark 群集。|
     |选择要提交的项目|保留默认设置。|
@@ -285,7 +285,7 @@ ms.locfileid: "59003789"
 
 4. 提供以下值，然后选择“确定”：
 
-    |属性 |值 |
+    |属性 |Value |
     |----|----|
     |作业 main 类|默认值是所选文件中的 main 类。 可选择省略号 (...) 并选择其他类来更改类。|
     |环境变量|确保 HADOOP_HOME 的值正确。|
@@ -319,7 +319,7 @@ ms.locfileid: "59003789"
 
 4. 提供以下值，然后选择“确定”：
 
-    |属性 |值 |
+    |属性 |Value |
     |----|----|
     |Spark 群集（仅限 Linux）|选择要在其上运行应用程序的 HDInsight Spark 群集。|
     |Main 类名|默认值是所选文件中的 main 类。 可选择省略号 (...) 并选择其他类来更改类。|
@@ -396,9 +396,9 @@ ms.locfileid: "59003789"
 
 
 ### <a name="scenarios"></a>方案
-* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>创建和运行应用程序
@@ -412,11 +412,11 @@ ms.locfileid: "59003789"
 * [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
-* [将外部包与 Jupyter 笔记本配合使用](apache-spark-jupyter-notebook-use-external-packages.md)
-* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](apache-spark-jupyter-notebook-install-locally.md)
+* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="managing-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
-* [跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业](apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
 
 <!--Update_Description: wording update-->

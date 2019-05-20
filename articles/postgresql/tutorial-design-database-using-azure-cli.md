@@ -1,22 +1,22 @@
 ---
-title: 教程：使用 Azure CLI 设计 Azure Database for PostgreSQL
-description: 本教程演示如何使用 Azure CLI 创建、配置和查询第一个 Azure Database for PostgreSQL 服务器。
+title: 教程：使用 Azure CLI 设计 Azure Database for PostgreSQL - 单个服务器
+description: 本教程演示如何使用 Azure CLI 创建、配置和查询你的第一个 Azure Database for PostgreSQL - 单个服务器。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 04/01/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 247a2250e3629ef5d30f126a188f84a3008c308b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 9ec2aa2cb9b3fce8653635ec83beca94c761a054
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626145"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732037"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL - 单个服务器 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
 > [!div class="checklist"]
 > * 创建 Azure Database for PostgreSQL 服务器
@@ -125,7 +125,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    ```
 
    例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
-
+  
    ```cli
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```

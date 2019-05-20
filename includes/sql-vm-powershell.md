@@ -6,11 +6,11 @@ origin.date: 11/25/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.openlocfilehash: c81c6740d6c85adedfa4a31d195f853008659c58
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666485"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835781"
 ---
 ## <a name="start-your-powershell-session"></a>启动 PowerShell 会话
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b1117a84172107f135ad3a1d5cd465f597e1e35f
-ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
+ms.openlocfilehash: 524252d134419ce8c617f3dfcd60fefaf9b31004
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58545266"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609806"
 ---
 # <a name="use-firewall-rules"></a>使用防火墙规则
 
@@ -109,8 +109,8 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
         "type": "Microsoft.ServiceBus/namespaces",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "Standard",
-          "tier": "Standard"
+          "name": "Premium",
+          "tier": "Premium"
         },
         "properties": { }
       },

@@ -1,26 +1,26 @@
 ---
-title: 快速入门 - 使用简单的 Azure CLI 命令 az postgres up 创建 Azure Database for PostgreSQL（预览）
-description: 有关使用 Azure CLI（命令行界面）up 命令创建 Azure Database for PostgreSQL 服务器的快速入门指南。
+title: 快速入门：使用 CLI 命令 az postgres up 创建 Azure Database for PostgreSQL - 单一服务器
+description: 使用 Azure CLI（命令行界面）up 命令创建 Azure Database for PostgreSQL - 单一服务器的快速入门指南。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-origin.date: 3/18/2019
-ms.date: 04/01/2019
-ms.openlocfilehash: ed352dcd927ff17e33c581a12dc169f9cc9190f3
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+origin.date: 05/06/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: c3b47ee4b4458bc91917302ffe5c1f53d715cc7e
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731985"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-a-simple-azure-cli-command---az-postgres-up-preview"></a>快速入门：使用简单的 Azure CLI 命令 az postgres up 创建 Azure Database for PostgreSQL（预览）
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>快速入门：使用 Azure CLI 命令、az postgres up（预览版）创建 Azure Database for PostgreSQL - 单一服务器
 
 > [!IMPORTANT]
 > [az postgres up](https://docs.microsoft.com/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令现为预览版。
 
-用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 此快速入门介绍了如何使用 [az postgres up](https://docs.microsoft.com/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 命令和 Azure CLI 来创建 Azure Database for PostgreSQL 服务器。 除了创建服务器，`az postgres up` 命令还会创建示例数据库、在数据库中创建根用户、为 Azure 服务打开防火墙，并为客户端计算机创建默认防火墙规则。 这有助于加快开发过程。
+用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 此快速入门介绍了如何使用 [az postgres up](https://docs.microsoft.com/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 命令和 Azure CLI 来创建 Azure Database for PostgreSQL 服务器。 除了创建服务器，`az postgres up` 命令还会创建示例数据库、在数据库中创建根用户、为 Azure 服务打开防火墙，并为客户端计算机创建默认防火墙规则。 这些默认值有助于加快开发过程。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -28,14 +28,14 @@ ms.locfileid: "58503699"
 
 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-你将需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录到你的帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
+需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录账户。 记下命令行输出中相应订阅名称的 ID 属性。
 
 ```azurecli
 az cloud set --name AzureChinaCloud
 az login
 ```
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。 将订阅 ID 占位符替换为订阅的 az login 输出中的“订阅 ID”属性。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。 将 az login 输出中的你的订阅的订阅 ID 属性替换到订阅 ID 占位符中。
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -62,12 +62,12 @@ az postgres up --location chinaeast2
 server-name | 系统生成的 | 用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。
 resource-group | 系统生成的 | 新的 Azure 资源组。
 sku-name | GP_Gen5_2 | SKU 的名称。 遵循约定“{定价层}\_{计算代系}\_{vCores}”的简写形式。 默认为带 2 个 vCore 的常规用途 Gen5 服务器。 有关各层的详细信息，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
-backup-retention | 7 | 备份保留时间。 单位为天。
+backup-retention | 7 | 备份保留的期限。 单位为天。
 geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。
 ssl-enforcement | 已禁用 | 是否应为此服务器启用 SSL。
 storage-size | 5120 | 服务器的存储容量（以 MB 为单位）。
 版本 | 10 个 | PostgreSQL 主版本。
-admin-user | 系统生成的 | 管理员的登录用户名。
+admin-user | 系统生成的 | 管理员用户名。
 admin-password | 系统生成的 | 管理员用户的密码。
 
 > [!NOTE]

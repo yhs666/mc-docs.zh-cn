@@ -7,19 +7,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-origin.date: 02/13/2019
-ms.date: 03/13/2019
+origin.date: 02/26/2019
+ms.date: 05/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: aec825ea2e0c38c0762f87fe18e6b5e20a119ca5
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: ee2623a36470d487baa1e18c7340a1f5f01eb464
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964453"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668975"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>示例：如何使用文本分析检测情绪
 
-[情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) 评估每个文档的文本输入并返回情绪分数，分数范围从 0（消极）到 1（积极）。
+[情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) 评估每个文档的文本输入并返回情绪分数，分数范围从 0（消极）到 1（积极）。
 
 此功能对于检测社交媒体、客户评论和论坛中的积极和消极情绪非常有用。 用户提供内容；服务提供模型和定型数据。
 
@@ -30,7 +30,7 @@ ms.locfileid: "57964453"
 
 ## <a name="concepts"></a>概念
 
-文本分析使用机器学习分类算法生成介于 0 到 1 之间的情绪分数。 接近 1 的评分表示积极情绪，接近 0 的评分表示消极情绪。 该模型通过大量含有情绪关联的文本进行了预先定型。 目前，不支持提供用户自己的定型数据。 该模型在文本分析过程中使用了多种技术，包括文本处理、词性分析、词序和字词关联。
+文本分析使用机器学习分类算法生成介于 0 到 1 之间的情绪分数。 接近 1 的评分表示积极情绪，接近 0 的评分表示消极情绪。 该模型通过大量含有情绪关联的文本进行了预先定型。 目前，不支持提供用户自己的定型数据。 该模型在文本分析过程中使用了多种技术，包括文本处理、词性分析、词序和字词关联。 有关该算法的详细信息，请参阅[文本分析简介](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)。
 
 对整个文档执行情绪分析，而不是提取文本中特定实体的情绪。 实际上，当文档只包含一个或两个句子而不是大段文本时，评分准确性有提高的趋势。 在客观性评估阶段，模型会确定整个文档是客观内容还是包含情感。 客观内容占主导的文档将不会进入情绪检测阶段，将获得 0.50 分数，不会进行进一步处理。 对于继续处理的文档，下一阶段会得出高于或低于 0.50 的分数，具体取决于文档中检测到的情绪程度。
 
@@ -78,16 +78,16 @@ ms.locfileid: "57964453"
 
 有关请求定义的详细信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。 为方便起见，特重申以下几点：
 
-+ 创建 POST 请求。 查看此请求的 API 文档：[情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ 创建 POST 请求。 查看此请求的 API 文档：[情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ 使用 Azure 上的文本分析资源或实例化的[文本分析容器](text-analytics-how-to-install-containers.md)设置 HTTP 终结点，以便进行情绪分析。 它必须包含 `/sentiment` 资源：`https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/sentiment`
++ 使用 Azure 上的文本分析资源或实例化的[文本分析容器](text-analytics-how-to-install-containers.md)设置 HTTP 终结点，以便进行情绪分析。 它必须包含 `/sentiment` 资源：`https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/sentiment`
 
 + 设置请求头以包含文本分析操作的访问密钥。 有关详细信息，请参阅[如何查找终结点和访问密钥](text-analytics-how-to-access-key.md)。
 
 + 在请求正文中，提供为此分析准备的 JSON 文档集合。
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或打开[文档](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)中的 API 测试控制台来构造请求并将其 POST 到该服务。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或打开[文档](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)中的 API 测试控制台来构造请求并将其 POST 到该服务。
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 
@@ -136,7 +136,7 @@ ms.locfileid: "57964453"
 
 本文介绍了使用认知服务中的文本分析进行情绪分析的概念和工作流。 综上所述：
 
-+ [情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) 适用于选定的语言。
++ [情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) 适用于选定的语言。
 + 请求正文中的 JSON 文档包括 ID、文本和语言代码。
 + POST 请求的目标是 `/sentiment` 终结点，方法是使用对订阅有效的个性化[访问密钥和终结点](text-analytics-how-to-access-key.md)。
 + 响应输出包含每个文档 ID 的情绪得分，可流式传输到接受 JSON 的任何应用，包括 Excel 和 Power BI（仅举几例）。

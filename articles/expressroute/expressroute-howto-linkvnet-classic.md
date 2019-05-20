@@ -10,11 +10,11 @@ origin.date: 07/27/2018
 ms.author: v-yiso
 ms.date: 04/22/2019
 ms.openlocfilehash: 052d834ab6b06bf58a716cfcef55e9c228433a76
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529209"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835791"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]

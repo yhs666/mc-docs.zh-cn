@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 525a84b05af78b55c8306dfd47860cc744cc75e8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 365912c1cca849cfb947d93b9da9f6253f56fe6c
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626007"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609818"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 
@@ -91,7 +91,9 @@ ms.locfileid: "58626007"
 
 4. 单击“应用”按钮。
 
-## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>针对低使用率虚拟机建议，配置平均 CPU 使用率规则
+## <a name="configure-low-usage-vm-recommendation"></a>配置低使用率 VM 建议
+
+此过程针对低使用率虚拟机建议，配置平均 CPU 使用率规则。
 
 顾问可监视虚拟机 14 天的使用情况，并识别出利用率较低的虚拟机。 如果在 4 天或 4 天以上，虚拟机的平均 CPU 使用率都小于或等于 5% 且网络使用率小于或等于 7 MB，则会被视为利用率较低的虚拟机。
 

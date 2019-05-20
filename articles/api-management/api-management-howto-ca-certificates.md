@@ -15,11 +15,11 @@ origin.date: 08/20/2018
 ms.date: 03/11/2019
 ms.author: v-yiso
 ms.openlocfilehash: d06e3f47829cd5de6e3c688114b3908c031ba831
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196598"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835735"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>如何在 Azure API 管理中添加自定义 CA 证书
 

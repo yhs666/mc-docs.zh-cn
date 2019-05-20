@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 24c1baf9fd9591df78339c43459e016716e48889
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 732c286ab487517e2fae33f36ddd2657cb2c65e2
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625185"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731979"
 ---
 # <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器
 
@@ -289,7 +289,7 @@ for ($i=1; $i -le 2; $i++)
 `-AsJob` 参数以后台任务的方式创建 VM，因此 PowerShell 提示符会返回到你所在的位置。 可以通过 `Job` cmdlet 查看后台作业的详细信息。 创建和配置这两台 VM 需要几分钟的时间来完成。
 
 ### <a name="install-iis-with-custom-web-page"></a>安装具有自定义网页的 IIS
-
+ 
 在两台后端 VM 上安装具有自定义网页的 IIS：
 
 1. 获取负载均衡器的公用 IP 地址。 使用 `Get-AzPublicIPAddress`，获取负载均衡器的公用 IP 地址。
@@ -304,16 +304,17 @@ for ($i=1; $i -le 2; $i++)
    ```powershell
 
       mstsc /v:PublicIpAddress:4221  
+  
    ```
 3. 输入 *VM1* 的凭据来启动 RDP 会话。
 4. 在 VM1 上启动 Windows PowerShell 并使用以下命令安装 IIS 服务器并更新默认的 htm 文件。
     ```powershell
     # Install IIS
       Install-WindowsFeature -name Web-Server -IncludeManagementTools
-
+    
     # Remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
-
+    
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
@@ -333,7 +334,7 @@ Get-AzPublicIPAddress `
 
 ![测试负载均衡器](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-若要查看负载均衡器如何在运行应用的所有 3 台 VM 之间分配流量，可以强制刷新 Web 浏览器。
+若要查看负载均衡器如何在运行应用的两台 VM 之间分配流量，可以强制刷新 Web 浏览器。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -349,4 +350,3 @@ Remove-AzResourceGroup -Name myResourceGroupLB
 
 > [!div class="nextstepaction"]
 > [Azure 负载均衡器教程](tutorial-load-balancer-basic-internal-portal.md)
-<!-- Update_Description: update meta properties, wording update, rename the article -->

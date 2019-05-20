@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/01/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4831142b870649eae9ef9bcc41c94167692c4278
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 1b370a8cc0cb62582488db57a78a7131378b7c25
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520737"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835717"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 文件共享手动创建并使用卷
 
@@ -83,7 +83,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: dockerhub.azk8s.cn/nginx:1.15.5
+  - image: dockerhub.azk8s.cn/library/nginx:1.15.5
     name: mypod
     resources:
       requests:
@@ -115,7 +115,7 @@ kubectl apply -f azure-files-pod.yaml
 Containers:
   mypod:
     Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    Image:          dockerhub.azk8s.cn/nginx:1.15.5
+    Image:          dockerhub.azk8s.cn/library/nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
       Started:      Sat, 02 Mar 2019 00:05:47 +0000

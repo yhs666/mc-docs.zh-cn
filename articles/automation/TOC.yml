@@ -1,158 +1,151 @@
-items:
 - name: Azure 自动化用户文档
   href: index.yml
 - name: 概述
   items:
-  - name: 什么是自动化？
-    href: automation-intro.md
+    - name: 什么是自动化？
+      href: automation-intro.md
 - name: 快速入门
-  items:
-  - name: 创建自动化帐户
-    href: automation-quickstart-create-account.md
-  - name: 创建 runbook
-    href: automation-quickstart-create-runbook.md
   expanded: true
+  items:
+    - name: 创建自动化帐户
+      href: automation-quickstart-create-account.md
+    - name: 创建 runbook
+      href: automation-quickstart-create-runbook.md
 - name: 操作指南
   items:
-  - name: 身份验证和安全性
-    items:
-    - name: 创建独立的自动化帐户
-      href: automation-create-standalone-account.md
-    - name: 管理自动化运行方式帐户
-      displayName: certificate renewal
-      href: manage-runas-account.md
-    - name: 管理基于角色的访问控制
-      displayName: RBAC
-      href: automation-role-based-access-control.md
-  - name: Runbook
-    items:
-    - name: 管理 runbook
-      href: manage-runbooks.md
-    - name: Runbook 类型
-      displayName: graphical, python, powershell, powershell workflow
-      href: automation-runbook-types.md
-    - name: 创建 Runbook
+    - name: 身份验证和安全性
       items:
-      - name: 图形 Runbook
-        href: automation-first-runbook-graphical.md
-      - name: PowerShell runbook
-        href: automation-first-runbook-textual-powershell.md
-      - name: 创建 PowerShell 工作流 runbook
-        href: automation-first-runbook-textual.md
-      - name: Python runbook
-        href: automation-first-runbook-textual-python2.md
-    - name: 编辑 runbook
+        - name: 创建独立的自动化帐户
+          href: automation-create-standalone-account.md
+        - name: 管理自动化运行方式帐户
+          href: manage-runas-account.md
+          displayName: certificate renewal
+        - name: 管理基于角色的访问控制
+          href: automation-role-based-access-control.md
+          displayName: RBAC
+    - name: Runbook
       items:
-      - name: 编辑文本 Runbook
-        displayName: powershell
-        href: automation-edit-textual-runbook.md
-      - name: 编辑图形 Runbook
-        href: automation-graphical-authoring-intro.md
-    - name: 启动 Runbook
-      href: start-runbooks.md
-    - name: 从 Webhook 启动 Runbook
-      href: automation-webhooks.md
-    - name: Runbook 输入参数
-      displayName: input,json
-      href: runbook-input-parameters.md
-    - name: 图形 Runbook 中的错误处理
-      href: automation-runbook-graphical-error-handling.md
-    - name: Runbook 执行
-      displayName: fair share, activity log, job
-      href: automation-runbook-execution.md
-    - name: 管理 Azure 自动化数据
-      displayName: backup
-      href: automation-managing-data.md
-    - name: 了解 PowerShell 工作流
-      href: automation-powershell-workflow.md
-    - name: 子 Runbook
-      href: automation-child-runbooks.md
-    - name: Runbook 输出
-      displayName: message streams, progress records, preference
-      href: automation-runbook-output-and-messages.md
-    - name: 源代码管理集成
-      href: source-control-integration-legacy.md
-      displayname: github
-  - name: 状态配置
-    displayName: DSC
-    items:
-    - name: 状态配置概述
+        - name: 管理 runbook
+          href: manage-runbooks.md
+        - name: Runbook 类型
+          href: automation-runbook-types.md
+          displayName: 'graphical, python, powershell, powershell workflow'
+        - name: 创建 Runbook
+          items:
+            - name: 图形 Runbook
+              href: automation-first-runbook-graphical.md
+            - name: PowerShell runbook
+              href: automation-first-runbook-textual-powershell.md
+            - name: 创建 PowerShell 工作流 runbook
+              href: automation-first-runbook-textual.md
+            - name: Python runbook
+              href: automation-first-runbook-textual-python2.md
+        - name: 编辑 runbook
+          items:
+            - name: 编辑文本 Runbook
+              href: automation-edit-textual-runbook.md
+              displayName: powershell
+            - name: 编辑图形 Runbook
+              href: automation-graphical-authoring-intro.md
+        - name: 启动 Runbook
+          href: start-runbooks.md
+        - name: 从 Webhook 启动 Runbook
+          href: automation-webhooks.md
+        - name: Runbook 输入参数
+          href: runbook-input-parameters.md
+          displayName: 'input,json'
+        - name: 图形 Runbook 中的错误处理
+          href: automation-runbook-graphical-error-handling.md
+        - name: Runbook 执行
+          href: automation-runbook-execution.md
+          displayName: 'fair share, activity log, job'
+        - name: 管理 Azure 自动化数据
+          href: automation-managing-data.md
+          displayName: backup
+        - name: 了解 PowerShell 工作流
+          href: automation-powershell-workflow.md
+        - name: 子 Runbook
+          href: automation-child-runbooks.md
+        - name: Runbook 输出
+          href: automation-runbook-output-and-messages.md
+          displayName: 'message streams, progress records, preference'
+        - name: 源代码管理集成
+          href: source-control-integration.md
+          displayName: 'github, vsts, azure devops, personal access token'
+        - name: 源代码管理集成 - 传统
+          href: source-control-integration-legacy.md
+          displayname: github
+    - name: 状态配置
       displayName: DSC
-      href: automation-dsc-overview.md
-    - name: 入门
-      displayName: DSC
-      href: automation-dsc-getting-started.md
-    - name: 使用状态配置将服务器配置为所需状态并管理偏移
-      displayName: DSC, compliance
-      href: tutorial-configure-servers-desired-state.md
-    - name: 载入用于管理的计算机
-      displayName: DSC, state configuration
-      href: automation-dsc-onboarding.md
-    - name: 编译 DSC 配置
-      displayName: state configuration, composite resources, configurationData
-      href: automation-dsc-compile.md
-    - name: 使用复合资源编写 DSC 配置
-      href: compose-configurationwithcompositeresources.md
-    - name: 使用 Chocolatey 进行连续部署
-      displayName: dsc, state configuration
-      href: automation-dsc-cd-chocolatey.md
-    - name: 将状态配置报告数据转发到 Azure Monitor 日志
-      displayName: DSC
-      href: automation-dsc-diagnostics.md
-  - name: 管理共享资源
-    items:
-    - name: 计划
-      href: shared-resources/schedules.md
-    - name: 模块
-      href: shared-resources/modules.md
-    - name: 管理 Python 2 程序包
-      href: python-packages.md
-    - name: 凭据
-      href: automation-credentials.md
-    - name: 连接
-      href: automation-connections.md
-    - name: 证书
-      href: shared-resources/certificates.md
-    - name: 变量
-      href: shared-resources/variables.md
-  - name: 方案
-    items:
-    - name: 从 Azure 警报启动 Runbook
-      displayName: Monitor, Azure Monitor
-      href: automation-create-alert-triggered-runbook.md
-    - name: 在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
-      href: automation-deploy-template-runbook.md
-  - name: 监视
-    items:
-    - name: 将 Azure 自动化作业数据转发到 Azure Monitor 日志
-      href: automation-manage-send-joblogs-log-analytics.md
+      items:
+        - name: 状态配置概述
+          href: automation-dsc-overview.md
+          displayName: DSC
+        - name: 入门
+          href: automation-dsc-getting-started.md
+          displayName: DSC
+        - name: 使用状态配置将服务器配置为所需状态并管理偏移
+          href: tutorial-configure-servers-desired-state.md
+          displayName: 'DSC, compliance'
+        - name: 载入用于管理的计算机
+          href: automation-dsc-onboarding.md
+          displayName: 'DSC, state configuration'
+        - name: 编译 DSC 配置
+          href: automation-dsc-compile.md
+          displayName: 'state configuration, composite resources, configurationData'
+        - name: 使用复合资源编写 DSC 配置
+          href: compose-configurationwithcompositeresources.md
+        - name: 使用 Chocolatey 进行连续部署
+          href: automation-dsc-cd-chocolatey.md
+          displayName: 'dsc, state configuration'
+        - name: 将状态配置报告数据转发到 Azure Monitor 日志
+          href: automation-dsc-diagnostics.md
+          displayName: DSC
+    - name: 管理共享资源
+      items:
+        - name: 计划
+          href: shared-resources/schedules.md
+        - name: 模块
+          href: shared-resources/modules.md
+        - name: 管理 Python 2 程序包
+          href: python-packages.md
+        - name: 凭据
+          href: shared-resources/credentials.md
+        - name: 连接
+          href: automation-connections.md
+        - name: 证书
+          href: shared-resources/certificates.md
+        - name: 变量
+          href: shared-resources/variables.md
+    - name: 方案
+      items:
+        - name: 在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
+          href: automation-deploy-template-runbook.md
+    - name: 监视
+      items:
+        - name: 将 Azure 自动化作业数据转发到 Azure Monitor 日志
+          href: automation-manage-send-joblogs-log-analytics.md
 - name: 故障排除
   items:
-  - name: Runbook
-    displayName: troubleshoot
-    href: troubleshoot/runbooks.md
-  - name: 状态配置 (DSC)
-    displayName: Desired State Configuration, troubleshoot
-    href: troubleshoot/desired-state-configuration.md
+    - name: Runbook
+      href: troubleshoot/runbooks.md
+      displayName: troubleshoot
+    - name: 状态配置 (DSC)
+      href: troubleshoot/desired-state-configuration.md
+      displayName: 'Desired State Configuration, troubleshoot'
 - name: 参考
   items:
-  - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.automation
-  - name: Azure PowerShell（经典）
-    href: https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0
-  - name: .NET
-    href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.automation
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/automation
-  - name: REST（经典）
-    href: https://msdn.microsoft.com/library/azure/mt163781
-  - name: 定价
-    href: https://www.azure.cn/zh-cn/pricing/details/automation/
-  - name: 定价计算器
-    href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: 9cf654df69f05ef79a5bd03a728a9a09af3e6d61
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502599"
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.automation'
+    - name: Azure PowerShell（经典）
+      href: 'https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0'
+    - name: .NET
+      href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.automation'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/automation'
+    - name: REST（经典）
+      href: 'https://msdn.microsoft.com/library/azure/mt163781'
+    - name: 定价
+      href: 'https://www.azure.cn/zh-cn/pricing/details/automation/'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/zh-cn/pricing/calculator/automation/'

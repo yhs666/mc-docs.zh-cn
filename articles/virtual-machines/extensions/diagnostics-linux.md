@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1ddb6674476dc1507f03cb0bd450f6892eb9566b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 295c0fbb55edb2fc0bc21ad182fa434c907e3c4c
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626040"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835616"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -128,7 +128,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-Name | 值
+Name | Value
 ---- | -----
 storageAccountName | 扩展写入数据的存储帐户的名称。
 storageAccountEndPoint | （可选）标识存储帐户所在云的终结点。 如果缺少此设置，则 LAD 默认为 Azure 公有云 `https://core.windows.net`。 若要使用 Azure 中国 (`https://core.chinacloudapi.cn`) 中的存储帐户，请相应地设置此值。
@@ -170,7 +170,7 @@ sinksConfig | （可选）可将指标和事件传递到的替换目标的详细
 
 此可选部分所定义的附加目标是扩展将所收集信息发送到其中的目标。 “sink”数组包含每个附加数据接收器的对象。 “type”属性确定对象中的其他属性。
 
-元素 | 值
+元素 | Value
 ------- | -----
 name | 在扩展配置中其他位置用于引用此接收器的字符串。
 type | 要定义的接收器的类型。 确定此类型实例中的其他值（如果有）。
@@ -232,7 +232,7 @@ https://contosohub.servicebus.chinacloudapi.cn/syslogmsgs?sr=contosohub.serviceb
 }
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 StorageAccount | 扩展写入数据的存储帐户的名称。 必须与[受保护的设置](#protected-settings)中指定的名称相同。
 mdsdHttpProxy | （可选）与[受保护的设置](#protected-settings)中的相同。 如果设置，则专用值将重写公用值。 将包含机密（如密码）的代理设置放在[受保护的设置](#protected-settings)中。
@@ -253,9 +253,9 @@ mdsdHttpProxy | （可选）与[受保护的设置](#protected-settings)中的�
 }
 ```
 
-此可选结构控制指标和日志的收集，以便将其传递到 Azure Metrics 服务和其他数据接收器。 必须指定 `performanceCounters` 和/或 `syslogEvents`。 必须指定 `metrics` 结构。
+此可选结构控制指标和日志的收集，以传递到 Azure Metrics 服务和其他数据接收器。 必须指定 `performanceCounters` 和/或 `syslogEvents`。 必须指定 `metrics` 结构。
 
-元素 | 值
+元素 | Value
 ------- | -----
 eventVolume | （可选）控制在存储表中创建的分区数。 必须是 `"Large"`、`"Medium"` 或 `"Small"`。 如果未指定，默认值为 `"Medium"`。
 sampleRateInSeconds | （可选）两次收集原始（未聚合）指标之间的默认时间间隔。 支持的最小采样率为 15 秒。 如果未指定，默认值为 `15`。
@@ -272,7 +272,7 @@ sampleRateInSeconds | （可选）两次收集原始（未聚合）指标之间�
 }
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 ResourceId | VM 或 VM 所属虚拟机规模集的 Azure 资源管理器资源 ID。 如果配置中使用了任何 JsonBlob 接收器，也必须指定此设置。
 scheduledTransferPeriod | 计算聚合指标并将转移到 Azure Metrics 的频率，以 IS 8601 时间间隔形式表示。 最小传输周期为 60 秒，即 PT1M。 必须指定至少一个 scheduledTransferPeriod。
@@ -312,7 +312,7 @@ performanceCounters 节中指定的指标样本每 15 秒收集一次，或者�
 * 上一次收集的值
 * 用于计算聚合的原始样本数
 
-元素 | 值
+元素 | Value
 ------- | -----
 sinks | （可选）LAD 将聚合指标结果发送到的接收器的名称的逗号分隔列表。 所有聚合指标都将发布到列出的每个接收器。 请参阅 [sinksConfig](#sinksconfig)。 示例：`"EHsink1, myjsonsink"`。
 type | 标识指标的实际提供程序。
@@ -332,7 +332,7 @@ counterSpecifier 是一个任意标识符。 Azure 门户绘图和警报功能�
 
 LAD 和 Azure 门户都不需要 counterSpecifier 值匹配任何模式。 请以相同的模式构造各个 counterSpecifier 值。
 
-指定 `performanceCounters` 时，LAD 始终将数据写入 Azure 存储中的表。 可将相同的数据写入 JSON blob 和/或事件中心，但不能禁止将数据存储到表中。 配置为使用相同存储帐户名称和终结点的所有诊断扩展实例，其指标和日志会添加到同一个表中。 如果有过多 VM 写入同一表分区，则 Azure 可能限制写入该分区。 eventVolume 设置会使条目分散在 1 个 (Small)、10 个 (Medium) 或 100 个 (Large) 分区中。 通常，“Medium”足以确保流量不被限制。 Azure 门户的 Azure Metrics 功能使用此表中的数据来生成图形或触发警报。 表名是这些字符串的串联：
+指定 `performanceCounters` 时，LAD 始终将数据写入 Azure 存储中的表。 可将相同的数据写入 JSON blob 和/或事件中心，但不能禁止将数据存储到表中。 配置为使用相同存储帐户名称和终结点的所诊断扩展有实例，其指标和日志会添加到同一个表中。 如果有过多 VM 写入同一表分区，则 Azure 可能限制写入该分区。 eventVolume 设置会使条目分散在 1 个 (Small)、10 个 (Medium) 或 100 个 (Large) 分区中。 通常，“Medium”足以确保流量不被限制。 Azure 门户的 Azure Metrics 功能使用此表中的数据来生成图形或触发警报。 表名是这些字符串的串联：
 
 * `WADMetrics`
 * 表中存储的聚合值的“scheduledTransferPeriod”
@@ -358,7 +358,7 @@ LAD 和 Azure 门户都不需要 counterSpecifier 值匹配任何模式。 请�
 
 syslogEventConfiguration 收集会为相关的每个 syslog 辅助参数创建一个条目。 如果特定辅助参数的 minSeverity 为“NONE”，或者该辅助参数并未出现在元素中，则不会捕获该辅助参数下的任何事件。
 
-元素 | 值
+元素 | Value
 ------- | -----
 sinks | 一个逗号分隔列表，包含要将单个日志事件发布到其中的接收器的名称。 与 syslogEventConfiguration 中的限制匹配的所有日志事件都会发布到列出的每个接收器。 示例：“EHforsyslog”
 facilityName | Syslog 辅助参数名称（例如“LOG\_USER”或“LOG\_LOCAL0”）。 有关完整列表，请参阅 [syslog 手册页](http://man7.org/linux/man-pages/man3/syslog.3.html)的“facility”部分。
@@ -387,7 +387,7 @@ minSeverity | Syslog 严重性级别（例如“LOG\_ERR”或“LOG\_INFO”）
 ]
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 命名空间 | （可选）应在其中执行查询的 OMI 命名空间。 如果未指定，则默认值为“root/scx”，由 [ System Center 跨平台提供程序](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)实现。
 查询 | 要执行的 OMI 查询。
@@ -411,7 +411,7 @@ sinks | （可选）一个逗号分隔列表，包含应将原始样本指标结
 ]
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 file | 要监视和捕获的日志文件的完整路径名。 路径名必须命名单个文件；它不能命名目录，也不能包含通配符。
 表 | （可选）指定的存储帐户（在受保护的配置中指定）中的 Azure 存储表，文件“结尾”处的新行将写入此表。

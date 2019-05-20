@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f6cd7ccd4b5b57727af60533e873f7914b6a3000
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: fc1dafa6989484c5b7142e4bafd4a7bf6b971bed
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544718"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609880"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何将 Java 消息服务 (JMS) API 用于服务总线和 AMQP 1.0
 
@@ -45,7 +45,8 @@ ms.locfileid: "58544718"
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
 
-> ![注意] JMS JAR 名称和版本可能已更改。 有关详细信息，请参阅 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10)。
+> [!NOTE]
+> JMS JAR 名称和版本可能已更改。 有关详细信息，请参阅 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10)。
 
 ## <a name="coding-java-applications"></a>为 Java 应用程序编码
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java 命名和目录接口 (JNDI)

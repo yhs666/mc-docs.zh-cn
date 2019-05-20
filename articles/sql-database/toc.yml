@@ -89,14 +89,21 @@
           href: sql-database-service-tiers-vcore.md
         - name: DTU 服务层级
           href: sql-database-service-tiers-dtu.md
+        - name: 无服务器计算层
+          href: sql-database-serverless.md
     - name: 计算和存储
       items:
         - name: 概述
           href: sql-database-service-tiers-general-purpose-business-critical.md
+          displayName: provisioned compute tier
         - name: “常规用途”/“标准”服务层级
           href: sql-database-service-tier-general-purpose.md
         - name: “业务关键”/“高级”服务层级
           href: sql-database-service-tier-business-critical.md
+        - name: “超大规模”服务层级
+          href: sql-database-service-tier-hyperscale.md
+        - name: “超大规模”常见问题解答
+          href: sql-database-service-tier-hyperscale-faq.md
     - name: 单一数据库
       items:
         - name: 单个数据库概述
@@ -172,8 +179,6 @@
     - name: 安全性
       items:
         - name: 安全概述
-          href: sql-database-security-index.yml
-        - name: 安全功能
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: 高级数据安全
@@ -224,6 +229,8 @@
               href: transparent-data-encryption-azure-sql.md
             - name: 将 TDE 与自带密钥配合使用
               href: transparent-data-encryption-byok-azure-sql.md
+        - name: 安全属性
+          href: sql-database-security-attributes.md
     - name: 可伸缩性
       items:
         - name: 可伸缩性概述
@@ -534,5 +541,7 @@
       href: sql-database-glossary-terms.md
     - name: 公共数据集
       href: sql-database-public-data-sets.md
+    - name: 排查连接问题
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/sql-database/'

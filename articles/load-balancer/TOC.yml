@@ -1,153 +1,148 @@
-items:
 - name: 负载均衡器文档
   href: index.yml
 - name: 概述
   items:
-  - name: 什么是负载均衡器？
-    href: load-balancer-overview.md
+    - name: 什么是负载均衡器？
+      href: load-balancer-overview.md
 - name: 快速入门
   items:
-  - name: 创建基本负载均衡器 - 门户
-    href: quickstart-create-basic-load-balancer-portal.md
-  - name: 创建基本负载均衡器 - Azure CLI
-    href: quickstart-create-basic-load-balancer-cli.md
-  - name: 创建基本负载均衡器 - Azure PowerShell
-    href: quickstart-create-basic-load-balancer-powershell.md
-  - name: 创建标准负载均衡器 - 门户
-    href: quickstart-load-balancer-standard-public-portal.md
-  - name: 创建标准负载均衡器 - Azure CLI
-    href: quickstart-load-balancer-standard-public-cli.md
-  - name: 创建标准负载均衡器 - Azure PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
+    - name: 创建基本负载均衡器 - 门户
+      href: quickstart-create-basic-load-balancer-portal.md
+    - name: 创建基本负载均衡器 - Azure CLI
+      href: quickstart-create-basic-load-balancer-cli.md
+    - name: 创建基本负载均衡器 - Azure PowerShell
+      href: quickstart-create-basic-load-balancer-powershell.md
+    - name: 创建标准负载均衡器 - 门户
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: 创建标准负载均衡器 - Azure CLI
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: 创建标准负载均衡器 - Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
 - name: 教程
   items:
-  - name: 对传入 VM 的 Internet 流量进行负载均衡
-    href: tutorial-load-balancer-standard-manage-portal.md
-  - name: 对传入 VM 的内部流量进行负载均衡
-    href: tutorial-load-balancer-basic-internal-portal.md
-  - name: 在负载均衡器中配置端口转发
-    href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: 对传入 VM 的 Internet 流量进行负载均衡
+      href: tutorial-load-balancer-standard-manage-portal.md
+    - name: 对传入 VM 的内部流量进行负载均衡
+      href: tutorial-load-balancer-basic-internal-portal.md
+    - name: 在负载均衡器中配置端口转发
+      href: tutorial-load-balancer-port-forwarding-portal.md
 - name: 示例
   items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: 概念
   items:
-  - name: 什么是标准负载均衡器？
-    href: load-balancer-standard-overview.md
-  - name: 运行状况探测
-    href: load-balancer-custom-probe-overview.md
-  - name: 多个前端
-    href: load-balancer-multivip-overview.md
-  - name: 出站连接
-    href: load-balancer-outbound-connections.md
-  - name: 出站规则
-    href: load-balancer-outbound-rules-overview.md
+    - name: 什么是标准负载均衡器？
+      href: load-balancer-standard-overview.md
+    - name: 运行状况探测
+      href: load-balancer-custom-probe-overview.md
+    - name: 多个前端
+      href: load-balancer-multivip-overview.md
+    - name: 出站连接
+      href: load-balancer-outbound-connections.md
+    - name: 出站规则
+      href: load-balancer-outbound-rules-overview.md
+    - name: 在空闲超时的情况下重置 TCP
+      href: load-balancer-tcp-reset.md
 - name: 如何
   items:
-  - name: 配置出站规则
-    href: configure-load-balancer-outbound-cli.md
-  - name: 使用 REST API 创建 Azure 负载均衡器
-    href: create-load-balancer-rest-api.md
-  - name: 创建基本负载均衡器（模板）
-    href: load-balancer-get-started-internet-arm-template.md
-  - name: 配置内部负载均衡器
-    items:
-    - name: 配置内部负载均衡器 (PowerShell)
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: 配置内部负载均衡器 (CLI)
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: 配置内部负载均衡器（模板）
-      href: load-balancer-get-started-ilb-arm-template.md
-  - name: 配置负载均衡器的 TCP 空闲超时
-    href: load-balancer-tcp-idle-timeout.md
-  - name: 配置负载均衡器的分布模式
-    href: load-balancer-distribution-mode.md
-  - name: 结合使用负载均衡服务
-    href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fload-balancer%2ftoc.json
-  - name: 使用多个 IP 配置
-    href: load-balancer-multiple-ip.md
-    items:
-    - name: 使用多个 IP 配置 (CLI)
-      href: load-balancer-multiple-ip-cli.md
-    - name: 使用多个 IP 配置 (PowerShell)
-      href: load-balancer-multiple-ip-powershell.md
-  - name: 使用 REST 获取负载均衡器指标
-    href: load-balancer-query-metrics-rest-api.md
-  - name: 故障排除
-    items:
-    - name: 对 Azure 负载均衡器进行故障排除
-      href: load-balancer-troubleshoot.md
-  - name: 经典部署模型文章
-    items:
-    - name: 出站连接（经典）
-      href: load-balancer-outbound-connections-classic.md
-  - name: 为云服务配置多个 VIP
-    href: load-balancer-multivip.md
-    items:
-    - name: 为云服务配置内部负载均衡器
-      href: load-balancer-get-started-ilb-classic-cloud.md
+    - name: 配置出站规则
+      href: configure-load-balancer-outbound-cli.md
+    - name: 使用 REST API 创建 Azure 负载均衡器
+      href: create-load-balancer-rest-api.md
+    - name: 创建基本负载均衡器（模板）
+      href: load-balancer-get-started-internet-arm-template.md
+    - name: 配置内部负载均衡器
       items:
-      - name: 为云服务配置内部负载均衡器 (PowerShell)
-        href: load-balancer-get-started-ilb-classic-ps.md
-      - name: 为云服务配置内部负载均衡器 (CLI)
-        href: load-balancer-get-started-ilb-classic-cli.md
-    - name: 配置公共负载均衡器（经典 PowerShell）
-      href: load-balancer-get-started-internet-classic-ps.md
+        - name: 配置内部负载均衡器 (PowerShell)
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: 配置内部负载均衡器 (CLI)
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: 配置内部负载均衡器（模板）
+          href: load-balancer-get-started-ilb-arm-template.md
+    - name: 配置负载均衡器的 TCP 空闲超时
+      href: load-balancer-tcp-idle-timeout.md
+    - name: 配置负载均衡器的分布模式
+      href: load-balancer-distribution-mode.md
+    - name: 结合使用负载均衡服务
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fload-balancer%2ftoc.json
+    - name: 使用多个 IP 配置
+      href: load-balancer-multiple-ip.md
       items:
-      - name: 配置公共负载均衡器（经典云）
-        href: load-balancer-get-started-internet-classic-cloud.md
-      - name: 配置公共负载均衡器（经典 CLI）
-        href: load-balancer-get-started-internet-classic-cli.md
+        - name: 使用多个 IP 配置 (CLI)
+          href: load-balancer-multiple-ip-cli.md
+        - name: 使用多个 IP 配置 (PowerShell)
+          href: load-balancer-multiple-ip-powershell.md
+    - name: 使用 REST 获取负载均衡器指标
+      href: load-balancer-query-metrics-rest-api.md
+    - name: 故障排除
+      items:
+        - name: 对 Azure 负载均衡器进行故障排除
+          href: load-balancer-troubleshoot.md
+    - name: 经典部署模型文章
+      items:
+        - name: 出站连接（经典）
+          href: load-balancer-outbound-connections-classic.md
+    - name: 为云服务配置多个 VIP
+      href: load-balancer-multivip.md
+      items:
+        - name: 为云服务配置内部负载均衡器
+          href: load-balancer-get-started-ilb-classic-cloud.md
+          items:
+            - name: 为云服务配置内部负载均衡器 (PowerShell)
+              href: load-balancer-get-started-ilb-classic-ps.md
+            - name: 为云服务配置内部负载均衡器 (CLI)
+              href: load-balancer-get-started-ilb-classic-cli.md
+        - name: 配置公共负载均衡器（经典 PowerShell）
+          href: load-balancer-get-started-internet-classic-ps.md
+          items:
+            - name: 配置公共负载均衡器（经典云）
+              href: load-balancer-get-started-internet-classic-cloud.md
+            - name: 配置公共负载均衡器（经典 CLI）
+              href: load-balancer-get-started-internet-classic-cli.md
 - name: 参考
   items:
-  - name: 代码示例
-    href: https://azure.microsoft.com/resources/samples/?service=load-balancer
-  - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.network
-  - name: Azure CLI
-    href: https://docs.azure.cn/zh-cn/cli/network/lb
-  - name: .NET
-    href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.network.models
-  - name: Java
-    href: https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.management.network
-  - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html
-  - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers
-  - name: Python
-    href: https://docs.microsoft.com/en-us/python/api/azure-mgmt-network/azure.mgmt.network.v2017_10_01.models.LoadBalancer?view=azure-python
-  - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt163651.aspx
+    - name: 代码示例
+      href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.network'
+    - name: Azure CLI
+      href: 'https://docs.azure.cn/zh-cn/cli/network/lb'
+    - name: .NET
+      href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.network.models'
+    - name: Java
+      href: 'https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.management.network'
+    - name: Node.js
+      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers'
+    - name: Python
+      href: 'https://docs.microsoft.com/en-us/python/api/azure-mgmt-network/azure.mgmt.network.v2017_10_01.models.LoadBalancer?view=azure-python'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
 - name: 相关内容
   items:
-  - name: 应用程序网关
-    href: /application-gateway/
-  - name: Express Route
-    href: /expressroute/
-  - name: 虚拟网络
-    href: /virtual-network/
-  - name: VPN 网关
-    href: /vpn-gateway/
-  - name: 虚拟机
-    href: /virtual-machines/
-  - name: 流量管理器
-    href: /traffic-manager/
-  - name: DNS
-    href: /dns/
+    - name: 应用程序网关
+      href: /application-gateway/
+    - name: Express Route
+      href: /expressroute/
+    - name: 虚拟网络
+      href: /virtual-network/
+    - name: VPN 网关
+      href: /vpn-gateway/
+    - name: 虚拟机
+      href: /virtual-machines/
+    - name: 流量管理器
+      href: /traffic-manager/
+    - name: DNS
+      href: /dns/
 - name: 资源
   items:
-  - name: 定价
-    href: https://www.azure.cn/pricing/details/load-balancer/
-  - name: 定价计算器
-    href: https://www.azure.cn/pricing/calculator/
-  - name: 服务更新
-    href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: 9429e09e05ba5939df17e3bcf4237bc754cb6f02
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529441"
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/load-balancer/'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/pricing/calculator/'
+    - name: 服务更新
+      href: 'https://www.azure.cn/what-is-new/'

@@ -3,20 +3,20 @@ title: Azure 自动化概述
 description: 了解如何使用 Azure 自动化自动完成基础结构和应用程序的生命周期。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 keywords: azure 自动化, DSC, powershell, desired state configuration, 更新管理, 更改跟踪, 清单, runbook, python, 图形
 origin.date: 10/18/2018
-ms.date: 12/24/2018
+ms.date: 05/20/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 2e24ee58db058f22504d7d6432e860102773a5a1
-ms.sourcegitcommit: 895e9accaae8f8c2a29ed91d8e84911fda6111cf
+ms.openlocfilehash: b4cacb1664acd00912d6c6354a5a173a8017d4de
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615176"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668828"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自动化简介
 
@@ -55,7 +55,7 @@ Azure 自动化包含一组共享资源，方便用户大规模地完成环境�
 
 ### <a name="source-control-integration"></a>源代码管理集成
 
-Azure 自动化能够[与源代码管理集成](automation-source-control-integration-legacy.md)，这会在可将 runbook 或配置签入源代码管理系统的情况下，改进代码配置。
+Azure 自动化能够[与源代码管理集成](source-control-integration.md)，这会在可将 runbook 或配置签入源代码管理系统的情况下，改进代码配置。
 
 ### <a name="role-based-access-control"></a>基于角色的访问控制
 
@@ -83,3 +83,4 @@ Azure 自动化可以在基础结构和应用程序的整个生命周期中进�
 
 > [!div class="nextstepaction"]
 > [创建自动化帐户](automation-quickstart-create-account.md)
+

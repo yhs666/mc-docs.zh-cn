@@ -10,11 +10,11 @@ origin.date: 10/24/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.openlocfilehash: 4e374d9c234dcbbc0f457b3adc97c91830eceac7
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987960"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65668966"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户构建 Java 应用程序
 

@@ -11,14 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 11/30/2017
-ms.date: 01/14/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 22ea161364e669aa7519a0b265dfa66784476c44
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 810448d221995c9e2a639a387455fee8a7e95e71
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625416"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829241"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -49,7 +49,7 @@ ms.locfileid: "58625416"
 
 ![自动安装 Scala 插件](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-用户可以[登录到 Azure 订阅](#Sign-in-to-your-Azure-subscription)，或者使用 Ambari 用户名/密码或已加入域的凭据[链接 HDInsight 群集](#Link-a-cluster)来启动。 
+用户可以[登录到 Azure 订阅](#sign-in-to-your-azure-subscription)，或者使用 Ambari 用户名/密码或已加入域的凭据[链接 HDInsight 群集](#link-a-cluster)来启动。 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 1. 启动 Eclipse IDE 并打开 Azure 资源管理器。 在“窗口”菜单中选择“显示视图”，并选择“其他”。 在打开的对话框中展开“Azure”，选择“Azure 资源管理器”，再选择“确定”。
@@ -138,6 +138,7 @@ ms.locfileid: "58625416"
             rdd1.saveAsTextFile("wasb:///HVACOut")
           }        
         }
+    
 5. 在 HDInsight Spark 群集中运行该应用程序：
    
    a. 在“包资源管理器”中，右键单击项目名称，然后选择“将 Spark 应用程序提交到 HDInsight”。        

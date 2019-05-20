@@ -7,17 +7,20 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 04/01/2019
-ms.date: 04/15/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: ec8ebf48d2a20378a563a2c350e00ea5a5db63e9
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: d247bd6adacfcd211ce091bc4f66ece76bb33c63
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503408"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668839"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自动化中的源代码管理集成 - 传统
+
+> [!NOTE]
+> 有一种新的源代码管理体验。 若要了解有关新体验的更多信息，请参阅[源代码管理（预览）](source-control-integration.md)。
 
 源代码管理集成可让你将自动化帐户中的 Runbook 关联到 GitHub 源代码管理存储库。 使用源代码管理可轻松与团队协作、跟踪更改，以及回退到旧版 Runbook。 例如，源代码管理可让你将源代码管理中的不同分支同步到开发、测试或生产自动化帐户，以轻松地将已在开发环境中测试过的代码提升到生产自动化帐户。
 

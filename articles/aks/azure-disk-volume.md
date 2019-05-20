@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/01/2019
 ms.date: 04/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3e2c264a3c66e1fc7604cf5bc5bc3b4886acafa2
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 1ec272aedca0e250b7f1e59defe452567d8d0f1a
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854608"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835722"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 磁盘手动创建并使用卷
 
@@ -76,7 +76,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: dockerhub.azk8s.cn/nginx:1.15.5
+  - image: dockerhub.azk8s.cn/library/nginx:1.15.5
     name: mypod
     resources:
       requests:

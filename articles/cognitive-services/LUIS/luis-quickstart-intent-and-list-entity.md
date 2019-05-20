@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: e5eea20781b8da3c58d8b7e06440154680f7a9da
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: bfa65a519f76d743c7fb4632db97b944077f041e
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561725"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828524"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教程：从话语中获取文本完全匹配的数据
 
@@ -108,11 +108,7 @@ ms.locfileid: "65561725"
 
 1. 在“部门”实体页上，输入 `Accounting` 作为新值。
 
-    [![输入值的屏幕截图](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. 对于同义词，请从上表中添加同义词。
-
-    [![输入同义词的屏幕截图](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. 继续添加所有规范名称及其同义词。 
 

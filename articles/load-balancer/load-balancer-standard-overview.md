@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/11/2019
-ms.date: 03/04/2019
+origin.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: a24a5f3f30ad4f6eb028e2577117035e9a33c54d
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 919fce27218d1946d49167f74af1a0cb10ff6483
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836926"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731996"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 标准负载均衡器概述
 
@@ -195,6 +195,7 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 - 在 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 中了解用于诊断的[支持的多维度指标](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)。
 - 了解如何[对出站连接使用负载均衡器](load-balancer-outbound-connections.md)。
 - 了解[出站规则](load-balancer-outbound-rules-overview.md)。
+- 了解如何[在空闲时重置 TCP](load-balancer-tcp-reset.md)。
 - 了解如何使用[具有多个前端的负载均衡器](load-balancer-multivip-overview.md)。
 - 了解有关[虚拟网络](../virtual-network/virtual-networks-overview.md)的信息。
 - 详细了解[网络安全组](../virtual-network/security-overview.md)。

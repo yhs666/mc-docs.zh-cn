@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 origin.date: 07/23/2018
-ms.date: 09/17/2018
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: twounder
-ms.openlocfilehash: 4e26472e9673715c20108aa298d913571ea50e6d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2769b085b904efb9585aebc15605d0eadf83d8a6
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662520"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828801"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Azure SQL 数据仓库中的新增功能 2018 年 4 月
 Azure SQL 数据仓库持续得到改进。 本文介绍 2018 年 4 月发行的版本中所引入的新功能和所做的更改。
@@ -56,3 +56,9 @@ The number of literals in the query is beyond the limit. Please rewrite your que
 
 ## <a name="removed-the-syspdwdatabasemappings-view-behavior-change"></a>删除了 SYS.PDW_DATABASE_MAPPINGS 视图（行为变更）
 在 SQL 数据仓库中未使用此 `sys.pdw_database_mappings` 视图。 以前，选择此视图将不会返回任何结果。 此视图已被删除。 
+
+## <a name="next-steps"></a>后续步骤
+对 SQL 数据仓库有了初步的认识后，请了解如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]。 如果不熟悉 Azure，在遇到新术语时，可以参考 [Azure 术语表][Azure glossary]。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
+
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

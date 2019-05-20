@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/20/2017
 ms.date: 11/06/18
 ms.author: v-lingwu
-ms.openlocfilehash: b30ff817db4bbcf4d5441aba8903bad7b0c4ceae
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b9460d67e6df22f10c0acd0b9273a39e39c08b9d
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652701"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609855"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何将 Azure Relay WCF 中继与 .NET 配合使用
 本文介绍如何使用 Azure 中继服务。 相关示例用 C# 编写并使用服务总线程序集中包含的 Windows Communication Foundation (WCF) API 及扩展。 有关 Azure 中继的详细信息，请参阅 [Azure 中继概述](relay-what-is-it.md)。
@@ -117,7 +117,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-在本示例中，你创建两个位于同一协定实施中的终结点。 一个是本地的，一个通过 Azure 中继进行投影。 两者之间的主要区别是绑定；本地终结点使用 [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx)，而中继终结点和地址使用 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding)。 本地终结点有一个使用不同端口的本地网络地址。 中继终结点有一个由字符串 `sb`、命名空间名称、路径“solver”组成的终结点地址。 这会生成 URI `sb://[serviceNamespace].servicebus.chinacloudapi.cn/solver`，将服务终结点标识为具有完全限定的外部 DNS 名称的服务总线（中继）TCP 终结点。 如果将替换占位符的代码放入`Main`服务**应用程序的**  函数中，则会获得功能服务。 如果希望服务专门侦听中继，请删除本地终结点声明。
+在本示例中，你创建两个位于同一协定实施中的终结点。 一个是本地的，一个通过 Azure 中继进行投影。 两者之间的主要区别是绑定；本地终结点使用 [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx)，而中继终结点和地址使用 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding)。 本地终结点有一个使用不同端口的本地网络地址。 中继终结点有一个由字符串 `sb`、命名空间名称、路径“solver”组成的终结点地址。 这会生成 URI `sb://[serviceNamespace].servicebus.windows.net/solver`，将服务终结点标识为具有完全限定的外部 DNS 名称的服务总线（中继）TCP 终结点。 如果将替换占位符的代码放入`Main`服务**应用程序的**  函数中，则会获得功能服务。 如果希望服务专门侦听中继，请删除本地终结点声明。
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>在 App.config 文件中配置服务主机
 还可以使用 App.config 文件配置主机。 在此情况下，服务托管代码如以下示例所示。

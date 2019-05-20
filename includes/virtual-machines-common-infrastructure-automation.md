@@ -2,15 +2,15 @@
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 04/01/2019
+origin.date: 04/11/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 262b1a9aaf02c92e457faa1c49f801d46b37b047
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 96298a371287f19b3429245a15e795a986cad52d
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004539"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835763"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中将基础结构自动化工具与虚拟机配合使用
 若要以一致的方式大规模创建和管理 Azure 虚拟机 (VM)，通常需要某种形式的自动化。 可以通过许多工具和解决方案来自动完成整个 Azure 基础结构部署和管理生命周期。 本文介绍了一些可以在 Azure 中使用的基础结构自动化工具。 这些工具通常适合以下某个方法：
@@ -50,17 +50,7 @@ ms.locfileid: "59004539"
 
 Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 或 yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
 
- 我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
-
-| 发布者 | 产品/服务 | SKU | 版本 | cloud-init 就绪 |
-|:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
-|Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
-|CoreOS |CoreOS |Stable |最新 |是 |
-|OpenLogic |CentOS |7-CI |最新 |预览 |
-
-<!-- Not Available on RedHat -->
-了解有关 Azure 上的 cloud-init 的更多详细信息：
+我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 了解有关 Azure 上的 cloud-init 的更多详细信息：
 
 - [Cloud-init 对 Azure 中 Linux 虚拟机的支持](../articles/virtual-machines/linux/using-cloud-init.md)
 - [试着学习使用 cloud-init 自动进行 VM 配置的教程](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。
@@ -72,7 +62,7 @@ DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 
 
 了解如何：
 
-- [创建基本的 DSC 配置](https://msdn.microsoft.com/powershell/dsc/quickstart)。
+- [创建基本的 DSC 配置](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart)。
 - [配置 DSC 拉取服务器](https://msdn.microsoft.com/powershell/dsc/pullserver)。
 - [使用适用于 Linux 的 DSC](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)。
 

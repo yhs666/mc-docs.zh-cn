@@ -12,29 +12,29 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 12/04/2018
-ms.date: 03/11/2019
-ms.openlocfilehash: 7ba814e7e628bdfbb459959609db5c14f99e8643
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 05/20/2019
+ms.openlocfilehash: 0e1f3604d7c5f803815dc265e80c0863ac740c41
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347082"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629219"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>业务关键层 - Azure SQL 数据库
 
 > [!NOTE]
 > 业务关键层在 DTU 购买模型中称为“高级”。 有关基于 vCore 购买模型与基于 DTU 购买模型的比较，请参阅 [Azure SQL 数据库购买模型和资源](sql-database-purchase-models.md)。
 
-Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结构已根据云环境做出调整，以确保即使在发生基础结构故障时，也仍能提供 99.99% 的可用性。 Azure SQL 数据库中使用了两种体系结构模型：
+Azure SQL 数据库基于 SQL Server 数据库引擎体系结构，该体系结构已根据云环境做出调整，以确保即使在发生基础结构故障时，也仍能提供 99.99% 的可用性。 Azure SQL 数据库中使用了三种体系结构模型：
 - 常规用途/标准 
 - 业务关键/高级
 - 超大规模
 
-高级/业务关键服务层模型基于数据库引擎进程群集。 此体系结构模型依赖于以下事实：即使在执行维护活动期间，也始终存在可用数据库引擎节点的仲裁，并且能尽量减少对工作负荷性能的影响。
+“高级”/“业务关键”服务层级模型基于数据库引擎进程群集。 此体系结构模型依赖于以下事实：即使在执行维护活动期间，也始终存在可用数据库引擎节点的仲裁，并且能尽量减少对工作负荷性能的影响。
 
 Azure 以透明方式升级和修补底层操作系统、驱动程序和 SQL Server 数据库引擎，同时尽量减少最终用户的停机时间。 
 
-Azure SQL 数据库的高级和业务关键服务层中已启用高级可用性，此功能面向密集型工作负荷，此类工作负荷无法容忍由于持续维护操作而造成的任何性能影响。
+Azure SQL 数据库的“高级”或“业务关键”服务层级中已启用高级可用性，此功能面向密集型工作负荷，此类工作负荷无法承受由于持续维护操作而造成的任何性能影响。
 
 在高级模型中，Azure SQL 数据库在单个节点上集成了计算和存储层。 此体系结构模型中的高可用性是通过使用类似于 SQL Server [AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)的技术复制部署在四节点集群中的计算（SQL Server 数据库引擎进程）和存储（本地连接的 SSD）来实现的。
 
@@ -44,9 +44,9 @@ SQL 数据库引擎进程和底层 mdf/ldf 文件都放置在同一个节点上�
 
 此外，业务关键群集具有内置的[读取扩展](sql-database-read-scale-out.md)功能，该功能提供免费的内置只读节点，用于运行不会影响主要工作负荷性能的只读查询（例如报告）。
 
-## <a name="when-to-choose-this-service-tier"></a>何时选择此服务层？
+## <a name="when-to-choose-this-service-tier"></a>何时选择此服务层级？
 
-业务关键服务层为具有以下特点的应用程序而设计：需要来自基础 SSD 存储的低延迟响应（平均 1-2 毫秒）、在底层基础结构发生故障时需要快速恢复或是需要将报表、分析和只读查询分流到主数据库的免费可读次要副本。
+“业务关键”服务层级为具有以下特点的应用程序而设计：需要来自基础 SSD 存储的低延迟响应（平均 1-2 毫秒）、在底层基础设施发生故障时需要快速恢复或是需要将报表、分析和只读查询分流到主数据库的免费可读次要副本。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 11/28/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: 0c18a433b9cbd7f357af51da69252addbf8d6b7c
-ms.sourcegitcommit: 2f31ac5e07e682a9ed03eb0b80c36962529b4139
+ms.date: 05/20/2019
+ms.openlocfilehash: 4648f635bac8538f70c0e9b37f854f37f54ab2a7
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64347226"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731971"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>连接 Azure Kubernetes 服务和 Azure Database for MySQL
 
@@ -25,7 +25,7 @@ Azure Kubernetes 服务 (AKS) 提供可在 Azure 中使用的托管 Kubernetes �
 ## <a name="accelerated-networking"></a>加速网络
 在 AKS 群集中使用支持加速网络的底层 VM。 在 VM 上启用加速网络时，可以降低延迟、降低抖动和降低 VM 上的 CPU 利用率。 详细了解加速网络的工作原理、支持的 OS 版本以及 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 支持的 VM 实例。
 
-从 2018 年 11 月起，AKS 支持在这些受支持的 VM 实例上启用加速网络。
+从 2018 年 11 月起，AKS 支持在这些受支持的 VM 实例上启用加速网络。 默认情况下，加速网络已在使用这些 VM 的新 AKS 群集上启用。
 
 可以确认 AKS 群集是否已加速了网络：
 1. 转到 Azure 门户并选择 AKS 群集。

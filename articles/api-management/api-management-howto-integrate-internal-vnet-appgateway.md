@@ -16,11 +16,11 @@ origin.date: 06/26/2018
 ms.author: sasolank
 ms.date: 04/22/2019
 ms.openlocfilehash: e586076c253f0e2723da50ef6acd9ddc6f903f6a
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529115"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835601"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 

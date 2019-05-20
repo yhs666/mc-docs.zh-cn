@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/31/2019
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1c92494210a0285914994eea64aedf1dfe4f9eec
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 1cd8831d2f8b11f03b150d7a4cec2ea284d37baa
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615231"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668935"
 ---
 # <a name="multiple-region-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB 多区域分配数据 - 揭秘
 
@@ -87,7 +87,7 @@ Cosmos DB 的多区域分布依赖于两个关键抽象 – 副本集和分区�
 接下来，请通过以下文章了解如何配置多区域分布：
 
 * [在数据库帐户中添加/删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [如何配置多宿主客户端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [如何配置多宿主客户端](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [如何创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 
 <!-- Update_Description: update meta properties, wording update -->

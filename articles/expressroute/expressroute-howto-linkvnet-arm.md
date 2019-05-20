@@ -17,11 +17,11 @@ origin.date: 10/30/2018
 ms.author: v-yiso
 ms.date: 04/01/2019
 ms.openlocfilehash: 71c82d45342656b431b85298a5fe450e090f9da0
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348599"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835724"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]

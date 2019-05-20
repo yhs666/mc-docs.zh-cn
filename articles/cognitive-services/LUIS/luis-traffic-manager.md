@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0931cb4ebabb100cba85ac9cb64818f329994651
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 8ce2839fc2b5836d878ddd4b1b3371e5d676e952
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555584"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828514"
 ---
 # <a name="use-21vianet-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用世纪互联 Azure 流量管理器管理密钥之间的终结点配额
 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序。 
@@ -86,7 +86,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-RelativeDnsName|luis-dns-eastus|这是服务 luis-dns-eastus.trafficmanager.net 的子域|
     |-Ttl|30|轮询间隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的端口和协议为 HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|将 <appIdLuis> 和 <subscriptionKeyLuis> 替换为自己的值。|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|将 `<appIdLuis>` 和 `<subscriptionKeyLuis>` 替换为自己的值。|
     
     成功请求没有响应。
 
@@ -154,7 +154,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-RelativeDnsName|luis-dns-westus|这是服务 luis-dns-westus.trafficmanager.net 的子域|
     |-Ttl|30|轮询间隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的端口和协议为 HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|将 <appId> 和 <subscriptionKey> 替换为自己的值。 请记住此终结点密钥与东部终结点密钥不同|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|将 `<appId>` 和 `<subscriptionKey>` 替换为自己的值。 请记住此终结点密钥与东部终结点密钥不同|
     
     成功请求没有响应。
 

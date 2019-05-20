@@ -10,12 +10,12 @@ origin.date: 03/05/2018
 ms.date: 04/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5fa6122de636f55ecd5bb7f90396bfa0429742a5
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 85eac869a67c9bcb8de7e6111beb0f3b02f8d63a
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855236"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835712"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
@@ -124,10 +124,14 @@ brew install faas-cli
 
 使用 Azure CLI 登录：
 
+<!--MOONCAKE: Update ./faas-cli to faas-cli-->
+
 ```azurecli
 export OPENFAAS_URL=http://52.186.64.52:8080
-echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
+echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
+
+<!--MOONCAKE: Update ./faas-cli to faas-cli-->
 
 ## <a name="create-first-function"></a>创建第一个函数
 

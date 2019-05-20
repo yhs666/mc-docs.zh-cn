@@ -96,8 +96,6 @@
         - name: 删除 AKS 群集
           href: 'https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-delete'
           maintainContext: true
-        - name: 使用虚拟 Kubelet
-          href: virtual-kubelet.md
         - name: 使用 Kubernetes 仪表板
           href: kubernetes-dashboard.md
     - name: 配置数据卷
@@ -169,10 +167,6 @@
           href: kubernetes-helm.md
         - name: 使用 Draft 开发应用程序
           href: kubernetes-draft.md
-        - name: 使用 Open Service Broker for Azure
-          href: integrate-azure.md
-        - name: 将用于 MongoDB 的 Cosmos DB API 与 OSBA 配合使用
-          href: use-cosmosdb-osba-mongo-app.md
         - name: 使用 OpenFaaS
           href: openfaas.md
         - name: 运行 Spark 作业

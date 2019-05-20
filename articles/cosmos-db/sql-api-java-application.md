@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 08/22/2017
-ms.date: 01/21/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: f723d2c27de12f105400d1f0e5ed973525f255ba
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8e1ba0895f0423aadfb94302fbe870b066704783
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627778"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668897"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -46,7 +46,7 @@ ms.locfileid: "58627778"
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+    [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
 * [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
@@ -75,7 +75,7 @@ ms.locfileid: "58627778"
 
     ![创建新的 JSP 文件 - Java Web 应用程序教程](./media/sql-api-java-application/image11.png)
 5. 对于本教程，请在“选择 JSP 模板”对话框中选择“新建 JSP 文件(html)”，并单击“完成”。
-6. 在 Eclipse 中打开 index.jsp 文件后，添加文本以在以下元素中显示“Hello World!”： 在现有 <body> 元素中。 更新后的 <body> 内容应类似于以下代码：
+6. 在 Eclipse 中打开 index.jsp 文件后，添加文本以在以下元素中显示“Hello World!”： 在现有 `<body>` 元素中。 更新后的 `<body>` 内容应类似于以下代码：
 
         <body>
             <% out.println("Hello World!"); %>
@@ -97,15 +97,20 @@ ms.locfileid: "58627778"
 4. 在“依赖项”选项卡上，在“依赖项”窗格中单击“添加”。
 5. 在“选择依赖项”  窗口中，执行以下操作：
 
-   * 在“组 ID”框中，输入 com.microsoft.azure。
-   * 在“项目 ID”框中输入 azure-documentdb。
-   * 在“版本”框中输入 1.5.1。
+    * 在“组 ID”框中，输入 com.microsoft.azure。
+    * 在“项目 ID”框中输入 azure-documentdb。
+    * 在“版本”框中输入 1.5.1。
 
-   ![安装 SQL Java 应用程序 SDK](./media/sql-api-java-application/image13.png)
+    ![安装 SQL Java 应用程序 SDK](./media/sql-api-java-application/image13.png)
 
-   * 或者，通过文本编辑器直接将组 ID 和项目 ID 的依赖项 XML 添加到 pom.xml：
-
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+    * 或者，通过文本编辑器直接将组 ID 和项目 ID 的依赖项 XML 添加到 pom.xml：
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-documentdb</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        ```
 6. 单击“确定”，Maven 将安装 SQL Java SDK。
 7. 保存 pom.xml 文件。
 
@@ -730,7 +735,7 @@ ms.locfileid: "58627778"
 3. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/app-service-web-get-started-java.md)。
     <!--URL direct to app-service-web-get-started-java.md-->
     将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
-4. 若要查看已完成的产品，请导航到 http://YOUR\_SITE\_NAME.chinacloudsites.cn/azure-java-sample/ 并开始添加任务！
+4. 若要查看已完成的产品，请导航到 `http://YOUR\_SITE\_NAME.chinacloudsites.cn/azure-java-sample/` 并开始添加任务！
 
 <a name="GetProject"></a>
 ## <a name="get-the-project-from-github"></a>从 GitHub 获取项目
@@ -756,7 +761,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 18. 在此屏幕下面的“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，并单击“添加和删除”。
 19. 在“添加和删除”窗口中，将 **azure-documentdb-java-sample** 移到“配置”框，然后单击“完成”。
 20. 在“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，并单击“重新启动”。
-21. 在浏览器中，导航到 http://localhost:8080/azure-documentdb-java-sample/ 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
+21. 在浏览器中，导航到 `http://localhost:8080/azure-documentdb-java-sample/` 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
 22. 要将项目部署到 Azure 网站，请参阅[步骤 6. 将应用程序部署到 Azure 网站](#Deploy)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

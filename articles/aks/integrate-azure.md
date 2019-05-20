@@ -9,13 +9,15 @@ ms.topic: overview
 origin.date: 12/05/2017
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: d3def13008bbd3d868a2ab08200b0818f0df0084
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: d953f09d3bd9f29f7398e2da72cd348d8345fa4d
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520713"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835714"
 ---
+<!--IMPORT: NOT AVAILABLE ON MOONCAKE-->
+<!--PLEASE BE KINDLY NOTICE MOONCAKE COMMENTS-->
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 与 Azure 托管服务进行集成
 
 结合使用 [Kubernetes 服务目录][kubernetes-service-catalog]和 Open Service Broker for Azure (OSBA) 时，开发人员可利用 Kubernetes 中的 Azure 托管服务。 本指南重点介绍如何使用 Kubernetes 部署 Kubernetes 服务目录、Open Service Broker for Azure (OSBA) 和使用 Azure 托管服务的应用程序。
@@ -38,10 +40,13 @@ ms.locfileid: "65520713"
 ## <a name="install-service-catalog"></a>安装服务目录
 
 第一步是使用 Helm 图表在 Kubernetes 群集中安装服务目录。 按照以下步骤升级群集中的 Tiller（Helm 服务器）安装：
+<!--MOONCAKE: TO ADD --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0-->
 
 ```azurecli
-helm init --upgrade
+helm init --upgrade --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0
 ```
+
+<!--MOONCAKE: TO ADD --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0-->
 
 现在，将服务目录图表添加到 Helm 存储库：
 
@@ -108,11 +113,16 @@ az ad sp create-for-rbac
 
 使用上述值设置以下环境变量：
 
+<!--MOONCAKE: Add AZURE_ENVIRONMENT-->
+
 ```azurecli
 AZURE_CLIENT_ID=<appId>
 AZURE_CLIENT_SECRET=<password>
 AZURE_TENANT_ID=<tenant>
+AZURE_ENVIRONMENT=AzureChinaCloud
 ```
+
+<!--MOONCAKE: Add AZURE_ENVIRONMENT-->
 
 现在获取 Azure 订阅 ID：
 
@@ -128,22 +138,31 @@ AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
 
 填充完这些环境变量后，现在请执行下列命令，以使用 Helm 图表安装 Open Service Broker for Azure：
 
+<!--MOONCAKE: Correct on --set azure.environment=AzureChinaCloud-->
+
 ```azurecli
 helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
     --set azure.tenantId=$AZURE_TENANT_ID \
     --set azure.clientId=$AZURE_CLIENT_ID \
-    --set azure.clientSecret=$AZURE_CLIENT_SECRET
+    --set azure.clientSecret=$AZURE_CLIENT_SECRET \
+    --set azure.environment=AzureChinaCloud
 ```
+
+<!--MOONCAKE: Correct on --set azure.environment=AzureChinaCloud-->
 
 OSBA 部署完成后，请安装[服务目录 CLI][service-catalog-cli]，这是易于使用的命令行接口，可用于查询服务代理、服务类、服务计划等。
 
 执行以下命令以安装服务目录 CLI 二进制：
 
+<!--MOONCAKE: CORRECT ON https://servicecatalogcli.blob.core.windows.net/cli/latest-->
+
 ```azurecli
-curl -sLO https://servicecatalogcli.blob.core.chinacloudapi.cn/cli/latest/$(uname -s)/$(uname -m)/svcat
+curl -sLO https://servicecatalogcli.blob.core.windows.net/cli/latest/$(uname -s)/$(uname -m)/svcat
 chmod +x ./svcat
 ```
+
+<!--MOONCAKE: CORRECT ON https://servicecatalogcli.blob.core.windows.net/cli/latest-->
 
 现在，列出已安装的服务代理：
 
@@ -175,9 +194,13 @@ chmod +x ./svcat
 
 在此步骤中，使用 Helm 为 WordPress 安装更新的 Helm 图表。 该图表预配 WordPress 可以使用的外部 Azure Database for MySQL 实例。 此过程可能需要几分钟。
 
+<!--MOONCAKE: CORRECT ON --set externalDatabase.azure.location=chinaeast2-->
+
 ```azurecli
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1 --set externalDatabase.azure.location=chinaeast2
 ```
+
+<!--MOONCAKE: CORRECT ON --set externalDatabase.azure.location=chinaeast2-->
 
 为了验证安装是否已预配适当的资源，请列出已安装的服务实例和绑定：
 
@@ -213,3 +236,6 @@ kubectl get secrets -n wordpress -o yaml
 
 [create-aks-cluster]: ./kubernetes-walkthrough.md
 [create-service-principal]: ./kubernetes-service-principal.md
+
+<!--IMPORT: NOT AVAILABLE ON MOONCAKE-->
+<!--PLEASE BE KINDLY NOTICE MOONCAKE COMMENTS-->

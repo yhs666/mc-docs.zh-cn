@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 04/19/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: c37aa30cfd7e6afca3a307b35d60b8e46f82a660
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 3f387bf657f093e15635f930628505d679fda7b1
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520717"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835718"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>借助 Istio 在 Azure Kubernetes 服务 (AKS) 中使用智能路由和 Canary 发布
 
@@ -64,9 +64,13 @@ git clone https://github.com/Azure-Samples/aks-voting-app.git
 
 转到下载/克隆的存储库中的以下文件夹中，并从此文件夹中运行所有后续步骤：
 
+<!--MOONCAKE: CORRECT TO ADD aks-voting-app git directory-->
+
 ```console
-cd scenarios/intelligent-routing-with-istio
+cd aks-voting-app/scenarios/intelligent-routing-with-istio
 ```
+
+<!--MOONCAKE: CORRECT TO ADD aks-voting-app git directory-->
 
 首先，在 AKS 群集中为 AKS 投票应用示例创建命名空间，并命名为 `voting`，如下所示：
 

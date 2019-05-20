@@ -2,23 +2,20 @@
 title: 教程 - 将 Azure Key Vault 与通过 .NET 编写的 Windows 虚拟机配合使用 | Azure Docs
 description: 本教程介绍如何将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密。
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 04/01/2019
+ms.date: 05/27/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 9458f51da0517a1ca1b3cb0e45bc8c001625fccb
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 97128023ec4d67addee31ed2b43d334aa7126b73
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135505"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628775"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>教程：将 Azure Key Vault 与通过 .NET 编写的 Windows 虚拟机配合使用
 
@@ -152,7 +149,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 可以运行以下命令，将“Hello World”输出到控制台：
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -162,7 +159,7 @@ dotnet run
 
 打开 *Program.cs* 文件并添加以下包：
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -176,7 +173,7 @@ using Newtonsoft.Json.Linq;
 1. 从 VM 上的本地 MSI 终结点获取一个令牌。 这还会从 Azure AD 获取令牌。
 1. 将令牌传递到 Key Vault，然后获取机密。 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)

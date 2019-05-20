@@ -10,17 +10,17 @@ ms.author: v-jay
 ms.reviewer: v-masebo
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 14d89e5a3d08972e753fecdb25c9f99a521f38ce
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 05/20/2019
+ms.openlocfilehash: 4e24a1e61d613e54be9e590af7d43d7005aba781
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347182"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629236"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库的单一数据库中设计关系数据库
 
-Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 执行以下操作：
+Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) 执行以下操作：
 
 > [!div class="checklist"]
 > - 使用 Azure 门户创建单一数据库*
@@ -78,7 +78,7 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
     ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
 
 5. 单击“选择”。
-6. 单击“定价层”，指定服务层、DTU 或 vCore 数，以及存储量。 可以浏览相关选项，了解每个服务层可提供的 DTU/vCore 数和存储。
+6. 单击“定价层”，指定服务层级、DTU 或 vCore 数，以及存储量。 可以浏览相关选项，了解每个服务层级可提供的 DTU/vCore 数和存储。
 
     选择服务层、DTU 数或 vCore 数以及存储量后，然后单击“应用”。
 
@@ -228,10 +228,10 @@ SQL 数据库服务在服务器级别创建 IP 防火墙。 此防火墙阻止�
 4. 执行以下命令，将示例数据插入表，使用环境值替换“服务器”、“数据库”、“用户”和“密码”的值。
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 现已将示例数据加载到了之前创建的表中。

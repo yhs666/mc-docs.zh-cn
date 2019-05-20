@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 67812909e6fcf742f231fc7d884c8358dcfc9f17
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 05/20/2019
+ms.openlocfilehash: 2c77e68384725b2eeb2fcccc22bac07735ecc220
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663713"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629159"
 ---
 # <a name="how-to-use-azure-sql-database"></a>如何使用 Azure SQL 数据库
 
@@ -26,7 +26,7 @@ ms.locfileid: "56663713"
 
 ## <a name="load-data"></a>加载数据
 
-- [在 Azure 中复制单一数据库或入池数据库](sql-database-copy.md)
+- [在 Azure 中复制单一数据库或共用数据库](sql-database-copy.md)
 - [从 BACPAC 导入 DB](sql-database-import.md)
 - [将 DB 导出到 BACPAC](sql-database-export.md)
 - [使用 BCP 加载数据](sql-database-load-from-csv-with-bcp.md)
@@ -60,6 +60,9 @@ ms.locfileid: "56663713"
 - [多重 AAD 身份验证](sql-database-ssms-mfa-authentication.md)
 - [配置多重身份验证](sql-database-ssms-mfa-authentication-configure.md)
 - [配置时态保留策略](sql-database-temporal-tables-retention-policy.md)
+- [为 TDE 配置 BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
+- [轮换 TDE BYOK 密钥](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- [删除 TDE 保护器](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [配置内存中 OLTP](sql-database-in-memory-oltp-migration.md)
 - [配置 Azure 自动化](sql-database-manage-automation.md)
 

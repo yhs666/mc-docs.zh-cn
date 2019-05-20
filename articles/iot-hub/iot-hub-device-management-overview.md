@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/24/2017
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: a8c349f8b05be4b7bbd57000d81cd6e65c6e8d87
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f6013daf93f67408534eb9c9da4b1dddab5322bf
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626898"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829200"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>使用 IoT 中心进行设备管理的概述
 
@@ -66,7 +66,7 @@ IoT 带来了一系列独特的设备管理难题，每个企业级解决方案�
     * [批量管理设备标识](iot-hub-bulk-identity-mgmt.md)
     * [如何使用设备孪生属性](tutorial-device-twins.md)
     * [IoT 解决方案中设备配置的最佳做法](iot-hub-configuration-best-practices.md)
-    * [Azure IoT 中心设备预配服务](https://azure.microsoft.com/documentation/services/iot-dps)
+    * [Azure IoT 中心设备预配服务](/iot-dps)
 
 * **配置**：在确保正常运行和安全的同时，便于对设备进行批量配置更改和固件更新。 使用所需属性或通过直接方法和广播作业成批执行这些设备管理操作。
   

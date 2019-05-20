@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 03/21/2019
-ms.date: 03/27/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 8074959c8e34ba7a4aa20f32224471b337da1130
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: c0e32e0b2334cb46576fae5fe2cd719c4e37044f
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505417"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598903"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>计算机视觉 API 常见问题解答
 
@@ -38,28 +38,9 @@ ms.locfileid: "58505417"
 
 -----
 
-**问**：*计算机视觉支持哪些语言？*
-
-**答**：支持的语言包括：
-
-| | | 支持的语言 | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| 丹麦语 (da-DK)  | 荷兰语 (nl-NL)     | 英语           | 芬兰语 (fi-FI)            |法语 (fr-FR)
-| 德语 (de-DE)  | 希腊语 (el-GR)     | 匈牙利语 (hu-HU) | 意大利语 (it-IT)            | 日语 (ja-JP)
-| 韩语 (ko-KR)  | 挪威语 (nb-NO) | 波兰语 (pl-PL)    | 葡萄牙语 (pt-BR) (pt-PT) | 俄语 (ru-RU)
-| 西班牙语 (es-ES)   | 瑞典语 (sv-SV)     | 土耳其语 (tr-TR)   |                            |
-
------
-
 **问**：*计算机视觉能否用于读取牌照？*
 
 **答**：视觉 API 可通过 OCR 有效检测文本，但暂不适合读取牌照。 我们正在不断尝试改进服务，并在功能请求列表中添加了用于自动识别牌照的 OCR。
-
------
-
-**问**：*手写识别支持哪些语言？*
-
-**答**：目前仅支持英语。
 
 -----
 

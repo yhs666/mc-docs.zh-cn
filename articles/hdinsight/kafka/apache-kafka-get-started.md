@@ -1,22 +1,21 @@
 ---
-title: Apache Kafka 入门 - Azure HDInsight 快速入门 | Microsoft Docs
+title: 使用 Azure 门户设置 Apache Kafka on HDInsight - 快速入门
 description: 在此快速入门中，了解如何在 Azure HDInsight 上使用 Azure 门户创建 Apache Kafka 群集。 还可以了解 Kafka 主题、订阅服务器和使用者。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
+ms.author: v-yiso
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/12/2018
-ms.date: 04/15/2019
-ms.author: v-yiso
-ms.openlocfilehash: 29f756f40cd141b8918c53dd3f80a7ad61498d3d
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+origin.date: 04/01/2019
+ms.date: 05/27/2019
+ms.openlocfilehash: 360950be60d00b9b14ec36d1407973fa10b961be
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003936"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829167"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -35,17 +34,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
 * Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-* SSH 客户端。 文档中的步骤使用 SSH 连接到群集。
-
-    在 Linux、Unix 和 macOS 系统中，默认提供 `ssh` 命令。 在 Windows 10 上，使用以下方式之一安装 `ssh` 命令：
-
-
-  * [安装适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。 可通过 Microsoft Store 提供 `ssh` 命令获得 Linux 分发版。
-
-    > [!IMPORTANT]
-    > 本文档中的此步骤假定正在使用上述 SSH 客户端之一。 如果正在使用不同的 SSH 客户端并遇到问题，请查阅 SSH 客户端的文档。
-    >
-    > 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
+* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="create-an-apache-kafka-cluster"></a>创建 Apache Kafka 群集
 
@@ -53,11 +42,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在左侧菜单中，选择“+ 创建资源”。
-
-1. 在“Azure 市场”下，选择“数据 + 分析”。
-
-1. 在“特别推荐”下选择“HDInsight”。
+2. 在左侧菜单中，导航到“+ 创建资源” > “Analytics” > “HDInsight”。
    
     ![创建 HDInsight 群集](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -72,20 +57,20 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
    
    ![基于 HDInsight 基本配置的 Apache Kafka 群集](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-3. 从“群集配置”中选择以下值：
+4. 从“群集配置”中选择以下值：
 
     | 设置 | 值 |
     | --- | --- |
     | 群集类型 | Kafka |
     | 版本 | Kafka 1.1.0 (HDI 3.6) |
 
-    使用“选择”按钮保存群集类型设置，然后返回“基本信息”。
+    选择“选择”以保存群集类型设置，然后返回到“基本信息”。
 
     ![选择群集类型](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
 4. 在“基本信息”中，输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | --- | --- |
     | 群集登录用户名 | 访问群集上托管的 Web 服务或 REST API 时的登录名。 保留默认值 (admin)。 |
     | 群集登录密码 | 访问群集上托管的 Web 服务或 REST API 时的登录密码。 |
@@ -100,7 +85,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
     ![选择订阅](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    使用“下一步”按钮完成基本配置。
+    选择“下一步”，完成基本配置。
 
 
 6. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
@@ -169,33 +154,34 @@ ssuhuser@hn0-mykafk:~$
 
 在本部分中，可以从群集上的 Apache Ambari REST API 获取主机信息。
 
-1. 从 SSH 连接到群集，使用以下命令安装 `jq` 实用工具。 此实用工具用于分析 JSON 文档且有助于检索主机的信息：
+1. 安装 [jq](https://stedolan.github.io/jq/)，一个命令行 JSON 处理程序。 此实用程序用于分析 JSON 文档和主机信息。 在打开的 SSH 连接中，输入以下命令以安装 `jq`：
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. 若要将环境变量设置为群集名称，请使用以下命令：
-
-    > [!Important]
-    > 全部以小写字母输入此命令的群集名称，即使名称中使用大写字母进行预配。 Zookeeper 或中转站信息不能使用大写的名称。
+2. 设置环境变量。 将 `PASSWORD` 和 `CLUSTERNAME` 分别替换为群集登录密码和群集名称，然后输入命令：
 
     ```bash
-    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-    出现提示时，请输入 Apache Kafka 群集的名称。
-
-3. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令：
+3. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+4. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令：
+    
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     > [!TIP]
     > 此命令直接查询群集头节点上的 Ambari 服务。 也可以使用公用地址 `https://$CLUSTERNAME.azurehdinsight.cn:80/` 访问 ambari。 某些网络配置可以阻止访问公用地址。 例如，使用网络安全组 (NSG) 限制对虚拟网络中的 HDInsight 的访问。
-
-    出现提示时，请输入群集登录帐户（不是 SSH 帐户）的密码。
 
     > [!NOTE]
     > 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
@@ -203,7 +189,7 @@ ssuhuser@hn0-mykafk:~$
 4. 若要验证是否已正确设置了环境变量，请使用以下命令：
 
     ```bash
-     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    echo $KAFKAZKHOSTS
     ```
 
     此命令返回类似于以下文本的信息：
@@ -213,15 +199,13 @@ ssuhuser@hn0-mykafk:~$
 5. 若要使用 Apache Kafka 代理主机信息来设置环境变量，请使用以下命令：
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    出现提示时，请输入群集登录帐户（不是 SSH 帐户）的密码。
-
-6. 若要验证是否已正确设置了环境变量，请使用以下命令：
+7. 若要验证是否已正确设置了环境变量，请使用以下命令：
 
     ```bash   
-    echo '$KAFKABROKERS='$KAFKABROKERS
+    echo $KAFKABROKERS
     ```
 
     此命令返回类似于以下文本的信息：

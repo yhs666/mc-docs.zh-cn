@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 06098326b62e4a0f2bebdd8d82d114422d40771d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 82f9b607d7b423a19c2a4a6c072baa4133ae7020
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625402"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835742"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 

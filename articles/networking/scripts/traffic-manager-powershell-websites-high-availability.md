@@ -16,12 +16,12 @@ ms.workload: traffic-manager
 origin.date: 05/16/2017
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: 941dfe06e6432ff311109abff98569e6679e2e19
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: abff083f893efcbc18c667de3e6b4cf86a5d34dc
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626035"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835741"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>为实现应用程序的高可用性路由流量
 

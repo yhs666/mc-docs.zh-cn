@@ -10,11 +10,11 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: 2085b7b4f99e68f71735bc7624c83a25984025fb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654838"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65829340"
 ---
 ## <a name="create-a-module-identity"></a>创建模块标识
 

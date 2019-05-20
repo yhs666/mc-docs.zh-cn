@@ -15,11 +15,11 @@ origin.date: 09/25/2017
 ms.date: 03/04/2019
 ms.author: v-jay
 ms.openlocfilehash: 0dc772fd308a455a2288addb3ece6c4f1e81613e
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56837008"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835771"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用模板创建内部负载均衡器
 

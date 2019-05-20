@@ -2,24 +2,20 @@
 title: 监视和管理证书创建
 description: 通过方案演示如何使用一系列选项在 Key Vault 中创建证书、监视证书创建过程并与之交互。
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 04/01/2019
+ms.date: 05/27/2019
 ms.author: v-biyu
-ms.openlocfilehash: f5c9eaedcfb66299f79faec40c4b2ec1ca733a91
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 1b3ddf652c84bd17e835cca0f9a51a87b946b508
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135520"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628783"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>监视和管理证书创建
 适用于：Azure
@@ -207,7 +203,7 @@ OR
 ```
 StatusCode: 404, ReasonPhrase: 'Not Found'
 {
-  "error":  
+  "error": {
     "code": "PendingCertificateNotFound",
     "message": "…"
   }
@@ -253,7 +249,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 ```
 StatusCode: 409, ReasonPhrase: 'Conflict'
 {
-  "error":  
+  "error": {
     "code": "Forbidden",
     "message": "A new key vault certificate can not be created or imported while a pending key vault certificate's status is inProgress."
   }
@@ -274,8 +270,7 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```json
 {
-  "x5c": [  "MIICxTCCAbi………………………trimmed for brevitiy……………………………………………EPAQj8="  
-  ]  
+  "x5c": [ "MIICxTCCAbi………………………trimmed for brevitiy……………………………………………EPAQj8=" ]
 }
 
 ```
@@ -414,7 +409,7 @@ Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-
 
 ```json
 {
-  "x5c": [  "MIICxTCCAbi………………………trimmed for brevitiy……………………………………………EPAQj8="  
+  "x5c": [ "MIICxTCCAbi………………………trimmed for brevitiy……………………………………………EPAQj8=" ]
 }
 
 ```

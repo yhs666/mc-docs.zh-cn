@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: e42efe3d9388acb71dfc74184b11ac44466c14ad
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 496d6d3bde4bec1675f7448f5507c3bb50f999ff
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561718"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828562"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教程：通过简单实体和短语列表提取名称
 
@@ -48,7 +48,7 @@ ms.locfileid: "65561718"
 * 数据没有严格的格式，例如正则表达式。
 * 数据不常见，例如电话号码或数据的预生成实体。
 * 数据并不与已知单词的列表完全匹配，例如列表实体。
-* 数据不包含其他数据项，例如复合实体或层次结构实体。
+* 数据不包含其他数据项，例如复合实体或上下文的角色。
 
 假设某个聊天机器人包含以下话语：
 
@@ -297,7 +297,6 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中，人力资源应用使用一个机器学习的简单实体来查找话语中的工作名称。 由于工作名称可能包含各种单词或短语，因此应用需要一个短语列表来增强工作名称单词的信号。 
-
 
 
 

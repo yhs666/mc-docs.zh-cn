@@ -4,15 +4,15 @@ description: 以不使用 Windows 证书存储的语言和运行时进行开发�
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 06/06/2017
-ms.date: 01/21/2019
+ms.date: 05/13/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: ca2385e9049b786308f034914599a7022c745841
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 25764f254b93937611fdc6dce009762a0dccf4c5
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309307"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668860"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 
@@ -71,7 +71,7 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 
 ## <a name="how-to-use-the-certificate-in-java"></a>如何在 Java 中使用证书
 
-运行使用 Java 客户端的 Java 应用程序或 MongoDB 应用程序时，将证书安装到 Java 默认证书存储比传递“-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>”标志更简单。 例如，包含的 [Java 演示应用程序](https://localhost:8081/_explorer/index.html) 依赖于默认证书存储。
+运行使用 Java 客户端的 Java 应用程序或 MongoDB 应用程序时，将证书安装到 Java 默认证书存储比传递 `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` 标志更简单。 例如，包含的 [Java 演示应用程序](https://localhost:8081/_explorer/index.html) 依赖于默认证书存储。
 
 请按照[将证书添加到 Java CA 证书存储](/java-add-certificate-ca-store)中的说明将 X.509 证书导入到默认 Java 证书存储。 请注意，运行 keytool 时会在 %JAVA_HOME% 目录中执行操作。
 

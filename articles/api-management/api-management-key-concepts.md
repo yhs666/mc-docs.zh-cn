@@ -12,19 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 12/31/2018
+ms.date: 05/27/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 24cf9a50efc47df8f0c609893e06842cb5ddf111
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 3fd49953213b26ef2af716a2989423abdf7a304a
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529359"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829145"
 ---
-# <a name="what-is-api-management"></a>什么是 API 管理？
+# <a name="about-api-management"></a>关于 API 管理
 
-API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部开发人员，以充分发挥其数据和服务的潜力。 所有企业都想要作为数字平台扩大其运营、创建新渠道、查找新客户和深化与现有的契合。 API 管理通过开发人员参与、商业洞察力、分析、安全性和保护提供了核心竞争力以确保成功的 API 程序。 可以使用 Azure API 管理处理任何后端，并基于它发布正式的 API 程序。
+API 管理 (APIM) 是一种为现有后端服务创建一致且现代化的 API 网关的方法。
+
+API 管理有助于组织将 API 发布给外部、合作伙伴和内部开发人员，以充分发挥其数据和服务的潜力。 所有企业都想要作为数字平台扩大其运营、创建新渠道、查找新客户和深化与现有的契合。 API 管理通过开发人员参与、商业洞察力、分析、安全性和保护提供了核心竞争力以确保成功的 API 程序。 可以使用 Azure API 管理处理任何后端，并基于它发布正式的 API 程序。
 
 本文概述了涉及 APIM 的常用方案，  并简单介绍了 APIM 系统的主要组件， 然后较详细地介绍了每个组件。
 
@@ -60,7 +62,7 @@ API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部
   * 创建帐户并可以订阅以获取 API 密钥。
   * 访问他们自己的使用情况分析。
 
-有关详细信息，请参阅[基于云的 API 管理：利用 API 的强大功能](http://j.mp/ms-apim-whitepaper) PDF 白皮书。 此关于 API 管理的简介白皮书由 CITO Research 编撰，包括以下内容： 
+有关详细信息，请参阅[基于云的 API 管理：利用 API 的强大功能](https://j.mp/ms-apim-whitepaper) PDF 白皮书。 此关于 API 管理的简介白皮书由 CITO Research 编撰，包括以下内容： 
  
  * 常见 API 需求和挑战
  * 分离 API 和呈现外观
@@ -77,7 +79,7 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 有关详细信息，请参阅[如何创建 API][How to create APIs] 和[如何将操作添加到 API][How to add operations to an API]。
 
 ## <a name="products"> </a> 产品
-产品是用于将 API 提供给开发人员的方式。 API 管理中的产品有一个或多个 API，并且配置为包含一个标题、说明和使用条款。 产品可以是**公开的**或**受保护的**。 对于受保护的产品，必须先订阅，然后才能使用它们，但公开的产品无需订阅即可使用。 当产品准备就绪可供开发人员使用时，可以将其发布。 产品一旦发布，开发人员就可以查看（如果是受保护的产品，应先进行订阅）。 订阅审批是在产品级别配置的，可能需要管理员审批，也可能自动审批。
+产品是用于将 API 提供给开发人员的方式。 API 管理中的产品有一个或多个 API，并且配置为包含一个标题、说明和使用条款。 产品可以是**公开的**或**受保护的**。 对于受保护的产品，必须先订阅，然后才能使用它们，但公开的产品无需订阅即可使用。 产品可以供开发人员使用时，就会发布。 产品一旦发布，开发人员就可以查看（如果是受保护的产品，应先进行订阅）。 订阅审批是在产品级别配置的，可能需要管理员审批，也可能自动审批。
 
 组用于管理产品对开发人员的可见性。 产品向组授予可见性，并且开发人员可以查看和订阅对他们所属的组可见的产品。 
 
@@ -102,7 +104,7 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 ## <a name="policies"></a> 策略
 策略是 API 管理的一项强大功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或 API 的响应时按顺序执行。 流行的语句包含 XML 格式转换为 JSON 和调用速率限制，以限制从开发人员传入的呼叫数，还有许多其他策略可用。
 
-在任何 API 管理策略中，策略表达式都可以用作属性值或文本值，除非策略另行指定。 某些策略（如[控制流](/api-management/api-management-advanced-policies#choose)和[设置变量](/azure/api-management/api-management-advanced-policies#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](/azure/api-management/api-management-advanced-policies#AdvancedPolicies)和[策略表达式](/azure/api-management/api-management-policy-expressions)。
+在任何 API 管理策略中，策略表达式都可以用作属性值或文本值，除非策略另行指定。 某些策略（如[控制流](/api-management/api-management-advanced-policies#choose)和[设置变量](/api-management/api-management-advanced-policies#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](/api-management/api-management-advanced-policies#AdvancedPolicies)和[策略表达式](/api-management/api-management-policy-expressions)。
 
 
 有关 API 管理策略的完整列表，请参阅[策略参考][Policy reference]。 有关使用和配置策略的详细信息，请参阅 [API 管理策略][API Management policies]。 有关创建具有速率限制和配额策略的产品的教程，请参阅[如何创建和配置高级产品设置][How create and configure advanced product settings]。 

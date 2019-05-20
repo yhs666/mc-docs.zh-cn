@@ -1,7 +1,7 @@
 ---
 title: 模式角色
 titleSuffix: Azure Cognitive Services
-description: 使用模式从格式正确的模板话语中提取数据。 模板话语使用简单的实体和角色提取相关的数据，例如源位置和目标位置。
+description: 模式从格式正确的模板言语中提取数据。 模板话语使用简单的实体和角色提取相关的数据，例如源位置和目标位置。
 ms.custom: seodec18
 services: cognitive-services
 author: lingliw
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 45d49d3afe285caa3e5eb5160a46687f93cf6462
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: b41944645f87e30cffcfb50e602af0d1e3d93b1c
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557071"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828517"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教程：使用角色提取与上下文相关的模式
 
@@ -40,7 +40,7 @@ ms.locfileid: "65557071"
 
 ## <a name="using-roles-in-patterns"></a>在模式中使用角色
 
-角色的用途是在话语中提取与上下文相关的实体。 在 `Move new employee Robert Williams from Sacramento and San Francisco` 话语中，原城市和目的地城市值彼此相关，并使用公共语言来表示每个位置。 
+角色的用途是在言语中提取与上下文相关的实体。 在 `Move new employee Robert Williams from Sacramento and San Francisco` 话语中，原城市和目的地城市值彼此相关，并使用公共语言来表示每个位置。 
 
 
 新员工 Billy Patterson 的名称还不是“员工”列表实体的一部分。 首先需提取新员工名称，才能将名称发送到外部系统以创建公司凭据。 创建公司凭据后，会将员工凭据添加到“员工”列表实体。
@@ -373,19 +373,6 @@ ms.locfileid: "65557071"
     ```
 
 意向得分现在会高出许多，并且角色名称为实体响应的一部分。
-
-## <a name="hierarchical-entities-versus-roles"></a>分层实体与角色
-
-在[分层教程](luis-quickstart-intent-and-hier-entity.md)中，“MoveEmployee”意向检测到将现有员工从一栋建筑物或办公楼搬到另一栋的时机。 示例话语具有原位置和目的地，但未使用角色。 相反，源位置和目标位置是分层实体的子级。 
-
-在本教程中，人力资源应用会检测有关将新员工从一个城市调到另一个城市的话语。 这两种类型的话语相同，但通过不同的 LUIS 功能来解析。
-
-|教程|示例陈述|原位置和目的地|
-|--|--|--|
-|[分层（无角色）](luis-quickstart-intent-and-hier-entity.md)|将 Jill Jones 从“a-2349”调到“b-1298”|a-2349、b-1298|
-|本教程（含角色）|将 Billy Patterson 从“Yuma”调到“Denver”。|Yuma、Denver|
-
-有关详细信息，请参阅[角色与分层实体](luis-concept-roles.md#roles-versus-hierarchical-entities)。
 
 ## <a name="clean-up-resources"></a>清理资源
 

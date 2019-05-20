@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 03/07/2019
 ms.date: 03/25/2019
 ms.openlocfilehash: 0657030ec61a3033f4587692346526af240ce2a6
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318909"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "65835711"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多个 SQL 数据库之间进行同步
  

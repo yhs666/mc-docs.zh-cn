@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: c3ff5991d0bc11ef4d03afd8c3c2b5dbf879549e
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: ff757fd14b5cad668271f7d8bad167d1fb71eb2c
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440695"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828515"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>从 Log Analytics 日志搜索结果中通过自动化 Runbook 采取操作
 
@@ -49,12 +49,11 @@ ms.locfileid: "56440695"
 
 6. 单击“运行”后，“runbook 作业”页将打开，可以在其中查看作业状态。   
 
-如果选择了已配置为[从 Log Analytics 警报调用](../../automation/automation-create-alert-triggered-runbook.md)的 runbook，则它具有一个名为 **WebhookData** 且类型为 **Object** 的输入参数。  如果该输入参数是必需的，则需要将搜索结果传递到 runbook，以便它可以将 JSON 格式的字符串转换为对象类型，从而允许筛选可在 runbook 活动中引用的特定项。  可以通过从下拉列表中选择“搜索结果(对象)”来执行此操作。<br><br> ![为 runbook 参数选择 Webhook 数据对象](media/take-action/select-runbook-and-properties.png)   
+如果该输入参数是必需的，则需要将搜索结果传递到 runbook，以便它可以将 JSON 格式的字符串转换为对象类型，从而允许筛选可在 runbook 活动中引用的特定项。  可以通过从下拉列表中选择“搜索结果(对象)”来执行此操作。<br><br> ![为 runbook 参数选择 Webhook 数据对象](media/take-action/select-runbook-and-properties.png)   
     
 ## <a name="next-steps"></a>后续步骤
 
 * 查看 [Log Analytics 日志搜索引用](../../azure-monitor/log-query/log-query-overview.md)以查看 Log Analytics 中所有可用的搜索字段和 Facet。
-* 若要了解如何自动调用自动化 runbook ，请查看[从 Log Analytics 警报调用 Azure 自动化 runbook](../../automation/automation-create-alert-triggered-runbook.md)。  
 
 
 

@@ -1,19 +1,19 @@
 ---
-title: 快速入门 - 使用 Azure 门户创建 Azure Database for PostgreSQL 服务器
-description: 有关使用 Azure 门户用户界面创建和管理用于 PostgreSQL 的 Azure 数据库服务器的快速入门指南。
+title: 快速入门 - 使用 Azure 门户创建 Azure Database for PostgreSQL - 单一服务器
+description: 使用 Azure 门户用户界面创建和管理 Azure Database for PostgreSQL - 单一服务器的快速入门指南。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-origin.date: 01/09/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: fdb14a26421cfa0f04f4e538b97b702e961e6c91
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 05/06/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: ffe75f9c0fdcd0222b310783e58d370bd21f6ed0
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855610"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732005"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建用于 PostgreSQL 的 Azure 数据库服务器
 
@@ -33,23 +33,27 @@ ms.locfileid: "64855610"
 
 2. 在搜索框中键入 **Azure Database for PostgreSQL** 以查找该服务。
 
-    ![“用于 PostgreSQL 的 Azure 数据库”选项](./media/quickstart-create-database-portal/1-create-database.png)
+    ![菜单中的“Azure Database for PostgreSQL”](./media/quickstart-create-database-portal/1-create-database.png)
 
-3. 使用以下信息填写“新服务器详细信息”窗体：
+3. 选择“单个服务器”部署选项。
 
-    ![创建服务器](./media/quickstart-create-database-portal/3-create.png)
+   ![选择 Azure Database for PostgreSQL - 单个服务器部署选项](./media/quickstart-create-database-portal/select-deployment-option.png)
+
+4. 填写“基本”表单，其中包含以下信息：
+
+    ![创建服务器](./media/quickstart-create-database-portal/create-basics.png)
 
     设置|建议的值|说明
     ---|---|---
-    服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.chinacloudapi.cn* 将追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 该名称必须至少包含 3 到 63 个字符。
     订阅|订阅名称|要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
     资源组|myresourcegroup| 新的资源组名称，或订阅中的现有资源组。
-    选择源 | *空白* | 选择“空白”可从头开始创建新服务器。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”）。
-    服务器管理员登录名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
+    服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.chinacloudapi.cn* 将追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 该名称必须至少包含 3 到 63 个字符。
+    数据源 | *无* | 选择“无”，从头开始创建新的服务器。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”）。
+    管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
     密码 |你的密码| 服务器管理员帐户的新密码。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0 到 9)和非字母数字字符（!, $, #, % 等）。
     位置|离用户最近的区域| 最靠近用户的位置。
     版本|最新主版本| 除非另有特定的要求，否则为最新 PostgreSQL 主版本。
-    定价层 | **常规用途**、**第 4 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。 接下来，选择“常规用途”选项卡。*第 4 代*、*2 个 vCore*、*5 GB*和 *7 天*分别是**计算的代**、**vCore**、**存储**和**备份保留期**的默认值。 可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从**备份冗余选项**中选择“异地冗余”。 若要保存此定价层选择，请选择“确定”。 下一个屏幕截图捕获了这些选择。
+    计算 + 存储 | **常规用途**、**第 5 代**、**2 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”。 接下来，选择“常规用途”选项卡。“第 5 代”、“4 个 vCore”、“100 GB”和“7 天”分别是“计算代系”、“vCore”、“存储”和“备份保持期”的默认值。 可以按原样保留这些滑块，也可以对其进行调整。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”中选择“异地冗余”。 若要保存此定价层选择，请选择“确定”。 下一个屏幕截图捕获了这些选择。
 
    > [!NOTE]
    > 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 有关详细信息，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
@@ -57,9 +61,9 @@ ms.locfileid: "64855610"
 
     ![“定价层”窗格](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-4. 选择“创建”以预配服务器。 此操作可能需要几分钟的时间。
+5. 选择“查看 + 创建”，查看所选内容。 选择“创建”以预配服务器。 此操作可能需要几分钟的时间。
 
-5. 在工具栏上选择“通知”图标（铃铛）以监视部署过程。 完成部署后，可以选择“固定到仪表板”，以便在 Azure 门户仪表板上为此服务器创建磁贴作为到此服务器“概述”页的快捷方式。 选择“转到资源”可打开此服务器的“概述”页。
+6. 在工具栏上选择“通知”图标（铃铛）以监视部署过程。 完成部署后，可以选择“固定到仪表板”，以便在 Azure 门户仪表板上为此服务器创建磁贴作为到此服务器“概述”页的快捷方式。 选择“转到资源”可打开此服务器的“概述”页。
 
     ![“通知”窗格](./media/quickstart-create-database-portal/3-notifications.png)
    
@@ -142,7 +146,7 @@ ms.locfileid: "64855610"
     > [!TIP]
     > 如果未将防火墙配置为允许客户端的 IP 地址，则会出现以下错误：
     > 
-    > psql: 致命错误: 主机 "<IP address>"、用户 "myadmin"、数据库 "postgres" 没有 pg_hba.conf 条目，SSL 出现致命错误: 需要 SSL 连接。 请指定 SSL 选项，然后重试。
+    > psql: 致命错误: 主机 `<IP address>`、用户 "myadmin"、数据库 "postgres" 没有 pg_hba.conf 条目，SSL 出现致命错误:需要 SSL 连接。 请指定 SSL 选项，然后重试。
     > 
     > 若要解决此错误，请确保服务器配置符合本文“配置服务器级防火墙规则”部分相关步骤的要求。
 
@@ -177,18 +181,16 @@ pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https
 
    ![“连接”选项卡](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-
-   |   pgAdmin 参数   |          Value          |                                                                                                                                                                                                  说明                                                                                                                                                                                                   |
-   |-----------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |   主机名/地址   |       服务器名称       | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时使用过的服务器名称值。 示例服务器为 **mydemoserver.postgres.database.chinacloudapi.cn**。 请使用完全限定的域名 (**\*.postgres.database.chinacloudapi.cn**)，如示例中所示。 如果不记得服务器名称，请按上一部分的步骤操作，以便获取连接信息。 |
-   |          端口         |          5432           |                                                                                                                                                                 连接到用于 PostgreSQL 的 Azure 数据库服务器时使用的端口。                                                                                                                                                                  |
-   |  维护数据库 |       postgres        |                                                                                                                                                                                  系统生成的默认数据库名称。                                                                                                                                                                                   |
-   |        用户名       | 服务器管理员登录名 |                                                                此前在创建用于 PostgreSQL 的 Azure 数据库服务器时提供的服务器管理员登录用户名。 如果不记得用户名，请按上一部分的步骤操作，以便获取连接信息。 格式为 username@servername。                                                                |
-   |        密码       |   管理员密码   |                                                                                                                                                                 之前在此快速入门中创建服务器时选择的密码。                                                                                                                                                                 |
-   |          角色         |       留空       |                                                                                                                                                                  此时无需提供角色名称。 此字段留空。                                                                                                                                                                  |
-   |        SSL 模式       |        *必需*        |                                                                                     可以在 pgAdmin 的 SSL 选项卡中设置 SSL 模式。默认情况下，所有 Azure Database for PostgreSQL 服务器在创建时都会启用“SSL 强制实施”。 若要关闭“SSL 强制实施”，请参阅 [SSL 强制实施](./concepts-ssl-connection-security.md)。                                                                                      |
-
-
+    pgAdmin 参数 |Value|说明
+    ---|---|---
+    主机名/地址 | 服务器名称 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时使用过的服务器名称值。 示例服务器为 **mydemoserver.postgres.database.chinacloudapi.cn**。 请使用完全限定的域名 (**\*.postgres.database.chinacloudapi.cn**)，如示例中所示。 如果不记得服务器名称，请按上一部分的步骤操作，以便获取连接信息。 
+    端口 | 5432 | 连接到用于 PostgreSQL 的 Azure 数据库服务器时使用的端口。 
+    维护数据库 | postgres | 系统生成的默认数据库名称。
+    用户名 | 服务器管理员登录名 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时提供的服务器管理员登录用户名。 如果不记得用户名，请按上一部分的步骤操作，以便获取连接信息。 格式为 username\@servername。
+    密码 | 管理员密码 | 之前在此快速入门中创建服务器时选择的密码。
+    角色 | 留空 | 此时无需提供角色名称。 此字段留空。
+    SSL 模式 | *必需* | 可以在 pgAdmin 的 SSL 选项卡中设置 SSL 模式。默认情况下，所有 Azure Database for PostgreSQL 服务器在创建时都会启用“SSL 强制实施”。 若要关闭“SSL 强制实施”，请参阅 [SSL 强制实施](./concepts-ssl-connection-security.md)。
+    
 5. 选择“其他安全性验证” 。
 
 6. 在左侧的“浏览器”窗格中，展开“服务器”节点。 选择服务器，例如 **mydemoserver**。 单击该服务器与它建立连接。

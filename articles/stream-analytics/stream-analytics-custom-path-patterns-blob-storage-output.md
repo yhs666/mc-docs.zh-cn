@@ -8,14 +8,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/06/18
-ms.openlocfilehash: 372380068917651ae3ffb9523c0e203048c52ff2
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: ea89a5a0e411ac483f73934781e099eb65d8350a
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544800"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609871"
 ---
-# <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure 流分析 Blob 存储输出（预览版）的自定义 DateTime 路径模式
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 流分析自定义 blob 输出分区
 
 Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径模式的自定义 blob 输出分区。 
 
@@ -67,7 +67,7 @@ Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径�
 
 可以使用自定义 DateTime 路径模式来指定与 Hive 流式处理约定相符的输出格式，这样 Azure 流分析就可以将数据发送到 Azure HDInsight 和 Azure Databricks 进行下游处理。 自定义 DateTime 路径模式可以轻松地实现，只需在 Blob 输出的“路径前缀”字段中使用 `datetime` 关键字并使用格式说明符即可。 例如，`{datetime:yyyy}`。
 
-## <a name="supported-tokens"></a>支持的令牌
+### <a name="supported-tokens"></a>支持的令牌
 
 以下格式说明符令牌可以单独使用，也可以组合使用，以便实现自定义 DateTime 格式：
 
@@ -87,7 +87,7 @@ Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径�
 
 ![流分析的旧 DateTime 格式](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-## <a name="extensibility-and-restrictions"></a>扩展性和限制
+### <a name="extensibility-and-restrictions"></a>扩展性和限制
 
 可以在路径模式中使用尽量多的 `{datetime:<specifier>}` 令牌，直到达到路径前缀字符限制。 在单个令牌中，格式说明符的组合不能超出日期和时间下拉列表已经列出的组合。 
 
@@ -99,7 +99,7 @@ Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径�
 
 可以在路径前缀中多次使用同一格式说明符。 令牌每次都必须重复。
 
-## <a name="hive-streaming-conventions"></a>Hive 流式处理约定
+### <a name="hive-streaming-conventions"></a>Hive 流式处理约定
 
 Blob 存储的自定义路径模式可以与 Hive 流式处理约定配合使用，后者要求文件夹在其名称中使用 `column=` 进行标记。
 

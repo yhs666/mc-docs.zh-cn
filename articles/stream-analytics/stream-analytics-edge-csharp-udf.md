@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: v-lingwu
-ms.openlocfilehash: b5a78d0efdb21d8b2ea59e7185cc8c0c3506e1f9
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 3fc928e14bffae0646f1f578675373146f99947b
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544811"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609869"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>教程：在 Visual Studio 中为 Azure 流分析 Edge 作业编写 C# 用户定义函数（预览版）
 
@@ -63,7 +63,7 @@ ms.locfileid: "58544811"
     |**设置**  |**建议的值**  |
     |---------|---------|
     |程序集源  |  本地项目引用或 CodeBehind   |
-    |资源  |  选择当前帐户中的数据   |
+    |Resource  |  选择当前帐户中的数据   |
     |订阅  |  选择订阅。   |
     |存储帐户  |  选择存储帐户。   |
     |容器  |  选择在存储帐户中创建的容器。   |
@@ -115,11 +115,11 @@ CodeBehind 文件是与单个 ASA Edge 查询脚本关联的 C# 文件。 Visual
 
 2. 在“解决方案资源管理器”中，展开“输入”，右键单击 Input.json，然后选择“添加本地输入”。
 
-   ![在 Visual Studio 中向 Azure 流分析作业添加本地输入](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![在 Visual Studio 中向流分析作业添加本地输入](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. 为下载的示例数据指定本地输入文件路径，然后单击“保存”。
 
-    ![Visual Studio 中 Azure 流分析作业的本地输入配置](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Visual Studio 中流分析作业的本地输入配置](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. 在脚本编辑器中单击“本地运行”。 本地运行成功保存输出结果后，按任意键即可以表格形式查看结果。 
 
@@ -134,11 +134,11 @@ CodeBehind 文件是与单个 ASA Edge 查询脚本关联的 C# 文件。 Visual
 
 1. 在 C# 函数中添加断点。
 
-    ![在 Visual Studio 中向 Edge 作业的 Azure 流分析用户定义函数添加断点](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![在 Visual Studio 中向流分析用户定义函数添加断点](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. 按 **F5** 开始调试。 程序按预期在断点处停止。
 
-    ![查看 Visual Studio 调试结果中 Edge 作业的 Azure 流分析用户定义函数](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![查看流分析用户定义的函数调试结果](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>将作业发布到 Azure
 在本地测试查询后，选择脚本编辑器中的“提交到 Azure”，将作业发布到 Azure。

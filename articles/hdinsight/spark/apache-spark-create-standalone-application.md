@@ -12,14 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 origin.date: 01/30/2019
-ms.date: 02/25/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 680accb5cd6a429891eb4a12cc31bea2eed4b1e7
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: edbb78a747d55d8fe458ce8a5856165661c444a7
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302991"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829236"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教程：使用 IntelliJ 在 HDInsight 中创建适用于 Apache Spark 的 Scala Maven 应用程序
 
@@ -47,7 +47,7 @@ ms.locfileid: "56302991"
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 * [Oracle Java 开发工具包](https://www.azul.com/downloads/azure-only/zulu/)。  本教程使用 Java 版本 8.0.202。
 * Java IDE。 本文使用 [IntelliJ IDEA Community 版本2018.3.4](https://www.jetbrains.com/idea/download/)。
-
+* Azure Toolkit for IntelliJ。  请参阅[安装 Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)。
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>安装适用于 IntelliJ IDEA 的 Scala 插件
 执行以下步骤安装 Scala 插件：
