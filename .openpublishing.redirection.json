@@ -15102,7 +15102,18 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
       "redirect_url": "/sql-database/sql-database-threat-detection-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-data-lake-storage-security-guide.md",
+      "redirect_url": "/storage/common/storage-security-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-service-encryption-customer-managed-keys.md",
+      "redirect_url": "/storage/common/storage-encryption-keys-portal",
+      "redirect_document_id": true
     }
+
 
 
 
