@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/11/2019
 ms.author: v-yiso
 ms.date: 05/27/2019
-ms.openlocfilehash: 6ff8bef26a161a8c1978455b7e5aa6c8eb946638
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 62fed58cb57843c81fd8f83dc1fd0edb019bfab7
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829330"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194989"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>批量导入和导出 IoT 中心设备标识
 
@@ -26,7 +26,7 @@ ms.locfileid: "65829330"
 
 **RegistryManager** 类包括使用**作业**框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 这些方法可以导出、导入和同步整个 IoT 中心标识注册表。
 
-本主题讨论如何使用 **RegistryManager** 类和**作业**系统执行设备到 IoT 中心的标识注册表的批量导入，以及从 IoT 中心的标识注册表到设备的批量导出。 还可以使用 Azure IoT 中心设备预配服务实现无需人工干预，零接触实时预配到一个或多个 IoT 中心。 
+本主题讨论如何使用 **RegistryManager** 类和**作业**系统执行设备到 IoT 中心的标识注册表的批量导入，以及从 IoT 中心的标识注册表到设备的批量导出。 还可以使用 Azure IoT 中心设备预配服务实现无需人工干预，零接触实时预配到一个或多个 IoT 中心。 若要了解详细信息，请参阅[预配服务文档](/iot-dps)。
 
 
 ## <a name="what-are-jobs"></a>什么是作业？

@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 05/27/2019
+ms.date: 06/03/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b955abeb1613951af53c5783b2f62f6472366fce
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: f4618a8a04066c17647a1152dc8dae16f4f47d56
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829244"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194950"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C# IoT Edge 模块
 
@@ -39,8 +39,8 @@ ms.locfileid: "65829244"
 
 使用下表了解用于开发 C 模块并将其部署到 Linux 的选项： 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
-| -- | ------------------ | ------------------ |
+| C# | Visual Studio Code | Visual Studio | 
+| -- | ------------------ | ------------- |
 | **Linux AMD64** | ![在 VS Code 中开发适用于 LinuxAMD64 的 C# 模块](./media/tutorial-c-module/green-check.png) | ![在 Visual Studio 中开发适用于 LinuxAMD64 的 C# 模块](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![在 VS Code 中开发适用于 LinuxARM32 的 C# 模块](./media/tutorial-c-module/green-check.png) | ![在 Visual Studio 中开发适用于 LinuxARM64 的 C# 模块](./media/tutorial-c-module/green-check.png) |
 

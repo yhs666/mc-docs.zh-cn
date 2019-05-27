@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/26/2019
-ms.date: 05/27/2019
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de1431e35c6583f3dae6c44a2c68932718bb2f6
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: b2fa5152029e31e084a8fd9fa5a76ca786c95540
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829158"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194949"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常见问题和解决方法
 
@@ -383,7 +383,7 @@ IoT Edge 提供增强的配置来保护 Azure IoT Edge 运行时和已部署的�
 | 平台 | 位置 |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| 包含 Windows 容器的 Windows 主机 | `C:\ProgramData\iotedge-moby-data\config` |
+| 包含 Windows 容器的 Windows 主机 | `C:\ProgramData\iotedge-moby\config` |
 
 如果该位置已包含 `daemon.json` 文件，请在其中添加 **dns** 密钥，然后保存该文件。
 

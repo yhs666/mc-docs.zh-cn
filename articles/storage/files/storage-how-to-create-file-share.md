@@ -4,17 +4,17 @@ description: 如何使用 Azure 门户、PowerShell 和 Azure CLI 在 Azure 文�
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 09/19/2017
-ms.date: 02/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 47fb3a5b0f2f9fc79dc0d9580033366fe9f08c70
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 24e4f63aed5b00ba29580ff0d6af248a1860102e
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627468"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004323"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 文件中创建文件共享
 可以使用 [Azure 门户](https://portal.azure.cn/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。本教程介绍：
@@ -74,7 +74,7 @@ ms.locfileid: "58627468"
     请将以下示例中的  ```<storage-account>``` 和 ```<resource_group>```  替换为自己的存储帐户名称和资源组：
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."
@@ -96,4 +96,3 @@ ms.locfileid: "58627468"
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
 * [在 Linux 上进行故障排除](storage-troubleshoot-linux-file-connection-problems.md)   
-  <!--Update_Description: wording update-->
