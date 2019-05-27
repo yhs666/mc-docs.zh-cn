@@ -8,7 +8,7 @@
       "build_output_subfolder": "mooncake-docs",
       "locale": "zh-cn",
       "monikers": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -24,7 +24,14 @@
   "notification_subscribers": [
     "v-johch@microsoft.com"
   ],
-  "branches_to_filter": [],
+  "branches_to_filter": [
+     "master"
+  ],
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/mc-docs.zh-cn",
+  "git_repository_branch_open_to_public_contributors": "master",
+  "contribution_branch_mappings": {
+      "master-sxs": "master"
+  },
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "dependent_repositories": [
