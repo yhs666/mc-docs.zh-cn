@@ -24,9 +24,7 @@
   "notification_subscribers": [
     "v-johch@microsoft.com"
   ],
-  "branches_to_filter": [
-     "master"
-  ],
+  "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/mc-docs.zh-cn",
   "git_repository_branch_open_to_public_contributors": "master",
   "contribution_branch_mappings": {
